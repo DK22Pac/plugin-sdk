@@ -2,14 +2,12 @@
 
 NOINLINE CPed::CPed(ePedType type)
 {
-	PREPARE_FOR_REDIRECTION();
 	//((void (__thiscall *)(CPed *, ePedType))0x5E8030)(this, type);
 }
 
 NOINLINE CPed::~CPed()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CPed *))0x5E8620)(this);
+    // 0x5E8620
 }
 
 // Converted from void CPed::SetMoveAnim(void) 0x5E4A00

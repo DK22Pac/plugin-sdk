@@ -13,13 +13,13 @@ static bool& bHasPlayerCheated = *(bool*)VAR_CPad__bHasPlayerCheated;
 // Constructor
 NOINLINE CPad::CPad()
 {
-	PREPARE_FOR_REDIRECTION();
+    ((void (__thiscall *)(CPad *))0x541D80)(this);
 }
   
 // Destructor
 NOINLINE CPad::~CPad()
 {
-	PREPARE_FOR_REDIRECTION();
+    ((void (__thiscall *)(CPad *))0x541D80)(this);
 }
 
 // Adds character to cheat string

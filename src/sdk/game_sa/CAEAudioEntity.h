@@ -7,7 +7,7 @@
 class PLUGIN_API CAEAudioEntity
 {
 protected:
-	void **vtable;
+	void **vtable;          // TODO take care of this vtable
 public:
 	class CEntity *m_pEntity;
 	CAESound m_tempSound;

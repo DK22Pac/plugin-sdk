@@ -4,14 +4,12 @@ CHudColours &HudColour = *(CHudColours *)0xBAB22C;
 
 NOINLINE CHudColours::CHudColours()
 {
-	PREPARE_FOR_REDIRECTION();
-	// ((void (__thiscall *)(CHudColours *))0x58FDA0)(this);
+	((void (__thiscall *)(CHudColours *))0x58FDA0)(this);
 }
 
 NOINLINE CHudColours::~CHudColours()
 {
-	PREPARE_FOR_REDIRECTION();
-	// ((void (__thiscall *)(CHudColours *))0x58FD90)(this);
+    ((void (__thiscall *)(CHudColours *))0x58FD90)(this);
 }
 
 void CHudColours::SetRGBAValue(unsigned char color, unsigned char red, unsigned char green, 

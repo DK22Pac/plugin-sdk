@@ -129,19 +129,19 @@ public:
 	// FUNCTIONS
 
 	// Constructor
-	NOINLINE CPad::CPad();
+	NOINLINE CPad();
   
 	// Destructor
-	NOINLINE CPad::~CPad();
+	NOINLINE ~CPad();
 
 	// Adds character to cheat string
-	static void CPad::AddToPCCheatString(char character);
+	static void AddToPCCheatString(char character);
 
 	// Processes keyboard input for cheat purpose
-	static void CPad::DoCheats();
+	static void DoCheats();
 
 	// Resets cheats
-	static void CPad::ResetCheats();
+	static void ResetCheats();
 };
 #pragma pack(pop)
 

@@ -2,8 +2,7 @@
 
 cHandlingDataMgr::cHandlingDataMgr()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(cHandlingDataMgr *))0x6F5330)(this);
+	((void (__thiscall *)(cHandlingDataMgr *))0x6F5330)(this);
 };
 
 void cHandlingDataMgr::Initialise()

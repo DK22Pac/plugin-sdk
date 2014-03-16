@@ -28,8 +28,9 @@ VALIDATE_SIZE(tTimeInfo, 4);
 #pragma pack(push, 4)
 class PLUGIN_API CBaseModelInfo
 {
+protected:
+    CBaseModelInfo(plugin::dummy_func_t) {}
 public:
-	void **vtable;
 	unsigned __int32  m_dwKey;
 	unsigned __int16  m_wUsageCount;
 	signed __int16    m_wTxdIndex;
@@ -75,25 +76,25 @@ public:
 
 	// vtable
 
-	class CBaseModelInfo *AsAtomicModelInfoPtr();
-	class CBaseModelInfo *AsDamageAtomicModelInfoPtr();
-	class CBaseModelInfo *AsLodAtomicModelInfoPtr();
-	ModelInfoType GetModelType();
-	tTimeInfo *GetTimeInfo();
-	void Init();
-	void Shutdown();
-	void DeleteRwObject();
-	unsigned int GetRwModelType();
-	RwObject *CreateInstance(RwMatrixTag *matrix);
-	RwObject *CreateInstance();
-	void SetAnimFile(char *filename);
-	void ConvertAnimFileIndex();
-	signed int GetAnimFileIndex();
+	virtual class CBaseModelInfo *AsAtomicModelInfoPtr();
+	virtual class CBaseModelInfo *AsDamageAtomicModelInfoPtr();
+	virtual class CBaseModelInfo *AsLodAtomicModelInfoPtr();
+	virtual ModelInfoType GetModelType();//=0
+	virtual tTimeInfo *GetTimeInfo();
+	virtual void Init();
+	virtual void Shutdown();
+	virtual void DeleteRwObject();//=0
+	virtual unsigned int GetRwModelType();//=0
+	virtual RwObject *CreateInstance(RwMatrixTag *matrix);//=0
+	virtual RwObject *CreateInstance();//=0
+	virtual void SetAnimFile(char *filename);
+	virtual void ConvertAnimFileIndex();
+	virtual signed int GetAnimFileIndex();
 
 	//
 
 	CBaseModelInfo();
-	~CBaseModelInfo();
+	virtual ~CBaseModelInfo();
 
 	//
 	void SetTexDictionary(char *txdName);

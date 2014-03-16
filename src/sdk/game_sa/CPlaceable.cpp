@@ -2,7 +2,7 @@
 
 CPlaceable::CPlaceable()
 {
-
+   ((void (__thiscall *)(CPlaceable *))0x54F1E0)(this);
 }
 
 CPlaceable::~CPlaceable()

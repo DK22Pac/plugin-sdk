@@ -2,14 +2,12 @@
 
 NOINLINE CRealTimeShadow::CRealTimeShadow()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CRealTimeShadow *))0x706410)(this);
+	((void (__thiscall *)(CRealTimeShadow *))0x706410)(this);
 }
 
 NOINLINE CRealTimeShadow::~CRealTimeShadow()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CRealTimeShadow *))0x706440)(this);
+	((void (__thiscall *)(CRealTimeShadow *))0x706440)(this);
 }
 
 RwFrame *CRealTimeShadow::SetLightProperties(float angle, float _unused_param, bool setLight)

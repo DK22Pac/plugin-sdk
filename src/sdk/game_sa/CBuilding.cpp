@@ -1,15 +1,13 @@
 #include "CBuilding.h"
 
-NOINLINE CBuilding::CBuilding()
+NOINLINE CBuilding::CBuilding() : CEntity(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CBuilding *))0x403E00)(this);
+    ((void (__thiscall *)(CBuilding *))0x403E00)(this);
 }
 
 NOINLINE CBuilding::~CBuilding()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CBuilding *))0x404180)(this);
+    // 0x404180
 }
 
 void CBuilding::ReplaceWithNewModel(int newModelIndex)

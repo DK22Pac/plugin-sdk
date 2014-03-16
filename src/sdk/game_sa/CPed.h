@@ -30,6 +30,9 @@ enum eMoveState
 #pragma pack(push, 4)
 class PLUGIN_API CPed : public CPhysical
 {
+protected:
+    CPed(plugin::dummy_func_t a) : CPhysical(a) {}
+    
 public:
 	CPedCollisionAudio  m_CollisionAudio;
 	CPedVoice           m_PedVoice;
@@ -248,12 +251,11 @@ public:
 	// Process applied anim
 
 	//vtable
-
-	void SetMoveAnim();
+	virtual void SetMoveAnim();
 	// always returns true
-	bool Save();
+	virtual bool Save();
 	// always returns true
-	bool Load();
+	virtual bool Load();
 
 	// class functions
 	

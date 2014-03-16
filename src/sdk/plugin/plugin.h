@@ -91,6 +91,19 @@ class CPed;
 
 namespace plugin
 {
+    struct dummy_func_t { };
+    static const dummy_func_t dummy_func;
+
+    inline void** GetVMT(const void* self)
+    {
+        return *(void***)(self);
+    }
+
+    inline void* GetVMT(const void* self, size_t index)
+    {
+        return GetVMT(self)[index];
+    }
+    
 	namespace Core
 	{
 		PLUGIN_API unsigned int GetVersion();
@@ -169,3 +182,5 @@ namespace plugin
 	};
 #endif
 };
+
+using plugin::GetVMT;

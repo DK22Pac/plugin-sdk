@@ -17,7 +17,7 @@
 #define FUNC_CRunningScript__CollectParametersToNewScript 0x464500
 #define FUNC_CRunningScript__Process 0x469F00
 #define FUNC_CRunningScript__DoDeatharrestCheck 0x485A50
-#define FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC 0x450EF0
+#define FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC 0x464250
 #define FUNC_CRunningScript__SetIntructionPointer 0x464DA0
 #define FUNC_CRunningScript__UpdateCompareFlag 0x4859D0
 #define FUNC_CRunningScript__AddScriptToList 0x464C00
@@ -147,130 +147,130 @@ public:
 	BYTE			IsCustom;
 
 	// Initializes member variables.
-	void CRunningScript::Init();
+	void Init();
 
 	// Processes running script
-	void CRunningScript::Process();
+	void Process();
 
 	// Processes one command
-	char CRunningScript::ProcessOneCommand();
+	char ProcessOneCommand();
 
 	// Performs death arrest check
-	void CRunningScript::DoDeatharrestCheck();
+	void DoDeatharrestCheck();
 
 	/////// USED HEAVILY IN COMMANDS //////
 
 	// Reads array offset and value from array index variable.
-	void CRunningScript::GetArrayOffsetAndValueOfIndexVariable(__int16 *pOffset, __int32 *pIdx);
+	void GetArrayOffsetAndValueOfIndexVariable(__int16 *pOffset, __int32 *pIdx);
 
 	// Returns offset of global variable
-	__int16 CRunningScript::GetOffsetOfGlobalVariable();
+	__int16 GetOffsetOfGlobalVariable();
 
 	// Returns pointer to script variable of any type.
-	tScriptVarValue* CRunningScript::GetPointerToScriptVariable(unsigned __int8 variableType);
+	tScriptVarValue* GetPointerToScriptVariable(unsigned __int8 variableType);
 
 	// Collects parameters
-	void CRunningScript::CollectParameters(__int16 count);
+	void CollectParameters(__int16 count);
 
 	// Collects parameter and returns it.
-	tScriptVarValue CRunningScript::CollectNextParameterWithoutIncreasingPC();
+	tScriptVarValue CollectNextParameterWithoutIncreasingPC();
 
 	// Collects string parameter
-	void CRunningScript::CollectStringParameter(char *pBuffer, unsigned __int8 nBufferLength);
+	void CollectStringParameter(char *pBuffer, unsigned __int8 nBufferLength);
 
 	// Stores parameters
-	void CRunningScript::StoreParameters(__int16 count);
+	void StoreParameters(__int16 count);
 
 	// Collects parameters and puts them to local variables of new script
-	void CRunningScript::CollectParametersToNewScript(CRunningScript* pNewScript);
+	void CollectParametersToNewScript(CRunningScript* pNewScript);
 
 	// Sets instruction pointer, used in GOTO-like commands
-	void CRunningScript::SetIntructionPointer(__int32 newIP);
+	void SetIntructionPointer(__int32 newIP);
 
 	// Updates comparement flag, used in conditional commands
-	void CRunningScript::UpdateCompareFlag(bool state);
+	void UpdateCompareFlag(bool state);
 
 	// Terminates a script
-	void CRunningScript::TerminateThisScript();
+	void TerminateThisScript();
 
 	///////////////////
 
 	// Returns condition result
-	bool CRunningScript::GetConditionResult();
+	bool GetConditionResult();
 
 	// Returns pointer to local variable pointed by offset and array index as well as multiplier.
-	void CRunningScript::GetPointerLocalVariableByArrayIndex(__int16 off, __int16 idx, unsigned __int8 mul);
+	void GetPointerLocalVariableByArrayIndex(__int16 off, __int16 idx, unsigned __int8 mul);
 
 	// Adds script to list
-	void CRunningScript::AddScriptToList(CRunningScript ** list);
+	void AddScriptToList(CRunningScript ** list);
 
 	// Removes script from list
-	void CRunningScript::RemoveScriptFromList(CRunningScript ** list);
+	void RemoveScriptFromList(CRunningScript ** list);
 
 	// Returns state of pad button.
-	short CRunningScript::GetPadState(unsigned short playerIndex, unsigned short buttonID);
+	short GetPadState(unsigned short playerIndex, unsigned short buttonID);
 
 	// Command handlers
-	char CRunningScript::ProcessCommands_0To99(eCommandName commandID);
-	char CRunningScript::ProcessCommands_100To199(eCommandName commandID);
-	char CRunningScript::ProcessCommands_200To299(eCommandName commandID);
-	char CRunningScript::ProcessCommands_300To399(eCommandName commandID);
-	char CRunningScript::ProcessCommands_400To499(eCommandName commandID);
-	char CRunningScript::ProcessCommands_500To599(eCommandName commandID);
-	char CRunningScript::ProcessCommands_600To699(eCommandName commandID);
-	char CRunningScript::ProcessCommands_700To799(eCommandName commandID);
-	char CRunningScript::ProcessCommands_800To899(eCommandName commandID);
-	char CRunningScript::ProcessCommands_900To999(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1000To1099(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1100To1199(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1200To1299(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1300To1399(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1400To1499(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1500To1599(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1600To1699(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1700To1799(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1800To1899(eCommandName commandID);
-	char CRunningScript::ProcessCommands_1900To1999(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2000To2099(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2100To2199(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2200To2299(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2300To2399(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2400To2499(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2500To2599(eCommandName commandID);
-	char CRunningScript::ProcessCommands_2600To2699(eCommandName commandID);
+	char ProcessCommands_0To99(eCommandName commandID);
+	char ProcessCommands_100To199(eCommandName commandID);
+	char ProcessCommands_200To299(eCommandName commandID);
+	char ProcessCommands_300To399(eCommandName commandID);
+	char ProcessCommands_400To499(eCommandName commandID);
+	char ProcessCommands_500To599(eCommandName commandID);
+	char ProcessCommands_600To699(eCommandName commandID);
+	char ProcessCommands_700To799(eCommandName commandID);
+	char ProcessCommands_800To899(eCommandName commandID);
+	char ProcessCommands_900To999(eCommandName commandID);
+	char ProcessCommands_1000To1099(eCommandName commandID);
+	char ProcessCommands_1100To1199(eCommandName commandID);
+	char ProcessCommands_1200To1299(eCommandName commandID);
+	char ProcessCommands_1300To1399(eCommandName commandID);
+	char ProcessCommands_1400To1499(eCommandName commandID);
+	char ProcessCommands_1500To1599(eCommandName commandID);
+	char ProcessCommands_1600To1699(eCommandName commandID);
+	char ProcessCommands_1700To1799(eCommandName commandID);
+	char ProcessCommands_1800To1899(eCommandName commandID);
+	char ProcessCommands_1900To1999(eCommandName commandID);
+	char ProcessCommands_2000To2099(eCommandName commandID);
+	char ProcessCommands_2100To2199(eCommandName commandID);
+	char ProcessCommands_2200To2299(eCommandName commandID);
+	char ProcessCommands_2300To2399(eCommandName commandID);
+	char ProcessCommands_2400To2499(eCommandName commandID);
+	char ProcessCommands_2500To2599(eCommandName commandID);
+	char ProcessCommands_2600To2699(eCommandName commandID);
 
 	// Checks if damage ID is valid to expected damage weapon ID.
-	static bool CRunningScript::CheckDamagedWeaponType(eWeaponType damageWeaponID, eWeaponType expectedDamageWeaponID);
+	static bool CheckDamagedWeaponType(eWeaponType damageWeaponID, eWeaponType expectedDamageWeaponID);
 
 	// Processes commands that check if car is in specified area.
-	void CRunningScript::CarInAreaCheckCommand(eCommandName commandID);
+	void CarInAreaCheckCommand(eCommandName commandID);
 
 	// Processes commands that check if char is in specified area.
-	void CRunningScript::CharInAreaCheckCommand(eCommandName commandID);
+	void CharInAreaCheckCommand(eCommandName commandID);
 
 	// Processes commands that locate a vehicle
-	void CRunningScript::LocateCarCommand(eCommandName commandID);
+	void LocateCarCommand(eCommandName commandID);
 
 	// Processes commands where char locates car
-	void CRunningScript::LocateCharCarCommand(eCommandName commandID);
+	void LocateCharCarCommand(eCommandName commandID);
 
 	// Processes commands where char locates another char
-	void CRunningScript::LocateCharCharCommand(eCommandName commandID);
+	void LocateCharCharCommand(eCommandName commandID);
 
 	// Processes commands where char locates map point
-	void CRunningScript::LocateCharCommand(eCommandName commandID);
+	void LocateCharCommand(eCommandName commandID);
 
 	// Processes commands where char locates object
-	void CRunningScript::LocateCharObjectCommand(eCommandName commandID);
+	void LocateCharObjectCommand(eCommandName commandID);
 
 	// Processes commands where object locates map point
-	void CRunningScript::LocateObjectCommand(eCommandName commandID);
+	void LocateObjectCommand(eCommandName commandID);
 
 	// Processes commands that check if object is in area
-	void CRunningScript::ObjectInAreaCheckCommand(eCommandName commandID);
+	void ObjectInAreaCheckCommand(eCommandName commandID);
 
 	// Checks if ped type conforms to valid ped types.
-	bool CRunningScript::ThisIsAValidRandomPed(ePedType pedType, bool civilian, bool gang, bool criminal);
+	bool ThisIsAValidRandomPed(ePedType pedType, bool civilian, bool gang, bool criminal);
 };
 #pragma pack(pop)
 

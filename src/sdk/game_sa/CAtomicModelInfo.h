@@ -4,10 +4,13 @@
 
 class PLUGIN_API CAtomicModelInfo : public CBaseModelInfo
 {
+protected:
+    CAtomicModelInfo(plugin::dummy_func_t a) : CBaseModelInfo(a) { }
+    
 public:
 	// vtable
 
-	void SetAtomic(RpAtomic *atomic);
+	virtual void SetAtomic(RpAtomic *atomic);//=0
 
 	//
 

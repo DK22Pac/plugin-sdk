@@ -1,25 +1,22 @@
 #include "CClumpModelInfo.h"
 
-NOINLINE CClumpModelInfo::CClumpModelInfo()
+NOINLINE CClumpModelInfo::CClumpModelInfo() : CBaseModelInfo(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CClumpModelInfo *))0x4C56F0)(this);
+	((void (__thiscall *)(CClumpModelInfo *))0x4C56F0)(this);
 }
 
 NOINLINE CClumpModelInfo::~CClumpModelInfo()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CClumpModelInfo *))0x4C5750)(this);
 }
 
 CBox *CClumpModelInfo::GetBoundingBox()
 {
-	return ((CBox *(__thiscall *)(CClumpModelInfo *))this->vtable[15])(this);
+	return ((CBox *(__thiscall *)(CClumpModelInfo *))GetVMT(this, 15))(this);
 }
 
 void CClumpModelInfo::SetClump(RpClump *clump)
 {
-	((void (__thiscall *)(CClumpModelInfo *, RpClump *))this->vtable[16])(this, clump);
+	((void (__thiscall *)(CClumpModelInfo *, RpClump *))GetVMT(this, 16))(this, clump);
 }
 
 void CClumpModelInfo::SetAtomicRendererCB(RpAtomic *atomic, void *renderFunc)

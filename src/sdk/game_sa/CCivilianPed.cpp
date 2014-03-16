@@ -1,13 +1,11 @@
 #include "CCivilianPed.h"
 
-NOINLINE CCivilianPed::CCivilianPed()
+NOINLINE CCivilianPed::CCivilianPed(ePedType type, int model) : CPed(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CCivilianPed *, ePedType))0x5E8030)(this, type);
+    ((void (__thiscall *)(CCivilianPed *, ePedType, int))0x5DDB70)(this, type, model);
 }
 
 NOINLINE CCivilianPed::~CCivilianPed()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CCivilianPed *))0x5E8620)(this);
+    // 0x5DDBE0
 }

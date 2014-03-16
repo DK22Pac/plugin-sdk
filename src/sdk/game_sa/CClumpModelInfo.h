@@ -6,6 +6,9 @@
 #pragma pack(push, 4)
 class PLUGIN_API CClumpModelInfo : public CBaseModelInfo
 {
+protected:
+    CClumpModelInfo(plugin::dummy_func_t a) : CBaseModelInfo(a) { }
+    
 public:
 	union{
 		char *m_animFileName;
@@ -14,8 +17,8 @@ public:
 
 	// vtable
 
-	CBox *GetBoundingBox();
-	void SetClump(RpClump *clump);
+	virtual CBox *GetBoundingBox();
+	virtual void SetClump(RpClump *clump);
 
 	// static functions
 

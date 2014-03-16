@@ -7,7 +7,7 @@
 #include "CVector2D.h"
 #include "RenderWare.h"
 
-#pragma pack(push, 1)
+#pragma pack(push, 4)
 class PLUGIN_API CPlayerData
 {
 public:

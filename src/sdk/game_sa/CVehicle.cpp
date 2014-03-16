@@ -2,14 +2,14 @@
 
 CColModel *CVehicle::m_aSpecialColModel = (CColModel *)0xC1CC78;
 
-CVehicle::CVehicle()
+CVehicle::CVehicle() : CPhysical(plugin::dummy_func)
 {
-
+    ((void (__thiscall *)(CVehicle *))0x6D5F10)(this);
 }
 
 CVehicle::~CVehicle()
 {
-
+    // 0x6E2B40
 }
 
 // Converted from void CVehicle::ProcessControlCollisionCheck(void) 0x871EDC

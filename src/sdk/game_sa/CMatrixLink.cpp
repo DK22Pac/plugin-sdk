@@ -2,14 +2,14 @@
 
 NOINLINE CMatrixLink::CMatrixLink()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CMatrixLink *))0x54F0C0)(this);
+    // parent (CMatrix) constructor is dummy
+	((void (__thiscall *)(CMatrixLink *))0x54F0C0)(this);
 }
 
 NOINLINE CMatrixLink::~CMatrixLink()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CMatrixLink *))0x54E8E0)(this);
+    // 0x54E8E0 -- This destructor is dummy
+	// Let it call it's parent destructor
 }
 
 void CMatrixLink::Insert(CMatrixLink *matrixLink)

@@ -11,6 +11,9 @@
 #pragma pack(push, 4)
 class PLUGIN_API CPhysical : public CEntity
 {
+protected:
+    CPhysical(plugin::dummy_func_t a) : CEntity(a) {}
+    
 public:
 	__int32 field_38;
 	unsigned __int32 m_dwLastCollisionTime;
@@ -87,8 +90,8 @@ public:
 	~CPhysical();
 
 	// originally virtual functions
-	void ProcessEntityCollision(CEntity *entity, CColPoint *point);
-
+	virtual void ProcessEntityCollision(CEntity *entity, CColPoint *point);
+    
 	// functions
 	void RemoveAndAdd();
 	void AddToMovingList();

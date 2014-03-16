@@ -1,13 +1,11 @@
 #include "CTaskComplexKillPedOnFoot.h"
 
-NOINLINE CTaskComplexKillPedOnFoot::CTaskComplexKillPedOnFoot()
+NOINLINE CTaskComplexKillPedOnFoot::CTaskComplexKillPedOnFoot() : CTaskComplex(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CTaskComplexKillPedOnFoot *))0x620E30)(this);
+	((void (__thiscall *)(CTaskComplexKillPedOnFoot *))0x620E30)(this);
 }
 
 NOINLINE CTaskComplexKillPedOnFoot::~CTaskComplexKillPedOnFoot()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CTaskComplexKillPedOnFoot *))0x620EF0)(this);
+    //0x620EF0
 }

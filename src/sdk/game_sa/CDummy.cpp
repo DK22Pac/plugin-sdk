@@ -1,15 +1,13 @@
 #include "CDummy.h"
 
-NOINLINE CDummy::CDummy()
+NOINLINE CDummy::CDummy() : CEntity(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CDummy *))0x532540)(this);
+	((void (__thiscall *)(CDummy *))0x532540)(this);
 }
 
 NOINLINE CDummy::~CDummy()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CDummy *))0x532560)(this);
+    // 0x532560
 }
 
 void *CDummy::operator new(unsigned int size)

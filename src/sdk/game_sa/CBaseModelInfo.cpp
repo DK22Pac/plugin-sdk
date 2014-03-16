@@ -2,84 +2,81 @@
 
 NOINLINE CBaseModelInfo::CBaseModelInfo()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CBaseModelInfo *))0x4C4A60)(this);
+	((void (__thiscall *)(CBaseModelInfo *))0x4C4A60)(this);
 }
 
 NOINLINE CBaseModelInfo::~CBaseModelInfo()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CBaseModelInfo *))0x4C5510)(this);
 }
 
 CBaseModelInfo *CBaseModelInfo::AsAtomicModelInfoPtr()
 {
-	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))this->vtable[1])(this);
+	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 1))(this);
 }
 
 CBaseModelInfo *CBaseModelInfo::AsDamageAtomicModelInfoPtr()
 {
-	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))this->vtable[2])(this);
+	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 2))(this);
 }
 
 CBaseModelInfo *CBaseModelInfo::AsLodAtomicModelInfoPtr()
 {
-	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))this->vtable[3])(this);
+	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 3))(this);
 }
 
 ModelInfoType CBaseModelInfo::GetModelType()
 {
-	return ((ModelInfoType (__thiscall *)(CBaseModelInfo *))this->vtable[4])(this);
+	return ((ModelInfoType (__thiscall *)(CBaseModelInfo *))GetVMT(this, 4))(this);
 }
 
 struct tTimeInfo *CBaseModelInfo::GetTimeInfo()
 {
-	return ((struct tTimeInfo *(__thiscall *)(CBaseModelInfo *))this->vtable[5])(this);
+	return ((struct tTimeInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 5))(this);
 }
 
 void CBaseModelInfo::Init()
 {
-	((void (__thiscall *)(CBaseModelInfo *))this->vtable[6])(this);
+	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 6))(this);
 }
 
 void CBaseModelInfo::Shutdown()
 {
-	((void (__thiscall *)(CBaseModelInfo *))this->vtable[7])(this);
+	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 7))(this);
 }
 
 void CBaseModelInfo::DeleteRwObject()
 {
-	((void (__thiscall *)(CBaseModelInfo *))this->vtable[8])(this);
+	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 8))(this);
 }
 
 unsigned int CBaseModelInfo::GetRwModelType()
 {
-	return ((unsigned int (__thiscall *)(CBaseModelInfo *))this->vtable[9])(this);
+	return ((unsigned int (__thiscall *)(CBaseModelInfo *))GetVMT(this, 9))(this);
 }
 
 RwObject *CBaseModelInfo::CreateInstance(RwMatrixTag *matrix)
 {
-	return ((RwObject *(__thiscall *)(CBaseModelInfo *, RwMatrixTag *))this->vtable[10])(this, matrix);
+	return ((RwObject *(__thiscall *)(CBaseModelInfo *, RwMatrixTag *))GetVMT(this, 10))(this, matrix);
 }
 
 RwObject *CBaseModelInfo::CreateInstance()
 {
-	return ((RwObject *(__thiscall *)(CBaseModelInfo *))this->vtable[11])(this);
+	return ((RwObject *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 11))(this);
 }
 
 void CBaseModelInfo::SetAnimFile(char *filename)
 {
-	((void (__thiscall *)(CBaseModelInfo *, char *))this->vtable[12])(this, filename);
+	((void (__thiscall *)(CBaseModelInfo *, char *))GetVMT(this, 12))(this, filename);
 }
 
 void CBaseModelInfo::ConvertAnimFileIndex()
 {
-	((void (__thiscall *)(CBaseModelInfo *))this->vtable[13])(this);
+	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 13))(this);
 }
 
 signed int CBaseModelInfo::GetAnimFileIndex()
 {
-	return ((signed int (__thiscall *)(CBaseModelInfo *))this->vtable[14])(this);
+	return ((signed int (__thiscall *)(CBaseModelInfo *))GetVMT(this, 14))(this);
 }
 
 void CBaseModelInfo::SetTexDictionary(char *txdName)

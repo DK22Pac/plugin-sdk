@@ -5,6 +5,9 @@
 #pragma pack(push, 4)
 class PLUGIN_API CBuilding : public CEntity
 {
+protected:
+    CBuilding(plugin::dummy_func_t a) : CEntity(a) {}
+    
 public:
 	CBuilding();
 	~CBuilding();

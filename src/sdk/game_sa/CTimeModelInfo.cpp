@@ -1,15 +1,14 @@
 #include "CTimeModelInfo.h"
+#include "CClumpModelInfo.h"
 
-CTimeModelInfo::CTimeModelInfo()
+CTimeModelInfo::CTimeModelInfo() : CAtomicModelInfo(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CTimeModelInfo *))0x4C5640)(this);
+    ((void (__thiscall *)(CTimeModelInfo *))0x4C5640)(this);
 }
 
 CTimeModelInfo::~CTimeModelInfo()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CTimeModelInfo *))0x4C5680)(this);
+    // 0x4C5680
 }
 
 void CTimeModelInfo::FindOtherTimeModel(char *modelName)

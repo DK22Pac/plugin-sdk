@@ -43,7 +43,7 @@ public:
 	};
 
 	// Shutdown pool
-	void Flust()
+	void Flush()
 	{
 		if(this -> m_bInitialized)
 		{

@@ -19,7 +19,7 @@ public:
 	CAiTimer          m_AiTimer;
 
 	CTaskComplexKillPedOnFoot();
-	~CTaskComplexKillPedOnFoot();
+   ~CTaskComplexKillPedOnFoot();
 };
 #pragma pack(pop)
 

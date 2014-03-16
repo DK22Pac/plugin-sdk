@@ -1,23 +1,21 @@
 #include "CTaskSimple.h"
 
-NOINLINE CTaskSimple::CTaskSimple()
+NOINLINE CTaskSimple::CTaskSimple() : CTask(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CTaskSimple *))0x61A390)(this);
+    ((void (__thiscall *)(CTaskSimple *))0x61A390)(this);
 }
 
 NOINLINE CTaskSimple::~CTaskSimple()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CTaskSimple *))0x61A3A0)(this);
+    // 0x61A3A0
 }
 
 bool CTaskSimple::ProcessPed(class CPed *ped)
 {
-	return ((bool (__thiscall *)(CTaskSimple *, class CPed *))this->vtable[7])(this, ped);
+	return ((bool (__thiscall *)(CTaskSimple *, class CPed *))GetVMT(this, 7))(this, ped);
 }
 
 bool CTaskSimple::SetPedPosition(class CPed *ped)
 {
-	return ((bool (__thiscall *)(CTaskSimple *, class CPed *))this->vtable[8])(this, ped);
+	return ((bool (__thiscall *)(CTaskSimple *, class CPed *))GetVMT(this, 8))(this, ped);
 }

@@ -51,16 +51,7 @@ void CRunningScript::CollectParameters(__int16 count)
 // Collects parameter and returns it.
 tScriptVarValue CRunningScript::CollectNextParameterWithoutIncreasingPC()
 {
-	tScriptVarValue value;
-
-	__asm
-	{
-		mov eax, FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC
-		mov ecx, this
-		call eax
-		mov value, eax
-	}
-	return value;
+    return ((tScriptVarValue (__thiscall*)(CRunningScript*))FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC)(this);
 }
 
 // Collects string parameter

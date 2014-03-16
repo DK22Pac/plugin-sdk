@@ -6,6 +6,9 @@
 #pragma pack(push, 4)
 class PLUGIN_API CTaskComplex : public CTask
 {
+protected:
+    CTaskComplex(plugin::dummy_func_t a) : CTask(a) {}
+    
 public:
 	CTask *m_pSubTask;
 
@@ -14,10 +17,10 @@ public:
 
 	// vtable
 
-	void SetSubTask(CTask *subTask);
-	CTask *CreateNextSubTask(class CPed *ped);
-	CTask *CreateFirstSubTask(class CPed *ped);
-	CTask *ControlSubTask(class CPed *ped);
+	virtual void SetSubTask(CTask *subTask);
+	virtual CTask *CreateNextSubTask(class CPed *ped);//=0
+	virtual CTask *CreateFirstSubTask(class CPed *ped);//=0
+	virtual CTask *ControlSubTask(class CPed *ped);//=0
 };
 #pragma pack(pop)
 

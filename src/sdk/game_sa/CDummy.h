@@ -5,6 +5,9 @@
 #pragma pack(push, 4)
 class PLUGIN_API CDummy : public CEntity
 {
+protected:
+    CDummy(plugin::dummy_func_t a) : CEntity(a) {}
+    
 public:
 	CDummy();
 	~CDummy();

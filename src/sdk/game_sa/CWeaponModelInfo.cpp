@@ -1,13 +1,11 @@
 #include "CWeaponModelInfo.h"
 
-CWeaponModelInfo::CWeaponModelInfo()
+CWeaponModelInfo::CWeaponModelInfo() : CClumpModelInfo(plugin::dummy_func)
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CWeaponModelInfo *))0x4C5760)(this);
+    ((void (__thiscall *)(CWeaponModelInfo *))0x4C5760)(this);
 }
 
 CWeaponModelInfo::~CWeaponModelInfo()
 {
-	PREPARE_FOR_REDIRECTION();
-	//((void (__thiscall *)(CWeaponModelInfo *))0x4C5790)(this);
+    // 0x4C5790
 }

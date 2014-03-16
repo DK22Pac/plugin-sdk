@@ -5,7 +5,7 @@
 
 class PLUGIN_API CCivilianPed : public CPed
 {
-	CCivilianPed();
+	CCivilianPed(ePedType type, int model);
 	~CCivilianPed();
 };
 

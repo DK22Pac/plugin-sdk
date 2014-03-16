@@ -6,6 +6,9 @@
 #pragma pack(push, 4)
 class PLUGIN_API CPlaceable
 {
+protected:
+    CPlaceable(plugin::dummy_func_t) {}
+    
 public:
 	CSimpleTransform m_Placement;
 	CMatrixLink *m_pCoords;
