@@ -1,0 +1,10 @@
+# Perform LF normalization on all text files
+*       text=auto
+
+# Windows line ending on docs
+*.txt   text eol=crlf
+
+# CMakeLists for CMake
+CMakeLists.txt  text
+
+
