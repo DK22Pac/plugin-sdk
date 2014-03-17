@@ -1,6 +1,5 @@
 #pragma once
 #include <plugin/plugin.h>
-#include "RenderWare.h"
 #include "CVector.h"
 
 #pragma pack(push, 4)

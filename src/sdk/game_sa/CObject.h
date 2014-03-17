@@ -3,7 +3,6 @@
 #include <plugin/plugin.h>
 #include "CPhysical.h"
 #include "CObjectInfo.h"
-#include "RenderWare.h"
 
 #pragma pack(push, 1)
 class PLUGIN_API CObject : public CPhysical

@@ -2,7 +2,7 @@
 
 void CSimpleTransform::UpdateRwMatrix(RwMatrix *out)
 {
-	((void (__thiscall *)(CSimpleTransform *, RwMatrix *))0x54EF40)(this, out);
+	((void (__thiscall *)(CSimpleTransform *, struct RwMatrix *))0x54EF40)(this, out);
 }
 
 void CSimpleTransform::Invert(CSimpleTransform const& base)
@@ -12,5 +12,5 @@ void CSimpleTransform::Invert(CSimpleTransform const& base)
 
 void CSimpleTransform::UpdateMatrix(CMatrix *out)
 {
-	((void (__thiscall *)(CSimpleTransform *, CMatrix *))0x54F1B0)(this, out);
+	((void (__thiscall *)(CSimpleTransform *, class CMatrix *))0x54F1B0)(this, out);
 }

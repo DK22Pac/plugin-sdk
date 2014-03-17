@@ -1,7 +1,6 @@
 #pragma once
 #include <plugin/plugin.h>
 #include "CPlaceable.h"
-#include "RenderWare.h"
 #include "CReference.h"
 #include "eEntityType.h"
 #include "eEntityStatus.h"
@@ -16,7 +15,7 @@ protected:
     CEntity(plugin::dummy_func_t a) : CPlaceable(a) {}
     
 public:
-	RwObject *m_pRwObject;
+	struct RwObject *m_pRwObject;
 	/* https://code.google.com/p/mtasa-blue/source/browse/trunk/MTA10/game_sa/CEntitySA.h */
 	unsigned __int32 m_bUsesCollision : 1;           // does entity use collision
 	unsigned __int32 m_bCollisionProcessed : 1;  // has object been processed by a ProcessEntityCollision function
@@ -138,4 +137,4 @@ public:
 VALIDATE_SIZE(CEntity, 0x38);
 
 PLUGIN_API bool IsEntityPointerValid(CEntity* entity);
-PLUGIN_API RpMaterial* MaterialUpdateUVAnimCB(RpMaterial* material, void* data);
+PLUGIN_API struct RpMaterial* MaterialUpdateUVAnimCB(struct RpMaterial* material, void* data);

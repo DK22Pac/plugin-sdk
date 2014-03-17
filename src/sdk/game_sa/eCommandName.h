@@ -1,6 +1,6 @@
 #pragma once
 
-enum eCommandName : __int32
+enum eCommandName : int
 {
 	COMMAND_NOP                                                              = 0x0000,
 	COMMAND_WAIT                                                             = 0x0001,

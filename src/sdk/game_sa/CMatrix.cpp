@@ -11,9 +11,9 @@ CMatrix::CMatrix(CMatrix const& matrix)
 }
 
 // like previous + attach
-CMatrix::CMatrix(RwMatrixTag *matrix, bool temporary)
+CMatrix::CMatrix(RwMatrix *matrix, bool temporary)
 {
-	((void (__thiscall *)(CMatrix *, RwMatrixTag *, bool))0x59C050)(this, matrix, temporary);
+	((void (__thiscall *)(CMatrix *, RwMatrix *, bool))0x59C050)(this, matrix, temporary);
 }
 
 // destructor detaches matrix if attached 
@@ -22,9 +22,9 @@ CMatrix::~CMatrix()
 	((void (__thiscall *)(CMatrix *))0x59ACD0)(this);
 }
 
-void CMatrix::Attach(RwMatrixTag *matrix, bool temporary)
+void CMatrix::Attach(RwMatrix *matrix, bool temporary)
 {
-	((void (__thiscall *)(CMatrix *, RwMatrixTag *, bool))0x59BD10)(this, matrix, temporary);
+	((void (__thiscall *)(CMatrix *, RwMatrix *, bool))0x59BD10)(this, matrix, temporary);
 }
 
 void CMatrix::Detach()
@@ -52,9 +52,9 @@ void CMatrix::UpdateRW()
 }
 
 // update RwMatrix with this matrix
-void CMatrix::UpdateRW(RwMatrixTag *matrix)
+void CMatrix::UpdateRW(RwMatrix *matrix)
 {
-	((void (__thiscall *)(CMatrix *, RwMatrixTag *))0x59AD70)(this, matrix);
+	((void (__thiscall *)(CMatrix *, RwMatrix *))0x59AD70)(this, matrix);
 }
 
 void CMatrix::SetUnity()
@@ -152,9 +152,9 @@ void CMatrix::Reorthogonalise()
 }
 
 // similar to UpdateRW(RwMatrixTag *)
-void CMatrix::CopyToRwMatrix(RwMatrixTag *matrix)
+void CMatrix::CopyToRwMatrix(RwMatrix *matrix)
 {
-	((void (__thiscall *)(CMatrix *, RwMatrixTag *))0x59B8B0)(this, matrix);
+	((void (__thiscall *)(CMatrix *, RwMatrix *))0x59B8B0)(this, matrix);
 }
 
 void CMatrix::SetRotate(CQuaternion  const& quat)

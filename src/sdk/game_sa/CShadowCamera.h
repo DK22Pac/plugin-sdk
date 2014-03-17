@@ -1,7 +1,7 @@
 #pragma once
 
 #include <plugin/plugin.h>
-#include "RenderWare.h"
+#include "RenderWareTypes.h"
 
 #pragma pack(push, 4)
 class PLUGIN_API CShadowCamera

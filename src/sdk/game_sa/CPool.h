@@ -158,7 +158,7 @@ public:
 	{
 		int idx = handle / 256;
 
-		return idx < this -> m_Size && *(BYTE*)&this -> m_ByteMap[idx] == *(BYTE*)&handle ? &this -> m_Objects[idx] : NULL;
+		return idx < this -> m_Size && *(uint8_t*)&this -> m_ByteMap[idx] == *(uint8_t*)&handle ? &this -> m_Objects[idx] : 0;
 	}
 };
 #pragma pack(pop)

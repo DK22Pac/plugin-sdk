@@ -2,7 +2,7 @@
 
 #include <plugin/plugin.h>
 #include "CTaskSimple.h"
-#include "RenderWare.h"
+#include "RenderWareTypes.h"
 #include "CVector.h"
 
 #pragma pack(push, 1)

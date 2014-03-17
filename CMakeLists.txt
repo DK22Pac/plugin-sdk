@@ -15,3 +15,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 # Source files
 add_subdirectory(src)
 
+if(BUILD_TEST)                  # MobileHUD & IMFX
+    message(status "Compiling tests")
+    add_subdirectory(test)
+endif()
+

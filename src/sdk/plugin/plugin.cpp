@@ -1,10 +1,12 @@
 #include "plugin.h"
 #include <d3d9.h>
 #include <list>
-#include "patch\CPatch.h"
-#include "game_sa\CPool.h"
-#include "game_sa\CVehicle.h"
-#include "game_sa\RenderWare.h"
+#include <cstdio>
+#include <patch/CPatch.h>
+#include <game_sa/CPool.h>
+#include <game_sa/CVehicle.h>
+#include <game_sa/RenderWare.h>
+#include <game_sa/CFont.h>
 
 using namespace std;
 
@@ -92,68 +94,68 @@ void Initialise()
 {
 	//dbg = fopen("plugin.log", "w");
 	CheckForRyosukesPlugins();
-	CPatch::RedirectCall(0x7F9788, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F9788, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F978D, 6);
-	CPatch::RedirectCall(0x7F9710, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F9710, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F9715, 6);
-	CPatch::RedirectCall(0x7F935C, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F935C, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F9361, 6);
-	CPatch::RedirectCall(0x7F9248, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F9248, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F924D, 6);
-	CPatch::RedirectCall(0x7F9A16, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F9A16, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F9A1B, 6);
-	CPatch::RedirectCall(0x7F839F, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F839F, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F83A4, 6);
-	CPatch::RedirectCall(0x7F8327, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F8327, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F832C, 6);
-	CPatch::RedirectCall(0x7F81FF, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F81FF, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F8204, 6);
-	CPatch::RedirectCall(0x7F8187, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F8187, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F818C, 6);
-	CPatch::RedirectCall(0x7F7AA4, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F7AA4, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F7AA9, 6);
-	CPatch::RedirectCall(0x7F8B7B, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F8B7B, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F8B80, 4);
-	CPatch::RedirectCall(0x7F7990, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F7990, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F7995, 6);
-	CPatch::RedirectCall(0x7F9B43, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F9B43, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F9B48, 6);
-	CPatch::RedirectCall(0x7F8C88, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F8C88, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F8C8D, 4);
-	CPatch::RedirectCall(0x7F87C6, plugin::Core::DeviceResetFuncExe);
+	CPatch::RedirectCall(0x7F87C6, (void*) plugin::Core::DeviceResetFuncExe);
 	CPatch::Nop(0x7F87CB, 4);
-	CPatch::RedirectCall(0x7F86C4, plugin::Core::DeviceResetChangeFuncExe);
+	CPatch::RedirectCall(0x7F86C4, (void*) plugin::Core::DeviceResetChangeFuncExe);
 	CPatch::Nop(0x7F86C9, 4);
-	CPatch::RedirectCall(0x53E293, plugin::Core::DefaultDrawingFuncExe);
-	CPatch::RedirectCall(0x53E82D, plugin::Core::MenuDrawingFuncExe);
-	CPatch::RedirectCall(0x53EB8C, plugin::Core::MenuDrawingFuncExe);
-	CPatch::RedirectCall(0x53EA03, plugin::Core::PreRenderAfterFuncExe);
-	CPatch::RedirectCall(0x5BD779, plugin::Core::InitialiseRwFuncExe);
-	CPatch::RedirectCall(0x53BC21, plugin::Core::ShutdownRwFuncExe);
-	CPatch::RedirectCall(0x748CFB, plugin::Core::InitGameFuncExe);
-	CPatch::RedirectCall(0x748E09, plugin::Core::ReInitGameFuncExe);
-	CPatch::RedirectCall(0x748E48, plugin::Core::ReInitGameFuncExe);
-	CPatch::RedirectCall(0x53E981, plugin::Core::GameProcessFuncExe);
-	CPatch::RedirectCall(0x440A0D, plugin::Core::GameProcessScriptsFuncExe);
-	CPatch::RedirectCall(0x53BCC9, plugin::Core::GameProcessScriptsFuncExe); // _LoadGame
-	CPatch::RedirectCall(0x53BE8D, plugin::Core::GameProcessScriptsFuncExe); // CGame::ReInitGameObjectVariables()
-	CPatch::RedirectCall(0x53BFC7, plugin::Core::GameProcessScriptsFuncExe); // CGame::Process
-	CPatch::RedirectCall(0x618F05, plugin::Core::GameProcessScriptsFuncExe);
-	CPatch::RedirectJump(0x58AA2D, plugin::Core::DrawBlipsFuncExe);
-	CPatch::RedirectCall(0x53ECA1, plugin::Core::RegisterRwPluginFuncExe);
-	CPatch::RedirectCall(0x46937B, plugin::Core::InitialiseTheScriptsFuncExe);
-	CPatch::RedirectCall(0x53E4FF, plugin::Core::DrawHUDExe);
-	CPatch::RedirectCall(0x5BF85B, plugin::Core::PoolsInitialisationFuncExe);
-	CPatch::RedirectCall(0x53EAD3, plugin::Core::PostProcessFuncExe);
+	CPatch::RedirectCall(0x53E293, (void*) plugin::Core::DefaultDrawingFuncExe);
+	CPatch::RedirectCall(0x53E82D, (void*) plugin::Core::MenuDrawingFuncExe);
+	CPatch::RedirectCall(0x53EB8C, (void*) plugin::Core::MenuDrawingFuncExe);
+	CPatch::RedirectCall(0x53EA03, (void*) plugin::Core::PreRenderAfterFuncExe);
+	CPatch::RedirectCall(0x5BD779, (void*) plugin::Core::InitialiseRwFuncExe);
+	CPatch::RedirectCall(0x53BC21, (void*) plugin::Core::ShutdownRwFuncExe);
+	CPatch::RedirectCall(0x748CFB, (void*) plugin::Core::InitGameFuncExe);
+	CPatch::RedirectCall(0x748E09, (void*) plugin::Core::ReInitGameFuncExe);
+	CPatch::RedirectCall(0x748E48, (void*) plugin::Core::ReInitGameFuncExe);
+	CPatch::RedirectCall(0x53E981, (void*) plugin::Core::GameProcessFuncExe);
+	CPatch::RedirectCall(0x440A0D, (void*) plugin::Core::GameProcessScriptsFuncExe);
+	CPatch::RedirectCall(0x53BCC9, (void*) plugin::Core::GameProcessScriptsFuncExe); // _LoadGame
+	CPatch::RedirectCall(0x53BE8D, (void*) plugin::Core::GameProcessScriptsFuncExe); // CGame::ReInitGameObjectVariables()
+	CPatch::RedirectCall(0x53BFC7, (void*) plugin::Core::GameProcessScriptsFuncExe); // CGame::Process
+	CPatch::RedirectCall(0x618F05, (void*) plugin::Core::GameProcessScriptsFuncExe);
+	CPatch::RedirectJump(0x58AA2D, (void*) plugin::Core::DrawBlipsFuncExe);
+	CPatch::RedirectCall(0x53ECA1, (void*) plugin::Core::RegisterRwPluginFuncExe);
+	CPatch::RedirectCall(0x46937B, (void*) plugin::Core::InitialiseTheScriptsFuncExe);
+	CPatch::RedirectCall(0x53E4FF, (void*) plugin::Core::DrawHUDExe);
+	CPatch::RedirectCall(0x5BF85B, (void*) plugin::Core::PoolsInitialisationFuncExe);
+	CPatch::RedirectCall(0x53EAD3, (void*) plugin::Core::PostProcessFuncExe);
 	/************additional data*************/
-	CPatch::RedirectJump(0x6D624B, plugin::Core::VehicleCtorFuncExe);
-	CPatch::RedirectCall(0x6E2D35, plugin::Core::VehicleDtorFuncExe);
-	CPatch::RedirectJump(0x5E85FC, plugin::Core::PedCtorFuncExe);
-	CPatch::RedirectCall(0x5E880C, plugin::Core::PedDtorFuncExe);
+	CPatch::RedirectJump(0x6D624B, (void*) plugin::Core::VehicleCtorFuncExe);
+	CPatch::RedirectCall(0x6E2D35, (void*) plugin::Core::VehicleDtorFuncExe);
+	CPatch::RedirectJump(0x5E85FC, (void*) plugin::Core::PedCtorFuncExe);
+	CPatch::RedirectCall(0x5E880C, (void*) plugin::Core::PedDtorFuncExe);
 	/****************************************/
 }
 
-void LOG(char *format, ...)
+void LOG(const char *format, ...)
 {
 	/*char final[512];
 	va_list ap;
@@ -228,11 +230,11 @@ void ReleaseAdditional()
 {
 	delete[] vehicleAdditional;
 	for(auto i = vehiclePlugins.begin(); i != vehiclePlugins.end(); ++i)
-		delete i._Ptr->_Myval;
+		delete *i;
 	LOG("ReleaseAdditional: releasing vehicle data (%d vehicle plugins were registered)", vehiclePlugins.size());
 	delete[] pedAdditional;
 	for(auto i = pedPlugins.begin(); i != pedPlugins.end(); ++i)
-		delete i._Ptr->_Myval;
+		delete *i;
 	LOG("ReleaseAdditional: releasing ped data (%d ped plugins were registered)", pedPlugins.size());
 }
 
@@ -268,9 +270,9 @@ void *plugin::StructPlugins::FindVehiclePluginByUserId(CVehicle *vehicle, unsign
 	unsigned int size = 0;
 	for(auto i = vehiclePlugins.begin(); i != vehiclePlugins.end(); ++i)
 	{
-		if(i._Ptr->_Myval->userId == userId)
+		if((*i)->userId == userId)
 			return (void *)((unsigned int)vehicleAdditional[vehicleId] + size);
-		size += i._Ptr->_Myval->size;
+		size += (*i)->size;
 	}
 	return NULL;
 }
@@ -288,12 +290,12 @@ void __fastcall OnVehicleConstructor(CVehicle *vehicle)
 		LOG("  OnVehicleConstructor: allocated vehicle additional data with size %d", vehiclePluginsSize);
 		for(auto i = vehiclePlugins.begin(); i != vehiclePlugins.end(); ++i)
 		{
-			((void (*)(CVehicle *, void *))i._Ptr->_Myval->constructor)(vehicle, (void *)((unsigned int)vehicleAdditional[vehicleId] + size));
-			strncpy(pluginId, (char *)&i._Ptr->_Myval->userId, 4);
+			((void (*)(CVehicle *, void *))(*i)->constructor)(vehicle, (void *)((unsigned int)vehicleAdditional[vehicleId] + size));
+			strncpy(pluginId, (char *)&(*i)->userId, 4);
 			pluginId[4] = '\0';
-			LOG("    OnVehicleConstructor: constructor for %s plugin (size %d) at %d", pluginId, i._Ptr->_Myval->size, 
+			LOG("    OnVehicleConstructor: constructor for %s plugin (size %d) at %d", pluginId, (*i)->size, 
 				(unsigned int)vehicleAdditional[vehicleId] + size);
-			size += i._Ptr->_Myval->size;
+			size += (*i)->size;
 		}
 		LOG("  OnVehicleConstructor: registered %d plugins, total size %d", vehiclePlugins.size(), size);
 	}
@@ -310,16 +312,16 @@ void __fastcall OnVehicleDestructor(CVehicle *vehicle)
 	char pluginId[8];
 	for(auto i = vehiclePlugins.begin(); i != vehiclePlugins.end(); ++i)
 	{
-		((void (*)(CVehicle *, void *))i._Ptr->_Myval->destructor)(vehicle, (void *)((unsigned int)vehicleAdditional[vehicleId] + size));
-		strncpy(pluginId, (char *)&i._Ptr->_Myval->userId, 4);
+		((void (*)(CVehicle *, void *))(*i)->destructor)(vehicle, (void *)((unsigned int)vehicleAdditional[vehicleId] + size));
+		strncpy(pluginId, (char *)&(*i)->userId, 4);
 		pluginId[5] = '\0';
-		LOG("   OnVehicleDestructor: destructor for %s plugin (size %d) at %d", pluginId, i._Ptr->_Myval->size, 
+		LOG("   OnVehicleDestructor: destructor for %s plugin (size %d) at %d", pluginId, (*i)->size, 
 			(unsigned int)vehicleAdditional[vehicleId] + size);
-		size += i._Ptr->_Myval->size;
+		size += (*i)->size;
 	}
 	if(vehiclePluginsSize)
 	{
-		delete vehicleAdditional[vehicleId];
+		delete (__int8*)(vehicleAdditional[vehicleId]);
 		LOG("  OnVehicleDestructor: deleted vehicle additional data");
 	}
 	else
@@ -358,9 +360,9 @@ void *plugin::StructPlugins::FindPedPluginByUserId(CPed *vehicle, unsigned int u
 	unsigned int size = 0;
 	for(auto i = pedPlugins.begin(); i != pedPlugins.end(); ++i)
 	{
-		if(i._Ptr->_Myval->userId == userId)
+		if((*i)->userId == userId)
 			return (void *)((unsigned int)pedAdditional[pedId] + size);
-		size += i._Ptr->_Myval->size;
+		size += (*i)->size;
 	}
 	return NULL;
 }
@@ -378,12 +380,12 @@ void __fastcall OnPedConstructor(CPed *ped)
 		LOG("  OnPedConstructor: allocated ped additional data with size %d", pedPluginsSize);
 		for(auto i = pedPlugins.begin(); i != pedPlugins.end(); ++i)
 		{
-			((void (*)(CPed *, void *))i._Ptr->_Myval->constructor)(ped, (void *)((unsigned int)pedAdditional[pedId] + size));
-			strncpy(pluginId, (char *)&i._Ptr->_Myval->userId, 4);
+			((void (*)(CPed *, void *))(*i)->constructor)(ped, (void *)((unsigned int)pedAdditional[pedId] + size));
+			strncpy(pluginId, (char *)&(*i)->userId, 4);
 			pluginId[4] = '\0';
-			LOG("    OnPedConstructor: constructor for %s plugin (size %d) at %d", pluginId, i._Ptr->_Myval->size, 
+			LOG("    OnPedConstructor: constructor for %s plugin (size %d) at %d", pluginId, (*i)->size, 
 				(unsigned int)pedAdditional[pedId] + size);
-			size += i._Ptr->_Myval->size;
+			size += (*i)->size;
 		}
 		LOG("  OnPedConstructor: no ped plugins registered");
 	}
@@ -400,16 +402,16 @@ void __fastcall OnPedDestructor(CPed *ped)
 	unsigned int size = 0;
 	for(auto i = pedPlugins.begin(); i != pedPlugins.end(); ++i)
 	{
-		((void (*)(CPed *, void *))i._Ptr->_Myval->destructor)(ped, (void *)((unsigned int)pedAdditional[pedId] + size));
-		strncpy(pluginId, (char *)&i._Ptr->_Myval->userId, 4);
+		((void (*)(CPed *, void *))(*i)->destructor)(ped, (void *)((unsigned int)pedAdditional[pedId] + size));
+		strncpy(pluginId, (char *)&(*i)->userId, 4);
 		pluginId[5] = '\0';
-		LOG("    OnPedDestructor: destructor for %s plugin (size %d) at %d", pluginId, i._Ptr->_Myval->size, 
+		LOG("    OnPedDestructor: destructor for %s plugin (size %d) at %d", pluginId, (*i)->size, 
 			(unsigned int)pedAdditional[pedId] + size);
-		size += i._Ptr->_Myval->size;
+		size += (*i)->size;
 	}
 	if(pedPluginsSize)
 	{
-		delete pedAdditional[pedId];
+		delete (__int8*)(pedAdditional[pedId]);
 		LOG("  OnPedDestructor: deleted ped additional data");
 	}
 	else
@@ -503,10 +505,10 @@ void plugin::Core::RegisterFunc(eFuncType type, tRegisteredFunction func)
 	}
 }
 
-CPlugin const * plugin::System::RegisterPlugin(char *name, 
-						  char *author, 
-						  char *filename, 
-						  char *version, 
+CPlugin const * plugin::System::RegisterPlugin(const char *name, 
+						  const char *author, 
+						  const char *filename, 
+						  const char *version, 
 						  unsigned int versionId, 
 						  unsigned int game, 
 						  void *additionalData)
@@ -898,7 +900,7 @@ RwRaster::RwD3DRaster *RasterExt(RwRaster *raster)
 {
 	return (RwRaster::RwD3DRaster *)((*(unsigned int *)0xC402D8) + (*(unsigned int *)0xB4E9E0));
 }
-#include "game_sa\CFont.h"
+
 PLUGIN_API void plugin::Core::PostProcessFuncExe() // redirect call at 0x5BF85B
 {
 	IDirect3DSurface9 *surface, *depth;

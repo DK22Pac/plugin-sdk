@@ -1,12 +1,9 @@
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-add_definitions(-D_IDA_EXPORT)                      # Avoid some shitty stuff IDA related
+#add_definitions(-D_IDA_EXPORT)                      # Avoid some shitty stuff IDA related
 add_definitions(-DPLUGIN_EXPORT)                    # Exporting
 
 # Visual Studio specific stuff
 if(MSVC)
-#    set(ASM_EXT "asm")  # MASM Assembly extension
-    set(ASM_EXT "c")	 # Use C with declspec(naked) instead
-
     # We don't want to deal with Buffer Security Check under "Release" build.
     set(CMAKE_CXX_FLAGS_RELEASE "/GS- ${CMAKE_CXX_FLAGS_RELEASE}")
 
@@ -15,12 +12,6 @@ endif(MSVC)
 
 # MiNGW specific stuff
 if(MINGW)
-
-    # Enable ASM files
-    enable_language(C CXX ASM)
-
-    set(ASM_EXT "s")  # GAS Assembly extension
-
     # Compiling C++11 source (with GNU and Microsoft extensions)
     set(CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS}")
 
@@ -34,4 +25,6 @@ endif(MINGW)
 
 # Go
 add_subdirectory(game_sa)
-
+add_subdirectory(plugin)
+add_library(plugin SHARED)
+target_link_libraries(plugin plugin_base game_sa)

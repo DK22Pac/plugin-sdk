@@ -1,11 +1,12 @@
 #pragma once
 
 #include <plugin/plugin.h>
-#include "RenderWare.h"
 
-class PLUGIN_API CVector2D : public RwV2d
+class PLUGIN_API CVector2D
 {
 public:
+    float x, y;
+    
 	CVector2D();
 	CVector2D(float x, float y);
 

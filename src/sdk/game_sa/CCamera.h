@@ -4,7 +4,6 @@
 #include "CPlaceable.h"
 #include "CCam.h"
 #include "CQueuedMode.h"
-#include "RenderWare.h"
 #include "CEntity.h"
 #include "CCamPathSplines.h"
 #include "CMatrix.h"
@@ -176,7 +175,7 @@ public:
 	CVector           m_vAttachedCamOffset;
 	CVector           m_vAttachedCamLookAt;
 	float             m_fAttachedCamAngle;
-	RwCamera         *m_pRwCamera;
+	struct RwCamera   *m_pRwCamera;
 	class CEntity    *m_pTargetEntity;
 	class CEntity    *m_pAttachedEntity;
 	CCamPathSplines   m_aPathArray[4];

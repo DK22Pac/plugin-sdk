@@ -1,7 +1,7 @@
 #pragma once
 
 #include <plugin/plugin.h>
-#include "RenderWare.h"
+#include "RenderWareTypes.h"
 #include "CTexDictionary.h"
 #include "CPool.h"
 

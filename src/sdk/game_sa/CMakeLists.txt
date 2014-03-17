@@ -93,8 +93,5 @@ set(SOURCE_FILES
 
 )
 
-
-# TODO STATIC
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
-add_library(plugin SHARED ${SOURCE_FILES})
-
+add_library(game_sa ${SOURCE_FILES})

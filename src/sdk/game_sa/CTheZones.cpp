@@ -22,12 +22,12 @@
 eLevelName& CTheZones::m_CurrLevel = *(eLevelName*)VAR_CTheZones__m_CurrLevel;
 
 char* CTheZones::ExploredTerritoriesArray = (char*)VAR_CTheZones__ExploredTerritoriesArray;
-DWORD& CTheZones::TotalNumberExploredTerritories = *(DWORD*)VAR_CTheZones__TotalNumberExploredTerritories;
+int& CTheZones::TotalNumberExploredTerritories = *(int*)VAR_CTheZones__TotalNumberExploredTerritories;
 
-WORD& CTheZones::TotalNumberOfMapZones = *(WORD*)VAR_CTheZones__TotalNumberOfInfoZones;
+short& CTheZones::TotalNumberOfMapZones = *(short*)VAR_CTheZones__TotalNumberOfInfoZones;
 CZone* CTheZones::ZoneInfoArray = (CZone*)VAR_CTheZones__ZoneInfoArray;
 
-WORD& CTheZones::TotalNumberOfInfoZones = *(WORD*)VAR_CTheZones__TotalNumberOfMapZones;
+short& CTheZones::TotalNumberOfInfoZones = *(short*)VAR_CTheZones__TotalNumberOfMapZones;
 CZone* CTheZones::MapZoneArray = (CZone*)VAR_CTheZones__MapZoneArray;
 
 // Functions
@@ -45,21 +45,21 @@ eLevelName CTheZones::GetLevelFromPosition(CVector const* pPoint)
 }
 
 // Returns pointer to zone by index
-CZone* CTheZones::GetInfoZone(WORD index)
+CZone* CTheZones::GetInfoZone(short index)
 {
-	return ((CZone* (__cdecl*)(WORD)) FUNC_CTheZones__GetInfoZone)(index);
+	return ((CZone* (__cdecl*)(short)) FUNC_CTheZones__GetInfoZone)(index);
 }
 
 // Returns pointer to zone by index
-CZone* CTheZones::GetMapZone(WORD index)
+CZone* CTheZones::GetMapZone(short index)
 {
-	return ((CZone* (__cdecl*)(WORD)) FUNC_CTheZones__GetMapZone)(index);
+	return ((CZone* (__cdecl*)(short)) FUNC_CTheZones__GetMapZone)(index);
 }
 
 // Returns pointer to zone by index
-WORD CTheZones::FindZoneByLabelAndReturnIndex(const char* name, int unk2)
+short CTheZones::FindZoneByLabelAndReturnIndex(const char* name, int unk2)
 {
-	return ((WORD (__cdecl*)(const char*, int)) FUNC_CTheZones__FindZoneByLabelAndReturnIndex)(name, unk2);
+	return ((short (__cdecl*)(const char*, int)) FUNC_CTheZones__FindZoneByLabelAndReturnIndex)(name, unk2);
 }
 
 // Returns pointer to zone by a point

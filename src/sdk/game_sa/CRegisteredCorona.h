@@ -2,7 +2,7 @@
 
 #include <plugin/plugin.h>
 #include "CVector.h"
-#include "RenderWare.h"
+#include "RenderWareTypes.h"
 #include "CRGBA.h"
 #include "CEntity.h"
 

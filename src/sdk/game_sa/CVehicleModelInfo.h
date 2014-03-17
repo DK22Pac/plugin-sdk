@@ -1,7 +1,7 @@
 #pragma once
 #include <plugin/plugin.h>
 #include "CClumpModelInfo.h"
-#include "RenderWare.h"
+#include "RenderWareTypes.h"
 #include "CVector.h"
 #include "CQuaternion.h"
 #include "RwObjectNameIdAssocation.h"

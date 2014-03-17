@@ -1,10 +1,7 @@
 #pragma once
 
-#include <windows.h>
-#include <stddef.h>
-#ifndef _SKIP_POST_PROCESS
-#include <game_sa/RenderWare.h>
-#endif
+#include <cstddef>
+#include <cstdint>
 
 #ifdef PLUGIN_EXPORT
 #define PLUGIN_API __declspec(dllexport)
@@ -88,6 +85,7 @@ public:
 
 class CVehicle;
 class CPed;
+struct RwRaster;
 
 namespace plugin
 {
@@ -159,7 +157,7 @@ namespace plugin
 	};
 	namespace System
 	{
-		PLUGIN_API CPlugin const * RegisterPlugin(char *name, char *author, char *filename, char *version, unsigned int versionId, 
+		PLUGIN_API CPlugin const * RegisterPlugin(const char *name, const char *author, const char *filename, const char *version, unsigned int versionId, 
 			unsigned int game, void *additionalData);
 		PLUGIN_API CPlugin const * GetPluginByName(char *name);
 	};
@@ -173,14 +171,12 @@ namespace plugin
 		PLUGIN_API void *GetPedPlugin(CPed *ped, unsigned int id);
 		PLUGIN_API void *FindPedPluginByUserId(CPed *ped, unsigned int userId);
 	};
-#ifndef _SKIP_POST_PROCESS
 	namespace PostProcess
 	{
 		PLUGIN_API void PostProcessCreate();
 		PLUGIN_API void PostProcessDestroy();
 		PLUGIN_API extern RwRaster *GameScreenRaster;
 	};
-#endif
 };
 
 using plugin::GetVMT;

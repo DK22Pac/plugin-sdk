@@ -5,7 +5,6 @@
 #include "CClothes.h"
 #include "CVector.h"
 #include "CVector2D.h"
-#include "RenderWare.h"
 
 #pragma pack(push, 4)
 class PLUGIN_API CPlayerData
@@ -51,7 +50,7 @@ public:
 	float m_fLookPitch;
 	float m_fSkateBoardSpeed;
 	float m_fSkateBoardLean;
-	RpAtomic *m_pSpecialAtomic;
+	struct RpAtomic *m_pSpecialAtomic;
 	float m_fGunSpinSpeed;
 	float m_fGunSpinAngle;
 	unsigned __int32 m_dwLastTimeFiring;

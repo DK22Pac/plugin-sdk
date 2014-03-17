@@ -50,10 +50,10 @@ struct PLUGIN_API tRunningScriptWrapper_SavedReturnedValuesArray
 	tRunningScriptWrapper_SavedReturnedValue returnedValues[maxNumberOfReturnedValues];
 
 	// Constructor
-	tRunningScriptWrapper_SavedReturnedValuesArray::tRunningScriptWrapper_SavedReturnedValuesArray();
+	tRunningScriptWrapper_SavedReturnedValuesArray();
 	
 	// Copy constructor
-	tRunningScriptWrapper_SavedReturnedValuesArray::tRunningScriptWrapper_SavedReturnedValuesArray(const tRunningScriptWrapper_SavedReturnedValuesArray& other);
+	tRunningScriptWrapper_SavedReturnedValuesArray(const tRunningScriptWrapper_SavedReturnedValuesArray& other);
 };
 #pragma pack(pop)
 
@@ -65,9 +65,9 @@ class PLUGIN_API CRunningScriptWrapper : public CRunningScript
 // private:
 public:
 	// Used to put code of command into
-	BYTE CommandSpace[2000];
+	uint8_t CommandSpace[2000];
 
-	BYTE* CommandSpaceArguments;
+	uint8_t* CommandSpaceArguments;
 
 	// VARIABLES
 	int pushArgIndex;
@@ -90,65 +90,65 @@ public:
 	// FUNCTIONS
 
 	// Constructor
-	CRunningScriptWrapper::CRunningScriptWrapper();
+	CRunningScriptWrapper();
 
 	// Saves returned values to object of type tRunningScriptWrapper_SavedReturnedValuesArray.	
 	// This function may only be called after execution of CallCommand - pushing values past the execution of CallCommand will overwrite values
 	void SaveReturnedValues(tRunningScriptWrapper_SavedReturnedValuesArray& arrayOfSavedReturnedValues);
 
 	// Calls a command. Return values: (-1 : invalid command ID, 0: continue, 1: WAIT)
-	char CRunningScriptWrapper::CallCommand(eCommandName commandID);
+	char CallCommand(eCommandName commandID);
 
 	// Calls a command. Return values: (-1 : invalid command ID, 0: continue, 1: WAIT)
-	char CRunningScriptWrapper::CallCommand(__int16 commandID);
+	char CallCommand(__int16 commandID);
 
 	// Returns offset of global variable by number of variable
-	static int CRunningScriptWrapper::GetGlobalVariableOffsetByNumber(int variableNum);
+	static int GetGlobalVariableOffsetByNumber(int variableNum);
 
 	// Returns pointer to global variable
-	tScriptVarValue* CRunningScriptWrapper::GetPointerToGlobalVariableByOffset(int variableOffset);
+	tScriptVarValue* GetPointerToGlobalVariableByOffset(int variableOffset);
 
 	///////// Functions to pass arguments /////////
 
 	// Pushes boolean argument
-	void CRunningScriptWrapper::PushBoolean(bool value, bool bIsReturnedValue = true);
+	void PushBoolean(bool value, bool bIsReturnedValue = true);
 
 	// Pushes float value
-	void CRunningScriptWrapper::PushFloat(float value, bool bIsReturnedValue = true);
+	void PushFloat(float value, bool bIsReturnedValue = true);
 
 	// Pushes integer value
-	void CRunningScriptWrapper::PushInt(__int32 value, bool bIsReturnedValue = true);
+	void PushInt(__int32 value, bool bIsReturnedValue = true);
 
 	// Pushes a pointer
-	void CRunningScriptWrapper::PushPointer(void* value, bool bIsReturnedValue = true);
+	void PushPointer(void* value, bool bIsReturnedValue = true);
 
 	// Pushes a short string value
-	void CRunningScriptWrapper::PushShortString(const char* value, bool bIsReturnedValue = true);
+	void PushShortString(const char* value, bool bIsReturnedValue = true);
 
 	// Pushes a long string value
-	void CRunningScriptWrapper::PushLongString(const char* value, bool bIsReturnedValue = true);
+	void PushLongString(const char* value, bool bIsReturnedValue = true);
 
 	// Pushes a varlen string
-	void CRunningScriptWrapper::PushVarlenString(const char* value);
+	void PushVarlenString(const char* value);
 
 	// Push a global variable value
-	void CRunningScriptWrapper::PushGlobalVariable(int globalVarOffset, eRunningScriptWrapperDataValueType valueType, bool bIsReturnedValue = true);
+	void PushGlobalVariable(int globalVarOffset, eRunningScriptWrapperDataValueType valueType, bool bIsReturnedValue = true);
 
 	// Pushes a return argument
-	void CRunningScriptWrapper::PushReturnArgument(eRunningScriptWrapperDataValueType valueType);
+	void PushReturnArgument(eRunningScriptWrapperDataValueType valueType);
 
 	// Pushes return arguments
-	void CRunningScriptWrapper::PushReturnArguments(eRunningScriptWrapperDataValueType valueType, int count);
+	void PushReturnArguments(eRunningScriptWrapperDataValueType valueType, int count);
 
 private:
 	// Initializes wrapper variables
-	void CRunningScriptWrapper::InitWrapperVars();
+	void InitWrapperVars();
 
 	// Pushes string value
-	void CRunningScriptWrapper::PushStringAsVar(const char* value, eRunningScriptWrapperDataValueType valueType, bool bIsReturnedValue);
+	void PushStringAsVar(const char* value, eRunningScriptWrapperDataValueType valueType, bool bIsReturnedValue);
 
 	// Writes an argument a local/global variable
-	void CRunningScriptWrapper::WriteArgumentVariable(eArgumentDataTypesFormat_GTA_III_VC_SA argumentType, int numberOfLocalVarsTaken);
+	void WriteArgumentVariable(eArgumentDataTypesFormat_GTA_III_VC_SA argumentType, int numberOfLocalVarsTaken);
 };
 #pragma pack(pop)
 

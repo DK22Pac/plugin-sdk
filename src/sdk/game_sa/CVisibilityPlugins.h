@@ -1,7 +1,7 @@
 #pragma once
 
 #include <plugin/plugin.h>
-#include "game_sa/RenderWare.h"
+#include "RenderWareTypes.h"
 
 struct tAtomicVisibilityPlugin
 {

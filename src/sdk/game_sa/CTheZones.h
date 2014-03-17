@@ -1,5 +1,4 @@
 #pragma once
-#include <windows.h>
 #include <plugin/plugin.h>
 #include "CVector.h"
 #include "CZone.h"
@@ -19,15 +18,15 @@ public:
 	// Count: 100
 	static char* ExploredTerritoriesArray;
 	// Number of explored territories
-	static DWORD& TotalNumberExploredTerritories;
+	static int& TotalNumberExploredTerritories;
 
 	// Info zones
-	static WORD& TotalNumberOfInfoZones;
+	static short& TotalNumberOfInfoZones;
 	// Count: 380
 	static CZone* ZoneInfoArray;
 
 	// Map zones
-	static WORD& TotalNumberOfMapZones;
+	static short& TotalNumberOfMapZones;
 	// Count: 39
 	static CZone* MapZoneArray;
 
@@ -40,13 +39,13 @@ public:
 	static eLevelName GetLevelFromPosition(CVector const* pPoint);
 
 	// Returns pointer to zone by index
-	static CZone* GetInfoZone(WORD index);
+	static CZone* GetInfoZone(short index);
 
 	// Returns pointer to zone by index
-	static CZone* GetMapZone(WORD index);
+	static CZone* GetMapZone(short index);
 
 	// Returns pointer to zone by index
-	static WORD FindZoneByLabelAndReturnIndex(const char* name, int unk2);
+	static short FindZoneByLabelAndReturnIndex(const char* name, int unk2);
 
 	// Returns pointer to zone by a point
 	static CZone* FindZoneForPoint(const CVector& point, bool FindOnlyZonesType0);

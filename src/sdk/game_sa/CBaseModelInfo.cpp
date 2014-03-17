@@ -54,9 +54,9 @@ unsigned int CBaseModelInfo::GetRwModelType()
 	return ((unsigned int (__thiscall *)(CBaseModelInfo *))GetVMT(this, 9))(this);
 }
 
-RwObject *CBaseModelInfo::CreateInstance(RwMatrixTag *matrix)
+RwObject *CBaseModelInfo::CreateInstance(RwMatrix *matrix)
 {
-	return ((RwObject *(__thiscall *)(CBaseModelInfo *, RwMatrixTag *))GetVMT(this, 10))(this, matrix);
+	return ((RwObject *(__thiscall *)(CBaseModelInfo *, RwMatrix *))GetVMT(this, 10))(this, matrix);
 }
 
 RwObject *CBaseModelInfo::CreateInstance()

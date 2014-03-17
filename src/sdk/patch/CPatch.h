@@ -1,5 +1,5 @@
 #pragma once
-#include <Windows.h>
+#include <windows.h>
 
 #define CALLVOID(a) ((void (__cdecl *)())a)()
 #define CALLVOIDRETCHAR(a) ((char (__cdecl *)())a)()

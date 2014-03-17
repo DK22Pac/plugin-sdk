@@ -3,7 +3,6 @@
 #include <plugin/plugin.h>
 #include "CPlayerData.h"
 #include "CVector.h"
-#include "RenderWare.h"
 
 enum ePlayerState
 {
@@ -80,7 +79,7 @@ public:
 	unsigned __int32 m_dwCrosshairActivated;
 	CVector2D m_vCrosshairTarget;         // -1 ... 1 on screen
 	__int8 m_acSkinName[32];
-	RwTexture *m_pSkinTexture;
+	struct RwTexture *m_pSkinTexture;
 	unsigned __int8 m_bParachuteReferenced;
 	__int8 _pad4[3];
 	unsigned __int32 m_dwRequireParachuteTimer;

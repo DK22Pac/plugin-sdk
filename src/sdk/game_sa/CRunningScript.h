@@ -116,35 +116,35 @@ public:
 	CRunningScript	*next;
 	CRunningScript	*prev;
 	char			threadName[8];
-	BYTE			*baseIP;
-	BYTE			*curIP;			
-	BYTE			*gosubStack[8];
-	WORD			gosubStackLevel;
-	WORD			_f3A;
+	uint8_t			*baseIP;
+	uint8_t			*curIP;			
+	uint8_t			*gosubStack[8];
+	uint16_t		gosubStackLevel;
+	uint16_t			_f3A;
 	tScriptVarValue	tls[32];	
-	DWORD			timers[2];	
+	uint32_t		timers[2];	
 	bool			isActive;
 	bool			condResult;	
 	bool			MissionCleanUpFlag;
 	bool			IsExternalThread;
-	BYTE			_fC8;
+	uint8_t			_fC8;
 	char			scrType;
-	BYTE			_fCA;
-	BYTE			_fCB;
-	DWORD			wakeTime;
-	WORD			logicalOp;
+	uint8_t			_fCA;
+	uint8_t			_fCB;
+	uint32_t		wakeTime;
+	uint16_t		logicalOp;
 	bool			notFlag;
 	bool			bDeathArrestCheckEnabled;
 	bool			wastedOrBusted;
-	BYTE			_fD5;
-	WORD			_fD6;
-	DWORD			sceneSkipOffset;
+	uint8_t			_fD5;
+	uint16_t		_fD6;
+	uint32_t		sceneSkipOffset;
 	bool			missionFlag;
 	// VARIABLES
 
 	// bellow is align in 4 bytes
-	WORD			scmFunction;
-	BYTE			IsCustom;
+	uint16_t		scmFunction;
+	uint8_t			IsCustom;
 
 	// Initializes member variables.
 	void Init();

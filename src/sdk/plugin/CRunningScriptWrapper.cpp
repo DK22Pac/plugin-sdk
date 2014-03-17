@@ -1,5 +1,6 @@
 #include "CRunningScriptWrapper.h"
-#include "game_sa\CTheScripts.h"
+#include <game_sa/CTheScripts.h>
+#include <cstring>
 
 // Constructor
 tRunningScriptWrapper_SavedReturnedValuesArray::tRunningScriptWrapper_SavedReturnedValuesArray()
@@ -163,13 +164,13 @@ void CRunningScriptWrapper::PushLongString(const char* value, bool bIsReturnedVa
 void CRunningScriptWrapper::PushVarlenString(const char* value)
 {
 	// Set type of argument
-	*(BYTE*)this -> CommandSpaceArguments = SCM_ARGUMENT_TYPE_STATIC_PASCAL_STRING;
-	this -> CommandSpaceArguments += sizeof(BYTE);
+	*(uint8_t*)this -> CommandSpaceArguments = SCM_ARGUMENT_TYPE_STATIC_PASCAL_STRING;
+	this -> CommandSpaceArguments += sizeof(uint8_t);
 
 	// Get and write string length
 	int len = strlen(value);	
-	*(BYTE*)this -> CommandSpaceArguments = len;
-	this -> CommandSpaceArguments += sizeof(BYTE);
+	*(uint8_t*)this -> CommandSpaceArguments = len;
+	this -> CommandSpaceArguments += sizeof(uint8_t);
 
 	memcpy(this -> CommandSpaceArguments, value, len);	
 
@@ -221,11 +222,11 @@ void CRunningScriptWrapper::PushGlobalVariable(int globalVarOffset, eRunningScri
 	}
 
 	// Set type of argument
-	*(BYTE*)this -> CommandSpaceArguments = SCM_ARGUMENT_TYPE_GLOBAL_NUMBER_VARIABLE;
-	this -> CommandSpaceArguments += sizeof(BYTE);
+	*(uint8_t*)this -> CommandSpaceArguments = SCM_ARGUMENT_TYPE_GLOBAL_NUMBER_VARIABLE;
+	this -> CommandSpaceArguments += sizeof(uint8_t);
 
-	*(WORD*)this -> CommandSpaceArguments = globalVarOffset;
-	this -> CommandSpaceArguments += sizeof(WORD);
+	*(uint16_t*)this -> CommandSpaceArguments = globalVarOffset;
+	this -> CommandSpaceArguments += sizeof(uint16_t);
 }
 
 // Pushes a return argument
@@ -268,11 +269,11 @@ void CRunningScriptWrapper::PushReturnArguments(eRunningScriptWrapperDataValueTy
 void CRunningScriptWrapper::WriteArgumentVariable(eArgumentDataTypesFormat_GTA_III_VC_SA argumentType, int numberOfLocalVarsTaken)
 {
 	// Set type of argument
-	*(BYTE*)this -> CommandSpaceArguments = argumentType;
-	this -> CommandSpaceArguments += sizeof(BYTE);
+	*(uint8_t*)this -> CommandSpaceArguments = argumentType;
+	this -> CommandSpaceArguments += sizeof(uint8_t);
 
-	*(WORD*)this -> CommandSpaceArguments = pushArgIndex;
-	this -> CommandSpaceArguments += sizeof(WORD);
+	*(uint16_t*)this -> CommandSpaceArguments = pushArgIndex;
+	this -> CommandSpaceArguments += sizeof(uint16_t);
 
 	this -> pushArgIndex += numberOfLocalVarsTaken;	// short string takes 2 variables
 }

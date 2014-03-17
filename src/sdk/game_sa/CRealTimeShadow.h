@@ -2,7 +2,6 @@
 
 #include <plugin/plugin.h>
 #include "CShadowCamera.h"
-#include "RenderWare.h"
 #include "CSphere.h"
 
 #pragma pack(push, 4)
@@ -18,17 +17,17 @@ public:
 	unsigned __int32 m_dwBlurPasses;
 	unsigned __int8 m_bDrawMoreBlur;
 	unsigned __int32 m_dwRwObjectType;
-	RpLight *m_pLight;
+	struct RpLight *m_pLight;
 	CSphere m_BoundingSphere;
 	CSphere m_BaseSphere;
 
 	CRealTimeShadow();
 	~CRealTimeShadow();
 
-	RwFrame *SetLightProperties(float angle, float _unused_param, bool setLight);
+	struct RwFrame *SetLightProperties(float angle, float _unused_param, bool setLight);
 	void Destroy();
 	CShadowCamera *GetShadowCamera();
-	RwTexture *GetShadowRwTexture();
+	struct RwTexture *GetShadowRwTexture();
 	void DrawBorderAroundTexture(RwRGBA  const& color);
 	// this creates all stuff for shadow processing (cameras, textures)
 	bool Create(bool isBlurred, int blurPasses, bool drawMoreBlur);

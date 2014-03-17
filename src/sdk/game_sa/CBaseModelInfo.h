@@ -1,6 +1,5 @@
 #pragma once
 #include <plugin/plugin.h>
-#include "RenderWare.h"
 #include "CColModel.h"
 #include "C2dEffect.h"
 
@@ -72,7 +71,7 @@ public:
 	};
 	CColModel        *m_pColModel;
 	float             m_fDrawDistance;
-	RwObject         *m_pRwObject;
+	struct RwObject   *m_pRwObject;
 
 	// vtable
 
@@ -85,8 +84,8 @@ public:
 	virtual void Shutdown();
 	virtual void DeleteRwObject();//=0
 	virtual unsigned int GetRwModelType();//=0
-	virtual RwObject *CreateInstance(RwMatrixTag *matrix);//=0
-	virtual RwObject *CreateInstance();//=0
+	virtual struct RwObject *CreateInstance(struct RwMatrix *matrix);//=0
+	virtual struct RwObject *CreateInstance();//=0
 	virtual void SetAnimFile(char *filename);
 	virtual void ConvertAnimFileIndex();
 	virtual signed int GetAnimFileIndex();

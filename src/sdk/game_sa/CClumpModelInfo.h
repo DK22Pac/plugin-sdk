@@ -3,6 +3,11 @@
 #include "CBaseModelInfo.h"
 #include "RwObjectNameIdAssocation.h"
 
+struct RwFrame;
+struct RpAtomic;
+struct RpClump;
+
+
 #pragma pack(push, 4)
 class PLUGIN_API CClumpModelInfo : public CBaseModelInfo
 {

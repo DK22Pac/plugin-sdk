@@ -1,10 +1,10 @@
 #pragma once
 
 #include <plugin/plugin.h>
-#include "RenderWare.h"
 #include "CRect.h"
 #include "CRGBA.h"
 #include "CVector2D.h"
+#include "RenderWareTypes.h"
 
 #define NUM_SPRITE_VERTICES 8
 
@@ -12,14 +12,14 @@ class PLUGIN_API CSprite2d
 {
 public:
 	// class variables
-	RwTexture *m_pTexture;
+	struct RwTexture *m_pTexture;
 	// static variables
 	static unsigned __int32& nextBufferIndex;
 	static unsigned __int32& nextBufferVertex;
 	static float& NearScreenZ;
 	static float& RecipNearClip;
 	// count: 8
-	static RwD3D9Vertex *maVertices;
+	static struct RwD3D9Vertex *maVertices;
 	// class functions
 	CSprite2d();
 	~CSprite2d();

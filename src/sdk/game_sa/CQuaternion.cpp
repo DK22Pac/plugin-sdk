@@ -1,9 +1,9 @@
 #include "CQuaternion.h"
 
 // Quat to matrix
-void CQuaternion::Get(RwMatrixTag *out)
+void CQuaternion::Get(RwMatrix *out)
 {
-	((void (__thiscall *)(CQuaternion *, RwMatrixTag *))0x59C080)(this, out);
+	((void (__thiscall *)(CQuaternion *, RwMatrix *))0x59C080)(this, out);
 }
 
 // Quat to euler angles
@@ -31,9 +31,9 @@ void CQuaternion::Slerp(CQuaternion const& from, CQuaternion const& to, float ha
 }
 
 // Quat from matrix
-void CQuaternion::Set(RwMatrixTag  const& m)
+void CQuaternion::Set(RwMatrix  const& m)
 {
-	((void (__thiscall *)(CQuaternion *, RwMatrixTag const&))0x59C3E0)(this, m);
+	((void (__thiscall *)(CQuaternion *, RwMatrix const&))0x59C3E0)(this, m);
 }
 
 // Quat from euler angles

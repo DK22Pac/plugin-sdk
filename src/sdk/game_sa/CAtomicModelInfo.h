@@ -10,7 +10,7 @@ protected:
 public:
 	// vtable
 
-	virtual void SetAtomic(RpAtomic *atomic);//=0
+	virtual void SetAtomic(struct RpAtomic *atomic);//=0
 
 	//
 
@@ -19,7 +19,7 @@ public:
 
 	//
 
-	RpAtomic *GetAtomicFromDistance(float distance);
+	struct RpAtomic *GetAtomicFromDistance(float distance);
 };
 
 VALIDATE_SIZE(CAtomicModelInfo, 0x20);
