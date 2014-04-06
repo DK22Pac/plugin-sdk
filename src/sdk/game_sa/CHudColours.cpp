@@ -2,12 +2,12 @@
 
 CHudColours &HudColour = *(CHudColours *)0xBAB22C;
 
-NOINLINE CHudColours::CHudColours()
+CHudColours::CHudColours()
 {
 	((void (__thiscall *)(CHudColours *))0x58FDA0)(this);
 }
 
-NOINLINE CHudColours::~CHudColours()
+CHudColours::~CHudColours()
 {
     ((void (__thiscall *)(CHudColours *))0x58FD90)(this);
 }

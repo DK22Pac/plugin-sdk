@@ -70,7 +70,7 @@ RpHAnimHierarchy *GetAnimHierarchyFromSkinClump(RpClump *clump)
 	return ((RpHAnimHierarchy *(__cdecl *)(RpClump *))0x734A40)(clump);
 }
 
-UInt32 &ClumpOffset = *(UInt32 *)0xB5F878;
+uint32_t &ClumpOffset = *(uint32_t *)0xB5F878;
 
 AnimBlendFrameData *RpAnimBlendClumpFindFrame(RpClump *clump, char *name)
 {

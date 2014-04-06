@@ -10,7 +10,7 @@
 // The following values should never change for compatibility between shared memories
 #define CBM_NAME                    "GTA_PLUGIN_SDK"    // Name of the mapped memory
 #define CBM_SIZE                    (1024)              // Size of the mapped memory
-#define CBM_DATA_SIZE               (2048)              // Size of he SharedData memory
+#define CBM_DATA_SIZE               (32768)             // Size of the SharedData memory    (32KiB)
 
 #pragma pack(push, 1)
 
@@ -92,6 +92,11 @@ class ControllerBlockManager
         {
             static ControllerBlockManager singleton;
             return singleton;
+        }
+        
+        static SharedData* GetInterface(int)
+        {
+            return ControllerBlockManager::GetInstance().GetInterface();
         }
        
         

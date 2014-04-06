@@ -34,7 +34,7 @@ PLUGIN_API CVector VectorSub(CVector const& from, CVector const& what);
 PLUGIN_API CVector Multiply3x3(CMatrix  const& matrix, CVector  const& vec);
 PLUGIN_API RpHAnimHierarchy *GetAnimHierarchyFromSkinClump(RpClump *clump);
 
-PLUGIN_API extern UInt32 &ClumpOffset;
+PLUGIN_API extern uint32_t &ClumpOffset;
 
 #define RpClumpGetAnimBlendClumpData(clump) (*(CAnimBlendClumpData **)(((unsigned int)(clump) + ClumpOffset)))
 

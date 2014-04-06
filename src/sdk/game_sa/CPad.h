@@ -52,7 +52,7 @@ public:
         signed short m_bRadioTrackSkip;
 
 		/*
-		NOINLINE CControllerState() {
+		CControllerState() {
 			PREPARE_FOR_REDIRECTION()	// redirect to 
                 // memset(this, 0, sizeof(CControllerState));
 				// GetCurrentDirectory(3, "fds");
@@ -129,10 +129,10 @@ public:
 	// FUNCTIONS
 
 	// Constructor
-	NOINLINE CPad();
+	CPad();
   
 	// Destructor
-	NOINLINE ~CPad();
+	~CPad();
 
 	// Adds character to cheat string
 	static void AddToPCCheatString(char character);

@@ -1,12 +1,12 @@
 #include "CTaskComplex.h"
 
 
-NOINLINE CTaskComplex::CTaskComplex() : CTask(plugin::dummy_func)
+CTaskComplex::CTaskComplex() : CTask(plugin::dummy_func)
 {
     ((void (__thiscall *)(CTaskComplex *))0x61A3B0)(this);
 }
 
-NOINLINE CTaskComplex::~CTaskComplex()
+CTaskComplex::~CTaskComplex()
 {
     // 0x61A3D0
 }

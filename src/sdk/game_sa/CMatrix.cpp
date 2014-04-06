@@ -1,6 +1,6 @@
 #include "CMatrix.h"
 
-NOINLINE CMatrix::CMatrix()
+CMatrix::CMatrix()
 {
 	// dummy
 }

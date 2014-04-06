@@ -1,11 +1,11 @@
 #include "CBuilding.h"
 
-NOINLINE CBuilding::CBuilding() : CEntity(plugin::dummy_func)
+CBuilding::CBuilding() : CEntity(plugin::dummy_func)
 {
     ((void (__thiscall *)(CBuilding *))0x403E00)(this);
 }
 
-NOINLINE CBuilding::~CBuilding()
+CBuilding::~CBuilding()
 {
     // 0x404180
 }

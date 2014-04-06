@@ -6,8 +6,8 @@
 class PLUGIN_API CNodeAddress
 {
 public:
-	Int16 m_wAreaId;
-	Int16 m_wNodeId;
+	int16_t m_wAreaId;
+	int16_t m_wNodeId;
 };
 #pragma pack(pop)
 

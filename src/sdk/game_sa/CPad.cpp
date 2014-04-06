@@ -11,13 +11,13 @@ static bool* CheatEnabledArray = (bool*)VAR_CPad__CheatEnabledArray;
 static bool& bHasPlayerCheated = *(bool*)VAR_CPad__bHasPlayerCheated;
 
 // Constructor
-NOINLINE CPad::CPad()
+CPad::CPad()
 {
     ((void (__thiscall *)(CPad *))0x541D80)(this);
 }
   
 // Destructor
-NOINLINE CPad::~CPad()
+CPad::~CPad()
 {
     ((void (__thiscall *)(CPad *))0x541D80)(this);
 }

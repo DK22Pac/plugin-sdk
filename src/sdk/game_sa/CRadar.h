@@ -22,24 +22,24 @@ enum eBlipType : char
 #pragma pack(push, 4)
 struct PLUGIN_API tRadarTrace
 {
-	UInt32  m_dwColour;
-	UInt32  m_dwEntityHandle;
+	uint32_t  m_dwColour;
+	uint32_t  m_dwEntityHandle;
 	CVector m_vPosition;
-	UInt16  m_wIndex;
-	Float   m_fSphereRadius;
-	UInt16  m_dwBlipSize;
+	uint16_t  m_wIndex;
+	float   m_fSphereRadius;
+	uint16_t  m_dwBlipSize;
 	class CEntryExit *m_pEntryExit;
-	UInt8   m_nBlipSprite;
+	uint8_t   m_nBlipSprite;
 	/* http://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CMarkerSA.h */
-	UInt8   m_bBright : 1;
-    UInt8   m_bTrackingBlip : 1;
-    UInt8   m_bShortRange : 1;
-    UInt8   m_bFriendly : 1;    
-    UInt8   m_bBlipRemain : 1;
-    UInt8   m_bBlipFade : 1;
-    UInt8   m_nCoordBlipAppearance : 2;
-    UInt8   m_nBlipDisplayFlag : 2;
-    UInt8   m_nBlipType : 4;
+	uint8_t   m_bBright : 1;
+    uint8_t   m_bTrackingBlip : 1;
+    uint8_t   m_bShortRange : 1;
+    uint8_t   m_bFriendly : 1;    
+    uint8_t   m_bBlipRemain : 1;
+    uint8_t   m_bBlipFade : 1;
+    uint8_t   m_nCoordBlipAppearance : 2;
+    uint8_t   m_nBlipDisplayFlag : 2;
+    uint8_t   m_nBlipType : 4;
 };
 #pragma pack(pop)
 
@@ -50,10 +50,10 @@ class PLUGIN_API CRadar
 public:
 	// 2990.0 by default
 	static float &m_radarRange;
-	// static UInt16 MapLegendList[175];
-	static UInt16 *MapLegendList;
+	// static uint16_t MapLegendList[175];
+	static uint16_t *MapLegendList;
 	// num icons in legend
-	static UInt16 &MapLegendCounter;
+	static uint16_t &MapLegendCounter;
 	// static CRGBA ArrowBlipColours[6];
 	static CRGBA *ArrowBlipColours;
 	// static tRadarTrace ms_RadarTrace[175];

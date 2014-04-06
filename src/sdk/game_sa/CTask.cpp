@@ -1,12 +1,12 @@
 #include "CTask.h"
 
 
-NOINLINE CTask::CTask()
+CTask::CTask()
 {
     ((void (__thiscall *)(CTask *))0x61A340)(this);
 }
 
-NOINLINE CTask::~CTask()
+CTask::~CTask()
 {
     // 0x061A350
 }

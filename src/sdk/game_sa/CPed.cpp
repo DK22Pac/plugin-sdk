@@ -1,11 +1,11 @@
 #include "CPed.h"
 
-NOINLINE CPed::CPed(ePedType type)
+CPed::CPed(ePedType type)
 {
 	//((void (__thiscall *)(CPed *, ePedType))0x5E8030)(this, type);
 }
 
-NOINLINE CPed::~CPed()
+CPed::~CPed()
 {
     // 0x5E8620
 }

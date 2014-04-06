@@ -8,12 +8,12 @@
 class PLUGIN_API CCopPed : public CPed
 {
 public:
-	Int32 field_79C;
+	int32_t field_79C;
 	eCopType       m_copType;
-	Int32 field_7A4;
+	int32_t field_7A4;
 	class CCopPed *m_pCopPartner;
 	CPed          *m_apCriminalsToKill[5];
-	Int8 field_7C0;
+	int8_t field_7C0;
 
 	CCopPed();
 	~CCopPed();

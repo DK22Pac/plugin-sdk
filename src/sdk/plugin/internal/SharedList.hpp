@@ -11,7 +11,7 @@
 #pragma pack(push, 1)
 
 template<class T>                   // T should be an POD type!!!!!!!
-class ListHead : public list_head
+class SharedList : public list_head
 {
     private:
         T object;
@@ -28,22 +28,25 @@ class ListHead : public list_head
         }
     
     public:
+        typedef SharedList  ListHead;
+        
         struct iterator;
         typedef const iterator const_iterator;
         typedef T& reference;
+        typedef T* pointer;
     
     public:
-        ListHead()
+        SharedList()
         {
             init();
         }
         
-        ListHead(const T& rhs) : object(rhs)
+        SharedList(const T& rhs) : object(rhs)
         {
             init();
         }
         
-        ~ListHead()
+        ~SharedList()
         {
             init();
             list_del(this);
@@ -72,6 +75,23 @@ class ListHead : public list_head
             init();
             ListHead* add = new ListHead(obj);
             list_add_tail(this, add);
+        }
+        
+        void emplace_back()
+        {
+            init();
+            ListHead* add = new ListHead();
+            list_add_tail(this, add);
+        }
+        
+        T& front()
+        {
+            return static_cast<ListHead*>(this->next)->object;
+        }
+        
+        T& back()
+        {
+            return static_cast<ListHead*>(this->prev)->object;
         }
         
         iterator erase(const_iterator position)
@@ -164,9 +184,9 @@ class ListHead : public list_head
                 return this->curr->object;
             }
             
-            reference operator->()
+            pointer operator->()
             {
-                return **this;
+                return &this->curr->object;
             }
         };
 };

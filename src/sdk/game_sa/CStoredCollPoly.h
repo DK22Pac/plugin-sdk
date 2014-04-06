@@ -8,7 +8,7 @@ class PLUGIN_API CStoredCollPoly
 {
 	CVector m_aMeshVertices[3]; // triangle vertices
 	Bool    m_bIsActual;
-	UInt32  m_dwLighting;
+	uint32_t  m_dwLighting;
 };
 #pragma pack(pop)
 

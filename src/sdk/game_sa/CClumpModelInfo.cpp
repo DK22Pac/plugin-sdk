@@ -1,11 +1,11 @@
 #include "CClumpModelInfo.h"
 
-NOINLINE CClumpModelInfo::CClumpModelInfo() : CBaseModelInfo(plugin::dummy_func)
+CClumpModelInfo::CClumpModelInfo() : CBaseModelInfo(plugin::dummy_func)
 {
 	((void (__thiscall *)(CClumpModelInfo *))0x4C56F0)(this);
 }
 
-NOINLINE CClumpModelInfo::~CClumpModelInfo()
+CClumpModelInfo::~CClumpModelInfo()
 {
 }
 

@@ -1,11 +1,11 @@
 #include "CTaskSimple.h"
 
-NOINLINE CTaskSimple::CTaskSimple() : CTask(plugin::dummy_func)
+CTaskSimple::CTaskSimple() : CTask(plugin::dummy_func)
 {
     ((void (__thiscall *)(CTaskSimple *))0x61A390)(this);
 }
 
-NOINLINE CTaskSimple::~CTaskSimple()
+CTaskSimple::~CTaskSimple()
 {
     // 0x61A3A0
 }

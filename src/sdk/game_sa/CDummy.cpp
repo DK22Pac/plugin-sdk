@@ -1,11 +1,11 @@
 #include "CDummy.h"
 
-NOINLINE CDummy::CDummy() : CEntity(plugin::dummy_func)
+CDummy::CDummy() : CEntity(plugin::dummy_func)
 {
 	((void (__thiscall *)(CDummy *))0x532540)(this);
 }
 
-NOINLINE CDummy::~CDummy()
+CDummy::~CDummy()
 {
     // 0x532560
 }

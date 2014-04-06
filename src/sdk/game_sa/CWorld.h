@@ -11,7 +11,7 @@ public:
 	// Player data array for 2 players.
 	static CPlayerInfo *Players;
 	// Current player we playing.
-	static Int8& PlayerInFocus;
+	static int8_t& PlayerInFocus;
 	// entity to ignore
 	static CEntity *&pIgnoreEntity;
 	static Bool ProcessLineOfSight(CVector  const& origin, CVector  const& target, CColPoint &colPoint, 

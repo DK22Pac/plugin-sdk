@@ -7,8 +7,8 @@ class PLUGIN_API CAnimBlendClumpData
 {
 public:
 	void               *m_pLastAssociationLink;
-	Int32 field_4;
-	UInt32              m_dwNumBones;
-	Int32 field_C;
+	int32_t field_4;
+	uint32_t              m_dwNumBones;
+	int32_t field_C;
 	AnimBlendFrameData *m_pBones;
 };

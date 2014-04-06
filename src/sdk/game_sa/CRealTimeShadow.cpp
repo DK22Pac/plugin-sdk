@@ -1,11 +1,11 @@
 #include "CRealTimeShadow.h"
 
-NOINLINE CRealTimeShadow::CRealTimeShadow()
+CRealTimeShadow::CRealTimeShadow()
 {
 	((void (__thiscall *)(CRealTimeShadow *))0x706410)(this);
 }
 
-NOINLINE CRealTimeShadow::~CRealTimeShadow()
+CRealTimeShadow::~CRealTimeShadow()
 {
 	((void (__thiscall *)(CRealTimeShadow *))0x706440)(this);
 }

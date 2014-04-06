@@ -1,12 +1,12 @@
 #include "CMatrixLink.h"
 
-NOINLINE CMatrixLink::CMatrixLink()
+CMatrixLink::CMatrixLink()
 {
     // parent (CMatrix) constructor is dummy
 	((void (__thiscall *)(CMatrixLink *))0x54F0C0)(this);
 }
 
-NOINLINE CMatrixLink::~CMatrixLink()
+CMatrixLink::~CMatrixLink()
 {
     // 0x54E8E0 -- This destructor is dummy
 	// Let it call it's parent destructor

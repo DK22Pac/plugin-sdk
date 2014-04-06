@@ -4,13 +4,13 @@
 #pragma pack(push, 4)
 class CRideAnimData
 {
-	UInt32 m_dwAnimGroup;
-	Int32 dword4;
-	Float m_fAnimLean;
-	Int32 dwordC;
-	Float dword10;
-	Float m_fHandlebarsAngle;
-	Float m_fAnimPercentageState;
+	uint32_t m_dwAnimGroup;
+	int32_t dword4;
+	float m_fAnimLean;
+	int32_t dwordC;
+	float dword10;
+	float m_fHandlebarsAngle;
+	float m_fAnimPercentageState;
 };
 #pragma pack(pop)
 

@@ -11,18 +11,18 @@ protected:
 public:
 	void *m_pPrev;
 	class CAnimBlendClump *m_pAnimBlendClumpData;
-	UInt16 m_wNumBlendNodes;
-	Int16 m_wAnimGroup;
+	uint16_t m_wNumBlendNodes;
+	int16_t m_wAnimGroup;
 	class CAnimBlendNode *m_pAnimBlendNodeArray;
 	class CAnimBlendHierarchy *m_pAnimBlendHierarchy;
-	Float m_fBlendAmount;
-	Float m_fBlendDelta;
-	Float m_fCurrentTime;
-	Float m_fSpeed;
-	Float m_fTimeStep;
-	Int16 m_wAnimID;
-	UInt16 m_wFlags;
-	UInt32 m_dwCallbackType;
+	float m_fBlendAmount;
+	float m_fBlendDelta;
+	float m_fCurrentTime;
+	float m_fSpeed;
+	float m_fTimeStep;
+	int16_t m_wAnimID;
+	uint16_t m_wFlags;
+	uint32_t m_dwCallbackType;
 	void *m_pCallbackFunc;
 	void *m_pCallbackData;
 };

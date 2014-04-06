@@ -1,11 +1,11 @@
 #include "CBaseModelInfo.h"
 
-NOINLINE CBaseModelInfo::CBaseModelInfo()
+CBaseModelInfo::CBaseModelInfo()
 {
 	((void (__thiscall *)(CBaseModelInfo *))0x4C4A60)(this);
 }
 
-NOINLINE CBaseModelInfo::~CBaseModelInfo()
+CBaseModelInfo::~CBaseModelInfo()
 {
 }
 

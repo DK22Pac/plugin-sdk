@@ -1,6 +1,4 @@
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-#add_definitions(-D_IDA_EXPORT)                      # Avoid some shitty stuff IDA related
-add_definitions(-DPLUGIN_EXPORT)                    # Exporting
 
 # Visual Studio specific stuff
 if(MSVC)
@@ -26,5 +24,5 @@ endif(MINGW)
 # Go
 add_subdirectory(game_sa)
 add_subdirectory(plugin)
-add_library(plugin SHARED)
+add_library(plugin STATIC)
 target_link_libraries(plugin plugin_base game_sa)

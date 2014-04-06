@@ -1,7 +1,7 @@
 #include "CWorld.h"
 
 CPlayerInfo *CWorld::Players = (CPlayerInfo *)0xB7CD98;
-Int8& CWorld::PlayerInFocus = *(Int8 *)0xB7CD74;
+int8_t& CWorld::PlayerInFocus = *(int8_t *)0xB7CD74;
 CEntity *&CWorld::pIgnoreEntity = *(CEntity **)0xB7CD68;
 
 Bool CWorld::ProcessLineOfSight(CVector  const& origin, CVector  const& target, CColPoint &colPoint, 

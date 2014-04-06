@@ -140,7 +140,7 @@ public:
 	// Deallocates object
 	void Delete(A* pObject)
 	{
-		int idx = pObject - this -> m_Objects;
+		int idx = reinterpret_cast<B*>(pObject) - this -> m_Objects;
 
 		this -> m_ByteMap[idx].bIsFreeSlot = true;
 	}
@@ -148,8 +148,7 @@ public:
 	// Returns SCM handle for object
 	int GetIndex(A* pObject)
 	{
-		int idx = pObject - this -> m_Objects;
-
+		int idx = reinterpret_cast<B*>(pObject) - this -> m_Objects;
 		return idx * 256 + this -> m_ByteMap[idx].seed;
 	}
 
