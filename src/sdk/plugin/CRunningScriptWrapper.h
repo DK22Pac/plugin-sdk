@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2013 fastman92 <>
+ * 
+ */
 #pragma once
 #include <game_sa/eCommandName.h>
 #include <game_sa/CRunningScript.h>

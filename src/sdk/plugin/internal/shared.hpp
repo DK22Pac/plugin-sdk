@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2014  LINK/2012 <dma_2012@hotmail.com>
+ * Licensed under zlib license, see LICENSE at top level directory.
+ *
+ *      Shared Memory Between Processes
+ * 
+ */
 #pragma once
 #include <cstdint>
 #include <windows.h>

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2013-2014 Dmitry K. <>
+ * Copyright (C) 2014  LINK/2012 <dma_2012@hotmail.com>
+ * Licensed under zlib license, see LICENSE at top level directory.
+ * 
+ */
 #pragma once
 #include <cstddef>
 #include <cstdint>
@@ -115,7 +121,7 @@ namespace plugin
 	{
 		PLUGIN_API void PostProcessCreate();
 		PLUGIN_API void PostProcessDestroy();
-		PLUGIN_API extern RwRaster *GameScreenRaster;
+		PLUGIN_API RwRaster* GetGameScreenRaster();
 	};
 };
 

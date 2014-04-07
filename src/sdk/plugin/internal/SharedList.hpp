@@ -1,7 +1,10 @@
 /*
- *  Cross-compiler list
- *      Used to archieve memory sharing of a list between various compilers
- *      This class is missing features.
+ * Copyright (C) 2014  LINK/2012 <dma_2012@hotmail.com>
+ * Licensed under zlib license, see LICENSE at top level directory.
+ *
+ *      Cross-compiler list
+ *          Used to archieve memory sharing of a list between various compilers
+ *          This class is missing features.
  *
  */
 #pragma once
