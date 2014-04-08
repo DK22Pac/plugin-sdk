@@ -119,9 +119,9 @@ namespace plugin
     // Post processing effects
 	namespace PostProcess
 	{
-		PLUGIN_API void PostProcessCreate();
-		PLUGIN_API void PostProcessDestroy();
-		PLUGIN_API RwRaster* GetGameScreenRaster();
+		//PLUGIN_API void PostProcessCreate();
+		//PLUGIN_API void PostProcessDestroy();           
+		PLUGIN_API RwRaster*& GetGameScreenRaster();
 	};
 };
 

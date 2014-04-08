@@ -42,9 +42,11 @@ struct EntityPluginData
  */
 struct SharedData
 {
-    SharedList<plugin::CPlugin*>    plugins;
-    EntityPluginData<CPed>          pedPlugin;
-    EntityPluginData<CVehicle>      vehPlugin;
+    SharedList<plugin::CPlugin*>    plugins;                    // Registered Plugins Using this SDK
+    RwRaster*                       gameScreenRaster;           // Game screen is captured to this raster
+    uint32_t                        lastPostFxFrame;            // Last time gameScreenRaster was captured
+    EntityPluginData<CPed>          pedPlugin;                  // Ped Structure Plugin Data
+    EntityPluginData<CVehicle>      vehPlugin;                  // Vehicle Structure Plugin Data
 };
 
 

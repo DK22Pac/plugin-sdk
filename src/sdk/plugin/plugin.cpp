@@ -10,6 +10,7 @@
 #include "internal/SharedData.hpp"
 #include "internal/CallbackManager.hpp"
 #include "internal/CallbackResetDevice.hpp"
+#include "internal/CallbackPostFX.hpp"
 #include "internal/PedPluginManager.hpp"
 #include "internal/VehPluginManager.hpp"
 
@@ -35,11 +36,13 @@ static CallbackManager1C<0x5BF85B>              PoolsInitialisationFunc;
 static CallbackManager1C<0x53EAD3>              PostProcessFunc;
 static CallbackManager1C<0x53E293>              DefaultDrawingFunc;
 static CallbackResetDevice<0xC97C28>            DeviceResetFunc;
+static CallbackPostFX<0x53EAD3>                 PostFXFunc;
 static CallbackManagerThis1C<0x6D5F2F>          VehicleCtorFunc;
 static CallbackManagerThis1C<0x6E2D35>          VehicleDtorFunc;
 static CallbackManagerThis1C<0x5E8052>          PedCtorFunc;
 static CallbackManagerThis1C<0x5E880C>          PedDtorFunc;
 static CallbackManagerThis1J<0x57C324>          MenuDrawingFunc;
+
 
 // Entity Plugins
 static PedPluginManager     pped;
@@ -48,33 +51,40 @@ static VehiclePluginManager pveh;
 
 
 
+
+// Gets the SDK version
+uint32_t plugin::Core::GetVersion()
+{
+    return _PLUGIN_VERSION;
+}
+
 // Registers a new plugin
-const CPlugin* plugin::System::RegisterPlugin(const char *name, 
-						  const char *author, 
-						  const char *filename, 
-						  const char *version, 
-						  unsigned int versionId, 
-						  unsigned int game, 
-						  void *additionalData)
+const CPlugin* plugin::System::RegisterPlugin(  const char *name, 
+                                                const char *author, 
+                                                const char *filename, 
+                                                const char *version, 
+                                                unsigned int versionId, 
+                                                unsigned int game, 
+                                                void *additionalData)
 {
     // Allocate the plugin
 	auto* plugin = (CPlugin*) ControllerBlockManager::GetInstance().Alloc(sizeof(CPlugin));
     
     // Setup strings
-	strcpy(plugin->author, author);
-	strcpy(plugin->fileName, filename);
-	strcpy(plugin->name, name);
-	strcpy(plugin->version, version);
+    strcpy(plugin->author, author);
+    strcpy(plugin->fileName, filename);
+    strcpy(plugin->name, name);
+    strcpy(plugin->version, version);
     
     // Setup other data
-	plugin->game = game;
-	plugin->additionalData = additionalData;
-	plugin->versionId = versionId;
+    plugin->game = game;
+    plugin->additionalData = additionalData;
+    plugin->versionId = versionId;
     
     // Push the plugin into the shared object
     ControllerBlockManager::GetInterface(0)->plugins.push_back(plugin);
     
-	return plugin;
+    return plugin;
 }
 
 // Gets a plugin from it's name
@@ -83,19 +93,23 @@ const CPlugin* plugin::System::GetPluginByName(const char *name)
     auto& plugins = ControllerBlockManager::GetInterface(0)->plugins;
     
     // Try to find the plugin in the list by the name
-	for(auto i = plugins.begin(); i != plugins.end(); ++i)
-		if(!strcmp((*i)->name, name)) return *i;
+    for(auto i = plugins.begin(); i != plugins.end(); ++i)
+        if(!strcmp((*i)->name, name)) return *i;
     
-	return nullptr;
+    return nullptr;
 }
 
-
+// Gets a reference to the game screen raster used for PostFX
+RwRaster*& plugin::PostProcess::GetGameScreenRaster()
+{
+    return ControllerBlockManager::GetInterface(0)->gameScreenRaster;
+}
 
 // Adds a callback function
 void plugin::Core::RegisterFunc(eFuncType type, tRegisteredFunction func)
 {
-	switch(type)
-	{
+    switch(type)
+    {
         case FUNC_BEFORE_RESET:
             DeviceResetFunc.RegisterFuncBefore(func);
             break;
@@ -186,13 +200,11 @@ void plugin::Core::RegisterFunc(eFuncType type, tRegisteredFunction func)
         case FUNC_AFTER_POOLS_INITIALISATION:
             PoolsInitialisationFunc.RegisterFuncAfter(func);
             break;
-            
-        /* TODO
+
         case FUNC_POST_PROCESS_DRAWING:
-            PostProcessFunc.RegisterFuncAfter(func);    TODO custom after
+            PostFXFunc.RegisterFuncAfter(func);
             break;
-        */
-	}
+    }
 }
 
 

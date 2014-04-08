@@ -37,7 +37,7 @@ struct ResetDevicePatcher
     }
 };
 
-struct ResetDeviceManager : SimpleSuperManager<ResetDevicePatcher>
+struct cbResetDeviceManager : SimpleSuperManager<ResetDevicePatcher>
 {
     // Patches the IDirect3DDevice at addr0
     void DoPatch(uintptr_t addr0, Reset_t hf0)
@@ -54,14 +54,14 @@ struct ResetDeviceManager : SimpleSuperManager<ResetDevicePatcher>
 
 
 template<uintptr_t addr0>
-struct CallbackResetDevice : public BasicCallbackManager<addr0, 0, 0, 0, 0, ResetDeviceManager>
+struct CallbackResetDevice : public BasicCallbackManager<addr0, 0, 0, 0, 0, cbResetDeviceManager>
 {
     public:
-        typedef BasicCallbackManager<addr0, 0, 0, 0, 0, ResetDeviceManager> Base;
+        typedef BasicCallbackManager<addr0, 0, 0, 0, 0, cbResetDeviceManager> Base;
 
         virtual void Patch(uintptr_t xaddr0, uintptr_t, uintptr_t, uintptr_t, uintptr_t)
         {
-            ResetDeviceManager::DoPatch(xaddr0, hf0);
+            cbResetDeviceManager::DoPatch(xaddr0, hf0);
         }
         
         // Called when the event happens
