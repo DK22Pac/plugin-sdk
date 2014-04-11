@@ -2,6 +2,7 @@
  *  Injectors - Base Header
  *
  *  Copyright (C) 2012-2014 LINK/2012 <dma_2012@hotmail.com>
+ *  Copyright (C) 2014 Deji <the_zone@hotmail.co.uk>
  *
  *  This software is provided 'as-is', without any express or implied
  *  warranty. In no event will the authors be held liable for any damages
@@ -250,8 +251,10 @@ union auto_ptr_cast
 
 	template<class T>
 	operator T*() { return reinterpret_cast<T*>(p); }
+	/*
 	template<class T>
 	operator const T*() { return reinterpret_cast<const T*>(p); }
+	*/
 };
 
 /*
@@ -351,6 +354,29 @@ inline memory_pointer_raw  raw_ptr(T p)
 {
     return memory_pointer_raw(p);
 }
+
+
+/*
+ *  lazy_pointer
+ *      Lazy pointer, where it's final value will get evaluated only once when finally needed.
+ */
+template<uintptr_t addr>
+struct lazy_pointer()
+{
+    // Returns the final pointer
+    static auto_ptr_cast xget()
+    {
+        static void* ptr = nullptr;
+        if(!ptr) ptr = memory_pointer(addr).get();
+        return auto_ptr_cast(ptr);
+    }
+
+    // Returns the final raw pointer
+    static memory_pointer_raw get()
+    {
+        return xget();
+    }
+};
 
 
 
@@ -673,8 +699,8 @@ inline void MakeNOP(memory_pointer_tr at, size_t count = 1, bool vp = true)
  */
 inline void MakeRET(memory_pointer_tr at, uint16_t pop = 0, bool vp = true)
 {
-    WriteMemory(at, pop? 0xC2 : 0xC3, vp);
-    if(pop) WriteMemory(at+1, pop, vp);
+    WriteMemory<uint8_t>(at, pop? 0xC2 : 0xC3, vp);
+    if(pop) WriteMemory<uint16_t>(at+1, pop, vp);
 }
 
 

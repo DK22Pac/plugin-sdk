@@ -156,7 +156,7 @@ class BasicCallbackManagerThis : public CallbackManager
         }
         
         // Called when the event happens
-        template<int N> static __fastcall void* hf(void* this_ptr)
+        template<int N> static void* __fastcall hf(void* this_ptr)
         {
             auto& cbm = *CallbackManager::GetInstance();
 
