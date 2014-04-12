@@ -361,7 +361,7 @@ inline memory_pointer_raw  raw_ptr(T p)
  *      Lazy pointer, where it's final value will get evaluated only once when finally needed.
  */
 template<uintptr_t addr>
-struct lazy_pointer()
+struct lazy_pointer
 {
     // Returns the final pointer
     static auto_ptr_cast xget()

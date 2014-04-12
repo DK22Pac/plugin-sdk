@@ -251,10 +251,10 @@ struct SimpleSuperManagerThiscall : SimpleSuperManager<MyBasePatcher>
  */
 
 // Normally a patcher will inherit from this object
-template<class FuncT>
+template<class FuncT, int N = 5>
 struct BasePatcher
 {
-    injector::hook_back<FuncT> hb[5];
+    injector::hook_back<FuncT> hb[N];
 };
 
 // Patcher that works with a CALL replacing
@@ -263,7 +263,8 @@ struct BasePatcherCALL : public BasePatcher<FuncT>
 {
     void Patch(int n, const CallbackPair& c)
     {
-        if(c.first) this->hb[n].fun = injector::MakeCALL(c.first, c.second).get();
+        using injector::raw_ptr;
+        if(c.first) this->hb[n].fun = injector::MakeCALL(c.first, raw_ptr(c.second)).get();
     }
 };
 
@@ -273,7 +274,8 @@ struct BasePatcherJMP : public BasePatcher<FuncT>
 {
     void Patch(int n, const CallbackPair& c)
     {
-        if(c.first) this->hb[n].fun = injector::MakeJMP(c.first, c.second).get();
+        using injector::raw_ptr;
+        if(c.first) this->hb[n].fun = injector::MakeJMP(c.first, raw_ptr(c.second)).get();
     }
 };
 

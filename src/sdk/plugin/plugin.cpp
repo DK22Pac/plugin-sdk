@@ -35,7 +35,7 @@ static CallbackManager1C<0x53E4FF>              DrawHUDFunc;
 static CallbackManager1C<0x5BF85B>              PoolsInitialisationFunc;
 static CallbackManager1C<0x53EAD3>              PostProcessFunc;
 static CallbackManager1C<0x53E293>              DefaultDrawingFunc;
-static CallbackResetDevice<0xC97C28>            DeviceResetFunc;
+static CallbackResetDevice                      DeviceResetFunc;
 static CallbackPostFX<0x53EAD3>                 PostFXFunc;
 static CallbackManagerThis1C<0x6D5F2F>          VehicleCtorFunc;
 static CallbackManagerThis1C<0x6E2D35>          VehicleDtorFunc;
