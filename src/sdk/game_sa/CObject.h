@@ -57,7 +57,7 @@ public:
 	// this is used for detached car parts
 	unsigned __int8     m_nCarColor[4];
 	// time when this object must be deleted
-	unsigned __int32    m_dwRemovalTime;
+	__int32             m_dwRemovalTime;
 	float               m_fHealth;
 	// this is used for door objects
 	float               m_fDoorStartAngle;
@@ -71,7 +71,7 @@ public:
 	RwTexture          *m_pPaintjobTex;
 	class CDummyObject *m_pDummyObject;
 	// time when particles must be stopped
-	unsigned __int32    m_dwTimeToStopParticles;
+	__int32             m_dwTimeToStopParticles;
 	float               m_fParticlesIntensity;
 
 // class functions
