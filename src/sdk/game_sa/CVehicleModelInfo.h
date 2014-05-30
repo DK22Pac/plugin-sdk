@@ -88,8 +88,7 @@ public:
 	} *m_pVehicleStruct;
 
 	__int8 field_60[464];
-	RpMaterial *m_apDirtMaterials[16];
-	__int8 field_270[64];
+	RpMaterial *m_apDirtMaterials[32];
 	unsigned __int8 m_anPrimaryColors[8];
 	unsigned __int8 m_anSecondaryColors[8];
 	unsigned __int8 m_anTertiaryColors[8];
