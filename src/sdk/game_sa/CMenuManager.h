@@ -4,6 +4,36 @@
 #include "CVector2D.h"
 #include "CSprite2d.h"
 
+#pragma pack(push, 4)
+struct CMenuEntryData
+{
+  unsigned char m_nActionType;      // Unknown if signed or signed, but it does only '==' comparisions, so it's safe to use unsigned (moar numbers)
+  char m_szName[8];
+  char m_nType;
+  char m_nTargetMenu;
+  //char _pad1;
+  __int16 m_wPosnX;
+  __int16 m_wPosnY;
+  char m_nAlign;
+  //char _pad2;
+};
+#pragma pack(pop)
+
+#pragma pack(push, 4)
+struct CMenuItem
+{
+  char m_szTitleName[8];
+  char m_nPrevMenu;
+  char m_nStartingEntry;
+  CMenuEntryData m_aEntries[12];
+};
+#pragma pack(pop)
+
+VALIDATE_SIZE(CMenuEntryData, 0x12);
+VALIDATE_SIZE(CMenuItem, 0xE2);
+
+
+
 #pragma pack(push, 1)
 class PLUGIN_API CMenuManager
 {

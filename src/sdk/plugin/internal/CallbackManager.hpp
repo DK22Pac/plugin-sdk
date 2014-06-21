@@ -10,7 +10,7 @@
 #include <vector>
 #include <algorithm>
 #include <plugin/plugin.h>
-#include <plugin/injector/hooking.hpp>
+#include <injector/hooking.hpp>
 
 // Callback typedefs
 typedef plugin::tRegisteredFunction         CallbackItem;

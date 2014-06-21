@@ -7,7 +7,7 @@
 #include <cstdio>
 #include "plugin.h"
 #include "injector/hooking.hpp"
-#include "internal/SharedData.hpp"
+#include "shared/SharedData.hpp"
 #include "internal/CallbackManager.hpp"
 #include "internal/CallbackResetDevice.hpp"
 #include "internal/CallbackPostFX.hpp"

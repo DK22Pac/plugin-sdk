@@ -21,8 +21,7 @@ if(MINGW)
 
 endif(MINGW)
 
-# Go
+# Compile
 add_subdirectory(game_sa)
 add_subdirectory(plugin)
-add_library(plugin STATIC)
-target_link_libraries(plugin plugin_base game_sa)
+add_library(plugin-sdk STATIC $<TARGET_OBJECTS:plugin-sdk-base> $<TARGET_OBJECTS:plugin-sdk-sa>)

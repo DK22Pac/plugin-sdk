@@ -12,3 +12,4 @@ public:
 	int32_t field_C;
 	AnimBlendFrameData *m_pBones;
 };
+#pragma pack(pop)

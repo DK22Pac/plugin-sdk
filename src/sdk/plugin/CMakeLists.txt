@@ -1,13 +1,28 @@
-# find . -name '*'.cpp
+# find . -name '*'.cpp -o -name '*'.hpp -o -name '*'.h
 set(SOURCE_FILES
 
-./CRunningScriptWrapper.cpp
-./plugin.cpp
+# Main source files
+plugin.cpp
+plugin.h
+MenuExtender.cpp
+MenuExtender.h
+CRunningScriptWrapper.cpp
+CRunningScriptWrapper.h
+
+# Shared memory implementation
+shared/SharedList.hpp
+shared/SharedData.hpp
+shared/internal/shared.hpp
+shared/internal/list.h
+
+# Internal, user shouldn't touch those
+internal/CallbackManager.hpp
+internal/CallbackPostFX.hpp
+internal/CallbackResetDevice.hpp
+internal/EntityPluginManager.hpp
+internal/VehPluginManager.hpp
+internal/PedPluginManager.hpp
 
 )
 
-
-# TODO STATIC
-set(CMAKE_SHARED_LIBRARY_PREFIX "")
-add_library(plugin_base ${SOURCE_FILES})
-
+add_library(plugin-sdk-base OBJECT ${SOURCE_FILES})

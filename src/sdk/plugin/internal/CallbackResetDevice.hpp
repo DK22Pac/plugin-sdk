@@ -117,7 +117,7 @@ struct CallbackResetDevice : public BasicCallbackManager<0, 0, 0, 0, 0, cbResetD
 
 #if defined(_MSC_VER)
 
-void __declspec(naked) HRESULT CallRyosukeLikeReset(void* pFunc, void* pDevice, void* pPresentationParams)
+HRESULT __declspec(naked) CallRyosukeLikeReset(void* pFunc, void* pDevice, void* pPresentationParams)
 {
     __asm
     {
@@ -128,7 +128,7 @@ void __declspec(naked) HRESULT CallRyosukeLikeReset(void* pFunc, void* pDevice, 
         ret
   
         /* Due to a GCC compiler/linker bug or something like that */
-        jmp _CallRyosukeLikeReset
+        jmp CallRyosukeLikeReset
 	}
 }
 

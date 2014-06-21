@@ -1,4 +1,4 @@
-project(PLUGINSDK)
+project(plugin-sdk)
 cmake_minimum_required(VERSION 2.8)
 
 # When no build type specified, use Release
@@ -14,9 +14,3 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 # Source files
 add_subdirectory(src)
-
-if(BUILD_TEST)                  # MobileHUD & IMFX
-    message(status "Compiling tests")
-    add_subdirectory(test)
-endif()
-

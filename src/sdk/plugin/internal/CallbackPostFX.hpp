@@ -8,8 +8,7 @@
  */
 #pragma once
 #include "CallbackManager.hpp"
-#include "shared.hpp"
-#include "SharedData.hpp"
+#include <plugin/shared/SharedData.hpp>
 #include <game_sa/CTimer.h>
 #include <game_sa/RenderWare.h>
 
