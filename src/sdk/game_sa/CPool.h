@@ -129,6 +129,19 @@ public:
 		return &m_Objects[m_nFirstFree];
 	}
 
+	// Allocates object at a specific index from a SCM handle
+	void				New(int nHandle)
+	{
+		nHandle >>= 8;
+
+		m_ByteMap[nHandle].a.bIsFreeSlot = false;
+		++m_ByteMap[nHandle].a.uID;
+		m_nFirstFree = 0;
+
+		while ( !m_ByteMap[m_nFirstFree].a.bIsFreeSlot )
+			++m_nFirstFree;
+	}
+
 	// Deallocates object
 	void Delete(A* pObject)
 	{
