@@ -2,7 +2,7 @@
  * Copyright (C) 2013 fastman92 <>
  * 
  */
-#include "CRunningScriptWrapper.h"
+#include "wrapper.h"
 #include <game_sa/CTheScripts.h>
 #include <cstring>
 

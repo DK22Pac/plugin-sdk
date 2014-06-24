@@ -4,10 +4,6 @@ set(SOURCE_FILES
 # Main source files
 plugin.cpp
 plugin.h
-MenuExtender.cpp
-MenuExtender.h
-CRunningScriptWrapper.cpp
-CRunningScriptWrapper.h
 
 # Shared memory implementation
 shared/SharedList.hpp
@@ -15,7 +11,15 @@ shared/SharedData.hpp
 shared/internal/shared.hpp
 shared/internal/list.h
 
-# Internal, user shouldn't touch those
+# CRunningScript wrappers
+script/wrapper.cpp
+script/wrapper.h
+
+# Frontend Extender
+frontend/extender.cpp
+frontend/extender.h
+
+# Internal use, user shouldn't touch those!!!!
 internal/CallbackManager.hpp
 internal/CallbackPostFX.hpp
 internal/CallbackResetDevice.hpp
