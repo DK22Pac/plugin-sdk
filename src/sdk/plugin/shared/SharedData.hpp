@@ -8,7 +8,14 @@
 #pragma once
 #include <cstdint>
 #include "SharedList.hpp"
-#include <plugin/plugin.h>
+
+// Try not to include plugin.h or anything else here to make it independent!
+class CPed;
+class CVehicle;
+struct RwRaster;
+struct CMenuItem;
+namespace plugin { struct CPlugin; }
+
 
 #pragma pack(push, 1)
 
@@ -34,6 +41,17 @@ struct EntityPluginData
     SharedList<EntityPluginUserData<T>> plugins;        // Entity plugins
 };
 
+// Menu Extender Data Structure
+struct MenuExtenderData
+{
+    CMenuItem* pItems;      // New menu items array (128 pages)
+    short nUsedItems;       // Number of consumed menu pages
+    short nUsedActions;     // Number of consumed entry actions
+    short nUsedTypes;       // Number of consumed entry types
+    short _rsv1;            // Padding / Reserved
+    int   _rsv2[2];         // Reserved
+};
+
 
 /*
  *  This structure stores the important data shared between plugins
@@ -47,6 +65,7 @@ struct SharedData
     uint32_t                        lastPostFxFrame;            // Last time gameScreenRaster was captured
     EntityPluginData<CPed>          pedPlugin;                  // Ped Structure Plugin Data
     EntityPluginData<CVehicle>      vehPlugin;                  // Vehicle Structure Plugin Data
+    MenuExtenderData                menuExtender;               // Menu Extender Shared Data
 };
 
 

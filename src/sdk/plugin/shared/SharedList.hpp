@@ -8,8 +8,8 @@
  *
  */
 #pragma once
-#include "list/list.h"
-#include "shared.hpp"
+#include "internal/list.h"
+#include "internal/shared.hpp"
 
 #pragma pack(push, 1)
 

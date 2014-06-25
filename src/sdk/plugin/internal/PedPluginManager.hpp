@@ -7,7 +7,7 @@
 #pragma once
 
 #include "EntityPluginManager.hpp"
-#include "SharedData.hpp"
+#include <plugin/shared/SharedData.hpp>
 #include <plugin/plugin.h>
 #include <game_sa/CPools.h>
 

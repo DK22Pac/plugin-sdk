@@ -8,7 +8,7 @@
  */
 #pragma once
 
-#include "SharedData.hpp"
+#include <plugin/shared/SharedData.hpp>
 
 /*
  *  EntityPluginManager

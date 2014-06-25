@@ -4,6 +4,66 @@
 #include "CVector2D.h"
 #include "CSprite2d.h"
 
+// Menu entries action to perform
+enum eMenuActions   // There's many actions @0x57702E and @0x57CD88
+{
+    MENU_ACTION_TEXT     = 1,       // Some static text at the top of the page (works only on first entry)
+    MENU_ACTION_BACK     = 2,       // Back to previous menu
+    MENU_ACTION_YES      = 3,       // Used as YES in menus (also as NO, weird?)
+    MENU_ACTION_NO       = 4,       // Used as NO in menus  (also as YES, weird?)
+    MENU_ACTION_SWITCH   = 5,       // Switch to target menu
+    MENU_ACTION_SKIP     = 20,      // Skip this entry (unselectable)
+    MENU_ACTION_BACK_PC  = 55,      // Same as BACK without a extra checking (?)
+};
+
+// Type of menu entries
+enum eMenuEntryType
+{
+	MENU_ENTRY_SAVE_1 = 1,
+	MENU_ENTRY_SAVE_2,
+	MENU_ENTRY_SAVE_3,
+	MENU_ENTRY_SAVE_4,
+	MENU_ENTRY_SAVE_5,
+	MENU_ENTRY_SAVE_6,
+	MENU_ENTRY_SAVE_7,
+	MENU_ENTRY_SAVE_8,
+	MENU_ENTRY_MISSIONPACK,
+	MENU_ENTRY_JOYMOUSE,
+	MENU_ENTRY_BUTTON,
+	MENU_ENTRY_OPTION,
+};
+
+
+#pragma pack(push, 4)
+struct CMenuEntryData
+{
+  unsigned char m_nActionType;      // Unknown if signed or signed, but it does only '==' comparisions, so it's safe to use unsigned (moar numbers)
+  char m_szName[8];
+  char m_nType;
+  char m_nTargetMenu;
+  //char _pad1;
+  __int16 m_wPosnX;
+  __int16 m_wPosnY;
+  char m_nAlign;
+  //char _pad2;
+};
+#pragma pack(pop)
+
+#pragma pack(push, 4)
+struct CMenuItem
+{
+  char m_szTitleName[8];
+  char m_nPrevMenu;
+  char m_nStartingEntry;
+  CMenuEntryData m_aEntries[12];
+};
+#pragma pack(pop)
+
+VALIDATE_SIZE(CMenuEntryData, 0x12);
+VALIDATE_SIZE(CMenuItem, 0xE2);
+
+
+
 #pragma pack(push, 1)
 class PLUGIN_API CMenuManager
 {
