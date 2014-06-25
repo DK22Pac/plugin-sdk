@@ -474,7 +474,7 @@ struct StateTextEntryIncreaser      // Hooks at CFont::SetAligment to reset or i
 
     static void Patch(uintptr_t addr)
     {
-        FuncBefore() = injector::MakeCALL(addr, (void*) &Increaser).get();
+        FuncBefore() = injector::MakeCALL(addr, injector::raw_ptr( (void*) &Increaser)).get();
     }
 };
 
