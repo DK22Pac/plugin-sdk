@@ -73,7 +73,7 @@ public:
 	float               m_fStatsScrollSpeed;
 	__int8 field_8;
 	__int8 field_9[23];
-	__int8 field_20;
+	bool				m_bVibration;
 	bool                m_bHudOn;
 	__int8 field_22[2];
 	__int32             m_dwRadarMode;
@@ -90,8 +90,11 @@ public:
 	__int32             m_dwBrightness;
 	float               m_fDrawDistance;
 	bool                m_bShowSubtitles;
-	__int8 field_45[4];
-	__int8 field_49;
+	bool 				m_bMapShowLocations;
+	bool				m_bMapShowContacts;
+	bool				m_bMapShowMission;
+	bool				m_bMapShowOther;
+	bool				m_bMapShowGangArea;
 	bool                m_bMapLegend;
 	bool                m_bWidescreenOn;
 	bool                m_bFrameLimiterOn;
