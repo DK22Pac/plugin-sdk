@@ -11,6 +11,7 @@
 #include <plugin/shared/SharedData.hpp>
 #include <game_sa/CTimer.h>
 #include <game_sa/RenderWare.h>
+#include <game_sa\CScene.h>
 
 /*
  *  PostFX Super Callback Manager
@@ -51,11 +52,11 @@ struct cbPostFXManager : SimpleSuperManager<PatcherCALL1>
     // Captures the game screen raster to our raster
     void CaptureScreenToRaster()
     {
-        RwCameraEndUpdate(Scene);
+        RwCameraEndUpdate(Scene.m_pRwCamera);
         RwRasterPushContext(plugin::PostProcess::GetGameScreenRaster());
-        RwRasterRenderFast(Scene->frameBuffer, 0, 0);
+		RwRasterRenderFast(Scene.m_pRwCamera->frameBuffer, 0, 0);
         RwRasterPopContext();
-        RwCameraBeginUpdate(Scene);
+        RwCameraBeginUpdate(Scene.m_pRwCamera);
     }
     
     // Creates a raster to store the game screen
@@ -63,9 +64,9 @@ struct cbPostFXManager : SimpleSuperManager<PatcherCALL1>
     void CreateScreenRaster()
     {
         auto& raster = plugin::PostProcess::GetGameScreenRaster();
-        auto width   = Scene->frameBuffer->width;
-        auto height  = Scene->frameBuffer->height;
-        auto depth   = Scene->frameBuffer->depth;
+        auto width   = Scene.m_pRwCamera->frameBuffer->width;
+        auto height  = Scene.m_pRwCamera->frameBuffer->height;
+        auto depth   = Scene.m_pRwCamera->frameBuffer->depth;
         
         // Check if the game screen resolution changed
         if(raster && (raster->width != width || raster->height != height || raster->depth != depth))
