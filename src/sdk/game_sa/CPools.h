@@ -20,7 +20,7 @@ public:
     // TODO aligned storage or actual B object in all of those pools
     
 	static CPool<CPed, CCopPed>                                 *&ms_pPedPool;
-	static CPool<CVehicle, std::aligned_storage<0xA18, 1> >     *&ms_pVehiclePool;
+	static CPool<CVehicle, std::aligned_storage<0xA18, 1>::type >     *&ms_pVehiclePool;
 	static CPool<CBuilding>                                     *&ms_pBuildingPool;
 	static CPool<CObject>                                       *&ms_pObjectPool;
 	static CPool<CDummy>                                        *&ms_pDummyPool;
