@@ -2242,4 +2242,4 @@ deleted.
 
 #define RsGlobal ((RsGlobalType *)0xC17040)
 
-#define Scene    (*(RwCamera**)0xC1703C)
+#define _RwGameCamera    (*(RwCamera**)0xC1703C)
