@@ -11,7 +11,7 @@
 #include <plugin/plugin.h>
 #include <game_sa/CPools.h>
 
-using plugin::eFuncType;
+using namespace plugin;
 
 class SuperVehPluginManager
 {
@@ -19,10 +19,10 @@ class SuperVehPluginManager
         typedef EntityPluginData<CVehicle>  Mgr_t;
 
         // Necessary events
-        eFuncType GetConstructorEvent() { return plugin::FUNC_VEHICLE_CONSTRUCTOR; }
-        eFuncType GetDestructorEvent()  { return plugin::FUNC_VEHICLE_DESTRUCTOR; }
-        eFuncType GetStartupEvent()     { return plugin::FUNC_AFTER_POOLS_INITIALISATION; }
-        eFuncType GetShutdownEvent()    { return plugin::FUNC_SHUTDOWN_RW; }
+        eFuncType GetConstructorEvent() { return FUNC_VEHICLE_CONSTRUCTOR; }
+        eFuncType GetDestructorEvent()  { return FUNC_VEHICLE_DESTRUCTOR; }
+        eFuncType GetStartupEvent()     { return FUNC_AFTER_POOLS_INITIALISATION; }
+        eFuncType GetShutdownEvent()    { return FUNC_SHUTDOWN_RW; }
         
         // Finds the entity element count
         static uint32_t FindElementCount()
@@ -33,7 +33,7 @@ class SuperVehPluginManager
         // Gets the entity index
         static uint32_t GetIndex(CVehicle* entity)
         {
-            return CPools::ms_pVehiclePool->GetIndex(entity);
+            return CPools::ms_pVehiclePool->GetArrayIndex(entity);
         }
         
         // Gets the shared structure
