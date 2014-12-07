@@ -11,7 +11,7 @@
 #include <plugin/plugin.h>
 #include <game_sa/CPools.h>
 
-using plugin::eFuncType;
+using namespace plugin;
 
 class SuperPedPluginManager
 {
@@ -19,10 +19,10 @@ class SuperPedPluginManager
         typedef EntityPluginData<CPed>     Mgr_t;
 
         // Necessary events
-        eFuncType GetConstructorEvent() { return plugin::FUNC_PED_CONSTRUCTOR; }
-        eFuncType GetDestructorEvent()  { return plugin::FUNC_PED_DESTRUCTOR; }
-        eFuncType GetStartupEvent()     { return plugin::FUNC_AFTER_POOLS_INITIALISATION; }
-        eFuncType GetShutdownEvent()    { return plugin::FUNC_SHUTDOWN_RW; }
+        eFuncType GetConstructorEvent() { return FUNC_PED_CONSTRUCTOR; }
+        eFuncType GetDestructorEvent()  { return FUNC_PED_DESTRUCTOR; }
+        eFuncType GetStartupEvent()     { return FUNC_AFTER_POOLS_INITIALISATION; }
+        eFuncType GetShutdownEvent()    { return FUNC_SHUTDOWN_RW; }
         
         // Finds the entity element count
         static uint32_t FindElementCount()
@@ -33,7 +33,7 @@ class SuperPedPluginManager
         // Gets the entity index
         static uint32_t GetIndex(CPed* entity)
         {
-            return CPools::ms_pPedPool->GetIndex(entity);
+            return CPools::ms_pPedPool->GetArrayIndex(entity);
         }
         
         // Gets the shared structure
