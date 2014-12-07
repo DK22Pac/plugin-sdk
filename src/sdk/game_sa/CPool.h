@@ -11,6 +11,8 @@ union tPoolObjectFlags
 	signed char			b;
 };
 
+VALIDATE_SIZE(tPoolObjectFlags, 1);
+
 template<class A, class B = A> class CPool
 {
 public:
@@ -157,6 +159,10 @@ public:
 		return ((reinterpret_cast<B*>(pObject) - m_Objects) << 8) + m_ByteMap[reinterpret_cast<B*>(pObject) - m_Objects].b;
 	}
 
+	int GetArrayIndex(A* pObject)
+	{
+		return reinterpret_cast<B*>(pObject) - m_Objects;
+	}
 
 	// Returns pointer to object by SCM handle
 	A* AtHandle(int handle)
