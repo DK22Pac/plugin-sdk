@@ -161,9 +161,9 @@ class BasicCallbackManagerThis : public CallbackManager
             auto& cbm = *CallbackManager::GetInstance();
 
             // Call the before events, then call the original thing, then call the after events
-            cbm.Before(cbm.before);
+            cbm.Before(cbm.before, this_ptr);
             void* result = cbm.CallOriginal(N, this_ptr);
-            cbm.After(cbm.after);
+            cbm.After(cbm.after, this_ptr);
             
             // Preserve the return value, returns a void* because it has the sizeof eax 
             return result;
@@ -235,6 +235,27 @@ struct SimpleSuperManager : MyBasePatcher
 template<class MyBasePatcher>
 struct SimpleSuperManagerThiscall : SimpleSuperManager<MyBasePatcher>
 {
+    // Helper to call all callbacks in a list
+    void CallFuncs(const CallbackList& list, void* p)
+    {
+        std::for_each(list.begin(), list.end(), [&p](const CallbackItem& cb)
+        {
+            if(cb) return ((void(*)(void*))(cb))(p);
+        });
+    }
+    
+    // Called before the event happens
+    void Before(const CallbackList& list, void* p)
+    {
+        return CallFuncs(list, p);
+    }
+    
+    // Called after the event happens
+    void After(const CallbackList& list, void* p)
+    {
+        return CallFuncs(list, p);
+    }
+
     // Calls the original function patched at Patch() if possible
     void* CallOriginal(int n, void* p)
     {
@@ -243,7 +264,6 @@ struct SimpleSuperManagerThiscall : SimpleSuperManager<MyBasePatcher>
         return 0;
     }
 };
-
 
 
 /*
