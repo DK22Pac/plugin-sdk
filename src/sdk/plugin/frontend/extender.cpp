@@ -502,20 +502,28 @@ const char* __fastcall MenuExtender::StateTextHandler(CText* self, int, const ch
         // Get the currently parsing entry
         info.parsing_entry = &info.page->m_aEntries[iStateTextEntryIndex];
 
-        // If it's not language action, it's to be handled by us!!!
-        if(info.parsing_entry->m_nActionType != 36) // Language Action
+        if(info.parsing_entry->m_nType < 1 || info.parsing_entry->m_nType > 8)
         {
-            info.gxtentry = gxtentry = "";
-
-            if(state_text_handler)
+            // If it's not language action, it's to be handled by us!!!
+            if(info.parsing_entry->m_nActionType != 36) // Language Action
             {
-                if(!state_text_handler(info) || info.text)
-                    return info.text;
-            }
+                info.gxtentry = gxtentry = "";
 
-            // If the text doesn't get found, we're not suposed to have a state text (info.gxtentry is probably empty)
-            const char* text = state_text_handler_ptr(info.ctext, 0, info.gxtentry);
-            return text[0]? text : nullptr;
+                if(state_text_handler)
+                {
+                    if(!state_text_handler(info) || info.text)
+                        return info.text;
+                }
+
+                // If the text doesn't get found, we're not suposed to have a state text (info.gxtentry is probably empty)
+                const char* text = state_text_handler_ptr(info.ctext, 0, info.gxtentry);
+                return text[0]? text : nullptr;
+            }
+        }
+        else
+        {
+            auto GetSavedGameDateAndTime = (const char*(*)(int)) injector::lazy_pointer<0x618D00>().get();
+            return GetSavedGameDateAndTime(iStateTextEntryIndex - 1);
         }
     }
     return state_text_handler_ptr(info.ctext, 0, info.gxtentry);
