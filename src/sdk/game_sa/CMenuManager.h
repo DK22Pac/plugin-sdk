@@ -68,12 +68,12 @@ VALIDATE_SIZE(CMenuItem, 0xE2);
 class PLUGIN_API CMenuManager
 {
 public:
-	__int8 field_0;
+	bool				m_bStatScrollUp;
 	__int8 field_1[3];
 	float               m_fStatsScrollSpeed;
 	__int8 field_8;
 	__int8 field_9[23];
-	__int8 field_20;
+	bool				m_bVibration;
 	bool                m_bHudOn;
 	__int8 field_22[2];
 	__int32             m_dwRadarMode;
@@ -90,8 +90,11 @@ public:
 	__int32             m_dwBrightness;
 	float               m_fDrawDistance;
 	bool                m_bShowSubtitles;
-	__int8 field_45[4];
-	__int8 field_49;
+	bool 				m_bMapShowLocations;
+	bool				m_bMapShowContacts;
+	bool				m_bMapShowMission;
+	bool				m_bMapShowOther;
+	bool				m_bMapShowGangArea;
 	bool                m_bMapLegend;
 	bool                m_bWidescreenOn;
 	bool                m_bFrameLimiterOn;
@@ -157,7 +160,7 @@ public:
 	bool                m_bSavePhotos;
 	bool                m_bMainMenuSwitch;
 	__int8              m_nPlayerNumber;
-	__int8 field_EB;
+	bool				m_bReinitLanguageSettings;
 	__int32 field_EC;
 	__int32 field_F0;
 	__int8 field_F4;
@@ -174,8 +177,8 @@ public:
 		};
 	};
 	bool                m_bTexturesLoaded;
-	bool                m_bCurrentMenuPage;
-	__int8 field_15E;
+	signed char        	m_bCurrentMenuPage;
+	signed char			m_bLastMenuPage;
 	bool                m_bSelectedSaveGame;
 	__int8 field_160;
 	__int8 field_161;
