@@ -1,8 +1,6 @@
 bin
-lib
 build
 build2
-test
 nbproject
 vsproject
 Makefile
@@ -54,8 +52,6 @@ local.properties
 
 # Build results
 
-[Dd]ebug/
-[Rr]elease/
 x64/
 build/
 [Bb]in/
@@ -88,6 +84,8 @@ build/
 *.pidb
 *.log
 *.scc
+*.iobj
+*.ipdb
 
 # Visual C++ cache files
 ipch/
