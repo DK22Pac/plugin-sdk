@@ -88,6 +88,9 @@ build/
 *.scc
 *.iobj
 *.ipdb
+*.lastbuildstate
+*.tlog
+*.idb
 
 # Visual C++ cache files
 ipch/

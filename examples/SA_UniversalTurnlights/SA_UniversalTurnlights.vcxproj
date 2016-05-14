@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F0FFA1C5-0179-4865-BBF7-CD3345144F63}</ProjectGuid>
-    <RootNamespace>SA_PlayerWeapon</RootNamespace>
+    <ProjectGuid>{95F4C6F8-C75D-419A-A87F-7A518EBF9125}</ProjectGuid>
+    <RootNamespace>SA_UniversalTurnlights</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
