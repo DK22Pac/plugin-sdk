@@ -24,6 +24,8 @@ local.properties
 .classpath
 .settings/
 .loadpath
+*.VC.opendb
+*.VC.db
 
 # External tool builders
 .externalToolBuilders/

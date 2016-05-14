@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClInclude Include="..\additional\Error.h" />
     <ClInclude Include="..\additional\Log.h" />
+    <ClInclude Include="..\additional\Other.h" />
     <ClInclude Include="..\additional\patch\Patch.h" />
     <ClInclude Include="..\additional\scripts_wrapper\ScriptsWrapper.h" />
     <ClInclude Include="..\additional\settings\Settings.h" />
@@ -264,6 +265,7 @@
     <ClInclude Include="..\plugin.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\additional\Other.cpp" />
     <ClCompile Include="..\events\EventList.cpp" />
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp" />
     <ClCompile Include="..\game_sa\CAERadioTrackManager.cpp" />

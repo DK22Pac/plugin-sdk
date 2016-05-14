@@ -571,6 +571,9 @@
     <ClInclude Include="..\game_sa\eModelID.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\additional\Other.h">
+      <Filter>additional</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -881,6 +884,9 @@
     </ClCompile>
     <ClCompile Include="..\plbase\PluginBase.cpp">
       <Filter>plbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\additional\Other.cpp">
+      <Filter>additional</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

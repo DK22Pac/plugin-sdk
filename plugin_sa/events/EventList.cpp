@@ -37,3 +37,4 @@ CdeclEvent    <AddressList<0x7F795B, H_CALL,
                            0x7F9706, H_CALL,
                            0x7F9A0C, H_CALL,
                            0x7F9B39, H_CALL>, PR_AFT, ArgPickNone,            void()>          plugin::Events::d3dLostEvent;
+CdeclEvent    <AddressList<0x53E981, H_CALL>, PR_AFT, ArgPickNone,            void()>          plugin::Events::gameProcessEvent;

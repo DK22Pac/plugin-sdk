@@ -16,3 +16,5 @@
 #include "events\EventList.h"
 #include "extender\PedExtender.h"
 #include "extender\VehicleExtender.h"
+#include "additional\Error.h"
+#include "additional\Other.h"
