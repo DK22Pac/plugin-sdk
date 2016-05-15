@@ -128,10 +128,13 @@
     <ClInclude Include="..\game_sa\CCopPed.h" />
     <ClInclude Include="..\game_sa\CCoronas.h" />
     <ClInclude Include="..\game_sa\CCrimeBeingQd.h" />
+    <ClInclude Include="..\game_sa\CCutsceneObject.h" />
     <ClInclude Include="..\game_sa\CDamageManager.h" />
     <ClInclude Include="..\game_sa\CDarkel.h" />
     <ClInclude Include="..\game_sa\CDoor.h" />
     <ClInclude Include="..\game_sa\CDummy.h" />
+    <ClInclude Include="..\game_sa\CDummyObject.h" />
+    <ClInclude Include="..\game_sa\CDummyPed.h" />
     <ClInclude Include="..\game_sa\CEmergencyPed.h" />
     <ClInclude Include="..\game_sa\CEntity.h" />
     <ClInclude Include="..\game_sa\CEntityScanner.h" />
@@ -144,6 +147,7 @@
     <ClInclude Include="..\game_sa\CGarages.h" />
     <ClInclude Include="..\game_sa\CGeneral.h" />
     <ClInclude Include="..\game_sa\cHandlingDataMgr.h" />
+    <ClInclude Include="..\game_sa\CHandObject.h" />
     <ClInclude Include="..\game_sa\CHud.h" />
     <ClInclude Include="..\game_sa\CHudColours.h" />
     <ClInclude Include="..\game_sa\CMatrix.h" />
@@ -177,6 +181,7 @@
     <ClInclude Include="..\game_sa\CPointLights.h" />
     <ClInclude Include="..\game_sa\CPool.h" />
     <ClInclude Include="..\game_sa\CPools.h" />
+    <ClInclude Include="..\game_sa\CProjectile.h" />
     <ClInclude Include="..\game_sa\CPtrList.h" />
     <ClInclude Include="..\game_sa\CQuaternion.h" />
     <ClInclude Include="..\game_sa\CQueuedMode.h" />
@@ -216,6 +221,7 @@
     <ClInclude Include="..\game_sa\CTimeModelInfo.h" />
     <ClInclude Include="..\game_sa\CTimer.h" />
     <ClInclude Include="..\game_sa\cTransmission.h" />
+    <ClInclude Include="..\game_sa\CTreadable.h" />
     <ClInclude Include="..\game_sa\CTxdStore.h" />
     <ClInclude Include="..\game_sa\CUserDisplay.h" />
     <ClInclude Include="..\game_sa\CVector.h" />
@@ -291,10 +297,13 @@
     <ClCompile Include="..\game_sa\CControllerConfigManager.cpp" />
     <ClCompile Include="..\game_sa\CCopPed.cpp" />
     <ClCompile Include="..\game_sa\CCoronas.cpp" />
+    <ClCompile Include="..\game_sa\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_sa\CDamageManager.cpp" />
     <ClCompile Include="..\game_sa\CDarkel.cpp" />
     <ClCompile Include="..\game_sa\CDoor.cpp" />
     <ClCompile Include="..\game_sa\CDummy.cpp" />
+    <ClCompile Include="..\game_sa\CDummyObject.cpp" />
+    <ClCompile Include="..\game_sa\CDummyPed.cpp" />
     <ClCompile Include="..\game_sa\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_sa\CEntity.cpp" />
     <ClCompile Include="..\game_sa\CFileMgr.cpp" />
@@ -304,6 +313,7 @@
     <ClCompile Include="..\game_sa\CGarages.cpp" />
     <ClCompile Include="..\game_sa\CGeneral.cpp" />
     <ClCompile Include="..\game_sa\cHandlingDataMgr.cpp" />
+    <ClCompile Include="..\game_sa\CHandObject.cpp" />
     <ClCompile Include="..\game_sa\CHud.cpp" />
     <ClCompile Include="..\game_sa\CHudColours.cpp" />
     <ClCompile Include="..\game_sa\CMatrix.cpp" />
@@ -312,6 +322,7 @@
     <ClCompile Include="..\game_sa\CMessages.cpp" />
     <ClCompile Include="..\game_sa\CMissionCleanup.cpp" />
     <ClCompile Include="..\game_sa\CModelInfo.cpp" />
+    <ClCompile Include="..\game_sa\CObject.cpp" />
     <ClCompile Include="..\game_sa\common.cpp" />
     <ClCompile Include="..\game_sa\CompressedVector.cpp" />
     <ClCompile Include="..\game_sa\CPad.cpp" />
@@ -325,6 +336,7 @@
     <ClCompile Include="..\game_sa\CPlaneTrails.cpp" />
     <ClCompile Include="..\game_sa\CPointLights.cpp" />
     <ClCompile Include="..\game_sa\CPools.cpp" />
+    <ClCompile Include="..\game_sa\CProjectile.cpp" />
     <ClCompile Include="..\game_sa\CQuaternion.cpp" />
     <ClCompile Include="..\game_sa\CRadar.cpp" />
     <ClCompile Include="..\game_sa\CRealTimeShadow.cpp" />
@@ -355,6 +367,7 @@
     <ClCompile Include="..\game_sa\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_sa\CTimer.cpp" />
     <ClCompile Include="..\game_sa\cTransmission.cpp" />
+    <ClCompile Include="..\game_sa\CTreadable.cpp" />
     <ClCompile Include="..\game_sa\CTxdStore.cpp" />
     <ClCompile Include="..\game_sa\CUserDisplay.cpp" />
     <ClCompile Include="..\game_sa\CVector.cpp" />

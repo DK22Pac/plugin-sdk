@@ -10,12 +10,11 @@ enum eObjectType {
     OBJECT_MISSION2 = 6
 };
 
-#pragma pack(push, 1)
-class PLUGIN_API CObject : public CPhysical
-{
-public:
-	// class variables
+class CDummyObject;
 
+#pragma pack(push, 1)
+class PLUGIN_API CObject : public CPhysical {
+public:
 	void               *m_pControlCodeList;
 	unsigned __int8     m_nObjectType; // see enum eObjectType
 	unsigned __int8     m_nBonusValue;
@@ -69,14 +68,54 @@ public:
 	__int16             m_wScriptTriggerIndex;
 	__int16             m_wRemapTxd; // this is used for detached car parts
 	RwTexture          *m_pRemapTexture; // this is used for detached car parts
-	class CDummyObject *m_pDummyObject; // used for dynamic objects like garage doors, train crossings etc.
+	CDummyObject       *m_pDummyObject; // used for dynamic objects like garage doors, train crossings etc.
 	__int32             m_dwBurnTime; // time when particles must be stopped
 	float               m_fBurnDamage;
 
-// class functions
+    // class functions
 
-// static functions
+    void ProcessGarageDoorBehaviour();
+    bool CanBeDeleted();
+    void SetRelatedDummy(CDummyObject* relatedDummy);
+    bool TryToExplode();
+    void SetObjectTargettable(unsigned char targetable);
+    bool CanBeTargetted();
+    void RefModelInfo(int modelIndex);
+    void SetRemapTexture(RwTexture* remapTexture, short txdIndex);
+    float GetRopeHeight();
+    void SetRopeHeight(float height);
+    CEntity* GetObjectCarriedWithRope();
+    void ReleaseObjectCarriedWithRope();
+    void AddToControlCodeList();
+    void RemoveFromControlCodeList();
+    void ResetDoorAngle();
+    void LockDoor();
+    void Init();
+    void DoBurnEffect();
+    unsigned char GetLightingFromCollisionBelow();
+    void ProcessSamSiteBehaviour();
+    void ProcessTrainCrossingBehaviour();
+    void ObjectDamage(float damage, CVector* fxOrigin, CVector* fxDirection, CEntity* damager, eWeaponType weaponType);
+    void Explode();
+    void ObjectFireDamage(float damage, CEntity* damager);
+    
+    void GrabObjectToCarryWithRope(CPhysical* attachTo);
+    bool CanBeUsedToTakeCoverBehind();
+    class CObject* Create(int modelIndex);
+    class CObject* Create(CDummyObject* dummyObject);
+    void ProcessControlLogic();
+
+    // static functions
+
+    static void SetMatrixForTrainCrossing(CMatrix* matrix, float arg1);
+    static void TryToFreeUpTempObjects(int numObjects);
+    static void DeleteAllTempObjects();
+    static void DeleteAllMissionObjects();
+    static void DeleteAllTempObjectsInArea(CVector point, float radius);
 };
 #pragma pack(pop)
 
 VALIDATE_SIZE(CObject, 0x17C);
+
+bool IsObjectPointerValid_NotInWorld(CObject* object);
+bool IsObjectPointerValid(CObject* object);

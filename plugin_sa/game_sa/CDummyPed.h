@@ -1,11 +1,11 @@
 #pragma once
 #include "plbase/PluginBase.h"
-#include "CEntity.h"
+#include "CDummy.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CDummy : public CEntity {
+class PLUGIN_API CDummyPed : public CDummy {
 public:
 };
 #pragma pack(pop)
 
-VALIDATE_SIZE(CDummy, 0x38);
+VALIDATE_SIZE(CDummyPed, 0x38);

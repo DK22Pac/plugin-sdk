@@ -3,8 +3,7 @@
 #include "CEntity.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CBuilding : public CEntity
-{
+class PLUGIN_API CBuilding : public CEntity {
 public:
 	void ReplaceWithNewModel(int newModelIndex);
 };

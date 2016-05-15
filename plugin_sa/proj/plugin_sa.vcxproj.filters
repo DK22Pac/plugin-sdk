@@ -577,6 +577,24 @@
     <ClInclude Include="..\game_sa\CBike.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CCutsceneObject.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CProjectile.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTreadable.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDummyPed.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDummyObject.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CHandObject.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -892,6 +910,27 @@
       <Filter>additional</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CBike.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CObject.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCutsceneObject.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CProjectile.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTreadable.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDummyPed.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDummyObject.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CHandObject.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

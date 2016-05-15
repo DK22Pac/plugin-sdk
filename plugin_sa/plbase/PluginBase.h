@@ -30,11 +30,6 @@ VALIDATE_SIZE(float, 4);
 // Basic types for structures describing
 typedef unsigned __int8 Bool;
 
-#define __pad__(a) unsigned char : a
-#define __pad_byte__(a) unsigned char : 8 * a
-#define __pad_word__(a) unsigned char : 16 * a
-#define __pad_dword__(a) unsigned char : 32 * a
-
 #define __parent_class_vtable__ private:\
                                  virtual void __dummy_virtual_func(){}\
                              public:\
