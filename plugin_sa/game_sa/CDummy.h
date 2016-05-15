@@ -3,17 +3,9 @@
 #include "CEntity.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CDummy : public CEntity
-{
-protected:
-    CDummy(plugin::dummy_func_t a) : CEntity(a) {}
-    
+class PLUGIN_API CDummy : public CEntity {
 public:
-	CDummy();
-	~CDummy();
 
-	void *operator new(unsigned int size);
-	void operator delete(void *object);
 };
 #pragma pack(pop)
 

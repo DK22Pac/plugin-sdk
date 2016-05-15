@@ -1,15 +1,5 @@
 #include "CEntity.h"
 
-CEntity::CEntity() : CPlaceable(plugin::dummy_func)
-{
-   ((void (__thiscall *)(CEntity *))0x532A90)(this);
-}
-
-CEntity::~CEntity()
-{
-    // 0x535E90
-}
-
 // vtable functions
 
 void CEntity::Add(CRect &rect)

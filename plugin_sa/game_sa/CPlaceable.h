@@ -4,17 +4,12 @@
 #include "CMatrixLink.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CPlaceable
-{
-protected:
-    CPlaceable(plugin::dummy_func_t) {}
-    
+class PLUGIN_API CPlaceable {
 public:
-	CSimpleTransform m_Placement;
-	CMatrixLink *m_pCoords;
+	CSimpleTransform m_placement;
+    CMatrixLink *m_matrix;
 
-	CPlaceable();
-	virtual ~CPlaceable();
+    CMatrixLink *GetMatrix();
 
 	static void ShutdownMatrixArray();
 	static void InitMatrixArray();
@@ -37,8 +32,10 @@ public:
 	void SetMatrix(CMatrix  const& matrix);
 
     inline CVector &GetCoords() {
-        return m_pCoords ? m_pCoords->pos : m_Placement.m_vPosn;
+        return m_matrix ? m_matrix->pos : m_placement.m_vPosn;
     }
+
+    __parent_class_vtable__
 };
 #pragma pack(pop)
 

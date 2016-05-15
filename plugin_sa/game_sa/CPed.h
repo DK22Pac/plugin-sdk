@@ -17,22 +17,16 @@
 #include "ePedState.h"
 #include "CAnimBlendAssociation.h"
 
-enum ePedStats
-{
+enum ePedStats {
 
 };
 
-enum eMoveState
-{
+enum eMoveState {
 
 };
 
 #pragma pack(push, 4)
-class PLUGIN_API CPed : public CPhysical
-{
-protected:
-    CPed(plugin::dummy_func_t a) : CPhysical(a) {}
-    
+class PLUGIN_API CPed : public CPhysical {
 public:
 	CPedCollisionAudio  m_CollisionAudio;
 	CPedVoice           m_PedVoice;
@@ -176,7 +170,7 @@ public:
 	__int16 field_50A;
 	CPedIK              m_PedIK;
 	__int32 field_52C;
-	ePedState           m_pedState;
+	ePedState           m_pedState; // see ePedState
 	__int32             m_dwMoveState;
 	__int32 field_538;
 	__int32 field_53C;
@@ -243,19 +237,14 @@ public:
 	__int8 field_796[2];
 	__int32 field_798;
 
-	CPed(ePedType type);
-	~CPed();
-
 	// class virtual functions
 
 	// Process applied anim
-
-	//vtable
-	virtual void SetMoveAnim();
+	void SetMoveAnim();
 	// always returns true
-	virtual bool Save();
+	bool Save();
 	// always returns true
-	virtual bool Load();
+	bool Load();
 
 	// class functions
 	
@@ -343,8 +332,6 @@ public:
 	void GetBonePosition(RwV3d& outPosition, unsigned int boneId, bool updateSkinBones);
 	CObject* GiveObjectToPedToHold(int modelIndex, unsigned char replace);
 	void SetPedState(ePedState pedState);
-	void* operator new(unsigned int size);
-	void operator delete(void* data);
 	void SetCharCreatedBy(unsigned char createdBy);
 	void CalculateNewVelocity();
 	void CalculateNewOrientation();

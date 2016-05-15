@@ -1,14 +1,5 @@
 #include "CBaseModelInfo.h"
 
-CBaseModelInfo::CBaseModelInfo()
-{
-	((void (__thiscall *)(CBaseModelInfo *))0x4C4A60)(this);
-}
-
-CBaseModelInfo::~CBaseModelInfo()
-{
-}
-
 CBaseModelInfo *CBaseModelInfo::AsAtomicModelInfoPtr()
 {
 	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 1))(this);

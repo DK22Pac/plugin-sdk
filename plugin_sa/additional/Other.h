@@ -1,3 +1,5 @@
 #pragma once
 
-bool KeyPressed(unsigned int keyCode);
+namespace plugin {
+    bool KeyPressed(unsigned int keyCode);
+}

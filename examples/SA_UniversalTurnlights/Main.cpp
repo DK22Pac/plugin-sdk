@@ -25,15 +25,11 @@ public:
     public:
         eLightsStatus lightsStatus;
 
-        VehicleTurnlightsData(CVehicle *) {
-            lightsStatus = LIGHTS_OFF;
-        }
+        VehicleTurnlightsData(CVehicle *) : lightsStatus(LIGHTS_OFF) {}
     };
 
-    static VehicleExtendedData<VehicleTurnlightsData> *pTurnlightsData;
-
     UniversalTurnlights() {
-        pTurnlightsData = new VehicleExtendedData<VehicleTurnlightsData>;
+        static VehicleExtendedData<VehicleTurnlightsData> turnlightsData;
 
         Events::vehicleRenderEvent.before += [](CVehicle *vehicle) {
             if ((vehicle->m_dwVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_dwVehicleSubClass == VEHICLE_BIKE) &&
@@ -41,7 +37,7 @@ public:
                 vehicle->m_wModelIndex != MODEL_BMX && vehicle->m_wModelIndex != MODEL_BIKE && vehicle->m_wModelIndex != MODEL_MTBIKE &&
                 !vehicle->m_pAttachedTo)
             {
-                eLightsStatus &lightsStatus = pTurnlightsData->Get(vehicle).lightsStatus;
+                eLightsStatus &lightsStatus = turnlightsData.Get(vehicle).lightsStatus;
                 if (vehicle->m_pDriver) {
                     CPed *playa = FindPlayerPed();
                     if (playa && playa->m_pVehicle == vehicle && playa->m_bInVehicle) {
@@ -90,10 +86,6 @@ public:
         };
     }
 
-    ~UniversalTurnlights() {
-        delete pTurnlightsData;
-    }
-
     static CVector2D GetCarPathLinkPosition(CCarPathLinkAddress &address) {
         if (address.m_wAreaId != -1 && address.m_wCarPathLinkId != -1 && ThePaths.m_pPathNodes[address.m_wAreaId]) {
             return CVector2D(static_cast<float>(ThePaths.m_pNaviNodes[address.m_wAreaId][address.m_wCarPathLinkId].m_posn.x) / 8.0f,
@@ -104,7 +96,7 @@ public:
 
     static void DrawTurnlight(CVehicle *vehicle, unsigned int dummyId, bool leftSide) {
         CVector posn =
-            dynamic_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_wModelIndex])->m_pVehicleStruct->m_avDummyPosn[dummyId];
+            reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_wModelIndex])->m_pVehicleStruct->m_avDummyPosn[dummyId];
         if (posn.x == 0.0f) posn.x = 0.15f;
         if (leftSide) posn.x *= -1.0f;
         CCoronas::RegisterCorona(reinterpret_cast<unsigned int>(vehicle) + 50 + dummyId + (leftSide ? 0 : 2), vehicle, 255, 128, 0, 255, posn,
@@ -127,10 +119,4 @@ public:
         while (angle < 0.0f) angle += 360.0f;
         return angle;
     }
-
-    static bool KeyPressed(unsigned int keyCode) {
-        return (GetKeyState(keyCode) & 0x8000) != 0;
-    }
-} plg;
-
-VehicleExtendedData<UniversalTurnlights::VehicleTurnlightsData> *UniversalTurnlights::pTurnlightsData;
+} universalTurnlights;

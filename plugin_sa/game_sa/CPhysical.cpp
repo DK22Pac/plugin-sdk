@@ -1,15 +1,5 @@
 #include "CPhysical.h"
 
-CPhysical::CPhysical() : CEntity(plugin::dummy_func)
-{
-    ((void (__thiscall *)(CPhysical *))0x542260)(this);
-}
-
-CPhysical::~CPhysical()
-{
-    // 0x542450
-}
-
 void CPhysical::ProcessEntityCollision(CEntity *entity, CColPoint *point)
 {
 	((void (__thiscall *)(CPhysical*, CEntity *, CColPoint *))(*(void ***)this)[23])(this, entity, point);

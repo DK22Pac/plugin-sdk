@@ -4,22 +4,27 @@
 #include "CPhysical.h"
 #include "CObjectInfo.h"
 
+enum eObjectType {
+    OBJECT_MISSION = 2,
+    OBJECT_TEMPORARY = 3,
+    OBJECT_MISSION2 = 6
+};
+
 #pragma pack(push, 1)
 class PLUGIN_API CObject : public CPhysical
 {
 public:
 	// class variables
 
-	void               *m_pObjectList;
-	// 2,6 - mission object, 6 - temp object
-	unsigned __int8     m_nObjectType;
-	__int8 field_13D;
-	__int16 field_13E;
+	void               *m_pControlCodeList;
+	unsigned __int8     m_nObjectType; // see enum eObjectType
+	unsigned __int8     m_nBonusValue;
+	unsigned __int16    m_wCostValue;
 	unsigned __int32 bObjectFlag0 : 1;
 	unsigned __int32 bObjectFlag1 : 1;
-	unsigned __int32 bObjectFlag2 : 1;
-	unsigned __int32 bObjectFlag3 : 1;
-	unsigned __int32 bObjectFlag4 : 1;
+	unsigned __int32    m_bPickupPropertyForSale : 1;
+	unsigned __int32    m_bPickupInShopOutOfStock : 1;
+	unsigned __int32    m_bGlassBroken : 1;
 	unsigned __int32 bObjectFlag5 : 1;
 	unsigned __int32    m_bIsExploded : 1;
 	unsigned __int32 bObjectFlag7 : 1;
@@ -29,8 +34,8 @@ public:
 	unsigned __int32    m_bTrainCrossEnabled : 1;
 	unsigned __int32    m_bIsPhotographed : 1;
 	unsigned __int32    m_bIsLiftable : 1;
-	unsigned __int32 bObjectFlag14 : 1;
-	unsigned __int32    m_bIsDoor : 1;
+	unsigned __int32    m_bIsDoorMoving : 1;
+	unsigned __int32    m_bbIsDoorOpen : 1;
 	unsigned __int32    m_bHasNoModel : 1;
 	unsigned __int32    m_bIsScaled : 1;
 	unsigned __int32    m_bCanBeAttachedToMagnet : 1;
@@ -48,31 +53,25 @@ public:
 	unsigned __int32 bObjectFlag30 : 1;
 	unsigned __int32 bObjectFlag31 : 1;
 	unsigned __int8     m_nColDamageEffect;
-	__int8 field_145;
-	__int8 field_146;
-	__int8 field_147;
+	unsigned __int8     m_nStoredColDamageEffect;
+	__int8           field_146;
+	__int8              m_nGarageDoorGarageIndex;
 	unsigned __int8     m_nLastWeaponDamage;
 	unsigned __int8     m_nColBrightness;
-	__int16             m_wCarPartModelIndex;
-	// this is used for detached car parts
-	unsigned __int8     m_nCarColor[4];
-	// time when this object must be deleted
-	__int32             m_dwRemovalTime;
+	__int16             m_nRefModelIndex;
+	unsigned __int8     m_nCarColor[4]; // this is used for detached car parts
+	__int32             m_dwRemovalTime; // time when this object must be deleted
 	float               m_fHealth;
-	// this is used for door objects
-	float               m_fDoorStartAngle;
+	float               m_fDoorStartAngle; // this is used for door objects
 	float               m_fScale;
 	CObjectInfo        *m_pObjectInfo;
 	void               *m_pFire; // CFire *
-	__int16 field_168;
-	// this is used for detached car parts
-	__int16             m_wPaintjobTxd;
-	// this is used for detached car parts
-	RwTexture          *m_pPaintjobTex;
-	class CDummyObject *m_pDummyObject;
-	// time when particles must be stopped
-	__int32             m_dwTimeToStopParticles;
-	float               m_fParticlesIntensity;
+	__int16             m_wScriptTriggerIndex;
+	__int16             m_wRemapTxd; // this is used for detached car parts
+	RwTexture          *m_pRemapTexture; // this is used for detached car parts
+	class CDummyObject *m_pDummyObject; // used for dynamic objects like garage doors, train crossings etc.
+	__int32             m_dwBurnTime; // time when particles must be stopped
+	float               m_fBurnDamage;
 
 // class functions
 

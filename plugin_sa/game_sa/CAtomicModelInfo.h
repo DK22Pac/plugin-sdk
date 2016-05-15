@@ -2,22 +2,11 @@
 #include "plbase/PluginBase.h"
 #include "CBaseModelInfo.h"
 
-class PLUGIN_API CAtomicModelInfo : public CBaseModelInfo
-{
-protected:
-    CAtomicModelInfo(plugin::dummy_func_t a) : CBaseModelInfo(a) { }
-    
+class PLUGIN_API CAtomicModelInfo : public CBaseModelInfo {
 public:
 	// vtable
 
-	virtual void SetAtomic(struct RpAtomic *atomic);//=0
-
-	//
-
-	CAtomicModelInfo();
-	~CAtomicModelInfo();
-
-	//
+	void SetAtomic(struct RpAtomic *atomic);
 
 	struct RpAtomic *GetAtomicFromDistance(float distance);
 };

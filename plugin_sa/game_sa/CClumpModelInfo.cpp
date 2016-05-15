@@ -1,14 +1,5 @@
 #include "CClumpModelInfo.h"
 
-CClumpModelInfo::CClumpModelInfo() : CBaseModelInfo(plugin::dummy_func)
-{
-	((void (__thiscall *)(CClumpModelInfo *))0x4C56F0)(this);
-}
-
-CClumpModelInfo::~CClumpModelInfo()
-{
-}
-
 CBox *CClumpModelInfo::GetBoundingBox()
 {
 	return ((CBox *(__thiscall *)(CClumpModelInfo *))GetVMT(this, 15))(this);

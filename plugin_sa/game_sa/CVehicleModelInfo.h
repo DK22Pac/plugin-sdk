@@ -40,37 +40,36 @@ struct PLUGIN_API UpgradePosnDesc
 #pragma pack(pop)
 
 #pragma pack(push, 1)
-class PLUGIN_API CVehicleModelInfo : public CClumpModelInfo
-{
+class PLUGIN_API CVehicleModelInfo : public CClumpModelInfo {
 public:
 	RpMaterial *m_pPlateMaterial;
 	char m_plateText[8];
-	__int8 field_30;
-	unsigned __int8 m_nPlateType;
+	char field_30;
+	unsigned char m_nPlateType;
 	char m_nGameName[8];
-	__int16 pad0;
-	unsigned __int32 m_dwType;
+	short pad0;
+	unsigned int m_dwType;
 	float m_fWheelSizeFront;
 	float m_fWheelSizeRear;
-	unsigned __int16 m_wWheelModelId;
-	unsigned __int16 m_wHandlingIndex;
-	unsigned __int8 m_nNumDoors;
-	unsigned __int8 m_nClass;
-	unsigned __int8 m_nFlags;
-	unsigned __int8 m_nWheelUpgradeClass;
-	unsigned __int16 m_wTimesUsed;
-	unsigned __int16 m_wFrq;
+	unsigned short m_wWheelModelId;
+	unsigned short m_wHandlingIndex;
+	unsigned char m_nNumDoors;
+	unsigned char m_nClass;
+	unsigned char m_nFlags;
+	unsigned char m_nWheelUpgradeClass;
+	unsigned short m_wTimesUsed;
+	unsigned short m_wFrq;
 	union{
-		unsigned __int32 m_dwCompRules;
+		unsigned int m_dwCompRules;
 		struct{
-			unsigned __int32 m_nExtraA_comp1 : 4;
-			unsigned __int32 m_nExtraA_comp2 : 4;
-			unsigned __int32 m_nExtraA_comp3 : 4;
-			unsigned __int32 m_nExtraA_rule : 4;
-			unsigned __int32 m_nExtraB_comp1 : 4;
-			unsigned __int32 m_nExtraB_comp2 : 4;
-			unsigned __int32 m_nExtraB_comp3 : 4;
-			unsigned __int32 m_nExtraB_rule : 4;
+			unsigned int m_nExtraA_comp1 : 4;
+			unsigned int m_nExtraA_comp2 : 4;
+			unsigned int m_nExtraA_comp3 : 4;
+			unsigned int m_nExtraA_rule : 4;
+			unsigned int m_nExtraB_comp1 : 4;
+			unsigned int m_nExtraB_comp2 : 4;
+			unsigned int m_nExtraB_comp3 : 4;
+			unsigned int m_nExtraB_rule : 4;
 		};
 	};
 	float m_fBikeSteerAngle;
@@ -87,27 +86,27 @@ public:
 		static CPool<CVehicleModelInfo> *m_pInfoPool;
 	} *m_pVehicleStruct;
 
-	__int8 field_60[464];
+	char field_60[464];
 	RpMaterial *m_apDirtMaterials[32];
-	unsigned __int8 m_anPrimaryColors[8];
-	unsigned __int8 m_anSecondaryColors[8];
-	unsigned __int8 m_anTertiaryColors[8];
-	unsigned __int8 m_anQuaternaryColors[8];
-	unsigned __int8 m_nNumColorVariations;
-	unsigned __int8 m_nLastColorVariation;
-	unsigned __int8 m_nPrimaryColor;
-	unsigned __int8 m_nSecondaryColor;
-	unsigned __int8 m_nTertiaryColor;
-	unsigned __int8 m_nQuaternaryColor;
-	__int16 m_awUpgrades[18];
-	__int16 m_awRemapTxds[5];
+	unsigned char m_anPrimaryColors[8];
+	unsigned char m_anSecondaryColors[8];
+	unsigned char m_anTertiaryColors[8];
+	unsigned char m_anQuaternaryColors[8];
+	unsigned char m_nNumColorVariations;
+	unsigned char m_nLastColorVariation;
+	unsigned char m_nPrimaryColor;
+	unsigned char m_nSecondaryColor;
+	unsigned char m_nTertiaryColor;
+	unsigned char m_nQuaternaryColor;
+	short m_awUpgrades[18];
+	short m_awRemapTxds[5];
 	class CAnimBlock *m_pAnimBlock;
 
 	static class CLinkedUpgradeList{
 	public:
-		__int16 m_wUpgrade1[30];
-		__int16 m_wUpgrade2[30];
-		unsigned __int32 m_dwLinksCount;
+		short m_wUpgrade1[30];
+		short m_wUpgrade2[30];
+		unsigned int m_dwLinksCount;
 		// add upgrade with components upgrade1 and upgrade2
 		void AddUpgradeLink(short upgrade1, short upgrade2);
 		// find linked upgrade for this upgrade. In this case upgrade param could be upgrade1 or 
@@ -127,32 +126,28 @@ public:
 	static RwTexture *ms_pLightsOnTexture;
 	
 	// color of currently rendered car
-	// static unsigned __int8 ms_currentCol[4];
-	static unsigned __int8 *ms_currentCol;
+	// static unsigned char ms_currentCol[4];
+	static unsigned char *ms_currentCol;
 
 	// number of wheel upgrades available
-	// tatic __int16 ms_numWheelUpgrades[4];
-	static __int16 *ms_numWheelUpgrades;
+	// tatic short ms_numWheelUpgrades[4];
+	static short *ms_numWheelUpgrades;
 
 	// wheels upgrades data
-	// static __int16 ms_upgradeWheels[15][4];
-	static __int16 *ms_upgradeWheels;
+	// static short ms_upgradeWheels[15][4];
+	static short *ms_upgradeWheels;
 
 	// lights states for currently rendered car
-	// static __int8 *ms_lightsOn[4];
-	static __int8 *ms_lightsOn;
+	// static char *ms_lightsOn[4];
+	static char *ms_lightsOn;
 
 	// extras ids for next-spawned car
-	// static __int8 ms_compsUsed[2];
-	static __int8 *ms_compsUsed;
+	// static char ms_compsUsed[2];
+	static char *ms_compsUsed;
 
 	// vehicle colours from carcols.dat
 	// static CRGBA ms_vehicleColourTable[128];
 	static CRGBA *ms_vehicleColourTable;
-
-	
-	CVehicleModelInfo();
-	//~CVehicleModelInfo();
 
 	// destroying vehiclelights textures
 	static void ShutdownLightTexture();

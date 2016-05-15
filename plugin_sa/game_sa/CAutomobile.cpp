@@ -1,15 +1,5 @@
 #include "CAutomobile.h"
 
-CAutomobile::CAutomobile(int modelIndex, unsigned char usage, bool setupSuspensionLines) : CVehicle(plugin::dummy_func)
-{
-    ((void(__thiscall *)(CAutomobile*, int, unsigned char, bool))0x6B0A90)(this, modelIndex, usage, setupSuspensionLines);
-}
-
-CAutomobile::~CAutomobile()
-{
-    ((void(__thiscall *)(CAutomobile*))0x6A61E0)(this);
-}
-
 // Converted from void CAutomobile::ProcessAI(uint &) 0x0
 void CAutomobile::ProcessAI(unsigned int& arg0)
 {

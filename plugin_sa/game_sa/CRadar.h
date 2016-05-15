@@ -111,6 +111,12 @@ enum eRadarSprite : char {
 	RADAR_SPRITE_TORENO*/		// 64
 };
 
+enum eRadarTraceHeight : unsigned char {
+    RADAR_TRACE_LOW,
+    RADAR_TRACE_HIGH,
+    RADAR_TRACE_NORMAL
+};
+
 #pragma pack(push, 4)
 struct PLUGIN_API tRadarTrace
 {

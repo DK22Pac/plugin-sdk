@@ -4,7 +4,7 @@
 #include "C2dEffect.h"
 #include "eModelID.h"
 
-enum ModelInfoType : unsigned __int8
+enum ModelInfoType : unsigned char
 {
 	MODEL_INFO_ATOMIC = 1,
 	MODEL_INFO_TIME = 3,
@@ -17,54 +17,51 @@ enum ModelInfoType : unsigned __int8
 
 struct tTimeInfo
 {
-	unsigned __int8 m_nTimeOn;
-	unsigned __int8 m_nTimeOff;
-	signed __int16  m_wOtherTimeModel;
+	unsigned char m_nTimeOn;
+	unsigned char m_nTimeOff;
+	signed short  m_wOtherTimeModel;
 };
 
 VALIDATE_SIZE(tTimeInfo, 4);
 
 // originally an abstract class
 #pragma pack(push, 4)
-class PLUGIN_API CBaseModelInfo
-{
-protected:
-    CBaseModelInfo(plugin::dummy_func_t) {}
+class PLUGIN_API CBaseModelInfo {
 public:
-	unsigned __int32  m_dwKey;
-	unsigned __int16  m_wUsageCount;
-	signed __int16    m_wTxdIndex;
-	unsigned __int8   m_nAlpha; // 0 - 255
-	unsigned __int8   m_n2dfxCount;
-	__int16           m_w2dfxIndex;
-	__int16           m_wObjectInfoIndex;
+	unsigned int   m_dwKey;
+	unsigned short m_wUsageCount;
+	signed short   m_wTxdIndex;
+	unsigned char  m_nAlpha; // 0 - 255
+	unsigned char  m_n2dfxCount;
+    short          m_w2dfxIndex;
+    short          m_wObjectInfoIndex;
 	union{
-		unsigned __int16  m_wFlags;
+		unsigned short m_wFlags;
 		struct{
 			/* https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CModelInfoSA.h */
-			unsigned __int8 m_bHasBeenPreRendered : 1; // we use this because we need to apply changes only once
-			unsigned __int8 m_bAlphaTransparency: 1;
-			unsigned __int8 m_bIsLod: 1;
-			unsigned __int8 m_bDontCastShadowsOn: 1;
-			unsigned __int8 m_bDontWriteZBuffer: 1;
-			unsigned __int8 m_bDrawAdditive: 1;
-			unsigned __int8 m_bDrawLast: 1;
-			unsigned __int8 m_bDoWeOwnTheColModel: 1;
+			unsigned char m_bHasBeenPreRendered : 1; // we use this because we need to apply changes only once
+			unsigned char m_bAlphaTransparency: 1;
+			unsigned char m_bIsLod: 1;
+			unsigned char m_bDontCastShadowsOn: 1;
+			unsigned char m_bDontWriteZBuffer: 1;
+			unsigned char m_bDrawAdditive: 1;
+			unsigned char m_bDrawLast: 1;
+			unsigned char m_bDoWeOwnTheColModel: 1;
 			union{
 				struct{
-					unsigned __int8 m_bCarmodIsWheel: 1;
-					unsigned __int8 bUnknownFlag9: 1;
-					unsigned __int8 bUnknownFlag10: 1;
-					unsigned __int8 m_bSwaysInWind: 1;
-					unsigned __int8 m_bCollisionWasStreamedWithModel: 1;
-					unsigned __int8 m_bDontCollideWithFlyer: 1;
-					unsigned __int8 m_bHasComplexHierarchy: 1;
-					unsigned __int8 m_bWetRoadReflection: 1;
+					unsigned char m_bCarmodIsWheel: 1;
+					unsigned char bUnknownFlag9: 1;
+					unsigned char bUnknownFlag10: 1;
+					unsigned char m_bSwaysInWind: 1;
+					unsigned char m_bCollisionWasStreamedWithModel: 1;
+					unsigned char m_bDontCollideWithFlyer: 1;
+					unsigned char m_bHasComplexHierarchy: 1;
+					unsigned char m_bWetRoadReflection: 1;
 				};
 				struct{
-					unsigned __int8 pad0: 2;
-					unsigned __int8 m_nCarmodId : 5;
-					unsigned __int8 pad1: 1;
+					unsigned char pad0: 2;
+					unsigned char m_nCarmodId : 5;
+					unsigned char pad1: 1;
 				};
 			};
 			
@@ -72,29 +69,24 @@ public:
 	};
 	CColModel        *m_pColModel;
 	float             m_fDrawDistance;
-	struct RwObject   *m_pRwObject;
+	struct RwObject  *m_pRwObject;
 
 	// vtable
 
-	virtual class CBaseModelInfo *AsAtomicModelInfoPtr();
-	virtual class CBaseModelInfo *AsDamageAtomicModelInfoPtr();
-	virtual class CBaseModelInfo *AsLodAtomicModelInfoPtr();
-	virtual ModelInfoType GetModelType();//=0
-	virtual tTimeInfo *GetTimeInfo();
-	virtual void Init();
-	virtual void Shutdown();
-	virtual void DeleteRwObject();//=0
-	virtual unsigned int GetRwModelType();//=0
-	virtual struct RwObject *CreateInstance(struct RwMatrix *matrix);//=0
-	virtual struct RwObject *CreateInstance();//=0
-	virtual void SetAnimFile(char *filename);
-	virtual void ConvertAnimFileIndex();
-	virtual signed int GetAnimFileIndex();
-
-	//
-
-	CBaseModelInfo();
-	virtual ~CBaseModelInfo();
+	class CBaseModelInfo *AsAtomicModelInfoPtr();
+	class CBaseModelInfo *AsDamageAtomicModelInfoPtr();
+	class CBaseModelInfo *AsLodAtomicModelInfoPtr();
+	ModelInfoType GetModelType();//=0
+	tTimeInfo *GetTimeInfo();
+	void Init();
+	void Shutdown();
+	void DeleteRwObject();//=0
+	unsigned int GetRwModelType();//=0
+	struct RwObject *CreateInstance(struct RwMatrix *matrix);//=0
+	struct RwObject *CreateInstance();//=0
+	void SetAnimFile(char *filename);
+	void ConvertAnimFileIndex();
+	signed int GetAnimFileIndex();
 
 	//
 	void SetTexDictionary(char *txdName);
@@ -110,6 +102,8 @@ public:
 	// index is a number of effect (max number is (m_n2dfxCount - 1))
 	C2dEffect *Get2dEffect(int index);
 	void Add2dEffect(C2dEffect *effect);
+
+    __parent_class_vtable__
 };
 #pragma pack(pop)
 

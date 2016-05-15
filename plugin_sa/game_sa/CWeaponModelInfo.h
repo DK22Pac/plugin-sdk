@@ -4,15 +4,9 @@
 #include "eWeaponType.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CWeaponModelInfo : public CClumpModelInfo
-{
+class PLUGIN_API CWeaponModelInfo : public CClumpModelInfo {
 public:
 	eWeaponType m_weaponInfo;
-
-	//
-
-	CWeaponModelInfo();
-	~CWeaponModelInfo();
 };
 #pragma pack(pop)
 

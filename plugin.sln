@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_PlayerWeapon", "examples
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_UniversalTurnlights", "examples\SA_UniversalTurnlights\SA_UniversalTurnlights.vcxproj", "{95F4C6F8-C75D-419A-A87F-7A518EBF9125}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_ColouredObjects", "examples\SA_ColouredObjects\SA_ColouredObjects.vcxproj", "{E708C757-C779-4DA7-83F0-F37AA36EF5C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -41,6 +43,14 @@ Global
 		{95F4C6F8-C75D-419A-A87F-7A518EBF9125}.Release|Win32.Build.0 = Release|Win32
 		{95F4C6F8-C75D-419A-A87F-7A518EBF9125}.Release|x64.ActiveCfg = Release|x64
 		{95F4C6F8-C75D-419A-A87F-7A518EBF9125}.Release|x64.Build.0 = Release|x64
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Debug|Win32.Build.0 = Debug|Win32
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Debug|x64.ActiveCfg = Debug|x64
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Debug|x64.Build.0 = Debug|x64
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Release|Win32.ActiveCfg = Release|Win32
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Release|Win32.Build.0 = Release|Win32
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Release|x64.ActiveCfg = Release|x64
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +58,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0FFA1C5-0179-4865-BBF7-CD3345144F63} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 		{95F4C6F8-C75D-419A-A87F-7A518EBF9125} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
+		{E708C757-C779-4DA7-83F0-F37AA36EF5C8} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 	EndGlobalSection
 EndGlobal

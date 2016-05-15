@@ -15,8 +15,7 @@
 
 /*  Thanks to MTA team for https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CVehicleSA.h */
 
-enum eCarWeapon
-{
+enum eCarWeapon {
     CAR_WEAPON_NOT_USED,
     CAR_WEAPON_HEAVY_GUN,
     CAR_WEAPON_FREEFALL_BOMB,
@@ -24,8 +23,7 @@ enum eCarWeapon
     CAR_WEAPON_DOUBLE_ROCKET
 };
 
-enum eCarLock
-{
+enum eCarLock {
     CARLOCK_NOT_USED,
     CARLOCK_UNLOCKED,
     CARLOCK_LOCKED,
@@ -36,8 +34,7 @@ enum eCarLock
     CARLOCK_SKIP_SHUT_DOORS
 };
 
-enum eVehicleType
-{
+enum eVehicleType {
     VEHICLE_AUTOMOBILE,
     VEHICLE_MTRUCK,
     VEHICLE_QUAD,
@@ -76,11 +73,7 @@ class CWeapon;
 typedef int tWheelState;
 
 #pragma pack(push, 4)
-class PLUGIN_API  CVehicle : public CPhysical
-{
-protected:
-    CVehicle(plugin::dummy_func_t a) : CPhysical(a) {}
-    
+class PLUGIN_API  CVehicle : public CPhysical {  
 public:
     CAEVehicleAudioEntity      m_vehicleAudio;
     tHandlingData             *m_pHandlingData;
@@ -186,7 +179,7 @@ public:
     uint8_t  m_nQuaternaryColor;
     int8_t   m_anExtras[2];
     int16_t  m_awUpgrades[15];
-    float  m_fWheelScale;
+    float    m_fWheelScale;
     uint16_t m_wAlarmState;
     int16_t  m_wForcedRandomRouteSeed; // if this is non-zero the random wander gets deterministic
     class CPed *m_pDriver;
@@ -226,11 +219,11 @@ public:
     uint8_t m_nPacMansCollected; // initialised, but not used?
     uint8_t m_nPedsPositionForRoadBlock; // 0, 1 or 2
     uint8_t m_nNumCopsForRoadBlock;
-    float m_fDirtLevel; // Dirt level of vehicle body texture: 0.0f=fully clean, 15.0f=maximum dirt visible
+    float   m_fDirtLevel; // Dirt level of vehicle body texture: 0.0f=fully clean, 15.0f=maximum dirt visible
     uint8_t m_nCurrentGear;
-    float m_fGearChangeCount; // used as parameter for cTransmission::CalculateDriveAcceleration, but doesn't change
-    float m_fWheelSpinForAudio;
-    float m_fHealth; // 1000.0f = full health. 0 -> explode
+    float   m_fGearChangeCount; // used as parameter for cTransmission::CalculateDriveAcceleration, but doesn't change
+    float   m_fWheelSpinForAudio;
+    float   m_fHealth; // 1000.0f = full health. 0 -> explode
     class CVehicle *m_pTrailer;
     class CVehicle *m_pTractor;
     class CPed *m_pWhoInstalledBombOnMe;
@@ -289,64 +282,61 @@ public:
 
 	static bool& m_bEnableMouseSteering;
 	static bool& m_bEnableMouseFlying;
-
-    CVehicle(unsigned char usage);
-    ~CVehicle();
     
     // originally vtable functions
 
-    virtual void ProcessControlCollisionCheck();
-    virtual void ProcessControlInputs(unsigned char playerNum);
+    void ProcessControlCollisionCheck();
+    void ProcessControlInputs(unsigned char playerNum);
     // component index in m_apModelNodes array
-    virtual void GetComponentWorldPosition(int componentId, CVector& posnOut);
+    void GetComponentWorldPosition(int componentId, CVector& posnOut);
     // component index in m_apModelNodes array
-    virtual bool IsComponentPresent(int componentId);
-    virtual void OpenDoor(CPed* ped, int componentId, eDoors door, float doorOpenRatio, bool playSound);
-    virtual void ProcessOpenDoor(CPed* ped, unsigned int doorComponentId, unsigned int arg2, unsigned int arg3, float arg4);
-    virtual float GetDooorAngleOpenRatio(unsigned int door);
-    virtual float GetDooorAngleOpenRatio(eDoors door);
-    virtual bool IsDoorReady(unsigned int door);
-    virtual bool IsDoorReady(eDoors door);
-    virtual bool IsDoorFullyOpen(unsigned int door);
-    virtual bool IsDoorFullyOpen(eDoors door);
-    virtual bool IsDoorClosed(unsigned int door);
-    virtual bool IsDoorClosed(eDoors door);
-    virtual bool IsDoorMissing(unsigned int door);
-    virtual bool IsDoorMissing(eDoors door);
+    bool IsComponentPresent(int componentId);
+    void OpenDoor(CPed* ped, int componentId, eDoors door, float doorOpenRatio, bool playSound);
+    void ProcessOpenDoor(CPed* ped, unsigned int doorComponentId, unsigned int arg2, unsigned int arg3, float arg4);
+    float GetDooorAngleOpenRatio(unsigned int door);
+    float GetDooorAngleOpenRatio(eDoors door);
+    bool IsDoorReady(unsigned int door);
+    bool IsDoorReady(eDoors door);
+    bool IsDoorFullyOpen(unsigned int door);
+    bool IsDoorFullyOpen(eDoors door);
+    bool IsDoorClosed(unsigned int door);
+    bool IsDoorClosed(eDoors door);
+    bool IsDoorMissing(unsigned int door);
+    bool IsDoorMissing(eDoors door);
     // check if car has roof as extra
-    virtual bool IsOpenTopCar();
+    bool IsOpenTopCar();
     // remove ref to this entity
-    virtual void RemoveRefsToVehicle(CEntity* entity);
+    void RemoveRefsToVehicle(CEntity* entity);
     void BlowUpCar(CEntity* damager, unsigned char bHideExplosion);
-    virtual void BlowUpCarCutSceneNoExtras(bool bNoCamShake, bool bNoSpawnFlyingComps, bool bDetachWheels, bool bExplosionSound);
-    virtual bool SetUpWheelColModel(CColModel* wheelCol);
+    void BlowUpCarCutSceneNoExtras(bool bNoCamShake, bool bNoSpawnFlyingComps, bool bDetachWheels, bool bExplosionSound);
+    bool SetUpWheelColModel(CColModel* wheelCol);
     // returns false if it's not possible to burst vehicle's tyre or it is already damaged. bPhysicalEffect=true applies random moving force to vehicle
-    virtual bool BurstTyre(unsigned char tyreComponentId, bool bPhysicalEffect);
-    virtual bool IsRoomForPedToLeaveCar(unsigned int arg0, CVector* arg1);
-    virtual void ProcessDrivingAnims(CPed* driver, unsigned char arg1);
+    bool BurstTyre(unsigned char tyreComponentId, bool bPhysicalEffect);
+    bool IsRoomForPedToLeaveCar(unsigned int arg0, CVector* arg1);
+    void ProcessDrivingAnims(CPed* driver, unsigned char arg1);
     // get special ride anim data for bile or quad
-    virtual CRideAnimData* GetRideAnimData();
-    virtual void SetupSuspensionLines();
-    virtual CVector AddMovingCollisionSpeed(CVector& arg0);
-    virtual void Fix();
-    virtual void SetupDamageAfterLoad();
-    virtual void DoBurstAndSoftGroundRatios();
-    virtual float GetHeightAboveRoad();
-    virtual void PlayCarHorn();
-    virtual int GetNumContactWheels();
-    virtual void VehicleDamage(float damageIntensity, unsigned short collisionComponent, CEntity* damager, CVector* vecCollisionCoors, CVector* vecCollisionDirection, eWeaponType weapon);
-    virtual bool CanPedStepOutCar(bool arg0);
-    virtual bool CanPedJumpOutCar(CPed* ped);
-    virtual bool GetTowHitchPos(CVector& posnOut, bool arg1, CVehicle* arg2);
-    virtual bool GetTowBarPos(CVector& posnOut, bool arg1, CVehicle* arg2);
+    CRideAnimData* GetRideAnimData();
+    void SetupSuspensionLines();
+    CVector AddMovingCollisionSpeed(CVector& arg0);
+    void Fix();
+    void SetupDamageAfterLoad();
+    void DoBurstAndSoftGroundRatios();
+    float GetHeightAboveRoad();
+    void PlayCarHorn();
+    int GetNumContactWheels();
+    void VehicleDamage(float damageIntensity, unsigned short collisionComponent, CEntity* damager, CVector* vecCollisionCoors, CVector* vecCollisionDirection, eWeaponType weapon);
+    bool CanPedStepOutCar(bool arg0);
+    bool CanPedJumpOutCar(CPed* ped);
+    bool GetTowHitchPos(CVector& posnOut, bool arg1, CVehicle* arg2);
+    bool GetTowBarPos(CVector& posnOut, bool arg1, CVehicle* arg2);
     // always return true
-    virtual bool SetTowLink(CVehicle* arg0, bool arg1);
-    virtual bool BreakTowLink();
-    virtual float FindWheelWidth(bool bRear);
+    bool SetTowLink(CVehicle* arg0, bool arg1);
+    bool BreakTowLink();
+    float FindWheelWidth(bool bRear);
     // always return true
-    virtual bool Save();
+    bool Save();
     // always return true
-    virtual bool Load();
+    bool Load();
 
     //funcs
 
@@ -492,9 +482,6 @@ public:
     bool DoTailLightEffect(int lightId, CMatrix& matrix, unsigned char arg2, unsigned char arg3, unsigned int arg4, unsigned char arg5);
     void DoVehicleLights(CMatrix& matrix, unsigned int flags);
     void FillVehicleWithPeds(bool bSetClothesToAfro);
-    static void* operator new(unsigned int size);
-    static void operator delete(void* data);
-    static void operator delete(void* data, int arg1);
     void DoBladeCollision(CVector arg0, CMatrix& matrix, short arg2, float arg3, float arg4);
     void AddVehicleUpgrade(int modelId);
     void SetupUpgradesAfterLoad();

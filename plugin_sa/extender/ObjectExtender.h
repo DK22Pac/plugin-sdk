@@ -32,7 +32,7 @@ namespace plugin {
         void AllocateBlocks() {
             numBlocks = CPools::ms_pObjectPool->m_Size;
             blocks = new T*[numBlocks];
-            for (int i = 0; i < numBlocks; i++)
+            for (unsigned int i = 0; i < numBlocks; i++)
                 blocks[i] = 0;
         }
 
@@ -51,7 +51,7 @@ namespace plugin {
         }
 
         ~ObjectExtendedData() {
-            for (int i = 0; i < numBlocks; i++)
+            for (unsigned int i = 0; i < numBlocks; i++)
                 delete blocks[i];
             delete[] blocks;
         }

@@ -1,15 +1,5 @@
 #include "CPlaceable.h"
 
-CPlaceable::CPlaceable()
-{
-   ((void (__thiscall *)(CPlaceable *))0x54F1E0)(this);
-}
-
-CPlaceable::~CPlaceable()
-{
-
-}
-
 CVector CPlaceable::GetRightDirection()
 {
 	return ((CVector (__thiscall *)(CPlaceable *))0x41CC70)(this);
@@ -78,4 +68,20 @@ void CPlaceable::AllocateMatrix()
 void CPlaceable::SetMatrix(CMatrix  const& matrix)
 {
 	((void (__thiscall *)(CPlaceable *, CMatrix  const&))0x54F610)(this, matrix);
+}
+
+CMatrixLink *CPlaceable::GetMatrix() {
+    return ((CMatrixLink *(__thiscall *)(CPlaceable *))0x411990)(this);
+}
+
+void CPlaceable::ShutdownMatrixArray() {
+    ((void(__cdecl *)())0x54EFD0)();
+}
+
+void CPlaceable::InitMatrixArray() {
+    ((void(__cdecl *)())0x54F3A0)();
+}
+
+void CPlaceable::FreeStaticMatrix() {
+    ((void(__thiscall *)(CPlaceable *))0x54F010)(this);
 }

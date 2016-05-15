@@ -574,6 +574,9 @@
     <ClInclude Include="..\additional\Other.h">
       <Filter>additional</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CBike.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -887,6 +890,9 @@
     </ClCompile>
     <ClCompile Include="..\additional\Other.cpp">
       <Filter>additional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBike.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

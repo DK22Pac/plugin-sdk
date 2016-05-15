@@ -9,7 +9,7 @@
 class PLUGIN_API CMatrixLink : public CMatrix
 {
 public:
-	class CPlaceable *m_pOwner;
+	class CPlaceable  *m_pOwner;
 	class CMatrixLink *m_pPrev;
 	class CMatrixLink *m_pNext;
 

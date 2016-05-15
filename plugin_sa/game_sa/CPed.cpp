@@ -1,15 +1,5 @@
 #include "CPed.h"
 
-CPed::CPed(ePedType type)
-{
-	//((void (__thiscall *)(CPed *, ePedType))0x5E8030)(this, type);
-}
-
-CPed::~CPed()
-{
-    // 0x5E8620
-}
-
 // Converted from void CPed::SetMoveAnim(void) 0x5E4A00
 void CPed::SetMoveAnim()
 {
@@ -506,18 +496,6 @@ CObject* CPed::GiveObjectToPedToHold(int modelIndex, unsigned char replace)
 void CPed::SetPedState(ePedState pedState)
 {
 	((void (__thiscall *)(CPed*, ePedState))0x5E4500)(this, pedState);
-}
-
-// Converted from thiscall void* CPed::operator new(uint size) 0x5E4720
-void* CPed::operator new(unsigned int size)
-{
-	return ((void* (__cdecl *)(unsigned int))0x5E4720)(size);
-}
-
-// Converted from thiscall void CPed::operator delete(void *data) 0x5E4760
-void CPed::operator delete(void* data)
-{
-	((void (__cdecl *)(void*))0x5E4760)(data);
 }
 
 // Converted from thiscall void CPed::SetCharCreatedBy(uchar createdBy) 0x5E47E0

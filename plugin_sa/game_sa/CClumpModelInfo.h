@@ -9,21 +9,17 @@ struct RpClump;
 
 
 #pragma pack(push, 4)
-class PLUGIN_API CClumpModelInfo : public CBaseModelInfo
-{
-protected:
-    CClumpModelInfo(plugin::dummy_func_t a) : CBaseModelInfo(a) { }
-    
+class PLUGIN_API CClumpModelInfo : public CBaseModelInfo {
 public:
 	union{
 		char *m_animFileName;
-		unsigned __int32 m_dwAnimFileIndex;
+		unsigned int m_dwAnimFileIndex;
 	};
 
 	// vtable
 
-	virtual CBox *GetBoundingBox();
-	virtual void SetClump(RpClump *clump);
+	CBox *GetBoundingBox();
+	void SetClump(RpClump *clump);
 
 	// static functions
 
@@ -38,11 +34,6 @@ public:
 	static RwFrame *GetFrameFromName(RpClump *clump, char *name);
 	static void FillFrameArray(RpClump *clump, RwFrame **frames);
 	static void SetFrameIds(RwObjectNameIdAssocation *data);
-
-	//
-
-	CClumpModelInfo();
-	~CClumpModelInfo();
 };
 #pragma pack(pop)
 

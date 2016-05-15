@@ -5,16 +5,6 @@ CColModel *CVehicle::m_aSpecialColModel = (CColModel *)0xC1CC78;
 bool& CVehicle::m_bEnableMouseSteering = *(bool *)0xC1CC02;
 bool& CVehicle::m_bEnableMouseFlying  = *(bool *)0xC1CC03;
 
-CVehicle::CVehicle(unsigned char usage) : CPhysical(plugin::dummy_func)
-{
-    ((void (__thiscall *)(CVehicle *, unsigned char))0x6D5F10)(this, usage);
-}
-
-CVehicle::~CVehicle()
-{
-    // 0x6E2B40
-}
-
 // Converted from void CVehicle::ProcessControlCollisionCheck(void) 0x871EDC
 void CVehicle::ProcessControlCollisionCheck()
 {
@@ -1129,26 +1119,6 @@ void CVehicle::DoVehicleLights(CMatrix& matrix, unsigned int flags)
 void CVehicle::FillVehicleWithPeds(bool bSetClothesToAfro)
 {
 	((void (__thiscall *)(CVehicle*, bool))0x6E2900)(this, bSetClothesToAfro);
-}
-
-// Converted from thiscall void* CVehicle::operator new(uint size) 0x6E2D50
-void* CVehicle::operator new(unsigned int size)
-{
-	return ((void* (__cdecl *)(unsigned int))0x6E2D50)(size);
-}
-
-// Converted from thiscall void CVehicle::operator delete(void *data) 0x6E2D90
-void CVehicle::operator delete(void* data)
-{
-
-	// free the slot in vehicle pool
-	((void (__cdecl *)(void*))0x6E2D90)(data);
-}
-
-// Converted from thiscall void CVehicle::operator delete(void *data,int) 0x6E2DD0
-void CVehicle::operator delete(void* data, int arg1)
-{
-	((void (__cdecl *)(void*, int))0x6E2DD0)(data, arg1);
 }
 
 // Converted from thiscall void CVehicle::DoBladeCollision(CVector,CMatrix &matrix,short,float,float) 0x6E2E50

@@ -9,11 +9,7 @@
 class CObject;
 
 #pragma pack(push, 1)
-class PLUGIN_API  CAutomobile : public CVehicle
-{
-protected:
-    CAutomobile(plugin::dummy_func_t a) : CVehicle(a) {}
-
+class PLUGIN_API  CAutomobile : public CVehicle {
 public:
     CDamageManager m_damageManager;
     CDoor m_doors[6];
@@ -102,9 +98,6 @@ public:
     char field_981;
     short field_982;
     float field_984;
-
-    CAutomobile(int modelIndex, unsigned char usage, bool setupSuspensionLines);
-    ~CAutomobile();
 
     //vtable
 

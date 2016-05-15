@@ -5,8 +5,7 @@
 #include "eCopType.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CCopPed : public CPed
-{
+class PLUGIN_API CCopPed : public CPed {
 public:
 	int32_t field_79C;
 	eCopType       m_copType;
@@ -14,9 +13,6 @@ public:
 	class CCopPed *m_pCopPartner;
 	CPed          *m_apCriminalsToKill[5];
 	int8_t field_7C0;
-
-	CCopPed();
-	//~CCopPed();
 
 	void SetPartner(CCopPed* partner);
 	void AddCriminalToKill(CPed* criminal);
