@@ -38,3 +38,6 @@ CdeclEvent    <AddressList<0x7F795B, H_CALL,
                            0x7F9A0C, H_CALL,
                            0x7F9B39, H_CALL>, PR_AFT, ArgPickNone,            void()>          plugin::Events::d3dLostEvent;
 CdeclEvent    <AddressList<0x53E981, H_CALL>, PR_AFT, ArgPickNone,            void()>          plugin::Events::gameProcessEvent;
+CdeclEvent    <AddressList<0x748CFB, H_CALL>, PR_AFT, ArgPickNone,            void()>          plugin::Events::initGameEvent;
+CdeclEvent    <AddressList<0x748E09, H_CALL,
+                           0x748E48, H_CALL>, PR_AFT, ArgPickNone,            void()>          plugin::Events::reInitGameEvent;
