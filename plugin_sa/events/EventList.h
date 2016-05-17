@@ -198,5 +198,8 @@ namespace plugin
                                           0x7F9A0C, H_CALL,
                                           0x7F9B39, H_CALL>, PR_AFT, ArgPickNone,            void()>          d3dLostEvent;
         extern CdeclEvent    <AddressList<0x53E981, H_CALL>, PR_AFT, ArgPickNone,            void()>          gameProcessEvent;
+        extern CdeclEvent    <AddressList<0x748CFB, H_CALL>, PR_AFT, ArgPickNone,            void()>          initGameEvent;
+        extern CdeclEvent    <AddressList<0x748E09, H_CALL,
+                                          0x748E48, H_CALL>, PR_AFT, ArgPickNone,            void()>          reInitGameEvent;
     }
 }
