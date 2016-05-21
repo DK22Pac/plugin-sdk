@@ -933,6 +933,9 @@
     <ClCompile Include="..\game_sa\CHandObject.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskManager.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\game_sa\CMakeLists.txt">
