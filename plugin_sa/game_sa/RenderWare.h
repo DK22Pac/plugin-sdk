@@ -2261,7 +2261,7 @@ deleted.
 #define RwMatrixScale(matrix, scale, combineOp) ((RwMatrixTag *(__cdecl *)(RwMatrixTag *, RwV3d *, int)) 0x7F22C0)(matrix, scale, combineOp)
 
 // globals
-#define MyRwEngineInstance (*(RwGlobals **)0xC97B24)
+#define RwEngineInstance (*(RwGlobals **)0xC97B24)
 
 // RsEvent
 #define RsEventHandler(rsevent, param) ((RsEventStatus (__cdecl *)(RsEvent, void *))0x619B60)(rsevent, param)

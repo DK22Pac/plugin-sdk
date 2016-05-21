@@ -163,8 +163,10 @@ namespace plugin
         extern CdeclEvent    <AddressList<0x53E293, H_CALL>, PR_AFT, ArgPickNone,            void()>          drawingEvent;
         extern CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PR_AFT, ArgPickNone,            void()>          drawHudEvent;
         extern CdeclEvent    <AddressList<0x58FC53, H_CALL>, PR_AFT, ArgPickNone,            void()>          drawRadarEvent;
-        extern CdeclEvent    <AddressList<0x58AA2D, H_JUMP>, PR_AFT, ArgPickNone,            void()>          drawRadarBlipsEvent;
-        extern CdeclEvent    <AddressList<0x575B44, H_CALL>, PR_AFT, ArgPickNone,            void()>          drawMenuMapBlipsEvent;
+        extern CdeclEvent    <AddressList<0x58AA2D, H_JUMP,
+                                          0x575B44, H_CALL>, PR_AFT, ArgPickNone,            void()>          drawBlipsEvent;
+        extern CdeclEvent    <AddressList<0x5759E4, H_CALL,
+                                          0x5869BF, H_CALL>, PR_AFT, ArgPickNone,            void(bool)>      drawRadarOverlayEvent;
         extern CdeclEvent    <AddressList<0x5BF3A1, H_CALL>, PR_AFT, ArgPickNone,            void()>          initRwEvent;
         extern CdeclEvent    <AddressList<0x53D910, H_CALL>, PR_BEF, ArgPickNone,            void()>          shutdownRwEvent;
         extern ThiscallEvent <AddressList<0x6D5F2F, H_CALL>, PR_AFT, ArgPickN<CVehicle*, 0>, void(CVehicle*)> vehicleCtorEvent;

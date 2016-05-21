@@ -39,8 +39,13 @@ public:
 	// matrix * vector multiplication
 	void FromMultiply(class CMatrix  const& matrix, CVector const& vector);
 	void FromMultiply3x3(class CMatrix  const& matrix, CVector const& vector);
-
-    inline CVector operator-(const CVector& right) {
-        return CVector(x - right.x, y - right.y, z - right.z);
-    }
 };
+
+inline CVector operator-(const CVector& vecOne, const CVector& vecTwo) {
+    return CVector(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y, vecOne.z - vecTwo.z);
+}
+
+inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
+    CVector diff = pointTwo - pointOne;
+    return diff.Magnitude();
+}

@@ -1,4 +1,10 @@
 #include "CVector2D.h"
+#include "CVector.h"
+
+CVector2D::CVector2D(const CVector& vec3d) {
+    x = vec3d.x;
+    y = vec3d.y;
+}
 
 float CVector2D::Magnitude()
 {

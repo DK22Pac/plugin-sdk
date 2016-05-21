@@ -6,6 +6,7 @@
 #include <game_sa\CFont.h>
 #include <game_sa\common.h>
 #include <game_sa\CRadar.h>
+#include <game_sa\CMenuManager.h>
 
 using namespace plugin;
 
@@ -70,8 +71,8 @@ public:
         };
 
         // Show objects on radar
-        Events::drawRadarBlipsEvent.before += [] {
-            if (FindPlayerPed(0)) {
+        Events::drawBlipsEvent += [] {
+            if (!FrontEndMenuManager.drawRadarOrMap && FindPlayerPed(0)) {
                 for (int i = 0; i < CPools::ms_pObjectPool->m_Size; i++) {
                     CObject *object = CPools::ms_pObjectPool->GetAt(i);
                     if (object) {

@@ -16,6 +16,8 @@ public:
         y = Y;
     }
 
+    CVector2D(const class CVector& vec3d);
+
 	// Returns length of vector
 	float Magnitude();
 
@@ -54,8 +56,13 @@ public:
         this->x /= divisor;
         this->y /= divisor;
     }
-
-    inline CVector2D operator-(const CVector2D& right) {
-        return CVector2D(x - right.x, y - right.y);
-    }
 };
+
+inline CVector2D operator-(const CVector2D& vecOne, const CVector2D& vecTwo) {
+    return CVector2D(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y);
+}
+
+inline float DistanceBetweenPoints(const CVector2D &pointOne, const CVector2D &pointTwo) {
+    CVector2D diff = pointTwo - pointOne;
+    return diff.Magnitude();
+}

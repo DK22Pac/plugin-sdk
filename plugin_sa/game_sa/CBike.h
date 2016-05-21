@@ -17,6 +17,7 @@ enum eBikeModelNodes {
 };
 
 class CBike : public CVehicle {
+public:
     RwFrame       *m_apModelNodes[BIKE_NUM_NODES];
     bool           m_bLeanMatrixCalculated;
     char _pad0[3];

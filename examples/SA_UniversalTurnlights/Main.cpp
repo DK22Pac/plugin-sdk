@@ -75,8 +75,7 @@ public:
                     }
                 }
                 if (CTimer::m_snTimeInMilliseconds % (TURN_ON_OFF_DELAY * 2) < TURN_ON_OFF_DELAY) {
-                    CVector dv = TheCamera.m_vGameCamPos - vehicle->GetCoords();
-                    if (dv.Magnitude() < MAX_RADIUS) {
+                    if (DistanceBetweenPoints(TheCamera.m_vGameCamPos, vehicle->GetCoords()) < MAX_RADIUS) {
                         DrawVehicleTurnlights(vehicle, lightsStatus);
                         if (vehicle->m_pTractor)
                             DrawVehicleTurnlights(vehicle->m_pTractor, lightsStatus);

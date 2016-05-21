@@ -169,7 +169,7 @@ public:
 	__int8 field_22[2];
 	__int32             m_dwRadarMode;
 	__int8 field_28[4];
-	__int32             m_nTargetBlipIndex;
+	__int32             m_nTargetBlipIndex; // blip script handle
 	__int8 field_30;
 	__int8 field_31;
 	bool                m_bDontDrawFrontEnd;
