@@ -79,9 +79,9 @@ public:
                         RECT rect;
                         CVector2D posn;
                         CRadar::TransformRadarPointToScreenSpace(posn, CVector2D(-1.0f, -1.0f));
-                        rect.left = posn.x + 1.0f; rect.bottom = posn.y + 1.0f;
+                        rect.left = posn.x + 2.0f; rect.bottom = posn.y - 2.0f;
                         CRadar::TransformRadarPointToScreenSpace(posn, CVector2D(1.0f, 1.0f));
-                        rect.right = posn.x - 1.0f; rect.top = posn.y - 1.0f;
+                        rect.right = posn.x - 2.0f; rect.top = posn.y + 2.0f;
                         RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, TRUE);
                         RwD3DDevice->SetScissorRect(&rect);
                     }
