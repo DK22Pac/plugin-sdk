@@ -595,6 +595,7 @@
     <ClInclude Include="..\game_sa\CHandObject.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPlayHandSignalAnim.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -936,6 +937,7 @@
     <ClCompile Include="..\game_sa\CTaskManager.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\game_sa\CMakeLists.txt">

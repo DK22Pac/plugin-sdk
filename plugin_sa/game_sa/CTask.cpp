@@ -1,16 +1,5 @@
 #include "CTask.h"
 
-
-CTask::CTask()
-{
-    ((void (__thiscall *)(CTask *))0x61A340)(this);
-}
-
-CTask::~CTask()
-{
-    // 0x061A350
-}
-
 void *CTask::operator new(unsigned int size)
 {
 	return ((CTask *(__cdecl *)(unsigned int))0x61A5A0)(size);

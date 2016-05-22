@@ -209,6 +209,7 @@
     <ClInclude Include="..\game_sa\CTask.h" />
     <ClInclude Include="..\game_sa\CTaskComplex.h" />
     <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFoot.h" />
+    <ClInclude Include="..\game_sa\CTaskComplexPlayHandSignalAnim.h" />
     <ClInclude Include="..\game_sa\CTaskManager.h" />
     <ClInclude Include="..\game_sa\CTaskSimple.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h" />
@@ -358,6 +359,7 @@
     <ClCompile Include="..\game_sa\CTask.cpp" />
     <ClCompile Include="..\game_sa\CTaskComplex.cpp" />
     <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFoot.cpp" />
+    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp" />
     <ClCompile Include="..\game_sa\CTaskManager.cpp" />
     <ClCompile Include="..\game_sa\CTaskSimple.cpp" />
     <ClCompile Include="..\game_sa\CTexDictionary.cpp" />

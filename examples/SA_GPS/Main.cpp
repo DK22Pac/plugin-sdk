@@ -135,8 +135,8 @@ public:
                 CFont::SetColor(CRGBA(200, 200, 200, 255));
                 CFont::SetBackground(false, false);
                 CFont::SetWrapx(500.0f);
-                CFont::SetScale(0.4 * static_cast<float>(RsGlobal->MaximumWidth) / 640.0f, 
-                    0.8 * static_cast<float>(RsGlobal->MaximumHeight) / 448.0f);
+                CFont::SetScale(0.4f * static_cast<float>(RsGlobal->MaximumWidth) / 640.0f, 
+                    0.8f * static_cast<float>(RsGlobal->MaximumHeight) / 448.0f);
                 CFont::SetFontStyle(FONT_SUBTITLES);
                 CFont::SetProp(true);
                 CFont::SetDropShadowPosition(1);

@@ -56,7 +56,7 @@ namespace plugin
 namespace plugin
 {
     struct dummy_func_t { };                // Dummy func tag type
-    static const dummy_func_t dummy_func;   // Dummy func tag object
+    static const dummy_func_t dummy;        // Dummy func tag object
 
     // Gets the virtual method table from the object @self
     inline void** GetVMT(const void* self)
