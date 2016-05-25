@@ -6,12 +6,12 @@
 class PLUGIN_API CEntityScanner
 {
 protected:
-	void *vtable;
+    void *vtable;
 public:
-	__int32 field_4;
-	unsigned __int32 m_dwCount;
-	class CEntity *m_apEntities[16];
-	__int32 field_4C;
+    int field_4;
+    unsigned __int32 m_dwCount;
+    class CEntity *m_apEntities[16];
+    int field_4C;
 };
 #pragma pack(pop)
 

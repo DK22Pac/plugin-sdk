@@ -2,7 +2,7 @@
 
 #include "plbase/PluginBase.h"
 #include "CTaskComplex.h"
-#include "CAiTimer.h"
+#include "CTaskTimer.h"
 
 #pragma pack(push, 4)
 class PLUGIN_API CTaskComplexKillPedOnFoot : public CTaskComplex
@@ -16,7 +16,7 @@ public:
 	__int8 field_20;
 	unsigned __int32  m_dwLaunchTime;
 	signed __int32    m_dwTime;
-	CAiTimer          m_AiTimer;
+    CTaskTimer        m_AiTimer;
 
 	CTaskComplexKillPedOnFoot();
    ~CTaskComplexKillPedOnFoot();
