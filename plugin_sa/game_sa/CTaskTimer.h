@@ -15,6 +15,15 @@ public:
         m_nInterval = interval;
         m_bStarted = true;
     }
+
+    inline CTaskTimer() {
+        m_nStartTime = 0;
+        m_nInterval = 0;
+        m_bStarted = false;
+        m_bStopped = false;
+    }
+
+    CTaskTimer(plugin::dummy_func_t) {}
     
     bool IsOutOfTime();
 };

@@ -16,11 +16,10 @@ public:
 	__int8 field_20;
 	unsigned __int32  m_dwLaunchTime;
 	signed __int32    m_dwTime;
-    CTaskTimer       *m_AiTimer;
+    CTaskTimer        m_taskTimer;
 
 	CTaskComplexKillPedOnFoot();
-   ~CTaskComplexKillPedOnFoot();
 };
 #pragma pack(pop)
 
-//VALIDATE_SIZE(CTaskComplexKillPedOnFoot, 0x38);
+VALIDATE_SIZE(CTaskComplexKillPedOnFoot, 0x38);
