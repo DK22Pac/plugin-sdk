@@ -57,7 +57,8 @@ public:
 	unsigned char m_nClass;
 	unsigned char m_nFlags;
 	unsigned char m_nWheelUpgradeClass;
-	unsigned short m_wTimesUsed;
+	unsigned char m_nTimesUsed;
+    char field_51;
 	unsigned short m_wFrq;
 	union{
 		unsigned int m_dwCompRules;

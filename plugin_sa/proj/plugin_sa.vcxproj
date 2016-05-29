@@ -101,6 +101,9 @@
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
+    <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
+    <ClInclude Include="..\game_sa\CPopCycle.h" />
+    <ClInclude Include="..\game_sa\CPopulation.h" />
     <ClInclude Include="..\game_sa\CTaskTimer.h" />
     <ClInclude Include="..\game_sa\CAnimBlendAssociation.h" />
     <ClInclude Include="..\game_sa\CAnimBlendClumpData.h" />
@@ -322,6 +325,7 @@
     <ClCompile Include="..\game_sa\CHandObject.cpp" />
     <ClCompile Include="..\game_sa\CHud.cpp" />
     <ClCompile Include="..\game_sa\CHudColours.cpp" />
+    <ClCompile Include="..\game_sa\CLoadedCarGroup.cpp" />
     <ClCompile Include="..\game_sa\CMatrix.cpp" />
     <ClCompile Include="..\game_sa\CMatrixLink.cpp" />
     <ClCompile Include="..\game_sa\CMenuManager.cpp" />
@@ -342,6 +346,7 @@
     <ClCompile Include="..\game_sa\CPlaneTrails.cpp" />
     <ClCompile Include="..\game_sa\CPointLights.cpp" />
     <ClCompile Include="..\game_sa\CPools.cpp" />
+    <ClCompile Include="..\game_sa\CPopulation.cpp" />
     <ClCompile Include="..\game_sa\CProjectile.cpp" />
     <ClCompile Include="..\game_sa\CQuaternion.cpp" />
     <ClCompile Include="..\game_sa\CRadar.cpp" />
