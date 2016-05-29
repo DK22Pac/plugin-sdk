@@ -332,6 +332,7 @@ public:
 	void GetBonePosition(RwV3d& outPosition, unsigned int boneId, bool updateSkinBones);
 	CObject* GiveObjectToPedToHold(int modelIndex, unsigned char replace);
 	void SetPedState(ePedState pedState);
+	//1 = default, 2 = scm/mission script
 	void SetCharCreatedBy(unsigned char createdBy);
 	void CalculateNewVelocity();
 	void CalculateNewOrientation();
