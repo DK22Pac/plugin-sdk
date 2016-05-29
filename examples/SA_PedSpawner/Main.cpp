@@ -23,7 +23,7 @@ public:
 				int modelID = GetRandomSkin(bMale);
 				CStreaming::RequestModel(modelID, 0);
 				CStreaming::LoadAllRequestedModels(false);
-				CPed* ped = CPopulation::AddPed((bMale?PED_TYPE_CIVMALE:PED_TYPE_CIVFEMALE), modelID, FindPlayerPed()->TransformFromObjectSpace(CVector(0.0f, 5.0f, 3.0f)), false);
+				CPed* ped = CPopulation::AddPed((bMale?PED_TYPE_CIVMALE:PED_TYPE_CIVFEMALE), modelID, FindPlayerPed()->TransformFromObjectSpace(CVector(0.0f, 5.0f, 3.0f)), true);
 				if (ped) {
 					ped->SetCharCreatedBy(2);
 					ped->PositionAnyPedOutOfCollision();
