@@ -25,6 +25,9 @@
     <Filter Include="additional\settings">
       <UniqueIdentifier>{f4cbd8c9-57d9-4a7f-943e-d1e0965b7566}</UniqueIdentifier>
     </Filter>
+    <Filter Include="inih">
+      <UniqueIdentifier>{958162d3-ed56-4faa-b3d2-a713f95873e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\AnimBlendFrameData.h">
@@ -607,16 +610,26 @@
     <ClInclude Include="..\game_sa\CAttractorScanner.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CLoadedCarGroup.h">
+    <ClInclude Include="..\game_sa\CRunningScriptWrapper.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CTaskComplexPlayHandSignalAnim.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPopulation.h">
+    <ClInclude Include="..\third-party\inih\ini.h">
+      <Filter>inih</Filter>
+    </ClInclude>
+    <ClInclude Include="..\third-party\inih\INIReader.h">
+      <Filter>inih</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ScriptCommands.h" />
+    <ClInclude Include="..\game_sa\CLoadedCarGroup.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CPopCycle.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPopulation.h">
       <Filter>game_sa</Filter>
     </ClInclude>
   </ItemGroup>
@@ -974,6 +987,19 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CPopulation.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ScriptCommands.cpp" />
+    <ClCompile Include="..\game_sa\CRunningScriptWrapper.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third-party\inih\ini.c">
+      <Filter>inih</Filter>
+    </ClCompile>
+    <ClCompile Include="..\third-party\inih\INIReader.cpp">
+      <Filter>inih</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

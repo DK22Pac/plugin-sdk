@@ -101,10 +101,9 @@
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
-    <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
+    <ClInclude Include="..\game_sa\CRunningScriptWrapper.h" />    <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
     <ClInclude Include="..\game_sa\CPopCycle.h" />
-    <ClInclude Include="..\game_sa\CPopulation.h" />
-    <ClInclude Include="..\game_sa\CTaskTimer.h" />
+    <ClInclude Include="..\game_sa\CPopulation.h" />    <ClInclude Include="..\game_sa\CTaskTimer.h" />
     <ClInclude Include="..\game_sa\CAnimBlendAssociation.h" />
     <ClInclude Include="..\game_sa\CAnimBlendClumpData.h" />
     <ClInclude Include="..\game_sa\CAtomicModelInfo.h" />
@@ -278,6 +277,9 @@
     <ClInclude Include="..\game_sa\tTransmissionGear.h" />
     <ClInclude Include="..\plbase\PluginBase.h" />
     <ClInclude Include="..\plugin.h" />
+    <ClInclude Include="..\ScriptCommands.h" />
+    <ClInclude Include="..\third-party\inih\ini.h" />
+    <ClInclude Include="..\third-party\inih\INIReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\additional\Other.cpp" />
@@ -357,6 +359,7 @@
     <ClCompile Include="..\game_sa\CRegisteredCorona.cpp" />
     <ClCompile Include="..\game_sa\CRGBA.cpp" />
     <ClCompile Include="..\game_sa\CRunningScript.cpp" />
+    <ClCompile Include="..\game_sa\CRunningScriptWrapper.cpp" />
     <ClCompile Include="..\game_sa\CScene.cpp" />
     <ClCompile Include="..\game_sa\CShadowCamera.cpp" />
     <ClCompile Include="..\game_sa\CShadows.cpp" />
@@ -398,6 +401,9 @@
     <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp" />
     <ClCompile Include="..\game_sa\Fx_c.cpp" />
     <ClCompile Include="..\plbase\PluginBase.cpp" />
+    <ClCompile Include="..\ScriptCommands.cpp" />
+    <ClCompile Include="..\third-party\inih\ini.c" />
+    <ClCompile Include="..\third-party\inih\INIReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\game_sa\CMakeLists.txt" />
