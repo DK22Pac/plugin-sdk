@@ -18,3 +18,11 @@ float CWorld::FindGroundZForCoord(float x, float y)
 {
 	return ((float (__cdecl *)(float, float))0x569660)(x, y);
 }
+
+void CWorld::Add(CEntity *entity) {
+    ((void(__cdecl *)(CEntity *))0x563220)(entity);
+}
+
+void CWorld::Remove(CEntity *entity) {
+    ((void(__cdecl *)(CEntity *))0x563280)(entity);
+}

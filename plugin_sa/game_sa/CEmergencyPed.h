@@ -5,8 +5,7 @@
 
 class PLUGIN_API CEmergencyPed : public CPed
 {
-	CEmergencyPed();
-	//~CEmergencyPed();
+	CEmergencyPed(unsigned int pedType, unsigned int modelIndex);
 
 	bool InRange(CPed *ped);
 };

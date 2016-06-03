@@ -1,6 +1,6 @@
 #pragma once
 
-enum eCopType
+enum eCopType : unsigned int
 {
 	COP_TYPE_CITYCOP,
 	COP_TYPE_LAPDM1,

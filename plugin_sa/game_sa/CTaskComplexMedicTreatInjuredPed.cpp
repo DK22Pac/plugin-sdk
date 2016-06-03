@@ -1,0 +1,1 @@
+#include "CTaskComplexMedicTreatInjuredPed.h"

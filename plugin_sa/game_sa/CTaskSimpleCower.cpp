@@ -1,0 +1,1 @@
+#include "CTaskSimpleCower.h"

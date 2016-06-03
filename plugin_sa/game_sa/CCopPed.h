@@ -7,12 +7,15 @@
 #pragma pack(push, 4)
 class PLUGIN_API CCopPed : public CPed {
 public:
-	int32_t field_79C;
+	int field_79C;
 	eCopType       m_copType;
-	int32_t field_7A4;
+    int field_7A4;
 	class CCopPed *m_pCopPartner;
 	CPed          *m_apCriminalsToKill[5];
-	int8_t field_7C0;
+	char field_7C0;
+
+    // we can use modelIds as copType too!
+    CCopPed(eCopType copType);
 
 	void SetPartner(CCopPed* partner);
 	void AddCriminalToKill(CPed* criminal);

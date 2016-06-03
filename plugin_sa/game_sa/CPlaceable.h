@@ -8,6 +8,8 @@ class PLUGIN_API CPlaceable {
 public:
     CSimpleTransform m_placement;
     CMatrixLink *m_matrix;
+
+    virtual ~CPlaceable() {};
     
     CMatrixLink *GetMatrix();
     
@@ -34,8 +36,6 @@ public:
     inline CVector &GetCoords() {
         return m_matrix ? m_matrix->pos : m_placement.m_vPosn;
     }
-    
-    __parent_class_vtable__
 };
 #pragma pack(pop)
 

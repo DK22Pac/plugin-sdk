@@ -18,4 +18,9 @@ public:
 		CEntity *&colEntity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, 
 		bool seeThrough, bool cameraObjects, bool shootThrough);
 	static float FindGroundZForCoord(float x, float y);
+
+    // add entity to game world
+    static void Add(CEntity *entity);
+    // remove entity from game world
+    static void Remove(CEntity *entity);
 };

@@ -1,7 +1,6 @@
 #include <plugin.h>
 #include <game_sa\CCheat.h>
 #include <game_sa\CHud.h>
-#include <game_sa\CMessages.h>
 #include <algorithm>
 
 using namespace plugin;

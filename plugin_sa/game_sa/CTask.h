@@ -3,8 +3,7 @@
 #include "plbase/PluginBase.h"
 #include "eTaskType.h"
 
-class PLUGIN_API CTask
-{
+class PLUGIN_API CTask {
     CTask() = delete;
 protected:
     CTask(plugin::dummy_func_t) {}

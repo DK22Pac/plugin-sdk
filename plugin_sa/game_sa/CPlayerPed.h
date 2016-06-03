@@ -11,6 +11,8 @@ public:
 	CPed *m_pPlayerTargettedPed;
 	__int32 field_7A0;
 
+    CPlayerPed(int playerId, bool arg1);
+
 	void MakeChangesForNewWeapon(eWeaponType weaponType);
 };
 #pragma pack(pop)

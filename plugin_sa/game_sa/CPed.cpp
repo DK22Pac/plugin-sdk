@@ -1,5 +1,15 @@
 #include "CPed.h"
 
+// Converted from thiscall void* CPed::operator new(uint size) 0x5E4720
+void* CPed::operator new(unsigned int size) {
+	return ((void* (__cdecl *)(unsigned int))0x5E4720)(size);
+}
+
+// Converted from thiscall void CPed::operator delete(void *data) 0x5E4760
+void CPed::operator delete(void* data) {
+	((void (__cdecl *)(void*))0x5E4760)(data);
+}
+
 // Converted from void CPed::SetMoveAnim(void) 0x5E4A00
 void CPed::SetMoveAnim()
 {

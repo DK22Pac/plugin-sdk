@@ -1,5 +1,9 @@
 #include "CCopPed.h"
 
+CCopPed::CCopPed(eCopType copType) : CPed(plugin::dummy) {
+    ((void(__thiscall *)(CCopPed*, eCopType))0x5DDC60)(this, copType);
+}
+
 // Converted from thiscall void CCopPed::SetPartner(CCopPed *partner) 0x5DDE80
 void CCopPed::SetPartner(CCopPed* partner)
 {

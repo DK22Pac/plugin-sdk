@@ -42,12 +42,12 @@ void CMenuSystem::Process(unsigned __int8 panelId)
 
 CMenuPanel* CMenuSystem::InputStandardMenu(unsigned __int8 panelId)
 {
-	return ((CPanel* (__cdecl *)(unsigned __int8))0x580800)(panelId);
+	return ((CMenuPanel* (__cdecl *)(unsigned __int8))0x580800)(panelId);
 }
 
 CMenuPanel* CMenuSystem::InputGridMenu(unsigned __int8 panelId)
 {
-	return ((CPanel* (__cdecl *)(unsigned __int8))0x580BD0)(panelId);
+	return ((CMenuPanel* (__cdecl *)(unsigned __int8))0x580BD0)(panelId);
 }
 
 void CMenuSystem::DisplayStandardMenu(unsigned __int8 panelId, bool bBrightFont)
@@ -67,17 +67,17 @@ void CMenuSystem::HighlightOneItem(unsigned __int8 panelId, unsigned __int8 item
 
 CMenuPanel** CMenuSystem::InsertMenu(unsigned __int8 panelId, unsigned __int8 columnId, char *pTitle, char *str1, char *str2, char *str3, char *str4, char *str5, char *str6, char *str7, char *str8, char *str9, char *str10, char *str11, char *str12)
 {
-	return ((CPanel** (__cdecl *)(unsigned __int8, unsigned __int8, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*))0x581E00)(panelId, columnId, pTitle, str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12);
+	return ((CMenuPanel** (__cdecl *)(unsigned __int8, unsigned __int8, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*, char*))0x581E00)(panelId, columnId, pTitle, str1, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12);
 }
 
 CMenuPanel* CMenuSystem::InsertOneMenuItem(unsigned __int8 panelId, unsigned __int8 columnId, unsigned __int8 rowId, char *str)
 {
-	return ((CPanel* (__cdecl *)(unsigned __int8, unsigned __int8, unsigned __int8, char*))0x581CE0)(panelId, columnId, rowId, str);
+	return ((CMenuPanel* (__cdecl *)(unsigned __int8, unsigned __int8, unsigned __int8, char*))0x581CE0)(panelId, columnId, rowId, str);
 }
 
 CMenuPanel* CMenuSystem::InsertOneMenuItemWithNumber(unsigned __int8 panelId, unsigned __int8 columnId, unsigned __int8 rowId, char *str, int number1, int number2)
 {
-	return ((CPanel* (__cdecl *)(unsigned __int8, unsigned __int8, unsigned __int8, char*, int, int))0x581D70)(panelId, columnId, rowId, str, number1, number1);
+	return ((CMenuPanel* (__cdecl *)(unsigned __int8, unsigned __int8, unsigned __int8, char*, int, int))0x581D70)(panelId, columnId, rowId, str, number1, number1);
 }
 
 void CMenuSystem::SetActiveMenuItem(unsigned __int8 panelId, __int8 rowId)

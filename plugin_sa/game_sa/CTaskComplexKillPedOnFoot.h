@@ -4,9 +4,9 @@
 #include "CTaskComplex.h"
 #include "CTaskTimer.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CTaskComplexKillPedOnFoot : public CTaskComplex
-{
+class PLUGIN_API CTaskComplexKillPedOnFoot : public CTaskComplex {
+protected:
+    CTaskComplexKillPedOnFoot(plugin::dummy_func_t a) : CTaskComplex(a) {}
 public:
 	unsigned __int8   m_nFlags;
 	class CPed       *m_pTarget;
@@ -20,6 +20,5 @@ public:
 
 	CTaskComplexKillPedOnFoot();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CTaskComplexKillPedOnFoot, 0x38);
