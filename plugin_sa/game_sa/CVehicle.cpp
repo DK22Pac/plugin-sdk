@@ -1098,9 +1098,9 @@ void CVehicle::DoHeadLightReflectionTwin(CMatrix& matrix)
 }
 
 // Converted from thiscall void CVehicle::DoHeadLightReflection(CMatrix &,uint,uchar,uchar) 0x6E1720
-void CVehicle::DoHeadLightReflection(CMatrix& arg0, unsigned int arg1, unsigned char arg2, unsigned char arg3)
+void CVehicle::DoHeadLightReflection(CMatrix& arg0, unsigned int flags, unsigned char left, unsigned char right)
 {
-	((void (__thiscall *)(CVehicle*, CMatrix&, unsigned int, unsigned char, unsigned char))0x6E1720)(this, arg0, arg1, arg2, arg3);
+	((void (__thiscall *)(CVehicle*, CMatrix&, unsigned int, unsigned char, unsigned char))0x6E1720)(this, arg0, flags, left, right);
 }
 
 // Converted from thiscall bool CVehicle::DoTailLightEffect(int lightId,CMatrix &matrix,uchar,uchar,uint,uchar) 0x6E1780

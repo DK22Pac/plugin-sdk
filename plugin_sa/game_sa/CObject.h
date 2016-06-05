@@ -101,8 +101,8 @@ public:
     
     void GrabObjectToCarryWithRope(CPhysical* attachTo);
     bool CanBeUsedToTakeCoverBehind();
-    class CObject* Create(int modelIndex);
-    class CObject* Create(CDummyObject* dummyObject);
+    static class CObject* Create(int modelIndex);
+    static class CObject* Create(CDummyObject* dummyObject);
     void ProcessControlLogic();
 
     // static functions

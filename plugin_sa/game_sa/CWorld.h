@@ -4,6 +4,7 @@
 #include "CPlayerInfo.h"
 #include "CColPoint.h"
 #include "CEntity.h"
+#include "CStoredCollPoly.h"
 
 class PLUGIN_API CWorld
 {
@@ -18,6 +19,9 @@ public:
 		CEntity *&colEntity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, 
 		bool seeThrough, bool cameraObjects, bool shootThrough);
 	static float FindGroundZForCoord(float x, float y);
+
+    static bool ProcessVerticalLine(CVector const& origin, float distance, CColPoint &colPoint, CEntity *&colEntity,
+        bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool seeThrough, CStoredCollPoly *poly);
 
     // add entity to game world
     static void Add(CEntity *entity);

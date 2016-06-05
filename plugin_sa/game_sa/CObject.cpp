@@ -155,14 +155,12 @@ bool CObject::CanBeUsedToTakeCoverBehind() {
     return ((bool(__thiscall *)(CObject*))0x5A1B60)(this);
 }
 
-// Converted from thiscall CObject* CObject::Create(int modelIndex) 0x5A1F60
 CObject* CObject::Create(int modelIndex) {
-    return ((CObject* (__thiscall *)(CObject*, int))0x5A1F60)(this, modelIndex);
+    return ((CObject* (__cdecl *)(int))0x5A1F60)(modelIndex);
 }
 
-// Converted from thiscall CObject* CObject::Create(CDummyObject *dummyObject) 0x5A2070
 CObject* CObject::Create(CDummyObject* dummyObject) {
-    return ((CObject* (__thiscall *)(CObject*, CDummyObject*))0x5A2070)(this, dummyObject);
+    return ((CObject* (__cdecl *)(CDummyObject*))0x5A2070)(dummyObject);
 }
 
 // Converted from thiscall void CObject::ProcessControlLogic(void) 0x5A29A0

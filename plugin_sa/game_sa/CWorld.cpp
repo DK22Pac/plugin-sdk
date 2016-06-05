@@ -14,6 +14,13 @@ Bool CWorld::ProcessLineOfSight(CVector  const& origin, CVector  const& target, 
 		vehicles, peds, objects, dummies, seeThrough, cameraObjects, shootThrough);
 }
 
+bool CWorld::ProcessVerticalLine(CVector const& origin, float distance, CColPoint &colPoint, CEntity *&colEntity,
+    bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool seeThrough, CStoredCollPoly *poly) {
+    return ((bool(__cdecl *)(CVector const&, float, CColPoint &, CEntity *&, bool, bool, bool, bool, bool, bool, 
+        CStoredCollPoly *))0x5674E0)(origin, distance, colPoint, colEntity, buildings, vehicles, peds, objects,
+            dummies, seeThrough, poly);
+}
+
 float CWorld::FindGroundZForCoord(float x, float y)
 {
 	return ((float (__cdecl *)(float, float))0x569660)(x, y);

@@ -57,6 +57,13 @@ enum eVehicleApperance {
     VEHICLE_APPEARANCE_PLANE,
 };
 
+enum eVehicleLightsFlags {
+    VEHICLE_LIGHTS_TWIN = 1,
+    VEHICLE_LIGHTS_IGNORE_DAMAGE = 4,
+    VEHICLE_LIGHTS_DISABLE_FRONT = 16,
+    VEHICLE_LIGHTS_DISABLE_REAR = 32
+};
+
 #if 0
 enum eOrdnanceType;
 enum eFlightModel;
@@ -478,8 +485,9 @@ public:
     void DoHeadLightBeam(int arg0, CMatrix& matrix, unsigned char arg2);
     void DoHeadLightReflectionSingle(CMatrix& matrix, unsigned char lightId);
     void DoHeadLightReflectionTwin(CMatrix& matrix);
-    void DoHeadLightReflection(CMatrix& arg0, unsigned int arg1, unsigned char arg2, unsigned char arg3);
+    void DoHeadLightReflection(CMatrix& matrix, unsigned int flags, unsigned char left, unsigned char right);
     bool DoTailLightEffect(int lightId, CMatrix& matrix, unsigned char arg2, unsigned char arg3, unsigned int arg4, unsigned char arg5);
+    // see eVehicleLightsFlags
     void DoVehicleLights(CMatrix& matrix, unsigned int flags);
     void FillVehicleWithPeds(bool bSetClothesToAfro);
     void DoBladeCollision(CVector arg0, CMatrix& matrix, short arg2, float arg3, float arg4);
