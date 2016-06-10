@@ -8,6 +8,7 @@
 5. Save a file and replace it in a .zip archive.
 6. Put .zip archive to `\Documents\Visual Studio 2015\Templates\ProjectTemplates\`
 7. Restart Visual Studio if it was launched
+
 ##### GTA Vice City
 1. Download `GTA Vice City .ASI plugin.zip` and open it.
 2. Extract Project.vcxproj somewhere, open it with Notepad.
