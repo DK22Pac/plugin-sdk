@@ -4,7 +4,7 @@
 #include "CRect.h"
 #include "CRGBA.h"
 #include "CVector2D.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 
 #define NUM_SPRITE_VERTICES 8
 

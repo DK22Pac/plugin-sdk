@@ -2,11 +2,6 @@
 #include "plbase/PluginBase.h"
 #include "CMenuPanel.h"
 
-#ifdef InsertMenu
-#define InsertMenu InsertMenu
-#endif
-
-
 class PLUGIN_API CMenuSystem
 {
 public:

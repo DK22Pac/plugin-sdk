@@ -507,9 +507,6 @@
     <ClInclude Include="..\game_sa\RenderWare.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\RenderWareTypes.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\RwObjectNameIdAssocation.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -2866,6 +2863,9 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCarCtrl.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\RenderWare.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

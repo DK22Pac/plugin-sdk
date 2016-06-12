@@ -18,12 +18,13 @@ class ColouredObjects {
             red = rand() % 255; green = rand() % 255; blue = rand() % 255;
         }
 
-        static RpMaterial *MaterialCallback(RpMaterial *material, ObjectColor *color) {
-            material->color.red = color->red; material->color.green = color->green; material->color.blue = color->blue;
+        static RpMaterial *MaterialCallback(RpMaterial *material, void *color) {
+            ObjectColor *objColor = reinterpret_cast<ObjectColor *>(color);
+            material->color.red = objColor->red; material->color.green = objColor->green; material->color.blue = objColor->blue;
             return material;
         }
 
-        static RpAtomic *AtomicCallback(RpAtomic *atomic, ObjectColor *color) {
+        static RpAtomic *AtomicCallback(RpAtomic *atomic, void *color) {
             if (atomic->geometry) {
                 atomic->geometry->flags |= rpGEOMETRYMODULATEMATERIALCOLOR;
                 RpGeometryForAllMaterials(atomic->geometry, MaterialCallback, color);

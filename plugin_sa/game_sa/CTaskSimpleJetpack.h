@@ -2,7 +2,7 @@
 
 #include "plbase/PluginBase.h"
 #include "CTaskSimple.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 #include "CVector.h"
 
 #pragma pack(push, 1)

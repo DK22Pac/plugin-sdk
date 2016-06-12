@@ -1,8 +1,7 @@
 #pragma once
 #include "plbase/PluginBase.h"
+#include "RenderWare.h"
 #include "CQuaternion.h"
-
-struct RwMatrix;
 
 #pragma pack(push, 4)
 class PLUGIN_API CMatrix

@@ -1,11 +1,7 @@
 #pragma once
 #include "plbase/PluginBase.h"
+#include "RenderWare.h"
 #include "CVector.h"
-
-// To help in compilation performance, RwMatrixTag (that is an alias to RwMatrix) won't be included
-// Neither RwV3d
-struct RwMatrix;
-struct RwV3d;
 
 
 #pragma pack(push, 1)

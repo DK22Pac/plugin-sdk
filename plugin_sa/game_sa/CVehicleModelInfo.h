@@ -1,7 +1,7 @@
 #pragma once
 #include "plbase/PluginBase.h"
 #include "CClumpModelInfo.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 #include "CVector.h"
 #include "CQuaternion.h"
 #include "RwObjectNameIdAssocation.h"

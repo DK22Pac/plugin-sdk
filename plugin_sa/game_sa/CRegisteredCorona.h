@@ -2,7 +2,7 @@
 
 #include "plbase/PluginBase.h"
 #include "CVector.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 #include "CRGBA.h"
 #include "CEntity.h"
 

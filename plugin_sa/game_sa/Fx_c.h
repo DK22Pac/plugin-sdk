@@ -1,7 +1,7 @@
 #pragma once
 
 #include "plbase/PluginBase.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 #include "List_c.h"
 
 enum FxQuality_e : unsigned int

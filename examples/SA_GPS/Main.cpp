@@ -69,24 +69,26 @@ public:
                         else {
                             CRadar::LimitRadarPoint(tmpPoint);
                             CRadar::TransformRadarPointToScreenSpace(nodePoints[i], tmpPoint);
-                            nodePoints[i].x *= static_cast<float>(RsGlobal->MaximumWidth) / 640.0f;
-                            nodePoints[i].y *= static_cast<float>(RsGlobal->MaximumHeight) / 448.0f;
+                            nodePoints[i].x *= static_cast<float>(RsGlobal.maximumWidth) / 640.0f;
+                            nodePoints[i].y *= static_cast<float>(RsGlobal.maximumHeight) / 448.0f;
                             CRadar::LimitToMap(&nodePoints[i].x, &nodePoints[i].y);
                         }
                     }
 
-                    if (!FrontEndMenuManager.drawRadarOrMap && RwD3D9DeviceCaps->RasterCaps & D3DPRASTERCAPS_SCISSORTEST) {
+                    if (!FrontEndMenuManager.drawRadarOrMap 
+                        && reinterpret_cast<D3DCAPS9 const*>(RwD3D9GetCaps())->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
+                    {
                         RECT rect;
                         CVector2D posn;
                         CRadar::TransformRadarPointToScreenSpace(posn, CVector2D(-1.0f, -1.0f));
                         rect.left = posn.x + 2.0f; rect.bottom = posn.y - 2.0f;
                         CRadar::TransformRadarPointToScreenSpace(posn, CVector2D(1.0f, 1.0f));
                         rect.right = posn.x - 2.0f; rect.top = posn.y + 2.0f;
-                        RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, TRUE);
-                        RwD3DDevice->SetScissorRect(&rect);
+                        _RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, TRUE);
+                        _RwD3DDevice->SetScissorRect(&rect);
                     }
 
-                    RwEngineInstance->dOpenDevice.fpRenderStateSet(rwRENDERSTATETEXTURERASTER, NULL);
+                    RWSRCGLOBAL(dOpenDevice.fpRenderStateSet)(rwRENDERSTATETEXTURERASTER, NULL);
 
                     unsigned int vertIndex = 0;
                     for (short i = 0; i < (nodesCount - 1); i++) {
@@ -118,10 +120,13 @@ public:
                         vertIndex += 4;
                     }
                 
-                    RwEngineInstance->dOpenDevice.fpIm2DRenderPrimitive(rwPRIMTYPETRISTRIP, lineVerts, 4 * (nodesCount - 1));
+                    RWSRCGLOBAL(dOpenDevice.fpIm2DRenderPrimitive)(rwPRIMTYPETRISTRIP, lineVerts, 4 * (nodesCount - 1));
 
-                    if (!FrontEndMenuManager.drawRadarOrMap && RwD3D9DeviceCaps->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
-                        RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, FALSE);
+                    if (!FrontEndMenuManager.drawRadarOrMap
+                        && reinterpret_cast<D3DCAPS9 const*>(RwD3D9GetCaps())->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
+                    {
+                        _RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, FALSE);
+                    }
 
                     gpsDistance += DistanceBetweenPoints(FindPlayerCoors(0), ThePaths.GetPathNode(resultNodes[0])->GetNodeCoors());
                     gpsShown = true;
@@ -135,8 +140,8 @@ public:
                 CFont::SetColor(CRGBA(200, 200, 200, 255));
                 CFont::SetBackground(false, false);
                 CFont::SetWrapx(500.0f);
-                CFont::SetScale(0.4f * static_cast<float>(RsGlobal->MaximumWidth) / 640.0f, 
-                    0.8f * static_cast<float>(RsGlobal->MaximumHeight) / 448.0f);
+                CFont::SetScale(0.4f * static_cast<float>(RsGlobal.maximumWidth) / 640.0f, 
+                    0.8f * static_cast<float>(RsGlobal.maximumHeight) / 448.0f);
                 CFont::SetFontStyle(FONT_SUBTITLES);
                 CFont::SetProp(true);
                 CFont::SetDropShadowPosition(1);
@@ -148,7 +153,7 @@ public:
                     sprintf(text, "%.2fkm", gpsDistance / 1000.0f);
                 else
                     sprintf(text, "%dm", static_cast<int>(gpsDistance));
-                CFont::PrintString(radarBottom.x, radarBottom.y + 8.0f * static_cast<float>(RsGlobal->MaximumHeight) / 448.0f, text);
+                CFont::PrintString(radarBottom.x, radarBottom.y + 8.0f * static_cast<float>(RsGlobal.maximumHeight) / 448.0f, text);
             }
         };
     }

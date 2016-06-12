@@ -586,7 +586,6 @@
     <ClInclude Include="..\game_sa\ListItem_c.h" />
     <ClInclude Include="..\game_sa\List_c.h" />
     <ClInclude Include="..\game_sa\RenderWare.h" />
-    <ClInclude Include="..\game_sa\RenderWareTypes.h" />
     <ClInclude Include="..\game_sa\RwObjectNameIdAssocation.h" />
     <ClInclude Include="..\game_sa\tBikeHandlingData.h" />
     <ClInclude Include="..\game_sa\tBoatHandlingData.h" />
@@ -1027,6 +1026,7 @@
     <ClCompile Include="..\game_sa\FxManager_c.cpp" />
     <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp" />
     <ClCompile Include="..\game_sa\Fx_c.cpp" />
+    <ClCompile Include="..\game_sa\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase.cpp" />
   </ItemGroup>
   <ItemGroup>

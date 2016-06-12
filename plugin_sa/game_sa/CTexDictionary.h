@@ -1,7 +1,7 @@
 #pragma once
 
 #include "plbase/PluginBase.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 
 #pragma pack (push, 1)
 class PLUGIN_API CTexDictionary

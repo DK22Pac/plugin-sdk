@@ -1,5 +1,6 @@
 #pragma once
 #include "plbase/PluginBase.h"
+#include "RenderWare.h"
 #include "CColModel.h"
 #include "C2dEffect.h"
 #include "eModelID.h"
@@ -82,7 +83,7 @@ public:
 	void Shutdown();
 	void DeleteRwObject();//=0
 	unsigned int GetRwModelType();//=0
-	struct RwObject *CreateInstance(struct RwMatrix *matrix);//=0
+	struct RwObject *CreateInstance(RwMatrix *matrix);//=0
 	struct RwObject *CreateInstance();//=0
 	void SetAnimFile(char *filename);
 	void ConvertAnimFileIndex();

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "plbase/PluginBase.h"
-#include "RenderWareTypes.h"
+#include "RenderWare.h"
 #include "List_c.h"
 #include <game_sa\CVector.h>
 #include <game_sa\FxFrustumInfo_c.h>
