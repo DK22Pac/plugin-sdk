@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "ListItem_c.h"
 
 class PLUGIN_API List_c

@@ -7,8 +7,8 @@ DK22Pac, 2015
 #pragma once
 
 #include "game_sa\CPools.h"
-#include "extender\Extender.h"
-#include "events\EventList.h"
+#include "..\shared\Extender.h"
+#include "events\Events_SA.h"
 #include <vector>
 
 class CPed;

@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 
 enum ePopcyclePedGroup {
     POPCYCLE_PEDGROUP_WORKERS_LA,

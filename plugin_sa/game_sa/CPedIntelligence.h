@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CTaskManager.h"
 #include "CEventHandler.h"
 #include "CEventGroup.h"

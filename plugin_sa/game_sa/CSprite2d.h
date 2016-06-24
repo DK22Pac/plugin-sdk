@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CRect.h"
 #include "CRGBA.h"
 #include "CVector2D.h"

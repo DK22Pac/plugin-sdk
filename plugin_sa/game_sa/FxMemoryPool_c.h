@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include <game_sa\RenderWare.h>
 #include <game_sa\CVector.h>
 

@@ -4,7 +4,12 @@ void *RwEngineInstance = (void *)0xC97B24;
 
 RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
 
-LPDIRECT3DDEVICE9 _RwD3DDevice = (LPDIRECT3DDEVICE9)0xC97C28;
+RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
+
+#ifdef _D3D_INCLUDE
+LPDIRECT3DDEVICE9 &_RwD3DDevice = *(LPDIRECT3DDEVICE9 *)0xC97C28;
+
+#endif
 
 /* rwplcore.h */
 
@@ -652,10 +657,6 @@ RxLockedPipe* RxPipelineLock(RxPipeline* pipeline) {
 
 RxPipeline* RxLockedPipeUnlock(RxLockedPipe* pipeline) {
     return ((RxPipeline*(__cdecl *)(RxLockedPipe*))0x805F40)(pipeline);
-}
-
-RxLockedPipe* RxLockedPipeAddFragment(RxLockedPipe* pipeline, RwUInt32* firstIndex, RxNodeDefinition* nodeDef0, ...) {
-    return ((RxLockedPipe*(__cdecl *)(RxLockedPipe*, RwUInt32*, RxNodeDefinition*, ...))0x806BE0)(pipeline, firstIndex, nodeDef0);
 }
 
 RxPipeline* RxLockedPipeReplaceNode(RxLockedPipe* pipeline, RxPipelineNode* node, RxNodeDefinition* nodeDef) {

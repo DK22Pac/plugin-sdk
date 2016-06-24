@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CBox.h"
 #include "CColSphere.h"
 #include "CColData.h"

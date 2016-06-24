@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "AnimBlendFrameData.h"
 
 #pragma pack(push, 4)

@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "ePedType.h"
 #include "eCommandName.h"
 #include "eWeaponType.h"

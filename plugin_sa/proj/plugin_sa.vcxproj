@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)plugin_sa\</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_D3D_INCLUDE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -70,7 +70,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)plugin_sa\</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_D3D_INCLUDE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -80,17 +80,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\additional\Error.h" />
-    <ClInclude Include="..\additional\Log.h" />
-    <ClInclude Include="..\additional\Other.h" />
-    <ClInclude Include="..\additional\patch\Patch.h" />
-    <ClInclude Include="..\additional\scripts_wrapper\ScriptsWrapper.h" />
-    <ClInclude Include="..\additional\settings\Settings.h" />
-    <ClInclude Include="..\events\EventList.h" />
-    <ClInclude Include="..\extender\Extender.h" />
-    <ClInclude Include="..\extender\ObjectExtender.h" />
-    <ClInclude Include="..\extender\PedExtender.h" />
-    <ClInclude Include="..\extender\VehicleExtender.h" />
+    <ClInclude Include="..\events\Events_SA.h" />
+    <ClInclude Include="..\extender\ObjectExtender_SA.h" />
+    <ClInclude Include="..\extender\PedExtender_SA.h" />
+    <ClInclude Include="..\extender\VehicleExtender_SA.h" />
     <ClInclude Include="..\game_sa\AnimBlendFrameData.h" />
     <ClInclude Include="..\game_sa\C2dEffect.h" />
     <ClInclude Include="..\game_sa\CAEAudioEntity.h" />
@@ -587,17 +580,29 @@
     <ClInclude Include="..\game_sa\List_c.h" />
     <ClInclude Include="..\game_sa\RenderWare.h" />
     <ClInclude Include="..\game_sa\RwObjectNameIdAssocation.h" />
+    <ClInclude Include="..\game_sa\rw\rpcriter.h" />
+    <ClInclude Include="..\game_sa\rw\rperror.h" />
+    <ClInclude Include="..\game_sa\rw\rphanim.h" />
+    <ClInclude Include="..\game_sa\rw\rpmatfx.h" />
+    <ClInclude Include="..\game_sa\rw\rpskin.h" />
+    <ClInclude Include="..\game_sa\rw\rpuvanim.h" />
+    <ClInclude Include="..\game_sa\rw\rpworld.h" />
+    <ClInclude Include="..\game_sa\rw\rtanim.h" />
+    <ClInclude Include="..\game_sa\rw\rtdict.h" />
+    <ClInclude Include="..\game_sa\rw\rtquat.h" />
+    <ClInclude Include="..\game_sa\rw\rwcore.h" />
+    <ClInclude Include="..\game_sa\rw\rwplcore.h" />
+    <ClInclude Include="..\game_sa\rw\skeleton.h" />
     <ClInclude Include="..\game_sa\tBikeHandlingData.h" />
     <ClInclude Include="..\game_sa\tBoatHandlingData.h" />
     <ClInclude Include="..\game_sa\tFlyingHandlingData.h" />
     <ClInclude Include="..\game_sa\tHandlingData.h" />
     <ClInclude Include="..\game_sa\tTransmissionGear.h" />
-    <ClInclude Include="..\plbase\PluginBase.h" />
+    <ClInclude Include="..\plbase\PluginBase_SA.h" />
     <ClInclude Include="..\plugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\additional\Other.cpp" />
-    <ClCompile Include="..\events\EventList.cpp" />
+    <ClCompile Include="..\events\Events_SA.cpp" />
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp" />
     <ClCompile Include="..\game_sa\CAERadioTrackManager.cpp" />
     <ClCompile Include="..\game_sa\CAESound.cpp" />
@@ -1027,10 +1032,14 @@
     <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp" />
     <ClCompile Include="..\game_sa\Fx_c.cpp" />
     <ClCompile Include="..\game_sa\RenderWare.cpp" />
-    <ClCompile Include="..\plbase\PluginBase.cpp" />
+    <ClCompile Include="..\plbase\PluginBase_SA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\game_sa\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\game_sa\rw\errcom.def" />
+    <None Include="..\game_sa\rw\errcore.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,10 +12,11 @@
 
 #pragma once
 
-#include "plbase\PluginBase.h"
-#include "events\EventList.h"
-#include "extender\PedExtender.h"
-#include "extender\VehicleExtender.h"
-#include "extender\ObjectExtender.h"
-#include "additional\Error.h"
-#include "additional\Other.h"
+#include "plbase\PluginBase_SA.h"
+#include "events\Events_SA.h"
+#include "extender\PedExtender_SA.h"
+#include "extender\VehicleExtender_SA.h"
+#include "extender\ObjectExtender_SA.h"
+#include "..\shared\Error.h"
+#include "..\shared\Other.h"
+#include "..\shared\Patch.h"

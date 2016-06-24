@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CTaskComplexPartner.h"
 
 class PLUGIN_API CTaskComplexPartnerDeal : public CTaskComplexPartner {

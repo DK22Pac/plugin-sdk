@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CBuilding.h"
 
 class PLUGIN_API CTreadable : public CBuilding {

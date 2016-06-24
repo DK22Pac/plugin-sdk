@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CRunningScript.h"
 
 #define VAR_CTheScripts__ScriptSpace 0xA49960

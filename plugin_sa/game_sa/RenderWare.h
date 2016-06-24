@@ -7,8 +7,6 @@
 /*******************************************************************************************/
 #pragma once
 
-#define _D3D_INCLUDE
-
 #ifdef _D3D_INCLUDE
 #include <d3d9.h>
 #endif
@@ -30,7 +28,12 @@ extern void *RwEngineInstance;
 
 extern RsGlobalType &RsGlobal;
 
-extern LPDIRECT3DDEVICE9 _RwD3DDevice;
+extern RwPluginRegistry &geometryTKList;
+
+#ifdef _D3D_INCLUDE
+extern LPDIRECT3DDEVICE9 &_RwD3DDevice;
+
+#endif
 
 /* rwplcore.h */
 
@@ -198,7 +201,6 @@ RxPipelineNode* RxPipelineFindNodeByName(RxPipeline* pipeline, const RwChar* nam
 RxPipelineNode* RxPipelineFindNodeByIndex(RxPipeline* pipeline, RwUInt32 nodeindex); // 0x806BC0
 RxLockedPipe* RxPipelineLock(RxPipeline* pipeline); // 0x806990
 RxPipeline* RxLockedPipeUnlock(RxLockedPipe* pipeline); // 0x805F40
-RxLockedPipe* RxLockedPipeAddFragment(RxLockedPipe* pipeline, RwUInt32* firstIndex, RxNodeDefinition* nodeDef0, ...); // 0x806BE0
 RxPipeline* RxLockedPipeReplaceNode(RxLockedPipe* pipeline, RxPipelineNode* node, RxNodeDefinition* nodeDef); // 0x806F20
 RxPipeline* RxLockedPipeDeleteNode(RxLockedPipe* pipeline, RxPipelineNode* node); // 0x807040
 RxPipeline* RxLockedPipeSetEntryPoint(RxLockedPipe* pipeline, RxNodeInput in); // 0x807070

@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CVector.h"
 #include "CEntity.h"
 #include "CObject.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CTaskSimpleAnim.h"
 
 class PLUGIN_API CTaskSimplePlayHandSignalAnim : public CTaskSimpleAnim {

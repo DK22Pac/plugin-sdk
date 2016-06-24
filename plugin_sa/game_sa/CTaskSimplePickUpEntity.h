@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CTaskSimpleHoldEntity.h"
 
 class PLUGIN_API CTaskSimplePickUpEntity : public CTaskSimpleHoldEntity {

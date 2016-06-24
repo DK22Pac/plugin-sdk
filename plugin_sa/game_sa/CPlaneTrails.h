@@ -1,4 +1,4 @@
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CPlaneTrail.h"
 
 #define NUM_PLANE_TRAILS 3

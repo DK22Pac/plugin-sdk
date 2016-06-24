@@ -1,7 +1,7 @@
 #pragma once
 #include <stdio.h>
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 
 #pragma pack(push, 1)
 struct PLUGIN_API CText__TDat

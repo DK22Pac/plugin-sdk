@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CRGBA.h"
 #include "CRect.h"
 #include "CSprite2d.h"

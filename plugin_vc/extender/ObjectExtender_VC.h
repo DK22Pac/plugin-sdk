@@ -1,10 +1,9 @@
 #pragma once
 
-#include "game_sa\CPools.h"
-#include "Extender.h"
-#include "events\EventList.h"
+#include "game_vc\CPools.h"
+#include "..\shared\Extender.h"
+#include "events\Events_VC.h"
 #include <vector>
-#include "additional\Error.h"
 
 class CObject;
 

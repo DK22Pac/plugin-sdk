@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 
 #define FUNC_CMissionCleanup__Init 0x4637A0
 #define FUNC_CMissionCleanup__Process 0x468560

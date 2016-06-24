@@ -4,7 +4,7 @@
  * Licensed under zlib license, see LICENSE at top level directory.
  * 
  */
-#include "PluginBase.h"
+#include "PluginBase_SA.h"
 
 // Gets the SDK version
 unsigned int plugin::Core::GetVersion()

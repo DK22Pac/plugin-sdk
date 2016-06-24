@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CTaskSimpleCarDrive.h"
 
 class PLUGIN_API CTaskSimpleCarSetTempAction : public CTaskSimpleCarDrive {

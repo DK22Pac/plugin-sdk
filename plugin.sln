@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin_sa", "plugin_sa\proj\plugin_sa.vcxproj", "{0F442363-6D2C-4C0C-A157-287DCC49DD84}"
 EndProject
@@ -20,6 +20,19 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_VehicleSpawner", "examples\SA_VehicleSpawner\SA_VehicleSpawner.vcxproj", "{8423DBF9-94F8-4E12-AA76-BD3525718EBA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_PedSpawner", "examples\SA_PedSpawner\SA_PedSpawner.vcxproj", "{7CA511A0-BAF6-4636-A0C9-0BDA27DD709B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin_vc", "plugin_vc\proj\plugin_vc.vcxproj", "{E2AF6D9E-F095-4034-94EF-6E65477F656C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A096B2D6-5D34-4667-BC0B-BFE0510D0E85}"
+	ProjectSection(SolutionItems) = preProject
+		shared\Error.h = shared\Error.h
+		shared\EventList.h = shared\EventList.h
+		shared\Extender.h = shared\Extender.h
+		shared\Other.h = shared\Other.h
+		shared\Patch.h = shared\Patch.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VC_DXFont", "examples\VC_DXFont\VC_DXFont.vcxproj", "{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +104,22 @@ Global
 		{7CA511A0-BAF6-4636-A0C9-0BDA27DD709B}.Release|Win32.Build.0 = Release|Win32
 		{7CA511A0-BAF6-4636-A0C9-0BDA27DD709B}.Release|x64.ActiveCfg = Release|x64
 		{7CA511A0-BAF6-4636-A0C9-0BDA27DD709B}.Release|x64.Build.0 = Release|x64
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Debug|Win32.Build.0 = Debug|Win32
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Debug|x64.ActiveCfg = Debug|x64
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Debug|x64.Build.0 = Debug|x64
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Release|Win32.ActiveCfg = Release|Win32
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Release|Win32.Build.0 = Release|Win32
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Release|x64.ActiveCfg = Release|x64
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C}.Release|x64.Build.0 = Release|x64
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Debug|Win32.Build.0 = Debug|Win32
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Debug|x64.ActiveCfg = Debug|x64
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Debug|x64.Build.0 = Debug|x64
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Release|Win32.ActiveCfg = Release|Win32
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Release|Win32.Build.0 = Release|Win32
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Release|x64.ActiveCfg = Release|x64
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,5 +132,6 @@ Global
 		{DA11E5A5-CE5D-4027-AD65-EEA072C91987} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 		{8423DBF9-94F8-4E12-AA76-BD3525718EBA} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 		{7CA511A0-BAF6-4636-A0C9-0BDA27DD709B} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
+		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 	EndGlobalSection
 EndGlobal

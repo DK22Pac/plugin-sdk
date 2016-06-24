@@ -1,6 +1,6 @@
 #pragma once
 
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CRegisteredCorona.h"
 
 #define MAX_NUM_CORONAS 64

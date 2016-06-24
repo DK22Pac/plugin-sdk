@@ -4,9 +4,6 @@
     <Filter Include="game_sa">
       <UniqueIdentifier>{ac9249c9-b409-4ecf-8ae7-4e90d5b994be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="additional">
-      <UniqueIdentifier>{1c5c6dff-fb8c-4551-b835-d73266aa4b60}</UniqueIdentifier>
-    </Filter>
     <Filter Include="extender">
       <UniqueIdentifier>{1e6b7844-5083-4288-b14b-7cd5eaa06cea}</UniqueIdentifier>
     </Filter>
@@ -16,14 +13,8 @@
     <Filter Include="events">
       <UniqueIdentifier>{81f3f40b-41c5-4e56-8d6d-a337476a32ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="additional\patch">
-      <UniqueIdentifier>{e852573c-1d54-4b5a-8605-af36846da16d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="additional\scripts_wrapper">
-      <UniqueIdentifier>{be1a5ddc-6543-4780-ac5d-e50573a661dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="additional\settings">
-      <UniqueIdentifier>{f4cbd8c9-57d9-4a7f-943e-d1e0965b7566}</UniqueIdentifier>
+    <Filter Include="game_sa\rw">
+      <UniqueIdentifier>{9082517e-0f62-4fd7-ad91-4e40dab5c47d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -525,45 +516,9 @@
     <ClInclude Include="..\game_sa\tTransmissionGear.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\additional\patch\Patch.h">
-      <Filter>additional\patch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\extender\Extender.h">
-      <Filter>extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\extender\ObjectExtender.h">
-      <Filter>extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\extender\PedExtender.h">
-      <Filter>extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\extender\VehicleExtender.h">
-      <Filter>extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\events\EventList.h">
-      <Filter>events</Filter>
-    </ClInclude>
-    <ClInclude Include="..\plbase\PluginBase.h">
-      <Filter>plbase</Filter>
-    </ClInclude>
     <ClInclude Include="..\plugin.h" />
-    <ClInclude Include="..\additional\scripts_wrapper\ScriptsWrapper.h">
-      <Filter>additional\scripts_wrapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\additional\Error.h">
-      <Filter>additional</Filter>
-    </ClInclude>
-    <ClInclude Include="..\additional\settings\Settings.h">
-      <Filter>additional\settings</Filter>
-    </ClInclude>
-    <ClInclude Include="..\additional\Log.h">
-      <Filter>additional</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\eModelID.h">
       <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\additional\Other.h">
-      <Filter>additional</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CBike.h">
       <Filter>game_sa</Filter>
@@ -1567,6 +1522,60 @@
     <ClInclude Include="..\game_sa\eWinchType.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rpcriter.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rperror.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rphanim.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rpmatfx.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rpskin.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rpuvanim.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rpworld.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rtanim.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rtdict.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rtquat.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rwcore.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\rwplcore.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\rw\skeleton.h">
+      <Filter>game_sa\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\events\Events_SA.h">
+      <Filter>events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\ObjectExtender_SA.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\PedExtender_SA.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\VehicleExtender_SA.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plbase\PluginBase_SA.h">
+      <Filter>plbase</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -1871,15 +1880,6 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp">
       <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\events\EventList.cpp">
-      <Filter>events</Filter>
-    </ClCompile>
-    <ClCompile Include="..\plbase\PluginBase.cpp">
-      <Filter>plbase</Filter>
-    </ClCompile>
-    <ClCompile Include="..\additional\Other.cpp">
-      <Filter>additional</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CBike.cpp">
       <Filter>game_sa</Filter>
@@ -2868,10 +2868,24 @@
     <ClCompile Include="..\game_sa\RenderWare.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
+    <ClCompile Include="..\events\Events_SA.cpp">
+      <Filter>events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plbase\PluginBase_SA.cpp">
+      <Filter>plbase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\game_sa\CMakeLists.txt">
       <Filter>game_sa</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\game_sa\rw\errcom.def">
+      <Filter>game_sa\rw</Filter>
+    </None>
+    <None Include="..\game_sa\rw\errcore.def">
+      <Filter>game_sa\rw</Filter>
+    </None>
   </ItemGroup>
 </Project>

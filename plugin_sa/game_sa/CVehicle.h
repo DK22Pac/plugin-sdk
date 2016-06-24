@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 #include "CPhysical.h"
 #include "CAEVehicleAudioEntity.h"
 #include "tHandlingData.h"

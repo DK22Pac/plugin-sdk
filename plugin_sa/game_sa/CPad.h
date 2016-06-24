@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase.h"
+#include "plbase/PluginBase_SA.h"
 
 #define FUNC_CPad__AddToPCCheatString 0x438480
 #define FUNC_CPad__DoCheats 0x439AF0
