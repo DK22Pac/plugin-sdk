@@ -1,10 +1,7 @@
-/********************************plugin-sdk source file*************************************/
-/* File creator: DK22Pac                                                                   */
-/* File editors: DK22Pac                                                                   */
-/* File descrip: RenderWare structures/enumerations/functions/defines are represented here.*/
-/* File created: 18.06.2016                                                                */
-/* File last ed: 18.06.2016                                                                */
-/*******************************************************************************************/
+/***********************************************************************************/
+/*******         This file is a part of GTA Vice City C++ SDK               ********/
+/*******                                                                    ********/
+/***********************************************************************************/
 #pragma once
 
 #ifdef _D3D_INCLUDE

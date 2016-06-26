@@ -33,7 +33,7 @@ public:
     void AllocateMatrix();
     void SetMatrix(CMatrix  const& matrix);
     
-    inline CVector &GetCoords() {
+    inline CVector &GetPosition() {
         return m_matrix ? m_matrix->pos : m_placement.m_vPosn;
     }
 };

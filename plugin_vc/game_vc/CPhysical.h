@@ -7,6 +7,7 @@
 #include "plbase\PluginBase_VC.h"
 #include "CEntity.h"
 #include "CSector.h"
+#include "CEntryInfoList.h"
 
 class CColPoint;
 
@@ -17,20 +18,20 @@ public:
     unsigned int m_nAudioEntityId;
     float field_68;
     int field_6C;
-    CVector m_vMoveForce;
-    CVector m_vTurnForce;
-    CVector m_vAcceleration;
-    CVector m_vAngularAcceleration;
-    CVector m_vForce;
-    CVector m_vTorque;
+    CVector m_vecMoveSpeed;
+    CVector m_vecTurnSpeed;
+    CVector m_vecAcceleration;
+    CVector m_vecAngularAcceleration;
+    CVector m_vecForce;
+    CVector m_vecTorque;
     float m_fMass;
     float m_fTurnMass;
     float m_fVelocityFrequency;
     float m_fAirResistance;
     float m_fElasticity;
     float m_fBuoyancyConstant;
-    CVector m_vCentreOfMass;
-    void *m_pCollisionList;
+    CVector m_vecCentreOfMass;
+    CEntryInfoList m_collisionList;
     CPtrNode *m_pMovingListNode;
     char field_E4[2];
     unsigned char m_nNumCollisionRecords;
@@ -39,7 +40,7 @@ public:
     float m_fTotSpeed;
     float m_fCollisionPower;
     CPhysical *m_pPhysColliding;
-    CVector m_vCollisionPower;
+    CVector m_vecCollisionPower;
     unsigned short m_wComponentCol;
     unsigned char m_nMoveFlags;
     unsigned char m_nCollFlags;

@@ -253,17 +253,17 @@ public:
 	__int32 field_F0;
 	__int8 field_F4;
 	__int8 field_F5[3];
-	union{
-		struct{
+	//union{
+	//	struct{
 			CSprite2d m_apTextures[25];
-		};
-		struct{
-			CSprite2d m_apRadioSprites[13];
-			CSprite2d m_apBackgroundTextures[8];
-			CSprite2d m_apAdditionalBackgroundTextures[2];
-			CSprite2d m_apMouseTextures[2];
-		};
-	};
+	//	};
+	//	struct{
+	//		CSprite2d m_apRadioSprites[13];
+	//		CSprite2d m_apBackgroundTextures[8];
+	//		CSprite2d m_apAdditionalBackgroundTextures[2];
+	//		CSprite2d m_apMouseTextures[2];
+	//	};
+	//};
 	bool                m_bTexturesLoaded;
 	unsigned __int8     m_nCurrentMenuPage;
 	__int8 field_15E;

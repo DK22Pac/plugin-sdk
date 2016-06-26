@@ -6,7 +6,6 @@
 #include <game_sa\CCoronas.h>
 #include <game_sa\CGeneral.h>
 #include <game_sa\CCamera.h>
-#include <extender\VehicleExtender.h>
 
 // originally made by Den_spb
 
@@ -75,7 +74,7 @@ public:
                     }
                 }
                 if (CTimer::m_snTimeInMilliseconds % (TURN_ON_OFF_DELAY * 2) < TURN_ON_OFF_DELAY) {
-                    if (DistanceBetweenPoints(TheCamera.m_vGameCamPos, vehicle->GetCoords()) < MAX_RADIUS) {
+                    if (DistanceBetweenPoints(TheCamera.m_vGameCamPos, vehicle->GetPosition()) < MAX_RADIUS) {
                         DrawVehicleTurnlights(vehicle, lightsStatus);
                         if (vehicle->m_pTractor)
                             DrawVehicleTurnlights(vehicle->m_pTractor, lightsStatus);

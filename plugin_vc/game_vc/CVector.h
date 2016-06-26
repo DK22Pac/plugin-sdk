@@ -7,7 +7,7 @@
 #include "plbase/PluginBase_VC.h"
 #include <math.h>
 
-class PLUGIN_API CVector {
+class CVector {
 public:
     float x, y, z;
 

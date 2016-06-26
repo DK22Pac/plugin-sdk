@@ -1,3 +1,7 @@
+/***********************************************************************************/
+/*******         This file is a part of GTA Vice City C++ SDK               ********/
+/*******                                                                    ********/
+/***********************************************************************************/
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
@@ -16,3 +20,5 @@ public:
     CPtrList m_dummyList;
     CPtrList m_dummyOverlapList;
 };
+
+VALIDATE_SIZE(CSector, 0x28);

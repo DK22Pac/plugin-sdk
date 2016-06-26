@@ -1,3 +1,7 @@
+/***********************************************************************************/
+/*******         This file is a part of GTA Vice City C++ SDK               ********/
+/*******                                                                    ********/
+/***********************************************************************************/
 #include "CTreadable.h"
 
 // Converted from cdecl void* CTreadable::operator new(uint size) 0x407FF0

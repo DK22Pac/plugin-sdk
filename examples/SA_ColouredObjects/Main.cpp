@@ -51,7 +51,7 @@ public:
             for (int i = 0; i < CPools::ms_pPedPool->m_Size; i++) {
                 CObject *object = CPools::ms_pObjectPool->GetAt(i);
                 if (object) {
-                    CVector &posn = object->GetCoords();
+                    CVector &posn = object->GetPosition();
                     RwV3d rwp = { posn.x, posn.y, posn.z + 1.0f };
                     RwV3d screenCoors; float w, h;
                     if (CSprite::CalcScreenCoors(rwp, &screenCoors, &w, &h, true, true)) {
@@ -77,7 +77,7 @@ public:
                 for (int i = 0; i < CPools::ms_pObjectPool->m_Size; i++) {
                     CObject *object = CPools::ms_pObjectPool->GetAt(i);
                     if (object) {
-                        CVector &objectPosn = object->GetCoords();
+                        CVector &objectPosn = object->GetPosition();
                         CVector2D coords;
                         CRadar::TransformRealWorldPointToRadarSpace(coords, CVector2D(objectPosn.x, objectPosn.y));
                         float distance = CRadar::LimitRadarPoint(coords);

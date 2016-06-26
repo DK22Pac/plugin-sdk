@@ -1,8 +1,12 @@
+/***********************************************************************************/
+/*******         This file is a part of GTA Vice City C++ SDK               ********/
+/*******                                                                    ********/
+/***********************************************************************************/
 #include "CPhysical.h"
 
 // Converted from void CPhysical::ProcessEntityCollision(CEntity *, CColPoint *) 0x0
 void CPhysical::ProcessEntityCollision(CEntity* arg0, CColPoint* arg1) {
-    ((void(__thiscall *)(CPhysical*, CEntity*, CColPoint*))vtable[17])(this, arg0, arg1);
+    ((void(__thiscall *)(CPhysical*, CEntity*, CColPoint*))(*(void ***)this)[0])(this, arg0, arg1);
 }
 
 // Converted from cdecl void CPhysical::PlacePhysicalRelativeToOtherPhysical(CPhysical* phys1,CPhysical* phys2,CVector offset) 0x4AF100

@@ -4,14 +4,16 @@
 
 namespace plugin
 {
+    struct NoRet {};
+
     template <typename Ret, unsigned int address, typename... Args>
-    void Call(Args... args) {
-        ((Ret(__cdecl *)(Args...))address)(args...);
+    Ret Call(Args... args) {
+        return ((Ret(__cdecl *)(Args...))address)(args...);
     }
 
     template <typename Ret, unsigned int address, typename C, typename... Args>
-    void CallMethod(C _this, Args... args) {
-        ((Ret(__thiscall *)(C, Args...))address)(_this, args...);
+    Ret CallMethod(C _this, Args... args) {
+        return ((Ret(__thiscall *)(C, Args...))address)(_this, args...);
     }
 
     class patch {
@@ -98,7 +100,7 @@ namespace plugin
         }
 
         template <typename T>
-        static void Get(unsigned int address, bool vp = true) {
+        static T Get(unsigned int address, bool vp = true) {
             return injector::ReadMemory<T>(address, vp);
         }
     };

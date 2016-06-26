@@ -134,6 +134,7 @@
     <ClInclude Include="..\game_vc\CBuilding.h" />
     <ClInclude Include="..\game_vc\CDummy.h" />
     <ClInclude Include="..\game_vc\CEntity.h" />
+    <ClInclude Include="..\game_vc\CEntryInfoList.h" />
     <ClInclude Include="..\game_vc\CMatrix.h" />
     <ClInclude Include="..\game_vc\CObject.h" />
     <ClInclude Include="..\game_vc\CPed.h" />
@@ -168,12 +169,14 @@
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CDummy.cpp" />
     <ClCompile Include="..\game_vc\CEntity.cpp" />
+    <ClCompile Include="..\game_vc\CEntryInfoList.cpp" />
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
     <ClCompile Include="..\game_vc\CObject.cpp" />
     <ClCompile Include="..\game_vc\CPed.cpp" />
     <ClCompile Include="..\game_vc\CPhysical.cpp" />
     <ClCompile Include="..\game_vc\CPlaceable.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
+    <ClCompile Include="..\game_vc\CPtrList.cpp" />
     <ClCompile Include="..\game_vc\CTreadable.cpp" />
     <ClCompile Include="..\game_vc\CVector.cpp" />
     <ClCompile Include="..\game_vc\CVehicle.cpp" />
