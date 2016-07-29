@@ -8,8 +8,7 @@
 #include "CEntity.h"
 #include "CSector.h"
 #include "CEntryInfoList.h"
-
-class CColPoint;
+#include "CColPoint.h"
 
 class CPhysical : public CEntity {
 protected:

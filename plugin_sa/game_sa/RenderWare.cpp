@@ -3452,3 +3452,7 @@ RwImage* RtPNGImageWrite(RwImage* image, const RwChar* imageName) {
 RwImage* RtPNGImageRead(const RwChar* imageName) {
     return ((RwImage*(__cdecl *)(const RwChar*))0x7CF9B0)(imageName);
 }
+
+void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps) {
+    ((void (__cdecl *)(RwSurfaceProperties*))0x74D870)(surfProps);
+}

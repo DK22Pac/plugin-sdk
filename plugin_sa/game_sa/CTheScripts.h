@@ -18,4 +18,7 @@ public:
 	static char* ScriptSpace;
 
 	static tScriptParam *ScriptParams;
+    
+    static CRunningScript *&pIdleScripts;
+    static CRunningScript *&pActiveScripts;
 };

@@ -1035,9 +1035,6 @@
     <ClCompile Include="..\plbase\PluginBase_SA.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\game_sa\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\game_sa\rw\errcom.def" />
     <None Include="..\game_sa\rw\errcore.def" />
   </ItemGroup>

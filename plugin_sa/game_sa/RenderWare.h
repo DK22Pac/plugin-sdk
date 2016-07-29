@@ -927,3 +927,6 @@ RwImage* RtBMPImageRead(const RwChar* imageName); // 0x7CDF60
 
 RwImage* RtPNGImageWrite(RwImage* image, const RwChar* imageName); // 0x7CF600
 RwImage* RtPNGImageRead(const RwChar* imageName); // 0x7CF9B0
+
+
+void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps);

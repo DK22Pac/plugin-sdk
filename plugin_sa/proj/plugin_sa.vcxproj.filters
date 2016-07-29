@@ -2876,11 +2876,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\game_sa\CMakeLists.txt">
-      <Filter>game_sa</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\game_sa\rw\errcom.def">
       <Filter>game_sa\rw</Filter>
     </None>
