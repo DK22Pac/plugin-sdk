@@ -286,12 +286,23 @@ public:
     short      m_wRemapTxd;
     RwTexture *m_pRemapTexture;
 
-    // static CColModel m_aSpecialColModel[4]
-    static CColModel *m_aSpecialColModel;
+    static float &WHEELSPIN_TARGET_RATE; // 1.0
+    static float &WHEELSPIN_INAIR_TARGET_RATE; // 10.0
+    static float &WHEELSPIN_RISE_RATE; // 0.95
+    static float &WHEELSPIN_FALL_RATE; // 0.7
+    static float &m_fAirResistanceMult; // 2.5
+    static float &ms_fRailTrackResistance; // 0.003
+    static float &ms_fRailTrackResistanceDefault; // 0.003
+    static bool &bDisableRemoteDetonation;
+    static bool &bDisableRemoteDetonationOnContact;
+    static bool &m_bEnableMouseSteering;
+    static bool &m_bEnableMouseFlying;
+    static int &m_nLastControlInput;
+    static CColModel **m_aSpecialColVehicle; // CColModel *CVehicle::m_aSpecialColVehicle[4]
+    static bool &ms_forceVehicleLightsOff;
+    static bool &s_bPlaneGunsEjectShellCasings;
+    static CColModel *m_aSpecialColModel; // static CColModel m_aSpecialColModel[4]
 
-	static bool& m_bEnableMouseSteering;
-	static bool& m_bEnableMouseFlying;
-    
     // originally vtable functions
 
     void ProcessControlCollisionCheck();
@@ -514,3 +525,39 @@ RpMaterial* SetCompAlphaCB(RpMaterial* material, void* data);
 RwObject* SetVehicleAtomicVisibilityCB(RwObject* object, void* data);
 RwFrame* SetVehicleAtomicVisibilityCB(RwFrame* component, void* data);
 void DestroyVehicleAndDriverAndPassengers(CVehicle* vehicle);
+
+extern float &fBurstTyreMod; // 0.13
+extern float &fBurstSpeedMax; // 0.3
+extern float &CAR_NOS_EXTRA_SKID_LOSS; // 0.9
+extern float &WS_TRAC_FRAC_LIMIT; // 0.3
+extern float &WS_ALREADY_SPINNING_LOSS; // 0.2
+extern float &fBurstBikeTyreMod; // 0.05
+extern float &fBurstBikeSpeedMax; // 0.12
+extern float &fTweakBikeWheelTurnForce; // 2.0
+extern float &AUTOGYRO_ROTORSPIN_MULT; // 0.006
+extern float &AUTOGYRO_ROTORSPIN_MULTLIMIT; // 0.25
+extern float &AUTOGYRO_ROTORSPIN_DAMP; // 0.997
+extern float &AUTOGYRO_ROTORLIFT_MULT; // 4.5
+extern float &AUTOGYRO_ROTORLIFT_FALLOFF; // 0.75
+extern float &AUTOGYRO_ROTORTILT_ANGLE; // 0.25
+extern float &ROTOR_SEMI_THICKNESS; // 0.05
+extern float *fSpeedMult; // float fSpeedMult[5] = {0.8, 0.75, 0.85, 0.9, 0.85, 0.85}
+extern float &fDamagePosSpeedShift; // 0.4
+extern unsigned int *aDriveAnimIdsLow; // unsigned int aDriveAnimIdsLow[4] = {61, 68, 69, 78}
+extern unsigned int *aDriveAnimIdsBoat; // unsigned int aDriveAnimIdsBoat[4] = {81, 82, 83, 84}
+extern unsigned int *aDriveAnimIdsBad; // unsigned int aDriveAnimIdsBad[4] = {62, 70, 71, 79}
+extern unsigned int *aDriveAnimIdsBadSlow; // unsigned int aDriveAnimIdsBadSlow[4] = {62, 87, 88, 79}
+extern unsigned int *aDriveAnimIdsStd; // unsigned int aDriveAnimIdsStd[4] = {60, 66, 67, 78}
+extern unsigned int *aDriveAnimIdsStdSlow; // unsigned int aDriveAnimIdsStdSlow[4] = {60, 85, 86, 78}
+extern unsigned int *aDriveAnimIdsPro; // unsigned int aDriveAnimIdsPro[4] = {63, 72, 73, 80}
+extern unsigned int *aDriveAnimIdsProSlow; // unsigned int aDriveAnimIdsProSlow[4] = {63, 89, 90, 80}
+extern unsigned int *aDriveAnimIdsTruck; // unsigned int aDriveAnimIdsTruck[4] = {91, 92, 93, 94}
+extern unsigned int *aDriveAnimIdsKart; // unsigned int aDriveAnimIdsKart[4] = {95, 96, 97, 98}
+extern float &DIFF_LIMIT; // 0.8
+extern float &DIFF_SPRING_MULT_X; // 0.05
+extern float &DIFF_SPRING_MULT_Y; // 0.05
+extern float &DIFF_SPRING_MULT_Z; // 0.1
+extern float &DIFF_SPRING_COMPRESS_MULT; // 2.0
+extern CVector *VehicleGunOffset; // CVector VehicleGunOffset[12];
+extern char *&HandlingFilename;
+extern char(*VehicleNames)[14]; // char VehicleNames[100][14]; sorting is based on handling id

@@ -1,9 +1,56 @@
 #include "CVehicle.h"
 
-CColModel *CVehicle::m_aSpecialColModel = (CColModel *)0xC1CC78;
-
-bool& CVehicle::m_bEnableMouseSteering = *(bool *)0xC1CC02;
-bool& CVehicle::m_bEnableMouseFlying  = *(bool *)0xC1CC03;
+float &CVehicle::WHEELSPIN_TARGET_RATE          = *(float *)0x8D3498;
+float &CVehicle::WHEELSPIN_INAIR_TARGET_RATE    = *(float *)0x8D349C;
+float &CVehicle::WHEELSPIN_RISE_RATE            = *(float *)0x8D34A0;
+float &CVehicle::WHEELSPIN_FALL_RATE            = *(float *)0x8D34A4;
+float &CVehicle::m_fAirResistanceMult           = *(float *)0x8D34A8;
+float &CVehicle::ms_fRailTrackResistance        = *(float *)0x8D34AC;
+float &CVehicle::ms_fRailTrackResistanceDefault = *(float *)0x8D34B0;
+bool &CVehicle::bDisableRemoteDetonation          = *(bool *)0xC1CC00;
+bool &CVehicle::bDisableRemoteDetonationOnContact = *(bool *)0xC1CC01;
+bool &CVehicle::m_bEnableMouseSteering            = *(bool *)0xC1CC02;
+bool &CVehicle::m_bEnableMouseFlying              = *(bool *)0xC1CC03;
+int &CVehicle::m_nLastControlInput                = *(int *)0xC1CC04;
+CColModel **CVehicle::m_aSpecialColVehicle        = (CColModel **)0xC1CC08;
+bool &CVehicle::ms_forceVehicleLightsOff          = *(bool *)0xC1CC18;
+bool &CVehicle::s_bPlaneGunsEjectShellCasings     = *(bool *)0xC1CC19;
+CColModel *CVehicle::m_aSpecialColModel           = (CColModel *)0xC1CC78;
+float &fBurstTyreMod                            = *(float *)0x8D34B4;
+float &fBurstSpeedMax                           = *(float *)0x8D34B8;
+float &CAR_NOS_EXTRA_SKID_LOSS                  = *(float *)0x8D34BC;
+float &WS_TRAC_FRAC_LIMIT                       = *(float *)0x8D34C0;
+float &WS_ALREADY_SPINNING_LOSS                 = *(float *)0x8D34C4;
+float &fBurstBikeTyreMod                        = *(float *)0x8D34C8;
+float &fBurstBikeSpeedMax                       = *(float *)0x8D34CC;
+float &fTweakBikeWheelTurnForce                 = *(float *)0x8D34D0;
+float &AUTOGYRO_ROTORSPIN_MULT                  = *(float *)0x8D34D4;
+float &AUTOGYRO_ROTORSPIN_MULTLIMIT             = *(float *)0x8D34D8;
+float &AUTOGYRO_ROTORSPIN_DAMP                  = *(float *)0x8D34DC;
+float &AUTOGYRO_ROTORLIFT_MULT                  = *(float *)0x8D34E0;
+float &AUTOGYRO_ROTORLIFT_FALLOFF               = *(float *)0x8D34E4;
+float &AUTOGYRO_ROTORTILT_ANGLE                 = *(float *)0x8D34E8;
+float &ROTOR_SEMI_THICKNESS                     = *(float *)0x8D34EC;
+float *fSpeedMult                               = (float *)0x8D34F8;
+float &fDamagePosSpeedShift                     = *(float *)0x8D3510;
+unsigned int *aDriveAnimIdsLow                  = (unsigned int *)0x8D3514;
+unsigned int *aDriveAnimIdsBoat                 = (unsigned int *)0x8D3524;
+unsigned int *aDriveAnimIdsBad                  = (unsigned int *)0x8D3534;
+unsigned int *aDriveAnimIdsBadSlow              = (unsigned int *)0x8D3544;
+unsigned int *aDriveAnimIdsStd                  = (unsigned int *)0x8D3554;
+unsigned int *aDriveAnimIdsStdSlow              = (unsigned int *)0x8D3564;
+unsigned int *aDriveAnimIdsPro                  = (unsigned int *)0x8D3574;
+unsigned int *aDriveAnimIdsProSlow              = (unsigned int *)0x8D3584;
+unsigned int *aDriveAnimIdsTruck                = (unsigned int *)0x8D3594;
+unsigned int *aDriveAnimIdsKart                 = (unsigned int *)0x8D35A4;
+float &DIFF_LIMIT                               = *(float *)0x8D35B4;
+float &DIFF_SPRING_MULT_X                       = *(float *)0x8D35B8;
+float &DIFF_SPRING_MULT_Y                       = *(float *)0x8D35BC;
+float &DIFF_SPRING_MULT_Z                       = *(float *)0x8D35C0;
+float &DIFF_SPRING_COMPRESS_MULT                = *(float *)0x8D35C4;
+CVector *VehicleGunOffset                       = (CVector *)0x8D35D4;
+char *&HandlingFilename                         = *(char **)0x8D3970;
+char(*VehicleNames)[14]                         = (char(*)[14])0x8D3978;                        
 
 // Converted from void CVehicle::ProcessControlCollisionCheck(void) 0x871EDC
 void CVehicle::ProcessControlCollisionCheck()
