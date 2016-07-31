@@ -16,7 +16,7 @@ public:
                 if (m_angle > (_RW_pi * 2.0f))
                     m_angle = 0.0f;
                 CQuaternion quat;
-                quat.Set(m_angle, m_angle, m_angle);
+                quat.Set(m_angle, 0.0f, 0.0f);
                 CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle);
                 if (automobile->m_aCarNodes[CAR_DOOR_RF])
                     quat.Get(&automobile->m_aCarNodes[CAR_DOOR_RF]->modelling);
