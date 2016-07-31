@@ -6,6 +6,8 @@ unsigned int &CStreaming::ms_memoryUsed = *(unsigned int *)0x8E4CB4;
 unsigned int &CStreaming::ms_numModelsRequested = *(unsigned int *)0x8E4CB8;
 bool &CStreaming::ms_disableStreaming = *(bool *)0x9654B0;
 
+CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x8E4CC0;
+
 void CStreaming::ImGonnaUseStreamingMemory()
 {
 	((void (__cdecl *)())0x407BE0)();
@@ -85,6 +87,10 @@ void CStreaming::RequestModel(int modelIndex, int flags)
 void CStreaming::SetModelIsDeletable(int modelIndex)
 {
     ((void(__cdecl *)(int))0x409C10)(modelIndex);
+}
+
+void CStreaming::SetModelTxdIsDeletable(int modelIndex) {
+    ((void(__cdecl *)(int))0x409C70)(modelIndex);
 }
 
 void CStreaming::SetMissionDoesntRequireModel(int modelIndex)

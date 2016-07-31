@@ -7,3 +7,7 @@ tScriptParam *CTheScripts::ScriptParams = (tScriptParam *)0xA43C78;
 
 CRunningScript *&CTheScripts::pIdleScripts = *(CRunningScript **)0xA8B428;
 CRunningScript *&CTheScripts::pActiveScripts = *(CRunningScript **)0xA8B42C;
+
+void CTheScripts::CleanUpThisVehicle(CVehicle *vehicle) {
+    ((void(__cdecl *)(CVehicle*))0x486670)(vehicle);
+}

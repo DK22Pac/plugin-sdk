@@ -2,23 +2,23 @@
 #include "plbase/PluginBase_SA.h"
 #include "CVehicle.h"
 
-enum eBikeModelNodes {
+enum eBikeNodes {
     BIKE_NODE_NONE = 0,
-    BIKE_NODE_CHASSIS = 1,
-    BIKE_NODE_FORKS_FRONT = 2,
-    BIKE_NODE_FORKS_REAR = 3,
-    BIKE_NODE_WHEEL_FRONT = 4,
-    BIKE_NODE_WHEEL_REAR = 5,
-    BIKE_NODE_MUDGUARD = 6,
-    BIKE_NODE_HANDLEBARS = 7,
-    BIKE_NODE_MISC_A = 8,
-    BIKE_NODE_MISC_B = 9,
+    BIKE_CHASSIS = 1,
+    BIKE_FORKS_FRONT = 2,
+    BIKE_FORKS_REAR = 3,
+    BIKE_WHEEL_FRONT = 4,
+    BIKE_WHEEL_REAR = 5,
+    BIKE_MUDGUARD = 6,
+    BIKE_HANDLEBARS = 7,
+    BIKE_MISC_A = 8,
+    BIKE_MISC_B = 9,
     BIKE_NUM_NODES
 };
 
 class CBike : public CVehicle {
 public:
-    RwFrame       *m_apModelNodes[BIKE_NUM_NODES];
+    RwFrame       *m_aBikeNodes[BIKE_NUM_NODES];
     bool           m_bLeanMatrixCalculated;
     char _pad0[3];
     CMatrix        m_mLeanMatrix;

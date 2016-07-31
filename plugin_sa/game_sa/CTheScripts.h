@@ -21,4 +21,6 @@ public:
     
     static CRunningScript *&pIdleScripts;
     static CRunningScript *&pActiveScripts;
+
+    static void CleanUpThisVehicle(class CVehicle *vehicle);
 };

@@ -18,4 +18,5 @@ public:
 	static void PossiblyFireHSMissile(CVehicle* veh, CEntity* targetEntity);
 	static void SteerAIBoatWithPhysicsCirclingPlayer(CVehicle* veh, float* a1, float* a2, float* a3, bool* a4);
 	static CVehicle* CreateOneEmergencyServicesVehicle(int model, CVector driveToCoord);
+    static CVehicle *CreateCarForScript(int modelId, CVector posn, unsigned char bMissionVehicle);
 };

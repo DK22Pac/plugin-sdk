@@ -17,7 +17,7 @@ public:
     CVector      pos;
     unsigned int pad3;
     
-	struct RwMatrix *m_pAttachMatrix;
+	RwMatrix *m_pAttachMatrix;
 	unsigned __int8 m_bAttachMatrixTemporary; // do we need to delete attaching matrix at detaching
 
 	CMatrix();

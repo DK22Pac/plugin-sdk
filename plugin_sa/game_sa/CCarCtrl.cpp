@@ -57,3 +57,7 @@ CVehicle* CCarCtrl::CreateOneEmergencyServicesVehicle(int model, CVector driveTo
 {
 	return ((CVehicle*(__cdecl *)(int, CVector))0x42B7D0)(model, driveToCoord);
 }
+
+CVehicle *CCarCtrl::CreateCarForScript(int modelId, CVector posn, unsigned char bMissionVehicle) {
+    return ((CVehicle*(__cdecl *)(int, CVector, unsigned char))0x431F80)(modelId, posn, bMissionVehicle);
+}

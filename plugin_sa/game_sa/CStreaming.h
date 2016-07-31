@@ -2,16 +2,18 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "CVector.h"
+#include "CStreamingInfo.h"
 #include "RenderWare.h"
 
-class PLUGIN_API CStreaming
-{
+class PLUGIN_API CStreaming {
 public:
     static int &ms_currentZoneType;
     static unsigned int &ms_streamingBufferSize;
     static unsigned int &ms_memoryUsed;
     static unsigned int &ms_numModelsRequested;
     static bool &ms_disableStreaming;
+
+    static CStreamingInfo *ms_aInfoForModel; // static CStreamingInfo ms_aInfoForModel[26316]
 
 	static void ImGonnaUseStreamingMemory();
 	static void IHaveUsedStreamingMemory();
@@ -32,6 +34,7 @@ public:
     static void RemoveModel(int modelIndex);
     static void RequestModel(int modelIndex, int flags);
     static void SetModelIsDeletable(int modelIndex);
+    static void SetModelTxdIsDeletable(int modelIndex);
     static void SetMissionDoesntRequireModel(int modelIndex);
     static void LoadScene(CVector const& point);
     static void LoadSceneCollision(CVector const& coord);

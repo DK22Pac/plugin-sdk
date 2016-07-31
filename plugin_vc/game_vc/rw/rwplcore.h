@@ -3054,7 +3054,6 @@ typedef enum RwMatrixOptimizations RwMatrixOptimizations;
  Global Types
  */
 
-#if (!defined(DOXYGEN))
 struct RwMatrixTag
 {
     /* These are padded to be 16 byte quantities per line */
@@ -3068,28 +3067,7 @@ struct RwMatrixTag
     RwUInt32            pad3;
 };
 
-/*
- * RwMatrix & RwMatrixTag must be different otherwise the alignment
- * directive is ignored when compiling under C++ on Visual C
- */
-typedef struct RwMatrixTag RWALIGN(RwMatrix, rwMATRIXALIGNMENT);
-
-#else
-
-/*
- * RwMatrix must appear as the struct name & the typedef,
- * otherwise Doxygen puts RwMatrixTag in the API ref instead of RwMatrix!
- */
-
-/**
- * \ingroup rwmatrix
- * \struct RwMatrix
- * Matrix to define transformations. 
- * This should be considered an opaque type.
- * Use the RwMatrix API functions to access.
- */
-typedef struct RwMatrix RWALIGN(RwMatrix, rwMATRIXALIGNMENT);
-#endif /* (!defined(DOXYGEN)) */
+typedef RwMatrixTag RwMatrix;
 
 typedef void (RWASMCALL * rwMatrixMultFn) (RwMatrix * dstMat,
                                            const RwMatrix * matA,

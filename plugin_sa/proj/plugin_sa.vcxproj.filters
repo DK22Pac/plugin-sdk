@@ -1576,6 +1576,9 @@
     <ClInclude Include="..\plbase\PluginBase_SA.h">
       <Filter>plbase</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CStreamingInfo.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -2873,6 +2876,9 @@
     </ClCompile>
     <ClCompile Include="..\plbase\PluginBase_SA.cpp">
       <Filter>plbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CStreamingInfo.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

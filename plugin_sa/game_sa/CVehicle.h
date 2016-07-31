@@ -64,6 +64,13 @@ enum eVehicleLightsFlags {
     VEHICLE_LIGHTS_DISABLE_REAR = 32
 };
 
+enum eVehicleCreatedBy {
+    RANDOM_VEHICLE = 0,
+    MISSION_VEHICLE = 2,
+    PARKED_VEHICLE = 3,
+    PERMANENT_VEHICLE = 4
+};
+
 #if 0
 enum eOrdnanceType;
 enum eFlightModel;
@@ -208,10 +215,7 @@ public:
     float  m_f2ndSteerAngle; // used for steering 2nd set of wheels or elevators etc..
     float  m_fGasPedal;
     float  m_fBreakPedal;
-    unsigned char  m_nCreatedBy; // 1 - RANDOM_VEHICLE
-                         // 2 - MISSION_VEHICLE
-                         // 3 - PARKED_VEHICLE
-                         // 4 - PERMANENT_VEHICLE
+    unsigned char  m_nCreatedBy; // see eVehicleCreatedBy
     short m_wExtendedRemovalRange; // when game wants to delete a vehicle, it gets min(m_wExtendedRemovalRange, 170.0)
     unsigned char m_nBombOnBoard : 3; // 0 = None
                               // 1 = Timed

@@ -11,7 +11,11 @@
 #pragma pack(push, 4)
 class PLUGIN_API CEntity : public CPlaceable {
 public:
-    struct RwObject *m_pRwObject;
+    union {
+        struct RwObject *m_pRwObject;
+        struct RpClump *m_pRwClump;
+        struct RpAtomic *m_pRwAtomic;
+    };
     /* https://code.google.com/p/mtasa-blue/source/browse/trunk/MTA10/game_sa/CEntitySA.h */
     unsigned __int32 m_bUsesCollision : 1;           // does entity use collision
     unsigned __int32 m_bCollisionProcessed : 1;  // has object been processed by a ProcessEntityCollision function
