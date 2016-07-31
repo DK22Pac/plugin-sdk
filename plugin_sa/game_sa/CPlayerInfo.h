@@ -62,7 +62,7 @@ public:
 	unsigned __int32 m_dwTimeOfLastCarExplosionCaused;
 	unsigned __int32 m_dwExplosionMultiplier;
 	unsigned __int32 m_dwHavocCaused;            // A counter going up when the player does bad stuff.
-	unsigned __int16 m_wTimeLastEaten;           // A counter that starts at 5000, increases by 1 every minute
+	unsigned __int16 m_wNumHoursDidntEat;
 	__int8 _pad2[2];
 	float m_fCurrentChaseValue;       // How 'ill' is the chase at the moment
 	unsigned __int8 m_bDoesNotGetTired;

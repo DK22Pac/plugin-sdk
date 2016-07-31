@@ -1,6 +1,6 @@
 #include "RenderWare.h"
 
-void *RwEngineInstance = (void *)0xC97B24;
+RwGlobals *&RwEngineInstance = *(RwGlobals **)0xC97B24;
 
 RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
 

@@ -20,11 +20,10 @@
 #include "rw\rpmatfx.h"
 #include "rw\skeleton.h"
 
-extern void *RwEngineInstance;
+extern RwGlobals *&RwEngineInstance;
 
 /* macro used to access global data structure (the root type is RwGlobals) */
-#define RWSRCGLOBAL(variable) \
-   (((RwGlobals *)RwEngineInstance)->variable)
+#define RWSRCGLOBAL(variable) (RwEngineInstance->variable)
 
 extern RsGlobalType &RsGlobal;
 

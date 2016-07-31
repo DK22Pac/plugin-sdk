@@ -38,7 +38,7 @@ public:
                 CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle);
                 RwEngineInstance->dOpenDevice.fpRenderStateSet(rwRENDERSTATEZTESTENABLE, FALSE);
                 if (automobile->m_aCarNodes[CAR_DOOR_RF]) {
-                    if(RwIm3DTransform(vertsAxis, 6, &automobile->m_aCarNodes[CAR_DOOR_RF]->ltm, 0)) {
+                    if (RwIm3DTransform(vertsAxis, 6, &automobile->m_aCarNodes[CAR_DOOR_RF]->ltm, 0)) {
                         RwIm3DRenderLine(0, 1);
                         RwIm3DRenderLine(2, 3);
                         RwIm3DRenderLine(4, 5);
