@@ -26,7 +26,7 @@ public:
             }
             result = CCarCtrl::CreateCarForScript(modelId, posn, false); // создаём авто в координатах ; create a car at coords
             if (result)
-                CTheScripts::CleanUpThisVehicle(result);
+                CTheScripts::CleanUpThisVehicle(result); // Что-то вроде RemoveReferences() ; Something like RemoveReferences()
         }
         return result;
     }
