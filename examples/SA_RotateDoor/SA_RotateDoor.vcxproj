@@ -70,7 +70,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>..\..\..\..\Games\Grand Theft Auto - San Andreas\scripts</OutDir>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>obj\$(Configuration)\</IntDir>
   </PropertyGroup>
