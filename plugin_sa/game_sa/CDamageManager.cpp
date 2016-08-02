@@ -63,13 +63,13 @@ void CDamageManager::SetDoorStatus(int doorNodeIndex, unsigned int status)
 // Converted from thiscall uint CDamageManager::GetDoorStatus(int doorNodeIndex) 0x6C2230
 unsigned int CDamageManager::GetDoorStatus(int doorNodeIndex)
 {
-    return ((unsigned int(__thiscall *)(CDamageManager*, int))0x6C2230)(this, doorNodeIndex);
+    return ((unsigned int(__thiscall *)(CDamageManager*, int))0x6C2250)(this, doorNodeIndex);
 }
 
 // Converted from thiscall uint CDamageManager::GetDoorStatus(eDoors door) 0x6C2250
 unsigned int CDamageManager::GetDoorStatus(eDoors door)
 {
-    return ((unsigned int(__thiscall *)(CDamageManager*, eDoors))0x6C2250)(this, door);
+    return ((unsigned int(__thiscall *)(CDamageManager*, eDoors))0x6C2230)(this, door);
 }
 
 // Converted from thiscall void CDamageManager::SetEngineStatus(uint status) 0x6C22A0
