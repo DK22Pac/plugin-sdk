@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin_sa", "plugin_sa\proj\plugin_sa.vcxproj", "{0F442363-6D2C-4C0C-A157-287DCC49DD84}"
 EndProject
@@ -37,6 +37,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_CreateCar", "examples\SA_CreateCar\SA_CreateCar.vcxproj", "{4A22D031-C119-40FE-8116-38A71FF00DDC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_RotateDoor", "examples\SA_RotateDoor\SA_RotateDoor.vcxproj", "{E7C543F6-5388-456E-8CB4-3E711B7A1316}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_OpenDoorExample", "examples\SA_OpenDoorExample\SA_OpenDoorExample.vcxproj", "{F0460625-CC5E-449B-B828-8DF7C0E7CED6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,6 +142,14 @@ Global
 		{E7C543F6-5388-456E-8CB4-3E711B7A1316}.Release|Win32.Build.0 = Release|Win32
 		{E7C543F6-5388-456E-8CB4-3E711B7A1316}.Release|x64.ActiveCfg = Release|x64
 		{E7C543F6-5388-456E-8CB4-3E711B7A1316}.Release|x64.Build.0 = Release|x64
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Debug|Win32.Build.0 = Debug|Win32
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Debug|x64.ActiveCfg = Debug|x64
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Debug|x64.Build.0 = Debug|x64
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Release|Win32.ActiveCfg = Release|Win32
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Release|Win32.Build.0 = Release|Win32
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Release|x64.ActiveCfg = Release|x64
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,5 +165,6 @@ Global
 		{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 		{4A22D031-C119-40FE-8116-38A71FF00DDC} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 		{E7C543F6-5388-456E-8CB4-3E711B7A1316} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
+		{F0460625-CC5E-449B-B828-8DF7C0E7CED6} = {D4C3848F-BB59-45D2-95A2-A40707FCF238}
 	EndGlobalSection
 EndGlobal
