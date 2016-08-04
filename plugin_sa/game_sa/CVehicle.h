@@ -71,6 +71,14 @@ enum eVehicleCreatedBy {
     PERMANENT_VEHICLE = 4
 };
 
+enum eBombState {
+    BOMB_TIMED_NOT_ACTIVATED = 1,
+    BOMB_IGNITION = 2,
+    BOMB_STICKY = 3,
+    BOMB_TIMED_ACTIVATED = 4,
+    BOMB_IGNITION_ACTIVATED = 5
+};
+
 #if 0
 enum eOrdnanceType;
 enum eFlightModel;

@@ -4,23 +4,49 @@
 
 class CAutomobile;
 
-enum tComponent
-{
+enum eDamageState {
+    DAMSTATE_OK = 0,
+    DAMSTATE_OPENED = 1,
+    DAMSTATE_DAMAGED = 2,
+    DAMSTATE_OPENED_DAMAGED = 3,
+    DAMSTATE_NOTPRESENT = 4
+};
+
+enum tComponent {
+    COMPONENT_WHEEL_LF = 1,
+    COMPONENT_WHEEL_RF = 2,
+    COMPONENT_WHEEL_LR = 3,
+    COMPONENT_WHEEL_RR = 4,
+    COMPONENT_BONNET = 5,
+    COMPONENT_BOOT = 6,
+    COMPONENT_DOOR_LF = 7,
+    COMPONENT_DOOR_RF = 8,
+    COMPONENT_DOOR_LR = 9,
+    COMPONENT_DOOR_RR = 10,
+    COMPONENT_WING_LF = 11,
+    COMPONENT_WING_RF = 12,
+    COMPONENT_WING_LR = 13,
+    COMPONENT_WING_RR = 14,
+    COMPONENT_WINDSCREEN = 15,
+    COMPONENT_BUMP_FRONT = 16,
+    COMPONENT_BUMP_REAR = 17
+};
+
+enum tComponentGroup {
+    COMPGROUP_PANEL = 0,
+    COMPGROUP_WHEEL = 1,
+    COMPGROUP_DOOR = 2,
+    COMPGROUP_BONNET = 3,
+    COMPGROUP_BOOT = 4,
+    COMPGROUP_LIGHT = 5,
+    COMPGROUP_NA = 6
+};
+
+enum eWheels {
 
 };
 
-enum tComponentGroup
-{
-
-};
-
-enum eWheels
-{
-
-};
-
-enum ePanels
-{
+enum ePanels {
 	WING_FRONT_LEFT = 0,
 	WING_FRONT_RIGHT = 1,
 	WINDSCREEN = 4,
@@ -28,8 +54,7 @@ enum ePanels
 	BUMP_REAR = 6
 };
 
-enum eDoors
-{
+enum eDoors {
 	BONNET = 0,
 	BOOT = 1,
 	DOOR_FRONT_LEFT = 2,
@@ -38,8 +63,7 @@ enum eDoors
 	DOOR_REAR_RIGHT = 5
 };
 
-enum eLights
-{
+enum eLights {
     LIGHT_FRONT_LEFT = 0,
     LIGHT_FRONT_RIGHT = 1,
     LIGHT_REAR_RIGHT = 2,
@@ -47,8 +71,7 @@ enum eLights
 };
 
 #pragma pack(push, 4)
-class PLUGIN_API CDamageManager
-{
+class PLUGIN_API CDamageManager {
 public:
 	float           m_fWheelDamageEffect;
 	unsigned __int8 m_nEngineStatus;
