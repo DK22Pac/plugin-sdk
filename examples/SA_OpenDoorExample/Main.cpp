@@ -64,23 +64,23 @@ public:
 				if (vehicle && vehicle->m_dwVehicleClass == VEHICLE_AUTOMOBILE) {
 					CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle); // оп€ть же, приведение типов. “.к. мы будет юзать damageManager, нам нужно убедитьс€, что транспорт - это автомобиль (CAutomobile)
 					if (KeyPressed(219)) // [
-						//OpenComponent(automobile, CAR_BONNET, static_cast<eDoors>(0)); // капот
-						OpenComponent(automobile, CAR_BONNET, BONNET);
+						OpenComponent(automobile, CAR_BONNET, static_cast<eDoors>(0)); // капот
+						//OpenComponent(automobile, CAR_BONNET, BONNET);
 					else if (KeyPressed(221)) // ]
-						//OpenComponent(automobile, CAR_BOOT, static_cast<eDoors>(1)); // багажник
-						OpenComponent(automobile, CAR_BOOT, BOOT);
+						OpenComponent(automobile, CAR_BOOT, static_cast<eDoors>(1)); // багажник
+						//OpenComponent(automobile, CAR_BOOT, BOOT);
 					else if (KeyPressed(186) && KeyPressed(187)) // ; =
-						//OpenComponent(automobile, CAR_DOOR_LF, static_cast<eDoors>(2)); // лева€ передн€€ дверь
-						OpenComponent(automobile, CAR_DOOR_LF, DOOR_FRONT_LEFT);
+						OpenComponent(automobile, CAR_DOOR_LF, static_cast<eDoors>(2)); // лева€ передн€€ дверь
+						//OpenComponent(automobile, CAR_DOOR_LF, DOOR_FRONT_LEFT);
 					else if (KeyPressed(222) && KeyPressed(187)) // ' =
-						//OpenComponent(automobile, CAR_DOOR_RF, static_cast<eDoors>(3)); // права€ передн€€ дверь
-						OpenComponent(automobile, CAR_DOOR_RF, DOOR_FRONT_RIGHT);
+						OpenComponent(automobile, CAR_DOOR_RF, static_cast<eDoors>(3)); // права€ передн€€ дверь
+						//OpenComponent(automobile, CAR_DOOR_RF, DOOR_FRONT_RIGHT);
 					else if (KeyPressed(186) && KeyPressed(189)) // ; -
-						//OpenComponent(automobile, CAR_DOOR_LR, static_cast<eDoors>(4)); // лева€ задн€€ дверь
-						OpenComponent(automobile, CAR_DOOR_LR, DOOR_REAR_LEFT);
+						OpenComponent(automobile, CAR_DOOR_LR, static_cast<eDoors>(4)); // лева€ задн€€ дверь
+						//OpenComponent(automobile, CAR_DOOR_LR, DOOR_REAR_LEFT);
 					else if (KeyPressed(222) && KeyPressed(189)) // ' -
-						//OpenComponent(automobile, CAR_DOOR_RR, static_cast<eDoors>(5)); // права€ задн€€ дверь
-						OpenComponent(automobile, CAR_DOOR_RR, DOOR_REAR_RIGHT);
+						OpenComponent(automobile, CAR_DOOR_RR, static_cast<eDoors>(5)); // права€ задн€€ дверь
+						//OpenComponent(automobile, CAR_DOOR_RR, DOOR_REAR_RIGHT);
 				}
 			}
 		}
