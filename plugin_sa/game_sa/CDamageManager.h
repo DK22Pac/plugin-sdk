@@ -21,11 +21,11 @@ enum eWheels
 
 enum ePanels
 {
-	WING_FRONT_LEFT = 0,
-	WING_FRONT_RIGHT = 1,
-	WINDSCREEN = 4,
-	BUMP_FRONT = 5,
-	BUMP_REAR = 6
+	//WING_FRONT_LEFT = 0,
+	//WING_FRONT_RIGHT = 1,
+	//WINDSCREEN = 4,
+	//BUMP_FRONT = 5,
+	//BUMP_REAR = 6
 };
 
 enum eDoors
