@@ -42,6 +42,18 @@ namespace plugin
         }
     };
 
+    template<class Type, size_t N, class Type2, size_t N2>
+    struct ArgPick2N
+    {
+        using CallbackType = std::function<void(Type, Type2)>;
+
+        template<typename Tuple>
+        void operator()(CallbackType fun, Tuple& t) const
+        {
+            fun(std::get<N>(t), std::get<N2>(t));
+        }
+    };
+
     template<template<uintptr_t, class> class Injector, class AddrList /* AddressList<...> */, class ArgPicker, class Prototype>
     class BaseEventI;
 

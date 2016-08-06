@@ -1,4 +1,4 @@
-#include <plugin.h>
+п»ї#include <plugin.h>
 #include "game_sa\common.h"
 #include "game_sa\CAutomobile.h"
 #include "game_sa\CTimer.h"
@@ -9,83 +9,83 @@ using namespace plugin;
 class OpenDoorExample {
 public:
 	enum eOpenDoorState {
-		STATE_OPENING, // сейчас мы что-то открываем
-		STATE_CLOSING, // закрываем
-		STATE_WAITING  // ждём указаний
+		STATE_OPENING, // СЃРµР№С‡Р°СЃ РјС‹ С‡С‚Рѕ-С‚Рѕ РѕС‚РєСЂС‹РІР°РµРј
+		STATE_CLOSING, // Р·Р°РєСЂС‹РІР°РµРј
+		STATE_WAITING  // Р¶РґС‘Рј СѓРєР°Р·Р°РЅРёР№
 	};
 
-	static eOpenDoorState m_currentState; // наш статус
-	static CAutomobile *m_pCurrentCar; // авто, с которым сейчас что-то делаем
-	static float m_openingState; // статус открытия/закрытия
+	static eOpenDoorState m_currentState; // РЅР°С€ СЃС‚Р°С‚СѓСЃ
+	static CAutomobile *m_pCurrentCar; // Р°РІС‚Рѕ, СЃ РєРѕС‚РѕСЂС‹Рј СЃРµР№С‡Р°СЃ С‡С‚Рѕ-С‚Рѕ РґРµР»Р°РµРј
+	static float m_openingState; // СЃС‚Р°С‚СѓСЃ РѕС‚РєСЂС‹С‚РёСЏ/Р·Р°РєСЂС‹С‚РёСЏ
 	static int m_currentComponentId;
 	static eDoors m_currentDoorId;
 	static unsigned int m_nLastTimeWhenAnyActionWasEnabled;
 
 	static void OpenComponent(CAutomobile *automobile, int componentId, eDoors doorId) {
 		if (automobile->IsComponentPresent(componentId)) {
-			if (automobile->m_damageManager.GetDoorStatus(doorId) != 4) { // 3 - это тоже член какого-то перечисления, напр. STATUS_DAMAGED
-				m_pCurrentCar = automobile; // сохраняем все данные в переменные, чтобы потом заюзать при обработке STATE_OPENING/STATE_CLOSING (см. функцию Process)
+			if (automobile->m_damageManager.GetDoorStatus(doorId) != 4) { // 3 - СЌС‚Рѕ С‚РѕР¶Рµ С‡Р»РµРЅ РєР°РєРѕРіРѕ-С‚Рѕ РїРµСЂРµС‡РёСЃР»РµРЅРёСЏ, РЅР°РїСЂ. STATUS_DAMAGED
+				m_pCurrentCar = automobile; // СЃРѕС…СЂР°РЅСЏРµРј РІСЃРµ РґР°РЅРЅС‹Рµ РІ РїРµСЂРµРјРµРЅРЅС‹Рµ, С‡С‚РѕР±С‹ РїРѕС‚РѕРј Р·Р°СЋР·Р°С‚СЊ РїСЂРё РѕР±СЂР°Р±РѕС‚РєРµ STATE_OPENING/STATE_CLOSING (СЃРј. С„СѓРЅРєС†РёСЋ Process)
 				m_currentComponentId = componentId;
 				m_currentDoorId = doorId;
 				if (!automobile->IsDoorFullyOpen(doorId)) {
-					m_currentState = STATE_OPENING; // переключаем статус
-					m_openingState = 0.0f; // и ресетим статус открытия
+					m_currentState = STATE_OPENING; // РїРµСЂРµРєР»СЋС‡Р°РµРј СЃС‚Р°С‚СѓСЃ
+					m_openingState = 0.0f; // Рё СЂРµСЃРµС‚РёРј СЃС‚Р°С‚СѓСЃ РѕС‚РєСЂС‹С‚РёСЏ
 				}
 				else {
-					m_currentState = STATE_CLOSING; // переключаем статус
-					m_openingState = 1.0f; // и ресетим статус открытия
+					m_currentState = STATE_CLOSING; // РїРµСЂРµРєР»СЋС‡Р°РµРј СЃС‚Р°С‚СѓСЃ
+					m_openingState = 1.0f; // Рё СЂРµСЃРµС‚РёРј СЃС‚Р°С‚СѓСЃ РѕС‚РєСЂС‹С‚РёСЏ
 				}
-				m_nLastTimeWhenAnyActionWasEnabled = CTimer::m_snTimeInMilliseconds; // запоминаем время
+				m_nLastTimeWhenAnyActionWasEnabled = CTimer::m_snTimeInMilliseconds; // Р·Р°РїРѕРјРёРЅР°РµРј РІСЂРµРјСЏ
 			}
 		}
 	}
 
-	static void Process() { // Обрабатываем поточное состояние - ждём нажатия клавиши ИЛИ открываем ИЛИ закрываем компонент
+	static void Process() { // РћР±СЂР°Р±Р°С‚С‹РІР°РµРј РїРѕС‚РѕС‡РЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ - Р¶РґС‘Рј РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё РР›Р РѕС‚РєСЂС‹РІР°РµРј РР›Р Р·Р°РєСЂС‹РІР°РµРј РєРѕРјРїРѕРЅРµРЅС‚
 		switch (m_currentState) {
-		case STATE_OPENING: // Что-то открываем. Обрати внимание, что ранее мы записали поточное авто и ид компонентов в статические переменные класса (по сути, это глобальные переменные)
+		case STATE_OPENING: // Р§С‚Рѕ-С‚Рѕ РѕС‚РєСЂС‹РІР°РµРј. РћР±СЂР°С‚Рё РІРЅРёРјР°РЅРёРµ, С‡С‚Рѕ СЂР°РЅРµРµ РјС‹ Р·Р°РїРёСЃР°Р»Рё РїРѕС‚РѕС‡РЅРѕРµ Р°РІС‚Рѕ Рё РёРґ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РІ СЃС‚Р°С‚РёС‡РµСЃРєРёРµ РїРµСЂРµРјРµРЅРЅС‹Рµ РєР»Р°СЃСЃР° (РїРѕ СЃСѓС‚Рё, СЌС‚Рѕ РіР»РѕР±Р°Р»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ)
 			m_pCurrentCar->OpenDoor(0, m_currentComponentId, m_currentDoorId, m_openingState, true);
 			m_openingState += 0.05f;
-			if (m_openingState > 1.0f) { // Если полностью открыли
-				m_currentState = STATE_WAITING; // Переключаем статус на "ожидание"
-				m_pCurrentCar->OpenDoor(0, m_currentComponentId, m_currentDoorId, 1.0f, true); // Полностью открываем
+			if (m_openingState > 1.0f) { // Р•СЃР»Рё РїРѕР»РЅРѕСЃС‚СЊСЋ РѕС‚РєСЂС‹Р»Рё
+				m_currentState = STATE_WAITING; // РџРµСЂРµРєР»СЋС‡Р°РµРј СЃС‚Р°С‚СѓСЃ РЅР° "РѕР¶РёРґР°РЅРёРµ"
+				m_pCurrentCar->OpenDoor(0, m_currentComponentId, m_currentDoorId, 1.0f, true); // РџРѕР»РЅРѕСЃС‚СЊСЋ РѕС‚РєСЂС‹РІР°РµРј
 			}
 			break;
-		case STATE_CLOSING: // Что-то закрываем
+		case STATE_CLOSING: // Р§С‚Рѕ-С‚Рѕ Р·Р°РєСЂС‹РІР°РµРј
 			m_pCurrentCar->OpenDoor(0, m_currentComponentId, m_currentDoorId, m_openingState, true);
 			m_openingState -= 0.05f;
-			if (m_openingState < 0.0f) { // Если полностью закрыли
-				m_currentState = STATE_WAITING; // Переключаем статус на "ожидание"
-				m_pCurrentCar->OpenDoor(0, m_currentComponentId, m_currentDoorId, 0.0f, true); // Полностью закрываем
+			if (m_openingState < 0.0f) { // Р•СЃР»Рё РїРѕР»РЅРѕСЃС‚СЊСЋ Р·Р°РєСЂС‹Р»Рё
+				m_currentState = STATE_WAITING; // РџРµСЂРµРєР»СЋС‡Р°РµРј СЃС‚Р°С‚СѓСЃ РЅР° "РѕР¶РёРґР°РЅРёРµ"
+				m_pCurrentCar->OpenDoor(0, m_currentComponentId, m_currentDoorId, 0.0f, true); // РџРѕР»РЅРѕСЃС‚СЊСЋ Р·Р°РєСЂС‹РІР°РµРј
 			}
 			break;
 		case STATE_WAITING:
-			if (CTimer::m_snTimeInMilliseconds >(m_nLastTimeWhenAnyActionWasEnabled + 500)) { // если прошло 500 мс с того времени, как мы начали открывать/закрывать что-то
+			if (CTimer::m_snTimeInMilliseconds >(m_nLastTimeWhenAnyActionWasEnabled + 500)) { // РµСЃР»Рё РїСЂРѕС€Р»Рѕ 500 РјСЃ СЃ С‚РѕРіРѕ РІСЂРµРјРµРЅРё, РєР°Рє РјС‹ РЅР°С‡Р°Р»Рё РѕС‚РєСЂС‹РІР°С‚СЊ/Р·Р°РєСЂС‹РІР°С‚СЊ С‡С‚Рѕ-С‚Рѕ
 				CVehicle *vehicle = FindPlayerVehicle(0, false);
 				if (vehicle && vehicle->m_dwVehicleClass == VEHICLE_AUTOMOBILE) {
-					CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle); // опять же, приведение типов. Т.к. мы будет юзать damageManager, нам нужно убедиться, что транспорт - это автомобиль (CAutomobile)
+					CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle); // РѕРїСЏС‚СЊ Р¶Рµ, РїСЂРёРІРµРґРµРЅРёРµ С‚РёРїРѕРІ. Рў.Рє. РјС‹ Р±СѓРґРµС‚ СЋР·Р°С‚СЊ damageManager, РЅР°Рј РЅСѓР¶РЅРѕ СѓР±РµРґРёС‚СЊСЃСЏ, С‡С‚Рѕ С‚СЂР°РЅСЃРїРѕСЂС‚ - СЌС‚Рѕ Р°РІС‚РѕРјРѕР±РёР»СЊ (CAutomobile)
 					if (KeyPressed(219)) // [
-						OpenComponent(automobile, CAR_BONNET, static_cast<eDoors>(0)); // капот
+						OpenComponent(automobile, CAR_BONNET, static_cast<eDoors>(0)); // РєР°РїРѕС‚
 						//OpenComponent(automobile, CAR_BONNET, BONNET);
 					else if (KeyPressed(221)) // ]
-						OpenComponent(automobile, CAR_BOOT, static_cast<eDoors>(1)); // багажник
+						OpenComponent(automobile, CAR_BOOT, static_cast<eDoors>(1)); // Р±Р°РіР°Р¶РЅРёРє
 						//OpenComponent(automobile, CAR_BOOT, BOOT);
 					else if (KeyPressed(186) && KeyPressed(187)) // ; =
-						OpenComponent(automobile, CAR_DOOR_LF, static_cast<eDoors>(2)); // левая передняя дверь
+						OpenComponent(automobile, CAR_DOOR_LF, static_cast<eDoors>(2)); // Р»РµРІР°СЏ РїРµСЂРµРґРЅСЏСЏ РґРІРµСЂСЊ
 						//OpenComponent(automobile, CAR_DOOR_LF, DOOR_FRONT_LEFT);
 					else if (KeyPressed(222) && KeyPressed(187)) // ' =
-						OpenComponent(automobile, CAR_DOOR_RF, static_cast<eDoors>(3)); // правая передняя дверь
+						OpenComponent(automobile, CAR_DOOR_RF, static_cast<eDoors>(3)); // РїСЂР°РІР°СЏ РїРµСЂРµРґРЅСЏСЏ РґРІРµСЂСЊ
 						//OpenComponent(automobile, CAR_DOOR_RF, DOOR_FRONT_RIGHT);
 					else if (KeyPressed(186) && KeyPressed(189)) // ; -
-						OpenComponent(automobile, CAR_DOOR_LR, static_cast<eDoors>(4)); // левая задняя дверь
+						OpenComponent(automobile, CAR_DOOR_LR, static_cast<eDoors>(4)); // Р»РµРІР°СЏ Р·Р°РґРЅСЏСЏ РґРІРµСЂСЊ
 						//OpenComponent(automobile, CAR_DOOR_LR, DOOR_REAR_LEFT);
 					else if (KeyPressed(222) && KeyPressed(189)) // ' -
-						OpenComponent(automobile, CAR_DOOR_RR, static_cast<eDoors>(5)); // правая задняя дверь
+						OpenComponent(automobile, CAR_DOOR_RR, static_cast<eDoors>(5)); // РїСЂР°РІР°СЏ Р·Р°РґРЅСЏСЏ РґРІРµСЂСЊ
 						//OpenComponent(automobile, CAR_DOOR_RR, DOOR_REAR_RIGHT);
 				}
 			}
 		}
 
-		switch (m_currentState) { // Для наглядности выведем поточный статус на экран
+		switch (m_currentState) { // Р”Р»СЏ РЅР°РіР»СЏРґРЅРѕСЃС‚Рё РІС‹РІРµРґРµРј РїРѕС‚РѕС‡РЅС‹Р№ СЃС‚Р°С‚СѓСЃ РЅР° СЌРєСЂР°РЅ
 		case STATE_OPENING:
 			CMessages::AddMessageJumpQ("state: opening", 100, 0, false);
 			break;

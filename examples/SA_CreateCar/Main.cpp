@@ -1,4 +1,4 @@
-#include <plugin.h>
+п»ї#include <plugin.h>
 #include "game_sa\CCarCtrl.h"
 #include "game_sa\common.h"
 #include "game_sa\CStreaming.h"
@@ -10,44 +10,44 @@ using namespace plugin;
 
 class CreateCarExample {
 public:
-    static unsigned int m_nLastSpawnedTime; // время последнего спавна ; last spawned time
+    static unsigned int m_nLastSpawnedTime; // РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ СЃРїР°РІРЅР° ; last spawned time
 
-                                            // Вынесем создание авто в отдельную функцию CreateCar ; Put everything related to car creation into CreateCar function
+                                            // Р’С‹РЅРµСЃРµРј СЃРѕР·РґР°РЅРёРµ Р°РІС‚Рѕ РІ РѕС‚РґРµР»СЊРЅСѓСЋ С„СѓРЅРєС†РёСЋ CreateCar ; Put everything related to car creation into CreateCar function
     static CVehicle *CreateCar(int modelId, CVector posn) {
         CVehicle *result = nullptr;
-        // Загружаем модель ; Load model
+        // Р—Р°РіСЂСѓР¶Р°РµРј РјРѕРґРµР»СЊ ; Load model
         unsigned int previousFlags = CStreaming::ms_aInfoForModel[modelId].m_flags;
         CStreaming::RequestModel(modelId, 2);
         CStreaming::LoadAllRequestedModels(false);
-        if (CStreaming::ms_aInfoForModel[modelId].m_loadState == LOADSTATE_LOADED) { // если модель точно загружена ; ensure model is loaded
-            if (!(previousFlags & GAME_REQUIRED)) { // если модель не была нужна ; if model was not required previously
-                CStreaming::SetModelIsDeletable(modelId); // даём понять игре, что модель можно будет удалить ; tell game it could delete this model
-                CStreaming::SetModelTxdIsDeletable(modelId); // то же самое - для txd ; same for txd
+        if (CStreaming::ms_aInfoForModel[modelId].m_loadState == LOADSTATE_LOADED) { // РµСЃР»Рё РјРѕРґРµР»СЊ С‚РѕС‡РЅРѕ Р·Р°РіСЂСѓР¶РµРЅР° ; ensure model is loaded
+            if (!(previousFlags & GAME_REQUIRED)) { // РµСЃР»Рё РјРѕРґРµР»СЊ РЅРµ Р±С‹Р»Р° РЅСѓР¶РЅР° ; if model was not required previously
+                CStreaming::SetModelIsDeletable(modelId); // РґР°С‘Рј РїРѕРЅСЏС‚СЊ РёРіСЂРµ, С‡С‚Рѕ РјРѕРґРµР»СЊ РјРѕР¶РЅРѕ Р±СѓРґРµС‚ СѓРґР°Р»РёС‚СЊ ; tell game it could delete this model
+                CStreaming::SetModelTxdIsDeletable(modelId); // С‚Рѕ Р¶Рµ СЃР°РјРѕРµ - РґР»СЏ txd ; same for txd
             }
-            result = CCarCtrl::CreateCarForScript(modelId, posn, false); // создаём авто в координатах ; create a car at coords
+            result = CCarCtrl::CreateCarForScript(modelId, posn, false); // СЃРѕР·РґР°С‘Рј Р°РІС‚Рѕ РІ РєРѕРѕСЂРґРёРЅР°С‚Р°С… ; create a car at coords
             if (result)
-                CTheScripts::CleanUpThisVehicle(result); // Что-то вроде RemoveReferences() ; Something like RemoveReferences()
+                CTheScripts::CleanUpThisVehicle(result); // Р§С‚Рѕ-С‚Рѕ РІСЂРѕРґРµ RemoveReferences() ; Something like RemoveReferences()
         }
         return result;
     }
 
-    // Наша функция спавна ; Our spawning function
+    // РќР°С€Р° С„СѓРЅРєС†РёСЏ СЃРїР°РІРЅР° ; Our spawning function
     static void ProcessSpawn() {
-        if (KeyPressed(VK_TAB) && CTimer::m_snTimeInMilliseconds > (m_nLastSpawnedTime + 1000)) { // Если нажата клавиша и прошло больше секунды с момента последнего спавна
-            CPed *player = FindPlayerPed(0); // находим игрока ; find player
-            if (player) { // если найден ; if found
-                CVector position = player->TransformFromObjectSpace(CVector(0.0f, 3.0f, 0.0f)); // получаем координаты по офсету от игрока ; get coords on offset from player
-                CAutomobile *automobile = reinterpret_cast<CAutomobile *>(CreateCar(MODEL_INFERNUS, position)); // Создаём в этих координатах авто ; Create a car at these coords
-                if (automobile) { // если авто создано ; if car was created
-                    m_nLastSpawnedTime = CTimer::m_snTimeInMilliseconds; // записываем новое время спавна ; store new spawning time
-                    if (automobile->m_pRwClump) { // если создан графический обьект (RpClump) ; if graphical object was created (RpClump)
-                        RwFrame *component = CClumpModelInfo::GetFrameFromName(automobile->m_pRwClump, "bonnet_dummy"); // находим компонент в иерархии ; find component in hierarchy
-                        if (component) // если компонент есть в иерархии ; if component found
-                            component->modelling.pos.z += 1.0f; // двигаем компонент вверх ; move component up
+        if (KeyPressed(VK_TAB) && CTimer::m_snTimeInMilliseconds > (m_nLastSpawnedTime + 1000)) { // Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєР»Р°РІРёС€Р° Рё РїСЂРѕС€Р»Рѕ Р±РѕР»СЊС€Рµ СЃРµРєСѓРЅРґС‹ СЃ РјРѕРјРµРЅС‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ СЃРїР°РІРЅР°
+            CPed *player = FindPlayerPed(0); // РЅР°С…РѕРґРёРј РёРіСЂРѕРєР° ; find player
+            if (player) { // РµСЃР»Рё РЅР°Р№РґРµРЅ ; if found
+                CVector position = player->TransformFromObjectSpace(CVector(0.0f, 3.0f, 0.0f)); // РїРѕР»СѓС‡Р°РµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕС„СЃРµС‚Сѓ РѕС‚ РёРіСЂРѕРєР° ; get coords on offset from player
+                CAutomobile *automobile = reinterpret_cast<CAutomobile *>(CreateCar(MODEL_INFERNUS, position)); // РЎРѕР·РґР°С‘Рј РІ СЌС‚РёС… РєРѕРѕСЂРґРёРЅР°С‚Р°С… Р°РІС‚Рѕ ; Create a car at these coords
+                if (automobile) { // РµСЃР»Рё Р°РІС‚Рѕ СЃРѕР·РґР°РЅРѕ ; if car was created
+                    m_nLastSpawnedTime = CTimer::m_snTimeInMilliseconds; // Р·Р°РїРёСЃС‹РІР°РµРј РЅРѕРІРѕРµ РІСЂРµРјСЏ СЃРїР°РІРЅР° ; store new spawning time
+                    if (automobile->m_pRwClump) { // РµСЃР»Рё СЃРѕР·РґР°РЅ РіСЂР°С„РёС‡РµСЃРєРёР№ РѕР±СЊРµРєС‚ (RpClump) ; if graphical object was created (RpClump)
+                        RwFrame *component = CClumpModelInfo::GetFrameFromName(automobile->m_pRwClump, "bonnet_dummy"); // РЅР°С…РѕРґРёРј РєРѕРјРїРѕРЅРµРЅС‚ РІ РёРµСЂР°СЂС…РёРё ; find component in hierarchy
+                        if (component) // РµСЃР»Рё РєРѕРјРїРѕРЅРµРЅС‚ РµСЃС‚СЊ РІ РёРµСЂР°СЂС…РёРё ; if component found
+                            component->modelling.pos.z += 1.0f; // РґРІРёРіР°РµРј РєРѕРјРїРѕРЅРµРЅС‚ РІРІРµСЂС… ; move component up
 
-                                                                // Ещё один вариант управления компонентом - обращаемся к компонентам, которые записаны в структуре авто ; Another way to control components - work with components that are stored in car structure
-                        if (automobile->m_aCarNodes[CAR_BUMP_FRONT]) // если компонент присутствует ; if component present
-                            automobile->m_aCarNodes[CAR_BUMP_FRONT]->modelling.pos.z += 1.0f; // двигаем компонент вверх ; move component up
+                                                                // Р•С‰С‘ РѕРґРёРЅ РІР°СЂРёР°РЅС‚ СѓРїСЂР°РІР»РµРЅРёСЏ РєРѕРјРїРѕРЅРµРЅС‚РѕРј - РѕР±СЂР°С‰Р°РµРјСЃСЏ Рє РєРѕРјРїРѕРЅРµРЅС‚Р°Рј, РєРѕС‚РѕСЂС‹Рµ Р·Р°РїРёСЃР°РЅС‹ РІ СЃС‚СЂСѓРєС‚СѓСЂРµ Р°РІС‚Рѕ ; Another way to control components - work with components that are stored in car structure
+                        if (automobile->m_aCarNodes[CAR_BUMP_FRONT]) // РµСЃР»Рё РєРѕРјРїРѕРЅРµРЅС‚ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ ; if component present
+                            automobile->m_aCarNodes[CAR_BUMP_FRONT]->modelling.pos.z += 1.0f; // РґРІРёРіР°РµРј РєРѕРјРїРѕРЅРµРЅС‚ РІРІРµСЂС… ; move component up
                     }
                 }
             }
@@ -55,8 +55,8 @@ public:
     }
 
     CreateCarExample() {
-        // Добавляем нашу функцию в gameProcessEvent; Add our function to gameProcessEvent
-        Events::gameProcessEvent.Add(ProcessSpawn); // Это то же, что и Events::gameProcessEvent += ProcessSpawn ; Same as Events::gameProcessEvent += ProcessSpawn
+        // Р”РѕР±Р°РІР»СЏРµРј РЅР°С€Сѓ С„СѓРЅРєС†РёСЋ РІ gameProcessEvent; Add our function to gameProcessEvent
+        Events::gameProcessEvent.Add(ProcessSpawn); // Р­С‚Рѕ С‚Рѕ Р¶Рµ, С‡С‚Рѕ Рё Events::gameProcessEvent += ProcessSpawn ; Same as Events::gameProcessEvent += ProcessSpawn
     }
 } example;
 

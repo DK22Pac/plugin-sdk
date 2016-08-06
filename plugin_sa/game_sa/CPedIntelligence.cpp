@@ -1,8 +1,8 @@
 #include "CPedIntelligence.h"
 
-CTaskSimpleJetpack *CPedIntelligence::GetJetpackTask()
+CTaskSimpleJetPack *CPedIntelligence::GetJetpackTask()
 {
-	return ((CTaskSimpleJetpack *(__thiscall *)(CPedIntelligence *))0x601110)(this);
+	return ((CTaskSimpleJetPack *(__thiscall *)(CPedIntelligence *))0x601110)(this);
 }
 
 CTaskSimpleUseGun *CPedIntelligence::GetUseGunTask()
