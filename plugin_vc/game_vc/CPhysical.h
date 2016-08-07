@@ -19,8 +19,8 @@ public:
     int field_6C;
     CVector m_vecMoveSpeed;
     CVector m_vecTurnSpeed;
-    CVector m_vecAcceleration;
-    CVector m_vecAngularAcceleration;
+    CVector m_vecFrictionMoveForce;
+    CVector m_vecFrictionTurnForce;
     CVector m_vecForce;
     CVector m_vecTorque;
     float m_fMass;

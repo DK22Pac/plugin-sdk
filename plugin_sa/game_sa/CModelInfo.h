@@ -10,7 +10,7 @@ class PLUGIN_API CModelInfo
 {
 public:
 	// variables
-	// CBaseModelInfo *ms_modelInfoPtrs[20000];
+	//static CBaseModelInfo *ms_modelInfoPtrs[20000];
 	static CBaseModelInfo **ms_modelInfoPtrs;
 
 	// functions

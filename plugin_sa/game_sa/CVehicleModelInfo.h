@@ -43,10 +43,10 @@ struct PLUGIN_API UpgradePosnDesc
 class PLUGIN_API CVehicleModelInfo : public CClumpModelInfo {
 public:
 	RpMaterial *m_pPlateMaterial;
-	char m_plateText[8];
+	char m_szPlateText[8];
 	char field_30;
 	unsigned char m_nPlateType;
-	char m_nGameName[8];
+	char m_szGameName[8];
 	short pad0;
 	unsigned int m_dwType;
 	float m_fWheelSizeFront;

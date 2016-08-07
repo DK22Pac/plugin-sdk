@@ -1,6 +1,6 @@
 #include "CModelInfo.h"
 
-CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = *(CBaseModelInfo***)(0x403DA4 + 3);
+CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo**)0xA9B0C8;
 
 // Converted from stdcall void CModelInfo::ReInit2dEffects(void) 0x4C63B0
 void CModelInfo::ReInit2dEffects()
