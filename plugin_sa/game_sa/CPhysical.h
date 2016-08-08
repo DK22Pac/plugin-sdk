@@ -10,6 +10,8 @@
 
 #pragma pack(push, 4)
 class PLUGIN_API CPhysical : public CEntity {
+protected:
+    CPhysical(plugin::dummy_func_t) : CEntity(plugin::dummy) {}
 public:
     __int32 field_38;
     unsigned __int32 m_dwLastCollisionTime;

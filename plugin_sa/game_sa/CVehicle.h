@@ -90,12 +90,13 @@ typedef int eFlightModel;
 typedef int eBikeWheelSpecial;
 #endif
 
-
 class CWeapon;
 typedef int tWheelState;
 
 #pragma pack(push, 4)
-class PLUGIN_API  CVehicle : public CPhysical {  
+class PLUGIN_API  CVehicle : public CPhysical {
+protected:
+    CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
 public:
     CAEVehicleAudioEntity      m_vehicleAudio;
     tHandlingData             *m_pHandlingData;
@@ -520,6 +521,9 @@ public:
     void SetupUpgradesAfterLoad();
     void GetPlaneWeaponFiringStatus(bool& status, eOrdnanceType& ordnanceType);
     void ProcessWeapons();
+
+    static void* operator new(unsigned int size);
+    static void operator delete(void* data);
 };
 #pragma pack(pop)
 

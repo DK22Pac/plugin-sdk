@@ -10,6 +10,8 @@
 
 #pragma pack(push, 4)
 class PLUGIN_API CEntity : public CPlaceable {
+protected:
+    CEntity(plugin::dummy_func_t) : CPlaceable(plugin::dummy) {}
 public:
     union {
         struct RwObject *m_pRwObject;

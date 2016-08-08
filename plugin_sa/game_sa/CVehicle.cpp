@@ -50,7 +50,15 @@ float &DIFF_SPRING_MULT_Z                       = *(float *)0x8D35C0;
 float &DIFF_SPRING_COMPRESS_MULT                = *(float *)0x8D35C4;
 CVector *VehicleGunOffset                       = (CVector *)0x8D35D4;
 char *&HandlingFilename                         = *(char **)0x8D3970;
-char(*VehicleNames)[14]                         = (char(*)[14])0x8D3978;                        
+char(*VehicleNames)[14]                         = (char(*)[14])0x8D3978; 
+
+void* CVehicle::operator new(unsigned int size){
+    return ((void*(__cdecl *)(unsigned int))0x6E2D50)(size);
+}
+
+void CVehicle::operator delete(void* data) {
+    ((void (__cdecl *)(void*))0x6E2D90)(data);
+}
 
 // Converted from void CVehicle::ProcessControlCollisionCheck(void) 0x871EDC
 void CVehicle::ProcessControlCollisionCheck()

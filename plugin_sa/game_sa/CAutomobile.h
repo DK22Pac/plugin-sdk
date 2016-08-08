@@ -39,6 +39,8 @@ enum eCarNodes {
 
 #pragma pack(push, 1)
 class PLUGIN_API  CAutomobile : public CVehicle {
+protected:
+    CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
     CDamageManager m_damageManager;
     CDoor m_doors[6];
@@ -128,15 +130,20 @@ public:
     short field_982;
     float field_984;
 
+    static bool &m_sAllTaxiLights;
+    static CVector &vecHunterGunPos; // { 0.0f, 4.8f, -1.3f }
+
     //vtable
 
-    void ProcessAI(unsigned int& arg0);
+    bool ProcessAI(unsigned int& arg0);
     void ResetSuspension();
     void ProcessFlyingCarStuff();
     void DoHoverSuspensionRatios();
     void ProcessSuspension();
 
     //funcs
+
+    CAutomobile(int modelIndex, unsigned char createdBy, bool setupSuspensionLines);
 
     // Find and save components ptrs (RwFrame) to m_modelNodes array
     void SetupModelNodes();
@@ -236,6 +243,8 @@ public:
 #pragma pack(pop)
 
 VALIDATE_SIZE(CAutomobile, 0x988);
+
+extern CColPoint *aAutomobileColPoints;
 
 // Disable matfx (material effects) for material (callback), "data" parameter is unused
 RpMaterial *DisableMatFx(RpMaterial* material, void* data);
