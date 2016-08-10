@@ -80,41 +80,6 @@ void CBike::FixHandsToBars(CPed* rider) {
     ((void(__thiscall *)(CBike*, CPed*))0x6B7F90)(this, rider);
 }
 
-// Converted from thiscall void CBike::Teleport(CVector,uchar) 0x6BCFC0
-void CBike::Teleport(CVector arg0, unsigned char arg1) {
-    ((void(__thiscall *)(CBike*, CVector, unsigned char))0x6BCFC0)(this, arg0, arg1);
-}
-
-// Converted from thiscall void CBike::PreRender(void) 0x6BD090
-void CBike::PreRender() {
-    ((void(__thiscall *)(CBike*))0x6BD090)(this);
-}
-
-// Converted from thiscall void CBike::Render(void) 0x6BDE20
-void CBike::Render() {
-    ((void(__thiscall *)(CBike*))0x6BDE20)(this);
-}
-
-// Converted from thiscall void CBike::ProcessEntityCollision(CEntity *,CColPoint *) 0x6BDEA0
-void CBike::ProcessEntityCollision(CEntity* arg0, CColPoint* arg1) {
-    ((void(__thiscall *)(CBike*, CEntity*, CColPoint*))0x6BDEA0)(this, arg0, arg1);
-}
-
-// Converted from thiscall void CBike::ProcessControlInputs(uchar) 0x6BE310
-void CBike::ProcessControlInputs(unsigned char arg0) {
-    ((void(__thiscall *)(CBike*, unsigned char))0x6BE310)(this, arg0);
-}
-
-// Converted from thiscall void CBike::BlowUpCar(CEntity *,uchar) 0x6BEA10
-void CBike::BlowUpCar(CEntity* arg0, unsigned char arg1) {
-    ((void(__thiscall *)(CBike*, CEntity*, unsigned char))0x6BEA10)(this, arg0, arg1);
-}
-
-// Converted from thiscall void CBike::BurstTyre(uchar,bool) 0x6BEB20
-void CBike::BurstTyre(unsigned char arg0, bool arg1) {
-    ((void(__thiscall *)(CBike*, unsigned char, bool))0x6BEB20)(this, arg0, arg1);
-}
-
 // Converted from thiscall void CBike::PlaceOnRoadProperly(void) 0x6BEEB0
 void CBike::PlaceOnRoadProperly() {
     ((void(__thiscall *)(CBike*))0x6BEEB0)(this);

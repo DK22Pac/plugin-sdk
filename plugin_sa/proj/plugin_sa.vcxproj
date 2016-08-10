@@ -92,17 +92,23 @@
     <ClInclude Include="..\game_sa\CAETwinLoopSoundEntity.h" />
     <ClInclude Include="..\game_sa\CAEVehicleAudioEntity.h" />
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
+    <ClInclude Include="..\game_sa\CBmx.h" />
+    <ClInclude Include="..\game_sa\CBoat.h" />
     <ClInclude Include="..\game_sa\CCarCtrl.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
+    <ClInclude Include="..\game_sa\CHeli.h" />
     <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
     <ClInclude Include="..\game_sa\CMenuPanel.h" />
     <ClInclude Include="..\game_sa\CMenuSystem.h" />
+    <ClInclude Include="..\game_sa\CMonsterTruck.h" />
     <ClInclude Include="..\game_sa\CPickups.h" />
     <ClInclude Include="..\game_sa\CPickupText.h" />
+    <ClInclude Include="..\game_sa\CPlane.h" />
     <ClInclude Include="..\game_sa\CPopCycle.h" />
     <ClInclude Include="..\game_sa\CPopulation.h" />
     <ClInclude Include="..\game_sa\CProjectileInfo.h" />
+    <ClInclude Include="..\game_sa\CQuadBike.h" />
     <ClInclude Include="..\game_sa\CRestart.h" />
     <ClInclude Include="..\game_sa\CRope.h" />
     <ClInclude Include="..\game_sa\CRopes.h" />
@@ -533,6 +539,9 @@
     <ClInclude Include="..\game_sa\CTimeCycleInfo.h" />
     <ClInclude Include="..\game_sa\CTimeModelInfo.h" />
     <ClInclude Include="..\game_sa\CTimer.h" />
+    <ClInclude Include="..\game_sa\CTrailer.h" />
+    <ClInclude Include="..\game_sa\CTrain.h" />
+    <ClInclude Include="..\game_sa\CTrainNode.h" />
     <ClInclude Include="..\game_sa\cTransmission.h" />
     <ClInclude Include="..\game_sa\CTreadable.h" />
     <ClInclude Include="..\game_sa\CTxdStore.h" />
@@ -612,6 +621,8 @@
     <ClCompile Include="..\game_sa\CAutomobile.cpp" />
     <ClCompile Include="..\game_sa\CBaseModelInfo.cpp" />
     <ClCompile Include="..\game_sa\CBike.cpp" />
+    <ClCompile Include="..\game_sa\CBmx.cpp" />
+    <ClCompile Include="..\game_sa\CBoat.cpp" />
     <ClCompile Include="..\game_sa\CBox.cpp" />
     <ClCompile Include="..\game_sa\CBuilding.cpp" />
     <ClCompile Include="..\game_sa\CBulletTraces.cpp" />
@@ -647,6 +658,7 @@
     <ClCompile Include="..\game_sa\CGeneral.cpp" />
     <ClCompile Include="..\game_sa\cHandlingDataMgr.cpp" />
     <ClCompile Include="..\game_sa\CHandObject.cpp" />
+    <ClCompile Include="..\game_sa\CHeli.cpp" />
     <ClCompile Include="..\game_sa\CHud.cpp" />
     <ClCompile Include="..\game_sa\CHudColours.cpp" />
     <ClCompile Include="..\game_sa\CLoadedCarGroup.cpp" />
@@ -658,6 +670,7 @@
     <ClCompile Include="..\game_sa\CMessages.cpp" />
     <ClCompile Include="..\game_sa\CMissionCleanup.cpp" />
     <ClCompile Include="..\game_sa\CModelInfo.cpp" />
+    <ClCompile Include="..\game_sa\CMonsterTruck.cpp" />
     <ClCompile Include="..\game_sa\CObject.cpp" />
     <ClCompile Include="..\game_sa\common.cpp" />
     <ClCompile Include="..\game_sa\CompressedVector.cpp" />
@@ -669,6 +682,7 @@
     <ClCompile Include="..\game_sa\CPhysical.cpp" />
     <ClCompile Include="..\game_sa\CPickups.cpp" />
     <ClCompile Include="..\game_sa\CPlaceable.cpp" />
+    <ClCompile Include="..\game_sa\CPlane.cpp" />
     <ClCompile Include="..\game_sa\CPlaneTrail.cpp" />
     <ClCompile Include="..\game_sa\CPlaneTrails.cpp" />
     <ClCompile Include="..\game_sa\CPlayerPed.cpp" />
@@ -677,6 +691,7 @@
     <ClCompile Include="..\game_sa\CPopulation.cpp" />
     <ClCompile Include="..\game_sa\CProjectile.cpp" />
     <ClCompile Include="..\game_sa\CProjectileInfo.cpp" />
+    <ClCompile Include="..\game_sa\CQuadBike.cpp" />
     <ClCompile Include="..\game_sa\CQuaternion.cpp" />
     <ClCompile Include="..\game_sa\CRadar.cpp" />
     <ClCompile Include="..\game_sa\CRealTimeShadow.cpp" />
@@ -1017,6 +1032,9 @@
     <ClCompile Include="..\game_sa\CTimeCycleInfo.cpp" />
     <ClCompile Include="..\game_sa\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_sa\CTimer.cpp" />
+    <ClCompile Include="..\game_sa\CTrailer.cpp" />
+    <ClCompile Include="..\game_sa\CTrain.cpp" />
+    <ClCompile Include="..\game_sa\CTrainNode.cpp" />
     <ClCompile Include="..\game_sa\cTransmission.cpp" />
     <ClCompile Include="..\game_sa\CTreadable.cpp" />
     <ClCompile Include="..\game_sa\CTxdStore.cpp" />

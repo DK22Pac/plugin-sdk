@@ -37,7 +37,7 @@ public:
     CColPoint      m_anWheelColPoint[4];
     float field_710[4];
     float field_720[4];
-    int field_730[4];
+    int field_730[4]; // possibly wheel rotation speed?
     float field_740;
     int            m_anWheelSurfaceType[2];
     char field_74C[2];
@@ -98,13 +98,6 @@ public:
     void CalculateLeanMatrix();
     static void ProcessRiderAnims(CPed* rider, CVehicle* vehicle, CRideAnimData* rideData, tBikeHandlingData* handling);
     void FixHandsToBars(CPed* rider);
-    void Teleport(CVector arg0, unsigned char arg1);
-    void PreRender();
-    void Render();
-    void ProcessEntityCollision(CEntity* arg0, CColPoint* arg1);
-    void ProcessControlInputs(unsigned char arg0);
-    void BlowUpCar(CEntity* arg0, unsigned char arg1);
-    void BurstTyre(unsigned char arg0, bool arg1);
     void PlaceOnRoadProperly();
     void GetCorrectedWorldDoorPosition(CVector& out, CVector arg1, CVector arg2);
 };
