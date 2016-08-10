@@ -246,8 +246,8 @@ public:
     float   m_fGearChangeCount; // used as parameter for cTransmission::CalculateDriveAcceleration, but doesn't change
     float   m_fWheelSpinForAudio;
     float   m_fHealth; // 1000.0f = full health. 0 -> explode
-    class CVehicle *m_pTrailer;
-    class CVehicle *m_pTractor;
+    CVehicle *m_pTractor;
+    CVehicle *m_pTrailer;
     class CPed *m_pWhoInstalledBombOnMe;
     unsigned int m_dwTimeTillWeNeedThisCar; // game won't try to delete this car while this time won't reach
     unsigned int m_dwGunFiringTime; // last time when gun on vehicle was fired (used on boats)
@@ -292,7 +292,7 @@ public:
         } m_renderLights;
     };
     RwTexture *m_pCustomCarPlate;
-    class CVehicle *field_58C;
+    CVehicle *field_58C;
     unsigned int     m_dwVehicleClass; // see enum eVehicleType
     unsigned int     m_dwVehicleSubClass; // see enum eVehicleType
     short      m_wPreviousRemapTxd;

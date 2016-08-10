@@ -80,41 +80,41 @@ public:
 
     CTrain(int modelIndex, unsigned char createdBy);
 
-	bool FindMaximumSpeedToStopAtStations(float* speed);
-	unsigned int FindNumCarriagesPulled();
-	void OpenTrainDoor(float state); // dummy function
-	void AddPassenger(CPed* ped); // dummy function
-	void RemovePassenger(CPed* ped); // dummy function
+    bool FindMaximumSpeedToStopAtStations(float* speed);
+    unsigned int FindNumCarriagesPulled();
+    void OpenTrainDoor(float state); // dummy function
+    void AddPassenger(CPed* ped); // dummy function
+    void RemovePassenger(CPed* ped); // dummy function
     bool FindSideStationIsOn(); 
     bool IsInTunnel();
     void RemoveRandomPassenger();
     void FindPositionOnTrackFromCoors();
     void AddNearbyPedAsRandomPassenger();
-
+    
     static void ReadAndInterpretTrackFile(char* filename, CTrainNode** nodes, int* lineCount, float* totalDist, int skipStations);
     static void Shutdown();
     static void UpdateTrains(); // dummy function
     static void FindCoorsFromPositionOnTrack(float railDistance, int trackId, CVector* outCoors); // dummy function
-	static void DisableRandomTrains(bool disable);
-	static void RemoveOneMissionTrain(CTrain* train);
-	static void ReleaseOneMissionTrain(CTrain* train);
-	static void SetTrainSpeed(CTrain* train, float speed);
-	static void SetTrainCruiseSpeed(CTrain* arg0, float cruiseSpeed);
-	static CTrain* FindCaboose(CTrain* train);
-	static CTrain* FindEngine(CTrain* train);
-	static CTrain* FindCarriage(CTrain* train, unsigned char carriage);
-	static void FindNextStationPositionInDirection(bool clockwiseDirection, float distance, float* distanceToStation, int* numStations);
-	static void RemoveMissionTrains();
-	static void RemoveAllTrains();
-	static void ReleaseMissionTrains();
-	static int FindClosestTrackNode(CVector posn, int* outTrackId);
-	static CTrain* FindNearestTrain(CVector posn, bool mustBeMainTrain);
-	static void SetNewTrainPosition(CTrain* train, CVector posn);
-	static bool IsNextStationAllowed(CTrain* train);
-	static void SkipToNextAllowedStation(CTrain* train);
-	static void InitTrains();
-	static void CreateMissionTrain(CVector posn, bool clockwiseDirection, unsigned int trainType, CTrain**outFirstCarriage, CTrain**outLastCarriage, int nodeIndex, int trackId, bool isMissionTrain);
-	static void DoTrainGenerationAndRemoval();
+    static void DisableRandomTrains(bool disable);
+    static void RemoveOneMissionTrain(CTrain* train);
+    static void ReleaseOneMissionTrain(CTrain* train);
+    static void SetTrainSpeed(CTrain* train, float speed);
+    static void SetTrainCruiseSpeed(CTrain* arg0, float cruiseSpeed);
+    static CTrain* FindCaboose(CTrain* train);
+    static CTrain* FindEngine(CTrain* train);
+    static CTrain* FindCarriage(CTrain* train, unsigned char carriage);
+    static void FindNextStationPositionInDirection(bool clockwiseDirection, float distance, float* distanceToStation, int* numStations);
+    static void RemoveMissionTrains();
+    static void RemoveAllTrains();
+    static void ReleaseMissionTrains();
+    static int FindClosestTrackNode(CVector posn, int* outTrackId);
+    static CTrain* FindNearestTrain(CVector posn, bool mustBeMainTrain);
+    static void SetNewTrainPosition(CTrain* train, CVector posn);
+    static bool IsNextStationAllowed(CTrain* train);
+    static void SkipToNextAllowedStation(CTrain* train);
+    static void InitTrains();
+    static void CreateMissionTrain(CVector posn, bool clockwiseDirection, unsigned int trainType, CTrain**outFirstCarriage, CTrain**outLastCarriage, int nodeIndex, int trackId, bool isMissionTrain);
+    static void DoTrainGenerationAndRemoval();
 };
 
 VALIDATE_SIZE(CTrain, 0x6AC);
