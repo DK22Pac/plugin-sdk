@@ -585,7 +585,6 @@
     <ClInclude Include="..\game_sa\FxMemoryPool_c.h" />
     <ClInclude Include="..\game_sa\Fx_c.h" />
     <ClInclude Include="..\game_sa\IFrame.h" />
-    <ClInclude Include="..\game_sa\KeyCheck.h" />
     <ClInclude Include="..\game_sa\LimbOrienation.h" />
     <ClInclude Include="..\game_sa\ListItem_c.h" />
     <ClInclude Include="..\game_sa\List_c.h" />
@@ -1053,7 +1052,6 @@
     <ClCompile Include="..\game_sa\FxManager_c.cpp" />
     <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp" />
     <ClCompile Include="..\game_sa\Fx_c.cpp" />
-    <ClCompile Include="..\game_sa\KeyCheck.cpp" />
     <ClCompile Include="..\game_sa\NodeName.cpp" />
     <ClCompile Include="..\game_sa\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_SA.cpp" />

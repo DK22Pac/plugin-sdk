@@ -1609,9 +1609,6 @@
     <ClInclude Include="..\game_sa\CTrainNode.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\KeyCheck.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
@@ -2941,9 +2938,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CTrainNode.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\KeyCheck.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
