@@ -7,4 +7,5 @@ public:
     static char *m_CheatString;
 
     static class CVehicle *VehicleCheat(int vehicleId);
+	static class CVehicle *TankerTruck();
 };
