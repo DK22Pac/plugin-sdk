@@ -13,54 +13,60 @@
     <Filter Include="events">
       <UniqueIdentifier>{81f3f40b-41c5-4e56-8d6d-a337476a32ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="game_sa\rw">
+    <Filter Include="game_sa\RenderWare">
+      <UniqueIdentifier>{9bd7b76e-c412-4dd7-b352-0ede6ed90390}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\RenderWare\rw">
       <UniqueIdentifier>{9082517e-0f62-4fd7-ad91-4e40dab5c47d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity">
+      <UniqueIdentifier>{2d13e1db-3e82-4a3c-8b3d-f2f148c0a12e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Models">
+      <UniqueIdentifier>{27e2e91a-45b4-4109-a456-8453e9d44cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Audio">
+      <UniqueIdentifier>{e6f04591-7005-41c8-aed5-557e1d5aee95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Animation">
+      <UniqueIdentifier>{f9db9381-eacc-4d50-8e19-befbaaa74e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Plugins">
+      <UniqueIdentifier>{0cd28946-e78d-442f-9941-d10ec3ed69a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Collision">
+      <UniqueIdentifier>{245d32c4-7169-476d-9a87-0affef7fd9a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Tasks">
+      <UniqueIdentifier>{40935dea-b9c1-4261-82c5-e0f66a6fda91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Tasks\Task Types">
+      <UniqueIdentifier>{2734a2e1-9fbe-44bc-a336-b0066da61cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Fx">
+      <UniqueIdentifier>{72bb23a5-e34e-42e3-84ce-fe6b2b2f2b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Vehicle">
+      <UniqueIdentifier>{4e374142-0164-45cc-8a7b-25212057c8e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Ped">
+      <UniqueIdentifier>{166376d5-81ab-409a-b53b-56c4413e091a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Object">
+      <UniqueIdentifier>{6eb04b06-fc5d-41b7-b51a-6fb5f8c40a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Dummy">
+      <UniqueIdentifier>{6b70145b-a5f6-40a2-97de-7be692b8ea13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\game_sa\AnimBlendFrameData.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\C2dEffect.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAEAudioEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAERadioTrackManager.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAESound.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAETwinLoopSoundEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAEVehicleAudioEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAnimBlendAssociation.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAnimBlendClumpData.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAtomicModelInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CAutomobile.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CAutoPilot.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CBaseModelInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CBox.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CBuilding.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CBulletTraces.h">
@@ -69,13 +75,7 @@
     <ClInclude Include="..\game_sa\CCam.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CCamera.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CCamPathSplines.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CCivilianPed.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CClock.h">
@@ -84,37 +84,7 @@
     <ClInclude Include="..\game_sa\CClothes.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CClumpModelInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColBox.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColData.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColLine.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColModel.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColPoint.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColSphere.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColTriangle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CColTrianglePlane.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CControllerConfigManager.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CCopPed.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CCoronas.h">
@@ -130,15 +100,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CDoor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CDummy.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CEmergencyPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CEntity.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CEntityScanner.h">
@@ -189,13 +150,7 @@
     <ClInclude Include="..\game_sa\CMissionCleanup.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CModelInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CNodeAddress.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CObject.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CObjectInfo.h">
@@ -219,9 +174,6 @@
     <ClInclude Include="..\game_sa\CPathFind.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPedAcquaintance.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -237,12 +189,6 @@
     <ClInclude Include="..\game_sa\CPedVoice.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPhysical.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CPlaceable.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPlaneTrail.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -253,9 +199,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CPlayerInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CPlayerPed.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CPointLights.h">
@@ -339,27 +282,6 @@
     <ClInclude Include="..\game_sa\CStreaming.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CTask.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplex.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFoot.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskManager.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimple.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CTexDictionary.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -373,9 +295,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CTimeCycleInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTimeModelInfo.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CTimer.h">
@@ -396,12 +315,6 @@
     <ClInclude Include="..\game_sa\CVector2D.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CVehicle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CVehicleModelInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CVisibilityPlugins.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -418,9 +331,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CWeaponInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CWeaponModelInfo.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CWorld.h">
@@ -471,31 +381,10 @@
     <ClInclude Include="..\game_sa\functions.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\Fx_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\FxFrustumInfo_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\FxManager_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\FxMemoryPool_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\IFrame.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\LimbOrienation.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\List_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ListItem_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\RenderWare.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\RwObjectNameIdAssocation.h">
@@ -520,31 +409,7 @@
     <ClInclude Include="..\game_sa\eModelID.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CBike.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CCutsceneObject.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CProjectile.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTreadable.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CDummyPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CDummyObject.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CHandObject.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CCheat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskTimer.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CEventGroup.h">
@@ -557,9 +422,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CAttractorScanner.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPlayHandSignalAnim.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CLoadedCarGroup.h">
@@ -598,912 +460,6 @@
     <ClInclude Include="..\game_sa\CRopes.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexArrestPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexAttractorPartnerWait.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexAvoidEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexAvoidOtherPedWhileWandering.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexBeCop.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexBeInCouple.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexBeInGroup.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexBeStill.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarDrive.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarDriveMission.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarDriveMissionFleeScene.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarDriveMissionKillPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarDriveWander.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarSlowBeDraggedOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCarSlowBeDraggedOutAndStandUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexChat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexClimb.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCopInCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexCrossRoadLookAndAchieveHeading.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDestroyCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDestroyCarArmed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDestroyCarMelee.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDie.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDieInCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDiveFromAttachedEntityAndGetUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDragPedFromCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDriveFireTruck.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDrivePointRoute.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexDriveToPoint.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterAnyCarAsDriver.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterBoatAsDriver.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsDriver.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsDriverTimed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsPassenger.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsPassengerTimed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsPassengerWait.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEvasiveCower.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEvasiveDiveAndGetUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexEvasiveStep.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexExtinguishFireOnFoot.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexExtinguishFires.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFacial.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFallAndGetUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFallAndStayDown.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFallToDeath.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFleeAnyMeans.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFleeEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFleePoint.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFleeShooting.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFollowLeaderAnyMeans.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFollowLeaderInFormation.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFollowNodeRoute.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFollowPatrolRoute.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFollowPedFootsteps.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexFollowPointRoute.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGangFollower.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGangJoinRespond.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGangLeader.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGetOnBoatSeat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGetUpAndStandStill.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoPickUpEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToAttractor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToBoatSteeringWheel.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToCarDoorAndStandStill.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGotoDoorAndOpen.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAiming.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAndStandStill.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAndStandStillAndAchieveHeading.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAndStandStillTimed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAnyMeans.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexGoToPointShooting.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexHitByGunResponse.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexHitPedWithCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexHitResponse.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexInAirAndLand.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexInvestigateDeadPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexInvestigateDisturbance.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexInWater.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexJump.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillAllThreats.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillCriminal.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillPedFromBoat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillPedGroupOnFoot.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFootArmed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFootMelee.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFootStealth.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveAnyCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveBoat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAndDie.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAndFlee.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAndWander.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAsPassengerWait.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexMedicTreatInjuredPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexMoveBackAndJump.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexObserveTrafficLights.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexObserveTrafficLightsAndAchieveHeading.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexOnFire.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexOpenDriverDoor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexOpenPassengerDoor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPartner.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPartnerChat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPartnerDeal.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPartnerGreet.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPartnerShove.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPassObject.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPolicePursuit.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexPresentIDToCop.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexProstituteSolicit.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexReactToAttack.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexReactToGunAimedAt.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexRoadRage.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexScreamInCarThenLeave.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSeekCoverUntilTargetDead.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSeekEntityAiming.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSequence.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexShuffleSeats.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSignalAtPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSitDownThenIdleThenStandUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSmartFleeEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSmartFleePoint.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexStareAtPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexStealCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexStuckInAir.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexSunbathe.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexTrackEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexTreatAccident.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexTurnToFaceEntityOrCoord.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseAttractor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseAttractorPartner.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorRun.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorSprint.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseEffect.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseEffectRunning.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseEffectSprinting.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseGoggles.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseMobilePhone.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUsePairedAttractor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseScriptedAttractor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseScriptedBrain.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseSequence.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseSwatRope.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexUseWaterCannon.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWaitAtAttractor.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWaitForBackup.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWaitForBus.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWaitForDryWeather.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWaitForPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWalkAlongsidePed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundBuildingAttempt.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundFire.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundObject.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWander.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderCop.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderCriminal.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderFlee.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderGang.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderMedic.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderProstitute.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskComplexWanderStandard.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskGangHasslePed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskGangHassleVehicle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskGoToVehicleAndLean.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorBeInHouse.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorBeInOffice.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorBeInShop.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorGoToInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorLieInBed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorShopKeeper.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorSitAtDesk.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorSitInChair.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskInteriorUseInfo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskLeanOnVehicle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleAbseil.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleAchieveHeading.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleAffectSecondaryBehaviour.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleAnim.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleArrestPed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleBeHit.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleBeHitWhileMoving.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleBeKickedOnGround.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleBikeJacked.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarAlign.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarCloseDoorFromInside.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarCloseDoorFromOutside.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarDrive.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarDriveTimed.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarFallOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarForcePedOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarGetIn.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarGetOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarGoToPointNearDoorUntilDoorNotInUse.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarJumpOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarOpenDoorFromOutside.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarOpenLockedDoorFromOutside.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedInAsDriver.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedInAsPassenger.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedSlowDraggedOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSetTempAction.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarShuffle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSlowBeDraggedOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarSlowDragPedOut.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarWaitForDoorNotToBeInUse.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCarWaitToSlowDown.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleChat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleChoking.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleClearLookAt.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleClimb.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCower.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleCreateCarAndGetIn.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDead.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDie.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDieInCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDoHandSignal.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDrown.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDrownInCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDuck.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDuckToggle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleDuckWhileShotsWhizzing.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleEvasiveDive.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleEvasiveStep.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleFacial.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleFall.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleFight.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleFightingControl.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleFinishBrain.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGangDriveBy.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGetUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGiveCPR.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGoTo.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGoToPoint.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGoToPointFine.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleGunControl.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHandsUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromFront.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromLeft.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromRear.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromRight.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitFromBack.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitFromBehind.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitFromFront.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitFromLeft.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitFromRight.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitHead.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHitWall.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHoldEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleHurtPedWithCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleIKChain.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleIKLookAt.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleIKManager.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleIKPointArm.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleInAir.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleJump.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleKillPedWithCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleLand.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleLookAbout.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleNone.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleOnEscalator.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePause.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePickUpBike.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePickUpEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePlayerOnFire.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePlayerOnFoot.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePlayHandSignalAnim.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimplePutDownEntity.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleRunAnim.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleRunAnimLoopedMiddle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleRunNamedAnim.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleRunTimedAnim.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSay.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleScratchHead.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSetCharDecisionMaker.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSetCharIgnoreWeaponRangeFlag.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSetKindaStayInSamePlace.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSetPedAsAutoDriver.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSetStayInSamePlace.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleShakeFist.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSitDown.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSitIdle.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSlideToCoord.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleStandStill.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleStandUp.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleStealthKill.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleSwim.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleThrowControl.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleThrowProjectile.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleTired.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleTogglePedThreatScanner.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleTriggerLookAt.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleTurn180.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleUninterruptable.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleUseAtm.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleWaitForBus.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleWaitForPizza.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilAreaCodesMatch.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilLeaderAreaCodesMatch.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\ePadButtons.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1523,43 +479,43 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rpcriter.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rperror.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rphanim.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rpmatfx.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rpskin.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rpuvanim.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rpworld.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rtanim.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rtdict.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rtquat.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rwcore.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rwplcore.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\skeleton.h">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\events\Events_SA.h">
       <Filter>events</Filter>
@@ -1579,99 +535,1134 @@
     <ClInclude Include="..\game_sa\CStreamingInfo.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\NodeName.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CBoat.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTrain.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CHeli.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CQuadBike.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CMonsterTruck.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTrailer.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CPlane.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CBmx.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CTrainNode.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexArrestPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexAttractorPartnerWait.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexAvoidEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexAvoidOtherPedWhileWandering.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexBeCop.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexBeInCouple.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexBeInGroup.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexBeStill.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarDrive.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarDriveMission.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarDriveMissionFleeScene.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarDriveMissionKillPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarDriveWander.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarSlowBeDraggedOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCarSlowBeDraggedOutAndStandUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexChat.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexClimb.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCopInCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexCrossRoadLookAndAchieveHeading.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDestroyCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDestroyCarArmed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDestroyCarMelee.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDie.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDieInCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDiveFromAttachedEntityAndGetUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDragPedFromCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDriveFireTruck.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDrivePointRoute.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexDriveToPoint.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterAnyCarAsDriver.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterBoatAsDriver.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsDriver.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsDriverTimed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsPassenger.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsPassengerTimed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexExtinguishFires.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexExtinguishFireOnFoot.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEvasiveStep.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEvasiveDiveAndGetUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEvasiveCower.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexEnterCarAsPassengerWait.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFacial.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFallAndGetUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFallAndStayDown.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFallToDeath.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFleeAnyMeans.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFleeEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFleePoint.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFleeShooting.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFollowLeaderAnyMeans.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFollowLeaderInFormation.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFollowNodeRoute.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFollowPatrolRoute.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFollowPedFootsteps.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexFollowPointRoute.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGangFollower.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGangJoinRespond.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGangLeader.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGetOnBoatSeat.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGetUpAndStandStill.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoPickUpEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToAttractor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToBoatSteeringWheel.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToCarDoorAndStandStill.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGotoDoorAndOpen.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAiming.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAndStandStillAndAchieveHeading.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAndStandStill.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAndStandStillTimed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToPointAnyMeans.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexGoToPointShooting.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexHitByGunResponse.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexHitPedWithCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexHitResponse.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexInAirAndLand.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexInvestigateDeadPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexInvestigateDisturbance.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexInWater.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexJump.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillAllThreats.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillCriminal.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillPedFromBoat.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillPedGroupOnFoot.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFoot.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFootArmed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFootMelee.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexKillPedOnFootStealth.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveAnyCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveBoat.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAndDie.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAndFlee.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAndWander.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexLeaveCarAsPassengerWait.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexMedicTreatInjuredPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexMoveBackAndJump.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexObserveTrafficLights.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexObserveTrafficLightsAndAchieveHeading.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexOnFire.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexOpenDriverDoor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexOpenPassengerDoor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPartner.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPartnerChat.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPartnerDeal.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPartnerGreet.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPartnerShove.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPassObject.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPlayHandSignalAnim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPolicePursuit.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexPresentIDToCop.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexProstituteSolicit.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexReactToAttack.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexReactToGunAimedAt.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexRoadRage.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexScreamInCarThenLeave.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSeekCoverUntilTargetDead.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSeekEntityAiming.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSequence.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexShuffleSeats.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSignalAtPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSitDownThenIdleThenStandUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSmartFleeEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSmartFleePoint.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexStareAtPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexStealCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexStuckInAir.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexSunbathe.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexTrackEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexTreatAccident.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexTurnToFaceEntityOrCoord.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseAttractor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseAttractorPartner.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorRun.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorSprint.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseEffect.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseEffectRunning.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseEffectSprinting.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseGoggles.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseMobilePhone.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUsePairedAttractor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseScriptedAttractor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseScriptedBrain.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseSequence.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseSwatRope.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexUseWaterCannon.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWaitForBackup.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWaitAtAttractor.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWaitForPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWaitForDryWeather.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWaitForBus.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderFlee.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderCriminal.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderCop.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWander.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundObject.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundFire.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWalkRoundBuildingAttempt.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWalkAlongsidePed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderGang.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderMedic.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderProstitute.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplexWanderStandard.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskGangHasslePed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskGangHassleVehicle.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskGoToVehicleAndLean.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorBeInHouse.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorBeInOffice.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorBeInShop.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorGoToInfo.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorLieInBed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorShopKeeper.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorSitAtDesk.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorSitInChair.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskInteriorUseInfo.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskLeanOnVehicle.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleAbseil.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleAchieveHeading.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleAffectSecondaryBehaviour.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleAnim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleArrestPed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarFallOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarDriveTimed.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarDrive.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarCloseDoorFromOutside.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarCloseDoorFromInside.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarAlign.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleBikeJacked.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleBeKickedOnGround.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleBeHitWhileMoving.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleBeHit.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarForcePedOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarGetIn.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarGetOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarGoToPointNearDoorUntilDoorNotInUse.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarJumpOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarOpenDoorFromOutside.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarOpenLockedDoorFromOutside.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedInAsDriver.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedInAsPassenger.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSlowDragPedOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSlowBeDraggedOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarShuffle.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSetTempAction.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarSetPedSlowDraggedOut.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarWaitForDoorNotToBeInUse.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDieInCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDie.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDead.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCreateCarAndGetIn.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCower.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleClimb.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleClearLookAt.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleChoking.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleChat.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleCarWaitToSlowDown.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilLeaderAreaCodesMatch.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleWaitUntilAreaCodesMatch.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleWaitForPizza.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleWaitForBus.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleUseAtm.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleUninterruptable.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleTurn180.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleTriggerLookAt.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleTogglePedThreatScanner.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleTired.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleThrowProjectile.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleThrowControl.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSwim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleStealthKill.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleStandUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleStandStill.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSlideToCoord.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSitIdle.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSitDown.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleShakeFist.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSetStayInSamePlace.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSetPedAsAutoDriver.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSetKindaStayInSamePlace.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSetCharIgnoreWeaponRangeFlag.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSetCharDecisionMaker.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleScratchHead.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleSay.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleRunTimedAnim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleRunNamedAnim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleRunAnimLoopedMiddle.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleRunAnim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePutDownEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePlayHandSignalAnim.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePlayerOnFoot.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePlayerOnFire.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePickUpEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePickUpBike.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimplePause.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleOnEscalator.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleNone.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleLookAbout.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleLand.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleKillPedWithCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleJump.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleInAir.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleIKPointArm.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleIKManager.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleIKLookAt.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleIKChain.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHurtPedWithCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHoldEntity.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitWall.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitHead.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitFromRight.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitFromLeft.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitFromFront.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitFromBehind.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitFromBack.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromRight.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromRear.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromLeft.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHitByGunFromFront.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleHandsUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGunControl.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGoToPointFine.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGoToPoint.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGiveCPR.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGoTo.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGetUp.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleGangDriveBy.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleFinishBrain.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleFightingControl.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleFight.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleFall.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleFacial.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleEvasiveStep.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleEvasiveDive.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDuckWhileShotsWhizzing.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDuckToggle.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDuck.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDrownInCar.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDrown.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimpleDoHandSignal.h">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\RenderWare.h">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAERadioTrackManager.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAESound.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAETwinLoopSoundEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEVehicleAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAtomicModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBaseModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBuilding.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTreadable.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPlaceable.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPhysical.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CEntity.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCamera.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAnimBlendAssociation.h">
+      <Filter>game_sa\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAnimBlendClumpData.h">
+      <Filter>game_sa\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\AnimBlendFrameData.h">
+      <Filter>game_sa\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CClumpModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColBox.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColData.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColLine.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColModel.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColPoint.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColSphere.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColTriangle.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColTrianglePlane.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CVehicleModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTimeModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\NodeName.h">
+      <Filter>game_sa\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CWeaponModelInfo.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskTimer.h">
+      <Filter>game_sa\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskSimple.h">
+      <Filter>game_sa\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskManager.h">
+      <Filter>game_sa\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTaskComplex.h">
+      <Filter>game_sa\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTask.h">
+      <Filter>game_sa\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\Fx_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxFrustumInfo_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxManager_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxMemoryPool_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\List_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ListItem_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAutomobile.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBike.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBmx.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBoat.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCivilianPed.h">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCopPed.h">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCutsceneObject.h">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDummy.h">
+      <Filter>game_sa\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDummyObject.h">
+      <Filter>game_sa\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDummyPed.h">
+      <Filter>game_sa\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CEmergencyPed.h">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPed.h">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CObject.h">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CHeli.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CMonsterTruck.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPlane.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CQuadBike.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTrailer.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTrain.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CVehicle.h">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CProjectile.h">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CHandObject.h">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPlayerPed.h">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CAERadioTrackManager.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CAESound.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CAtomicModelInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CAutomobile.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CBaseModelInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CBox.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CBuilding.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CCamera.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CCivilianPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CClock.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CClumpModelInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CColBox.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CColLine.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CColPoint.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CColSphere.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CColTriangle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CColTrianglePlane.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CControllerConfigManager.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CCopPed.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCoronas.cpp">
@@ -1684,15 +1675,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CDoor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CDummy.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CEmergencyPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CEntity.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CFileMgr.cpp">
@@ -1737,9 +1719,6 @@
     <ClCompile Include="..\game_sa\CMissionCleanup.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CModelInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\common.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -1755,16 +1734,7 @@
     <ClCompile Include="..\game_sa\CPathFind.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CPedIntelligence.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CPhysical.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CPlaceable.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPlaneTrail.cpp">
@@ -1833,18 +1803,6 @@
     <ClCompile Include="..\game_sa\CStreaming.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CTask.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplex.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFoot.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimple.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CTexDictionary.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -1858,9 +1816,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CTimeCycleInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTimeModelInfo.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CTimer.cpp">
@@ -1881,12 +1836,6 @@
     <ClCompile Include="..\game_sa\CVector2D.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CVehicle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CVehicleModelInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CVisibilityPlugins.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -1896,982 +1845,22 @@
     <ClCompile Include="..\game_sa\CWeaponInfo.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CWeaponModelInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CWorld.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CZone.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\Fx_c.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\FxManager_c.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CBike.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CObject.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CCutsceneObject.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CProjectile.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTreadable.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CDummyPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CDummyObject.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CHandObject.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskManager.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CCheat.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskTimer.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CLoadedCarGroup.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPopulation.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CPlayerPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilLeaderAreaCodesMatch.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilAreaCodesMatch.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleWaitForPizza.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleWaitForBus.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleUseGun.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleUseAtm.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleUninterruptable.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleTurn180.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleTriggerLookAt.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleTogglePedThreatScanner.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleTired.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleThrowProjectile.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleThrowControl.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSwim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleStealthKill.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleStandUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleStandStill.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSlideToCoord.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSitIdle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSitDown.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleShakeFist.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSetStayInSamePlace.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSetPedAsAutoDriver.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSetKindaStayInSamePlace.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSetCharIgnoreWeaponRangeFlag.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSetCharDecisionMaker.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleScratchHead.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleSay.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleRunTimedAnim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleRunNamedAnim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleRunAnimLoopedMiddle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleRunAnim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePutDownEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePlayHandSignalAnim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePlayerOnFoot.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePlayerOnFire.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePickUpEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePickUpBike.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimplePause.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleOnEscalator.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleNone.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleLookAbout.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleLand.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleKillPedWithCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleJump.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleJetPack.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleInAir.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleIKPointArm.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleIKManager.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleIKLookAt.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleIKChain.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHurtPedWithCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHoldEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitWall.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitHead.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitFromRight.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitFromLeft.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitFromFront.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitFromBehind.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitFromBack.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromRight.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromRear.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromLeft.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromFront.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleHandsUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGunControl.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGoToPointFine.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGoToPoint.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGoTo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGiveCPR.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGetUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleGangDriveBy.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleFinishBrain.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleFightingControl.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleFight.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleFall.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleFacial.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleEvasiveStep.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleEvasiveDive.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDuckWhileShotsWhizzing.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDuckToggle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDuck.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDrownInCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDrown.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDoHandSignal.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDieInCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDie.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleDead.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCreateCarAndGetIn.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCower.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleClimb.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleClearLookAt.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleChoking.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleChat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarWaitToSlowDown.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarWaitForDoorNotToBeInUse.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSlowDragPedOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSlowBeDraggedOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarShuffle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSetTempAction.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedSlowDraggedOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedInAsPassenger.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedInAsDriver.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarOpenLockedDoorFromOutside.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarOpenDoorFromOutside.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarJumpOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarGoToPointNearDoorUntilDoorNotInUse.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarGetOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarGetIn.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarForcePedOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarFallOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarDriveTimed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarDrive.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarCloseDoorFromOutside.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarCloseDoorFromInside.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleCarAlign.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleBikeJacked.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleBeKickedOnGround.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleBeHitWhileMoving.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleBeHit.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleArrestPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleAnim.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleAffectSecondaryBehaviour.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleAchieveHeading.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskSimpleAbseil.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskLeanOnVehicle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorUseInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorSitInChair.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorSitAtDesk.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorShopKeeper.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorLieInBed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorGoToInfo.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorBeInShop.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorBeInOffice.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskInteriorBeInHouse.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskGoToVehicleAndLean.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskGangHassleVehicle.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskGangHasslePed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderStandard.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderProstitute.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderMedic.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderGang.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderFlee.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderCriminal.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWanderCop.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWander.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundObject.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundFire.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundBuildingAttempt.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWalkAlongsidePed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWaitForPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWaitForDryWeather.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWaitForBus.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWaitForBackup.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexWaitAtAttractor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseWaterCannon.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseSwatRope.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseSequence.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseScriptedBrain.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseScriptedAttractor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUsePairedAttractor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseMobilePhone.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseGoggles.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseEffectSprinting.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseEffectRunning.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseEffect.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorSprint.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorRun.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseAttractorPartner.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexUseAttractor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexTurnToFaceEntityOrCoord.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexTreatAccident.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexTrackEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSunbathe.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexStuckInAir.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexStealCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexStareAtPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSmartFleePoint.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSmartFleeEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSitDownThenIdleThenStandUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSignalAtPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexShuffleSeats.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSequence.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSeekEntityAiming.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexSeekCoverUntilTargetDead.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexScreamInCarThenLeave.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexRoadRage.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexReactToGunAimedAt.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexReactToAttack.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexProstituteSolicit.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPresentIDToCop.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPolicePursuit.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPassObject.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPartnerShove.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPartnerGreet.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPartnerDeal.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPartnerChat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPartner.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexOpenPassengerDoor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexOpenDriverDoor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexOnFire.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexObserveTrafficLightsAndAchieveHeading.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexObserveTrafficLights.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexMoveBackAndJump.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexMedicTreatInjuredPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAsPassengerWait.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAndWander.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAndFlee.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAndDie.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveBoat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexLeaveAnyCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFootStealth.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFootMelee.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFootArmed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillPedGroupOnFoot.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillPedFromBoat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillCriminal.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexKillAllThreats.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexJump.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexInWater.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexInvestigateDisturbance.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexInvestigateDeadPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexInAirAndLand.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexHitResponse.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexHitPedWithCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexHitByGunResponse.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToPointShooting.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAnyMeans.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAndStandStillTimed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAndStandStillAndAchieveHeading.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAndStandStill.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAiming.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGotoDoorAndOpen.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToCarDoorAndStandStill.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToBoatSteeringWheel.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoToAttractor.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGoPickUpEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGetUpAndStandStill.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGetOnBoatSeat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGangLeader.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGangJoinRespond.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexGangFollower.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFollowPointRoute.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFollowPedFootsteps.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFollowPatrolRoute.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFollowNodeRoute.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFollowLeaderInFormation.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFollowLeaderAnyMeans.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFleeShooting.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFleePoint.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFleeEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFleeAnyMeans.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFallToDeath.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFallAndStayDown.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFallAndGetUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexFacial.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexExtinguishFires.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexExtinguishFireOnFoot.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEvasiveStep.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEvasiveDiveAndGetUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEvasiveCower.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsPassengerWait.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsPassengerTimed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsPassenger.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsDriverTimed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsDriver.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterBoatAsDriver.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexEnterAnyCarAsDriver.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDriveToPoint.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDrivePointRoute.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDriveFireTruck.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDragPedFromCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDiveFromAttachedEntityAndGetUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDieInCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDie.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDestroyCarMelee.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDestroyCarArmed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexDestroyCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCrossRoadLookAndAchieveHeading.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCopInCar.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexClimb.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexChat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarSlowBeDraggedOutAndStandUp.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarSlowBeDraggedOut.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarDriveWander.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarDriveMissionKillPed.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarDriveMissionFleeScene.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarDriveMission.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexCarDrive.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexBeStill.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexBeInGroup.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexBeInCouple.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexBeCop.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexAvoidOtherPedWhileWandering.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexAvoidEntity.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexAttractorPartnerWait.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexArrestPed.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CRopes.cpp">
@@ -2898,9 +1887,6 @@
     <ClCompile Include="..\game_sa\CCarCtrl.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\RenderWare.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\events\Events_SA.cpp">
       <Filter>events</Filter>
     </ClCompile>
@@ -2910,43 +1896,1099 @@
     <ClCompile Include="..\game_sa\CStreamingInfo.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\NodeName.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CBoat.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTrain.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CHeli.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CQuadBike.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CMonsterTruck.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTrailer.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CPlane.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CBmx.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CTrainNode.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexArrestPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexAttractorPartnerWait.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexAvoidEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexAvoidOtherPedWhileWandering.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexBeCop.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexBeInCouple.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexBeInGroup.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexBeStill.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarDrive.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarDriveMission.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarDriveMissionFleeScene.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarDriveMissionKillPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarDriveWander.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarSlowBeDraggedOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCarSlowBeDraggedOutAndStandUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexChat.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexClimb.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCopInCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexCrossRoadLookAndAchieveHeading.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDestroyCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDestroyCarArmed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDestroyCarMelee.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDie.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDieInCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDiveFromAttachedEntityAndGetUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDragPedFromCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDriveFireTruck.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDrivePointRoute.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexDriveToPoint.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterAnyCarAsDriver.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterBoatAsDriver.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsDriver.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsDriverTimed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsPassenger.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsPassengerTimed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexExtinguishFires.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexExtinguishFireOnFoot.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEvasiveStep.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEvasiveDiveAndGetUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEvasiveCower.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexEnterCarAsPassengerWait.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFacial.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFallAndGetUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFallAndStayDown.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFallToDeath.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFleeAnyMeans.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFleeEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFleePoint.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFleeShooting.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFollowLeaderAnyMeans.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFollowLeaderInFormation.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFollowNodeRoute.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFollowPatrolRoute.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFollowPedFootsteps.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexFollowPointRoute.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGangFollower.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGangJoinRespond.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGangLeader.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGetOnBoatSeat.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGetUpAndStandStill.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoPickUpEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToAttractor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToBoatSteeringWheel.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToCarDoorAndStandStill.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGotoDoorAndOpen.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAiming.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAndStandStill.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAndStandStillAndAchieveHeading.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAndStandStillTimed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToPointAnyMeans.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexGoToPointShooting.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexHitByGunResponse.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexHitPedWithCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexHitResponse.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexInAirAndLand.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexInvestigateDeadPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexInvestigateDisturbance.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexInWater.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexJump.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillAllThreats.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillCriminal.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillPedFromBoat.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillPedGroupOnFoot.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFoot.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFootArmed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFootMelee.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexKillPedOnFootStealth.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveAnyCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveBoat.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAndDie.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAndFlee.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAsPassengerWait.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexLeaveCarAndWander.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexMedicTreatInjuredPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexMoveBackAndJump.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexObserveTrafficLights.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexObserveTrafficLightsAndAchieveHeading.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexOnFire.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexOpenDriverDoor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexOpenPassengerDoor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPartner.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPartnerChat.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPartnerDeal.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPartnerGreet.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPartnerShove.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPassObject.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPolicePursuit.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPresentIDToCop.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexProstituteSolicit.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexReactToAttack.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexReactToGunAimedAt.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexRoadRage.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexScreamInCarThenLeave.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSeekCoverUntilTargetDead.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSeekEntityAiming.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSequence.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexShuffleSeats.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSignalAtPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSitDownThenIdleThenStandUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSmartFleeEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSmartFleePoint.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexStareAtPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexStealCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexStuckInAir.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexSunbathe.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexTrackEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexTreatAccident.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexTurnToFaceEntityOrCoord.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseAttractor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseAttractorPartner.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorRun.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseClosestFreeScriptedAttractorSprint.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseEffect.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseEffectRunning.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseEffectSprinting.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseGoggles.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseMobilePhone.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUsePairedAttractor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseScriptedAttractor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseScriptedBrain.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseSequence.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseSwatRope.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexUseWaterCannon.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWaitAtAttractor.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWaitForBackup.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWalkAlongsidePed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWaitForPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWaitForDryWeather.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWaitForBus.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderGang.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderFlee.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderCriminal.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderCop.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWander.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundObject.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundFire.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWalkRoundBuildingAttempt.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderMedic.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderProstitute.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexWanderStandard.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskGangHasslePed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskGangHassleVehicle.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskGoToVehicleAndLean.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorBeInHouse.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorBeInOffice.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorBeInShop.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorGoToInfo.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorLieInBed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorShopKeeper.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorSitAtDesk.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorSitInChair.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskInteriorUseInfo.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskLeanOnVehicle.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleAbseil.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleAchieveHeading.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleAffectSecondaryBehaviour.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleArrestPed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleBeHit.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarForcePedOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarFallOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarDriveTimed.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarDrive.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarCloseDoorFromOutside.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarCloseDoorFromInside.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarAlign.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleBikeJacked.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleBeKickedOnGround.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleBeHitWhileMoving.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarGetIn.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarGetOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarGoToPointNearDoorUntilDoorNotInUse.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarJumpOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarOpenDoorFromOutside.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarOpenLockedDoorFromOutside.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedInAsDriver.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedInAsPassenger.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSlowDragPedOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSlowBeDraggedOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarShuffle.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSetTempAction.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarSetPedSlowDraggedOut.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarWaitForDoorNotToBeInUse.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDieInCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDie.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDead.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCreateCarAndGetIn.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCower.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleClimb.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleClearLookAt.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleChoking.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleChat.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleCarWaitToSlowDown.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilLeaderAreaCodesMatch.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilAreaCodesMatch.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleWaitForPizza.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleWaitForBus.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleUseGun.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleUseAtm.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleUninterruptable.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleTurn180.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleTriggerLookAt.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleTogglePedThreatScanner.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleTired.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleThrowProjectile.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleThrowControl.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSwim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleStealthKill.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleStandUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleStandStill.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSlideToCoord.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSitIdle.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSitDown.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleShakeFist.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSetStayInSamePlace.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSetPedAsAutoDriver.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSetKindaStayInSamePlace.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSetCharIgnoreWeaponRangeFlag.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSetCharDecisionMaker.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleScratchHead.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleSay.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleRunTimedAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleRunNamedAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleRunAnimLoopedMiddle.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleRunAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePutDownEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePlayHandSignalAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePlayerOnFoot.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePlayerOnFire.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePickUpEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePickUpBike.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimplePause.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleOnEscalator.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleNone.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleLookAbout.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleLand.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleKillPedWithCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleJump.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleJetPack.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleInAir.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleIKPointArm.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleIKManager.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleIKLookAt.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleIKChain.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHurtPedWithCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHoldEntity.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitWall.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitHead.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitFromRight.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitFromLeft.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitFromFront.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitFromBehind.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitFromBack.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromRight.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromRear.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromLeft.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHitByGunFromFront.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleHandsUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGunControl.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGoToPointFine.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGoToPoint.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGoTo.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGiveCPR.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGetUp.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleGangDriveBy.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleFinishBrain.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleFightingControl.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleFight.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleFall.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleFacial.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleEvasiveStep.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleEvasiveDive.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDuckWhileShotsWhizzing.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDuckToggle.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDuck.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDrownInCar.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDrown.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimpleDoHandSignal.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\RenderWare.cpp">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAEAudioEntity.cpp">
+      <Filter>game_sa\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAERadioTrackManager.cpp">
+      <Filter>game_sa\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAESound.cpp">
+      <Filter>game_sa\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAtomicModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBaseModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBuilding.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTreadable.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPlaceable.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPhysical.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CEntity.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCamera.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CClumpModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColBox.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColLine.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColPoint.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColSphere.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColTriangle.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColTrianglePlane.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CVehicleModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTimeModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\NodeName.cpp">
+      <Filter>game_sa\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CWeaponModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskTimer.cpp">
+      <Filter>game_sa\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskSimple.cpp">
+      <Filter>game_sa\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskManager.cpp">
+      <Filter>game_sa\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplex.cpp">
+      <Filter>game_sa\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTask.cpp">
+      <Filter>game_sa\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\Fx_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxManager_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxMemoryPool_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAutomobile.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBike.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBmx.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBoat.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCivilianPed.cpp">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCopPed.cpp">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCutsceneObject.cpp">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDummy.cpp">
+      <Filter>game_sa\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDummyObject.cpp">
+      <Filter>game_sa\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDummyPed.cpp">
+      <Filter>game_sa\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CEmergencyPed.cpp">
+      <Filter>game_sa\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPed.cpp">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CObject.cpp">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CHeli.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CMonsterTruck.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPlane.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CQuadBike.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTrailer.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTrain.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CVehicle.cpp">
+      <Filter>game_sa\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CProjectile.cpp">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CHandObject.cpp">
+      <Filter>game_sa\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPlayerPed.cpp">
+      <Filter>game_sa\Entity\Ped</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\game_sa\rw\errcom.def">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </None>
     <None Include="..\game_sa\rw\errcore.def">
-      <Filter>game_sa\rw</Filter>
+      <Filter>game_sa\RenderWare\rw</Filter>
     </None>
   </ItemGroup>
 </Project>

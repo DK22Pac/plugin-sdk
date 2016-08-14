@@ -77,7 +77,7 @@ public:
     float m_fCarTraction;
     float m_fNitroValue;
     int field_8A4;
-    int field_8A8;
+    int m_fRotationBalance; // used in CHeli::TestSniperCollision
     float m_fMoveDirection;
     int field_8B4[6];
     int field_8C8[6];
