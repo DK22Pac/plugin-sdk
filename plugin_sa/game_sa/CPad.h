@@ -166,6 +166,8 @@ public:
 
 	// Resets cheats
 	static void ResetCheats();
+
+    static CPad* GetPad(int padNumber = 0);
 };
 #pragma pack(pop)
 

@@ -54,3 +54,8 @@ bool CPad::CycleWeaponLeftJustDown()
 {
 	return ((bool (__thiscall *)(CPad *))0x540610)(this);
 }
+
+// Converted from cdecl CPad* CPad::GetPad(int padNumber) 0x53FB70
+CPad* CPad::GetPad(int padNumber) {
+    return ((CPad* (__cdecl *)(int))0x53FB70)(padNumber);
+}

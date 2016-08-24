@@ -67,7 +67,7 @@ public:
     unsigned __int8  m_nContactSurface;
     __int8 field_BB;
     CEntity         *m_apCollidedEntities[6];
-    __int32 field_D4;
+    float            m_fMovingSpeed; // ref @ CTheScripts::IsVehicleStopped
     float            m_fDamageIntensity;
     CEntity         *m_pDamageEntity;
     CVector          m_vecLastCollisionImpactVelocity;

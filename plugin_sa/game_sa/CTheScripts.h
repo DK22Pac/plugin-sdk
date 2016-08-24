@@ -1,6 +1,9 @@
 #pragma once
 #include "plbase/PluginBase_SA.h"
 #include "CRunningScript.h"
+#include "game_sa\CPed.h"
+#include "game_sa\CVehicle.h"
+#include "game_sa\CObject.h"
 
 #define VAR_CTheScripts__ScriptSpace 0xA49960
 
@@ -22,5 +25,12 @@ public:
     static CRunningScript *&pIdleScripts;
     static CRunningScript *&pActiveScripts;
 
-    static void CleanUpThisVehicle(class CVehicle *vehicle);
+    static bool IsPedStopped(CPed* ped);
+    static bool IsVehicleStopped(CVehicle* vehicle);
+    static void RemoveThisPed(CPed* ped);
+    static void CleanUpThisPed(CPed* ped);
+    static void CleanUpThisVehicle(CVehicle* vehicle);
+    static void CleanUpThisObject(CObject* object);
+    static void ClearSpaceForMissionEntity(CVector const&, CEntity* entity);
+    static bool IsPlayerOnAMission();
 };

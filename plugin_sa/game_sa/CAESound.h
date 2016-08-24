@@ -21,14 +21,13 @@ enum eSoundEnvironment : unsigned __int16
 };
 
 #pragma pack(push, 1)
-class PLUGIN_API CAESound
-{
+class CAESound {
 public:
-	__int16               m_wBankSlotId;
-	__int16               m_wSoundIdInSlot;
+	short                 m_wBankSlotId;
+    short                 m_wSoundIdInSlot;
 	class CAEAudioEntity *m_pBaseAudio;
 	class CEntity        *m_pPhysicalEntity;
-	unsigned __int32      m_dwEvent;
+	unsigned int          m_dwEvent;
 	float                 m_fMaxVolume;
 	float                 m_fVolume;
 	float                 m_fSoundDistance;
@@ -36,43 +35,43 @@ public:
 	float field_20;
 	CVector               m_vCurrPosn;
 	CVector               m_vPrevPosn;
-	__int32               m_dwLastFrameUpdate;
+    int                   m_dwLastFrameUpdate;
 	int                   m_dwCurrTimeUpdate;
 	int                   m_dwPrevTimeUpdate;
 	float                 m_fCurrCamDist;
 	float                 m_fPrevCamDist;
 	float                 m_fTimeScale;
-	__int8 field_54;
-	__int8 field_55;
+	char field_54;
+	char field_55;
 	union{
 		unsigned __int16 m_wEnvironmentFlags;
 		struct{
-			unsigned __int16 m_bFrontEnd : 1;
-			unsigned __int16 m_bUncancellable : 1;
-			unsigned __int16 m_bRequestUpdates : 1;
-			unsigned __int16 m_bPlayPhysically : 1;
-			unsigned __int16 m_bUnpausable : 1;
-			unsigned __int16 m_bStartPercentage : 1;
-			unsigned __int16 m_bMusicMastered : 1;
-			unsigned __int16 m_bLifespanTiedToPhysicalEntity : 1;
-			unsigned __int16 m_bUndackable : 1;
-			unsigned __int16 m_bUncompressable : 1;
-			unsigned __int16 m_bRolledOff : 1;
-			unsigned __int16 m_bSmoothDucking : 1;
-			unsigned __int16 m_bForcedFront : 1;
+			unsigned short m_bFrontEnd : 1;
+			unsigned short m_bUncancellable : 1;
+			unsigned short m_bRequestUpdates : 1;
+			unsigned short m_bPlayPhysically : 1;
+			unsigned short m_bUnpausable : 1;
+			unsigned short m_bStartPercentage : 1;
+			unsigned short m_bMusicMastered : 1;
+			unsigned short m_bLifespanTiedToPhysicalEntity : 1;
+			unsigned short m_bUndackable : 1;
+			unsigned short m_bUncompressable : 1;
+			unsigned short m_bRolledOff : 1;
+			unsigned short m_bSmoothDucking : 1;
+			unsigned short m_bForcedFront : 1;
 		};
 	};
-	unsigned __int16      m_wIsUsed;
-	__int16 field_5A;
-	__int16               m_wCurrentPlayPosition;
-	__int16 field_5E;
+	unsigned short        m_wIsUsed;
+    short field_5A;
+    short                 m_wCurrentPlayPosition;
+    short field_5E;
 	float                 m_fFinalVolume;
 	float                 m_fFrequency;
-	__int16               m_wPlayingState;
-	__int8 field_6A[2];
+    short                 m_wPlayingState;
+    char field_6A[2];
 	float                 m_fSoundHeadRoom;
-	__int16 field_70;
-	__int16 field_72;
+    short field_70;
+    short field_72;
 	
 	CAESound();
 	CAESound(CAESound& sound);

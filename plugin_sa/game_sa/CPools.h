@@ -3,7 +3,7 @@
 #include "plbase/PluginBase_SA.h"
 #include "CPool.h"
 #include "CCopPed.h"
-#include "CVehicle.h"
+#include "CHeli.h"
 #include "CBuilding.h"
 #include "CCutsceneObject.h"
 #include "CDummy.h"
@@ -12,13 +12,10 @@
 #include "CPedIntelligence.h"
 #include "CTexDictionary.h"
 
-class PLUGIN_API CPools
-{
+class CPools {
 public:
-    // TODO aligned storage or actual B object in all of those pools
-    
 	static CPool<CPed, CCopPed>                                 *&ms_pPedPool;
-	static CPool<CVehicle, char[0xA18]>                         *&ms_pVehiclePool;
+	static CPool<CVehicle, CHeli>                               *&ms_pVehiclePool;
 	static CPool<CBuilding>                                     *&ms_pBuildingPool;
 	static CPool<CObject, CCutsceneObject>                      *&ms_pObjectPool;
 	static CPool<CDummy>                                        *&ms_pDummyPool;

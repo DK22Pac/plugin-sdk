@@ -1,16 +1,15 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include <game_sa\RenderWare.h>
-#include <game_sa\CVector.h>
+#include "FxSphere_c.h"
+#include "FxPlane_c.h"
 
-class PLUGIN_API FxFrustumInfo_c
-{
+class FxFrustumInfo_c {
 public:
-	CVector field_0;
-	int field_C;
-	int field_10;
-	RwPlane m_planes[4];
+    FxSphere_c m_sphere;
+	FxPlane_c m_planes[4];
+
+    bool IsCollision(FxSphere_c* sphere);
 };
 
 VALIDATE_SIZE(FxFrustumInfo_c, 0x54);

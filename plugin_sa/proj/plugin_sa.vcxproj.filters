@@ -58,6 +58,9 @@
     <Filter Include="game_sa\Entity\Dummy">
       <UniqueIdentifier>{6b70145b-a5f6-40a2-97de-7be692b8ea13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_sa\Scripts">
+      <UniqueIdentifier>{295a8cde-63e6-4c4e-838e-2fd0a5243f6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\C2dEffect.h">
@@ -249,9 +252,6 @@
     <ClInclude Include="..\game_sa\CRideAnimData.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CRunningScript.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CScene.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -286,9 +286,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CText.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTheScripts.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CTheZones.h">
@@ -1651,6 +1648,33 @@
     <ClInclude Include="..\game_sa\CPlayerPed.h">
       <Filter>game_sa\Entity\Ped</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\FxSystem_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CRunningScript.h">
+      <Filter>game_sa\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CTheScripts.h">
+      <Filter>game_sa\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEFireAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxPrtMult_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxSystemBP_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxSphere_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxPlane_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxBox_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBox.cpp">
@@ -1773,9 +1797,6 @@
     <ClCompile Include="..\game_sa\CRGBA.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CRunningScript.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CScene.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -1807,9 +1828,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CText.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTheScripts.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CTheZones.cpp">
@@ -1858,9 +1876,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPopulation.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CRopes.cpp">
@@ -2981,6 +2996,36 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CPlayerPed.cpp">
       <Filter>game_sa\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTaskComplexPlayHandSignalAnim.cpp">
+      <Filter>game_sa\Tasks\Task Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CRunningScript.cpp">
+      <Filter>game_sa\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTheScripts.cpp">
+      <Filter>game_sa\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxSystem_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxPrtMult_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxSystemBP_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxSphere_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxPlane_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxFrustumInfo_c.cpp">
+      <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\FxBox_c.cpp">
+      <Filter>game_sa\Fx</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
