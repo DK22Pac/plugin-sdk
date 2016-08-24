@@ -39,4 +39,4 @@ public:
     
 };
 
-VALIDATE_SIZE(CPlane, 0xA04);
+//VALIDATE_SIZE(CPlane, 0xA04);

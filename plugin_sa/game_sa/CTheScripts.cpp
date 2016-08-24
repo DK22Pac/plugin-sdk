@@ -39,8 +39,8 @@ void CTheScripts::CleanUpThisObject(CObject* object) {
 }
 
 // Converted from cdecl void CTheScripts::ClearSpaceForMissionEntity(CVector const& position,CEntity *entity) 0x486B00
-void CTheScripts::ClearSpaceForMissionEntity(CVector const&, CEntity* entity) {
-    ((void(__cdecl *)(CVector const&, CEntity*))0x486B00)(, entity);
+void CTheScripts::ClearSpaceForMissionEntity(CVector const&position, CEntity* entity) {
+    ((void(__cdecl *)(CVector const&, CEntity*))0x486B00)(position, entity);
 }
 
 // Converted from cdecl bool CTheScripts::IsPlayerOnAMission(void) 0x464D50

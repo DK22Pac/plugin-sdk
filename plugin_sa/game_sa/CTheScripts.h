@@ -31,6 +31,6 @@ public:
     static void CleanUpThisPed(CPed* ped);
     static void CleanUpThisVehicle(CVehicle* vehicle);
     static void CleanUpThisObject(CObject* object);
-    static void ClearSpaceForMissionEntity(CVector const&, CEntity* entity);
+    static void ClearSpaceForMissionEntity(CVector const& position, CEntity* entity);
     static bool IsPlayerOnAMission();
 };

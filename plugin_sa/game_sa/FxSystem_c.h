@@ -16,7 +16,7 @@ enum eFxSystemKillStatus {
 
 enum eFxSystemPlayStatus {
     FX_PLAYING = 0,
-    FX_PAUSED = 1
+    FX_STOPPED = 1
 };
 
 class FxSystemBP_c;
