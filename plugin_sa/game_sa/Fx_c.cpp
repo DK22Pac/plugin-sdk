@@ -33,8 +33,8 @@ void Fx_c::ExitStaticSystems() {
 }
 
 // Converted from thiscall void Fx_c::CreateMatFromVec(RwMatrix *out, CVector *origin, CVector *target) 0x49E950
-void Fx_c::CreateMatFromVec(RwMatrix* out, CVector* origin, CVector* target) {
-    ((void(__thiscall *)(Fx_c*, RwMatrix*, CVector*, CVector*))0x49E950)(this, out, origin, target);
+void Fx_c::CreateMatFromVec(RwMatrix* out, CVector* origin, CVector* direction) {
+    ((void(__thiscall *)(Fx_c*, RwMatrix*, CVector*, CVector*))0x49E950)(this, out, origin, direction);
 }
 
 // Converted from thiscall void Fx_c::SetFxQuality(FxQuality_e quality) 0x49EA40

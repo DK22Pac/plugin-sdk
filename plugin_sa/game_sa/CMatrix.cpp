@@ -176,3 +176,21 @@ void CMatrix::operator*=(CMatrix const& right)
 {
 	((void (__thiscall *)(CMatrix *, CMatrix const&))0x411A80)(this, right);
 }
+
+CMatrix operator*(CMatrix const&a, CMatrix const&b) {
+    CMatrix result;
+    ((void(__cdecl *)(CMatrix*, CMatrix const&, CMatrix const&))0x59BE30)(&result, a, b);
+    return result;
+}
+
+CVector operator*(CMatrix const&a, CVector const&b) {
+    CVector result;
+    ((void(__cdecl *)(CVector*, CMatrix const&, CVector const&))0x59C890)(&result, a, b);
+    return result;
+}
+
+CMatrix operator+(CMatrix const&a, CMatrix const&b) {
+    CMatrix result;
+    ((void(__cdecl *)(CMatrix*, CMatrix const&, CMatrix const&))0x59BFA0)(&result, a, b);
+    return result;
+}

@@ -58,3 +58,7 @@ public:
 #pragma pack(pop)
 
 VALIDATE_SIZE(CMatrix, 0x48);
+
+CMatrix operator*(CMatrix const&a, CMatrix const&b);
+CVector operator*(CMatrix const&a, CVector const&b);
+CMatrix operator+(CMatrix const&a, CMatrix const&b);

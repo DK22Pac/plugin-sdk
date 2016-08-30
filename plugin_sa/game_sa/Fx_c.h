@@ -49,7 +49,7 @@ public:
     void Render(RwCamera* camera, unsigned char arg1);
     void InitStaticSystems();
     void ExitStaticSystems();
-    void CreateMatFromVec(RwMatrix* out, CVector* origin, CVector* target);
+    void CreateMatFromVec(RwMatrix* out, CVector* origin, CVector* direction);
     void SetFxQuality(FxQuality_e quality);
     FxQuality_e GetFxQuality();
     // dummy function
