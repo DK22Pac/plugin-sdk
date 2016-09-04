@@ -1675,6 +1675,18 @@
     <ClInclude Include="..\game_sa\FxBox_c.h">
       <Filter>game_sa\Fx</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CLocalisation.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CKeyGen.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CIniFile.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPolyBunch.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBox.cpp">
@@ -3026,6 +3038,18 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\FxBox_c.cpp">
       <Filter>game_sa\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CLocalisation.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CKeyGen.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CIniFile.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPolyBunch.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

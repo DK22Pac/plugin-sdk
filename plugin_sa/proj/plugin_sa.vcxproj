@@ -99,13 +99,17 @@
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
     <ClInclude Include="..\game_sa\CHeli.h" />
+    <ClInclude Include="..\game_sa\CIniFile.h" />
+    <ClInclude Include="..\game_sa\CKeyGen.h" />
     <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
+    <ClInclude Include="..\game_sa\CLocalisation.h" />
     <ClInclude Include="..\game_sa\CMenuPanel.h" />
     <ClInclude Include="..\game_sa\CMenuSystem.h" />
     <ClInclude Include="..\game_sa\CMonsterTruck.h" />
     <ClInclude Include="..\game_sa\CPickups.h" />
     <ClInclude Include="..\game_sa\CPickupText.h" />
     <ClInclude Include="..\game_sa\CPlane.h" />
+    <ClInclude Include="..\game_sa\CPolyBunch.h" />
     <ClInclude Include="..\game_sa\CPopCycle.h" />
     <ClInclude Include="..\game_sa\CPopulation.h" />
     <ClInclude Include="..\game_sa\CProjectileInfo.h" />
@@ -668,7 +672,10 @@
     <ClCompile Include="..\game_sa\CHeli.cpp" />
     <ClCompile Include="..\game_sa\CHud.cpp" />
     <ClCompile Include="..\game_sa\CHudColours.cpp" />
+    <ClCompile Include="..\game_sa\CIniFile.cpp" />
+    <ClCompile Include="..\game_sa\CKeyGen.cpp" />
     <ClCompile Include="..\game_sa\CLoadedCarGroup.cpp" />
+    <ClCompile Include="..\game_sa\CLocalisation.cpp" />
     <ClCompile Include="..\game_sa\CMatrix.cpp" />
     <ClCompile Include="..\game_sa\CMatrixLink.cpp" />
     <ClCompile Include="..\game_sa\CMenuManager.cpp" />
@@ -694,6 +701,7 @@
     <ClCompile Include="..\game_sa\CPlaneTrails.cpp" />
     <ClCompile Include="..\game_sa\CPlayerPed.cpp" />
     <ClCompile Include="..\game_sa\CPointLights.cpp" />
+    <ClCompile Include="..\game_sa\CPolyBunch.cpp" />
     <ClCompile Include="..\game_sa\CPools.cpp" />
     <ClCompile Include="..\game_sa\CPopulation.cpp" />
     <ClCompile Include="..\game_sa\CProjectile.cpp" />
