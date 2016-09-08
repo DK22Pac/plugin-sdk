@@ -3059,5 +3059,6 @@
     <None Include="..\game_sa\rw\errcore.def">
       <Filter>game_sa\RenderWare\rw</Filter>
     </None>
+    <None Include="proj.licenseheader" />
   </ItemGroup>
 </Project>

@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{f0460625-cc5e-449b-b828-8df7c0e7ced6}</ProjectGuid>
     <RootNamespace>SA_OpenDoorExample</RootNamespace>

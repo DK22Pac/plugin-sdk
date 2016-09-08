@@ -1081,6 +1081,7 @@
   <ItemGroup>
     <None Include="..\game_sa\rw\errcom.def" />
     <None Include="..\game_sa\rw\errcore.def" />
+    <None Include="proj.licenseheader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

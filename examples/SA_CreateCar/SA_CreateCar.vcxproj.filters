@@ -11,4 +11,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
+  </ItemGroup>
 </Project>

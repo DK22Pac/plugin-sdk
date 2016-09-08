@@ -1,4 +1,11 @@
 /*
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
+
+/*
  GTASA C++ SDK
  See README.md for more details
  DK22Pac, 2015
@@ -6,7 +13,6 @@
  Plugin-SDK main features/goals
   -Event-based hooking
   -Extend game objects (attach your own data to vehicles, peds and objects)
-  -Opcode calling (use opcodes in your plugins)
   -Easy D3D using with D3D Lost/Reset events. Compatibility with Ryosuke's plugins
 */
 

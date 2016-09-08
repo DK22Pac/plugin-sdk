@@ -203,5 +203,6 @@
     <None Include="..\game_vc\rw\errcore.def">
       <Filter>game_vc\rw</Filter>
     </None>
+    <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
   </ItemGroup>
 </Project>

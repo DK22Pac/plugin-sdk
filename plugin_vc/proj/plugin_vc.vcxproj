@@ -190,6 +190,7 @@
     <ClCompile Include="..\plbase\PluginBase_VC.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
     <None Include="..\game_vc\rw\errcom.def" />
     <None Include="..\game_vc\rw\errcore.def" />
   </ItemGroup>

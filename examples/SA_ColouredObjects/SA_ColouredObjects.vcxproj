@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E708C757-C779-4DA7-83F0-F37AA36EF5C8}</ProjectGuid>
     <RootNamespace>SA_ColouredObjects</RootNamespace>

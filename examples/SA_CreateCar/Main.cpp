@@ -1,4 +1,10 @@
-﻿#include <plugin.h>
+﻿/*
+    Plugin-SDK (Grand Theft Auto) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
+#include <plugin.h>
 #include "game_sa\CCarCtrl.h"
 #include "game_sa\common.h"
 #include "game_sa\CStreaming.h"

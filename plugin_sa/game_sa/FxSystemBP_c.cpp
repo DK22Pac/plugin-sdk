@@ -1,3 +1,9 @@
+/*
+    Plugin-SDK (Grand Theft Auto) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
 #include "FxSystemBP_c.h"
 
 // Converted from thiscall void FxSystemBP_c::FxSystemBP_c(void) 0x4AA0D0
