@@ -22,6 +22,7 @@
 #include "eWeaponType.h"
 #include "ePedState.h"
 #include "CAnimBlendAssociation.h"
+#include "CFire.h"
 
 enum ePedStats {
 
@@ -32,7 +33,7 @@ enum eMoveState {
 };
 
 #pragma pack(push, 4)
-class PLUGIN_API CPed : public CPhysical {
+class CPed : public CPhysical {
 protected:
     CPed(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
 public:
@@ -216,7 +217,7 @@ public:
 	__int8              m_nFightingStyle;
 	__int8              m_nAllowedAttackMoves;
 	__int8 field_72F;
-	void               *m_pFire; // CFire *
+	CFire              *m_pFire;
 	__int32 field_734;
 	__int32 field_738;
 	__int32 field_73C;

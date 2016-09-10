@@ -1687,6 +1687,15 @@
     <ClInclude Include="..\game_sa\CPolyBunch.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CFire.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CFireManager.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCreepingFire.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBox.cpp">
@@ -3049,6 +3058,15 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPolyBunch.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CFire.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CFireManager.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCreepingFire.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

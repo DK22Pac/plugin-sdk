@@ -34,6 +34,7 @@ VALIDATE_SIZE(short, 2);
 VALIDATE_SIZE(int, 4);
 VALIDATE_SIZE(float, 4);
 
+#define _IGNORED_
 // Basic types for structures describing
 typedef unsigned __int8 Bool;
 

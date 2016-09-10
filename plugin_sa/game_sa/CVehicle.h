@@ -19,6 +19,7 @@
 #include "CRideAnimData.h"
 #include "CDamageManager.h"
 #include "FxSystem_c.h"
+#include "CFire.h"
 
 /*  Thanks to MTA team for https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CVehicleSA.h */
 
@@ -99,7 +100,6 @@ typedef int eBikeWheelSpecial;
 
 class CWeapon;
 class CPed;
-class CFire;
 typedef int tWheelState;
 
 #pragma pack(push, 4)

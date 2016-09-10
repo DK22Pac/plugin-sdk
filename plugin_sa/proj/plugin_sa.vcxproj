@@ -96,8 +96,11 @@
     <ClInclude Include="..\game_sa\CBmx.h" />
     <ClInclude Include="..\game_sa\CBoat.h" />
     <ClInclude Include="..\game_sa\CCarCtrl.h" />
+    <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
+    <ClInclude Include="..\game_sa\CFire.h" />
+    <ClInclude Include="..\game_sa\CFireManager.h" />
     <ClInclude Include="..\game_sa\CHeli.h" />
     <ClInclude Include="..\game_sa\CIniFile.h" />
     <ClInclude Include="..\game_sa\CKeyGen.h" />
@@ -652,6 +655,7 @@
     <ClCompile Include="..\game_sa\CControllerConfigManager.cpp" />
     <ClCompile Include="..\game_sa\CCopPed.cpp" />
     <ClCompile Include="..\game_sa\CCoronas.cpp" />
+    <ClCompile Include="..\game_sa\CCreepingFire.cpp" />
     <ClCompile Include="..\game_sa\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_sa\CDamageManager.cpp" />
     <ClCompile Include="..\game_sa\CDarkel.cpp" />
@@ -662,6 +666,8 @@
     <ClCompile Include="..\game_sa\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_sa\CEntity.cpp" />
     <ClCompile Include="..\game_sa\CFileMgr.cpp" />
+    <ClCompile Include="..\game_sa\CFire.cpp" />
+    <ClCompile Include="..\game_sa\CFireManager.cpp" />
     <ClCompile Include="..\game_sa\CFont.cpp" />
     <ClCompile Include="..\game_sa\CGame.cpp" />
     <ClCompile Include="..\game_sa\CGamma.cpp" />

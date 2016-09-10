@@ -27,63 +27,61 @@ public:
 
     // Вынесем создание авто в отдельную функцию SpawnVehicle ; Put everything related to car creation into SpawnVehicle function
     static CVehicle *SpawnVehicle(unsigned int modelIndex, CVector position, float orientation) {
-        if (!FindPlayerPed(-1)->m_nAreaCode) { // Если не в интерьере
-            // Загружаем модель
-            unsigned char oldFlags = CStreaming::ms_aInfoForModel[modelIndex].m_flags;
-            CStreaming::RequestModel(modelIndex, GAME_REQUIRED);
-            CStreaming::LoadAllRequestedModels(false);
-            if (CStreaming::ms_aInfoForModel[modelIndex].m_loadState == LOADSTATE_LOADED) {
-                if (!(oldFlags & GAME_REQUIRED)) {
-                    CStreaming::SetModelIsDeletable(modelIndex);
-                    CStreaming::SetModelTxdIsDeletable(modelIndex);
-                }
-                CVehicle *vehicle = nullptr;
-                // Выделяем обьект из пула
-                switch (reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[modelIndex])->m_dwType) {
-                case VEHICLE_MTRUCK:
-                    vehicle = new CMonsterTruck(modelIndex, 1);
-                    break;
-                case VEHICLE_QUAD:
-                    vehicle = new CQuadBike(modelIndex, 1);
-                    break;
-                case VEHICLE_HELI:
-                    vehicle = new CHeli(modelIndex, 1);
-                    break;
-                case VEHICLE_PLANE:
-                    vehicle = new CPlane(modelIndex, 1);
-                    break;
-                case VEHICLE_BIKE:
-                    vehicle = new CBike(modelIndex, 1);
-                    reinterpret_cast<CBike *>(vehicle)->m_nDamageFlags |= 0x10;
-                    break;
-                case VEHICLE_BMX:
-                    vehicle = new CBmx(modelIndex, 1);
-                    reinterpret_cast<CBmx *>(vehicle)->m_nDamageFlags |= 0x10;
-                    break;
-                case VEHICLE_TRAILER:
-                    vehicle = new CTrailer(modelIndex, 1);
-                    break;
-                case 5:
-                    vehicle = new CBoat(modelIndex, 1);
-                    break;
-                default:
-                    vehicle = new CAutomobile(modelIndex, 1, true);
-                    break;
-                }
-                if (vehicle) {
-                    // Размещаем транспорт в игровом мире
-                    vehicle->SetPosn(position);
-                    vehicle->SetOrientation(0.0f, 0.0f, orientation);
-                    vehicle->m_nStatus = 4;
-                    vehicle->m_dwDoorLock = CARLOCK_UNLOCKED;
-                    CWorld::Add(vehicle);
-                    CTheScripts::ClearSpaceForMissionEntity(position, vehicle); // удаляем другие обьекты, которые находятся в этих координатах
-                    if (vehicle->m_dwVehicleClass == VEHICLE_BIKE)
-                        reinterpret_cast<CBike *>(vehicle)->PlaceOnRoadProperly();
-                    else if (vehicle->m_dwVehicleClass != VEHICLE_BOAT)
-                        reinterpret_cast<CAutomobile *>(vehicle)->PlaceOnRoadProperly();
-                    return vehicle;
-                }
+        // Загружаем модель
+        unsigned char oldFlags = CStreaming::ms_aInfoForModel[modelIndex].m_flags;
+        CStreaming::RequestModel(modelIndex, GAME_REQUIRED);
+        CStreaming::LoadAllRequestedModels(false);
+        if (CStreaming::ms_aInfoForModel[modelIndex].m_loadState == LOADSTATE_LOADED) {
+            if (!(oldFlags & GAME_REQUIRED)) {
+                CStreaming::SetModelIsDeletable(modelIndex);
+                CStreaming::SetModelTxdIsDeletable(modelIndex);
+            }
+            CVehicle *vehicle = nullptr;
+            // Выделяем обьект из пула
+            switch (reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[modelIndex])->m_dwType) {
+            case VEHICLE_MTRUCK:
+                vehicle = new CMonsterTruck(modelIndex, 1);
+                break;
+            case VEHICLE_QUAD:
+                vehicle = new CQuadBike(modelIndex, 1);
+                break;
+            case VEHICLE_HELI:
+                vehicle = new CHeli(modelIndex, 1);
+                break;
+            case VEHICLE_PLANE:
+                vehicle = new CPlane(modelIndex, 1);
+                break;
+            case VEHICLE_BIKE:
+                vehicle = new CBike(modelIndex, 1);
+                reinterpret_cast<CBike *>(vehicle)->m_nDamageFlags |= 0x10;
+                break;
+            case VEHICLE_BMX:
+                vehicle = new CBmx(modelIndex, 1);
+                reinterpret_cast<CBmx *>(vehicle)->m_nDamageFlags |= 0x10;
+                break;
+            case VEHICLE_TRAILER:
+                vehicle = new CTrailer(modelIndex, 1);
+                break;
+            case VEHICLE_BOAT:
+                vehicle = new CBoat(modelIndex, 1);
+                break;
+            default:
+                vehicle = new CAutomobile(modelIndex, 1, true);
+                break;
+            }
+            if (vehicle) {
+                // Размещаем транспорт в игровом мире
+                vehicle->SetPosn(position);
+                vehicle->SetOrientation(0.0f, 0.0f, orientation);
+                vehicle->m_nStatus = 4;
+                vehicle->m_dwDoorLock = CARLOCK_UNLOCKED;
+                CWorld::Add(vehicle);
+                CTheScripts::ClearSpaceForMissionEntity(position, vehicle); // удаляем другие обьекты, которые находятся в этих координатах
+                if (vehicle->m_dwVehicleClass == VEHICLE_BIKE)
+                    reinterpret_cast<CBike *>(vehicle)->PlaceOnRoadProperly();
+                else if (vehicle->m_dwVehicleClass != VEHICLE_BOAT)
+                    reinterpret_cast<CAutomobile *>(vehicle)->PlaceOnRoadProperly();
+                return vehicle;
             }
         }
         return nullptr;
@@ -92,8 +90,8 @@ public:
     // Наша функция спавна ; Our spawning function
     static void ProcessSpawn() {
         if (KeyPressed(VK_TAB) && CTimer::m_snTimeInMilliseconds > (m_nLastSpawnedTime + 1000)) { // Если нажата клавиша и прошло больше секунды с момента последнего спавна
-            CPed *player = FindPlayerPed(0); // находим игрока ; find player
-            if (player) { // если найден ; if found
+            CPed *player = FindPlayerPed(-1); // находим игрока ; find player
+            if (player && !player->m_nAreaCode) { // если найден и не в интерьере ; if found
                 CVector position = FindPlayerPed(-1)->TransformFromObjectSpace(CVector(0.0f, 5.0f, 0.0f)); // получаем координаты по офсету от игрока ; get coords on offset from player
                 CAutomobile *automobile = reinterpret_cast<CAutomobile *>(SpawnVehicle(MODEL_INFERNUS, position, FindPlayerPed(-1)->m_fCurrentRotation + 1.5707964f)); // Создаём в этих координатах авто ; Create a car at these coords
                 if (automobile) { // если авто создано ; if car was created
