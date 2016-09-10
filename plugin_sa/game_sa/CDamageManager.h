@@ -110,15 +110,7 @@ public:
 			unsigned __int32 m_nLeftRearLightStatus : 2;
 		};
 	};
-	union {
-		unsigned __int32 m_dwPanelsStatus;
-		struct {
-			unsigned __int32 m_nLeftFrontLightStatus : 4;
-			unsigned __int32 m_nRightFrontLightStatus : 4;
-			unsigned __int32 m_nRightRearLightStatus : 4;
-			unsigned __int32 m_nLeftRearLightStatus : 4;
-		};
-	};
+	unsigned __int32 m_dwPanelsStatus;
 
     //funcs
 

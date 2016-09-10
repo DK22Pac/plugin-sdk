@@ -18,6 +18,7 @@
 #include "CPtrList.h"
 #include "CRideAnimData.h"
 #include "CDamageManager.h"
+#include "FxSystem_c.h"
 
 /*  Thanks to MTA team for https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CVehicleSA.h */
 
@@ -97,6 +98,8 @@ typedef int eBikeWheelSpecial;
 #endif
 
 class CWeapon;
+class CPed;
+class CFire;
 typedef int tWheelState;
 
 #pragma pack(push, 4)
@@ -213,8 +216,8 @@ public:
     float    m_fWheelScale;
     unsigned short m_wAlarmState;
     short  m_wForcedRandomRouteSeed; // if this is non-zero the random wander gets deterministic
-    class CPed *m_pDriver;
-    class CPed *m_apPassengers[8];
+    CPed *m_pDriver;
+    CPed *m_apPassengers[8];
     unsigned char  m_nNumPassengers;
     unsigned char  m_nNumGettingIn;
     unsigned char  m_nGettingInFlags;
@@ -225,7 +228,7 @@ public:
     unsigned char  m_nSpecialColModel;
     CEntity *m_pEntityWeAreOn; // we get it from CWorld::ProcessVerticalLine or ProcessEntityCollision, it's entity under us, 
                                //only static entities (buildings or roads)
-    class CFire *m_pFire;
+    CFire *m_pFire;
     float  m_fSteerAngle;
     float  m_f2ndSteerAngle; // used for steering 2nd set of wheels or elevators etc..
     float  m_fGasPedal;
@@ -254,7 +257,7 @@ public:
     float   m_fHealth; // 1000.0f = full health. 0 -> explode
     CVehicle *m_pTractor;
     CVehicle *m_pTrailer;
-    class CPed *m_pWhoInstalledBombOnMe;
+    CPed *m_pWhoInstalledBombOnMe;
     unsigned int m_dwTimeTillWeNeedThisCar; // game won't try to delete this car while this time won't reach
     unsigned int m_dwGunFiringTime; // last time when gun on vehicle was fired (used on boats)
     unsigned int m_dwTimeWhenBlowedUp; // game will delete vehicle when 60 seconds after this time will expire
@@ -262,7 +265,7 @@ public:
                              // some value, they will leave a car. The timer increases each frame if player is stopped in car, 
                              // otherway it resets
     short  m_wBombTimer;     // goes down with each frame
-    class CPed *m_pWhoDetonatedMe; // if vehicle was detonated, game copies m_pWhoInstalledBombOnMe here
+    CPed *m_pWhoDetonatedMe; // if vehicle was detonated, game copies m_pWhoInstalledBombOnMe here
     float  m_fVehicleFrontGroundZ; // we get these values from CCollision::IsStoredPolyStillValidVerticalLine
     float  m_fVehicleRearGroundZ;  // or CWorld::ProcessVerticalLine
     char field_4EC; // initialised, but not used?
@@ -285,9 +288,9 @@ public:
     CStoredCollPoly m_FrontCollPoly; // poly which is under front part of car
     CStoredCollPoly m_RearCollPoly; // poly which is under rear part of car
     unsigned char      m_anCollisionLighting[4]; // left front, left rear, right front, right rear
-    class FxSystem_c *m_pOverheatParticle;
-    class FxSystem_c *m_pFireParticle;
-    class FxSystem_c *m_pDustParticle;
+    FxSystem_c *m_pOverheatParticle;
+    FxSystem_c *m_pFireParticle;
+    FxSystem_c *m_pDustParticle;
     union{
         unsigned char     m_dwRenderLights;
         struct{

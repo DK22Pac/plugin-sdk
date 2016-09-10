@@ -44,7 +44,7 @@ public:
     CEntity        *m_pWhoDestroyedMe;
     CVector field_610;
     CVector field_61C;
-    void           *m_apPropSplashFx[2]; // FxSystem_c *
+    FxSystem_c     *m_apPropSplashFx[2];
     CVector field_630;
     char field_63C;
     char            m_nPadNumber;

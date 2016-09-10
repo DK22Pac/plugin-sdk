@@ -8,8 +8,7 @@
 
 #include "plbase/PluginBase_SA.h"
 
-class PLUGIN_API CDarkel
-{
+class CDarkel {
 public:
 	static bool FrenzyOnGoing();
 };
