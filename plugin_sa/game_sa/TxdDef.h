@@ -9,16 +9,13 @@
 #include "plbase/PluginBase_SA.h"
 #include "RenderWare.h"
 
-#pragma pack (push, 1)
-class PLUGIN_API CTexDictionary
-{
+class TxdDef {
 public:
-	// class variables
 	RwTexDictionary *m_pRwDictionary;
-	unsigned __int16 m_dwRefsCount;
-	__int16 m_dwParentIndex;
-	unsigned __int32 hash;
+	unsigned short m_wRefsCount;
+	short m_wParentIndex;
+	unsigned int m_hash;
 };
 #pragma pack (pop)
 
-VALIDATE_SIZE(CTexDictionary, 0xC);
+VALIDATE_SIZE(TxdDef, 0xC);

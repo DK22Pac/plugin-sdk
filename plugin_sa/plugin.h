@@ -26,3 +26,4 @@
 #include "..\shared\Error.h"
 #include "..\shared\Other.h"
 #include "..\shared\Patch.h"
+#include "comp\PluginsCompatibility.h"

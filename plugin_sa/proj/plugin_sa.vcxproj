@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)plugin_sa\</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_D3D_INCLUDE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_D3D_INCLUDE;_FLA_SUPPORT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -70,7 +70,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)plugin_sa\</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_D3D_INCLUDE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_D3D_INCLUDE;_FLA_SUPPORT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -80,6 +80,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\comp\PluginsCompatibility.h" />
+    <ClInclude Include="..\comp\PluginSupport.h" />
+    <ClInclude Include="..\comp\plugins\LimitAdjusterSupport.h" />
     <ClInclude Include="..\events\Events_SA.h" />
     <ClInclude Include="..\extender\ObjectExtender_SA.h" />
     <ClInclude Include="..\extender\PedExtender_SA.h" />
@@ -99,6 +102,7 @@
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
+    <ClInclude Include="..\game_sa\CFileLoader.h" />
     <ClInclude Include="..\game_sa\CFire.h" />
     <ClInclude Include="..\game_sa\CFireManager.h" />
     <ClInclude Include="..\game_sa\CHeli.h" />
@@ -540,7 +544,8 @@
     <ClInclude Include="..\game_sa\CTaskSimple.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
-    <ClInclude Include="..\game_sa\CTexDictionary.h" />
+    <ClInclude Include="..\game_sa\RwExtensions.h" />
+    <ClInclude Include="..\game_sa\TxdDef.h" />
     <ClInclude Include="..\game_sa\CText.h" />
     <ClInclude Include="..\game_sa\CTheScripts.h" />
     <ClInclude Include="..\game_sa\CTheZones.h" />
@@ -627,6 +632,9 @@
     <ClInclude Include="..\plugin.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\comp\PluginsCompatibility.cpp" />
+    <ClCompile Include="..\comp\PluginSupport.cpp" />
+    <ClCompile Include="..\comp\plugins\LimitAdjusterSupport.cpp" />
     <ClCompile Include="..\events\Events_SA.cpp" />
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp" />
     <ClCompile Include="..\game_sa\CAERadioTrackManager.cpp" />
@@ -665,6 +673,7 @@
     <ClCompile Include="..\game_sa\CDummyPed.cpp" />
     <ClCompile Include="..\game_sa\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_sa\CEntity.cpp" />
+    <ClCompile Include="..\game_sa\CFileLoader.cpp" />
     <ClCompile Include="..\game_sa\CFileMgr.cpp" />
     <ClCompile Include="..\game_sa\CFire.cpp" />
     <ClCompile Include="..\game_sa\CFireManager.cpp" />
@@ -1046,7 +1055,8 @@
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskTimer.cpp" />
-    <ClCompile Include="..\game_sa\CTexDictionary.cpp" />
+    <ClCompile Include="..\game_sa\RwExtensions.cpp" />
+    <ClCompile Include="..\game_sa\TxdDef.cpp" />
     <ClCompile Include="..\game_sa\CText.cpp" />
     <ClCompile Include="..\game_sa\CTheScripts.cpp" />
     <ClCompile Include="..\game_sa\CTheZones.cpp" />

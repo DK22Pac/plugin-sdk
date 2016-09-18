@@ -109,17 +109,17 @@ void CFireManager::GetNextFreeFire(unsigned char bAllowDeletingOldFire) {
 }
 
 // Converted from thiscall CFire* CFireManager::StartFire(CVector point,float size,uchar,CEntity *creator,uint time,signed char numGenerations,uchar) 0x539F00
-CFire* CFireManager::StartFire(CVector point, float size, unsigned char arg2, CEntity* creator, unsigned int time, signed char numGenerations, unsigned char arg6) {
+CFire* CFireManager::StartFire(CVector point, _IGNORED_ float size, _IGNORED_ unsigned char arg2, CEntity* creator, unsigned int time, signed char numGenerations, _IGNORED_ unsigned char arg6) {
     return ((CFire* (__thiscall *)(CFireManager*, CVector, float, unsigned char, CEntity*, unsigned int, signed char, unsigned char))0x539F00)(this, point, size, arg2, creator, time, numGenerations, arg6);
 }
 
 // Converted from thiscall CFire* CFireManager::StartFire(CEntity *target,CEntity *creator,float size,uchar,uint time,signed char numGenerations) 0x53A050
-CFire* CFireManager::StartFire(CEntity* target, CEntity* creator, float size, unsigned char arg3, unsigned int time, signed char numGenerations) {
+CFire* CFireManager::StartFire(CEntity* target, CEntity* creator, _IGNORED_ float size, _IGNORED_ unsigned char arg3, unsigned int time, signed char numGenerations) {
     return ((CFire* (__thiscall *)(CFireManager*, CEntity*, CEntity*, float, unsigned char, unsigned int, signed char))0x53A050)(this, target, creator, size, arg3, time, numGenerations);
 }
 
 // Converted from thiscall int CFireManager::StartScriptFire(CVector const&point,CEntity *target,float,uchar,signed char numGenerations,int size) 0x53A270
-int CFireManager::StartScriptFire(CVector const& point, CEntity* target, float arg2, unsigned char arg3, signed char numGenerations, int size) {
+int CFireManager::StartScriptFire(CVector const& point, CEntity* target, _IGNORED_ float arg2, _IGNORED_ unsigned char arg3, signed char numGenerations, int size) {
     return ((int(__thiscall *)(CFireManager*, CVector const&, CEntity*, float, unsigned char, signed char, int))0x53A270)(this, point, target, arg2, arg3, numGenerations, size);
 }
 

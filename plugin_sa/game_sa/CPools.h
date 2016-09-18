@@ -16,7 +16,6 @@
 #include "CColModel.h"
 #include "CTask.h"
 #include "CPedIntelligence.h"
-#include "CTexDictionary.h"
 
 class CPools {
 public:

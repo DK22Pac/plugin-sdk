@@ -118,7 +118,11 @@ struct RsGlobalType
     const RwChar *appName;
     RwInt32 maximumWidth;
     RwInt32 maximumHeight;
-    
+    RwInt32 screenWidth;
+    RwInt32 screenHeight;
+    RwInt32 maxFPS;
+    RwBool  quit;
+
     /* not finished */
 };
 

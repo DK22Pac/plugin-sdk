@@ -148,6 +148,9 @@ struct PLUGIN_API tRadarTrace
 
 VALIDATE_SIZE(tRadarTrace, 0x28);
 
+extern unsigned int MAX_RADAR_SPRITES;
+extern unsigned int MAX_RADAR_TRACES;
+
 class PLUGIN_API CRadar
 {
 public:

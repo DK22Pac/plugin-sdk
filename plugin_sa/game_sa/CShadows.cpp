@@ -6,6 +6,11 @@
 */
 #include "CShadows.h"
 
+unsigned int MAX_STORED_SHADOWS = 48;
+unsigned int MAX_PERMANENT_SHADOWS = 48;
+unsigned int MAX_STATIC_SHADOWS = 48;
+unsigned int MAX_SHADOW_POLY_BUNCHES = 360;
+
 float &MAX_DISTANCE_PED_SHADOWS = *(float *)0x8D5240;
 float &MAX_DISTANCE_PED_SHADOWS_SQR = *(float *)0xC4B6B0;
 RwTexture *&gpShadowCarTex         = *(RwTexture **)0xC403E0;

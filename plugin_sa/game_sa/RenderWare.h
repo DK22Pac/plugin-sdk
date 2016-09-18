@@ -4,14 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
-/********************************plugin-sdk source file*************************************/
-/* File creator: DK22Pac                                                                   */
-/* File editors: DK22Pac                                                                   */
-/* File descrip: RenderWare structures/enumerations/functions/defines are represented here.*/
-/* File created: 17.04.2013                                                                */
-/* File last ed: 12.06.2016                                                                */
-/*******************************************************************************************/
 #pragma once
 
 #ifdef _D3D_INCLUDE
@@ -119,7 +111,10 @@ void* _rwSListGetNewEntry(RwSList* sList, RwUInt32 hint); // 0x809240
 RwInt32 _rwSListGetNumEntries(const RwSList* sList); // 0x8094B0
 void* _rwSListGetBegin(RwSList* sList); // 0x809530
 void* _rwSListGetEnd(RwSList* sList); // 0x809540
-RwBool RwIm2DRenderLine(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2); // 0x734EC0
+RwBool RwIm2DRenderPrimitive(RwPrimitiveType primType, RwIm2DVertex* vertices, RwInt32 numVertices);
+RwBool RwIm2DRenderIndexedPrimitive(RwPrimitiveType primType, RwIm2DVertex* vertices, RwInt32 numVertices, RwImVertexIndex* indices, RwInt32 numIndices);
+RwBool RwIm2DRenderTriangle(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2, RwInt32 vert3);
+RwBool RwIm2DRenderLine(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2);
 RwUInt32 RwEngineGetVersion(void); // 0x7F2BA0
 RwBool RwEngineInit(const RwMemoryFunctions* memFuncs, RwUInt32 initFlags, RwUInt32 resArenaSize); // 0x7F3170
 RwInt32 RwEngineRegisterPlugin(RwInt32 size, RwUInt32 pluginID, RwPluginObjectConstructor initCB, RwPluginObjectDestructor termCB); // 0x7F2BB0

@@ -6,6 +6,8 @@
 */
 #include "CCoronas.h"
 
+unsigned int MAX_NUM_CORONAS = 64;
+
 float& CCoronas::SunScreenX = *(float *)0xC3E028;
 float& CCoronas::SunScreenY = *(float *)0xC3E02C;
 unsigned __int8& CCoronas::SunBlockedByClouds = *(unsigned __int8 *)0xC3E030;

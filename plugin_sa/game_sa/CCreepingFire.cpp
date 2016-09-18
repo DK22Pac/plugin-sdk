@@ -7,7 +7,7 @@
 #include "CCreepingFire.h"
 
 // Converted from cdecl bool CCreepingFire::TryToStartFireAtCoors(CVector posn,signed char numGenerations,bool,bool scriptFire,float zDistance) 0x53A450
-bool CCreepingFire::TryToStartFireAtCoors(CVector posn, signed char numGenerations, bool arg2, bool scriptFire, float zDistance) {
+bool CCreepingFire::TryToStartFireAtCoors(CVector posn, signed char numGenerations, _IGNORED_ bool arg2, bool scriptFire, float zDistance) {
     return ((bool(__cdecl *)(CVector, signed char, bool, bool, float))0x53A450)(posn, numGenerations, arg2, scriptFire, zDistance);
 }
 

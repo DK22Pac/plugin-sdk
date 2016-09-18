@@ -6,7 +6,7 @@
 */
 #include "CTxdStore.h"
 
-CPool<CTexDictionary> *&CTxdStore::ms_pTxdPool = *(CPool<CTexDictionary> **)0xC8800C;
+CPool<TxdDef> *&CTxdStore::ms_pTxdPool = *(CPool<TxdDef> **)0xC8800C;
 
 RwTexDictionary *CTxdStore::ms_pStoredTxd;
 // variables list is not finished. Need to make CPools before.
@@ -55,9 +55,9 @@ void CTxdStore::SetCurrentTxd(int index)
 }
 
 // add reference for txd
-CTexDictionary *CTxdStore::AddRef(int index)
+TxdDef *CTxdStore::AddRef(int index)
 {
-	return ((CTexDictionary *(__cdecl *)(int))0x731A00)(index);
+	return ((TxdDef *(__cdecl *)(int))0x731A00)(index);
 }
 
 // remove reference, if references count is 0, then delete txd
@@ -67,9 +67,9 @@ void CTxdStore::RemoveRef(int index)
 }
 
 // remove reference without deleting
-CTexDictionary *CTxdStore::RemoveRefWithoutDelete(int index)
+TxdDef *CTxdStore::RemoveRefWithoutDelete(int index)
 {
-	return ((CTexDictionary *(__cdecl *)(int))0x731A70)(index);
+	return ((TxdDef *(__cdecl *)(int))0x731A70)(index);
 }
 
 // get references count

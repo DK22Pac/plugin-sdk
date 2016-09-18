@@ -6,6 +6,9 @@
 */
 #include "CRadar.h"
 
+unsigned int MAX_RADAR_SPRITES = 64;
+unsigned int MAX_RADAR_TRACES = 175;
+
 float &CRadar::m_radarRange = *(float *)0xBA8314;
 uint16_t *CRadar::MapLegendList = (uint16_t *)0xBA8318;
 uint16_t &CRadar::MapLegendCounter = *(uint16_t *)0xBA86B8;

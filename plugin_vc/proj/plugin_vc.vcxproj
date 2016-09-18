@@ -133,6 +133,9 @@
     <ClInclude Include="..\extender\VehicleExtender_VC.h" />
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
     <ClInclude Include="..\game_vc\CBuilding.h" />
+    <ClInclude Include="..\game_vc\CRGBA.h" />
+    <ClInclude Include="..\game_vc\CSprite.h" />
+    <ClInclude Include="..\game_vc\CSprite2d.h" />
     <ClInclude Include="..\game_vc\CStoredCollPoly.h" />
     <ClInclude Include="..\game_vc\CColPoint.h" />
     <ClInclude Include="..\game_vc\CDummy.h" />
@@ -182,6 +185,9 @@
     <ClCompile Include="..\game_vc\CPlaceable.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
     <ClCompile Include="..\game_vc\CPtrList.cpp" />
+    <ClCompile Include="..\game_vc\CRGBA.cpp" />
+    <ClCompile Include="..\game_vc\CSprite.cpp" />
+    <ClCompile Include="..\game_vc\CSprite2d.cpp" />
     <ClCompile Include="..\game_vc\CTreadable.cpp" />
     <ClCompile Include="..\game_vc\CDummyObject.cpp" />
     <ClCompile Include="..\game_vc\CVector.cpp" />

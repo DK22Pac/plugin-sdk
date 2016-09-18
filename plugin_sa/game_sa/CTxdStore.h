@@ -8,7 +8,7 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "RenderWare.h"
-#include "CTexDictionary.h"
+#include "TxdDef.h"
 #include "CPool.h"
 
 class PLUGIN_API CTxdStore
@@ -16,7 +16,7 @@ class PLUGIN_API CTxdStore
 public:
 	// class variables
 
-	static CPool<CTexDictionary> *&ms_pTxdPool;
+	static CPool<TxdDef> *&ms_pTxdPool;
 
 	static RwTexDictionary *ms_pStoredTxd;
 	// variables list is not finished. Need to make CPools before.
@@ -37,11 +37,11 @@ public:
 	// set the txd to work with
 	static void SetCurrentTxd(int index);
 	// add reference for txd
-	static CTexDictionary *AddRef(int index);
+	static TxdDef *AddRef(int index);
 	// remove reference, if references count is 0, then delete txd
 	static void RemoveRef(int index);
 	// remove reference without deleting
-	static CTexDictionary *RemoveRefWithoutDelete(int index);
+	static TxdDef *RemoveRefWithoutDelete(int index);
 	// get references count
 	static unsigned int GetNumRefs(int index);
 	// allocate new slot for this txd

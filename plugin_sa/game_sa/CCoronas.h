@@ -9,7 +9,7 @@
 #include "plbase/PluginBase_SA.h"
 #include "CRegisteredCorona.h"
 
-#define MAX_NUM_CORONAS 64
+extern unsigned int MAX_NUM_CORONAS;
 
 class PLUGIN_API CCoronas
 {
@@ -27,7 +27,7 @@ public:
 	static float& LightsMult;
 	// this is used to control moon size when you shooting it with sniper
 	static unsigned __int32& MoonSize;
-	// Coronas array. count: MAX_NUM_CORONAS (64)
+	// Coronas array. count: MAX_NUM_CORONAS (default: 64)
 	static CRegisteredCorona *aCoronas;
 
 	// Initialises coronas

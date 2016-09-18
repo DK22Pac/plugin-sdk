@@ -163,6 +163,11 @@ class CEntity;
 class CPhysical;
 class CVehicle;
 
+extern unsigned int MAX_STORED_SHADOWS; // default: 48
+extern unsigned int MAX_PERMANENT_SHADOWS; // default: 48
+extern unsigned int MAX_STATIC_SHADOWS; // default: 48
+extern unsigned int MAX_SHADOW_POLY_BUNCHES; // default: 360
+
 class CShadows {
 public:
     static void Init();
@@ -198,10 +203,10 @@ public:
 
     static CPolyBunch *&pEmptyBunchList;
     static unsigned short &ShadowsStoredToBeRendered;
-    static CRegisteredShadow *asShadowsStored; // static CRegisteredShadow asShadowsStored[48]
-    static CPolyBunch *aPolyBunches; // static CPolyBunch aPolyBunches[360]
-    static CStaticShadow *aStaticShadows; // static CStaticShadow aStaticShadows[48]
-    static CPermanentShadow *aPermanentShadows; // static CPermanentShadow aPermanentShadows[48]
+    static CRegisteredShadow *asShadowsStored; // static CRegisteredShadow asShadowsStored[default: 48]
+    static CPolyBunch *aPolyBunches; // static CPolyBunch aPolyBunches[default: 360]
+    static CStaticShadow *aStaticShadows; // static CStaticShadow aStaticShadows[default: 48]
+    static CPermanentShadow *aPermanentShadows; // static CPermanentShadow aPermanentShadows[default: 48]
 };
 
 RwV3d *ShadowRenderTriangleCB(RwV3d *pNormal, RwV3d *pTrianglePos, _ProjectionParam *param);

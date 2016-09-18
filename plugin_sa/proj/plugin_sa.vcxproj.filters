@@ -61,6 +61,12 @@
     <Filter Include="game_sa\Scripts">
       <UniqueIdentifier>{295a8cde-63e6-4c4e-838e-2fd0a5243f6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="comp">
+      <UniqueIdentifier>{9b62a296-29ef-4407-84f1-c2eb3af51595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="comp\plugins">
+      <UniqueIdentifier>{b5bcbc18-356c-41a1-b53f-162acd691683}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\C2dEffect.h">
@@ -280,9 +286,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CStreaming.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CTexDictionary.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CText.h">
@@ -1696,6 +1699,24 @@
     <ClInclude Include="..\game_sa\CCreepingFire.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\TxdDef.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\comp\PluginSupport.h">
+      <Filter>comp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\comp\plugins\LimitAdjusterSupport.h">
+      <Filter>comp\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\comp\PluginsCompatibility.h">
+      <Filter>comp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\RwExtensions.h">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CFileLoader.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBox.cpp">
@@ -1843,9 +1864,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CStreaming.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CTexDictionary.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CText.cpp">
@@ -3067,6 +3085,24 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCreepingFire.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\TxdDef.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\comp\PluginSupport.cpp">
+      <Filter>comp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\comp\plugins\LimitAdjusterSupport.cpp">
+      <Filter>comp\plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\comp\PluginsCompatibility.cpp">
+      <Filter>comp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\RwExtensions.cpp">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CFileLoader.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

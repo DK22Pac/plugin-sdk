@@ -38,7 +38,6 @@ PLUGIN_API bool InTwoPlayersMode();
 PLUGIN_API CVector VectorSub(CVector const& from, CVector const& what);
 // matrix mul
 PLUGIN_API CVector Multiply3x3(CMatrix  const& matrix, CVector  const& vec);
-PLUGIN_API RpHAnimHierarchy *GetAnimHierarchyFromSkinClump(RpClump *clump);
 
 PLUGIN_API extern uint32_t &ClumpOffset;
 
@@ -47,3 +46,74 @@ PLUGIN_API extern uint32_t &ClumpOffset;
 PLUGIN_API AnimBlendFrameData *RpAnimBlendClumpFindFrame(RpClump *clump, char *name);
 
 PLUGIN_API char *MakeUpperCase(char *dest, char *src);
+
+// dummy function
+void CreateDebugFont();
+// dummy function
+void DestroyDebugFont();
+// dummy function
+void ObrsPrintfString(char const* arg0, short arg1, short arg2);
+// dummy function
+void FlushObrsPrintfs();
+void DefinedState();
+void DefinedState2d();
+RpAtomic* GetFirstAtomicCallback(RpAtomic* atomic, void* data);
+RpAtomic* GetFirstAtomic(RpClump* clump);
+RpAtomic* Get2DEffectAtomicCallback(RpAtomic* atomic, void* data);
+RpAtomic* Get2DEffectAtomic(RpClump* clump);
+RwObject* GetFirstObjectCallback(RwObject* object, void* data);
+RwObject* GetFirstObject(RwFrame* frame);
+RwFrame* GetFirstFrameCallback(RwFrame* frame, void* data);
+RwFrame* GetFirstChild(RwFrame* frame);
+RwTexture* GetFirstTextureCallback(RwTexture* texture, void* data);
+RwTexture* GetFirstTexture(RwTexDictionary* txd);
+RpHAnimHierarchy* GetAnimHierarchyFromSkinClump(RpClump* clump);
+RpHAnimHierarchy* GetAnimHierarchyFromFrame(RwFrame* frame);
+RpHAnimHierarchy* GetAnimHierarchyFromClump(RpClump* clump);
+RpAtomic* AtomicRemoveAnimFromSkinCB(RpAtomic* atomic, void* data);
+bool RpAtomicConvertGeometryToTL(RpAtomic* atomic);
+bool RpAtomicConvertGeometryToTS(RpAtomic* atomic);
+bool RpClumpConvertGeometryToTL(RpClump* clump);
+bool RpClumpConvertGeometryToTS(RpClump* clump);
+RpMaterial* forceLinearFilteringMatTexturesCB(RpMaterial* material, void* data);
+bool SetFilterModeOnAtomicsTextures(RpAtomic* atomic, RwTextureFilterMode filtering);
+RpAtomic* forceLinearFilteringAtomicsCB(RpAtomic* atomic, void* data);
+bool SetFilterModeOnClumpsTextures(RpClump* clump, RwTextureFilterMode filtering);
+bool RpGeometryReplaceOldMaterialWithNewMaterial(RpGeometry* geometry, RpMaterial* oldMaterial, RpMaterial* newMaterial);
+RwTexture* RwTexDictionaryFindHashNamedTexture(RwTexDictionary* txd, unsigned int hash);
+RpClump* RpClumpGetBoundingSphere(RpClump* clump, RwSphere* bound, bool arg2);
+void SkinGetBonePositions(RpClump* clump);
+void SkinSetBonePositions(RpClump* clump);
+void SkinGetBonePositionsToTable(RpClump* clump, RwV3d* table);
+void SetLightsWithTimeOfDayColour(RpWorld* world);
+// dummy function
+void LightsEnable(int arg0);
+RpWorld* LightsDestroy(RpWorld* world);
+// lighting = [0.0f;1.0f]
+void WorldReplaceNormalLightsWithScorched(RpWorld* world, float lighting);
+void WorldReplaceScorchedLightsWithNormal(RpWorld* world);
+void AddAnExtraDirectionalLight(RpWorld* world, float x, float y, float z, float red, float green, float blue);
+void RemoveExtraDirectionalLights(RpWorld* world);
+// lighting = [0.0f;1.0f]
+void SetAmbientAndDirectionalColours(float lighting);
+// lighting = [0.0f;1.0f]
+void SetFlashyColours(float lighting);
+// lighting = [0.0f;1.0f]
+void SetFlashyColours_Mild(float lighting);
+// lighting = [0.0f;1.0f], unused
+void SetBrightMarkerColours(float lighting);
+void ReSetAmbientAndDirectionalColours();
+void DeActivateDirectional();
+void ActivateDirectional();
+void SetAmbientColoursToIndicateRoadGroup(int arg0);
+void SetFullAmbient();
+void SetAmbientColours();
+void SetAmbientColours(RwRGBAReal* color);
+void SetDirectionalColours(RwRGBAReal* color);
+// lighting = [0.0f;1.0f]
+void SetLightColoursForPedsCarsAndObjects(float lighting);
+void SetLightsForInfraredVisionHeatObjects();
+void StoreAndSetLightsForInfraredVisionHeatObjects();
+void RestoreLightsForInfraredVisionHeatObjects();
+void SetLightsForInfraredVisionDefaultObjects();
+void SetLightsForNightVision();

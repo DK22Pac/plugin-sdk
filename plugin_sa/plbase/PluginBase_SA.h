@@ -5,12 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 
-/*
- GTASA C++ SDK
- See README.md for more details
- DK22Pac, LINK/2012, 2014-2015
- */
-
 #pragma once
 #include <cstddef>
 #include <cstdint>
