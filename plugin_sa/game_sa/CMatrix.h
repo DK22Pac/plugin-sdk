@@ -10,8 +10,7 @@
 #include "CQuaternion.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CMatrix
-{
+class CMatrix {
 public:
     // RwV3d-like:
     CVector      right;
@@ -24,7 +23,7 @@ public:
     unsigned int pad3;
     
 	RwMatrix *m_pAttachMatrix;
-	unsigned __int8 m_bAttachMatrixTemporary; // do we need to delete attaching matrix at detaching
+	bool m_bOwnsAttachedMatrix; // do we need to delete attaching matrix at detaching
 
 	CMatrix();
 	CMatrix(CMatrix const& matrix);

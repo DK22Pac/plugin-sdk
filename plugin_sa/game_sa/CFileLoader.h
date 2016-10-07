@@ -12,7 +12,7 @@
 class CFileLoader {
 public:
     // load txd from file
-    static void LoadTexDictionary(char const* filename);
+    static RwTexDictionary *LoadTexDictionary(char const* filename);
     // save txd to file
     static void SaveTexDictionary(RwTexDictionary* dictionary, char const* filename);
     // copy textures from dictionary to baseDictionary

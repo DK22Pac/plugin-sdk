@@ -52,7 +52,7 @@ public:
                     CHud::SetHelpMessage(str.c_str(), true, false, false);
                 }
             }
-        }; 
+        };
     }
 
 } vehicleSpawner;

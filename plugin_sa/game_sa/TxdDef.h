@@ -16,6 +16,5 @@ public:
 	short m_wParentIndex;
 	unsigned int m_hash;
 };
-#pragma pack (pop)
 
 VALIDATE_SIZE(TxdDef, 0xC);

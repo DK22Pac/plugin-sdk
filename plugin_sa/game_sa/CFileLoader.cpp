@@ -6,9 +6,9 @@
 */
 #include "CFileLoader.h"
 
-// Converted from RwTexDictionary* void CFileLoader::LoadTexDictionary(char const*filename) 0x5B3860
-void CFileLoader::LoadTexDictionary(char const* filename) {
-    ((void(__cdecl *)(char const*))0x5B3860)(filename);
+// Converted from RwTexDictionary* CFileLoader::LoadTexDictionary(char const*filename) 0x5B3860
+RwTexDictionary *CFileLoader::LoadTexDictionary(char const* filename) {
+    return ((RwTexDictionary *(__cdecl *)(char const*))0x5B3860)(filename);
 }
 
 // Converted from cdecl void CFileLoader::SaveTexDictionary(RwTexDictionary *,char const*filename) 0x5B38C0
