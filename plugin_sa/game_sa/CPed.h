@@ -164,7 +164,7 @@ public:
 	/* */
 	CPedIntelligence   *m_pIntelligence;
 	CPlayerData        *m_pPlayerData;
-	unsigned __int8     m_dwUsageType;
+	unsigned __int32     m_dwUsageType;
 	AnimBlendFrameData *m_apBones[19];
 	unsigned __int32    m_dwAnimGroup;
 	CVector2D           m_vAnimMovingShiftLocal;
