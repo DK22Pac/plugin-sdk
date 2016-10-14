@@ -2,5 +2,5 @@
 
 class Screen {
 public:
-	static float GetCoord(float a);
+    static float GetCoord(float a);
 };
