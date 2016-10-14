@@ -80,6 +80,10 @@ local.properties
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+Dbg/
+Rel/
+Dbg-XP
+Rel-XP
 x64/
 x86/
 bld/

@@ -8,12 +8,16 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "CTaskSimple.h"
+#include "CAnimBlendAssociation.h"
 
 class PLUGIN_API CTaskSimpleAnim : public CTaskSimple {
 protected:
     CTaskSimpleAnim(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
-    
+	CAnimBlendAssociation *m_pBlendAssociation;
+	unsigned char m_nFlags;
+private:
+	char _pad0[3];
 };
 
-//VALIDATE_SIZE(CTaskSimpleAnim, 0x);
+VALIDATE_SIZE(CTaskSimpleAnim, 0x10);

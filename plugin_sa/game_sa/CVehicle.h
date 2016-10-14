@@ -153,6 +153,7 @@ public:
         unsigned char bIsHandbrakeOn : 1; // How's the handbrake doing ?
         unsigned char bLightsOn : 1; // Are the lights switched on ?
         unsigned char bFreebies : 1; // Any freebies left in this vehicle ?
+
         unsigned char bIsVan : 1; // Is this vehicle a van (doors at back of vehicle)
         unsigned char bIsBus : 1; // Is this vehicle a bus
         unsigned char bIsBig : 1; // Is this vehicle a bus
@@ -161,6 +162,7 @@ public:
         unsigned char bWarnedPeds : 1; // Has scan and warn peds of danger been processed?
         unsigned char bCraneMessageDone : 1; // A crane message has been printed for this car allready
         unsigned char bTakeLessDamage : 1; // This vehicle is stronger (takes about 1/4 of damage)
+
         unsigned char bIsDamaged : 1; // This vehicle has been damaged and is displaying all its components
         unsigned char bHasBeenOwnedByPlayer : 1;// To work out whether stealing it is a crime
         unsigned char bFadeOut : 1; // Fade vehicle out
@@ -169,6 +171,7 @@ public:
         unsigned char bCanBeDamaged : 1; // Set to FALSE during cut scenes to avoid explosions
         unsigned char bOccupantsHaveBeenGenerated : 1; // Is true if the occupants have already been generated. (Shouldn't happen again)
         unsigned char bGunSwitchedOff : 1; // Level designers can use this to switch off guns on boats
+
         unsigned char bVehicleColProcessed : 1;// Has ProcessEntityCollision been processed for this car?
         unsigned char bIsCarParkVehicle : 1; // Car has been created using the special CAR_PARK script command
         unsigned char bHasAlreadyBeenRecorded : 1; // Used for replays
@@ -177,6 +180,7 @@ public:
         unsigned char bAudioChangingGear : 1; // sounds like vehicle is changing gear
         unsigned char bIsDrowning : 1; // is vehicle occupants taking damage in water (i.e. vehicle is dead in water)
         unsigned char bTyresDontBurst : 1; // If this is set the tyres are invincible
+
         unsigned char bCreatedAsPoliceVehicle : 1;// True if this guy was created as a police vehicle (enforcer, policecar, miamivice car etc)
         unsigned char bRestingOnPhysical : 1; // Dont go static cause car is sitting on a physical object that might get removed
         unsigned char bParking : 1;
@@ -185,6 +189,7 @@ public:
         unsigned char bDriverLastFrame : 1; // Was there a driver present last frame ?
         unsigned char bNeverUseSmallerRemovalRange : 1;// Some vehicles (like planes) we don't want to remove just behind the camera.
         unsigned char bIsRCVehicle : 1; // Is this a remote controlled (small) vehicle. True whether the player or AI controls it.
+
         unsigned char bAlwaysSkidMarks : 1; // This vehicle leaves skidmarks regardless of the wheels' states.
         unsigned char bEngineBroken : 1; // Engine doesn't work. Player can get in but the vehicle won't drive
         unsigned char bVehicleCanBeTargetted : 1;// The ped driving this vehicle can be targetted, (for Torenos plane mission)

@@ -8,6 +8,7 @@
 #pragma once
 #include <cstddef>
 #include <cstdint>
+#include "..\shared\Base.h"
 
 #define PLUGIN_API 
 #define _PLUGIN_VERSION 0x00000010

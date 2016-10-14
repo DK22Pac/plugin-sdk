@@ -10,18 +10,6 @@
 
 namespace plugin
 {
-    struct NoRet {};
-
-    template <typename Ret, unsigned int address, typename... Args>
-    Ret Call(Args... args) {
-        return ((Ret(__cdecl *)(Args...))address)(args...);
-    }
-
-    template <typename Ret, unsigned int address, typename C, typename... Args>
-    Ret CallMethod(C _this, Args... args) {
-        return ((Ret(__thiscall *)(C, Args...))address)(_this, args...);
-    }
-
     class patch {
     public:
         inline static void Nop(unsigned int address, unsigned int size){
