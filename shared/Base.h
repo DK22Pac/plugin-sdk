@@ -23,11 +23,11 @@ namespace plugin {
 
 	template <unsigned int tableIndex, typename C, typename... Args>
 	void CallVirtualMethod(C _this, Args... args) {
-		reinterpret_cast<void(__thiscall *)(C, Args...)>(*reinterpret_cast<void **>(this)[tableIndex])(_this, args...);
+		reinterpret_cast<void(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 	}
 
 	template <typename Ret, unsigned int tableIndex, typename C, typename... Args>
-	Ret CallVirtualMethodAndReturn(C _this, Args... args) {
-		return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(*reinterpret_cast<void **>(this)[tableIndex])(_this, args...);
+	Ret CallVirtualMethodAndReturn(C *_this, Args... args) {
+		return reinterpret_cast<Ret(__thiscall *)(C *, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 	}
 }
