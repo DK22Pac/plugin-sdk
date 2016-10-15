@@ -273,6 +273,8 @@ public:
 	void DisableEnvMap();
 	// setup environment map intensity for model
 	void SetEnvMapCoeff(float coeff);
+    // get num doors in this model
+    int GetNumDoors();
 };
 #pragma pack(pop)
 
