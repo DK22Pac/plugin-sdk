@@ -27,7 +27,7 @@ namespace plugin {
 	}
 
 	template <typename Ret, unsigned int tableIndex, typename C, typename... Args>
-	Ret CallVirtualMethodAndReturn(C *_this, Args... args) {
-		return reinterpret_cast<Ret(__thiscall *)(C *, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
+	Ret CallVirtualMethodAndReturn(C _this, Args... args) {
+		return reinterpret_cast<Ret(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 	}
 }
