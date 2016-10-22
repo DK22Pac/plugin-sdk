@@ -145,6 +145,9 @@
     <ClInclude Include="..\game_vc\CSprite.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CTimer.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -211,6 +214,9 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CSprite.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTimer.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

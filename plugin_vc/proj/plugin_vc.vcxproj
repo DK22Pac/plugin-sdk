@@ -152,6 +152,7 @@
     <ClInclude Include="..\game_vc\CPtrList.h" />
     <ClInclude Include="..\game_vc\CRect.h" />
     <ClInclude Include="..\game_vc\CSector.h" />
+    <ClInclude Include="..\game_vc\CTimer.h" />
     <ClInclude Include="..\game_vc\CTreadable.h" />
     <ClInclude Include="..\game_vc\CVector.h" />
     <ClInclude Include="..\game_vc\CVector2D.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
     <ClCompile Include="..\game_vc\CSprite.cpp" />
     <ClCompile Include="..\game_vc\CSprite2d.cpp" />
+    <ClCompile Include="..\game_vc\CTimer.cpp" />
     <ClCompile Include="..\game_vc\CTreadable.cpp" />
     <ClCompile Include="..\game_vc\CDummyObject.cpp" />
     <ClCompile Include="..\game_vc\CVector.cpp" />
