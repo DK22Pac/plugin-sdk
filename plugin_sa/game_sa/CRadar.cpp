@@ -8,15 +8,22 @@
 
 unsigned int MAX_RADAR_SPRITES = 64;
 unsigned int MAX_RADAR_TRACES = 175;
+unsigned int MAX_AIRSTRIP_INFOS = 4;
+unsigned int MAX_RADAR_WIDTH_TILES = 12;
+unsigned int MAX_RADAR_HEIHGT_TILES = 12;
 
 float &CRadar::m_radarRange = *(float *)0xBA8314;
-uint16_t *CRadar::MapLegendList = (uint16_t *)0xBA8318;
-uint16_t &CRadar::MapLegendCounter = *(uint16_t *)0xBA86B8;
-CRGBA *CRadar::ArrowBlipColours = (CRGBA *)0xBA86D4;
+unsigned short *CRadar::MapLegendList = (unsigned short *)0xBA8318;
+unsigned short &CRadar::MapLegendCounter = *(unsigned short *)0xBA86B8;
+CRGBA *CRadar::ArrowBlipColour = (CRGBA *)0xBA86D4;
 tRadarTrace *CRadar::ms_RadarTrace = (tRadarTrace *)0xBA86F0;
 CVector2D &CRadar::vec2DRadarOrigin = *(CVector2D *)0xBAA248;
 CSprite2d *CRadar::RadarBlipSprites = (CSprite2d *)0xBAA250;
 CRect &CRadar::m_radarRect = *(CRect *)0x8D0920;
+unsigned char &CRadar::airstrip_location = *(unsigned char *)0xBA8300;
+int &CRadar::airstrip_blip = *(int *)0xBA8304;
+airstrip_info *airstrip_table = (airstrip_info *)0x8D06E0;
+int *gRadarTextures = (int *)0xBA8478;
 
 // Converted from cdecl void CRadar::LoadTextures(void) 0x5827D0
 void CRadar::LoadTextures()
@@ -412,4 +419,14 @@ void CRadar::Initialise()
 void CRadar::DrawBlips()
 {
 	((void (__cdecl *)())0x588050)();
+}
+
+void CRadar::Load()
+{
+    ((void(__cdecl *)())0x5D53C0)();
+}
+
+void CRadar::Save()
+{
+    ((void(__cdecl *)())0x5D5860)();
 }

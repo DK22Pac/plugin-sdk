@@ -97,5 +97,25 @@ namespace plugin
         static T Get(unsigned int address, bool vp = true) {
             return injector::ReadMemory<T>(address, vp);
         }
+
+        template <typename T>
+        static T TranslateCallOffset(unsigned int address) {
+            if (GetUChar(address) == 0xE8) {
+                int offset = GetUInt(address + 1);
+                offset += (address + 5);
+                return reinterpret_cast<T>(offset);
+            }
+            return nullptr;
+        }
+
+        template <typename T>
+        static T TranslateJumpOffset(unsigned int address) {
+            if (GetUChar(address) == 0xE9) {
+                int offset = GetUInt(address + 1);
+                offset += (address + 5);
+                return reinterpret_cast<T>(offset);
+            }
+            return nullptr;
+        }
     };
 };
