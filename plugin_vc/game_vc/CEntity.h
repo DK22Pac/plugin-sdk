@@ -10,6 +10,7 @@
 #include "CPlaceable.h"
 #include "CRect.h"
 #include "RenderWare.h"
+#include "CColModel.h"
 
 class CEntity {
 public:
