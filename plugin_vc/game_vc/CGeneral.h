@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
     Plugin-SDK (Grand Theft Auto) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
@@ -16,6 +17,18 @@
 
 class CGeneral {
 public:
+=======
+Plugin-SDK (Grand Theft Auto) header file
+Authors: GTA Community. See more here
+https://github.com/DK22Pac/plugin-sdk
+Do not delete this comment block. Respect others' work!
+*/
+#pragma once
+#include "plbase/PluginBase_VC.h"
+
+class CGeneral {
+public: 
+>>>>>>> 158a0c031a4988168d0e60872b38e45d87285a71
     static bool SolveQuadratic(float a, float b, float c, float& x1, float& x2);
     static int GetNodeHeadingFromVector(float x, float y);
     static float GetATanOfXY(float x, float y);
