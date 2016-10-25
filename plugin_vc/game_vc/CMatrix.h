@@ -23,11 +23,11 @@ public:
     unsigned int pad3;
 
     struct RwMatrix *m_pAttachMatrix;
-    unsigned int m_bAttachMatrixTemporary; // do we need to delete attaching matrix at detaching
+    unsigned int m_bOwnsAttachedMatrix; // do we need to delete attaching matrix at detaching
 
     inline CMatrix() {
         this->m_pAttachMatrix = 0;
-        this->m_bAttachMatrixTemporary = 0;
+        this->m_bOwnsAttachedMatrix = 0;
     }
 
     CMatrix(plugin::dummy_func_t) {}

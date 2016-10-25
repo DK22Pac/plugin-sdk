@@ -35,13 +35,13 @@ VALIDATE_SIZE(tTimeInfo, 4);
 #pragma pack(push, 4)
 class PLUGIN_API CBaseModelInfo {
 public:
-	unsigned int   m_dwKey;
-	unsigned short m_wUsageCount;
-	signed short   m_wTxdIndex;
+	unsigned int   m_nKey;
+	unsigned short m_nRefCount;
+	short          m_nTxdIndex;
 	unsigned char  m_nAlpha; // 0 - 255
-	unsigned char  m_n2dfxCount;
-    short          m_w2dfxIndex;
-    short          m_wObjectInfoIndex;
+	unsigned char  m_nNum2dEffects;
+    short          m_n2dEffectIndex;
+    short          m_nObjectInfoIndex;
 	union{
 		unsigned short m_wFlags;
 		struct{
@@ -110,7 +110,7 @@ public:
 	C2dEffect *Get2dEffect(int index);
 	void Add2dEffect(C2dEffect *effect);
 
-    __parent_class_vtable__
+    virtual ~CBaseModelInfo() {}
 };
 #pragma pack(pop)
 

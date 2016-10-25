@@ -106,9 +106,6 @@
     <ClInclude Include="..\game_vc\CVehicle.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\CBuilding.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\CTreadable.h">
       <Filter>game_vc</Filter>
     </ClInclude>
@@ -146,6 +143,15 @@
       <Filter>game_vc</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CTimer.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CGeneral.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBaseModelInfo.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSimpleModelInfo.h">
       <Filter>game_vc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -217,6 +223,15 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CTimer.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CGeneral.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBaseModelInfo.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

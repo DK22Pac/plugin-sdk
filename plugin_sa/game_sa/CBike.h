@@ -26,7 +26,7 @@ enum eBikeNodes {
 
 class CBike : public CVehicle {
 protected:
-    CBike(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
+    CBike(plugin::dummy_func_t) : CVehicle(plugin::dummy), m_mLeanMatrix(plugin::dummy) {}
 public:
     RwFrame       *m_aBikeNodes[BIKE_NUM_NODES];
     bool           m_bLeanMatrixCalculated;

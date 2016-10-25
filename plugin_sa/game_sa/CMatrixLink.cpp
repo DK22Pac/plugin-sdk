@@ -6,7 +6,7 @@
 */
 #include "CMatrixLink.h"
 
-CMatrixLink::CMatrixLink()
+CMatrixLink::CMatrixLink() : CMatrix(plugin::dummy)
 {
     // parent (CMatrix) constructor is dummy
 	((void (__thiscall *)(CMatrixLink *))0x54F0C0)(this);

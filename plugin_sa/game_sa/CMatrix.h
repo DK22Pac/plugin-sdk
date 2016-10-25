@@ -25,7 +25,12 @@ public:
 	RwMatrix *m_pAttachMatrix;
 	bool m_bOwnsAttachedMatrix; // do we need to delete attaching matrix at detaching
 
-	CMatrix();
+    inline CMatrix() {
+        m_pAttachMatrix = nullptr;
+        m_bOwnsAttachedMatrix = false;
+    }
+
+    CMatrix(plugin::dummy_func_t) {}
 	CMatrix(CMatrix const& matrix);
 	CMatrix(RwMatrix *matrix, bool temporary); // like previous + attach
 	~CMatrix(); // destructor detaches matrix if attached 

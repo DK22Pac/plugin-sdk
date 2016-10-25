@@ -543,6 +543,7 @@
     <ClInclude Include="..\game_sa\CTaskSimple.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
+    <ClInclude Include="..\game_sa\eSprintType.h" />
     <ClInclude Include="..\game_sa\RwExtensions.h" />
     <ClInclude Include="..\game_sa\TxdDef.h" />
     <ClInclude Include="..\game_sa\CText.h" />

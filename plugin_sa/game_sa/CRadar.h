@@ -27,7 +27,7 @@ enum eBlipType {
     BLIP_CONTACTPOINT,  // 5 - Sphere.
     BLIP_SPOTLIGHT,     // 6
     BLIP_PICKUP,        // 7
-    BLIP_AIRPORT        // 8
+    BLIP_AIRSTRIP       // 8
 };
 
 enum eBlipDisplay {
