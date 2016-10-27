@@ -131,9 +131,15 @@
     <ClInclude Include="..\extender\ObjectExtender_VC.h" />
     <ClInclude Include="..\extender\PedExtender_VC.h" />
     <ClInclude Include="..\extender\VehicleExtender_VC.h" />
+    <ClInclude Include="..\game_vc\CAutomobile.h" />
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
     <ClInclude Include="..\game_vc\CBaseModelInfo.h" />
+    <ClInclude Include="..\game_vc\CColModel.h" />
+    <ClInclude Include="..\game_vc\CCopPed.h" />
+    <ClInclude Include="..\game_vc\CDamageManager.h" />
+    <ClInclude Include="..\game_vc\CDoor.h" />
     <ClInclude Include="..\game_vc\CGeneral.h" />
+    <ClInclude Include="..\game_vc\CPlayerPed.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h" />
     <ClInclude Include="..\game_vc\CSprite.h" />
@@ -159,6 +165,8 @@
     <ClInclude Include="..\game_vc\CVector.h" />
     <ClInclude Include="..\game_vc\CVector2D.h" />
     <ClInclude Include="..\game_vc\CVehicle.h" />
+    <ClInclude Include="..\game_vc\CWeapon.h" />
+    <ClInclude Include="..\game_vc\eWeaponType.h" />
     <ClInclude Include="..\game_vc\RenderWare.h" />
     <ClInclude Include="..\game_vc\rw\rpcriter.h" />
     <ClInclude Include="..\game_vc\rw\rperror.h" />
@@ -176,9 +184,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp" />
+    <ClCompile Include="..\game_vc\CAutomobile.cpp" />
     <ClCompile Include="..\game_vc\CBaseModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
+    <ClCompile Include="..\game_vc\CCopPed.cpp" />
+    <ClCompile Include="..\game_vc\CDamageManager.cpp" />
+    <ClCompile Include="..\game_vc\CDoor.cpp" />
     <ClCompile Include="..\game_vc\CDummy.cpp" />
     <ClCompile Include="..\game_vc\CEntity.cpp" />
     <ClCompile Include="..\game_vc\CEntryInfoList.cpp" />
@@ -188,6 +200,7 @@
     <ClCompile Include="..\game_vc\CPed.cpp" />
     <ClCompile Include="..\game_vc\CPhysical.cpp" />
     <ClCompile Include="..\game_vc\CPlaceable.cpp" />
+    <ClCompile Include="..\game_vc\CPlayerPed.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
     <ClCompile Include="..\game_vc\CPtrList.cpp" />
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
@@ -199,6 +212,7 @@
     <ClCompile Include="..\game_vc\CDummyObject.cpp" />
     <ClCompile Include="..\game_vc\CVector.cpp" />
     <ClCompile Include="..\game_vc\CVehicle.cpp" />
+    <ClCompile Include="..\game_vc\CWeapon.cpp" />
     <ClCompile Include="..\game_vc\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_VC.cpp" />
   </ItemGroup>
