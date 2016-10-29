@@ -287,5 +287,8 @@ extern float &fBurstBikeTyreMod; // 0.05
 extern float &fBurstBikeSpeedMax; // 0.12
 extern float &fTweakBikeWheelTurnForce; // 2.0
 extern float &ROTOR_SEMI_THICKNESS; // 0.05
-
-
+extern float &ROTOR_TURN_SPEED; // 0.2
+extern float &ROTOR_DISGUARD_MULT; // 0.3
+extern float &ROTOR_COL_ELASTICITY; // 1.0
+extern float &ROTOR_DEFAULT_DAMAGE; // 100.0
+extern float &ROTOR_COL_TURNMULT; // -0.001
