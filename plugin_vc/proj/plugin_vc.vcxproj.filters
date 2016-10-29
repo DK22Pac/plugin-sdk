@@ -199,6 +199,12 @@
     <ClInclude Include="..\game_vc\CHeli.h">
       <Filter>game_vc\Entity\Vehicle</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CClumpModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -299,6 +305,9 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CHeli.cpp">
       <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CClumpModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
