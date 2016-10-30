@@ -381,9 +381,6 @@
     <ClInclude Include="..\game_sa\functions.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\IFrame.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\LimbOrienation.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1576,12 +1573,6 @@
     <ClInclude Include="..\game_sa\FxMemoryPool_c.h">
       <Filter>game_sa\Fx</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\List_c.h">
-      <Filter>game_sa\Fx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ListItem_c.h">
-      <Filter>game_sa\Fx</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CAutomobile.h">
       <Filter>game_sa\Entity\Vehicle</Filter>
     </ClInclude>
@@ -1718,6 +1709,15 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\eSprintType.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\List_c.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ListItem_c.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\RpHAnimBlendInterpFrame.h">
       <Filter>game_sa</Filter>
     </ClInclude>
   </ItemGroup>

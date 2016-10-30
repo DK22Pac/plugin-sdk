@@ -108,7 +108,7 @@ void CBaseModelInfo::RemoveRef()
 
 void CBaseModelInfo::SetColModel(CColModel *colModel, bool initPairedModel)
 {
-	((void (__thiscall *)(CBaseModelInfo *, bool))0x4C4BC0)(this, initPairedModel);
+	((void (__thiscall *)(CBaseModelInfo *, CColModel *, bool))0x4C4BC0)(this, colModel, initPairedModel);
 }
 
 void CBaseModelInfo::Init2dEffects()

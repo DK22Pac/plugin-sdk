@@ -7,15 +7,11 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "CQuaternion.h"
+#include "game_sa\RenderWare.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API IFrame
-{
-public:
-    CVector m_qOrientation;
-    CQuaternion m_vTranslation;
+struct RpHAnimBlendInterpFrame {
+    RtQuat orientation;
+    RwV3d translation;
 };
-#pragma pack(pop)
 
-VALIDATE_SIZE(IFrame, 0x1C);
+VALIDATE_SIZE(RpHAnimBlendInterpFrame, 0x1C);

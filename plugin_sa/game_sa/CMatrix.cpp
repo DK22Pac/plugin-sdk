@@ -6,11 +6,6 @@
 */
 #include "CMatrix.h"
 
-CMatrix::CMatrix()
-{
-	// dummy
-}
-
 CMatrix::CMatrix(CMatrix const& matrix)
 {
 	((void (__thiscall *)(CMatrix *, CMatrix const&))0x59BCF0)(this, matrix);
@@ -168,19 +163,19 @@ void CMatrix::SetRotate(CQuaternion  const& quat)
 	((void (__thiscall *)(CMatrix *, CQuaternion  const&))0x59BBF0)(this, quat);
 }
 
-void CMatrix::operator=(CMatrix const& right)
+void CMatrix::operator=(CMatrix const& rvalue)
 {
-	((void (__thiscall *)(CMatrix *, CMatrix const&))0x59BBC0)(this, right);
+	((void (__thiscall *)(CMatrix *, CMatrix const&))0x59BBC0)(this, rvalue);
 }
 
-void CMatrix::operator+=(CMatrix const& right)
+void CMatrix::operator+=(CMatrix const& rvalue)
 {
-	((void (__thiscall *)(CMatrix *, CMatrix const&))0x59ADF0)(this, right);
+	((void (__thiscall *)(CMatrix *, CMatrix const&))0x59ADF0)(this, rvalue);
 }
 
-void CMatrix::operator*=(CMatrix const& right)
+void CMatrix::operator*=(CMatrix const& rvalue)
 {
-	((void (__thiscall *)(CMatrix *, CMatrix const&))0x411A80)(this, right);
+	((void (__thiscall *)(CMatrix *, CMatrix const&))0x411A80)(this, rvalue);
 }
 
 CMatrix operator*(CMatrix const&a, CMatrix const&b) {

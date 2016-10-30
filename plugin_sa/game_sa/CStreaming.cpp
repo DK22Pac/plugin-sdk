@@ -61,7 +61,7 @@ unsigned int CStreaming::GetDefaultCopModel()
 
 unsigned int CStreaming::GetDefaultCopCarModel(unsigned int arg0)
 {
-    return ((unsigned int(__cdecl *)())0x407C50)();
+    return ((unsigned int(__cdecl *)(unsigned int))0x407C50)(arg0);
 }
 
 void CStreaming::LoadAllRequestedModels(bool bOnlyQuickRequests)

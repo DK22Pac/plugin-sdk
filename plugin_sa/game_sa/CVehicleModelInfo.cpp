@@ -107,7 +107,7 @@ void CVehicleModelInfo::SetVehicleComponentFlags(RwFrame* component, unsigned in
 // Converted from thiscall void CVehicleModelInfo::GetWheelPosn(int wheel, CVector &outVec, bool local) 0x4C7D20
 void CVehicleModelInfo::GetWheelPosn(int wheel, CVector& outVec, bool local)
 {
-    ((void(__thiscall *)(CVehicleModelInfo*, CVector&, bool))0x4C7D20)(this, outVec, local);
+    ((void(__thiscall *)(CVehicleModelInfo*, int, CVector&, bool))0x4C7D20)(this, wheel, outVec, local);
 }
 
 // Converted from thiscall bool CVehicleModelInfo::GetOriginalCompPosition(CVector &outVec, int component) 0x4C7DD0

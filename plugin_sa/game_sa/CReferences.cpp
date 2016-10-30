@@ -16,7 +16,7 @@ void CReferences::Init()
 
 unsigned int CReferences::ListSize(CReference *ref)
 {
-	return ((unsigned int (__cdecl *)())0x5719E0)();
+	return ((unsigned int (__cdecl *)(CReference *))0x5719E0)(ref);
 }
 
 void CReferences::RemoveReferencesToPlayer()

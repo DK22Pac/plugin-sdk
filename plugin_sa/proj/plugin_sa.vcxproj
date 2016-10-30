@@ -63,7 +63,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level1</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -603,7 +603,7 @@
     <ClInclude Include="..\game_sa\FxSystemBP_c.h" />
     <ClInclude Include="..\game_sa\FxSystem_c.h" />
     <ClInclude Include="..\game_sa\Fx_c.h" />
-    <ClInclude Include="..\game_sa\IFrame.h" />
+    <ClInclude Include="..\game_sa\RpHAnimBlendInterpFrame.h" />
     <ClInclude Include="..\game_sa\LimbOrienation.h" />
     <ClInclude Include="..\game_sa\ListItem_c.h" />
     <ClInclude Include="..\game_sa\List_c.h" />

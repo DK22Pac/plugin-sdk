@@ -43,5 +43,5 @@ void CTask::StopTimer(class CEvent *_event)
 
 bool CTask::MakeAbortable(class CPed *ped, int priority, class CEvent *_event)
 {
-	return ((bool (__thiscall *)(CTask *, int, class CEvent *))GetVMT(this, 6))(this, priority, _event);
+	return ((bool (__thiscall *)(CTask *, CPed *, int, class CEvent *))GetVMT(this, 6))(this, ped, priority, _event);
 }

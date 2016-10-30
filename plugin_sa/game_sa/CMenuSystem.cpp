@@ -83,7 +83,7 @@ CMenuPanel* CMenuSystem::InsertOneMenuItem(unsigned __int8 panelId, unsigned __i
 
 CMenuPanel* CMenuSystem::InsertOneMenuItemWithNumber(unsigned __int8 panelId, unsigned __int8 columnId, unsigned __int8 rowId, char *str, int number1, int number2)
 {
-	return ((CMenuPanel* (__cdecl *)(unsigned __int8, unsigned __int8, unsigned __int8, char*, int, int))0x581D70)(panelId, columnId, rowId, str, number1, number1);
+	return ((CMenuPanel* (__cdecl *)(unsigned __int8, unsigned __int8, unsigned __int8, char*, int, int))0x581D70)(panelId, columnId, rowId, str, number1, number2);
 }
 
 void CMenuSystem::SetActiveMenuItem(unsigned __int8 panelId, __int8 rowId)

@@ -7,9 +7,9 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
+#include "CVector.h"
 
-class PLUGIN_API CDoor
-{
+class PLUGIN_API CDoor {
 public:
     float fAngleInPosOne;
     float fAngleInPosTwo;
