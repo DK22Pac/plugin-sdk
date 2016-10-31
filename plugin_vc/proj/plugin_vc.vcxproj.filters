@@ -139,9 +139,6 @@
     <ClInclude Include="..\game_vc\CGeneral.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\CSimpleModelInfo.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\CDamageManager.h">
       <Filter>game_vc</Filter>
     </ClInclude>
@@ -205,6 +202,21 @@
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponModel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeaponModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSimpleModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedModel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedType.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -247,9 +259,6 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CGeneral.cpp">
-      <Filter>game_vc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CDamageManager.cpp">
@@ -307,6 +316,12 @@
       <Filter>game_vc\Entity\Vehicle</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp">
       <Filter>game_vc\Models</Filter>
     </ClCompile>
   </ItemGroup>

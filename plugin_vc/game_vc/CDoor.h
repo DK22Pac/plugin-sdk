@@ -9,6 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "plbase/PluginBase_VC.h"
 #include "CVector.h"
 
+#pragma pack(push, 4)
 class PLUGIN_API CDoor {
 public:
     float fAngleInPosOne;
@@ -22,3 +23,6 @@ public:
     float fVelAngle;
     CVector vecVelocity;
 };
+#pragma pack(pop)
+
+VALIDATE_SIZE(CDoor, 0x24);

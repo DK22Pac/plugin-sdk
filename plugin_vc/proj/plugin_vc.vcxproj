@@ -168,6 +168,10 @@
     <ClInclude Include="..\game_vc\CVector2D.h" />
     <ClInclude Include="..\game_vc\CVehicle.h" />
     <ClInclude Include="..\game_vc\CWeapon.h" />
+    <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
+    <ClInclude Include="..\game_vc\ePedModel.h" />
+    <ClInclude Include="..\game_vc\ePedType.h" />
+    <ClInclude Include="..\game_vc\eWeaponModel.h" />
     <ClInclude Include="..\game_vc\eWeaponType.h" />
     <ClInclude Include="..\game_vc\RenderWare.h" />
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h" />
@@ -218,6 +222,7 @@
     <ClCompile Include="..\game_vc\CVector.cpp" />
     <ClCompile Include="..\game_vc\CVehicle.cpp" />
     <ClCompile Include="..\game_vc\CWeapon.cpp" />
+    <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp" />
     <ClCompile Include="..\game_vc\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_VC.cpp" />
   </ItemGroup>
