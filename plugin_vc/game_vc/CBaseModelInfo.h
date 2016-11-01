@@ -58,9 +58,10 @@ public:
     void Add2dEffect(C2dEffect* effect);
     C2dEffect* Get2dEffect(int effectNumber);
 
-    CBaseModelInfo() = delete;
-    CBaseModelInfo(const CBaseModelInfo &) = delete;
-    CBaseModelInfo &operator=(const CBaseModelInfo &) = delete;
+protected:
+    CBaseModelInfo() {};
+    CBaseModelInfo(const CBaseModelInfo &) {};
+    CBaseModelInfo &operator=(const CBaseModelInfo &) {};
 };
 #pragma pack(pop)
 

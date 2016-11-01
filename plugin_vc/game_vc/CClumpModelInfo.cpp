@@ -7,8 +7,12 @@ Do not delete this comment block. Respect others' work!
 #include "CClumpModelInfo.h"
 
 // Converted from void CClumpModelInfo::SetClump(RpClump *) 0x6980B8
-void CClumpModelInfo::SetClump(RpClump* arg0) {
-    plugin::CallVirtualMethod<9, CClumpModelInfo *, RpClump*>(this, arg0);
+void CClumpModelInfo::SetClump(RpClump* clump) {
+    plugin::CallVirtualMethod<9, CClumpModelInfo *, RpClump*>(this, clump);
+}
+
+CClumpModelInfo::CClumpModelInfo() {
+    plugin::CallMethod<0x5601C0, CClumpModelInfo *>(this);
 }
 
 // Converted from cdecl void CClumpModelInfo::FillFrameArray(RpClump *clump, RwFrame **frames) 0x541100

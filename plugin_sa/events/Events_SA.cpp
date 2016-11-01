@@ -16,6 +16,7 @@ CdeclEvent    <AddressList<0x58AA2D, H_JUMP,
                            0x575B44, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::drawBlipsEvent;
 CdeclEvent    <AddressList<0x5759E4, H_CALL, 
                            0x5869BF, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void(bool)>      plugin::Events::drawRadarOverlayEvent;
+ThiscallEvent <AddressList<0x57C324, H_JUMP>, PRIORITY_AFTER,  ArgPickNone,            void(void *)>    plugin::Events::drawMenuBackgroundEvent;
 CdeclEvent    <AddressList<0x5BF3A1, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::initRwEvent;
 CdeclEvent    <AddressList<0x53D910, H_CALL>, PRIORITY_BEFORE, ArgPickNone,            void()>          plugin::Events::shutdownRwEvent;
 ThiscallEvent <AddressList<0x6D5F2F, H_CALL>, PRIORITY_AFTER,  ArgPickN<CVehicle*, 0>, void(CVehicle*)> plugin::Events::vehicleCtorEvent;

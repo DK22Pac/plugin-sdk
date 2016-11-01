@@ -13,9 +13,12 @@ class CSimpleModelInfo : public CBaseModelInfo {
     RpAtomic      *m_apLodAtomics[3];
     RpAtomic      *m_afLodDistances[3];
     unsigned char  m_nNumLodLevels;
+    char field_41;
     unsigned short m_nCurrentLodLevel : 3;
     unsigned short : 1;
     unsigned short m_bIsBigBuilding : 1;
     unsigned short : 1;
     unsigned short m_bDrawLast : 1;
 };
+
+VALIDATE_SIZE(CSimpleModelInfo, 0x44);

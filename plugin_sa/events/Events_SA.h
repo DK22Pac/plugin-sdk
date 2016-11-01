@@ -22,6 +22,7 @@ namespace plugin
                                           0x575B44, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          drawBlipsEvent;
         extern CdeclEvent    <AddressList<0x5759E4, H_CALL,
                                           0x5869BF, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void(bool)>      drawRadarOverlayEvent;
+        extern ThiscallEvent <AddressList<0x57C324, H_JUMP>, PRIORITY_AFTER,  ArgPickNone,            void(void *)>    drawMenuBackgroundEvent;
         extern CdeclEvent    <AddressList<0x5BF3A1, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          initRwEvent;
         extern CdeclEvent    <AddressList<0x53D910, H_CALL>, PRIORITY_BEFORE, ArgPickNone,            void()>          shutdownRwEvent;
         extern ThiscallEvent <AddressList<0x6D5F2F, H_CALL>, PRIORITY_AFTER,  ArgPickN<CVehicle*, 0>, void(CVehicle*)> vehicleCtorEvent;

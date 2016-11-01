@@ -8,24 +8,30 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase/PluginBase_VC.h"
 #include "CBaseModelInfo.h"
+#include "RenderWare.h"
 #include "RwObjectNameIdAssocation.h"
 
-struct RwFrame;
-struct RpAtomic;
-struct RpClump;
+struct FrameSearchData {
+    char const *name;
+    RwFrame *result;
+};
 
-
-#pragma pack(push, 8)
-class PLUGIN_API CClumpModelInfo : public CBaseModelInfo {
+class CClumpModelInfo : public CBaseModelInfo {
 public:
-    char gap28[4];
-    int dword2C;
+    RpClump *m_pClump;
+    union {
+        char *m_pszAnimFileName;
+        int m_nAnimFileIndex;
+    };
     
     //vtable
 
-    void SetClump(RpClump* arg0);
+    void SetClump(RpClump* clump);
 
     //funcs
+
+    CClumpModelInfo();
+    CClumpModelInfo(plugin::dummy_func_t) {}
 
     static void FillFrameArray(RpClump* clump, RwFrame** frames);
     static RwFrame* FindFrameFromIdCB(RwFrame* frame, void* searchData);
@@ -34,7 +40,18 @@ public:
     static RwFrame* GetFrameFromId(RpClump* clump, int id);
     static void SetAtomicRendererCB(RpAtomic* atomic, void* renderFunc);
     static void SetFrameIds(RwObjectNameIdAssocation* data);
+
+    static inline RwFrame *GetFrameFromName(RpClump *clump, char const *name) {
+        FrameSearchData searchData;
+        searchData.name = name;
+        searchData.result = nullptr;
+        RwFrameForAllChildren(reinterpret_cast<RwFrame *>(clump->object.parent), FindFrameFromNameCB, &searchData);
+        return searchData.result;
+    }
+
+protected:
+    CClumpModelInfo(const CClumpModelInfo &) {};
+    CClumpModelInfo &operator=(const CClumpModelInfo &) {};
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CClumpModelInfo, 0x30);
