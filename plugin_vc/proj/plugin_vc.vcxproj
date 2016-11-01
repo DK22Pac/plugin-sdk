@@ -134,6 +134,7 @@
     <ClInclude Include="..\game_vc\CAutomobile.h" />
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
     <ClInclude Include="..\game_vc\CBaseModelInfo.h" />
+    <ClInclude Include="..\game_vc\CBike.h" />
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
     <ClInclude Include="..\game_vc\CColModel.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
@@ -168,6 +169,10 @@
     <ClInclude Include="..\game_vc\CVector2D.h" />
     <ClInclude Include="..\game_vc\CVehicle.h" />
     <ClInclude Include="..\game_vc\CWeapon.h" />
+    <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
+    <ClInclude Include="..\game_vc\ePedModel.h" />
+    <ClInclude Include="..\game_vc\ePedType.h" />
+    <ClInclude Include="..\game_vc\eWeaponModel.h" />
     <ClInclude Include="..\game_vc\eWeaponType.h" />
     <ClInclude Include="..\game_vc\RenderWare.h" />
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h" />
@@ -189,6 +194,7 @@
     <ClCompile Include="..\events\Events_VC.cpp" />
     <ClCompile Include="..\game_vc\CAutomobile.cpp" />
     <ClCompile Include="..\game_vc\CBaseModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CBike.cpp" />
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
@@ -218,6 +224,7 @@
     <ClCompile Include="..\game_vc\CVector.cpp" />
     <ClCompile Include="..\game_vc\CVehicle.cpp" />
     <ClCompile Include="..\game_vc\CWeapon.cpp" />
+    <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp" />
     <ClCompile Include="..\game_vc\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_VC.cpp" />
   </ItemGroup>

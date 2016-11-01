@@ -202,8 +202,23 @@
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponModel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeaponModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h">
       <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedModel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedType.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBike.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -306,8 +321,14 @@
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp">
       <Filter>game_vc\Models</Filter>
     </ClCompile>
+    <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
     <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp">
       <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBike.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
