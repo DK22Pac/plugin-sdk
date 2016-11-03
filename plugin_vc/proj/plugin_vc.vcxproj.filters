@@ -220,6 +220,27 @@
     <ClInclude Include="..\game_vc\CBike.h">
       <Filter>game_vc\Entity\Vehicle</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CVehicleModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CIniFile.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eVehicleFlags.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CQuaternion.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\cTransmission.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tTransmissionGear.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -329,6 +350,21 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CBike.cpp">
       <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CVehicleModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CIniFile.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CQuaternion.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\cTransmission.cpp">
+      <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
