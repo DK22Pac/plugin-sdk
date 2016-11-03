@@ -7,6 +7,7 @@
 #pragma once
 #include "plbase/PluginBase_SA.h"
 #include "CVector.h"
+#include "CEntity.h"
 
 #pragma pack(push, 4)
 class PLUGIN_API CBulletTrace
@@ -31,8 +32,8 @@ class PLUGIN_API CBulletTraces
 public:
 	// count: 16
 	static CBulletTrace *aTraces;
-	// TODO:
-	// static void AddTrace(CVector *start, CVector *end, int weaponType, CEntity *entity);
+	
+	static void AddTrace(CVector *start, CVector *end, int weaponType, CEntity *entity);
 	static void AddTrace(CVector *start, CVector *end, float radius, unsigned int time, unsigned char transparency);
 	static void Render();
 	static void Update();

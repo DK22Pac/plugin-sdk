@@ -8,6 +8,11 @@
 
 CBulletTrace *CBulletTraces::aTraces = (CBulletTrace *)0xC7C748;
 
+// Converted from cdecl void CBulletTraces::AddTrace(CVector * start,CVector * end,int weaponType,CEntity * entity) 0x573D40
+void CBulletTraces::AddTrace(CVector* start, CVector* end, int weaponType, CEntity* entity) {
+    plugin::Call<0x726AF0, CVector*, CVector*, int, CEntity*>(start, end, weaponType, entity);
+}
+
 void CBulletTraces::AddTrace(CVector *start, CVector *end, float radius, unsigned int time, unsigned char transparency)
 {
 	((void (__cdecl *)(CVector *, CVector *, float, unsigned int, unsigned char))0x723750)(start, end, radius, time, transparency);

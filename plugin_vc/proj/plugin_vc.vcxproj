@@ -135,6 +135,10 @@
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
     <ClInclude Include="..\game_vc\CBaseModelInfo.h" />
     <ClInclude Include="..\game_vc\CBike.h" />
+    <ClInclude Include="..\game_vc\CBox.h" />
+    <ClInclude Include="..\game_vc\CBuilding.h" />
+    <ClInclude Include="..\game_vc\CBulletTraces.h" />
+    <ClInclude Include="..\game_vc\CCarGenerator.h" />
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
     <ClInclude Include="..\game_vc\CColModel.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
@@ -202,7 +206,10 @@
     <ClCompile Include="..\game_vc\CAutomobile.cpp" />
     <ClCompile Include="..\game_vc\CBaseModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CBike.cpp" />
+    <ClCompile Include="..\game_vc\CBox.cpp" />
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
+    <ClCompile Include="..\game_vc\CBulletTraces.cpp" />
+    <ClCompile Include="..\game_vc\CCarGenerator.cpp" />
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
     <ClCompile Include="..\game_vc\CCopPed.cpp" />
