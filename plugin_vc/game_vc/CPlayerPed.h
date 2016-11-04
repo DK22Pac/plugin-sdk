@@ -10,10 +10,7 @@ Do not delete this comment block. Respect others' work!
 #include "CPed.h"
 #include "eWeaponType.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CPlayerPed : public CPed
-{
+class CPlayerPed : public CPed {
 public:
     
 };
-#pragma pack(pop)

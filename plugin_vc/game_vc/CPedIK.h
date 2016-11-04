@@ -7,14 +7,14 @@
 #pragma once
 
 #include "plbase\PluginBase_VC.h"
-#include "CVector.h"
 
-class CStoredCollPoly {
+class CPed;
+
+class CPedIK {
 public:
-    CVector m_aVertices[3]; // triangle vertices
-    bool m_bIsActual;
-private:
-    char _pad[3];
+    CPed *m_pPed;
+    char field_4[32];
+    unsigned int m_dwFlags;
 };
 
-VALIDATE_SIZE(CStoredCollPoly, 0x28);
+VALIDATE_SIZE(CPedIK, 0x28);

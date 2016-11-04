@@ -259,6 +259,12 @@
     <ClInclude Include="..\game_vc\CWheel.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CPedIK.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPathNode.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -395,6 +401,12 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CBoat.cpp">
       <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedIK.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPathNode.cpp">
+      <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

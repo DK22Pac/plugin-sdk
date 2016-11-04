@@ -7,7 +7,7 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
-#include "CAutomobile.h"
+#include "CVehicle.h"
 
 enum eHeliNodes {
     HELI_NODE_NONE = 0,
@@ -21,13 +21,15 @@ enum eHeliNodes {
     HELI_NUM_NODES
 };
 
-class CHeli : public CAutomobile {
+class CObject;
+
+class CHeli : public CVehicle {
 protected:
-    CHeli(plugin::dummy_func_t) : CAutomobile(plugin::dummy) {}
+    CHeli(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    RwFrame *m_apModelNodes[7]; 
+    RwFrame *m_apModelNodes[8]; 
     char m_nHeliState;          // 3 - HELI_STATE_EXPLODE
-    char _pad0[3];
+    //char _pad0[3];
     float m_fSearchLightX;      // world coors
     float m_fSearchLightY;
     int m_nExplosionTime;       // time when heli will be exploded
@@ -83,4 +85,4 @@ public:
     static void UpdateHelis();
 }; 
 
-//VALIDATE_SIZE(CHeli, 0x360);
+VALIDATE_SIZE(CHeli, 0x360);

@@ -9,23 +9,19 @@ Do not delete this comment block. Respect others' work!
 #include "plbase\PluginBase_VC.h"
 #include "eWeaponType.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CWeapon
-{
+class CWeapon {
 public:
-    eWeaponType m_Type;
-    unsigned __int32 m_dwState;
-    unsigned __int32 m_dwAmmoInClip;
-    unsigned __int32 m_dwTotalAmmo;
-    unsigned __int32 m_dwTimeForNextShot;
-    unsigned __int8 field_14;
-    unsigned __int8 field_15;
-    unsigned __int8 field_16;
-    unsigned __int8 field_17;
-    void *m_pParticle; // CParticle *
+    unsigned int m_nType; // see eWeaponType
+    unsigned int m_nState;
+    unsigned int m_nAmmoInClip;
+    unsigned int m_nTotalAmmo;
+    unsigned int m_nNextShotTime;
+    bool m_bAddRotOffset;
+private:
+    char _pad15[3];
+public:
 
     bool HasWeaponAmmoToBeUsed();
 };
-#pragma pack(pop)
 
-VALIDATE_SIZE(CWeapon, 0x1C);
+VALIDATE_SIZE(CWeapon, 0x18);

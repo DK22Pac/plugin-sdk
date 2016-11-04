@@ -7,14 +7,15 @@
 #pragma once
 
 #include "plbase\PluginBase_VC.h"
-#include "CVector.h"
 
-class CStoredCollPoly {
+class CPathNode {
 public:
-    CVector m_aVertices[3]; // triangle vertices
-    bool m_bIsActual;
-private:
-    char _pad[3];
+    short m_wPathData1;
+    short m_wPathData2;
+    short m_wPosX;
+    short m_wPosY;
+    short m_wPosZ;
+    char field_A[10];
 };
 
-VALIDATE_SIZE(CStoredCollPoly, 0x28);
+VALIDATE_SIZE(CPathNode, 0x14);

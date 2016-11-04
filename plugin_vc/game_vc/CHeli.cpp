@@ -13,7 +13,7 @@ CHeli** CHeli::pHelis = (CHeli**)0x813D10;
 bool& CHeli::ScriptHeliOn = *(bool *)0xA10ADB;
 
 // Converted from thiscall void CHeli::CHeli(int modelIndex, uchar createdBy) 0x5AF7F0
-CHeli::CHeli(int modelIndex, unsigned char createdBy) : CAutomobile(plugin::dummy) {
+CHeli::CHeli(int modelIndex, unsigned char createdBy) : CVehicle(plugin::dummy) {
     plugin::CallMethod<0x5AF7F0, CHeli *, int, unsigned char>(this, modelIndex, createdBy);
 }
 
