@@ -135,6 +135,7 @@
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
     <ClInclude Include="..\game_vc\CBaseModelInfo.h" />
     <ClInclude Include="..\game_vc\CBike.h" />
+    <ClInclude Include="..\game_vc\CBoat.h" />
     <ClInclude Include="..\game_vc\CBox.h" />
     <ClInclude Include="..\game_vc\CBuilding.h" />
     <ClInclude Include="..\game_vc\CBulletTraces.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="..\game_vc\CVehicleModelInfo.h" />
     <ClInclude Include="..\game_vc\CWeapon.h" />
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
+    <ClInclude Include="..\game_vc\CWheel.h" />
     <ClInclude Include="..\game_vc\ePedModel.h" />
     <ClInclude Include="..\game_vc\ePedType.h" />
     <ClInclude Include="..\game_vc\eVehicleFlags.h" />
@@ -206,6 +208,7 @@
     <ClCompile Include="..\game_vc\CAutomobile.cpp" />
     <ClCompile Include="..\game_vc\CBaseModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CBike.cpp" />
+    <ClCompile Include="..\game_vc\CBoat.cpp" />
     <ClCompile Include="..\game_vc\CBox.cpp" />
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CBulletTraces.cpp" />

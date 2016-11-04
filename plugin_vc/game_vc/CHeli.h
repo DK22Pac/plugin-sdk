@@ -11,16 +11,21 @@ Do not delete this comment block. Respect others' work!
 
 enum eHeliNodes {
     HELI_NODE_NONE = 0,
-    
+    HELI_CHASSIS = 1,
+    HELI_TOPROTOR = 2,
+    HELI_BACKROTOR = 3,
+    HELI_TAIL = 4,
+    HELI_TOPKNOT = 5,
+    HELI_SKID_LEFT = 6,
+    HELI_SKID_RIGHT = 7,
     HELI_NUM_NODES
 };
 
-#pragma pack(push, 8)
 class CHeli : public CAutomobile {
 protected:
     CHeli(plugin::dummy_func_t) : CAutomobile(plugin::dummy) {}
 public:
-    RwFrame *m_apModelNodes[8]; // RwFrame * [8]
+    RwFrame *m_apModelNodes[7]; 
     char m_nHeliState;          // 3 - HELI_STATE_EXPLODE
     char _pad0[3];
     float m_fSearchLightX;      // world coors
@@ -77,6 +82,5 @@ public:
     static bool TestSniperCollision(CVector* origin, CVector* target);
     static void UpdateHelis();
 }; 
-#pragma pack(pop)
 
-VALIDATE_SIZE(CHeli, 0x360);
+//VALIDATE_SIZE(CHeli, 0x360);

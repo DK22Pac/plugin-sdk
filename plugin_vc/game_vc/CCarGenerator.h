@@ -9,12 +9,13 @@ Do not delete this comment block. Respect others' work!
 #include "plbase/PluginBase_VC.h"
 #include "RenderWare.h"
 
-class PLUGIN_API CCarGenerator
+#pragma pack(push, 1)
+class CCarGenerator
 {
 public:
     int mi;
     RwV3d pos;
-    int angle;
+    float angle;
     __int16 color1;
     __int16 color2;
     char alarm;
@@ -39,5 +40,6 @@ public:
     void SwitchOff();
     int SwitchOn();
 };
+#pragma pack(pop)
 
 VALIDATE_SIZE(CCarGenerator, 0x2C);

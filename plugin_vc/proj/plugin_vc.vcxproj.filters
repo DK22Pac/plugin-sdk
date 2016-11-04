@@ -253,6 +253,12 @@
     <ClInclude Include="..\game_vc\CCarGenerator.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CBoat.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWheel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -386,6 +392,9 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CCarGenerator.cpp">
       <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBoat.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
