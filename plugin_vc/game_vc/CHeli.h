@@ -29,7 +29,9 @@ protected:
 public:
     RwFrame *m_apModelNodes[8]; 
     char m_nHeliState;          // 3 - HELI_STATE_EXPLODE
-    //char _pad0[3];
+private:
+    char _pad0[3];
+public:
     float m_fSearchLightX;      // world coors
     float m_fSearchLightY;
     int m_nExplosionTime;       // time when heli will be exploded
@@ -63,7 +65,9 @@ public:
     int field_354;
     float field_358;
     char field_35C;
+private:
     char _pad1[3];
+public:
 
     static unsigned int& TestForNewRandomHelisTimer;
     static unsigned int& NumRandomHelis;

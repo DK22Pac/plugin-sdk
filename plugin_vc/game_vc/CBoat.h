@@ -7,6 +7,8 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 #include "plbase/PluginBase_VC.h"
 #include "CVehicle.h"
+#include "CVector2D.h"
+#include "CDoor.h"
 
 enum eBoatNodes {
     BOAT_NODE_NONE = 0,
@@ -24,36 +26,37 @@ class CBoat : public CVehicle {
 protected:
     CBoat(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    int field_2A0;
-    int field_2A4;
-    char gap_2A8[8];
-    RwFrame *m_aBoatNodes[7];
-    int field_2CC[9];
-    int pBoatHandling;
-    char field_2F4;
+    float m_fPropRotation;
+    float m_fPropSpeed;
+    int field_2A8;
+    RwFrame *m_aBoatNodes[8];
+    CDoor m_boatDoor;
+    void *m_pBoatHandling;
+    unsigned char m_nBoatFlags;
     char field_2F5;
     char gap_2F6[2];
-    int field_2F8;
-    int field_2FC;
+    float m_fForcedZRotation;
+    int m_nAttackPlayerTime;
     int field_300;
-    int field_304;
-    int field_308;
-    int field_30C;
+    float m_fBurningTimer;
+    CEntity *m_pWhoDestroyedMe;
+    float field_30C;
     int field_310;
-    int field_314;
-    int field_318;
-    int field_31C;
-    int field_320;
+    float m_fBoatGasPedal;
+    float m_fBoatBrakePedal;
+    float m_fBoatSteeringLeftRight;
+    unsigned char m_nPadNumber;
+    char field_321[3];
     char gap_324[4];
-    int field_328;
-    int field_32C;
-    int field_330;
-    int field_334;
-    int field_338;
-    __int16 field_33C;
-    __int16 field_33E;
-    char field_340[256];
-    int field_440[32];
+    float field_328;
+    float field_32C; // x
+    float field_330; // y
+    float field_334; // z
+    float field_338;
+    short field_33C;
+    unsigned short m_nNumWaterTrailPoints;
+    CVector2D m_avecWakePoints[32];
+    float m_afWakePointLifeTime[32];
 
     static float &WAKE_LIFETIME; // 150.0
     static float &MIN_WAKE_INTERVAL; // 2.0

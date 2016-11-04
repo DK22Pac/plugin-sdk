@@ -153,13 +153,14 @@ public:
         unsigned char b63 : 1;
         unsigned char b64 : 1;
     } m_nVehicleFlags;
+    unsigned char m_nAmmoInClip;
     char field_201;
     float m_fHealth;
     unsigned char m_nCurrentGear;
     char __f0205[3];
     int field_20C;
     int field_210;
-    int field_214;
+    int m_dwTimeTillWeNeedThisCar;
     int field_218;
     int m_nTimeOfDeath;
     short field_220;
