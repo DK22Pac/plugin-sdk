@@ -18,7 +18,14 @@ CdeclEvent    <AddressList<0x4A5B6B, H_CALL>, PRIORITY_AFTER,  ArgPickNone,     
 CdeclEvent    <AddressList<0x4A5B8E, H_CALL>, PRIORITY_BEFORE, ArgPickNone,               void()> plugin::Events::shutdownRwEvent;
 CdeclEvent    <AddressList<0x4A4B28, H_CALL>, PRIORITY_AFTER,  ArgPickNone,               void()> plugin::Events::initPoolsEvent;
 CdeclEvent    <AddressList<0x4A4AE4, H_CALL>, PRIORITY_AFTER,  ArgPickNone,               void()> plugin::Events::shutdownPoolsEvent;
-
+ThiscallEvent <AddressList<0x5BAC18, H_CALL>, PRIORITY_AFTER,  ArgPickN<CVehicle*, 0>,    void(CVehicle*)> plugin::Events::vehicleCtorEvent;
+ThiscallEvent <AddressList<0x5BAC04, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>,    void(CVehicle*)> plugin::Events::vehicleDtorEvent;
+ThiscallEvent <AddressList<0x50DC29, H_CALL>, PRIORITY_AFTER,  ArgPickN<CPed*, 0>,        void(CPed*)>     plugin::Events::pedCtorEvent;
+ThiscallEvent <AddressList<0x50DBFB, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>,        void(CPed*)>     plugin::Events::pedDtorEvent;
+ThiscallEvent <AddressList<0x4E40FD, H_CALL,
+                           0x4E41BC, H_CALL,
+                           0x4E4223, H_CALL>, PRIORITY_AFTER,  ArgPickN<CObject*, 0>,     void(CObject*)>  plugin::Events::objectCtorEvent;
+ThiscallEvent <AddressList<0x4E40E2, H_CALL>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,     void(CObject*)>  plugin::Events::objectDtorEvent;
 CdeclEvent    <AddressList<0x65CE83, H_CALL,
                            0x65D30D, H_CALL, 0x65D91C, H_CALL,
                            0x65E32B, H_CALL, 0x65E7B6, H_CALL,

@@ -12,12 +12,17 @@
 #include "CDummy.h"
 #include "CEntryInfoList.h"
 #include "CPtrList.h"
+#include "CAutomobile.h"
+#include "CPlayerPed.h"
+#include "CCutsceneObject.h"
 
-class PLUGIN_API CPools
-{
+class CPools {
 public:
-    static CPool<CBuilding>      *&ms_pBuildingPool;
-    static CPool<CTreadable>     *&ms_pTreadablePool;
-    static CPool<CPtrNode>       *&ms_pPtrNodePool;
-    static CPool<CEntryInfoNode> *&ms_pEntryInfoNodePool;
+    static CPool<CBuilding>                *&ms_pBuildingPool;
+    static CPool<CTreadable>               *&ms_pTreadablePool;
+    static CPool<CPtrNode>                 *&ms_pPtrNodePool;
+    static CPool<CEntryInfoNode>           *&ms_pEntryInfoNodePool;
+    static CPool<CVehicle, CAutomobile>    *&ms_pVehiclePool;
+    static CPool<CPed, CPlayerPed>         *&ms_pPedPool;
+    static CPool<CObject, CCutsceneObject> *&ms_pObjectPool;
 };

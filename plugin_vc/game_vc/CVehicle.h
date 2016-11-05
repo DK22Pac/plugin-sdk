@@ -279,6 +279,7 @@ public:
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };
+#pragma pack(pop)
 
 VALIDATE_SIZE(CVehicle, 0x2A0);
 

@@ -144,6 +144,7 @@
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
     <ClInclude Include="..\game_vc\CColModel.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
+    <ClInclude Include="..\game_vc\CCutsceneObject.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />
     <ClInclude Include="..\game_vc\CDoor.h" />
     <ClInclude Include="..\game_vc\CGeneral.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
     <ClCompile Include="..\game_vc\CCopPed.cpp" />
+    <ClCompile Include="..\game_vc\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_vc\CDamageManager.cpp" />
     <ClCompile Include="..\game_vc\CDoor.cpp" />
     <ClCompile Include="..\game_vc\CDummy.cpp" />

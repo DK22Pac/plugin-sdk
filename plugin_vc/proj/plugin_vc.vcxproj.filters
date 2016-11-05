@@ -271,6 +271,9 @@
     <ClInclude Include="..\game_vc\CPlane.h">
       <Filter>game_vc\Entity\Vehicle</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CCutsceneObject.h">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -419,6 +422,9 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CPlane.cpp">
       <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCutsceneObject.cpp">
+      <Filter>game_vc\Entity\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

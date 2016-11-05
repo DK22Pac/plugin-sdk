@@ -176,7 +176,7 @@ void CPickups::UpdateMoneyPerDay(int handle, unsigned short money)
 	((void(__cdecl *)(int, unsigned short))0x455680)(handle, money);
 }
 
-signed int CPickups::WeaponForModel(int index)
+int CPickups::WeaponForModel(int index)
 {
-	return ((signed int (__cdecl *)(int))0x454AE0)(index);
+	return ((int (__cdecl *)(int))0x454AE0)(index);
 }
