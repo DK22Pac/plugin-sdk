@@ -140,6 +140,7 @@
     <ClInclude Include="..\game_vc\CBuilding.h" />
     <ClInclude Include="..\game_vc\CBulletTraces.h" />
     <ClInclude Include="..\game_vc\CCarGenerator.h" />
+    <ClInclude Include="..\game_vc\CClock.h" />
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
     <ClInclude Include="..\game_vc\CColModel.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="..\game_vc\CPathNode.h" />
     <ClInclude Include="..\game_vc\CPedIK.h" />
     <ClInclude Include="..\game_vc\CPedModelInfo.h" />
+    <ClInclude Include="..\game_vc\CPlane.h" />
     <ClInclude Include="..\game_vc\CPlayerPed.h" />
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
@@ -215,6 +217,7 @@
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CBulletTraces.cpp" />
     <ClCompile Include="..\game_vc\CCarGenerator.cpp" />
+    <ClCompile Include="..\game_vc\CClock.cpp" />
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
     <ClCompile Include="..\game_vc\CCopPed.cpp" />
@@ -234,6 +237,7 @@
     <ClCompile Include="..\game_vc\CPedModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CPhysical.cpp" />
     <ClCompile Include="..\game_vc\CPlaceable.cpp" />
+    <ClCompile Include="..\game_vc\CPlane.cpp" />
     <ClCompile Include="..\game_vc\CPlayerPed.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
     <ClCompile Include="..\game_vc\CPtrList.cpp" />

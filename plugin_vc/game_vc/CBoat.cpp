@@ -20,7 +20,7 @@ void CBoat::ApplyWaterResistance() {
 }
 
 // Converted from thiscall void CBoat::CBoat(int modelIndex, uchar createdBy) 0x5A6470
-CBoat::CBoat(int modelIndex, unsigned char createdBy) {
+CBoat::CBoat(int modelIndex, unsigned char createdBy) : CVehicle(plugin::dummy) {
     plugin::CallMethod<0x5A6470, CBoat *, int, unsigned char>(this, modelIndex, createdBy);
 }
 

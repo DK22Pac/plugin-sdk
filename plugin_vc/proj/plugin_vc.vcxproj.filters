@@ -265,6 +265,12 @@
     <ClInclude Include="..\game_vc\CPathNode.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CClock.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlane.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -407,6 +413,12 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CPathNode.cpp">
       <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CClock.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlane.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
