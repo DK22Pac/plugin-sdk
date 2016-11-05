@@ -8,6 +8,7 @@
 #include "plbase/PluginBase_SA.h"
 #include "CVehicle.h"
 #include "CDoor.h"
+#include "tBoatHandlingData.h"
 
 enum eBoatNodes {
     BOAT_NODE_NONE = 0,
@@ -29,33 +30,42 @@ class CBoat : public CVehicle {
 protected:
     CBoat(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    float           m_fMovingHiRotation;
-    float           m_fPropSpeed; // propeller speed
-    float           m_fPropRotation; // propeller rotation
-    unsigned char   m_nBoatFlags; // 4 - FORCE_Z_ROTATION
-    char _pad0[3];
-    RwFrame        *m_aBoatNodes[BOAT_NUM_NODES];
-    CDoor           m_marquisDoor;
-    void           *m_pBoatHandling;
-    float           m_fForcedZRotation; // used internally in CBoat::ProcessControl
-    int             m_nAttackPlayerTime;
-    int field_604;
-    float           m_fBurningTimer; // starts when vehicle health is lower than 250.0, boat blows up when it hits 5000.0
-    CEntity        *m_pWhoDestroyedMe;
-    CVector field_610;
-    CVector field_61C;
-    FxSystem_c     *m_apPropSplashFx[2];
-    CVector field_630;
-    char field_63C;
-    char            m_nPadNumber;
-    char _pad1[2];
-    float field_640; // initialised with 7.0f
-    short           m_nNumWaterTrailPoints;
-    char field_646;
-    char field_647;
-    CVector2D       m_avecWakePoints[32];
-    float           m_afWakePointLifeTime[32];
-    char field_7C8[32];
+    float              m_fMovingHiRotation; // works as counter also
+    float              m_fPropSpeed; // propeller speed
+    float              m_fPropRotation; // propeller rotation (radians)
+    struct {
+        unsigned char bOnWater : 1; // is placed on water
+        unsigned char bMovingOnWater : 1;
+        unsigned char bAnchored : 1; // is anchored
+    } m_nBoatFlags;
+private:
+    char _pad5AD[3];
+public:
+    RwFrame           *m_aBoatNodes[BOAT_NUM_NODES];
+    CDoor              m_boatFlap; // for marquis model
+    tBoatHandlingData *m_pBoatHandling;
+    float              m_fAnchoredAngle; // radians, initialised with -9999.99
+    int                m_nAttackPlayerTime;
+    int field_604; // initialised with 0, not used
+    float              m_fBurningTimer; // starts when vehicle health is lower than 250.0, boat blows up when it hits 5000.0
+    CEntity           *m_pWhoDestroyedMe;
+    CVector            m_vecBoatMoveForce; // m_vecBoatMoveForce = m_vecMoveForce + m_vecFrictionMoveForce
+    CVector            m_vecBoatTurnForce; // m_vecBoatTurnForce = m_vecTurnForce + m_vecFrictionTurnForce
+    FxSystem_c        *m_apPropSplashFx[2];
+    CVector            m_vecWaterDamping; // { 0.0f, 0.0f, DampingPower }
+    char field_63C; // initialised with 0, maybe boat handling type (@CBoat::DebugCode), possibly a leftover
+    unsigned char      m_nPadNumber; // 0 - 3
+private:
+    char _pad63E[2];
+public:
+    float              m_fWaterResistance; // initialised with 7.0f, 0.0f - not in water
+    short              m_nNumWaterTrailPoints;
+private:
+    char _pad646[2];
+public:
+    CVector2D          m_avecWakePoints[32];
+    float              m_afWakePointLifeTime[32];
+    unsigned char      m_anWakePointIntensity[32]; // m_anWakePointIntensity[i] = boat->m_vecMoveForce.Magnitude() * 100.0f;
 
     static CBoat **apFrameWakeGeneratingBoats; // static CBoat *apFrameWakeGeneratingBoats[4]
     static float &MAX_WAKE_LENGTH; // 50.0

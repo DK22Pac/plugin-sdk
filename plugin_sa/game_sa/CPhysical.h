@@ -15,44 +15,49 @@
 #include "eWeaponType.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API CPhysical : public CEntity {
+class CPhysical : public CEntity {
 protected:
     CPhysical(plugin::dummy_func_t) : CEntity(plugin::dummy) {}
 public:
-    __int32 field_38;
-    unsigned __int32 m_dwLastCollisionTime;
-    unsigned __int32 b0x01 : 1;
-    unsigned __int32 m_bApplyGravity : 1;
-    unsigned __int32 m_bDisableCollisionForce : 1;
-    unsigned __int32 m_bCollidable : 1; 
-    unsigned __int32 m_bDisableTurnForce : 1;
-    unsigned __int32 m_bDisableMoveForce : 1;
-    unsigned __int32 m_bInfiniteMass : 1;
-    unsigned __int32 m_bDisableZ : 1;
-    unsigned __int32 m_bSubmergedInWater : 1;
-    unsigned __int32 m_bOnSolidSurface : 1;
-    unsigned __int32 m_bBroken : 1;
-    unsigned __int32 b0x800 : 1; // ref @ 0x6F5CF0
-    unsigned __int32 b0x1000 : 1;
-    unsigned __int32 m_bDontApplySpeed : 1;
-    unsigned __int32 b0x4000 : 1;
-    unsigned __int32 b0x8000 : 1;
-    unsigned __int32 b0x10000 : 1;
-    unsigned __int32 b0x20000 : 1; // ref @ CPhysical::ProcessCollision
-    unsigned __int32 m_bBulletProof : 1;
-    unsigned __int32 m_bFireProof : 1;
-    unsigned __int32 m_bCollisionProof : 1;
-    unsigned __int32 m_bMeeleProof : 1;
-    unsigned __int32 m_bInvulnerable : 1;
-    unsigned __int32 m_bExplosionProof : 1;
-    unsigned __int32 b0x1000000 : 1;
-    unsigned __int32 m_bAttachedToEntity : 1;
-    unsigned __int32 b0x4000000 : 1;
-    unsigned __int32 m_bTouchingWater : 1;
-    unsigned __int32 m_bCanBeCollidedWith : 1;
-    unsigned __int32 m_bDestroyed : 1;
-    unsigned __int32 b0x40000000 : 1;
-    unsigned __int32 b0x80000000 : 1;
+    int field_38;
+    unsigned int m_dwLastCollisionTime;
+    struct {
+        unsigned int b01 : 1;
+        unsigned int bApplyGravity : 1;
+        unsigned int bDisableCollisionForce : 1;
+        unsigned int bCollidable : 1;
+        unsigned int bDisableTurnForce : 1;
+        unsigned int bDisableMoveForce : 1;
+        unsigned int bInfiniteMass : 1;
+        unsigned int bDisableZ : 1;
+
+        unsigned int bSubmergedInWater : 1;
+        unsigned int bOnSolidSurface : 1;
+        unsigned int bBroken : 1;
+        unsigned int b12 : 1; // ref @ 0x6F5CF0
+        unsigned int b13 : 1;
+        unsigned int bDontApplySpeed : 1;
+        unsigned int b15 : 1;
+        unsigned int b16 : 1;
+
+        unsigned int b17 : 1;
+        unsigned int b18 : 1; // ref @ CPhysical::ProcessCollision
+        unsigned int bBulletProof : 1;
+        unsigned int bFireProof : 1;
+        unsigned int bCollisionProof : 1;
+        unsigned int bMeeleProof : 1;
+        unsigned int bInvulnerable : 1;
+        unsigned int bExplosionProof : 1;
+
+        unsigned int b25 : 1;
+        unsigned int bAttachedToEntity : 1;
+        unsigned int b27 : 1;
+        unsigned int bTouchingWater : 1;
+        unsigned int bCanBeCollidedWith : 1;
+        unsigned int bDestroyed : 1;
+        unsigned int b31 : 1;
+        unsigned int b32 : 1;
+    } m_nPhysicalFlags;
     CVector          m_vecMoveForce;
     CVector          m_vecTurnForce;
     CVector          m_vecFrictionMoveForce;
@@ -142,6 +147,7 @@ public:
     void AttachEntityToEntity(CEntity* entity, CVector* , RtQuat* rotation);
     bool CheckCollision();
     bool CheckCollision_SimpleCar();
+
 };
 #pragma pack(pop)
 
