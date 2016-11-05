@@ -462,3 +462,5 @@ ENV/
 # Rope project settings
 .ropeproject
 
+#
+*.i-*

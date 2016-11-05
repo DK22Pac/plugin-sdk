@@ -57,6 +57,7 @@ public:
     void SetTexDictionary(char* txdName);
     void Add2dEffect(C2dEffect* effect);
     C2dEffect* Get2dEffect(int effectNumber);
+    CColModel *GetColModel();
 
 protected:
     CBaseModelInfo() {};

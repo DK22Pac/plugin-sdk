@@ -274,6 +274,12 @@
     <ClInclude Include="..\game_vc\CCutsceneObject.h">
       <Filter>game_vc\Entity\Object</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CFont.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\common.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -425,6 +431,12 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CCutsceneObject.cpp">
       <Filter>game_vc\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFont.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\common.cpp">
+      <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

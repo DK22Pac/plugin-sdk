@@ -147,9 +147,11 @@
     <ClInclude Include="..\game_vc\CCutsceneObject.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />
     <ClInclude Include="..\game_vc\CDoor.h" />
+    <ClInclude Include="..\game_vc\CFont.h" />
     <ClInclude Include="..\game_vc\CGeneral.h" />
     <ClInclude Include="..\game_vc\CHeli.h" />
     <ClInclude Include="..\game_vc\CIniFile.h" />
+    <ClInclude Include="..\game_vc\common.h" />
     <ClInclude Include="..\game_vc\CPathNode.h" />
     <ClInclude Include="..\game_vc\CPedIK.h" />
     <ClInclude Include="..\game_vc\CPedModelInfo.h" />
@@ -228,11 +230,13 @@
     <ClCompile Include="..\game_vc\CDummy.cpp" />
     <ClCompile Include="..\game_vc\CEntity.cpp" />
     <ClCompile Include="..\game_vc\CEntryInfoList.cpp" />
+    <ClCompile Include="..\game_vc\CFont.cpp" />
     <ClCompile Include="..\game_vc\CGeneral.cpp" />
     <ClCompile Include="..\game_vc\CHeli.cpp" />
     <ClCompile Include="..\game_vc\CIniFile.cpp" />
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
     <ClCompile Include="..\game_vc\CObject.cpp" />
+    <ClCompile Include="..\game_vc\common.cpp" />
     <ClCompile Include="..\game_vc\CPathNode.cpp" />
     <ClCompile Include="..\game_vc\CPed.cpp" />
     <ClCompile Include="..\game_vc\CPedIK.cpp" />

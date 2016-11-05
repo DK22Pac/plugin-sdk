@@ -55,7 +55,9 @@ private:
 public:
     int m_dwObjectTimer;
     short m_wRefModelId;
-    unsigned char _pad186[2];
+private:
+    char _pad186[2];
+public:
     CEntity *m_pInitialSurface;
     CPhysical *m_pContactPhysical;
     unsigned char m_nCarColor[2];
