@@ -8,6 +8,7 @@
 
 #include "plbase\PluginBase_VC.h"
 #include "CPhysical.h"
+#include "CDummyObject.h"
 
 /* Thanks to maxorator,
    http://gtaforums.com/topic/117195-documenting-gta3vc-memory-addresses/?p=1060452931
@@ -64,6 +65,22 @@ public:
 private:
     char _pad192[2];
 public:
+
+    //funcs
+
+    CObject(CDummyObject* dummyObject);
+    CObject(int arg0, bool arg1);
+    CObject();
+    bool CanBeDeleted();
+    static void DeleteAllMissionObjects();
+    static void DeleteAllTempObjects();
+    static void DeleteAllTempObjectsInArea(CVector point, float radius);
+    void Init();
+    void ObjectDamage(float damage);
+    void RefModelInfo(int modelIndex);
+    static void operator delete(void* data);
+    static void* operator new(unsigned int size);
+    static void* operator new(unsigned int size, int arg1);
 };
 
 VALIDATE_SIZE(CObject, 0x194);

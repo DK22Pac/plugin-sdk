@@ -141,6 +141,7 @@
     <ClInclude Include="..\game_vc\CBulletTraces.h" />
     <ClInclude Include="..\game_vc\CCarGenerator.h" />
     <ClInclude Include="..\game_vc\CClock.h" />
+    <ClInclude Include="..\game_vc\CClouds.h" />
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
     <ClInclude Include="..\game_vc\CColModel.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="..\game_vc\CPedModelInfo.h" />
     <ClInclude Include="..\game_vc\CPlane.h" />
     <ClInclude Include="..\game_vc\CPlayerPed.h" />
+    <ClInclude Include="..\game_vc\CProjectile.h" />
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h" />
@@ -179,6 +181,7 @@
     <ClInclude Include="..\game_vc\CRect.h" />
     <ClInclude Include="..\game_vc\CSector.h" />
     <ClInclude Include="..\game_vc\CTimer.h" />
+    <ClInclude Include="..\game_vc\CTrain.h" />
     <ClInclude Include="..\game_vc\cTransmission.h" />
     <ClInclude Include="..\game_vc\CTreadable.h" />
     <ClInclude Include="..\game_vc\CVector.h" />
@@ -221,6 +224,7 @@
     <ClCompile Include="..\game_vc\CBulletTraces.cpp" />
     <ClCompile Include="..\game_vc\CCarGenerator.cpp" />
     <ClCompile Include="..\game_vc\CClock.cpp" />
+    <ClCompile Include="..\game_vc\CClouds.cpp" />
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
     <ClCompile Include="..\game_vc\CCopPed.cpp" />
@@ -246,6 +250,7 @@
     <ClCompile Include="..\game_vc\CPlane.cpp" />
     <ClCompile Include="..\game_vc\CPlayerPed.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
+    <ClCompile Include="..\game_vc\CProjectile.cpp" />
     <ClCompile Include="..\game_vc\CPtrList.cpp" />
     <ClCompile Include="..\game_vc\CQuaternion.cpp" />
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
@@ -253,6 +258,7 @@
     <ClCompile Include="..\game_vc\CSprite.cpp" />
     <ClCompile Include="..\game_vc\CSprite2d.cpp" />
     <ClCompile Include="..\game_vc\CTimer.cpp" />
+    <ClCompile Include="..\game_vc\CTrain.cpp" />
     <ClCompile Include="..\game_vc\cTransmission.cpp" />
     <ClCompile Include="..\game_vc\CTreadable.cpp" />
     <ClCompile Include="..\game_vc\CDummyObject.cpp" />

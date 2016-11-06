@@ -14,6 +14,10 @@ public:
     void *m_pCutsceneShadow; // CCutsceneShadow *
     RwFrame *m_pAttachTo;
     CObject *m_pAttachmentObject;
+
+    //funcs
+    CCutsceneObject();
+    void CreateShadow();
 };
 
 VALIDATE_SIZE(CCutsceneObject, 0x1A0);
