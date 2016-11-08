@@ -289,6 +289,9 @@
     <ClInclude Include="..\game_vc\CClouds.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CPopulation.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -454,6 +457,9 @@
       <Filter>game_vc\Entity\Vehicle</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CClouds.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPopulation.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

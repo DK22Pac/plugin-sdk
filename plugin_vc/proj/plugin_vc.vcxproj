@@ -158,6 +158,7 @@
     <ClInclude Include="..\game_vc\CPedModelInfo.h" />
     <ClInclude Include="..\game_vc\CPlane.h" />
     <ClInclude Include="..\game_vc\CPlayerPed.h" />
+    <ClInclude Include="..\game_vc\CPopulation.h" />
     <ClInclude Include="..\game_vc\CProjectile.h" />
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
@@ -250,6 +251,7 @@
     <ClCompile Include="..\game_vc\CPlane.cpp" />
     <ClCompile Include="..\game_vc\CPlayerPed.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
+    <ClCompile Include="..\game_vc\CPopulation.cpp" />
     <ClCompile Include="..\game_vc\CProjectile.cpp" />
     <ClCompile Include="..\game_vc\CPtrList.cpp" />
     <ClCompile Include="..\game_vc\CQuaternion.cpp" />
