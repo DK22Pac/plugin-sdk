@@ -143,7 +143,10 @@
     <ClInclude Include="..\game_vc\CClock.h" />
     <ClInclude Include="..\game_vc\CClouds.h" />
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
+    <ClInclude Include="..\game_vc\CColBox.h" />
+    <ClInclude Include="..\game_vc\CColLine.h" />
     <ClInclude Include="..\game_vc\CColModel.h" />
+    <ClInclude Include="..\game_vc\CColSphere.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
     <ClInclude Include="..\game_vc\CCutsceneObject.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />
@@ -163,6 +166,7 @@
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h" />
+    <ClInclude Include="..\game_vc\CSphere.h" />
     <ClInclude Include="..\game_vc\CSprite.h" />
     <ClInclude Include="..\game_vc\CSprite2d.h" />
     <ClInclude Include="..\game_vc\CStoredCollPoly.h" />
@@ -227,7 +231,11 @@
     <ClCompile Include="..\game_vc\CClock.cpp" />
     <ClCompile Include="..\game_vc\CClouds.cpp" />
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CColBox.cpp" />
+    <ClCompile Include="..\game_vc\CColLine.cpp" />
+    <ClCompile Include="..\game_vc\CColModel.cpp" />
     <ClCompile Include="..\game_vc\CColPoint.cpp" />
+    <ClCompile Include="..\game_vc\CColSphere.cpp" />
     <ClCompile Include="..\game_vc\CCopPed.cpp" />
     <ClCompile Include="..\game_vc\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_vc\CDamageManager.cpp" />
@@ -257,6 +265,7 @@
     <ClCompile Include="..\game_vc\CQuaternion.cpp" />
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
     <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CSphere.cpp" />
     <ClCompile Include="..\game_vc\CSprite.cpp" />
     <ClCompile Include="..\game_vc\CSprite2d.cpp" />
     <ClCompile Include="..\game_vc\CTimer.cpp" />

@@ -34,6 +34,9 @@
     <Filter Include="game_vc\Models">
       <UniqueIdentifier>{e92f99bd-6078-4f5e-8292-010047c842f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_vc\Collision">
+      <UniqueIdentifier>{fe87e1f0-9ba2-47cc-b439-5ebaca06e472}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\plugin_vc.h" />
@@ -115,9 +118,6 @@
     <ClInclude Include="..\game_vc\CEntryInfoList.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\CColPoint.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\CAutoPilot.h">
       <Filter>game_vc</Filter>
     </ClInclude>
@@ -140,9 +140,6 @@
       <Filter>game_vc</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CDamageManager.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_vc\CColModel.h">
       <Filter>game_vc</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CWeapon.h">
@@ -292,6 +289,24 @@
     <ClInclude Include="..\game_vc\CPopulation.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CColModel.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColPoint.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColLine.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColBox.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSphere.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColSphere.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -316,9 +331,6 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CPtrList.cpp">
-      <Filter>game_vc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_vc\CColPoint.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CSprite2d.cpp">
@@ -461,6 +473,24 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CPopulation.cpp">
       <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColPoint.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColLine.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColBox.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSphere.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColSphere.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColModel.cpp">
+      <Filter>game_vc\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
