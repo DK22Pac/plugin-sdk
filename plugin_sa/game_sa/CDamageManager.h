@@ -49,7 +49,10 @@ enum tComponentGroup {
 };
 
 enum eWheels {
-
+    WHEEL_FRONT_LEFT = 0,
+    WHEEL_FRONT_RIGHT = 1,
+    WHEEL_REAR_LEFT = 2,
+    WHEEL_REAR_RIGHT = 3
 };
 
 enum ePanels {
@@ -77,7 +80,7 @@ enum eLights {
 };
 
 #pragma pack(push, 4)
-class PLUGIN_API CDamageManager {
+class CDamageManager {
 public:
 	float           m_fWheelDamageEffect;
 	unsigned __int8 m_nEngineStatus;

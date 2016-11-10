@@ -151,6 +151,7 @@ public:
 	// extras ids for next-spawned car
 	// static char ms_compsUsed[2];
 	static char *ms_compsUsed;
+    static char *ms_compsToUse;
 
 	// vehicle colours from carcols.dat
 	// static CRGBA ms_vehicleColourTable[128];

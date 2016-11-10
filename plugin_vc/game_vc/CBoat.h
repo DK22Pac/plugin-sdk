@@ -64,7 +64,7 @@ public:
     //funcs
 
     void AddWakePoint(CVector posn);
-    static void ApplyWaterResistance();
+    void ApplyWaterResistance();
     CBoat(int modelIndex, unsigned char createdBy);
     void DoDriveByShootings();
     static void FillBoatList();

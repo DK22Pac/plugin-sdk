@@ -78,7 +78,7 @@ public:
     void AddDamagedVehicleParticles();
     bool AddWheelDirtAndWater(CColPoint& colPoint, unsigned int arg1);
     void BlowUpCarsInPath();
-    CAutomobile(int modelIndex, unsigned char arg1);
+    CAutomobile(int modelIndex, unsigned char createdBy);
     // Cancel orientation forcing (m_fForcedOrientation = -1.0f)
     void ClearHeliOrientation();
     void CloseBoot();
@@ -89,7 +89,7 @@ public:
     bool HasCarStoppedBecauseOfLight();
     // Process vehicle hydraulics
     void HydraulicControl();
-    CPed* KnockPedOutCar(eWeaponType arg0, unsigned short arg1, CPed* arg2);
+    CPed* KnockPedOutCar(eWeaponType weapon, unsigned short arg1, CPed* ped);
     void PlaceOnRoadProperly();
     // Play horn for NPC vehicle (called @CAutomobile::ProcessAI)
     void PlayHornIfNecessary();
@@ -105,12 +105,12 @@ public:
     // Returns spawned flying component?
     CObject* RemoveBonnetInPedCollision();
     void ScanForCrimes();
-    void SetBumperDamage(int arg0, int arg1, bool withoutVisualEffect);
+    void SetBumperDamage(int nodeIndex, ePanels panel, bool withoutVisualEffect);
     void SetBusDoorTimer(unsigned int time, unsigned char arg1);
-    void SetDoorDamage(int nodeId, int componentId, bool withoutVisualEffect);
+    void SetDoorDamage(int nodeIndex, eDoors door, bool withoutVisualEffect);
     // Force orientation for heli to specified angle (radians)
     void SetHeliOrientation(float angle);
-    void SetPanelDamage(int arg0, int arg1, bool arg2);
+    void SetPanelDamage(int nodeIndex, ePanels panel, bool createWindowGlass);
     // Enable/disable taxi light for taxi
     void SetTaxiLight(bool enable);
     void SetupDamageAfterLoad();
@@ -119,7 +119,7 @@ public:
     void TankControl();
     void TellHeliToGoToCoors(float x, float y, float z, unsigned char arg3);
     void TellPlaneToGoToCoors(float x, float y, float z, unsigned char arg3);
-    void VehicleDamage(float arg0, int arg1);
+    void VehicleDamage(float damageIntensity, int arg1);
     // Create colliding particles
     void dmgDrawCarCollidingParticles(CVector const& position, float force);
 };

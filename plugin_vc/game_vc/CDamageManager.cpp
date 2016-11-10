@@ -36,14 +36,14 @@ unsigned int CDamageManager::GetLightStatus(eLights light) {
     return plugin::CallMethodAndReturn<unsigned int, 0x5A9870, CDamageManager *, eLights>(this, light);
 }
 
-// Converted from thiscall uint CDamageManager::GetPanelStatus(int) 0x5A9850 
-unsigned int CDamageManager::GetPanelStatus(int arg0) {
-    return plugin::CallMethodAndReturn<unsigned int, 0x5A9850, CDamageManager *, int>(this, arg0);
+// Converted from thiscall uint CDamageManager::GetPanelStatus(ePanels panel) 0x5A9850 
+unsigned int CDamageManager::GetPanelStatus(ePanels panel) {
+    return plugin::CallMethodAndReturn<unsigned int, 0x5A9850, CDamageManager *, ePanels>(this, panel);
 }
 
-// Converted from thiscall uint CDamageManager::GetWheelStatus(int wheel) 0x5A9830
-unsigned int CDamageManager::GetWheelStatus(int wheel) {
-    return plugin::CallMethodAndReturn<unsigned int, 0x5A9830, CDamageManager *, int>(this, wheel);
+// Converted from thiscall uint CDamageManager::GetWheelStatus(eWheels wheel) 0x5A9830
+unsigned int CDamageManager::GetWheelStatus(eWheels wheel) {
+    return plugin::CallMethodAndReturn<unsigned int, 0x5A9830, CDamageManager *, eWheels>(this, wheel);
 }
 
 // Converted from thiscall bool CDamageManager::ProgressPanelDamage(uchar panel) 0x5A9790
@@ -66,7 +66,7 @@ void CDamageManager::SetEngineStatus(unsigned int status) {
     plugin::CallMethod<0x5A97F0, CDamageManager *, unsigned int>(this, status);
 }
 
-// Converted from thiscall void CDamageManager::SetWheelStatus(int wheel, uint status) 0x5A9840
-void CDamageManager::SetWheelStatus(int wheel, unsigned int status) {
-    plugin::CallMethod<0x5A9840, CDamageManager *, int, unsigned int>(this, wheel, status);
+// Converted from thiscall void CDamageManager::SetWheelStatus(eWheels wheel, uint status) 0x5A9840
+void CDamageManager::SetWheelStatus(eWheels wheel, unsigned int status) {
+    plugin::CallMethod<0x5A9840, CDamageManager *, eWheels, unsigned int>(this, wheel, status);
 }

@@ -5,10 +5,7 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "plbase/PluginBase_VC.h"
-
-class CAutomobile;
 
 enum eDamageState {
     
@@ -23,7 +20,10 @@ enum tComponentGroup {
 };
 
 enum eWheels {
-
+    WHEEL_FRONT_LEFT = 0,
+    WHEEL_FRONT_RIGHT = 1,
+    WHEEL_REAR_LEFT = 2,
+    WHEEL_REAR_RIGHT = 3
 };
 
 enum ePanels {
@@ -53,7 +53,7 @@ enum eLights {
 };
 
 #pragma pack(push, 4)
-class PLUGIN_API CDamageManager {
+class CDamageManager {
 public:
      int uDamId;
      char bStates[12];
@@ -70,15 +70,15 @@ public:
      // Status is a value between 0-250
      unsigned int GetEngineStatus();
      unsigned int GetLightStatus(eLights light);
-     unsigned int GetPanelStatus(int arg0);
-     unsigned int GetWheelStatus(int wheel);
+     unsigned int GetPanelStatus(ePanels panel);
+     unsigned int GetWheelStatus(eWheels wheel);
      // Set next level of damage to panel
      bool ProgressPanelDamage(unsigned char panel);
      void ResetDamageStatus();
      void SetDoorStatus(eDoors door, unsigned int status);
      // Status is a value between 0-250
      void SetEngineStatus(unsigned int status);
-     void SetWheelStatus(int wheel, unsigned int status);
+     void SetWheelStatus(eWheels wheel, unsigned int status);
 };
 #pragma pack(pop)
 

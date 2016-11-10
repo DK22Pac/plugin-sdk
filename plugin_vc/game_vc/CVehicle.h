@@ -277,6 +277,7 @@ public:
     bool UsesSiren();
 
     static void* operator new(unsigned int size);
+    static void* operator new(unsigned int size, int arg1);
     static void operator delete(void* data);
 };
 #pragma pack(pop)

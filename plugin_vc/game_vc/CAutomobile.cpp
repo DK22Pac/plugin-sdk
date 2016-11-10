@@ -22,8 +22,8 @@ void CAutomobile::BlowUpCarsInPath() {
 }
 
 // Converted from thiscall void CAutomobile::CAutomobile(int modelIndex, uchar) 0x59E620
-CAutomobile::CAutomobile(int modelIndex, unsigned char arg1) : CVehicle(plugin::dummy) {
-    plugin::CallMethod<0x59E620, CAutomobile *, int, unsigned char>(this, modelIndex, arg1);
+CAutomobile::CAutomobile(int modelIndex, unsigned char createdBy) : CVehicle(plugin::dummy) {
+    plugin::CallMethod<0x59E620, CAutomobile *, int, unsigned char>(this, modelIndex, createdBy);
 }
 
 // Converted from thiscall void CAutomobile::ClearHeliOrientation(void) 0x59B490
@@ -66,9 +66,9 @@ void CAutomobile::HydraulicControl() {
     plugin::CallMethod<0x59D260, CAutomobile *>(this);
 }
 
-// Converted from thiscall CPed* CAutomobile::KnockPedOutCar(eWeaponType, ushort, CPed *) 0x585F20
-CPed* CAutomobile::KnockPedOutCar(eWeaponType arg0, unsigned short arg1, CPed* arg2) {
-    return plugin::CallMethodAndReturn<CPed*, 0x585F20, CAutomobile *, eWeaponType, unsigned short, CPed*>(this, arg0, arg1, arg2);
+// Converted from thiscall CPed* CAutomobile::KnockPedOutCar(eWeaponType weapon, ushort, CPed * ped) 0x585F20
+CPed* CAutomobile::KnockPedOutCar(eWeaponType weapon, unsigned short arg1, CPed* ped) {
+    return plugin::CallMethodAndReturn<CPed*, 0x585F20, CAutomobile *, eWeaponType, unsigned short, CPed*>(this, weapon, arg1, ped);
 }
 
 // Converted from thiscall void CAutomobile::PlaceOnRoadProperly(void) 0x586110
@@ -131,9 +131,9 @@ void CAutomobile::ScanForCrimes() {
     plugin::CallMethod<0x588120, CAutomobile *>(this);
 }
 
-// Converted from thiscall void CAutomobile::SetBumperDamage(int, int, bool withoutVisualEffect) 0x59B370
-void CAutomobile::SetBumperDamage(int arg0, int arg1, bool withoutVisualEffect) {
-    plugin::CallMethod<0x59B370, CAutomobile *, int, int, bool>(this, arg0, arg1, withoutVisualEffect);
+// Converted from thiscall void CAutomobile::SetBumperDamage(int, ePanels panel, bool withoutVisualEffect) 0x59B370
+void CAutomobile::SetBumperDamage(int arg0, ePanels panel, bool withoutVisualEffect) {
+    plugin::CallMethod<0x59B370, CAutomobile *, int, ePanels, bool>(this, arg0, panel, withoutVisualEffect);
 }
 
 // Converted from thiscall void CAutomobile::SetBusDoorTimer(uint time, uchar) 0x587080
@@ -141,9 +141,9 @@ void CAutomobile::SetBusDoorTimer(unsigned int time, unsigned char arg1) {
     plugin::CallMethod<0x587080, CAutomobile *, unsigned int, unsigned char>(this, time, arg1);
 }
 
-// Converted from thiscall void CAutomobile::SetDoorDamage(int nodeId, int componentId, bool withoutVisualEffect) 0x59B150
-void CAutomobile::SetDoorDamage(int nodeId, int componentId, bool withoutVisualEffect) {
-    plugin::CallMethod<0x59B150, CAutomobile *, int, int, bool>(this, nodeId, componentId, withoutVisualEffect);
+// Converted from thiscall void CAutomobile::SetDoorDamage(int nodeIndex, eDoors door, bool withoutVisualEffect) 0x59B150
+void CAutomobile::SetDoorDamage(int nodeIndex, eDoors door, bool withoutVisualEffect) {
+    plugin::CallMethod<0x59B150, CAutomobile *, int, eDoors, bool>(this, nodeIndex, door, withoutVisualEffect);
 }
 
 // Converted from thiscall void CAutomobile::SetHeliOrientation(float angle) 0x59B4A0
@@ -151,9 +151,9 @@ void CAutomobile::SetHeliOrientation(float angle) {
     plugin::CallMethod<0x59B4A0, CAutomobile *, float>(this, angle);
 }
 
-// Converted from thiscall void CAutomobile::SetPanelDamage(int, int, bool) 0x59B2A0
-void CAutomobile::SetPanelDamage(int arg0, int arg1, bool arg2) {
-    plugin::CallMethod<0x59B2A0, CAutomobile *, int, int, bool>(this, arg0, arg1, arg2);
+// Converted from thiscall void CAutomobile::SetPanelDamage(int nodeIndex, ePanels panel, bool createWindowGlass) 0x59B2A0
+void CAutomobile::SetPanelDamage(int nodeIndex, ePanels panel, bool createWindowGlass) {
+    plugin::CallMethod<0x59B2A0, CAutomobile *, int, ePanels, bool>(this, nodeIndex, panel, createWindowGlass);
 }
 
 // Converted from thiscall void CAutomobile::SetTaxiLight(bool enable) 0x5882F0
@@ -191,9 +191,9 @@ void CAutomobile::TellPlaneToGoToCoors(float x, float y, float z, unsigned char 
     plugin::CallMethod<0x59B420, CAutomobile *, float, float, float, unsigned char>(this, x, y, z, arg3);
 }
 
-// Converted from thiscall void CAutomobile::VehicleDamage(float, int) 0x59B550
-void CAutomobile::VehicleDamage(float arg0, int arg1) {
-    plugin::CallMethod<0x59B550, CAutomobile *, float, int>(this, arg0, arg1);
+// Converted from thiscall void CAutomobile::VehicleDamage(float damageIntensity, int) 0x59B550
+void CAutomobile::VehicleDamage(float damageIntensity, int arg1) {
+    plugin::CallMethod<0x59B550, CAutomobile *, float, int>(this, damageIntensity, arg1);
 }
 
 // Converted from thiscall void CAutomobile::dmgDrawCarCollidingParticles(CVector const& position, float force) 0x59C480

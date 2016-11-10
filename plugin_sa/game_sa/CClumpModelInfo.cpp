@@ -56,7 +56,7 @@ void CClumpModelInfo::FillFrameArray(RpClump *clump, RwFrame **frames)
 	((void (__cdecl *)(RpClump *, RwFrame **))0x4C5440)(clump, frames);
 }
 
-void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation *data)
-{
-	((void (__cdecl *)(RwObjectNameIdAssocation *))0x4C5460)(data);
+// Converted from thiscall void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation *data) 0x4C5460
+void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation* data) {
+    plugin::CallMethod<0x4C5460, CClumpModelInfo *, RwObjectNameIdAssocation*>(this, data);
 }

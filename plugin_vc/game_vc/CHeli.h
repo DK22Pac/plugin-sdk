@@ -81,7 +81,7 @@ public:
     static void InitHelis();
     void PreRenderAlways();
     bool SendDownSwat();
-    CObject* SpawnFlyingComponent(int arg0);
+    CObject* SpawnFlyingComponent(int nodeIndex);
     static bool SpecialHeliPreRender();
     static bool TestBulletCollision(CVector* arg0, CVector* arg1, CVector* arg2, int arg3);
     static bool TestRocketCollision(CVector* arg0);

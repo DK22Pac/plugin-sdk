@@ -31,12 +31,11 @@ public:
     int field_48; 
 
     CColModel();
-    static void CalculateTrianglePlanes();
-    static int GetLinkPtr();
+    void CalculateTrianglePlanes();
+    int GetLinkPtr();
     int GetTrianglePoint(CVector& arg0, int arg1);
-    static void RemoveCollisionVolumes();
-    static void RemoveTrianglePlanes();
-    //void SetLinkPtr(CLink<CColModel* >);
+    void RemoveCollisionVolumes();
+    void RemoveTrianglePlanes();
     static void operator delete(void* data);
     static void* operator new(unsigned int size);
     void operator=(CColModel const& arg0);

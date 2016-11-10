@@ -379,6 +379,10 @@ void* CVehicle::operator new(unsigned int size) {
     return ((void*(__cdecl *)(unsigned int))0x5BAB20)(size);
 }
 
+void* CVehicle::operator new(unsigned int size, int arg1) {
+    return ((void*(__cdecl *)(unsigned int, int))0x5BAB00)(size, arg1);
+}
+
 void CVehicle::operator delete(void* data) {
     ((void(__cdecl *)(void*))0x5BAAE0)(data);
 }

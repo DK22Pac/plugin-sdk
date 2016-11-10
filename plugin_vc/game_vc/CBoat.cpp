@@ -14,9 +14,9 @@ void CBoat::AddWakePoint(CVector posn) {
     plugin::CallMethod<0x59F580, CBoat *, CVector>(this, posn);
 }
 
-// Converted from cdecl void CBoat::ApplyWaterResistance(void) 0x59FB30
+// Converted from thiscall void CBoat::ApplyWaterResistance(void) 0x59FB30
 void CBoat::ApplyWaterResistance() {
-    plugin::Call<0x59FB30>();
+    plugin::CallMethod<0x59FB30, CBoat *>(this);
 }
 
 // Converted from thiscall void CBoat::CBoat(int modelIndex, uchar createdBy) 0x5A6470

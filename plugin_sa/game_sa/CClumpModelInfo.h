@@ -39,7 +39,7 @@ public:
 	static RwFrame *GetFrameFromId(RpClump *clump, int id);
 	static RwFrame *GetFrameFromName(RpClump *clump, char *name);
 	static void FillFrameArray(RpClump *clump, RwFrame **frames);
-	static void SetFrameIds(RwObjectNameIdAssocation *data);
+    void SetFrameIds(RwObjectNameIdAssocation* data);
 };
 #pragma pack(pop)
 

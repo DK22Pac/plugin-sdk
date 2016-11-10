@@ -38,7 +38,7 @@ public:
     static int GetMaximumNumberOfPassengersFromNumberOfDoors(int modelId);
     // get wheel position. Wheel is wheel id [0-3]. Local - get local offset (if false it will get 
     // world position)
-    static void GetWheelPosn(int wheel, CVector& outVec);
+    void GetWheelPosn(int wheel, CVector& outVec);
     static RpMaterial* HasAlphaMaterialCB(RpMaterial* material, void* data);
     static RpAtomic* HideAllComponentsAtomicCB(RpAtomic* atomic, void* data);
     // loads 'white' texture

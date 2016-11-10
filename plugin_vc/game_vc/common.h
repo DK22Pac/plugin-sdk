@@ -10,8 +10,7 @@
 #include "CVector.h"
 #include "CPed.h"
 #include "CVehicle.h"
-
-class CTrain;
+#include "CTrain.h"
 
 float FindPlayerHeading();
 CVector& FindPlayerCentreOfWorld_NoSniperShift();

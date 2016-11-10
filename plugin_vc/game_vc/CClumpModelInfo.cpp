@@ -45,7 +45,7 @@ void CClumpModelInfo::SetAtomicRendererCB(RpAtomic* atomic, void* renderFunc) {
     plugin::Call<0x5412A0, RpAtomic*, void*>(atomic, renderFunc);
 }
 
-// Converted from cdecl void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation *data) 0x541090
+// Converted from thiscall void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation *data) 0x541090
 void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation* data) {
-    plugin::Call<0x541090, RwObjectNameIdAssocation*>(data);
+    plugin::CallMethod<0x541090, CClumpModelInfo *, RwObjectNameIdAssocation*>(this, data);
 }

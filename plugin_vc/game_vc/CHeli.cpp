@@ -32,9 +32,9 @@ bool CHeli::SendDownSwat() {
     return plugin::CallMethodAndReturn<bool, 0x5ABE20, CHeli *>(this);
 }
 
-// Converted from thiscall CObject* CHeli::SpawnFlyingComponent(int) 0x5AC1E0
-CObject* CHeli::SpawnFlyingComponent(int arg0) {
-    return plugin::CallMethodAndReturn<CObject*, 0x5AC1E0, CHeli *, int>(this, arg0);
+// Converted from thiscall CObject* CHeli::SpawnFlyingComponent(int nodeIndex) 0x5AC1E0
+CObject* CHeli::SpawnFlyingComponent(int nodeIndex) {
+    return plugin::CallMethodAndReturn<CObject*, 0x5AC1E0, CHeli *, int>(this, nodeIndex);
 }
 
 // Converted from cdecl bool CHeli::SpecialHeliPreRender(void) 0x5AC500

@@ -39,7 +39,7 @@ public:
     static RwFrame* FindFrameFromNameWithoutIdCB(RwFrame* frame, void* searchData);
     static RwFrame* GetFrameFromId(RpClump* clump, int id);
     static void SetAtomicRendererCB(RpAtomic* atomic, void* renderFunc);
-    static void SetFrameIds(RwObjectNameIdAssocation* data);
+    void SetFrameIds(RwObjectNameIdAssocation* data);
 
     static inline RwFrame *GetFrameFromName(RpClump *clump, char const *name) {
         FrameSearchData searchData;

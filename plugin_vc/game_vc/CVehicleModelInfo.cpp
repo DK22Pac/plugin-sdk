@@ -66,9 +66,9 @@ int CVehicleModelInfo::GetMaximumNumberOfPassengersFromNumberOfDoors(int modelId
     return plugin::CallAndReturn<int, 0x578A70, int>(modelId);
 }
 
-// Converted from cdecl void CVehicleModelInfo::GetWheelPosn(int wheel, CVector& outVec) 0x579AD0
+// Converted from thiscall void CVehicleModelInfo::GetWheelPosn(int wheel, CVector& outVec) 0x579AD0
 void CVehicleModelInfo::GetWheelPosn(int wheel, CVector& outVec) {
-    plugin::Call<0x579AD0, int, CVector&>(wheel, outVec);
+    plugin::CallMethod<0x579AD0, CVehicleModelInfo *, int, CVector&>(this, wheel, outVec);
 }
 
 // Converted from cdecl RpMaterial* CVehicleModelInfo::HasAlphaMaterialCB(RpMaterial * material, void * data) 0x57A600
