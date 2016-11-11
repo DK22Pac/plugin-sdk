@@ -6,9 +6,9 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CWeaponModelInfo.h"
 
-// Converted from void CWeaponModelInfo::SetAtomic(int, RpAtomic *) 0x629C40
-void CWeaponModelInfo::SetAtomic(int arg0, RpAtomic* arg1) {
-    plugin::CallVirtualMethod<9, CWeaponModelInfo *, int, RpAtomic*>(this, arg0, arg1);
+// Converted from void CWeaponModelInfo::SetAtomic(int, RpAtomic * atomic) 0x629C40
+void CWeaponModelInfo::SetAtomic(int arg0, RpAtomic* atomic) {
+    plugin::CallVirtualMethod<9, CWeaponModelInfo *, int, RpAtomic*>(this, arg0, atomic);
 }
 
 // Converted from thiscall int CWeaponModelInfo::GetWeaponInfo(void) 0x629C20

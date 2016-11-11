@@ -6,9 +6,9 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CColBox.h"
 
-// Converted from fastcall void CColBox::Set(CVector const& sup,CVector const& inf,uchar material,uchar flags) 0x4108D0
+// Converted from thiscall void CColBox::Set(CVector const& sup, CVector const& inf, uchar material, uchar flags) 0x4108D0
 void CColBox::Set(CVector const& sup, CVector const& inf, unsigned char material, unsigned char flags) {
-    plugin::Call<0x4108D0, CVector const&, CVector const&, unsigned char, unsigned char>(sup, inf, material, flags);
+    plugin::CallMethod<0x4108D0, CColBox *, CVector const&, CVector const&, unsigned char, unsigned char>(this, sup, inf, material, flags);
 }
 
 // Converted from thiscall void CColBox::operator=(CColBox const& right) 0x410890

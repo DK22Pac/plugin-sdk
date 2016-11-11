@@ -17,7 +17,7 @@ public:
     char gapC[4];
     CVector m_vEnd;
         
-    CColLine(CVector  const& start, CVector  const& end);
+    CColLine(CVector const& start, CVector const& end);
 };
 #pragma pack(pop)
 

@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CColLine.h"
 
-// Converted from fastcall void CColLine::CColLine(CVector const& start, CVector const& end) 0x410940
+// Converted from thiscall void CColLine::CColLine(CVector const& start, CVector const& end) 0x410940
 CColLine::CColLine(CVector const& start, CVector const& end) {
-    plugin::Call<0x410940, CVector const&, CVector const&>(start, end);
+    plugin::CallMethod<0x410940, CColLine *, CVector const&, CVector const&>(this, start, end);
 }

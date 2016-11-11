@@ -7,12 +7,14 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
-#include "CBox.h"
+#include "CPed.h"
+#include "ePedType.h"
 
-class CColBox : public CBox
-{
+class CCivilianPed : public CPed {
 public:
     
-    void Set(CVector const& sup, CVector const& inf, unsigned char material, unsigned char flags);
-    void operator=(CColBox const& right);
+    CCivilianPed(ePedType pedType, unsigned int modelIndex);
+    void CivilianAI();
+    void EnterVacantNearbyCars();
+    void UseNearbyAttractors();
 };

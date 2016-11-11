@@ -8,6 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase\PluginBase_VC.h"
 #include "CPed.h"
+#include "eCopType.h"
 
 class CCopPed : public CPed {
 public:
@@ -38,6 +39,15 @@ private:
     char _pad629[3];
 public:
 
+    bool ArrestPlayer();
+    CCopPed(eCopType copType, int arg1);
+    void ClearPursuit();
+    void CopAI();
+    void ProcessHeliSwat();
+    void ProcessStingerCop();
+    int ScanForCrimes();
+    void SetArrestPlayer(CPed* ped);
+    void SetPursuit(bool arg0);
 };
 
 VALIDATE_SIZE(CCopPed, 0x62C);

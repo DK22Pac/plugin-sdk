@@ -140,6 +140,7 @@
     <ClInclude Include="..\game_vc\CBuilding.h" />
     <ClInclude Include="..\game_vc\CBulletTraces.h" />
     <ClInclude Include="..\game_vc\CCarGenerator.h" />
+    <ClInclude Include="..\game_vc\CCivilianPed.h" />
     <ClInclude Include="..\game_vc\CClock.h" />
     <ClInclude Include="..\game_vc\CClouds.h" />
     <ClInclude Include="..\game_vc\CClumpModelInfo.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="..\game_vc\CPtrList.h" />
     <ClInclude Include="..\game_vc\CRect.h" />
     <ClInclude Include="..\game_vc\CSector.h" />
+    <ClInclude Include="..\game_vc\CTimeModelInfo.h" />
     <ClInclude Include="..\game_vc\CTimer.h" />
     <ClInclude Include="..\game_vc\CTrain.h" />
     <ClInclude Include="..\game_vc\cTransmission.h" />
@@ -196,6 +198,7 @@
     <ClInclude Include="..\game_vc\CWeapon.h" />
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
     <ClInclude Include="..\game_vc\CWheel.h" />
+    <ClInclude Include="..\game_vc\eCopType.h" />
     <ClInclude Include="..\game_vc\ePedModel.h" />
     <ClInclude Include="..\game_vc\ePedType.h" />
     <ClInclude Include="..\game_vc\eVehicleFlags.h" />
@@ -228,6 +231,7 @@
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CBulletTraces.cpp" />
     <ClCompile Include="..\game_vc\CCarGenerator.cpp" />
+    <ClCompile Include="..\game_vc\CCivilianPed.cpp" />
     <ClCompile Include="..\game_vc\CClock.cpp" />
     <ClCompile Include="..\game_vc\CClouds.cpp" />
     <ClCompile Include="..\game_vc\CClumpModelInfo.cpp" />
@@ -268,6 +272,7 @@
     <ClCompile Include="..\game_vc\CSphere.cpp" />
     <ClCompile Include="..\game_vc\CSprite.cpp" />
     <ClCompile Include="..\game_vc\CSprite2d.cpp" />
+    <ClCompile Include="..\game_vc\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CTimer.cpp" />
     <ClCompile Include="..\game_vc\CTrain.cpp" />
     <ClCompile Include="..\game_vc\cTransmission.cpp" />

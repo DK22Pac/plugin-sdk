@@ -17,6 +17,8 @@
 class CVehicle;
 
 class CPed : public CPhysical {
+protected:
+    CPed(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
 public:
     CStoredCollPoly m_polyColliding;
     float m_fCollisionSpeed;
@@ -326,6 +328,8 @@ public:
     int m_dwPedLastComment;
     CVector m_vecSeekPosEx;
     float m_fSeekExAngle;
+
+    CPed(unsigned int modelIndex);
 };
 
 VALIDATE_SIZE(CPed, 0x5F4);

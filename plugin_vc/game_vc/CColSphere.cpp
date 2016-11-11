@@ -6,12 +6,12 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CColSphere.h"
 
-// Converted from fastcall bool CColSphere::IntersectRay(CVector const& rayStart, CVector const& rayEnd, CVector& intPoint1, CVector& intPoint2) 0x417260
+// Converted from thiscall bool CColSphere::IntersectRay(CVector const& rayStart, CVector const& rayEnd, CVector& intPoint1, CVector& intPoint2) 0x417260
 bool CColSphere::IntersectRay(CVector const& rayStart, CVector const& rayEnd, CVector& intPoint1, CVector& intPoint2) {
-    return plugin::CallAndReturn<bool, 0x417260, CVector const&, CVector const&, CVector&, CVector&>(rayStart, rayEnd, intPoint1, intPoint2);
+    return plugin::CallMethodAndReturn<bool, 0x417260, CColSphere *, CVector const&, CVector const&, CVector&, CVector&>(this, rayStart, rayEnd, intPoint1, intPoint2);
 }
 
-// Converted from fastcall void CColSphere::Set(float radius,CVector const& center,uchar material,uchar flags) 0x4173A0
+// Converted from thiscall void CColSphere::Set(float radius, CVector const& center, uchar material, uchar flags) 0x4173A0
 void CColSphere::Set(float radius, CVector const& center, unsigned char material, unsigned char flags) {
-    plugin::Call<0x4173A0, float, CVector const&, unsigned char, unsigned char>(radius, center, material, flags);
+    plugin::CallMethod<0x4173A0, CColSphere *, float, CVector const&, unsigned char, unsigned char>(this, radius, center, material, flags);
 }

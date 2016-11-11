@@ -7,22 +7,15 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 #include "plbase/PluginBase_VC.h"
 #include "CBaseModelInfo.h"
-#include "eWeaponType.h"
 
 #pragma pack(push, 4)
-class CWeaponModelInfo : public CBaseModelInfo {
+class CTimeModelInfo : public CBaseModelInfo {
 public:
-    char gap28[28]; 
-    int dword44; 
+    char gap28[36];
+    int dword4C; 
     
-    //vtable
-    void SetAtomic(int arg0, RpAtomic* atomic);
-
-    //funcs
-    int GetWeaponInfo();
-    void Init();
-    int SetWeaponInfo(int arg0);
+    void FindOtherTimeModel();
 };
 #pragma pack(pop)
 
-VALIDATE_SIZE(CWeaponModelInfo, 0x48);
+VALIDATE_SIZE(CTimeModelInfo, 0x50);
