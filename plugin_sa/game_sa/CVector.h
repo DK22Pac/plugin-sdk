@@ -6,14 +6,14 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
+#include "game_sa\RenderWare.h"
 
-class PLUGIN_API CVector
-{
+class CVector {
 public:
     float x, y, z;
     
 	CVector();
-	CVector(float x, float y, float z);
+	CVector(float X, float Y, float Z);
 
 	// Returns length of vector
 	float Magnitude();
@@ -45,6 +45,18 @@ public:
 	// matrix * vector multiplication
 	void FromMultiply(class CMatrix  const& matrix, CVector const& vector);
 	void FromMultiply3x3(class CMatrix  const& matrix, CVector const& vector);
+
+    inline void Set(float X, float Y, float Z) {
+        x = X; y = Y; z = Z;
+    }
+
+    inline RwV3d ToRwV3d() {
+        return{ x, y, z };
+    }
+
+    inline void FromRwV3d(RwV3d &rwvec) {
+        x = rwvec.x; y = rwvec.y; z = rwvec.z;
+    }
 };
 
 inline CVector operator-(const CVector& vecOne, const CVector& vecTwo) {

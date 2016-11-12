@@ -22,9 +22,9 @@ CVector::CVector()
 
 }
 
-CVector::CVector(float x, float y, float z)
+CVector::CVector(float X, float Y, float Z)
 {
-	((void(__thiscall *)(CVector *, float, float, float))0x420B10)(this, x, y, z);
+	((void(__thiscall *)(CVector *, float, float, float))0x420B10)(this, X, Y, Z);
 }
 
 // Returns length of vector

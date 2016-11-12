@@ -6,174 +6,225 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
-
-#define FUNC_CPad__AddToPCCheatString 0x438480
-#define FUNC_CPad__DoCheats 0x439AF0
-#define FUNC_CPad__ResetCheats 0x438450
-
-#define VAR_CPad__KeyBoardCheatString 0x969110
-#define VAR_CPad__CheatEnabledArray 0x969130
-#define VAR_CPad__bHasPlayerCheated 0x96918C
-
-// #define MAX_SIZEOF_
+#include "rw\skeleton.h"
 
 #pragma pack(push, 1)
 // Set values to 128 unless otherwise specified
-class CControllerState
-{
+class CControllerState {
 public:
-        signed short LeftStickX; // move/steer left (-128?)/right (+128)
-        signed short LeftStickY; // move back(+128)/forwards(-128?)
-        signed short RightStickX; // numpad 6(+128)/numpad 4(-128?)
-        signed short RightStickY;
-        
-        signed short LeftShoulder1;
-        signed short LeftShoulder2;
-        signed short RightShoulder1; // target / hand brake
-        signed short RightShoulder2; 
-        
-        signed short DPadUp; // radio change up
-        signed short DPadDown; // radio change down
-        signed short DPadLeft;
-        signed short DPadRight;
-
-
-        signed short Start;
-        signed short Select;
-
-
-        signed short ButtonSquare; // jump / reverse
-        signed short ButtonTriangle; // get in/out
-        signed short ButtonCross; // sprint / accelerate
-        signed short ButtonCircle; // fire
-
-
-        signed short ShockButtonL;
-        signed short ShockButtonR; // look behind
-
-
-        signed short m_bChatIndicated;
-        signed short m_bPedWalk;
-        signed short m_bVehicleMouseLook;
-        signed short m_bRadioTrackSkip;
-
-		/*
-		CControllerState() {
-			PREPARE_FOR_REDIRECTION()	// redirect to 
-                // memset(this, 0, sizeof(CControllerState));
-				// GetCurrentDirectory(3, "fds");
-        }
-		*/
+    signed short LeftStickX; // move/steer left (-128?)/right (+128)
+    signed short LeftStickY; // move back(+128)/forwards(-128?)
+    signed short RightStickX; // numpad 6(+128)/numpad 4(-128?)
+    signed short RightStickY;
+    
+    signed short LeftShoulder1;
+    signed short LeftShoulder2;
+    signed short RightShoulder1; // target / hand brake
+    signed short RightShoulder2; 
+    
+    signed short DPadUp; // radio change up           Next radio station / Call gang forward/Recruit gang member
+    signed short DPadDown; // radio change down       Previous radio station / Gang stay back/Release gang (hold)
+    signed short DPadLeft; //                         Skip trip/Action / Negative talk reply
+    signed short DPadRight; //                        Next user MP3 track / Positive talk reply
+    
+    signed short Start;                             //Pause
+    signed short Select;                            //Camera modes
+    
+    signed short ButtonSquare; // jump / reverse      Break/Reverse / Jump/Climb
+    signed short ButtonTriangle; // get in/out        Exit vehicle / Enter veihcle
+    signed short ButtonCross; // sprint / accelerate  Accelerate / Sprint/Swim
+    signed short ButtonCircle; // fire                Fire weapon
+    
+    signed short ShockButtonL;
+    signed short ShockButtonR; // look behind
+    
+    signed short m_bChatIndicated;
+    signed short m_bPedWalk;
+    signed short m_bVehicleMouseLook;
+    signed short m_bRadioTrackSkip;
 };
 #pragma pack(pop)
 
 VALIDATE_SIZE(CControllerState, 0x30);
 
 #pragma pack(push, 1)
-class CMouseControllerState
-{
+class CMouseControllerState {
 public:
-	unsigned char lmb;
-	unsigned char rmb;
-	unsigned char mmb;
-	unsigned char wheelUp;
-	unsigned char wheelDown;
-	unsigned char bmx1;
-	unsigned char bmx2;
-	char __align;
-	float Z;
-	float X;
-	float Y;
+    unsigned char lmb;
+    unsigned char rmb;
+    unsigned char mmb;
+    unsigned char wheelUp;
+    unsigned char wheelDown;
+    unsigned char bmx1;
+    unsigned char bmx2;
+    char __align;
+    float Z;
+    float X;
+    float Y;
 };
 #pragma pack(pop)
+
 VALIDATE_SIZE(CMouseControllerState, 0x14);
 
-#define KEYBOARD_CHEAT_STRING_COUNTOF 30
-#define MIN_VALID_CHEAT_STRING_LEN 6
+#pragma pack(push, 1)
+class CKeyboardState {
+public:
+    short FKeys[12];
+    short standardKeys[256];
+    short esc;
+    short insert;
+    short del;
+    short home;
+    short end;
+    short pgup;
+    short pgdn;
+    short up;
+    short down;
+    short left;
+    short right;
+    short scroll;
+    short pause;
+    short numlock;
+    short div;
+    short mul;
+    short sub;
+    short add;
+    short enter;
+    short decimal;
+    short num1;
+    short num2;
+    short num3;
+    short num4;
+    short num5;
+    short num6;
+    short num7;
+    short num8;
+    short num9;
+    short num0;
+    short back;
+    short tab;
+    short capslock;
+    short extenter;
+    short lshift;
+    short rshift;
+    short shift;
+    short lctrl;
+    short rctrl;
+    short lmenu;
+    short rmenu;
+    short lwin;
+    short rwin;
+    short apps;
+};
+#pragma pack(pop)
+
+
+class CPed;
 
 #pragma pack(push, 1)
-class PLUGIN_API CPad
-{
+class CPad {
 public:
-	bool CycleWeaponRightJustDown();
-	bool CycleWeaponLeftJustDown();
+    CControllerState NewState;
+    CControllerState OldState;
+    short SteeringLeftRightBuffer[10];
+    int DrunkDrivingBufferUsed;
+    CControllerState PCTempKeyState;
+    CControllerState PCTempJoyState;
+    CControllerState PCTempMouseState;
+    char Phase;
+private:
+    char _pad109;
+public:
+    short Mode;
+    short ShakeDur;
+    short DisablePlayerControls;
+    char ShakeFreq;
+    char bHornHistory[5];
+    char iCurrHornHistory;
+    char JustOutOfFrontEnd;
+    char bApplyBrakes;
+    char bDisablePlayerEnterCar;
+    char bDisablePlayerDuck;
+    char bDisablePlayerFireWeapon;
+    char bDisablePlayerFireWeaponWithL1;
+    char bDisablePlayerCycleWeapon;
+    char bDisablePlayerJump;
+    char bDisablePlayerDisplayVitalStats;
+    int LastTimeTouched;
+    int AverageWeapon;
+    int AverageEntries;
+    int NoShakeBeforeThis;
+    char NoShakeFreq;
+private:
+    char _pad131[3];
+public:
 
-	// VARIABLES
+    // Static variables
 
-  CControllerState NewState;
-  CControllerState OldState;
-  __int16 SteeringLeftRightBuffer[10];
-  int DrunkDrivingBufferUsed;
-  CControllerState PCTempKeyState;
-  CControllerState PCTempJoyState;
-  CControllerState PCTempMouseState;
-  char Phase;
-  char field_109;
-  __int16 Mode;
-  __int16 ShakeDur;
-  __int16 DisablePlayerControls;
-  char ShakeFreq;
-  char bHornHistory[5];
-  char field_116;
-  char field_117;
-  char field_118;
-  char m_bDisablePlayerEnterCar;
-  char m_bDisablePlayerDuck;
-  char m_bDisablePlayerFireWeapon;
-  char m_bDisablePlayerFireWeaponWithL1;
-  char m_bDisablePlayerCycleWeapon;
-  char m_bDisablePlayerJump;
-  char m_bDisablePlayerDisplayVitalStats;
-  char field_120;
-  char field_121;
-  char field_122;
-  char field_123;
-  char field_124;
-  char field_125;
-  char field_126;
-  char field_127;
-  int field_128;
-  int field_12C;
-  char field_130;
-  char field_131;
-  __int16 field_132;
+    // mouse states
+    static CMouseControllerState &PCTempMouseControllerState;
+    static CMouseControllerState &NewMouseControllerState;
+    static CMouseControllerState &OldMouseControllerState;
+    
+    // Functions list : Not finished
 
-
-	// Static variables
-
-	// Keyboard cheat string, the last typed character is at index [0], the second last typed character is at index [1].
-	// Countof: KEYBOARD_CHEAT_STRING_COUNTOF
-	static char* KeyBoardCheatString;
-
-	// Array of cheat states
-	static bool* CheatEnabledArray;
-
-	// True if player has cheated
-	static bool& bHasPlayerCheated;
-
-	// mouse states
-	static CMouseControllerState &PCTempMouseControllerState;
-	static CMouseControllerState &NewMouseControllerState;
-	static CMouseControllerState &OldMouseControllerState;
-
-	// FUNCTIONS
-
-	// Constructor
-	CPad();
-  
-	// Destructor
-	~CPad();
-
-	// Adds character to cheat string
-	static void AddToPCCheatString(char character);
-
-	// Processes keyboard input for cheat purpose
-	static void DoCheats();
-
-	// Resets cheats
-	static void ResetCheats();
-
-    static CPad* GetPad(int padNumber = 0);
+    void UpdateMouse();
+    void ReconcileTwoControllersInput(CControllerState const& controllerA, CControllerState const& controllerB);
+    void SetDrunkInputDelay(int delay);
+    void StartShake(short time, unsigned char frequency, unsigned int arg2);
+    void StartShake_Distance(short time, unsigned char frequency, float x, float y, float z);
+    void StartShake_Train(float x, float y);
+    // dummy function
+    void ProcessPCSpecificStuff();
+    void StopShaking(short arg0);
+    static CPad* GetPad(int padNumber);
+    short GetSteeringLeftRight();
+    short GetSteeringUpDown();
+    short GetPedWalkLeftRight();
+    short GetPedWalkUpDown();
+    bool GetLookLeft();
+    bool GetLookRight();
+    bool GetLookBehindForCar();
+    bool GetLookBehindForPed();
+    bool GetHorn();
+    bool HornJustDown();
+    bool GetHydraulicJump();
+    short GetCarGunFired();
+    short CarGunJustDown();
+    short GetHandBrake();
+    short GetBrake();
+    bool GetExitVehicle();
+    bool ExitVehicleJustDown();
+    unsigned char GetMeleeAttack();
+    unsigned char MeleeAttackJustDown();
+    short GetAccelerate();
+    bool GetAccelerateJustDown();
+    bool NextStationJustUp();
+    bool LastStationJustUp();
+    bool CycleWeaponLeftJustDown();
+    bool CycleWeaponRightJustDown();
+    bool GetTarget();
+    bool GetDuck();
+    bool DuckJustDown();
+    bool GetJump();
+    bool JumpJustDown();
+    bool GetSprint();
+    bool SprintJustDown();
+    bool ShiftTargetLeftJustDown();
+    bool ShiftTargetRightJustDown();
+    short GetDisplayVitalStats(CPed* ped);
+    bool CollectPickupJustDown();
+    bool GetForceCameraBehindPlayer();
+    bool SniperZoomIn();
+    bool SniperZoomOut();
+    bool GetGroupControlForward();
+    bool GetGroupControlBack();
+    bool ConversationYesJustDown();
+    bool ConversationNoJustDown();
+    bool GroupControlForwardJustDown();
+    bool GroupControlBackJustDown();
+    void Clear(bool enablePlayerControls, bool resetPhase);
+    void UpdatePads();
 };
 #pragma pack(pop)
 

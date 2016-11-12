@@ -39,15 +39,15 @@ public:
     static void SetSlantRefPoint(float x, float y);
     static void SetScale(float width, float height);
     static void DrawFonts();
-    static void FilterOutTokensFromString(unsigned short* str);
-    static unsigned short* ParseToken(unsigned short* str);
-    static unsigned short* ParseToken(unsigned short* str, CRGBA& color, bool& flashing, bool& bold);
-    static float GetStringWidth(unsigned short* str, bool sentence);
-    static void GetTextRect(CRect* rect_out, float x, float y, unsigned short* text);
-    static int GetNumberLines(float x, float y, unsigned short* text);
-    static void PrintString(float x, float y, unsigned short* text);
-    static void PrintStringFromBottom(float x, float y, unsigned short* text);
-    static void PrintString(float x, float y, unsigned int arg2, unsigned short* arg3, unsigned short* arg4, float arg5);
+    static void FilterOutTokensFromString(wchar_t* str);
+    static wchar_t* ParseToken(wchar_t* str);
+    static wchar_t* ParseToken(wchar_t* str, CRGBA& color, bool& flashing, bool& bold);
+    static float GetStringWidth(wchar_t* str, bool sentence);
+    static void GetTextRect(CRect* rect_out, float x, float y, wchar_t* text);
+    static int GetNumberLines(float x, float y, wchar_t* text);
+    static void PrintString(float x, float y, wchar_t* text);
+    static void PrintStringFromBottom(float x, float y, wchar_t* text);
+    static void PrintString(float x, float y, unsigned int arg2, wchar_t* arg3, wchar_t* arg4, float arg5);
     static void RenderFontBuffer();
     static void PrintChar(float x, float y, short character);
     static void InitPerFrame();
@@ -55,6 +55,6 @@ public:
     static void Initialise();
 };
 
-void UnicodeMakeUpperCase(unsigned short* str_out, unsigned short const* str_in);
-int UnicodeStrlen(unsigned short const* str);
-void AsciiToUnicode(char const* str_ascii, unsigned short* str_unicode);
+void UnicodeMakeUpperCase(wchar_t* str_out, wchar_t const* str_in);
+int UnicodeStrlen(wchar_t const* str);
+void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);

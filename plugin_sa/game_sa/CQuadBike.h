@@ -38,14 +38,16 @@ class CQuadBike : public CAutomobile {
 protected:
     CQuadBike(plugin::dummy_func_t) : CAutomobile(plugin::dummy) {}
 public:
-    void *m_pHandling;
-    CRideAnimData m_rideAnimData;
+    void          *m_pHandling;
+    CRideAnimData  m_rideAnimData;
     float field_9A8;
     int field_9AC;
     int field_9B0;
     int field_9B4;
-    unsigned char m_nQuadFlags;
+    unsigned char  m_nQuadFlags;
+private:
     char _pad1[3];
+public:
 
     CQuadBike(int modelIndex, unsigned char createdBy);
 };

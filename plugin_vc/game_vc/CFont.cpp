@@ -142,48 +142,48 @@ void CFont::DrawFonts() {
 }
 
 // Converted from cdecl void CFont::FilterOutTokensFromString(ushort *str) 0x550260
-void CFont::FilterOutTokensFromString(unsigned short* str) {
-    plugin::Call<0x550260, unsigned short*>(str);
+void CFont::FilterOutTokensFromString(wchar_t* str) {
+    plugin::Call<0x550260, wchar_t*>(str);
 }
 
 // Converted from cdecl ushort* CFont::ParseToken(ushort *str) 0x5502D0
-unsigned short* CFont::ParseToken(unsigned short* str) {
-    return plugin::CallAndReturn<unsigned short*, 0x5502D0, unsigned short*>(str);
+wchar_t* CFont::ParseToken(wchar_t* str) {
+    return plugin::CallAndReturn<wchar_t*, 0x5502D0, wchar_t*>(str);
 }
 
 // Converted from cdecl ushort* CFont::ParseToken(ushort *str,CRGBA &color,bool &flashing,bool &bold) 0x550510
-unsigned short* CFont::ParseToken(unsigned short* str, CRGBA& color, bool& flashing, bool& bold) {
-    return plugin::CallAndReturn<unsigned short*, 0x550510, unsigned short*, CRGBA&, bool&, bool&>(str, color, flashing, bold);
+wchar_t* CFont::ParseToken(wchar_t* str, CRGBA& color, bool& flashing, bool& bold) {
+    return plugin::CallAndReturn<wchar_t*, 0x550510, wchar_t*, CRGBA&, bool&, bool&>(str, color, flashing, bold);
 }
 
 // Converted from cdecl float CFont::GetStringWidth(ushort *str,bool sentence) 0x550650
-float CFont::GetStringWidth(unsigned short* str, bool sentence) {
-    return plugin::CallAndReturn<float, 0x550650, unsigned short*, bool>(str, sentence);
+float CFont::GetStringWidth(wchar_t* str, bool sentence) {
+    return plugin::CallAndReturn<float, 0x550650, wchar_t*, bool>(str, sentence);
 }
 
 // Converted from cdecl void CFont::GetTextRect(CRect *rect_out,float x,float y,ushort *text) 0x550720
-void CFont::GetTextRect(CRect* rect_out, float x, float y, unsigned short* text) {
-    plugin::Call<0x550720, CRect*, float, float, unsigned short*>(rect_out, x, y, text);
+void CFont::GetTextRect(CRect* rect_out, float x, float y, wchar_t* text) {
+    plugin::Call<0x550720, CRect*, float, float, wchar_t*>(rect_out, x, y, text);
 }
 
 // Converted from cdecl int CFont::GetNumberLines(float x,float y,ushort *text) 0x550C70
-int CFont::GetNumberLines(float x, float y, unsigned short* text) {
-    return plugin::CallAndReturn<int, 0x550C70, float, float, unsigned short*>(x, y, text);
+int CFont::GetNumberLines(float x, float y, wchar_t* text) {
+    return plugin::CallAndReturn<int, 0x550C70, float, float, wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,ushort *text) 0x551040
-void CFont::PrintString(float x, float y, unsigned short* text) {
-    plugin::Call<0x551040, float, float, unsigned short*>(x, y, text);
+void CFont::PrintString(float x, float y, wchar_t* text) {
+    plugin::Call<0x551040, float, float, wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintStringFromBottom(float x,float y,ushort *text) 0x551620
-void CFont::PrintStringFromBottom(float x, float y, unsigned short* text) {
-    plugin::Call<0x551620, float, float, unsigned short*>(x, y, text);
+void CFont::PrintStringFromBottom(float x, float y, wchar_t* text) {
+    plugin::Call<0x551620, float, float, wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,uint,ushort *,ushort *,float) 0x5516C0
-void CFont::PrintString(float x, float y, unsigned int arg2, unsigned short* arg3, unsigned short* arg4, float arg5) {
-    plugin::Call<0x5516C0, float, float, unsigned int, unsigned short*, unsigned short*, float>(x, y, arg2, arg3, arg4, arg5);
+void CFont::PrintString(float x, float y, unsigned int arg2, wchar_t* arg3, wchar_t* arg4, float arg5) {
+    plugin::Call<0x5516C0, float, float, unsigned int, wchar_t*, wchar_t*, float>(x, y, arg2, arg3, arg4, arg5);
 }
 
 // Converted from cdecl void CFont::RenderFontBuffer(void) 0x551A30
@@ -212,16 +212,16 @@ void CFont::Initialise() {
 }
 
 // Converted from cdecl void UnicodeMakeUpperCase(ushort *str_out,ushort const*str_in) 0x552470
-void UnicodeMakeUpperCase(unsigned short* str_out, unsigned short const* str_in) {
-    plugin::Call<0x552470, unsigned short*, unsigned short const*>(str_out, str_in);
+void UnicodeMakeUpperCase(wchar_t* str_out, wchar_t const* str_in) {
+    plugin::Call<0x552470, wchar_t*, wchar_t const*>(str_out, str_in);
 }
 
 // Converted from cdecl int UnicodeStrlen(ushort const*str) 0x5524B0
-int UnicodeStrlen(unsigned short const* str) {
-    return plugin::CallAndReturn<int, 0x5524B0, unsigned short const*>(str);
+int UnicodeStrlen(wchar_t const* str) {
+    return plugin::CallAndReturn<int, 0x5524B0, wchar_t const*>(str);
 }
 
 // Converted from cdecl void AsciiToUnicode(char const*str_ascii,ushort *str_unicode) 0x552500
-void AsciiToUnicode(char const* str_ascii, unsigned short* str_unicode) {
-    plugin::Call<0x552500, char const*, unsigned short*>(str_ascii, str_unicode);
+void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode) {
+    plugin::Call<0x552500, char const*, wchar_t*>(str_ascii, str_unicode);
 }

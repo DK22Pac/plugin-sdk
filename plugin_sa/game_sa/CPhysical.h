@@ -58,10 +58,10 @@ public:
         unsigned int b31 : 1;
         unsigned int b32 : 1;
     } m_nPhysicalFlags;
-    CVector          m_vecMoveForce;
-    CVector          m_vecTurnForce;
-    CVector          m_vecFrictionMoveForce;
-    CVector          m_vecFrictionTurnForce;
+    CVector          m_vecMoveSpeed;
+    CVector          m_vecTurnSpeed;
+    CVector          m_vecFrictionMoveSpeed;
+    CVector          m_vecFrictionTurnSpeed;
     CVector          m_vecForce;
     CVector          m_vecTorque;
     float            m_fMass;

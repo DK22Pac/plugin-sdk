@@ -26,6 +26,7 @@ public:
                     return atomic;
                 }, 0);
                 DeActivateDirectional();
+                SetFullAmbient();
             }
         };
 

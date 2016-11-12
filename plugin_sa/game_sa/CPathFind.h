@@ -10,7 +10,8 @@
 #include "CompressedVector.h"
 #include "CVector.h"
 
-#define NUM_PATH_AREAS 72
+#define NUM_PATH_MAP_AREAS 64
+#define NUM_PATH_INTERIOR_AREAS 8
 
 #pragma pack(push, 1)
 
@@ -123,18 +124,18 @@ class PLUGIN_API CPathFind
 public:
 	CNodeAddress info;
 	CPathNode *m_apNodesSearchLists[512];
-	CPathNode *m_pPathNodes[NUM_PATH_AREAS];
-	CCarPathLink *m_pNaviNodes[NUM_PATH_AREAS];
-	CNodeAddress *m_pNodeLinks[NUM_PATH_AREAS];
-	unsigned char *m_pLinkLengths[NUM_PATH_AREAS];
-	CPathIntersectionInfo *m_pPathIntersections[NUM_PATH_AREAS];
-	CCarPathLinkAddress *pNaviLinks[NUM_PATH_AREAS];
-	char field_EC4[224];
-	unsigned int m_dwNumNodes[NUM_PATH_AREAS];
-	unsigned int m_dwNumVehicleNodes[NUM_PATH_AREAS];
-	unsigned int m_dwNumPedNodes[NUM_PATH_AREAS];
-	unsigned int m_dwNumCarPathLinks[NUM_PATH_AREAS];
-	unsigned int m_dwNumAddresses[NUM_PATH_AREAS];
+	CPathNode *m_pPathNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	CCarPathLink *m_pNaviNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	CNodeAddress *m_pNodeLinks[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	unsigned char *m_pLinkLengths[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	CPathIntersectionInfo *m_pPathIntersections[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	CCarPathLinkAddress *pNaviLinks[NUM_PATH_MAP_AREAS];
+	void *field_EA4[NUM_PATH_MAP_AREAS];
+	unsigned int m_dwNumNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	unsigned int m_dwNumVehicleNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	unsigned int m_dwNumPedNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	unsigned int m_dwNumCarPathLinks[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
+	unsigned int m_dwNumAddresses[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
 	int field_1544[2048];
 	unsigned int m_dwTotalNumNodesInSearchList;
 	CNodeAddress char3548[8];
