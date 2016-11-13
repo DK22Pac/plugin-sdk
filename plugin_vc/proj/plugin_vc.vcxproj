@@ -166,6 +166,7 @@
     <ClInclude Include="..\game_vc\CProjectile.h" />
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
+    <ClInclude Include="..\game_vc\CScene.h" />
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h" />
     <ClInclude Include="..\game_vc\CSphere.h" />
     <ClInclude Include="..\game_vc\CSprite.h" />
@@ -268,6 +269,7 @@
     <ClCompile Include="..\game_vc\CPtrList.cpp" />
     <ClCompile Include="..\game_vc\CQuaternion.cpp" />
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
+    <ClCompile Include="..\game_vc\CScene.cpp" />
     <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CSphere.cpp" />
     <ClCompile Include="..\game_vc\CSprite.cpp" />

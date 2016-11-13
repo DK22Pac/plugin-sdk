@@ -50,3 +50,18 @@ CVector& FindPlayerSpeed() {
 CVector& FindPlayerCoors() {
     return plugin::CallAndReturn<CVector&, 0x4BC240>();
 }
+
+// Converted from cdecl RwTexture* GetFirstTexture(RwTexDictionary *texDictionary) 0x57F900
+RwTexture* GetFirstTexture(RwTexDictionary* texDictionary) {
+    return plugin::CallAndReturn<RwTexture*, 0x57F900, RwTexDictionary*>(texDictionary);
+}
+
+// Converted from cdecl RwObject* GetFirstObject(RwFrame *frame) 0x57F940
+RwObject* GetFirstObject(RwFrame* frame) {
+    return plugin::CallAndReturn<RwObject*, 0x57F940, RwFrame*>(frame);
+}
+
+// Converted from cdecl RpAtomic* GetFirstAtomic(RpClump *clump) 0x57F980
+RpAtomic* GetFirstAtomic(RpClump* clump) {
+    return plugin::CallAndReturn<RpAtomic*, 0x57F980, RpClump*>(clump);
+}

@@ -22,7 +22,7 @@ public:
     CVector      pos;
     unsigned int pad3;
 
-    struct RwMatrix *m_pAttachMatrix;
+    RwMatrix *m_pAttachMatrix;
     unsigned int m_bOwnsAttachedMatrix; // do we need to delete attaching matrix at detaching
 
     inline CMatrix() {

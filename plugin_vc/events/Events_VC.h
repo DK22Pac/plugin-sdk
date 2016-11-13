@@ -32,6 +32,13 @@ namespace plugin
                                           0x4E41BC, H_CALL,
                                           0x4E4223, H_CALL>, PRIORITY_AFTER,  ArgPickN<CObject*, 0>,  void(CObject*)>  objectCtorEvent;
         extern ThiscallEvent <AddressList<0x4E40E2, H_CALL>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,  void(CObject*)>  objectDtorEvent;
+        extern ThiscallEvent <AddressList<0x589AB2, H_CALL,
+                                          0x5A4E1C, H_CALL,
+                                          0x5AF2BE, H_CALL,
+                                          0x5B2580, H_CALL,
+                                          0x60AD83, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>, void(CVehicle*)> vehicleRenderEvent;
+        extern ThiscallEvent <AddressList<0x4FE216, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>,     void(CPed*) >    pedRenderEvent;
+        extern ThiscallEvent <AddressList<0x4E3666, H_JUMP>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,  void(CObject*)>  objectRenderEvent;
         extern CdeclEvent    <AddressList<0x65CE83, H_CALL,
                                           0x65D30D, H_CALL, 0x65D91C, H_CALL,
                                           0x65E32B, H_CALL, 0x65E7B6, H_CALL,
@@ -43,5 +50,6 @@ namespace plugin
                                           0x65E2A3, H_CALL, 0x65E680, H_CALL,
                                           0x65ED10, H_CALL,
                                           0x65EF1D, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          d3dLostEvent;
+        extern CdeclEvent    <AddressList<0x4A5DA0, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          gameProcessEvent;
     }
 }
