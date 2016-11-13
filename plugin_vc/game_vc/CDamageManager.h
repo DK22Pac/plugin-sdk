@@ -8,15 +8,40 @@ Do not delete this comment block. Respect others' work!
 #include "plbase/PluginBase_VC.h"
 
 enum eDamageState {
-    
+    DAMSTATE_OK = 0,
+    DAMSTATE_DAMAGED = 1,
+    DAMSTATE_OPENED_DAMAGED = 2,
+    DAMSTATE_NOTPRESENT = 3
 };
 
 enum tComponent {
-    
+    COMPONENT_WHEEL_LF = 1,
+    COMPONENT_WHEEL_RF = 2,
+    COMPONENT_WHEEL_LR = 3,
+    COMPONENT_WHEEL_RR = 4,
+    COMPONENT_BONNET = 5,
+    COMPONENT_BOOT = 6,
+    COMPONENT_DOOR_LF = 7,
+    COMPONENT_DOOR_RF = 8,
+    COMPONENT_DOOR_LR = 9,
+    COMPONENT_DOOR_RR = 10,
+    COMPONENT_WING_LF = 11,
+    COMPONENT_WING_RF = 12,
+    COMPONENT_WING_LR = 13,
+    COMPONENT_WING_RR = 14,
+    COMPONENT_WINDSCREEN = 15,
+    COMPONENT_BUMP_FRONT = 16,
+    COMPONENT_BUMP_REAR = 17
 };
 
 enum tComponentGroup {
-    
+    COMPGROUP_PANEL = 0,
+    COMPGROUP_WHEEL = 1,
+    COMPGROUP_DOOR = 2,
+    COMPGROUP_BONNET = 3,
+    COMPGROUP_BOOT = 4,
+    COMPGROUP_LIGHT = 5,
+    COMPGROUP_NA = 6
 };
 
 enum eWheels {

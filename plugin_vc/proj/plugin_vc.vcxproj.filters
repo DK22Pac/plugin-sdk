@@ -316,9 +316,33 @@
     <ClInclude Include="..\game_vc\eCopType.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+<<<<<<< .mine
     <ClInclude Include="..\game_vc\CScene.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+
+
+
+
+
+
+
+
+
+=======
+    <ClInclude Include="..\game_vc\CEmergencyPed.h">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPad.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlayerInfo.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlayerSkin.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+>>>>>>> .theirs
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -509,6 +533,15 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CCivilianPed.cpp">
       <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CEmergencyPed.cpp">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPad.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlayerSkin.cpp">
+      <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CScene.cpp">
       <Filter>game_vc</Filter>

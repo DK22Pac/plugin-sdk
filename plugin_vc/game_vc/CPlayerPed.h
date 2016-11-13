@@ -9,6 +9,8 @@ Do not delete this comment block. Respect others' work!
 #include "plbase\PluginBase_VC.h"
 #include "CPed.h"
 #include "eWeaponType.h"
+#include "CPad.h"
+#include "CPlayerInfo.h"
 
 struct sPlayerPed12 {
     int field_0;
@@ -66,6 +68,47 @@ public:
     int field_6CC;
     int field_6D0;
     int field_6D4;
+
+    //funcs
+    void AnnoyPlayerPed(bool arg0);
+    CPlayerPed();
+    void ClearAdrenaline();
+    void ClearWeaponTarget();
+    static void DeactivatePlayerPed(int playerId);
+    void DoStuffToGoOnFire();
+    float DoWeaponSmoothSpray();
+    bool DoesPlayerWantNewWeapon(eWeaponType weaponType, bool enable);
+    void EvaluateNeighbouringTarget(CEntity* target, CEntity** outTarget, float* outTargetPriority, float maxDistance, float arg4, bool arg5, bool arg6, bool arg7);
+    void EvaluateTarget(CEntity* target, CEntity** outTarget, float* outTargetPriority, float maxDistance, float arg4, bool arg5, bool arg6);
+    int FindMeleeAttackPoint(CPed* arg0, CVector& arg1, unsigned int& arg2);
+    __int16 FindNewAttackPoints();
+    bool FindNextWeaponLockOnTarget(CEntity* target, bool arg1);
+    bool FindWeaponLockOnTarget();
+    CPlayerInfo* GetPlayerInfoForThisPlayerPed();
+    void KeepAreaAroundPlayerClear();
+    void MakeChangesForNewWeapon(eWeaponType weaponType);
+    void MakeChangesForNewWeapon(int weaponSlot);
+    void MakeObjectTargettable(int arg0, bool arg1);
+    void PlayIdleAnimations(CPad* pad);
+    void PlayerControl1stPersonRunAround(CPad* pad);
+    void PlayerControlFighter(CPad* pad);
+    void PlayerControlM16(CPad* pad);
+    void PlayerControlSniper(CPad* pad);
+    void PlayerControlZelda(CPad* pad);
+    void ProcessAnimGroups();
+    void ProcessPlayerWeapon(CPad* pad);
+    void ProcessWeaponSwitch(CPad* pad);
+    void ReApplyMoveAnims();
+    static void ReactivatePlayerPed(int playerId);
+    void RemovePedFromMeleeList(CPed* ped);
+    void SetInitialState();
+    void SetNearbyPedsToInteractWithPlayer();
+    void SetRealMoveAnim();
+    void SetWantedLevel(int level);
+    void SetWantedLevelNoDrop(int level);
+    static void SetupPlayerPed(int playerId);
+    void UpdateMeleeAttackers();
+    int GetWantedLevel();
 };
 
 VALIDATE_SIZE(CPlayerPed, 0x6D8);
