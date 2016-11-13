@@ -152,16 +152,20 @@
     <ClInclude Include="..\game_vc\CCutsceneObject.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />
     <ClInclude Include="..\game_vc\CDoor.h" />
+    <ClInclude Include="..\game_vc\CEmergencyPed.h" />
     <ClInclude Include="..\game_vc\CFont.h" />
     <ClInclude Include="..\game_vc\CGeneral.h" />
     <ClInclude Include="..\game_vc\CHeli.h" />
     <ClInclude Include="..\game_vc\CIniFile.h" />
     <ClInclude Include="..\game_vc\common.h" />
+    <ClInclude Include="..\game_vc\CPad.h" />
     <ClInclude Include="..\game_vc\CPathNode.h" />
     <ClInclude Include="..\game_vc\CPedIK.h" />
     <ClInclude Include="..\game_vc\CPedModelInfo.h" />
     <ClInclude Include="..\game_vc\CPlane.h" />
+    <ClInclude Include="..\game_vc\CPlayerInfo.h" />
     <ClInclude Include="..\game_vc\CPlayerPed.h" />
+    <ClInclude Include="..\game_vc\CPlayerSkin.h" />
     <ClInclude Include="..\game_vc\CPopulation.h" />
     <ClInclude Include="..\game_vc\CProjectile.h" />
     <ClInclude Include="..\game_vc\CQuaternion.h" />
@@ -245,6 +249,7 @@
     <ClCompile Include="..\game_vc\CDamageManager.cpp" />
     <ClCompile Include="..\game_vc\CDoor.cpp" />
     <ClCompile Include="..\game_vc\CDummy.cpp" />
+    <ClCompile Include="..\game_vc\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_vc\CEntity.cpp" />
     <ClCompile Include="..\game_vc\CEntryInfoList.cpp" />
     <ClCompile Include="..\game_vc\CFont.cpp" />
@@ -254,6 +259,7 @@
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
     <ClCompile Include="..\game_vc\CObject.cpp" />
     <ClCompile Include="..\game_vc\common.cpp" />
+    <ClCompile Include="..\game_vc\CPad.cpp" />
     <ClCompile Include="..\game_vc\CPathNode.cpp" />
     <ClCompile Include="..\game_vc\CPed.cpp" />
     <ClCompile Include="..\game_vc\CPedIK.cpp" />
@@ -262,6 +268,7 @@
     <ClCompile Include="..\game_vc\CPlaceable.cpp" />
     <ClCompile Include="..\game_vc\CPlane.cpp" />
     <ClCompile Include="..\game_vc\CPlayerPed.cpp" />
+    <ClCompile Include="..\game_vc\CPlayerSkin.cpp" />
     <ClCompile Include="..\game_vc\CPools.cpp" />
     <ClCompile Include="..\game_vc\CPopulation.cpp" />
     <ClCompile Include="..\game_vc\CProjectile.cpp" />

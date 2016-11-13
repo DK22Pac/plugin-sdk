@@ -6,9 +6,9 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CCopPed.h"
 
-// Converted from thiscall bool CCopPed::ArrestPlayer(void) 0x4EB470
-bool CCopPed::ArrestPlayer() {
-    return plugin::CallMethodAndReturn<bool, 0x4EB470, CCopPed *>(this);
+// Converted from thiscall void CCopPed::ArrestPlayer(void) 0x4EB470
+void CCopPed::ArrestPlayer() {
+    plugin::CallMethod<0x4EB470, CCopPed *>(this);
 }
 
 // Converted from thiscall void CCopPed::CCopPed(eCopType copType, int) 0x4ED720

@@ -23,11 +23,20 @@ enum eCarLock {
 };
 
 enum eVehicleType {
-
+    VEHICLE_AUTOMOBILE,
+    VEHICLE_BOAT,
+    VEHICLE_TRAIN,
+    VEHICLE_HELI,
+    VEHICLE_PLANE,
+    VEHICLE_BIKE
 };
 
 enum eVehicleApperance {
-
+    VEHICLE_APPEARANCE_AUTOMOBILE = 1,
+    VEHICLE_APPEARANCE_BIKE,
+    VEHICLE_APPEARANCE_HELI,
+    VEHICLE_APPEARANCE_BOAT,
+    VEHICLE_APPEARANCE_PLANE,
 };
 
 enum eVehicleLightsFlags {
@@ -242,10 +251,9 @@ public:
     int FindTyreNearestPoint(float x, float y);
     void FireFixedMachineGuns();
     void FlyingControl(eFlightModel flightModel);
-    // 2 - bike, 3 - heli, 4 - boat, 5 - plane
+    //1 - automobile, 2 - bike, 3 - heli, 4 - boat, 5 - plane
     int GetVehicleAppearance();
     static void HeliDustGenerate(CEntity* arg0, float arg1, float arg2, int arg3);
-    //fastcall - ???
     void InflictDamage(CEntity* damager, eWeaponType weapon, float intensity, CVector coords);
     bool IsDriver(CPed* ped);
     bool IsDriver(int modelIndex);

@@ -39,7 +39,7 @@ private:
     char _pad629[3];
 public:
 
-    bool ArrestPlayer();
+    void ArrestPlayer();
     CCopPed(eCopType copType, int arg1);
     void ClearPursuit();
     void CopAI();

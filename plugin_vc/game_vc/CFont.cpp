@@ -23,7 +23,7 @@ void CFont::SetDropShadowPosition(short position) {
 
 // Converted from cdecl void CFont::SetDropColor(CRGBA color) 0x54FF30
 void CFont::SetDropColor(CRGBA color) {
-    plugin::Call<0x54FF30, CRGBA>(color);
+    plugin::Call<0x54FF30, CRGBA *>(&color);
 }
 
 // Converted from cdecl void CFont::SetAlphaFade(float fade) 0x54FFC0
@@ -73,7 +73,7 @@ void CFont::SetBackGroundOnlyTextOn() {
 
 // Converted from cdecl void CFont::SetBackgroundColor(CRGBA color) 0x5500A0
 void CFont::SetBackgroundColor(CRGBA color) {
-    plugin::Call<0x5500A0, CRGBA>(color);
+    plugin::Call<0x5500A0, CRGBA *>(&color);
 }
 
 // Converted from cdecl void CFont::SetBackgroundOff(void) 0x5500D0
@@ -118,7 +118,7 @@ void CFont::SetJustifyOn() {
 
 // Converted from cdecl void CFont::SetColor(CRGBA color) 0x550170
 void CFont::SetColor(CRGBA color) {
-    plugin::Call<0x550170, CRGBA>(color);
+    plugin::Call<0x550170, CRGBA *>(&color);
 }
 
 // Converted from cdecl void CFont::SetSlant(float slant) 0x550200
