@@ -47,4 +47,4 @@ public:
 	~CFontDetails();
 };
 
-VALIDATE_SIZE(CFontDetails, 0x54);
+//VALIDATE_SIZE(CFontDetails, 0x54);
