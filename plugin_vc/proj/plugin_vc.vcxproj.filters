@@ -316,20 +316,9 @@
     <ClInclude Include="..\game_vc\eCopType.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-<<<<<<< .mine
     <ClInclude Include="..\game_vc\CScene.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-
-
-
-
-
-
-
-
-
-=======
     <ClInclude Include="..\game_vc\CEmergencyPed.h">
       <Filter>game_vc\Entity\Ped</Filter>
     </ClInclude>
@@ -342,7 +331,6 @@
     <ClInclude Include="..\game_vc\CPlayerSkin.h">
       <Filter>game_vc</Filter>
     </ClInclude>
->>>>>>> .theirs
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
