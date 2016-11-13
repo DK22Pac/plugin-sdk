@@ -331,6 +331,9 @@
     <ClInclude Include="..\game_vc\CPlayerSkin.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CFontDetails.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -532,6 +535,9 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CScene.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFontDetails.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

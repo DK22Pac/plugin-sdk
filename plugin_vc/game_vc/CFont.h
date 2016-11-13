@@ -9,9 +9,13 @@
 #include "plbase\PluginBase_VC.h"
 #include "CRGBA.h"
 #include "CRect.h"
+#include "CFontDetails.h"
 
 class CFont {
 public:
+	
+    static CFontDetails &Details;
+
     static short character_code(unsigned char character);
     static int FindNewCharacter(short character);
     static void SetDropShadowPosition(short position);
