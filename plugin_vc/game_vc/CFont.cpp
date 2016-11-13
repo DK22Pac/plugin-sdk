@@ -6,6 +6,8 @@
 */
 #include "CFont.h"
 
+CFontDetails &CFont::Details = *(CFontDetails *)0x97F820;
+
 // Converted from cdecl short CFont::character_code(uchar character) 0x54FE50
 short CFont::character_code(unsigned char character) {
     return plugin::CallAndReturn<short, 0x54FE50, unsigned char>(character);
