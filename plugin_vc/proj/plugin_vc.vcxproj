@@ -150,6 +150,7 @@
     <ClInclude Include="..\game_vc\CColSphere.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
     <ClInclude Include="..\game_vc\CCutsceneObject.h" />
+    <ClInclude Include="..\game_vc\CCutsceneShadow.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />
     <ClInclude Include="..\game_vc\CDoor.h" />
     <ClInclude Include="..\game_vc\CEmergencyPed.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
     <ClInclude Include="..\game_vc\CScene.h" />
+    <ClInclude Include="..\game_vc\CShadowCamera.h" />
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h" />
     <ClInclude Include="..\game_vc\CSphere.h" />
     <ClInclude Include="..\game_vc\CSprite.h" />
@@ -205,11 +207,24 @@
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
     <ClInclude Include="..\game_vc\CWheel.h" />
     <ClInclude Include="..\game_vc\eCopType.h" />
+    <ClInclude Include="..\game_vc\eCoronaType.h" />
+    <ClInclude Include="..\game_vc\eEntityStatus.h" />
+    <ClInclude Include="..\game_vc\eExplosionType.h" />
+    <ClInclude Include="..\game_vc\eFormation.h" />
+    <ClInclude Include="..\game_vc\eGangType.h" />
+    <ClInclude Include="..\game_vc\eLevelName.h" />
+    <ClInclude Include="..\game_vc\eParticleObjectType.h" />
     <ClInclude Include="..\game_vc\ePedModel.h" />
+    <ClInclude Include="..\game_vc\ePedStats.h" />
     <ClInclude Include="..\game_vc\ePedType.h" />
+    <ClInclude Include="..\game_vc\ePickupType.h" />
+    <ClInclude Include="..\game_vc\eRadioStations.h" />
+    <ClInclude Include="..\game_vc\eShadowType.h" />
     <ClInclude Include="..\game_vc\eVehicleFlags.h" />
+    <ClInclude Include="..\game_vc\eWaitState.h" />
     <ClInclude Include="..\game_vc\eWeaponModel.h" />
     <ClInclude Include="..\game_vc\eWeaponType.h" />
+    <ClInclude Include="..\game_vc\eWeather.h" />
     <ClInclude Include="..\game_vc\RenderWare.h" />
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h" />
     <ClInclude Include="..\game_vc\rw\rpcriter.h" />
@@ -223,6 +238,7 @@
     <ClInclude Include="..\game_vc\rw\rwcore.h" />
     <ClInclude Include="..\game_vc\rw\rwplcore.h" />
     <ClInclude Include="..\game_vc\rw\skeleton.h" />
+    <ClInclude Include="..\game_vc\tParticleType.h" />
     <ClInclude Include="..\game_vc\tTransmissionGear.h" />
     <ClInclude Include="..\plbase\PluginBase_VC.h" />
     <ClInclude Include="..\plugin_vc.h" />
@@ -248,6 +264,7 @@
     <ClCompile Include="..\game_vc\CColSphere.cpp" />
     <ClCompile Include="..\game_vc\CCopPed.cpp" />
     <ClCompile Include="..\game_vc\CCutsceneObject.cpp" />
+    <ClCompile Include="..\game_vc\CCutsceneShadow.cpp" />
     <ClCompile Include="..\game_vc\CDamageManager.cpp" />
     <ClCompile Include="..\game_vc\CDoor.cpp" />
     <ClCompile Include="..\game_vc\CDummy.cpp" />
@@ -279,6 +296,7 @@
     <ClCompile Include="..\game_vc\CQuaternion.cpp" />
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
     <ClCompile Include="..\game_vc\CScene.cpp" />
+    <ClCompile Include="..\game_vc\CShadowCamera.cpp" />
     <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CSphere.cpp" />
     <ClCompile Include="..\game_vc\CSprite.cpp" />
