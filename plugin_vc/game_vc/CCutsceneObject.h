@@ -8,10 +8,11 @@
 
 #include "plbase\PluginBase_VC.h"
 #include "CObject.h"
+#include "CCutsceneShadow.h"
 
 class CCutsceneObject : public CObject {
 public:
-    void *m_pCutsceneShadow; // CCutsceneShadow *
+    CCutsceneShadow *m_pCutsceneShadow;
     RwFrame *m_pAttachTo;
     CObject *m_pAttachmentObject;
 
