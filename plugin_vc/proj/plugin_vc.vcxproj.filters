@@ -349,6 +349,54 @@
     <ClInclude Include="..\game_vc\NodeName.h">
       <Filter>game_vc\Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CCutsceneShadow.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tParticleType.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CShadowCamera.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eCoronaType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eEntityStatus.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eExplosionType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eFormation.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eGangType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eLevelName.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eParticleObjectType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedStats.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePickupType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eRadioStations.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eShadowType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWaitState.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeather.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -560,6 +608,12 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\NodeName.cpp">
       <Filter>game_vc\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCutsceneShadow.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CShadowCamera.cpp">
+      <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
