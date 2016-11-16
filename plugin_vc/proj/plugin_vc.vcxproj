@@ -158,6 +158,7 @@
     <ClInclude Include="..\game_vc\CGeneral.h" />
     <ClInclude Include="..\game_vc\CHeli.h" />
     <ClInclude Include="..\game_vc\CIniFile.h" />
+    <ClInclude Include="..\game_vc\CModelInfo.h" />
     <ClInclude Include="..\game_vc\common.h" />
     <ClInclude Include="..\game_vc\CPad.h" />
     <ClInclude Include="..\game_vc\CPathNode.h" />
@@ -210,6 +211,7 @@
     <ClInclude Include="..\game_vc\eVehicleFlags.h" />
     <ClInclude Include="..\game_vc\eWeaponModel.h" />
     <ClInclude Include="..\game_vc\eWeaponType.h" />
+    <ClInclude Include="..\game_vc\NodeName.h" />
     <ClInclude Include="..\game_vc\RenderWare.h" />
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h" />
     <ClInclude Include="..\game_vc\rw\rpcriter.h" />
@@ -260,6 +262,7 @@
     <ClCompile Include="..\game_vc\CHeli.cpp" />
     <ClCompile Include="..\game_vc\CIniFile.cpp" />
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
+    <ClCompile Include="..\game_vc\CModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CObject.cpp" />
     <ClCompile Include="..\game_vc\common.cpp" />
     <ClCompile Include="..\game_vc\CPad.cpp" />
@@ -294,6 +297,7 @@
     <ClCompile Include="..\game_vc\CVehicleModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CWeapon.cpp" />
     <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\NodeName.cpp" />
     <ClCompile Include="..\game_vc\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_VC.cpp" />
   </ItemGroup>

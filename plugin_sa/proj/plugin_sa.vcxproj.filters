@@ -67,6 +67,9 @@
     <Filter Include="comp\plugins">
       <UniqueIdentifier>{b5bcbc18-356c-41a1-b53f-162acd691683}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_sa\Enums">
+      <UniqueIdentifier>{7de940b4-1656-498d-ad4b-2eb1ea95e3df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\C2dEffect.h">
@@ -339,45 +342,6 @@
     <ClInclude Include="..\game_sa\CZone.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\eCamMode.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eCommandName.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eCopType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eEntityStatus.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eEntityType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ePedState.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ePedType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eTaskType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eVehicleHandlingFlags.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eVehicleHandlingModelFlags.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eWeaponFire.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eWeaponFlags.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eWeaponType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\functions.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -403,9 +367,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\plugin.h" />
-    <ClInclude Include="..\game_sa\eModelID.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CCheat.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -455,24 +416,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CRopes.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ePadButtons.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ePedBones.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ePedModel.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ePickupType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eWeaponModel.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\eWinchType.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\rw\rpcriter.h">
@@ -1708,9 +1651,6 @@
     <ClInclude Include="..\game_sa\CFileLoader.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\eSprintType.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\List_c.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1719,6 +1659,69 @@
     </ClInclude>
     <ClInclude Include="..\game_sa\RpHAnimBlendInterpFrame.h">
       <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eCamMode.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eCommandName.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eCopType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eEntityStatus.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eEntityType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eModelID.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ePadButtons.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ePedBones.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ePedModel.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ePedState.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ePedType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ePickupType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eSprintType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eTaskType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eVehicleHandlingFlags.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eVehicleHandlingModelFlags.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eWeaponFire.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eWeaponFlags.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eWeaponModel.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eWeaponType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eWinchType.h">
+      <Filter>game_sa\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

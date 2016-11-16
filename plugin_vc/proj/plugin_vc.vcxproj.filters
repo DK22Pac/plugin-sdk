@@ -13,9 +13,6 @@
     <Filter Include="plbase">
       <UniqueIdentifier>{765a53b6-983c-482e-8d8b-a72e29187130}</UniqueIdentifier>
     </Filter>
-    <Filter Include="game_vc\rw">
-      <UniqueIdentifier>{21e6fa82-1630-4526-a7b3-0857e2342df8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="game_vc\Entity">
       <UniqueIdentifier>{30b72636-1b63-4848-b94e-3f7de7206613}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,18 @@
     <Filter Include="game_vc\Collision">
       <UniqueIdentifier>{fe87e1f0-9ba2-47cc-b439-5ebaca06e472}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_vc\Enums">
+      <UniqueIdentifier>{25684c32-cbe7-4737-a236-6c91c4175680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\RenderWare">
+      <UniqueIdentifier>{280cb9f6-7f0e-4252-a3d5-d0e2fff1d17e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\RenderWare\rw">
+      <UniqueIdentifier>{21e6fa82-1630-4526-a7b3-0857e2342df8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Plugins">
+      <UniqueIdentifier>{d6e4ec5a-22bd-430e-b36a-f9603dc16c10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\plugin_vc.h" />
@@ -55,41 +64,38 @@
     <ClInclude Include="..\plbase\PluginBase_VC.h">
       <Filter>plbase</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\RenderWare.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\rw\rpcriter.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rperror.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rphanim.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rpmatfx.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rpskin.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rpworld.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rtanim.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rtquat.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rwcore.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\rwplcore.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\rw\skeleton.h">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CPool.h">
       <Filter>game_vc</Filter>
@@ -145,9 +151,6 @@
     <ClInclude Include="..\game_vc\CWeapon.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\eWeaponType.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\CDoor.h">
       <Filter>game_vc</Filter>
     </ClInclude>
@@ -199,20 +202,11 @@
     <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\eWeaponModel.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h">
       <Filter>game_vc\Models</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h">
       <Filter>game_vc\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_vc\ePedModel.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_vc\ePedType.h">
-      <Filter>game_vc</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CBike.h">
       <Filter>game_vc\Entity\Vehicle</Filter>
@@ -221,9 +215,6 @@
       <Filter>game_vc\Models</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CIniFile.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_vc\eVehicleFlags.h">
       <Filter>game_vc</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CPedModelInfo.h">
@@ -313,9 +304,6 @@
     <ClInclude Include="..\game_vc\CCivilianPed.h">
       <Filter>game_vc\Entity\Ped</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_vc\eCopType.h">
-      <Filter>game_vc</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_vc\CScene.h">
       <Filter>game_vc</Filter>
     </ClInclude>
@@ -334,6 +322,33 @@
     <ClInclude Include="..\game_vc\CFontDetails.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\eCopType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedModel.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eVehicleFlags.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponModel.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\RenderWare.h">
+      <Filter>game_vc\RenderWare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\NodeName.h">
+      <Filter>game_vc\Plugins</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -341,9 +356,6 @@
     </ClCompile>
     <ClCompile Include="..\plbase\PluginBase_VC.cpp">
       <Filter>plbase</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_vc\RenderWare.cpp">
-      <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CPools.cpp">
       <Filter>game_vc</Filter>
@@ -540,13 +552,22 @@
     <ClCompile Include="..\game_vc\CFontDetails.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
+    <ClCompile Include="..\game_vc\RenderWare.cpp">
+      <Filter>game_vc\RenderWare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\NodeName.cpp">
+      <Filter>game_vc\Plugins</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\game_vc\rw\errcom.def">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </None>
     <None Include="..\game_vc\rw\errcore.def">
-      <Filter>game_vc\rw</Filter>
+      <Filter>game_vc\RenderWare\rw</Filter>
     </None>
     <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
   </ItemGroup>
