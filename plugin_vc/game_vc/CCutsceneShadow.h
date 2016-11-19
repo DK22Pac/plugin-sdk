@@ -34,7 +34,7 @@ public:
 	bool Create(RwObject *object, int rasterSize, bool resample, int blurPasses, bool gradient);
 	RwFrame *SetLightProperties(float angleY, float angleX, bool setLight);
 	bool IsInitialized();
-	CShadowCamera GetShadowCamera(int ShadowType);
+	CShadowCamera *GetShadowCamera(int ShadowType);
 	RwRaster *Update();
 	RwTexture *UpdateForCutscene();
 	RwTexture *GetShadowRwTexture();

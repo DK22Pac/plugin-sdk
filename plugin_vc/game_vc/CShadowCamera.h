@@ -15,7 +15,7 @@ public:
 	RwCamera *m_pShadowCamera;
 	RwTexture *m_pShadowRenderTexture;
 
-	RwRaster *DrawOutlineBorder(RwRGBA const& color);
+	void DrawOutlineBorder(RwRGBA const& color);
 	RwRaster *RasterGradient(RwRaster *Raster);
 	RwRaster *RasterBlur(RwRaster *raster, int numPasses);
 	RwRaster *RasterResample(RwRaster *raster);
