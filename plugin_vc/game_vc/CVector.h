@@ -7,6 +7,7 @@
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
+#include "game_vc\RenderWare.h"
 #include <math.h>
 
 class CVector {
@@ -76,6 +77,14 @@ public:
     }
 
     float Normalise();
+
+    inline RwV3d ToRwV3d() {
+        return{ x, y, z };
+    }
+
+    inline void FromRwV3d(RwV3d &rwvec) {
+        x = rwvec.x; y = rwvec.y; z = rwvec.z;
+    }
 
     inline void Set(float X, float Y, float Z) {
         x = X; y = Y; z = Z;

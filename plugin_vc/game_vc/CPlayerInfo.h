@@ -6,16 +6,13 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
-#include "CPed.h"
-#include "CPlayerPed.h"
-#include "CVehicle.h"
 #include "CAutomobile.h"
 #include "CColModel.h"
 #include "RenderWare.h"
 
+class CPlayerPed;
 
-class CPlayerInfo
-{
+class CPlayerInfo {
 public:
 	CPlayerPed *m_pPed;
 	CVehicle *m_pRemoteVehicle;

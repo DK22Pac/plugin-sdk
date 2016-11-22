@@ -12,7 +12,9 @@ Do not delete this comment block. Respect others' work!
 #include "CStoredCollPoly.h"
 #include "CDamageManager.h"
 #include "CCopPed.h"
-#include "CPlayerPed.h"
+
+
+class CPlayerPed;
 
 enum eCarWeapon {
 
