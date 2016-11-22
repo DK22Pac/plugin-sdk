@@ -42,12 +42,12 @@ namespace plugin {
         }
 
         void OnConstructor(CVehicle *vehicle) {
-            blocks[CPools::ms_pVehiclePool->GetArrayIndex(vehicle)] = new T(vehicle);
+            blocks[CPools::ms_pVehiclePool->GetJustIndex(vehicle)] = new T(vehicle);
         }
 
         void OnDestructor(CVehicle *vehicle) {
-            delete blocks[CPools::ms_pVehiclePool->GetArrayIndex(vehicle)];
-            blocks[CPools::ms_pVehiclePool->GetArrayIndex(vehicle)] = 0;
+            delete blocks[CPools::ms_pVehiclePool->GetJustIndex(vehicle)];
+            blocks[CPools::ms_pVehiclePool->GetJustIndex(vehicle)] = 0;
         }
     public:
         VehicleExtendedData() {
@@ -62,7 +62,7 @@ namespace plugin {
         }
 
         T &Get(CVehicle *vehicle) {
-            return *blocks[CPools::ms_pVehiclePool->GetArrayIndex(vehicle)];
+            return *blocks[CPools::ms_pVehiclePool->GetJustIndex(vehicle)];
         }
     };
 }

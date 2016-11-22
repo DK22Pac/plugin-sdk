@@ -42,12 +42,12 @@ namespace plugin {
         }
 
         void OnConstructor(CPed *ped) {
-            blocks[CPools::ms_pPedPool->GetArrayIndex(ped)] = new T(ped);
+            blocks[CPools::ms_pPedPool->GetJustIndex(ped)] = new T(ped);
         }
 
         void OnDestructor(CPed *ped) {
-            delete blocks[CPools::ms_pPedPool->GetArrayIndex(ped)];
-            blocks[CPools::ms_pPedPool->GetArrayIndex(ped)] = 0;
+            delete blocks[CPools::ms_pPedPool->GetJustIndex(ped)];
+            blocks[CPools::ms_pPedPool->GetJustIndex(ped)] = 0;
         }
     public:
         PedExtendedData() {
@@ -62,7 +62,7 @@ namespace plugin {
         }
 
         T &Get(CPed *ped) {
-            return *blocks[CPools::ms_pPedPool->GetArrayIndex(ped)];
+            return *blocks[CPools::ms_pPedPool->GetJustIndex(ped)];
         }
     };
 }
