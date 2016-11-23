@@ -397,6 +397,21 @@
     <ClInclude Include="..\game_vc\eWeather.h">
       <Filter>game_vc\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\cHandlingDataMgr.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tBikeHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tBoatHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tFlyingHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -613,6 +628,9 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CShadowCamera.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\cHandlingDataMgr.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

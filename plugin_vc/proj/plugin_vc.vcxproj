@@ -157,6 +157,7 @@
     <ClInclude Include="..\game_vc\CFont.h" />
     <ClInclude Include="..\game_vc\CFontDetails.h" />
     <ClInclude Include="..\game_vc\CGeneral.h" />
+    <ClInclude Include="..\game_vc\cHandlingDataMgr.h" />
     <ClInclude Include="..\game_vc\CHeli.h" />
     <ClInclude Include="..\game_vc\CIniFile.h" />
     <ClInclude Include="..\game_vc\CModelInfo.h" />
@@ -240,6 +241,10 @@
     <ClInclude Include="..\game_vc\rw\rwcore.h" />
     <ClInclude Include="..\game_vc\rw\rwplcore.h" />
     <ClInclude Include="..\game_vc\rw\skeleton.h" />
+    <ClInclude Include="..\game_vc\tBikeHandlingData.h" />
+    <ClInclude Include="..\game_vc\tBoatHandlingData.h" />
+    <ClInclude Include="..\game_vc\tFlyingHandlingData.h" />
+    <ClInclude Include="..\game_vc\tHandlingData.h" />
     <ClInclude Include="..\game_vc\tParticleType.h" />
     <ClInclude Include="..\game_vc\tTransmissionGear.h" />
     <ClInclude Include="..\plbase\PluginBase_VC.h" />
@@ -276,6 +281,7 @@
     <ClCompile Include="..\game_vc\CFont.cpp" />
     <ClCompile Include="..\game_vc\CFontDetails.cpp" />
     <ClCompile Include="..\game_vc\CGeneral.cpp" />
+    <ClCompile Include="..\game_vc\cHandlingDataMgr.cpp" />
     <ClCompile Include="..\game_vc\CHeli.cpp" />
     <ClCompile Include="..\game_vc\CIniFile.cpp" />
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
