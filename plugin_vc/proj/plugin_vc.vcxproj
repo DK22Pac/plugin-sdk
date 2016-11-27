@@ -211,12 +211,16 @@
     <ClInclude Include="..\game_vc\eCopType.h" />
     <ClInclude Include="..\game_vc\eCoronaType.h" />
     <ClInclude Include="..\game_vc\eEntityStatus.h" />
+    <ClInclude Include="..\game_vc\eEventType.h" />
     <ClInclude Include="..\game_vc\eExplosionType.h" />
     <ClInclude Include="..\game_vc\eFormation.h" />
     <ClInclude Include="..\game_vc\eGangType.h" />
     <ClInclude Include="..\game_vc\eLevelName.h" />
+    <ClInclude Include="..\game_vc\eMoveState.h" />
+    <ClInclude Include="..\game_vc\eObjective.h" />
     <ClInclude Include="..\game_vc\eParticleObjectType.h" />
     <ClInclude Include="..\game_vc\ePedModel.h" />
+    <ClInclude Include="..\game_vc\ePedPieceTypes.h" />
     <ClInclude Include="..\game_vc\ePedStats.h" />
     <ClInclude Include="..\game_vc\ePedType.h" />
     <ClInclude Include="..\game_vc\ePickupType.h" />

@@ -15,3 +15,5 @@ class CEmergencyPed : public CPed
     void FiremanAI();
     void MedicAI();
 };
+
+VALIDATE_SIZE(CEmergencyPed, 0x5F4);

@@ -18,3 +18,5 @@ public:
     void EnterVacantNearbyCars();
     void UseNearbyAttractors();
 };
+
+VALIDATE_SIZE(CCivilianPed, 0x5F4);

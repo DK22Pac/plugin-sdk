@@ -412,6 +412,18 @@
     <ClInclude Include="..\game_vc\tHandlingData.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\ePedPieceTypes.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eMoveState.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eEventType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eObjective.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
