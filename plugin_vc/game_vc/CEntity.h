@@ -17,8 +17,8 @@ public:
     CPlaceable m_placement;
     union {
         RwObject *m_pRwObject;
-        RpAtomic *m_pAtomic;
-        RpClump  *m_pClump;
+        RpAtomic *m_pRwAtomic;
+        RpClump  *m_pRwClump;
     };
 
     unsigned char m_nType : 3;

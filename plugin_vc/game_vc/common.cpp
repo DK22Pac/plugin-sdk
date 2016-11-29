@@ -65,3 +65,78 @@ RwObject* GetFirstObject(RwFrame* frame) {
 RpAtomic* GetFirstAtomic(RpClump* clump) {
     return plugin::CallAndReturn<RpAtomic*, 0x57F980, RpClump*>(clump);
 }
+
+// Converted from cdecl void SetAmbientColours(RwRGBAReal *colours) 0x57FAD0
+void SetAmbientColours(RwRGBAReal* colours) {
+    plugin::Call<0x57FAD0, RwRGBAReal*>(colours);
+}
+
+// Converted from cdecl void SetAmbientColoursForPedsCarsAndObjects(void) 0x57FAF0
+void SetAmbientColoursForPedsCarsAndObjects() {
+    plugin::Call<0x57FAF0>();
+}
+
+// Converted from cdecl void SetAmbientColours(void) 0x57FB10
+void SetAmbientColours() {
+    plugin::Call<0x57FB10>();
+}
+
+// Converted from cdecl void SetFullAmbient(void) 0x57FB30
+void SetFullAmbient() {
+    plugin::Call<0x57FB30>();
+}
+
+// Converted from cdecl void ActivateDirectional(void) 0x57FB50
+void ActivateDirectional() {
+    plugin::Call<0x57FB50>();
+}
+
+// Converted from cdecl void DeActivateDirectional(void) 0x57FB60
+void DeActivateDirectional() {
+    plugin::Call<0x57FB60>();
+}
+
+// Converted from cdecl void ReSetAmbientAndDirectionalColours(void) 0x57FB70
+void ReSetAmbientAndDirectionalColours() {
+    plugin::Call<0x57FB70>();
+}
+
+// Converted from cdecl void SetBrightMarkerColours(float power) 0x57FBA0
+void SetBrightMarkerColours(float power) {
+    plugin::Call<0x57FBA0, float>(power);
+}
+
+// Converted from cdecl void SetAmbientAndDirectionalColours(float power) 0x57FC50
+void SetAmbientAndDirectionalColours(float power) {
+    plugin::Call<0x57FC50, float>(power);
+}
+
+// Converted from cdecl void RemoveExtraDirectionalLights(RpWorld *world) 0x57FCD0
+void RemoveExtraDirectionalLights(RpWorld* world) {
+    plugin::Call<0x57FCD0, RpWorld*>(world);
+}
+
+// Converted from cdecl void AddAnExtraDirectionalLight(RpWorld *world,float x,float y,float z,float red,float green,float blue) 0x57FD00
+void AddAnExtraDirectionalLight(RpWorld* world, float x, float y, float z, float red, float green, float blue) {
+    plugin::Call<0x57FD00, RpWorld*, float, float, float, float, float, float>(world, x, y, z, red, green, blue);
+}
+
+// Converted from cdecl void WorldReplaceNormalLightsWithScorched(RpWorld *world,float intensity) 0x57FE40
+void WorldReplaceNormalLightsWithScorched(RpWorld* world, float intensity) {
+    plugin::Call<0x57FE40, RpWorld*, float>(world, intensity);
+}
+
+// Converted from cdecl RpWorld* LightsDestroy(RpWorld *world) 0x57FE80
+RpWorld* LightsDestroy(RpWorld* world) {
+    return plugin::CallAndReturn<RpWorld*, 0x57FE80, RpWorld*>(world);
+}
+
+// Converted from cdecl RpWorld* LightsCreate(RpWorld *world) 0x57FF50
+RpWorld* LightsCreate(RpWorld* world) {
+    return plugin::CallAndReturn<RpWorld*, 0x57FF50, RpWorld*>(world);
+}
+
+// Converted from cdecl void SetLightsWithTimeOfDayColour(RpWorld *world) 0x5800F0
+void SetLightsWithTimeOfDayColour(RpWorld* world) {
+    plugin::Call<0x5800F0, RpWorld*>(world);
+}

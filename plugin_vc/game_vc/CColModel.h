@@ -7,28 +7,28 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
-#include "CBox.h"
+#include "CColBox.h"
 #include "CColSphere.h"
 
-#pragma pack(push, 4)
-class CColModel
-{
+class CColModel {
 public:
     CColSphere m_colSphere;
     CBox m_boundBox;
-    __int16 field_28; 
-    __int16 field_2A; 
-    __int16 field_2C; 
-    char field_2E; 
-    char field_2F; 
-    char field_30; 
-    char gap_31[3]; 
-    int field_34; 
-    int colData; 
-    int field_3C; 
-    int field_40; 
-    int field_44; 
-    int field_48; 
+    unsigned short m_nNumSpheres;
+    unsigned short m_nNumBoxes;
+    unsigned short m_nNumTriangles;
+    unsigned char m_nNumLines;
+    unsigned char m_nColStoreIndex;
+    Bool m_bLoaded;
+private:
+    char _pad31[3];
+public:
+    CColSphere *m_pSpheres;
+    void *m_pLines;
+    CColBox *m_pBoxes;
+    void *m_pVertices;
+    void *m_pTriangles;
+    void *m_pTrianglePlanes;
 
     CColModel();
     void CalculateTrianglePlanes();
@@ -40,6 +40,5 @@ public:
     static void* operator new(unsigned int size);
     void operator=(CColModel const& arg0);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CColModel, 0x4C);

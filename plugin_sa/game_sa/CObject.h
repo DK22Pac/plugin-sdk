@@ -33,6 +33,7 @@ public:
         unsigned int b06 : 1;
         unsigned int bIsExploded : 1;
         unsigned int b08 : 1;
+
         unsigned int bIsLampPost : 1;
         unsigned int bIsTargatable : 1;
         unsigned int bIsBroken : 1;
@@ -41,14 +42,16 @@ public:
         unsigned int bIsLiftable : 1;
         unsigned int bIsDoorMoving : 1;
         unsigned int bbIsDoorOpen : 1;
+
         unsigned int bHasNoModel : 1;
         unsigned int bIsScaled : 1;
         unsigned int bCanBeAttachedToMagnet : 1;
         unsigned int b20 : 1;
         unsigned int b21 : 1;
         unsigned int b22 : 1;
-        unsigned int bFadingIn : 1;
+        unsigned int bFadingIn : 1; // works only for objects with type 2 (OBJECT_MISSION)
         unsigned int bAffectedByColBrightness : 1;
+
         unsigned int b25 : 1;
         unsigned int bDoNotRender : 1;
         unsigned int bFadingIn2 : 1;

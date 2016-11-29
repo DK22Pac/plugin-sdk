@@ -208,6 +208,7 @@
     <ClInclude Include="..\game_vc\CWeapon.h" />
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
     <ClInclude Include="..\game_vc\CWheel.h" />
+    <ClInclude Include="..\game_vc\CWorld.h" />
     <ClInclude Include="..\game_vc\eCopType.h" />
     <ClInclude Include="..\game_vc\eCoronaType.h" />
     <ClInclude Include="..\game_vc\eEntityStatus.h" />
@@ -321,6 +322,7 @@
     <ClCompile Include="..\game_vc\CVehicleModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CWeapon.cpp" />
     <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CWorld.cpp" />
     <ClCompile Include="..\game_vc\NodeName.cpp" />
     <ClCompile Include="..\game_vc\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_VC.cpp" />
