@@ -180,6 +180,7 @@
     <ClInclude Include="..\game_vc\CSphere.h" />
     <ClInclude Include="..\game_vc\CSprite.h" />
     <ClInclude Include="..\game_vc\CSprite2d.h" />
+    <ClInclude Include="..\game_vc\CStats.h" />
     <ClInclude Include="..\game_vc\CStoredCollPoly.h" />
     <ClInclude Include="..\game_vc\CColPoint.h" />
     <ClInclude Include="..\game_vc\CDummy.h" />
@@ -315,6 +316,7 @@
     <ClCompile Include="..\game_vc\CSphere.cpp" />
     <ClCompile Include="..\game_vc\CSprite.cpp" />
     <ClCompile Include="..\game_vc\CSprite2d.cpp" />
+    <ClCompile Include="..\game_vc\CStats.cpp" />
     <ClCompile Include="..\game_vc\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CTimer.cpp" />
     <ClCompile Include="..\game_vc\CTrain.cpp" />
