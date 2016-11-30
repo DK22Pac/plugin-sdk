@@ -377,16 +377,16 @@ void CStats::BuildStatLine(char* a1, void* a2, int a3, void* a4, int a5)
 	((void (__cdecl *)(char*, void*, int, void*, int))0x4CAE8F)(a1, a2, a3, a4, a5);
 }
 
-// Converted from static void __cdecl CStats::SaveStats(unsigned char * a1,unsigned int *a2) 0x4CA9F7
-void CStats::SaveStats(unsigned char* a1, unsigned int* a2)
+// Converted from static void __cdecl CStats::SaveStats(unsigned char * bufferPointer,unsigned int *structSize) 0x4CA9F7
+void CStats::SaveStats(unsigned char* bufferPointer, unsigned int* structSize)
 {
-	((void (__cdecl *)(unsigned char*, unsigned int*))0x4CA9F7)(a1, a2);
+	((void (__cdecl *)(unsigned char*, unsigned int*))0x4CA9F7)(bufferPointer, structSize);
 }
 
-// Converted from static void __cdecl CStats::LoadStats(unsigned char * a1,unsigned int a2) 0x4CA5BB
-void CStats::LoadStats(unsigned char* a1, unsigned int a2)
+// Converted from static void __cdecl CStats::LoadStats(unsigned char * bufferPointer,unsigned int structSize) 0x4CA5BB
+void CStats::LoadStats(unsigned char* bufferPointer, unsigned int structSize)
 {
-	((void (__cdecl *)(unsigned char*, unsigned int))0x4CA5BB)(a1, a2);
+	((void (__cdecl *)(unsigned char*, unsigned int))0x4CA5BB)(bufferPointer, structSize);
 }
 
 // Converted from static void __cdecl CStats::ConstructStatLine(int a1) 0x4CB085
