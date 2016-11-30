@@ -30,6 +30,7 @@ VALIDATE_SIZE(float, 4);
 
 // Basic types for structures describing
 typedef unsigned __int8 Bool;
+typedef __int32 Bool32;
 typedef __int8 Int8;
 typedef unsigned __int8 UInt8;
 typedef signed __int8 SInt8;
