@@ -136,7 +136,7 @@ public:
 	static char const* FindCriminalRatingString();
 	static float GetPercentageProgress();
 	static void BuildStatLine(char* a1, void* a2, int a3, void* a4, int a5);
-	static void SaveStats(unsigned char* a1, unsigned int* a2);
-	static void LoadStats(unsigned char* a1, unsigned int a2);
+	static void SaveStats(unsigned char* bufferPointer, unsigned int* structSize);
+	static void LoadStats(unsigned char* bufferPointer, unsigned int structSize);
 	static void ConstructStatLine(int a1);
 };

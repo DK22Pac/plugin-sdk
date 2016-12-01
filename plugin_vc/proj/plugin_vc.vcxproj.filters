@@ -624,6 +624,9 @@
     <ClCompile Include="..\game_vc\CPad.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
+    <ClCompile Include="..\game_vc\CPlayerInfo.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
     <ClCompile Include="..\game_vc\CPlayerSkin.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>

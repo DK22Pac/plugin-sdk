@@ -8,6 +8,8 @@ Do not delete this comment block. Respect others' work!
 #include "plbase/PluginBase_VC.h"
 #include "CAutomobile.h"
 #include "CColModel.h"
+#include "CVector.h"
+#include "CPtrList.h"
 #include "RenderWare.h"
 
 class CPlayerPed;
@@ -79,6 +81,24 @@ public:
 	Int16 m_nLastBustMessageNumber;
 	char m_aszSkinName[32];
 	RwTexture *m_pSkinTexture;
+	
+	void Clear();
+	void Process();
+	bool IsPlayerInRemoteMode();
+	void SavePlayerInfo(unsigned char* bufferPointer, unsigned int* structSize);
+	void LoadPlayerInfo(unsigned char* bufferPointer, unsigned int structSize);
+	void FindClosestCarSectorList(CPtrList& ptrList, CPed* ped, float conrerAX, float cornerAY, float cornerBX, float cornerBY, float* dist, CVehicle** closestCar);
+	CVector GetPos();
+	bool IsRestartingAfterDeath();
+	bool IsRestartingAfterArrest();
+	void KillPlayer();
+	void ArrestPlayer();
+	void CancelPlayerEnteringCars(CVehicle* vehicle);
+	void MakePlayerSafe(bool safe);
+	void BlowUpRCBuggy(bool blowUp);
+	void SetPlayerSkin(char const* skinName);
+	void LoadPlayerSkin();
+	void DeletePlayerSkin();
 };
 
 VALIDATE_SIZE(CPlayerInfo, 0x170);
