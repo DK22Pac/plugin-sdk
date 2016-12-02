@@ -8,6 +8,15 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase\PluginBase_VC.h"
 #include "eWeaponType.h"
+#include "CEntity.h"
+#include "CVector.h"
+#include "CVector2D.h"
+#include "CColPoint.h"
+
+
+class CPed;
+class CPhysical;
+class CVehicle;
 
 class CWeapon {
 public:
@@ -21,7 +30,44 @@ private:
     char _pad15[3];
 public:
 
-    bool HasWeaponAmmoToBeUsed();
+	// variables
+	static Bool& bPhotographHasBeenTaken;		// Bool CWeapon::bPhotographHasBeenTaken
+
+	// functions
+	CWeapon(eWeaponType type, int nAmmoTotal);
+	static void InitialiseWeapons();
+	static void ShutdownWeapons();
+	static void UpdateWeapons();
+	void Initialise(eWeaponType type, int nAmmoTotal);
+	void Shutdown();
+	bool Fire(CEntity* pFiringEntity, CVector* vecSourcePos);
+	bool FireFromCar(CVehicle* pFiringVehicle, bool bLookLeft, bool bLookRight);
+	bool FireMelee(CEntity* pFiringEntity, CVector& veSourcePos);
+	bool FireInstantHit(CEntity* pFiringEntity, CVector* veSourcePos);
+	static void AddGunFlashBigGuns(CVector vecStart, CVector vecEnd);
+	void AddGunshell(CEntity* pFiringEntity, CVector const& veSourcePos, CVector2D const& vecDirection, float fSize);
+	void DoBulletImpact(CEntity* pFiringEntity, CEntity* pCollideEntity, CVector* vecStart, CVector* vecEnd, CColPoint* pColPoint, CVector2D vecAhead);
+	bool FireShotgun(CEntity* pFiringEntity, CVector* vecSourcePos);
+	bool FireProjectile(CEntity* pFiringEntity, CVector* vecSourcePos, float fForce);
+	bool FireAreaEffect(CEntity* pFiringEntity, CVector* vecSourcePos);
+	bool LaserScopeDot(CVector* vecPos, float* fDist);
+	bool FireSniper(CEntity* pFiringEntity);
+	bool TakePhotograph(CEntity* pFiringEntity);
+	bool FireM16_1stPerson(CEntity* pFiringEntity);
+	bool FireInstantHitFromCar(CVehicle* pFiringVehicle, bool bLookLeft, bool bLookRight);
+	static void DoDoomAiming(CEntity* pFiringEntity, CVector* vecStart, CVector* vecEnd);
+	static void DoTankDoomAiming(CEntity* pFiringEntity1, CEntity* pFiringEntity2, CVector* vecStart, CVector* vecEnd);
+	static void DoDriveByAutoAiming(CEntity* pFiringEntity, CVehicle* pFiringVehicle, CVector* vecStart, CVector* vecEnd);
+	void Reload();
+	void Update(int nAudioEntityId, CPed* pPed);
+	bool IsTypeMelee();
+	bool IsType2Handed();
+	static void MakePedsJumpAtShot(CPhysical* pFiringEntity, CVector* vecStart, CVector* vecEnd);
+	static void BlowUpExplosiveThings(CEntity* Thing);
+	bool HasWeaponAmmoToBeUsed();
+	static void CheckForShootingVehicleOccupant(CEntity** pCollideEntity, CColPoint* pColPoint, eWeaponType type, CVector const& vecStart, CVector const& vecEnd);
 };
+
+static void FireOneInstantHitRound(CVector* vecStart, CVector* vecEnd, int nDamage);
 
 VALIDATE_SIZE(CWeapon, 0x18);
