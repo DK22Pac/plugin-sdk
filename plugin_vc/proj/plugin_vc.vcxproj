@@ -166,6 +166,8 @@
     <ClInclude Include="..\game_vc\CPathNode.h" />
     <ClInclude Include="..\game_vc\CPedIK.h" />
     <ClInclude Include="..\game_vc\CPedModelInfo.h" />
+    <ClInclude Include="..\game_vc\CPedStats.h" />
+    <ClInclude Include="..\game_vc\CPedType.h" />
     <ClInclude Include="..\game_vc\CPlane.h" />
     <ClInclude Include="..\game_vc\CPlayerInfo.h" />
     <ClInclude Include="..\game_vc\CPlayerPed.h" />
@@ -223,6 +225,7 @@
     <ClInclude Include="..\game_vc\eParticleObjectType.h" />
     <ClInclude Include="..\game_vc\ePedModel.h" />
     <ClInclude Include="..\game_vc\ePedPieceTypes.h" />
+    <ClInclude Include="..\game_vc\ePedStates.h" />
     <ClInclude Include="..\game_vc\ePedStats.h" />
     <ClInclude Include="..\game_vc\ePedType.h" />
     <ClInclude Include="..\game_vc\ePickupType.h" />
@@ -299,6 +302,8 @@
     <ClCompile Include="..\game_vc\CPed.cpp" />
     <ClCompile Include="..\game_vc\CPedIK.cpp" />
     <ClCompile Include="..\game_vc\CPedModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CPedStats.cpp" />
+    <ClCompile Include="..\game_vc\CPedType.cpp" />
     <ClCompile Include="..\game_vc\CPhysical.cpp" />
     <ClCompile Include="..\game_vc\CPlaceable.cpp" />
     <ClCompile Include="..\game_vc\CPlane.cpp" />

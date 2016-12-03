@@ -353,7 +353,7 @@
       <Filter>game_vc</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\tParticleType.h">
-      <Filter>game_vc</Filter>
+      <Filter>game_vc\Enums</Filter>
     </ClInclude>
     <ClInclude Include="..\game_vc\CShadowCamera.h">
       <Filter>game_vc</Filter>
@@ -429,6 +429,15 @@
     </ClInclude>
     <ClInclude Include="..\game_vc\CStats.h">
       <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedStats.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedType.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedStates.h">
+      <Filter>game_vc\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -658,6 +667,12 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CStats.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedStats.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedType.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
