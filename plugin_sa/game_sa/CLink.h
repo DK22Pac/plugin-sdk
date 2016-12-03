@@ -7,16 +7,14 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "CVector.h"
 
-class CBox {
+template<typename T>
+class CLink
+{
 public:
-	CVector m_vecSup;
-	CVector m_vecInf;
-
-	void Set(CVector  const& sup, CVector  const& inf);
-	// updates box corners, like (if left>right then swap(left, right))
-	void Recalc();
+    T data;
+    CLink* next;
+    CLink* prev;
+    CLink* head;
+    CLink* tail;
 };
-
-VALIDATE_SIZE(CBox, 0x18);

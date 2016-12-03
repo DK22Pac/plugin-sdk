@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#include "plbase/PluginBase_SA.h"
 #include "CVector.h"
 
 class CRegisteredShinyText {

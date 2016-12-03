@@ -1453,9 +1453,6 @@
     <ClInclude Include="..\game_sa\CColBox.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CColData.h">
-      <Filter>game_sa\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CColLine.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
@@ -1725,6 +1722,21 @@
     </ClInclude>
     <ClInclude Include="..\game_sa\CShinyTexts.h">
       <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CColDisk.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCollisionData.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBoundingBox.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CLink.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCollision.h">
+      <Filter>game_sa\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3116,6 +3128,21 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CShinyTexts.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColDisk.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBoundingBox.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCollisionData.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CColModel.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCollision.cpp">
+      <Filter>game_sa\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

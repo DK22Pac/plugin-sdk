@@ -7,16 +7,13 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "CVector.h"
+#include "CBox.h"
 
-class CBox {
+class CBoundingBox : public CBox {
 public:
-	CVector m_vecSup;
-	CVector m_vecInf;
+    CBoundingBox();
 
-	void Set(CVector  const& sup, CVector  const& inf);
-	// updates box corners, like (if left>right then swap(left, right))
-	void Recalc();
+    CBoundingBox(plugin::dummy_func_t) {}
 };
 
-VALIDATE_SIZE(CBox, 0x18);
+VALIDATE_SIZE(CBoundingBox, 0x18);

@@ -15,11 +15,11 @@
 
 using namespace plugin;
 
-bool Fastman92LimitAdjusterSupport::Install() {
+bool Fastman92LimitAdjusterSupport::Install() {/*
     if (PluginSupport::Install()) {
 
         // CoronasLimitSupport
-        MAX_NUM_CORONAS = patch::GetUInt(0x6FAF46 + 4);
+        MAX_CORONAS = patch::GetUInt(0x6FAF46 + 4);
         CCoronas::aCoronas = reinterpret_cast<CRegisteredCorona *>(patch::GetPointer(0x6FAE9F + 1));
 
         // ShadowsLimitSupport
@@ -39,6 +39,6 @@ bool Fastman92LimitAdjusterSupport::Install() {
         CRadar::MapLegendList = reinterpret_cast<unsigned short *>(patch::GetPointer(0x585A52 + 1));
 
         return true;
-    }
+    }*/
     return false;
 }

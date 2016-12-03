@@ -7,18 +7,30 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "CBox.h"
+#include "CBoundingBox.h"
 #include "CColSphere.h"
-#include "CColData.h"
+#include "CCollisionData.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CColModel
-{
+class CColModel {
 public:
-	CBox m_boundBox;
-	CColSphere m_colSphere;
-	CColData *m_pColData;
+    CBoundingBox m_boundBox;
+	CColSphere m_boundSphere;
+    CCollisionData *m_pColData;
+
+    CColModel();
+    ~CColModel();
+    CColModel& operator=(CColModel const& colModel);
+
+    void MakeMultipleAlloc();
+    void AllocateData();
+    void AllocateData(int numSpheres, int numBoxes, int numLines, int numVertices, int numTriangles, bool disks);
+    void AllocateData(int size);
+    void RemoveCollisionVolumes();
+    void CalculateTrianglePlanes();
+    void RemoveTrianglePlanes();
+
+    static void* operator new(unsigned int size);
+    static void operator delete(void* data);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CColModel, 0x30);

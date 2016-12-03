@@ -9,25 +9,25 @@
 #include "plbase/PluginBase_SA.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CColPoint
-{
+class CColPoint {
 public:
 	/* https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CColPointSA.h */
-	CVector         m_vPoint;
+	CVector       m_vecPoint;
 	float field_C;
-	CVector         m_vNormal;
+	CVector       m_vecNormal;
 	float field_1C;
-	unsigned __int8 m_nSurfaceTypeA;
-	unsigned __int8 m_nPieceTypeA;
-	unsigned __int8 m_nLightingA;
-	unsigned __int8 m_nSurfaceTypeB;
-	unsigned __int8 m_nPieceTypeB;
-	unsigned __int8 m_nLightingB;
-	float           m_fDepth;
+    // col shape 1 info
+	unsigned char m_nSurfaceTypeA;
+	unsigned char m_nPieceTypeA;
+	unsigned char m_nLightingA;
+    // col shape 2 info
+	unsigned char m_nSurfaceTypeB;
+	unsigned char m_nPieceTypeB;
+	unsigned char m_nLightingB;
+    // col depth
+	float         m_fDepth;
 
 	void operator=(CColPoint const& right);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CColPoint, 0x2C);

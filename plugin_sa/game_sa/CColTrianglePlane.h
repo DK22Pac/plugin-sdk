@@ -11,17 +11,14 @@
 #include "CVector.h"
 #include "CColTriangle.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CColTrianglePlane
-{
+class CColTrianglePlane {
 public:
-	CompressedVector m_Normal;
-	unsigned __int16 m_wDistance;
-	unsigned __int8 m_nOrientation;
+	CompressedVector m_normal;
+	unsigned short m_nDistance;
+	unsigned char m_nOrientation;
 	
 	void GetNormal(CVector &out);
 	void Set(CompressedVector  const* vertices, CColTriangle & triangle);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CColTrianglePlane, 0xA);

@@ -97,7 +97,10 @@
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
     <ClInclude Include="..\game_sa\CBmx.h" />
     <ClInclude Include="..\game_sa\CBoat.h" />
+    <ClInclude Include="..\game_sa\CBoundingBox.h" />
     <ClInclude Include="..\game_sa\CCarCtrl.h" />
+    <ClInclude Include="..\game_sa\CColDisk.h" />
+    <ClInclude Include="..\game_sa\CCollision.h" />
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
@@ -107,6 +110,7 @@
     <ClInclude Include="..\game_sa\CHeli.h" />
     <ClInclude Include="..\game_sa\CIniFile.h" />
     <ClInclude Include="..\game_sa\CKeyGen.h" />
+    <ClInclude Include="..\game_sa\CLink.h" />
     <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
     <ClInclude Include="..\game_sa\CLocalisation.h" />
     <ClInclude Include="..\game_sa\CMenuPanel.h" />
@@ -447,7 +451,7 @@
     <ClInclude Include="..\game_sa\CClothes.h" />
     <ClInclude Include="..\game_sa\CClumpModelInfo.h" />
     <ClInclude Include="..\game_sa\CColBox.h" />
-    <ClInclude Include="..\game_sa\CColData.h" />
+    <ClInclude Include="..\game_sa\CCollisionData.h" />
     <ClInclude Include="..\game_sa\CColLine.h" />
     <ClInclude Include="..\game_sa\CColModel.h" />
     <ClInclude Include="..\game_sa\CColPoint.h" />
@@ -646,6 +650,7 @@
     <ClCompile Include="..\game_sa\CBike.cpp" />
     <ClCompile Include="..\game_sa\CBmx.cpp" />
     <ClCompile Include="..\game_sa\CBoat.cpp" />
+    <ClCompile Include="..\game_sa\CBoundingBox.cpp" />
     <ClCompile Include="..\game_sa\CBox.cpp" />
     <ClCompile Include="..\game_sa\CBuilding.cpp" />
     <ClCompile Include="..\game_sa\CBulletTraces.cpp" />
@@ -656,7 +661,11 @@
     <ClCompile Include="..\game_sa\CClock.cpp" />
     <ClCompile Include="..\game_sa\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_sa\CColBox.cpp" />
+    <ClCompile Include="..\game_sa\CColDisk.cpp" />
     <ClCompile Include="..\game_sa\CColLine.cpp" />
+    <ClCompile Include="..\game_sa\CCollision.cpp" />
+    <ClCompile Include="..\game_sa\CCollisionData.cpp" />
+    <ClCompile Include="..\game_sa\CColModel.cpp" />
     <ClCompile Include="..\game_sa\CColPoint.cpp" />
     <ClCompile Include="..\game_sa\CColSphere.cpp" />
     <ClCompile Include="..\game_sa\CColTriangle.cpp" />

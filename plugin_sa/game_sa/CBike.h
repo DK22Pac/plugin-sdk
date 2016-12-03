@@ -71,7 +71,7 @@ public:
     char field_7B6[2];
     int field_7B8;
     int field_7BC;
-    CEntity       *m_apReferencedEntities[4];
+    CEntity       *m_apWheelCollisionEntity[4];
     CVector        m_avTouchPointsLocalSpace[4];
     CEntity       *m_pDamager;
     unsigned char  m_nNumContactWheels;
