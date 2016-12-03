@@ -12,6 +12,7 @@
 #include "CStoredCollPoly.h"
 #include "CPedIK.h"
 #include "CPathNode.h"
+#include "CPedStats.h"
 #include "CWeapon.h"
 #include "ePedStats.h"
 #include "eFormation.h"
@@ -250,7 +251,7 @@ public:
     int m_dwPhoneTalkTimer;
     void *m_pLastAccident;
     unsigned int m_dwPedType;
-    void *m_pPedStats;
+    CPedStats *m_pPedStats;
     float m_fFleeFromPosX;
     float m_fFleeFromPosY;
     void *m_pFleeFrom;
