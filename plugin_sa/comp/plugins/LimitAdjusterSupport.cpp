@@ -15,7 +15,7 @@
 
 using namespace plugin;
 
-bool Fastman92LimitAdjusterSupport::Install() {/*
+bool Fastman92LimitAdjusterSupport::Install() {
     if (PluginSupport::Install()) {
 
         // CoronasLimitSupport
@@ -39,6 +39,6 @@ bool Fastman92LimitAdjusterSupport::Install() {/*
         CRadar::MapLegendList = reinterpret_cast<unsigned short *>(patch::GetPointer(0x585A52 + 1));
 
         return true;
-    }*/
+    }
     return false;
 }

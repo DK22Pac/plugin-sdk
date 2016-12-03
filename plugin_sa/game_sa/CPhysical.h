@@ -91,7 +91,7 @@ public:
     CQuaternion      m_qAttachedEntityRotation;
     CEntity         *m_pEntityIgnoredCollision;
     float            m_fContactSurfaceBrightness;
-    __int32 field_130;
+    float            m_fDynamicLighting;
     CRealTimeShadow *m_pShadowData;
     
     // originally virtual functions

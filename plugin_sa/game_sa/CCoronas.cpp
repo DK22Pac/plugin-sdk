@@ -6,16 +6,17 @@
 */
 #include "CCoronas.h"
 
-unsigned int MAX_NUM_CORONAS = 64;
+unsigned int MAX_CORONAS = 64;
+RwTexture **gpCoronaTexture = (RwTexture **)0xC3E000;
 
 float& CCoronas::SunScreenX = *(float *)0xC3E028;
 float& CCoronas::SunScreenY = *(float *)0xC3E02C;
-unsigned __int8& CCoronas::SunBlockedByClouds = *(unsigned __int8 *)0xC3E030;
+bool& CCoronas::SunBlockedByClouds = *(bool *)0xC3E030;
 bool& CCoronas::bChangeBrightnessImmediately = *(bool *)0xC3E034;
-unsigned __int32& CCoronas::NumRegisteredCoronas = *(unsigned __int32 *)0xC3E038;
+unsigned int& CCoronas::NumCoronas = *(unsigned int *)0xC3E038;
 CRegisteredCorona *CCoronas::aCoronas = (CRegisteredCorona *)0xC3E058;
 float& CCoronas::LightsMult = *(float *)0x8D4B5C;
-unsigned __int32& CCoronas::MoonSize = *(unsigned __int32 *)0x8D4B60;
+unsigned int& CCoronas::MoonSize = *(unsigned int *)0x8D4B60;
 
 void CCoronas::Init()
 {

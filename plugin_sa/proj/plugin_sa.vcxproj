@@ -123,6 +123,7 @@
     <ClInclude Include="..\game_sa\CRestart.h" />
     <ClInclude Include="..\game_sa\CRope.h" />
     <ClInclude Include="..\game_sa\CRopes.h" />
+    <ClInclude Include="..\game_sa\CShinyTexts.h" />
     <ClInclude Include="..\game_sa\CStreamingInfo.h" />
     <ClInclude Include="..\game_sa\CTaskComplexArrestPed.h" />
     <ClInclude Include="..\game_sa\CTaskComplexAttractorPartnerWait.h" />
@@ -737,6 +738,7 @@
     <ClCompile Include="..\game_sa\CScene.cpp" />
     <ClCompile Include="..\game_sa\CShadowCamera.cpp" />
     <ClCompile Include="..\game_sa\CShadows.cpp" />
+    <ClCompile Include="..\game_sa\CShinyTexts.cpp" />
     <ClCompile Include="..\game_sa\CSimpleTransform.cpp" />
     <ClCompile Include="..\game_sa\CSphere.cpp" />
     <ClCompile Include="..\game_sa\CSprite.cpp" />

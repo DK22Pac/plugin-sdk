@@ -1723,6 +1723,9 @@
     <ClInclude Include="..\game_sa\eWinchType.h">
       <Filter>game_sa\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CShinyTexts.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBox.cpp">
@@ -3110,6 +3113,9 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CPed.cpp">
       <Filter>game_sa\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CShinyTexts.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
