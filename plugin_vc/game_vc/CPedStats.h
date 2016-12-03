@@ -75,7 +75,7 @@ public:
 			unsigned char bCanKick : 1;
 			unsigned char bCanRoundHse : 1;
 			unsigned char bNoDive : 1;
-            unsigned char b1HitKnockdown : 1;
+			unsigned char b1HitKnockdown : 1;
 			unsigned char bShoppingBags : 1;
 			unsigned char bGunPanic : 1;
 		};
@@ -86,10 +86,10 @@ public:
 	static CPedStats* (&ms_apPedStats)[40];		// CPedStats* CPedStats::ms_apPedStats[40]
 	
 	// functions
-    static void Initialise();
-    static void Shutdown();
-    static void LoadPedStats();
-    static unsigned int GetPedStatType(char* pedStatName);
+	static void Initialise();
+	static void Shutdown();
+	static void LoadPedStats();
+	static unsigned int GetPedStatType(char* pedStatName);
 };
 
 VALIDATE_SIZE(CPedStats, 0x34);

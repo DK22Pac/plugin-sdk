@@ -61,13 +61,13 @@ public:
 	static CPedType* (&ms_apPedType)[23];		// CPedType* CPedType::ms_apPedType[23]
 	
 	// functions
-    static void Initialise();
-    static void Shutdown();
-    static void LoadPedData();
-    static unsigned int FindPedType(char* pedName);
-    static unsigned int FindPedFlag(char* flagName);
-    static void Save(unsigned char* bufferPointer, unsigned int* structSize);
-    static void Load(unsigned char* bufferPointer, unsigned int structSize);
+	static void Initialise();
+	static void Shutdown();
+	static void LoadPedData();
+	static unsigned int FindPedType(char* pedName);
+	static unsigned int FindPedFlag(char* flagName);
+	static void Save(unsigned char* bufferPointer, unsigned int* structSize);
+	static void Load(unsigned char* bufferPointer, unsigned int structSize);
 };
 
 VALIDATE_SIZE(CPedType, 0x20);

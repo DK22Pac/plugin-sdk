@@ -439,6 +439,9 @@
     <ClInclude Include="..\game_vc\ePedStates.h">
       <Filter>game_vc\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CDraw.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -673,6 +676,9 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CPedType.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDraw.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

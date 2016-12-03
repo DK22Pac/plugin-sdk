@@ -153,6 +153,7 @@
     <ClInclude Include="..\game_vc\CCutsceneShadow.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />
     <ClInclude Include="..\game_vc\CDoor.h" />
+    <ClInclude Include="..\game_vc\CDraw.h" />
     <ClInclude Include="..\game_vc\CEmergencyPed.h" />
     <ClInclude Include="..\game_vc\CFont.h" />
     <ClInclude Include="..\game_vc\CFontDetails.h" />
@@ -283,6 +284,7 @@
     <ClCompile Include="..\game_vc\CCutsceneShadow.cpp" />
     <ClCompile Include="..\game_vc\CDamageManager.cpp" />
     <ClCompile Include="..\game_vc\CDoor.cpp" />
+    <ClCompile Include="..\game_vc\CDraw.cpp" />
     <ClCompile Include="..\game_vc\CDummy.cpp" />
     <ClCompile Include="..\game_vc\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_vc\CEntity.cpp" />
