@@ -27,7 +27,8 @@ class CVehicle;
 
 class CPed : public CPhysical {
 protected:
-    CPed(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
+    CPed(plugin::dummy_func_t) : CPhysical(plugin::dummy), m_aWeapons{ plugin::dummy, plugin::dummy, plugin::dummy,
+        plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy } {}
 public:
     CStoredCollPoly m_polyColliding;
     float m_fCollisionSpeed;

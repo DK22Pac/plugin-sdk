@@ -11,6 +11,12 @@ Do not delete this comment block. Respect others' work!
 Bool& CWeapon::bPhotographHasBeenTaken = *(Bool*)0xA10AF4;
 
 // functions
+
+CWeapon::CWeapon()
+{
+    ((void(__thiscall *)(CWeapon*))0x50EFA0)(this);
+}
+
 // Converted from void __thiscall CWeapon::CWeapon(eWeaponType type, int nAmmoTotal) 0x5D4E20
 CWeapon::CWeapon(eWeaponType type, int nAmmoTotal)
 {

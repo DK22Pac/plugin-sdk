@@ -34,7 +34,10 @@ public:
 	static Bool& bPhotographHasBeenTaken;		// Bool CWeapon::bPhotographHasBeenTaken
 
 	// functions
+    CWeapon();
 	CWeapon(eWeaponType type, int nAmmoTotal);
+    CWeapon(plugin::dummy_func_t) {}
+
 	static void InitialiseWeapons();
 	static void ShutdownWeapons();
 	static void UpdateWeapons();

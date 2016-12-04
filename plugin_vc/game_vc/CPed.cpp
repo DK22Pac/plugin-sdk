@@ -1183,6 +1183,7 @@ void* CPed::operator new(unsigned int size, int arg1) {
 
 
 // Converted from thiscall void CPed::CPed(uint modelIndex) 0x50DC20
-CPed::CPed(unsigned int modelIndex) : CPhysical(plugin::dummy) {
+CPed::CPed(unsigned int modelIndex) : CPhysical(plugin::dummy), m_aWeapons{ plugin::dummy, plugin::dummy, plugin::dummy,
+plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy } {
     plugin::CallMethod<0x50DC20, CPed *, unsigned int>(this, modelIndex);
 }

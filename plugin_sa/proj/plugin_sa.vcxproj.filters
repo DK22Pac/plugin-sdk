@@ -78,9 +78,6 @@
     <ClInclude Include="..\game_sa\CAutoPilot.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CBox.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CBulletTraces.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -271,9 +268,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CSimpleTransform.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CSphere.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CSprite.h">
@@ -1738,11 +1732,14 @@
     <ClInclude Include="..\game_sa\CCollision.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CBox.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CSphere.h">
+      <Filter>game_sa\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\game_sa\CBox.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -1870,9 +1867,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CSimpleTransform.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CSphere.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CSprite.cpp">
@@ -3142,6 +3136,12 @@
       <Filter>game_sa\Collision</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCollision.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBox.cpp">
+      <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CSphere.cpp">
       <Filter>game_sa\Collision</Filter>
     </ClCompile>
   </ItemGroup>
