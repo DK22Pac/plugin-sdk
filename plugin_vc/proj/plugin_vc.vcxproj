@@ -209,12 +209,16 @@
     <ClInclude Include="..\game_vc\CVector2D.h" />
     <ClInclude Include="..\game_vc\CVehicle.h" />
     <ClInclude Include="..\game_vc\CVehicleModelInfo.h" />
+    <ClInclude Include="..\game_vc\CWanted.h" />
     <ClInclude Include="..\game_vc\CWeapon.h" />
+    <ClInclude Include="..\game_vc\CWeaponEffects.h" />
+    <ClInclude Include="..\game_vc\CWeaponInfo.h" />
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
     <ClInclude Include="..\game_vc\CWheel.h" />
     <ClInclude Include="..\game_vc\CWorld.h" />
     <ClInclude Include="..\game_vc\eCopType.h" />
     <ClInclude Include="..\game_vc\eCoronaType.h" />
+    <ClInclude Include="..\game_vc\eCrimeType.h" />
     <ClInclude Include="..\game_vc\eEntityStatus.h" />
     <ClInclude Include="..\game_vc\eEventType.h" />
     <ClInclude Include="..\game_vc\eExplosionType.h" />
@@ -234,6 +238,7 @@
     <ClInclude Include="..\game_vc\eShadowType.h" />
     <ClInclude Include="..\game_vc\eVehicleFlags.h" />
     <ClInclude Include="..\game_vc\eWaitState.h" />
+    <ClInclude Include="..\game_vc\eWeaponFire.h" />
     <ClInclude Include="..\game_vc\eWeaponModel.h" />
     <ClInclude Include="..\game_vc\eWeaponType.h" />
     <ClInclude Include="..\game_vc\eWeather.h" />
@@ -334,7 +339,10 @@
     <ClCompile Include="..\game_vc\CVector.cpp" />
     <ClCompile Include="..\game_vc\CVehicle.cpp" />
     <ClCompile Include="..\game_vc\CVehicleModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CWanted.cpp" />
     <ClCompile Include="..\game_vc\CWeapon.cpp" />
+    <ClCompile Include="..\game_vc\CWeaponEffects.cpp" />
+    <ClCompile Include="..\game_vc\CWeaponInfo.cpp" />
     <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CWorld.cpp" />
     <ClCompile Include="..\game_vc\NodeName.cpp" />
