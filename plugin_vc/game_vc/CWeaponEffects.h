@@ -7,17 +7,29 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 #include "plbase\PluginBase_VC.h"
 #include "CVector.h"
+#include "CRGBA.h"
+#include "RenderWare.h"
 
 class CWeaponEffects {
 public:
-    
-    //vtable
-     CWeaponEffects();
-
+    Bool m_bActive;
+    char _pad0[3];
+    CVector m_vecPosn;
+    CRGBA m_Color;
+    float m_fSize;
+    float m_fRotation;
+  
     //funcs
+    CWeaponEffects();
+
     static void ClearCrossHair();
     static void Init();
-    static void MarkTarget(CVector arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3, unsigned char arg4, float arg5);
+    static void MarkTarget(CVector pos, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, float size);
     static void Render();
     static void Shutdown();
 };
+
+VALIDATE_SIZE(CWeaponEffects, 0x1C);
+
+extern RwTexture*& gpCrossHairTex;		// RwTexture* gpCrossHairTex
+extern CWeaponEffects& gCrossHair;		// CWeaponEffects gCrossHair
