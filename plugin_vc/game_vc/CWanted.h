@@ -9,8 +9,52 @@ Do not delete this comment block. Respect others' work!
 #include "eCrimeType.h"
 #include "CVector.h"
 
+
+class CCrimeBeingQd {
+public:
+    eCrimeType m_nCrimeType;
+    UInt32 m_nCrimeId;
+    UInt32 m_nStartTime;
+    CVector m_vecCoors;
+    Bool m_bAlreadyReported;
+    Bool m_bPoliceDontReallyCare;
+
+// [FrogByteDQ]: TODO: move this to CCrimeBeingQd.h file
+// [FrogByteDQ]: TODO: constructor sub_5388D0
+};
+
+VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
+
 class CWanted {
 public:
+    UInt32 m_nChaosLevel;
+    UInt32 m_nChaosLevelBeforeParole;
+    UInt32 m_nLastTimeWantedDecreased;
+    UInt32 m_nLastTimeWantedLevelChanged;
+    UInt32 m_dwTimeOfParole;
+    float m_fMultiplier;
+    UInt8 m_nCopsInPursuit;
+    UInt8 m_nMaxCopsInPursuit;
+    UInt8 m_nMaxCopCarsInPursuit;
+    UInt8 m_nCopsBeatingSuspect;
+    UInt16 m_nChanceOnRoadBlock;
+    union
+    {
+        UInt8 m_nWantedFlags;
+        struct
+        {
+            unsigned char b0: 1;
+            unsigned char b1: 1;
+            unsigned char m_bSwatRequired : 1;
+            unsigned char m_bFbiRequired : 1;
+            unsigned char m_bArmyRequired : 1;
+        };
+    };
+    char _pad0[1];
+    UInt32 m_nWantedLevel;
+    UInt32 m_nWantedLevelBeforeParole;
+    CCrimeBeingQd m_asCrimesBeingQd[16];
+    class CCopPed *m_apCopsInPursuit[10];
 
     //variables
     static int &nMaximumWantedLevel; // 9600
@@ -38,3 +82,5 @@ public:
     void UpdateWantedLevel();
     static void WorkOutPolicePresence(CVector arg0, float arg1);
 };
+
+VALIDATE_SIZE(CWanted, 0x210);

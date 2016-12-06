@@ -6,16 +6,22 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CWeaponInfo.h"
 
-// Converted from void CWeaponInfo::CWeaponInfo(void) 0x5D5870
+// Converted from CWeaponInfo aWeaponInfo[37] 0x782A14
+CWeaponInfo (&aWeaponInfo)[37] = *(CWeaponInfo (*)[37])*(int *)0x782A14;
+
+// Converted from thiscall void CWeaponInfo::CWeaponInfo(void) 0x5D58D0
 CWeaponInfo::CWeaponInfo() {
-    plugin::CallVirtualMethod<0, CWeaponInfo *>(this);
+    plugin::CallMethod<0x5D58D0, CWeaponInfo *>(this);
+}
+
+// Converted from thiscall void CWeaponInfo::~CWeaponInfo(void) 0x5D58C0
+CWeaponInfo::~CWeaponInfo() {
+    plugin::CallMethod<0x5D58C0, CWeaponInfo *>(this);
 }
 
 // Converted from cdecl eWeaponFire CWeaponInfo::FindWeaponFireType(char *name) 0x5D5170
 eWeaponFire CWeaponInfo::FindWeaponFireType(char* name) {
-    eWeaponFire result;
-    plugin::CallAndReturn<eWeaponFire, 0x5D5170, eWeaponFire*, char*>(&result, name);
-    return result;
+    return plugin::CallAndReturn<eWeaponFire, 0x5D5170, char*>(name);
 }
 
 // Converted from cdecl CWeaponInfo* CWeaponInfo::GetWeaponInfo(eWeaponType weaponType) 0x5D5710

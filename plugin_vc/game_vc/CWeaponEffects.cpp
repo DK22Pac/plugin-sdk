@@ -6,9 +6,15 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CWeaponEffects.h"
 
-// Converted from void CWeaponEffects::CWeaponEffects(void) 0x5D5150
+// Converted from RwTexture* gpCrossHairTex 0xA0FD40
+RwTexture*& gpCrossHairTex = *(RwTexture**)0xA0FD40;
+
+// Converted from CWeaponEffects gCrossHair 0x9786EC
+CWeaponEffects& gCrossHair = *(CWeaponEffects*)0x9786EC;
+
+// Converted from thiscall void CWeaponEffects::CWeaponEffects(void) 0x5D5140
 CWeaponEffects::CWeaponEffects() {
-    plugin::CallVirtualMethod<0, CWeaponEffects *>(this);
+    plugin::CallMethod<0x5D5140, CWeaponEffects *>(this);
 }
 
 // Converted from cdecl void CWeaponEffects::ClearCrossHair(void) 0x5D5050
@@ -21,9 +27,9 @@ void CWeaponEffects::Init() {
     plugin::Call<0x5D50B0>();
 }
 
-// Converted from cdecl void CWeaponEffects::MarkTarget(CVector, uchar, uchar, uchar, uchar, float) 0x5D5060
-void CWeaponEffects::MarkTarget(CVector arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3, unsigned char arg4, float arg5) {
-    plugin::Call<0x5D5060, CVector, unsigned char, unsigned char, unsigned char, unsigned char, float>(arg0, arg1, arg2, arg3, arg4, arg5);
+// Converted from cdecl void CWeaponEffects::MarkTarget(CVector pos, uchar red, uchar green, uchar blue, uchar alpha, float size) 0x5D5060
+void CWeaponEffects::MarkTarget(CVector pos, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, float size) {
+    plugin::Call<0x5D5060, CVector, unsigned char, unsigned char, unsigned char, unsigned char, float>(pos, red, green, blue, alpha, size);
 }
 
 // Converted from cdecl void CWeaponEffects::Render(void) 0x5D4E90

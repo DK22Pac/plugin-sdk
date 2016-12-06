@@ -11,6 +11,7 @@ Do not delete this comment block. Respect others' work!
 #include "eWeaponType.h"
 #include "CPad.h"
 #include "CPlayerInfo.h"
+#include "CWanted.h"
 
 struct sPlayerPed12 {
     int field_0;
@@ -20,7 +21,7 @@ struct sPlayerPed12 {
 
 class CPlayerPed : public CPed {
 public:
-    void *m_pWanted; // CWanted *
+    CWanted *m_pWanted;
     int field_5F8;
     float field_5FC;
     float field_600;
