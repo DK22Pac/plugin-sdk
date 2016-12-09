@@ -457,6 +457,12 @@
     <ClInclude Include="..\game_vc\eWeaponFire.h">
       <Filter>game_vc\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CZone.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTheZones.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -703,6 +709,12 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CWeaponEffects.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CZone.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTheZones.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
