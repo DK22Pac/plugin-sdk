@@ -163,6 +163,7 @@
     <ClInclude Include="..\game_vc\CIniFile.h" />
     <ClInclude Include="..\game_vc\CModelInfo.h" />
     <ClInclude Include="..\game_vc\common.h" />
+    <ClInclude Include="..\game_vc\COnscreenTimer.h" />
     <ClInclude Include="..\game_vc\CPad.h" />
     <ClInclude Include="..\game_vc\CPathNode.h" />
     <ClInclude Include="..\game_vc\CPedIK.h" />
@@ -206,6 +207,8 @@
     <ClInclude Include="..\game_vc\CTrain.h" />
     <ClInclude Include="..\game_vc\cTransmission.h" />
     <ClInclude Include="..\game_vc\CTreadable.h" />
+    <ClInclude Include="..\game_vc\CTxdStore.h" />
+    <ClInclude Include="..\game_vc\CUserDisplay.h" />
     <ClInclude Include="..\game_vc\CVector.h" />
     <ClInclude Include="..\game_vc\CVector2D.h" />
     <ClInclude Include="..\game_vc\CVehicle.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="..\game_vc\CWeaponEffects.h" />
     <ClInclude Include="..\game_vc\CWeaponInfo.h" />
     <ClInclude Include="..\game_vc\CWeaponModelInfo.h" />
+    <ClInclude Include="..\game_vc\CWeather.h" />
     <ClInclude Include="..\game_vc\CWheel.h" />
     <ClInclude Include="..\game_vc\CWorld.h" />
     <ClInclude Include="..\game_vc\CZone.h" />
@@ -264,6 +268,7 @@
     <ClInclude Include="..\game_vc\tHandlingData.h" />
     <ClInclude Include="..\game_vc\tParticleType.h" />
     <ClInclude Include="..\game_vc\tTransmissionGear.h" />
+    <ClInclude Include="..\game_vc\TxdDef.h" />
     <ClInclude Include="..\plbase\PluginBase_VC.h" />
     <ClInclude Include="..\plugin_vc.h" />
   </ItemGroup>
@@ -306,6 +311,7 @@
     <ClCompile Include="..\game_vc\CModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CObject.cpp" />
     <ClCompile Include="..\game_vc\common.cpp" />
+    <ClCompile Include="..\game_vc\COnscreenTimer.cpp" />
     <ClCompile Include="..\game_vc\CPad.cpp" />
     <ClCompile Include="..\game_vc\CPathNode.cpp" />
     <ClCompile Include="..\game_vc\CPed.cpp" />
@@ -339,6 +345,8 @@
     <ClCompile Include="..\game_vc\cTransmission.cpp" />
     <ClCompile Include="..\game_vc\CTreadable.cpp" />
     <ClCompile Include="..\game_vc\CDummyObject.cpp" />
+    <ClCompile Include="..\game_vc\CTxdStore.cpp" />
+    <ClCompile Include="..\game_vc\CUserDisplay.cpp" />
     <ClCompile Include="..\game_vc\CVector.cpp" />
     <ClCompile Include="..\game_vc\CVehicle.cpp" />
     <ClCompile Include="..\game_vc\CVehicleModelInfo.cpp" />
@@ -347,6 +355,7 @@
     <ClCompile Include="..\game_vc\CWeaponEffects.cpp" />
     <ClCompile Include="..\game_vc\CWeaponInfo.cpp" />
     <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp" />
+    <ClCompile Include="..\game_vc\CWeather.cpp" />
     <ClCompile Include="..\game_vc\CWorld.cpp" />
     <ClCompile Include="..\game_vc\CZone.cpp" />
     <ClCompile Include="..\game_vc\NodeName.cpp" />
