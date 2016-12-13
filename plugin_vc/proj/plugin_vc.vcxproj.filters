@@ -478,6 +478,12 @@
     <ClInclude Include="..\game_vc\CWeather.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CEscalators.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDarkel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -742,6 +748,12 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CWeather.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CEscalators.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDarkel.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
