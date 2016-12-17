@@ -484,6 +484,15 @@
     <ClInclude Include="..\game_vc\CDarkel.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CPickups.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPhone.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedPlacement.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -754,6 +763,15 @@
       <Filter>game_vc</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CDarkel.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPickups.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPhone.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedPlacement.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
