@@ -62,7 +62,7 @@ public:
 protected:
     CBaseModelInfo() {};
     CBaseModelInfo(const CBaseModelInfo &) {};
-    CBaseModelInfo &operator=(const CBaseModelInfo &) {};
+    CBaseModelInfo &operator=(const CBaseModelInfo &) { return *this; };
 };
 #pragma pack(pop)
 

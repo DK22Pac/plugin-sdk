@@ -26,4 +26,6 @@
 #include "..\shared\Error.h"
 #include "..\shared\Other.h"
 #include "..\shared\Patch.h"
+#include "extensions\Paths.h"
+#include "extensions\Screen.h"
 #include "comp\PluginsCompatibility.h"

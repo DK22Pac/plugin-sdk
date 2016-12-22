@@ -70,6 +70,9 @@
     <Filter Include="game_sa\Enums">
       <UniqueIdentifier>{7de940b4-1656-498d-ad4b-2eb1ea95e3df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="extensions">
+      <UniqueIdentifier>{b676802e-3c54-4e42-9463-8835766bd782}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\C2dEffect.h">
@@ -1738,6 +1741,15 @@
     <ClInclude Include="..\game_sa\CSphere.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\Paths.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Screen.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\KeyCheck.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3143,6 +3155,15 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CSphere.cpp">
       <Filter>game_sa\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Paths.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Screen.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\KeyCheck.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

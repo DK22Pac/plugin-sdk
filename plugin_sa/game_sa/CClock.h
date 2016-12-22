@@ -40,6 +40,8 @@ public:
 
 	static DWORD& ms_nLastClockTick;
 
+    static unsigned int &ms_nMillisecondsPerGameMinute;
+
 	// Functions
 
 	// Returns true current hour is in range of two specified hours.

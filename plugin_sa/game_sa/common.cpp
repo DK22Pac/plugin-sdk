@@ -6,6 +6,8 @@
 */
 #include "common.h"
 
+float &GAME_GRAVITY = *(float *)0x863984;
+
 CVector FindPlayerCoors(int playerId)
 {
 	return ((CVector (__cdecl *)(int))0x56E010)(playerId);

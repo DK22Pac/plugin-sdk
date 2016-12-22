@@ -59,6 +59,8 @@ BYTE& CClock::ms_nGameClockMonth = *(BYTE*)VAR_CClock__ms_nGameClockMonth;
 
 DWORD& CClock::ms_nLastClockTick = *(DWORD*)VAR_CClock__ms_nLastClockTick;
 
+unsigned int &CClock::ms_nMillisecondsPerGameMinute = *(unsigned int *)0xB7015C;
+
 // Returns true current hour is in range of two specified hours.
 bool CClock::GetIsTimeInRange(BYTE hourA, BYTE hourB)
 {
