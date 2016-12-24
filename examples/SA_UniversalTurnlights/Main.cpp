@@ -45,7 +45,7 @@ public:
                 eLightsStatus &lightsStatus = turnlightsData.Get(vehicle).lightsStatus;
                 if (vehicle->m_pDriver) {
                     CPed *playa = FindPlayerPed();
-                    if (playa && playa->m_pVehicle == vehicle && playa->m_bInVehicle) {
+                    if (playa && playa->m_pVehicle == vehicle && playa->m_nPedFlags.bInVehicle) {
                         if (KeyPressed(90)) // Z
                             lightsStatus = LIGHTS_LEFT;
                         else if (KeyPressed(88)) // X

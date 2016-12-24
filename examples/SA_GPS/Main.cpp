@@ -33,7 +33,7 @@ public:
 
         Events::gameProcessEvent += []() {
             if (FrontEndMenuManager.m_nTargetBlipIndex
-                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_wIndex == HIWORD(FrontEndMenuManager.m_nTargetBlipIndex)
+                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nCounter == HIWORD(FrontEndMenuManager.m_nTargetBlipIndex)
                 && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nBlipDisplayFlag
                 && FindPlayerPed()
                 && DistanceBetweenPoints(CVector2D(FindPlayerCoors(0)), 
@@ -49,12 +49,12 @@ public:
             CPed *playa = FindPlayerPed(0);
             if (playa
                 && playa->m_pVehicle
-                && playa->m_bInVehicle
+                && playa->m_nPedFlags.bInVehicle
                 && playa->m_pVehicle->m_dwVehicleSubClass != VEHICLE_PLANE
                 && playa->m_pVehicle->m_dwVehicleSubClass != VEHICLE_HELI
                 && playa->m_pVehicle->m_dwVehicleSubClass != VEHICLE_BMX
                 && FrontEndMenuManager.m_nTargetBlipIndex
-                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_wIndex == HIWORD(FrontEndMenuManager.m_nTargetBlipIndex)
+                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nCounter == HIWORD(FrontEndMenuManager.m_nTargetBlipIndex)
                 && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nBlipDisplayFlag)
             {
                 CVector destPosn = CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_vPosition;
@@ -94,7 +94,7 @@ public:
                         _RwD3DDevice->SetScissorRect(&rect);
                     }
 
-                    RWSRCGLOBAL(dOpenDevice.fpRenderStateSet)(rwRENDERSTATETEXTURERASTER, NULL);
+                    RwRenderStateSet(rwRENDERSTATETEXTURERASTER, NULL);
 
                     unsigned int vertIndex = 0;
                     for (short i = 0; i < (nodesCount - 1); i++) {
@@ -126,7 +126,7 @@ public:
                         vertIndex += 4;
                     }
                 
-                    RWSRCGLOBAL(dOpenDevice.fpIm2DRenderPrimitive)(rwPRIMTYPETRISTRIP, lineVerts, 4 * (nodesCount - 1));
+                    RwIm2DRenderPrimitive(rwPRIMTYPETRISTRIP, lineVerts, 4 * (nodesCount - 1));
 
                     if (!FrontEndMenuManager.drawRadarOrMap
                         && reinterpret_cast<D3DCAPS9 const*>(RwD3D9GetCaps())->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
@@ -170,6 +170,6 @@ public:
         vertex.u = vertex.v = 0.0f;
         vertex.z = CSprite2d::NearScreenZ + 0.0001f;
         vertex.rhw = CSprite2d::RecipNearClip;
-        vertex.emissiveColor = D3DCOLOR_RGBA(GPS_LINE_R, GPS_LINE_G, GPS_LINE_B, GPS_LINE_A);
+        vertex.emissiveColor = RWRGBALONG(GPS_LINE_R, GPS_LINE_G, GPS_LINE_B, GPS_LINE_A);
     }
 } gps;

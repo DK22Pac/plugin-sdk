@@ -170,7 +170,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ASM injections\ASM_PassNitrousAcc.h" />
@@ -178,7 +177,6 @@
     <ClInclude Include="DrawNitrousIndicator.h" />
     <ClInclude Include="NitrousControl.h" />
     <ClInclude Include="Parameters.h" />
-    <ClInclude Include="Screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

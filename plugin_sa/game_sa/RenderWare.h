@@ -931,3 +931,18 @@ RwImage* RtPNGImageRead(const RwChar* imageName); // 0x7CF9B0
 
 
 void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps);
+
+
+#define RwRenderStateGetMacro(_state, _value)   \
+    (RWSRCGLOBAL(dOpenDevice).fpRenderStateGet(_state, _value))
+
+#define RwRenderStateSetMacro(_state, _value)   \
+    (RWSRCGLOBAL(dOpenDevice).fpRenderStateSet(_state, _value))
+
+#define RwRenderStateGet(_state, _value) \
+        RwRenderStateGetMacro(_state, _value)
+
+#define RwRenderStateSet(_state, _value) \
+        RwRenderStateSetMacro(_state, _value)
+
+#define RWRSTATE(a) (reinterpret_cast<void *>(a))

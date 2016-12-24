@@ -2,13 +2,12 @@
 #include "plugin.h"
 #include "game_sa\CFont.h"
 #include "game_sa\common.h"
-#include "Screen.h"
 
 using namespace plugin;
 
 void Compatibility::PrintAreaName(float x, float y, char *text) {
     if (FindPlayerVehicle(-1, false)) {
-        x -= Screen::GetCoord(291.0f + 64.0f);
+        x -= SCREEN_COORD(291.0f + 64.0f);
         CFont::PrintStringFromBottom(x, y, text);
     }
     else
@@ -17,7 +16,7 @@ void Compatibility::PrintAreaName(float x, float y, char *text) {
 
 void Compatibility::PrintVehicleName(float x, float y, char *text) {
     if (FindPlayerVehicle(-1, false)) {
-        x -= Screen::GetCoord(291.0f + 64.0f);
+        x -= SCREEN_COORD(291.0f + 64.0f);
         CFont::PrintString(x, y, text);
     }
     else

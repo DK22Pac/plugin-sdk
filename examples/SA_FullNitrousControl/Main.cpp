@@ -29,5 +29,6 @@ public:
         patch::Nop(0x6B2114, 6); // Prevent nitro for fully reloading when vehicle's driver is outside (fix)
         patch::RedirectJump(0x6D076C, ASM_SelectAccMultiplier);
         patch::RedirectJump(0x6B277C, ASM_PassNitrousAcc);
+        screen::SetBaseResolution(900.0f);
     }
 } fullNitrousControlPlg;

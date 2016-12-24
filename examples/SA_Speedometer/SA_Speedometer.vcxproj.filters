@@ -2,13 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Numbers.cpp" />
     <ClCompile Include="Compatibility.cpp" />
     <ClCompile Include="ShapeHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Screen.h" />
     <ClInclude Include="Numbers.h" />
     <ClInclude Include="Compatibility.h" />
     <ClInclude Include="ShapeHelper.h" />
