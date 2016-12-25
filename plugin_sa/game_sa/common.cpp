@@ -73,6 +73,11 @@ CVector Multiply3x3(CMatrix  const& matrix, CVector  const& vec)
 	return ((CVector (__cdecl *)(CMatrix  const&, CVector  const&))0x59C790)(matrix, vec);
 }
 
+CWanted * FindPlayerWanted(int playerId)
+{
+	return ((CWanted*(__cdecl *)(int))0x56E230)(playerId);
+}
+
 uint32_t &ClumpOffset = *(uint32_t *)0xB5F878;
 
 AnimBlendFrameData *RpAnimBlendClumpFindFrame(RpClump *clump, char *name)

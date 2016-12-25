@@ -41,6 +41,8 @@ bool InTwoPlayersMode();
 CVector VectorSub(CVector const& from, CVector const& what);
 // matrix mul
 CVector Multiply3x3(CMatrix  const& matrix, CVector  const& vec);
+// returns player wanted
+CWanted * FindPlayerWanted(int playerId);
 
 extern uint32_t &ClumpOffset;
 
