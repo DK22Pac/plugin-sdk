@@ -261,7 +261,7 @@ public:
 	__int8 field_F5[3];
 	//union{
 	//	struct{
-			CSprite2d m_apTextures[25];
+	CSprite2d m_apTextures[25];
 	//	};
 	//	struct{
 	//		CSprite2d m_apRadioSprites[13];
@@ -360,6 +360,12 @@ public:
 
 	static bool& bInvertMouseX;
 	static bool& bInvertMouseY;
+
+public:
+	CMenuManager();
+	~CMenuManager();
+
+	void DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground);
 };
 #pragma pack(pop)
 
