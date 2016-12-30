@@ -46,6 +46,9 @@
     <Filter Include="game_vc\Plugins">
       <UniqueIdentifier>{d6e4ec5a-22bd-430e-b36a-f9603dc16c10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="extensions">
+      <UniqueIdentifier>{f4ab649f-f4a0-43c5-b64a-259dbaa612d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\plugin_vc.h" />
@@ -493,6 +496,12 @@
     <ClInclude Include="..\game_vc\CPedPlacement.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\Paths.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Screen.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -773,6 +782,12 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CPedPlacement.cpp">
       <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Paths.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Screen.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

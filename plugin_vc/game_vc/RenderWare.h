@@ -440,3 +440,5 @@ RwBool RpAnisotPluginAttach(void); // 0x6576C0
 /* rtbmp.h */
 
 RwImage* RtBMPImageRead(const RwChar* imageName); // 0x657870
+
+#define RWRSTATE(a) (reinterpret_cast<void *>(a))

@@ -1750,6 +1750,9 @@
     <ClInclude Include="..\extensions\KeyCheck.h">
       <Filter>extensions</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\Config.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3163,6 +3166,9 @@
       <Filter>extensions</Filter>
     </ClCompile>
     <ClCompile Include="..\extensions\KeyCheck.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Config.cpp">
       <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>

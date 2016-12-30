@@ -28,4 +28,5 @@
 #include "..\shared\Patch.h"
 #include "extensions\Paths.h"
 #include "extensions\Screen.h"
+#include "extensions\Config.h"
 #include "comp\PluginsCompatibility.h"
