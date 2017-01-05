@@ -60,12 +60,25 @@ public:
     // Initialises a pool with preallocated
     void Init(int nSize, void* pObjects, void* pInfos)
     {
-        m_Objects = static_cast<B*>(operator new(sizeof(B) * nSize));
-        m_ByteMap = static_cast<tPoolObjectFlags*>(operator new(nSize));
+        if ( m_bOwnsAllocations )
+        {
+            if ( m_Objects )
+            {
+                delete m_Objects;
+            }
+
+            if ( m_ByteMap )
+            {
+                delete m_ByteMap;
+            }
+        }
+
+        m_Objects = static_cast<B*>(pObjects);
+        m_ByteMap = static_cast<tPoolObjectFlags*>(pInfos);
 
         m_Size = nSize;
         m_nFirstFree = -1;
-        m_bOwnsAllocations = true;
+        m_bOwnsAllocations = false;
 
         for (int i = 0; i < nSize; ++i)
         {
