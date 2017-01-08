@@ -33,6 +33,12 @@ public:
     // Default constructor for statically allocated pools
     CPool()
     {
+        // Remember to call CPool::Init to fill in the fields!
+
+        this->m_Objects = NULL;
+        this->m_ByteMap = NULL;
+        this->m_Size = 0;
+        this->m_bOwnsAllocations = false;
     }
 
     // Initializes pool
@@ -58,20 +64,11 @@ public:
     }
 
     // Initialises a pool with preallocated
+    // To be called one-time-only for statically allocated pools.
     void Init(int nSize, void* pObjects, void* pInfos)
     {
-        if ( m_bOwnsAllocations )
-        {
-            if ( m_Objects )
-            {
-                delete m_Objects;
-            }
-
-            if ( m_ByteMap )
-            {
-                delete m_ByteMap;
-            }
-        }
+        // Since we statically allocated the pools we do not deallocate.
+        assert( this->m_Objects == NULL );
 
         m_Objects = static_cast<B*>(pObjects);
         m_ByteMap = static_cast<tPoolObjectFlags*>(pInfos);
