@@ -68,5 +68,5 @@ void* CObject::operator new(unsigned int size) {
 
 // Converted from cdecl void CObject::operator new(uint size, int) 0x4E4050
 void* CObject::operator new(unsigned int size, int arg1) {
-    plugin::Call<0x4E4050, unsigned int, int>(size, arg1);
+    return plugin::CallAndReturn<void*, 0x4E4050, unsigned int, int>(size, arg1);
 }
