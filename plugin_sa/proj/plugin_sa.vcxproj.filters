@@ -1687,9 +1687,6 @@
     <ClInclude Include="..\game_sa\ePedType.h">
       <Filter>game_sa\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\ePickupType.h">
-      <Filter>game_sa\Enums</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\eSprintType.h">
       <Filter>game_sa\Enums</Filter>
     </ClInclude>
@@ -1752,6 +1749,12 @@
     </ClInclude>
     <ClInclude Include="..\extensions\Config.h">
       <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPickup.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\tPickupMessage.h">
+      <Filter>game_sa</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3170,6 +3173,9 @@
     </ClCompile>
     <ClCompile Include="..\extensions\Config.cpp">
       <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPickup.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

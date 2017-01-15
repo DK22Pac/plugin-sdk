@@ -43,8 +43,8 @@ public:
 	void UpdateRW(RwMatrix *matrix); // update RwMatrix with this matrix
 	void SetUnity();
 	void ResetOrientation();
-	void SetScale(float scale);
-	void SetScale(float x, float y, float z); // scale on three axes
+	void SetScale(float scale); // set (scaled)
+	void SetScale(float x, float y, float z); // set (scaled)
 	void SetTranslateOnly(float x, float y, float z);
 	void SetTranslate(float x, float y, float z); // like previous + reset orientation
 	void SetRotateXOnly(float angle);
@@ -61,6 +61,8 @@ public:
 	void Reorthogonalise();
 	void CopyToRwMatrix(RwMatrix *matrix); // similar to UpdateRW(RwMatrixTag *)
 	void SetRotate(CQuaternion  const& quat);
+    void Scale(float scale);
+    void Scale(float x, float y, float z);
 	void operator=(CMatrix const& right);
 	void operator+=(CMatrix const& right);
 	void operator*=(CMatrix const& right);

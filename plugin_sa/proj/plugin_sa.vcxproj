@@ -120,6 +120,7 @@
     <ClInclude Include="..\game_sa\CMenuPanel.h" />
     <ClInclude Include="..\game_sa\CMenuSystem.h" />
     <ClInclude Include="..\game_sa\CMonsterTruck.h" />
+    <ClInclude Include="..\game_sa\CPickup.h" />
     <ClInclude Include="..\game_sa\CPickups.h" />
     <ClInclude Include="..\game_sa\CPickupText.h" />
     <ClInclude Include="..\game_sa\CPlane.h" />
@@ -554,6 +555,7 @@
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
     <ClInclude Include="..\game_sa\eSprintType.h" />
     <ClInclude Include="..\game_sa\RwExtensions.h" />
+    <ClInclude Include="..\game_sa\tPickupMessage.h" />
     <ClInclude Include="..\game_sa\TxdDef.h" />
     <ClInclude Include="..\game_sa\CText.h" />
     <ClInclude Include="..\game_sa\CTheScripts.h" />
@@ -592,7 +594,6 @@
     <ClInclude Include="..\game_sa\ePedModel.h" />
     <ClInclude Include="..\game_sa\ePedState.h" />
     <ClInclude Include="..\game_sa\ePedType.h" />
-    <ClInclude Include="..\game_sa\ePickupType.h" />
     <ClInclude Include="..\game_sa\eTaskType.h" />
     <ClInclude Include="..\game_sa\eVehicleHandlingFlags.h" />
     <ClInclude Include="..\game_sa\eVehicleHandlingModelFlags.h" />
@@ -727,6 +728,7 @@
     <ClCompile Include="..\game_sa\CPed.cpp" />
     <ClCompile Include="..\game_sa\CPedIntelligence.cpp" />
     <ClCompile Include="..\game_sa\CPhysical.cpp" />
+    <ClCompile Include="..\game_sa\CPickup.cpp" />
     <ClCompile Include="..\game_sa\CPickups.cpp" />
     <ClCompile Include="..\game_sa\CPlaceable.cpp" />
     <ClCompile Include="..\game_sa\CPlane.cpp" />

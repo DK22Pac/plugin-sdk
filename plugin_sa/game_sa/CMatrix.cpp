@@ -163,6 +163,14 @@ void CMatrix::SetRotate(CQuaternion  const& quat)
 	((void (__thiscall *)(CMatrix *, CQuaternion  const&))0x59BBF0)(this, quat);
 }
 
+void CMatrix::Scale(float scale) {
+    plugin::CallMethod<0x459350, CMatrix *, float>(this, scale);
+}
+
+void CMatrix::Scale(float x, float y, float z) {
+    plugin::CallMethod<0x459350, CMatrix *, float, float, float>(this, x, y, z);
+}
+
 void CMatrix::operator=(CMatrix const& rvalue)
 {
 	((void (__thiscall *)(CMatrix *, CMatrix const&))0x59BBC0)(this, rvalue);
