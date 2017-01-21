@@ -6,6 +6,8 @@
 */
 #include "CBulletTraces.h"
 
+unsigned int MAX_NUM_BULLETTRACES = 16;
+
 CBulletTrace *CBulletTraces::aTraces = (CBulletTrace *)0xC7C748;
 
 // Converted from cdecl void CBulletTraces::AddTrace(CVector * start,CVector * end,int weaponType,CEntity * entity) 0x573D40

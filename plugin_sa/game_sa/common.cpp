@@ -384,3 +384,13 @@ void SetLightsForInfraredVisionDefaultObjects() {
 void SetLightsForNightVision() {
     ((void(__cdecl *)())0x735F70)();
 }
+
+// Converted from cdecl RpAtomic* RemoveRefsCB(RpAtomic *atomic, void *data) 0x7226D0
+RpAtomic* RemoveRefsCB(RpAtomic* atomic, void* _IGNORED_ data) {
+    return plugin::CallAndReturn<RpAtomic*, 0x7226D0, RpAtomic*, void*>(atomic, data);
+}
+
+// Converted from cdecl void RemoveRefsForAtomic(RpClump *clump) 0x7226F0
+void RemoveRefsForAtomic(RpClump* clump) {
+    plugin::Call<0x7226F0, RpClump*>(clump);
+}

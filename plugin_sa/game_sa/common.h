@@ -122,3 +122,7 @@ void StoreAndSetLightsForInfraredVisionHeatObjects();
 void RestoreLightsForInfraredVisionHeatObjects();
 void SetLightsForInfraredVisionDefaultObjects();
 void SetLightsForNightVision();
+
+// 'data' is unused
+RpAtomic* RemoveRefsCB(RpAtomic* atomic, void* _IGNORED_ data);
+void RemoveRefsForAtomic(RpClump* clump);
