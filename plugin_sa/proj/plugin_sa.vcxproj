@@ -100,6 +100,7 @@
     <ClInclude Include="..\game_sa\CAESound.h" />
     <ClInclude Include="..\game_sa\CAETwinLoopSoundEntity.h" />
     <ClInclude Include="..\game_sa\CAEVehicleAudioEntity.h" />
+    <ClInclude Include="..\game_sa\CAEWeatherAudioEntity.h" />
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
     <ClInclude Include="..\game_sa\CBmx.h" />
     <ClInclude Include="..\game_sa\CBoat.h" />
@@ -562,6 +563,7 @@
     <ClInclude Include="..\game_sa\CTaskSimple.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
+    <ClInclude Include="..\game_sa\CWeather.h" />
     <ClInclude Include="..\game_sa\eSprintType.h" />
     <ClInclude Include="..\game_sa\RwExtensions.h" />
     <ClInclude Include="..\game_sa\tPickupMessage.h" />
@@ -664,6 +666,7 @@
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp" />
     <ClCompile Include="..\game_sa\CAERadioTrackManager.cpp" />
     <ClCompile Include="..\game_sa\CAESound.cpp" />
+    <ClCompile Include="..\game_sa\CAEWeatherAudioEntity.cpp" />
     <ClCompile Include="..\game_sa\CAtomicModelInfo.cpp" />
     <ClCompile Include="..\game_sa\CAutomobile.cpp" />
     <ClCompile Include="..\game_sa\CBaseModelInfo.cpp" />
@@ -1095,6 +1098,7 @@
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskTimer.cpp" />
+    <ClCompile Include="..\game_sa\CWeather.cpp" />
     <ClCompile Include="..\game_sa\RwExtensions.cpp" />
     <ClCompile Include="..\game_sa\TxdDef.cpp" />
     <ClCompile Include="..\game_sa\CText.cpp" />

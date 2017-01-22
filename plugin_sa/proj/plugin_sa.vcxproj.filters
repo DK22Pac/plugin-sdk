@@ -1783,6 +1783,12 @@
     <ClInclude Include="..\game_sa\CSpecialFX.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CWeather.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEWeatherAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3233,6 +3239,12 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CSpecialFX.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CWeather.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAEWeatherAudioEntity.cpp">
+      <Filter>game_sa\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -30,4 +30,4 @@ public:
 };
 
 extern bool &bFudgeNow;
-float *Screens8Track; // float Screens8Track[24]
+extern float *Screens8Track; // float Screens8Track[24]
