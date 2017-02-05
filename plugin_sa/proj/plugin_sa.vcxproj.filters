@@ -1735,16 +1735,7 @@
     <ClInclude Include="..\game_sa\CSphere.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="..\extensions\Paths.h">
-      <Filter>extensions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\extensions\Screen.h">
-      <Filter>extensions</Filter>
-    </ClInclude>
     <ClInclude Include="..\extensions\KeyCheck.h">
-      <Filter>extensions</Filter>
-    </ClInclude>
-    <ClInclude Include="..\extensions\Config.h">
       <Filter>extensions</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CPickup.h">
@@ -1788,6 +1779,9 @@
     </ClInclude>
     <ClInclude Include="..\game_sa\CAEWeatherAudioEntity.h">
       <Filter>game_sa\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Screen.h">
+      <Filter>extensions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3195,16 +3189,7 @@
     <ClCompile Include="..\game_sa\CSphere.cpp">
       <Filter>game_sa\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="..\extensions\Paths.cpp">
-      <Filter>extensions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\extensions\Screen.cpp">
-      <Filter>extensions</Filter>
-    </ClCompile>
     <ClCompile Include="..\extensions\KeyCheck.cpp">
-      <Filter>extensions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\extensions\Config.cpp">
       <Filter>extensions</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPickup.cpp">
@@ -3245,6 +3230,9 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CAEWeatherAudioEntity.cpp">
       <Filter>game_sa\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Screen.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

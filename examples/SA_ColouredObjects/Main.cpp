@@ -54,7 +54,7 @@ public:
 
         // Print objects text
         Events::drawingEvent += [] {
-            for (int i = 0; i < CPools::ms_pPedPool->m_Size; i++) {
+            for (int i = 0; i < CPools::ms_pObjectPool->m_nSize; i++) {
                 CObject *object = CPools::ms_pObjectPool->GetAt(i);
                 if (object) {
                     CVector &posn = object->GetPosition();
@@ -80,7 +80,7 @@ public:
         // Show objects on radar
         Events::drawBlipsEvent += [] {
             if (!FrontEndMenuManager.drawRadarOrMap && FindPlayerPed(0)) {
-                for (int i = 0; i < CPools::ms_pObjectPool->m_Size; i++) {
+                for (int i = 0; i < CPools::ms_pObjectPool->m_nSize; i++) {
                     CObject *object = CPools::ms_pObjectPool->GetAt(i);
                     if (object) {
                         CVector &objectPosn = object->GetPosition();

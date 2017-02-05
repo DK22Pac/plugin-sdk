@@ -60,6 +60,12 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <AdditionalDependencies>paths_d.lib;config_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -77,6 +83,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <AdditionalDependencies>paths.lib;config.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\output\lib\paths\Release;..\..\output\lib\config\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\comp\PluginsCompatibility.h" />
@@ -87,9 +100,7 @@
     <ClInclude Include="..\extender\PedExtender_SA.h" />
     <ClInclude Include="..\extender\VehicleExtender_SA.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
-    <ClInclude Include="..\extensions\Paths.h" />
     <ClInclude Include="..\extensions\Screen.h" />
-    <ClInclude Include="..\extensions\Config.h" />
     <ClInclude Include="..\game_sa\AnimBlendFrameData.h" />
     <ClInclude Include="..\game_sa\C2dEffect.h" />
     <ClInclude Include="..\game_sa\C3dMarker.h" />
@@ -658,9 +669,7 @@
     <ClCompile Include="..\comp\plugins\LimitAdjusterSupport.cpp" />
     <ClCompile Include="..\events\Events_SA.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
-    <ClCompile Include="..\extensions\Paths.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
-    <ClCompile Include="..\extensions\Config.cpp" />
     <ClCompile Include="..\game_sa\C3dMarker.cpp" />
     <ClCompile Include="..\game_sa\C3dMarkers.cpp" />
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp" />

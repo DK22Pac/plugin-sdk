@@ -8,10 +8,9 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "eWeaponType.h"
+#include "FxSystem_c.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CWeapon
-{
+class CWeapon {
 public:
 	eWeaponType m_Type;
 	unsigned __int32 m_dwState;
@@ -22,10 +21,9 @@ public:
 	unsigned __int8 field_15;
 	unsigned __int8 field_16;
 	unsigned __int8 field_17;
-	void *m_pParticle; // CParticle *
+    FxSystem_c *m_pFxSystem; // flamethrower, spraycan, extinguisher particle
 
 	bool HasWeaponAmmoToBeUsed();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CWeapon, 0x1C);

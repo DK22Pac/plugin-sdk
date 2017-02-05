@@ -496,9 +496,6 @@
     <ClInclude Include="..\game_vc\CPedPlacement.h">
       <Filter>game_vc</Filter>
     </ClInclude>
-    <ClInclude Include="..\extensions\Paths.h">
-      <Filter>extensions</Filter>
-    </ClInclude>
     <ClInclude Include="..\extensions\Screen.h">
       <Filter>extensions</Filter>
     </ClInclude>
@@ -782,9 +779,6 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CPedPlacement.cpp">
       <Filter>game_vc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\extensions\Paths.cpp">
-      <Filter>extensions</Filter>
     </ClCompile>
     <ClCompile Include="..\extensions\Screen.cpp">
       <Filter>extensions</Filter>

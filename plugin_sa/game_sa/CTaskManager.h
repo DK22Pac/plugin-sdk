@@ -25,7 +25,7 @@ public:
     void Flush();
     void FlushImmediately();
     void SetNextSubTask(CTask* task);
-    CTask* GetSimplestTask(CTask* task);
+    static CTask* GetSimplestTask(CTask* task);
     void StopTimers(CEvent const* _event);
     CTask* GetSimplestActiveTask();
     CTask* GetSimplestTask(int taskIndex);

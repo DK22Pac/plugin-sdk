@@ -9,35 +9,37 @@
 
 union tPoolObjectFlags {
     struct {
-        unsigned char 	uID : 7;
-        bool 			bIsFreeSlot : 1;
-    }					a;
-    signed char			b;
+        unsigned char nId : 7;
+        bool bIsFreeSlot : 1;
+    } a;
+    unsigned char b;
 };
 
 VALIDATE_SIZE(tPoolObjectFlags, 1);
 
 template<class A, class B = A> class CPool {
 public:
-    B* 					m_Objects;
-    tPoolObjectFlags* 	m_ByteMap;
-    int					m_Size;
-    int 				m_nFirstFree;
+    B*                m_pObjects;
+    tPoolObjectFlags* m_byteMap;
+    int               m_nSize;
+    int               m_nFirstFree;
 
     // Default constructor for statically allocated pools
     CPool() {}
 
+
+
     // Initializes pool
     CPool(int nSize, const char* pPoolName) {
-        m_Objects = static_cast<B*>(operator new(sizeof(B) * nSize));
-        m_ByteMap = static_cast<tPoolObjectFlags*>(operator new(sizeof(tPoolObjectFlags) *  nSize));
+        m_pObjects = static_cast<B*>(operator new(sizeof(B) * nSize));
+        m_byteMap = static_cast<tPoolObjectFlags*>(operator new(sizeof(tPoolObjectFlags) *  nSize));
 
-        m_Size = nSize;
+        m_nSize = nSize;
         m_nFirstFree = -1;
 
         for (int i = 0; i < nSize; ++i) {
-            m_ByteMap[i].a.bIsFreeSlot = true;
-            m_ByteMap[i].a.uID = 0;
+            m_byteMap[i].a.bIsFreeSlot = true;
+            m_byteMap[i].a.nId = 0;
         }
     }
 
@@ -47,99 +49,140 @@ public:
 
     // Initialises a pool with preallocated
     void Init(int nSize, void* pObjects, void* pInfos) {
-        m_Objects = static_cast<B*>(operator new(sizeof(B) * nSize));
-        m_ByteMap = static_cast<tPoolObjectFlags*>(operator new(nSize));
+        m_pObjects = static_cast<B*>(operator new(sizeof(B) * nSize));
+        m_byteMap = static_cast<tPoolObjectFlags*>(operator new(nSize));
 
-        m_Size = nSize;
+        m_nSize = nSize;
         m_nFirstFree = -1;
         m_bOwnsAllocations = true;
 
         for (int i = 0; i < nSize; ++i) {
-            m_ByteMap[i].a.bIsFreeSlot = true;
-            m_ByteMap[i].a.uID = 0;
+            m_byteMap[i].a.bIsFreeSlot = true;
+            m_byteMap[i].a.nId = 0;
         }
     }
 
     // Shutdown pool
     void Flush() {
-        if (m_Size > 0) {
-            operator delete(m_Objects);
-            operator delete(m_ByteMap);
-            m_Objects = nullptr;
-            m_ByteMap = nullptr;
-            m_Size = 0;
+        if (m_nSize > 0) {
+            operator delete(m_pObjects);
+            operator delete(m_byteMap);
+            m_pObjects = nullptr;
+            m_byteMap = nullptr;
+            m_nSize = 0;
             m_nFirstFree = 0;
         }
     }
 
     // Clears pool
     void Clear() {
-        for (int i = 0; i < m_Size; i++)
-            m_ByteMap[i].a.bIsFreeSlot = true;
-    }
-
-    // Returns pointer to object by index
-    A* GetAt(int nIndex) {
-        return nIndex >= 0 && nIndex < m_Size && !m_ByteMap[nIndex].a.bIsFreeSlot ? (A *)&m_Objects[nIndex] : nullptr;
+        for (int i = 0; i < m_nSize; i++)
+            m_byteMap[i].a.bIsFreeSlot = true;
     }
 
     // Returns if specified slot is free
-    bool IsFreeSlotAtIndex(int idx) {
-        return m_ByteMap[idx].a.bIsFreeSlot;
+    bool IsFreeSlotAtIndex(int idx)
+    {
+        return m_byteMap[idx].a.bIsFreeSlot;
+    }
+
+    int GetIndex(A* pObject)
+    {
+        return reinterpret_cast<B*>(pObject) - m_pObjects;
+    }
+
+    // Returns pointer to object by index
+    A* GetAt(int nIndex)
+    {
+        return !IsFreeSlotAtIndex(nIndex) ? (A *)&m_pObjects[nIndex] : nullptr;
     }
 
     // Marks slot as free / used
-    void SetNotFreeAt(int idx, char bIsSlotFree) {
-        m_ByteMap[idx].a.bIsFreeSlot = bIsSlotFree;
+    void SetFreeAt(int idx, bool bFree)
+    {
+        m_byteMap[idx].a.bIsFreeSlot = bFree;
+    }
+
+    // Set new id for slot
+    void SetIdAt(int idx, unsigned char id)
+    {
+        m_byteMap[idx].a.nId = id;
+    }
+
+    // Get id for slot 
+    void GetIdAt(int idx)
+    {
+        return m_byteMap[idx].a.nId;
     }
 
     // Allocates object
-    A* New() {
+    A* New()
+    {
         bool		bReachedTop = false;
-        do {
-            if (++m_nFirstFree >= m_Size) {
-                if (bReachedTop) {
+        do
+        {
+            if (++m_nFirstFree >= m_nSize)
+            {
+                if (bReachedTop)
+                {
                     m_nFirstFree = -1;
                     return nullptr;
                 }
                 bReachedTop = true;
                 m_nFirstFree = 0;
             }
-        } while (!m_ByteMap[m_nFirstFree].a.bIsFreeSlot);
-        m_ByteMap[m_nFirstFree].a.bIsFreeSlot = false;
-        ++m_ByteMap[m_nFirstFree].a.uID;
-        return &m_Objects[m_nFirstFree];
+        } while (!m_byteMap[m_nFirstFree].a.bIsFreeSlot);
+        m_byteMap[m_nFirstFree].a.bIsFreeSlot = false;
+        ++m_byteMap[m_nFirstFree].a.nId;
+        return &m_pObjects[m_nFirstFree];
     }
 
     // Allocates object at a specific index from a SCM handle
-    void New(int nHandle) {
+    void CreateAtHandle(int nHandle)
+    {
         nHandle >>= 8;
 
-        m_ByteMap[nHandle].a.bIsFreeSlot = false;
-        ++m_ByteMap[nHandle].a.uID;
+        m_byteMap[nHandle].a.bIsFreeSlot = false;
+        ++m_byteMap[nHandle].a.nId;
         m_nFirstFree = 0;
 
-        while (!m_ByteMap[m_nFirstFree].a.bIsFreeSlot)
+        while (!m_byteMap[m_nFirstFree].a.bIsFreeSlot)
             ++m_nFirstFree;
     }
 
+    A *New(int nHandle)
+    {
+        A *result = &m_pObjects[nHandle >> 8];
+        CreateAtHandle(nHandle);
+        return result;
+    }
+
     // Deallocates object
-    void Delete(A* pObject) {
-        int	nIndex = GetIndex(pObject);
-        m_ByteMap[nIndex].a.bIsFreeSlot = true;
+    void Delete(A* pObject)
+    {
+        int		nIndex = reinterpret_cast<B*>(pObject) - m_pObjects;
+        m_byteMap[nIndex].a.bIsFreeSlot = true;
         if (nIndex < m_nFirstFree)
             m_nFirstFree = nIndex;
     }
 
-    // Returns object index in pool
-    int GetJustIndex(A* pObject) {
-        return static_cast<B*>(pObject) - m_Objects;
+    // Returns SCM handle for object
+    int GetHandle(A* pObject)
+    {
+        return (GetIndex(pObject) << 8) + m_byteMap[GetIndex(pObject)].b;
+    }
+
+    // Returns pointer to object by SCM handle
+    A* GetAtHandle(int handle)
+    {
+        int nSlotIndex = handle >> 8;
+        return nSlotIndex >= 0 && nSlotIndex < m_nSize && m_byteMap[nSlotIndex].b == (handle & 0xFF) ? reinterpret_cast<A*>(&m_pObjects[nSlotIndex]) : nullptr;
     }
 
     unsigned int GetNoOfUsedSpaces() {
-        int counter = 0;
-        for (unsigned i = 0; i < m_nSize; ++i) {
-            if (!m_ByteMap[i].a.bIsFreeSlot)
+        unsigned int counter = 0;
+        for (int i = 0; i < m_nSize; ++i) {
+            if (IsFreeSlotAtIndex(i))
                 ++counter;
         }
         return counter;
@@ -149,24 +192,33 @@ public:
         return m_nSize - GetNoOfUsedSpaces();
     }
 
+    unsigned int GetObjectSize() {
+        return sizeof(B);
+    }
+
+    bool IsObjectValid(A *obj) {
+        int slot = GetIndex(obj);
+        return slot >= 0 && slot < m_nSize && !IsFreeSlotAtIndex(slot);
+    }
+
     void Store(void *objectFlags, void *objects) {
-        *objectFlags = operator new[](m_Size);
-        *objects = operator new[](m_Size * sizeof(B));
-        memcpy(*objectFlags, m_ByteMap, m_Size);
-        memcpy(*objects, m_Objects, m_Size * sizeof(B));
-        //dbgprint("Stored:%d (/%d)", GetNoOfUsedSpaces(), m_Size);
+        *objectFlags = operator new[](m_nSize);
+        *objects = operator new[](m_nSize * sizeof(B));
+        memcpy(*objectFlags, m_byteMap, m_nSize);
+        memcpy(*objects, m_pObjects, m_nSize * sizeof(B));
+        //dbgprint("Stored:%d (/%d)", GetNoOfUsedSpaces(), m_nSize);
     }
 
     void CopyBack(void *objectFlags, void *objects) {
-        memcpy(m_ByteMap, *objectFlags, m_Size);
-        memcpy(m_Objects, *objects, m_Size * sizeof(B));
-        //dbgprint("Size copied:%d (%d)", m_Size * sizeof(B), sizeof(B));
+        memcpy(m_byteMap, *objectFlags, m_nSize);
+        memcpy(m_pObjects, *objects, m_nSize * sizeof(B));
+        //dbgprint("Size copied:%d (%d)", m_nSize * sizeof(B), sizeof(B));
         m_nFirstFree = 0;
         operator delete[](*objectFlags);
         operator delete[](*objects);
         *objectFlags = nullptr;
         *objects = nullptr;
-        //dbgprint("CopyBack:%d (/%d)", GetNoOfUsedSpaces(), m_Size);
+        //dbgprint("CopyBack:%d (/%d)", GetNoOfUsedSpaces(), m_nSize);
     }
 };
 

@@ -35,19 +35,19 @@ namespace plugin {
         unsigned int numBlocks;
 
         void AllocateBlocks() {
-            numBlocks = CPools::ms_pPedPool->m_Size;
+            numBlocks = CPools::ms_pPedPool->m_nSize;
             blocks = new T*[numBlocks];
             for (unsigned int i = 0; i < numBlocks; i++)
                 blocks[i] = 0;
         }
 
         void OnConstructor(CPed *ped) {
-            blocks[CPools::ms_pPedPool->GetJustIndex(ped)] = new T(ped);
+            blocks[CPools::ms_pPedPool->GetIndex(ped)] = new T(ped);
         }
 
         void OnDestructor(CPed *ped) {
-            delete blocks[CPools::ms_pPedPool->GetJustIndex(ped)];
-            blocks[CPools::ms_pPedPool->GetJustIndex(ped)] = 0;
+            delete blocks[CPools::ms_pPedPool->GetIndex(ped)];
+            blocks[CPools::ms_pPedPool->GetIndex(ped)] = 0;
         }
     public:
         PedExtendedData() {
@@ -62,7 +62,7 @@ namespace plugin {
         }
 
         T &Get(CPed *ped) {
-            return *blocks[CPools::ms_pPedPool->GetJustIndex(ped)];
+            return *blocks[CPools::ms_pPedPool->GetIndex(ped)];
         }
     };
 }

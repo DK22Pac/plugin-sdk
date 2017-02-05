@@ -26,63 +26,58 @@ enum eWeaponSkill
 	WEAPSKILL_COP
 };
 
-#pragma pack(push, 4)
-class PLUGIN_API CWeaponInfo
-{
+class CWeaponInfo {
 public:
-	/* some info here https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CWeaponInfoSA.h */
-	eWeaponFire m_eWeaponFire;
-	float m_fTargetRange; // max targeting range
-	float m_fWeaponRange; // absolute gun range / default melee attack range
-	__int32 m_dwModelId1; // modelinfo id
-	__int32 m_dwModelId2; // second modelinfo id
-	unsigned __int32 m_dwSlot;
-	union {
-		eWeaponFlags m_eWeaponFlags;
-		struct {
-			unsigned __int32 m_bCanAim : 1;
-			unsigned __int32 m_bAimWithArm : 1;
-			unsigned __int32 m_b1stPerson : 1;
-			unsigned __int32 m_bOnlyFreeAim : 1;
-			unsigned __int32 m_bMoveAim : 1; // can move when aiming
-			unsigned __int32 m_bMoveFire : 1; // can move when firing
-			unsigned __int32 _weaponFlag6 : 1; // this bitfield is not used
-			unsigned __int32 _weaponFlag7 : 1; // this bitfield is not used
-			unsigned __int32 m_bThrow : 1;
-			unsigned __int32 m_bHeavy : 1; // can't run fast with this weapon
-			unsigned __int32 m_bContinuosFire : 1;
-			unsigned __int32 m_bTwinPistol : 1;
-			unsigned __int32 m_bReload : 1; // this weapon can be reloaded
-			unsigned __int32 m_bCrouchFire : 1; // can reload when crouching
-			unsigned __int32 m_bReload2Start : 1; // reload directly after firing
-			unsigned __int32 m_bLongReload : 1;
-			unsigned __int32 m_bSlowdown : 1;
-			unsigned __int32 m_bRandSpeed : 1;
-			unsigned __int32 m_bExpands : 1;
-		};
-	};
-	unsigned __int32 m_dwAnimGroup; // instead of storing pointers directly to anims, use anim association groups
-	unsigned __int16 m_wAmmoClip; // ammo in one clip
-	unsigned __int16 m_wDamage; // damage inflicted per hit
-	CVector m_vFireOffset; // offset from weapon origin to projectile starting point
-	unsigned __int32 m_dwSkillLevel; // what's the skill level of this weapontype
-	unsigned __int32 m_dwReqStatLevel; // what stat level is required for this skill level
-	float m_fAccuracy; // modify accuracy of weapon
-	float m_fMoveSpeed; // how fast can move with weapon
-	float m_fAnimLoopStart; // start of animation loop
-	float m_fAnimLoopEnd; // end of animation loop
-	unsigned __int32 m_dwAnimLoopFire; // time in animation when weapon should be fired
-	unsigned __int32 m_dwAnimLoop2Start; // start of animation2 loop
-	unsigned __int32 m_dwAnimLoop2End; // end of animation2 loop
-	unsigned __int32 m_dwAnimLoop2Fire; // time in animation2 when weapon should be fired
-	float m_fBreakoutTime; // time after which player can break out of attack and run off
-	float m_fSpeed; // speed of projectile
-	float m_fRadius; // radius affected
-	float m_fLifespan; // time taken for shot to dissipate
-	float m_fSpread; // angle inside which shots are created
-	unsigned __int16 m_wAimOffsetIndex; // index into array of aiming offsets
-	unsigned __int8 m_nBaseCombo; // base combo for this melee weapon
-	unsigned __int8 m_nNumCombos; // how many further combos are available
+    /* some info here https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CWeaponInfoSA.h */
+    unsigned int   m_nWeaponFire; // see eWeaponFire
+    float          m_fTargetRange; // max targeting range
+    float          m_fWeaponRange; // absolute gun range / default melee attack range
+    int            m_nModelId1; // modelinfo id
+    int            m_nModelId2; // second modelinfo id
+    unsigned int   m_nSlot;
+    struct {
+        unsigned int bCanAim : 1;
+        unsigned int bAimWithArm : 1;
+        unsigned int b1stPerson : 1;
+        unsigned int bOnlyFreeAim : 1;
+        unsigned int bMoveAim : 1; // can move when aiming
+        unsigned int bMoveFire : 1; // can move when firing
+        unsigned int b06 : 1; // this bitfield is not used
+        unsigned int b07 : 1; // this bitfield is not used
+        unsigned int bThrow : 1;
+        unsigned int bHeavy : 1; // can't run fast with this weapon
+        unsigned int bContinuosFire : 1;
+        unsigned int bTwinPistol : 1;
+        unsigned int bReload : 1; // this weapon can be reloaded
+        unsigned int bCrouchFire : 1; // can reload when crouching
+        unsigned int bReload2Start : 1; // reload directly after firing
+        unsigned int bLongReload : 1;
+        unsigned int bSlowdown : 1;
+        unsigned int bRandSpeed : 1;
+        unsigned int bExpands : 1;
+    }              m_nFlags;
+	unsigned int   m_dwAnimGroup; // instead of storing pointers directly to anims, use anim association groups
+	unsigned short m_nAmmoClip; // ammo in one clip
+	unsigned short m_nDamage; // damage inflicted per hit
+	CVector        m_vecFireOffset; // offset from weapon origin to projectile starting point
+	unsigned int   m_nSkillLevel; // what's the skill level of this weapontype
+	unsigned int   m_nReqStatLevel; // what stat level is required for this skill level
+	float          m_fAccuracy; // modify accuracy of weapon
+	float          m_fMoveSpeed; // how fast can move with weapon
+	float          m_fAnimLoopStart; // start of animation loop
+	float          m_fAnimLoopEnd; // end of animation loop
+	unsigned int   m_nAnimLoopFire; // time in animation when weapon should be fired
+	unsigned int   m_nAnimLoop2Start; // start of animation2 loop
+	unsigned int   m_nAnimLoop2End; // end of animation2 loop
+	unsigned int   m_nAnimLoop2Fire; // time in animation2 when weapon should be fired
+	float          m_fBreakoutTime; // time after which player can break out of attack and run off
+	float          m_fSpeed; // speed of projectile
+	float          m_fRadius; // radius affected
+	float          m_fLifespan; // time taken for shot to dissipate
+	float          m_fSpread; // angle inside which shots are created
+	unsigned short m_nAimOffsetIndex; // index into array of aiming offsets
+	unsigned char  m_nBaseCombo; // base combo for this melee weapon
+	unsigned char  m_nNumCombos; // how many further combos are available
 
 	// functions
 	CWeaponInfo();
@@ -108,9 +103,8 @@ public:
 	// closing
 	static void Shutdown();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CWeaponInfo, 0x70);
 
 // list of weapon infos. Count: MAX_WEAPON_INFOS (80)
-extern PLUGIN_API CWeaponInfo *aWeaponInfo;
+extern CWeaponInfo *aWeaponInfo;

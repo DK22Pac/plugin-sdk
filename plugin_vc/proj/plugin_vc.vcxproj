@@ -131,7 +131,6 @@
     <ClInclude Include="..\extender\ObjectExtender_VC.h" />
     <ClInclude Include="..\extender\PedExtender_VC.h" />
     <ClInclude Include="..\extender\VehicleExtender_VC.h" />
-    <ClInclude Include="..\extensions\Paths.h" />
     <ClInclude Include="..\extensions\Screen.h" />
     <ClInclude Include="..\game_vc\CAutomobile.h" />
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
@@ -281,7 +280,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp" />
-    <ClCompile Include="..\extensions\Paths.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
     <ClCompile Include="..\game_vc\CAutomobile.cpp" />
     <ClCompile Include="..\game_vc\CBaseModelInfo.cpp" />

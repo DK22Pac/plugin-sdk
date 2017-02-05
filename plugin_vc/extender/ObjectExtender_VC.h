@@ -35,19 +35,19 @@ namespace plugin {
         unsigned int numBlocks;
 
         void AllocateBlocks() {
-            numBlocks = CPools::ms_pObjectPool->m_Size;
+            numBlocks = CPools::ms_pObjectPool->m_nSize;
             blocks = new T*[numBlocks];
             for (unsigned int i = 0; i < numBlocks; i++)
                 blocks[i] = 0;
         }
 
         void OnConstructor(CObject *object) {
-            blocks[CPools::ms_pObjectPool->GetJustIndex(object)] = new T(object);
+            blocks[CPools::ms_pObjectPool->GetIndex(object)] = new T(object);
         }
 
         void OnDestructor(CObject *object) {
-            delete blocks[CPools::ms_pObjectPool->GetJustIndex(object)];
-            blocks[CPools::ms_pObjectPool->GetJustIndex(object)] = 0;
+            delete blocks[CPools::ms_pObjectPool->GetIndex(object)];
+            blocks[CPools::ms_pObjectPool->GetIndex(object)] = 0;
         }
     public:
         ObjectExtendedData() {
@@ -62,7 +62,7 @@ namespace plugin {
         }
 
         T &Get(CObject *object) {
-            return *blocks[CPools::ms_pObjectPool->GetJustIndex(object)];
+            return *blocks[CPools::ms_pObjectPool->GetIndex(object)];
         }
     };
 }

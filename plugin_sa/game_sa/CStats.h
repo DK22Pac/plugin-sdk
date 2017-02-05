@@ -8,8 +8,12 @@
 
 #include "plbase/PluginBase_SA.h"
 
-class PLUGIN_API CStats
-{
+enum eStatUpdateState {
+    STAT_UPDATE_DECREASE = 0,
+    STAT_UPDATE_INCREASE = 1
+};
+
+class CStats {
 public:
 	static float GetStatValue(unsigned short statId);
 };

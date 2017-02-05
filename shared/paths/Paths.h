@@ -12,6 +12,12 @@
 namespace plugin {
     class paths {
     public:
+        enum ePathDir {
+            DirAbsolute,
+            DirGame,
+            DirPlugin
+        };
+
         static void GetGameDirPathA(char *out);
         static char *GetGameDirPathA();
         static void GetPluginDirPathA(char *out);
@@ -31,6 +37,9 @@ namespace plugin {
         static wchar_t *GetGameDirRelativePathW(wchar_t *subpath);
         static void GetPluginDirRelativePathW(wchar_t *out, wchar_t *subpath);
         static wchar_t *GetPluginDirRelativePathW(wchar_t *subpath);
+
+        static char *GetDirPath(char *substring, ePathDir dir);
+        static wchar_t *GetDirPath(wchar_t *substring, ePathDir dir);
     };
 }
 

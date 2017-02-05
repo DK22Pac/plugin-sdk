@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Paths.h"
-#include "..\shared\Error.h"
+#include "..\Error.h"
 
 struct PluginPathA {
     char _path[MAX_PATH + 1];
@@ -181,5 +181,24 @@ void plugin::paths::GetPluginDirRelativePathW(wchar_t *out, wchar_t *subpath) {
 wchar_t *plugin::paths::GetPluginDirRelativePathW(wchar_t *subpath) {
     wcscpy(PluginPathWInstance()._temp_path, PluginPathWInstance()._path);
     wcscat(PluginPathWInstance()._temp_path, subpath);
+    return PluginPathWInstance()._temp_path;
+}
+
+char *plugin::paths::GetDirPath(char *substring, ePathDir dir) {
+    if (dir == DirGame)
+        return GetGameDirRelativePathA(substring);
+    else if (dir == DirPlugin)
+        return GetPluginDirRelativePathA(substring);
+    strcpy(PluginPathAInstance()._temp_path, substring);
+    return PluginPathAInstance()._temp_path;
+
+}
+
+wchar_t *plugin::paths::GetDirPath(wchar_t *substring, ePathDir dir) {
+    if (dir == DirGame)
+        return GetGameDirRelativePathW(substring);
+    else if (dir == DirPlugin)
+        return GetPluginDirRelativePathW(substring);
+    wcscpy(PluginPathWInstance()._temp_path, substring);
     return PluginPathWInstance()._temp_path;
 }
