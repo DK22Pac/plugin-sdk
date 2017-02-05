@@ -140,6 +140,7 @@
     <ClInclude Include="..\game_vc\CBox.h" />
     <ClInclude Include="..\game_vc\CBuilding.h" />
     <ClInclude Include="..\game_vc\CBulletTraces.h" />
+    <ClInclude Include="..\game_vc\CCarCtrl.h" />
     <ClInclude Include="..\game_vc\CCarGenerator.h" />
     <ClInclude Include="..\game_vc\CCivilianPed.h" />
     <ClInclude Include="..\game_vc\CClock.h" />
@@ -288,6 +289,7 @@
     <ClCompile Include="..\game_vc\CBox.cpp" />
     <ClCompile Include="..\game_vc\CBuilding.cpp" />
     <ClCompile Include="..\game_vc\CBulletTraces.cpp" />
+    <ClCompile Include="..\game_vc\CCarCtrl.cpp" />
     <ClCompile Include="..\game_vc\CCarGenerator.cpp" />
     <ClCompile Include="..\game_vc\CCivilianPed.cpp" />
     <ClCompile Include="..\game_vc\CClock.cpp" />
