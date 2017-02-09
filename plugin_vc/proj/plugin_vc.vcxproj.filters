@@ -502,6 +502,9 @@
     <ClInclude Include="..\game_vc\CCarCtrl.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CHud.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -787,6 +790,9 @@
       <Filter>extensions</Filter>
     </ClCompile>
     <ClCompile Include="..\game_vc\CCarCtrl.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CHud.cpp">
       <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>

@@ -164,6 +164,7 @@
     <ClInclude Include="..\game_vc\CGeneral.h" />
     <ClInclude Include="..\game_vc\cHandlingDataMgr.h" />
     <ClInclude Include="..\game_vc\CHeli.h" />
+    <ClInclude Include="..\game_vc\CHud.h" />
     <ClInclude Include="..\game_vc\CIniFile.h" />
     <ClInclude Include="..\game_vc\CModelInfo.h" />
     <ClInclude Include="..\game_vc\common.h" />
@@ -317,6 +318,7 @@
     <ClCompile Include="..\game_vc\CGeneral.cpp" />
     <ClCompile Include="..\game_vc\cHandlingDataMgr.cpp" />
     <ClCompile Include="..\game_vc\CHeli.cpp" />
+    <ClCompile Include="..\game_vc\CHud.cpp" />
     <ClCompile Include="..\game_vc\CIniFile.cpp" />
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
     <ClCompile Include="..\game_vc\CModelInfo.cpp" />
