@@ -56,7 +56,7 @@ struct tPickupMessage
 	char _pad0[2];
 };
 
-VALIDATE_SIZE(CPickup, 0x1C);
+VALIDATE_SIZE(tPickupMessage, 0x1C);
 
 class CPickups {
 public:
