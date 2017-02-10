@@ -151,6 +151,7 @@
     <ClInclude Include="..\game_vc\CColModel.h" />
     <ClInclude Include="..\game_vc\CColSphere.h" />
     <ClInclude Include="..\game_vc\CCopPed.h" />
+    <ClInclude Include="..\game_vc\CCurrentVehicle.h" />
     <ClInclude Include="..\game_vc\CCutsceneObject.h" />
     <ClInclude Include="..\game_vc\CCutsceneShadow.h" />
     <ClInclude Include="..\game_vc\CDamageManager.h" />

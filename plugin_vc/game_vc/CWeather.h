@@ -26,8 +26,8 @@ public:
     static void AddRain();
     static void AddSplashesDuringHurricane();
     static void AddStreamAfterRain();
-    static void ForceWeather(short arg0);
-    static void ForceWeatherNow(short arg0);
+    static void ForceWeather(short weather);
+    static void ForceWeatherNow(short weather);
     static void Init();
     static void ReleaseWeather();
     static void RenderRainStreaks();

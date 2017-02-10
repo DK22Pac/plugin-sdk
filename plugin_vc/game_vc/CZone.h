@@ -6,18 +6,15 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
+#include "eLevelName.h"
 
 enum eZoneType {
     
 };
 
-
-enum eLevelName {
-    
-};
-
 #pragma pack(push, 1)
-struct CZone {
+class CZone {
+public:
     char name[8];
     char text[8];
     __int16 x1;

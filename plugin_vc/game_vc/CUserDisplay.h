@@ -7,13 +7,14 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 #include "plbase/PluginBase_VC.h"
 #include "COnscreenTimer.h"
-#include "CVehicle.h"
+#include "CCurrentVehicle.h"
+
 
 class CUserDisplay {
 public:
     //variables
     static COnscreenTimer &OnscnTimer;
-    static CVehicle &CurrentVehicle;
+    static CCurrentVehicle &CurrentVehicle;
 
     //funcs
     static void Init();

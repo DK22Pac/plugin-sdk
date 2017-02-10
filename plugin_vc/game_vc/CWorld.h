@@ -14,19 +14,19 @@ public:
     // Player data array for 1 player.
     static CPlayerInfo *Players;
     static unsigned char &PlayerInFocus;
-    static CPtrList *ms_listMovingEntityPtrs;
-    static CPtrList *ms_bigBuildingsList[3];
+    static CPtrList& ms_listMovingEntityPtrs;		// CPtrList CWorld::ms_listMovingEntityPtrs
+	static CPtrList (&ms_bigBuildingsList)[3];		// CPtrList CWorld::ms_bigBuildingsList[3]
     static bool &bDoingCarCollisions;
     static int &ms_nCurrentScanCode;
     static bool &bIncludeDeadPeds;
     static bool &bProcessCutsceneOnly;
-    static CEntity** pIgnoreEntity;
+    static CEntity*& pIgnoreEntity;		// CEntity* CWorld::pIgnoreEntity
     static bool &bIncludeBikers;
     static bool &bNoMoreCollisionTorque;
     static bool &bForceProcessControl;
     static bool &bSecondShift;
     static bool &bIncludeCarTyres;
-    static CSector *ms_aSectors[6400];
+	static CSector (&ms_aSectors)[6400];		// CSector CWorld::ms_aSectors[6400]
 
     //funcs
     static void Add(CEntity* entity);
