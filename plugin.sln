@@ -12,18 +12,39 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{D4C3848F-BB59-45D2-95A2-A40707FCF238}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_PlayerWeapon", "examples\SA_PlayerWeapon\SA_PlayerWeapon.vcxproj", "{F0FFA1C5-0179-4865-BBF7-CD3345144F63}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_UniversalTurnlights", "examples\SA_UniversalTurnlights\SA_UniversalTurnlights.vcxproj", "{95F4C6F8-C75D-419A-A87F-7A518EBF9125}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_ColouredObjects", "examples\SA_ColouredObjects\SA_ColouredObjects.vcxproj", "{E708C757-C779-4DA7-83F0-F37AA36EF5C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_GPS", "examples\SA_GPS\SA_GPS.vcxproj", "{074FF5E2-3D43-4E60-8559-0792F295B1CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_HandSignals", "examples\SA_HandSignals\SA_HandSignals.vcxproj", "{DA11E5A5-CE5D-4027-AD65-EEA072C91987}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_VehicleSpawner", "examples\SA_VehicleSpawner\SA_VehicleSpawner.vcxproj", "{8423DBF9-94F8-4E12-AA76-BD3525718EBA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_PedSpawner", "examples\SA_PedSpawner\SA_PedSpawner.vcxproj", "{7CA511A0-BAF6-4636-A0C9-0BDA27DD709B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin_vc", "plugin_vc\proj\plugin_vc.vcxproj", "{E2AF6D9E-F095-4034-94EF-6E65477F656C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -42,26 +63,59 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A096B2
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VC_DXFont", "examples\VC_DXFont\VC_DXFont.vcxproj", "{F8EABD73-253E-4022-9AD5-DD2E35FE9BC2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C} = {E2AF6D9E-F095-4034-94EF-6E65477F656C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_CreateCar", "examples\SA_CreateCar\SA_CreateCar.vcxproj", "{4A22D031-C119-40FE-8116-38A71FF00DDC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_RotateDoor", "examples\SA_RotateDoor\SA_RotateDoor.vcxproj", "{E7C543F6-5388-456E-8CB4-3E711B7A1316}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_OpenDoorExample", "examples\SA_OpenDoorExample\SA_OpenDoorExample.vcxproj", "{F0460625-CC5E-449B-B828-8DF7C0E7CED6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_Neon", "examples\SA_Neon\SA_Neon.vcxproj", "{3B1386D1-69EB-4366-ABB7-57B59DA6086B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_VehicleRemap", "examples\SA_VehicleRemap\SA_VehicleRemap.vcxproj", "{9EB91E22-87E3-4C16-8579-C8DB17FAB9B8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_Speedometer", "examples\SA_Speedometer\SA_Speedometer.vcxproj", "{EFF065BE-FF9A-46DB-8B4F-53A03B49DA3B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_PedPainting", "examples\SA_PedPainting\SA_PedPainting.vcxproj", "{ED759E82-1F86-46DD-A3D1-A6C7E7FBE63E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_FullNitrousControl", "examples\SA_FullNitrousControl\SA_FullNitrousControl.vcxproj", "{16BB5066-C9E8-4D50-9C37-0732E4BA1D0B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VC_PedPainting", "examples\VC_PedPainting\VC_PedPainting.vcxproj", "{3858E97F-9280-419A-98C9-C7133C5DC9EA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E2AF6D9E-F095-4034-94EF-6E65477F656C} = {E2AF6D9E-F095-4034-94EF-6E65477F656C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SA_Texture", "examples\SA_Texture\SA_Texture.vcxproj", "{DB006EA8-1524-4F78-B3D3-DD2B0EAC529E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F442363-6D2C-4C0C-A157-287DCC49DD84} = {0F442363-6D2C-4C0C-A157-287DCC49DD84}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "config", "shared\config\config.vcxproj", "{BB19B208-B449-4517-AD47-0CF6ED10045E}"
 EndProject
