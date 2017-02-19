@@ -10,19 +10,23 @@ unsigned int MAX_PLAYERS = 1;
 // variables
 CPlayerInfo *CWorld::Players = (CPlayerInfo *)0x94AD28;
 unsigned char &CWorld::PlayerInFocus = *(unsigned char *)0xA10AFB;
-CPtrList *CWorld::ms_listMovingEntityPtrs = (CPtrList *)0x9B48A8;
-CPtrList *CWorld::ms_bigBuildingsList[3] = { (CPtrList *)0x9785FC };
+// Converted from CPtrList CWorld::ms_listMovingEntityPtrs 0x9B48A8
+CPtrList& CWorld::ms_listMovingEntityPtrs = *(CPtrList*)0x9B48A8;
+// Converted from CPtrList CWorld::ms_bigBuildingsList[3] 0x9785FC
+CPtrList (&CWorld::ms_bigBuildingsList)[3] = *(CPtrList (*)[3])*(int *)0x9785FC;
 bool &CWorld::bDoingCarCollisions = *(bool *)0x9B6E58;
 int &CWorld::ms_nCurrentScanCode = *(int *)0xA1098E;
 bool &CWorld::bIncludeDeadPeds = *(bool *)0xA10AEE;
 bool &CWorld::bProcessCutsceneOnly = *(bool *)0xA10B1C;
-CEntity** CWorld::pIgnoreEntity = (CEntity**)0xA10B29;
+// Converted from CEntity* CWorld::pIgnoreEntity 0xA10B29
+CEntity*& CWorld::pIgnoreEntity = *(CEntity**)0xA10B29;
 bool &CWorld::bIncludeBikers = *(bool *)0xA10B48;
 bool &CWorld::bNoMoreCollisionTorque = *(bool *)0xA10B49;
 bool &CWorld::bForceProcessControl = *(bool *)0xA10B4A;
 bool &CWorld::bSecondShift = *(bool *)0xA10B70;
 bool &CWorld::bIncludeCarTyres = *(bool *)0xA10B96;
-CSector *CWorld::ms_aSectors[6400] = { (CSector *)0x792D30 };
+// Converted from CSector CWorld::ms_aSectors[6400] 0x792D30
+CSector (&CWorld::ms_aSectors)[6400] = *(CSector (*)[6400])*(int *)0x792D30;
 
 // Converted from cdecl void CWorld::Add(CEntity *entity) 0x4DB3F0
 void CWorld::Add(CEntity* entity) {

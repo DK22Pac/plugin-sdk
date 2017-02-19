@@ -48,11 +48,6 @@ int CTxdStore::GetTxdName(int index) {
     return plugin::CallAndReturn<int, 0x580E50, int>(index);
 }
 
-// Converted from cdecl void CTxdStore::Initialise(void) 0x6271E0 
-void CTxdStore::Initialise() {
-    plugin::Call<0x6271E0>();
-}
-
 // Converted from cdecl bool CTxdStore::LoadTxd(int index, RwStream *stream) 0x580C60
 bool CTxdStore::LoadTxd(int index, RwStream* stream) {
     return plugin::CallAndReturn<bool, 0x580C60, int, RwStream*>(index, stream);
@@ -108,7 +103,7 @@ bool CTxdStore::StartLoadTxd(int index, RwStream* stream) {
     return plugin::CallAndReturn<bool, 0x580BF0, int, RwStream*>(index, stream);
 }
 
-// Converted from thiscall void CTxdStore::CTxdStore(void) 0x581010
-CTxdStore::CTxdStore() {
-    plugin::CallMethod<0x581010, CTxdStore *>(this);
+// Converted from cdecl void CTxdStore::Initialise(void) 0x581010 
+void CTxdStore::Initialise() {
+    plugin::Call<0x581010>();
 }

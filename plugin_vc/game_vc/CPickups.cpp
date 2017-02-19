@@ -6,6 +6,27 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CPickups.h"
 
+// Converted from int CPickups::PlayerOnWeaponPickup 0x978744
+int& CPickups::PlayerOnWeaponPickup = *(int*)0x978744;
+// Converted from int CPickups::StaticCamStartTime 0x974C24
+int& CPickups::StaticCamStartTime = *(int*)0x974C24;
+// Converted from CVector CPickups::StaticCamCoors 0xA0CFA0
+CVector& CPickups::StaticCamCoors = *(CVector*)0xA0CFA0;
+// Converted from CVehicle* CPickups::pPlayerVehicle 0x978D90
+CVehicle*& CPickups::pPlayerVehicle = *(CVehicle**)0x978D90;
+// Converted from Bool CPickups::bPickUpcamActivated 0xA10B20
+Bool& CPickups::bPickUpcamActivated = *(Bool*)0xA10B20;
+// Converted from short CPickups::CollectedPickUpIndex 0xA10A4A
+short& CPickups::CollectedPickUpIndex = *(short*)0xA10A4A;
+// Converted from int CPickups::aPickUpsCollected[20] 0x94AF48
+int (&CPickups::aPickUpsCollected)[20] = *(int (*)[20])*(int *)0x94AF48;
+// Converted from short CPickups::NumMessages 0xA10A5A
+short& CPickups::NumMessages = *(short*)0xA10A5A;
+// Converted from tPickupMessage CPickups::aMessages[16] 0x7E9B08
+tPickupMessage (&CPickups::aMessages)[16] = *(tPickupMessage (*)[16])*(int *)0x7E9B08;
+// Converted from CPickup CPickups::aPickUps[336] 0x945D30
+CPickup (&CPickups::aPickUps)[336] = *(CPickup (*)[336])*(int *)0x945D30;
+
 // Converted from thiscall int CPickup::GiveUsAPickUpObject(CObject **,CObject **,int,int) 0x43D3B0 
 int CPickup::GiveUsAPickUpObject(CObject** arg0, CObject** arg1, int arg2, int arg3) {
     return plugin::CallMethodAndReturn<int, 0x43D3B0, CPickup *, CObject**, CObject**, int, int>(this, arg0, arg1, arg2, arg3);

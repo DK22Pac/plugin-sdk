@@ -262,6 +262,9 @@
     <ClInclude Include="..\game_vc\CPlane.h">
       <Filter>game_vc\Entity\Vehicle</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CCurrentVehicle.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
     <ClInclude Include="..\game_vc\CCutsceneObject.h">
       <Filter>game_vc\Entity\Object</Filter>
     </ClInclude>

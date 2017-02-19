@@ -33,14 +33,14 @@ void CWeather::AddStreamAfterRain() {
     plugin::Call<0x57D340>();
 }
 
-// Converted from cdecl void CWeather::ForceWeather(short) 0x57D570
-void CWeather::ForceWeather(short arg0) {
-    plugin::Call<0x57D570, short>(arg0);
+// Converted from cdecl void CWeather::ForceWeather(short weather) 0x57D570
+void CWeather::ForceWeather(short weather) {
+    plugin::Call<0x57D570, short>(weather);
 }
 
-// Converted from cdecl void CWeather::ForceWeatherNow(short) 0x57D550
-void CWeather::ForceWeatherNow(short arg0) {
-    plugin::Call<0x57D550, short>(arg0);
+// Converted from cdecl void CWeather::ForceWeatherNow(short weather) 0x57D550
+void CWeather::ForceWeatherNow(short weather) {
+    plugin::Call<0x57D550, short>(weather);
 }
 
 // Converted from cdecl void CWeather::Init(void) 0x57E040

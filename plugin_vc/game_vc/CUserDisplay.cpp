@@ -7,7 +7,7 @@ Do not delete this comment block. Respect others' work!
 #include "CUserDisplay.h"
 
 COnscreenTimer &CUserDisplay::OnscnTimer = *(COnscreenTimer *)0x9B6CF8;
-CVehicle &CUserDisplay::CurrentVehicle = *(CVehicle *)0x9B6A80;
+CCurrentVehicle &CUserDisplay::CurrentVehicle = *(CCurrentVehicle *)0x9B6A80;
 
 // Converted from cdecl void CUserDisplay::Init(void) 0x4D1490
 void CUserDisplay::Init() {

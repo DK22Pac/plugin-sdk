@@ -29,8 +29,6 @@ public:
     // get references count
     static int GetNumRefs(int index);
     static int GetTxdName(int index);
-    // initialise txd store
-    static void Initialise();
     // load txd from stream
     static bool LoadTxd(int index, RwStream* stream);
     // load txd from file
@@ -52,5 +50,6 @@ public:
     // shutdown txd store
     static void Shutdown();
     static bool StartLoadTxd(int index, RwStream* stream);
-    CTxdStore();
+    // initialise txd store
+    static void Initialise();
 };
