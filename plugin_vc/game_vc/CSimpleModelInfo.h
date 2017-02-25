@@ -10,15 +10,37 @@
 #include "CBaseModelInfo.h"
 
 class CSimpleModelInfo : public CBaseModelInfo {
-    RpAtomic      *m_apLodAtomics[3];
-    RpAtomic      *m_afLodDistances[3];
-    unsigned char  m_nNumLodLevels;
-    char field_41;
-    unsigned short m_nCurrentLodLevel : 3;
-    unsigned short : 1;
-    unsigned short m_bIsBigBuilding : 1;
-    unsigned short : 1;
-    unsigned short m_bDrawLast : 1;
+    RpAtomic         *m_apAtomics[2];
+    union {
+        CSimpleModelInfo *m_pLodModelInfo;
+        int m_nWeaponType;
+    };
+    float         m_afLodDistances[2];
+    float         m_fLodModelDistance;
+    unsigned char m_nNumAtomics;
+    unsigned char m_nVisibility; // 0 - invisible, 255 - fully visible
+    struct {
+        unsigned short nMainAtomic : 2;
+        unsigned short b03 : 1;
+        unsigned short b04 : 1; // bDamagable?
+        unsigned short bIsBigBuilding : 1;
+        unsigned short b06 : 1;
+        unsigned short bDrawLast : 1;
+    } m_nFlags;
+
+    //vtable
+
+    void SetAtomic(int atomicIndex, RpAtomic* atomic);
+
+    //funcs
+
+    RpAtomic* GetAtomicFromDistance(float distance);
+    float GetLargestLodDistance();
+    RpAtomic* GetLastAtomic(float distance);
+    float GetLodDistance(int lodIndex);
+    void Init();
+    void SetLodDistances(float* distances);
+    void SetupBigBuilding(int minLineIndex, int maxLineIndex);
 };
 
 VALIDATE_SIZE(CSimpleModelInfo, 0x44);

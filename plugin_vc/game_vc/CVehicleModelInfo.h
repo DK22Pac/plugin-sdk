@@ -15,7 +15,33 @@ Do not delete this comment block. Respect others' work!
 
 class CVehicleModelInfo : public CClumpModelInfo {
 public:
-    
+    unsigned char m_anLastCarColorId[2];
+    char m_szGameName[10];
+    unsigned int m_nVehicleType;
+    float m_fWheelSize;
+    short m_nWheelModelId;
+    short m_nHandlingId;
+    unsigned char m_nNumDoors;
+    unsigned char m_nVehicleClass;
+    unsigned char m_nLvl;
+    unsigned char m_nNumExtras;
+    unsigned short m_nFrq;
+private:
+    char _pad4E[2];
+public:
+    CVector m_avecDummyPos[5];
+    unsigned int m_nCompRules;
+    float m_fBikeSteerAngle;
+    RpMaterial *m_apMaterialsPrimary[24];
+    RpMaterial *m_apMaterialsSecondary[20];
+    unsigned char m_anPrimaryColorId[8];
+    unsigned char m_anSecondaryColorId[8];
+    unsigned char m_nNumColorVariations;
+    unsigned char m_nLastColorVariation;
+    unsigned char m_anCurrentColorId[2];
+    RpAtomic *m_apExtras[6];
+    char *m_pszAnimName;
+
     //funcs
 
     void AvoidSameVehicleColour(unsigned char* prim, unsigned char* sec);
@@ -66,3 +92,5 @@ public:
     // unloads 'white' texture
     static void ShutdownEnvironmentMaps();
 };
+
+VALIDATE_SIZE(CVehicleModelInfo, 0x174);

@@ -6,16 +6,15 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
-#include "CBaseModelInfo.h"
+#include "CSimpleModelInfo.h"
 
-#pragma pack(push, 4)
-class CTimeModelInfo : public CBaseModelInfo {
+class CTimeModelInfo : public CSimpleModelInfo {
 public:
-    char gap28[36];
-    int dword4C; 
+    unsigned int m_nStartHour;
+    unsigned int m_nEndHour;
+    CSimpleModelInfo *m_pPairedModel;
     
     void FindOtherTimeModel();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CTimeModelInfo, 0x50);

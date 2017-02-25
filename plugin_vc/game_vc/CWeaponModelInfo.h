@@ -6,23 +6,19 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
-#include "CBaseModelInfo.h"
-#include "eWeaponType.h"
+#include "CSimpleModelInfo.h"
 
-#pragma pack(push, 4)
-class CWeaponModelInfo : public CBaseModelInfo {
+class CWeaponModelInfo : public CSimpleModelInfo {
 public:
-    char gap28[28]; 
-    int dword44; 
+    union {
+        char *m_pszAnimFileName;
+        int m_nAnimFileIndex;
+    };
     
-    //vtable
-    void SetAtomic(int arg0, RpAtomic* atomic);
-
     //funcs
     int GetWeaponInfo();
     void Init();
-    int SetWeaponInfo(int arg0);
+    int SetWeaponInfo(int weaponType);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CWeaponModelInfo, 0x48);
