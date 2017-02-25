@@ -112,6 +112,7 @@
     <ClInclude Include="..\game_sa\CAETwinLoopSoundEntity.h" />
     <ClInclude Include="..\game_sa\CAEVehicleAudioEntity.h" />
     <ClInclude Include="..\game_sa\CAEWeatherAudioEntity.h" />
+    <ClInclude Include="..\game_sa\CAnimBlendHierarchy.h" />
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
     <ClInclude Include="..\game_sa\CBmx.h" />
     <ClInclude Include="..\game_sa\CBoat.h" />
@@ -624,7 +625,6 @@
     <ClInclude Include="..\game_sa\eWeaponModel.h" />
     <ClInclude Include="..\game_sa\eWeaponType.h" />
     <ClInclude Include="..\game_sa\eWinchType.h" />
-    <ClInclude Include="..\game_sa\functions.h" />
     <ClInclude Include="..\game_sa\FxBox_c.h" />
     <ClInclude Include="..\game_sa\FxFrustumInfo_c.h" />
     <ClInclude Include="..\game_sa\FxManager_c.h" />

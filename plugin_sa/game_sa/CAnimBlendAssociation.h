@@ -7,10 +7,9 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
+#include "CAnimBlendHierarchy.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CAnimBlendAssociation
-{
+class CAnimBlendAssociation {
 protected:
 	void *vtable;
 
@@ -20,7 +19,7 @@ public:
 	uint16_t m_wNumBlendNodes;
 	int16_t m_wAnimGroup;
 	class CAnimBlendNode *m_pAnimBlendNodeArray;
-	class CAnimBlendHierarchy *m_pAnimBlendHierarchy;
+	CAnimBlendHierarchy *m_pAnimBlendHierarchy;
 	float m_fBlendAmount;
 	float m_fBlendDelta;
 	float m_fCurrentTime;
@@ -32,6 +31,5 @@ public:
 	void *m_pCallbackFunc;
 	void *m_pCallbackData;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAnimBlendAssociation, 0x3C);

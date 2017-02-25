@@ -339,9 +339,6 @@
     <ClInclude Include="..\game_sa\CZone.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\functions.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\LimbOrienation.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1782,6 +1779,9 @@
     </ClInclude>
     <ClInclude Include="..\extensions\Screen.h">
       <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAnimBlendHierarchy.h">
+      <Filter>game_sa\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
