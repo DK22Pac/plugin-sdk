@@ -8,32 +8,32 @@ Do not delete this comment block. Respect others' work!
 
 // Variables
 bool& CClock::bClockHasBeenStored = *(bool*)0xA10B3C;
-DWORD& CClock::ms_nMillisecondsPerGameMinute = *(DWORD*)0x97F2B4;
+std::uint32_t& CClock::ms_nMillisecondsPerGameMinute = *(std::uint32_t*)0x97F2B4;
 // Stored clock
-WORD& CClock::ms_Stored_nGameClockSeconds = *(WORD*)0xA10A5E;
-BYTE& CClock::ms_Stored_nGameClockMinutes = *(BYTE*)0xA10B5D;
-BYTE& CClock::ms_Stored_nGameClockHours = *(BYTE*)0xA10B33;
+std::uint16_t& CClock::ms_Stored_nGameClockSeconds = *(std::uint16_t*)0xA10A5E;
+unsigned char& CClock::ms_Stored_nGameClockMinutes = *(unsigned char*)0xA10B5D;
+unsigned char& CClock::ms_Stored_nGameClockHours = *(unsigned char*)0xA10B33;
 // Current clock
-WORD& CClock::ms_nGameClockSeconds = *(WORD*)0xA10A3C;
-BYTE& CClock::ms_nGameClockMinutes = *(BYTE*)0xA10B92;
-BYTE& CClock::ms_nGameClockHours = *(BYTE*)0xA10B6B;
-DWORD& CClock::ms_nLastClockTick = *(DWORD*)0xA0FDEC;
+std::uint16_t& CClock::ms_nGameClockSeconds = *(std::uint16_t*)0xA10A3C;
+unsigned char& CClock::ms_nGameClockMinutes = *(unsigned char*)0xA10B92;
+unsigned char& CClock::ms_nGameClockHours = *(unsigned char*)0xA10B6B;
+std::uint32_t& CClock::ms_nLastClockTick = *(std::uint32_t*)0xA0FDEC;
 
 // Converted from cdecl WORD CClock::GetGameClockMinutesUntil(BYTE hours, BYTE minutes) 0x487130
-WORD CClock::GetGameClockMinutesUntil(BYTE hours, BYTE minutes) {
-    WORD result;
-    plugin::CallAndReturn<WORD, 0x487130, WORD*, BYTE, BYTE>(&result, hours, minutes);
+std::uint16_t CClock::GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes) {
+    std::uint16_t result;
+    plugin::CallAndReturn<std::uint16_t, 0x487130, std::uint16_t*, unsigned char, unsigned char>(&result, hours, minutes);
     return result;
 }
 
 // Converted from cdecl bool CClock::GetIsTimeInRange(BYTE hourA, BYTE hourB) 0x4870F0
-bool CClock::GetIsTimeInRange(BYTE hourA, BYTE hourB) {
-    return plugin::CallAndReturn<bool, 0x4870F0, BYTE, BYTE>(hourA, hourB);
+bool CClock::GetIsTimeInRange(unsigned char hourA, unsigned char hourB) {
+    return plugin::CallAndReturn<bool, 0x4870F0, unsigned char, unsigned char>(hourA, hourB);
 }
 
 // Converted from cdecl void CClock::Initialise(DWORD milisecondsPerGameMinute) 0x4871B0
-void CClock::Initialise(DWORD milisecondsPerGameMinute) {
-    plugin::Call<0x4871B0, DWORD>(milisecondsPerGameMinute);
+void CClock::Initialise(std::uint32_t milisecondsPerGameMinute) {
+    plugin::Call<0x4871B0, std::uint32_t>(milisecondsPerGameMinute);
 }
 
 // Converted from cdecl void CClock::RestoreClock(void) 0x486FB0 
@@ -42,8 +42,8 @@ void CClock::RestoreClock() {
 }
 
 // Converted from cdecl void CClock::SetGameClock(BYTE hours, BYTE minutes) 0x487160
-void CClock::SetGameClock(BYTE hours, BYTE minutes) {
-    plugin::Call<0x487160, BYTE, BYTE>(hours, minutes);
+void CClock::SetGameClock(unsigned char hours, unsigned char minutes) {
+    plugin::Call<0x487160, unsigned char, unsigned char>(hours, minutes);
 }
 
 // Converted from cdecl void CClock::StoreClock(void) 0x486FE0 

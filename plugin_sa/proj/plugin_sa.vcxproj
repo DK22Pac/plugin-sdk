@@ -65,6 +65,7 @@
     </ProjectReference>
     <Lib>
       <AdditionalDependencies>paths_d.lib;config_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\output\lib\paths\$(Configuration);..\..\output\lib\config\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -88,7 +89,7 @@
     </ProjectReference>
     <Lib>
       <AdditionalDependencies>paths.lib;config.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\output\lib\paths\Release;..\..\output\lib\config\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\output\lib\paths\$(Configuration);..\..\output\lib\config\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -5,9 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include <Windows.h>
 
-#define PLUGIN_PATH_MAX MAX_PATH
+#define PLUGIN_PATH_MAX 260
 
 namespace plugin {
     class paths {

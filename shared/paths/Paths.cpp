@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Paths.h"
+#include <Windows.h>
 #include "..\Error.h"
 
 struct PluginPathA {

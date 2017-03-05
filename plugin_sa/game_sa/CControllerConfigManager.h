@@ -7,39 +7,38 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include <Windows.h>
 
 typedef struct DIJOYSTATE2 {
-    LONG lX;
-    LONG lY;
-    LONG lZ;
-    LONG lRx;
-    LONG lRy;
-    LONG lRz;
-    LONG rglSlider[2];
-    DWORD rgdwPOV[4];
-    BYTE rgbButtons[128];
-    LONG lVX;
-    LONG lVY;
-    LONG lVZ;
-    LONG lVRx;
-    LONG lVRy;
-    LONG lVRz;
-    LONG rglVSlider[2];
-    LONG lAX;
-    LONG lAY;
-    LONG lAZ;
-    LONG lARx;
-    LONG lARy;
-    LONG lARz;
-    LONG rglASlider[2];
-    LONG lFX;
-    LONG lFY;
-    LONG lFZ;
-    LONG lFRx;
-    LONG lFRy;
-    LONG lFRz;
-    LONG rglFSlider[2];
+    std::int32_t lX;
+    std::int32_t lY;
+    std::int32_t lZ;
+    std::int32_t lRx;
+    std::int32_t lRy;
+    std::int32_t lRz;
+    std::int32_t rglSlider[2];
+    std::uint32_t rgdwPOV[4];
+    std::uint8_t rgbButtons[128];
+    std::int32_t lVX;
+    std::int32_t lVY;
+    std::int32_t lVZ;
+    std::int32_t lVRx;
+    std::int32_t lVRy;
+    std::int32_t lVRz;
+    std::int32_t rglVSlider[2];
+    std::int32_t lAX;
+    std::int32_t lAY;
+    std::int32_t lAZ;
+    std::int32_t lARx;
+    std::int32_t lARy;
+    std::int32_t lARz;
+    std::int32_t rglASlider[2];
+    std::int32_t lFX;
+    std::int32_t lFY;
+    std::int32_t lFZ;
+    std::int32_t lFRx;
+    std::int32_t lFRy;
+    std::int32_t lFRz;
+    std::int32_t rglFSlider[2];
 } DIJOYSTATE2, *LPDIJOYSTATE2;
 
 enum e_ControllerAction

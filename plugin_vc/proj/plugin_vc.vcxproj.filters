@@ -808,4 +808,7 @@
     </None>
     <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="dxsdk_customprops.xml" />
+  </ItemGroup>
 </Project>

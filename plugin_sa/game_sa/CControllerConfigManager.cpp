@@ -10,10 +10,10 @@ CControllerConfigManager &ControlsManager = *(CControllerConfigManager *)0xB7019
 
 void CControllerConfigManager::SaveSettings(int file)
 {
-	((void (__thiscall *)(CControllerConfigManager *, int))0x52D200)(this, file);
+    plugin::CallMethod <0x52D200, CControllerConfigManager*, int> ( this, file );
 }
 
 bool CControllerConfigManager::LoadSettings(int file)
 {
-	return ((bool (__thiscall *)(CControllerConfigManager *, int))0x530530)(this, file);
+    return plugin::CallMethodAndReturn <bool, 0x530530, CControllerConfigManager*, int> ( this, file );
 }

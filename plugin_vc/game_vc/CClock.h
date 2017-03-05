@@ -6,36 +6,35 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
-#include <windows.h>
 
 class CClock
 {
 public:
     // Variables
     static bool& bClockHasBeenStored;
-    static DWORD& ms_nMillisecondsPerGameMinute;
+    static std::uint32_t& ms_nMillisecondsPerGameMinute;
     // Stored clock
-    static WORD& ms_Stored_nGameClockSeconds;
-    static BYTE& ms_Stored_nGameClockMinutes;
-    static BYTE& ms_Stored_nGameClockHours;
+    static std::uint16_t& ms_Stored_nGameClockSeconds;
+    static unsigned char& ms_Stored_nGameClockMinutes;
+    static unsigned char& ms_Stored_nGameClockHours;
     // Current clock
-    static WORD& ms_nGameClockSeconds;
-    static BYTE& ms_nGameClockMinutes;
-    static BYTE& ms_nGameClockHours;
-    static DWORD& ms_nLastClockTick;
+    static std::uint16_t& ms_nGameClockSeconds;
+    static unsigned char& ms_nGameClockMinutes;
+    static unsigned char& ms_nGameClockHours;
+    static std::uint32_t& ms_nLastClockTick;
 
     //funcs
 
     // Returns number of minutes to specified hour & minute.
-    static WORD GetGameClockMinutesUntil(BYTE hours, BYTE minutes);
+    static std::uint16_t GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes);
     // Returns true current hour is in range of two specified hours.
-    static bool GetIsTimeInRange(BYTE hourA, BYTE hourB);
+    static bool GetIsTimeInRange(unsigned char hourA, unsigned char hourB);
     // Initializes clock
-    static void Initialise(DWORD milisecondsPerGameMinute);
+    static void Initialise(std::uint32_t milisecondsPerGameMinute);
     // Restores a clock time
     static void RestoreClock();
     // Sets game clock
-    static void SetGameClock(BYTE hours, BYTE minutes);
+    static void SetGameClock(unsigned char hours, unsigned char minutes);
     // Backups a clock time
     static void StoreClock();
     // Updates a time

@@ -6,7 +6,6 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
-#include <windows.h>
 
 class PLUGIN_API CClock
 {
@@ -15,43 +14,35 @@ public:
 	static bool& bClockHasBeenStored;
 
 	// Stored clock
-	static WORD& ms_Stored_nGameClockSeconds;
+	static std::uint16_t& ms_Stored_nGameClockSeconds;
 
-	static BYTE& ms_Stored_nGameClockMinutes;
-
-	static BYTE& ms_Stored_nGameClockHours;
-
-	static BYTE& ms_Stored_nGameClockMonthDay;
-
-	static BYTE& ms_Stored_nGameClockMonth;
+	static unsigned char& ms_Stored_nGameClockMinutes;
+	static unsigned char& ms_Stored_nGameClockHours;
+	static unsigned char& ms_Stored_nGameClockMonthDay;
+	static unsigned char& ms_Stored_nGameClockMonth;
 
 	// Current clock
-	static BYTE& ms_nGameClockDayOfWeek;
+	static unsigned char& ms_nGameClockDayOfWeek;
+	static std::uint16_t& ms_nGameClockSeconds;
+	static unsigned char& ms_nGameClockMinutes;
+	static unsigned char& ms_nGameClockHours;
+	static unsigned char& ms_nGameClockMonthDay;
+	static unsigned char& ms_nGameClockMonth;
 
-	static WORD& ms_nGameClockSeconds;
-
-	static BYTE& ms_nGameClockMinutes;
-
-	static BYTE& ms_nGameClockHours;
-
-	static BYTE& ms_nGameClockMonthDay;
-	
-	static BYTE& ms_nGameClockMonth;
-
-	static DWORD& ms_nLastClockTick;
+	static std::uint32_t& ms_nLastClockTick;
 
     static unsigned int &ms_nMillisecondsPerGameMinute;
 
 	// Functions
 
 	// Returns true current hour is in range of two specified hours.
-	static bool GetIsTimeInRange(BYTE hourA, BYTE hourB);
+	static bool GetIsTimeInRange(unsigned char hourA, unsigned char hourB);
 
 	// Returns number of minutes to specified hour & minute.
-	static WORD GetGameClockMinutesUntil(BYTE hours, BYTE minutes);
+	static std::uint16_t GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes);
 
 	// Initializes clock
-	static void Initialise(DWORD milisecondsPerGameMinute);
+	static void Initialise(std::uint32_t milisecondsPerGameMinute);
 
 	// Updates a time
 	static void Update();
@@ -72,5 +63,5 @@ public:
 	static void SetNewDay(bool timeDirection);
 
 	// Sets game clock
-	static void SetGameClock(BYTE hours, BYTE minutes, BYTE day);
+	static void SetGameClock(unsigned char hours, unsigned char minutes, unsigned char day);
 };

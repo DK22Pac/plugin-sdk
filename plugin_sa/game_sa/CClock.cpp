@@ -34,86 +34,77 @@
 // Stored clock
 bool& CClock::bClockHasBeenStored = *(bool*)VAR_CClock__bClockHasBeenStored;
 
-WORD& CClock::ms_Stored_nGameClockSeconds = *(WORD*)VAR_CClock__ms_Stored_nGameClockSeconds;
-
-BYTE& CClock::ms_Stored_nGameClockMinutes = *(BYTE*)VAR_CClock__ms_Stored_nGameClockMinutes;
-
-BYTE& CClock::ms_Stored_nGameClockHours = *(BYTE*)VAR_CClock__ms_Stored_nGameClockHours;
-
-BYTE& CClock::ms_Stored_nGameClockMonthDay = *(BYTE*)VAR_CClock__ms_Stored_nGameClockMonthDay;
-
-BYTE& CClock::ms_Stored_nGameClockMonth = *(BYTE*)VAR_CClock__ms_Stored_nGameClockMonth;
+std::uint16_t& CClock::ms_Stored_nGameClockSeconds =    *(std::uint16_t*)VAR_CClock__ms_Stored_nGameClockSeconds;
+unsigned char& CClock::ms_Stored_nGameClockMinutes =    *(unsigned char*)VAR_CClock__ms_Stored_nGameClockMinutes;
+unsigned char& CClock::ms_Stored_nGameClockHours =      *(unsigned char*)VAR_CClock__ms_Stored_nGameClockHours;
+unsigned char& CClock::ms_Stored_nGameClockMonthDay =   *(unsigned char*)VAR_CClock__ms_Stored_nGameClockMonthDay;
+unsigned char& CClock::ms_Stored_nGameClockMonth =      *(unsigned char*)VAR_CClock__ms_Stored_nGameClockMonth;
 
 // Current clock
-BYTE& CClock::ms_nGameClockDayOfWeek = *(BYTE*)VAR_CClock__ms_nGameClockDayOfWeek;
+unsigned char& CClock::ms_nGameClockDayOfWeek =         *(unsigned char*)VAR_CClock__ms_nGameClockDayOfWeek;
+std::uint16_t& CClock::ms_nGameClockSeconds =           *(std::uint16_t*)VAR_CClock__ms_nGameClockSeconds;
+unsigned char& CClock::ms_nGameClockMinutes =           *(unsigned char*)VAR_CClock__ms_nGameClockMinutes;
+unsigned char& CClock::ms_nGameClockHours =             *(unsigned char*)VAR_CClock__ms_nGameClockHours;
+unsigned char& CClock::ms_nGameClockMonthDay =          *(unsigned char*)VAR_CClock__ms_nGameClockMonthDay;
+unsigned char& CClock::ms_nGameClockMonth =             *(unsigned char*)VAR_CClock__ms_nGameClockMonth;
 
-WORD& CClock::ms_nGameClockSeconds = *(WORD*)VAR_CClock__ms_nGameClockSeconds;
-
-BYTE& CClock::ms_nGameClockMinutes = *(BYTE*)VAR_CClock__ms_nGameClockMinutes;
-
-BYTE& CClock::ms_nGameClockHours = *(BYTE*)VAR_CClock__ms_nGameClockHours;
-
-BYTE& CClock::ms_nGameClockMonthDay = *(BYTE*)VAR_CClock__ms_nGameClockMonthDay;
-
-BYTE& CClock::ms_nGameClockMonth = *(BYTE*)VAR_CClock__ms_nGameClockMonth;
-
-DWORD& CClock::ms_nLastClockTick = *(DWORD*)VAR_CClock__ms_nLastClockTick;
+std::uint32_t& CClock::ms_nLastClockTick =              *(std::uint32_t*)VAR_CClock__ms_nLastClockTick;
 
 unsigned int &CClock::ms_nMillisecondsPerGameMinute = *(unsigned int *)0xB7015C;
 
 // Returns true current hour is in range of two specified hours.
-bool CClock::GetIsTimeInRange(BYTE hourA, BYTE hourB)
+bool CClock::GetIsTimeInRange(unsigned char hourA, unsigned char hourB)
 {
-	return ((bool (_cdecl*)(BYTE hourA, BYTE hourB))FUNC_CClock__GetIsTimeInRange)(hourA, hourB);
+	return plugin::CallAndReturn <bool, FUNC_CClock__GetIsTimeInRange, unsigned char, unsigned char> (hourA, hourB);
 }
 
 // Returns number of minutes to specified hour & minute.
-WORD CClock::GetGameClockMinutesUntil(BYTE hours, BYTE minutes)
+std::uint16_t CClock::GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes)
 {
-	return ((WORD (_cdecl*)(BYTE hours, BYTE minutes))FUNC_CClock__GetGameClockMinutesUntil)(hours, minutes);
+    return plugin::CallAndReturn <std::uint16_t, FUNC_CClock__GetGameClockMinutesUntil, unsigned char, unsigned char> (hours, minutes);
 }
 
 // Initializes clock
-void CClock::Initialise(DWORD milisecondsPerGameMinute)
+void CClock::Initialise(std::uint32_t milisecondsPerGameMinute)
 {
-	((void (_cdecl*)(DWORD milisecondsPerGameMinute))FUNC_CClock__Initialise)(milisecondsPerGameMinute);
+    plugin::Call <FUNC_CClock__Initialise, std::uint32_t> (milisecondsPerGameMinute);
 }
 
 // Updates a time
 void CClock::Update()
 {
-	((void (_cdecl*)())FUNC_CClock__Update)();
+    plugin::Call <FUNC_CClock__Update> ();
 }
 
 // Normalizes game clock
 // For example hour of 24 means new day and hour 1.
 void CClock::NormaliseGameClock()
 {
-	((void (_cdecl*)())FUNC_CClock__NormaliseGameClock)();
+    plugin::Call <FUNC_CClock__NormaliseGameClock> ();
 }
 
 // Backups a clock time
 void CClock::StoreClock()
 {
-	((void (_cdecl*)())FUNC_CClock__StoreClock)();
+    plugin::Call <FUNC_CClock__StoreClock> ();
 }
 
 
 // Restores a clock time
 void CClock::RestoreClock()
 {
-	((void (_cdecl*)())FUNC_CClock__RestoreClock)();
+    plugin::Call <FUNC_CClock__RestoreClock> ();
 }
 
 // Sets new day
 // Directions (0 = one day backwards, 1 = one day forwards)
 void CClock::SetNewDay(bool timeDirection)
 {
-	((void (_cdecl*)(bool timeDirection))FUNC_CClock__SetNewDay)(timeDirection);
+    plugin::Call <FUNC_CClock__SetNewDay, bool> (timeDirection);
 }
 
 // Sets game clock
-void CClock::SetGameClock(BYTE hours, BYTE minutes, BYTE day)
+void CClock::SetGameClock(unsigned char hours, unsigned char minutes, unsigned char day)
 {
-	((void (_cdecl*)(BYTE hours, BYTE minutes, BYTE day))FUNC_CClock__SetGameClock)(hours, minutes, day);
+    plugin::Call <FUNC_CClock__SetGameClock, unsigned char, unsigned char, unsigned char> (hours, minutes, day);
 }
