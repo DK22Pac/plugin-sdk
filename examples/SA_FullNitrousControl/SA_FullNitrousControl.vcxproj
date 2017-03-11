@@ -70,27 +70,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Rel|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
     <TargetName>FullNitrousControl</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Rel-XP|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
     <TargetName>FullNitrousControl</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
     <TargetName>FullNitrousControl_d</TargetName>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg-XP|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
     <TargetName>FullNitrousControl_d</TargetName>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|Win32'">
     <ClCompile>
@@ -106,6 +106,8 @@
       <AdditionalDependencies>plugin_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <MinimumRequiredVersion>5.01</MinimumRequiredVersion>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dbg-XP|Win32'">
@@ -144,6 +146,8 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <AdditionalLibraryDirectories>..\..\output\lib\plugin_sa\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>plugin.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <MinimumRequiredVersion>5.01</MinimumRequiredVersion>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Rel-XP|Win32'">

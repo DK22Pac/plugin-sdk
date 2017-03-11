@@ -27,7 +27,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg-XP|Win32'" Label="Configuration">
@@ -39,7 +39,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Rel|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -70,25 +70,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Rel|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Rel-XP|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dbg-XP|Win32'">
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)..\..\output\asi\$(ProjectName)\$(Configuration)\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dbg|Win32'">
     <ClCompile>
