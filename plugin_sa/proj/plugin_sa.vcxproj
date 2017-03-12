@@ -65,8 +65,8 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Lib>
-      <AdditionalDependencies>paths_d.lib;config_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\output\lib\paths\$(Configuration);..\..\output\lib\config\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>paths_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\output\lib\paths\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -89,8 +89,8 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Lib>
-      <AdditionalDependencies>paths.lib;config.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\output\lib\paths\$(Configuration);..\..\output\lib\config\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>paths.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\output\lib\paths\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -101,6 +101,7 @@
     <ClInclude Include="..\extender\ObjectExtender_SA.h" />
     <ClInclude Include="..\extender\PedExtender_SA.h" />
     <ClInclude Include="..\extender\VehicleExtender_SA.h" />
+    <ClInclude Include="..\extensions\Config.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
     <ClInclude Include="..\game_sa\AnimBlendFrameData.h" />
@@ -127,6 +128,7 @@
     <ClInclude Include="..\game_sa\CColDisk.h" />
     <ClInclude Include="..\game_sa\CCollision.h" />
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
+    <ClInclude Include="..\game_sa\CCutsceneMgr.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
     <ClInclude Include="..\game_sa\CFileLoader.h" />
@@ -670,6 +672,7 @@
     <ClCompile Include="..\comp\PluginSupport.cpp" />
     <ClCompile Include="..\comp\plugins\LimitAdjusterSupport.cpp" />
     <ClCompile Include="..\events\Events_SA.cpp" />
+    <ClCompile Include="..\extensions\Config.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
     <ClCompile Include="..\game_sa\C3dMarker.cpp" />
@@ -712,6 +715,7 @@
     <ClCompile Include="..\game_sa\CCopPed.cpp" />
     <ClCompile Include="..\game_sa\CCoronas.cpp" />
     <ClCompile Include="..\game_sa\CCreepingFire.cpp" />
+    <ClCompile Include="..\game_sa\CCutsceneMgr.cpp" />
     <ClCompile Include="..\game_sa\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_sa\CDamageManager.cpp" />
     <ClCompile Include="..\game_sa\CDarkel.cpp" />

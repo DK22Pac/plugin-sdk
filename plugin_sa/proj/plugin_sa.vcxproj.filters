@@ -1783,6 +1783,12 @@
     <ClInclude Include="..\game_sa\CAnimBlendHierarchy.h">
       <Filter>game_sa\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\Config.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCutsceneMgr.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3233,6 +3239,12 @@
     </ClCompile>
     <ClCompile Include="..\extensions\Screen.cpp">
       <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Config.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCutsceneMgr.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

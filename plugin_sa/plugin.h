@@ -28,5 +28,5 @@
 #include "..\shared\Patch.h"
 #include "..\shared\paths\Paths.h"
 #include "extensions\Screen.h"
-#include "..\shared\config\Config.h"
+#include "extensions\Config.h"
 #include "comp\PluginsCompatibility.h"
