@@ -9,6 +9,12 @@
 #include "plbase/PluginBase_SA.h"
 #include "CAnimBlendHierarchy.h"
 
+enum eAnimBlendFlags {
+    ANIM_PLAYING = 1,
+    ANIM_LOOP = 2,
+    ANIM_PARTIAL = 16
+};
+
 class CAnimBlendAssociation {
 protected:
 	void *vtable;
