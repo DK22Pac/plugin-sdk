@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="events">
+      <UniqueIdentifier>{eed6bcf4-8539-4713-ad20-228409ed4b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extender">
+      <UniqueIdentifier>{ef79c724-5152-40d9-bf40-71b4013fe30e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III">
+      <UniqueIdentifier>{2d444e3a-1f64-43e6-8f25-55fb62991d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="plbase">
+      <UniqueIdentifier>{765a53b6-983c-482e-8d8b-a72e29187130}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Entity">
+      <UniqueIdentifier>{30b72636-1b63-4848-b94e-3f7de7206613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Entity\Vehicle">
+      <UniqueIdentifier>{d94916a4-d19a-4a13-a9d8-0b1cf38cac99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Entity\Object">
+      <UniqueIdentifier>{8979bc16-68ff-4988-b3e5-99b10203ceb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Entity\Ped">
+      <UniqueIdentifier>{70806730-20d6-4e5b-a6c8-d296365d6bec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Entity\Dummy">
+      <UniqueIdentifier>{ab92e0fc-3eef-473f-8756-5ef94b79c04d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Models">
+      <UniqueIdentifier>{e92f99bd-6078-4f5e-8292-010047c842f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Collision">
+      <UniqueIdentifier>{fe87e1f0-9ba2-47cc-b439-5ebaca06e472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Enums">
+      <UniqueIdentifier>{25684c32-cbe7-4737-a236-6c91c4175680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\RenderWare">
+      <UniqueIdentifier>{280cb9f6-7f0e-4252-a3d5-d0e2fff1d17e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\RenderWare\rw">
+      <UniqueIdentifier>{21e6fa82-1630-4526-a7b3-0857e2342df8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Plugins">
+      <UniqueIdentifier>{d6e4ec5a-22bd-430e-b36a-f9603dc16c10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions">
+      <UniqueIdentifier>{f4ab649f-f4a0-43c5-b64a-259dbaa612d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\plugin_III.h" />
+    <ClInclude Include="..\events\Events_III.h">
+      <Filter>events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\ObjectExtender_III.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\PedExtender_III.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\VehicleExtender_III.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plbase\PluginBase_III.h">
+      <Filter>plbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rpcriter.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rperror.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rphanim.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rpmatfx.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rpskin.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rpworld.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rtanim.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rtquat.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rwcore.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\rwplcore.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\rw\skeleton.h">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPool.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPools.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CMatrix.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CVector.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CVector2D.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSector.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPtrList.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CEntryInfoList.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CAutoPilot.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CRGBA.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSprite.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CTimer.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CDamageManager.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CAutomobile.h">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CVehicle.h">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CEntity.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPhysical.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CTreadable.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPlaceable.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CObject.h">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CCopPed.h">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPed.h">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPlayerPed.h">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CDummy.h">
+      <Filter>game_III\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CDummyObject.h">
+      <Filter>game_III\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CHeli.h">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\RwObjectNameIdAssocation.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CQuaternion.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\cTransmission.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\tTransmissionGear.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CBuilding.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CBoat.h">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CWheel.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPathNode.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CClock.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPlane.h">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CCutsceneObject.h">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\common.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CProjectile.h">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CTrain.h">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CColModel.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CColPoint.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CColLine.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CColBox.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CColSphere.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CCivilianPed.h">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CScene.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CEmergencyPed.h">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPad.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eCopType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\ePedModel.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\ePedType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eVehicleFlags.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eWeaponModel.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eWeaponType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\RenderWare.h">
+      <Filter>game_III\RenderWare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\NodeName.h">
+      <Filter>game_III\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\tParticleType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eCoronaType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eEntityStatus.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eExplosionType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eFormation.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eGangType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eLevelName.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eParticleObjectType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\ePedStats.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\ePickupType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eRadioStations.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eShadowType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eWaitState.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eWeather.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\ePedPieceTypes.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eMoveState.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eEventType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eObjective.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\ePedStates.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eCrimeType.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\eWeaponFire.h">
+      <Filter>game_III\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Paths.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Screen.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CRect.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CColTriangle.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CWeapon.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPlayerInfo.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CWanted.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CTrainNode.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\events\Events_III.cpp">
+      <Filter>events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plbase\PluginBase_III.cpp">
+      <Filter>plbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPools.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CMatrix.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CVector.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CEntryInfoList.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPtrList.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CRGBA.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CSprite.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTimer.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CDamageManager.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CAutomobile.cpp">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CVehicle.cpp">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CEntity.cpp">
+      <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPhysical.cpp">
+      <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTreadable.cpp">
+      <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPlaceable.cpp">
+      <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CBuilding.cpp">
+      <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CObject.cpp">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCopPed.cpp">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPed.cpp">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPlayerPed.cpp">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CDummy.cpp">
+      <Filter>game_III\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CDummyObject.cpp">
+      <Filter>game_III\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CHeli.cpp">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CQuaternion.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\cTransmission.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CBoat.cpp">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPathNode.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CClock.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPlane.cpp">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCutsceneObject.cpp">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\common.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CProjectile.cpp">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTrain.cpp">
+      <Filter>game_III\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CColPoint.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CColLine.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CColBox.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CColSphere.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CColModel.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCivilianPed.cpp">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CEmergencyPed.cpp">
+      <Filter>game_III\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPad.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CScene.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\RenderWare.cpp">
+      <Filter>game_III\RenderWare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\NodeName.cpp">
+      <Filter>game_III\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Paths.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Screen.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CColTriangle.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CWeapon.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPlayerInfo.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CWanted.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CAutoPilot.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTrainNode.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\game_III\rw\errcom.def">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </None>
+    <None Include="..\game_III\rw\errcore.def">
+      <Filter>game_III\RenderWare\rw</Filter>
+    </None>
+    <None Include="..\..\plugin_sa\proj\proj.licenseheader" />
+  </ItemGroup>
+</Project>
