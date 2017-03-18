@@ -239,6 +239,7 @@
     <ClCompile Include="..\extensions\Screen.cpp" />
     <ClCompile Include="..\game_III\CAutomobile.cpp" />
     <ClCompile Include="..\game_III\CAutoPilot.cpp" />
+    <ClCompile Include="..\game_III\CBaseModelInfo.cpp" />
     <ClCompile Include="..\game_III\CBoat.cpp" />
     <ClCompile Include="..\game_III\CBuilding.cpp" />
     <ClCompile Include="..\game_III\CCivilianPed.cpp" />
@@ -274,6 +275,7 @@
     <ClCompile Include="..\game_III\CQuaternion.cpp" />
     <ClCompile Include="..\game_III\CRGBA.cpp" />
     <ClCompile Include="..\game_III\CScene.cpp" />
+    <ClCompile Include="..\game_III\CSimpleModelInfo.cpp" />
     <ClCompile Include="..\game_III\CSprite.cpp" />
     <ClCompile Include="..\game_III\CTimer.cpp" />
     <ClCompile Include="..\game_III\CTrain.cpp" />

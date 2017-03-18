@@ -62,12 +62,25 @@ public:
     // vtable
 
     virtual ~CBaseModelInfo() {}
+    void Shutdown();
+
+    //funcs
+
+    void Add2dEffect(C2dEffect* effect);
+    void AddRef();
+    void AddTexDictionaryRef();
+    void ClearTexDictionary();
+    void DeleteCollisionModel();
+    C2dEffect* Get2dEffect(int effectNumber);
+    void Init2dEffects();
+    void RemoveRef();
+    void RemoveTexDictionaryRef();
+    void SetTexDictionary(char const* txdName);
 
 protected:
     CBaseModelInfo() {};
     CBaseModelInfo(const CBaseModelInfo &) {};
     CBaseModelInfo &operator=(const CBaseModelInfo &) { return *this; };
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBaseModelInfo, 0x30);

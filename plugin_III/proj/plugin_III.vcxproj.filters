@@ -528,6 +528,12 @@
     <ClCompile Include="..\game_III\CTrainNode.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
+    <ClCompile Include="..\game_III\CBaseModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CSimpleModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\game_III\rw\errcom.def">

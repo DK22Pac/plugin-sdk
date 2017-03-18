@@ -6,6 +6,9 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CAutomobile.h"
 
+bool &CAutomobile::m_sAllTaxiLights = *(bool *)0x95CD21;
+
+
 // Converted from thiscall void CAutomobile::AddDamagedVehicleParticles(void) 0x535450 
 void CAutomobile::AddDamagedVehicleParticles() {
     plugin::CallMethod<0x535450, CAutomobile *>(this);

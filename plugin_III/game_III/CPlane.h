@@ -5,7 +5,6 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "plbase\PluginBase_III.h"
 #include "CVehicle.h"
 
@@ -36,3 +35,12 @@ public:
 };
 
 //VALIDATE_SIZE(CPlane, 0x29C);
+
+void CreateIncomingCesna();
+
+extern unsigned int *CesnaMissionStatus;
+extern unsigned int *CesnaMissionStartTime;
+extern unsigned int *DropOffCesnaMissionStatus;
+extern unsigned int *DropOffCesnaMissionStartTime;
+extern CPlane **pDropOffCesna;
+extern CPlane **pDrugRunCesna;
