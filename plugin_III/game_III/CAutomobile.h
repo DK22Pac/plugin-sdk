@@ -40,6 +40,8 @@ protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
     
+    static bool &m_sAllTaxiLights;
+
     //funcs
 
     void AddDamagedVehicleParticles();

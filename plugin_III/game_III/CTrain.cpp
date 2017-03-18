@@ -50,3 +50,6 @@ void CTrain::UpdateTrains() {
 CTrain::~CTrain() {
     plugin::CallMethod<0x54E450, CTrain *>(this);
 }
+
+unsigned int *NumTrackNodes = (unsigned int *)0x95CC5C;
+CTrainNode **pTrackNodes = (CTrainNode **)0x8F4338;

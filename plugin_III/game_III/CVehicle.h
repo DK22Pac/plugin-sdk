@@ -66,6 +66,10 @@ public:
     CVehicle(const CVehicle &) = delete;
     CVehicle &operator=(const CVehicle &) = delete;
 
+    static bool& bWheelsOnlyCheat;
+    static bool& bAllDodosCheat;
+    static bool& bCheat3;
+
     //vtable
 
     void ProcessControlInputs(unsigned char playerNum);

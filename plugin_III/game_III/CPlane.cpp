@@ -70,3 +70,15 @@ void CPlane::UpdatePlanes() {
 CPlane::~CPlane() {
     plugin::CallMethod<0x54B270, CPlane *>(this);
 }
+
+// Converted from cdecl void CreateIncomingCesna(void) 0x54E000
+void CreateIncomingCesna() {
+    plugin::Call<0x54E000>();
+}
+
+unsigned int *CesnaMissionStatus = (unsigned int *)0x64CFE8;
+unsigned int *CesnaMissionStartTime = (unsigned int *)0x64CFEC;
+unsigned int *DropOffCesnaMissionStatus = (unsigned int *)0x64CFF0;
+unsigned int *DropOffCesnaMissionStartTime = (unsigned int *)0x64CFF4;
+CPlane **pDropOffCesna = (CPlane **)0x8E2A38;
+CPlane **pDrugRunCesna = (CPlane **)0x8F5F80;
