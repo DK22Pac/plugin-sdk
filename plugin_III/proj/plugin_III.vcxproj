@@ -135,6 +135,7 @@
     <ClInclude Include="..\extensions\Screen.h" />
     <ClInclude Include="..\game_III\CAutomobile.h" />
     <ClInclude Include="..\game_III\CAutoPilot.h" />
+    <ClInclude Include="..\game_III\CBaseModelInfo.h" />
     <ClInclude Include="..\game_III\CBoat.h" />
     <ClInclude Include="..\game_III\CBuilding.h" />
     <ClInclude Include="..\game_III\CCivilianPed.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="..\game_III\CRect.h" />
     <ClInclude Include="..\game_III\CRGBA.h" />
     <ClInclude Include="..\game_III\CScene.h" />
+    <ClInclude Include="..\game_III\CSimpleModelInfo.h" />
     <ClInclude Include="..\game_III\CSprite.h" />
     <ClInclude Include="..\game_III\CColPoint.h" />
     <ClInclude Include="..\game_III\CDummy.h" />

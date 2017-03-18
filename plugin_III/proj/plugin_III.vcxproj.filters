@@ -358,6 +358,12 @@
     <ClInclude Include="..\game_III\CTrainNode.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CBaseModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSimpleModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
