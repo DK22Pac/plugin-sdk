@@ -115,6 +115,7 @@
     <ClInclude Include="..\game_sa\CAETwinLoopSoundEntity.h" />
     <ClInclude Include="..\game_sa\CAEVehicleAudioEntity.h" />
     <ClInclude Include="..\game_sa\CAEWeatherAudioEntity.h" />
+    <ClInclude Include="..\game_sa\CAnimBlendAssocGroup.h" />
     <ClInclude Include="..\game_sa\CAnimBlendHierarchy.h" />
     <ClInclude Include="..\game_sa\CAttractorScanner.h" />
     <ClInclude Include="..\game_sa\CBmx.h" />
@@ -129,6 +130,7 @@
     <ClInclude Include="..\game_sa\CCollision.h" />
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CCutsceneMgr.h" />
+    <ClInclude Include="..\game_sa\CDirectory.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
     <ClInclude Include="..\game_sa\CFileLoader.h" />
@@ -719,6 +721,7 @@
     <ClCompile Include="..\game_sa\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_sa\CDamageManager.cpp" />
     <ClCompile Include="..\game_sa\CDarkel.cpp" />
+    <ClCompile Include="..\game_sa\CDirectory.cpp" />
     <ClCompile Include="..\game_sa\CDoor.cpp" />
     <ClCompile Include="..\game_sa\CDummy.cpp" />
     <ClCompile Include="..\game_sa\CDummyObject.cpp" />

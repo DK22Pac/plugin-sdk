@@ -1789,6 +1789,12 @@
     <ClInclude Include="..\game_sa\CCutsceneMgr.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CDirectory.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAnimBlendAssocGroup.h">
+      <Filter>game_sa\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3244,6 +3250,9 @@
       <Filter>extensions</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCutsceneMgr.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDirectory.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
