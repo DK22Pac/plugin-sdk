@@ -364,6 +364,9 @@
     <ClInclude Include="..\game_III\CSimpleModelInfo.h">
       <Filter>game_III\Models</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CClumpModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -532,6 +535,9 @@
       <Filter>game_III\Models</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CSimpleModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CClumpModelInfo.cpp">
       <Filter>game_III\Models</Filter>
     </ClCompile>
   </ItemGroup>
