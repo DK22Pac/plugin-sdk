@@ -9,16 +9,15 @@ Do not delete this comment block. Respect others' work!
 #include "plbase\PluginBase_III.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
 class CColLine {
 public:
-    CVector m_vStart;
-    char gapC[4];
-    CVector m_vEnd;
+    CVector m_vecStart;
+    char field_C[4];
+    CVector m_vecEnd;
+    char field_1C[4];
         
     CColLine(CVector const& start, CVector const& end);
     void Set(CVector const& start, CVector const& end);
 };
-#pragma pack(pop)
 
-VALIDATE_SIZE(CColLine, 0x1C);
+VALIDATE_SIZE(CColLine, 0x20);

@@ -9,6 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "plbase\PluginBase_III.h"
 #include "CVehicle.h"
 #include "CTrainNode.h"
+#include "CTrainDoor.h"
 
 enum eTrainNodes {
     
@@ -20,7 +21,28 @@ class CTrain : public CVehicle {
 protected:
     CTrain(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    
+    float           m_fCurrentSpeedLimit;
+    unsigned short  m_nCarriageId;
+    short           m_nHideModel;
+    short           m_nCurrentPathPoint;
+    short           m_nTrainId;
+    float           m_fVelocity;
+    bool            m_bTrainDoorProcessing;
+    bool            m_bTrainDoorOpening;
+    bool            m_bFirstCarriage;
+    bool            m_bLastCarriage;
+    unsigned char   m_nTrackId;
+private:
+    char _pad29D[3];
+public:
+    int             m_nTrainDoorProcessingTime;
+    short           m_nDoorsState;
+private:
+    char _pad2A6[2];
+public:
+    CTrainDoor      m_trainDoor[2];
+    RwFrame        *m_pTrainNode[3];
+
     //funcs
 
     void AddPassenger(CPed* passenger);
@@ -34,7 +56,7 @@ public:
     ~CTrain();
 };
 
-//VALIDATE_SIZE(CTrain, 0x2E4);
+VALIDATE_SIZE(CTrain, 0x2E4);
 
 extern unsigned int *NumTrackNodes;
 extern CTrainNode **pTrackNodes;

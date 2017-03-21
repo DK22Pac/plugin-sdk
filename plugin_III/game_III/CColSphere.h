@@ -7,10 +7,14 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 
 #include "plbase\PluginBase_III.h"
-#include "CVector.h"
+#include "CSphere.h"
+#include "tColSurface.h"
 
-class CColSphere {
+class CColSphere : public CSphere {
 public:
-    
+    tColSurface m_surface;
+
     void Set(float radius, CVector const& center, unsigned char material, unsigned char flags);
 };
+
+VALIDATE_SIZE(CColSphere, 0x14);

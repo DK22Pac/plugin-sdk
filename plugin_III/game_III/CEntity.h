@@ -13,9 +13,8 @@
 
 class CReference;
 
-class CEntity {
+class CEntity : public CPlaceable {
 public:
-    CPlaceable m_placement;
     union {
         RwObject *m_pRwObject;
         RpAtomic *m_pRwAtomic;
@@ -75,8 +74,7 @@ public:
     CReference *m_pFirstRef;
     
 protected:
-    virtual ~CEntity() {};
-    CEntity(plugin::dummy_func_t) : m_placement(plugin::dummy) {}
+    CEntity(plugin::dummy_func_t) : CPlaceable(plugin::dummy) {}
 
 public:
     //vtable
@@ -124,7 +122,7 @@ public:
     void UpdateRwFrame();
     
     inline CVector &GetPosition() {
-        return m_placement.pos;
+        return pos;
     }
 
     CEntity(const CEntity &) = delete;

@@ -85,6 +85,10 @@ public:
      char bStates[12];
      int uLightBits;
      int uPanelBits; 
+     char field_18;
+private:
+    char _pad19[3];
+public:
 
      //funcs
 

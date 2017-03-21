@@ -1,0 +1,27 @@
+/*
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
+#pragma once
+#include "plbase\PluginBase_III.h"
+#include "CVector.h"
+
+class CDoor {
+public:
+    float         m_fOpenAngle;
+    float         m_fClosedAngle;
+    unsigned char m_bDirn;
+    unsigned char m_bAxis;
+    unsigned char m_bState;
+private:
+    char _padB;
+public:
+    float         m_fAngle;
+    float         m_fPrevAngle;
+    float         m_fAngVel;
+    CVector field_18;
+};
+
+VALIDATE_SIZE(CDoor, 0x24);

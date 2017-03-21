@@ -8,6 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase\PluginBase_III.h"
 #include "CVehicle.h"
+#include "CDoor.h"
 
 class CObject;
 
@@ -39,6 +40,50 @@ class CAutomobile : public CVehicle {
 protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
+    CDamageManager  m_carDamage;
+    CDoor           m_aDoors[6];
+    RwFrame        *m_aCarNodes[CAR_NUM_NODES];
+    CColPoint       m_aWheelColPoint[4];
+    int field_46C[4];
+    float field_47C[4];
+    int field_48C[4];
+    int field_49C;
+    char field_4A0[4];
+    char field_4A4[4];
+    int field_4A8[4];
+    char field_4B8[16];
+    int field_4C8[4];
+    char field_4D8;
+    unsigned char   m_nAutomobileFlags;
+    char field_4DA;
+    char field_4DB[7];
+    short field_4E2;
+    int             m_nBusDoorTimerEnd;
+    int             m_nBusDoorTimerStart;
+    char field_4EC[32];
+    int field_50C;
+    float           m_fImprovedHandling;
+    int field_514;
+    float field_518[6];
+    char field_530;
+    char field_531;
+    char field_532;
+    char field_533;
+    CEntity        *m_pReferVehicle[4];
+    CVector field_544[4];
+    int field_574;
+    int field_578;
+    int field_57C;
+    float           m_fDoomAngle;
+    int field_584;
+    int field_588;
+    int field_58C;
+    char field_590;
+    bool            m_bAllWheelsOnGround;
+    char field_592;
+    char field_593; // pad?
+    int field_594;
+    int field_598[4];
     
     static bool &m_sAllTaxiLights;
 
@@ -86,4 +131,4 @@ public:
     ~CAutomobile();
 };
 
-//VALIDATE_SIZE(CAutomobile, 0x5A8);
+VALIDATE_SIZE(CAutomobile, 0x5A8);

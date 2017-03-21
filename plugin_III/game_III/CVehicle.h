@@ -56,8 +56,90 @@ class CWeapon;
 class CPed;
 typedef int tWheelState;
 
-#pragma pack(push, 4)
 class CVehicle : public CPhysical {
+public:
+    void                   *m_pHandling;
+    int field_12C;
+    int field_130;
+    int field_134;
+    int field_138;
+    int field_13C;
+    int field_140;
+    int field_144;
+    int field_148;
+    int field_14C;
+    int field_150;
+    char field_154; // pad?
+    char field_155;
+    char field_156;
+    char field_157;
+    char field_158;
+    char                    m_nDrivingStyle;
+    char                    m_nCarMission;
+    char                    m_nAnimationId;
+    int                     m_nAnimationTime;
+    int field_160;
+    unsigned char           m_nCruiseSpeed;
+    char field_165;
+    char field_166[14];
+    void                   *m_pPathNodes[8];
+    short                   m_nNumPathNodes;
+    char field_196[2];
+    CVehicle               *m_pCarToRam;
+    unsigned char           m_nCarColorId[2];
+    unsigned char           m_nExtra[2];
+    short field_1A0;
+    char field_1A2[2];
+    CPed                   *m_pDriver;
+    CPed                   *m_pPassenger[8];
+    unsigned char           m_nNumPassengers;
+    char field_1C9;
+    char field_1CA;
+    char field_1CB;
+    unsigned char           m_nNumMaxPassengers;
+    char field_1CD[19];
+    CEntity                *m_pRoad;
+    void                   *m_pCarFire; // CFire *
+    int field_1E8;
+    float                   m_fGasPedal;
+    float                   m_fBreakPedal;
+    unsigned char           m_nCreatedBy;
+    unsigned char           m_nVehicleFlags;
+    char field_1F6;
+    char field_1F7;
+    char field_1F8;
+    char field_1F9;
+    char field_1FA[1];
+    char field_1FB;
+    char field_1FC[4];
+    float                   m_fHealth;
+    char field_204;
+    char field_205[3];
+    int field_208;
+    int field_20C;
+    int field_210;
+    short field_214;
+    short field_216;
+    int field_218;
+    float field_21C;
+    float field_220;
+    unsigned int            m_nDoorLock;
+    char field_228;
+    char field_229;
+    char field_22A;
+    char field_22B;
+    unsigned char           m_nCarHornTimer;
+    char field_22D;
+    unsigned char           m_nSirenOrAlarm;
+    char field_22F;
+    char field_230[36];
+    char field_254;
+    char field_255[39];
+    char field_27C;
+    char field_27D[3];
+    float                   m_fSteering;
+    unsigned int            m_nVehicleSubType;
+
 protected:
     CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
 public:
@@ -128,9 +210,8 @@ public:
     static void* operator new(unsigned int size, int arg1);
     ~CVehicle();
 };
-#pragma pack(pop)
 
-
+VALIDATE_SIZE(CVehicle, 0x288);
 
 extern float &fBurstTyreMod; // 0.1
 extern float &fBurstSpeedMax; // 0.3
