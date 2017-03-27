@@ -6,6 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CVehicle.h"
 
+bool& CVehicle::m_bDisableMouseSteering = *(bool *)0x60252C;
 bool& CVehicle::bWheelsOnlyCheat = *(bool *)0x95CD78;
 bool& CVehicle::bAllDodosCheat = *(bool *)0x95CD75;
 bool& CVehicle::bCheat3 = *(bool *)0x95CD66;

@@ -37,7 +37,13 @@
 */
 
 enum ModelInfoType {
-    MODEL_INFO_SIMPLE = 1
+    MODEL_INFO_SIMPLE = 1,
+    MODEL_INFO_MLO = 2,
+    MODEL_INFO_TIME = 3,
+    MODEL_INFO_CLUMP = 4,
+    MODEL_INFO_VEHICLE = 5,
+    MODEL_INFO_PED = 6,
+    MODEL_INFO_XTRACOMPS = 7
 };
 
 class C2dEffect;

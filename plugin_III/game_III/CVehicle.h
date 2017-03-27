@@ -11,7 +11,7 @@ Do not delete this comment block. Respect others' work!
 #include "CColModel.h"
 #include "CDamageManager.h"
 #include "eWeaponType.h"
-
+#include "CStoredCollPoly.h"
 
 class CPlayerPed;
 
@@ -32,15 +32,25 @@ enum eVehicleApperance {
 };
 
 enum eVehicleLightsFlags {
-
+    VEHICLE_LIGHTS_TWIN = 1,
+    VEHICLE_LIGHTS_IGNORE_DAMAGE = 4,
+    VEHICLE_LIGHTS_DISABLE_FRONT = 16,
+    VEHICLE_LIGHTS_DISABLE_REAR = 32
 };
 
 enum eVehicleCreatedBy {
-
+    RANDOM_VEHICLE = 0,
+    MISSION_VEHICLE = 2,
+    PARKED_VEHICLE = 3,
+    PERMANENT_VEHICLE = 4
 };
 
 enum eBombState {
-
+    BOMB_TIMED_NOT_ACTIVATED = 1,
+    BOMB_IGNITION = 2,
+    BOMB_STICKY = 3,
+    BOMB_TIMED_ACTIVATED = 4,
+    BOMB_IGNITION_ACTIVATED = 5
 };
 
 #if 0
@@ -63,7 +73,7 @@ public:
     int field_130;
     int field_134;
     int field_138;
-    int field_13C;
+    unsigned int            m_nSpeedScaleFactor;
     int field_140;
     int field_144;
     int field_148;
@@ -77,7 +87,7 @@ public:
     char                    m_nDrivingStyle;
     char                    m_nCarMission;
     char                    m_nAnimationId;
-    int                     m_nAnimationTime;
+    unsigned int            m_nAnimationTime;
     int field_160;
     unsigned char           m_nCruiseSpeed;
     char field_165;
@@ -86,59 +96,57 @@ public:
     short                   m_nNumPathNodes;
     char field_196[2];
     CVehicle               *m_pCarToRam;
-    unsigned char           m_nCarColorId[2];
+    unsigned char           m_nPrimaryColor;
+    unsigned char           m_nSecondaryColor;
     unsigned char           m_nExtra[2];
     short field_1A0;
     char field_1A2[2];
     CPed                   *m_pDriver;
     CPed                   *m_pPassenger[8];
     unsigned char           m_nNumPassengers;
-    char field_1C9;
-    char field_1CA;
-    char field_1CB;
+    char                    m_nNumGettingIn;
+    char                    m_nGettingInFlags;
+    char                    m_nGettingOutFlags;
     unsigned char           m_nNumMaxPassengers;
     char field_1CD[19];
     CEntity                *m_pRoad;
-    void                   *m_pCarFire; // CFire *
-    int field_1E8;
+    void                   *m_pCarFire;          // CFire *
+    float                   m_fSteerAngle;
     float                   m_fGasPedal;
     float                   m_fBreakPedal;
-    unsigned char           m_nCreatedBy;
+    unsigned char           m_nCreatedBy;        // see eVehicleCreatedBy
     unsigned char           m_nVehicleFlags;
     char field_1F6;
     char field_1F7;
     char field_1F8;
     char field_1F9;
-    char field_1FA[1];
+    unsigned char           m_nAmmoInClip[1];    // Used to make the guns on boat do a reload (20 by default)
     char field_1FB;
     char field_1FC[4];
-    float                   m_fHealth;
-    char field_204;
+    float                   m_fHealth;           // 1000.0f = full health. 0 -> explode
+    unsigned char           m_nCurrentGear;
     char field_205[3];
     int field_208;
-    int field_20C;
-    int field_210;
+    unsigned int            m_nGunFiringTime;    // last time when gun on vehicle was fired (used on boats)
+    unsigned int            m_nTimeOfDeath;
     short field_214;
-    short field_216;
-    int field_218;
+    short                   m_nBombTimer;        // goes down with each frame
+    CPed                   *m_pWhoDetonatedMe;   // if vehicle was detonated, game copies m_pWhoInstalledBombOnMe here
     float field_21C;
     float field_220;
-    unsigned int            m_nDoorLock;
-    char field_228;
-    char field_229;
+    unsigned int            m_nDoorLock;         // see enum eCarLock
+    char                    m_nLastWeaponDamage; // see eWeaponType, -1 if no damage
+    char                    m_nRadioStation;
     char field_22A;
     char field_22B;
     unsigned char           m_nCarHornTimer;
     char field_22D;
     unsigned char           m_nSirenOrAlarm;
     char field_22F;
-    char field_230[36];
-    char field_254;
-    char field_255[39];
-    char field_27C;
-    char field_27D[3];
-    float                   m_fSteering;
-    unsigned int            m_nVehicleSubType;
+    CStoredCollPoly         m_frontCollPoly;     // poly which is under front part of car
+    CStoredCollPoly         m_rearCollPoly;      // poly which is under rear part of car
+    float                   m_fSteerRatio;
+    unsigned int            m_nVehicleSubType;   // see enum eVehicleType
 
 protected:
     CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
@@ -148,6 +156,7 @@ public:
     CVehicle(const CVehicle &) = delete;
     CVehicle &operator=(const CVehicle &) = delete;
 
+    static bool& m_bDisableMouseSteering;
     static bool& bWheelsOnlyCheat;
     static bool& bAllDodosCheat;
     static bool& bCheat3;

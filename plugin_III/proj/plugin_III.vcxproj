@@ -183,6 +183,8 @@
     <ClInclude Include="..\game_III\CPools.h" />
     <ClInclude Include="..\game_III\CPtrList.h" />
     <ClInclude Include="..\game_III\CSector.h" />
+    <ClInclude Include="..\game_III\CStoredCollPoly.h" />
+    <ClInclude Include="..\game_III\CTimeModelInfo.h" />
     <ClInclude Include="..\game_III\CTimer.h" />
     <ClInclude Include="..\game_III\CTrain.h" />
     <ClInclude Include="..\game_III\CTrainDoor.h" />
@@ -292,6 +294,7 @@
     <ClCompile Include="..\game_III\CSimpleModelInfo.cpp" />
     <ClCompile Include="..\game_III\CSphere.cpp" />
     <ClCompile Include="..\game_III\CSprite.cpp" />
+    <ClCompile Include="..\game_III\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_III\CTimer.cpp" />
     <ClCompile Include="..\game_III\CTrain.cpp" />
     <ClCompile Include="..\game_III\CTrainDoor.cpp" />

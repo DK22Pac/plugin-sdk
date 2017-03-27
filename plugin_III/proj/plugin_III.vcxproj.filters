@@ -391,6 +391,12 @@
     <ClInclude Include="..\game_III\tColSurface.h">
       <Filter>game_III\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CStoredCollPoly.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CTimeModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -584,6 +590,9 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CColTrianglePlane.cpp">
       <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTimeModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

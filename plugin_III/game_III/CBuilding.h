@@ -26,4 +26,4 @@ public:
     CBuilding &operator=(const CBuilding &) = delete;
 };
 
-//VALIDATE_SIZE(CBuilding, 0x64);
+VALIDATE_SIZE(CBuilding, 0x64);
