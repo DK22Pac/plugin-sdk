@@ -154,10 +154,12 @@
     <ClInclude Include="..\game_III\CDoor.h" />
     <ClInclude Include="..\game_III\CEmergencyPed.h" />
     <ClInclude Include="..\game_III\CHeli.h" />
+    <ClInclude Include="..\game_III\CMloModelInfo.h" />
     <ClInclude Include="..\game_III\common.h" />
     <ClInclude Include="..\game_III\CompressedVector.h" />
     <ClInclude Include="..\game_III\CPad.h" />
     <ClInclude Include="..\game_III\CPathNode.h" />
+    <ClInclude Include="..\game_III\CPedModelInfo.h" />
     <ClInclude Include="..\game_III\CPlane.h" />
     <ClInclude Include="..\game_III\CPlayerInfo.h" />
     <ClInclude Include="..\game_III\CPlayerPed.h" />
@@ -198,6 +200,7 @@
     <ClInclude Include="..\game_III\CWanted.h" />
     <ClInclude Include="..\game_III\CWeapon.h" />
     <ClInclude Include="..\game_III\CWheel.h" />
+    <ClInclude Include="..\game_III\CXtraCompsModelInfo.h" />
     <ClInclude Include="..\game_III\eCopType.h" />
     <ClInclude Include="..\game_III\eCoronaType.h" />
     <ClInclude Include="..\game_III\eCrimeType.h" />
@@ -274,12 +277,14 @@
     <ClCompile Include="..\game_III\CEntryInfoList.cpp" />
     <ClCompile Include="..\game_III\CHeli.cpp" />
     <ClCompile Include="..\game_III\CMatrix.cpp" />
+    <ClCompile Include="..\game_III\CMloModelInfo.cpp" />
     <ClCompile Include="..\game_III\CObject.cpp" />
     <ClCompile Include="..\game_III\common.cpp" />
     <ClCompile Include="..\game_III\CompressedVector.cpp" />
     <ClCompile Include="..\game_III\CPad.cpp" />
     <ClCompile Include="..\game_III\CPathNode.cpp" />
     <ClCompile Include="..\game_III\CPed.cpp" />
+    <ClCompile Include="..\game_III\CPedModelInfo.cpp" />
     <ClCompile Include="..\game_III\CPhysical.cpp" />
     <ClCompile Include="..\game_III\CPlaceable.cpp" />
     <ClCompile Include="..\game_III\CPlane.cpp" />
@@ -307,6 +312,7 @@
     <ClCompile Include="..\game_III\CVehicleModelInfo.cpp" />
     <ClCompile Include="..\game_III\CWanted.cpp" />
     <ClCompile Include="..\game_III\CWeapon.cpp" />
+    <ClCompile Include="..\game_III\CXtraCompsModelInfo.cpp" />
     <ClCompile Include="..\game_III\NodeName.cpp" />
     <ClCompile Include="..\game_III\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_III.cpp" />

@@ -54,10 +54,8 @@ public:
     //variables
 
     static CRGBA *ms_colourTextureTable;
-    // static char *ms_compsUsed[2];
-    static char(&ms_compsUsed)[2];
-    // static char *ms_compsToUsed[2];
-    static char(&ms_compsToUse)[2];
+    static char *ms_compsUsed;  // [2]
+    static char *ms_compsToUse; // [2]
     static RwTexture *ms_pEnvironmentMaps;
     static RwObjectNameIdAssocation *ms_vehicleDescs;
 

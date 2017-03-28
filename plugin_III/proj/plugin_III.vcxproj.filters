@@ -397,6 +397,15 @@
     <ClInclude Include="..\game_III\CTimeModelInfo.h">
       <Filter>game_III\Models</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CMloModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CXtraCompsModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPedModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -592,6 +601,15 @@
       <Filter>game_III\Collision</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CTimeModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CMloModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CXtraCompsModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPedModelInfo.cpp">
       <Filter>game_III\Models</Filter>
     </ClCompile>
   </ItemGroup>

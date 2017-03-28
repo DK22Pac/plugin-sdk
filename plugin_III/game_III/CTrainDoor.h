@@ -21,6 +21,15 @@ public:
     float         m_fAngle;
     float         m_fPrevAngle;
     float         m_fAngleVel;
+
+    //funcs
+
+    CTrainDoor();
+    bool IsClosed();
+    bool IsFullyOpen();
+    void Open(float angle);
+    void RetTranslationWhenClosed();
+    void RetTranslationWhenOpen();
 };
 
 VALIDATE_SIZE(CTrainDoor, 0x18);

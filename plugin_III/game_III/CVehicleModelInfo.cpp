@@ -7,8 +7,8 @@
 #include "CVehicleModelInfo.h"
 
 CRGBA *CVehicleModelInfo::ms_colourTextureTable = (CRGBA *)0x711C40;
-char(&CVehicleModelInfo::ms_compsToUse)[2] = *(char(*)[2])*(char *)0x5FF2EC;
-char(&CVehicleModelInfo::ms_compsUsed)[2] = *(char(*)[2])*(char *)0x95CCB2;
+char *CVehicleModelInfo::ms_compsToUse = (char *)0x5FF2EC;
+char *CVehicleModelInfo::ms_compsUsed = (char *)0x95CCB2;
 RwTexture *CVehicleModelInfo::ms_pEnvironmentMaps = (RwTexture *)0x8F1A30;
 RwObjectNameIdAssocation *CVehicleModelInfo::ms_vehicleDescs = (RwObjectNameIdAssocation*)0x5FF988;
 RwFrame *pMatFxIdentityFrame = (RwFrame *)0x64C510;

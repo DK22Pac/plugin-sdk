@@ -5,8 +5,11 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "plbase\PluginBase_III.h"
 #include "CVector.h"
+
+class CVehicle;
 
 class CDoor {
 public:
@@ -22,6 +25,17 @@ public:
     float         m_fPrevAngle;
     float         m_fAngVel;
     CVector field_18;
+
+    //funcs
+
+    CDoor();
+    float GetAngleOpenRatio();
+    bool IsClosed();
+    bool IsFullyOpen();
+    void Open(float angle);
+    void Process(CVehicle* vehicle);
+    float RetAngleWhenClosed();
+    float RetAngleWhenOpen();
 };
 
 VALIDATE_SIZE(CDoor, 0x24);
