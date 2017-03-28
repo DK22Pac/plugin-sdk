@@ -15,5 +15,4 @@
 #include "..\shared\Other.h"
 #include "..\shared\Patch.h"
 #include "..\shared\paths\Paths.h"
-#include "..\shared\config\Config.h"
 #include "extensions\Screen.h"
