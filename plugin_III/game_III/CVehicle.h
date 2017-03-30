@@ -24,7 +24,11 @@ enum eCarLock {
 };
 
 enum eVehicleType {
-    
+    VEHICLE_AUTOMOBILE,
+    VEHICLE_BOAT,
+    VEHICLE_TRAIN,
+    VEHICLE_HELI,
+    VEHICLE_PLANE
 };
 
 enum eVehicleApperance {

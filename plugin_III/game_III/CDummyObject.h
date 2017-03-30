@@ -18,4 +18,4 @@ public:
     CDummyObject &operator=(const CDummyObject &) = delete;
 };
 
-//VALIDATE_SIZE(CDummyObject, 0x68);
+VALIDATE_SIZE(CDummyObject, 0x68);

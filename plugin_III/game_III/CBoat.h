@@ -15,10 +15,6 @@ enum eBoatNodes {
     BOAT_MOVING = 1,
     BOAT_WINDSCREEN = 2,
     BOAT_RUDDER = 3,
-    BOAT_FLAP_LEFT = 4,
-    BOAT_FLAP_RIGHT = 5,
-    BOAT_REARFLAP_LEFT = 6,
-    BOAT_REARFLAP_RIGHT = 7,
     BOAT_NUM_NODES
 };
 

@@ -106,6 +106,7 @@
     <ClInclude Include="..\game_III\CDamageManager.h" />
     <ClInclude Include="..\game_III\CDoor.h" />
     <ClInclude Include="..\game_III\CEmergencyPed.h" />
+    <ClInclude Include="..\game_III\CGeneral.h" />
     <ClInclude Include="..\game_III\CHeli.h" />
     <ClInclude Include="..\game_III\CMloModelInfo.h" />
     <ClInclude Include="..\game_III\common.h" />
@@ -175,11 +176,13 @@
     <ClInclude Include="..\game_III\eRadioStations.h" />
     <ClInclude Include="..\game_III\eShadowType.h" />
     <ClInclude Include="..\game_III\eVehicleFlags.h" />
+    <ClInclude Include="..\game_III\eVehicleModel.h" />
     <ClInclude Include="..\game_III\eWaitState.h" />
     <ClInclude Include="..\game_III\eWeaponFire.h" />
     <ClInclude Include="..\game_III\eWeaponModel.h" />
     <ClInclude Include="..\game_III\eWeaponType.h" />
     <ClInclude Include="..\game_III\eWeather.h" />
+    <ClInclude Include="..\game_III\eWheelModel.h" />
     <ClInclude Include="..\game_III\NodeName.h" />
     <ClInclude Include="..\game_III\RenderWare.h" />
     <ClInclude Include="..\game_III\RwObjectNameIdAssocation.h" />
@@ -228,6 +231,7 @@
     <ClCompile Include="..\game_III\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_III\CEntity.cpp" />
     <ClCompile Include="..\game_III\CEntryInfoList.cpp" />
+    <ClCompile Include="..\game_III\CGeneral.cpp" />
     <ClCompile Include="..\game_III\CHeli.cpp" />
     <ClCompile Include="..\game_III\CMatrix.cpp" />
     <ClCompile Include="..\game_III\CMloModelInfo.cpp" />

@@ -5,11 +5,16 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "plbase\PluginBase_III.h"
 #include "CVehicle.h"
 
 enum ePlaneNodes {
-    
+    PLANE_NODE_NONE = 0,
+    PLANE_CHASSIS = 1,
+    PLANE_WHEEL_FRONT = 2,
+    PLANE_WHEEL_REAR = 3,
+    PLANE_NUM_NODES
 };
 
 class CPlane : public CVehicle {

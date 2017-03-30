@@ -26,4 +26,4 @@ public:
     CDummy &operator=(const CDummy &) = delete;
 };
 
-//VALIDATE_SIZE(CDummy, 0x68);
+VALIDATE_SIZE(CDummy, 0x68);
