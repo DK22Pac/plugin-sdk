@@ -617,9 +617,9 @@ void CPed::RemoveWeaponForScriptedCutscene()
 }
 
 // Converted from thiscall void CPed::GetWeaponSkill(void) 0x5E6580
-void CPed::GetWeaponSkill()
+char CPed::GetWeaponSkill()
 {
-	((void (__thiscall *)(CPed*))0x5E6580)(this);
+	return ((char (__thiscall *)(CPed*))0x5E6580)(this);
 }
 
 // Converted from thiscall void CPed::PreRenderAfterTest(void) 0x5E65A0

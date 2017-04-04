@@ -16,7 +16,7 @@ class PLUGIN_API CModelInfo
 {
 public:
 	// variables
-	//static CBaseModelInfo *ms_modelInfoPtrs[20000];
+	//static CBaseModelInfo *ms_modelInfoPtrs[20000]; Use GetModelInfo(int index) to get model info by id
 	static CBaseModelInfo **ms_modelInfoPtrs;
 
 	// functions
@@ -51,4 +51,6 @@ public:
 	static bool IsTrailerModel(int index);
 	// return -1 if model is not a vehicle model otherwise returns vehicle model type
 	static int IsVehicleModelType(int index);
+
+    static CBaseModelInfo *GetModelInfo(int index);
 };

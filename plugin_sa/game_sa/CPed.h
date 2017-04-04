@@ -374,7 +374,7 @@ public:
 	void ReplaceWeaponWhenExitingVehicle();
 	void ReplaceWeaponForScriptedCutscene();
 	void RemoveWeaponForScriptedCutscene();
-	void GetWeaponSkill();
+	char GetWeaponSkill();
 	void PreRenderAfterTest();
 	void SetIdle();
 	void SetLook(float heading);

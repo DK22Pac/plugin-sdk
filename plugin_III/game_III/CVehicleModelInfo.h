@@ -39,7 +39,7 @@ public:
             unsigned int m_nExtraB_rule : 4;
         } m_nCompRulesBits;
     };
-    float field_F0; // unsued; sets to 999.99 in CModelInfo::AddVehicleModel, but not used then. Possibly a size for bike's 2nd wheel.
+    float          m_fBikeSteerAngle; // unsued; sets to 999.99 in CModelInfo::AddVehicleModel, but not used then.
     RpMaterial    *m_apMaterialsPrimary[26];
     RpMaterial    *m_apMaterialsSecondary[26];
     unsigned char  m_bPrimaryColorId[8];

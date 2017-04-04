@@ -6,6 +6,8 @@
 */
 #include "common.h"
 
+char *gString = (char *)0xB71670;
+
 float &GAME_GRAVITY = *(float *)0x863984;
 
 CVector FindPlayerCoors(int playerId)
@@ -569,4 +571,8 @@ void RpAnimBlendKeyFrameInterpolate(void* voidOut, void* voidIn1, void* voidIn2,
 // Converted from cdecl bool RpAnimBlendPluginAttach(void) 0x4D6150
 bool RpAnimBlendPluginAttach() {
     return plugin::CallAndReturn<bool, 0x4D6150>();
+}
+
+void AsciiToGxtChar(char const *src, char *dst) {
+    plugin::Call<0x718600, char const *, char *>(src, dst);
 }

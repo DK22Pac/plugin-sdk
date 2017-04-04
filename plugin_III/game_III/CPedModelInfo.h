@@ -8,9 +8,15 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase/PluginBase_III.h"
 #include "CClumpModelInfo.h"
+#include "CColModel.h"
 
 class CPedModelInfo : public CClumpModelInfo {
 public:
+    unsigned int  m_nAnimGroupId;
+    unsigned int  m_nPedtype;
+    unsigned int  m_nStatPedtype;
+    unsigned int  m_nCarsCanDriveMask;
+    CColModel    *m_pHitColModel;
 
     //funcs
 

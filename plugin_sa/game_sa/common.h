@@ -14,6 +14,8 @@
 #include "CAnimBlendAssociation.h"
 #include "CAnimBlendClumpData.h"
 
+extern char *gString; // char gString[200]
+
 extern float &GAME_GRAVITY; // default 0.0080000004
 
 // returns player coors
@@ -163,3 +165,5 @@ CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* asso
 CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association, unsigned int flags);
 void RpAnimBlendKeyFrameInterpolate(void* voidOut, void* voidIn1, void* voidIn2, float time, void* customData);
 bool RpAnimBlendPluginAttach();
+
+void AsciiToGxtChar(char const *src, char *dst);

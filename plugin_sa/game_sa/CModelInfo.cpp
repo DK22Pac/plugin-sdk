@@ -181,3 +181,7 @@ int CModelInfo::IsVehicleModelType(int index)
 {
 	return ((int (__cdecl *)(int))0x4C5C80)(index);
 }
+
+CBaseModelInfo *CModelInfo::GetModelInfo(int index) {
+    return plugin::CallAndReturn<CBaseModelInfo *, 0x403DA0, int>(index);
+}
