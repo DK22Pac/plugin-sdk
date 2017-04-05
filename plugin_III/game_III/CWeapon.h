@@ -10,5 +10,17 @@ Do not delete this comment block. Respect others' work!
 
 class CWeapon {
 public:
+    unsigned int m_nType;
+    unsigned int m_nState;
+    unsigned int m_nAmmoInClip;
+    unsigned int m_nTotalAmmo;
+    unsigned int m_nNextShotTime;
+    bool m_bAddRotOffset;
+private:
+    char _pad15[3];
+public:
 
+    CWeapon(plugin::dummy_func_t) {}
 };
+
+VALIDATE_SIZE(CWeapon, 0x18);

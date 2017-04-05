@@ -28,7 +28,8 @@ enum eVehicleType {
     VEHICLE_BOAT,
     VEHICLE_TRAIN,
     VEHICLE_HELI,
-    VEHICLE_PLANE
+    VEHICLE_PLANE,
+    VEHICLE_BIKE
 };
 
 enum eVehicleApperance {

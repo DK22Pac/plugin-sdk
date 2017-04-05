@@ -415,6 +415,18 @@
     <ClInclude Include="..\game_III\eVehicleModel.h">
       <Filter>game_III\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CPedIK.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPedStats.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\LimbOrienation.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CCurrentVehicle.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -622,6 +634,12 @@
       <Filter>game_III\Models</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CGeneral.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPedStats.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCurrentVehicle.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>

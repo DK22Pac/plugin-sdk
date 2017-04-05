@@ -25,3 +25,5 @@ public:
     void SetLowDetailClump(RpClump* clump);
     ~CPedModelInfo();
 };
+
+VALIDATE_SIZE(CPedModelInfo, 0x48);

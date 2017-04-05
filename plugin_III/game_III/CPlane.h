@@ -17,11 +17,18 @@ enum ePlaneNodes {
     PLANE_NUM_NODES
 };
 
+#pragma pack(push, 4)
 class CPlane : public CVehicle {
 protected:
     CPlane(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    
+    RwFrame *m_apPlaneNodes[PLANE_NUM_NODES];
+    char byte298;
+    char byte299;
+    char byte29A;
+private:
+    char _pad29B;
+public:
     //funcs
 
     CPlane(int modelIndex, unsigned char createdBy);
@@ -38,8 +45,9 @@ public:
     static void UpdatePlanes();
     ~CPlane();
 };
+#pragma pack(pop)
 
-//VALIDATE_SIZE(CPlane, 0x29C);
+VALIDATE_SIZE(CPlane, 0x29C);
 
 void CreateIncomingCesna();
 

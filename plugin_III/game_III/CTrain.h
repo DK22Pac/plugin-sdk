@@ -12,7 +12,10 @@ Do not delete this comment block. Respect others' work!
 #include "CTrainDoor.h"
 
 enum eTrainNodes {
-    
+    TRAIN_NODE_NONE = 0,
+    TRAIN_DOOR_LHS = 1,
+    TRAIN_DOOR_RHS = 2,
+    TRAIN_NUM_NODES
 };
 
 class CTrainInterpolationLine;
@@ -58,5 +61,7 @@ public:
 
 VALIDATE_SIZE(CTrain, 0x2E4);
 
-extern unsigned int *NumTrackNodes;
+extern unsigned _int16 *NumTrackNodes;
+extern unsigned _int16 *NumTrackNodes_S;
 extern CTrainNode **pTrackNodes;
+extern CTrainNode **pTrackNodes_S;
