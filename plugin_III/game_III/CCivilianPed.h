@@ -17,3 +17,5 @@ public:
     CCivilianPed(ePedType pedType, unsigned int modelIndex);
     void CivilianAI();
 };
+
+VALIDATE_SIZE(CCivilianPed, 0x53C);

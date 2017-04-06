@@ -427,6 +427,9 @@
     <ClInclude Include="..\game_III\CCurrentVehicle.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CPedType.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -640,6 +643,9 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CCurrentVehicle.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPedType.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
