@@ -73,6 +73,9 @@
     <Filter Include="extensions">
       <UniqueIdentifier>{b676802e-3c54-4e42-9463-8835766bd782}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_sa\Core">
+      <UniqueIdentifier>{73fea806-5276-4ead-83cc-e254980818ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\C2dEffect.h">
@@ -147,12 +150,6 @@
     <ClInclude Include="..\game_sa\CHudColours.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CMatrix.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CMatrixLink.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CMenuManager.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -216,16 +213,7 @@
     <ClInclude Include="..\game_sa\CPointLights.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPool.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPools.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CPtrList.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CQuaternion.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CQueuedMode.h">
@@ -235,9 +223,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CRealTimeShadow.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CRect.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CReference.h">
@@ -307,12 +292,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CUserDisplay.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CVector.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CVector2D.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CVisibilityPlugins.h">
@@ -1603,9 +1582,6 @@
     <ClInclude Include="..\game_sa\CLocalisation.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CKeyGen.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CIniFile.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1637,12 +1613,6 @@
       <Filter>game_sa\RenderWare</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CFileLoader.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\List_c.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\ListItem_c.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\RpHAnimBlendInterpFrame.h">
@@ -1720,9 +1690,6 @@
     <ClInclude Include="..\game_sa\CBoundingBox.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CLink.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CCollision.h">
       <Filter>game_sa\Collision</Filter>
     </ClInclude>
@@ -1795,6 +1762,42 @@
     <ClInclude Include="..\game_sa\CAnimBlendAssocGroup.h">
       <Filter>game_sa\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\List_c.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\ListItem_c.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CVector.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CVector2D.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CMatrix.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CMatrixLink.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CKeyGen.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CLink.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPool.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPtrList.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CRect.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CQuaternion.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -1845,12 +1848,6 @@
     <ClCompile Include="..\game_sa\CHudColours.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CMatrix.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CMatrixLink.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CMenuManager.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -1890,16 +1887,10 @@
     <ClCompile Include="..\game_sa\CPools.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CQuaternion.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CRadar.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CRealTimeShadow.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CRect.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CReference.cpp">
@@ -1957,12 +1948,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CUserDisplay.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CVector.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CVector2D.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CVisibilityPlugins.cpp">
@@ -3138,9 +3123,6 @@
     <ClCompile Include="..\game_sa\CLocalisation.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CKeyGen.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CIniFile.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -3254,6 +3236,33 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CDirectory.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\List_c.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\ListItem_c.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CVector.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CVector2D.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CMatrix.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CMatrixLink.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CKeyGen.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CRect.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CQuaternion.cpp">
+      <Filter>game_sa\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

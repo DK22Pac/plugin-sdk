@@ -1117,6 +1117,8 @@
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskTimer.cpp" />
     <ClCompile Include="..\game_sa\CWeather.cpp" />
+    <ClCompile Include="..\game_sa\ListItem_c.cpp" />
+    <ClCompile Include="..\game_sa\List_c.cpp" />
     <ClCompile Include="..\game_sa\RwExtensions.cpp" />
     <ClCompile Include="..\game_sa\TxdDef.cpp" />
     <ClCompile Include="..\game_sa\CText.cpp" />

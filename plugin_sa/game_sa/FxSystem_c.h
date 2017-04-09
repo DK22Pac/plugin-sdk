@@ -28,9 +28,9 @@ enum eFxSystemPlayStatus {
 class FxSystemBP_c;
 class Particle_c;
 
-class FxSystem_c {
+class FxSystem_c : public ListItem_c {
 public:
-    ListItem_c m_link;
+    // ListItem_c m_link;
     void *m_pBpSystem;
     RwMatrix *m_pParentMatrix;
     RwMatrix m_localMatrix;
