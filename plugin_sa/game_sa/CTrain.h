@@ -31,40 +31,54 @@ enum eTrainNodes {
     TRAIN_NUM_NODES
 };
 
+enum eTrainPassengersGenerationState {
+    TRAIN_PASSENGERS_QUERY_NUM_PASSENGERS_TO_LEAVE = 0,
+    TRAIN_PASSENGERS_TELL_PASSENGERS_TO_LEAVE = 1,
+    TRAIN_PASSENGERS_QUERY_NUM_PASSENGERS_TO_ENTER = 2,
+    TRAIN_PASSENGERS_TELL_PASSENGERS_TO_ENTER = 3,
+    TRAIN_PASSENGERS_GENERATION_FINISHED = 4
+};
+
 class CTrain : public CVehicle {
 protected:
     CTrain(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
     short             m_nNodeIndex;
+private:
     char _pad1[2];
-    float             m_fTrainSpeed;
+public:
+    float             m_fTrainSpeed; // 1.0 - train derails
     float             m_fCurrentRailDistance;
     float             m_fLength;
-    int field_5B0;
-    int field_5B4;
+    float             m_fTrainGas; // gas pedal pressed: 255.0, moving forward: 0.0, moving back: -255.0
+    float             m_fTrainBrake; // 255.0 - braking
     struct {
-        unsigned char unknown1 : 1;
-        unsigned char unknown2 : 1;
-        unsigned char bIsStreak : 1;
+        unsigned char b01 : 1; // initialised with 1
+        unsigned char bStoppedAtStation : 1;
+        unsigned char bPassengersCanEnterAndLeave : 1;
         unsigned char bIsFrontCarriage : 1;
         unsigned char bIsLastCarriage : 1;
         unsigned char bMissionTrain : 1;
         unsigned char bClockwiseDirection : 1;
-        unsigned char unknown8 : 1;
+        unsigned char bStopsAtStations : 1;
+        unsigned char bNotOnARailRoad : 1;
+        unsigned char bForceSlowDown : 1;
+        unsigned char bIsStreakModel : 1;
     } m_nTrainFlags;
-    struct {
-        unsigned char bDerailed : 1;
-    } m_nWreckingFlags;
-    char field_5BA[2];
-    int field_5BC;
+private:
+    char _pad5BA[2];
+public:
+    int               m_nTimeWhenStoppedAtStation;
     char              m_nTrackId;
-    char field_5C1;
-    short field_5C2;
-    int               m_nTimeCreated;
-    short field_5C8;
-    char field_5CA;
-    unsigned char     m_nPassengerFlags;
-    CPed             *m_pPassenger;
+private:
+    char _pad5C1[3];
+public:
+    int               m_nTimeWhenCreated;
+    short field_5C8; // initialized with 0, not referenced
+    unsigned char     m_nPassengersGenerationState; // see eTrainPassengersGenerationState
+    unsigned char     m_nNumPassengersToLeave : 4; // 0 to 4
+    unsigned char     m_nNumPassengersToEnter : 4; // 0 to 4
+    CPed             *m_pTemporaryPassenger; // we tell peds to enter train and then delete them
     CTrain           *m_pPrevCarriage;
     CTrain           *m_pNextCarriage;
     CDoor             m_aDoors[6];

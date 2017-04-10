@@ -45,12 +45,14 @@ unsigned char& CClock::ms_nGameClockDayOfWeek =         *(unsigned char*)VAR_CCl
 std::uint16_t& CClock::ms_nGameClockSeconds =           *(std::uint16_t*)VAR_CClock__ms_nGameClockSeconds;
 unsigned char& CClock::ms_nGameClockMinutes =           *(unsigned char*)VAR_CClock__ms_nGameClockMinutes;
 unsigned char& CClock::ms_nGameClockHours =             *(unsigned char*)VAR_CClock__ms_nGameClockHours;
-unsigned char& CClock::ms_nGameClockMonthDay =          *(unsigned char*)VAR_CClock__ms_nGameClockMonthDay;
+unsigned char& CClock::ms_nGameClockDays =          *(unsigned char*)VAR_CClock__ms_nGameClockMonthDay;
 unsigned char& CClock::ms_nGameClockMonth =             *(unsigned char*)VAR_CClock__ms_nGameClockMonth;
 
 std::uint32_t& CClock::ms_nLastClockTick =              *(std::uint32_t*)VAR_CClock__ms_nLastClockTick;
 
 unsigned int &CClock::ms_nMillisecondsPerGameMinute = *(unsigned int *)0xB7015C;
+
+unsigned char *CClock::daysInMonth = (unsigned char *)0x8CCF24;
 
 // Returns true current hour is in range of two specified hours.
 bool CClock::GetIsTimeInRange(unsigned char hourA, unsigned char hourB)

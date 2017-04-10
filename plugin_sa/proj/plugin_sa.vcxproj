@@ -131,6 +131,7 @@
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CCutsceneMgr.h" />
     <ClInclude Include="..\game_sa\CDirectory.h" />
+    <ClInclude Include="..\game_sa\CDraw.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
     <ClInclude Include="..\game_sa\CFileLoader.h" />
@@ -723,6 +724,7 @@
     <ClCompile Include="..\game_sa\CDarkel.cpp" />
     <ClCompile Include="..\game_sa\CDirectory.cpp" />
     <ClCompile Include="..\game_sa\CDoor.cpp" />
+    <ClCompile Include="..\game_sa\CDraw.cpp" />
     <ClCompile Include="..\game_sa\CDummy.cpp" />
     <ClCompile Include="..\game_sa\CDummyObject.cpp" />
     <ClCompile Include="..\game_sa\CDummyPed.cpp" />
