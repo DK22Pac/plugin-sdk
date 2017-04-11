@@ -161,6 +161,8 @@
     <ClInclude Include="..\game_III\CVehicleModelInfo.h" />
     <ClInclude Include="..\game_III\CWanted.h" />
     <ClInclude Include="..\game_III\CWeapon.h" />
+    <ClInclude Include="..\game_III\CWeaponEffects.h" />
+    <ClInclude Include="..\game_III\CWeaponInfo.h" />
     <ClInclude Include="..\game_III\CWheel.h" />
     <ClInclude Include="..\game_III\CXtraCompsModelInfo.h" />
     <ClInclude Include="..\game_III\eCopType.h" />
@@ -285,6 +287,8 @@
     <ClCompile Include="..\game_III\CVehicleModelInfo.cpp" />
     <ClCompile Include="..\game_III\CWanted.cpp" />
     <ClCompile Include="..\game_III\CWeapon.cpp" />
+    <ClCompile Include="..\game_III\CWeaponEffects.cpp" />
+    <ClCompile Include="..\game_III\CWeaponInfo.cpp" />
     <ClCompile Include="..\game_III\CXtraCompsModelInfo.cpp" />
     <ClCompile Include="..\game_III\NodeName.cpp" />
     <ClCompile Include="..\game_III\RenderWare.cpp" />

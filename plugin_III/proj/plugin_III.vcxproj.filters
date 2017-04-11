@@ -442,6 +442,12 @@
     <ClInclude Include="..\game_III\CInstance.h">
       <Filter>game_III\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CWeaponInfo.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CWeaponEffects.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -671,6 +677,12 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CInstance.cpp">
       <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CWeaponInfo.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CWeaponEffects.cpp">
+      <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

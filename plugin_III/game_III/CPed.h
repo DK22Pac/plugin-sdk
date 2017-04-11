@@ -258,3 +258,10 @@ public:
 #pragma pack(pop)
 
 VALIDATE_SIZE(CPed, 0x53C);
+
+extern CVector *vecPedCarDoorAnimOffset;
+extern CVector *vecPedCarDoorLoAnimOffset;
+extern CVector *vecPedVanRearDoorAnimOffset;
+extern CVector *vecPedTrainDoorAnimOffset;
+extern CVector *vecPedDraggedOutCarAnimOffset;
+extern CVector *vecPedQuickDraggedOutCarAnimOffset;
