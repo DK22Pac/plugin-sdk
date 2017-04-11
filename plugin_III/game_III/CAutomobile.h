@@ -50,22 +50,24 @@ public:
     int field_49C;
     char field_4A0[4];
     char field_4A4[4];
-    int field_4A8[4];
-    char field_4B8[16];
+    float           m_fWheelTotalRot[4];
+    float           m_fWheelRot[4];
     int field_4C8[4];
     char field_4D8;
     unsigned char   m_nAutomobileFlags;
-    char field_4DA;
-    char field_4DB[7];
+    char            bfFlagsX;
+    char field_4DB;
+    CPed           *m_pWhoInstalledBombOnMe;
+    char field_4E0[2];
     short field_4E2;
     int             m_nBusDoorTimerEnd;
     int             m_nBusDoorTimerStart;
     char field_4EC[32];
-    int field_50C;
+    float           m_fHeightAboveRoad;
     float           m_fImprovedHandling;
     int field_514;
     float field_518[6];
-    char field_530;
+    char            burnTimer;
     char field_531;
     char field_532;
     char field_533;
@@ -74,18 +76,22 @@ public:
     int field_574;
     int field_578;
     int field_57C;
-    float           m_fDoomAngle;
-    int field_584;
-    int field_588;
+    float           m_fDoomVerticalRotation;
+    float           m_fDoomHorizontalRotation;
+    int             m_fSpecialMoveState;
     int field_58C;
     char field_590;
     bool            m_bAllWheelsOnGround;
     char field_592;
     char field_593; // pad?
-    int field_594;
-    int field_598[4];
+    int             m_fSkidMarkDensity;
+    int             m_nTireFriction[4];
     
+    // variables
     static bool &m_sAllTaxiLights;
+    static int &nGenerateRaindrops;
+    static int &nGenerateWaterCircles;
+    static char &matW2B;
 
     //funcs
 

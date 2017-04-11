@@ -430,6 +430,18 @@
     <ClInclude Include="..\game_III\CPedType.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\KeyCheck.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\C2deffectsModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CInstance.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -647,6 +659,18 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CPedType.cpp">
       <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\KeyCheck.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\C2deffectsModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CInstance.cpp">
+      <Filter>game_III\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
