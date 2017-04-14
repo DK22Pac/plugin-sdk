@@ -25,10 +25,10 @@ public:
     static bool &m_CodePause;
     static unsigned int &m_FrameCounter;
     static bool &m_UserPause;
-    static int &m_snPreviousTimeInMilliseconds;
-    static int &m_snTimeInMilliseconds;
-    static int &m_snTimeInMillisecondsNonClipped;
-    static int &m_snTimeInMillisecondsPauseMode;
+    static unsigned int &m_snPreviousTimeInMilliseconds;
+    static unsigned int &m_snTimeInMilliseconds;
+    static unsigned int &m_snTimeInMillisecondsNonClipped;
+    static unsigned int &m_snTimeInMillisecondsPauseMode;
     static float &ms_fTimeScale;
     static float &ms_fTimeStep;
     static float &ms_fTimeStepNonClipped;

@@ -109,6 +109,8 @@
     <ClInclude Include="..\game_III\CDamageManager.h" />
     <ClInclude Include="..\game_III\CDoor.h" />
     <ClInclude Include="..\game_III\CEmergencyPed.h" />
+    <ClInclude Include="..\game_III\CFont.h" />
+    <ClInclude Include="..\game_III\CFontDetails.h" />
     <ClInclude Include="..\game_III\CGeneral.h" />
     <ClInclude Include="..\game_III\CHeli.h" />
     <ClInclude Include="..\game_III\CInstance.h" />
@@ -245,6 +247,8 @@
     <ClCompile Include="..\game_III\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_III\CEntity.cpp" />
     <ClCompile Include="..\game_III\CEntryInfoList.cpp" />
+    <ClCompile Include="..\game_III\CFont.cpp" />
+    <ClCompile Include="..\game_III\CFontDetails.cpp" />
     <ClCompile Include="..\game_III\CGeneral.cpp" />
     <ClCompile Include="..\game_III\CHeli.cpp" />
     <ClCompile Include="..\game_III\CInstance.cpp" />

@@ -1,0 +1,47 @@
+/*
+Plugin-SDK (Grand Theft Auto) header file
+Authors: GTA Community. See more here
+https://github.com/DK22Pac/plugin-sdk
+Do not delete this comment block. Respect others' work!
+*/
+#pragma once
+
+#include "plbase\PluginBase_III.h"
+#include "CRGBA.h"
+#include "CVector2D.h"
+
+#pragma pack(push, 2)
+class CFontDetails {
+public:
+    CRGBA m_Color; 
+    CVector2D m_vScale; 
+    float m_fSlant; 
+    CVector2D m_vSlantRefPoint; 
+    bool m_bJustify; 
+    bool m_bCentre; 
+    bool m_bRightJustify; 
+    bool m_bBackground; 
+    bool m_bBackGroundOnlyText; 
+    bool m_bProp; 
+private:
+    char _pad1E[2]; 
+public:
+    float m_fAlphaFade; 
+    CRGBA m_BackgroundColor; 
+    float m_fWrapX; 
+    float m_fCentreSize; 
+    float m_fRightJustifyWrap; 
+    _int16 m_nStyle; 
+private:
+    char _pad36[2]; 
+public:
+    int field_38; 
+    _int16 m_nDropShadowPosition; 
+    CRGBA m_DropColor; 
+
+    //funcs
+    ~CFontDetails();
+};
+#pragma pack(pop)
+
+VALIDATE_SIZE(CFontDetails, 0x42);

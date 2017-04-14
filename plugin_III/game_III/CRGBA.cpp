@@ -10,3 +10,8 @@
 CRGBA::CRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
     ((void(__thiscall *)(CRGBA*, unsigned char, unsigned char, unsigned char, unsigned char))0x4F8C20)(this, r, g, b, a);
 }
+
+// Converted from thiscall void CRGBA::~CRGBA() 0x40B290
+CRGBA::~CRGBA() {
+    plugin::CallMethod<0x40B290, CRGBA *>(this);
+}
