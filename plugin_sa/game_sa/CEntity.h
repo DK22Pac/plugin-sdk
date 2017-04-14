@@ -33,6 +33,7 @@ public:
     unsigned __int32 m_bIsInSafePosition : 1;        // is entity in a collision free safe position
     unsigned __int32 m_bWasPostponed : 1;            // was entity control processing postponed
     unsigned __int32 m_bIsVisible : 1;               //is the entity visible
+ 
     unsigned __int32 m_bIsBIGBuilding : 1;           // Set if this entity is a big building
     unsigned __int32 m_bRenderDamaged : 1;           // use damaged LOD models for objects with applicable damage
     unsigned __int32 m_bStreamingDontDelete : 1; // Dont let the streaming remove this 
@@ -41,6 +42,7 @@ public:
     unsigned __int32 m_bImBeingRendered : 1;     // don't delete me because I'm being rendered
     unsigned __int32 m_bDrawLast :1;             // draw object last
     unsigned __int32 m_bDistanceFade :1;         // Fade entity because it is far away
+ 
     unsigned __int32 m_bDontCastShadowsOn : 1;       // Dont cast shadows on this object
     unsigned __int32 m_bOffscreen : 1;               // offscreen flag. This can only be trusted when it is set to true
     unsigned __int32 m_bIsStaticWaitingForCollision : 1; // this is used by script created entities - they are static until the collision is loaded below them
@@ -49,6 +51,7 @@ public:
     unsigned __int32 m_bHasPreRenderEffects : 1; // Object has a prerender effects attached to it
     unsigned __int32 m_bIsTempBuilding : 1;          // whether or not the building is temporary (i.e. can be created and deleted more than once)
     unsigned __int32 m_bDontUpdateHierarchy : 1; // Don't update the aniamtion hierarchy this frame
+ 
     unsigned __int32 m_bHasRoadsignText : 1;     // entity is roadsign and has some 2deffect text stuff to be rendered
     unsigned __int32 m_bDisplayedSuperLowLOD : 1;
     unsigned __int32 m_bIsProcObject : 1;            // set object has been generate by procedural object generator

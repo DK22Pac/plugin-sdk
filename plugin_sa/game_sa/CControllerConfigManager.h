@@ -7,6 +7,7 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
+#include "RenderWare.h"
 
 typedef struct DIJOYSTATE2 {
     std::int32_t lX;
@@ -138,6 +139,8 @@ public:
 
 	void SaveSettings(int file);
 	bool LoadSettings(int file);
+    bool GetIsKeyboardKeyDown(RsKeyCodes key);
+    bool GetIsKeyboardKeyJustDown(RsKeyCodes key);
 };
 #pragma pack(pop)
 

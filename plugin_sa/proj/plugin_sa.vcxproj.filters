@@ -198,9 +198,6 @@
     <ClInclude Include="..\game_sa\CPedIntelligence.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPedVoice.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPlaneTrail.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1797,6 +1794,9 @@
     </ClInclude>
     <ClInclude Include="..\game_sa\CDraw.h">
       <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEPedSpeechAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

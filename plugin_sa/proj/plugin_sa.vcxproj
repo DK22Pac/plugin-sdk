@@ -538,7 +538,7 @@
     <ClInclude Include="..\game_sa\CPedCollisionAudio.h" />
     <ClInclude Include="..\game_sa\CPedIK.h" />
     <ClInclude Include="..\game_sa\CPedIntelligence.h" />
-    <ClInclude Include="..\game_sa\CPedVoice.h" />
+    <ClInclude Include="..\game_sa\CAEPedSpeechAudioEntity.h" />
     <ClInclude Include="..\game_sa\CPhysical.h" />
     <ClInclude Include="..\game_sa\CPlaceable.h" />
     <ClInclude Include="..\game_sa\CPlaneTrail.h" />

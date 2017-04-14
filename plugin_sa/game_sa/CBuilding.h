@@ -8,11 +8,15 @@
 #include "plbase/PluginBase_SA.h"
 #include "CEntity.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CBuilding : public CEntity {
+class CBuilding : public CEntity {
+protected:
+    CBuilding(plugin::dummy_func_t) : CEntity(plugin::dummy) {}
 public:
 	void ReplaceWithNewModel(int newModelIndex);
+
+    static void* operator new(unsigned int size);
+    static void operator delete(void* data);
+    CBuilding();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBuilding, 0x38);
