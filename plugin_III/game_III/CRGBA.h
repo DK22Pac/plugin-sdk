@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#include "plbase/PluginBase_III.h"
 
 class CRGBA {
 public:
@@ -16,5 +17,6 @@ public:
     };
 
     CRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+    ~CRGBA();
     CRGBA() {}
 };

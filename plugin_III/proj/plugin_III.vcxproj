@@ -84,8 +84,10 @@
     <ClInclude Include="..\extender\ObjectExtender_III.h" />
     <ClInclude Include="..\extender\PedExtender_III.h" />
     <ClInclude Include="..\extender\VehicleExtender_III.h" />
+    <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Paths.h" />
     <ClInclude Include="..\extensions\Screen.h" />
+    <ClInclude Include="..\game_III\C2deffectsModelInfo.h" />
     <ClInclude Include="..\game_III\CAutomobile.h" />
     <ClInclude Include="..\game_III\CAutoPilot.h" />
     <ClInclude Include="..\game_III\CBaseModelInfo.h" />
@@ -107,9 +109,13 @@
     <ClInclude Include="..\game_III\CDamageManager.h" />
     <ClInclude Include="..\game_III\CDoor.h" />
     <ClInclude Include="..\game_III\CEmergencyPed.h" />
+    <ClInclude Include="..\game_III\CFont.h" />
+    <ClInclude Include="..\game_III\CFontDetails.h" />
     <ClInclude Include="..\game_III\CGeneral.h" />
     <ClInclude Include="..\game_III\CHeli.h" />
+    <ClInclude Include="..\game_III\CInstance.h" />
     <ClInclude Include="..\game_III\CMloModelInfo.h" />
+    <ClInclude Include="..\game_III\CModelInfo.h" />
     <ClInclude Include="..\game_III\common.h" />
     <ClInclude Include="..\game_III\CompressedVector.h" />
     <ClInclude Include="..\game_III\CPad.h" />
@@ -157,6 +163,8 @@
     <ClInclude Include="..\game_III\CVehicleModelInfo.h" />
     <ClInclude Include="..\game_III\CWanted.h" />
     <ClInclude Include="..\game_III\CWeapon.h" />
+    <ClInclude Include="..\game_III\CWeaponEffects.h" />
+    <ClInclude Include="..\game_III\CWeaponInfo.h" />
     <ClInclude Include="..\game_III\CWheel.h" />
     <ClInclude Include="..\game_III\CXtraCompsModelInfo.h" />
     <ClInclude Include="..\game_III\eCopType.h" />
@@ -210,8 +218,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp" />
+    <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Paths.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
+    <ClCompile Include="..\game_III\C2deffectsModelInfo.cpp" />
     <ClCompile Include="..\game_III\CAutomobile.cpp" />
     <ClCompile Include="..\game_III\CAutoPilot.cpp" />
     <ClCompile Include="..\game_III\CBaseModelInfo.cpp" />
@@ -237,10 +247,14 @@
     <ClCompile Include="..\game_III\CEmergencyPed.cpp" />
     <ClCompile Include="..\game_III\CEntity.cpp" />
     <ClCompile Include="..\game_III\CEntryInfoList.cpp" />
+    <ClCompile Include="..\game_III\CFont.cpp" />
+    <ClCompile Include="..\game_III\CFontDetails.cpp" />
     <ClCompile Include="..\game_III\CGeneral.cpp" />
     <ClCompile Include="..\game_III\CHeli.cpp" />
+    <ClCompile Include="..\game_III\CInstance.cpp" />
     <ClCompile Include="..\game_III\CMatrix.cpp" />
     <ClCompile Include="..\game_III\CMloModelInfo.cpp" />
+    <ClCompile Include="..\game_III\CModelInfo.cpp" />
     <ClCompile Include="..\game_III\CObject.cpp" />
     <ClCompile Include="..\game_III\common.cpp" />
     <ClCompile Include="..\game_III\CompressedVector.cpp" />
@@ -277,6 +291,8 @@
     <ClCompile Include="..\game_III\CVehicleModelInfo.cpp" />
     <ClCompile Include="..\game_III\CWanted.cpp" />
     <ClCompile Include="..\game_III\CWeapon.cpp" />
+    <ClCompile Include="..\game_III\CWeaponEffects.cpp" />
+    <ClCompile Include="..\game_III\CWeaponInfo.cpp" />
     <ClCompile Include="..\game_III\CXtraCompsModelInfo.cpp" />
     <ClCompile Include="..\game_III\NodeName.cpp" />
     <ClCompile Include="..\game_III\RenderWare.cpp" />

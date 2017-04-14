@@ -6,9 +6,9 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eWeaponModel : unsigned int
-{
+enum eWeaponModel : unsigned int {
     MODEL_UNARMED = 0,
+    MODEL_CELLPHONE = 258,
     MODEL_BRASSKNUCKLE = 259,
     MODEL_SCREWDRIVER,
     MODEL_GOLFCLUB,
@@ -42,5 +42,7 @@ enum eWeaponModel : unsigned int
     MODEL_M60,
     MODEL_MINIGUN,
     MODEL_BOMB,
-    MODEL_CAMERA
+    MODEL_CAMERA,
+    MODEL_FINGERS,
+    MODEL_MINIGUN2
 };

@@ -11,12 +11,14 @@ Do not delete this comment block. Respect others' work!
 
 class CTimeModelInfo : public CSimpleModelInfo {
 public:
-    
-    //funcs
+    unsigned int m_nStartHour;
+    unsigned int m_nEndHour;
+    CSimpleModelInfo *m_pPairedModel;
 
+    //funcs
     CTimeModelInfo();
     void FindOtherTimeModel();
     ~CTimeModelInfo();
 };
 
-//VALIDATE_SIZE(CTimeModelInfo, 0x50);
+VALIDATE_SIZE(CTimeModelInfo, 0x58);
