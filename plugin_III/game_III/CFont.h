@@ -17,7 +17,7 @@ public:
     // variables
     static CFontDetails &Details;
     static CSprite2d *Sprite; 
-    static _int16 &NewLine;
+    static short &NewLine;
 
     // funcs
 

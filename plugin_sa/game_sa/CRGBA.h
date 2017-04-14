@@ -7,9 +7,7 @@
 #pragma once
 #include "plbase/PluginBase_SA.h"
 
-#pragma pack(push, 1)
-class PLUGIN_API CRGBA
-{
+class CRGBA {
 public:
 	union{
 		unsigned int colorInt;
@@ -20,5 +18,12 @@ public:
 
 	CRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 	CRGBA();
+
+    inline void Set(unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
+        red = r; green = g; blue = b; alpha = a;
+    }
+
+    inline unsigned int AsInt() {
+        return colorInt;
+    }
 };
-#pragma pack(pop)
