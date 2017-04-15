@@ -118,6 +118,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paths", "shared\paths\paths.vcxproj", "{8C1E6FF8-6921-416B-AF49-D562CF77A857}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "plugin_III", "plugin_III\proj\plugin_III.vcxproj", "{073A8AEA-2131-49CD-BF2B-0BF23208FD6C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C1E6FF8-6921-416B-AF49-D562CF77A857} = {8C1E6FF8-6921-416B-AF49-D562CF77A857}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

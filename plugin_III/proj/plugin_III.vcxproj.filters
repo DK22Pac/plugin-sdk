@@ -334,9 +334,6 @@
     <ClInclude Include="..\game_III\eWeaponFire.h">
       <Filter>game_III\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="..\extensions\Paths.h">
-      <Filter>extensions</Filter>
-    </ClInclude>
     <ClInclude Include="..\extensions\Screen.h">
       <Filter>extensions</Filter>
     </ClInclude>
@@ -452,6 +449,9 @@
       <Filter>game_III</Filter>
     </ClInclude>
     <ClInclude Include="..\game_III\CFontDetails.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSprite2d.h">
       <Filter>game_III</Filter>
     </ClInclude>
   </ItemGroup>
@@ -594,9 +594,6 @@
     <ClCompile Include="..\game_III\NodeName.cpp">
       <Filter>game_III\Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\extensions\Paths.cpp">
-      <Filter>extensions</Filter>
-    </ClCompile>
     <ClCompile Include="..\extensions\Screen.cpp">
       <Filter>extensions</Filter>
     </ClCompile>
@@ -694,6 +691,9 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CFontDetails.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CSprite2d.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
