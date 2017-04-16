@@ -1798,6 +1798,12 @@
     <ClInclude Include="..\game_sa\CQuaternion.h">
       <Filter>game_sa\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\JPegCompress.h">
+      <Filter>game_sa\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\PipelinePlugin.h">
+      <Filter>game_sa\Plugins</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3263,6 +3269,12 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CQuaternion.cpp">
       <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\JPegCompress.cpp">
+      <Filter>game_sa\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\PipelinePlugin.cpp">
+      <Filter>game_sa\Plugins</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
