@@ -12,10 +12,9 @@ RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
 
 RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
 
-#ifdef _D3D_INCLUDE
-LPDIRECT3DDEVICE9 &_RwD3DDevice = *(LPDIRECT3DDEVICE9 *)0xC97C28;
-
-#endif
+IDirect3DDevice9 *GetD3DDevice() {
+    return *reinterpret_cast<IDirect3DDevice9 **>(0xC97C28);
+}
 
 /* rwplcore.h */
 

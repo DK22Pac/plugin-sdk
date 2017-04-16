@@ -6,10 +6,6 @@
 */
 #pragma once
 
-#ifdef _D3D_INCLUDE
-#include <d3d9.h>
-#endif
-
 // TODO: Clean up RW headers
 
 #include "rw\rwcore.h"
@@ -28,10 +24,7 @@ extern RsGlobalType &RsGlobal;
 
 extern RwPluginRegistry &geometryTKList;
 
-#ifdef _D3D_INCLUDE
-extern LPDIRECT3DDEVICE9 &_RwD3DDevice;
-
-#endif
+struct IDirect3DDevice9 *GetD3DDevice();
 
 /* rwplcore.h */
 

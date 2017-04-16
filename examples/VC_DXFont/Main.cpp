@@ -5,11 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#include <plugin_vc.h>
-#include <game_vc\RenderWare.h>
-#ifdef _D3D_INCLUDE
-#include <d3dx8.h>
-
+#include "plugin_vc.h"
+#include "game_vc\RenderWare.h"
+#include "..\DXSDK\8.0\include\d3dx8.h"
+#ifdef __D3DX8_H__
 using namespace plugin;
 
 class DXFont {
@@ -19,7 +18,7 @@ public:
     static void InitFont() {
         HFONT hFont = CreateFont(48, 0, 0, 0, FW_NORMAL, FALSE, FALSE, 0, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
             CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH|FF_SWISS, "arial");
-        if (FAILED(D3DXCreateFont(_RwD3DDevice, hFont, &m_pD3DXFont)))
+        if (FAILED(D3DXCreateFont(GetD3DDevice<IDirect3DDevice8>(), hFont, &m_pD3DXFont)))
             Error("Failed to create D3DX font!");
     }
 
