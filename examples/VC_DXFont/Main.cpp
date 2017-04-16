@@ -4,9 +4,11 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+
 #include <plugin_vc.h>
-#include <d3dx8.h>
 #include <game_vc\RenderWare.h>
+#ifdef _D3D_INCLUDE
+#include <d3dx8.h>
 
 using namespace plugin;
 
@@ -51,3 +53,4 @@ public:
 } dxFont;
 
 ID3DXFont *DXFont::m_pD3DXFont;
+#endif

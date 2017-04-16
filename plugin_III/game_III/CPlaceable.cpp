@@ -7,7 +7,7 @@
 #include "CPlaceable.h"
 
 // Converted from thiscall void CPlaceable::CPlaceable(void) 0x49F9A0
-CPlaceable::CPlaceable() : CMatrix(plugin::dummy) {
+CPlaceable::CPlaceable() : m_matrix(plugin::dummy) {
     ((void(__thiscall *)(CPlaceable*))0x49F9A0)(this);
 }
 

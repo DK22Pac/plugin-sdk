@@ -45,13 +45,11 @@
     <OutDir>$(SolutionDir)output\lib\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)output\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>plugin_III</TargetName>
-    <IncludePath>$(IncludePath);D:\Projects\DXSDK\8.0\include\</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)output\lib\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)output\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>plugin_III_d</TargetName>
-    <IncludePath>$(IncludePath);D:\Projects\DXSDK\8.0\include\</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -71,7 +69,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)plugin_III\</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_D3D_INCLUDE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>

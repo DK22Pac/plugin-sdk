@@ -5,6 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #include <plugin.h>
+#include "game_sa\RenderWare.h"
+#ifdef _D3D_INCLUDE
 #include <game_sa\common.h>
 #include <game_sa\CMenuManager.h>
 #include <game_sa\CRadar.h>
@@ -173,3 +175,4 @@ public:
         vertex.emissiveColor = RWRGBALONG(GPS_LINE_R, GPS_LINE_G, GPS_LINE_B, GPS_LINE_A);
     }
 } gps;
+#endif
