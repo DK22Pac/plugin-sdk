@@ -26,12 +26,14 @@ public:
 	static std::uint16_t& ms_nGameClockSeconds;
 	static unsigned char& ms_nGameClockMinutes;
 	static unsigned char& ms_nGameClockHours;
-	static unsigned char& ms_nGameClockMonthDay;
+	static unsigned char& ms_nGameClockDays;
 	static unsigned char& ms_nGameClockMonth;
 
 	static std::uint32_t& ms_nLastClockTick;
 
     static unsigned int &ms_nMillisecondsPerGameMinute;
+
+    static unsigned char *daysInMonth; // static unsigned char daysInMonth[12]; default values: 31,29,31,30,31,30,31,31,30,31,30,31
 
 	// Functions
 

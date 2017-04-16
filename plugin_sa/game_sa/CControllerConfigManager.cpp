@@ -17,3 +17,13 @@ bool CControllerConfigManager::LoadSettings(int file)
 {
     return plugin::CallMethodAndReturn <bool, 0x530530, CControllerConfigManager*, int> ( this, file );
 }
+
+// Converted from thiscall bool CControllerConfigManager::GetIsKeyboardKeyDown(RsKeyCodes key) 0x52DDB0
+bool CControllerConfigManager::GetIsKeyboardKeyDown(RsKeyCodes key) {
+    return plugin::CallMethodAndReturn<bool, 0x52DDB0, CControllerConfigManager *, RsKeyCodes>(this, key);
+}
+
+// Converted from thiscall bool CControllerConfigManager::GetIsKeyboardKeyJustDown(RsKeyCodes key) 0x52E450
+bool CControllerConfigManager::GetIsKeyboardKeyJustDown(RsKeyCodes key) {
+    return plugin::CallMethodAndReturn<bool, 0x52E450, CControllerConfigManager *, RsKeyCodes>(this, key);
+}

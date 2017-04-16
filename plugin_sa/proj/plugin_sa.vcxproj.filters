@@ -195,9 +195,6 @@
     <ClInclude Include="..\game_sa\CPedIntelligence.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPedVoice.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPlaneTrail.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1804,6 +1801,12 @@
     <ClInclude Include="..\game_sa\PipelinePlugin.h">
       <Filter>game_sa\Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CDraw.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEPedSpeechAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3243,16 +3246,13 @@
     <ClCompile Include="..\game_sa\CDirectory.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\List_c.cpp">
-      <Filter>game_sa\Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\ListItem_c.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CVector.cpp">
+    <ClCompile Include="..\game_sa\List_c.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CVector2D.cpp">
+    <ClCompile Include="..\game_sa\CKeyGen.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CMatrix.cpp">
@@ -3261,14 +3261,20 @@
     <ClCompile Include="..\game_sa\CMatrixLink.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CKeyGen.cpp">
+    <ClCompile Include="..\game_sa\CQuaternion.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CRect.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CQuaternion.cpp">
+    <ClCompile Include="..\game_sa\CVector.cpp">
       <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CVector2D.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDraw.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\JPegCompress.cpp">
       <Filter>game_sa\Plugins</Filter>

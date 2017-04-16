@@ -508,6 +508,9 @@
     <ClInclude Include="..\game_vc\CHud.h">
       <Filter>game_vc</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\KeyCheck.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -797,6 +800,9 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CHud.cpp">
       <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\KeyCheck.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

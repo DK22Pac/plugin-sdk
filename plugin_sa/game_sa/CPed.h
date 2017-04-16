@@ -10,7 +10,7 @@
 #include "ePedType.h"
 #include "CPhysical.h"
 #include "CPedCollisionAudio.h"
-#include "CPedVoice.h"
+#include "CAEPedSpeechAudioEntity.h"
 #include "CWeaponAudio.h"
 #include "CPedIntelligence.h"
 #include "CPlayerData.h"
@@ -38,7 +38,7 @@ protected:
     CPed(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
 public:
 	CPedCollisionAudio  m_CollisionAudio;
-	CPedVoice           m_PedVoice;
+    CAEPedSpeechAudioEntity m_pedSpeech;
 	CWeaponAudio        m_WeaponAudio;
 	char field_43C[36];
     char field_460[8];

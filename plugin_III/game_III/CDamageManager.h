@@ -117,4 +117,4 @@ public:
 };
 #pragma pack(pop)
 
-VALIDATE_SIZE(CDamageManager, 0x18);
+// VALIDATE_SIZE(CDamageManager, 0x18);

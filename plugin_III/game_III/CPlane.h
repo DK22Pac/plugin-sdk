@@ -8,6 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase\PluginBase_III.h"
 #include "CVehicle.h"
+#include "CPathNode.h"
 
 enum ePlaneNodes {
     PLANE_NODE_NONE = 0,
@@ -57,3 +58,15 @@ extern unsigned int *DropOffCesnaMissionStatus;
 extern unsigned int *DropOffCesnaMissionStartTime;
 extern CPlane **pDropOffCesna;
 extern CPlane **pDrugRunCesna;
+extern unsigned int *NumPathNodes;
+extern unsigned int *NumPath2Nodes;
+extern unsigned int *NumPath3Nodes;
+extern unsigned int *NumPath4Nodes;
+extern float *TotalLengthOfFlightPath;
+extern float *TotalLengthOfFlightPath2;
+extern float *TotalLengthOfFlightPath3;
+extern float *TotalLengthOfFlightPath4;
+extern CPathNode **pPathNodes;
+extern CPathNode **pPath2Nodes;
+extern CPathNode **pPath3Nodes;
+extern CPathNode **pPath4Nodes;

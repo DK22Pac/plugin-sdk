@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -13,19 +13,19 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0F442363-6D2C-4C0C-A157-287DCC49DD84}</ProjectGuid>
     <RootNamespace>plugin_sa</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v141_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -131,6 +131,7 @@
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CCutsceneMgr.h" />
     <ClInclude Include="..\game_sa\CDirectory.h" />
+    <ClInclude Include="..\game_sa\CDraw.h" />
     <ClInclude Include="..\game_sa\CEventHandler.h" />
     <ClInclude Include="..\game_sa\CEventScanner.h" />
     <ClInclude Include="..\game_sa\CFileLoader.h" />
@@ -537,7 +538,7 @@
     <ClInclude Include="..\game_sa\CPedCollisionAudio.h" />
     <ClInclude Include="..\game_sa\CPedIK.h" />
     <ClInclude Include="..\game_sa\CPedIntelligence.h" />
-    <ClInclude Include="..\game_sa\CPedVoice.h" />
+    <ClInclude Include="..\game_sa\CAEPedSpeechAudioEntity.h" />
     <ClInclude Include="..\game_sa\CPhysical.h" />
     <ClInclude Include="..\game_sa\CPlaceable.h" />
     <ClInclude Include="..\game_sa\CPlaneTrail.h" />
@@ -725,6 +726,7 @@
     <ClCompile Include="..\game_sa\CDarkel.cpp" />
     <ClCompile Include="..\game_sa\CDirectory.cpp" />
     <ClCompile Include="..\game_sa\CDoor.cpp" />
+    <ClCompile Include="..\game_sa\CDraw.cpp" />
     <ClCompile Include="..\game_sa\CDummy.cpp" />
     <ClCompile Include="..\game_sa\CDummyObject.cpp" />
     <ClCompile Include="..\game_sa\CDummyPed.cpp" />

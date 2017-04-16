@@ -334,9 +334,6 @@
     <ClInclude Include="..\game_III\eWeaponFire.h">
       <Filter>game_III\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="..\extensions\Paths.h">
-      <Filter>extensions</Filter>
-    </ClInclude>
     <ClInclude Include="..\extensions\Screen.h">
       <Filter>extensions</Filter>
     </ClInclude>
@@ -428,6 +425,33 @@
       <Filter>game_III</Filter>
     </ClInclude>
     <ClInclude Include="..\game_III\CPedType.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\KeyCheck.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\C2deffectsModelInfo.h">
+      <Filter>game_III\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CInstance.h">
+      <Filter>game_III\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CWeaponInfo.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CWeaponEffects.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CFont.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CFontDetails.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSprite2d.h">
       <Filter>game_III</Filter>
     </ClInclude>
   </ItemGroup>
@@ -570,9 +594,6 @@
     <ClCompile Include="..\game_III\NodeName.cpp">
       <Filter>game_III\Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\extensions\Paths.cpp">
-      <Filter>extensions</Filter>
-    </ClCompile>
     <ClCompile Include="..\extensions\Screen.cpp">
       <Filter>extensions</Filter>
     </ClCompile>
@@ -646,6 +667,33 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CPedType.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\KeyCheck.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\C2deffectsModelInfo.cpp">
+      <Filter>game_III\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CInstance.cpp">
+      <Filter>game_III\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CWeaponInfo.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CWeaponEffects.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CFont.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CFontDetails.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CSprite2d.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
