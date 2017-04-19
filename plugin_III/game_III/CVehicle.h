@@ -32,10 +32,6 @@ enum eVehicleType {
     VEHICLE_BIKE
 };
 
-enum eVehicleApperance {
-    
-};
-
 enum eVehicleLightsFlags {
     VEHICLE_LIGHTS_TWIN = 1,
     VEHICLE_LIGHTS_IGNORE_DAMAGE = 4,
@@ -184,7 +180,7 @@ public:
     void RemoveRefsToVehicle(CEntity* entity);
     void BlowUpCar(CEntity* damager);
     bool SetUpWheelColModel(CColModel* wheelCol);
-    void BurstTyre(unsigned char tyreComponentId, bool bPhysicalEffect);
+    void BurstTyre(unsigned char tyreComponentId);
     bool IsRoomForPedToLeaveCar(unsigned int arg0, CVector* arg1);
     float GetHeightAboveRoad();
     void PlayCarHorn();

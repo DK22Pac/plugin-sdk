@@ -209,6 +209,7 @@
     <ClInclude Include="..\game_III\rw\rwplcore.h" />
     <ClInclude Include="..\game_III\rw\skeleton.h" />
     <ClInclude Include="..\game_III\tColSurface.h" />
+    <ClInclude Include="..\game_III\tHandlingData.h" />
     <ClInclude Include="..\game_III\tParticleType.h" />
     <ClInclude Include="..\game_III\tTransmissionGear.h" />
     <ClInclude Include="..\plbase\PluginBase_III.h" />

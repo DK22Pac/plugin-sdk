@@ -454,6 +454,9 @@
     <ClInclude Include="..\game_III\CSprite2d.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\tHandlingData.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">

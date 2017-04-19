@@ -79,9 +79,9 @@ bool CVehicle::SetUpWheelColModel(CColModel* wheelCol) {
     return plugin::CallVirtualMethodAndReturn<bool, 30, CVehicle *, CColModel*>(this, wheelCol);
 }
 
-// Converted from void CVehicle::BurstTyre(uchar tyreComponentId, bool bPhysicalEffect) 0x542660
-void CVehicle::BurstTyre(unsigned char tyreComponentId, bool bPhysicalEffect) {
-    plugin::CallVirtualMethod<31, CVehicle *, unsigned char, bool>(this, tyreComponentId, bPhysicalEffect);
+// Converted from void CVehicle::BurstTyre(uchar tyreComponentId) 0x542660
+void CVehicle::BurstTyre(unsigned char tyreComponentId) {
+    plugin::CallVirtualMethod<31, CVehicle *, unsigned char>(this, tyreComponentId);
 }
 
 // Converted from bool CVehicle::IsRoomForPedToLeaveCar(uint, CVector *) 0x4C7330
