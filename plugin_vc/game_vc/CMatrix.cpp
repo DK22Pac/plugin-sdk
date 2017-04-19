@@ -185,3 +185,17 @@ CVector Multiply3x3(CMatrix const& m, CVector const& v) {
     ((void(__cdecl *)(CVector*, CMatrix const&, CVector const&))0x4E0030)(&result, m, v);
     return result;
 }
+
+void CMatrix::SetRotateYOnly(float angle) {
+    float a_cos = cosf(angle);
+    float a_sin = sinf(angle);
+    right.y = 0.0f;
+    up.x = 0.0f;
+    up.y = 1.0f;
+    up.z = 0.0f;
+    at.y = 0.0f;
+    right.x = a_cos;
+    right.z = -a_sin;
+    at.x = a_sin;
+    at.z = a_cos;
+}
