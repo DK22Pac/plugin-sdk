@@ -17,7 +17,7 @@ public:
     static char* LoadLine(int fileHandle);
     static void LoadLevel(char const* datFilePath);
     static void LoadCollisionFromDatFile(unsigned int gameLevel);
-    static void LoadTexDictionary(char const* filepath);
+    static RwTexDictionary *LoadTexDictionary(char const* filepath);
     static void AddTexDictionaries(RwTexDictionary* dst, RwTexDictionary* src);
     static RpAtomic* FindRelatedModelInfoCB(RpAtomic* atomic, void* data);
     static void LoadAtomicFile(char const* filepath);

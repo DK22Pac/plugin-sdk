@@ -34,8 +34,8 @@ void CFileLoader::LoadCollisionFromDatFile(unsigned int gameLevel) {
 }
 
 // Converted from cdecl void CFileLoader::LoadTexDictionary(char const* filepath) 0x4765B0
-void CFileLoader::LoadTexDictionary(char const* filepath) {
-    plugin::Call<0x4765B0, char const*>(filepath);
+RwTexDictionary *CFileLoader::LoadTexDictionary(char const* filepath) {
+    plugin::CallAndReturn<RwTexDictionary *, 0x4765B0, char const*>(filepath);
 }
 
 // Converted from cdecl RwTexture* MoveTexturesCB(RwTexture *texture,void *data) 0x476610

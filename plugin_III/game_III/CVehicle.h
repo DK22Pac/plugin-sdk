@@ -12,6 +12,7 @@ Do not delete this comment block. Respect others' work!
 #include "CDamageManager.h"
 #include "eWeaponType.h"
 #include "CStoredCollPoly.h"
+#include "CAutoPilot.h"
 
 class CPlayerPed;
 
@@ -70,33 +71,7 @@ typedef int tWheelState;
 class CVehicle : public CPhysical {
 public:
     void                   *m_pHandling;
-    int field_12C;
-    int field_130;
-    int field_134;
-    int field_138;
-    unsigned int            m_nSpeedScaleFactor;
-    int field_140;
-    int field_144;
-    int field_148;
-    int field_14C;
-    int field_150;
-    char field_154; // pad?
-    char field_155;
-    char field_156;
-    char field_157;
-    char field_158;
-    char                    m_nDrivingStyle;
-    char                    m_nCarMission;
-    char                    m_nAnimationId;
-    unsigned int            m_nAnimationTime;
-    int field_160;
-    unsigned char           m_nCruiseSpeed;
-    char field_165;
-    char field_166[14];
-    void                   *m_pPathNodes[8];
-    short                   m_nNumPathNodes;
-    char field_196[2];
-    CVehicle               *m_pCarToRam;
+    CAutoPilot              m_autoPilot;
     unsigned char           m_nPrimaryColor;
     unsigned char           m_nSecondaryColor;
     unsigned char           m_nExtra[2];
