@@ -8,9 +8,7 @@
 
 #include "plbase/PluginBase_SA.h"
 
-#pragma pack(push, 1)
-struct Message
-{
+struct Message {
 	char *          m_pText;
 	unsigned short  m_wFlag;
 	char _pad1[2];
@@ -22,21 +20,18 @@ struct Message
 	char _pad2[3];
 };
 
-struct BigMessage
-{
+struct BigMessage {
 	Message m_Current;
 	Message m_Stack[3];
 };
 
-struct PreviousBrief
-{
+struct PreviousBrief {
 	char * m_pText;
-	int    m_dwNumber[6];
+	int    m_nNumber[6];
 	char * m_pString;
 };
 
-class PLUGIN_API CMessages
-{
+class CMessages {
 public:
 	// count: 20
 	static PreviousBrief *PreviousBriefs;
@@ -100,4 +95,3 @@ public:
 	// Adds big message to queue
 	static void AddBigMessageQ(char *text, unsigned int time, unsigned short style);
 };
-#pragma pack(pop)
