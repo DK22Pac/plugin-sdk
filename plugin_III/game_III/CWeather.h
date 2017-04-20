@@ -8,13 +8,7 @@
 
 #include "plbase\PluginBase_III.h"
 #include "CVector.h"
-
-enum eWeatherType {
-    WEATHER_SUNNY = 0,
-    WEATHER_CLOUDY = 1,
-    WEATHER_RAINY = 2,
-    WEATHER_FOGGY = 3
-};
+#include "eWeather.h"
 
 class CWeather {
 public:
