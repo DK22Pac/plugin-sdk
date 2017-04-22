@@ -102,6 +102,7 @@
     <ClInclude Include="..\game_III\CColTrianglePlane.h" />
     <ClInclude Include="..\game_III\CCopPed.h" />
     <ClInclude Include="..\game_III\CCurrentVehicle.h" />
+    <ClInclude Include="..\game_III\CCutsceneHead.h" />
     <ClInclude Include="..\game_III\CCutsceneObject.h" />
     <ClInclude Include="..\game_III\CDamageManager.h" />
     <ClInclude Include="..\game_III\CDirectory.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="..\game_III\CPedModelInfo.h" />
     <ClInclude Include="..\game_III\CPedStats.h" />
     <ClInclude Include="..\game_III\CPedType.h" />
+    <ClInclude Include="..\game_III\CPlaceName.h" />
     <ClInclude Include="..\game_III\CPlane.h" />
     <ClInclude Include="..\game_III\CPlayerInfo.h" />
     <ClInclude Include="..\game_III\CPlayerPed.h" />
@@ -152,6 +154,7 @@
     <ClInclude Include="..\game_III\CPtrList.h" />
     <ClInclude Include="..\game_III\CSector.h" />
     <ClInclude Include="..\game_III\CSprite2d.h" />
+    <ClInclude Include="..\game_III\CStoredCar.h" />
     <ClInclude Include="..\game_III\CStoredCollPoly.h" />
     <ClInclude Include="..\game_III\CTimeModelInfo.h" />
     <ClInclude Include="..\game_III\CTimer.h" />
@@ -173,6 +176,7 @@
     <ClInclude Include="..\game_III\CWeather.h" />
     <ClInclude Include="..\game_III\CWheel.h" />
     <ClInclude Include="..\game_III\CXtraCompsModelInfo.h" />
+    <ClInclude Include="..\game_III\CZone.h" />
     <ClInclude Include="..\game_III\eCopType.h" />
     <ClInclude Include="..\game_III\eCoronaType.h" />
     <ClInclude Include="..\game_III\eCrimeType.h" />
@@ -247,6 +251,7 @@
     <ClCompile Include="..\game_III\CColTrianglePlane.cpp" />
     <ClCompile Include="..\game_III\CCopPed.cpp" />
     <ClCompile Include="..\game_III\CCurrentVehicle.cpp" />
+    <ClCompile Include="..\game_III\CCutsceneHead.cpp" />
     <ClCompile Include="..\game_III\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_III\CDamageManager.cpp" />
     <ClCompile Include="..\game_III\CDirectory.cpp" />
@@ -278,6 +283,7 @@
     <ClCompile Include="..\game_III\CPedType.cpp" />
     <ClCompile Include="..\game_III\CPhysical.cpp" />
     <ClCompile Include="..\game_III\CPlaceable.cpp" />
+    <ClCompile Include="..\game_III\CPlaceName.cpp" />
     <ClCompile Include="..\game_III\CPlane.cpp" />
     <ClCompile Include="..\game_III\CPlayerInfo.cpp" />
     <ClCompile Include="..\game_III\CPlayerPed.cpp" />
@@ -291,6 +297,7 @@
     <ClCompile Include="..\game_III\CSphere.cpp" />
     <ClCompile Include="..\game_III\CSprite.cpp" />
     <ClCompile Include="..\game_III\CSprite2d.cpp" />
+    <ClCompile Include="..\game_III\CStoredCar.cpp" />
     <ClCompile Include="..\game_III\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_III\CTimer.cpp" />
     <ClCompile Include="..\game_III\CTrain.cpp" />
@@ -310,6 +317,7 @@
     <ClCompile Include="..\game_III\CWeaponInfo.cpp" />
     <ClCompile Include="..\game_III\CWeather.cpp" />
     <ClCompile Include="..\game_III\CXtraCompsModelInfo.cpp" />
+    <ClCompile Include="..\game_III\CZone.cpp" />
     <ClCompile Include="..\game_III\NodeName.cpp" />
     <ClCompile Include="..\game_III\RenderWare.cpp" />
     <ClCompile Include="..\plbase\PluginBase_III.cpp" />

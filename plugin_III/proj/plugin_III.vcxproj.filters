@@ -484,6 +484,18 @@
     <ClInclude Include="..\game_III\CFileLoader.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CCutsceneHead.h">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPlaceName.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CZone.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CStoredCar.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -748,6 +760,18 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CFileLoader.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCutsceneHead.cpp">
+      <Filter>game_III\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CZone.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPlaceName.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CStoredCar.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>

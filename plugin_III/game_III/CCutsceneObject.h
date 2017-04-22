@@ -16,3 +16,5 @@ public:
     CCutsceneObject();
     ~CCutsceneObject();
 };
+
+VALIDATE_SIZE(CCutsceneObject, 0x198);

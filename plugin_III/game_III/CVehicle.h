@@ -12,6 +12,7 @@ Do not delete this comment block. Respect others' work!
 #include "CDamageManager.h"
 #include "eWeaponType.h"
 #include "CStoredCollPoly.h"
+#include "tHandlingData.h"
 #include "CAutoPilot.h"
 
 class CPlayerPed;
@@ -21,7 +22,14 @@ enum eCarWeapon {
 };
 
 enum eCarLock {
-
+    CARLOCK_NOT_USED,
+    CARLOCK_UNLOCKED,
+    CARLOCK_LOCKED,
+    CARLOCK_LOCKOUT_PLAYER_ONLY,
+    CARLOCK_LOCKED_PLAYER_INSIDE,
+    CARLOCK_COP_CAR,
+    CARLOCK_FORCE_SHUT_DOORS,
+    CARLOCK_SKIP_SHUT_DOORS
 };
 
 enum eVehicleType {
@@ -70,13 +78,13 @@ typedef int tWheelState;
 
 class CVehicle : public CPhysical {
 public:
-    void                   *m_pHandling;
+    tHandlingData          *m_pHandling;
     CAutoPilot              m_autoPilot;
     unsigned char           m_nPrimaryColor;
     unsigned char           m_nSecondaryColor;
     unsigned char           m_nExtra[2];
-    short field_1A0;
-    char field_1A2[2];
+    short                   m_nWantedStarsOnEnter;
+    short                   m_nMissionValue;
     CPed                   *m_pDriver;
     CPed                   *m_pPassenger[8];
     unsigned char           m_nNumPassengers;
