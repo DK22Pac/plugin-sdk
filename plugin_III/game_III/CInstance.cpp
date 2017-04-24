@@ -15,8 +15,3 @@ CInstance::CInstance() {
 void CInstance::Shutdown() {
     plugin::CallMethod<0x50B850, CInstance *>(this);
 }
-
-// Converted from thiscall void CInstance::~CInstance(void) 0x50BE90
-CInstance::~CInstance() {
-    plugin::CallMethod<0x50BE90, CInstance *>(this);
-}

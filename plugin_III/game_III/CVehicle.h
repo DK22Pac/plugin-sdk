@@ -201,7 +201,6 @@ public:
     static void operator delete(void* data);
     static void* operator new(unsigned int size);
     static void* operator new(unsigned int size, int arg1);
-    ~CVehicle();
 };
 
 VALIDATE_SIZE(CVehicle, 0x288);

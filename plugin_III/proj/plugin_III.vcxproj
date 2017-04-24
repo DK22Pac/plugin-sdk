@@ -122,6 +122,8 @@
     <ClInclude Include="..\game_III\CompressedVector.h" />
     <ClInclude Include="..\game_III\CPad.h" />
     <ClInclude Include="..\game_III\CPager.h" />
+    <ClInclude Include="..\game_III\CParticle.h" />
+    <ClInclude Include="..\game_III\cParticleSystemMgr.h" />
     <ClInclude Include="..\game_III\CPathNode.h" />
     <ClInclude Include="..\game_III\CPedIK.h" />
     <ClInclude Include="..\game_III\CPedModelInfo.h" />
@@ -222,6 +224,7 @@
     <ClInclude Include="..\game_III\rw\skeleton.h" />
     <ClInclude Include="..\game_III\tColSurface.h" />
     <ClInclude Include="..\game_III\tHandlingData.h" />
+    <ClInclude Include="..\game_III\tParticleSystemData.h" />
     <ClInclude Include="..\game_III\tParticleType.h" />
     <ClInclude Include="..\game_III\tTransmissionGear.h" />
     <ClInclude Include="..\game_III\TxdDef.h" />
@@ -276,6 +279,8 @@
     <ClCompile Include="..\game_III\CompressedVector.cpp" />
     <ClCompile Include="..\game_III\CPad.cpp" />
     <ClCompile Include="..\game_III\CPager.cpp" />
+    <ClCompile Include="..\game_III\CParticle.cpp" />
+    <ClCompile Include="..\game_III\cParticleSystemMgr.cpp" />
     <ClCompile Include="..\game_III\CPathNode.cpp" />
     <ClCompile Include="..\game_III\CPed.cpp" />
     <ClCompile Include="..\game_III\CPedModelInfo.cpp" />

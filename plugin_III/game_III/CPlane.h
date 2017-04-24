@@ -44,7 +44,6 @@ public:
     static void Shutdown();
     static bool TestRocketCollision(CVector* arg0);
     static void UpdatePlanes();
-    ~CPlane();
 };
 #pragma pack(pop)
 

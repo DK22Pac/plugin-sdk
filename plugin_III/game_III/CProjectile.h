@@ -14,6 +14,5 @@ public:
     
     //funcs
     CProjectile(int arg0);
-    ~CProjectile();
 };
 

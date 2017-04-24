@@ -150,8 +150,3 @@ void CPhysical::RemoveFromMovingList() {
 void CPhysical::RemoveRefsToEntity(CEntity* entity) {
     plugin::CallMethod<0x49F820, CPhysical *, CEntity*>(this, entity);
 }
-
-// Converted from thiscall void CPhysical::~CPhysical(void) 0x495130
-CPhysical::~CPhysical() {
-    plugin::CallMethod<0x495130, CPhysical *>(this);
-}

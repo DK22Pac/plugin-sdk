@@ -10,8 +10,3 @@
 CCutsceneObject::CCutsceneObject() {
     plugin::CallMethod<0x4BA910, CCutsceneObject *>(this);
 }
-
-// Converted from thiscall void CCutsceneObject::~CCutsceneObject(void) 0x4BA960
-CCutsceneObject::~CCutsceneObject() {
-    plugin::CallMethod<0x4BA960, CCutsceneObject *>(this);
-}

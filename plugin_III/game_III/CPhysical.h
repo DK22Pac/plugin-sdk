@@ -89,7 +89,6 @@ public:
     void RemoveAndAdd();
     void RemoveFromMovingList();
     void RemoveRefsToEntity(CEntity* entity);
-    ~CPhysical();
 
     CPhysical() = delete;
     CPhysical(const CPhysical &) = delete;

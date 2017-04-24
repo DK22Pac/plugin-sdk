@@ -56,7 +56,6 @@ public:
     static void Shutdown();
     void TrainHitStuff(CPtrList& ptrList);
     static void UpdateTrains();
-    ~CTrain();
 };
 
 VALIDATE_SIZE(CTrain, 0x2E4);

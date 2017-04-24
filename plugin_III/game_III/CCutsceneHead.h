@@ -11,10 +11,9 @@ Do not delete this comment block. Respect others' work!
 
 class CCutsceneHead : public CCutsceneObject {
 public:
-    void *dword198;
+    RwFrame *m_pHeadNode;
     
     //funcs
-    ~CCutsceneHead();
     void PlayAnimation(char const* name);
     CCutsceneHead(CObject* object);
 };

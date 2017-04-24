@@ -7,37 +7,38 @@
 #pragma once
 #include "plbase/PluginBase_SA.h"
 
-enum eZoneType
-{
-	ZONE_TYPE_DISTRICT = 0,		// controls text s
-	ZONE_TYPE_ISLAND = 3
+enum eZoneType {
+	ZONE_TYPE_NAVI = 0,		// controls text s
+	ZONE_TYPE_MAP = 3
 };
 
-
-enum eLevelName
-{
+enum eLevelName {
 	LEVEL_NAME_COUNTRY_SIDE,
 	LEVEL_NAME_LOS_SANTOS,
 	LEVEL_NAME_SAN_FIERRO,
 	LEVEL_NAME_LAS_VENTURAS
 };
 
-#pragma pack(push, 1)
-struct PLUGIN_API CZone
-{
-	char name[8];
-	char text[8];
-	__int16 x1;
-	__int16 y1;
-	__int16 z1;
-	__int16 x2;
-	__int16 y2;
-	__int16 z2;
-	__int16 _zoneExtraIndexInfo;
-	char type;
-	char townNumber;
+struct ZoneExtraInfo {
+
+};
+
+class CZone {
+public:
+    unsigned int  m_nLabel[2];
+	char          m_szTextKey[8];
+	short         m_fX1;
+	short         m_fY1;
+	short         m_fZ1;
+	short         m_fX2;
+	short         m_fY2;
+	short         m_fZ2;
+	short         m_nZoneExtraIndexInfo;
+	unsigned char m_nType; // see eZoneType
+    unsigned char m_nLevel; // see eLevelName
 
 	// Returns pointer to GXT name string.
 	const char* GetTranslatedName();
 };
-#pragma pack(pop)
+
+VALIDATE_SIZE(CZone, 0x20);

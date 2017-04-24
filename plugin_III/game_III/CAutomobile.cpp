@@ -195,8 +195,3 @@ void CAutomobile::VehicleDamage(float damageIntensity, unsigned short arg1) {
 void CAutomobile::dmgDrawCarCollidingParticles(CVector const& position, float force) {
     plugin::CallMethod<0x52F030, CAutomobile *, CVector const&, float>(this, position, force);
 }
-
-// Converted from thiscall void CAutomobile::~CAutomobile(void) 0x52D170
-CAutomobile::~CAutomobile() {
-    plugin::CallMethod<0x52D170, CAutomobile *>(this);
-}

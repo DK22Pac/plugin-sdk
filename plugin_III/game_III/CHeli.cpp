@@ -83,8 +83,3 @@ bool CHeli::TestRocketCollision(CVector* arg0) {
 void CHeli::UpdateHelis() {
     plugin::Call<0x5499F0>();
 }
-
-// Converted from thiscall void CHeli::~CHeli(void) 0x5474A0 
-CHeli::~CHeli() {
-    plugin::CallMethod<0x5474A0, CHeli *>(this);
-}

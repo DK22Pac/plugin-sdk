@@ -22,13 +22,13 @@ void CPager::Display() {
 }
 
 // Converted from thiscall void CPager::AddMessage(ushort *text,ushort,ushort,ushort) 0x52B940
-void CPager::AddMessage(wchar_t* text, unsigned short arg1, unsigned short arg2, unsigned short arg3) {
-    plugin::CallMethod<0x52B940, CPager *, wchar_t*, unsigned short, unsigned short, unsigned short>(this, text, arg1, arg2, arg3);
+void CPager::AddMessage(wchar_t* text, unsigned short speed, unsigned short priority, unsigned short arg3) {
+    plugin::CallMethod<0x52B940, CPager *, wchar_t*, unsigned short, unsigned short, unsigned short>(this, text, speed, priority, arg3);
 }
 
 // Converted from thiscall void CPager::AddMessageWithNumber(ushort *text,int n1,int n2,int n3,int n4,int n5,int n6,ushort,ushort,ushort) 0x52BB50
-void CPager::AddMessageWithNumber(wchar_t* text, int n1, int n2, int n3, int n4, int n5, int n6, unsigned short arg7, unsigned short arg8, unsigned short arg9) {
-    plugin::CallMethod<0x52BB50, CPager *, wchar_t*, int, int, int, int, int, int, unsigned short, unsigned short, unsigned short>(this, text, n1, n2, n3, n4, n5, n6, arg7, arg8, arg9);
+void CPager::AddMessageWithNumber(wchar_t* text, int n1, int n2, int n3, int n4, int n5, int n6, unsigned short speed, unsigned short priority, unsigned short arg9) {
+    plugin::CallMethod<0x52BB50, CPager *, wchar_t*, int, int, int, int, int, int, unsigned short, unsigned short, unsigned short>(this, text, n1, n2, n3, n4, n5, n6, speed, priority, arg9);
 }
 
 // Converted from thiscall void CPager::ClearMessages(void) 0x52BE00

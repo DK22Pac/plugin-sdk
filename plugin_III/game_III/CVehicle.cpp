@@ -253,8 +253,3 @@ void* CVehicle::operator new(unsigned int size) {
 void* CVehicle::operator new(unsigned int size, int arg1) {
     return plugin::CallAndReturn<void*, 0x551130, unsigned int, int>(size, arg1);
 }
-
-// Converted from thiscall void CVehicle::~CVehicle() 0x551040
-CVehicle::~CVehicle() {
-    plugin::CallMethod<0x551040, CVehicle *>(this);
-}

@@ -18,7 +18,6 @@ public:
     //funcs
     CInstance();
     void Shutdown();
-    ~CInstance();
     
     CInstance(const CInstance &) = delete;
     CInstance &operator=(const CInstance &) = delete;

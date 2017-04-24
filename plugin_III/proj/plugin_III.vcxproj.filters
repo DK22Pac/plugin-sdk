@@ -496,6 +496,15 @@
     <ClInclude Include="..\game_III\CStoredCar.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\tParticleSystemData.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\cParticleSystemMgr.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CParticle.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -772,6 +781,12 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CStoredCar.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\cParticleSystemMgr.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CParticle.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
