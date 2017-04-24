@@ -17,7 +17,6 @@ class CUserDisplay {
 public:
     //variables
     static CPager &Pager;
-    static CPager &Pager;
     static CCurrentVehicle &CurrentVehicle;
     static CPlaceName &PlaceName;
     static COnscreenTimer &OnscnTimer;

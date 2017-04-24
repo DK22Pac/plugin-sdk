@@ -156,6 +156,7 @@
     <ClInclude Include="..\game_III\CPtrList.h" />
     <ClInclude Include="..\game_III\CSector.h" />
     <ClInclude Include="..\game_III\CSprite2d.h" />
+    <ClInclude Include="..\game_III\CStats.h" />
     <ClInclude Include="..\game_III\CStoredCar.h" />
     <ClInclude Include="..\game_III\CStoredCollPoly.h" />
     <ClInclude Include="..\game_III\CTimeModelInfo.h" />
@@ -302,6 +303,7 @@
     <ClCompile Include="..\game_III\CSphere.cpp" />
     <ClCompile Include="..\game_III\CSprite.cpp" />
     <ClCompile Include="..\game_III\CSprite2d.cpp" />
+    <ClCompile Include="..\game_III\CStats.cpp" />
     <ClCompile Include="..\game_III\CStoredCar.cpp" />
     <ClCompile Include="..\game_III\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_III\CTimer.cpp" />

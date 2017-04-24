@@ -496,6 +496,9 @@
     <ClInclude Include="..\game_III\CStoredCar.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CStats.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
     <ClInclude Include="..\game_III\tParticleSystemData.h">
       <Filter>game_III</Filter>
     </ClInclude>
@@ -781,6 +784,9 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CStoredCar.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CStats.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\cParticleSystemMgr.cpp">
