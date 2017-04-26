@@ -11,8 +11,6 @@
 
 class CCutsceneObject : public CObject {
 public:
-    
-    //funcs
     CCutsceneObject();
 };
 

@@ -508,6 +508,12 @@
     <ClInclude Include="..\game_III\CParticle.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CClouds.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPlayerSkin.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -793,6 +799,12 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CParticle.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CClouds.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPlayerSkin.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>

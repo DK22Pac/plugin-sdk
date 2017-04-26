@@ -93,6 +93,7 @@
     <ClInclude Include="..\game_III\CBuilding.h" />
     <ClInclude Include="..\game_III\CCivilianPed.h" />
     <ClInclude Include="..\game_III\CClock.h" />
+    <ClInclude Include="..\game_III\CClouds.h" />
     <ClInclude Include="..\game_III\CClumpModelInfo.h" />
     <ClInclude Include="..\game_III\CColBox.h" />
     <ClInclude Include="..\game_III\CColLine.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="..\game_III\CPlane.h" />
     <ClInclude Include="..\game_III\CPlayerInfo.h" />
     <ClInclude Include="..\game_III\CPlayerPed.h" />
+    <ClInclude Include="..\game_III\CPlayerSkin.h" />
     <ClInclude Include="..\game_III\CProjectile.h" />
     <ClInclude Include="..\game_III\CQuaternion.h" />
     <ClInclude Include="..\game_III\CRect.h" />
@@ -245,6 +247,7 @@
     <ClCompile Include="..\game_III\CBuilding.cpp" />
     <ClCompile Include="..\game_III\CCivilianPed.cpp" />
     <ClCompile Include="..\game_III\CClock.cpp" />
+    <ClCompile Include="..\game_III\CClouds.cpp" />
     <ClCompile Include="..\game_III\CClumpModelInfo.cpp" />
     <ClCompile Include="..\game_III\CColBox.cpp" />
     <ClCompile Include="..\game_III\CColLine.cpp" />
@@ -293,6 +296,7 @@
     <ClCompile Include="..\game_III\CPlane.cpp" />
     <ClCompile Include="..\game_III\CPlayerInfo.cpp" />
     <ClCompile Include="..\game_III\CPlayerPed.cpp" />
+    <ClCompile Include="..\game_III\CPlayerSkin.cpp" />
     <ClCompile Include="..\game_III\CPools.cpp" />
     <ClCompile Include="..\game_III\CProjectile.cpp" />
     <ClCompile Include="..\game_III\CPtrList.cpp" />
