@@ -1798,6 +1798,15 @@
     <ClInclude Include="..\game_sa\CAEPedSpeechAudioEntity.h">
       <Filter>game_sa\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\FxEmitterBP_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxPrimBP_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\FxInfoManager_c.h">
+      <Filter>game_sa\Fx</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">

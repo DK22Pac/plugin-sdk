@@ -584,6 +584,9 @@
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
     <ClInclude Include="..\game_sa\CWeather.h" />
     <ClInclude Include="..\game_sa\eSprintType.h" />
+    <ClInclude Include="..\game_sa\FxEmitterBP_c.h" />
+    <ClInclude Include="..\game_sa\FxInfoManager_c.h" />
+    <ClInclude Include="..\game_sa\FxPrimBP_c.h" />
     <ClInclude Include="..\game_sa\RwExtensions.h" />
     <ClInclude Include="..\game_sa\tPickupMessage.h" />
     <ClInclude Include="..\game_sa\TxdDef.h" />
