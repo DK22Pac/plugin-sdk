@@ -1807,6 +1807,12 @@
     <ClInclude Include="..\game_sa\CAEPedSpeechAudioEntity.h">
       <Filter>game_sa\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CEntryExitManager.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CEntryExit.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3281,6 +3287,12 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\PipelinePlugin.cpp">
       <Filter>game_sa\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CEntryExitManager.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CEntryExit.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
