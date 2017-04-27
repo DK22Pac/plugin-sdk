@@ -8,9 +8,20 @@
 
 #include "plbase/PluginBase_SA.h"
 
+/**
+ * Double linked list item base class
+ *
+ * You should inherit this class to use it in List_c lists!
+ */
 class PLUGIN_API ListItem_c
 {
-public:
+protected:
 	ListItem_c *next;
 	ListItem_c *prev;
+
+protected:
+	ListItem_c(void);
+	~ListItem_c(void);
+
+friend class List_c;
 };

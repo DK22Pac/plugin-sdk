@@ -18,18 +18,20 @@ class FxEmitterPrt_c;
 
 class FxManager_c {
 public:
-	List_c m_fxSystemBPList;
-	List_c m_fxSystemList;
-	void *m_pFxEmitters;
-	List_c m_fxEmitterPrtList;
-	int m_nFxTxdIndex;
-	RwV3d *m_pWindDir;
-	float *m_pfWindSpeed;
-	FxFrustumInfo_c m_frustum;
-	unsigned int m_nCurrentMatrix;
-	RwMatrix *m_apMatrices[8];
-	FxMemoryPool_c m_pool;
+	TList_c<FxSystemBP_c>   m_fxSystemBPList;
+	TList_c<FxSystem_c>     m_fxSystemList;
+	FxEmitterPrt_c *        m_pFxEmitters;
+	TList_c<FxEmitterPrt_c> m_fxEmitterPrtList;
+	int                     m_nFxTxdIndex;
+	RwV3d *                 m_pWindDir;
+	Float *                 m_pfWindSpeed;
+	FxFrustumInfo_c         m_frustum;
+	unsigned int            m_nCurrentMatrix;
+	RwMatrix *              m_apMatrices[8];
+	FxMemoryPool_c          m_pool;
 
+public:
+	FxManager_c();
     ~FxManager_c();
     FxFrustumInfo_c* GetFrustumInfo();
     void CalcFrustumInfo(RwCamera* camera);
@@ -41,18 +43,17 @@ public:
     void FreeUpParticle();
     RwMatrix* FxRwMatrixCreate();
     void FxRwMatrixDestroy(RwMatrix* matrix);
-    FxManager_c();
-    bool ShouldCreate(FxSystemBP_c* bpSystem, RwMatrixTag* transform, RwMatrixTag* objectMatrix, unsigned char ignoreBoundingChecks);
-    FxSystem_c* CreateFxSystem(FxSystemBP_c* bpSystem, RwMatrixTag* transform, RwMatrixTag* objectMatrix, unsigned char ignoreBoundingChecks);
-    FxSystem_c* CreateFxSystem(FxSystemBP_c* bpSystem, RwV3d* position, RwMatrixTag* objectMatrix, unsigned char ignoreBoundingChecks);
+    bool ShouldCreate(FxSystemBP_c* bpSystem, RwMatrix* transform, RwMatrix* objectMatrix, unsigned char ignoreBoundingChecks);
+    FxSystem_c* CreateFxSystem(FxSystemBP_c* bpSystem, RwMatrix* transform, RwMatrix* objectMatrix, unsigned char ignoreBoundingChecks);
+    FxSystem_c* CreateFxSystem(FxSystemBP_c* bpSystem, RwV3d* position, RwMatrix* objectMatrix, unsigned char ignoreBoundingChecks);
     void DestroyFxSystem(FxSystem_c* system);
     void DestroyAllFxSystems();
     bool Init();
     void Exit();
     void Update(RwCamera* arg0, float timeDelta);
     void UnloadFxProject();
-    FxSystem_c* CreateFxSystem(char* name, RwMatrixTag* transform, RwMatrixTag* objectMatrix, unsigned char ignoreBoundingChecks);
-    FxSystem_c* CreateFxSystem(char* name, RwV3d* position, RwMatrixTag* objectMatrix, unsigned char ignoreBoundingChecks);
+    FxSystem_c* CreateFxSystem(char* name, RwMatrix* transform, RwMatrix* objectMatrix, unsigned char ignoreBoundingChecks);
+    FxSystem_c* CreateFxSystem(char* name, RwV3d* position, RwMatrix* objectMatrix, unsigned char ignoreBoundingChecks);
     FxSystemBP_c* LoadFxSystemBP(char* filename, int file);
     bool LoadFxProject(char* filename);
 };

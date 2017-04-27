@@ -167,3 +167,8 @@ void RpAnimBlendKeyFrameInterpolate(void* voidOut, void* voidIn1, void* voidIn2,
 bool RpAnimBlendPluginAttach();
 
 void AsciiToGxtChar(char const *src, char *dst);
+
+/**
+ * Writes given raster to PNG file using RtPNGImageWrite
+ */
+void WriteRaster(RwRaster * pRaster, char const * pszPath);
