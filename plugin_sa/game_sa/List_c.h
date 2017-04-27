@@ -21,7 +21,6 @@ public:
 	ListItem_c *first;
 	unsigned int count;
 
-protected:
 	List_c(void);
 	~List_c(void);
 
