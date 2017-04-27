@@ -12,7 +12,7 @@
 float gScreenResolution = PLUGIN_SCREEN_RESOLUTION_DEFAULT;
 
 float plugin::screen::GetCoord(float a) {
-    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? RsGlobal.maximumHeight : RsGlobal.maximumWidth;
+    auto base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? RsGlobal.maximumHeight : RsGlobal.maximumWidth;
     return static_cast<int>(a * base / gScreenResolution);
 }
 
@@ -73,7 +73,7 @@ float plugin::screen::GetCoordCenterDown(float a) {
 }
 
 float plugin::screen::GetMultiplier(float a) {
-    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? RsGlobal.maximumHeight : RsGlobal.maximumWidth;
+    auto base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? RsGlobal.maximumHeight : RsGlobal.maximumWidth;
     return a * base / gScreenResolution;
 }
 
