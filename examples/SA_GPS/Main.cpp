@@ -4,14 +4,17 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include <plugin.h>
-#include <game_sa\common.h>
-#include <game_sa\CMenuManager.h>
-#include <game_sa\CRadar.h>
-#include <game_sa\CWorld.h>
-#include <game_sa\RenderWare.h>
-#include <game_sa\CFont.h>
+#include "plugin.h"
+#include "game_sa\RenderWare.h"
+#include "game_sa\common.h"
+#include "game_sa\CMenuManager.h"
+#include "game_sa\CRadar.h"
+#include "game_sa\CWorld.h"
+#include "game_sa\RenderWare.h"
+#include "game_sa\CFont.h"
+#include "..\DXSDK\9.0c\Include\d3d9.h"
 
+#ifdef _D3D9_H_
 #define MAX_NODE_POINTS 2000
 #define GPS_LINE_WIDTH  4.0f
 #define GPS_LINE_R  180
@@ -90,8 +93,8 @@ public:
                         rect.left = posn.x + 2.0f; rect.bottom = posn.y - 2.0f;
                         CRadar::TransformRadarPointToScreenSpace(posn, CVector2D(1.0f, 1.0f));
                         rect.right = posn.x - 2.0f; rect.top = posn.y + 2.0f;
-                        _RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, TRUE);
-                        _RwD3DDevice->SetScissorRect(&rect);
+                        GetD3DDevice()->SetRenderState(D3DRS_SCISSORTESTENABLE, TRUE);
+                        GetD3DDevice()->SetScissorRect(&rect);
                     }
 
                     RwRenderStateSet(rwRENDERSTATETEXTURERASTER, NULL);
@@ -131,7 +134,7 @@ public:
                     if (!FrontEndMenuManager.drawRadarOrMap
                         && reinterpret_cast<D3DCAPS9 const*>(RwD3D9GetCaps())->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
                     {
-                        _RwD3DDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, FALSE);
+                        GetD3DDevice()->SetRenderState(D3DRS_SCISSORTESTENABLE, FALSE);
                     }
 
                     gpsDistance += DistanceBetweenPoints(FindPlayerCoors(0), ThePaths.GetPathNode(resultNodes[0])->GetNodeCoors());
@@ -173,3 +176,4 @@ public:
         vertex.emissiveColor = RWRGBALONG(GPS_LINE_R, GPS_LINE_G, GPS_LINE_B, GPS_LINE_A);
     }
 } gps;
+#endif

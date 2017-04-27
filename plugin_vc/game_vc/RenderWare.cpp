@@ -10,11 +10,6 @@ RwGlobals *&RwEngineInstance = *(RwGlobals **)0x7870C0;
 
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x9B48D8;
 
-#ifdef _D3D_INCLUDE
-LPDIRECT3DDEVICE8 &_RwD3DDevice = *(LPDIRECT3DDEVICE8 *)0x7897A8;
-
-#endif
-
 /* rwplcore.h */
 
 RwFreeList* _rwFreeListCreate(RwInt32 entrySize, RwInt32 entriesPerBlock, RwInt32 alignment, const RwChar* fileCreate, RwUInt32 lineCreate) {

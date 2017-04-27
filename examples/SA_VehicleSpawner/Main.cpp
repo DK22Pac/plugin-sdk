@@ -43,8 +43,11 @@ public:
                 if (!str.compare(0, str.size(), CCheat::m_CheatString, str.size())) {
                     CCheat::m_CheatString[0] = '\0';
                     str = vehicleNames[i];
-                    if (CCheat::VehicleCheat(i + 400))
+                    CVehicle *vehicle = CCheat::VehicleCheat(i + 400);
+                    if (vehicle) {
+                        vehicle->m_nFlags.bHasBeenOwnedByPlayer = true;
                         str.append(" SPAWNED");
+                    }
                     else {
                         str.insert(0, "CAN'T SPAWN ");
                         str.append(" RIGHT NOW");
@@ -54,5 +57,4 @@ public:
             }
         };
     }
-
 } vehicleSpawner;

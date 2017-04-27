@@ -9,9 +9,10 @@
 #include "plbase\PluginBase_III.h"
 #include "CMatrix.h"
 
-class CPlaceable : public CMatrix {
+class CPlaceable {
 public:
-    CPlaceable(plugin::dummy_func_t) : CMatrix(plugin::dummy) {}
+	CMatrix m_matrix;
+    CPlaceable(plugin::dummy_func_t) : m_matrix(plugin::dummy) {}
     CPlaceable();
     bool IsWithinArea(float x1, float y1, float z1, float x2, float y2, float z2);
     bool IsWithinArea(float x1, float y1, float x2, float y2);

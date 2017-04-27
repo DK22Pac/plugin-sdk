@@ -44,6 +44,7 @@ enum eWeatherRegion {
 };
 
 class CWeather {
+public:
     static float &TrafficLightsBrightness;
     static bool &bScriptsForceRain;
     static float &Earthquake;

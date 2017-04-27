@@ -46,11 +46,6 @@ void CTrain::UpdateTrains() {
     plugin::Call<0x54F3A0>();
 }
 
-// Converted from thiscall void CTrain::~CTrain() 0x54E450
-CTrain::~CTrain() {
-    plugin::CallMethod<0x54E450, CTrain *>(this);
-}
-
 unsigned _int16 *NumTrackNodes = (unsigned _int16 *)0x95CC5C;
 unsigned _int16 *NumTrackNodes_S = (unsigned _int16 *)0x95CC6A;
 CTrainNode **pTrackNodes = (CTrainNode **)0x8F4338;

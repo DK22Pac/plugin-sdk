@@ -6,10 +6,6 @@
 */
 #pragma once
 
-#ifdef _D3D_INCLUDE
-#include <d3d8.h>
-#endif
-
 #include "rw\rwcore.h"
 #include "rw\rphanim.h"
 #include "rw\rpskin.h"
@@ -23,10 +19,10 @@ extern RwGlobals *&RwEngineInstance;
 
 extern RsGlobalType &RsGlobal;
 
-#ifdef _D3D_INCLUDE
-extern LPDIRECT3DDEVICE8 &_RwD3DDevice;
-
-#endif
+template<typename T>
+T *GetD3DDevice() {
+    return *reinterpret_cast<T **>(0x662EF0);
+}
 
 /* rwplcore.h */
 

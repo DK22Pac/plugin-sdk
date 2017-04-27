@@ -122,7 +122,7 @@ public:
     void UpdateRwFrame();
     
     inline CVector &GetPosition() {
-        return pos;
+        return m_matrix.pos;
     }
 
     CEntity(const CEntity &) = delete;

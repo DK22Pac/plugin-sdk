@@ -37,7 +37,6 @@ public:
     static float IsVertexAffectedByWake(CVector arg0, CBoat* arg1);
     void PruneWakeTrail();
     void SetupModelNodes();
-    ~CBoat();
 };
 
 //VALIDATE_SIZE(CBoat, 0x484);

@@ -66,11 +66,6 @@ void CPlane::UpdatePlanes() {
     plugin::Call<0x54BEC0>();
 }
 
-// Converted from thiscall void CPlane::~CPlane(void) 0x54B270
-CPlane::~CPlane() {
-    plugin::CallMethod<0x54B270, CPlane *>(this);
-}
-
 // Converted from cdecl void CreateIncomingCesna(void) 0x54E000
 void CreateIncomingCesna() {
     plugin::Call<0x54E000>();

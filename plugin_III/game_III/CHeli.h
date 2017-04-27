@@ -52,7 +52,6 @@ public:
     static bool TestBulletCollision(CVector* arg0, CVector* arg1, CVector* arg2, int arg3);
     static bool TestRocketCollision(CVector* arg0);
     static void UpdateHelis();
-    ~CHeli();
 }; 
 
 //VALIDATE_SIZE(CHeli, 0x33C);

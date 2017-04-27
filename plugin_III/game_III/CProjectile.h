@@ -11,9 +11,7 @@ Do not delete this comment block. Respect others' work!
 
 class CProjectile : public CObject {
 public:
-    
-    //funcs
-    CProjectile(int arg0);
-    ~CProjectile();
+    CProjectile(int modelIndex);
 };
 
+VALIDATE_SIZE(CProjectile, 0x198);

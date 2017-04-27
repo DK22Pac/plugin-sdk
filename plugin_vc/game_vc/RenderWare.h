@@ -6,10 +6,6 @@
 */
 #pragma once
 
-#ifdef _D3D_INCLUDE
-#include <d3d8.h>
-#endif
-
 // TODO: Clean up RW headers
 
 #include "rw\rwcore.h"
@@ -25,10 +21,10 @@ extern RwGlobals *&RwEngineInstance;
 
 extern RsGlobalType &RsGlobal;
 
-#ifdef _D3D_INCLUDE
-extern LPDIRECT3DDEVICE8 &_RwD3DDevice;
-
-#endif
+template<typename T>
+T *GetD3DDevice() {
+    return *reinterpret_cast<T **>(0x7897A8);
+}
 
 /* rwplcore.h */
 

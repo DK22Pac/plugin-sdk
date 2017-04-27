@@ -4,8 +4,8 @@ Some kind of "dev-kit" I'm using for creating plugins for GTA San Andreas and GT
 Feel free to use it too!
 
 ## How to use plugin-sdk?
-1. Install Visual Studio 2017
-2. Copy plugin-sdk to your computer and generate project templates
+1. Install Visual Studio 2017 (Detailed: [**Installing Visual Studio**](https://github.com/DK22Pac/plugin-sdk/wiki/Installing-Visual-Studio))
+2. Copy plugin-sdk to your computer and generate project templates (Detailed: [**Configuring plugin sdk (detailed instructions)**](https://github.com/DK22Pac/plugin-sdk/wiki/Configuring-plugin-sdk-(detailed-instructions)))
 3. Create and setup your project (Detailed: [**Plugin SDK projects build configurations**](https://github.com/DK22Pac/plugin-sdk/wiki/Plugin-SDK-projects-build-configurations))
 
 ## Как использовать plugin-sdk?

@@ -53,11 +53,6 @@ void CBoat::SetupModelNodes() {
     plugin::CallMethod<0x53E7D0, CBoat *>(this);
 }
 
-// Converted from thiscall void CBoat::~CBoat(void) 0x53E790 
-CBoat::~CBoat() {
-    plugin::CallMethod<0x53E790, CBoat *>(this);
-}
-
 // Converted from cdecl RwObject* GetBoatAtomicObjectCB(RwObject *object,void *data) 0x53E3C0
 RwObject* GetBoatAtomicObjectCB(RwObject* object, void* data) {
     return ((RwObject* (__cdecl *)(RwObject*, void*))0x53E3C0)(object, data);

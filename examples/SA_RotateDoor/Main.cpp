@@ -32,11 +32,11 @@ public:
         });
 
         static RwIm3DVertex vertsAxis[6] = { { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(255, 0, 0, 255), 0.0f, 0.0f },
-                                             { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(255, 0, 0, 255), 0.0f, 0.0f },
-                                             { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 255, 0, 255), 0.0f, 0.0f },
-                                             { 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 255, 0, 255), 0.0f, 0.0f },
-                                             { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 0, 255, 255), 0.0f, 0.0f },
-                                             { 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 0, 255, 255), 0.0f, 0.0f } };
+        { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(255, 0, 0, 255), 0.0f, 0.0f },
+        { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 255, 0, 255), 0.0f, 0.0f },
+        { 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 255, 0, 255), 0.0f, 0.0f },
+        { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 0, 255, 255), 0.0f, 0.0f },
+        { 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, RWRGBALONG(0, 0, 255, 255), 0.0f, 0.0f } };
 
         Events::drawingEvent.Add([] {
             CVehicle *vehicle = FindPlayerVehicle(0, false);

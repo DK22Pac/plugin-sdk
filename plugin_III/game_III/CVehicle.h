@@ -12,6 +12,8 @@ Do not delete this comment block. Respect others' work!
 #include "CDamageManager.h"
 #include "eWeaponType.h"
 #include "CStoredCollPoly.h"
+#include "tHandlingData.h"
+#include "CAutoPilot.h"
 
 class CPlayerPed;
 
@@ -20,7 +22,14 @@ enum eCarWeapon {
 };
 
 enum eCarLock {
-
+    CARLOCK_NOT_USED,
+    CARLOCK_UNLOCKED,
+    CARLOCK_LOCKED,
+    CARLOCK_LOCKOUT_PLAYER_ONLY,
+    CARLOCK_LOCKED_PLAYER_INSIDE,
+    CARLOCK_COP_CAR,
+    CARLOCK_FORCE_SHUT_DOORS,
+    CARLOCK_SKIP_SHUT_DOORS
 };
 
 enum eVehicleType {
@@ -30,10 +39,6 @@ enum eVehicleType {
     VEHICLE_HELI,
     VEHICLE_PLANE,
     VEHICLE_BIKE
-};
-
-enum eVehicleApperance {
-    
 };
 
 enum eVehicleLightsFlags {
@@ -73,39 +78,13 @@ typedef int tWheelState;
 
 class CVehicle : public CPhysical {
 public:
-    void                   *m_pHandling;
-    int field_12C;
-    int field_130;
-    int field_134;
-    int field_138;
-    unsigned int            m_nSpeedScaleFactor;
-    int field_140;
-    int field_144;
-    int field_148;
-    int field_14C;
-    int field_150;
-    char field_154; // pad?
-    char field_155;
-    char field_156;
-    char field_157;
-    char field_158;
-    char                    m_nDrivingStyle;
-    char                    m_nCarMission;
-    char                    m_nAnimationId;
-    unsigned int            m_nAnimationTime;
-    int field_160;
-    unsigned char           m_nCruiseSpeed;
-    char field_165;
-    char field_166[14];
-    void                   *m_pPathNodes[8];
-    short                   m_nNumPathNodes;
-    char field_196[2];
-    CVehicle               *m_pCarToRam;
+    tHandlingData          *m_pHandling;
+    CAutoPilot              m_autoPilot;
     unsigned char           m_nPrimaryColor;
     unsigned char           m_nSecondaryColor;
     unsigned char           m_nExtra[2];
-    short field_1A0;
-    char field_1A2[2];
+    short                   m_nWantedStarsOnEnter;
+    short                   m_nMissionValue;
     CPed                   *m_pDriver;
     CPed                   *m_pPassenger[8];
     unsigned char           m_nNumPassengers;
@@ -184,7 +163,7 @@ public:
     void RemoveRefsToVehicle(CEntity* entity);
     void BlowUpCar(CEntity* damager);
     bool SetUpWheelColModel(CColModel* wheelCol);
-    void BurstTyre(unsigned char tyreComponentId, bool bPhysicalEffect);
+    void BurstTyre(unsigned char tyreComponentId);
     bool IsRoomForPedToLeaveCar(unsigned int arg0, CVector* arg1);
     float GetHeightAboveRoad();
     void PlayCarHorn();
@@ -222,7 +201,6 @@ public:
     static void operator delete(void* data);
     static void* operator new(unsigned int size);
     static void* operator new(unsigned int size, int arg1);
-    ~CVehicle();
 };
 
 VALIDATE_SIZE(CVehicle, 0x288);
