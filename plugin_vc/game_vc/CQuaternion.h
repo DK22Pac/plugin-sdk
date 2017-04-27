@@ -44,6 +44,7 @@ public:
 
 VALIDATE_SIZE(CQuaternion, 0x10);
 
+/*
 void QuatTest() {
     RwFrame *stwhframe;
     float steerangle = 0.0f;
@@ -57,3 +58,4 @@ void QuatTest() {
     result.Multiply(wheelquat, rotation);
     result.Get(&stwhframe->modelling);
 }
+*/

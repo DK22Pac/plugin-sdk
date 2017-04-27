@@ -13,9 +13,9 @@ class FxSystem_c;
 
 /* FX System BluePrint */
 
-class FxSystemBP_c {
+class FxSystemBP_c : public ListItem_c {
 public:
-    ListItem_c m_link;
+    //ListItem_c m_link;
     unsigned int m_dwKey;
     float m_fLength;
     float m_fLoopIntervalMin;

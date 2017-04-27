@@ -225,7 +225,9 @@ public:
 	bool                m_bLanguageChanged;
 	__int8 field_8D[3];
 	__int32 field_90;
-	__int8 field_94[24];
+	__int32 field_94;
+	RwInt8 *            m_pJPegBuffer; //!< +0x98  \see JPegCompress file
+	__int8  field_9C[16];
 	__int32 field_AC;
 	__int8              m_nRadioMode;
 	__int8 invertPadX1;

@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "common.h"
+#include <cassert>
 
 char *gString = (char *)0xB71670;
 
@@ -575,4 +576,12 @@ bool RpAnimBlendPluginAttach() {
 
 void AsciiToGxtChar(char const *src, char *dst) {
     plugin::Call<0x718600, char const *, char *>(src, dst);
+}
+
+// US-1.00 @ 0x005A4150
+// EU-1.00 @ 0x005A4150
+void WriteRaster(RwRaster * pRaster, char const * pszPath) {
+	assert(pRaster);
+	assert(pszPath && pszPath[0]);
+	plugin::Call<0x005A4150>(pRaster, pszPath);
 }

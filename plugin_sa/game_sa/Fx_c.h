@@ -39,14 +39,14 @@ public:
 	FxSystem_c *m_pPrtWatersplash;
 	FxSystem_c *m_pPrtWheeldirt;
 	FxSystem_c *m_pPrtGlass;
-	List_c m_entityFxList;
+	TList_c<ListItem_c> m_entityFxList;
 	unsigned int m_nBloodPoolsCount;
 	FxQuality_e m_fxQuality;
 	unsigned int m_nVerticesCount2;
 	unsigned int m_nVerticesCount;
 	unsigned int m_nTransformRenderFlags;
 	RwRaster *m_pRasterToRender;
-	RwMatrixTag *m_pTransformLTM;
+	RwMatrix *m_pTransformLTM;
 	void *m_pVerts;
 
     Fx_c();
