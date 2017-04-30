@@ -1851,6 +1851,64 @@ struct RwObject
 #endif /* RWADOXYGENEXTERNAL */
 typedef RwObject *(*RwObjectCallBack)(RwObject *object, void *data);
 
+/****************************************************************************
+Function prototypes
+*/
+
+    /* TYPE METHODS */
+
+    /* Creation/cloning */
+
+#define rwObjectCopy(d,s)                               \
+MACRO_START                                             \
+{                                                       \
+    ((RwObject *)(d))->type =                           \
+        ((const RwObject *)(s))->type;                  \
+    ((RwObject *)(d))->subType =                        \
+        ((const RwObject *)(s))->subType;               \
+    ((RwObject *)(d))->flags =                          \
+        ((const RwObject *)(s))->flags;                 \
+    ((RwObject *)(d))->privateFlags =                   \
+        ((const RwObject *)(s))->privateFlags;          \
+    ((RwObject *)(d))->parent =                         \
+        NULL;                                           \
+}                                                       \
+MACRO_STOP
+
+#define rwObjectInitialize(o, t, s)                     \
+MACRO_START                                             \
+{                                                       \
+    ((RwObject *)(o))->type = (RwUInt8)(t);             \
+    ((RwObject *)(o))->subType = (RwUInt8)(s);          \
+    ((RwObject *)(o))->flags = 0;                       \
+    ((RwObject *)(o))->privateFlags = 0;                \
+    ((RwObject *)(o))->parent = NULL;                   \
+}                                                       \
+MACRO_STOP
+
+    /* Debug */
+#define RwObjectGetType(o)                  (((const RwObject *)(o))->type)
+
+#define rwObjectSetType(o, t)               (((RwObject *)(o))->type) = (RwUInt8)(t)
+
+    /* Sub type */
+#define rwObjectGetSubType(o)               (((const RwObject *)(o))->subType)
+#define rwObjectSetSubType(o, t)            (((RwObject *)(o))->subType) = (RwUInt8)(t)
+
+    /* Flags */
+#define rwObjectGetFlags(o)                 (((const RwObject *)(o))->flags)
+#define rwObjectSetFlags(o, f)              (((RwObject *)(o))->flags) = (RwUInt8)(f)
+#define rwObjectTestFlags(o, f)             ((((const RwObject *)(o))->flags) & (RwUInt8)(f))
+
+    /* Private flags */
+#define rwObjectGetPrivateFlags(c)          (((const RwObject *)(c))->privateFlags)
+#define rwObjectSetPrivateFlags(c,f)        (((RwObject *)(c))->privateFlags) = (RwUInt8)(f)
+#define rwObjectTestPrivateFlags(c,flag)    ((((const RwObject *)(c))->privateFlags) & (RwUInt8)(flag))
+
+    /* Hierarchy */
+#define rwObjectGetParent(object)           (((const RwObject *)(object))->parent)
+#define rwObjectSetParent(c,p)              (((RwObject *)(c))->parent) = (void *)(p)
+
 /*--- Automatically derived from: C:/daily/rwsdk/os/win/osintf.h ---*/
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/rwdbgerr.h ---*/
