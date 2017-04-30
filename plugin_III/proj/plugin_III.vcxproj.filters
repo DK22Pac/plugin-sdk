@@ -49,6 +49,9 @@
     <Filter Include="extensions">
       <UniqueIdentifier>{f4ab649f-f4a0-43c5-b64a-259dbaa612d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game_III\Animation">
+      <UniqueIdentifier>{209e2a4f-0fd8-4734-996f-34b008217794}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\plugin_III.h" />
@@ -418,9 +421,6 @@
     <ClInclude Include="..\game_III\CPedStats.h">
       <Filter>game_III</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_III\LimbOrienation.h">
-      <Filter>game_III</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_III\CCurrentVehicle.h">
       <Filter>game_III</Filter>
     </ClInclude>
@@ -513,6 +513,21 @@
     </ClInclude>
     <ClInclude Include="..\game_III\CPlayerSkin.h">
       <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\LimbOrientation.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\AnimBlendFrameData.h">
+      <Filter>game_III\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CAnimBlendNode.h">
+      <Filter>game_III\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CAnimBlendAssociation.h">
+      <Filter>game_III\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CAnimBlendClumpData.h">
+      <Filter>game_III\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -806,6 +821,18 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CPlayerSkin.cpp">
       <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPedIK.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CAnimBlendNode.cpp">
+      <Filter>game_III\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CAnimBlendClumpData.cpp">
+      <Filter>game_III\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CAnimBlendAssociation.cpp">
+      <Filter>game_III\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

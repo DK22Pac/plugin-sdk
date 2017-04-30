@@ -84,7 +84,11 @@
     <ClInclude Include="..\extender\VehicleExtender_III.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
+    <ClInclude Include="..\game_III\AnimBlendFrameData.h" />
     <ClInclude Include="..\game_III\C2deffectsModelInfo.h" />
+    <ClInclude Include="..\game_III\CAnimBlendAssociation.h" />
+    <ClInclude Include="..\game_III\CAnimBlendClumpData.h" />
+    <ClInclude Include="..\game_III\CAnimBlendNode.h" />
     <ClInclude Include="..\game_III\CAutomobile.h" />
     <ClInclude Include="..\game_III\CAutoPilot.h" />
     <ClInclude Include="..\game_III\CBaseModelInfo.h" />
@@ -210,7 +214,7 @@
     <ClInclude Include="..\game_III\eWeaponType.h" />
     <ClInclude Include="..\game_III\eWeather.h" />
     <ClInclude Include="..\game_III\eWheelModel.h" />
-    <ClInclude Include="..\game_III\LimbOrienation.h" />
+    <ClInclude Include="..\game_III\LimbOrientation.h" />
     <ClInclude Include="..\game_III\NodeName.h" />
     <ClInclude Include="..\game_III\RenderWare.h" />
     <ClInclude Include="..\game_III\RwObjectNameIdAssocation.h" />
@@ -239,6 +243,9 @@
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
     <ClCompile Include="..\game_III\C2deffectsModelInfo.cpp" />
+    <ClCompile Include="..\game_III\CAnimBlendAssociation.cpp" />
+    <ClCompile Include="..\game_III\CAnimBlendClumpData.cpp" />
+    <ClCompile Include="..\game_III\CAnimBlendNode.cpp" />
     <ClCompile Include="..\game_III\CAutomobile.cpp" />
     <ClCompile Include="..\game_III\CAutoPilot.cpp" />
     <ClCompile Include="..\game_III\CBaseModelInfo.cpp" />
@@ -287,6 +294,7 @@
     <ClCompile Include="..\game_III\cParticleSystemMgr.cpp" />
     <ClCompile Include="..\game_III\CPathNode.cpp" />
     <ClCompile Include="..\game_III\CPed.cpp" />
+    <ClCompile Include="..\game_III\CPedIK.cpp" />
     <ClCompile Include="..\game_III\CPedModelInfo.cpp" />
     <ClCompile Include="..\game_III\CPedStats.cpp" />
     <ClCompile Include="..\game_III\CPedType.cpp" />
