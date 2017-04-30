@@ -112,6 +112,19 @@ struct RsInputDevice
     RsInputEventHandler inputEventHandler;
 };
 
+struct psGlobalType
+{
+    HWND      window;
+    HINSTANCE instance;
+    RwBool    fullScreen;
+    RwV2d     lastMousePos;
+    int       field_14;
+    void*     diInterface;
+    void*     diMouse;
+    void*     diDevice1;
+    void*     diDevice2;
+};
+
 typedef struct RsGlobalType RsGlobalType;
 struct RsGlobalType
 {
@@ -120,7 +133,7 @@ struct RsGlobalType
     RwInt32 maximumHeight;
     RwBool  quit;
 
-    void   *ps; /* platform specific data */
+    psGlobalType   *ps; /* platform specific data */
 
     RsInputDevice keyboard;
     RsInputDevice mouse;
