@@ -275,7 +275,7 @@ public:
 	bool                m_bTexturesLoaded;
 	unsigned __int8     m_nCurrentMenuPage;
 	__int8 field_15E;
-	bool                m_bSelectedSaveGame;
+	unsigned char       m_bSelectedSaveGame;
 	__int8 field_160;
 	__int8 field_161;
 	char                m_mpackName[8];
