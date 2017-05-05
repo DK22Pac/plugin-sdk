@@ -529,6 +529,18 @@
     <ClInclude Include="..\game_III\CAnimBlendClumpData.h">
       <Filter>game_III\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CTheCarGenerators.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CStreamingInfo.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CCarGenerator.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CIniFile.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -833,6 +845,18 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CAnimBlendAssociation.cpp">
       <Filter>game_III\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CStreamingInfo.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTheCarGenerators.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCarGenerator.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CIniFile.cpp">
+      <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

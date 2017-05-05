@@ -95,6 +95,7 @@
     <ClInclude Include="..\game_III\CBoat.h" />
     <ClInclude Include="..\game_III\CBox.h" />
     <ClInclude Include="..\game_III\CBuilding.h" />
+    <ClInclude Include="..\game_III\CCarGenerator.h" />
     <ClInclude Include="..\game_III\CCivilianPed.h" />
     <ClInclude Include="..\game_III\CClock.h" />
     <ClInclude Include="..\game_III\CClouds.h" />
@@ -119,6 +120,7 @@
     <ClInclude Include="..\game_III\CFontDetails.h" />
     <ClInclude Include="..\game_III\CGeneral.h" />
     <ClInclude Include="..\game_III\CHeli.h" />
+    <ClInclude Include="..\game_III\CIniFile.h" />
     <ClInclude Include="..\game_III\CInstance.h" />
     <ClInclude Include="..\game_III\CMessages.h" />
     <ClInclude Include="..\game_III\CMloModelInfo.h" />
@@ -165,6 +167,8 @@
     <ClInclude Include="..\game_III\CStats.h" />
     <ClInclude Include="..\game_III\CStoredCar.h" />
     <ClInclude Include="..\game_III\CStoredCollPoly.h" />
+    <ClInclude Include="..\game_III\CStreamingInfo.h" />
+    <ClInclude Include="..\game_III\CTheCarGenerators.h" />
     <ClInclude Include="..\game_III\CTimeModelInfo.h" />
     <ClInclude Include="..\game_III\CTimer.h" />
     <ClInclude Include="..\game_III\CTrain.h" />
@@ -252,6 +256,7 @@
     <ClCompile Include="..\game_III\CBoat.cpp" />
     <ClCompile Include="..\game_III\CBox.cpp" />
     <ClCompile Include="..\game_III\CBuilding.cpp" />
+    <ClCompile Include="..\game_III\CCarGenerator.cpp" />
     <ClCompile Include="..\game_III\CCivilianPed.cpp" />
     <ClCompile Include="..\game_III\CClock.cpp" />
     <ClCompile Include="..\game_III\CClouds.cpp" />
@@ -280,6 +285,7 @@
     <ClCompile Include="..\game_III\CFontDetails.cpp" />
     <ClCompile Include="..\game_III\CGeneral.cpp" />
     <ClCompile Include="..\game_III\CHeli.cpp" />
+    <ClCompile Include="..\game_III\CIniFile.cpp" />
     <ClCompile Include="..\game_III\CInstance.cpp" />
     <ClCompile Include="..\game_III\CMatrix.cpp" />
     <ClCompile Include="..\game_III\CMessages.cpp" />
@@ -317,6 +323,8 @@
     <ClCompile Include="..\game_III\CSprite2d.cpp" />
     <ClCompile Include="..\game_III\CStats.cpp" />
     <ClCompile Include="..\game_III\CStoredCar.cpp" />
+    <ClCompile Include="..\game_III\CStreamingInfo.cpp" />
+    <ClCompile Include="..\game_III\CTheCarGenerators.cpp" />
     <ClCompile Include="..\game_III\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_III\CTimer.cpp" />
     <ClCompile Include="..\game_III\CTrain.cpp" />
