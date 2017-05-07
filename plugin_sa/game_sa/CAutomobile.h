@@ -8,7 +8,7 @@
 #include "plbase/PluginBase_SA.h"
 #include "CVehicle.h"
 #include "CDoor.h"
-#include "CPanel.h"
+#include "CBouncingPanel.h"
 #include "CDamageManager.h"
 #include "CColPoint.h"
 
@@ -44,14 +44,14 @@ enum eCarNodes {
 };
 
 #pragma pack(push, 1)
-class PLUGIN_API  CAutomobile : public CVehicle {
+class CAutomobile : public CVehicle {
 protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
     CDamageManager m_damageManager;
     CDoor m_doors[6];
     RwFrame *m_aCarNodes[CAR_NUM_NODES];
-    CPanel m_panels[3];
+    CBouncingPanel m_panels[3];
     CDoor m_swingingChassis;
     CColPoint m_wheelColPoint[4];
     float wheelsDistancesToGround1[4];

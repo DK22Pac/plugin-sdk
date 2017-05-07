@@ -147,7 +147,6 @@
     <ClInclude Include="..\game_sa\CLink.h" />
     <ClInclude Include="..\game_sa\CLoadedCarGroup.h" />
     <ClInclude Include="..\game_sa\CLocalisation.h" />
-    <ClInclude Include="..\game_sa\CMenuPanel.h" />
     <ClInclude Include="..\game_sa\CMenuSystem.h" />
     <ClInclude Include="..\game_sa\CMirrors.h" />
     <ClInclude Include="..\game_sa\CMonsterTruck.h" />
@@ -535,7 +534,7 @@
     <ClInclude Include="..\game_sa\CompressedVector.h" />
     <ClInclude Include="..\game_sa\COnscreenTimer.h" />
     <ClInclude Include="..\game_sa\CPad.h" />
-    <ClInclude Include="..\game_sa\CPanel.h" />
+    <ClInclude Include="..\game_sa\CBouncingPanel.h" />
     <ClInclude Include="..\game_sa\CPathFind.h" />
     <ClInclude Include="..\game_sa\CPed.h" />
     <ClInclude Include="..\game_sa\CPedAcquaintance.h" />
@@ -764,7 +763,6 @@
     <ClCompile Include="..\game_sa\CMatrix.cpp" />
     <ClCompile Include="..\game_sa\CMatrixLink.cpp" />
     <ClCompile Include="..\game_sa\CMenuManager.cpp" />
-    <ClCompile Include="..\game_sa\CMenuPanel.cpp" />
     <ClCompile Include="..\game_sa\CMenuSystem.cpp" />
     <ClCompile Include="..\game_sa\CMessages.cpp" />
     <ClCompile Include="..\game_sa\CMirrors.cpp" />
@@ -776,7 +774,7 @@
     <ClCompile Include="..\game_sa\common.cpp" />
     <ClCompile Include="..\game_sa\CompressedVector.cpp" />
     <ClCompile Include="..\game_sa\CPad.cpp" />
-    <ClCompile Include="..\game_sa\CPanel.cpp" />
+    <ClCompile Include="..\game_sa\CBouncingPanel.cpp" />
     <ClCompile Include="..\game_sa\CPathFind.cpp" />
     <ClCompile Include="..\game_sa\CPed.cpp" />
     <ClCompile Include="..\game_sa\CPedIntelligence.cpp" />

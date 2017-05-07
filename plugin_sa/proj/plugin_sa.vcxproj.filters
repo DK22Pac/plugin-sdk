@@ -177,9 +177,6 @@
     <ClInclude Include="..\game_sa\CPad.h">
       <Filter>game_sa</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CPanel.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPathFind.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -362,9 +359,6 @@
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CCarCtrl.h">
-      <Filter>game_sa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_sa\CMenuPanel.h">
       <Filter>game_sa</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CMenuSystem.h">
@@ -1828,6 +1822,9 @@
     <ClInclude Include="..\extensions\DynamicResource.h">
       <Filter>extensions</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CBouncingPanel.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -1894,9 +1891,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPad.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CPanel.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPathFind.cpp">
@@ -2020,9 +2014,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CMenuSystem.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CMenuPanel.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCarCtrl.cpp">
@@ -3314,6 +3305,9 @@
     </ClCompile>
     <ClCompile Include="..\extensions\DynamicResource.cpp">
       <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBouncingPanel.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
