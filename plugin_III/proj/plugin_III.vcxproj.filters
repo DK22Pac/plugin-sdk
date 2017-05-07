@@ -541,6 +541,9 @@
     <ClInclude Include="..\game_III\CIniFile.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\Config.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -857,6 +860,9 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CIniFile.cpp">
       <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Config.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -57,3 +57,5 @@ CdeclEvent    <AddressList<0x53E981, H_CALL>, PRIORITY_AFTER,  ArgPickNone,     
 CdeclEvent    <AddressList<0x748CFB, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::initGameEvent;
 CdeclEvent    <AddressList<0x748E09, H_CALL,
                            0x748E48, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::reInitGameEvent;
+ThiscallEvent <AddressList<0x747FA5, H_CALL>, PRIORITY_BEFORE, ArgPickNone,            void(void*)>     plugin::Events::onPauseAllSounds;
+ThiscallEvent <AddressList<0x747FE4, H_CALL>, PRIORITY_BEFORE, ArgPickNone,            void(void*)>     plugin::Events::onResumeAllSounds;

@@ -10,10 +10,10 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include "game_sa\CVector.h"
-#include "game_sa\CVector2D.h"
-#include "game_sa\CRect.h"
-#include "game_sa\CRGBA.h"
+#include "game_III\CVector.h"
+#include "game_III\CVector2D.h"
+#include "game_III\CRect.h"
+#include "game_III\CRGBA.h"
 
 namespace plugin {
 

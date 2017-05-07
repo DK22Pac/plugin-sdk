@@ -102,8 +102,10 @@
     <ClInclude Include="..\extender\PedExtender_SA.h" />
     <ClInclude Include="..\extender\VehicleExtender_SA.h" />
     <ClInclude Include="..\extensions\Config.h" />
+    <ClInclude Include="..\extensions\DynamicResource.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
+    <ClInclude Include="..\extensions\Shader.h" />
     <ClInclude Include="..\game_sa\AnimBlendFrameData.h" />
     <ClInclude Include="..\game_sa\C2dEffect.h" />
     <ClInclude Include="..\game_sa\C3dMarker.h" />
@@ -683,8 +685,10 @@
     <ClCompile Include="..\comp\plugins\LimitAdjusterSupport.cpp" />
     <ClCompile Include="..\events\Events_SA.cpp" />
     <ClCompile Include="..\extensions\Config.cpp" />
+    <ClCompile Include="..\extensions\DynamicResource.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
+    <ClCompile Include="..\extensions\Shader.cpp" />
     <ClCompile Include="..\game_sa\C3dMarker.cpp" />
     <ClCompile Include="..\game_sa\C3dMarkers.cpp" />
     <ClCompile Include="..\game_sa\CAEAudioEntity.cpp" />

@@ -23,10 +23,10 @@
 class PLUGIN_API CRect
 {
 public:
-	float m_fLeft;          // x1
-	float m_fBottom;        // y1
-	float m_fRight;         // x2
-	float m_fTop;           // y2
+	float left;          // x1
+	float bottom;        // y1
+	float right;         // x2
+	float top;           // y2
 
 	CRect(float left, float top, float right, float bottom);
 	CRect();

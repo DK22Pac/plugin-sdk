@@ -82,6 +82,7 @@
     <ClInclude Include="..\extender\ObjectExtender_III.h" />
     <ClInclude Include="..\extender\PedExtender_III.h" />
     <ClInclude Include="..\extender\VehicleExtender_III.h" />
+    <ClInclude Include="..\extensions\Config.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
     <ClInclude Include="..\game_III\AnimBlendFrameData.h" />
@@ -244,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp" />
+    <ClCompile Include="..\extensions\Config.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
     <ClCompile Include="..\game_III\C2deffectsModelInfo.cpp" />

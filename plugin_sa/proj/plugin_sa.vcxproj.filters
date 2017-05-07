@@ -1822,6 +1822,12 @@
     <ClInclude Include="..\game_sa\FxInfoManager_c.h">
       <Filter>game_sa\Fx</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\Shader.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\DynamicResource.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3302,6 +3308,12 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CEntryExit.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Shader.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\DynamicResource.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

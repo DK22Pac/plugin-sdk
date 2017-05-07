@@ -14,6 +14,7 @@
 #include "rw\rpskin.h"
 #include "rw\rpmatfx.h"
 #include "rw\skeleton.h"
+#include "..\DXSDK\9.0c\Include\d3d9.h"
 
 extern RwGlobals *&RwEngineInstance;
 
@@ -25,6 +26,13 @@ extern RsGlobalType &RsGlobal;
 extern RwPluginRegistry &geometryTKList;
 
 struct IDirect3DDevice9 *GetD3DDevice();
+
+#ifndef D3DMATRIX_DEFINED
+struct D3DMATRIX;
+#endif
+
+D3DMATRIX *GetD3DViewTransform();
+D3DMATRIX *GetD3DProjTransform();
 
 /* rwplcore.h */
 
@@ -318,8 +326,8 @@ void _rwD3D9DrawIndexedPrimitive(RwUInt32 primitiveType, RwInt32 baseVertexIndex
 void _rwD3D9SetVertexShaderConstant(RwUInt32 registerAddress, const void* constantData, RwUInt32 constantCount); // 0x7FACA0
 void _rwD3D9SetPixelShaderConstant(RwUInt32 registerAddress, const void* constantData, RwUInt32 constantCount); // 0x7FAD00
 void _rwD3D9SetFVF(RwUInt32 fvf); // 0x7F9F30
-void _rwD3D9SetVertexShader(void); // 0x7F9FB0
-void _rwD3D9SetPixelShader(void); // 0x7F9FF0
+void _rwD3D9SetVertexShader(void *shader); // 0x7F9FB0
+void _rwD3D9SetPixelShader(void *shader); // 0x7F9FF0
 void RwD3D9SetRenderState(RwUInt32 state, RwUInt32 value); // 0x7FC2D0
 void RwD3D9GetRenderState(RwUInt32 state, void* value); // 0x7FC320
 void RwD3D9GetTextureStageState(RwUInt32 stage, RwUInt32 type, void* value); // 0x7FC3A0

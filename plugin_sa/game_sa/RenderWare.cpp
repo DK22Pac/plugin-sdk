@@ -16,6 +16,14 @@ IDirect3DDevice9 *GetD3DDevice() {
     return *reinterpret_cast<IDirect3DDevice9 **>(0xC97C28);
 }
 
+D3DMATRIX *GetD3DViewTransform() {
+    return reinterpret_cast<D3DMATRIX *>(0xC9BC80);
+}
+
+D3DMATRIX *GetD3DProjTransform() {
+    return reinterpret_cast<D3DMATRIX *>(0x8E2458);
+}
+
 /* rwplcore.h */
 
 RwMemoryFunctions* RwOsGetMemoryInterface(void) {
@@ -1168,12 +1176,12 @@ void _rwD3D9SetFVF(RwUInt32 fvf) {
     ((void(__cdecl *)(RwUInt32))0x7F9F30)(fvf);
 }
 
-void _rwD3D9SetVertexShader(void) {
-    ((void(__cdecl *)(void))0x7F9FB0)();
+void _rwD3D9SetVertexShader(void *shader) {
+    ((void(__cdecl *)(void *))0x7F9FB0)(shader);
 }
 
-void _rwD3D9SetPixelShader(void) {
-    ((void(__cdecl *)(void))0x7F9FF0)();
+void _rwD3D9SetPixelShader(void *shader) {
+    ((void(__cdecl *)(void *))0x7F9FF0)(shader);
 }
 
 void RwD3D9SetRenderState(RwUInt32 state, RwUInt32 value) {
