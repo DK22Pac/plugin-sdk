@@ -17,9 +17,9 @@ CTheCarGenerators::CTheCarGenerators() {
     plugin::CallMethod<0x543350, CTheCarGenerators *>(this);
 }
 
-// Converted from cdecl int CTheCarGenerators::CreateCarGenerator(float x,float y,float z,float angle,int modelId,short primaryColor,short secondaryColor,uchar forceSpawn,uchar alarm,uchar doorLock,ushort minDelay,ushort maxDelay) 0x542FC0
-int CTheCarGenerators::CreateCarGenerator(float x, float y, float z, float angle, int modelId, short primaryColor, short secondaryColor, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay) {
-    return plugin::CallAndReturn<int, 0x542FC0, float, float, float, float, int, short, short, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short>(x, y, z, angle, modelId, primaryColor, secondaryColor, forceSpawn, alarm, doorLock, minDelay, maxDelay);
+// Converted from cdecl unsigned int CTheCarGenerators::CreateCarGenerator(float x,float y,float z,float angle,int modelId,short primaryColor,short secondaryColor,uchar forceSpawn,uchar alarm,uchar doorLock,ushort minDelay,ushort maxDelay) 0x542FC0
+unsigned int CTheCarGenerators::CreateCarGenerator(float x, float y, float z, float angle, int modelId, short primaryColor, short secondaryColor, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay) {
+    return plugin::CallAndReturn<unsigned int, 0x542FC0, float, float, float, float, int, short, short, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short>(x, y, z, angle, modelId, primaryColor, secondaryColor, forceSpawn, alarm, doorLock, minDelay, maxDelay);
 }
 
 // Converted from cdecl void CTheCarGenerators::Init(void) 0x543020 

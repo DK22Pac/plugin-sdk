@@ -8,13 +8,14 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase/PluginBase_III.h"
 #include "CVector.h"
+#include "eVehicleModel.h"
 
 class CVehicle;
 
 #pragma pack(push, 4)
 class CCarGenerator {
 public:
-    CCarGenerator *m_pCarGenerator;
+    eVehicleModel  m_nModelId;
     CVector        m_vPos;
     float          m_fAngle;
     short          m_nPrimaryColor;

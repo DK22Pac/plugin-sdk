@@ -43,7 +43,7 @@ public:
 
     //funcs
     CTheCarGenerators();
-    static int CreateCarGenerator(float x, float y, float z, float angle, int modelId, short primaryColor, short secondaryColor, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay);
+    static unsigned int CreateCarGenerator(float x, float y, float z, float angle, int modelId, short primaryColor, short secondaryColor, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay);
     static void Init();
     static void LoadAllCarGenerators(unsigned char* bufferPointer, unsigned int structSize);
     static void Process();                          
