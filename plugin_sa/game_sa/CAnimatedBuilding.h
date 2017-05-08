@@ -8,8 +8,11 @@
 #include "plbase/PluginBase_SA.h"
 #include "CBuilding.h"
 
-class PLUGIN_API CTreadable : public CBuilding {
+class CAnimatedBuilding : public CBuilding {
+protected:
+    CAnimatedBuilding(plugin::dummy_func_t) : CBuilding(plugin::dummy) {}
 public:
+    CAnimatedBuilding();
 };
 
-VALIDATE_SIZE(CTreadable, 0x38);
+VALIDATE_SIZE(CAnimatedBuilding, 0x38);

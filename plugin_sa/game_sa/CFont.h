@@ -105,7 +105,7 @@ public:
 #endif
 	static void SetProp(bool on);
 	// setups text background
-	static void SetBackground(bool background, bool backgroundOnlyText);
+	static void SetBackground(bool enable, bool includeWrap);
 	// sets background color
 	static void SetBackgroundColor(CRGBA color);
 	static void SetJustify(bool on);

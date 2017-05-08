@@ -137,9 +137,9 @@ void CFont::SetProp(bool on)
 #define SetProp SetPropA
 #endif
 
-void CFont::SetBackground(bool background, bool backgroundOnlyText)
+void CFont::SetBackground(bool enable, bool includeWrap)
 {
-	((void (__cdecl *)(bool, bool))0x7195C0)(background, backgroundOnlyText);
+	((void (__cdecl *)(bool, bool))0x7195C0)(enable, includeWrap);
 }
 
 void CFont::SetBackgroundColor(CRGBA color)

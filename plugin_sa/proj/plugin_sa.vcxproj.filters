@@ -1384,9 +1384,6 @@
     <ClInclude Include="..\game_sa\CBuilding.h">
       <Filter>game_sa\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\CTreadable.h">
-      <Filter>game_sa\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CPlaceable.h">
       <Filter>game_sa\Entity</Filter>
     </ClInclude>
@@ -1823,6 +1820,15 @@
       <Filter>extensions</Filter>
     </ClInclude>
     <ClInclude Include="..\game_sa\CBouncingPanel.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAnimatedBuilding.h">
+      <Filter>game_sa\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CSpecialPlateHandler.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CCarGenerator.h">
       <Filter>game_sa</Filter>
     </ClInclude>
   </ItemGroup>
@@ -2970,9 +2976,6 @@
     <ClCompile Include="..\game_sa\CBuilding.cpp">
       <Filter>game_sa\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\CTreadable.cpp">
-      <Filter>game_sa\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CPlaceable.cpp">
       <Filter>game_sa\Entity</Filter>
     </ClCompile>
@@ -3307,6 +3310,15 @@
       <Filter>extensions</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CBouncingPanel.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CAnimatedBuilding.cpp">
+      <Filter>game_sa\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CSpecialPlateHandler.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CCarGenerator.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

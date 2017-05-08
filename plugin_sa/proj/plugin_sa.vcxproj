@@ -126,6 +126,7 @@
     <ClInclude Include="..\game_sa\CBrightLights.h" />
     <ClInclude Include="..\game_sa\CBulletTrace.h" />
     <ClInclude Include="..\game_sa\CCarCtrl.h" />
+    <ClInclude Include="..\game_sa\CCarGenerator.h" />
     <ClInclude Include="..\game_sa\CCheckpoint.h" />
     <ClInclude Include="..\game_sa\CCheckpoints.h" />
     <ClInclude Include="..\game_sa\CColDisk.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\game_sa\CRopes.h" />
     <ClInclude Include="..\game_sa\CShinyTexts.h" />
     <ClInclude Include="..\game_sa\CSpecialFX.h" />
+    <ClInclude Include="..\game_sa\CSpecialPlateHandler.h" />
     <ClInclude Include="..\game_sa\CStreamingInfo.h" />
     <ClInclude Include="..\game_sa\CTaskComplexArrestPed.h" />
     <ClInclude Include="..\game_sa\CTaskComplexAttractorPartnerWait.h" />
@@ -605,7 +607,7 @@
     <ClInclude Include="..\game_sa\CTrain.h" />
     <ClInclude Include="..\game_sa\CTrainNode.h" />
     <ClInclude Include="..\game_sa\cTransmission.h" />
-    <ClInclude Include="..\game_sa\CTreadable.h" />
+    <ClInclude Include="..\game_sa\CAnimatedBuilding.h" />
     <ClInclude Include="..\game_sa\CTxdStore.h" />
     <ClInclude Include="..\game_sa\CUserDisplay.h" />
     <ClInclude Include="..\game_sa\CVector.h" />
@@ -708,6 +710,7 @@
     <ClCompile Include="..\game_sa\CBulletTraces.cpp" />
     <ClCompile Include="..\game_sa\CCamera.cpp" />
     <ClCompile Include="..\game_sa\CCarCtrl.cpp" />
+    <ClCompile Include="..\game_sa\CCarGenerator.cpp" />
     <ClCompile Include="..\game_sa\CCheat.cpp" />
     <ClCompile Include="..\game_sa\CCheckpoint.cpp" />
     <ClCompile Include="..\game_sa\CCheckpoints.cpp" />
@@ -812,6 +815,7 @@
     <ClCompile Include="..\game_sa\CShinyTexts.cpp" />
     <ClCompile Include="..\game_sa\CSimpleTransform.cpp" />
     <ClCompile Include="..\game_sa\CSpecialFX.cpp" />
+    <ClCompile Include="..\game_sa\CSpecialPlateHandler.cpp" />
     <ClCompile Include="..\game_sa\CSphere.cpp" />
     <ClCompile Include="..\game_sa\CSprite.cpp" />
     <ClCompile Include="..\game_sa\CSprite2d.cpp" />
@@ -1146,7 +1150,7 @@
     <ClCompile Include="..\game_sa\CTrain.cpp" />
     <ClCompile Include="..\game_sa\CTrainNode.cpp" />
     <ClCompile Include="..\game_sa\cTransmission.cpp" />
-    <ClCompile Include="..\game_sa\CTreadable.cpp" />
+    <ClCompile Include="..\game_sa\CAnimatedBuilding.cpp" />
     <ClCompile Include="..\game_sa\CTxdStore.cpp" />
     <ClCompile Include="..\game_sa\CUserDisplay.cpp" />
     <ClCompile Include="..\game_sa\CVector.cpp" />

@@ -1192,6 +1192,10 @@ void RwD3D9GetRenderState(RwUInt32 state, void* value) {
     ((void(__cdecl *)(RwUInt32, void*))0x7FC320)(state, value);
 }
 
+void RwD3D9SetTextureStageState(RwUInt32 stage, RwUInt32 type, RwUInt32 value) {
+    ((void(__cdecl *)(RwUInt32, RwUInt32, RwUInt32))0x7FC340)(stage, type, value);
+}
+
 void RwD3D9GetTextureStageState(RwUInt32 stage, RwUInt32 type, void* value) {
     ((void(__cdecl *)(RwUInt32, RwUInt32, void*))0x7FC3A0)(stage, type, value);
 }

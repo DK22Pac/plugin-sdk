@@ -330,6 +330,7 @@ void _rwD3D9SetVertexShader(void *shader); // 0x7F9FB0
 void _rwD3D9SetPixelShader(void *shader); // 0x7F9FF0
 void RwD3D9SetRenderState(RwUInt32 state, RwUInt32 value); // 0x7FC2D0
 void RwD3D9GetRenderState(RwUInt32 state, void* value); // 0x7FC320
+void RwD3D9SetTextureStageState(RwUInt32 stage, RwUInt32 type, RwUInt32 value); // 0x7FC340
 void RwD3D9GetTextureStageState(RwUInt32 stage, RwUInt32 type, void* value); // 0x7FC3A0
 void RwD3D9SetSamplerState(RwUInt32 stage, RwUInt32 type, RwUInt32 value); // 0x7FC3C0
 void RwD3D9GetSamplerState(RwUInt32 stage, RwUInt32 type, void* value); // 0x7FC400

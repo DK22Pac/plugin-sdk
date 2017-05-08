@@ -57,7 +57,7 @@ public:
     static char *&m_pVehicleName;
     static bool &m_bDraw3dMarkers;
     static bool &m_Wants_To_Draw_Hud;
-    static float &m_fHelpMessageNumLines;
+    static float &m_fHelpMessageTime; // in seconds
     static float &m_fHelpMessageBoxWidth; // default 200.0
     static bool &m_bHelpMessagePermanent;
     static float &m_fHelpMessageStatUpdateValue;
