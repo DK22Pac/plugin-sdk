@@ -376,12 +376,6 @@
     <ClInclude Include="..\game_III\CDoor.h">
       <Filter>game_III</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_III\CBox.h">
-      <Filter>game_III</Filter>
-    </ClInclude>
-    <ClInclude Include="..\game_III\CSphere.h">
-      <Filter>game_III</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_III\CompressedVector.h">
       <Filter>game_III</Filter>
     </ClInclude>
@@ -543,6 +537,21 @@
     </ClInclude>
     <ClInclude Include="..\extensions\Config.h">
       <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CPedPlacement.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CReferences.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CReference.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CBox.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSphere.h">
+      <Filter>game_III\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -723,12 +732,6 @@
     <ClCompile Include="..\game_III\CDoor.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_III\CBox.cpp">
-      <Filter>game_III</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_III\CSphere.cpp">
-      <Filter>game_III</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_III\CompressedVector.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
@@ -863,6 +866,18 @@
     </ClCompile>
     <ClCompile Include="..\extensions\Config.cpp">
       <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CPedPlacement.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CReferences.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CBox.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CSphere.cpp">
+      <Filter>game_III\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
