@@ -553,6 +553,15 @@
     <ClInclude Include="..\game_III\CSphere.h">
       <Filter>game_III\Collision</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CLines.h">
+      <Filter>game_III\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CCheat.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CSpecialParticleStuff.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -878,6 +887,15 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CSphere.cpp">
       <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CLines.cpp">
+      <Filter>game_III\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CCheat.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CSpecialParticleStuff.cpp">
+      <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

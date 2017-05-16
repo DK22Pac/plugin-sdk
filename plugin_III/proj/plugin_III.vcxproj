@@ -97,6 +97,7 @@
     <ClInclude Include="..\game_III\CBox.h" />
     <ClInclude Include="..\game_III\CBuilding.h" />
     <ClInclude Include="..\game_III\CCarGenerator.h" />
+    <ClInclude Include="..\game_III\CCheat.h" />
     <ClInclude Include="..\game_III\CCivilianPed.h" />
     <ClInclude Include="..\game_III\CClock.h" />
     <ClInclude Include="..\game_III\CClouds.h" />
@@ -123,6 +124,7 @@
     <ClInclude Include="..\game_III\CHeli.h" />
     <ClInclude Include="..\game_III\CIniFile.h" />
     <ClInclude Include="..\game_III\CInstance.h" />
+    <ClInclude Include="..\game_III\CLines.h" />
     <ClInclude Include="..\game_III\CMessages.h" />
     <ClInclude Include="..\game_III\CMloModelInfo.h" />
     <ClInclude Include="..\game_III\CModelInfo.h" />
@@ -151,6 +153,7 @@
     <ClInclude Include="..\game_III\CRGBA.h" />
     <ClInclude Include="..\game_III\CScene.h" />
     <ClInclude Include="..\game_III\CSimpleModelInfo.h" />
+    <ClInclude Include="..\game_III\CSpecialParticleStuff.h" />
     <ClInclude Include="..\game_III\CSphere.h" />
     <ClInclude Include="..\game_III\CSprite.h" />
     <ClInclude Include="..\game_III\CColPoint.h" />
@@ -262,6 +265,7 @@
     <ClCompile Include="..\game_III\CBox.cpp" />
     <ClCompile Include="..\game_III\CBuilding.cpp" />
     <ClCompile Include="..\game_III\CCarGenerator.cpp" />
+    <ClCompile Include="..\game_III\CCheat.cpp" />
     <ClCompile Include="..\game_III\CCivilianPed.cpp" />
     <ClCompile Include="..\game_III\CClock.cpp" />
     <ClCompile Include="..\game_III\CClouds.cpp" />
@@ -292,6 +296,7 @@
     <ClCompile Include="..\game_III\CHeli.cpp" />
     <ClCompile Include="..\game_III\CIniFile.cpp" />
     <ClCompile Include="..\game_III\CInstance.cpp" />
+    <ClCompile Include="..\game_III\CLines.cpp" />
     <ClCompile Include="..\game_III\CMatrix.cpp" />
     <ClCompile Include="..\game_III\CMessages.cpp" />
     <ClCompile Include="..\game_III\CMloModelInfo.cpp" />
@@ -325,6 +330,7 @@
     <ClCompile Include="..\game_III\CRGBA.cpp" />
     <ClCompile Include="..\game_III\CScene.cpp" />
     <ClCompile Include="..\game_III\CSimpleModelInfo.cpp" />
+    <ClCompile Include="..\game_III\CSpecialParticleStuff.cpp" />
     <ClCompile Include="..\game_III\CSphere.cpp" />
     <ClCompile Include="..\game_III\CSprite.cpp" />
     <ClCompile Include="..\game_III\CSprite2d.cpp" />
