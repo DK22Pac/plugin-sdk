@@ -32,3 +32,11 @@ char CMenuManager::SwitchToNewScreen(char page) {
     return ((char(__thiscall *)(CMenuManager *, char))0x573680)(this, page);
 }
 
+void CMenuManager::SaveSettings() {
+    ((void(__thiscall *)(CMenuManager *))0x57C660)(this);
+}
+
+char CMenuManager::InitialiseChangedLanguageSettings(char a2) {
+    return ((char(__thiscall *)(CMenuManager *, char))0x573260)(this, a2);
+}
+

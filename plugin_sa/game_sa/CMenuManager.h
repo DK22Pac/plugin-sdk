@@ -369,6 +369,8 @@ public:
 
 	void DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground);
     char SwitchToNewScreen(char page);
+    void SaveSettings();
+    char InitialiseChangedLanguageSettings(char a2);
 };
 #pragma pack(pop)
 
