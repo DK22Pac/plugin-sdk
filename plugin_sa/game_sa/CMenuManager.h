@@ -368,6 +368,7 @@ public:
 	~CMenuManager();
 
 	void DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground);
+    char SwitchToNewScreen(char page);
 };
 #pragma pack(pop)
 

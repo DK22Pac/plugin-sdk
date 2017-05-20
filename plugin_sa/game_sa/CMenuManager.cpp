@@ -27,3 +27,8 @@ CMenuManager::~CMenuManager()
 void CMenuManager::DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground) {
 	((void(__thiscall *)(CMenuManager *, const CRect&, const char*, unsigned char, CRGBA, bool, bool))0x573EE0)(this, coords, pKey, nColour, backColor, Unused, bBackground);
 }
+
+char CMenuManager::SwitchToNewScreen(char page) {
+    return ((char(__thiscall *)(CMenuManager *, char))0x573680)(this, page);
+}
+
