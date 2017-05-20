@@ -40,6 +40,15 @@ public:
 private:
     char _pad1E[2];
 public:
+
+    void SwitchOff();
+    static int CalcNextGen();
+    void Setup(float x, float y, float z, float angle, int modelId, short color1, short color2, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay, unsigned char iplId, unsigned char arg13);
+    bool CheckIfWithinRangeOfAnyPlayers();
+    void SwitchOn();
+    bool CheckForBlockage(int modelId);
+    void DoInternalProcessing();
+    void Process();
 };
 
 VALIDATE_SIZE(CCarGenerator, 0x20);

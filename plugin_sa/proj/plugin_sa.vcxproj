@@ -587,6 +587,7 @@
     <ClInclude Include="..\game_sa\CTaskSimple.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
+    <ClInclude Include="..\game_sa\CTheCarGenerators.h" />
     <ClInclude Include="..\game_sa\CWeather.h" />
     <ClInclude Include="..\game_sa\eSprintType.h" />
     <ClInclude Include="..\game_sa\JPegCompress.h" />
@@ -1133,6 +1134,7 @@
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsInCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskTimer.cpp" />
+    <ClCompile Include="..\game_sa\CTheCarGenerators.cpp" />
     <ClCompile Include="..\game_sa\CWeather.cpp" />
     <ClCompile Include="..\game_sa\JPegCompress.cpp" />
     <ClCompile Include="..\game_sa\ListItem_c.cpp" />

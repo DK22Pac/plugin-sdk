@@ -1831,6 +1831,9 @@
     <ClInclude Include="..\game_sa\CCarGenerator.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CTheCarGenerators.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3319,6 +3322,9 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CCarGenerator.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CTheCarGenerators.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
