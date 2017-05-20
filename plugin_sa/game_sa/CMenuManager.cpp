@@ -40,3 +40,22 @@ char CMenuManager::InitialiseChangedLanguageSettings(char a2) {
     return ((char(__thiscall *)(CMenuManager *, char))0x573260)(this, a2);
 }
 
+char CMenuManager::SetRadioAutoRetuneOnOff(char a1) {
+    return ((char(__stdcall *)(CMenuManager *, char))0x506F80)(this, a1);
+}
+
+void CMenuManager::ScrollRadioStations(char numStations) {
+    ((void(__thiscall *)(CMenuManager *, char))0x573A00)(this, numStations);
+}
+
+void CMenuManager::ProcessMissionPackNewGame() {
+    ((void(__thiscall *)(CMenuManager *))0x57D520)(this);
+}
+
+signed int CMenuManager::DoSettingsBeforeStartingAGame() {
+    ((signed int(__thiscall *)(CMenuManager *))0x573330)(this);
+}
+
+char CMenuManager::SetDefaultPreferences(eMenuPage page) {
+    return ((char(__thiscall *)(CMenuManager *, eMenuPage))0x573AE0)(this, page);
+}
