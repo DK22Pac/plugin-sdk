@@ -53,7 +53,7 @@ void CMenuManager::ProcessMissionPackNewGame() {
 }
 
 signed int CMenuManager::DoSettingsBeforeStartingAGame() {
-    ((signed int(__thiscall *)(CMenuManager *))0x573330)(this);
+    return ((signed int(__thiscall *)(CMenuManager *))0x573330)(this);
 }
 
 char CMenuManager::SetDefaultPreferences(eMenuPage page) {
