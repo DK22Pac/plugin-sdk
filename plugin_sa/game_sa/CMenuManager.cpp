@@ -40,10 +40,6 @@ char CMenuManager::InitialiseChangedLanguageSettings(char a2) {
     return ((char(__thiscall *)(CMenuManager *, char))0x573260)(this, a2);
 }
 
-char CMenuManager::SetRadioAutoRetuneOnOff(char a1) {
-    return ((char(__stdcall *)(CMenuManager *, char))0x506F80)(this, a1);
-}
-
 void CMenuManager::ScrollRadioStations(char numStations) {
     ((void(__thiscall *)(CMenuManager *, char))0x573A00)(this, numStations);
 }

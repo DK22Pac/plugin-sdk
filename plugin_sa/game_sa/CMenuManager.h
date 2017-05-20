@@ -371,7 +371,6 @@ public:
     char SwitchToNewScreen(char page);
     void SaveSettings();
     char InitialiseChangedLanguageSettings(char a2);
-    char SetRadioAutoRetuneOnOff(char a1);
     void ScrollRadioStations(char numStations);
     void ProcessMissionPackNewGame();
     signed int DoSettingsBeforeStartingAGame();
