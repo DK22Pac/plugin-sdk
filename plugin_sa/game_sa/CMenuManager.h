@@ -375,6 +375,7 @@ public:
     void ProcessMissionPackNewGame();
     signed int DoSettingsBeforeStartingAGame();
     char SetDefaultPreferences(eMenuPage page);
+    char PrintMap();
 };
 #pragma pack(pop)
 

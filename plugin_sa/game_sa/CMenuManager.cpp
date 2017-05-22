@@ -55,3 +55,8 @@ signed int CMenuManager::DoSettingsBeforeStartingAGame() {
 char CMenuManager::SetDefaultPreferences(eMenuPage page) {
     return ((char(__thiscall *)(CMenuManager *, eMenuPage))0x573AE0)(this, page);
 }
+
+char CMenuManager::PrintMap()
+{
+    return ((char(__thiscall *)(CMenuManager *))0x575130)(this);
+}
