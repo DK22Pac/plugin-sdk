@@ -18,7 +18,7 @@ public:
     static unsigned char &ProcessCounter;
     static unsigned int &NumOfCarGenerators;
     static CSpecialPlateHandler &m_SpecialPlateHandler;
-    static CCarGenerator *CarGeneratorArray; // static CCarGenerator [MAX_NUM_CAR_GENERATORS]
+    static CCarGenerator *CarGeneratorArray; // static CCarGenerator CarGeneratorArray[MAX_NUM_CAR_GENERATORS]
 
     static int CreateCarGenerator(float x, float y, float z, float angle, int modelId, short color1, short color2, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay, unsigned char iplId, unsigned char arg13);
     static void Init();

@@ -47,9 +47,9 @@ void CShadows::Shutdown() {
     ((void(__cdecl *)())0x706ED0)();
 }
 
-// Converted from cdecl void CShadows::AddPermanentShadow(uchar type,RwTexture *texture,CVector *posn,float topX,float topY,float rightX,float rightY,short intensity,uchar red,uchar greeb,uchar blue,float drawDistance,uint temporaryShadow,float upDistance) 0x706F60
-void CShadows::AddPermanentShadow(unsigned char type, RwTexture* texture, CVector* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char greeb, unsigned char blue, float drawDistance, unsigned int temporaryShadow, float upDistance) {
-    ((void(__cdecl *)(unsigned char, RwTexture*, CVector*, float, float, float, float, short, unsigned char, unsigned char, unsigned char, float, unsigned int, float))0x706F60)(type, texture, posn, topX, topY, rightX, rightY, intensity, red, greeb, blue, drawDistance, temporaryShadow, upDistance);
+// Converted from cdecl void CShadows::AddPermanentShadow(uchar type,RwTexture *texture,CVector *posn,float topX,float topY,float rightX,float rightY,short intensity,uchar red,uchar greeb,uchar blue,float drawDistance,uint time,float upDistance) 0x706F60
+void CShadows::AddPermanentShadow(unsigned char type, RwTexture* texture, CVector* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char greeb, unsigned char blue, float drawDistance, unsigned int time, float upDistance) {
+    ((void(__cdecl *)(unsigned char, RwTexture*, CVector*, float, float, float, float, short, unsigned char, unsigned char, unsigned char, float, unsigned int, float))0x706F60)(type, texture, posn, topX, topY, rightX, rightY, intensity, red, greeb, blue, drawDistance, time, upDistance);
 }
 
 // Converted from cdecl void CShadows::StoreShadowToBeRendered(uchar type,RwTexture *texture,CVector *posn,float topX,float topY,float rightX,float rightY,short intensity,uchar red,uchar green,uchar blue,float zDistance,bool drawOnWater,float scale,CRealTimeShadow *realTimeShadow,bool drawOnBuildings) 0x707390

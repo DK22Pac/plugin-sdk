@@ -172,7 +172,7 @@ class CShadows {
 public:
     static void Init();
     static void Shutdown();
-    static void AddPermanentShadow(unsigned char type, RwTexture* texture, CVector* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char greeb, unsigned char blue, float drawDistance, unsigned int temporaryShadow, float upDistance);
+    static void AddPermanentShadow(unsigned char type, RwTexture* texture, CVector* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char greeb, unsigned char blue, float drawDistance, unsigned int time, float upDistance);
     static void StoreShadowToBeRendered(unsigned char type, RwTexture* texture, CVector* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, bool drawOnWater, float scale, CRealTimeShadow* realTimeShadow, bool drawOnBuildings);
     static void SetRenderModeForShadowType(unsigned char shadowType);
     static void RemoveOilInArea(float x1, float y1, float x2, float y2);

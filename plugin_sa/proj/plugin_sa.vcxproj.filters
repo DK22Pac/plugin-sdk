@@ -1597,9 +1597,6 @@
     <ClInclude Include="..\comp\PluginsCompatibility.h">
       <Filter>comp</Filter>
     </ClInclude>
-    <ClInclude Include="..\game_sa\RwExtensions.h">
-      <Filter>game_sa\RenderWare</Filter>
-    </ClInclude>
     <ClInclude Include="..\game_sa\CFileLoader.h">
       <Filter>game_sa</Filter>
     </ClInclude>
@@ -1833,6 +1830,15 @@
     </ClInclude>
     <ClInclude Include="..\game_sa\CTheCarGenerators.h">
       <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\D3DTextureBuffer.h">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\D3DResourceSystem.h">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\D3DIndexDataBuffer.h">
+      <Filter>game_sa\RenderWare</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3177,9 +3183,6 @@
     <ClCompile Include="..\comp\PluginsCompatibility.cpp">
       <Filter>comp</Filter>
     </ClCompile>
-    <ClCompile Include="..\game_sa\RwExtensions.cpp">
-      <Filter>game_sa\RenderWare</Filter>
-    </ClCompile>
     <ClCompile Include="..\game_sa\CFileLoader.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
@@ -3326,6 +3329,15 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CTheCarGenerators.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\D3DTextureBuffer.cpp">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\D3DResourceSystem.cpp">
+      <Filter>game_sa\RenderWare</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\D3DIndexDataBuffer.cpp">
+      <Filter>game_sa\RenderWare</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
