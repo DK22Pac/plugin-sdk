@@ -7,19 +7,20 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
+#include "eCrimeType.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CCrimeBeingQd
-{
+class PLUGIN_API CCrimeBeingQd {
 public:
-    unsigned __int32 m_dwCrimeType;
-    unsigned __int32 m_dwCrimeId;
-    unsigned __int32 m_dwStartTime;
-    CVector m_vCoors;
-    unsigned __int8 m_bAlreadyReported;
-    unsigned __int8 m_bPoliceDontReallyCare;
+    unsigned int m_nCrimeType; // see eCrimeType
+    unsigned int m_nCrimeID;
+    unsigned int m_nTimeOfQing;
+    CVector      m_vecCoors;
+    bool         m_bAlreadyReported;
+    bool         m_bPoliceDontReallyCare;
+private:
+    char _pad1A[2];
+public:
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CCrimeBeingQd, 0x1C);

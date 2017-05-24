@@ -7,17 +7,10 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
+#include "CAEAudioEntity.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CWantedAudio
-{
-protected:
-	void *vmt;
+class PLUGIN_API CAEPoliceScannerAudioEntity : public CAEAudioEntity {
 public:
-	__int8 field_4[12];
-	__int32 field_10;
-	__int8 field_14[108];
 };
-#pragma pack(pop)
 
-VALIDATE_SIZE(CWantedAudio, 0x80);
+VALIDATE_SIZE(CAEPoliceScannerAudioEntity, 0x7C);

@@ -591,6 +591,7 @@
     <ClInclude Include="..\game_sa\CWeather.h" />
     <ClInclude Include="..\game_sa\D3DIndexDataBuffer.h" />
     <ClInclude Include="..\game_sa\D3DResourceSystem.h" />
+    <ClInclude Include="..\game_sa\eCrimeType.h" />
     <ClInclude Include="..\game_sa\eSprintType.h" />
     <ClInclude Include="..\game_sa\JPegCompress.h" />
     <ClInclude Include="..\game_sa\PipelinePlugin.h" />
@@ -619,7 +620,7 @@
     <ClInclude Include="..\game_sa\CVehicleModelInfo.h" />
     <ClInclude Include="..\game_sa\CVisibilityPlugins.h" />
     <ClInclude Include="..\game_sa\CWanted.h" />
-    <ClInclude Include="..\game_sa\CWantedAudio.h" />
+    <ClInclude Include="..\game_sa\CAEPoliceScannerAudioEntity.h" />
     <ClInclude Include="..\game_sa\CWeapon.h" />
     <ClInclude Include="..\game_sa\CWeaponAudio.h" />
     <ClInclude Include="..\game_sa\CWeaponInfo.h" />
@@ -1137,6 +1138,7 @@
     <ClCompile Include="..\game_sa\CTaskSimpleWaitUntilPedIsOutCar.cpp" />
     <ClCompile Include="..\game_sa\CTaskTimer.cpp" />
     <ClCompile Include="..\game_sa\CTheCarGenerators.cpp" />
+    <ClCompile Include="..\game_sa\CWanted.cpp" />
     <ClCompile Include="..\game_sa\CWeather.cpp" />
     <ClCompile Include="..\game_sa\D3DIndexDataBuffer.cpp" />
     <ClCompile Include="..\game_sa\D3DResourceSystem.cpp" />
