@@ -368,6 +368,14 @@ public:
 	~CMenuManager();
 
 	void DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground);
+    char SwitchToNewScreen(char page);
+    void SaveSettings();
+    char InitialiseChangedLanguageSettings(char a2);
+    void ScrollRadioStations(char numStations);
+    void ProcessMissionPackNewGame();
+    signed int DoSettingsBeforeStartingAGame();
+    char SetDefaultPreferences(eMenuPage page);
+    char PrintMap();
 };
 #pragma pack(pop)
 
