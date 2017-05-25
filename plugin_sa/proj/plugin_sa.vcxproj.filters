@@ -76,6 +76,9 @@
     <Filter Include="game_sa\Core">
       <UniqueIdentifier>{73fea806-5276-4ead-83cc-e254980818ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="extensions\scripting">
+      <UniqueIdentifier>{8391863d-0758-44d5-ad89-5012368391e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game_sa\C2dEffect.h">
@@ -1843,6 +1846,12 @@
     <ClInclude Include="..\game_sa\eCrimeType.h">
       <Filter>game_sa\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\ScriptCommands.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h">
+      <Filter>extensions\scripting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3344,6 +3353,9 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CWanted.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\ScriptCommands.cpp">
+      <Filter>extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

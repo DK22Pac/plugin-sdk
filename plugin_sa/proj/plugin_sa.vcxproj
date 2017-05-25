@@ -105,6 +105,8 @@
     <ClInclude Include="..\extensions\DynamicResource.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
+    <ClInclude Include="..\extensions\ScriptCommands.h" />
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h" />
     <ClInclude Include="..\extensions\Shader.h" />
     <ClInclude Include="..\game_sa\AnimBlendFrameData.h" />
     <ClInclude Include="..\game_sa\C2dEffect.h" />
@@ -693,6 +695,7 @@
     <ClCompile Include="..\extensions\DynamicResource.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
+    <ClCompile Include="..\extensions\ScriptCommands.cpp" />
     <ClCompile Include="..\extensions\Shader.cpp" />
     <ClCompile Include="..\game_sa\C3dMarker.cpp" />
     <ClCompile Include="..\game_sa\C3dMarkers.cpp" />
