@@ -14,4 +14,8 @@ namespace plugin {
     inline bool KeyPressed(unsigned int keyCode) {
         return (GetKeyState(keyCode) & 0x8000) != 0;
     }
+
+    inline bool IsPluginInstalled(const char *pluginName) {
+        return GetModuleHandle(pluginName) ? true : false;
+    }
 }

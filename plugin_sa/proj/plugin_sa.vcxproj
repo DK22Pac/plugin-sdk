@@ -113,6 +113,7 @@
     <ClInclude Include="..\game_sa\C3dMarker.h" />
     <ClInclude Include="..\game_sa\C3dMarkers.h" />
     <ClInclude Include="..\game_sa\CAEAudioEntity.h" />
+    <ClInclude Include="..\game_sa\CAEExplosionAudioEntity.h" />
     <ClInclude Include="..\game_sa\CAEFireAudioEntity.h" />
     <ClInclude Include="..\game_sa\CAERadioTrackManager.h" />
     <ClInclude Include="..\game_sa\CAESound.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="..\game_sa\CBoat.h" />
     <ClInclude Include="..\game_sa\CBoundingBox.h" />
     <ClInclude Include="..\game_sa\CBrightLights.h" />
+    <ClInclude Include="..\game_sa\CBulletInfo.h" />
     <ClInclude Include="..\game_sa\CBulletTrace.h" />
     <ClInclude Include="..\game_sa\CCarCtrl.h" />
     <ClInclude Include="..\game_sa\CCarGenerator.h" />
@@ -167,6 +169,7 @@
     <ClInclude Include="..\game_sa\CRope.h" />
     <ClInclude Include="..\game_sa\CRopes.h" />
     <ClInclude Include="..\game_sa\CShinyTexts.h" />
+    <ClInclude Include="..\game_sa\CShotInfo.h" />
     <ClInclude Include="..\game_sa\CSpecialFX.h" />
     <ClInclude Include="..\game_sa\CSpecialPlateHandler.h" />
     <ClInclude Include="..\game_sa\CStreamingInfo.h" />
@@ -590,6 +593,7 @@
     <ClInclude Include="..\game_sa\CTaskSimpleJetpack.h" />
     <ClInclude Include="..\game_sa\CTaskSimpleUseGun.h" />
     <ClInclude Include="..\game_sa\CTheCarGenerators.h" />
+    <ClInclude Include="..\game_sa\CWeaponEffects.h" />
     <ClInclude Include="..\game_sa\CWeather.h" />
     <ClInclude Include="..\game_sa\D3DIndexDataBuffer.h" />
     <ClInclude Include="..\game_sa\D3DResourceSystem.h" />
@@ -713,6 +717,7 @@
     <ClCompile Include="..\game_sa\CBox.cpp" />
     <ClCompile Include="..\game_sa\CBrightLights.cpp" />
     <ClCompile Include="..\game_sa\CBuilding.cpp" />
+    <ClCompile Include="..\game_sa\CBulletInfo.cpp" />
     <ClCompile Include="..\game_sa\CBulletTrace.cpp" />
     <ClCompile Include="..\game_sa\CBulletTraces.cpp" />
     <ClCompile Include="..\game_sa\CCamera.cpp" />
@@ -752,6 +757,7 @@
     <ClCompile Include="..\game_sa\CEntity.cpp" />
     <ClCompile Include="..\game_sa\CEntryExit.cpp" />
     <ClCompile Include="..\game_sa\CEntryExitManager.cpp" />
+    <ClCompile Include="..\game_sa\CExplosion.cpp" />
     <ClCompile Include="..\game_sa\CFileLoader.cpp" />
     <ClCompile Include="..\game_sa\CFileMgr.cpp" />
     <ClCompile Include="..\game_sa\CFire.cpp" />
@@ -820,6 +826,7 @@
     <ClCompile Include="..\game_sa\CShadowCamera.cpp" />
     <ClCompile Include="..\game_sa\CShadows.cpp" />
     <ClCompile Include="..\game_sa\CShinyTexts.cpp" />
+    <ClCompile Include="..\game_sa\CShotInfo.cpp" />
     <ClCompile Include="..\game_sa\CSimpleTransform.cpp" />
     <ClCompile Include="..\game_sa\CSpecialFX.cpp" />
     <ClCompile Include="..\game_sa\CSpecialPlateHandler.cpp" />
@@ -1142,6 +1149,7 @@
     <ClCompile Include="..\game_sa\CTaskTimer.cpp" />
     <ClCompile Include="..\game_sa\CTheCarGenerators.cpp" />
     <ClCompile Include="..\game_sa\CWanted.cpp" />
+    <ClCompile Include="..\game_sa\CWeaponEffects.cpp" />
     <ClCompile Include="..\game_sa\CWeather.cpp" />
     <ClCompile Include="..\game_sa\D3DIndexDataBuffer.cpp" />
     <ClCompile Include="..\game_sa\D3DResourceSystem.cpp" />

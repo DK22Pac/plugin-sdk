@@ -6,24 +6,40 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
-#include "CEntity.h"
 #include "eWeaponType.h"
+#include "CProjectile.h"
+#include "FxSystem_c.h"
 
-#pragma pack(push, 1)
-class PLUGIN_API CProjectileInfo
-{
+extern unsigned int MAX_PROJECTILES; // default 32
+
+class PLUGIN_API CProjectileInfo {
 public:
-	eWeaponType m_eWeaponType;
-	CEntity *m_pLauncher;
-	CEntity *m_pTarget;
-	int m_dwTimeToDestroy;
-	bool m_bState;
-	char _pad[3];
-	CVector m_vLastPos;
-	class FxSystem_c *m_pParticle;
+	unsigned int  m_nWeaponType; // see eWeaponType
+	CEntity      *m_pCreator;
+	CEntity      *m_pVictim;
+	int           m_nDestroyTime;
+	bool          m_bActive;
+private:
+	char _pad11[3];
+public:
+	CVector       m_vecLastPosn;
+	FxSystem_c   *m_pFxSystem;
 
-	static void CreateExplosion(CEntity* creator, eWeaponType weaponType, CVector pos);
-	//static void AddProjectile(CEntity* entity, eWeaponType weaponType, CVector, float fSpeedMulti, CVector*, CEntity* targetEntity);
+    static CProjectile **ms_apProjectile; // static CProjectile *ms_apProjectile[MAX_PROJECTILES]
+
+    static void Initialise();
+    static void RemoveFXSystem(unsigned char bInstantly);
+    static void Shutdown();
+    static CProjectileInfo* GetProjectileInfo(int infoId);
+    static void RemoveNotAdd(CEntity* creator, eWeaponType weaponType, CVector posn);
+    static bool AddProjectile(CEntity* creator, eWeaponType eWeaponType, CVector posn, float force, CVector* direction, CEntity* victim);
+    static void RemoveDetonatorProjectiles();
+    static void RemoveProjectile(CProjectileInfo* projectileInfo, CProjectile* projectileObject);
+    static void Update();
+    static bool IsProjectileInRange(float x1, float y1, float z1, float x2, float y2, float z2, bool bDestroy);
+    static void RemoveAllProjectiles();
+    static bool RemoveIfThisIsAProjectile(CObject* object);
 };
-#pragma pack(pop)
-extern PLUGIN_API CProjectileInfo *ms_gaProjectileInfo;
+
+extern unsigned int MAX_PROJECTILE_INFOS; // default 32
+extern CProjectileInfo *gaProjectileInfo; // CProjectileInfo gaProjectileInfo[MAX_PROJECTILE_INFOS]

@@ -1852,6 +1852,18 @@
     <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h">
       <Filter>extensions\scripting</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CWeaponEffects.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CShotInfo.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CBulletInfo.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CAEExplosionAudioEntity.h">
+      <Filter>game_sa\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3356,6 +3368,18 @@
     </ClCompile>
     <ClCompile Include="..\extensions\ScriptCommands.cpp">
       <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CWeaponEffects.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CShotInfo.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CBulletInfo.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CExplosion.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
