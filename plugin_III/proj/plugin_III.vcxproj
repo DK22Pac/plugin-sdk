@@ -108,6 +108,7 @@
     <ClInclude Include="..\game_III\CColSphere.h" />
     <ClInclude Include="..\game_III\CColTriangle.h" />
     <ClInclude Include="..\game_III\CColTrianglePlane.h" />
+    <ClInclude Include="..\game_III\CControllerState.h" />
     <ClInclude Include="..\game_III\CCopPed.h" />
     <ClInclude Include="..\game_III\CCurrentVehicle.h" />
     <ClInclude Include="..\game_III\CCutsceneHead.h" />
@@ -124,10 +125,12 @@
     <ClInclude Include="..\game_III\CHeli.h" />
     <ClInclude Include="..\game_III\CIniFile.h" />
     <ClInclude Include="..\game_III\CInstance.h" />
+    <ClInclude Include="..\game_III\CKeyboardState.h" />
     <ClInclude Include="..\game_III\CLines.h" />
     <ClInclude Include="..\game_III\CMessages.h" />
     <ClInclude Include="..\game_III\CMloModelInfo.h" />
     <ClInclude Include="..\game_III\CModelInfo.h" />
+    <ClInclude Include="..\game_III\CMouseControllerState.h" />
     <ClInclude Include="..\game_III\common.h" />
     <ClInclude Include="..\game_III\CompressedVector.h" />
     <ClInclude Include="..\game_III\CPad.h" />
@@ -277,6 +280,7 @@
     <ClCompile Include="..\game_III\CColSphere.cpp" />
     <ClCompile Include="..\game_III\CColTriangle.cpp" />
     <ClCompile Include="..\game_III\CColTrianglePlane.cpp" />
+    <ClCompile Include="..\game_III\CControllerState.cpp" />
     <ClCompile Include="..\game_III\CCopPed.cpp" />
     <ClCompile Include="..\game_III\CCurrentVehicle.cpp" />
     <ClCompile Include="..\game_III\CCutsceneHead.cpp" />
@@ -296,11 +300,13 @@
     <ClCompile Include="..\game_III\CHeli.cpp" />
     <ClCompile Include="..\game_III\CIniFile.cpp" />
     <ClCompile Include="..\game_III\CInstance.cpp" />
+    <ClCompile Include="..\game_III\CKeyboardState.cpp" />
     <ClCompile Include="..\game_III\CLines.cpp" />
     <ClCompile Include="..\game_III\CMatrix.cpp" />
     <ClCompile Include="..\game_III\CMessages.cpp" />
     <ClCompile Include="..\game_III\CMloModelInfo.cpp" />
     <ClCompile Include="..\game_III\CModelInfo.cpp" />
+    <ClCompile Include="..\game_III\CMouseControllerState.cpp" />
     <ClCompile Include="..\game_III\CObject.cpp" />
     <ClCompile Include="..\game_III\common.cpp" />
     <ClCompile Include="..\game_III\CompressedVector.cpp" />

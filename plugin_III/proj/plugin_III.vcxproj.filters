@@ -562,6 +562,15 @@
     <ClInclude Include="..\game_III\CSpecialParticleStuff.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CControllerState.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CKeyboardState.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CMouseControllerState.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -895,6 +904,15 @@
       <Filter>game_III</Filter>
     </ClCompile>
     <ClCompile Include="..\game_III\CSpecialParticleStuff.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CControllerState.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CKeyboardState.cpp">
+      <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CMouseControllerState.cpp">
       <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
