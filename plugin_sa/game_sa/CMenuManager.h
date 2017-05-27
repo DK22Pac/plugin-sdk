@@ -376,6 +376,9 @@ public:
     signed int DoSettingsBeforeStartingAGame();
     char SetDefaultPreferences(eMenuPage page);
     char PrintMap();
+    char PrintStats();
+    char PrintBriefs();
+    char DrawControllerSetupScreen();
 };
 #pragma pack(pop)
 
