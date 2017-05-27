@@ -16,7 +16,7 @@
  */
 class PLUGIN_API List_c
 {
-public:
+protected:
 	ListItem_c *last;
 	ListItem_c *first;
 	unsigned int count;

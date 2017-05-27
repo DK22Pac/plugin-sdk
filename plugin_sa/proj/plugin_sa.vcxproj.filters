@@ -19,9 +19,6 @@
     <Filter Include="game_sa\RenderWare\rw">
       <UniqueIdentifier>{9082517e-0f62-4fd7-ad91-4e40dab5c47d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="game_sa\Entity">
-      <UniqueIdentifier>{2d13e1db-3e82-4a3c-8b3d-f2f148c0a12e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="game_sa\Models">
       <UniqueIdentifier>{27e2e91a-45b4-4109-a456-8453e9d44cff}</UniqueIdentifier>
     </Filter>
@@ -46,18 +43,6 @@
     <Filter Include="game_sa\Fx">
       <UniqueIdentifier>{72bb23a5-e34e-42e3-84ce-fe6b2b2f2b43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="game_sa\Entity\Vehicle">
-      <UniqueIdentifier>{4e374142-0164-45cc-8a7b-25212057c8e8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="game_sa\Entity\Ped">
-      <UniqueIdentifier>{166376d5-81ab-409a-b53b-56c4413e091a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="game_sa\Entity\Object">
-      <UniqueIdentifier>{6eb04b06-fc5d-41b7-b51a-6fb5f8c40a42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="game_sa\Entity\Dummy">
-      <UniqueIdentifier>{6b70145b-a5f6-40a2-97de-7be692b8ea13}</UniqueIdentifier>
-    </Filter>
     <Filter Include="game_sa\Scripts">
       <UniqueIdentifier>{295a8cde-63e6-4c4e-838e-2fd0a5243f6e}</UniqueIdentifier>
     </Filter>
@@ -78,6 +63,21 @@
     </Filter>
     <Filter Include="extensions\scripting">
       <UniqueIdentifier>{8391863d-0758-44d5-ad89-5012368391e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity">
+      <UniqueIdentifier>{2d13e1db-3e82-4a3c-8b3d-f2f148c0a12e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Vehicle">
+      <UniqueIdentifier>{4e374142-0164-45cc-8a7b-25212057c8e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Ped">
+      <UniqueIdentifier>{166376d5-81ab-409a-b53b-56c4413e091a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Object">
+      <UniqueIdentifier>{6eb04b06-fc5d-41b7-b51a-6fb5f8c40a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_sa\Entity\Dummy">
+      <UniqueIdentifier>{6b70145b-a5f6-40a2-97de-7be692b8ea13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1864,6 +1864,36 @@
     <ClInclude Include="..\game_sa\CAEExplosionAudioEntity.h">
       <Filter>game_sa\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CIplStore.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CFileObjectInstance.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\tBinaryIplFile.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\IplDef.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPtrNode.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPtrListSingleLink.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPtrListDoubleLink.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPtrNodeSingleLink.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CQuadTreeNode.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CPtrNodeDoubleLink.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3380,6 +3410,27 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\CExplosion.cpp">
       <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CIplStore.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPtrList.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPtrListSingleLink.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPtrListDoubleLink.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPtrNodeSingleLink.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CPtrNodeDoubleLink.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CQuadTreeNode.cpp">
+      <Filter>game_sa\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

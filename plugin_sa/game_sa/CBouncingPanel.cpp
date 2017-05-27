@@ -6,6 +6,12 @@
 */
 #include "CBouncingPanel.h"
 
+float &CBouncingPanel::BOUNCE_SPRING_DAMP_MULT = *(float *)0x8D3954;
+float &CBouncingPanel::BOUNCE_SPRING_RETURN_MULT = *(float *)0x8D3958;
+float &CBouncingPanel::BOUNCE_VEL_CHANGE_LIMIT = *(float *)0x8D395C;
+float &CBouncingPanel::BOUNCE_HANGING_DAMP_MULT = *(float *)0x8D3960;
+float &CBouncingPanel::BOUNCE_HANGING_RETURN_MULT = *(float *)0x8D3964;
+
 // Converted from thiscall void CBouncingPanel::ResetPanel(void) 0x6F4910
 void CBouncingPanel::ResetPanel() {
     plugin::CallMethod<0x6F4910, CBouncingPanel *>(this);

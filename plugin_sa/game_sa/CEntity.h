@@ -68,7 +68,10 @@ public:
     __int16 m_wScanCode;
     __int8 m_nIplIndex;
     unsigned __int8 m_nAreaCode;
-    class CEntity *m_pLod;
+    union {
+        int m_nLodIndex; // -1 - without LOD model
+        CEntity *m_pLod;
+    };
     unsigned __int8 m_nNumLodChildren;
     unsigned __int8 m_nNumLodChildrenRendered;
     unsigned __int8 m_nType : 3;

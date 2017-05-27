@@ -6,13 +6,44 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
+#include "CPtrNode.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CPtrList
-{
+class PLUGIN_API CPtrList {
+protected:
+    CPtrNode *pNode;
 public:
-	void *m_pNode;
+    inline CPtrNode *GetNode() {
+        return pNode;
+    }
+
+    // get elements count
+    unsigned int CountElements();
+    
+    /*
+    unsigned int CountElements() {
+        unsigned int counter;
+        CPtrNode *currNode = GetNode();
+        for (counter = 0; currNode; ++counter)
+            currNode = currNode->pNext;
+        return counter;
+    }
+    */
+
+    // check if data is a member of list
+    bool IsMemberOfList(void* data);
+
+    /*
+    bool IsMemberOfList(void* data) {
+        CPtrNode *currNode = GetNode();
+        while (currNode) {
+            if (currNode->pData == data)
+                return true;
+            currNode = currNode->pNext;
+        }
+        return false;
+    }
+    */
+
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPtrList, 4);
