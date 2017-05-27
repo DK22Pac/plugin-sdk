@@ -60,3 +60,18 @@ char CMenuManager::PrintMap()
 {
     return ((char(__thiscall *)(CMenuManager *))0x575130)(this);
 }
+
+char CMenuManager::PrintStats()
+{
+    return ((char(__thiscall *)(CMenuManager *))0x574900)(this);
+}
+
+char CMenuManager::PrintBriefs()
+{
+    return ((char(__thiscall *)(CMenuManager *))0x576320)(this);
+}
+
+char CMenuManager::DrawControllerSetupScreen()
+{
+    return ((char(__thiscall *)(CMenuManager *))0x57F300)(this);
+}
