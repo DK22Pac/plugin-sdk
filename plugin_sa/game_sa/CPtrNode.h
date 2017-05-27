@@ -11,6 +11,8 @@ class PLUGIN_API CPtrNode {
 public:
     void *pItem;
     CPtrNode *pNext;
+
+    inline CPtrNode(void *item) : pItem(item) {}
 };
 
 VALIDATE_SIZE(CPtrNode, 8);

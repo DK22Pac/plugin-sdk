@@ -10,20 +10,18 @@
 #include "CPtrNodeDoubleLink.h"
 
 class PLUGIN_API CPtrListDoubleLink : public CPtrList {
+protected:
+    CPtrListDoubleLink(plugin::dummy_func_t) {};
 public:
     inline CPtrNodeDoubleLink *GetNode() {
         return reinterpret_cast<CPtrNodeDoubleLink *>(pNode);
     }
 
-    void Flush();
-    ~CPtrListDoubleLink();
-
-    /*
-    ~CPtrListDoubleLink() {
+    inline ~CPtrListDoubleLink() {
         Flush();
     }
-    */
 
+    void Flush();
     void AddItem(void* item);
     void DeleteItem(void* item);
 };

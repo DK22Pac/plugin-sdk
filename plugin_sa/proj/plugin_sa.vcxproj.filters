@@ -1900,6 +1900,15 @@
     <ClInclude Include="..\game_sa\COctTreeBase.h">
       <Filter>game_sa\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CSetPiece.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CSetPieces.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CSector.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3443,6 +3452,12 @@
     </ClCompile>
     <ClCompile Include="..\game_sa\COctTreeBase.cpp">
       <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CSetPiece.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CSetPieces.cpp">
+      <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

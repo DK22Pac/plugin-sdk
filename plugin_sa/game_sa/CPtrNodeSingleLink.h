@@ -13,6 +13,8 @@ public:
     void *pItem;
     CPtrNodeSingleLink *pNext;
 
+    inline CPtrNodeSingleLink(void *item) : pItem(item) {}
+
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };

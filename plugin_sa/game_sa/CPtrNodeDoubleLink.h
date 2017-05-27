@@ -14,6 +14,8 @@ public:
     CPtrNodeDoubleLink *pNext;
     CPtrNodeDoubleLink *pPrev;
 
+    inline CPtrNodeDoubleLink(void *item) : pItem(item) {}
+
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };

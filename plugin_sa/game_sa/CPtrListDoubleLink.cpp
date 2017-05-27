@@ -11,11 +11,6 @@ void CPtrListDoubleLink::Flush() {
     plugin::CallMethod<0x552470, CPtrListDoubleLink *>(this);
 }
 
-// Converted from thiscall void CPtrListDoubleLink::~CPtrListDoubleLink() 0x8564E0
-CPtrListDoubleLink::~CPtrListDoubleLink() {
-    plugin::CallMethod<0x8564E0, CPtrListDoubleLink *>(this);
-}
-
 // Converted from thiscall void CPtrListDoubleLink::AddItem(void *item) 0x533670
 void CPtrListDoubleLink::AddItem(void* item) {
     plugin::CallMethod<0x533670, CPtrListDoubleLink *, void*>(this, item);

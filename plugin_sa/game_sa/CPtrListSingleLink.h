@@ -10,28 +10,19 @@
 #include "CPtrNodeSingleLink.h"
 
 class PLUGIN_API CPtrListSingleLink : public CPtrList {
+protected:
+    CPtrListSingleLink(plugin::dummy_func_t) {}
 public:
     inline CPtrNodeSingleLink *GetNode() {
         return reinterpret_cast<CPtrNodeSingleLink *>(pNode);
     }
 
-    void Flush();
-
     inline ~CPtrListSingleLink() {
         Flush();
     }
 
+    void Flush();
     void AddItem(void* item);
-
-    /*
-    void AddItem(void *item) {
-        CPtrNodeSingleLink *newNode = new CPtrNodeSingleLink;
-        newNode->pItem = item;
-        newNode->pNext = GetNode();
-        pNode = reinterpret_cast<CPtrNode *>(newNode);
-    }
-    */
-
     void DeleteItem(void* item);
 };
 

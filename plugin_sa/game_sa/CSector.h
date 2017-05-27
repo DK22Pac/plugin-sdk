@@ -8,15 +8,10 @@
 #include "plbase/PluginBase_SA.h"
 #include "CPtrListDoubleLink.h"
 
-enum eRepeatSectorList {
-    REPEATSECTOR_VEHICLES = 0,
-    REPEATSECTOR_PEDS = 1,
-    REPEATSECTOR_OBJECTS = 2
-};
-
-class PLUGIN_API CRepeatSector {
+class PLUGIN_API CSector {
 public:
-    CPtrListDoubleLink m_lists[3];
+    CPtrListDoubleLink m_buildings;
+    CPtrListDoubleLink m_dummies;
 };
 
-VALIDATE_SIZE(CRepeatSector, 0xC);
+VALIDATE_SIZE(CSector, 8);

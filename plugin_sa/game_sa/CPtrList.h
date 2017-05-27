@@ -16,6 +16,10 @@ public:
         return pNode;
     }
 
+    inline CPtrList() {
+        pNode = nullptr;
+    }
+
     // get elements count
     unsigned int CountElements();
     

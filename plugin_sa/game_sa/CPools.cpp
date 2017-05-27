@@ -14,6 +14,8 @@ CPool<CDummy> *&CPools::ms_pDummyPool                     = *(CPool<CDummy> **)0
 CPool<CColModel> *&CPools::ms_pColModelPool               = *(CPool<CColModel> **)0xB744A4;
 CPool<CTask, char[128]> *&CPools::ms_pTaskPool            = *(CPool<CTask, char[128]> **)0xB744A8;
 CPool<CPedIntelligence> *&CPools::ms_pPedIntelligencePool = *(CPool<CPedIntelligence> **)0xB744C0;
+CPool<CPtrNodeSingleLink> *&ms_pPtrNodeSingleLinkPool     = *(CPool<CPtrNodeSingleLink> **)0xB74484;
+CPool<CPtrNodeDoubleLink> *&ms_pPtrNodeDoubleLinkPool     = *(CPool<CPtrNodeDoubleLink> **)0xB74488;
 
 // Converted from cdecl int CPools::CheckBuildingAtomics(void) 0x550170
 int CPools::CheckBuildingAtomics() {
@@ -46,8 +48,8 @@ int CPools::GetPedRef(CPed* ped) {
 }
 
 // Converted from cdecl CVehicle* CPools::GetVehicle(int) 0x54FFF0
-CVehicle* CPools::GetVehicle(int arg0) {
-    return plugin::CallAndReturn<CVehicle*, 0x54FFF0, int>(arg0);
+CVehicle* CPools::GetVehicle(int handle) {
+    return plugin::CallAndReturn<CVehicle*, 0x54FFF0, int>(handle);
 }
 
 // Converted from cdecl int CPools::GetVehicleRef(CVehicle *vehicle) 0x54FFC0
