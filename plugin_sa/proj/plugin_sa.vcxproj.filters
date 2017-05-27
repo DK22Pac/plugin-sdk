@@ -1894,6 +1894,12 @@
     <ClInclude Include="..\game_sa\CPtrNodeDoubleLink.h">
       <Filter>game_sa\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\COctTree.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\COctTreeBase.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3430,6 +3436,12 @@
       <Filter>game_sa\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CQuadTreeNode.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\COctTree.cpp">
+      <Filter>game_sa\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\COctTreeBase.cpp">
       <Filter>game_sa\Core</Filter>
     </ClCompile>
   </ItemGroup>

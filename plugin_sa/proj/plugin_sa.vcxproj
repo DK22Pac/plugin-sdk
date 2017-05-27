@@ -149,6 +149,8 @@
     <ClInclude Include="..\game_sa\CFireManager.h" />
     <ClInclude Include="..\game_sa\CHeli.h" />
     <ClInclude Include="..\game_sa\CIniFile.h" />
+    <ClInclude Include="..\game_sa\COctTree.h" />
+    <ClInclude Include="..\game_sa\COctTreeBase.h" />
     <ClInclude Include="..\game_sa\CPtrListDoubleLink.h" />
     <ClInclude Include="..\game_sa\CPtrListSingleLink.h" />
     <ClInclude Include="..\game_sa\CPtrNode.h" />
@@ -798,6 +800,8 @@
     <ClCompile Include="..\game_sa\CMonsterTruck.cpp" />
     <ClCompile Include="..\game_sa\CMotionBlurStreaks.cpp" />
     <ClCompile Include="..\game_sa\CObject.cpp" />
+    <ClCompile Include="..\game_sa\COctTree.cpp" />
+    <ClCompile Include="..\game_sa\COctTreeBase.cpp" />
     <ClCompile Include="..\game_sa\common.cpp" />
     <ClCompile Include="..\game_sa\CompressedVector.cpp" />
     <ClCompile Include="..\game_sa\CPad.cpp" />

@@ -10,7 +10,7 @@ CQuadTreeNode *&CIplStore::ms_pQuadTree = *(CQuadTreeNode **)0x8E3FAC;
 CPool<IplDef> *&CIplStore::ms_pPool = *(CPool<IplDef> **)0x8E3FB0;
 
 unsigned int MAX_IPL_ENTITY_INDEX_ARRAYS = 40;
-unsigned int MAX_IPL_INSTANCSE = 1000;
+unsigned int MAX_IPL_INSTANCES = 1000;
 
 CEntity **ppCurrIplInstance = (CEntity **)0x8E3EFC;
 unsigned int &NumIplEntityIndexArrays = *(unsigned int *)0x8E3F00;

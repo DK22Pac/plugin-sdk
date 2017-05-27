@@ -54,7 +54,7 @@ public:
 };
 
 extern unsigned int MAX_IPL_ENTITY_INDEX_ARRAYS; // default 40
-extern unsigned int MAX_IPL_INSTANCSE; // default 1000
+extern unsigned int MAX_IPL_INSTANCES; // default 1000
 
 extern CEntity **ppCurrIplInstance;
 extern unsigned int &NumIplEntityIndexArrays;
