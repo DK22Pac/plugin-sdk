@@ -49,6 +49,12 @@
     <Filter Include="extensions">
       <UniqueIdentifier>{f4ab649f-f4a0-43c5-b64a-259dbaa612d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="extensions\scripting">
+      <UniqueIdentifier>{1096fdc1-a44d-43d0-85f3-7080b75e2c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Scripts">
+      <UniqueIdentifier>{9b7d0766-ed4c-443c-b29c-983af6b192ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\plugin_vc.h" />
@@ -514,6 +520,18 @@
     <ClInclude Include="..\extensions\Config.h">
       <Filter>extensions</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\ScriptCommands.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h">
+      <Filter>extensions\scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTheScripts.h">
+      <Filter>game_vc\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CRunningScript.h">
+      <Filter>game_vc\Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -809,6 +827,15 @@
     </ClCompile>
     <ClCompile Include="..\extensions\Config.cpp">
       <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\ScriptCommands.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTheScripts.cpp">
+      <Filter>game_vc\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CRunningScript.cpp">
+      <Filter>game_vc\Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

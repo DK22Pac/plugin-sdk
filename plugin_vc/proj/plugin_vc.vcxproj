@@ -89,6 +89,8 @@
     <ClInclude Include="..\extensions\Config.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
+    <ClInclude Include="..\extensions\ScriptCommands.h" />
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h" />
     <ClInclude Include="..\game_vc\CAutomobile.h" />
     <ClInclude Include="..\game_vc\CAutoPilot.h" />
     <ClInclude Include="..\game_vc\CBaseModelInfo.h" />
@@ -144,6 +146,7 @@
     <ClInclude Include="..\game_vc\CProjectile.h" />
     <ClInclude Include="..\game_vc\CQuaternion.h" />
     <ClInclude Include="..\game_vc\CRGBA.h" />
+    <ClInclude Include="..\game_vc\CRunningScript.h" />
     <ClInclude Include="..\game_vc\CScene.h" />
     <ClInclude Include="..\game_vc\CShadowCamera.h" />
     <ClInclude Include="..\game_vc\CSimpleModelInfo.h" />
@@ -167,6 +170,7 @@
     <ClInclude Include="..\game_vc\CPtrList.h" />
     <ClInclude Include="..\game_vc\CRect.h" />
     <ClInclude Include="..\game_vc\CSector.h" />
+    <ClInclude Include="..\game_vc\CTheScripts.h" />
     <ClInclude Include="..\game_vc\CTheZones.h" />
     <ClInclude Include="..\game_vc\CTimeModelInfo.h" />
     <ClInclude Include="..\game_vc\CTimer.h" />
@@ -243,6 +247,7 @@
     <ClCompile Include="..\extensions\Config.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
+    <ClCompile Include="..\extensions\ScriptCommands.cpp" />
     <ClCompile Include="..\game_vc\CAutomobile.cpp" />
     <ClCompile Include="..\game_vc\CBaseModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CBike.cpp" />
@@ -307,6 +312,7 @@
     <ClCompile Include="..\game_vc\CPtrList.cpp" />
     <ClCompile Include="..\game_vc\CQuaternion.cpp" />
     <ClCompile Include="..\game_vc\CRGBA.cpp" />
+    <ClCompile Include="..\game_vc\CRunningScript.cpp" />
     <ClCompile Include="..\game_vc\CScene.cpp" />
     <ClCompile Include="..\game_vc\CShadowCamera.cpp" />
     <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp" />
@@ -314,6 +320,7 @@
     <ClCompile Include="..\game_vc\CSprite.cpp" />
     <ClCompile Include="..\game_vc\CSprite2d.cpp" />
     <ClCompile Include="..\game_vc\CStats.cpp" />
+    <ClCompile Include="..\game_vc\CTheScripts.cpp" />
     <ClCompile Include="..\game_vc\CTheZones.cpp" />
     <ClCompile Include="..\game_vc\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CTimer.cpp" />

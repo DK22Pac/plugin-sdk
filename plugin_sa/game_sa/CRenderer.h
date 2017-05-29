@@ -39,10 +39,10 @@ public:
     static tRenderListEntry *&ms_pLodDontRenderList;
     static tRenderListEntry *&ms_pLodRenderList;
     static CVehicle *&m_pFirstPersonVehicle;
-    static CEntity **ms_aInVisibleEntityPtrs;
-    static CEntity **ms_aVisibleSuperLodPtrs;
-    static CEntity **ms_aVisibleLodPtrs;
-    static CEntity **ms_aVisibleEntityPtrs;
+    static CEntity **ms_aInVisibleEntityPtrs; // static CEntity *ms_aInVisibleEntityPtrs[MAX_INVISIBLE_ENTITY_PTRS];
+    static CEntity **ms_aVisibleSuperLodPtrs; // static CEntity *ms_aVisibleSuperLodPtrs[MAX_VISIBLE_SUPERLOD_PTRS];
+    static CEntity **ms_aVisibleLodPtrs; // static CEntity *ms_aVisibleLodPtrs[MAX_VISIBLE_LOD_PTRS];     
+    static CEntity **ms_aVisibleEntityPtrs; // static CEntity *ms_aVisibleEntityPtrs[MAX_VISIBLE_ENTITY_PTRS];  
     static unsigned int &ms_nNoOfVisibleSuperLods;
     static unsigned int &ms_nNoOfInVisibleEntities;
     static unsigned int &ms_nNoOfVisibleLods;

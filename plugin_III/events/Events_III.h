@@ -54,5 +54,9 @@ namespace plugin
                                           0x5BA475, H_CALL, 0x5BAAC4, H_CALL,
                                           0x5BACCA, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          d3dLostEvent;
         extern CdeclEvent    <AddressList<0x48E49B, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          gameProcessEvent;
+        extern CdeclEvent    <AddressList<0x453B43, H_CALL,
+                                          0x48C26B, H_CALL,
+                                          0x48C575, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          initScriptsEvent;
+        extern CdeclEvent    <AddressList<0x48C95C, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          processScriptsEvent;
     }
 }

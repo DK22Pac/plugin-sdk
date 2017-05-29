@@ -52,6 +52,12 @@
     <Filter Include="game_III\Animation">
       <UniqueIdentifier>{209e2a4f-0fd8-4734-996f-34b008217794}</UniqueIdentifier>
     </Filter>
+    <Filter Include="extensions\scripting">
+      <UniqueIdentifier>{a60c12c5-459d-405e-93a4-e167b2f93f7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_III\Scripts">
+      <UniqueIdentifier>{fb7ea752-96ef-4d0f-a27d-e311dfd3453f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\plugin_III.h" />
@@ -571,6 +577,18 @@
     <ClInclude Include="..\game_III\CMouseControllerState.h">
       <Filter>game_III</Filter>
     </ClInclude>
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h">
+      <Filter>extensions\scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\ScriptCommands.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CRunningScript.h">
+      <Filter>game_III\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_III\CTheScripts.h">
+      <Filter>game_III\Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -914,6 +932,15 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CMouseControllerState.cpp">
       <Filter>game_III</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\ScriptCommands.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTheScripts.cpp">
+      <Filter>game_III\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CRunningScript.cpp">
+      <Filter>game_III\Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

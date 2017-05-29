@@ -111,5 +111,10 @@ namespace plugin
 
         // When game is active again we resume all game sounds
         extern ThiscallEvent <AddressList<0x747FE4, H_CALL>, PRIORITY_BEFORE, ArgPickNone, void(void*)>                onResumeAllSounds;
+
+        extern CdeclEvent    <AddressList<0x53BDD7, H_CALL,
+                                          0x5BA340, H_CALL,
+                                          0x5D4FD7, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          initScriptsEvent;
+        extern CdeclEvent    <AddressList<0x53C077, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          processScriptsEvent;
     }
 }

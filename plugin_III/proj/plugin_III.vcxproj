@@ -85,6 +85,8 @@
     <ClInclude Include="..\extensions\Config.h" />
     <ClInclude Include="..\extensions\KeyCheck.h" />
     <ClInclude Include="..\extensions\Screen.h" />
+    <ClInclude Include="..\extensions\ScriptCommands.h" />
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h" />
     <ClInclude Include="..\game_III\AnimBlendFrameData.h" />
     <ClInclude Include="..\game_III\C2deffectsModelInfo.h" />
     <ClInclude Include="..\game_III\CAnimBlendAssociation.h" />
@@ -154,6 +156,7 @@
     <ClInclude Include="..\game_III\CReference.h" />
     <ClInclude Include="..\game_III\CReferences.h" />
     <ClInclude Include="..\game_III\CRGBA.h" />
+    <ClInclude Include="..\game_III\CRunningScript.h" />
     <ClInclude Include="..\game_III\CScene.h" />
     <ClInclude Include="..\game_III\CSimpleModelInfo.h" />
     <ClInclude Include="..\game_III\CSpecialParticleStuff.h" />
@@ -179,6 +182,7 @@
     <ClInclude Include="..\game_III\CStoredCollPoly.h" />
     <ClInclude Include="..\game_III\CStreamingInfo.h" />
     <ClInclude Include="..\game_III\CTheCarGenerators.h" />
+    <ClInclude Include="..\game_III\CTheScripts.h" />
     <ClInclude Include="..\game_III\CTimeModelInfo.h" />
     <ClInclude Include="..\game_III\CTimer.h" />
     <ClInclude Include="..\game_III\CTrain.h" />
@@ -257,6 +261,7 @@
     <ClCompile Include="..\extensions\Config.cpp" />
     <ClCompile Include="..\extensions\KeyCheck.cpp" />
     <ClCompile Include="..\extensions\Screen.cpp" />
+    <ClCompile Include="..\extensions\ScriptCommands.cpp" />
     <ClCompile Include="..\game_III\C2deffectsModelInfo.cpp" />
     <ClCompile Include="..\game_III\CAnimBlendAssociation.cpp" />
     <ClCompile Include="..\game_III\CAnimBlendClumpData.cpp" />
@@ -334,6 +339,7 @@
     <ClCompile Include="..\game_III\CQuaternion.cpp" />
     <ClCompile Include="..\game_III\CReferences.cpp" />
     <ClCompile Include="..\game_III\CRGBA.cpp" />
+    <ClCompile Include="..\game_III\CRunningScript.cpp" />
     <ClCompile Include="..\game_III\CScene.cpp" />
     <ClCompile Include="..\game_III\CSimpleModelInfo.cpp" />
     <ClCompile Include="..\game_III\CSpecialParticleStuff.cpp" />
@@ -344,6 +350,7 @@
     <ClCompile Include="..\game_III\CStoredCar.cpp" />
     <ClCompile Include="..\game_III\CStreamingInfo.cpp" />
     <ClCompile Include="..\game_III\CTheCarGenerators.cpp" />
+    <ClCompile Include="..\game_III\CTheScripts.cpp" />
     <ClCompile Include="..\game_III\CTimeModelInfo.cpp" />
     <ClCompile Include="..\game_III\CTimer.cpp" />
     <ClCompile Include="..\game_III\CTrain.cpp" />
