@@ -10,8 +10,6 @@
 #include "CPtrNodeSingleLink.h"
 
 class PLUGIN_API CPtrListSingleLink : public CPtrList {
-protected:
-    CPtrListSingleLink(plugin::dummy_func_t) {}
 public:
     inline CPtrNodeSingleLink *GetNode() {
         return reinterpret_cast<CPtrNodeSingleLink *>(pNode);

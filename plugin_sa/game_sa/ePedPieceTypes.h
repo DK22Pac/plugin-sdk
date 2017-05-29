@@ -6,14 +6,6 @@
 */
 #pragma once
 
-#include "plbase/PluginBase_SA.h"
+enum ePedPieceTypes {
 
-template<typename T>
-class CLink {
-public:
-    T data;
-    CLink<T>* prev;
-    CLink<T>* next;
 };
-
-VALIDATE_SIZE(CLink<void *>, 0xC);

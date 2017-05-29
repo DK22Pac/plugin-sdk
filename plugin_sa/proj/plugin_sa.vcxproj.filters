@@ -1909,6 +1909,12 @@
     <ClInclude Include="..\game_sa\CSector.h">
       <Filter>game_sa</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\ePedPieceTypes.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CLinkList.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3457,6 +3463,9 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CSetPieces.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CRenderer.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

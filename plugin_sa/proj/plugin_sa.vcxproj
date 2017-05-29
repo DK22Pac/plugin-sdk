@@ -149,6 +149,7 @@
     <ClInclude Include="..\game_sa\CFireManager.h" />
     <ClInclude Include="..\game_sa\CHeli.h" />
     <ClInclude Include="..\game_sa\CIniFile.h" />
+    <ClInclude Include="..\game_sa\CLinkList.h" />
     <ClInclude Include="..\game_sa\COctTree.h" />
     <ClInclude Include="..\game_sa\COctTreeBase.h" />
     <ClInclude Include="..\game_sa\CPtrListDoubleLink.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="..\game_sa\CSector.h" />
     <ClInclude Include="..\game_sa\CSetPiece.h" />
     <ClInclude Include="..\game_sa\CSetPieces.h" />
+    <ClInclude Include="..\game_sa\ePedPieceTypes.h" />
     <ClInclude Include="..\game_sa\IplDef.h" />
     <ClInclude Include="..\game_sa\CIplStore.h" />
     <ClInclude Include="..\game_sa\CKeyGen.h" />
@@ -841,6 +843,7 @@
     <ClCompile Include="..\game_sa\CReferences.cpp" />
     <ClCompile Include="..\game_sa\CRegisteredCorona.cpp" />
     <ClCompile Include="..\game_sa\CRegisteredMotionBlurStreak.cpp" />
+    <ClCompile Include="..\game_sa\CRenderer.cpp" />
     <ClCompile Include="..\game_sa\CRestart.cpp" />
     <ClCompile Include="..\game_sa\CRGBA.cpp" />
     <ClCompile Include="..\game_sa\CRope.cpp" />

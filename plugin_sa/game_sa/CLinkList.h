@@ -7,13 +7,16 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
+#include "CLink.h"
 
 template<typename T>
-class CLink {
+class CLinkList {
 public:
-    T data;
-    CLink<T>* prev;
-    CLink<T>* next;
+    CLink<T> usedListHead;
+    CLink<T> usedListTail;
+    CLink<T> freeListHead;
+    CLink<T> freeListTail;
+    CLink<T>* links;
 };
 
-VALIDATE_SIZE(CLink<void *>, 0xC);
+VALIDATE_SIZE(CLinkList<void *>, 0x34);

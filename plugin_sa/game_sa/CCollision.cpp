@@ -221,19 +221,19 @@ float CCollision::DistToLine(CVector const* lineStart, CVector const* lineEnd, C
     return plugin::CallAndReturn<float, 0x417610, CVector const*, CVector const*, CVector const*>(lineStart, lineEnd, point);
 }
 
-// Converted from cdecl bool CCollision::TestLineOfSight(CColLine const&line,CMatrix const&transform,CColModel &colModel,bool seeThrough,bool shootThrough) 0x417730
-bool CCollision::TestLineOfSight(CColLine const& line, CMatrix const& transform, CColModel& colModel, bool seeThrough, bool shootThrough) {
-    return plugin::CallAndReturn<bool, 0x417730, CColLine const&, CMatrix const&, CColModel&, bool, bool>(line, transform, colModel, seeThrough, shootThrough);
+// Converted from cdecl bool CCollision::TestLineOfSight(CColLine const&line,CMatrix const&transform,CColModel &colModel,bool doSeeThroughCheck,bool doShootThroughCheck) 0x417730
+bool CCollision::TestLineOfSight(CColLine const& line, CMatrix const& transform, CColModel& colModel, bool doSeeThroughCheck, bool doShootThroughCheck) {
+    return plugin::CallAndReturn<bool, 0x417730, CColLine const&, CMatrix const&, CColModel&, bool, bool>(line, transform, colModel, doSeeThroughCheck, doShootThroughCheck);
 }
 
-// Converted from cdecl bool CCollision::ProcessLineOfSight(CColLine const&line,CMatrix const&transform,CColModel &colModel,CColPoint &colPoint,float &maxTouchDistance,bool seeThrough,bool shootThrough) 0x417950
-bool CCollision::ProcessLineOfSight(CColLine const& line, CMatrix const& transform, CColModel& colModel, CColPoint& colPoint, float& maxTouchDistance, bool seeThrough, bool shootThrough) {
-    return plugin::CallAndReturn<bool, 0x417950, CColLine const&, CMatrix const&, CColModel&, CColPoint&, float&, bool, bool>(line, transform, colModel, colPoint, maxTouchDistance, seeThrough, shootThrough);
+// Converted from cdecl bool CCollision::ProcessLineOfSight(CColLine const&line,CMatrix const&transform,CColModel &colModel,CColPoint &colPoint,float &maxTouchDistance,bool doSeeThroughCheck,bool doShootThroughCheck) 0x417950
+bool CCollision::ProcessLineOfSight(CColLine const& line, CMatrix const& transform, CColModel& colModel, CColPoint& colPoint, float& maxTouchDistance, bool doSeeThroughCheck, bool doShootThroughCheck) {
+    return plugin::CallAndReturn<bool, 0x417950, CColLine const&, CMatrix const&, CColModel&, CColPoint&, float&, bool, bool>(line, transform, colModel, colPoint, maxTouchDistance, doSeeThroughCheck, doShootThroughCheck);
 }
 
-// Converted from cdecl bool CCollision::ProcessVerticalLine(CColLine const&line,CMatrix const&transform,CColModel &colModel,CColPoint &colPoint,float &maxTouchDistance,bool seeThrough,bool shootThrough,CStoredCollPoly *collPoly) 0x417BF0
-bool CCollision::ProcessVerticalLine(CColLine const& line, CMatrix const& transform, CColModel& colModel, CColPoint& colPoint, float& maxTouchDistance, bool seeThrough, bool shootThrough, CStoredCollPoly* collPoly) {
-    return plugin::CallAndReturn<bool, 0x417BF0, CColLine const&, CMatrix const&, CColModel&, CColPoint&, float&, bool, bool, CStoredCollPoly*>(line, transform, colModel, colPoint, maxTouchDistance, seeThrough, shootThrough, collPoly);
+// Converted from cdecl bool CCollision::ProcessVerticalLine(CColLine const&line,CMatrix const&transform,CColModel &colModel,CColPoint &colPoint,float &maxTouchDistance,bool doSeeThroughCheck,bool doShootThroughCheck,CStoredCollPoly *collPoly) 0x417BF0
+bool CCollision::ProcessVerticalLine(CColLine const& line, CMatrix const& transform, CColModel& colModel, CColPoint& colPoint, float& maxTouchDistance, bool doSeeThroughCheck, bool doShootThroughCheck, CStoredCollPoly* collPoly) {
+    return plugin::CallAndReturn<bool, 0x417BF0, CColLine const&, CMatrix const&, CColModel&, CColPoint&, float&, bool, bool, CStoredCollPoly*>(line, transform, colModel, colPoint, maxTouchDistance, doSeeThroughCheck, doShootThroughCheck, collPoly);
 }
 
 // Converted from cdecl bool CCollision::SphereCastVsSphere(CColSphere *,CColSphere *,CColSphere *) 0x417F20
