@@ -589,6 +589,9 @@
     <ClInclude Include="..\game_III\CTheScripts.h">
       <Filter>game_III\Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_III\CTimeCycle.h">
+      <Filter>game_III</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_III.cpp">
@@ -941,6 +944,9 @@
     </ClCompile>
     <ClCompile Include="..\game_III\CRunningScript.cpp">
       <Filter>game_III\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_III\CTimeCycle.cpp">
+      <Filter>game_III</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
