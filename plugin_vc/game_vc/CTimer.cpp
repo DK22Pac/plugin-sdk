@@ -9,10 +9,10 @@ Do not delete this comment block. Respect others' work!
 bool &CTimer::m_CodePause                     = *(bool *)0xA10B76;
 unsigned int &CTimer::m_FrameCounter          = *(unsigned int *)0xA0D898;
 bool &CTimer::m_UserPause                     = *(bool *)0xA10B36;
-int &CTimer::m_snPreviousTimeInMilliseconds   = *(int *)0x978D8C;
-int &CTimer::m_snTimeInMilliseconds           = *(int *)0x974B2C;
-int &CTimer::m_snTimeInMillisecondsNonClipped = *(int *)0xA0D894;
-int &CTimer::m_snTimeInMillisecondsPauseMode  = *(int *)0x691014;
+unsigned int &CTimer::m_snPreviousTimeInMilliseconds   = *(unsigned int *)0x978D8C;
+unsigned int &CTimer::m_snTimeInMilliseconds           = *(unsigned int *)0x974B2C;
+unsigned int &CTimer::m_snTimeInMillisecondsNonClipped = *(unsigned int *)0xA0D894;
+unsigned int &CTimer::m_snTimeInMillisecondsPauseMode  = *(unsigned int *)0x691014;
 float &CTimer::ms_fTimeScale                  = *(float *)0x97F264;
 float &CTimer::ms_fTimeStep                   = *(float *)0x975424;
 float &CTimer::ms_fTimeStepNonClipped         = *(float *)0x9753A8;

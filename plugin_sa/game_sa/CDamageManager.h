@@ -50,8 +50,8 @@ enum tComponentGroup {
 
 enum eWheels {
     WHEEL_FRONT_LEFT = 0,
-    WHEEL_FRONT_RIGHT = 1,
-    WHEEL_REAR_LEFT = 2,
+    WHEEL_REAR_LEFT = 1,
+    WHEEL_FRONT_RIGHT = 2,
     WHEEL_REAR_RIGHT = 3
 };
 
