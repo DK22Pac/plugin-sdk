@@ -45,12 +45,16 @@
     <TargetExt>.asi</TargetExt>
     <OutDir>D:\Games\Grand Theft Auto - San Andreas\scripts\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
+	<IncludePath>$(IncludePath)</IncludePath>
+	<LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetExt>.asi</TargetExt>
     <OutDir>D:\Games\Grand Theft Auto - San Andreas\scripts\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
     <IntDir>obj\$(Configuration)\</IntDir>
+	<IncludePath>$(IncludePath)</IncludePath>
+	<LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
