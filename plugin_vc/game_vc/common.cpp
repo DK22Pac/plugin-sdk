@@ -140,3 +140,9 @@ RpWorld* LightsCreate(RpWorld* world) {
 void SetLightsWithTimeOfDayColour(RpWorld* world) {
     plugin::Call<0x5800F0, RpWorld*>(world);
 }
+
+// Converted from cdecl RpAtomic* GetCurrentAtomicObjectCB(RwObject *object, void *data) 0x59F1E0
+RpAtomic* GetCurrentAtomicObjectCB(RwObject* object, void* data)
+{
+    return ((RpAtomic* (__cdecl *)(RwObject*, void*))0x59F1E0)(object, data);
+}

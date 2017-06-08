@@ -47,8 +47,8 @@ enum tComponentGroup {
 
 enum eWheels {
     WHEEL_FRONT_LEFT = 0,
-    WHEEL_FRONT_RIGHT = 1,
-    WHEEL_REAR_LEFT = 2,
+    WHEEL_REAR_LEFT = 1,
+    WHEEL_FRONT_RIGHT = 2,
     WHEEL_REAR_RIGHT = 3
 };
 
@@ -101,7 +101,7 @@ public:
      unsigned int GetEngineStatus();
      unsigned int GetLightStatus(eLights light);
      unsigned int GetPanelStatus(ePanels panel);
-     unsigned int GetWheelStatus(eWheels wheel);
+     unsigned int GetWheelStatus(int wheel);
      bool ProgressDoorDamage(unsigned char door);
      bool ProgressEngineDamage(float damage);
      bool ProgressWheelDamage(unsigned char wheel);
@@ -111,7 +111,7 @@ public:
      void SetDoorStatus(eDoors door, unsigned int status);
      // Status is a value between 0-250
      void SetEngineStatus(unsigned int status);
-     void SetWheelStatus(eWheels wheel, unsigned int status);
+     void SetWheelStatus(int wheel, unsigned int status);
      void SetLightStatus(eLights light, unsigned int status);
      void SetPanelStatus(int panel, unsigned int status);
 };
