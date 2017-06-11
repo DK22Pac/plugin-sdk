@@ -7,6 +7,9 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
+#include "eStats.h"
+#include "eStatModAbilities.h"
+#include "eStatsReactions.h"
 
 enum eStatUpdateState {
     STAT_UPDATE_DECREASE = 0,

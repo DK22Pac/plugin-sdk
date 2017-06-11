@@ -1915,6 +1915,21 @@
     <ClInclude Include="..\game_sa\CLinkList.h">
       <Filter>game_sa\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\eStats.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eStatModAbilities.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eStatsReactions.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eEventType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eDecisionMakerEvents.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">

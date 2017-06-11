@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
@@ -15,11 +15,12 @@ Do not delete this comment block. Respect others' work!
 
 class CVehicleModelInfo : public CClumpModelInfo {
 public:
-    unsigned char m_anLastCarColorId[2];
+    char m_nLastPrimaryColor;
+    char m_nLastSecondaryColor;
     char m_szGameName[10];
     unsigned int m_nVehicleType;
     float m_fWheelSize;
-    short m_nWheelModelId;
+    short m_nWheelModelIndex;
     short m_nHandlingId;
     unsigned char m_nNumDoors;
     unsigned char m_nVehicleClass;
@@ -29,16 +30,29 @@ public:
 private:
     char _pad4E[2];
 public:
-    CVector m_avecDummyPos[5];
-    unsigned int m_nCompRules;
+    CVector m_avDummyPos[5];
+    union {
+        unsigned int m_nCompRules;
+        struct {
+            unsigned int nExtraA_comp1 : 4;
+            unsigned int nExtraA_comp2 : 4;
+            unsigned int nExtraA_comp3 : 4;
+            unsigned int nExtraA_rule : 4;
+            unsigned int nExtraB_comp1 : 4;
+            unsigned int nExtraB_comp2 : 4;
+            unsigned int nExtraB_comp3 : 4;
+            unsigned int nExtraB_rule : 4;
+        } m_nCompRulesBits;
+    };
     float m_fBikeSteerAngle;
     RpMaterial *m_apMaterialsPrimary[24];
     RpMaterial *m_apMaterialsSecondary[20];
-    unsigned char m_anPrimaryColorId[8];
-    unsigned char m_anSecondaryColorId[8];
+    unsigned char m_anPrimaryColors[8];
+    unsigned char m_anSecondaryColors[8];
     unsigned char m_nNumColorVariations;
     unsigned char m_nLastColorVariation;
-    unsigned char m_anCurrentColorId[2];
+    unsigned char m_nCurrentPrimaryColor;
+    unsigned char m_nCurrentSecondaryColor;
     RpAtomic *m_apExtras[6];
     char *m_pszAnimName;
 

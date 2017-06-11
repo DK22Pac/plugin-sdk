@@ -161,7 +161,12 @@
     <ClInclude Include="..\game_sa\CSector.h" />
     <ClInclude Include="..\game_sa\CSetPiece.h" />
     <ClInclude Include="..\game_sa\CSetPieces.h" />
+    <ClInclude Include="..\game_sa\eDecisionMakerEvents.h" />
+    <ClInclude Include="..\game_sa\eEventType.h" />
     <ClInclude Include="..\game_sa\ePedPieceTypes.h" />
+    <ClInclude Include="..\game_sa\eStatModAbilities.h" />
+    <ClInclude Include="..\game_sa\eStats.h" />
+    <ClInclude Include="..\game_sa\eStatsReactions.h" />
     <ClInclude Include="..\game_sa\IplDef.h" />
     <ClInclude Include="..\game_sa\CIplStore.h" />
     <ClInclude Include="..\game_sa\CKeyGen.h" />

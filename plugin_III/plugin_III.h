@@ -14,4 +14,6 @@
 #include "..\shared\Error.h"
 #include "..\shared\Other.h"
 #include "..\shared\Patch.h"
+#include "..\shared\paths\Paths.h"
 #include "extensions\Screen.h"
+#include "extensions\Config.h"

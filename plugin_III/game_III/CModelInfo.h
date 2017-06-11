@@ -49,4 +49,8 @@ public:
     static void ReInit2dEffects();
     static void RemoveColModelsFromOtherLevels(eLevelName arg0);
     static void ShutDown();
+
+    static inline CBaseModelInfo *GetModelInfo(int index) {
+        return ms_modelInfoPtrs[index];
+    }
 };

@@ -13,7 +13,8 @@
 
 class CVehicleModelInfo : public CClumpModelInfo {
 public:
-    char           m_nLastCarColorId[2];
+    char           m_nLastPrimaryColor;
+    char           m_nLastSecondaryColor;
     char           m_szGameName[32];
 private:
     char _pad56[2];
@@ -25,28 +26,29 @@ public:
     int            m_nHandlingId;
     unsigned int   m_nVehicleClass;
     unsigned int   m_nLvl;
-    CVector        m_vecDummyPos[10];
+    CVector        m_avDummyPos[10];
     union {
         unsigned int m_nCompRules;
         struct {
-            unsigned int m_nExtraA_comp1 : 4;
-            unsigned int m_nExtraA_comp2 : 4;
-            unsigned int m_nExtraA_comp3 : 4;
-            unsigned int m_nExtraA_rule : 4;
-            unsigned int m_nExtraB_comp1 : 4;
-            unsigned int m_nExtraB_comp2 : 4;
-            unsigned int m_nExtraB_comp3 : 4;
-            unsigned int m_nExtraB_rule : 4;
+            unsigned int nExtraA_comp1 : 4;
+            unsigned int nExtraA_comp2 : 4;
+            unsigned int nExtraA_comp3 : 4;
+            unsigned int nExtraA_rule : 4;
+            unsigned int nExtraB_comp1 : 4;
+            unsigned int nExtraB_comp2 : 4;
+            unsigned int nExtraB_comp3 : 4;
+            unsigned int nExtraB_rule : 4;
         } m_nCompRulesBits;
     };
     float          m_fBikeSteerAngle; // unsued; sets to 999.99 in CModelInfo::AddVehicleModel, but not used then.
     RpMaterial    *m_apMaterialsPrimary[26];
     RpMaterial    *m_apMaterialsSecondary[26];
-    unsigned char  m_bPrimaryColorId[8];
-    unsigned char  m_bSecondaryColorId[8];
+    unsigned char  m_anPrimaryColors[8];
+    unsigned char  m_anSecondaryColors[8];
     unsigned char  m_nNumColorVariations;
     unsigned char  m_nLastColorVariation;
-    unsigned char  m_nCurrentColorId[2];
+    unsigned char  m_nCurrentPrimaryColor;
+    unsigned char  m_nCurrentSecondaryColor;
     RwTexture     *m_pEnvironmentTex;
     RpAtomic      *m_apExtras[6];
     unsigned int   m_nNumExtras;
@@ -56,7 +58,7 @@ public:
     static CRGBA *ms_colourTextureTable;
     static char *ms_compsUsed;  // [2]
     static char *ms_compsToUse; // [2]
-    static RwTexture *ms_pEnvironmentMaps;
+    static RwTexture **ms_pEnvironmentMaps; // array with 1 element
     static RwObjectNameIdAssocation *ms_vehicleDescs;
 
     //funcs
@@ -117,4 +119,4 @@ public:
 
 VALIDATE_SIZE(CVehicleModelInfo, 0x1F8);
 
-extern RwFrame *pMatFxIdentityFrame;
+extern RwFrame *&pMatFxIdentityFrame;
