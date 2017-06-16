@@ -44,7 +44,7 @@ short &CWeather::WeatherRegion = *(short *)0xC81314;
 short &CWeather::ForcedWeatherType = *(short *)0xC81318;
 short &CWeather::NewWeatherType = *(short *)0xC8131C;
 short &CWeather::OldWeatherType = *(short *)0xC81320;
-CAEWeatherAudioEntity *CWeather::m_WeatherAudioEntity = (CAEWeatherAudioEntity *)0xC81360;
+CAEWeatherAudioEntity &CWeather::m_WeatherAudioEntity = *(CAEWeatherAudioEntity *)0xC81360;
 
 // Converted from cdecl void CWeather::AddRain(void) 0x72A9A0
 void CWeather::AddRain() {

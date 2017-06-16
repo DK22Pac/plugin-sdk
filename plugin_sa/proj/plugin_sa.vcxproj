@@ -137,6 +137,9 @@
     <ClInclude Include="..\game_sa\CCollision.h" />
     <ClInclude Include="..\game_sa\CCreepingFire.h" />
     <ClInclude Include="..\game_sa\CCutsceneMgr.h" />
+    <ClInclude Include="..\game_sa\CDecision.h" />
+    <ClInclude Include="..\game_sa\CDecisionMaker.h" />
+    <ClInclude Include="..\game_sa\CDecisionSimple.h" />
     <ClInclude Include="..\game_sa\CDirectory.h" />
     <ClInclude Include="..\game_sa\CDraw.h" />
     <ClInclude Include="..\game_sa\CEntryExit.h" />
@@ -167,6 +170,7 @@
     <ClInclude Include="..\game_sa\eStatModAbilities.h" />
     <ClInclude Include="..\game_sa\eStats.h" />
     <ClInclude Include="..\game_sa\eStatsReactions.h" />
+    <ClInclude Include="..\game_sa\eSurfaceType.h" />
     <ClInclude Include="..\game_sa\IplDef.h" />
     <ClInclude Include="..\game_sa\CIplStore.h" />
     <ClInclude Include="..\game_sa\CKeyGen.h" />
@@ -769,6 +773,8 @@
     <ClCompile Include="..\game_sa\CCutsceneObject.cpp" />
     <ClCompile Include="..\game_sa\CDamageManager.cpp" />
     <ClCompile Include="..\game_sa\CDarkel.cpp" />
+    <ClCompile Include="..\game_sa\CDecision.cpp" />
+    <ClCompile Include="..\game_sa\CDecisionSimple.cpp" />
     <ClCompile Include="..\game_sa\CDirectory.cpp" />
     <ClCompile Include="..\game_sa\CDoor.cpp" />
     <ClCompile Include="..\game_sa\CDraw.cpp" />

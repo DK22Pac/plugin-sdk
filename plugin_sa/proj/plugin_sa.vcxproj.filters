@@ -1930,6 +1930,18 @@
     <ClInclude Include="..\game_sa\eDecisionMakerEvents.h">
       <Filter>game_sa\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CDecision.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDecisionSimple.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CDecisionMaker.h">
+      <Filter>game_sa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\eSurfaceType.h">
+      <Filter>game_sa\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -3481,6 +3493,12 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CRenderer.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDecision.cpp">
+      <Filter>game_sa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CDecisionSimple.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
   </ItemGroup>

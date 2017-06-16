@@ -83,7 +83,7 @@ public:
     static short &ForcedWeatherType; // see eWeatherType
     static short &NewWeatherType; // see eWeatherType
     static short &OldWeatherType; // see eWeatherType
-    static CAEWeatherAudioEntity *m_WeatherAudioEntity;
+    static CAEWeatherAudioEntity &m_WeatherAudioEntity;
 
     static void AddRain();
     static void AddSandStormParticles();
