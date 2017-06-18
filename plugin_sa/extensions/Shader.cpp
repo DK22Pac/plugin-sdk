@@ -48,10 +48,10 @@ void Shader::PackTexture(RwTexture *texture, unsigned int idx) {
     RwD3D9SetTexture(texture, idx);
 }
 
-char *Shader::CompileShaderFromString(char const *str, char const *Entrypoint, char const *Version) {
-    ID3DXBuffer* shader = NULL;
-    ID3DXBuffer* errorBuffer = NULL;
-    HRESULT hr = D3DXCompileShader(str, strlen(str), NULL, NULL, Entrypoint, Version, D3DXSHADER_DEBUG, &shader, &errorBuffer, NULL);
+char *Shader::CompileShaderFromString(char const *str, char const *Entrypoint, char const *Version, bool bDebug) {
+    ID3DXBuffer* shader = nullptr;
+    ID3DXBuffer* errorBuffer = nullptr;
+    HRESULT hr = D3DXCompileShader(str, strlen(str), NULL, NULL, Entrypoint, Version, bDebug? D3DXSHADER_DEBUG : 0, &shader, &errorBuffer, NULL);
     if (errorBuffer) {
         plugin::Error((char*)errorBuffer->GetBufferPointer());
         errorBuffer->Release();
@@ -66,23 +66,29 @@ char *Shader::CompileShaderFromString(char const *str, char const *Entrypoint, c
     return data;
 }
 
-Shader::Shader(wchar_t const *Filename) {
-    // Set default values
-    pixelShader = NULL;
-    vertexShader = NULL;
-    wcscpy(filename_w, Filename);
+Shader::Shader(std::wstring const &Filename, bool bDebug) {
+    pixelShader = nullptr;
+    vertexShader = nullptr;
+    filename_w = Filename;
+    if (filename_w.size() >= 4 && !filename_w.compare(filename_w.size() - 4, 4, L".fxc"))
+        filename_w.resize(filename_w.size() - 4);
+    else if (filename_w.size() >= 3 && !filename_w.compare(filename_w.size() - 3, 3, L".fx"))
+        filename_w.resize(filename_w.size() - 3);
     isWidePath = true;
-    memset(name, 0, 128);
+    bDebugCompilation = bDebug;
     Load();
 }
 
-Shader::Shader(char const *Filename) {
-    // Set default values
-    pixelShader = NULL;
-    vertexShader = NULL;
-    strcpy(filename, Filename);
+Shader::Shader(std::string const &Filename, bool bDebug) {
+    pixelShader = nullptr;
+    vertexShader = nullptr;
+    filename = Filename;
+    if (filename.size() >= 4 && !filename.compare(filename.size() - 4, 4, ".fxc"))
+        filename.resize(filename.size() - 4);
+    else if (filename.size() >= 3 && !filename.compare(filename.size() - 3, 3, ".fx"))
+        filename.resize(filename.size() - 3);
     isWidePath = false;
-    memset(name, 0, 128);
+    bDebugCompilation = bDebug;
     Load();
 }
 
@@ -93,15 +99,15 @@ Shader::~Shader() {
 void Shader::Unload() {
     if (vertexShader) {
         vertexShader->Release();
-        vertexShader = NULL;
+        vertexShader = nullptr;
     }
     if (pixelShader) {
         pixelShader->Release();
-        pixelShader = NULL;
+        pixelShader = nullptr;
     }
 }
 
-bool Shader::LoadFromSource(std::ifstream &file) {
+bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
     if (file.is_open()) {
         std::vector<std::string> lines;
         std::string line;
@@ -120,10 +126,8 @@ bool Shader::LoadFromSource(std::ifstream &file) {
                 size_t strBegin = fxLine.find_first_of('"');
                 if (strBegin != std::string::npos) {
                     size_t strEnd = fxLine.find_first_of('"', strBegin + 1);
-                    if (strEnd != std::string::npos) {
-                        std::string fxName = fxLine.substr(strBegin, strEnd - strBegin - 1);
-                        strcpy_s(name, fxName.c_str());
-                    }
+                    if (strEnd != std::string::npos)
+                        name = fxLine.substr(strBegin + 1, strEnd - strBegin - 1);
                 }
                 break;
             }
@@ -143,7 +147,7 @@ bool Shader::LoadFromSource(std::ifstream &file) {
                             shaderCode.append("\n");
                         }
                     }
-                    char *vShaderCode = CompileShaderFromString(shaderCode.c_str(), &entryPoint[1], &version[1]);
+                    char *vShaderCode = CompileShaderFromString(shaderCode.c_str(), &entryPoint[1], &version[1], bDebug);
                     if (vShaderCode) {
                         GetD3DDevice()->CreateVertexShader((DWORD *)vShaderCode, &vertexShader);
                         delete[] vShaderCode;
@@ -167,7 +171,7 @@ bool Shader::LoadFromSource(std::ifstream &file) {
                             shaderCode.append("\n");
                         }
                     }
-                    char *pShaderCode = CompileShaderFromString(shaderCode.c_str(), &entryPoint[1], &version[1]);
+                    char *pShaderCode = CompileShaderFromString(shaderCode.c_str(), &entryPoint[1], &version[1], bDebug);
                     if (pShaderCode) {
                         GetD3DDevice()->CreatePixelShader((DWORD *)pShaderCode, &pixelShader);
                         delete[] pShaderCode;
@@ -183,8 +187,27 @@ bool Shader::LoadFromSource(std::ifstream &file) {
 
 bool Shader::LoadFromBinary(std::ifstream &file) {
     if (file.is_open()) {
-        // TODO
-        return true;
+        BinaryFileHeader header;
+        if (file.read(reinterpret_cast<char *>(&header), sizeof(BinaryFileHeader))) {
+            if (!strcmp(header.fxcSignature, "FXC")) {
+                name = header.name;
+                if (header.vsSize) {
+                    char *vShaderCode = new char[header.vsSize];
+                    file.seekg(header.vsOffset);
+                    file.read(vShaderCode, header.vsSize);
+                    GetD3DDevice()->CreateVertexShader((DWORD *)vShaderCode, &vertexShader);
+                    delete[] vShaderCode;
+                }
+                if (header.psSize) {
+                    char *pShaderCode = new char[header.psSize];
+                    file.seekg(header.psOffset);
+                    file.read(pShaderCode, header.psSize);
+                    GetD3DDevice()->CreatePixelShader((DWORD *)pShaderCode, &pixelShader);
+                    delete[] pShaderCode;
+                }
+                return true;
+            }
+        }
     }
     return false;
 }
@@ -192,65 +215,23 @@ bool Shader::LoadFromBinary(std::ifstream &file) {
 void Shader::Load() {
     if (vertexShader) {
         vertexShader->Release();
-        vertexShader = NULL;
+        vertexShader = nullptr;
     }
     if (pixelShader) {
         pixelShader->Release();
-        pixelShader = NULL;
+        pixelShader = nullptr;
     }
     // Load file
     std::ifstream file;
-    if (isWidePath) {
-        unsigned int pathLen = wcslen(filename_w);
-        if (pathLen > 4 && !_wcsicmp(&filename_w[pathLen - 4], L".fxc")) {
-            file.open(filename_w);
-            LoadFromBinary(file);
-            return;
-        }
-        else if (pathLen > 3 && !_wcsicmp(&filename_w[pathLen - 4], L".fx")) {
-            file.open(filename_w);
-            LoadFromSource(file);
-            return;
-        }
-    }
-    else {
-        unsigned int pathLen = strlen(filename);
-        if (pathLen > 4 && !_stricmp(&filename[pathLen - 4], ".fxc")) {
-            file.open(filename);
-            LoadFromBinary(file);
-            return;
-        }
-        else if (pathLen > 3 && !_stricmp(&filename[pathLen - 4], ".fx")) {
-            file.open(filename);
-            LoadFromSource(file);
-            return;
-        }
-    }
-    if (isWidePath) {
-        std::wstring filepath;
-        filepath.append(filename_w);
-        filepath.append(L".fx");
-        file.open(filepath.c_str());
-    }
-    else {
-        std::string filepath;
-        filepath.append(filename);
-        filepath.append(".fx");
-        file.open(filepath.c_str());
-    }
-    if (!LoadFromSource(file)) {
-        if (isWidePath) {
-            std::wstring filepath;
-            filepath.append(filename_w);
-            filepath.append(L".fxc");
-            file.open(filepath.c_str());
-        }
-        else {
-            std::string filepath;
-            filepath.append(filename);
-            filepath.append(".fxc");
-            file.open(filepath.c_str());
-        }
+    if (isWidePath)
+        file.open(filename_w + std::wstring(L".fx"));
+    else
+        file.open(filename + std::string(".fx"));
+    if (!LoadFromSource(file, bDebugCompilation)) {
+        if (isWidePath)
+            file.open(filename_w + std::wstring(L".fxc"));
+        else
+            file.open(filename + std::string(".fxc"));
         if (!LoadFromBinary(file)) {
             if (isWidePath)
                 plugin::Error(L"Failed to open shader file (\"%s\")", filename_w);
@@ -260,63 +241,74 @@ void Shader::Load() {
     }
 }
 
-void Shader::WriteToBinaryFile(std::ofstream &file) {
-    // binary
-    // "FXC" 00
-    // "plugin-sdk" 00 00
-    // versionId (0x00000001) // +16
-    // name[128]
-    // unsigned int vsOffset
-    // unsigned int vsSize
-    // unsigned int psOffset
-    // unsigned int psSize
+bool Shader::WriteToBinaryFile(std::ofstream &file) {
     if (file.is_open()) {
-        file.write("FXC\0", 4);
-        file.write("plugin-sdk\0\0", 12);
-        unsigned int version = PLUGIN_SDK_SHADER_MODULE_VERSION;
-        file.write(reinterpret_cast<char *>(&version), 4);
-        file.write(name, 128);
-        unsigned int vsOffset = 0;
-        unsigned int vsSize = 0;
+        BinaryFileHeader header;
+        strcpy(header.fxcSignature, "FXC");
+        header.fxcSignature[3] = '\0';
+        strcpy(header.pluginSdkSignature, "plugin-sdk");
+        header.pluginSdkSignature[10] = header.pluginSdkSignature[11] = '\0';
+        header.versionId = PLUGIN_SDK_SHADER_MODULE_VERSION;
+        memset(header.name, 0, 128);
+        strcpy(header.name, name.c_str());
+        header.vsOffset = header.vsSize = header.psOffset = header.psSize = 0;
         if (vertexShader) {
             unsigned int functionSize = 0;
             vertexShader->GetFunction(NULL, &functionSize);
             if (functionSize > 0) {
-                vsOffset = 148;
-                vsSize = functionSize;
+                header.vsOffset = sizeof(BinaryFileHeader);
+                header.vsSize = functionSize;
             }
         }
-        file.write(reinterpret_cast<char *>(&vsOffset), 4);
-        file.write(reinterpret_cast<char *>(&vsSize), 4);
-        unsigned int psOffset = 0;
-        unsigned int psSize = 0;
         if (pixelShader) {
             unsigned int functionSize = 0;
             pixelShader->GetFunction(NULL, &functionSize);
             if (functionSize > 0) {
-                if (vsOffset != 0)
-                    psOffset = 148;
+                if (header.vsOffset != 0)
+                    header.psOffset = header.vsOffset + header.vsSize;
                 else
-                    psOffset = vsOffset + vsSize;
-                psSize = functionSize;
+                    header.psOffset = sizeof(BinaryFileHeader);
+                header.psSize = functionSize;
             }
         }
-        file.write(reinterpret_cast<char *>(&psOffset), 4);
-        file.write(reinterpret_cast<char *>(&psSize), 4);
-        if (vsSize > 0) {
+        file.write(reinterpret_cast<char *>(&header), sizeof(BinaryFileHeader));
+        if (header.vsSize > 0) {
             unsigned int functionSize = 0;
-            char *data = new char[vsSize];
+            char *data = new char[header.vsSize];
             vertexShader->GetFunction(data, &functionSize);
-            file.write(data, vsSize);
+            file.write(data, header.vsSize);
+            delete[] data;
         }
-        if (psSize > 0) {
+        if (header.psSize > 0) {
             unsigned int functionSize = 0;
-            char *data = new char[psSize];
+            char *data = new char[header.psSize];
             pixelShader->GetFunction(data, &functionSize);
-            file.write(data, psSize);
+            file.write(data, header.psSize);
+            delete[] data;
         }
         file.close();
+        return true;
     }
+    return false;
+}
+
+bool Shader::SaveToBinary() {
+    if (isWidePath)
+        return SaveToBinary(filename_w + std::wstring(L".fxc"));
+    else
+        return SaveToBinary(filename + std::string(".fxc"));
+}
+
+bool Shader::SaveToBinary(std::wstring const &Filename) {
+    std::ofstream file;
+    file.open(Filename);
+    return WriteToBinaryFile(file);
+}
+
+bool Shader::SaveToBinary(std::string const &Filename) {
+    std::ofstream file;
+    file.open(Filename);
+    return WriteToBinaryFile(file);
 }
 
 void Shader::GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *view, D3DMATRIX *proj, D3DMATRIX *wvp) {
@@ -355,7 +347,7 @@ void Shader::DrawRect(float left, float top, float right, float bottom) {
     struct Vertex {
         D3DXVECTOR2 pos;
         D3DXVECTOR2 tex_coord;
-    }quad[4];
+    } quad[4];
     quad[0].pos = D3DXVECTOR2(-1, -1); quad[0].tex_coord = D3DXVECTOR2(0, 1);
     quad[1].pos = D3DXVECTOR2(-1, 1);  quad[1].tex_coord = D3DXVECTOR2(0, 0);
     quad[2].pos = D3DXVECTOR2(1, -1);  quad[2].tex_coord = D3DXVECTOR2(1, 1);

@@ -3,8 +3,14 @@
 using namespace plugin;
 
 std::vector<DynamicResource*> DynamicResource::resourcesList;
+bool DynamicResource::resourceSystemInitialized = false;
 
 DynamicResource::DynamicResource() {
+    if (!resourceSystemInitialized) {
+        plugin::Events::d3dLostEvent += ReleaseAllDynamicResources;
+        plugin::Events::d3dResetEvent += RecreateAllDynamicResources;
+        resourceSystemInitialized = true;
+    }
     resourcesList.push_back(this);
 }
 
@@ -18,9 +24,4 @@ void DynamicResource::ReleaseAllDynamicResources() {
 
 void DynamicResource::RecreateAllDynamicResources() {
     for (auto res : resourcesList) { res->Load(); }
-}
-
-void DynamicResource::InitDynamicResourceSystem() {
-    plugin::Events::d3dLostEvent += ReleaseAllDynamicResources;
-    plugin::Events::d3dResetEvent += RecreateAllDynamicResources;
 }
