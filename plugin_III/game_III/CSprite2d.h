@@ -22,6 +22,7 @@ public:
     static CSprite2d *mCurrentSprite;
     static float &RecipNearClip;
     static RwTexture *mpBankTextures;
+    static RwIm2DVertex *maVertices; // static RwIm2DVertex maVertices[8]
 
     //funcs
 

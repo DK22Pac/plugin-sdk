@@ -130,7 +130,7 @@ public:
     CStoredCollPoly         m_frontCollPoly;     // poly which is under front part of car
     CStoredCollPoly         m_rearCollPoly;      // poly which is under rear part of car
     float                   m_fSteerRatio;
-    unsigned int            m_nVehicleSubType;   // see enum eVehicleType
+    unsigned int            m_nVehicleClass;   // see enum eVehicleType
 
 protected:
     CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}

@@ -111,7 +111,7 @@ public:
     tHandlingData             *m_pHandlingData;
     tFlyingHandlingData       *m_pFlyingHandlingData;
     union{
-        eVehicleHandlingFlags  m_dwHandlingFlags;
+        eVehicleHandlingFlags  m_nHandlingFlags;
         struct {
             unsigned int b1gBoost : 1;
             unsigned int b2gBoost : 1;
@@ -211,16 +211,16 @@ public:
         unsigned char bDontSetColourWhenRemapping : 1;// If the texture gets remapped we don't want to change the colour with it.
         unsigned char bUsedForReplay : 1; // This car is controlled by replay and should be removed when replay is done.
     } m_nFlags;
-    unsigned int m_dwCreationTime;
+    unsigned int m_nCreationTime;
     unsigned char  m_nPrimaryColor;
     unsigned char  m_nSecondaryColor;
     unsigned char  m_nTertiaryColor;
     unsigned char  m_nQuaternaryColor;
     char   m_anExtras[2];
-    short  m_awUpgrades[15];
+    short  m_anUpgrades[15];
     float    m_fWheelScale;
-    unsigned short m_wAlarmState;
-    short  m_wForcedRandomRouteSeed; // if this is non-zero the random wander gets deterministic
+    unsigned short m_nAlarmState;
+    short  m_nForcedRandomRouteSeed; // if this is non-zero the random wander gets deterministic
     CPed *m_pDriver;
     CPed *m_apPassengers[8];
     unsigned char  m_nNumPassengers;
@@ -239,7 +239,7 @@ public:
     float  m_fGasPedal;
     float  m_fBreakPedal;
     unsigned char  m_nCreatedBy; // see eVehicleCreatedBy
-    short m_wExtendedRemovalRange; // when game wants to delete a vehicle, it gets min(m_wExtendedRemovalRange, 170.0)
+    short m_nExtendedRemovalRange; // when game wants to delete a vehicle, it gets min(m_wExtendedRemovalRange, 170.0)
     unsigned char m_nBombOnBoard : 3; // 0 = None
                               // 1 = Timed
                               // 2 = On ignition
@@ -263,10 +263,10 @@ public:
     CVehicle *m_pTractor;
     CVehicle *m_pTrailer;
     CPed *m_pWhoInstalledBombOnMe;
-    unsigned int m_dwTimeTillWeNeedThisCar; // game won't try to delete this car while this time won't reach
-    unsigned int m_dwGunFiringTime; // last time when gun on vehicle was fired (used on boats)
-    unsigned int m_dwTimeWhenBlowedUp; // game will delete vehicle when 60 seconds after this time will expire
-    short  m_wCopsInCarTimer; // timer for police car (which is following player) occupants to stay in car. If this timer reachs 
+    unsigned int m_nTimeTillWeNeedThisCar; // game won't try to delete this car while this time won't reach
+    unsigned int m_nGunFiringTime; // last time when gun on vehicle was fired (used on boats)
+    unsigned int m_nTimeWhenBlowedUp; // game will delete vehicle when 60 seconds after this time will expire
+    short  m_nCopsInCarTimer; // timer for police car (which is following player) occupants to stay in car. If this timer reachs 
                              // some value, they will leave a car. The timer increases each frame if player is stopped in car, 
                              // otherway it resets
     short  m_wBombTimer;     // goes down with each frame
@@ -275,10 +275,10 @@ public:
     float  m_fVehicleRearGroundZ;  // or CWorld::ProcessVerticalLine
     char field_4EC; // initialised, but not used?
     char field_4ED[11]; // possibly non-used data?
-    unsigned int m_dwDoorLock; // see enum eCarLock
-    unsigned int m_dwProjectileWeaponFiringTime; // manual-aimed projectiles for hunter, lock-on projectile for hydra
-    unsigned int m_dwAdditionalProjectileWeaponFiringTime; // manual-aimed projectiles for hydra
-    unsigned int m_dwTimeForMinigunFiring; // minigun on hunter
+    unsigned int m_nDoorLock; // see enum eCarLock
+    unsigned int m_nProjectileWeaponFiringTime; // manual-aimed projectiles for hunter, lock-on projectile for hydra
+    unsigned int m_nAdditionalProjectileWeaponFiringTime; // manual-aimed projectiles for hydra
+    unsigned int m_nTimeForMinigunFiring; // minigun on hunter
     unsigned char m_nLastWeaponDamageType; // see eWeaponType, -1 if no damage
     CEntity *m_pLastDamageEntity;
     char field_510; // not used?
@@ -297,7 +297,7 @@ public:
     FxSystem_c *m_pFireParticle;
     FxSystem_c *m_pDustParticle;
     union{
-        unsigned char     m_dwRenderLights;
+        unsigned char     m_nRenderLightsFlags;
         struct{
             unsigned char m_bRightFront : 1;
             unsigned char m_bLeftFront : 1;
@@ -307,10 +307,10 @@ public:
     };
     RwTexture *m_pCustomCarPlate;
     CVehicle *field_58C;
-    unsigned int     m_dwVehicleClass; // see enum eVehicleType
-    unsigned int     m_dwVehicleSubClass; // see enum eVehicleType
-    short      m_wPreviousRemapTxd;
-    short      m_wRemapTxd;
+    unsigned int     m_nVehicleClass; // see enum eVehicleType
+    unsigned int     m_nVehicleSubClass; // see enum eVehicleType
+    short      m_nPreviousRemapTxd;
+    short      m_nRemapTxd;
     RwTexture *m_pRemapTexture;
 
     static float &WHEELSPIN_TARGET_RATE; // 1.0

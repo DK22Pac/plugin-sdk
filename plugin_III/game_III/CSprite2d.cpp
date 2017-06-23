@@ -12,6 +12,7 @@ int &CSprite2d::mCurrentBank   = *(int *)0x8F1AF4;
 CSprite2d *CSprite2d::mCurrentSprite = (CSprite2d *)0x6F4500;
 float &CSprite2d::RecipNearClip = *(float *)0x880DB4;
 RwTexture *CSprite2d::mpBankTextures = (RwTexture *)0x774DC0;
+RwIm2DVertex *CSprite2d::maVertices = (RwIm2DVertex *)0x6E9168;
 
 // Converted from cdecl void CSprite2d::AddSpriteToBank(int,CRect const& posn,CRGBA const& color,float,float,float,float,float,float,float,float) 0x51EBC0 
 void CSprite2d::AddSpriteToBank(int arg0, CRect const& posn, CRGBA const& color, float arg3, float arg4, float arg5, float arg6, float arg7, float arg8, float arg9, float arg10) {

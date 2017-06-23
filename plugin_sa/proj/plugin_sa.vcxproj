@@ -155,6 +155,7 @@
     <ClInclude Include="..\game_sa\CLinkList.h" />
     <ClInclude Include="..\game_sa\COctTree.h" />
     <ClInclude Include="..\game_sa\COctTreeBase.h" />
+    <ClInclude Include="..\game_sa\CPedModelInfo.h" />
     <ClInclude Include="..\game_sa\CPtrListDoubleLink.h" />
     <ClInclude Include="..\game_sa\CPtrListSingleLink.h" />
     <ClInclude Include="..\game_sa\CPtrNode.h" />
@@ -825,6 +826,7 @@
     <ClCompile Include="..\game_sa\CPathFind.cpp" />
     <ClCompile Include="..\game_sa\CPed.cpp" />
     <ClCompile Include="..\game_sa\CPedIntelligence.cpp" />
+    <ClCompile Include="..\game_sa\CPedModelInfo.cpp" />
     <ClCompile Include="..\game_sa\CPhysical.cpp" />
     <ClCompile Include="..\game_sa\CPickup.cpp" />
     <ClCompile Include="..\game_sa\CPickups.cpp" />

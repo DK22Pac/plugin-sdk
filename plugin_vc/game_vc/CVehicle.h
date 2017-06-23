@@ -171,7 +171,7 @@ public:
     char __f0205[3];
     int field_20C;
     int field_210;
-    int m_dwTimeTillWeNeedThisCar;
+    int m_nTimeTillWeNeedThisCar;
     int field_218;
     int m_nTimeOfDeath;
     short field_220;
@@ -179,7 +179,7 @@ public:
     int field_224;
     int field_228;
     int field_22C;
-    unsigned int m_dwLockStatus;
+    unsigned int m_nLockStatus;
     unsigned char m_nLastWeaponDamage;
     char __f0231[3];
     CEntity *pLastDamEntity;
@@ -194,7 +194,7 @@ public:
     CStoredCollPoly m_frontCollPoly; // poly which is under front part of car
     CStoredCollPoly m_rearCollPoly; // poly which is under rear part of car
     float m_fSteerRatio;
-    unsigned int m_dwVehicleClass; // see enum eVehicleType
+    unsigned int m_nVehicleClass; // see enum eVehicleType
 
     CVehicle(const CVehicle &) = delete;
     CVehicle &operator=(const CVehicle &) = delete;

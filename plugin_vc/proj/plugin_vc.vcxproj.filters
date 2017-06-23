@@ -532,6 +532,9 @@
     <ClInclude Include="..\game_vc\CRunningScript.h">
       <Filter>game_vc\Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_vc\CFileLoader.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\events\Events_VC.cpp">
@@ -836,6 +839,9 @@
     </ClCompile>
     <ClCompile Include="..\game_vc\CRunningScript.cpp">
       <Filter>game_vc\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFileLoader.cpp">
+      <Filter>game_vc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
