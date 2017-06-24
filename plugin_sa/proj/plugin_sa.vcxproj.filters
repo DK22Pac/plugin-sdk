@@ -1948,6 +1948,12 @@
     <ClInclude Include="..\game_sa\SArray.h">
       <Filter>game_sa\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\CStore.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_sa\CModelInfoAccelerator.h">
+      <Filter>game_sa\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">
@@ -2038,9 +2044,6 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CRealTimeShadow.cpp">
-      <Filter>game_sa</Filter>
-    </ClCompile>
-    <ClCompile Include="..\game_sa\CReference.cpp">
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CReferences.cpp">
@@ -3508,6 +3511,9 @@
       <Filter>game_sa</Filter>
     </ClCompile>
     <ClCompile Include="..\game_sa\CPedModelInfo.cpp">
+      <Filter>game_sa\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_sa\CModelInfoAccelerator.cpp">
       <Filter>game_sa\Models</Filter>
     </ClCompile>
   </ItemGroup>

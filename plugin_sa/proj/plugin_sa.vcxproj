@@ -153,6 +153,7 @@
     <ClInclude Include="..\game_sa\CHeli.h" />
     <ClInclude Include="..\game_sa\CIniFile.h" />
     <ClInclude Include="..\game_sa\CLinkList.h" />
+    <ClInclude Include="..\game_sa\CModelInfoAccelerator.h" />
     <ClInclude Include="..\game_sa\COctTree.h" />
     <ClInclude Include="..\game_sa\COctTreeBase.h" />
     <ClInclude Include="..\game_sa\CPedModelInfo.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\game_sa\CSector.h" />
     <ClInclude Include="..\game_sa\CSetPiece.h" />
     <ClInclude Include="..\game_sa\CSetPieces.h" />
+    <ClInclude Include="..\game_sa\CStore.h" />
     <ClInclude Include="..\game_sa\eDecisionMakerEvents.h" />
     <ClInclude Include="..\game_sa\eEventType.h" />
     <ClInclude Include="..\game_sa\ePedPieceTypes.h" />
@@ -815,6 +817,7 @@
     <ClCompile Include="..\game_sa\CMirrors.cpp" />
     <ClCompile Include="..\game_sa\CMissionCleanup.cpp" />
     <ClCompile Include="..\game_sa\CModelInfo.cpp" />
+    <ClCompile Include="..\game_sa\CModelInfoAccelerator.cpp" />
     <ClCompile Include="..\game_sa\CMonsterTruck.cpp" />
     <ClCompile Include="..\game_sa\CMotionBlurStreaks.cpp" />
     <ClCompile Include="..\game_sa\CObject.cpp" />
@@ -853,7 +856,6 @@
     <ClCompile Include="..\game_sa\CRadar.cpp" />
     <ClCompile Include="..\game_sa\CRealTimeShadow.cpp" />
     <ClCompile Include="..\game_sa\CRect.cpp" />
-    <ClCompile Include="..\game_sa\CReference.cpp" />
     <ClCompile Include="..\game_sa\CReferences.cpp" />
     <ClCompile Include="..\game_sa\CRegisteredCorona.cpp" />
     <ClCompile Include="..\game_sa\CRegisteredMotionBlurStreak.cpp" />

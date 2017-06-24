@@ -16,6 +16,10 @@
 #include "CPlayerPed.h"
 #include "CCutsceneObject.h"
 
+#ifdef GetObject
+#undef GetObject
+#endif
+
 class CPools {
 public:
     static CPool<CBuilding>                *&ms_pBuildingPool;
@@ -26,4 +30,21 @@ public:
     static CPool<CPed, CPlayerPed>         *&ms_pPedPool;
     static CPool<CObject, CCutsceneObject> *&ms_pObjectPool;
     static CPool<CDummy, CDummyObject>     *&ms_pDummyPool;
+
+    static void Initialise();
+    static void ShutDown();
+    static void CheckPoolsEmpty();
+    static void GetPedRef(CPed* ped);
+    static CPed* GetPed(int handle);
+    static CVehicle* GetVehicleRef(CVehicle* vehicle);
+    static void GetVehicle(int handle);
+    static void GetObjectRef(CObject* object);
+    static CObject* GetObject(int handle);
+    static void LoadVehiclePool(unsigned char* buffer, unsigned int size);
+    static void SaveVehiclePool(unsigned char* buffer, unsigned int* outSize);
+    static void SaveObjectPool(unsigned char* buffer, unsigned int* outSize);
+    static void LoadObjectPool(unsigned char* buffer, unsigned int size);
+    static void SavePedPool(unsigned char* buffer, unsigned int* outSize);
+    static void LoadPedPool(unsigned char* buffer, unsigned int size);
+    static void MakeSureSlotInObjectPoolIsEmpty(int slot);
 };

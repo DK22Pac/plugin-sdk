@@ -111,7 +111,7 @@ public:
     tHandlingData             *m_pHandlingData;
     tFlyingHandlingData       *m_pFlyingHandlingData;
     union{
-        eVehicleHandlingFlags  m_nHandlingFlags;
+        eVehicleHandlingFlags  m_nHandlingFlagsIntValue;
         struct {
             unsigned int b1gBoost : 1;
             unsigned int b2gBoost : 1;
