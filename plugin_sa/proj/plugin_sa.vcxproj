@@ -631,6 +631,7 @@
     <ClInclude Include="..\game_sa\FxInfoManager_c.h" />
     <ClInclude Include="..\game_sa\FxPrimBP_c.h" />
     <ClInclude Include="..\game_sa\D3DTextureBuffer.h" />
+    <ClInclude Include="..\game_sa\SArray.h" />
     <ClInclude Include="..\game_sa\tBinaryIplFile.h" />
     <ClInclude Include="..\game_sa\tPickupMessage.h" />
     <ClInclude Include="..\game_sa\TxdDef.h" />

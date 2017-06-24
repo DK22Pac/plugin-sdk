@@ -1945,6 +1945,9 @@
     <ClInclude Include="..\game_sa\CPedModelInfo.h">
       <Filter>game_sa\Models</Filter>
     </ClInclude>
+    <ClInclude Include="..\game_sa\SArray.h">
+      <Filter>game_sa\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game_sa\CBulletTraces.cpp">

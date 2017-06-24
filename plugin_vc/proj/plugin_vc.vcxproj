@@ -120,6 +120,7 @@
     <ClInclude Include="..\game_vc\CEmergencyPed.h" />
     <ClInclude Include="..\game_vc\CEscalators.h" />
     <ClInclude Include="..\game_vc\CFileLoader.h" />
+    <ClInclude Include="..\game_vc\CFileMgr.h" />
     <ClInclude Include="..\game_vc\CFont.h" />
     <ClInclude Include="..\game_vc\CFontDetails.h" />
     <ClInclude Include="..\game_vc\CGeneral.h" />
@@ -280,6 +281,7 @@
     <ClCompile Include="..\game_vc\CEntryInfoList.cpp" />
     <ClCompile Include="..\game_vc\CEscalators.cpp" />
     <ClCompile Include="..\game_vc\CFileLoader.cpp" />
+    <ClCompile Include="..\game_vc\CFileMgr.cpp" />
     <ClCompile Include="..\game_vc\CFont.cpp" />
     <ClCompile Include="..\game_vc\CFontDetails.cpp" />
     <ClCompile Include="..\game_vc\CGeneral.cpp" />
