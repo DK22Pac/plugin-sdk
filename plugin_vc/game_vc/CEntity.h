@@ -70,9 +70,11 @@ public:
         unsigned char bEntUFlag39 : 1;
         unsigned char bEntUFlag40 : 1;
     } m_nFlags;
-
-    char _pad[6];
-
+private:
+    char _pad56[2];
+public:
+    short m_nScanCode;
+    short m_nRandomSeed;
     short m_nModelIndex;
     char m_nLevel;
     unsigned char m_nInterior;

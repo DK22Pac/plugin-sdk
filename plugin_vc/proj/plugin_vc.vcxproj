@@ -128,6 +128,7 @@
     <ClInclude Include="..\game_vc\CHeli.h" />
     <ClInclude Include="..\game_vc\CHud.h" />
     <ClInclude Include="..\game_vc\CIniFile.h" />
+    <ClInclude Include="..\game_vc\CMenuManager.h" />
     <ClInclude Include="..\game_vc\CModelInfo.h" />
     <ClInclude Include="..\game_vc\common.h" />
     <ClInclude Include="..\game_vc\COnscreenTimer.h" />
@@ -290,6 +291,7 @@
     <ClCompile Include="..\game_vc\CHud.cpp" />
     <ClCompile Include="..\game_vc\CIniFile.cpp" />
     <ClCompile Include="..\game_vc\CMatrix.cpp" />
+    <ClCompile Include="..\game_vc\CMenuManager.cpp" />
     <ClCompile Include="..\game_vc\CModelInfo.cpp" />
     <ClCompile Include="..\game_vc\CObject.cpp" />
     <ClCompile Include="..\game_vc\common.cpp" />

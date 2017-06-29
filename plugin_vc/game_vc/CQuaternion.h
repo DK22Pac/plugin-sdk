@@ -43,19 +43,3 @@ public:
 };
 
 VALIDATE_SIZE(CQuaternion, 0x10);
-
-/*
-void QuatTest() {
-    RwFrame *stwhframe;
-    float steerangle = 0.0f;
-
-    CQuaternion wheelquat;
-    wheelquat.Set(stwhframe->modelling);
-    CQuaternion rotation;
-    RwV3d axis{ 0.0f,1.0f,0.0f };
-    rotation.Set(&axis, steerangle);
-    CQuaternion result;
-    result.Multiply(wheelquat, rotation);
-    result.Get(&stwhframe->modelling);
-}
-*/

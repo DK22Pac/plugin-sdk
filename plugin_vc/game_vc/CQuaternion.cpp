@@ -84,7 +84,7 @@ void CQuaternion::Set(RwMatrix  const& m) {
         if (b < 0.0f) {
             float c = m.up.y - m.right.x - m.at.z;
             if (c < 0.0f) {
-                float d = sqrtf(m.at.z - (m.up.y + m.right.x) + 1.0);
+                float d = sqrtf(m.at.z - (m.up.y + m.right.x) + 1.0f);
                 imag.z = 0.5f * d;
                 float e = 0.5f / d;
                 real = (m.right.y - m.up.x) * e;

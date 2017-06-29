@@ -21,11 +21,18 @@ class CSimpleModelInfo : public CBaseModelInfo {
     unsigned char m_nVisibility; // 0 - invisible, 255 - fully visible
     struct {
         unsigned short nMainAtomic : 2;
-        unsigned short b03 : 1;
+        unsigned short bIsRoad : 1;
         unsigned short b04 : 1; // bDamagable?
         unsigned short bIsBigBuilding : 1;
-        unsigned short b06 : 1;
+        unsigned short bDoNotFade : 1;
         unsigned short bDrawLast : 1;
+        unsigned short bAdditiveRender : 1;
+        unsigned short bIsSubway : 1;
+        unsigned short bIgnoreLighting : 1;
+        unsigned short bNoZbufferWrite : 1;
+        unsigned short bDoNotReceiveShadows : 1;
+        unsigned short bIgnoreDrawDistance : 1;
+        unsigned short nGlassType : 2;
     } m_nFlags;
 
     //vtable

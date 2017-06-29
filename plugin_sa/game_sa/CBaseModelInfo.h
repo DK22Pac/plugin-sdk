@@ -43,32 +43,29 @@ public:
     short          m_n2dEffectIndex;
     short          m_nObjectInfoIndex;
 	union{
-		unsigned short m_wFlags;
+		unsigned short m_nFlags;
 		struct{
 			/* https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CModelInfoSA.h */
-			unsigned char m_bHasBeenPreRendered : 1; // we use this because we need to apply changes only once
-			unsigned char m_bAlphaTransparency: 1;
-			unsigned char m_bIsLod: 1;
-			unsigned char m_bDontCastShadowsOn: 1;
-			unsigned char m_bDontWriteZBuffer: 1;
-			unsigned char m_bDrawAdditive: 1;
-			unsigned char m_bDrawLast: 1;
-			unsigned char m_bDoWeOwnTheColModel: 1;
+			unsigned char bHasBeenPreRendered : 1; // we use this because we need to apply changes only once
+			unsigned char bDrawLast: 1;
+			unsigned char bAdditiveRender: 1;
+			unsigned char bDontWriteZBuffer: 1;
+			unsigned char bDontCastShadowsOn : 1;
+			unsigned char bDoWeOwnTheColModel : 1;
+			unsigned char bIsBackfaceCulled : 1;
+			unsigned char bIsLod : 1;
 			union{
 				struct{
-					unsigned char m_bCarmodIsWheel: 1;
-					unsigned char bUnknownFlag9: 1;
-					unsigned char bUnknownFlag10: 1;
-					unsigned char m_bSwaysInWind: 1;
-					unsigned char m_bCollisionWasStreamedWithModel: 1;
-					unsigned char m_bDontCollideWithFlyer: 1;
-					unsigned char m_bHasComplexHierarchy: 1;
-					unsigned char m_bWetRoadReflection: 1;
+					unsigned char bIsRoad: 1;
+					unsigned char bHasComplexHierarchy : 1;
+					unsigned char bDontCollideWithFlyer : 1;
+					unsigned char nSpecialType : 4;
+					unsigned char  : 1;
 				};
 				struct{
-					unsigned char pad0: 2;
-					unsigned char m_nCarmodId : 5;
-					unsigned char pad1: 1;
+					unsigned char : 2;
+					unsigned char nCarmodId : 5;
+					unsigned char : 1;
 				};
 			};
 			
