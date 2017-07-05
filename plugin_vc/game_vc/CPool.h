@@ -6,6 +6,7 @@
 */
 #pragma once
 #include "plbase/PluginBase_VC.h"
+#include <string.h>
 
 union tPoolObjectFlags {
     struct {
@@ -54,7 +55,6 @@ public:
 
         m_nSize = nSize;
         m_nFirstFree = -1;
-        m_bOwnsAllocations = true;
 
         for (int i = 0; i < nSize; ++i) {
             m_byteMap[i].a.bIsFreeSlot = true;
@@ -110,7 +110,7 @@ public:
     }
 
     // Get id for slot 
-    void GetIdAt(int idx)
+    unsigned char GetIdAt(int idx)
     {
         return m_byteMap[idx].a.nId;
     }
@@ -201,7 +201,7 @@ public:
         return slot >= 0 && slot < m_nSize && !IsFreeSlotAtIndex(slot);
     }
 
-    void Store(void *objectFlags, void *objects) {
+    void Store(void **objectFlags, void **objects) {
         *objectFlags = operator new[](m_nSize);
         *objects = operator new[](m_nSize * sizeof(B));
         memcpy(*objectFlags, m_byteMap, m_nSize);
@@ -209,7 +209,7 @@ public:
         //dbgprint("Stored:%d (/%d)", GetNoOfUsedSpaces(), m_nSize);
     }
 
-    void CopyBack(void *objectFlags, void *objects) {
+    void CopyBack(void **objectFlags, void **objects) {
         memcpy(m_byteMap, *objectFlags, m_nSize);
         memcpy(m_pObjects, *objects, m_nSize * sizeof(B));
         //dbgprint("Size copied:%d (%d)", m_nSize * sizeof(B), sizeof(B));

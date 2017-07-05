@@ -8,7 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 CFontDetails &CFont::Details = *(CFontDetails *)0x8F317C;
 CSprite2d *CFont::Sprite = (CSprite2d *)0x95CC04;
-short &CFont::NewLine = *(_int16 *)0x95CC94;
+short &CFont::NewLine = *(short *)0x95CC94;
 char *aStr = (char *)0x64C624;
 
 // Converted from cdecl void CFont::DrawFonts(void) 0x501B50 

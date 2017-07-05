@@ -132,7 +132,7 @@ public:
     }
 
     // Get id for slot (0x552200)
-    void GetIdAt(int idx)
+    unsigned char GetIdAt(int idx)
     {
         return m_byteMap[idx].a.nId;
     }

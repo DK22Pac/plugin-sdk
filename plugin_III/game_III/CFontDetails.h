@@ -31,12 +31,12 @@ public:
     float m_fWrapX; 
     float m_fCentreSize; 
     float m_fRightJustifyWrap; 
-    _int16 m_nStyle; 
+    short m_nStyle; 
 private:
     char _pad36[2]; 
 public:
     int field_38; 
-    _int16 m_nDropShadowPosition; 
+    short m_nDropShadowPosition;
     CRGBA m_DropColor; 
 
     //funcs

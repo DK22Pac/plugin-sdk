@@ -27,9 +27,6 @@ namespace plugin {
         }
     };
 
-    std::vector<ExtenderInterface<CPed> *> PedExtendersHandler::extenders;
-    bool PedExtendersHandler::injected;
-
     template <typename T> class PedExtendedData : public ExtenderInterface<CPed> {
         T **blocks;
         unsigned int numBlocks;

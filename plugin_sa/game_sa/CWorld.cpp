@@ -6,16 +6,16 @@
 */
 #include "CWorld.h"
 
-extern unsigned int MAX_PLAYERS = 2;
-extern unsigned int MAX_SECTORS = 14400;
-extern unsigned int MAX_SECTORS_X = 120;
-extern unsigned int MAX_SECTORS_Y = 120;
-extern unsigned int MAX_REPEAT_SECTORS = 256;
-extern unsigned int MAX_REPEAT_SECTORS_X = 16;
-extern unsigned int MAX_REPEAT_SECTORS_Y = 16;
-extern unsigned int MAX_LOD_PTR_LISTS = 900;
-extern unsigned int MAX_LOD_PTR_LISTS_X = 30;
-extern unsigned int MAX_LOD_PTR_LISTS_Y = 30;
+unsigned int MAX_PLAYERS = 2;
+unsigned int MAX_SECTORS = 14400;
+unsigned int MAX_SECTORS_X = 120;
+unsigned int MAX_SECTORS_Y = 120;
+unsigned int MAX_REPEAT_SECTORS = 256;
+unsigned int MAX_REPEAT_SECTORS_X = 16;
+unsigned int MAX_REPEAT_SECTORS_Y = 16;
+unsigned int MAX_LOD_PTR_LISTS = 900;
+unsigned int MAX_LOD_PTR_LISTS_X = 30;
+unsigned int MAX_LOD_PTR_LISTS_Y = 30;
 int &CWorld::ms_iProcessLineNumCrossings = *(int *)0xB7CD60;
 float &CWorld::fWeaponSpreadRate = *(float *)0xB7CD64;
 CEntity *&CWorld::pIgnoreEntity = *(CEntity **)0xB7CD68;

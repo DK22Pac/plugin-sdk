@@ -60,7 +60,7 @@ public:
 
 VALIDATE_SIZE(CTrain, 0x2E4);
 
-extern unsigned _int16 *NumTrackNodes;
-extern unsigned _int16 *NumTrackNodes_S;
+extern unsigned short *NumTrackNodes;
+extern unsigned short *NumTrackNodes_S;
 extern CTrainNode **pTrackNodes;
 extern CTrainNode **pTrackNodes_S;

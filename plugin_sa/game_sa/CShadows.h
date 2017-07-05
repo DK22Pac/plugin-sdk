@@ -209,7 +209,9 @@ public:
     static CPermanentShadow *aPermanentShadows; // static CPermanentShadow aPermanentShadows[default: 48]
 };
 
+#ifdef _MSC_VER
 RwV3d *ShadowRenderTriangleCB(RwV3d *pNormal, RwV3d *pTrianglePos, _ProjectionParam *param);
+#endif
 
 extern float &MAX_DISTANCE_PED_SHADOWS; // const 15.0f
 extern float &MAX_DISTANCE_PED_SHADOWS_SQR;

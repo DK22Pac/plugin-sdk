@@ -8,6 +8,7 @@
 #include "scripting\ScriptCommandNames.h"
 #include "game_vc\CRunningScript.h"
 #include <vector>
+#include <string.h>
 
 namespace plugin {
 

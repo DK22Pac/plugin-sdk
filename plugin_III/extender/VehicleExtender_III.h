@@ -27,15 +27,12 @@ namespace plugin {
         }
     };
 
-    std::vector<ExtenderInterface<CVehicle> *> VehicleExtendersHandler::extenders;
-    bool VehicleExtendersHandler::injected;
-
     template <typename T> class VehicleExtendedData : public ExtenderInterface<CVehicle> {
         T **blocks;
         unsigned int numBlocks;
 
         void AllocateBlocks() {
-            numBlocks = CPools::ms_pVehiclePool->m_Size;
+            numBlocks = CPools::ms_pVehiclePool->m_nSize;
             blocks = new T*[numBlocks];
             for (unsigned int i = 0; i < numBlocks; i++)
                 blocks[i] = 0;

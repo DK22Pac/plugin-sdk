@@ -90,8 +90,10 @@ namespace plugin {
     class config_file {
     public:
         std::string _path;
+#ifdef _MSC_VER
         std::wstring _widePath;
         bool _bWidePath;
+#endif
         bool _useEqualitySign;
         bool _useAlignment;
         bool _dataRead;
@@ -108,11 +110,13 @@ namespace plugin {
     public:
         config_file();
         void open(std::string fileName);
-        void open(std::wstring fileName);
         void open(std::string fileName, bool readOnly, bool equalitySign, bool alignment);
-        void open(std::wstring fileName, bool readOnly, bool equalitySign, bool alignment);
         config_file(std::string fileName);
+#ifdef _MSC_VER
+        void open(std::wstring fileName);
+        void open(std::wstring fileName, bool readOnly, bool equalitySign, bool alignment);
         config_file(std::wstring fileName);
+#endif
         void save();
         config_parameter &operator[](std::string name);
         void setUseEqualitySign(bool enable);

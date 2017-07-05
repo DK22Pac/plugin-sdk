@@ -34,9 +34,6 @@ namespace plugin {
         }
     };
 
-    std::vector<ExtenderInterface<CVehicle> *> VehicleExtendersHandler::extenders;
-    bool VehicleExtendersHandler::injected;
-
     template <typename T> class VehicleExtendedData : public ExtenderInterface<CVehicle> {
         T **blocks;
         unsigned int numBlocks;

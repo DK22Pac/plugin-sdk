@@ -226,9 +226,11 @@ config_param_line::config_param_line(std::string paramName, std::string value, b
 }
 
 bool config_file::pathEmpty() {
+#ifdef _MSC_VER
     if (_bWidePath)
         return _widePath.empty();
     else
+#endif
         return _path.empty();
 }
 
@@ -236,9 +238,11 @@ void config_file::prepareData() {
     if (_dataRead || pathEmpty())
         return;
     std::ifstream in;
+#ifdef _MSC_VER
     if (_bWidePath)
         in.open(_widePath);
     else
+#endif
         in.open(_path);
     if (in.is_open()) {
         unsigned int lineId = 0;
@@ -349,9 +353,11 @@ void config_file::writeData() {
     if (pathEmpty())
         return;
     std::ofstream out;
+#ifdef _MSC_VER
     if (_bWidePath)
         out.open(_widePath);
     else
+#endif
         out.open(_path);
     if (out.is_open()) {
         unsigned int maxStrLen = 0;
@@ -379,7 +385,9 @@ void config_file::writeData() {
 }
 
 config_file::config_file() {
+#ifdef _MSC_VER
     _bWidePath = false;
+#endif
     _dataRead = false;
     _useAlignment = true;
     _useEqualitySign = false;
@@ -387,25 +395,17 @@ config_file::config_file() {
 
 void config_file::open(std::string fileName) {
     _path = fileName;
+#ifdef _MSC_VER
     _bWidePath = false;
-    prepareData();
-}
-
-void config_file::open(std::wstring fileName) {
-    _widePath = fileName;
-    _bWidePath = true;
+#endif
     prepareData();
 }
 
 void config_file::open(std::string fileName, bool readOnly, bool equalitySign, bool alignment) {
     _path = fileName;
+#ifdef _MSC_VER
     _bWidePath = false;
-    prepareData();
-}
-
-void config_file::open(std::wstring fileName, bool readOnly, bool equalitySign, bool alignment) {
-    _widePath = fileName;
-    _bWidePath = true;
+#endif
     prepareData();
 }
 
@@ -416,12 +416,26 @@ config_file::config_file(std::string fileName) {
     open(fileName);
 }
 
+#ifdef _MSC_VER
+void config_file::open(std::wstring fileName) {
+    _widePath = fileName;
+    _bWidePath = true;
+    prepareData();
+}
+
+void config_file::open(std::wstring fileName, bool readOnly, bool equalitySign, bool alignment) {
+    _widePath = fileName;
+    _bWidePath = true;
+    prepareData();
+}
+
 config_file::config_file(std::wstring fileName) {
     _dataRead = false;
     _useAlignment = true;
     _useEqualitySign = false;
     open(fileName);
 }
+#endif
 
 void config_file::save() {
     if (_dataRead)

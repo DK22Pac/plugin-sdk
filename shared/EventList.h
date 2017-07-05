@@ -106,7 +106,7 @@ namespace plugin
             // Using void* instead of Ret as the return value because we need to capture the return value and return that,
             // and void* has the size of the x86/x64 (and most arches) register types, so let's use that.
             using hook_type = Injector<Addr, void*(Args...)>;
-            injector::make_static_hook<hook_type>([this](hook_type::func_type func, Args... args) {
+            injector::make_static_hook<hook_type>([this](typename hook_type::func_type func, Args... args) {
                 auto arg_tie = std::forward_as_tuple(std::forward<Args>(args)...);
                 std::for_each(vecBefore.begin(), vecBefore.end(), [&](CallbackType& fun) { ArgPicker()(fun, arg_tie); });
                 void* ret = func(std::forward<Args>(args)...);

@@ -7,6 +7,7 @@
 #pragma once
 
 #include "plbase\PluginBase_III.h"
+#include <string.h>
 
 union tPoolObjectFlags {
     struct {
@@ -20,9 +21,9 @@ VALIDATE_SIZE(tPoolObjectFlags, 1);
 
 template<class A, class B = A> class CPool {
 public:
-    B* 					m_Objects;
+    B* 					m_pObjects;
     tPoolObjectFlags* 	m_ByteMap;
-    int					m_Size;
+    int					m_nSize;
     int 				m_nFirstFree;
 
     // Default constructor for statically allocated pools
@@ -30,10 +31,10 @@ public:
 
     // Initializes pool
     CPool(int nSize, const char* pPoolName) {
-        m_Objects = static_cast<B*>(operator new(sizeof(B) * nSize));
+        m_pObjects = static_cast<B*>(operator new(sizeof(B) * nSize));
         m_ByteMap = static_cast<tPoolObjectFlags*>(operator new(sizeof(tPoolObjectFlags) *  nSize));
 
-        m_Size = nSize;
+        m_nSize = nSize;
         m_nFirstFree = -1;
 
         for (int i = 0; i < nSize; ++i) {
@@ -48,12 +49,11 @@ public:
 
     // Initialises a pool with preallocated
     void Init(int nSize, void* pObjects, void* pInfos) {
-        m_Objects = static_cast<B*>(operator new(sizeof(B) * nSize));
+        m_pObjects = static_cast<B*>(operator new(sizeof(B) * nSize));
         m_ByteMap = static_cast<tPoolObjectFlags*>(operator new(nSize));
 
-        m_Size = nSize;
+        m_nSize = nSize;
         m_nFirstFree = -1;
-        m_bOwnsAllocations = true;
 
         for (int i = 0; i < nSize; ++i) {
             m_ByteMap[i].a.bIsFreeSlot = true;
@@ -63,25 +63,25 @@ public:
 
     // Shutdown pool
     void Flush() {
-        if (m_Size > 0) {
-            operator delete(m_Objects);
+        if (m_nSize > 0) {
+            operator delete(m_pObjects);
             operator delete(m_ByteMap);
-            m_Objects = nullptr;
+            m_pObjects = nullptr;
             m_ByteMap = nullptr;
-            m_Size = 0;
+            m_nSize = 0;
             m_nFirstFree = 0;
         }
     }
 
     // Clears pool
     void Clear() {
-        for (int i = 0; i < m_Size; i++)
+        for (int i = 0; i < m_nSize; i++)
             m_ByteMap[i].a.bIsFreeSlot = true;
     }
 
     // Returns pointer to object by index
     A* GetAt(int nIndex) {
-        return nIndex >= 0 && nIndex < m_Size && !m_ByteMap[nIndex].a.bIsFreeSlot ? (A *)&m_Objects[nIndex] : nullptr;
+        return nIndex >= 0 && nIndex < m_nSize && !m_ByteMap[nIndex].a.bIsFreeSlot ? (A *)&m_pObjects[nIndex] : nullptr;
     }
 
     // Returns if specified slot is free
@@ -98,7 +98,7 @@ public:
     A* New() {
         bool		bReachedTop = false;
         do {
-            if (++m_nFirstFree >= m_Size) {
+            if (++m_nFirstFree >= m_nSize) {
                 if (bReachedTop) {
                     m_nFirstFree = -1;
                     return nullptr;
@@ -109,7 +109,7 @@ public:
         } while (!m_ByteMap[m_nFirstFree].a.bIsFreeSlot);
         m_ByteMap[m_nFirstFree].a.bIsFreeSlot = false;
         ++m_ByteMap[m_nFirstFree].a.uID;
-        return &m_Objects[m_nFirstFree];
+        return &m_pObjects[m_nFirstFree];
     }
 
     // Allocates object at a specific index from a SCM handle
@@ -134,7 +134,7 @@ public:
 
     // Returns object index in pool
     int GetJustIndex(A* pObject) {
-        return static_cast<B*>(pObject) - m_Objects;
+        return static_cast<B*>(pObject) - m_pObjects;
     }
 
     unsigned int GetNoOfUsedSpaces() {
@@ -150,24 +150,24 @@ public:
         return m_nSize - GetNoOfUsedSpaces();
     }
 
-    void Store(void *objectFlags, void *objects) {
-        *objectFlags = operator new[](m_Size);
-        *objects = operator new[](m_Size * sizeof(B));
-        memcpy(*objectFlags, m_ByteMap, m_Size);
-        memcpy(*objects, m_Objects, m_Size * sizeof(B));
-        //dbgprint("Stored:%d (/%d)", GetNoOfUsedSpaces(), m_Size);
+    void Store(void **objectFlags, void **objects) {
+        *objectFlags = operator new[](m_nSize);
+        *objects = operator new[](m_nSize * sizeof(B));
+        memcpy(*objectFlags, m_ByteMap, m_nSize);
+        memcpy(*objects, m_pObjects, m_nSize * sizeof(B));
+        //dbgprint("Stored:%d (/%d)", GetNoOfUsedSpaces(), m_nSize);
     }
 
-    void CopyBack(void *objectFlags, void *objects) {
-        memcpy(m_ByteMap, *objectFlags, m_Size);
-        memcpy(m_Objects, *objects, m_Size * sizeof(B));
-        //dbgprint("Size copied:%d (%d)", m_Size * sizeof(B), sizeof(B));
+    void CopyBack(void **objectFlags, void **objects) {
+        memcpy(m_ByteMap, *objectFlags, m_nSize);
+        memcpy(m_pObjects, *objects, m_nSize * sizeof(B));
+        //dbgprint("Size copied:%d (%d)", m_nSize * sizeof(B), sizeof(B));
         m_nFirstFree = 0;
         operator delete[](*objectFlags);
         operator delete[](*objects);
         *objectFlags = nullptr;
         *objects = nullptr;
-        //dbgprint("CopyBack:%d (/%d)", GetNoOfUsedSpaces(), m_Size);
+        //dbgprint("CopyBack:%d (/%d)", GetNoOfUsedSpaces(), m_nSize);
     }
 };
 

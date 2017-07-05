@@ -17,6 +17,7 @@ ScriptCode::ScriptCode(short commandId) {
     capacity = 32;
     data = new unsigned char[32];
     size = 0;
+    varIndexCounter = 0;
     if (commandId != -1) {
         AddBytes(reinterpret_cast<unsigned char *>(&commandId), 2);
     }

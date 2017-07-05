@@ -27,15 +27,12 @@ namespace plugin {
         }
     };
 
-    std::vector<ExtenderInterface<CObject> *> ObjectExtendersHandler::extenders;
-    bool ObjectExtendersHandler::injected;
-
     template <typename T> class ObjectExtendedData : public ExtenderInterface<CObject> {
         T **blocks;
         unsigned int numBlocks;
 
         void AllocateBlocks() {
-            numBlocks = CPools::ms_pObjectPool->m_Size;
+            numBlocks = CPools::ms_pObjectPool->m_nSize;
             blocks = new T*[numBlocks];
             for (unsigned int i = 0; i < numBlocks; i++)
                 blocks[i] = 0;

@@ -187,6 +187,7 @@ void CShadows::RenderIndicatorShadow(unsigned int id, unsigned char shadowType, 
     ((void(__cdecl *)(unsigned int, unsigned char, RwTexture*, CVector*, float, float, float, float, short))0x70CCB0)(id, shadowType, texture, posn, frontX, frontY, sideX, sideY, intensity);
 }
 
+#ifdef _MSC_VER
 RwV3d *ShadowRenderTriangleCB(RwV3d *pNormal, RwV3d *pTrianglePos, _ProjectionParam *param) {
     RwV3d *result = 0;
     __asm mov eax, pNormal
@@ -197,3 +198,4 @@ RwV3d *ShadowRenderTriangleCB(RwV3d *pNormal, RwV3d *pTrianglePos, _ProjectionPa
     __asm mov result, eax
     return result;
 }
+#endif

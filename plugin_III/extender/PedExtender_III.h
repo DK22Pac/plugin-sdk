@@ -27,15 +27,12 @@ namespace plugin {
         }
     };
 
-    std::vector<ExtenderInterface<CPed> *> PedExtendersHandler::extenders;
-    bool PedExtendersHandler::injected;
-
     template <typename T> class PedExtendedData : public ExtenderInterface<CPed> {
         T **blocks;
         unsigned int numBlocks;
 
         void AllocateBlocks() {
-            numBlocks = CPools::ms_pPedPool->m_Size;
+            numBlocks = CPools::ms_pPedPool->m_nSize;
             blocks = new T*[numBlocks];
             for (unsigned int i = 0; i < numBlocks; i++)
                 blocks[i] = 0;
