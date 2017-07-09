@@ -38,10 +38,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)output\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)output\mingw\lib\$(ProjectName)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(SolutionDir)output\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)output\mingw\obj\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>paths</TargetName>
@@ -53,10 +53,10 @@
     <NMakeCleanCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe clean projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration)</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)output\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)output\mingw\lib\$(ProjectName)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)output\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)output\mingw\obj\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>paths_d</TargetName>
