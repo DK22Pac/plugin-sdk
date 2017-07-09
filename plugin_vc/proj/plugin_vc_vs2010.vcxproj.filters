@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="events">
+      <UniqueIdentifier>{d7a3200a-8ef2-41ae-94e2-fe17d4e476a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extender">
+      <UniqueIdentifier>{45f7309d-69e4-475c-844a-07618a66501c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc">
+      <UniqueIdentifier>{72f7c590-7225-4973-855d-be8776f4bbf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="plbase">
+      <UniqueIdentifier>{e9285deb-cb2e-4753-ac4b-afc3a33a9e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions">
+      <UniqueIdentifier>{416e38a4-3b9d-44e6-8a48-093b28f1cebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions\scripting">
+      <UniqueIdentifier>{1fd03498-a353-46de-a3bc-51ec5d325694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Collision">
+      <UniqueIdentifier>{112ed303-f026-4ec4-aef2-316f1050d700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Entity">
+      <UniqueIdentifier>{7e6b3045-9efa-4ab9-9250-32cd8c5f22dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Enums">
+      <UniqueIdentifier>{485438f7-2db9-4f9e-b553-b28113b69b17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Models">
+      <UniqueIdentifier>{5ac87d3c-9779-4d1a-bfe3-fa88b0a36f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Plugins">
+      <UniqueIdentifier>{ba5510f9-695a-40db-8f0e-69878359b7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\RenderWare">
+      <UniqueIdentifier>{e82940c2-0ff7-4a2b-b686-0515990decc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Scripts">
+      <UniqueIdentifier>{3c3463b7-0cc5-41c1-98de-2e4fec1890ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\RenderWare\rw">
+      <UniqueIdentifier>{45af1eb3-f614-4cdf-89be-2b80bd7edf8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Entity\Dummy">
+      <UniqueIdentifier>{e15c2a9b-4029-43a8-9f17-45d9b718cb18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Entity\Object">
+      <UniqueIdentifier>{401f0622-d34c-4a13-af01-11ed5f7606b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Entity\Ped">
+      <UniqueIdentifier>{32feae85-1df4-4f8f-996a-70cd8521313a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_vc\Entity\Vehicle">
+      <UniqueIdentifier>{33bf37e6-e99c-45d1-aa06-eb2b158cea02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\plugin_vc.h" />
+    <ClInclude Include="..\events\Events_VC.h">
+      <Filter>events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\ObjectExtender_VC.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\PedExtender_VC.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extender\VehicleExtender_VC.h">
+      <Filter>extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Config.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\KeyCheck.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\Screen.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\ScriptCommands.h">
+      <Filter>extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extensions\scripting\ScriptCommandNames.h">
+      <Filter>extensions\scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\plbase\PluginBase_VC.h">
+      <Filter>plbase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CAutoPilot.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBox.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBulletTraces.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCarCtrl.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCarGenerator.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CClock.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CClouds.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCurrentVehicle.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCutsceneShadow.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDamageManager.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDarkel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDoor.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDraw.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CEntryInfoList.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CEscalators.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CFileLoader.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CFileMgr.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CFont.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CFontDetails.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CGeneral.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\cHandlingDataMgr.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CHud.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CIniFile.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CMatrix.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CMenuManager.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\common.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\COnscreenTimer.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPad.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPathNode.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedIK.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedPlacement.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedStats.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedType.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPhone.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPickups.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlayerInfo.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlayerSkin.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPool.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPools.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPopulation.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPtrList.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CQuaternion.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CRect.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CRGBA.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CScene.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSector.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CShadowCamera.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSphere.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSprite.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSprite2d.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CStats.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CStoredCollPoly.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTheZones.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTimer.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\cTransmission.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTxdStore.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CUserDisplay.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CVector.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CVector2D.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWanted.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeapon.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeaponEffects.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeaponInfo.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeather.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWheel.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWorld.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CZone.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\RwObjectNameIdAssocation.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tBikeHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tBoatHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tFlyingHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tHandlingData.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tTransmissionGear.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\TxdDef.h">
+      <Filter>game_vc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rpcriter.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rperror.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rphanim.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rpmatfx.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rpskin.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rpworld.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rtanim.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rtquat.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rwcore.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\rwplcore.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\rw\skeleton.h">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CAutomobile.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBike.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBoat.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBaseModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCivilianPed.h">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CClumpModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColSphere.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColBox.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColLine.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColModel.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CColPoint.h">
+      <Filter>game_vc\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDummy.h">
+      <Filter>game_vc\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CDummyObject.h">
+      <Filter>game_vc\Entity\Dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCutsceneObject.h">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CObject.h">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CProjectile.h">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CEmergencyPed.h">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPed.h">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlayerPed.h">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CCopPed.h">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CVehicle.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTrain.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CHeli.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlane.h">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CEntity.h">
+      <Filter>game_vc\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPhysical.h">
+      <Filter>game_vc\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPlaceable.h">
+      <Filter>game_vc\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTreadable.h">
+      <Filter>game_vc\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CBuilding.h">
+      <Filter>game_vc\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eCopType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeather.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eCoronaType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eCrimeType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eEntityStatus.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eEventType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eExplosionType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eFormation.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eGangType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eLevelName.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eMoveState.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eObjective.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eParticleObjectType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedModel.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedPieceTypes.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedStates.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedStats.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePedType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\ePickupType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eRadioStations.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eShadowType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eVehicleFlags.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eVehicleModel.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWaitState.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponFire.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponModel.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\eWeaponType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\tParticleType.h">
+      <Filter>game_vc\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CPedModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CSimpleModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTimeModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CVehicleModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CWeaponModelInfo.h">
+      <Filter>game_vc\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CTheScripts.h">
+      <Filter>game_vc\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\CRunningScript.h">
+      <Filter>game_vc\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\NodeName.h">
+      <Filter>game_vc\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game_vc\RenderWare.h">
+      <Filter>game_vc\RenderWare</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\events\Events_VC.cpp">
+      <Filter>events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Config.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\KeyCheck.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\Screen.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\extensions\ScriptCommands.cpp">
+      <Filter>extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\plbase\PluginBase_VC.cpp">
+      <Filter>plbase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBox.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBulletTraces.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCarCtrl.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCarGenerator.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CClock.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CClouds.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCutsceneShadow.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDamageManager.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDarkel.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDoor.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDraw.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CEntryInfoList.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CEscalators.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFileLoader.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFileMgr.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFont.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CFontDetails.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CGeneral.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\cHandlingDataMgr.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CHud.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CIniFile.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CMatrix.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CMenuManager.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\common.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\COnscreenTimer.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPad.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPathNode.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedIK.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedPlacement.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedStats.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedType.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPhone.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPickups.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlayerInfo.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlayerSkin.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPools.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPopulation.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPtrList.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CQuaternion.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CRGBA.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CScene.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CShadowCamera.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSphere.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSprite.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSprite2d.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CStats.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTheZones.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTimer.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\cTransmission.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTxdStore.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CUserDisplay.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CVector.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWanted.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWeapon.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWeaponEffects.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWeaponInfo.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWeather.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWorld.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CZone.cpp">
+      <Filter>game_vc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CAutomobile.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBike.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBoat.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBaseModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCivilianPed.cpp">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CClumpModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColBox.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColLine.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColModel.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColPoint.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CColSphere.cpp">
+      <Filter>game_vc\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDummy.cpp">
+      <Filter>game_vc\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CDummyObject.cpp">
+      <Filter>game_vc\Entity\Dummy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCutsceneObject.cpp">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CObject.cpp">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CProjectile.cpp">
+      <Filter>game_vc\Entity\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CEmergencyPed.cpp">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPed.cpp">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlayerPed.cpp">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CCopPed.cpp">
+      <Filter>game_vc\Entity\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CVehicle.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTrain.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CHeli.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlane.cpp">
+      <Filter>game_vc\Entity\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CEntity.cpp">
+      <Filter>game_vc\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPhysical.cpp">
+      <Filter>game_vc\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPlaceable.cpp">
+      <Filter>game_vc\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTreadable.cpp">
+      <Filter>game_vc\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CBuilding.cpp">
+      <Filter>game_vc\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CPedModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CSimpleModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTimeModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CVehicleModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CWeaponModelInfo.cpp">
+      <Filter>game_vc\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CTheScripts.cpp">
+      <Filter>game_vc\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\CRunningScript.cpp">
+      <Filter>game_vc\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\NodeName.cpp">
+      <Filter>game_vc\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game_vc\RenderWare.cpp">
+      <Filter>game_vc\RenderWare</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\game_vc\rw\errcom.def">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </None>
+    <None Include="..\game_vc\rw\errcore.def">
+      <Filter>game_vc\RenderWare\rw</Filter>
+    </None>
+  </ItemGroup>
+</Project>
