@@ -1,4 +1,4 @@
-# plugin-sdk
+<p align="center"><img src="http://i.imgur.com/xFXWiU9.png"></p>
 
 Some kind of "dev-kit" I'm using for creating plugins for GTA San Andreas and GTA Vice City.
 Feel free to use it too!
