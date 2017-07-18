@@ -38,7 +38,7 @@ public:
             }
             CVehicle *vehicle = nullptr;
             // Выделяем обьект из пула
-            switch (reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[modelIndex])->m_dwType) {
+            switch (reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[modelIndex])->m_nVehicleType) {
             case VEHICLE_MTRUCK:
                 vehicle = new CMonsterTruck(modelIndex, 1);
                 break;
@@ -74,12 +74,12 @@ public:
                 vehicle->SetPosn(position);
                 vehicle->SetOrientation(0.0f, 0.0f, orientation);
                 vehicle->m_nStatus = 4;
-                vehicle->m_dwDoorLock = CARLOCK_UNLOCKED;
+                vehicle->m_nDoorLock = CARLOCK_UNLOCKED;
                 CWorld::Add(vehicle);
                 CTheScripts::ClearSpaceForMissionEntity(position, vehicle); // удаляем другие обьекты, которые находятся в этих координатах
-                if (vehicle->m_dwVehicleClass == VEHICLE_BIKE)
+                if (vehicle->m_nVehicleClass == VEHICLE_BIKE)
                     reinterpret_cast<CBike *>(vehicle)->PlaceOnRoadProperly();
-                else if (vehicle->m_dwVehicleClass != VEHICLE_BOAT)
+                else if (vehicle->m_nVehicleClass != VEHICLE_BOAT)
                     reinterpret_cast<CAutomobile *>(vehicle)->PlaceOnRoadProperly();
                 return vehicle;
             }

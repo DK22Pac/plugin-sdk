@@ -17,12 +17,13 @@ namespace plugin {
     class ObjectExtendersHandler : public ExtendersHandler<CObject> {
     public:
         static void Add(ExtenderInterface<CObject> *extender) {
-            extenders.push_back(extender);
-            if (!injected) {
+            static_data& data = get_data();
+            data.extenders.push_back(extender);
+            if (!data.injected) {
                 plugin::Events::initPoolsEvent.after += Allocate;
                 plugin::Events::objectCtorEvent.before += Constructor;
                 plugin::Events::objectDtorEvent.after += Destructor;
-                injected = true;
+                data.injected = true;
             }
         }
     };

@@ -24,12 +24,13 @@ namespace plugin {
     class PedExtendersHandler : public ExtendersHandler<CPed> {
     public:
         static void Add(ExtenderInterface<CPed> *extender) {
-            extenders.push_back(extender);
-            if (!injected) {
+            static_data& data = get_data();
+            data.extenders.push_back(extender);
+            if (!data.injected) {
                 plugin::Events::initPoolsEvent.after += Allocate;
                 plugin::Events::pedCtorEvent.before += Constructor;
                 plugin::Events::pedDtorEvent.after += Destructor;
-                injected = true;
+                data.injected = true;
             }
         }
     };

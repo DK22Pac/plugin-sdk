@@ -29,9 +29,9 @@ public:
         Events::drawHudEvent += [] {
             CVehicle *vehicle = FindPlayerVehicle(-1, true);
 
-            if (vehicle && vehicle->m_dwVehicleSubClass != VEHICLE_PLANE && vehicle->m_dwVehicleSubClass != VEHICLE_HELI
-                && vehicle->m_dwVehicleSubClass != VEHICLE_BOAT && vehicle->m_dwVehicleSubClass != VEHICLE_BMX &&
-                vehicle->m_dwVehicleSubClass != VEHICLE_TRAIN)
+            if (vehicle && vehicle->m_nVehicleSubClass != VEHICLE_PLANE && vehicle->m_nVehicleSubClass != VEHICLE_HELI
+                && vehicle->m_nVehicleSubClass != VEHICLE_BOAT && vehicle->m_nVehicleSubClass != VEHICLE_BMX &&
+                vehicle->m_nVehicleSubClass != VEHICLE_TRAIN)
             {
                 float speed = vehicle->m_vecMoveSpeed.Magnitude();
                 if (speed > 1.2f)

@@ -37,7 +37,7 @@ public:
         static VehicleExtendedData<VehicleTurnlightsData> turnlightsData;
 
         Events::vehicleRenderEvent.before += [](CVehicle *vehicle) {
-            if ((vehicle->m_dwVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_dwVehicleSubClass == VEHICLE_BIKE) &&
+            if ((vehicle->m_nVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_nVehicleSubClass == VEHICLE_BIKE) &&
                 (vehicle->GetVehicleAppearance() == VEHICLE_APPEARANCE_AUTOMOBILE || vehicle->GetVehicleAppearance() == VEHICLE_APPEARANCE_BIKE) &&
                 vehicle->m_wModelIndex != MODEL_BMX && vehicle->m_wModelIndex != MODEL_BIKE && vehicle->m_wModelIndex != MODEL_MTBIKE &&
                 !vehicle->m_pAttachedTo)
@@ -100,7 +100,7 @@ public:
 
     static void DrawTurnlight(CVehicle *vehicle, unsigned int dummyId, bool leftSide) {
         CVector posn =
-            reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_wModelIndex])->m_pVehicleStruct->m_avDummyPosn[dummyId];
+            reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_wModelIndex])->m_pVehicleStruct->m_avDummyPos[dummyId];
         if (posn.x == 0.0f) posn.x = 0.15f;
         if (leftSide) posn.x *= -1.0f;
         CCoronas::RegisterCorona(reinterpret_cast<unsigned int>(vehicle) + 50 + dummyId + (leftSide ? 0 : 2), vehicle, 255, 128, 0, 255, posn,

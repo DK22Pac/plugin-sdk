@@ -67,7 +67,7 @@ public:
 		case STATE_WAITING:
 			if (CTimer::m_snTimeInMilliseconds >(m_nLastTimeWhenAnyActionWasEnabled + 500)) { // если прошло 500 мс с того времени, как мы начали открывать/закрывать что-то
 				CVehicle *vehicle = FindPlayerVehicle(0, false);
-				if (vehicle && vehicle->m_dwVehicleClass == VEHICLE_AUTOMOBILE) {
+				if (vehicle && vehicle->m_nVehicleClass == VEHICLE_AUTOMOBILE) {
 					CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle); // опять же, приведение типов. Т.к. мы будет юзать damageManager, нам нужно убедиться, что транспорт - это автомобиль (CAutomobile)
 					if (KeyPressed(219)) // [
 						OpenComponent(automobile, CAR_BONNET, static_cast<eDoors>(0)); // капот

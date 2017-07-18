@@ -17,7 +17,7 @@ public:
 
         Events::gameProcessEvent.Add([] {
             CVehicle *vehicle = FindPlayerVehicle(0, false);
-            if (vehicle && vehicle->m_dwVehicleClass == VEHICLE_AUTOMOBILE) {
+            if (vehicle && vehicle->m_nVehicleClass == VEHICLE_AUTOMOBILE) {
                 m_angle += 0.01f;
                 if (m_angle > (_RW_pi * 2.0f))
                     m_angle = 0.0f;
@@ -40,7 +40,7 @@ public:
 
         Events::drawingEvent.Add([] {
             CVehicle *vehicle = FindPlayerVehicle(0, false);
-            if (vehicle && vehicle->m_dwVehicleClass == VEHICLE_AUTOMOBILE) {
+            if (vehicle && vehicle->m_nVehicleClass == VEHICLE_AUTOMOBILE) {
                 CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle);
                 RwEngineInstance->dOpenDevice.fpRenderStateSet(rwRENDERSTATEZTESTENABLE, FALSE);
                 if (automobile->m_aCarNodes[CAR_DOOR_RF]) {

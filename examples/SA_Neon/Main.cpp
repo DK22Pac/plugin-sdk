@@ -46,8 +46,8 @@ public:
     static bool CanEnableNeonOnThisVehicle(CVehicle *vehicle) {
         CVehicleModelInfo *vehModel = reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_wModelIndex]);
         return vehicle->m_pDriver 
-            && (vehModel->m_nClass == 1 || vehModel->m_nClass == 2 || vehModel->m_nClass == 3) 
-            && (vehicle->m_dwVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_dwVehicleSubClass == VEHICLE_MTRUCK || vehicle->m_dwVehicleSubClass == VEHICLE_QUAD);
+            && (vehModel->m_nVehicleClass == 1 || vehModel->m_nVehicleClass == 2 || vehModel->m_nVehicleClass == 3) 
+            && (vehicle->m_nVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_nVehicleSubClass == VEHICLE_MTRUCK || vehicle->m_nVehicleSubClass == VEHICLE_QUAD);
     }
 
     static void ProcessNpcVehicle(CVehicle *vehicle) {
@@ -64,9 +64,9 @@ public:
         KeyCheck::Update();
         CVehicle *playaVeh = FindPlayerVehicle(0, false);
         if (playaVeh 
-            && (playaVeh->m_dwVehicleSubClass == VEHICLE_AUTOMOBILE 
-                || playaVeh->m_dwVehicleSubClass == VEHICLE_MTRUCK 
-                || playaVeh->m_dwVehicleSubClass == VEHICLE_QUAD)) {
+            && (playaVeh->m_nVehicleSubClass == VEHICLE_AUTOMOBILE 
+                || playaVeh->m_nVehicleSubClass == VEHICLE_MTRUCK 
+                || playaVeh->m_nVehicleSubClass == VEHICLE_QUAD)) {
             if (KeyCheck::Check(VK_SHIFT)) {
                 if (KeyCheck::CheckJustDown('1'))
                     VehNeon.Get(playaVeh).Enable(NEON_YELLOW);

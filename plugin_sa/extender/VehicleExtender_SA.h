@@ -24,12 +24,13 @@ namespace plugin {
     class VehicleExtendersHandler : public ExtendersHandler<CVehicle> {
     public:
         static void Add(ExtenderInterface<CVehicle> *extender) {
-            extenders.push_back(extender);
-            if (!injected) {
+            static_data& data = get_data();
+            data.extenders.push_back(extender);
+            if (!data.injected) {
                 plugin::Events::initPoolsEvent.after += Allocate;
                 plugin::Events::vehicleCtorEvent.before += Constructor;
                 plugin::Events::vehicleDtorEvent.after += Destructor;
-                injected = true;
+                data.injected = true;
             }
         }
     };

@@ -124,7 +124,7 @@ void DoKeyboardCheck() {
             num = 101;
         if (num != -2) {
             CVehicle *veh = FindPlayerVehicle(-1, false);
-            if (veh && veh->m_dwVehicleSubClass == VEHICLE_AUTOMOBILE) {
+            if (veh && veh->m_nVehicleSubClass == VEHICLE_AUTOMOBILE) {
                 CAutomobile *automobile = reinterpret_cast<CAutomobile *>(veh);
                 automobile->NitrousControl(num);
             }

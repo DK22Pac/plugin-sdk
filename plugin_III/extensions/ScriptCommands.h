@@ -72,9 +72,10 @@ bool ScriptCommand(ArgTypes... args) {
     // create our 'script' object
     static CRunningScript script;
     memset(&script, 0, sizeof(CRunningScript));
-    strcpy(script.m_szName, "PlSdkTmp");
+    memcpy(script.m_szName, "PlSdkTmp", sizeof(script.m_szName));
     script.m_bDeathArrestCheckEnabled = true;
-    script.m_bIsMission = script.m_bMissionCleanup = false;
+    script.m_bIsMission = false;
+    script.m_bMissionCleanup = false;
     script.scriptType = 0;
     script.m_bNotFlag = (CommandId >> 15) & 1;
     // our script code

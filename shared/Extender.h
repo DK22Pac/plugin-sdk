@@ -18,23 +18,38 @@ namespace plugin {
     };
 
     template <typename T>
-    class ExtendersHandler {
+    class ExtendersHandler
+    {
     protected:
-        static std::vector<ExtenderInterface<T> *> extenders;
-        static bool injected;
+        struct static_data
+        {
+            std::vector <ExtenderInterface<T> *> extenders;
+            bool injected;
+        };
+
+        static inline static_data& get_data() {
+            // Has to be constructed at some point, so it is allocated at first call
+            // of this function.
+            static static_data data;
+            
+            return data;
+        }
 
         static void Allocate() {
-            for (auto &i : extenders)
+            static_data& data = get_data();
+            for (auto &i : data.extenders)
                 i->AllocateBlocks();
         }
 
         static void Constructor(T *object) {
-            for (auto &i : extenders)
+            static_data& data = get_data();
+            for (auto &i : data.extenders)
                 i->OnConstructor(object);
         }
 
         static void Destructor(T *object) {
-            for (auto &i : extenders)
+            static_data& data = get_data();
+            for (auto &i : data.extenders)
                 i->OnDestructor(object);
         }
     };

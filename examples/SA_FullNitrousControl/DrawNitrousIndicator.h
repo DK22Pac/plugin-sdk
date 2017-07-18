@@ -33,7 +33,7 @@ void DrawProgressBar(int x, int y, int w, int h, int border_x, int border_y, CRG
 void DrawNitrousIndicator() {
     CPed *playa = FindPlayerPed();
     if (playa && playa->m_nPedFlags.bInVehicle && playa->m_pVehicle
-        && playa->m_pVehicle->m_dwVehicleClass == VEHICLE_AUTOMOBILE && playa->m_pVehicle->m_pDriver == playa
+        && playa->m_pVehicle->m_nVehicleClass == VEHICLE_AUTOMOBILE && playa->m_pVehicle->m_pDriver == playa
         && playa->m_pVehicle->m_nNitroBoosts > 0)
     {
         CAutomobile *playaVeh = reinterpret_cast<CAutomobile *>(playa->m_pVehicle);
