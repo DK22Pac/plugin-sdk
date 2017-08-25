@@ -47,8 +47,10 @@ CVector& FindPlayerSpeed() {
 }
 
 // Converted from cdecl CVector& FindPlayerCoors(void) 0x4BC240;
-CVector& FindPlayerCoors() {
-    return plugin::CallAndReturn<CVector&, 0x4BC240>();
+CVector FindPlayerCoors() {
+    CVector result;
+    plugin::Call<0x4BC240, CVector*>(&result);
+    return result;
 }
 
 // Converted from cdecl RwTexture* GetFirstTexture(RwTexDictionary *texDictionary) 0x57F900

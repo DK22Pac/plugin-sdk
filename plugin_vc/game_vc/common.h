@@ -20,7 +20,7 @@ CTrain* FindPlayerTrain();
 CEntity* FindPlayerEntity();
 CVehicle* FindPlayerVehicle();
 CVector& FindPlayerSpeed();
-CVector& FindPlayerCoors();
+CVector FindPlayerCoors();
 
 RwTexture* GetFirstTexture(RwTexDictionary* texDictionary);
 RwObject* GetFirstObject(RwFrame* frame);
