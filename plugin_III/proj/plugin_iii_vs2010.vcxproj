@@ -38,26 +38,26 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)output\mingw\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)output\mingw\lib\</OutDir>
     <IntDir>$(SolutionDir)output\mingw\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>plugin_III</TargetName>
-    <NMakeBuildCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe build buildtype:LIB projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration) includeDirs:$(ProjectDir)..\ additional:"-std=c++14 -m32"</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>"$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe" build buildtype:(LIB) projectdir:"($(ProjectDir))" projectname:"($(ProjectName))" targetname:"(lib$(ProjectName).a)" outdir:"($(PLUGIN_SDK_DIR)\output\mingw\lib\)" intdir:"($(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration))" includeDirs:"($(ProjectDir)..\)" additional:"(-std=c++14 -m32)"</NMakeBuildCommandLine>
     <NMakeIncludeSearchPath>$(ProjectDir)..\;$(ProjectDir)..\..\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
-    <NMakeOutput>$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration)\$(ProjectName).lib</NMakeOutput>
-    <NMakeReBuildCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe rebuild buildtype:LIB projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration) includeDirs:$(ProjectDir)..\ additional:"-std=c++14 -m32"</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe clean projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration)</NMakeCleanCommandLine>
+    <NMakeOutput>$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration)\lib$(ProjectName).a</NMakeOutput>
+    <NMakeReBuildCommandLine>"$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe" rebuild buildtype:(LIB) projectdir:"($(ProjectDir))" projectname:"($(ProjectName))" targetname:"(lib$(ProjectName).a)" outdir:"($(PLUGIN_SDK_DIR)\output\mingw\lib\)" intdir:"($(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration))" includeDirs:"($(ProjectDir)..\)" additional:"(-std=c++14 -m32)"</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe" clean projectdir:"($(ProjectDir))" projectname:"($(ProjectName))" targetname:"(lib$(ProjectName).a)" outdir:"($(PLUGIN_SDK_DIR)\output\mingw\lib\)" intdir:"($(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration))"</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)output\mingw\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)output\mingw\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)output\mingw\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>plugin_III_d</TargetName>
-    <NMakeBuildCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe build buildtype:LIB projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration) includeDirs:$(ProjectDir)..\ additional:"-std=c++14 -m32"</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>"$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe" build buildtype:(LIB) projectdir:"($(ProjectDir))" projectname:"($(ProjectName))" targetname:"(lib$(ProjectName)_d.a)" outdir:"($(PLUGIN_SDK_DIR)\output\mingw\lib\)" intdir:"($(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration))" includeDirs:"($(ProjectDir)..\)" additional:"(-std=c++14 -m32)"</NMakeBuildCommandLine>
     <NMakeIncludeSearchPath>$(ProjectDir)..\;$(ProjectDir)..\..\;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
-    <NMakeOutput>$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration)\$(ProjectName)_d.lib</NMakeOutput>
-    <NMakeReBuildCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe rebuild buildtype:LIB projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration) includeDirs:$(ProjectDir)..\ additional:"-std=c++14 -m32"</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe clean projectdir:$(ProjectDir) projectname:$(ProjectName) targetname:$(ProjectName).lib outdir:$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration) intdir:$(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration)</NMakeCleanCommandLine>
+    <NMakeOutput>$(PLUGIN_SDK_DIR)\output\mingw\lib\$(ProjectName)\$(Configuration)\lib$(ProjectName)_d.a</NMakeOutput>
+    <NMakeReBuildCommandLine>"$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe" rebuild buildtype:(LIB) projectdir:"($(ProjectDir))" projectname:"($(ProjectName))" targetname:"(lib$(ProjectName)_d.a)" outdir:"($(PLUGIN_SDK_DIR)\output\mingw\lib\)" intdir:"($(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration))" includeDirs:"($(ProjectDir)..\)" additional:"(-std=c++14 -m32)"</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"$(PLUGIN_SDK_DIR)\tools\pluginsdk-build\pluginsdk-build.exe" clean projectdir:"($(ProjectDir))" projectname:"($(ProjectName))" targetname:"(lib$(ProjectName)_d.a)" outdir:"($(PLUGIN_SDK_DIR)\output\mingw\lib\)" intdir:"($(PLUGIN_SDK_DIR)\output\mingw\obj\$(ProjectName)\$(Configuration))"</NMakeCleanCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

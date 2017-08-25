@@ -37,7 +37,7 @@ namespace plugin
                                           0x54B810, H_CALL,
                                           0x54EAA0, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>, void(CVehicle*)> vehicleRenderEvent;
         extern ThiscallEvent <AddressList<0x4D0484, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>,     void(CPed*) >    pedRenderEvent;
-        extern ThiscallEvent <AddressList<0x4BB232, H_JUMP>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,  void(CObject*)>  objectRenderEvent;
+        extern ThiscallEvent <AddressList<0x4BB232, H_CALL>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,  void(CObject*)>  objectRenderEvent;
         extern ThiscallEvent <AddressList<0x551179, H_CALL,
                                           0x5474C8, H_CALL,
                                           0x53E7B8, H_CALL>, PRIORITY_AFTER,  ArgPick2N<CVehicle*, 0, int, 1>, void(CVehicle*, int)> vehicleSetModelEvent;

@@ -464,3 +464,6 @@ ENV/
 
 #
 *.i-*
+
+# User settings
+user.settings

@@ -46,12 +46,12 @@
     <PropertyPageSchema Include="dxsdk_customprops.xml" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)output\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)output\lib\</OutDir>
     <IntDir>$(SolutionDir)output\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>plugin_vc</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)output\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)output\lib\</OutDir>
     <IntDir>$(SolutionDir)output\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <TargetName>plugin_vc_d</TargetName>
   </PropertyGroup>

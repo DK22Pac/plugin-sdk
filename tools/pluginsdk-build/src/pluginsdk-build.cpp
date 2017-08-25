@@ -55,14 +55,20 @@ int main(int argc, char *argv[]) {
         string linkadditional;
     } parameters;
 
-    auto readOneParameter = [](string const &line) {
+    auto readOneParameter = [](string const &arg) {
+        if (arg.length() < 2 || arg.front() != '(' || arg.back() != ')')
+            cout << "Warning: incorrect parameter " << arg << endl;
+        string line = arg.substr(1, arg.length() - 2);
         size_t comma = line.find_first_of(',');
         if (comma != string::npos)
             return line.substr(0, comma);
         return line;
     };
 
-    auto readParameters = [](vector<string> &vec, string const &line) {
+    auto readParameters = [](vector<string> &vec, string const &arg) {
+        if (arg.length() < 2 || arg.front() != '(' || arg.back() != ')')
+            cout << "Warning: incorrect parameter " << arg << endl;
+        string line = arg.substr(1, arg.length() - 2);
         size_t currPos = 0;
         size_t comma = line.find_first_of(',');
         while (comma != string::npos) {
@@ -90,20 +96,23 @@ int main(int argc, char *argv[]) {
     };
 
     auto executeCommand = [](string const &file, string const &command) {
-        SHELLEXECUTEINFO ShExecInfo = { 0 };
-        ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
-        ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
-        ShExecInfo.hwnd = NULL;
-        ShExecInfo.lpVerb = NULL;
-        ShExecInfo.lpFile = file.c_str();
-        ShExecInfo.lpParameters = command.c_str();
-        ShExecInfo.lpDirectory = NULL;
-        ShExecInfo.nShow = SW_HIDE;
-        ShExecInfo.hInstApp = NULL;
-        ShellExecuteEx(&ShExecInfo);
-        WaitForSingleObject(ShExecInfo.hProcess, INFINITE);
+        STARTUPINFO startInf;
+        memset(&startInf, 0, sizeof(STARTUPINFO));
+        startInf.cb = sizeof(STARTUPINFO);
+        PROCESS_INFORMATION procInf;
+        memset(&procInf, 0, sizeof(PROCESS_INFORMATION));
+        string cmdline = file + " " + command;
+        BOOL b = CreateProcess(NULL, const_cast<char *>(cmdline.c_str()), NULL, NULL, FALSE,
+            0, NULL, NULL, &startInf, &procInf);
         int commandResult = 0;
-        GetExitCodeProcess(ShExecInfo.hProcess, reinterpret_cast<DWORD *>(&commandResult));
+        if (b) {
+            WaitForSingleObject(procInf.hProcess, INFINITE);
+            GetExitCodeProcess(procInf.hProcess, reinterpret_cast<DWORD *>(&commandResult));
+            CloseHandle(procInf.hProcess);
+            CloseHandle(procInf.hThread);
+        }
+        else
+            commandResult = GetLastError();
         return commandResult;
     };
 
@@ -168,9 +177,8 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    if (parameters.outdir.empty()) {
-        cout << "Error: outdir is not set" << endl;
-        return 0;
+    if (parameters.outdir.empty() || (parameters.outdir.length() == 1 && (parameters.outdir[0] == '\\' || parameters.outdir[0] == '/'))) {
+        parameters.outdir = parameters.projectdir;
     }
 
     if (parameters.intdir.empty()) {
@@ -199,7 +207,7 @@ int main(int argc, char *argv[]) {
         }
     }
     else {
-        cout << "Error: can't open project file" << endl;
+        cout << "Error: can't open project file" << " " << parameters.projectdir << endl;
         return 0;
     }
 
@@ -261,7 +269,7 @@ int main(int argc, char *argv[]) {
             return 0;
         }
     }
-    
+
     cout << "Compiling..." << endl;
 
     for (auto const &cppFile : cppFiles) {
@@ -284,12 +292,6 @@ int main(int argc, char *argv[]) {
         // include dirs
         for (auto const &includeDir : parameters.includeDirs)
             command << "-I" << '"' << canonical(includeDir) << '"' << " ";
-        // library dirs
-        for (auto const &libraryDir : parameters.libraryDirs)
-            command << "-L" << '"' << canonical(libraryDir) << '"' << " ";
-        // libraries dirs
-        for (auto const &library : parameters.libraries)
-            command << "-l" << '"' << library << '"' << " ";
         // additional commands
         if (!parameters.additional.empty())
             command << parameters.additional;
@@ -327,13 +329,19 @@ int main(int argc, char *argv[]) {
         command << '"' << outputPath << '"' << " ";
         path objectsPath = canonical(parameters.intdir) / parameters.projectname / "*.o";
         command << '"' << objectsPath << '"' << " ";
+        // library dirs
+        for (auto const &libraryDir : parameters.libraryDirs)
+            command << "-L" << '"' << canonical(libraryDir) << '"' << " ";
+        // libraries dirs
+        for (auto const &library : parameters.libraries)
+            command << "-l" << '"' << library << '"' << " ";
         if (!parameters.linkadditional.empty())
             command << parameters.linkadditional;
 
         if (parameters.fulllog)
             cout << "Linking: " << command.str() << endl;
 
-        if (executeCommand("ar", command.str().c_str()) != 0)
+        if (executeCommand(!parameters.buildtype.compare("LIB") ? "ar" : "g++", command.str().c_str()) != 0)
             cout << "Error: failed to link objects (command: " << command.str() << ")" << endl;
         else
             cout << parameters.projectname << ".vcxproj -> " << outputPath << endl;

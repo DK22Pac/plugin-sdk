@@ -32,7 +32,7 @@ ThiscallEvent <AddressList<0x589AB2, H_CALL,
                            0x5B2580, H_CALL,
                            0x60AD83, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>,    void(CVehicle*)> plugin::Events::vehicleRenderEvent;
 ThiscallEvent <AddressList<0x4FE216, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>,        void(CPed*) >    plugin::Events::pedRenderEvent;
-ThiscallEvent <AddressList<0x4E3666, H_JUMP>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,     void(CObject*)>  plugin::Events::objectRenderEvent;
+ThiscallEvent <AddressList<0x4E3666, H_CALL>, PRIORITY_BEFORE, ArgPickN<CObject*, 0>,     void(CObject*)>  plugin::Events::objectRenderEvent;
 ThiscallEvent <AddressList<0x5BAA49, H_CALL,
                            0x5AF758, H_CALL>, PRIORITY_AFTER,  ArgPick2N<CVehicle*, 0, int, 1>, void(CVehicle*, int)> plugin::Events::vehicleSetModelEvent;
 ThiscallEvent <AddressList<0x50D909, H_CALL>, PRIORITY_AFTER,  ArgPick2N<CPed*, 0, int, 1>, void(CPed*, int)> plugin::Events::pedSetModelEvent;
