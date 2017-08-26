@@ -77,6 +77,7 @@ bool ScriptCommand(ArgTypes... args) {
     // create our 'script' object
     static CRunningScript script;
     script.Init();
+    strcpy(script.threadName, "plg-sdk");
     script.IsCustom = script.missionFlag = script.MissionCleanUpFlag = false;
     script.notFlag = (CommandId >> 15) & 1;
     // our script code
