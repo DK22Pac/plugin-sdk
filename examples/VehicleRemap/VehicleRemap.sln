@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VehicleRemap", "VehicleRemap.vcxproj", "{BA08F29B-A66B-8140-4FF1-B9F63B334DC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|GTASA = Debug|GTASA
+		Release|GTASA = Release|GTASA
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA08F29B-A66B-8140-4FF1-B9F63B334DC3}.Debug|GTASA.ActiveCfg = Debug GTASA|Win32
+		{BA08F29B-A66B-8140-4FF1-B9F63B334DC3}.Debug|GTASA.Build.0 = Debug GTASA|Win32
+		{BA08F29B-A66B-8140-4FF1-B9F63B334DC3}.Release|GTASA.ActiveCfg = Release GTASA|Win32
+		{BA08F29B-A66B-8140-4FF1-B9F63B334DC3}.Release|GTASA.Build.0 = Release GTASA|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DXFont", "DXFont.vcxproj", "{3885DEAC-2427-0983-0DE2-1CD7F92290D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|GTAVC = Debug|GTAVC
+		Release|GTAVC = Release|GTAVC
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3885DEAC-2427-0983-0DE2-1CD7F92290D3}.Debug|GTAVC.ActiveCfg = Debug GTAVC|Win32
+		{3885DEAC-2427-0983-0DE2-1CD7F92290D3}.Debug|GTAVC.Build.0 = Debug GTAVC|Win32
+		{3885DEAC-2427-0983-0DE2-1CD7F92290D3}.Release|GTAVC.ActiveCfg = Release GTAVC|Win32
+		{3885DEAC-2427-0983-0DE2-1CD7F92290D3}.Release|GTAVC.Build.0 = Release GTAVC|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

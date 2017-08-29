@@ -28,11 +28,11 @@ extern RwPluginRegistry &geometryTKList;
 struct IDirect3DDevice9 *GetD3DDevice();
 
 #ifndef D3DMATRIX_DEFINED
-struct D3DMATRIX;
+struct _D3DMATRIX;
 #endif
 
-D3DMATRIX *GetD3DViewTransform();
-D3DMATRIX *GetD3DProjTransform();
+_D3DMATRIX *GetD3DViewTransform();
+_D3DMATRIX *GetD3DProjTransform();
 
 /* rwplcore.h */
 

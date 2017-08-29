@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PedPainting", "PedPainting.vcxproj", "{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|GTASA = Debug|GTASA
+		Debug|GTAVC = Debug|GTAVC
+		Release|GTASA = Release|GTASA
+		Release|GTAVC = Release|GTAVC
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Debug|GTASA.ActiveCfg = Debug GTASA|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Debug|GTASA.Build.0 = Debug GTASA|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Debug|GTAVC.ActiveCfg = Debug GTAVC|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Debug|GTAVC.Build.0 = Debug GTAVC|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Release|GTASA.ActiveCfg = Release GTASA|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Release|GTASA.Build.0 = Release GTASA|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Release|GTAVC.ActiveCfg = Release GTAVC|Win32
+		{B8F882AD-24AE-FBA2-ADA2-F5791957F2A6}.Release|GTAVC.Build.0 = Release GTAVC|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

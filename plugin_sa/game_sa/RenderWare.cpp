@@ -16,12 +16,12 @@ IDirect3DDevice9 *GetD3DDevice() {
     return *reinterpret_cast<IDirect3DDevice9 **>(0xC97C28);
 }
 
-D3DMATRIX *GetD3DViewTransform() {
-    return reinterpret_cast<D3DMATRIX *>(0xC9BC80);
+_D3DMATRIX *GetD3DViewTransform() {
+    return reinterpret_cast<_D3DMATRIX *>(0xC9BC80);
 }
 
-D3DMATRIX *GetD3DProjTransform() {
-    return reinterpret_cast<D3DMATRIX *>(0x8E2458);
+_D3DMATRIX *GetD3DProjTransform() {
+    return reinterpret_cast<_D3DMATRIX *>(0x8E2458);
 }
 
 /* rwplcore.h */
