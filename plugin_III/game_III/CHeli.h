@@ -55,3 +55,7 @@ public:
 }; 
 
 //VALIDATE_SIZE(CHeli, 0x33C);
+
+void GenerateHeli(bool enable);
+void StartCatalinaFlyBy();
+RwObject* GetHeliAtomicObjectCB(RwObject* object, void* data);

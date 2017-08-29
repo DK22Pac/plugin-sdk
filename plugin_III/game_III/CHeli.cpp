@@ -83,3 +83,18 @@ bool CHeli::TestRocketCollision(CVector* arg0) {
 void CHeli::UpdateHelis() {
     plugin::Call<0x5499F0>();
 }
+
+// Converted from cdecl void GenerateHeli(bool enable) 0x54A640
+void GenerateHeli(bool enable) {
+    plugin::Call<0x54A640, bool>(enable);
+}
+
+// Converted from cdecl void StartCatalinaFlyBy(void) 0x54A980
+void StartCatalinaFlyBy() {
+    plugin::Call<0x54A980>();
+}
+
+// Converted from cdecl RwObject* GetHeliAtomicObjectCB(RwObject* object, void* data) 0x54AE30
+RwObject* GetHeliAtomicObjectCB(RwObject* object, void* data) {
+    return plugin::CallAndReturn<RwObject*, 0x54AE30, RwObject*, void*>(object, data);
+}
