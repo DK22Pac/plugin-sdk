@@ -14,7 +14,9 @@
 #include "rw\rpskin.h"
 #include "rw\rpmatfx.h"
 #include "rw\skeleton.h"
-#include "..\DXSDK\9.0c\Include\d3d9.h"
+#ifdef _DX9_SDK_INSTALLED
+#include "d3d9.h"
+#endif
 
 extern RwGlobals *&RwEngineInstance;
 

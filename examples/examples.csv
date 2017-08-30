@@ -1,18 +1,18 @@
-project;supported games;;;dependencies;;;;additional include dirs;additional library dirs;additional libraries;additional definitions
-ColouredObjects;GTASA;;;;;;;;;;
-CreateCar;GTASA;;;;;;;;;;
-DXFont;;GTAVC;;D3D;;;;;;;
-FullNitrousControl;GTASA;;;;;;;;;;
-GPS;GTASA;;;D3D;;;;;;;
-HandSignals;GTASA;;;;;;;;;;
-Neon;GTASA;;;;;;;;;;
-OpenDoorExample;GTASA;;;;;;;;;;
-PedPainting;GTASA;GTAVC;;;;;;;;;
-PedSpawner;GTASA;;;;;;;;;;
-PlayerWeapon;GTASA;;;;;;;;;;
-RotateDoor;GTASA;;;;;;;;;;
-Speedometer;GTASA;;;;;;;;;;
-Texture;GTASA;;;;;;;;;;
-UniversalTurnlights;GTASA;;;;;;;;;;
-VehicleRemap;GTASA;;;;;;;;;;
-VehicleSpawner;GTASA;;;;;;;;;;
+project;supported games;;;dependencies;;;additional include dirs;additional library dirs;additional libraries;additional definitions
+ColouredObjects;GTASA;;;;;;;;;
+CreateCar;GTASA;;;;;;;;;
+DXFont;GTASA;GTAVC;GTA3;D3D;;;;;;
+FullNitrousControl;GTASA;;;;;;;;;
+GPS;GTASA;;;D3D;;;;;;
+HandSignals;GTASA;;;;;;;;;
+Neon;GTASA;;;;;;;;;
+OpenDoorExample;GTASA;;;;;;;;;
+PedPainting;GTASA;GTAVC;;;;;;;;
+PedSpawner;GTASA;;;;;;;;;
+PlayerWeapon;GTASA;;;;;;;;;
+RotateDoor;GTASA;;;;;;;;;
+Speedometer;GTASA;;;;;;;;;
+Texture;GTASA;;;;;;;;;
+UniversalTurnlights;GTASA;;;;;;;;;
+VehicleRemap;GTASA;;;;;;;;;
+VehicleSpawner;GTASA;;;;;;;;;

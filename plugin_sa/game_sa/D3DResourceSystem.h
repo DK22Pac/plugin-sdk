@@ -8,7 +8,9 @@
 #include "plbase/PluginBase_SA.h"
 #include "D3DTextureBuffer.h"
 #include "D3DIndexDataBuffer.h"
-#include "..\DXSDK\9.0c\Include\d3d9.h"
+#ifdef _DX9_SDK_INSTALLED
+#include "d3d9.h"
+#endif
 
 class D3DResourceSystem {
 public:

@@ -1,6 +1,7 @@
-#include "plugin.h"
+#include plugin_header
 #include "list"
-#include "game_sa\common.h"
+#include "common.h"
+#include "CWorld.h"
 
 using namespace plugin;
 
@@ -9,9 +10,19 @@ public:
     PedPainting() {
         static std::list<std::pair<unsigned int *, unsigned int>> resetEntries;
         static CPed *pVictim = nullptr;
+#ifdef GTAVC
+        static RwTexture *savedPlayerTex = nullptr;
+#endif
 
         Events::pedRenderEvent.before += [](CPed *ped) {
             if (ped == pVictim && ped->m_pRwClump && ped->m_pRwClump->object.type == rpCLUMP) {
+#ifdef GTAVC
+                savedPlayerTex = nullptr;
+                if (ped == FindPlayerPed()) {
+                    savedPlayerTex = CWorld::Players[0].m_pSkinTexture;
+                    CWorld::Players[0].m_pSkinTexture = nullptr;
+                }
+#endif
                 RpClumpForAllAtomics(ped->m_pRwClump, [](RpAtomic *atomic, void *data) {
                     if (atomic->geometry) {
                         atomic->geometry->flags |= rpGEOMETRYMODULATEMATERIALCOLOR;
@@ -34,6 +45,10 @@ public:
             for (auto &p : resetEntries)
                 *p.first = p.second;
             resetEntries.clear();
+#ifdef GTAVC
+            if (savedPlayerTex)
+                CWorld::Players[0].m_pSkinTexture = savedPlayerTex;
+#endif
         };
 
         Events::gameProcessEvent += [] {

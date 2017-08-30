@@ -14,7 +14,6 @@
 #include "game_sa\CFont.h"
 #include "d3d9.h"
 
-#ifdef _D3D9_H_
 #define MAX_NODE_POINTS 2000
 #define GPS_LINE_WIDTH  4.0f
 #define GPS_LINE_R  180
@@ -176,4 +175,3 @@ public:
         vertex.emissiveColor = RWRGBALONG(GPS_LINE_R, GPS_LINE_G, GPS_LINE_B, GPS_LINE_A);
     }
 } gps;
-#endif

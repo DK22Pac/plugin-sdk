@@ -1,7 +1,9 @@
 #pragma once
 
 #include <Windows.h>
-#include "..\DXSDK\9.0c\Include\d3dx9.h"
+#ifdef _DX9_SDK_INSTALLED
+#include "d3dx9.h"
+#endif
 
 #ifdef __D3DX9_H__
 
