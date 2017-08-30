@@ -51,7 +51,7 @@ end
 
 function pluginSdkToolBuildConfig(buildAction, buildType, outName, outDir, objDir, includeDirs, libraryDirs, libraries, definitions, options)
     if includeDirs ~= "" then
-        includeDirs = ("," .. includeDirs)
+        includeDirs = (";" .. includeDirs)
     end
     if libraryDirs ~= "" then
         libraryDirs = (" libraryDirs:\"(" .. libraryDirs .. ")\"")
@@ -83,18 +83,22 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
         defines "_DX9_SDK_INSTALLED"
     end
     buildoptions { "/Zc:threadSafeInit-" }
-    filter "configurations:Release"
-        targetname (outName)
+    filter "Release"
         optimize "On"
         flags "LinkTimeOptimization"
         symbols "Off"
-    filter "configurations:Debug"
-        targetname (outName .. "_d")
+    filter "Debug"
         symbols "On"
     filter {}
     
     if _ACTION == "vs2015" or _ACTION == "vs2017" then
         kind "StaticLib"
+		filter "Release"
+            targetname (outName)
+        filter "Debug"
+            targetname (outName .. "_d")
+        symbols "On"
+        filter {}
         targetdir "$(PLUGIN_SDK_DIR)/output/lib"
         objdir "$(PLUGIN_SDK_DIR)/output/obj"
         targetextension ".lib"
@@ -105,6 +109,11 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
         end
     else
         kind "Makefile"
+		filter "Release"
+            targetname ("lib" .. outName)
+        filter "Debug"
+            targetname ("lib" .. outName .. "_d")
+		filter {}
         targetdir "$(PLUGIN_SDK_DIR)/output/mingw/lib"
         objdir "$(PLUGIN_SDK_DIR)/output/mingw/obj"
         targetextension ".a"
@@ -254,7 +263,7 @@ function getExamplePluginDefines(gameId, pluginHeader, laSupport, additionalDefi
         counter = counter + 1
     end
     if additionalDefines ~= "" then
-        aryDefines = splitStringAndPasteToArray(additionalDefines, ",", aryDefines, counter)
+        aryDefines = splitStringAndPasteToArray(additionalDefines, ";", aryDefines, counter)
     end
     return aryDefines
 end
@@ -273,7 +282,7 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, usesCleo, cleoDir, u
         counter = counter + 1
     end
     if additionalDirs ~= "" then
-        aryDirs = splitStringAndPasteToArray(additionalDirs, ",", aryDirs, counter)
+        aryDirs = splitStringAndPasteToArray(additionalDirs, ";", aryDirs, counter)
     end
     return aryDirs
 end
@@ -295,7 +304,7 @@ function getExamplePluginLibraryFolders(usesCleo, cleoDir, usesRwD3d9, additiona
         counter = counter + 1
     end
     if additionalDirs ~= "" then
-        aryDirs = splitStringAndPasteToArray(additionalDirs, ",", aryDirs, counter)
+        aryDirs = splitStringAndPasteToArray(additionalDirs, ";", aryDirs, counter)
     end
     return aryDirs
 end
@@ -334,7 +343,7 @@ function getExamplePluginLibraries(pluginLibName, usesCleo, usesD3d9, usesRwD3d9
         counter = counter + 1
     end
     if additionalLibs ~= "" then
-        aryLibs = splitStringAndPasteToArray(additionalLibs, ",", aryLibs, counter)
+        aryLibs = splitStringAndPasteToArray(additionalLibs, ";", aryLibs, counter)
     end
     if isMingw == true then
         for i = 1, #aryLibs do
@@ -470,52 +479,52 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
             filter "platforms:GTASA"
 			    targetNameSuf = ".SA"
                 local incDirAry = getExamplePluginIncludeFolders("plugin_sa", "game_sa", cleoPlugin, "$(CLEO_SDK_SA_DIR)", false, additionalIncludeDirs)
-                strIincludeDirs = (strIincludeDirs .. "," .. table.concat(incDirAry, ","))
+                strIincludeDirs = (strIincludeDirs .. ";" .. table.concat(incDirAry, ","))
                 local libDirAry = getExamplePluginLibraryFolders(cleoPlugin, "$(CLEO_SDK_SA_DIR)", false, additionalLibraryDirs, true)
-                strLibraryDirs = (strLibraryDirs .. "," .. table.concat(libDirAry, ","))
+                strLibraryDirs = (strLibraryDirs .. ";" .. table.concat(libDirAry, ","))
                 local definesAry = getExamplePluginDefines("GTASA", "plugin.h", laSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas")
-                strDefines = table.concat(definesAry, ",")
+                strDefines = table.concat(definesAry, ";")
                 local libsAry = {}
             filter { "Release", "platforms:GTASA" }
                 libsAry = getExamplePluginLibraries("plugin", cleoPlugin, d3dSupport, false, additionalLibraries, true, false)
             filter { "Debug", "platforms:GTASA" }
                 libsAry = getExamplePluginLibraries("plugin", cleoPlugin, d3dSupport, false, additionalLibraries, true, true)
             filter "platforms:GTASA"    
-                strLibs = table.concat(libsAry, ",")
+                strLibs = table.concat(libsAry, ";")
         end
         if gameVc == true then
             filter "platforms:GTAVC"
 			    targetNameSuf = ".VC"
                 local incDirAry = getExamplePluginIncludeFolders("plugin_vc", "game_vc", cleoPlugin, "$(CLEO_SDK_VC_DIR)", d3dSupport, additionalIncludeDirs)
-                strIincludeDirs = (strIincludeDirs .. "," .. table.concat(incDirAry, ","))
+                strIincludeDirs = (strIincludeDirs .. ";" .. table.concat(incDirAry, ","))
                 local libDirAry = getExamplePluginLibraryFolders(cleoPlugin, "$(CLEO_SDK_VC_DIR)", d3dSupport, additionalLibraryDirs, true)
-                strLibraryDirs = (strLibraryDirs .. "," .. table.concat(libDirAry, ","))
+                strLibraryDirs = (strLibraryDirs .. ";" .. table.concat(libDirAry, ","))
                 local definesAry = getExamplePluginDefines("GTAVC", "plugin_vc.h", laSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City")
-                strDefines = table.concat(definesAry, ",")
+                strDefines = table.concat(definesAry, ";")
                 local libsAry = {}
             filter { "Release", "platforms:GTAVC" }
                 libsAry = getExamplePluginLibraries("plugin_vc", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, false)
             filter { "Debug", "platforms:GTAVC" }
                 libsAry = getExamplePluginLibraries("plugin_vc", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, true)
             filter "platforms:GTAVC"    
-                strLibs = table.concat(libsAry, ",")
+                strLibs = table.concat(libsAry, ";")
         end
         if game3 == true then
             filter "platforms:GTA3"
 			    targetNameSuf = ".III"
                 local incDirAry = getExamplePluginIncludeFolders("plugin_iii", "game_iii", cleoPlugin, "$(CLEO_SDK_III_DIR)", d3dSupport, additionalIncludeDirs)
-                strIincludeDirs = (strIincludeDirs .. "," .. table.concat(incDirAry, ","))
+                strIincludeDirs = (strIincludeDirs .. ";" .. table.concat(incDirAry, ","))
                 local libDirAry = getExamplePluginLibraryFolders(cleoPlugin, "$(CLEO_SDK_III_DIR)", d3dSupport, additionalLibraryDirs, true)
-                strLibraryDirs = (strLibraryDirs .. "," .. table.concat(libDirAry, ","))
+                strLibraryDirs = (strLibraryDirs .. ";" .. table.concat(libDirAry, ","))
                 local definesAry = getExamplePluginDefines("GTA3", "plugin_iii.h", laSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City")
-                strDefines = table.concat(definesAry, ",")
+                strDefines = table.concat(definesAry, ";")
                 local libsAry = {}
             filter { "Release", "platforms:GTA3" }
                 libsAry = getExamplePluginLibraries("plugin_iii", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, false)
             filter { "Debug", "platforms:GTA3" }
                 libsAry = getExamplePluginLibraries("plugin_iii", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, true)
             filter "platforms:GTA3"    
-                strLibs = table.concat(libsAry, ",")
+                strLibs = table.concat(libsAry, ";")
         end
         filter {}
         
@@ -581,9 +590,9 @@ if f then
     for line in io.lines("examples/examples.csv") do 
         if firstLine ~= true then
             if line ~= "" then
-                local params = splitString(line, ";")
+                local params = splitString(line, ",")
                 local i = 1
-                for str in (line .. ";"):gmatch("([^;]*);") do
+                for str in (line .. ","):gmatch("([^,]*),") do
                     params[i] = str
                     i = i + 1
                 end

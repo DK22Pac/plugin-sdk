@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
         if (arg.length() < 2 || arg.front() != '(' || arg.back() != ')')
             cout << "Warning: incorrect parameter " << arg << endl;
         string line = arg.substr(1, arg.length() - 2);
-        size_t comma = line.find_first_of(',');
+        size_t comma = line.find_first_of(';');
         if (comma != string::npos)
             return line.substr(0, comma);
         return line;
@@ -70,11 +70,11 @@ int main(int argc, char *argv[]) {
             cout << "Warning: incorrect parameter " << arg << endl;
         string line = arg.substr(1, arg.length() - 2);
         size_t currPos = 0;
-        size_t comma = line.find_first_of(',');
+        size_t comma = line.find_first_of(';');
         while (comma != string::npos) {
             vec.push_back(line.substr(currPos, comma));
             currPos = comma + 1;
-            comma = line.find_first_of(',', currPos);
+            comma = line.find_first_of(';', currPos);
         }
         vec.push_back(line.substr(currPos));
     };
