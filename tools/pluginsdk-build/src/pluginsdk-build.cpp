@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
         size_t currPos = 0;
         size_t comma = line.find_first_of(';');
         while (comma != string::npos) {
-            vec.push_back(line.substr(currPos, comma));
+            vec.push_back(line.substr(currPos, comma - currPos));
             currPos = comma + 1;
             comma = line.find_first_of(';', currPos);
         }
@@ -134,8 +134,13 @@ int main(int argc, char *argv[]) {
             parameters.outdir = readOneParameter(strarg.substr(7));
         else if (!strarg.compare(0, 7, "intdir:"))
             parameters.intdir = readOneParameter(strarg.substr(7));
-        else if (!strarg.compare(0, 12, "definitions:"))
+        else if (!strarg.compare(0, 12, "definitions:")) {
             readParameters(parameters.definitions, strarg.substr(12));
+            for (auto &def : parameters.definitions) {
+                std::replace(def.begin(), def.end(), '<', '\\');
+                std::replace(def.begin(), def.end(), '>', '"');
+            }
+        }
         else if (!strarg.compare(0, 12, "includeDirs:"))
             readParameters(parameters.includeDirs, strarg.substr(12));
         else if (!strarg.compare(0, 12, "libraryDirs:"))
@@ -285,6 +290,9 @@ int main(int argc, char *argv[]) {
             cout << "Compiling: object:    " << objFilePath << endl;
         }
 
+        // defines
+        for (auto const &def : parameters.definitions)
+            command << "-D" << '"' << def << '"' << " ";
         // compile
         command << "-c " << '"' << cppFilePath << '"' << " ";
         // output
@@ -332,9 +340,9 @@ int main(int argc, char *argv[]) {
         // library dirs
         for (auto const &libraryDir : parameters.libraryDirs)
             command << "-L" << '"' << canonical(libraryDir) << '"' << " ";
-        // libraries dirs
+        // libraries
         for (auto const &library : parameters.libraries)
-            command << "-l" << '"' << library << '"' << " ";
+            command << "-l:" << '"' << library << '"' << " ";
         if (!parameters.linkadditional.empty())
             command << parameters.linkadditional;
 

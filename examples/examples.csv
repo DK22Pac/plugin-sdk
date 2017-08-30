@@ -1,4 +1,4 @@
-project,supported games,,,dependencies,,,additional include dirs,additional library dirs,additional libraries,additional definitions
+project,gtasa,gtavc,gta3,d3d,cleo,la,additional include dirs,additional library dirs,additional libraries,additional definitions
 ColouredObjects,GTASA,,,,,,,,,
 CreateCar,GTASA,,,,,,,,,
 DXFont,GTASA,GTAVC,GTA3,D3D,,,,,,
