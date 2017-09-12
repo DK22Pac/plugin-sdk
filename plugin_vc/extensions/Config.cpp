@@ -9,14 +9,11 @@
 using namespace plugin;
 
 bool config_helper::config_extract_one_value(std::string const &strinput, bool &value) {
-    std::string strLower = strinput;
-    for(auto& e : strLower)
-        if (e <= 127) // ascii limit
-            tolower(e);
-        else 
-            return false;
+    if (!strinput.empty()) {
+        std::string strLower = strinput;
+        for(char& e : strLower)
+            e = tolower(e);
 
-    if (!strLower.empty()) {
         if (!strLower.compare("0") || !strLower.compare("false") || !strLower.compare("no"))
             value = false;
         else
