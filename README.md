@@ -16,6 +16,13 @@ Feel free to use it too!
 ## Creating a simple plugin just in 2 minutes (video; clickable)
 [![Img1](http://i.imgur.com/NrogG7S.png)](https://www.youtube.com/watch?v=PVfC7YSOEQs)
 
+## Getting in touch with Developers
+
+- [Discord server](https://discord.gg/X4H7ztF)
+- [Gitter chat](https://gitter.im/plugin-sdk/Lobby)
+
+Consider opening an issue if you are sure about it.
+
 **Contributors:**
 - DK22Pac (old, new versions)
 - fastman92 (old versions)
