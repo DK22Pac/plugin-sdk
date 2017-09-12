@@ -10,7 +10,11 @@ using namespace plugin;
 
 bool config_helper::config_extract_one_value(std::string const &strinput, bool &value) {
     if (!strinput.empty()) {
-        if (!strinput.compare("0") || !strinput.compare("false") || !strinput.compare("FALSE") || !strinput.compare("no") || !strinput.compare("NO"))
+        std::string strLower = strinput;
+        for(char& e : strLower)
+            e = tolower(e);
+
+        if (!strLower.compare("0") || !strLower.compare("false") || !strLower.compare("no"))
             value = false;
         else
             value = true;
