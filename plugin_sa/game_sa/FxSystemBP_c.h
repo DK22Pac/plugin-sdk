@@ -15,15 +15,14 @@ class FxSystem_c;
 
 class FxSystemBP_c : public ListItem_c {
 public:
-    //ListItem_c m_link;
-    unsigned int m_dwKey;
+    unsigned int m_nNameKey;
     float m_fLength;
     float m_fLoopIntervalMin;
     float m_fLoopLength;
     short m_nCullDist;
     unsigned char m_nPlayMode;
-    unsigned char m_nNumPrims;
-    void **m_pPrimsPtrList;
+    unsigned char m_nNumEmitters;
+    void **m_emittersList;
     FxSphere_c *m_pBoundingSphere;
 
     FxSystemBP_c();

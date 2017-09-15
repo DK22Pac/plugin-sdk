@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -10,10 +10,10 @@ Do not delete this comment block. Respect others' work!
 
 class FxInfoManager_c {
 public:
-    unsigned int m_nInfosCount;
+    unsigned int m_nNumInfos;
     void *m_pInfos;
-    unsigned char m_nParticleEmittersCount;
-    unsigned char m_nParticleEmittersInfoCount;
+    unsigned char m_nFirstMovementInfo;
+    unsigned char m_nFirstRenderInfo;
 private:
     char _padA[2];
 public:

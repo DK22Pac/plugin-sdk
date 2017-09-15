@@ -31,12 +31,12 @@ class Particle_c;
 class FxSystem_c : public ListItem_c {
 public:
     // ListItem_c m_link;
-    void *m_pBpSystem;
+    void *m_pBlueprint;
     RwMatrix *m_pParentMatrix;
     RwMatrix m_localMatrix;
-    unsigned char m_nPlayStatus;
-    unsigned char m_nKillStatus;
-    unsigned char m_nConstTimeSet;
+    unsigned char m_nPlayStatus; // see eFxSystemPlayStatus
+    unsigned char m_nKillStatus; // see eFxSystemKillStatus
+    unsigned char m_bConstTimeSet;
     char field_53;
     int field_54;
     float m_fCameraDistance;
@@ -50,7 +50,7 @@ public:
         unsigned char bUnknown4 : 1;
         unsigned char bUnknown5 : 1;
         unsigned char bMustCreatePtrs : 1;
-    } m_flags;
+    } m_nFlags;
     char field_63;
     float fUnkRandom;
     CVector m_vecVelAdd;
