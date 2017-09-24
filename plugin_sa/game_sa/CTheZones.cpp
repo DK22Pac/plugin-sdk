@@ -101,7 +101,7 @@ CTheZones* CTheZones::GetZoneInfo(CVector *point, CZone **outzone)
 
 void CTheZones::FillZonesWithGangColours(bool DisableRadarGangColors)
 {
-	return ((void (__cdecl*)(bool)) FUNC_CTheZones__FillZonesWithGangColours) (DisableRadarGangColors); 
+	((void (__cdecl*)(bool)) FUNC_CTheZones__FillZonesWithGangColours) (DisableRadarGangColors); 
 }
 
 // Returns pointer to zone by index
@@ -154,7 +154,7 @@ short CTheZones::FindZoneByLabelAndReturnIndex(const char* name, eZoneType type)
 
 void CTheZones::SetZoneRadarColours(short index, char flag, unsigned char red, unsigned char green, unsigned char blue)
 {
-	return ((void (__cdecl*)(short, char, unsigned char, unsigned char, unsigned char)) FUNC_CTheZones__SetZoneRadarColours) (index, flag, red, green, blue); 
+	((void (__cdecl*)(short, char, unsigned char, unsigned char, unsigned char)) FUNC_CTheZones__SetZoneRadarColours) (index, flag, red, green, blue); 
 }
 
 // Updates CTheZones info
