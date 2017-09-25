@@ -57,7 +57,7 @@ public:
 	// Returns pointer to zone by a point
 	static CZone* FindZoneForPoint(const CVector& point, bool FindOnlyZonesType0);
 	
-	static CTheZones* GetZoneInfo(CVector *point, CZone **outzone);
+	static CZoneExtraInfo* GetZoneInfo(CVector *point, CZone **outzone);
 	
 	static void FillZonesWithGangColours(bool DisableRadarGangColors);
 	
