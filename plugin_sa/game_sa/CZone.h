@@ -6,6 +6,7 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
+#include "rw\rwplcore.h"     // for RwRGBA stuct
 
 enum eZoneType {
 	ZONE_TYPE_NAVI = 0,		// controls text s
@@ -19,8 +20,12 @@ enum eLevelName {
 	LEVEL_NAME_LAS_VENTURAS
 };
 
-struct ZoneExtraInfo {
-
+struct CZoneExtraInfo {
+	char m_nGangDensity[10];
+	char m_nDealerDensity;
+	RwRGBA ZoneColor;
+	char m_nFlags;
+	char m_nPopulationRace;
 };
 
 class CZone {
