@@ -17,8 +17,8 @@ int CCarGenerator::CalcNextGen() {
 }
 
 // Converted from thiscall void CCarGenerator::Setup(float x,float y,float z,float angle,int modelId,short color1,short color2,uchar forceSpawn,uchar alarm,uchar doorLock,ushort minDelay,ushort maxDelay,uchar iplId,uchar) 0x6F2E50
-void CCarGenerator::Setup(float x, float y, float z, float angle, int modelId, short color1, short color2, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay, unsigned char iplId, unsigned char arg13) {
-    plugin::CallMethod<0x6F2E50, CCarGenerator *, float, float, float, float, int, short, short, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned char, unsigned char>(this, x, y, z, angle, modelId, color1, color2, forceSpawn, alarm, doorLock, minDelay, maxDelay, iplId, arg13);
+void CCarGenerator::Setup(float x, float y, float z, float angle, int modelId, short color1, short color2, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay, unsigned char iplId, unsigned char ownedbyplayer) {
+    plugin::CallMethod<0x6F2E50, CCarGenerator *, float, float, float, float, int, short, short, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned char, unsigned char>(this, x, y, z, angle, modelId, color1, color2, forceSpawn, alarm, doorLock, minDelay, maxDelay, iplId, ownedbyplayer);
 }
 
 // Converted from thiscall bool CCarGenerator::CheckIfWithinRangeOfAnyPlayers(void) 0x6F2F40
