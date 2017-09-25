@@ -94,9 +94,9 @@ CZone* CTheZones::FindZoneForPoint(const CVector& point, bool FindOnlyZonesType0
 	return ((CZone* (__cdecl*)(const CVector&, bool)) FUNC_CTheZones__FindZoneForPoint)(point, FindOnlyZonesType0);
 }
 
-CTheZones* CTheZones::GetZoneInfo(CVector *point, CZone **outzone)
+CZoneExtraInfo* CTheZones::GetZoneInfo(CVector *point, CZone **outzone)
 {
-	return ((CTheZones* (__cdecl*)(CVector*, CZone**)) FUNC_CTheZones__GetZoneInfo) (point, outzone);
+	return ((CZoneExtraInfo* (__cdecl*)(CVector*, CZone**)) FUNC_CTheZones__GetZoneInfo) (point, outzone);
 }
 
 void CTheZones::FillZonesWithGangColours(bool DisableRadarGangColors)
