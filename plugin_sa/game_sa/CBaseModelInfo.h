@@ -107,7 +107,22 @@ public:
 	C2dEffect *Get2dEffect(int index);
 	void Add2dEffect(C2dEffect *effect);
 
-    virtual ~CBaseModelInfo() {}
+    	virtual ~CBaseModelInfo() {}
+	CBaseModelInfo();  // constructor
+	
+	bool GetIsDrawLast();
+	bool HasBeenPreRendered();
+	bool HasComplexHierarchy();
+	bool IsBackfaceCulled();
+	bool IsBreakableStatuePart();
+	bool IsLod();
+	bool IsRoad();
+	bool IsTagModel();
+	bool SwaysInWind();
+	void SetHasBeenPreRendered(int bHasBeenPreRendered);
+	void SetIsLod(int bIsLod);
+	void SetOwnsColModel(int bOwns);
+	void IncreaseAlpha();
 };
 #pragma pack(pop)
 
