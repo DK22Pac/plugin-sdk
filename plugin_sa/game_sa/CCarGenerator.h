@@ -9,6 +9,15 @@
 #include "plbase/PluginBase_SA.h"
 #include "CompressedVector.h"
 
+enum CAR_GENERATOR_FLAG : char
+{
+  bWaitUntilFarFromPlayer = 0x1,
+  bHighPriority = 0x2,
+  bActive = 0x4,
+  bPlayerHasAlreadyOwnedCar = 0x8,
+  bIgnorePopulationLimit = 0x10,
+};
+
 class CCarGenerator {
     short            m_nModelId;
     char             m_nColor1;
@@ -17,16 +26,7 @@ class CCarGenerator {
     char             m_nAngle;
     char             m_nAlarm;
     char             m_nDoorLock;
-    struct {
-        unsigned char bCanSpawn : 1;
-        unsigned char b02 : 1;
-        unsigned char b03 : 1;
-        unsigned char b04 : 1;
-        unsigned char b05 : 1;
-        unsigned char b06 : 1;
-        unsigned char b07 : 1;
-        unsigned char b08 : 1;
-    } m_nFlags;
+    CAR_GENERATOR_FLAG m_nFlags;
     short            m_nMinDelay;
     short            m_nMaxDelay;
 private:
@@ -43,7 +43,7 @@ public:
 
     void SwitchOff();
     static int CalcNextGen();
-    void Setup(float x, float y, float z, float angle, int modelId, short color1, short color2, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay, unsigned char iplId, unsigned char arg13);
+    void Setup(float x, float y, float z, float angle, int modelId, short color1, short color2, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay, unsigned char iplId, unsigned char Ownedbyplayer);
     bool CheckIfWithinRangeOfAnyPlayers();
     void SwitchOn();
     bool CheckForBlockage(int modelId);
