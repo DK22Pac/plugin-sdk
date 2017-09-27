@@ -72,11 +72,11 @@ function pluginSdkToolBuildConfig(buildAction, buildType, outName, outDir, objDi
     if linkOptions ~= "" then
         linkOptions = (" linkadditional:\"" .. options .. ")\"")
     end
-    return ("\"$(PLUGIN_SDK_DIR)\\tools\\pluginsdk-build\\pluginsdk-build.exe\" " .. buildAction .. " buildtype:(" .. buildType .. ") projectdir:\"($(ProjectDir))\" projectname:\"($(ProjectName))\" targetname:\"(" .. outName .. ")\" outdir:\"(" .. outDir .. ")\" intdir:\"(" .. objDir .. ")\" includeDirs:\"($(ProjectDir)" .. includeDirs .. ")\"" .. libraryDirs .. libraries .. definitions .. " additional:\"(-std=c++14 -m32" .. options .. "\")" .. linkOptions)
+    return ("\"$(PLUGIN_SDK_DIR)\\tools\\pluginsdk-build\\pluginsdk-build.exe\" " .. buildAction .. " buildtype:(" .. buildType .. ") projectdir:\"($(ProjectDir))\" projectname:\"($(ProjectName))\" targetname:\"(" .. outName .. ")\" outdir:\"(" .. outDir .. ")\" intdir:\"(" .. objDir .. ")\" includeDirs:\"($(ProjectDir)" .. includeDirs .. ")\"" .. libraryDirs .. libraries .. definitions .. " additional:\"(-std=c++14 -m32" .. options .. ")\"" .. linkOptions)
 end
 
 function pluginSdkToolCleanConfig(outName, outDir, objDir)
-    return ("\"$(PLUGIN_SDK_DIR)\\tools\\pluginsdk-build\\pluginsdk-build.exe\" clean projectdir:\"($(ProjectDir))\" projectname:\"($(ProjectName))\" targetname:\"(" .. outName .. ")\" outdir:\"(" .. outDir .. ")\" intdir:\"(" .. objDir .. ")")
+    return ("\"$(PLUGIN_SDK_DIR)\\tools\\pluginsdk-build\\pluginsdk-build.exe\" clean projectdir:\"($(ProjectDir))\" projectname:\"($(ProjectName))\" targetname:\"(" .. outName .. ")\" outdir:\"(" .. outDir .. ")\" intdir:\"(" .. objDir .. ")\"")
 end
 
 function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginProject, gameName)
@@ -340,7 +340,7 @@ function getExamplePluginLibraryFolders(usesCleo, cleoDir, usesRwD3d9, additiona
     return aryDirs
 end
 
-function getExamplePluginLibraries(pluginLibName, usesCleo, usesD3d9, usesRwD3d9, additionalLibs, isMingw, isDebug)
+function getExamplePluginLibraries(pluginLibName, usesCleo, cleoLibName, usesD3d9, usesRwD3d9, additionalLibs, isMingw, isDebug)
     local counter = 3
     local aryLibs = {}
     if isMingw == true then
@@ -361,7 +361,7 @@ function getExamplePluginLibraries(pluginLibName, usesCleo, usesD3d9, usesRwD3d9
         end
     end
     if usesCleo == true then
-        aryLibs[3] = "cleo"
+        aryLibs[3] = cleoLibName
         counter = counter + 1
     end
     if usesD3d9 == true then
@@ -449,10 +449,10 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 libdirs (getExamplePluginLibraryFolders(cleoPlugin, "$(CLEO_SDK_SA_DIR)", false, additionalLibraryDirs, false, false))
                 defines (getExamplePluginDefines("GTASA", "plugin.h", laSupport, additionalDefinitions, false, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             filter { "Release", "platforms:GTASA" }
-                links (getExamplePluginLibraries("plugin", cleoPlugin, d3dSupport, false, additionalLibraries, false, false))
+                links (getExamplePluginLibraries("plugin", cleoPlugin, "cleo", d3dSupport, false, additionalLibraries, false, false))
                 targetname (projectName .. ".SA")
             filter { "Debug", "platforms:GTASA" }
-                links (getExamplePluginLibraries("plugin", cleoPlugin, d3dSupport, false, additionalLibraries, false, true))
+                links (getExamplePluginLibraries("plugin", cleoPlugin, "cleo", d3dSupport, false, additionalLibraries, false, true))
                 targetname (projectName .. ".SA_d")
         end
         if gameVc == true then
@@ -461,10 +461,10 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 libdirs (getExamplePluginLibraryFolders(cleoPlugin, "$(CLEO_SDK_VC_DIR)", d3dSupport, additionalLibraryDirs, false, false))
                 defines (getExamplePluginDefines("GTAVC", "plugin_vc.h", laSupport, additionalDefinitions, false, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             filter { "Release", "platforms:GTAVC" }
-                links (getExamplePluginLibraries("plugin_vc", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, false, false))
+                links (getExamplePluginLibraries("plugin_vc", cleoPlugin, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false, false))
                 targetname (projectName .. ".VC")
             filter { "Debug", "platforms:GTAVC" }
-                links (getExamplePluginLibraries("plugin_vc", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, false, true))
+                links (getExamplePluginLibraries("plugin_vc", cleoPlugin, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false, true))
                 targetname (projectName .. ".VC_d")
         end
         if game3 == true then
@@ -473,10 +473,10 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 libdirs (getExamplePluginLibraryFolders(cleoPlugin, "$(CLEO_SDK_III_DIR)", d3dSupport, additionalLibraryDirs, false, false))
                 defines (getExamplePluginDefines("GTA3", "plugin_iii.h", laSupport, additionalDefinitions, false, "3", "3", "3", "Claude", "Liberty City"))
             filter { "Release", "platforms:GTA3" }
-                links (getExamplePluginLibraries("plugin_iii", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, false, false))
+                links (getExamplePluginLibraries("plugin_iii", cleoPlugin, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false, false))
                 targetname (projectName .. ".III")
             filter { "Debug", "platforms:GTA3" }
-                links (getExamplePluginLibraries("plugin_iii", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, false, true))
+                links (getExamplePluginLibraries("plugin_iii", cleoPlugin, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false, true))
                 targetname (projectName .. ".III_d")
         end
         filter {}
@@ -496,7 +496,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 local strLibraryDirs = table.concat(libDirAry, ";")
                 local definesAry = getExamplePluginDefines("GTASA", "plugin.h", laSupport, additionalDefinitions, true, "San Andreas", "SA", "sa", "CJ", "San Andreas")
                 local strDefines = table.concat(definesAry, ";")
-                local strLibsRelease = table.concat(getExamplePluginLibraries("plugin", cleoPlugin, d3dSupport, false, additionalLibraries, true, false), ";")
+                local strLibsRelease = table.concat(getExamplePluginLibraries("plugin", cleoPlugin, "cleo", d3dSupport, false, additionalLibraries, true, false), ";")
                 buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-Os", ""))
                 rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-Os", ""))
                 cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\")))
@@ -509,7 +509,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 local strLibraryDirs = table.concat(libDirAry, ";")
                 local definesAry = getExamplePluginDefines("GTASA", "plugin.h", laSupport, additionalDefinitions, true, "San Andreas", "SA", "sa", "CJ", "San Andreas")
                 local strDefines = table.concat(definesAry, ";")
-                local strLibsDebug = table.concat(getExamplePluginLibraries("plugin", cleoPlugin, d3dSupport, false, additionalLibraries, true, true), ";")
+                local strLibsDebug = table.concat(getExamplePluginLibraries("plugin", cleoPlugin, "cleo", d3dSupport, false, additionalLibraries, true, true), ";")
                 buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "", ""))
                 rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "", ""))
                 cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\")))
@@ -527,7 +527,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 local strLibraryDirs = table.concat(libDirAry, ";")
                 local definesAry = getExamplePluginDefines("GTAVC", "plugin_vc.h", laSupport, additionalDefinitions, true, "Vice City", "VC", "vc", "Tommy", "Vice City")
                 local strDefines = table.concat(definesAry, ";")
-                local strLibsRelease = table.concat(getExamplePluginLibraries("plugin_vc", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, false), ";")
+                local strLibsRelease = table.concat(getExamplePluginLibraries("plugin_vc", cleoPlugin, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true, false), ";")
                 buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-Os", ""))
                 rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-Os", ""))
                 cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\")))
@@ -540,7 +540,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 local strLibraryDirs = table.concat(libDirAry, ";")
                 local definesAry = getExamplePluginDefines("GTAVC", "plugin_vc.h", laSupport, additionalDefinitions, true, "Vice City", "VC", "vc", "Tommy", "Vice City")
                 local strDefines = table.concat(definesAry, ";")
-                local strLibsDebug = table.concat(getExamplePluginLibraries("plugin_vc", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, true), ";")
+                local strLibsDebug = table.concat(getExamplePluginLibraries("plugin_vc", cleoPlugin, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true, true), ";")
                 buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "", ""))
                 rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "", ""))
                 cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\")))
@@ -558,7 +558,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 local strLibraryDirs = table.concat(libDirAry, ";")
                 local definesAry = getExamplePluginDefines("GTA3", "plugin_iii.h", laSupport, additionalDefinitions, true, "3", "3", "3", "Claude", "Liberty City")
                 local strDefines = table.concat(definesAry, ";")
-                local strLibsRelease = table.concat(getExamplePluginLibraries("plugin_iii", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, false), ";")
+                local strLibsRelease = table.concat(getExamplePluginLibraries("plugin_iii", cleoPlugin, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true, false), ";")
                 buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-Os", ""))
                 rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-Os", ""))
                 cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\")))
@@ -571,7 +571,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
                 local strLibraryDirs = table.concat(libDirAry, ";")
                 local definesAry = getExamplePluginDefines("GTA3", "plugin_iii.h", laSupport, additionalDefinitions, true, "3", "3", "3", "Claude", "Liberty City")
                 local strDefines = table.concat(definesAry, ";")
-                local strLibsDebug = table.concat(getExamplePluginLibraries("plugin_iii", cleoPlugin, d3dSupport, d3dSupport, additionalLibraries, true, true), ";")
+                local strLibsDebug = table.concat(getExamplePluginLibraries("plugin_iii", cleoPlugin, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true, true), ";")
                 buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "", ""))
                 rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "", ""))
                 cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strObjDir .. "$(ProjectName)\\$(Configuration)\\")))

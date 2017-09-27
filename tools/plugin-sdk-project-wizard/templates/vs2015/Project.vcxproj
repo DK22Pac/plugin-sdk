@@ -44,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetExt>.asi</TargetExt>
     <OutDir>D:\Games\Grand Theft Auto - San Andreas\scripts\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
 	<IncludePath>$(IncludePath)</IncludePath>
 	<LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -52,7 +52,7 @@
     <TargetExt>.asi</TargetExt>
     <OutDir>D:\Games\Grand Theft Auto - San Andreas\scripts\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IntDir>obj\$(Configuration)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
 	<IncludePath>$(IncludePath)</IncludePath>
 	<LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
