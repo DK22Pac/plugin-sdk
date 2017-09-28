@@ -7,19 +7,26 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "LimbOrienation.h"
+#include "LimbOrientation.h"
 
 #pragma pack(push, 4)
 class PLUGIN_API CPedIK
 {
 public:
 	class CPed *m_pPed;
-	LimbOrienation m_TorsoOrien;
+	LimbOrientation m_TorsoOrien;
 	float m_fSlopePitch;
 	float m_fSlopePitchLimitMult;
 	float m_fSlopeRoll;
 	float m_fBodyRoll;
 	unsigned __int32 m_dwFlags;
+	
+	//funcs
+	void RotateTorso(AnimBlendFrameData* bone, LimbOrientation& orientation, bool flag);
+	bool PointGunInDirection(float Z_angle, float arg2, bool flag, float arg4);
+	void PointGunAtPosition(CVector const& posn, float arg2);
+	static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat);
+	CPedIK(CPed* pPed);		
 };
 #pragma pack(pop)
 
