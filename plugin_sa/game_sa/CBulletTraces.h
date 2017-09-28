@@ -19,4 +19,5 @@ public:
 	static void AddTrace(CVector *start, CVector *end, float radius, unsigned int time, unsigned char transparency);
 	static void Render();
 	static void Update();
+	static void Init();
 };
