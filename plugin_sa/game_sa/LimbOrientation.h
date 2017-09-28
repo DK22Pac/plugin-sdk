@@ -9,7 +9,7 @@
 #include "plbase/PluginBase_SA.h"
 
 #pragma pack(push, 4)
-class PLUGIN_API LimbOrienation
+class PLUGIN_API LimbOrientation
 {
 public:
 	float m_fYaw;
@@ -17,4 +17,4 @@ public:
 };
 #pragma pack(pop)
 
-VALIDATE_SIZE(LimbOrienation, 8);
+VALIDATE_SIZE(LimbOrientation, 8);
