@@ -27,8 +27,7 @@ public:
 	void RotateTorso(AnimBlendFrameData* bone, LimbOrientation& orientation, bool flag);
 	bool PointGunInDirection(float Z_angle, float arg2, bool flag, float arg4);
 	void PointGunAtPosition(CVector const& posn, float arg2);
-	static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat);
-	CPedIK(CPed* pPed);		
+	static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat);		
 };
 #pragma pack(pop)
 
