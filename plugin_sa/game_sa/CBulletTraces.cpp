@@ -29,3 +29,8 @@ void CBulletTraces::Update()
 {
 	((void (__cdecl *)())0x723FB0)();
 }
+
+// Converted from cdecl void CBulletTraces::Init(void) 00721D50 
+void CBulletTraces::Init() {
+    plugin::Call<0x721D50>();
+}
