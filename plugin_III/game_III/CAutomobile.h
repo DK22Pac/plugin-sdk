@@ -52,7 +52,7 @@ public:
     char field_4A4[4];
     float           m_fWheelTotalRot[4];
     float           m_fWheelRot[4];
-    int field_4C8[4];
+    float           m_fWheelNowRot[4];
     char field_4D8;
     unsigned char   m_nAutomobileFlags;
     char            bfFlagsX;

@@ -74,8 +74,8 @@ enum eDoors {
 enum eLights {
     LIGHT_FRONT_LEFT = 0,
     LIGHT_FRONT_RIGHT = 1,
-    LIGHT_REAR_RIGHT = 2,
-    LIGHT_REAR_LEFT = 3
+    LIGHT_REAR_LEFT = 2,
+    LIGHT_REAR_RIGHT = 3
 };
 
 #pragma pack(push, 4)
