@@ -27,8 +27,3 @@ RwMatrixTag* CPedIK::GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat) {
 	return plugin::CallAndReturn<RwMatrixTag*, 0x5FD8F0, RwFrame*, RwMatrixTag*>(frame, transformMat);
 }
 
-// Converted from thiscall void CPedIK::CPedIK(CPed *pPed)	0x5FD8C0 
-CPedIK::CPedIK(CPed* pPed) {
-	plugin::CallMethod<0x5FD8C0, CPedIK *, CPed*>(this, pPed);
-}
-
