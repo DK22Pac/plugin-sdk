@@ -8,6 +8,8 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "LimbOrientation.h"
+#include "AnimBlendFrameData.h"
+#include "CVector.h"
 
 #pragma pack(push, 4)
 class PLUGIN_API CPedIK
