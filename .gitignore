@@ -485,6 +485,12 @@ ENV/
 # User settings
 user.settings
 
+# Code::Blocks
+*.cbp
+*.layout
+*.depend
+*.project
+
 tools/plugin-sdk-project-wizard/templates/temp/Main.cpp
 tools/plugin-sdk-project-wizard/templates/temp/MyTemplate.vstemplate
 tools/plugin-sdk-project-wizard/templates/temp/Project.vcxproj

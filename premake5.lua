@@ -1,3 +1,13 @@
+newoption {
+   trigger     = "custombuildtool",
+   description = "Use plugin-sdk build tool (mingw compiler) instead of MSBuild"
+}
+
+newoption {
+   trigger     = "codeblocksportability",
+   description = "Generate a Visual Studio project to be imported in Code::Blocks"
+}
+
 function deleteProject(projectName, projectPath)
     os.remove(projectPath .. "/" .. projectName .. ".vcxproj")
     os.remove(projectPath .. "/" .. projectName .. ".vcxproj.filters")
@@ -79,6 +89,24 @@ function pluginSdkToolCleanConfig(outName, outDir, objDir)
     return ("\"$(PLUGIN_SDK_DIR)\\tools\\pluginsdk-build\\pluginsdk-build.exe\" clean projectdir:\"($(ProjectDir))\" projectname:\"($(ProjectName))\" targetname:\"(" .. outName .. ")\" outdir:\"(" .. outDir .. ")\" intdir:\"(" .. objDir .. ")\"")
 end
 
+function setToolset()
+    if _ACTION == "vs2017" then
+        toolset "v141_xp"
+    elseif _ACTION == "vs2015" then
+        toolset "v140_xp"
+    elseif _ACTION == "vs2013" then
+        toolset "v120_xp"
+    elseif _ACTION == "vs2012" then
+        toolset "v110_xp"
+    elseif _ACTION == "vs2010" then
+        toolset "v100"
+    elseif _ACTION == "vs2008" then
+        toolset "v90"
+    elseif _ACTION == "vs2005" then
+        toolset "v80"
+    end
+end
+
 function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginProject, gameName)
     project (projectName)
     language "C++"
@@ -98,7 +126,15 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
         symbols "On"
     filter {}
     
-    if _ACTION == "vs2015" or _ACTION == "vs2017" then
+    if _OPTIONS["custombuildtool"] or _OPTIONS["codeblocksportability"] then
+        targetdir "$(PLUGIN_SDK_DIR)/output/mingw/lib"
+        objdir "$(PLUGIN_SDK_DIR)/output/mingw/obj"
+    else
+        targetdir "$(PLUGIN_SDK_DIR)/output/lib"
+        objdir "$(PLUGIN_SDK_DIR)/output/obj"
+    end
+    
+    if not _OPTIONS["custombuildtool"] then
         kind "StaticLib"
         filter "Release"
             targetname (outName)
@@ -106,14 +142,8 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
             targetname (outName .. "_d")
         symbols "On"
         filter {}
-        targetdir "$(PLUGIN_SDK_DIR)/output/lib"
-        objdir "$(PLUGIN_SDK_DIR)/output/obj"
         targetextension ".lib"
-        if _ACTION == "vs2015" then
-            toolset "v140_xp"
-        elseif _ACTION == "vs2017" then
-            toolset "v141_xp"
-        end
+        setToolset()
     else
         kind "Makefile"
         filter "Release"
@@ -121,8 +151,6 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
         filter "Debug"
             targetname ("lib" .. outName .. "_d")
         filter {}
-        targetdir "$(PLUGIN_SDK_DIR)/output/mingw/lib"
-        objdir "$(PLUGIN_SDK_DIR)/output/mingw/obj"
         targetextension ".a"
         local stdAddIncl = ""
         if isPluginProject == true then
@@ -320,7 +348,7 @@ function getExamplePluginLibraryFolders(usesCleo, cleoDir, usesRwD3d9, additiona
         aryDirs[counter] = "$(DIRECTX9_SDK_DIR)\\Lib\\x86"
         counter = counter + 1
     end
-    if isMingw == true then
+    if isMingw == true or _OPTIONS["codeblocksportability"] then
         aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib"
     else
         aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\output\\lib"
@@ -429,14 +457,10 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
         symbols "On"
     filter {}
     
-    if _ACTION == "vs2015" or _ACTION == "vs2017" then
+    if not _OPTIONS["custombuildtool"] then
         kind "SharedLib"
         
-        if _ACTION == "vs2015" then
-            toolset "v140_xp"
-        elseif _ACTION == "vs2017" then
-            toolset "v141_xp"
-        end
+        setToolset()
         
         if d3dSupport == true then
            sysincludedirs { "$(IncludePath)", "$(DIRECTX9_SDK_DIR)\\Include" }
@@ -608,20 +632,26 @@ os.execute("del /s examples\\*.vcxproj.filters")
 os.execute("del /s examples\\*.vcxproj.user")
 print("Done with deleting example projects")
 
-workspace "plugin"
-    configurations { "Release", "Debug" }
+if _ACTION ~= "clean" then
 
-group "shared"
-    pluginSdkStaticLibProject("paths", "shared/paths", "paths", false, "")
-    project "shared_files"
-    location "shared"
-    kind "None"
-    files "shared/**.h"
-    removefiles "shared/paths/**.h"
-group ""
-    pluginSdkStaticLibProject("plugin_sa", "plugin_sa", "plugin", true, "game_sa")
-    pluginSdkStaticLibProject("plugin_vc", "plugin_vc", "plugin_vc", true, "game_vc")
-    pluginSdkStaticLibProject("plugin_iii", "plugin_III", "plugin_iii", true, "game_III")
+    workspace "plugin"
+        configurations { "Release", "Debug" }
+    
+    group "shared"
+        pluginSdkStaticLibProject("paths", "shared/paths", "paths", false, "")
+        if not _OPTIONS["codeblocksportability"] then
+            project "shared_files"
+            location "shared"
+            kind "None"
+            files "shared/**.h"
+            removefiles "shared/paths/**.h"
+        end
+    group ""
+        pluginSdkStaticLibProject("plugin_sa", "plugin_sa", "plugin", true, "game_sa")
+        pluginSdkStaticLibProject("plugin_vc", "plugin_vc", "plugin_vc", true, "game_vc")
+        pluginSdkStaticLibProject("plugin_iii", "plugin_III", "plugin_iii", true, "game_III")
+    
+end
 
 local f = io.open("examples/examples.csv", "rb")
 if f then
@@ -639,7 +669,9 @@ if f then
                 print("Deleting temporary .vs directory (project " .. params[1] .. ":")
                 os.execute("rd /s /q \"examples/" .. params[1] .. "/.vs\"")
                 print("Done with deleting temporary .vs directory")
-                pluginSdkExampleProject(params[1], params[2] == "GTASA", params[3] == "GTAVC", params[4] == "GTA3", params[5] == "D3D", params[6] == "CLEO", params[7] == "LA", params[8], params[9], params[10], params[11])
+                if _ACTION ~= "clean" then
+                    pluginSdkExampleProject(params[1], params[2] == "GTASA", params[3] == "GTAVC", params[4] == "GTA3", params[5] == "D3D", params[6] == "CLEO", params[7] == "LA", params[8], params[9], params[10], params[11])
+                end
             end
         else
             firstLine = false

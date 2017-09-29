@@ -1,2 +1,2 @@
-premake5 vs2010
+premake5 vs2010 --custombuildtool
 pause

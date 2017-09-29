@@ -18,11 +18,15 @@ namespace plugin {
     class Shader : public DynamicResource {
         IDirect3DPixelShader9 *pixelShader;
         IDirect3DVertexShader9 *vertexShader;
+#ifdef _MSC_VER
         union {
+#endif
             std::string filename;
+#ifdef _MSC_VER
             std::wstring filename_w;
         };
         bool isWidePath;
+#endif
         bool bDebugCompilation;
         std::string name;
 
@@ -46,7 +50,9 @@ namespace plugin {
         void PackTexture(RpMaterial *material, unsigned int idx);
         void PackTexture(RwTexture *texture, unsigned int idx);
         static char *CompileShaderFromString(char const *str, char const *Entrypoint, char const *Version, bool bDebug);
+#ifdef _MSC_VER
         Shader(std::wstring const &Filename, bool bDebug = false);
+#endif
         Shader(std::string const &Filename, bool bDebug = false);
         ~Shader();
         void Unload();
@@ -55,7 +61,10 @@ namespace plugin {
         void Load();
         bool WriteToBinaryFile(std::ofstream &file);
         bool SaveToBinary();
+
+#ifdef _MSC_VER
         bool SaveToBinary(std::wstring const &Filename);
+#endif
         bool SaveToBinary(std::string const &Filename);
         static void GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *view, D3DMATRIX *proj, D3DMATRIX *wvp);
         static void DrawRect(float left, float top, float right, float bottom);

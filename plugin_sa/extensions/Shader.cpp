@@ -66,6 +66,7 @@ char *Shader::CompileShaderFromString(char const *str, char const *Entrypoint, c
     return data;
 }
 
+#ifdef _MSC_VER
 Shader::Shader(std::wstring const &Filename, bool bDebug) {
     pixelShader = nullptr;
     vertexShader = nullptr;
@@ -78,6 +79,7 @@ Shader::Shader(std::wstring const &Filename, bool bDebug) {
     bDebugCompilation = bDebug;
     Load();
 }
+#endif
 
 Shader::Shader(std::string const &Filename, bool bDebug) {
     pixelShader = nullptr;
@@ -87,7 +89,9 @@ Shader::Shader(std::string const &Filename, bool bDebug) {
         filename.resize(filename.size() - 4);
     else if (filename.size() >= 3 && !filename.compare(filename.size() - 3, 3, ".fx"))
         filename.resize(filename.size() - 3);
+#ifdef _MSC_VER
     isWidePath = false;
+#endif
     bDebugCompilation = bDebug;
     Load();
 }
@@ -223,19 +227,25 @@ void Shader::Load() {
     }
     // Load file
     std::ifstream file;
+#ifdef _MSC_VER
     if (isWidePath)
         file.open(filename_w + std::wstring(L".fx"));
     else
+#endif
         file.open(filename + std::string(".fx"));
     if (!LoadFromSource(file, bDebugCompilation)) {
+#ifdef _MSC_VER
         if (isWidePath)
             file.open(filename_w + std::wstring(L".fxc"));
         else
+#endif
             file.open(filename + std::string(".fxc"));
         if (!LoadFromBinary(file)) {
+#ifdef _MSC_VER
             if (isWidePath)
                 plugin::Error(L"Failed to open shader file (\"%s\")", filename_w);
             else
+#endif
                 plugin::Error("Failed to open shader file (\"%s\")", filename);
         }
     }
@@ -293,17 +303,21 @@ bool Shader::WriteToBinaryFile(std::ofstream &file) {
 }
 
 bool Shader::SaveToBinary() {
+#ifdef _MSC_VER
     if (isWidePath)
         return SaveToBinary(filename_w + std::wstring(L".fxc"));
     else
+#endif
         return SaveToBinary(filename + std::string(".fxc"));
 }
 
+#ifdef _MSC_VER
 bool Shader::SaveToBinary(std::wstring const &Filename) {
     std::ofstream file;
     file.open(Filename);
     return WriteToBinaryFile(file);
 }
+#endif
 
 bool Shader::SaveToBinary(std::string const &Filename) {
     std::ofstream file;
