@@ -1,17 +1,31 @@
+sdkdir = os.getenv("PLUGIN_SDK_DIR")
+
 newoption {
    trigger     = "custombuildtool",
-   description = "Use plugin-sdk build tool (mingw compiler) instead of MSBuild"
+   description = "Use plugin-sdk build tool (mingw compiler) in Visual Studio"
 }
 
 newoption {
-   trigger     = "codeblocksportability",
-   description = "Generate a Visual Studio project to be imported in Code::Blocks"
+   trigger     = "mingw",
+   description = "Use mingw compiler (directly)"
 }
 
-function deleteProject(projectName, projectPath)
-    os.remove(projectPath .. "/" .. projectName .. ".vcxproj")
-    os.remove(projectPath .. "/" .. projectName .. ".vcxproj.filters")
-    os.remove(projectPath .. "/" .. projectName .. ".vcxproj.user")
+function cleanProjectsDirectory(pathToDir)
+    os.execute("del /s " .. pathToDir .. "\\*.sln 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.suo 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.sdf 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.vcxproj 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.vcxproj.filters 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.vcxproj.user 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.workspace 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.cbp 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.project 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.depend 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.layout 2>NUL")
+end
+
+function deleteAllFoldersWithName(pathToDir, folderName)
+    os.execute("for /d /r \"" .. pathToDir .. "\" %d in (" .. folderName .. ") do @if exist \"%d\" rd /s/q \"%d\" 2>NUL")
 end
 
 function projectFile(projectPath, fileName)
@@ -19,7 +33,7 @@ function projectFile(projectPath, fileName)
 end
 
 function gameFile(projectPath, gameName, fileName)
-    return (projectPath .. "/" .. gameName .. "/" .. fileName)
+    return (projectPath .. "\\" .. gameName .. "\\" .. fileName)
 end
 
 function gameFileTaskAtoZ(projectPath, gameName, fileName)
@@ -27,7 +41,7 @@ function gameFileTaskAtoZ(projectPath, gameName, fileName)
     local strary = {}
     for i = 1, #alphabet do
         local c = alphabet:sub(i,i)
-        strary[i] = (projectPath .. "/" .. gameName .. "/" .. fileName .. c .. "*.*")
+        strary[i] = (projectPath .. "\\" .. gameName .. "\\" .. fileName .. c .. "*.*")
     end
     return strary
 end
@@ -90,7 +104,9 @@ function pluginSdkToolCleanConfig(outName, outDir, objDir)
 end
 
 function setToolset()
-    if _ACTION == "vs2017" then
+    if _OPTIONS["mingw"] then
+        toolset "gcc"
+    elseif _ACTION == "vs2017" then
         toolset "v141_xp"
     elseif _ACTION == "vs2015" then
         toolset "v140_xp"
@@ -112,12 +128,17 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     language "C++"
     characterset ("MBCS")
     flags "StaticRuntime"
-    defines { "_USING_V110_SDK71_", "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
+    
+    if not _OPTIONS["mingw"] then
+        defines { "_USING_V110_SDK71_", "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
+        buildoptions { "/Zc:threadSafeInit-" }
+    end
+    
     if isPluginProject == true and directX9Installed() == true then
         sysincludedirs { "$(IncludePath)", "$(DIRECTX9_SDK_DIR)\\Include" }
         defines "_DX9_SDK_INSTALLED"
     end
-    buildoptions { "/Zc:threadSafeInit-" }
+    
     filter "Release"
         optimize "On"
         flags "LinkTimeOptimization"
@@ -126,32 +147,35 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
         symbols "On"
     filter {}
     
-    if _OPTIONS["custombuildtool"] or _OPTIONS["codeblocksportability"] then
+    if _OPTIONS["custombuildtool"] or _OPTIONS["mingw"] then
         targetdir "$(PLUGIN_SDK_DIR)/output/mingw/lib"
         objdir "$(PLUGIN_SDK_DIR)/output/mingw/obj"
-    else
-        targetdir "$(PLUGIN_SDK_DIR)/output/lib"
-        objdir "$(PLUGIN_SDK_DIR)/output/obj"
-    end
-    
-    if not _OPTIONS["custombuildtool"] then
-        kind "StaticLib"
-        filter "Release"
-            targetname (outName)
-        filter "Debug"
-            targetname (outName .. "_d")
-        symbols "On"
-        filter {}
-        targetextension ".lib"
-        setToolset()
-    else
-        kind "Makefile"
         filter "Release"
             targetname ("lib" .. outName)
         filter "Debug"
             targetname ("lib" .. outName .. "_d")
         filter {}
         targetextension ".a"
+    else
+        targetdir "$(PLUGIN_SDK_DIR)/output/lib"
+        objdir "$(PLUGIN_SDK_DIR)/output/obj"
+        filter "Release"
+            targetname (outName)
+        filter "Debug"
+            targetname (outName .. "_d")
+        filter {}
+        targetextension ".lib"
+    end
+    
+    setToolset()
+    
+    if not _OPTIONS["custombuildtool"] then
+        kind "StaticLib"
+        filter "Debug"
+            symbols "On"
+        filter {}
+    else
+        kind "Makefile"
         local stdAddIncl = ""
         if isPluginProject == true then
             stdAddIncl = "$(ProjectDir)..\\"
@@ -168,21 +192,22 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     end
     
     if isPluginProject == true then
-        location (projectPath .. "/proj")
+        location (projectPath .. "\\proj")
         dependson "paths"
         includedirs ("$(SolutionDir)" .. projectName)
         
         files {
-            (projectPath .. "/**.h"),
-            (projectPath .. "/**.cpp")
+            (projectPath .. "\\**.h"),
+            (projectPath .. "\\**.cpp")
         }
+        
         vpaths {
-            [""] = (projectFile(projectPath, "plugin*.h")),
-            ["events/*"] = (projectFile(projectPath, "events/**.*")),
-            ["extender/*"] = (projectFile(projectPath, "extender/**.*")),
-            ["extensions/*"] = (projectFile(projectPath, "extensions/**.*")),
-            ["plbase/*"] = (projectFile(projectPath, "plbase/**.*")),
-            ["comp/*"] = (projectFile(projectPath, "comp/**.*")),
+            
+            ["events/*"] = (projectFile(projectPath, "events\\**.*")),
+            ["extender/*"] = (projectFile(projectPath, "extender\\**.*")),
+            ["extensions/*"] = (projectFile(projectPath, "extensions\\**.*")),
+            ["plbase/*"] = (projectFile(projectPath, "plbase\\**.*")),
+            ["comp/*"] = (projectFile(projectPath, "comp\\**.*")),
             
             [(gameName .. "/Animation")] = { (gameFile(projectPath, gameName, "Anim*.*")),
                                              (gameFile(projectPath, gameName, "CAnim*.*")) },
@@ -283,11 +308,21 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
                                              (gameFile(projectPath, gameName, "CTaskSimple.*")),
                                              (gameFile(projectPath, gameName, "CTaskTimer.*")) }
         }
+        if _ACTION == "codeblocks" then
+            vpaths {
+                ["plugin"] = (projectFile(projectPath, "plugin*.h")),
+                [(gameName)] = (gameFile(projectPath, gameName, "*.*"))
+            }
+        else
+            vpaths {
+                [""] = (projectFile(projectPath, "plugin*.h"))
+            }
+        end
     else
         location (projectPath)
         files {
-            (projectPath .. "/**.h"),
-            (projectPath .. "/**.cpp")
+            (projectPath .. "\\**.h"),
+            (projectPath .. "\\**.cpp")
         }
     end
 end
@@ -348,7 +383,7 @@ function getExamplePluginLibraryFolders(usesCleo, cleoDir, usesRwD3d9, additiona
         aryDirs[counter] = "$(DIRECTX9_SDK_DIR)\\Lib\\x86"
         counter = counter + 1
     end
-    if isMingw == true or _OPTIONS["codeblocksportability"] then
+    if isMingw == true or _OPTIONS["mingw"] then
         aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib"
     else
         aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\output\\lib"
@@ -416,7 +451,7 @@ end
 
 function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport, cleoPlugin, laSupport, additionalIncludeDirs, additionalLibraryDirs, additionalLibraries, additionalDefinitions)
     workspace (projectName)
-    location ("examples/" .. projectName)
+    location (sdkdir .. "\\examples\\" .. projectName)
     configurations { "Release", "Debug" }
     local supportedGames = {}
     local gameCounter = 1
@@ -434,7 +469,7 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
     end
     platforms (supportedGames)
     project (projectName)
-    location ("examples/" .. projectName)
+    location (sdkdir .. "\\examples\\" .. projectName)
     language "C++"
     characterset ("MBCS")
     flags { "StaticRuntime" }
@@ -614,67 +649,64 @@ function pluginSdkExampleProject(projectName, gameSa, gameVc, game3, d3dSupport,
     }
 end
 
-print("Deleting temporary files...")
-deleteProject("paths", "shared/paths")
-deleteProject("shared_files", "shared")
-deleteProject("plugin_sa", "plugin_sa/proj")
-deleteProject("plugin_vc", "plugin_vc/proj")
-deleteProject("plugin_iii", "plugin_iii/proj")
-os.remove("plugin.sln")
-os.remove("plugin.suo")
-os.remove("plugin.sdf")
-print("Deleting temporary .vs directory:")
-os.execute("rd /s /q .vs")
-print("Done with deleting temporary .vs directory")
-print("Deleting example projects:")
-os.execute("del /s examples\\*.vcxproj")
-os.execute("del /s examples\\*.vcxproj.filters")
-os.execute("del /s examples\\*.vcxproj.user")
-print("Done with deleting example projects")
-
-if _ACTION ~= "clean" then
-
-    workspace "plugin"
-        configurations { "Release", "Debug" }
+if sdkdir == nil or sdkdir == "" then
+    print("\nERROR!\nCan't locate plugin-sdk directory. Environment variable 'PLUGIN_SDK_DIR' is invalid or not set\n")
+else
+    print("Deleting temporary files...")
+    cleanProjectsDirectory(sdkdir .. "\\examples")
+    cleanProjectsDirectory(sdkdir .. "\\shared")
+    cleanProjectsDirectory(sdkdir .. "\\plugin_sa")
+    cleanProjectsDirectory(sdkdir .. "\\plugin_vc")
+    cleanProjectsDirectory(sdkdir .. "\\plugin_iii")
+    os.remove(sdkdir .. "\\plugin.sln")
+    os.remove(sdkdir .. "\\plugin.suo")
+    os.remove(sdkdir .. "\\plugin.sdf")
+    os.remove(sdkdir .. "\\plugin.workspace")
+    os.remove(sdkdir .. "\\plugin.workspace.layout")
+    deleteAllFoldersWithName(sdkdir, ".vs")
+    deleteAllFoldersWithName(sdkdir, ".codelite")
+    print("Done")
     
-    group "shared"
-        pluginSdkStaticLibProject("paths", "shared/paths", "paths", false, "")
-        if not _OPTIONS["codeblocksportability"] then
-            project "shared_files"
-            location "shared"
-            kind "None"
-            files "shared/**.h"
-            removefiles "shared/paths/**.h"
-        end
-    group ""
-        pluginSdkStaticLibProject("plugin_sa", "plugin_sa", "plugin", true, "game_sa")
-        pluginSdkStaticLibProject("plugin_vc", "plugin_vc", "plugin_vc", true, "game_vc")
-        pluginSdkStaticLibProject("plugin_iii", "plugin_III", "plugin_iii", true, "game_III")
+    if _ACTION ~= "clean" then
     
-end
-
-local f = io.open("examples/examples.csv", "rb")
-if f then
-    f:close()
-    local firstLine = true
-    for line in io.lines("examples/examples.csv") do 
-        if firstLine ~= true then
-            if line ~= "" then
-                local params = splitString(line, ",")
-                local i = 1
-                for str in (line .. ","):gmatch("([^,]*),") do
-                    params[i] = str
-                    i = i + 1
-                end
-                print("Deleting temporary .vs directory (project " .. params[1] .. ":")
-                os.execute("rd /s /q \"examples/" .. params[1] .. "/.vs\"")
-                print("Done with deleting temporary .vs directory")
-                if _ACTION ~= "clean" then
-                    pluginSdkExampleProject(params[1], params[2] == "GTASA", params[3] == "GTAVC", params[4] == "GTA3", params[5] == "D3D", params[6] == "CLEO", params[7] == "LA", params[8], params[9], params[10], params[11])
+        workspace "plugin"
+            location (sdkdir)
+            configurations { "Release", "Debug" }
+        
+        group "shared"
+            pluginSdkStaticLibProject("paths", sdkdir .. "\\shared\\paths", "paths", false, "")
+            if not _OPTIONS["mingw"] then
+                project "shared_files"
+                location (sdkdir .. "\\shared")
+                kind "None"
+                files (sdkdir .. "\\shared\\**.h")
+                removefiles (sdkdir .. "\\shared\\paths\\**.h")
+            end
+        group ""
+            pluginSdkStaticLibProject("plugin_sa", sdkdir .. "\\plugin_sa", "plugin", true, "game_sa")
+            pluginSdkStaticLibProject("plugin_vc", sdkdir .. "\\plugin_vc", "plugin_vc", true, "game_vc")
+            pluginSdkStaticLibProject("plugin_iii", sdkdir .. "\\plugin_III", "plugin_iii", true, "game_III")
+        
+        
+        local f = io.open("examples/examples.csv", "rb")
+        if f then
+            f:close()
+            local firstLine = true
+            for line in io.lines(sdkdir .. "\\examples\\examples.csv") do 
+                if firstLine ~= true then
+                    if line ~= "" then
+                        local params = splitString(line, ",")
+                        local i = 1
+                        for str in (line .. ","):gmatch("([^,]*),") do
+                            params[i] = str
+                            i = i + 1
+                        end
+                        pluginSdkExampleProject(params[1], params[2] == "GTASA", params[3] == "GTAVC", params[4] == "GTA3", params[5] == "D3D", params[6] == "CLEO", params[7] == "LA", params[8], params[9], params[10], params[11])
+                    end
+                else
+                    firstLine = false
                 end
             end
-        else
-            firstLine = false
         end
     end
 end
