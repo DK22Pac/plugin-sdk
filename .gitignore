@@ -485,11 +485,17 @@ ENV/
 # User settings
 user.settings
 
-# Code::Blocks
+# Code::Blocks & CodeLite
+.codelite/
+.clang/
 *.cbp
 *.layout
 *.depend
 *.project
+*.workspace
+*.mk
+*.txt
+Makefile
 
 tools/plugin-sdk-project-wizard/templates/temp/Main.cpp
 tools/plugin-sdk-project-wizard/templates/temp/MyTemplate.vstemplate

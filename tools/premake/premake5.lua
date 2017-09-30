@@ -22,6 +22,8 @@ function cleanProjectsDirectory(pathToDir)
     os.execute("del /s " .. pathToDir .. "\\*.project 2>NUL")
     os.execute("del /s " .. pathToDir .. "\\*.depend 2>NUL")
     os.execute("del /s " .. pathToDir .. "\\*.layout 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.mk 2>NUL")
+    os.execute("del /s " .. pathToDir .. "\\*.txt 2>NUL")
 end
 
 function deleteAllFoldersWithName(pathToDir, folderName)
@@ -194,7 +196,7 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     if isPluginProject == true then
         location (projectPath .. "\\proj")
         dependson "paths"
-        includedirs ("$(SolutionDir)" .. projectName)
+        includedirs "$(ProjectDir)..\\"
         
         files {
             (projectPath .. "\\**.h"),
