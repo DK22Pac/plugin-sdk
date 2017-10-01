@@ -245,10 +245,7 @@ public:
 	char ProcessCommands_2400To2499(eCommandName commandID);
 	char ProcessCommands_2500To2599(eCommandName commandID);
 	char ProcessCommands_2600To2699(eCommandName commandID);
-
-	// Checks if damage ID is valid to expected damage weapon ID.
-	static bool CheckDamagedWeaponType(eWeaponType damageWeaponID, eWeaponType expectedDamageWeaponID);
-
+	
 	// Processes commands that check if car is in specified area.
 	void CarInAreaCheckCommand(eCommandName commandID);
 
