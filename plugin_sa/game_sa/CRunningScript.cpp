@@ -262,12 +262,6 @@ char CRunningScript::ProcessCommands_2600To2699(eCommandName commandID)
 	return ((char (__thiscall*)(CRunningScript*, eCommandName)) FUNC_CRunningScript__ProcessCommands_2600To2699 )(this, commandID);
 }
 
-// Checks if damage ID is valid to expected damage weapon ID.
-bool CRunningScript::CheckDamagedWeaponType(eWeaponType damageWeaponID, eWeaponType expectedDamageWeaponID)
-{
-	return ((bool (__cdecl*)(eWeaponType, eWeaponType)) FUNC_CRunningScript__CheckDamagedWeaponType )(damageWeaponID, expectedDamageWeaponID);
-}
-
 // Processes commands that check if car is in specified area.
 void CRunningScript::CarInAreaCheckCommand(eCommandName commandID)
 {
