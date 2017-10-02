@@ -8,7 +8,7 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "CWanted.h"
-#include "CClothes.h"
+#include "CPedClothesDesc.h"
 #include "CVector.h"
 #include "CVector2D.h"
 
@@ -17,7 +17,7 @@ class PLUGIN_API CPlayerData
 {
 public:
 	CWanted *m_pWanted;
-	CClothes *m_pClothes;
+	CPedClothesDesc *m_pPedClothesDesc;
 	class CCopPed *m_pArrestingCop;
 	CVector2D m_vFightMovement;
 	float m_fMoveBlendRatio;
