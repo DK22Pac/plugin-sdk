@@ -9,27 +9,28 @@
 #include "ePedType.h"
 #include "eCommandName.h"
 #include "eWeaponType.h"
+#include "CPed.h"
 
 #define FUNC_CRunningScript__Init 0x4648E0
-#define FUNC_CRunningScript__GetArrayOffsetAndValueOfIndexVariable 0x463CF0
-#define FUNC_CRunningScript__GetOffsetOfGlobalVariable 0x464700
+#define FUNC_CRunningScript__ReadArrayInformation 0x463CF0
+#define FUNC_CRunningScript__GetIndexOfGlobalVariable 0x464700
 #define FUNC_CRunningScript__GetPointerToScriptVariable 0x464790
-#define FUNC_CRunningScript__GetPointerLocalVariableByArrayIndex 0x463CC0
+#define FUNC_CRunningScript__GetPointerToLocalArrayElement 0x463CC0
 
 #define FUNC_CRunningScript__ProcessOneCommand 0x469EB0
 #define FUNC_CRunningScript__CollectParameters 0x464080
-#define FUNC_CRunningScript__CollectStringParameter 0x463D50
+#define FUNC_CRunningScript__ReadTextLabelFromScript 0x463D50
 #define FUNC_CRunningScript__StoreParameters 0x464370
-#define FUNC_CRunningScript__CollectParametersToNewScript 0x464500
+#define FUNC_CRunningScript__ReadParametersForNewlyStartedScript 0x464500
 #define FUNC_CRunningScript__Process 0x469F00
 #define FUNC_CRunningScript__DoDeatharrestCheck 0x485A50
 #define FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC 0x464250
-#define FUNC_CRunningScript__SetIntructionPointer 0x464DA0
+#define FUNC_CRunningScript__UpdatePC 0x464DA0
 #define FUNC_CRunningScript__UpdateCompareFlag 0x4859D0
 #define FUNC_CRunningScript__AddScriptToList 0x464C00
 #define FUNC_CRunningScript__RemoveScriptFromList 0x464BD0
 #define FUNC_CRunningScript__GetPadState 0x485B10
-#define FUNC_CRunningScript__TerminateThisScript 0x465AA0
+#define FUNC_CRunningScript__ShutDownThisScript 0x465AA0
 
 #define FUNC_CRunningScript__CheckDamagedWeaponType 0x43D9E0
 #define FUNC_CRunningScript__CarInAreaCheckCommand 0x488EC0
@@ -167,10 +168,10 @@ public:
 	/////// USED HEAVILY IN COMMANDS //////
 
 	// Reads array offset and value from array index variable.
-	void GetArrayOffsetAndValueOfIndexVariable(__int16 *pOffset, __int32 *pIdx);
+	void ReadArrayInformation(__int16 *pOffset, __int32 *pIdx);
 
 	// Returns offset of global variable
-	__int16 GetOffsetOfGlobalVariable();
+	__int16 GetIndexOfGlobalVariable();
 
 	// Returns pointer to script variable of any type.
 	tScriptVarValue* GetPointerToScriptVariable(unsigned __int8 variableType);
@@ -182,22 +183,22 @@ public:
 	tScriptVarValue CollectNextParameterWithoutIncreasingPC();
 
 	// Collects string parameter
-	void CollectStringParameter(char *pBuffer, unsigned __int8 nBufferLength);
+	void ReadTextLabelFromScript(char *pBuffer, unsigned __int8 nBufferLength);
 
 	// Stores parameters
 	void StoreParameters(__int16 count);
 
 	// Collects parameters and puts them to local variables of new script
-	void CollectParametersToNewScript(CRunningScript* pNewScript);
+	void ReadParametersForNewlyStartedScript(CRunningScript* pNewScript);
 
 	// Sets instruction pointer, used in GOTO-like commands
-	void SetIntructionPointer(__int32 newIP);
+	void UpdatePC(__int32 newIP);
 
 	// Updates comparement flag, used in conditional commands
 	void UpdateCompareFlag(bool state);
 
 	// Terminates a script
-	void TerminateThisScript();
+	void ShutDownThisScript();
 
 	///////////////////
 
@@ -205,7 +206,7 @@ public:
 	bool GetConditionResult();
 
 	// Returns pointer to local variable pointed by offset and array index as well as multiplier.
-	void GetPointerLocalVariableByArrayIndex(__int16 off, __int16 idx, unsigned __int8 mul);
+	void GetPointerToLocalArrayElement(__int16 off, __int16 idx, unsigned __int8 mul);
 
 	// Adds script to list
 	void AddScriptToList(CRunningScript ** list);
@@ -244,10 +245,7 @@ public:
 	char ProcessCommands_2400To2499(eCommandName commandID);
 	char ProcessCommands_2500To2599(eCommandName commandID);
 	char ProcessCommands_2600To2699(eCommandName commandID);
-
-	// Checks if damage ID is valid to expected damage weapon ID.
-	static bool CheckDamagedWeaponType(eWeaponType damageWeaponID, eWeaponType expectedDamageWeaponID);
-
+	
 	// Processes commands that check if car is in specified area.
 	void CarInAreaCheckCommand(eCommandName commandID);
 
@@ -277,6 +275,13 @@ public:
 
 	// Checks if ped type conforms to valid ped types.
 	bool ThisIsAValidRandomPed(ePedType pedType, bool civilian, bool gang, bool criminal);
+	
+    	char* GetPointerToLocalVariable(unsigned int varid);
+    	bool IsPedDead(CPed* pPed);
+    	void SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset);
+    	void GivePedScriptedTask(int ped, CTask* task, int opcode);
+    	void PlayAnimScriptCommand(int opcodeid);
+    	void GetCorrectPedModelIndexForEmergencyServiceType(int pedtype, int* pModelId);
 };
 #pragma pack(pop)
 

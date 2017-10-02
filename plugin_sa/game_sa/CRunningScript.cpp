@@ -19,15 +19,15 @@ char CRunningScript::ProcessOneCommand()
 }
 
 // Reads array offset and value from array index variable.
-void CRunningScript::GetArrayOffsetAndValueOfIndexVariable(__int16 *pOffset, __int32 *pIdx)
+void CRunningScript::ReadArrayInformation(__int16 *pOffset, __int32 *pIdx)
 {
-	((void (__thiscall*)(CRunningScript*, __int16*, __int32*)) FUNC_CRunningScript__GetArrayOffsetAndValueOfIndexVariable )(this, pOffset, pIdx);	
+	((void (__thiscall*)(CRunningScript*, __int16*, __int32*)) FUNC_CRunningScript__ReadArrayInformation )(this, pOffset, pIdx);	
 }
 
 // Returns offset of global variable
-__int16 CRunningScript::GetOffsetOfGlobalVariable()
+__int16 CRunningScript::GetIndexOfGlobalVariable()
 {
-	return ((__int16 (__thiscall*)(CRunningScript*)) FUNC_CRunningScript__GetOffsetOfGlobalVariable )(this);
+	return ((__int16 (__thiscall*)(CRunningScript*)) FUNC_CRunningScript__GetIndexOfGlobalVariable )(this);
 }
 
 // Returns pointer to script variable of any type.
@@ -43,9 +43,9 @@ inline bool CRunningScript::GetConditionResult()
 }
 
 // Returns pointer to local variable pointed by offset and array index as well as multiplier.
-void CRunningScript::GetPointerLocalVariableByArrayIndex(__int16 off, __int16 idx, unsigned __int8 mul)
+void CRunningScript::GetPointerToLocalArrayElement(__int16 off, __int16 idx, unsigned __int8 mul)
 {
-	((void (__thiscall*)(CRunningScript*, __int16, __int16, unsigned __int8)) FUNC_CRunningScript__GetPointerLocalVariableByArrayIndex )(this, off, idx, mul);
+	((void (__thiscall*)(CRunningScript*, __int16, __int16, unsigned __int8)) FUNC_CRunningScript__GetPointerToLocalArrayElement )(this, off, idx, mul);
 }
 
 // Collects parameters
@@ -61,9 +61,9 @@ tScriptVarValue CRunningScript::CollectNextParameterWithoutIncreasingPC()
 }
 
 // Collects string parameter
-void CRunningScript::CollectStringParameter(char *pBuffer, unsigned __int8 nBufferLength)
+void CRunningScript::ReadTextLabelFromScript(char *pBuffer, unsigned __int8 nBufferLength)
 {
-	((void (__thiscall*)(CRunningScript*, char *, unsigned __int8)) FUNC_CRunningScript__CollectStringParameter )(this, pBuffer, nBufferLength);
+	((void (__thiscall*)(CRunningScript*, char *, unsigned __int8)) FUNC_CRunningScript__ReadTextLabelFromScript )(this, pBuffer, nBufferLength);
 }
 
 // Stores parameters
@@ -73,15 +73,15 @@ void CRunningScript::StoreParameters(__int16 count)
 }
 
 // Collects parameters and puts them to local variables of new script
-void CRunningScript::CollectParametersToNewScript(CRunningScript* pNewScript)
+void CRunningScript::ReadParametersForNewlyStartedScript(CRunningScript* pNewScript)
 {
-	((void (__thiscall*)(CRunningScript*, CRunningScript*)) FUNC_CRunningScript__CollectParametersToNewScript )(this, pNewScript);
+	((void (__thiscall*)(CRunningScript*, CRunningScript*)) FUNC_CRunningScript__ReadParametersForNewlyStartedScript )(this, pNewScript);
 }
 
 // Sets instruction pointer, used in GOTO-like commands
-void CRunningScript::SetIntructionPointer(__int32 newIP)
+void CRunningScript::UpdatePC(__int32 newIP)
 {
-	((void (__thiscall*)(CRunningScript*, __int32)) FUNC_CRunningScript__SetIntructionPointer )(this, newIP);
+	((void (__thiscall*)(CRunningScript*, __int32)) FUNC_CRunningScript__UpdatePC )(this, newIP);
 }
 
 // Updates comparement flag, used in conditional commands
@@ -91,9 +91,9 @@ void CRunningScript::UpdateCompareFlag(bool state)
 }
 
 // Terminates a script
-void CRunningScript::TerminateThisScript()
+void CRunningScript::ShutDownThisScript()
 {
-	((void (__thiscall*)(CRunningScript*)) FUNC_CRunningScript__TerminateThisScript )(this);
+	((void (__thiscall*)(CRunningScript*)) FUNC_CRunningScript__ShutDownThisScript )(this);
 }
 
 // Performs death arrest check
@@ -262,12 +262,6 @@ char CRunningScript::ProcessCommands_2600To2699(eCommandName commandID)
 	return ((char (__thiscall*)(CRunningScript*, eCommandName)) FUNC_CRunningScript__ProcessCommands_2600To2699 )(this, commandID);
 }
 
-// Checks if damage ID is valid to expected damage weapon ID.
-bool CRunningScript::CheckDamagedWeaponType(eWeaponType damageWeaponID, eWeaponType expectedDamageWeaponID)
-{
-	return ((bool (__cdecl*)(eWeaponType, eWeaponType)) FUNC_CRunningScript__CheckDamagedWeaponType )(damageWeaponID, expectedDamageWeaponID);
-}
-
 // Processes commands that check if car is in specified area.
 void CRunningScript::CarInAreaCheckCommand(eCommandName commandID)
 {
@@ -328,4 +322,34 @@ void CRunningScript::ObjectInAreaCheckCommand(eCommandName commandID)
 bool CRunningScript::ThisIsAValidRandomPed(ePedType pedType, bool civilian, bool gang, bool criminal)
 {
 	return ((bool (__thiscall*)(CRunningScript*, ePedType, bool, bool, bool)) FUNC_CRunningScript__ThisIsAValidRandomPed )(this, pedType, civilian, gang, criminal);
+}
+
+// Converted from thiscall char* CRunningScript::GetPointerToLocalVariable(uint varid) 0x463CA0 
+char* CRunningScript::GetPointerToLocalVariable(unsigned int varid) {
+    return plugin::CallMethodAndReturn<char*, 0x463CA0, CRunningScript *, unsigned int>(this, varid);
+}
+
+// Converted from thiscall bool CRunningScript::IsPedDead(CPed *pPed) 0x464D70 
+bool CRunningScript::IsPedDead(CPed* pPed) {
+    return plugin::CallMethodAndReturn<bool, 0x464D70, CRunningScript *, CPed*>(this, pPed);
+}
+
+// Converted from thiscall void CRunningScript::SetCharCoordinates(CPed *pPed,float x_coord,float y_coord,float z_coord,bool bWarpGang,bool bOffset) 0x464DC0 
+void CRunningScript::SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset) {
+    plugin::CallMethod<0x464DC0, CRunningScript *, CPed*, float, float, float, bool, bool>(this, pPed, x_coord, y_coord, z_coord, bWarpGang, bOffset);
+}
+
+// Converted from thiscall void CRunningScript::GivePedScriptedTask(int ped,CTask *task,int opcode) 0x465C20 
+void CRunningScript::GivePedScriptedTask(int ped, CTask* task, int opcode) {
+    plugin::CallMethod<0x465C20, CRunningScript *, int, CTask*, int>(this, ped, task, opcode);
+}
+
+// Converted from thiscall void CRunningScript::PlayAnimScriptCommand(int opcodeid) 0x470150 
+void CRunningScript::PlayAnimScriptCommand(int opcodeid) {
+    plugin::CallMethod<0x470150, CRunningScript *, int>(this, opcodeid);
+}
+
+// Converted from thiscall void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(int pedtype,int *pModelId) 0x464F50 
+void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(int pedtype, int* pModelId) {
+    plugin::CallMethod<0x464F50, CRunningScript *, int, int*>(this, pedtype, pModelId);
 }
