@@ -1,7 +1,7 @@
 #include "Compatibility.h"
 #include "plugin.h"
-#include "game_sa\CFont.h"
-#include "game_sa\common.h"
+#include "CFont.h"
+#include "common.h"
 
 using namespace plugin;
 

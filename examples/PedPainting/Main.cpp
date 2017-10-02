@@ -1,5 +1,5 @@
-#include plugin_header
-#include "list"
+#include "plugin.h"
+#include <list>
 #include "common.h"
 #include "CWorld.h"
 

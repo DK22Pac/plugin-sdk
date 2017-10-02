@@ -1,9 +1,9 @@
 #pragma once
 #include "plugin.h"
-#include "game_sa\CAutomobile.h"
-#include "game_sa\CPlayerPed.h"
-#include "game_sa\CTimer.h"
-#include "game_sa\common.h"
+#include "CAutomobile.h"
+#include "CPlayerPed.h"
+#include "CTimer.h"
+#include "common.h"
 
 using namespace plugin;
 

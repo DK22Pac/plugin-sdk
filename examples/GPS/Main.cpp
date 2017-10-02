@@ -5,13 +5,13 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "plugin.h"
-#include "game_sa\RenderWare.h"
-#include "game_sa\common.h"
-#include "game_sa\CMenuManager.h"
-#include "game_sa\CRadar.h"
-#include "game_sa\CWorld.h"
-#include "game_sa\RenderWare.h"
-#include "game_sa\CFont.h"
+#include "RenderWare.h"
+#include "common.h"
+#include "CMenuManager.h"
+#include "CRadar.h"
+#include "CWorld.h"
+#include "RenderWare.h"
+#include "CFont.h"
 #include "d3d9.h"
 
 #define MAX_NODE_POINTS 2000

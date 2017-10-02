@@ -4,15 +4,13 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include <Windows.h>
-#include <plugin.h>
-#include <game_sa\CPed.h>
-#include <game_sa\RenderWare.h>
-#include <game_sa\CSprite.h>
-#include <game_sa\CFont.h>
-#include <game_sa\common.h>
-#include <game_sa\CRadar.h>
-#include <game_sa\CMenuManager.h>
+#include "plugin.h"
+#include "CPed.h"
+#include "RenderWare.h>
+#include "CSprite.h"
+#include "CFont.h"
+#include "common.h"
+#include "CRadar.h"
 
 using namespace plugin;
 

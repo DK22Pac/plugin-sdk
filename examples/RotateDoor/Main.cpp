@@ -4,9 +4,9 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include <plugin.h>
-#include "game_sa\common.h"
-#include "game_sa\CAutomobile.h"
+#include "plugin.h"
+#include "common.h"
+#include "CAutomobile.h"
 
 using namespace plugin;
 

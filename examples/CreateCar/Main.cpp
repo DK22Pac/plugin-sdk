@@ -5,19 +5,19 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "plugin.h"
-#include "game_sa\common.h"
-#include "game_sa\CStreaming.h"
-#include "game_sa\CModelInfo.h"
-#include "game_sa\CMonsterTruck.h"
-#include "game_sa\CQuadBike.h"
-#include "game_sa\CHeli.h"
-#include "game_sa\CPlane.h"
-#include "game_sa\CBmx.h"
-#include "game_sa\CTrailer.h"
-#include "game_sa\CBoat.h"
-#include "game_sa\CWorld.h"
-#include "game_sa\CTheScripts.h"
-#include "game_sa\CTimer.h"
+#include "common.h"
+#include "CStreaming.h"
+#include "CModelInfo.h"
+#include "CMonsterTruck.h"
+#include "CQuadBike.h"
+#include "CHeli.h"
+#include "CPlane.h"
+#include "CBmx.h"
+#include "CTrailer.h"
+#include "CBoat.h"
+#include "CWorld.h"
+#include "CTheScripts.h"
+#include "CTimer.h"
 
 using namespace plugin;
 

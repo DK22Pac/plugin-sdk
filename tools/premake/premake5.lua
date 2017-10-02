@@ -352,13 +352,12 @@ function getExamplePluginDefines(gameId, pluginHeader, laSupport, commandLine, a
         counter = counter + 3
     end
     aryDefines[counter] = gameId
-    aryDefines[counter + 1] = projectDefinition("plugin_header", pluginHeader, l1, l2)
-    aryDefines[counter + 2] = projectDefinition("GTAGAME_NAME", gameName, l1, l2)
-    aryDefines[counter + 3] = projectDefinition("GTAGAME_ABBR", gameAbbr, l1, l2)
-    aryDefines[counter + 4] = projectDefinition("GTAGAME_ABBRLOW", gameAbbrLow, l1, l2)
-    aryDefines[counter + 5] = projectDefinition("GTAGAME_PROTAGONISTNAME", protagonistName, l1, l2)
-    aryDefines[counter + 6] = projectDefinition("GTAGAME_CITYNAME", cityName, l1, l2)
-    counter = counter + 7
+    aryDefines[counter + 1] = projectDefinition("GTAGAME_NAME", gameName, l1, l2)
+    aryDefines[counter + 2] = projectDefinition("GTAGAME_ABBR", gameAbbr, l1, l2)
+    aryDefines[counter + 3] = projectDefinition("GTAGAME_ABBRLOW", gameAbbrLow, l1, l2)
+    aryDefines[counter + 4] = projectDefinition("GTAGAME_PROTAGONISTNAME", protagonistName, l1, l2)
+    aryDefines[counter + 5] = projectDefinition("GTAGAME_CITYNAME", cityName, l1, l2)
+    counter = counter + 6
     if flaSupport == true then
         aryDefines[counter] = "_LA_SUPPORT"
         counter = counter + 1

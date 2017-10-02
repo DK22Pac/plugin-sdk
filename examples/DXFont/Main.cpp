@@ -4,7 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include plugin_header
+#include "plugin.h"
 #include "RenderWare.h"
 #include "d3dx9.h"
 #ifndef GTASA

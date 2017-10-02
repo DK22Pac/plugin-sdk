@@ -5,12 +5,12 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #include "plugin.h"
-#include "game_sa\CClock.h"
-#include "game_sa\CShadows.h"
-#include "game_sa\common.h"
 #include "KeyCheck.h"
-#include "game_sa\CModelInfo.h"
-#include "game_sa\CTimer.h"
+#include "common.h"
+#include "CClock.h"
+#include "CShadows.h"
+#include "CModelInfo.h"
+#include "CTimer.h"
 
 #define TURN_ON_OFF_DELAY 500
 

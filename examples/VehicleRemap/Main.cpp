@@ -5,10 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "plugin.h"
-#include "game_sa\common.h"
-#include "game_sa\CTimer.h"
-#include "game_sa\CGeneral.h"
-#include "game_sa\CModelInfo.h"
+#include "common.h"
+#include "CTimer.h"
+#include "CGeneral.h"
+#include "CModelInfo.h"
 
 using namespace plugin;
 

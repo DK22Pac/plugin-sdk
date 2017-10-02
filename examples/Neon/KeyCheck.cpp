@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #include "KeyCheck.h"
 #include "plugin.h"
-#include "game_sa\CTimer.h"
+#include "CTimer.h"
 
 unsigned char KeyCheck::currStates[256] = {};
 unsigned char KeyCheck::prevStates[256] = {};

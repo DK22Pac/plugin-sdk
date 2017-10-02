@@ -4,9 +4,9 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include <plugin.h>
-#include <game_sa\CCheat.h>
-#include <game_sa\CHud.h>
+#include "plugin.h"
+#include "CCheat.h"
+#include "CHud.h"
 #include <algorithm>
 
 using namespace plugin;

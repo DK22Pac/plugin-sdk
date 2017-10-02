@@ -1,7 +1,7 @@
 #pragma once
-#include "game_sa\RenderWare.h"
-#include "game_sa\CRect.h"
-#include "game_sa\CRGBA.h"
+#include "RenderWare.h"
+#include "CRect.h"
+#include "CRGBA.h"
 
 class ShapeHelper {
 public:

@@ -1,5 +1,5 @@
 #include "plugin.h"
-#include "game_sa\CSprite2d.h"
+#include "CSprite2d.h"
 
 using namespace plugin;
 

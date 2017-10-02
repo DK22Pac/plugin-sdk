@@ -1,6 +1,6 @@
 #include "ShapeHelper.h"
-#include "game_sa\RenderWare.h"
-#include "game_sa\CSprite2d.h"
+#include "RenderWare.h"
+#include "CSprite2d.h"
 
 const int MAX_CIRCLE_SIDES = 60;
 const float CIRCLE_STEP = 6.0f;
