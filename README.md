@@ -19,7 +19,6 @@ Feel free to use it too!
 ## Getting in touch with Developers
 
 - [Discord server](https://discord.gg/X4H7ztF)
-- [Gitter chat](https://gitter.im/plugin-sdk/Lobby)
 
 Consider opening an issue if you are sure about it.
 
