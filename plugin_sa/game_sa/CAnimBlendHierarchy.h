@@ -7,8 +7,7 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-
-class CAnimBlendSequence;
+#include "CAnimBlendSequence.h"
 
 class CAnimBlendHierarchy {
 public:
@@ -20,6 +19,20 @@ public:
     int m_nAnimBlockId;
     float m_fTotalTime;
     int field_14;
+
+	//funcs
+
+	void* AllocSequenceBlock(bool arg1);
+	CAnimBlendHierarchy();
+	void CalcTotalTime();
+	void CalcTotalTimeCompressed();
+	void RemoveAnimSequences();
+	void RemoveQuaternionFlips();
+	void RemoveUncompressedData();
+	void SetName(char const* string);
+	void Shutdown();
+	void Uncompress();
+
 };
 
 VALIDATE_SIZE(CAnimBlendHierarchy, 0x18);
