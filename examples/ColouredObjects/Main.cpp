@@ -6,11 +6,12 @@
 */
 #include "plugin.h"
 #include "CPed.h"
-#include "RenderWare.h>
+#include "RenderWare.h"
 #include "CSprite.h"
 #include "CFont.h"
 #include "common.h"
 #include "CRadar.h"
+#include "CMenuManager.h"
 
 using namespace plugin;
 
