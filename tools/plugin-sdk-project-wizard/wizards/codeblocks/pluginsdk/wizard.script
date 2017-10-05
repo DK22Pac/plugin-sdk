@@ -316,6 +316,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug)
     target.SetObjectOutput(_T("obj"));
     target.SetTargetFilenameGenerationPolicy(tgfpNone, tgfpNone);
     target.AddCompilerOption(_T("-m32"));
+    target.AddCompilerOption(_T("-fpermissive"));
     local configName = GetConfigName(isDebug);
     if (isDebug)
     {
