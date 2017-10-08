@@ -14,6 +14,8 @@
 #include "CAnimBlendAssociation.h"
 #include "CAnimBlendClumpData.h"
 
+#include "common_sdk.h"
+
 extern char *gString; // char gString[200]
 
 extern float &GAME_GRAVITY; // default 0.0080000004
