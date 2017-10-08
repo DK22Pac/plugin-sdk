@@ -11,9 +11,12 @@
 
 class PLUGIN_API CEmergencyPed : public CPed
 {
+public:
 	CEmergencyPed(unsigned int pedType, unsigned int modelIndex);
 
 	bool InRange(CPed *ped);
+	
+	void ProcessControl();
 };
 
 VALIDATE_SIZE(CEmergencyPed, 0x79C);
