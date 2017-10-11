@@ -14,3 +14,9 @@ bool CEmergencyPed::InRange(CPed *ped)
 {
 	return ((bool (__thiscall *)(CPed *, CPed *))0x5DE470)(this, ped);
 }
+
+void CEmergencyPed::ProcessControl()
+{
+	((void(__thiscall *)(CEmergencyPed *))0x5DE400)(this);
+	
+}
