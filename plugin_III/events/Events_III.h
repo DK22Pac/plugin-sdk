@@ -58,5 +58,10 @@ namespace plugin
                                           0x48C26B, H_CALL,
                                           0x48C575, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          initScriptsEvent;
         extern CdeclEvent    <AddressList<0x48C95C, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          processScriptsEvent;
+        extern CdeclEvent    <AddressList<0x47AF76, H_CALL, 0x432723, H_CALL,
+                                          0x420AAD, H_CALL, 0x426446, H_CALL,
+                                          0x4893EF, H_CALL, 0x48A019, H_CALL,
+                                          0x48BA25, H_CALL, 0x4FE6B2, H_CALL,
+                                          0x4824E1, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          onMenuDrawingEvent;
     }
 }
