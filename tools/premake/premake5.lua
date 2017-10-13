@@ -386,13 +386,13 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
     aryDirs[counter + 1] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir)
     counter = counter + 2
     if projectType == "MOON" then
-        aryDirs[counter] = cleoDir
-        counter = counter + 1
-    elseif projectType == "CLEO" then
         aryDirs[counter] = "$(MOONLOADER_SDK_SA_DIR)\\src"
         aryDirs[counter + 1] = "$(MOONLOADER_SDK_SA_DIR)\\src\\libs\\lua"
         aryDirs[counter + 2] = "$(MOONLOADER_SDK_SA_DIR)\\src\\libs\\sol2"
         counter = counter + 3
+    elseif projectType == "CLEO" then
+        aryDirs[counter] = cleoDir
+        counter = counter + 1
     end
     if usesRwD3d9 then
         aryDirs[counter] = "$(RWD3D9_DIR)\\source"
