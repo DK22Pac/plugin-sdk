@@ -109,6 +109,37 @@
 						<object class="wxFlexGridSizer">
 							<cols>3</cols>
 							<object class="sizeritem">
+								<object class="wxStaticText" name="sttPluginType">
+									<label>Plugin type:</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxComboBox" name="cmbPluginType">
+									<content>
+										<item>ASI Plugin</item>
+										<item>CLEO Plugin</item>
+										<item>MoonLoader Module</item>
+										<item>DLL Library</item>
+									</content>
+									<selection>0</selection>
+									<size>211,21</size>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
+							<object class="sizeritem">
 								<object class="wxStaticText" name="sttPluginName">
 									<label>Plugin name:</label>
 									<enabled>0</enabled>
@@ -156,45 +187,23 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxBoxSizer">
-							<object class="sizeritem">
-								<object class="wxCheckBox" name="chkCleoPlugin">
-									<label>CLEO plugin</label>
-									<enabled>0</enabled>
-								</object>
-								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-								<option>1</option>
-							</object>
-							<object class="sizeritem">
-								<object class="wxCheckBox" name="chkCleoSdk">
-									<label>CLEO SDK</label>
-									<enabled>0</enabled>
-								</object>
-								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-								<option>1</option>
-							</object>
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
 							<object class="sizeritem">
 								<object class="wxCheckBox" name="chkUseDirectX">
 									<label>Use DirectX</label>
 									<enabled>0</enabled>
 								</object>
-								<flag>wxALIGN_LEFT</flag>
+								<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<border>5</border>
 								<option>1</option>
 							</object>
-						</object>
-						<flag>wxALL|wxEXPAND</flag>
-						<border>5</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxFlexGridSizer">
-							<cols>3</cols>
 							<object class="sizeritem">
 								<object class="wxCheckBox" name="chkLACompatibility">
 									<label>LA compatibility</label>
 									<enabled>0</enabled>
 								</object>
-								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<flag>wxALIGN_TOP</flag>
 								<option>1</option>
 							</object>
 						</object>
@@ -215,7 +224,7 @@
 							</object>
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="txtOutputDirectory">
-									<value>$gameoutputdir$</value>
+									<value>$gamedir$\\$outdirname$</value>
 									<size>165,21</size>
 									<enabled>0</enabled>
 								</object>
@@ -506,15 +515,15 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtPluginSdkDir">
 							<value>$(PLUGIN__SDK__DIR)</value>
-							<size>182,-1</size>
+							<size>189,-1</size>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>2</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxStaticText" name="sttGtaSaAsiDir">
-							<label>GTASA asi plugins</label>
+						<object class="wxStaticText" name="sttGtaSaDir">
+							<label>GTASA folder</label>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
@@ -522,28 +531,9 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxTextCtrl" name="txtGtaSaAsiDir">
-							<value>$(GTA__SA__ASI__DIR)</value>
-							<size>182,-1</size>
-							<enabled>0</enabled>
-						</object>
-						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxStaticText" name="sttGtaSaCleoDir">
-							<label>GTASA cleo plugins</label>
-							<enabled>0</enabled>
-						</object>
-						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-						<border>5</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxTextCtrl" name="txtGtaSaCleoDir">
-							<value>$(GTA__SA__CLEO__DIR)</value>
-							<size>182,-1</size>
+						<object class="wxTextCtrl" name="txtGtaSaDir">
+							<value>$(GTA__SA__DIR)</value>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -562,7 +552,7 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtCleoSdkSaDir">
 							<value>$(CLEO__SDK__SA__DIR)</value>
-							<size>182,-1</size>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -570,8 +560,8 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxStaticText" name="sttGtaVcAsiDir">
-							<label>GTAVC asi output</label>
+						<object class="wxStaticText" name="sttGtaVcDir">
+							<label>GTAVC folder</label>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
@@ -579,28 +569,9 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxTextCtrl" name="txtGtaVcAsiDir">
-							<value>$(GTA__VC__ASI__DIR)</value>
-							<size>182,-1</size>
-							<enabled>0</enabled>
-						</object>
-						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxStaticText" name="sttGtaVcCleoDir">
-							<label>GTAVC cleo output</label>
-							<enabled>0</enabled>
-						</object>
-						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-						<border>5</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxTextCtrl" name="txtGtaVcCleoDir">
-							<value>$(GTA__VC__CLEO__DIR)</value>
-							<size>182,-1</size>
+						<object class="wxTextCtrl" name="txtGtaVcDir">
+							<value>$(GTA__VC__DIR)</value>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -619,7 +590,7 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtCleoSdkVcDir">
 							<value>$(CLEO__SDK__VC__DIR)</value>
-							<size>182,-1</size>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -627,8 +598,8 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxStaticText" name="sttGta3AsiDir">
-							<label>GTA3 asi plugins</label>
+						<object class="wxStaticText" name="sttGta3Dir">
+							<label>GTA3 folder</label>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
@@ -636,28 +607,9 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxTextCtrl" name="txtGta3AsiDir">
-							<value>$(GTA__III__ASI__DIR)</value>
-							<size>182,-1</size>
-							<enabled>0</enabled>
-						</object>
-						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxStaticText" name="sttGta3CleoDir">
-							<label>GTA3 cleo plugins</label>
-							<enabled>0</enabled>
-						</object>
-						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
-						<border>5</border>
-						<option>1</option>
-					</object>
-					<object class="sizeritem">
-						<object class="wxTextCtrl" name="txtGta3CleoDir">
-							<value>$(GTA__III__CLEO__DIR)</value>
-							<size>182,-1</size>
+						<object class="wxTextCtrl" name="txtGta3Dir">
+							<value>$(GTA__III__DIR)</value>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -676,7 +628,26 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtCleoSdk3Dir">
 							<value>$(CLEO__SDK__III__DIR)</value>
-							<size>182,-1</size>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttMoonLoaderSdkDir">
+							<label>MoonLoader SDK</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtMoonLoaderSdkDir">
+							<value>$(MOONLOADER__SDK__SA__DIR)</value>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -695,7 +666,7 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtDirectXSdkDir">
 							<value>$(DIRECTX9__SDK__DIR)</value>
-							<size>182,-1</size>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -714,7 +685,7 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtRwD3d9Dir">
 							<value>$(RWD3D9__DIR)</value>
-							<size>182,-1</size>
+							<size>189,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>

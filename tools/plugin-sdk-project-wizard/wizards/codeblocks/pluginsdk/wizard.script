@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // Plugin-SDK project wizard
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 gGameSA <- false;
@@ -9,8 +7,7 @@ gGameVC <- false;
 gGameIII <- false;
 gPluginName <- _T("");
 gClassName <- _T("");
-gCleoPlugin <- false;
-gCleoSDK <- false;
+gPluginType <- 0; // 0 - ASI Plugin, 1 - CLEO Plugin, 2 - MoonLoader Module, 3 - DLL Library
 gDirectX <- false;
 gLACompatibility <- false;
 gOutputDirectory <- _T("");
@@ -24,20 +21,17 @@ gDebugLibraryDirs <- _T("");
 gDebugDependencies <- _T("");
 gDebugDefinitions <- _T("");
 gPluginSdkDir <- _T("");
-gAsiPluginsGTASADir <- _T("");
-gAsiPluginsGTAVCDir <- _T("");
-gAsiPluginsGTA3Dir <- _T("");
-gCleoPluginsGTASADir <- _T("");
-gCleoPluginsGTAVCDir <- _T("");
-gCleoPluginsGTA3Dir <- _T("");
+gGTASADir <- _T("");
+gGTAVCDir <- _T("");
+gGTA3Dir <- _T("");
 gCleoSdkGTASADir <- _T("");
 gCleoSdkGTAVCDir <- _T("");
 gCleoSdkGTA3Dir <- _T("");
+gMoonLoaderSdkGTASADir <- _T("");
 gDirectXDir <- _T("");
 gRwD3d9Dir <- _T("");
 
-function BeginWizard()
-{
+function BeginWizard() {
     Wizard.AddProjectPathPage();
     Wizard.AddPage(_T("basicSetup"));
     Wizard.AddPage(_T("releaseSettings"));
@@ -45,8 +39,7 @@ function BeginWizard()
     Wizard.AddPage(_T("pathsSetup"));
 }
 
-function IsLibraryExtension(ext)
-{
+function IsLibraryExtension(ext) {
     local extLower = ext.Lower();
     return extLower.Matches(_T("asi")) ||
            extLower.Matches(_T("cleo")) ||
@@ -55,67 +48,45 @@ function IsLibraryExtension(ext)
            extLower.Matches(_T("sf"));
 }
 
-function GetFileNameExtension(filename)
-{
+function GetFileNameExtension(filename) {
     local lastDotPosition = -1;
-    for (local i = 0; i < filename.Length(); i++ )
-    {
+    for (local i = 0; i < filename.Length(); i++) {
         if (filename.GetChar(i) == '.')
-        {
             lastDotPosition = i;
-        }
     }
-    if (lastDotPosition != -1)
-    {
+    if (lastDotPosition != -1) {
         local extensionLength = filename.Length() - lastDotPosition - 1;
         if (extensionLength > 0)
-        {
             return filename.Mid(lastDotPosition, extensionLength);
-        }
     }
     return _T("");
 }
 
-function RemoveTrailingSpaces(str)
-{
+function RemoveTrailingSpaces(str) {
     local len = str.Length();
-    if (len > 0)
-    {
+    if (len > 0) {
         local strEndPos = len;
-        for (local i = len - 1; i >= 0; i -= 1)
-        {
+        for (local i = len - 1; i >= 0; i -= 1) {
             local c = str.GetChar(i);
             if (c == ' ' || c == '\t')
-            {
                 strEndPos = i;
-            }
             else
-            {
                 return str.Mid(0, strEndPos);
-            }
         }
     }
     return _T("");
 }
 
-function IsQuotesStartOrEnd(line, pos)
-{
-    if (line.GetChar(pos) == '"')
-    {
-        if (pos > 0)
-        {
+function IsQuotesStartOrEnd(line, pos) {
+    if (line.GetChar(pos) == '"') {
+        if (pos > 0) {
             local slashesCount = 0;
-            for (local i = pos - 1; i >= 0; i -= 1)
-            {
+            for (local i = pos - 1; i >= 0; i -= 1) {
                 local c = line.GetChar(i);
                 if (c == '\\')
-                {
                     slashesCount += 1;
-                }
                 else
-                {
                     return slashesCount % 2 == 0;
-                }
             }
             return slashesCount % 2 == 0;
         }
@@ -124,191 +95,147 @@ function IsQuotesStartOrEnd(line, pos)
     return false;
 }
 
-function SplitListLine(line)
-{
+function SplitListLine(line) {
     local entry = _T("");
     local ary = ::wxArrayString();
     local insideQuotes = false;
-    for (local i = 0; i < line.Length(); i += 1)
-    {
+    for (local i = 0; i < line.Length(); i += 1) {
         local c = line.GetChar(i);
-        if (!entry.IsEmpty())
-        {
-            if (insideQuotes)
-            {
-                if (IsQuotesStartOrEnd(line, i))
-                {
+        if (!entry.IsEmpty()) {
+            if (insideQuotes) {
+                if (IsQuotesStartOrEnd(line, i)) {
                     insideQuotes = false;
                     entry += _T("\"\\\"");
                 }
                 else
-                {
                     entry.AddChar(c);
-                }
             }
-            else
-            {
-                if (c == ';' || c == ',' || c == '\n' || c == '\r')
-                {
+            else {
+                if (c == ';' || c == ',' || c == '\n' || c == '\r') {
                     ary.Add(RemoveTrailingSpaces(entry), 1);
                     entry = _T("");
                 }
-                else
-                {
-                    if (IsQuotesStartOrEnd(line, i))
-                    {
+                else {
+                    if (IsQuotesStartOrEnd(line, i)) {
                         insideQuotes = true;
                         entry += _T("\"\\\"");
                     }
                     else
-                    {
                         entry.AddChar(c);
-                    }
                 }
             }
         }
-        else
-        {
-            if (c != ';' && c != ',' && c != '\n' && c != '\r' && c != '\t' && c != ' ')
-            {
-                if (IsQuotesStartOrEnd(line, i))
-                {
+        else {
+            if (c != ';' && c != ',' && c != '\n' && c != '\r' && c != '\t' && c != ' ') {
+                if (IsQuotesStartOrEnd(line, i)) {
                     insideQuotes = true;
                     entry += _T("\"\\\"");
                 }
                 else
-                {
                     entry.AddChar(c);
-                }
             }
         }
     }
     if (!entry.IsEmpty())
-    {
         ary.Add(RemoveTrailingSpaces(entry), 1);
-    }
     return ary;
 }
 
-function NormalisePath(path)
-{
+function NormalisePath(path) {
     local newPath = path + _T("");
     newPath.Replace(_T("/"), _T("\\"), true);
     local len = newPath.Length();
-    if (len > 0)
-    {
+    if (len > 0) {
         local c = newPath.GetChar(len - 1);
         if (c != '\\')
-        {
             newPath.AddChar('\\');
-        }
     }
     return newPath;
 }
 
-function FormatName(line, defaultValue1, defaultValue2, gameId, gameOutputDir, configName)
-{
-    local newLine = line + _T("");
+function FormatName(name, defaultValue, gameId, gameDir, outDirName, configName) {
+    local newLine = name + _T("");
     if (newLine.IsEmpty())
-    {
-        if (defaultValue1.IsEmpty())
-        {
-            return defaultValue2;
-        }
-        return defaultValue1;
-    }
+        return defaultValue;
     newLine.Replace(_T("$projectname$"), GetFixedProjectName(Wizard.GetProjectName()), true);
     newLine.Replace(_T("$PROJECTNAME$"), GetFixedProjectName(Wizard.GetProjectName()), true);
     newLine.Replace(_T("$projectdir$"), _T("$(PROJECT_DIR)"), true);
     newLine.Replace(_T("$PROJECTDIR$"), _T("$(PROJECT_DIR)"), true);
-    if (!configName.IsEmpty())
-    {
+    if (!configName.IsEmpty()) {
         newLine.Replace(_T("$config$"), configName);
         newLine.Replace(_T("$CONFIG$"), configName);
     }
-    if (!gameId.IsEmpty())
-    {
+    if (!gameId.IsEmpty()) {
         newLine.Replace(_T("$game$"), gameId, true);
         newLine.Replace(_T("$GAME$"), gameId, true);
         newLine.Replace(_T("$gamelow$"), gameId.Lower(), true);
         newLine.Replace(_T("$GAMELOW$"), gameId.Lower(), true);
-        if (gameId.Matches(_T("SA")))
-        {
+        if (gameId.Matches(_T("SA"))) {
             newLine.Replace(_T("$gamename$"), _T("San Andreas"), true);
             newLine.Replace(_T("$GAMENAME$"), _T("San Andreas"), true);
             newLine.Replace(_T("$gamealt$"), _T("SA"), true);
             newLine.Replace(_T("$GAMEALT$"), _T("SA"), true);
+            newLine.Replace(_T("$gamealtlow$"), _T("sa"), true);
+            newLine.Replace(_T("$GAMEALTLOW$"), _T("sa"), true);
         }
-        else if (gameId.Matches(_T("VC")))
-        {
+        else if (gameId.Matches(_T("VC"))) {
             newLine.Replace(_T("$gamename$"), _T("Vice City"), true);
             newLine.Replace(_T("$GAMENAME$"), _T("Vice City"), true);
             newLine.Replace(_T("$gamealt$"), _T("VC"), true);
             newLine.Replace(_T("$GAMEALT$"), _T("VC"), true);
+            newLine.Replace(_T("$gamealtlow$"), _T("vc"), true);
+            newLine.Replace(_T("$GAMEALTLOW$"), _T("vc"), true);
         }
-        else
-        {
+        else {
             newLine.Replace(_T("$gamename$"), _T("3"), true);
             newLine.Replace(_T("$GAMENAME$"), _T("3"), true);
             newLine.Replace(_T("$gamealt$"), _T("3"), true);
             newLine.Replace(_T("$GAMEALT$"), _T("3"), true);
+            newLine.Replace(_T("$gamealtlow$"), _T("3"), true);
+            newLine.Replace(_T("$GAMEALTLOW$"), _T("3"), true);
         }
     }
-    if (!gameOutputDir.IsEmpty())
-    {
-        newLine.Replace(_T("$gameoutputdir$"), gameOutputDir, true);
-        newLine.Replace(_T("$GAMEOUTPUTDIR$"), gameOutputDir, true);
+    if (!gameDir.IsEmpty()) {
+        newLine.Replace(_T("$gamedir$"), gameDir, true);
+        newLine.Replace(_T("$GAMEDIR$"), gameDir, true);
+    }
+    if (!outDirName.IsEmpty()) {
+        newLine.Replace(_T("$outdirname$"), outDirName, true);
+        newLine.Replace(_T("$OUTDIRNAME$"), outDirName, true);
     }
     return newLine;
 }
 
-function GetConfigName(isDebug)
-{
+function GetConfigName(isDebug) {
     if (isDebug)
-    {
         return _T("Debug");
-    }
     return _T("Release");
 }
 
-function AddAdditionalToTarget(target, isDebug, gameAbbr, defaultOutputDir, includeDirs, libraryDirs, libraries, defines)
-{
+function AddAdditionalToTarget(target, isDebug, gameAbbr, gameDir, outDirName, includeDirs, libraryDirs, libraries, defines) {
     local ary = SplitListLine(includeDirs);
     for (local i = 0; i < ary.GetCount(); i += 1)
-    {
-        target.AddIncludeDir(FormatName(ary.Item(i), _T(""), _T(""), gameAbbr, defaultOutputDir, GetConfigName(isDebug)));
-    }
+        target.AddIncludeDir(FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
     ary = SplitListLine(libraryDirs);
     for (local i = 0; i < ary.GetCount(); i += 1)
-    {
-        target.AddLibDir(FormatName(ary.Item(i), _T(""), _T(""), gameAbbr, defaultOutputDir, GetConfigName(isDebug)));
-    }
+        target.AddLibDir(FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
     ary = SplitListLine(libraries);
     for (local i = 0; i < ary.GetCount(); i += 1)
-    {
-        target.AddLinkLib(FormatName(ary.Item(i), _T(""), _T(""), gameAbbr, defaultOutputDir, GetConfigName(isDebug)));
-    }
+        target.AddLinkLib(FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
     ary = SplitListLine(defines);
     for (local i = 0; i < ary.GetCount(); i += 1)
-    {
-        target.AddCompilerOption(_T("-D") + FormatName(ary.Item(i), _T(""), _T(""), gameAbbr, defaultOutputDir, GetConfigName(isDebug)));
-    }
+        target.AddCompilerOption(_T("-D") + FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
 }
 
-function CreateNewBuildTarget(project, targetName, gameId, isDebug)
-{
+function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     local gameAbbr = gameId.Upper();
     local gameAbbrLow = gameId.Lower();
     local baseTargetName = Wizard.GetReleaseName(); 
     if (isDebug)
-    {
         baseTargetName = Wizard.GetDebugName();
-    }
     local target = project.DuplicateBuildTarget(baseTargetName, targetName);
     if (IsNull(target))
-    {
         return;
-    }
     target.SetTargetType(ttDynamicLib);
     target.SetCreateStaticLib(false);
     target.SetCreateDefFile(false);
@@ -318,75 +245,52 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug)
     target.AddCompilerOption(_T("-m32"));
     target.AddCompilerOption(_T("-fpermissive"));
     local configName = GetConfigName(isDebug);
-    if (isDebug)
-    {
+    if (isDebug) {
         DebugSymbolsOn(target, Wizard.GetCompilerID());
         target.AddCompilerOption(_T("-D_DEBUG"));
     }
-    else
-    {
+    else {
         OptimizationsOn(target, Wizard.GetCompilerID());
         target.AddCompilerOption(_T("-DNDEBUG"));
     }
-    
-    local defaultOutputDir1;
-    local defaultOutputDir2;
-    if (gCleoPlugin)
-    {
-        defaultOutputDir2 = _T("$(GTA_") + gameAbbr + _T("_CLEO_DIR)");
-        if (gameAbbr.Matches(_T("SA")))
-        {
-            defaultOutputDir1 = gCleoPluginsGTASADir + _T("");
-        }
-        else if (gameAbbr.Matches(_T("VC")))
-        {
-            defaultOutputDir1 = gCleoPluginsGTAVCDir + _T("");
-        }
-        else
-        {
-            defaultOutputDir1 = gCleoPluginsGTA3Dir + _T("");
-        }
-    }
+    local gameDir;
+    local outDirName;
+    if (gameAbbr.Matches(_T("SA")))
+        gameDir = gGTASADir + _T("");
+    else if (gameAbbr.Matches(_T("VC")))
+        gameDir = gGTAVCDir + _T("");
     else
-    {
-        defaultOutputDir2 = _T("$(GTA_") + gameAbbr + _T("_ASI_DIR)");
-        if (gameAbbr.Matches(_T("SA")))
-        {
-            defaultOutputDir1 = gAsiPluginsGTASADir + _T("");
-        }
-        else if (gameAbbr.Matches(_T("VC")))
-        {
-            defaultOutputDir1 = gAsiPluginsGTAVCDir + _T("");
-        }
-        else
-        {
-            defaultOutputDir1 = gAsiPluginsGTA3Dir + _T("");
-        }
-    }
+        gameDir = gGTA3Dir + _T("");
     
-    local outputDir = FormatName(gOutputDirectory, defaultOutputDir1, defaultOutputDir2, gameAbbr, defaultOutputDir1, configName);
+    if (gPluginType == 0) // ASI Plugin
+        outDirName = _T("scripts");
+    else if (gPluginType == 1) // CLEO Plugin
+        outDirName = _T("cleo");
+    else if (gPluginType == 2) // MoonLoader Module
+        outDirName = _T("moonloader\\lib");
+    else // DLL Library
+        outDirName = _T("");
+    local outputDir = FormatName(gOutputDirectory, _T("$(PROJECT_DIR)\\output"), gameAbbr, gameDir, outDirName, configName);
     outputDir = NormalisePath(outputDir);
-    local targetName = FormatName(gPluginName, _T("$(PROJECT_NAME)"), _T(""), gameAbbr, _T(""), configName);
-    local targetExt = _T("asi");
+    local targetName = FormatName(gPluginName, GetFixedProjectName(Wizard.GetProjectName()), gameAbbr, _T(""), _T(""), configName);
+    local targetExt;
     local fileExt = GetFileNameExtension(targetName);
-    if (!fileExt.IsEmpty() && IsLibraryExtension(fileExt))
-    {
+    if (!fileExt.IsEmpty() && IsLibraryExtension(fileExt)) {
         targetExt = fileExt + _T("");
         targetName = targetName.Mid(0, targetName.Length() - fileExt.Length());
     }
-    else
-    {
-        if (gCleoPlugin)
-        {
+    else {
+        if (gPluginType == 1) // CLEO Plugin
             targetExt = _T("cleo");
-        }
+        else if (gPluginType == 2 || gPluginType == 3) // MoonLoader Module or DLL Library
+            targetExt = _T("dll");
+        else // ASI Plugin
+            targetExt = _T("asi");
     }
     if (isDebug)
-    {
         targetName += _T("_d");
-    }
     target.SetOutputFilename(outputDir + targetName + _T(".") + targetExt);
-    local pluginSdkDir = FormatName(gPluginSdkDir, _T("$(PLUGIN_SDK_DIR)"), _T(""), gameAbbr, defaultOutputDir1, configName);
+    local pluginSdkDir = FormatName(gPluginSdkDir, _T("$(PLUGIN_SDK_DIR)"), gameAbbr, gameDir, outDirName, configName);
     pluginSdkDir = NormalisePath(pluginSdkDir);
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\"));
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\game_") + gameAbbrLow + _T("\\"));
@@ -394,19 +298,14 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug)
     local pathsLibName = _T("paths");
     local pluginLibName = _T("plugin");
     if (!gameAbbr.Matches(_T("SA")))
-    {
         pluginLibName += _T("_") + gameAbbrLow;
-    }
-    if (isDebug)
-    {
+    if (isDebug) {
         pathsLibName += _T("_d");
         pluginLibName += _T("_d");
     }
     target.AddLinkLib(pathsLibName);
     target.AddLinkLib(pluginLibName);
-    
-    if (gameAbbr.Matches(_T("SA")))
-    {
+    if (gameAbbr.Matches(_T("SA"))) {
         target.AddCompilerOption(_T("-DGTASA"));
         target.AddCompilerOption(_T("-DGTAGAME_NAME=\"\\\"San Andreas\"\\\""));
         target.AddCompilerOption(_T("-DGTAGAME_ABBR=\"\\\"SA\"\\\""));
@@ -414,8 +313,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug)
         target.AddCompilerOption(_T("-DGTAGAME_PROTAGONISTNAME=\"\\\"CJ\"\\\""));
         target.AddCompilerOption(_T("-DGTAGAME_CITYNAME=\"\\\"San Andreas\"\\\""));
     }
-    else if (gameAbbr.Matches(_T("VC")))
-    {
+    else if (gameAbbr.Matches(_T("VC"))) {
         target.AddCompilerOption(_T("-DGTAVC"));
         target.AddCompilerOption(_T("-DGTAGAME_NAME=\"\\\"Vice City\"\\\""));
         target.AddCompilerOption(_T("-DGTAGAME_ABBR=\"\\\"VC\"\\\""));
@@ -423,8 +321,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug)
         target.AddCompilerOption(_T("-DGTAGAME_PROTAGONISTNAME=\"\\\"Tommy\"\\\""));
         target.AddCompilerOption(_T("-DGTAGAME_CITYNAME=\"\\\"Vice City\"\\\""));
     }
-    else
-    {
+    else {
         target.AddCompilerOption(_T("-DGTA3"));
         target.AddCompilerOption(_T("-DGTAGAME_NAME=\"\\\"3\"\\\""));
         target.AddCompilerOption(_T("-DGTAGAME_ABBR=\"\\\"3\"\\\""));
@@ -432,133 +329,130 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug)
         target.AddCompilerOption(_T("-DGTAGAME_PROTAGONISTNAME=\"\\\"Claude\"\\\""));
         target.AddCompilerOption(_T("-DGTAGAME_CITYNAME=\"\\\"Liberty City\"\\\""));
     }
-    
-    if (gDirectX)
-    {
-        local dxSdkDir = FormatName(gDirectXDir, _T("$(DIRECTX9_SDK_DIR)"), _T(""), gameAbbr, defaultOutputDir1, configName);
+    if (gDirectX) {
+        local dxSdkDir = FormatName(gDirectXDir, _T("$(DIRECTX9_SDK_DIR)"), gameAbbr, gameDir, outDirName, configName);
         dxSdkDir = NormalisePath(dxSdkDir);
         target.AddIncludeDir(dxSdkDir + _T("Include\\"));
         target.AddLibDir(dxSdkDir + _T("Lib\\x86\\"));
         target.AddLinkLib(_T("d3d9"));
         target.AddLinkLib(_T("d3dx9"));
-        if (gameAbbr.Matches(_T("VC")) || gameAbbr.Matches(_T("III")))
-        {
-            local rwD3D9Dir = FormatName(gRwD3d9Dir, _T("$(RWD3D9_DIR)"), _T(""), gameAbbr, defaultOutputDir1, configName);
+        if (gameAbbr.Matches(_T("VC")) || gameAbbr.Matches(_T("III"))) {
+            local rwD3D9Dir = FormatName(gRwD3d9Dir, _T("$(RWD3D9_DIR)"), gameAbbr, gameDir, outDirName, configName);
             rwD3D9Dir = NormalisePath(rwD3D9Dir);
             target.AddIncludeDir(rwD3D9Dir + _T("source\\"));
             target.AddLibDir(rwD3D9Dir + _T("libs\\"));
             target.AddLinkLib(_T("rwd3d9"));
         }
     }
-    if (gCleoSDK)
-    {
-        local cleoSdkDir = FormatName(gCleoSdkGTASADir, _T("$(CLEO_SDK_") + gameAbbr + _T("_DIR)"), _T(""), gameAbbr, defaultOutputDir1, configName);
+    if (gPluginType == 1) { // CLEO Plugin
+        local cleoSdkDir = FormatName(gCleoSdkGTASADir, _T("$(CLEO_SDK_") + gameAbbr + _T("_DIR)"), gameAbbr, gameDir, outDirName, configName);
         cleoSdkDir = NormalisePath(cleoSdkDir);
         target.AddIncludeDir(cleoSdkDir);
         target.AddLibDir(cleoSdkDir);
         if (gameAbbr.Matches(_T("SA")))
-        {
             target.AddLinkLib(_T("cleo"));
-        }
         else
-        {
             target.AddLinkLib(gameAbbr + _T(".CLEO"));
-        }
+    }
+    else if (gPluginType == 2) { // MoonLoader Module
+        local moonloaderSdkDir = FormatName(gMoonLoaderSdkGTASADir, _T("$(MOONLOADER_SDK_SA_DIR)"), gameAbbr, gameDir, outDirName, configName);
+        moonloaderSdkDir = NormalisePath(moonloaderSdkDir);
+        target.AddIncludeDir(moonloaderSdkDir + _T("src\\"));
+        target.AddIncludeDir(moonloaderSdkDir + _T("src\\libs\\lua\\"));
+        target.AddIncludeDir(moonloaderSdkDir + _T("src\\libs\\sol2\\"));
+        target.AddLibDir(moonloaderSdkDir + _T("src\\libs\\lua\\"));
+        target.AddLinkLib(_T("lua51"));
+        target.AddCompilerOption(_T("-DLUA_BUILD_AS_DLL"));
+        target.AddCompilerOption(_T("-DMODULE_NAME=\"") + GetFixedProjectName(Wizard.GetProjectName()) + _T("\""));
     }
     if (gLACompatibility)
-    {
         target.AddCompilerOption(_T("-D_PLUGIN_LA_COMP"));
-    }
-    
     if (!isDebug || gDebugSettingsSameAsRelease)
-    {
-        AddAdditionalToTarget(target, isDebug, gameAbbr, defaultOutputDir1, gReleaseIncludeDirs, gReleaseLibraryDirs, gReleaseDependencies, gReleaseDefinitions);
-    }
+        AddAdditionalToTarget(target, isDebug, gameAbbr, gameDir, outDirName, gReleaseIncludeDirs, gReleaseLibraryDirs, gReleaseDependencies, gReleaseDefinitions);
     else
-    {
-        AddAdditionalToTarget(target, isDebug, gameAbbr, defaultOutputDir1, gDebugIncludeDirs, gDebugLibraryDirs, gDebugDependencies, gDebugDefinitions);
-    }
+        AddAdditionalToTarget(target, isDebug, gameAbbr, gameDir, outDirName, gDebugIncludeDirs, gDebugLibraryDirs, gDebugDependencies, gDebugDefinitions);
 }
 
-function SetupProject(project)
-{
-    if (gGameSA)
-    {
+function SetupProject(project) {
+    if (gGameSA) {
         CreateNewBuildTarget(project, _T("GTASA Release"), _T("SA"), false);
         CreateNewBuildTarget(project, _T("GTASA Debug"), _T("SA"), true);
     }
-    if (gGameVC)
-    {
+    if (gGameVC) {
         CreateNewBuildTarget(project, _T("GTAVC Release"), _T("VC"), false);
         CreateNewBuildTarget(project, _T("GTAVC Debug"), _T("VC"), true);
     }
-    if (gGameIII)
-    {
+    if (gGameIII) {
         CreateNewBuildTarget(project, _T("GTA3 Release"), _T("III"), false);
         CreateNewBuildTarget(project, _T("GTA3 Debug"), _T("III"), true);
     }
     project.RemoveBuildTarget(Wizard.GetDebugName());
     project.RemoveBuildTarget(Wizard.GetReleaseName());
+    if (gPluginType == 2) { // MoonLoader Module
+        local pchfile = project.GetFileByFilename(_T("pch.h"), true, true);
+        if (!IsNull(pchfile)) {
+            pchfile.compile = true;
+            pchfile.link = false;
+            pchfile.weight = 0;
+            project.SetModeForPCH(pchSourceDir);
+            project.AddCompilerOption(_T("-Winvalid-pch"));
+            project.AddCompilerOption(_T("-include pch.h"));
+        }
+    }
     return true;
 }
 
-function GetGeneratedFile(file_index)
-{
-    if (file_index == 0)
-    {
-        local projname = GetFixedProjectName(Wizard.GetProjectName());
-        local className = FormatName(gClassName, projname, _T(""), _T(""), _T(""), _T(""));
-        className = GetFixedProjectName(className);
-        local instanceName;
-        if (className.GetChar(0) >= 'A' && className.GetChar(0) <= 'Z')
-        {
-            local lowerLetter = _T("");
-            lowerLetter.AddChar(className.GetChar(0));
-            lowerLetter = lowerLetter.Lower();
-            instanceName = lowerLetter + className.Mid(1, className.Length() - 1);
-        }
-        else
-        {
-            if (className.GetChar(0) == '_')
-            {
-                instanceName = className + _T("_inst");
-            }
-            else
-            {
-                instanceName = _T("_") + className;
-            }
-        }
-        local path;
-        if (gCleoPlugin && gCleoSDK && gGameSA && !gGameVC && !gGameIII)
-        {
-            path = Wizard.FindTemplateFile(_T("pluginsdk/files/Main.Cleo.SA.cpp"));
-        }
-        else
-        {
-            path = Wizard.FindTemplateFile(_T("pluginsdk/files/Main.Asi.cpp"));
-        }
-        local code = IO.ReadFileContents(path);
-        code.Replace(_T("$projname$"), projname);
-        code.Replace(_T("$classname$"), className);
-        code.Replace(_T("$classinstancename$"), instanceName);
-        return projname + _T(".cpp;") + code;
+function GetCodeFromFile(filepath, projname, className, instanceName) {
+    local code = IO.ReadFileContents(Wizard.FindTemplateFile(filepath));
+    code.Replace(_T("$projname$"), projname);
+    code.Replace(_T("$classname$"), className);
+    code.Replace(_T("$classinstancename$"), instanceName);
+    return code;
+}
+
+function GetGeneratedFile(file_index) {
+    local projname = GetFixedProjectName(Wizard.GetProjectName());
+    local className = FormatName(gClassName, projname, _T(""), _T(""), _T(""), _T(""));
+    className = GetFixedProjectName(className);
+    local instanceName;
+    if (className.GetChar(0) >= 'A' && className.GetChar(0) <= 'Z') {
+        local lowerLetter = _T("");
+        lowerLetter.AddChar(className.GetChar(0));
+        lowerLetter = lowerLetter.Lower();
+        instanceName = lowerLetter + className.Mid(1, className.Length() - 1);
     }
+    else {
+        if (className.GetChar(0) == '_')
+            instanceName = className + _T("_inst");
+        else
+            instanceName = _T("_") + className;
+    }
+    if (file_index == 0) {
+        local path;
+        if (gPluginType == 1 && gGameSA && !gGameVC && !gGameIII) // CLEO Plugin
+            path = _T("pluginsdk/files/Main.Cleo.SA.cpp");
+        else if (gPluginType == 2 && gGameSA && !gGameVC && !gGameIII) // MoonLoader Module
+            path = _T("pluginsdk/files/Main.MoonLoader.SA.cpp");
+        else
+            path = _T("pluginsdk/files/Main.Asi.cpp");
+        return projname + _T(".cpp;") + GetCodeFromFile(path, projname, className, instanceName);
+    }
+    else if (file_index == 1 && gPluginType == 2) // MoonLoader Module
+        return _T("pch.h;") + GetCodeFromFile(_T("pluginsdk/files/Pch.MoonLoader.h"), projname, className, instanceName);
     return _T("");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // Basic setup page
-//
 ////////////////////////////////////////////////////////////////////////////////
 
-function AnyGameChecked()
-{
+function AnyGameChecked() {
     return Wizard.IsCheckboxChecked(_T("chkGTASA")) || Wizard.IsCheckboxChecked(_T("chkGTAVC")) || Wizard.IsCheckboxChecked(_T("chkGTA3"));
 }
 
-function BasicSetupSwitchComponents(enable)
-{
+function BasicSetupSwitchComponents(enable) {
+    Wizard.EnableWindow(_T("sttPluginType"), enable);
+    Wizard.EnableWindow(_T("cmbPluginType"), enable);
     Wizard.EnableWindow(_T("sttPluginName"), enable);
     Wizard.EnableWindow(_T("txtPluginName"), enable);
     Wizard.EnableWindow(_T("sttClassName"), enable);
@@ -573,68 +467,96 @@ function BasicSetupSwitchComponents(enable)
     Wizard.EnableWindow(_T("btnProjectFolder"), enable);
 }
 
-function BasicSetupCheckForComponentsSwitch(thisCheckbox, secondCheckbox, thirdCheckbox)
-{
-    if (Wizard.IsCheckboxChecked(thisCheckbox))
-    {
+function BasicSetupCheckForComponentsSwitch(thisCheckbox, secondCheckbox, thirdCheckbox) {
+    if (Wizard.IsCheckboxChecked(thisCheckbox)) {
         if (!Wizard.IsCheckboxChecked(secondCheckbox) && !Wizard.IsCheckboxChecked(thirdCheckbox))
-        {
             BasicSetupSwitchComponents(true);
-        }
     }
-    else
-    {
+    else {
         if (!Wizard.IsCheckboxChecked(secondCheckbox) && !Wizard.IsCheckboxChecked(thirdCheckbox))
-        {
             BasicSetupSwitchComponents(false);
-        }
     }
 }
 
-function OnClick_chkGTASA()
-{
+function OnClick_chkGTASA() {
     BasicSetupCheckForComponentsSwitch(_T("chkGTASA"), _T("chkGTAVC"), _T("chkGTA3"));
 }
 
-function OnClick_chkGTAVC()
-{
+function OnClick_chkGTAVC() {
+    if (Wizard.GetComboboxSelection(_T("cmbPluginType")) == 2 && Wizard.IsCheckboxChecked(_T("chkGTAVC"))) {
+        if (!Wizard.IsCheckboxChecked(_T("chkGTASA"))) {
+            Wizard.SetComboboxSelection(_T("cmbPluginType"), 0);
+            gPluginType = 0; // ASI Plugin
+        }
+        else {
+            Wizard.CheckCheckbox(_T("chkGTAVC"), false);
+            ShowWarning(_T("MoonLoader Module can't be created for GTA Vice City"));
+        }
+    }
     BasicSetupCheckForComponentsSwitch(_T("chkGTAVC"), _T("chkGTASA"), _T("chkGTA3"));
 }
 
-function OnClick_chkGTA3()
-{
+function OnClick_chkGTA3() {
+    if (Wizard.GetComboboxSelection(_T("cmbPluginType")) == 2 && Wizard.IsCheckboxChecked(_T("chkGTA3"))) {
+        if (!Wizard.IsCheckboxChecked(_T("chkGTASA"))) {
+            Wizard.SetComboboxSelection(_T("cmbPluginType"), 0);
+            gPluginType = 0; // ASI Plugin
+        }
+        else {
+            Wizard.CheckCheckbox(_T("chkGTA3"), false);
+            ShowWarning(_T("MoonLoader Module can't be created for GTA 3"));
+        }
+    }
     BasicSetupCheckForComponentsSwitch(_T("chkGTA3"), _T("chkGTASA"), _T("chkGTAVC"));
 }
 
-function OnClick_chkCleoPlugin()
-{
-    Wizard.CheckCheckbox(_T("chkCleoSdk"), Wizard.IsCheckboxChecked(_T("chkCleoPlugin")));
+function OnClick_cmbPluginType() {
+    local selectedItemId = Wizard.GetComboboxSelection(_T("cmbPluginType"));
+    if (selectedItemId == 2 && !Wizard.IsCheckboxChecked(_T("chkGTASA"))) {
+        Wizard.SetComboboxSelection(_T("cmbPluginType"), gPluginType);
+        ShowWarning(_T("MoonLoader Module can be created for GTA San Andreas only"));
+    }
+    else if (selectedItemId == 2 && (Wizard.IsCheckboxChecked(_T("chkGTAVC")) || Wizard.IsCheckboxChecked(_T("chkGTA3")))) {
+        Wizard.SetComboboxSelection(_T("cmbPluginType"), gPluginType);
+        local errMessage = _T("MoonLoader Module can't be created for ");
+        if (Wizard.IsCheckboxChecked(_T("chkGTA3")))
+            errMessage += _T("GTA 3");
+        if (Wizard.IsCheckboxChecked(_T("chkGTAVC"))) {
+            if (Wizard.IsCheckboxChecked(_T("chkGTA3")))
+                errMessage += _T(" and ");
+            errMessage += _T("GTA Vice City");
+        }
+        ShowWarning(errMessage);
+    }
+    else
+        gPluginType = selectedItemId;
 }
 
-function OnClick_btnGameFolder()
-{
-    Wizard.SetTextControlValue(_T("txtOutputDirectory"), _T("$gameoutputdir$"));
+function OnClick_btnGameFolder() {
+    Wizard.SetTextControlValue(_T("txtOutputDirectory"), _T("$gamedir$\\$outdirname$"));
 }
 
-function OnClick_btnProjectFolder()
-{
+function OnClick_btnProjectFolder() {
     Wizard.SetTextControlValue(_T("txtOutputDirectory"), _T("$projectdir$\\output"));
 }
 
-function OnLeave_basicSetup(forward)
-{
-    if (forward && !AnyGameChecked())
-    {
-        ShowWarning(_T("Please select target game(s)"));
-        return false;
+function OnLeave_basicSetup(forward) {
+    if (forward) {
+        if (!AnyGameChecked()) {
+            ShowWarning(_T("Please select target game(s)"));
+            return false;
+        }
+        gPluginType = Wizard.GetComboboxSelection(_T("cmbPluginType"));
+        if (forward && gPluginType == -1) {
+            ShowWarning(_T("Please select plugin type"));
+            return false;
+        }
     }
     gGameSA = Wizard.IsCheckboxChecked(_T("chkGTASA"));
     gGameVC = Wizard.IsCheckboxChecked(_T("chkGTAVC"));
     gGameIII = Wizard.IsCheckboxChecked(_T("chkGTA3"));
     gPluginName = Wizard.GetTextControlValue(_T("txtPluginName"));
     gClassName = Wizard.GetTextControlValue(_T("txtClassName"));
-    gCleoPlugin = Wizard.IsCheckboxChecked(_T("chkCleoPlugin"));
-    gCleoSDK = Wizard.IsCheckboxChecked(_T("chkCleoSdk"));
     gDirectX = Wizard.IsCheckboxChecked(_T("chkUseDirectX"));
     gLACompatibility = Wizard.IsCheckboxChecked(_T("chkLACompatibility"));
     gOutputDirectory = Wizard.GetTextControlValue(_T("txtOutputDirectory"));
@@ -647,8 +569,7 @@ function OnLeave_basicSetup(forward)
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-function OnLeave_releaseSettings(forward)
-{
+function OnLeave_releaseSettings(forward) {
     gReleaseIncludeDirs = Wizard.GetTextControlValue(_T("txtReleaseAdditionalIncludeDirs"));
     gReleaseLibraryDirs = Wizard.GetTextControlValue(_T("txtReleaseAdditionalLibraryDirs"));
     gReleaseDependencies = Wizard.GetTextControlValue(_T("txtReleaseAdditionalDependencies"));
@@ -657,21 +578,17 @@ function OnLeave_releaseSettings(forward)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // Debug settings page
-//
 ////////////////////////////////////////////////////////////////////////////////
 
-function DebugSettingsCopyFromRelease()
-{
+function DebugSettingsCopyFromRelease() {
     Wizard.SetTextControlValue(_T("txtDebugAdditionalIncludeDirs"), gReleaseIncludeDirs);
     Wizard.SetTextControlValue(_T("txtDebugAdditionalLibraryDirs"), gReleaseLibraryDirs);
     Wizard.SetTextControlValue(_T("txtDebugAdditionalDependencies"), gReleaseDependencies);
     Wizard.SetTextControlValue(_T("txtDebugAdditionalPreprocessorDefinitions"), gReleaseDefinitions);
 }
 
-function DebugSettingsSwitchComponents(enable)
-{
+function DebugSettingsSwitchComponents(enable) {
     Wizard.EnableWindow(_T("sttDebugAdditionalIncludeDirs"), enable);
     Wizard.EnableWindow(_T("txtDebugAdditionalIncludeDirs"), enable);
     Wizard.EnableWindow(_T("sttDebugAdditionalLibraryDirs"), enable);
@@ -682,29 +599,20 @@ function DebugSettingsSwitchComponents(enable)
     Wizard.EnableWindow(_T("txtDebugAdditionalPreprocessorDefinitions"), enable);
 }
 
-function OnClick_chkDebugSettingsSameAsRelease()
-{
+function OnClick_chkDebugSettingsSameAsRelease() {
     if (Wizard.IsCheckboxChecked(_T("chkDebugSettingsSameAsRelease")))
-    {
         DebugSettingsSwitchComponents(false);
-    }
     else
-    {
         DebugSettingsSwitchComponents(true);
-    }
     DebugSettingsCopyFromRelease();
 }
 
-function OnEnter_debugSettings(forward)
-{
+function OnEnter_debugSettings(forward) {
     if (forward && Wizard.IsCheckboxChecked(_T("chkDebugSettingsSameAsRelease")))
-    {
         DebugSettingsCopyFromRelease();
-    }
 }
 
-function OnLeave_debugSettings(forward)
-{
+function OnLeave_debugSettings(forward) {
     gDebugSettingsSameAsRelease = Wizard.IsCheckboxChecked(_T("chkDebugSettingsSameAsRelease"));
     gDebugIncludeDirs = Wizard.GetTextControlValue(_T("txtDebugAdditionalIncludeDirs"));
     gDebugLibraryDirs = Wizard.GetTextControlValue(_T("txtDebugAdditionalLibraryDirs"));
@@ -714,68 +622,59 @@ function OnLeave_debugSettings(forward)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // Setup paths page
-//
 ////////////////////////////////////////////////////////////////////////////////
 
-function PathsSetupSwitchComponentsForGame(enable, asiDirCompName, cleoDirCompName, cleoSdkDirCompName)
-{
-    if (enable)
-    {
-        local wantsGameDir = gOutputDirectory.Find(_T("$gameoutputdir$")) != -1;
-        Wizard.EnableWindow(_T("stt") + cleoDirCompName, gCleoPlugin && wantsGameDir);
-        Wizard.EnableWindow(_T("txt") + cleoDirCompName, gCleoPlugin && wantsGameDir);
-        Wizard.EnableWindow(_T("stt") + asiDirCompName, !gCleoPlugin && wantsGameDir);
-        Wizard.EnableWindow(_T("txt") + asiDirCompName, !gCleoPlugin && wantsGameDir);
-        Wizard.EnableWindow(_T("stt") + cleoSdkDirCompName, gCleoSDK);
-        Wizard.EnableWindow(_T("txt") + cleoSdkDirCompName, gCleoSDK);
+function PathsSetupSwitchComponentsForGame(enable, gameDirCompName, cleoSdkDirCompName) {
+    if (enable) {
+        local wantsGameDir = gOutputDirectory.Find(_T("$gamedir$")) != -1;
+        Wizard.EnableWindow(_T("stt") + gameDirCompName, wantsGameDir);
+        Wizard.EnableWindow(_T("txt") + gameDirCompName, wantsGameDir);
+        Wizard.EnableWindow(_T("stt") + cleoSdkDirCompName, gPluginType == 1); // CLEO Plugin
+        Wizard.EnableWindow(_T("txt") + cleoSdkDirCompName, gPluginType == 1); // CLEO Plugin
     }
-    else
-    {
-        Wizard.EnableWindow(_T("stt") + cleoDirCompName, false);
-        Wizard.EnableWindow(_T("txt") + cleoDirCompName, false);
-        Wizard.EnableWindow(_T("stt") + asiDirCompName, false);
-        Wizard.EnableWindow(_T("txt") + asiDirCompName, false);
+    else {
+        Wizard.EnableWindow(_T("stt") + gameDirCompName, false);
+        Wizard.EnableWindow(_T("txt") + gameDirCompName, false);
         Wizard.EnableWindow(_T("stt") + cleoSdkDirCompName, false);
         Wizard.EnableWindow(_T("txt") + cleoSdkDirCompName, false);
     }
 }
 
-function PathsSetupSwitchDirectX(enable)
-{
+function PathsSetupSwitchMoonLoader(enable) {
+    Wizard.EnableWindow(_T("sttMoonLoaderSdkDir"), enable);
+    Wizard.EnableWindow(_T("txtMoonLoaderSdkDir"), enable);
+}
+
+function PathsSetupSwitchDirectX(enable) {
     Wizard.EnableWindow(_T("sttDirectXSdkDir"), enable);
     Wizard.EnableWindow(_T("txtDirectXSdkDir"), enable);
 }
 
-function PathsSetupSwitchRwD3D9(enable)
-{
+function PathsSetupSwitchRwD3D9(enable) {
     Wizard.EnableWindow(_T("sttRwD3d9Dir"), enable);
     Wizard.EnableWindow(_T("txtRwD3d9Dir"), enable);
 }
 
-function OnLeave_pathsSetup(forward)
-{
+function OnLeave_pathsSetup(forward) {
     gPluginSdkDir = Wizard.GetTextControlValue(_T("txtPluginSdkDir"));
-    gAsiPluginsGTASADir = Wizard.GetTextControlValue(_T("txtGtaSaAsiDir"));
-    gAsiPluginsGTAVCDir = Wizard.GetTextControlValue(_T("txtGtaVcAsiDir"));
-    gAsiPluginsGTA3Dir = Wizard.GetTextControlValue(_T("txtGta3AsiDir"));
-    gCleoPluginsGTASADir = Wizard.GetTextControlValue(_T("txtGtaSaCleoDir"));
-    gCleoPluginsGTAVCDir = Wizard.GetTextControlValue(_T("txtGtaVcCleoDir"));
-    gCleoPluginsGTA3Dir = Wizard.GetTextControlValue(_T("txtGta3CleoDir"));
+    gGTASADir = Wizard.GetTextControlValue(_T("txtGtaSaAsiDir"));
+    gGTAVCDir = Wizard.GetTextControlValue(_T("txtGtaVcAsiDir"));
+    gGTA3Dir = Wizard.GetTextControlValue(_T("txtGta3AsiDir"));
     gCleoSdkGTASADir = Wizard.GetTextControlValue(_T("txtCleoSdkSaDir"));
     gCleoSdkGTAVCDir = Wizard.GetTextControlValue(_T("txtCleoSdkVcDir"));
     gCleoSdkGTA3Dir = Wizard.GetTextControlValue(_T("txtCleoSdk3Dir"));
+    gMoonLoaderSdkGTASADir = Wizard.GetTextControlValue(_T("txtMoonLoaderSdkDir"));
     gDirectXDir = Wizard.GetTextControlValue(_T("txtDirectXSdkDir"));
     gRwD3d9Dir = Wizard.GetTextControlValue(_T("txtRwD3d9Dir"));
     return true;
 }
 
-function OnEnter_pathsSetup(forward)
-{
-    PathsSetupSwitchComponentsForGame(gGameSA, _T("GtaSaAsiDir"), _T("GtaSaCleoDir"), _T("CleoSdkSaDir"));
-    PathsSetupSwitchComponentsForGame(gGameVC, _T("GtaVcAsiDir"), _T("GtaVcCleoDir"), _T("CleoSdkVcDir"));
-    PathsSetupSwitchComponentsForGame(gGameIII, _T("Gta3AsiDir"), _T("Gta3CleoDir"), _T("CleoSdk3Dir"));
+function OnEnter_pathsSetup(forward) {
+    PathsSetupSwitchComponentsForGame(gGameSA, _T("GtaSaDir"), _T("CleoSdkSaDir"));
+    PathsSetupSwitchComponentsForGame(gGameVC, _T("GtaVcDir"), _T("CleoSdkVcDir"));
+    PathsSetupSwitchComponentsForGame(gGameIII, _T("Gta3Dir"), _T("CleoSdk3Dir"));
+    PathsSetupSwitchMoonLoader(gGameSA && gPluginType == 2); // MoonLoader Module
     PathsSetupSwitchDirectX(gDirectX);
     PathsSetupSwitchRwD3D9(gDirectX && (gGameVC || gGameIII));
 }

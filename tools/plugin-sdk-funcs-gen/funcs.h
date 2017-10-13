@@ -1,6 +1,79 @@
 vtable 0
 end
 funcs
+cdecl bool CCustomCarPlateMgr::Initialise(void)                                            0x6FD500
+cdecl bool CCustomCarPlateMgr::GeneratePlateText(char *plateTextBuf,int length)                               0x6FD5B0
+cdecl bool CCustomCarPlateMgr::Shutdown(void)                                              0x6FD720
+cdecl uchar CCustomCarPlateMgr::GetMapRegionPlateDesign(void)                               0x6FD7A0
+cdecl void GetCharacterPositionInCharSet(char c, uint &outColumn, uint &outRow)                                                   0x6FD7C0
+cdecl bool CCustomCarPlateMgr::LoadPlatecharsetDat(char const*filename,uchar *data,int,int)            0x6FDC00
+cdecl bool RenderLicenseplateTextToRaster(char* text, RwRaster* charsetRaster, void *palette, RwRaster* resultRaster)                                                  0x6FDD70
+cdecl RpMaterial* CCustomCarPlateMgr::SetupMaterialPlatebackTexture(RpMaterial *material,uchar plateType)           0x6FDE50
+cdecl RwTexture* CCustomCarPlateMgr::CreatePlateTexture(char *text,uchar plateType)                            0x6FDEA0
+// 'data' is a pointer to RpGeometry
+cdecl RpMaterial* MaterialUpgradeSetCarplateTextureCB(RpMaterial *material, void *data)                                             0x6FDF50
+// 'data' is unused
+cdecl RpAtomic* AtomicUpgradeSetCarplateTextureCB(RpAtomic *atomic, void *data)                                               0x6FDFC0
+cdecl bool CCustomCarPlateMgr::SetupClumpAfterVehicleUpgrade(RpClump *clump,RpMaterial *plateMaterial,uchar plateType) 0x6FDFE0
+cdecl RpMaterial* CCustomCarPlateMgr::SetupMaterialPlateTexture(RpMaterial *material,char *plateText,uchar plateType)        0x6FE020
+// 'data' is a plate text (char *)
+cdecl RpMaterial* MaterialSetCarplateTextureCB(RpMaterial *material, void *data)                                                    0x6FE060
+// 'data' is a plate text (char *)
+cdecl RpAtomic* AtomicSetCarplateTextureCB(RpAtomic *atomic, void *data)                                                      0x6FE0D0
+cdecl RpMaterial* CCustomCarPlateMgr::SetupClump(RpClump *clump,char *plateText,uchar plateType)                          0x6FE0F0
+end
+
+vtable 0
+end
+funcs
+cdecl void CClouds::Shutdown(void)                                                                       0x712FA0
+cdecl void CClouds::Update(void)                                                                         0x712FF0
+cdecl void CClouds::SetUpOneSkyPoly(CVector vert1pos,CVector vert2pos,CVector vert3pos,CVector vert4pos,uchar topRed,uchar topGreen,uchar topBlue,uchar bottomRed,uchar bottomGreen,uchar bottomBlue) 0x713060
+cdecl void CClouds::VolumetricCloudsInit(void)                                                           0x7131C0
+cdecl int CClouds::VolumetricClouds_GetFirstFreeSlot(void)                                              0x7135C0
+cdecl void CClouds::VolumetricClouds_Delete(int vcSlotIndex)                                                         0x7135F0
+cdecl float CClouds::VolumetricCloudsGetMaxDistance(void)                                                 0x713630
+cdecl void CClouds::MovingFogInit(void)                                                                  0x713660
+cdecl float CClouds::MovingFog_GetFXIntensity(void)                                                       0x7136D0
+cdecl CVector CClouds::MovingFog_GetWind(void)                                                              0x7136E0
+cdecl int CClouds::MovingFog_GetFirstFreeSlot(void)                                                     0x713710
+cdecl void CClouds::MovingFog_Delete(int fogSlotIndex)                                                                0x713730
+cdecl void CClouds::MovingFog_Create(CVector *posn)                                                          0x713760
+cdecl void CClouds::Init(void)                                                                           0x7138D0
+cdecl void CClouds::Render(void)                                                                         0x713950
+cdecl void CClouds::RenderSkyPolys(void)                                                                 0x714650
+cdecl void CClouds::RenderBottomFromHeight(void)                                                         0x7154B0
+cdecl void CClouds::VolumetricClouds_Create(CVector *posn)                                                   0x715F40
+cdecl void CClouds::VolumetricCloudsRender(void)                                                         0x716380
+cdecl void CClouds::MovingFog_Update(void)                                                               0x716B10
+cdecl void CClouds::MovingFogRender(void)                                                                0x716C90
+end
+
+vtable 0
+end
+funcs
+cdecl void CCredits::Render(void)                                            0x53D5B0
+cdecl void CCredits::PrintCreditText(float scaleX,float scaleY,ushort *text,uint &position,float currentOffset,bool highlighted) 0x5A8660
+cdecl void CCredits::PrintCreditSpace(float spaceSize,uint &position)                          0x5A87C0
+cdecl void CCredits::RenderCredits(void)                                     0x5A87F0
+cdecl void CCredits::Start(void)                                             0x7170E0
+cdecl void CCredits::Stop(void)                                              0x717100
+end
+
+vtable 0
+end
+funcs
+cdecl void CBirds::Init(void)                                        0x711EC0
+cdecl int CBirds::CreateNumberOfBirds(CVector pos,CVector destination,int count,int birdType,bool checkObstacles) 0x711EF0
+cdecl void CBirds::Shutdown(void)                                    0x712300
+cdecl void CBirds::Update(void)                                      0x712330
+cdecl void CBirds::Render(void)                                      0x712810
+cdecl void CBirds::HandleGunShot(CVector const*pointA,CVector const*pointB)      0x712E40
+end
+
+vtable 0
+end
+funcs
 cdecl void CPools::Initialise(void)                     0x4A1770
 cdecl void CPools::ShutDown(void)                       0x4A1880
 cdecl void CPools::CheckPoolsEmpty(void)                0x4A1A50
