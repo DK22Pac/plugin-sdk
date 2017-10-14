@@ -57,33 +57,33 @@ void CHud::ResetWastedText() {
 }
 
 // Converted from cdecl void CHud::SetBigMessage(ushort *text,ushort style) 0x5565B0
-void CHud::SetBigMessage(unsigned short* text, unsigned short style) {
-    plugin::Call<0x5565B0, unsigned short*, unsigned short>(text, style);
+void CHud::SetBigMessage(const GtaChar* text, unsigned short style) {
+    plugin::Call<0x5565B0, const GtaChar*, unsigned short>(text, style);
 }
 
 // Converted from cdecl void CHud::SetHelpMessage(ushort *text, bool quickMessage, bool permanent, bool addToBrief) 0x55BFC0
-void CHud::SetHelpMessage(unsigned short* text, bool quickMessage, bool permanent, bool addToBrief) {
-    plugin::Call<0x55BFC0, unsigned short*, bool, bool, bool>(text, quickMessage, permanent, addToBrief);
+void CHud::SetHelpMessage(const GtaChar* text, bool quickMessage, bool permanent, bool addToBrief) {
+    plugin::Call<0x55BFC0, const GtaChar*, bool, bool, bool>(text, quickMessage, permanent, addToBrief);
 }
 
 // Converted from cdecl void CHud::SetMessage(ushort *text) 0x5566A0
-void CHud::SetMessage(unsigned short* text) {
-    plugin::Call<0x5566A0, unsigned short*>(text);
+void CHud::SetMessage(const GtaChar* text) {
+    plugin::Call<0x5566A0, const GtaChar*>(text);
 }
 
 // Converted from cdecl void CHud::SetPagerMessage(ushort *text) 0x5565A0
-void CHud::SetPagerMessage(unsigned short* text) {
-    plugin::Call<0x5565A0, unsigned short*>(text);
+void CHud::SetPagerMessage(const GtaChar* text) {
+    plugin::Call<0x5565A0, const GtaChar*>(text);
 }
 
 // Converted from cdecl void CHud::SetVehicleName(ushort *text) 0x55BFA0
-void CHud::SetVehicleName(unsigned short* text) {
-    plugin::Call<0x55BFA0, unsigned short*>(text);
+void CHud::SetVehicleName(const GtaChar* text) {
+    plugin::Call<0x55BFA0, const GtaChar*>(text);
 }
 
 // Converted from cdecl void CHud::SetZoneName(ushort *text) 0x55C1F0
-void CHud::SetZoneName(unsigned short* text) {
-    plugin::Call<0x55C1F0, unsigned short*>(text);
+void CHud::SetZoneName(const GtaChar* text) {
+    plugin::Call<0x55C1F0, const GtaChar*>(text);
 }
 
 // Converted from cdecl void CHud::Shutdown(void) 0x55C7F0 
