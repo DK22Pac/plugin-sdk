@@ -153,56 +153,52 @@ function NormalisePath(path) {
     return newPath;
 }
 
-function FormatName(name, defaultValue, gameId, gameDir, outDirName, configName) {
+function StringReplace(str, what, to) {
+    str.Replace(what, to, true);
+    str.Replace(what.Upper(), to, true);
+    str.Replace(what.Lower(), to, true);
+}
+
+function FormatName(name, defaultValue, projectName, projectDir, gameId, gameDir, outDirName, configName) {
     local newLine = name + _T("");
     if (newLine.IsEmpty())
         return defaultValue;
-    newLine.Replace(_T("$projectname$"), GetFixedProjectName(Wizard.GetProjectName()), true);
-    newLine.Replace(_T("$PROJECTNAME$"), GetFixedProjectName(Wizard.GetProjectName()), true);
-    newLine.Replace(_T("$projectdir$"), _T("$(PROJECT_DIR)"), true);
-    newLine.Replace(_T("$PROJECTDIR$"), _T("$(PROJECT_DIR)"), true);
-    if (!configName.IsEmpty()) {
-        newLine.Replace(_T("$config$"), configName);
-        newLine.Replace(_T("$CONFIG$"), configName);
-    }
+    if (!projectName.IsEmpty())
+        StringReplace(newLine, _T("$ProjectName$"), projectName);
+    if (!projectDir.IsEmpty())
+        StringReplace(newLine, _T("$ProjectDir$"), projectDir);
+    if (!configName.IsEmpty())
+        StringReplace(newLine, _T("$Config$"), configName);
     if (!gameId.IsEmpty()) {
-        newLine.Replace(_T("$game$"), gameId, true);
-        newLine.Replace(_T("$GAME$"), gameId, true);
-        newLine.Replace(_T("$gamelow$"), gameId.Lower(), true);
-        newLine.Replace(_T("$GAMELOW$"), gameId.Lower(), true);
+        StringReplace(newLine, _T("$Game$"), gameId);
+        StringReplace(newLine, _T("$GameLow$"), gameId.Lower());
         if (gameId.Matches(_T("SA"))) {
-            newLine.Replace(_T("$gamename$"), _T("San Andreas"), true);
-            newLine.Replace(_T("$GAMENAME$"), _T("San Andreas"), true);
-            newLine.Replace(_T("$gamealt$"), _T("SA"), true);
-            newLine.Replace(_T("$GAMEALT$"), _T("SA"), true);
-            newLine.Replace(_T("$gamealtlow$"), _T("sa"), true);
-            newLine.Replace(_T("$GAMEALTLOW$"), _T("sa"), true);
+            StringReplace(newLine, _T("$GameName$"), _T("San Andreas"));
+            StringReplace(newLine, _T("$GameAlt$"), _T("SA"));
+            StringReplace(newLine, _T("$GameAltLow$"), _T("sa"));
         }
         else if (gameId.Matches(_T("VC"))) {
-            newLine.Replace(_T("$gamename$"), _T("Vice City"), true);
-            newLine.Replace(_T("$GAMENAME$"), _T("Vice City"), true);
-            newLine.Replace(_T("$gamealt$"), _T("VC"), true);
-            newLine.Replace(_T("$GAMEALT$"), _T("VC"), true);
-            newLine.Replace(_T("$gamealtlow$"), _T("vc"), true);
-            newLine.Replace(_T("$GAMEALTLOW$"), _T("vc"), true);
+            StringReplace(newLine, _T("$GameName$"), _T("Vice City"));
+            StringReplace(newLine, _T("$GameAlt$"), _T("VC"));
+            StringReplace(newLine, _T("$GameAltLow$"), _T("vc"));
         }
         else {
-            newLine.Replace(_T("$gamename$"), _T("3"), true);
-            newLine.Replace(_T("$GAMENAME$"), _T("3"), true);
-            newLine.Replace(_T("$gamealt$"), _T("3"), true);
-            newLine.Replace(_T("$GAMEALT$"), _T("3"), true);
-            newLine.Replace(_T("$gamealtlow$"), _T("3"), true);
-            newLine.Replace(_T("$GAMEALTLOW$"), _T("3"), true);
+            StringReplace(newLine, _T("$GameName$"), _T("3"));
+            StringReplace(newLine, _T("$GameAlt$"), _T("3"));
+            StringReplace(newLine, _T("$GameAltLow$"), _T("3"));
         }
     }
-    if (!gameDir.IsEmpty()) {
-        newLine.Replace(_T("$gamedir$"), gameDir, true);
-        newLine.Replace(_T("$GAMEDIR$"), gameDir, true);
-    }
-    if (!outDirName.IsEmpty()) {
-        newLine.Replace(_T("$outdirname$"), outDirName, true);
-        newLine.Replace(_T("$OUTDIRNAME$"), outDirName, true);
-    }
+    if (!gameDir.IsEmpty())
+        StringReplace(newLine, _T("$GameDir$"), gameDir);
+    if (!outDirName.IsEmpty())
+        StringReplace(newLine, _T("$OutDirName$"), outDirName);
+    return newLine;
+}
+
+function GetName(name, defaultValue) {
+    local newLine = name + _T("");
+    if (newLine.IsEmpty())
+        return defaultValue;
     return newLine;
 }
 
@@ -212,24 +208,25 @@ function GetConfigName(isDebug) {
     return _T("Release");
 }
 
-function AddAdditionalToTarget(target, isDebug, gameAbbr, gameDir, outDirName, includeDirs, libraryDirs, libraries, defines) {
+function AddAdditionalToTarget(target, isDebug, projectName, gameAbbr, gameDir, outDirName, includeDirs, libraryDirs, libraries, defines) {
     local ary = SplitListLine(includeDirs);
     for (local i = 0; i < ary.GetCount(); i += 1)
-        target.AddIncludeDir(FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
+        target.AddIncludeDir(FormatName(ary.Item(i), _T(""), projectName, _T("$(PROJECT_DIR)"), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
     ary = SplitListLine(libraryDirs);
     for (local i = 0; i < ary.GetCount(); i += 1)
-        target.AddLibDir(FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
+        target.AddLibDir(FormatName(ary.Item(i), _T(""), projectName, _T("$(PROJECT_DIR)"), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
     ary = SplitListLine(libraries);
     for (local i = 0; i < ary.GetCount(); i += 1)
-        target.AddLinkLib(FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
+        target.AddLinkLib(FormatName(ary.Item(i), _T(""), projectName, _T(""), gameAbbr, _T(""), _T(""), GetConfigName(isDebug)));
     ary = SplitListLine(defines);
     for (local i = 0; i < ary.GetCount(); i += 1)
-        target.AddCompilerOption(_T("-D") + FormatName(ary.Item(i), _T(""), gameAbbr, gameDir, outDirName, GetConfigName(isDebug)));
+        target.AddCompilerOption(_T("-D") + FormatName(ary.Item(i), _T(""), projectName, _T(""), gameAbbr, _T(""), _T(""), GetConfigName(isDebug)));
 }
 
 function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     local gameAbbr = gameId.Upper();
     local gameAbbrLow = gameId.Lower();
+    local projectName = GetFixedProjectName(Wizard.GetProjectName());
     local baseTargetName = Wizard.GetReleaseName(); 
     if (isDebug)
         baseTargetName = Wizard.GetDebugName();
@@ -256,11 +253,11 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     local gameDir;
     local outDirName;
     if (gameAbbr.Matches(_T("SA")))
-        gameDir = gGTASADir + _T("");
+        gameDir = GetName(gGTASADir, _T("$(GTA_SA_DIR)"));
     else if (gameAbbr.Matches(_T("VC")))
-        gameDir = gGTAVCDir + _T("");
+        gameDir = GetName(gGTAVCDir, _T("$(GTA_VC_DIR)"));
     else
-        gameDir = gGTA3Dir + _T("");
+        gameDir = GetName(gGTA3Dir, _T("$(GTA_III_DIR)"));
     
     if (gPluginType == 0) // ASI Plugin
         outDirName = _T("scripts");
@@ -270,9 +267,9 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
         outDirName = _T("moonloader\\lib");
     else // DLL Library
         outDirName = _T("");
-    local outputDir = FormatName(gOutputDirectory, _T("$(PROJECT_DIR)\\output"), gameAbbr, gameDir, outDirName, configName);
+    local outputDir = FormatName(gOutputDirectory, _T("$(PROJECT_DIR)\\output"), projectName, _T("$(PROJECT_DIR)"), gameAbbr, gameDir, outDirName, configName);
     outputDir = NormalisePath(outputDir);
-    local targetName = FormatName(gPluginName, GetFixedProjectName(Wizard.GetProjectName()), gameAbbr, _T(""), _T(""), configName);
+    local targetName = FormatName(gPluginName, projectName, projectName, _T(""), gameAbbr, _T(""), _T(""), configName);
     local targetExt;
     local fileExt = GetFileNameExtension(targetName);
     if (!fileExt.IsEmpty() && IsLibraryExtension(fileExt)) {
@@ -290,7 +287,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     if (isDebug)
         targetName += _T("_d");
     target.SetOutputFilename(outputDir + targetName + _T(".") + targetExt);
-    local pluginSdkDir = FormatName(gPluginSdkDir, _T("$(PLUGIN_SDK_DIR)"), gameAbbr, gameDir, outDirName, configName);
+    local pluginSdkDir = GetName(gPluginSdkDir, _T("$(PLUGIN_SDK_DIR)"));
     pluginSdkDir = NormalisePath(pluginSdkDir);
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\"));
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\game_") + gameAbbrLow + _T("\\"));
@@ -330,14 +327,14 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
         target.AddCompilerOption(_T("-DGTAGAME_CITYNAME=\"\\\"Liberty City\"\\\""));
     }
     if (gDirectX) {
-        local dxSdkDir = FormatName(gDirectXDir, _T("$(DIRECTX9_SDK_DIR)"), gameAbbr, gameDir, outDirName, configName);
+        local dxSdkDir = GetName(gDirectXDir, _T("$(DIRECTX9_SDK_DIR)"));
         dxSdkDir = NormalisePath(dxSdkDir);
         target.AddIncludeDir(dxSdkDir + _T("Include\\"));
         target.AddLibDir(dxSdkDir + _T("Lib\\x86\\"));
         target.AddLinkLib(_T("d3d9"));
         target.AddLinkLib(_T("d3dx9"));
         if (gameAbbr.Matches(_T("VC")) || gameAbbr.Matches(_T("III"))) {
-            local rwD3D9Dir = FormatName(gRwD3d9Dir, _T("$(RWD3D9_DIR)"), gameAbbr, gameDir, outDirName, configName);
+            local rwD3D9Dir = GetName(gRwD3d9Dir, _T("$(RWD3D9_DIR)"));
             rwD3D9Dir = NormalisePath(rwD3D9Dir);
             target.AddIncludeDir(rwD3D9Dir + _T("source\\"));
             target.AddLibDir(rwD3D9Dir + _T("libs\\"));
@@ -345,7 +342,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
         }
     }
     if (gPluginType == 1) { // CLEO Plugin
-        local cleoSdkDir = FormatName(gCleoSdkGTASADir, _T("$(CLEO_SDK_") + gameAbbr + _T("_DIR)"), gameAbbr, gameDir, outDirName, configName);
+        local cleoSdkDir = GetName(gCleoSdkGTASADir, _T("$(CLEO_SDK_") + gameAbbr + _T("_DIR)"));
         cleoSdkDir = NormalisePath(cleoSdkDir);
         target.AddIncludeDir(cleoSdkDir);
         target.AddLibDir(cleoSdkDir);
@@ -355,7 +352,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
             target.AddLinkLib(gameAbbr + _T(".CLEO"));
     }
     else if (gPluginType == 2) { // MoonLoader Module
-        local moonloaderSdkDir = FormatName(gMoonLoaderSdkGTASADir, _T("$(MOONLOADER_SDK_SA_DIR)"), gameAbbr, gameDir, outDirName, configName);
+        local moonloaderSdkDir = GetName(gMoonLoaderSdkGTASADir, _T("$(MOONLOADER_SDK_SA_DIR)"));
         moonloaderSdkDir = NormalisePath(moonloaderSdkDir);
         target.AddIncludeDir(moonloaderSdkDir + _T("src\\"));
         target.AddIncludeDir(moonloaderSdkDir + _T("src\\libs\\lua\\"));
@@ -368,9 +365,9 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     if (gLACompatibility)
         target.AddCompilerOption(_T("-D_PLUGIN_LA_COMP"));
     if (!isDebug || gDebugSettingsSameAsRelease)
-        AddAdditionalToTarget(target, isDebug, gameAbbr, gameDir, outDirName, gReleaseIncludeDirs, gReleaseLibraryDirs, gReleaseDependencies, gReleaseDefinitions);
+        AddAdditionalToTarget(target, isDebug, projectName, gameAbbr, gameDir, outDirName, gReleaseIncludeDirs, gReleaseLibraryDirs, gReleaseDependencies, gReleaseDefinitions);
     else
-        AddAdditionalToTarget(target, isDebug, gameAbbr, gameDir, outDirName, gDebugIncludeDirs, gDebugLibraryDirs, gDebugDependencies, gDebugDefinitions);
+        AddAdditionalToTarget(target, isDebug, projectName, gameAbbr, gameDir, outDirName, gDebugIncludeDirs, gDebugLibraryDirs, gDebugDependencies, gDebugDefinitions);
 }
 
 function SetupProject(project) {
@@ -412,7 +409,7 @@ function GetCodeFromFile(filepath, projname, className, instanceName) {
 
 function GetGeneratedFile(file_index) {
     local projname = GetFixedProjectName(Wizard.GetProjectName());
-    local className = FormatName(gClassName, projname, _T(""), _T(""), _T(""), _T(""));
+    local className = FormatName(gClassName, projname, projname, _T(""), _T(""), _T(""), _T(""), _T(""));
     className = GetFixedProjectName(className);
     local instanceName;
     if (className.GetChar(0) >= 'A' && className.GetChar(0) <= 'Z') {
@@ -658,9 +655,9 @@ function PathsSetupSwitchRwD3D9(enable) {
 
 function OnLeave_pathsSetup(forward) {
     gPluginSdkDir = Wizard.GetTextControlValue(_T("txtPluginSdkDir"));
-    gGTASADir = Wizard.GetTextControlValue(_T("txtGtaSaAsiDir"));
-    gGTAVCDir = Wizard.GetTextControlValue(_T("txtGtaVcAsiDir"));
-    gGTA3Dir = Wizard.GetTextControlValue(_T("txtGta3AsiDir"));
+    gGTASADir = Wizard.GetTextControlValue(_T("txtGtaSaDir"));
+    gGTAVCDir = Wizard.GetTextControlValue(_T("txtGtaVcDir"));
+    gGTA3Dir = Wizard.GetTextControlValue(_T("txtGta3Dir"));
     gCleoSdkGTASADir = Wizard.GetTextControlValue(_T("txtCleoSdkSaDir"));
     gCleoSdkGTAVCDir = Wizard.GetTextControlValue(_T("txtCleoSdkVcDir"));
     gCleoSdkGTA3Dir = Wizard.GetTextControlValue(_T("txtCleoSdk3Dir"));
