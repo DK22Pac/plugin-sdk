@@ -333,7 +333,7 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     end
 end
 
-function getExamplePluginDefines(projName, gameId, pluginHeader, projectType, laSupport, commandLine, additionalDefines, gameName, gameAbbr, gameAbbrLow, protagonistName, cityName)
+function getExamplePluginDefines(projName, game, pluginHeader, projectType, laSupport, commandLine, additionalDefines, gameName, gameAbbr, gameAbbrLow, protagonistName, cityName)
     local counter = 1
     local aryDefines = {}
     local l1 = "\""
@@ -351,7 +351,7 @@ function getExamplePluginDefines(projName, gameId, pluginHeader, projectType, la
         aryDefines[counter + 2] = "_CRT_NON_CONFORMING_SWPRINTFS"
         counter = counter + 3
     end
-    aryDefines[counter] = gameId
+    aryDefines[counter] = game
     aryDefines[counter + 1] = projectDefinition("GTAGAME_NAME", gameName, l1, l2)
     aryDefines[counter + 2] = projectDefinition("GTAGAME_ABBR", gameAbbr, l1, l2)
     aryDefines[counter + 3] = projectDefinition("GTAGAME_ABBRLOW", gameAbbrLow, l1, l2)
