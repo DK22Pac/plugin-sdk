@@ -268,7 +268,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
         outDirName = _T("");
     local outputDir = FormatName(gOutputDirectory, _T("$(WORKSPACE_DIR)\\output"), projectName, _T("$(PROJECT_DIR)"), _T("$(WORKSPACE_DIR)"), gameAbbr, gameDir, outDirName, configName);
     outputDir = NormalisePath(outputDir);
-    local targetName = FormatName(gPluginName, projectName + T(".") + gameAbbr, projectName, _T(""), _T(""), gameAbbr, _T(""), _T(""), configName);
+    local targetName = FormatName(gPluginName, projectName + _T(".") + gameAbbr, projectName, _T(""), _T(""), gameAbbr, _T(""), _T(""), configName);
     local targetExt;
     local fileExt = GetFileNameExtension(targetName);
     if (!fileExt.IsEmpty() && IsLibraryExtension(fileExt)) {
