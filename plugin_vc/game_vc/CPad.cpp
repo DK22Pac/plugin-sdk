@@ -18,6 +18,10 @@ bool CPad::CycleCameraModeJustDown() {
     return plugin::CallMethodAndReturn<bool, 0x4AA630, CPad *>(this);
 }
 
+bool CPad::CycleCameraModeUpJustDown() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA700, CPad *>(this);
+}
+
 bool CPad::GetTarget() {
     return plugin::CallMethodAndReturn<bool, 0x4AA4D0, CPad *>(this);
 }
@@ -60,4 +64,56 @@ bool CPad::GetLookRight() {
 
 bool CPad::GetLookLeft() {
     return plugin::CallMethodAndReturn<bool, 0x4AAC90, CPad *>(this);
+}
+
+bool CPad::GetLookBehindForPed() {
+    return plugin::CallMethodAndReturn<bool, 0x4AAC00, CPad *>(this);
+}
+
+bool CPad::GetLookBehindForCar() {
+    return plugin::CallMethodAndReturn<bool, 0x4AAC30, CPad *>(this);
+}
+
+bool CPad::GetWeapon() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA830, CPad *>(this);
+}
+
+bool CPad::WeaponJustDown() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA7B0, CPad *>(this);
+}
+
+bool CPad::LookAroundLeftRight() {
+    return plugin::CallMethodAndReturn<bool, 0x4A9A80, CPad *>(this);
+}
+
+bool CPad::LookAroundUpDown() {
+    return plugin::CallMethodAndReturn<bool, 0x4A98F0, CPad *>(this);
+}
+
+bool CPad::ExitVehicleJustDown() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA870, CPad *>(this);
+}
+
+bool CPad::GetExitVehicle() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA8F0, CPad *>(this);
+}
+
+bool CPad::JumpJustDown() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA400, CPad *>(this);
+}
+
+bool CPad::GetAccelerate() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA760, CPad *>(this);
+}
+
+bool CPad::GetBrake() {
+    return plugin::CallMethodAndReturn<bool, 0x4AA960, CPad *>(this);
+}
+
+bool CPad::GetPedWalkUpDown() {
+    return plugin::CallMethodAndReturn<bool, 0x4AAD40, CPad *>(this);
+}
+
+bool CPad::GetPedWalkLeftRight() {
+    return plugin::CallMethodAndReturn<bool, 0x4AAE30, CPad *>(this);
 }
