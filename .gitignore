@@ -355,9 +355,6 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Windows shortcuts
-*.lnk
-
 
 ### OSX ###
 *.DS_Store
