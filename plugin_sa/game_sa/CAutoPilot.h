@@ -14,7 +14,7 @@
 class PLUGIN_API CAutoPilot
 {
 public:
-	CNodeAddress field_0;
+	CNodeAddress currentAddress;
 	CNodeAddress    m_startingRouteNode;
 	CNodeAddress field_8;
 	int32_t field_C;
@@ -26,21 +26,21 @@ public:
 	uint32_t          m_dwTimeToStartMission;
 	uint32_t          m_dwTimeSwitchedToRealPhysics;
 	int8_t field_24;
-	int8_t field_25;
-	int8_t field_26;
+	int8_t _smthCurr;
+	int8_t _smthNext;
 	int8_t            m_nCurrentLane;
 	int8_t            m_nNextLane;
 	int8_t            m_nCarDrivingStyle;
 	int8_t            m_nCarMission;
 	int8_t            m_nTempAction;
 	uint32_t          m_dwTempActionTime;
-	uint32_t field_30;
+	uint32_t _someStartTime;
 	int8_t field_34;
 	int8_t field_35;
 	int8_t field_36[2];
 	float field_38;
 	float           m_fMaxTrafficSpeed;
-	int8_t field_40;
+	int8_t m_nCruiseSpeed;
 	int8_t field_41;
 	int8_t field_42[2];
 	float field_44;

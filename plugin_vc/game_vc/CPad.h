@@ -8,8 +8,7 @@
 #include "plbase/PluginBase_VC.h"
 
 #pragma pack(push, 1)
-struct CMouseState
-{
+struct CMouseState {
     char lmb;
     char rmb;
     char mmb;
@@ -24,8 +23,7 @@ struct CMouseState
 #pragma pack(pop)
 
 #pragma pack(push, 1)
-struct CKeyState
-{
+struct CKeyState {
     short standardKey;
     short esc;
     short insert;
@@ -78,31 +76,31 @@ struct CKeyState
 // Set values to 128 unless otherwise specified
 class CControllerState {
 public:
-    signed short LeftStickX; // move/steer left (-128?)/right (+128)
-    signed short LeftStickY; // move back(+128)/forwards(-128?)
-    signed short RightStickX; // numpad 6(+128)/numpad 4(-128?)
+    signed short LeftStickX;
+    signed short LeftStickY;
+    signed short RightStickX;
     signed short RightStickY;
 
     signed short LeftShoulder1;
     signed short LeftShoulder2;
-    signed short RightShoulder1; // target / hand brake
+    signed short RightShoulder1;
     signed short RightShoulder2;
 
-    signed short DPadUp; // radio change up           Next radio station / Call gang forward/Recruit gang member
-    signed short DPadDown; // radio change down       Previous radio station / Gang stay back/Release gang (hold)
-    signed short DPadLeft; //                         Skip trip/Action / Negative talk reply
-    signed short DPadRight; //                        Next user MP3 track / Positive talk reply
+    signed short DPadUp;
+    signed short DPadDown;
+    signed short DPadLeft; 
+    signed short DPadRight;
 
-    signed short Start;                             //Pause
-    signed short Select;                            //Camera modes
+    signed short Start;
+    signed short Select;
 
-    signed short ButtonSquare; // jump / reverse      Break/Reverse / Jump/Climb
-    signed short ButtonTriangle; // get in/out        Exit vehicle / Enter veihcle
-    signed short ButtonCross; // sprint / accelerate  Accelerate / Sprint/Swim
-    signed short ButtonCircle; // fire                Fire weapon
+    signed short ButtonSquare;
+    signed short ButtonTriangle;
+    signed short ButtonCross;
+    signed short ButtonCircle;
 
     signed short ShockButtonL;
-    signed short ShockButtonR; // look behind
+    signed short ShockButtonR;
 
     signed short m_bChatIndicated;
     signed short m_bPedWalk;
@@ -125,6 +123,7 @@ public:
     static CPad * GetPad(int padNumber);
 
     bool CycleCameraModeJustDown();
+    bool CycleCameraModeUpJustDown();
 
     bool GetTarget();
 
@@ -139,7 +138,19 @@ public:
     bool GetCarGunFired();
     bool GetLookRight();
     bool GetLookLeft();
+    bool GetLookBehindForCar();
+    bool GetLookBehindForPed();
     bool ForceCameraBehindPlayer();
-
+    bool GetWeapon();
+    bool WeaponJustDown();
+    bool LookAroundLeftRight();
+    bool LookAroundUpDown();
+    bool ExitVehicleJustDown();
+    bool GetExitVehicle();
+    bool JumpJustDown();
+    bool GetAccelerate();
+    bool GetBrake();
+    bool GetPedWalkUpDown();
+    bool GetPedWalkLeftRight();
 };
 #pragma pack(pop)

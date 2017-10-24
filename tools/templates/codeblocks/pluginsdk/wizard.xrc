@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+	<object class="wxPanel" name="basicSetup">
+		<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
+		<object class="wxFlexGridSizer">
+			<cols>1</cols>
+			<rows>2</rows>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="sttBasicSetup">
+					<label>Basic setup</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE1" />
+				<flag>wxEXPAND</flag>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="sttSelectGame">
+					<label>Select game:</label>
+				</object>
+				<flag>wxTOP|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxBoxSizer">
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>1</cols>
+							<object class="sizeritem">
+								<object class="wxStaticBitmap" name="btmGTASA">
+									<bitmap>images\gtasa.png</bitmap>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkGTASA">
+									<label>GTA SA</label>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>1</cols>
+							<object class="sizeritem">
+								<object class="wxStaticBitmap" name="btmGTAVC">
+									<bitmap>images\gtavc.png</bitmap>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkGTAVC">
+									<label>GTA VC</label>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>1</cols>
+							<object class="sizeritem">
+								<object class="wxStaticBitmap" name="btmGTA3">
+									<bitmap>images\gta3.png</bitmap>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkGTA3">
+									<label>GTA 3</label>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxFlexGridSizer">
+					<cols>1</cols>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
+							<object class="sizeritem">
+								<object class="wxStaticText" name="sttPluginType">
+									<label>Plugin type:</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxComboBox" name="cmbPluginType">
+									<content>
+										<item>ASI Plugin</item>
+										<item>CLEO Plugin</item>
+										<item>MoonLoader Module</item>
+										<item>DLL Library</item>
+									</content>
+									<selection>0</selection>
+									<size>211,21</size>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
+							<object class="sizeritem">
+								<object class="wxStaticText" name="sttPluginName">
+									<label>Plugin name:</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxTextCtrl" name="txtPluginName">
+									<value>$projectname$.$game$</value>
+									<size>207,21</size>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
+							<object class="sizeritem">
+								<object class="wxStaticText" name="sttClassName">
+									<label>Class name:</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxTextCtrl" name="txtClassName">
+									<value>$projectname$</value>
+									<size>210,21</size>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkUseDirectX">
+									<label>Use DirectX</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkLACompatibility">
+									<label>LA compatibility</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_TOP</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>4</cols>
+							<object class="sizeritem">
+								<object class="wxStaticText" name="sttOutputDirectory">
+									<label>Output dir:</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxTextCtrl" name="txtOutputDirectory">
+									<value>$gamedir$\\$outdirname$</value>
+									<size>165,21</size>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="btnGameFolder">
+									<bitmap>images\gamefolder_default.png</bitmap>
+									<disabled>images\gamefolder_disabled.png</disabled>
+									<selected>images\gamefolder_pressed.png</selected>
+									<focus>images\gamefolder_focused.png</focus>
+									<size>20,20</size>
+									<enabled>0</enabled>
+									<tooltip>Game folder</tooltip>
+								</object>
+								<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="btnProjectFolder">
+									<bitmap>images\projectfolder_default.png</bitmap>
+									<disabled>images\projectfolder_disabled.png</disabled>
+									<selected>images\projectfolder_pressed.png</selected>
+									<focus>images\projectfolder_focused.png</focus>
+									<size>20,20</size>
+									<enabled>0</enabled>
+									<tooltip>Project folder</tooltip>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+	<object class="wxPanel" name="releaseSettings">
+		<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
+		<object class="wxFlexGridSizer">
+			<cols>1</cols>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="sttReleaseSettings">
+					<label>Release settings</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE1" />
+				<flag>wxEXPAND</flag>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxFlexGridSizer">
+					<cols>2</cols>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttAdditionalIncludeDirs">
+							<label>Additional include directories</label>
+							<size>66,40</size>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtReleaseAdditionalIncludeDirs">
+							<size>203,54</size>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttReleaseAdditionalLibraryDirs">
+							<label>Additional library directories</label>
+							<size>66,40</size>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtReleaseAdditionalLibraryDirs">
+							<size>203,54</size>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttReleaseAdditionalDependencies">
+							<label>Additional dependencies</label>
+							<size>66,40</size>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtReleaseAdditionalDependencies">
+							<size>203,54</size>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttReleaseAdditionalPreprocessorDefinitions">
+							<label>Additional preprocessor definitions</label>
+							<size>66,40</size>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtReleaseAdditionalPreprocessorDefinitions">
+							<size>203,54</size>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+	<object class="wxPanel" name="debugSettings">
+		<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
+		<object class="wxFlexGridSizer">
+			<cols>1</cols>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="sttDebugSettings">
+					<label>Debug settings</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE2" />
+				<flag>wxEXPAND</flag>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxCheckBox" name="chkDebugSettingsSameAsRelease">
+					<label>Same as Release</label>
+					<checked>1</checked>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxFlexGridSizer">
+					<cols>2</cols>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttDebugAdditionalIncludeDirs">
+							<label>Additional include directories</label>
+							<size>66,40</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtDebugAdditionalIncludeDirs">
+							<size>203,54</size>
+							<enabled>0</enabled>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttDebugAdditionalLibraryDirs">
+							<label>Additional library directories</label>
+							<size>66,40</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtDebugAdditionalLibraryDirs">
+							<size>203,54</size>
+							<enabled>0</enabled>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttDebugAdditionalDependencies">
+							<label>Additional dependencies</label>
+							<size>66,40</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtDebugAdditionalDependencies">
+							<size>203,54</size>
+							<enabled>0</enabled>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttDebugAdditionalPreprocessorDefinitions">
+							<label>Additional preprocessor definitions</label>
+							<size>66,40</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxALL|wxALIGN_TOP|wxALIGN_CENTER_HORIZONTAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtDebugAdditionalPreprocessorDefinitions">
+							<size>203,54</size>
+							<enabled>0</enabled>
+							<style>wxTE_MULTILINE</style>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+	<object class="wxPanel" name="pathsSetup">
+		<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
+		<object class="wxFlexGridSizer">
+			<cols>1</cols>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT1">
+					<label>Setup paths</label>
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE1" />
+				<flag>wxEXPAND</flag>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxFlexGridSizer">
+					<cols>2</cols>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttPluginSdkDir">
+							<label>plugin-sdk folder</label>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtPluginSdkDir">
+							<value>$(PLUGIN__SDK__DIR)</value>
+							<size>189,-1</size>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttGtaSaDir">
+							<label>GTASA folder</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtGtaSaDir">
+							<value>$(GTA__SA__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttCleoSdkSaDir">
+							<label>GTASA CLEO SDK</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtCleoSdkSaDir">
+							<value>$(CLEO__SDK__SA__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttGtaVcDir">
+							<label>GTAVC folder</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtGtaVcDir">
+							<value>$(GTA__VC__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttCleoSdkVcDir">
+							<label>GTAVC CLEO SDK</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtCleoSdkVcDir">
+							<value>$(CLEO__SDK__VC__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttGta3Dir">
+							<label>GTA3 folder</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtGta3Dir">
+							<value>$(GTA__III__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttCleoSdk3Dir">
+							<label>GTA3 CLEO SDK</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtCleoSdk3Dir">
+							<value>$(CLEO__SDK__III__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttMoonLoaderSdkDir">
+							<label>MoonLoader SDK</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtMoonLoaderSdkDir">
+							<value>$(MOONLOADER__SDK__SA__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttDirectXSdkDir">
+							<label>DirectX 9 SDK</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtDirectXSdkDir">
+							<value>$(DIRECTX9__SDK__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>2</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticText" name="sttRwD3d9Dir">
+							<label>rwd3d9 folder</label>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxTextCtrl" name="txtRwD3d9Dir">
+							<value>$(RWD3D9__DIR)</value>
+							<size>189,-1</size>
+							<enabled>0</enabled>
+						</object>
+						<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<option>1</option>
+					</object>
+				</object>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="btnUseEnvVars">
+					<label>Use environment variables</label>
+				</object>
+				<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</resource>
