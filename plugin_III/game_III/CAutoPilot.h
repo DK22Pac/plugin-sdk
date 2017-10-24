@@ -7,6 +7,7 @@
 #pragma once
 
 #include "plbase\PluginBase_III.h"
+#include "CPathFind.h"
 
 class CVehicle;
 
@@ -17,16 +18,18 @@ public:
     int field_8;
     int field_C;
     unsigned int m_nSpeedScaleFactor;
-    int field_14;
-    int field_18;
+    CCarPathLinkAddress m_wCurrentPathNodeInfo;
+    CCarPathLinkAddress m_wNextPathNodeInfo;
+    CCarPathLinkAddress m_wPreviousPathNodeInfo;
+    char field_1A[2];
     int field_1C;
     int field_20;
     int field_24;
     char field_28;
     char field_29;
     char field_2A;
-    char field_2B;
-    char field_2C;
+    char m_nCurrentLane;
+    char m_nNextLane;
     char m_nDrivingStyle;
     char m_nCarMission;
     char m_nAnimationId;
