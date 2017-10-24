@@ -6,7 +6,7 @@
 */
 #include "CTaskUtilityLineUpPedWithCar.h"
 
-CTaskUtilityLineUpPedWithCar::CTaskUtilityLineUpPedWithCar(CVector const &Vector, int nTime, int arg3, int arg4) : CTaskSimple(plugin::dummy) {
+CTaskUtilityLineUpPedWithCar::CTaskUtilityLineUpPedWithCar(CVector const &Vector, int nTime, int arg3, int arg4) {
     ((void(__thiscall *)(CTaskUtilityLineUpPedWithCar *,CVector const &, int, int, int))0x64FBB0)(this, Vector, nTime, arg3, arg4);
 }
 
