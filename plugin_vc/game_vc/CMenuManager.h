@@ -126,6 +126,8 @@ public:
     int field_678;
     char field_67C[4];
     int field_680;
+public:
+    void MessageScreen(const char* pText, bool bFullscreen);
 };
 
 VALIDATE_SIZE(CMenuManager, 0x684);
