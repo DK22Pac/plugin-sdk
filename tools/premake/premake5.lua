@@ -1,9 +1,17 @@
 newoption {
-   trigger     = "custombuildtool",
-   description = "Use plugin-sdk build tool (mingw compiler) in Visual Studio"
+   trigger     = "pluginsdkdir",
+   description = "Plugin-SDK directory (optional)"
 }
 
-sdkdir = os.getenv("PLUGIN_SDK_DIR")
+newoption {
+   trigger     = "custombuildtool",
+   description = "Use plugin-sdk build tool (mingw compiler) in Visual Studio (optional)"
+}
+
+sdkdir = _OPTIONS["pluginsdkdir"]
+if sdkdir == nil then
+    sdkdir = os.getenv("PLUGIN_SDK_DIR")
+end
 mingw = _ACTION == "codeblocks"
 custombuild = _OPTIONS["custombuildtool"] ~= nil
 msbuild = not mingw and not custombuild
@@ -681,7 +689,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
 end
 
 if sdkdir == nil or sdkdir == "" then
-    print("\nERROR!\nCan't locate plugin-sdk directory. Environment variable 'PLUGIN_SDK_DIR' is invalid or not set\n")
+    print("\nERROR!\nCan't locate plugin-sdk directory\n")
 else
     print("Deleting temporary files...")
     cleanProjectsDirectory(sdkdir .. "\\examples")
