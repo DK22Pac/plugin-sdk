@@ -63,7 +63,7 @@ public:
     int field_6B4;
     short field_6B8;
     int field_6BC;
-    int field_6C0;
+    float field_6C0;
     int field_6C4;
     int field_6C8;
     int field_6CC;
