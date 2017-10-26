@@ -492,10 +492,5 @@ user.settings
 *.workspace
 *.mk
 *.txt
-Makefile
-
-tools/plugin-sdk-project-wizard/templates/temp/Main.cpp
-tools/plugin-sdk-project-wizard/templates/temp/MyTemplate.vstemplate
-tools/plugin-sdk-project-wizard/templates/temp/Project.vcxproj
 
 tools/plugin-sdk-funcs-gen/funcs_conv.h
