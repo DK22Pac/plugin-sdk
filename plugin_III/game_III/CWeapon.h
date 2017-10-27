@@ -8,6 +8,8 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase\PluginBase_III.h"
 
+class CVehicle;
+
 class CWeapon {
 public:
     unsigned int m_nType;
@@ -21,6 +23,7 @@ private:
 public:
 
     CWeapon(plugin::dummy_func_t) {}
+    void FireFromCar(CVehicle* pFiringVehicle, bool bLookLeft, bool bLookRight);
 };
 
 VALIDATE_SIZE(CWeapon, 0x18);

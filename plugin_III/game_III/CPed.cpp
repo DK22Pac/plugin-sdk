@@ -19,3 +19,39 @@ plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugi
 plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy } {
     plugin::CallMethod<0x4C41C0, CPed *, unsigned int>(this, modelIndex);
 }
+
+void CPed::SetAimFlag(CEntity* aimingTo) {
+    plugin::CallMethod<0x4C69E0, CPed *, CEntity*>(this, aimingTo);
+}
+
+void CPed::SetAimFlag(float heading) {
+    plugin::CallMethod<0x4C6960, CPed *, float>(this, heading);
+}
+
+void CPed::SetAttack(CEntity* entity) {
+    plugin::CallMethod<0x4E6220, CPed *, CEntity*>(this, entity);
+}
+
+void CPed::SetAttackTimer(unsigned int time) {
+    plugin::CallMethod<0x4D1300, CPed *, unsigned int>(this, time);
+}
+
+void CPed::SetPointGunAt(CEntity* entity) {
+    plugin::CallMethod<0x4E5F70, CPed *, CEntity*>(this, entity);
+}
+
+void CPed::ClearAimFlag() {
+    plugin::CallMethod<0x4C6A50, CPed *>(this);
+}
+
+void CPed::RestorePreviousState() {
+    plugin::CallMethod<0x4C5E30, CPed *>(this);
+}
+
+void CPed::ClearPointGunAt() {
+    plugin::CallMethod<0x4E6180, CPed *>(this);
+}
+
+char CPed::ClearLookFlag() {
+    return plugin::CallMethodAndReturn<char, 0x4C64F0, CPed *>(this);
+}

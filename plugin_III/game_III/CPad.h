@@ -101,7 +101,7 @@ public:
     short GetSteeringLeftRight();
     short GetSteeringUpDown();
     bool GetTarget();
-    int GetWeapon();
+    bool GetWeapon();
     bool HornJustDown();
     bool JumpJustDown();
     int LookAroundLeftRight();
@@ -126,7 +126,7 @@ public:
     void Update();
     void UpdateMouse();
     static void UpdatePads();
-    void WeaponJustDown();
+    bool WeaponJustDown();
     ~CPad();
 };
 

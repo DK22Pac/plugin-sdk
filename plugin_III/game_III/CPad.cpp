@@ -238,8 +238,8 @@ bool CPad::GetTarget() {
 }
 
 // Converted from thiscall int CPad::GetWeapon(void) 0x4936C0
-int CPad::GetWeapon() {
-    return plugin::CallMethodAndReturn<int, 0x4936C0, CPad *>(this);
+bool CPad::GetWeapon() {
+    return plugin::CallMethodAndReturn<bool, 0x4936C0, CPad *>(this);
 }
 
 // Converted from thiscall bool CPad::HornJustDown(void) 0x4933F0 
@@ -363,8 +363,8 @@ void CPad::UpdatePads() {
 }
 
 // Converted from thiscall void CPad::WeaponJustDown(void) 0x493700 
-void CPad::WeaponJustDown() {
-    plugin::CallMethod<0x493700, CPad *>(this);
+bool CPad::WeaponJustDown() {
+    return plugin::CallMethodAndReturn<bool, 0x493700, CPad *>(this);
 }
 
 // Converted from thiscall void CPad::~CPad() 0x494ED0 

@@ -254,6 +254,15 @@ public:
     
     //funcs
     CPed(unsigned int modelIndex);
+    void SetAimFlag(CEntity* aimingTo);
+    void SetAimFlag(float heading);
+    void SetAttack(CEntity* entity);
+    void SetAttackTimer(unsigned int time);
+    void SetPointGunAt(CEntity* entity);
+    void ClearAimFlag();
+    void RestorePreviousState();
+    void ClearPointGunAt();
+    char ClearLookFlag();
 };
 #pragma pack(pop)
 
