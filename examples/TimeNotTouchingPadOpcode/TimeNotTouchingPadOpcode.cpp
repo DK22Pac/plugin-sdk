@@ -1,6 +1,6 @@
 #include "CLEO.h"
-#include "game_sa\CTimer.h"
-#include "game_sa\CPad.h"
+#include "CTimer.h"
+#include "CPad.h"
 
 class TimeNotTouchingPadOpcode {
 public:

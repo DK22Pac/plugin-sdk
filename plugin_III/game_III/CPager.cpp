@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CPager.h"
+#include <string>
 
 // Converted from thiscall void CPager::Init(void) 0x52B6F0
 void CPager::Init() {
@@ -39,4 +40,14 @@ void CPager::ClearMessages() {
 // Converted from thiscall void CPager::RestartCurrentMessage(void) 0x52BE50 
 void CPager::RestartCurrentMessage() {
     plugin::CallMethod<0x52BE50, CPager *>(this);
+}
+
+void CPager::AddMessage(char* text, unsigned short speed, unsigned short priority, unsigned short arg3) {
+    _SWSTRING_INIT(text, 1);
+    AddMessage(_SWSTRING(1), speed, priority, arg3);
+}
+
+void CPager::AddMessageWithNumber(char* text, int n1, int n2, int n3, int n4, int n5, int n6, unsigned short speed, unsigned short priority, unsigned short arg9) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageWithNumber(_SWSTRING(1), n1, n2, n3, n4, n5, n6, speed, priority, arg9);
 }

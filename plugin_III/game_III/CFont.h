@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -34,7 +34,7 @@ public:
     // this adds a single character into rendering buffer
     static void PrintChar(float x, float y, short character);
     static void PrintString(float x, float y, wchar_t* text);
-    static void PrintString(float x, float y, wchar_t* str1, wchar_t* str2, float arg4);
+    static void PrintString(float x, float y, wchar_t* start, wchar_t* end, float arg4);
     // like a 'global' font alpha, multiplied with each text alpha (from SetColor)
     static void SetAlphaFade(float alpha);
     static void SetBackGroundOnlyTextOff();
@@ -73,6 +73,16 @@ public:
     // CFont closing
     static void Shutdown();
     static short character_code(unsigned char character);
+
+    static char* GetNextSpace(char* str);
+    static int GetNumberLines(float x, float y, char* text);
+    static float GetStringWidth(char* str, bool sentence);
+    static CRect* GetTextRect(CRect* rect_out, float x, float y, char* text);
+    static char* ParseToken(char* str);
+    // this adds a single character into rendering buffer
+    static void PrintChar(float x, float y, char character);
+    static void PrintString(float x, float y, char* text);
+    static void PrintString(float x, float y, char* start, char* end, float arg4);
 };
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);

@@ -8,13 +8,6 @@ Do not delete this comment block. Respect others' work!
 
 #include "plbase/PluginBase_VC.h"
 
-// Internal character type used by Rockstar* for UI text.
-// There is no advantage to using GtaChar instead of char, but Rockstar* used it so we have to
-// deal with it.
-// HACK: It is recommended to (carefully) use const wchar_t*/std::wstring and reinterpret_cast it/.c_str() into GtaChar*.
-//  Russian or Chinese characters are known to hang the game, because GtaChar is not wchar_t.
-typedef unsigned short GtaChar;
-
 enum DRAW_FADE_STATE {
 
 };
@@ -41,11 +34,18 @@ public:
     static bool IsHelpMessageBeingDisplayed();
     static void ReInitialise();
     static void ResetWastedText();
-    static void SetBigMessage(const GtaChar* text, unsigned short style);
-    static void SetHelpMessage(const GtaChar* text, bool quickMessage, bool permanent, bool addToBrief);
-    static void SetMessage(const GtaChar* text);
-    static void SetPagerMessage(const GtaChar* text);
-    static void SetVehicleName(const GtaChar* text);
-    static void SetZoneName(const GtaChar* text);
+    static void SetBigMessage(const wchar_t* text, unsigned short style);
+    static void SetHelpMessage(const wchar_t* text, bool quickMessage, bool permanent, bool addToBrief);
+    static void SetMessage(const wchar_t* text);
+    static void SetPagerMessage(const wchar_t* text);
+    static void SetVehicleName(const wchar_t* text);
+    static void SetZoneName(const wchar_t* text);
     static void Shutdown();
+
+    static void SetBigMessage(const char* text, unsigned short style);
+    static void SetHelpMessage(const char* text, bool quickMessage, bool permanent, bool addToBrief);
+    static void SetMessage(const char* text);
+    static void SetPagerMessage(const char* text);
+    static void SetVehicleName(const char* text);
+    static void SetZoneName(const char* text);
 };

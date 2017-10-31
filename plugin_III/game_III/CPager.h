@@ -39,6 +39,9 @@ public:
     void AddMessageWithNumber(wchar_t* text, int n1, int n2, int n3, int n4, int n5, int n6, unsigned short speed, unsigned short priority, unsigned short arg9);
     void ClearMessages();
     void RestartCurrentMessage();
+
+    void AddMessage(char* text, unsigned short speed, unsigned short priority, unsigned short arg3);
+    void AddMessageWithNumber(char* text, int n1, int n2, int n3, int n4, int n5, int n6, unsigned short speed, unsigned short priority, unsigned short arg9);
 };
 
 VALIDATE_SIZE(CPager, 0x164);

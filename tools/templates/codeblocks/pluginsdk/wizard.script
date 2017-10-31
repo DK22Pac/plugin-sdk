@@ -240,6 +240,8 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     target.SetTargetFilenameGenerationPolicy(tgfpNone, tgfpNone);
     target.AddCompilerOption(_T("-m32"));
     target.AddCompilerOption(_T("-fpermissive"));
+    target.AddLinkerOption(_T("-static-libgcc"));
+    target.AddLinkerOption(_T("-static-libstdc++"));
     local configName = GetConfigName(isDebug);
     if (isDebug) {
         DebugSymbolsOn(target, Wizard.GetCompilerID());

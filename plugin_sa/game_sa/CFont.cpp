@@ -48,11 +48,6 @@ void CFont::PrintChar(float x, float y, char character)
 	((void (__cdecl *)(float, float, char))0x718A10)(x, y, character);
 }
 
-char *CFont::GetNextSpace(char *string)
-{
-	return ((char *(__cdecl *)(char *))0x718ED0)(string);
-}
-
 char *CFont::ParseToken(char *text, CRGBA & color, bool isBlip, char *tag)
 {
 	return ((char *(__cdecl *)(char *, CRGBA &, bool, char *))0x718F00)(text, color, isBlip, tag);

@@ -70,4 +70,23 @@ public:
     static void ClearThisPrint(wchar_t* text);
     static void ClearThisBigPrint(wchar_t* text);
     static void ClearAllMessagesDisplayedByGame();
+
+    static void AddMessage(char* text, unsigned int time, unsigned short flag);
+    static void AddMessageJumpQ(char* text, unsigned int time, unsigned short flag);
+    static void AddMessageSoon(char* text, unsigned int time, unsigned short flag);
+    static void AddBigMessage(char* text, unsigned int time, unsigned short flag);
+    static void AddBigMessageQ(char* text, unsigned int time, unsigned short flag);
+    static void AddToPreviousBriefArray(char* text, int n1, int n2, int n3, int n4, int n5, int n6, char* str);
+    static void InsertNumberInString(char* src, int n1, int n2, int n3, int n4, int n5, int n6, char* dst);
+    static void InsertStringInString(char* text, char* str);
+    static void InsertPlayerControlKeysInString(char* text);
+    static void AddMessageWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
+    static void AddMessageJumpQWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
+    static void AddMessageSoonWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
+    static void AddBigMessageWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
+    static void AddBigMessageWithNumberQ(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
+    static void AddMessageWithString(char* text, unsigned int time, unsigned short flag, char* str);
+    static void AddMessageJumpQWithString(char* text, unsigned int time, unsigned short flag, char* str);
+    static void ClearThisPrint(char* text);
+    static void ClearThisBigPrint(char* text);
 };

@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CMessages.h"
+#include <string>
 
 PreviousBrief *CMessages::PreviousBriefs = (PreviousBrief *)0x713C08;
 Message *CMessages::BriefMessages = (Message *)0x8786E0;
@@ -143,4 +144,99 @@ void CMessages::ClearThisBigPrint(wchar_t* text) {
 // Converted from cdecl void CMessages::ClearAllMessagesDisplayedByGame(void) 0x52B670
 void CMessages::ClearAllMessagesDisplayedByGame() {
     plugin::Call<0x52B670>();
+}
+
+void CMessages::AddMessage(char* text, unsigned int time, unsigned short flag) {
+    _SWSTRING_INIT(text, 1);
+    AddMessage(_SWSTRING(1), time, flag);
+}
+
+void CMessages::AddMessageJumpQ(char* text, unsigned int time, unsigned short flag) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageJumpQ(_SWSTRING(1), time, flag);
+}
+
+void CMessages::AddMessageSoon(char* text, unsigned int time, unsigned short flag) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageSoon(_SWSTRING(1), time, flag);
+}
+
+void CMessages::AddBigMessage(char* text, unsigned int time, unsigned short flag) {
+    _SWSTRING_INIT(text, 1);
+    AddBigMessage(_SWSTRING(1), time, flag);
+}
+
+void CMessages::AddBigMessageQ(char* text, unsigned int time, unsigned short flag) {
+    _SWSTRING_INIT(text, 1);
+    AddBigMessageQ(_SWSTRING(1), time, flag);
+}
+
+void CMessages::AddToPreviousBriefArray(char* text, int n1, int n2, int n3, int n4, int n5, int n6, char* str) {
+    _SWSTRING_INIT(text, 1); _SWSTRING_INIT(str, 2);
+    AddToPreviousBriefArray(_SWSTRING(1), n1, n2, n3, n4, n5, n6, _SWSTRING(2));
+}
+
+void CMessages::InsertNumberInString(char* src, int n1, int n2, int n3, int n4, int n5, int n6, char* dst) {
+    _SWSTRING_INIT(src, 1); _SWSTRING_INIT(dst, 2); _SWSTRING_STATIC_INIT(3);
+    InsertNumberInString(_SWSTRING(1), n1, n2, n3, n4, n5, n6, _SWSTRING_STATIC(3));
+    _SWSTRING_STATIC_TO(3, dst);
+}
+
+void CMessages::InsertStringInString(char* text, char* str) {
+    _SWSTRING_STATIC_INIT(1); _SWSTRING_INIT(str, 2);
+    _SWSTRING_STATIC_FROM(1, text);
+    InsertStringInString(_SWSTRING_STATIC(1), _SWSTRING(2));
+    _SWSTRING_STATIC_TO(1, text);
+}
+
+void CMessages::InsertPlayerControlKeysInString(char* text) {
+    _SWSTRING_STATIC_INIT(1);
+    _SWSTRING_STATIC_FROM(1, text);
+    InsertPlayerControlKeysInString(_SWSTRING_STATIC(1));
+    _SWSTRING_STATIC_TO(1, text);
+}
+
+void CMessages::AddMessageWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageWithNumber(_SWSTRING(1), time, flag, n1, n2, n3, n4, n5, n6);
+}
+
+void CMessages::AddMessageJumpQWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageJumpQWithNumber(_SWSTRING(1), time, flag, n1, n2, n3, n4, n5, n6);
+}
+
+void CMessages::AddMessageSoonWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageSoonWithNumber(_SWSTRING(1), time, flag, n1, n2, n3, n4, n5, n6);
+}
+
+void CMessages::AddBigMessageWithNumber(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6) {
+    _SWSTRING_INIT(text, 1);
+    AddBigMessageWithNumber(_SWSTRING(1), time, flag, n1, n2, n3, n4, n5, n6);
+}
+
+void CMessages::AddBigMessageWithNumberQ(char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6) {
+    _SWSTRING_INIT(text, 1);
+    AddBigMessageWithNumberQ(_SWSTRING(1), time, flag, n1, n2, n3, n4, n5, n6);
+}
+
+void CMessages::AddMessageWithString(char* text, unsigned int time, unsigned short flag, char* str) {
+    _SWSTRING_INIT(text, 1); _SWSTRING_INIT(str, 2);
+    AddMessageWithString(_SWSTRING(1), time, flag, _SWSTRING(2));
+}
+
+void CMessages::AddMessageJumpQWithString(char* text, unsigned int time, unsigned short flag, char* str) {
+    _SWSTRING_INIT(text, 1); _SWSTRING_INIT(str, 2);
+    AddMessageJumpQWithString(_SWSTRING(1), time, flag, _SWSTRING(2));
+}
+
+void CMessages::ClearThisPrint(char* text) {
+    _SWSTRING_INIT(text, 1);
+    ClearThisPrint(_SWSTRING(1));
+}
+
+void CMessages::ClearThisBigPrint(char* text) {
+    _SWSTRING_INIT(text, 1);
+    ClearThisBigPrint(_SWSTRING(1));
 }

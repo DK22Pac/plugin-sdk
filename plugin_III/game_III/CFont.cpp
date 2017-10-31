@@ -1,10 +1,11 @@
 /*
-Plugin-SDK (Grand Theft Auto) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CFont.h"
+#include <string>
 
 CFontDetails &CFont::Details = *(CFontDetails *)0x8F317C;
 CSprite2d *CFont::Sprite = (CSprite2d *)0x95CC04;
@@ -62,8 +63,8 @@ void CFont::PrintString(float x, float y, wchar_t* text) {
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,wchar_t *str1,wchar_t *str2,float) 0x501730
-void CFont::PrintString(float x, float y, wchar_t* str1, wchar_t* str2, float arg4) {
-    plugin::Call<0x501730, float, float, wchar_t*, wchar_t*, float>(x, y, str1, str2, arg4);
+void CFont::PrintString(float x, float y, wchar_t* start, wchar_t* end, float arg4) {
+    plugin::Call<0x501730, float, float, wchar_t*, wchar_t*, float>(x, y, start, end, arg4);
 }
 
 // Converted from cdecl void CFont::SetAlphaFade(float alpha) 0x501DD0
@@ -194,6 +195,47 @@ void CFont::Shutdown() {
 // Converted from cdecl short CFont::character_code(uchar character) 0x501E80
 short CFont::character_code(unsigned char character) {
     return plugin::CallAndReturn<short, 0x501E80, unsigned char>(character);
+}
+
+char* CFont::GetNextSpace(char* str) {
+    _SWSTRING_INIT(str, 1);
+    wchar_t *result = GetNextSpace(_SWSTRING(1));
+    return &str[result - _SWSTRING(1)];
+}
+
+int CFont::GetNumberLines(float x, float y, char* text) {
+    _SWSTRING_INIT(text, 1);
+    GetNumberLines(x, y, _SWSTRING(1));
+}
+
+float CFont::GetStringWidth(char* str, bool sentence) {
+    _SWSTRING_INIT(str, 1);
+    GetStringWidth(_SWSTRING(1), sentence);
+}
+
+CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, char* text) {
+    _SWSTRING_INIT(text, 1);
+    return GetTextRect(rect_out, x, y, _SWSTRING(1));
+}
+
+char* CFont::ParseToken(char* str) {
+    _SWSTRING_INIT(str, 1);
+    wchar_t *result = ParseToken(_SWSTRING(1));
+    return &str[result - _SWSTRING(1)];
+}
+
+void CFont::PrintChar(float x, float y, char character) {
+    PrintChar(x, y, static_cast<short>(character));
+}
+
+void CFont::PrintString(float x, float y, char* text) {
+    _SWSTRING_INIT(text, 1);
+    PrintString(x, y, _SWSTRING(1));
+}
+
+void CFont::PrintString(float x, float y, char* start, char* end, float arg4) {
+    _SWSTRING_INIT(start, 1);
+    PrintString(x, y, _SWSTRING(1), &_SWSTRING(1)[end - start], arg4);
 }
 
 // Converted from cdecl void AsciiToUnicode(char const* str_ascii,wchar_t * str_unicode) 0x5009C0
