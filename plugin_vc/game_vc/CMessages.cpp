@@ -8,10 +8,7 @@
 #include "CMessages.h"
 
 // Converted from cdecl void CMessages::AddBigMessage(ushort *pString,uint time,ushort style)	0x584050	
-void CMessages::AddBigMessage(
-    
-    
-    * pString, unsigned int time, unsigned short style) {
+void CMessages::AddBigMessage(wchar_t* pString, unsigned int time, unsigned short style) {
     plugin::Call<0x584050, wchar_t*, unsigned int, unsigned short>(pString, time, style);
 }
 

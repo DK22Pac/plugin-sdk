@@ -43,12 +43,7 @@ public:
     static void SetSlantRefPoint(float x, float y);
     static void SetScale(float width, float height);
     static void DrawFonts();
-    static void FilterOutTokensFromString(
-        
-        
-        
-        
-        * str);
+    static void FilterOutTokensFromString(wchar_t* str);
     static wchar_t* ParseToken(wchar_t* str);
     static wchar_t* ParseToken(wchar_t* str, CRGBA& color, bool& flashing, bool& bold);
     static float GetStringWidth(wchar_t* str, bool sentence);
