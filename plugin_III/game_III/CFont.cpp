@@ -205,12 +205,12 @@ char* CFont::GetNextSpace(char* str) {
 
 int CFont::GetNumberLines(float x, float y, char* text) {
     _SWSTRING_INIT(text, 1);
-    GetNumberLines(x, y, _SWSTRING(1));
+    return GetNumberLines(x, y, _SWSTRING(1));
 }
 
 float CFont::GetStringWidth(char* str, bool sentence) {
     _SWSTRING_INIT(str, 1);
-    GetStringWidth(_SWSTRING(1), sentence);
+    return GetStringWidth(_SWSTRING(1), sentence);
 }
 
 CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, char* text) {
