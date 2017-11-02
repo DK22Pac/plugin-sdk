@@ -1,12 +1,19 @@
+/*
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
 #pragma once
+
 #include "plbase\PluginBase_VC.h"
 #include "CPed.h"
 #include "CAutomobile.h"
 
 #define NUMBER_OF_VECTORS_FOR_AVERAGE (2)
 
-struct CCam
-{
+class CCam {
+public:
 	bool    bBelowMinDist; //used for follow ped mode
 	bool    bBehindPlayerDesired; //used for follow ped mode
 	bool    m_bCamLookingAtVector;
@@ -115,6 +122,6 @@ struct CCam
 	CAutomobile  *m_pLastCarEntered; // So interpolation works
 	CPed         *m_pLastPedLookedAt;// So interpolation works 
 	bool        m_bFirstPersonRunAboutActive;
-
 };
-VALIDATE_SIZE(CCam, 0x1CC)
+
+VALIDATE_SIZE(CCam, 0x1CC);

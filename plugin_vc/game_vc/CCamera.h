@@ -1,4 +1,12 @@
+/*
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
 #pragma once
+
+#include "plbase\PluginBase_VC.h"
 #include "CPlaceable.h"
 #include "tCamPathSplines.h"
 #include "CCam.h"
@@ -7,9 +15,8 @@
 
 #define MAX_NUM_OF_SPLINETYPES (4)
 
-class CCamera : CPlaceable {
+class CCamera : public CPlaceable {
 public:
-
 	bool    m_bAboveGroundTrainNodesLoaded;
 	bool    m_bBelowGroundTrainNodesLoaded;
 	bool    m_bCamDirectlyBehind;
@@ -281,7 +288,6 @@ public:
 	void UpdateSoundDistances();
 	void UpdateTargetEntity();
 	bool Using1stPersonWeaponMode();
-
 };
 
 extern CCamera &TheCamera;

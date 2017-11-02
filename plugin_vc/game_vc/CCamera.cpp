@@ -1,7 +1,12 @@
+/*
+    Plugin-SDK (Grand Theft Auto) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
 #include "CCamera.h"
 
 CCamera &TheCamera = *(CCamera *)0x7E4688;
-
 
 // Converted from thiscall void CCamera::AvoidTheGeometry(CVector const& Vector1,CVector const& Vector2 ,CVector& Vector3,float arg4)	0x473AA4 
 void CCamera::AvoidTheGeometry(CVector const& Vector1, CVector const& Vector2, CVector& Vector3, float arg4) {
