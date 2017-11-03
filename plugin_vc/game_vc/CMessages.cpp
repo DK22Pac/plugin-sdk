@@ -1,10 +1,9 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto) source file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CMessages.h"
 
 // Converted from cdecl void CMessages::AddBigMessage(ushort *pString,uint time,ushort style)	0x584050	
