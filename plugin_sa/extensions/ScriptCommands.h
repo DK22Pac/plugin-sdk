@@ -24,12 +24,12 @@ class ScriptCode {
     unsigned int size;
 
     struct VarToSet {
-        bool isString;
         unsigned int varIndex;
         union {
             unsigned int *pVar;
             char *str;
         };
+        bool isString;
 
         VarToSet(unsigned int _varIndex, char *_str);
         VarToSet(unsigned int _varIndex, unsigned int *_pVar);

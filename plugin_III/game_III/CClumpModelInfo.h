@@ -51,7 +51,7 @@ public:
 
 protected:
     CClumpModelInfo(const CClumpModelInfo &) {};
-    CClumpModelInfo &operator=(const CClumpModelInfo &) {};
+    CClumpModelInfo &operator=(const CClumpModelInfo &) { return *this; };
 };
 
 VALIDATE_SIZE(CClumpModelInfo, 0x34);

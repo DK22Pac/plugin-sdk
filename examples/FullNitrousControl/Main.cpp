@@ -1,3 +1,4 @@
+#ifdef _MSC_VER
 #include "plugin.h"
 #include "Parameters.h"
 #include "NitrousControl.h"
@@ -32,3 +33,6 @@ public:
         screen::SetBaseResolution(900.0f);
     }
 } fullNitrousControlPlg;
+#else
+#error This example can't be compiled with mingw compiler
+#endif

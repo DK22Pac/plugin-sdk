@@ -6,6 +6,7 @@
 */
 #include "CMessages.h"
 #include <string>
+#include <string.h>
 
 PreviousBrief *CMessages::PreviousBriefs = (PreviousBrief *)0x713C08;
 Message *CMessages::BriefMessages = (Message *)0x8786E0;

@@ -48,7 +48,7 @@ public:
                         ped->m_pIntelligence->m_TaskMgr.SetTask(new CTaskComplexWanderStandard(4, rand() % 8, true), 4, false);
                     }
                 #else
-                    CHud::SetHelpMessage(reinterpret_cast<unsigned short *>(L"Not done yet!"), true, false, false);
+                    CHud::SetHelpMessage(L"Not done yet!", true, false, false);
                 #endif
             }
         };

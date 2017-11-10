@@ -6,6 +6,7 @@
 */
 #include "CFont.h"
 #include <string>
+#include <string.h>
 
 CFontDetails &CFont::Details = *(CFontDetails *)0x8F317C;
 CSprite2d *CFont::Sprite = (CSprite2d *)0x95CC04;

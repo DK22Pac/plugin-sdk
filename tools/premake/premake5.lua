@@ -142,6 +142,9 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
         defines { "_USING_V110_SDK71_", "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
         buildoptions "/Zc:threadSafeInit-"
     end
+    if mingw then
+        buildoptions "-fpermissive"
+    end
     
     if isPluginProject == true and directX9Installed() == true then
         if msbuild then
@@ -158,25 +161,27 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
             flags "LinkTimeOptimization"
         end
         symbols "Off"
-    filter "ΙDebug"
+    filter "zDebug"
         symbols "On"
     filter {}
     
     if mingw or custombuild then
         targetdir "$(PLUGIN_SDK_DIR)/output/mingw/lib"
-        objdir "$(PLUGIN_SDK_DIR)/output/mingw/obj"
         filter "Release"
+            objdir "!$(PLUGIN_SDK_DIR)/output/mingw/obj/Release"
             targetname ("lib" .. outName)
-        filter "ΙDebug"
+        filter "zDebug"
+            objdir "!$(PLUGIN_SDK_DIR)/output/mingw/obj/Debug"
             targetname ("lib" .. outName .. "_d")
         filter {}
         targetextension ".a"
     else
         targetdir "$(PLUGIN_SDK_DIR)/output/lib"
-        objdir "$(PLUGIN_SDK_DIR)/output/obj"
         filter "Release"
+            objdir "!$(PLUGIN_SDK_DIR)/output/obj/Release"
             targetname (outName)
-        filter "ΙDebug"
+        filter "zDebug"
+            objdir "!$(PLUGIN_SDK_DIR)/output/obj/Debug"
             targetname (outName .. "_d")
         filter {}
         targetextension ".lib"
@@ -186,7 +191,7 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     
     if not custombuild then
         kind "StaticLib"
-        filter "ΙDebug"
+        filter "zDebug"
             symbols "On"
         filter {}
     else
@@ -196,13 +201,13 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
             stdAddIncl = "$(ProjectDir)..\\"
         end
         filter "configurations:Release"
-            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(Configuration)\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -O2", ""))
-            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(Configuration)\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -O2", ""))
-            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(Configuration)\\$(ProjectName)\\"))
-        filter "configurations:ΙDebug"
-            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(Configuration)\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -g", ""))
-            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(Configuration)\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -g", ""))
-            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(Configuration)\\$(ProjectName)\\"))
+            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Release\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -O2 -fpermissive", ""))
+            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Release\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -O2 -fpermissive", ""))
+            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Release\\$(ProjectName)\\"))
+        filter "configurations:zDebug"
+            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Debug\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -g -fpermissive", ""))
+            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Debug\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -g -fpermissive", ""))
+            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Debug\\$(ProjectName)\\"))
         filter {}
     end
     
@@ -483,7 +488,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     workspace (projectName)
     local projDir = (sdkdir .. "\\examples\\" .. projectName)
     location (projDir)
-    configurations { "Release", "ΙDebug" }
+    configurations { "Release", "zDebug" }
     local supportedGames = {}
     local gameCounter = 1
     if gameSa == true then
@@ -510,11 +515,11 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         linkoptions "/LTCG" 
     end
     if mingw then
+        buildoptions "-fpermissive"
         linkoptions { "-static-libgcc", "-static-libstdc++" }
     end
     local strTargetDir = "$(PLUGIN_SDK_DIR)\\output\\examples\\"
     targetdir (strTargetDir)
-    objdir ("$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\" .. projectName .. "\\")
     local strMingwObjDir = ("$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\examples\\" .. projectName .. "\\")
     local ext = ".asi"
     if projectType == "CLEO" then
@@ -524,12 +529,22 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     end
     targetextension (ext)
     filter "Release"
+        if mingw or custombuild then
+            objdir (strMingwObjDir .. "Release\\")
+        else
+            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\" .. projectName .. "\\Release\\")
+        end
         optimize "On"
         symbols "Off"
         if msbuild then
             flags "LinkTimeOptimization"
         end
-    filter "ΙDebug"
+    filter "zDebug"
+        if mingw or custombuild then
+            objdir (strMingwObjDir .. "Debug\\")
+        else
+            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\" .. projectName .. "\\Debug\\")
+        end
         symbols "On"
     filter {}
 
@@ -553,7 +568,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             filter { "Release", "platforms:GTASA" }
                 links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
                 targetname (projectName .. ".SA")
-            filter { "ΙDebug", "platforms:GTASA" }
+            filter { "zDebug", "platforms:GTASA" }
                 links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, true))
                 targetname (projectName .. ".SA_d")
         end
@@ -565,7 +580,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             filter { "Release", "platforms:GTAVC" }
                 links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
                 targetname (projectName .. ".VC")
-            filter { "ΙDebug", "platforms:GTAVC" }
+            filter { "zDebug", "platforms:GTAVC" }
                 links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
                 targetname (projectName .. ".VC_d")
         end
@@ -577,7 +592,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             filter { "Release", "platforms:GTA3" }
                 links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
                 targetname (projectName .. ".III")
-            filter { "ΙDebug", "platforms:GTA3" }
+            filter { "zDebug", "platforms:GTA3" }
                 links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
                 targetname (projectName .. ".III_d")
         end
@@ -599,10 +614,10 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
                 local definesAry = getExamplePluginDefines(projectName, "GTASA", "plugin.h", projectType, laSupport, true, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas")
                 local strDefines = table.concat(definesAry, ";")
                 local strLibsRelease = table.concat(getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false), ";")
-                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
-                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s"))
-                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\")))
-            filter { "ΙDebug", "platforms:GTASA" }
+                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
+                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s"))
+                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\")))
+            filter { "zDebug", "platforms:GTASA" }
                 targetname (projectName .. ".SA_d")
                 local targetNameSuf = ".SA"
                 local incDirAry = getExamplePluginIncludeFolders("plugin_sa", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", false, additionalIncludeDirs, d3dSupport)
@@ -612,9 +627,9 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
                 local definesAry = getExamplePluginDefines(projectName, "GTASA", "plugin.h", projectType, laSupport, true, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas")
                 local strDefines = table.concat(definesAry, ";")
                 local strLibsDebug = table.concat(getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, true), ";")
-                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
-                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
-                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\")))
+                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
+                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
+                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\")))
         end
         if gameVc == true then
             filter "platforms:GTAVC"
@@ -630,10 +645,10 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
                 local definesAry = getExamplePluginDefines(projectName, "GTAVC", "plugin_vc.h", projectType, laSupport, true, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City")
                 local strDefines = table.concat(definesAry, ";")
                 local strLibsRelease = table.concat(getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false), ";")
-                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
-                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
-                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\")))
-            filter { "ΙDebug", "platforms:GTAVC" }
+                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
+                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
+                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\")))
+            filter { "zDebug", "platforms:GTAVC" }
                 targetname (projectName .. ".VC_d")
                 local targetNameSuf = ".VC"
                 local incDirAry = getExamplePluginIncludeFolders("plugin_vc", "game_vc", projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport)
@@ -643,9 +658,9 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
                 local definesAry = getExamplePluginDefines(projectName, "GTAVC", "plugin_vc.h", projectType, laSupport, true, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City")
                 local strDefines = table.concat(definesAry, ";")
                 local strLibsDebug = table.concat(getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true), ";")
-                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
-                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
-                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\")))
+                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
+                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
+                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\")))
         end
         if game3 == true then
             filter "platforms:GTA3"
@@ -661,10 +676,10 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
                 local definesAry = getExamplePluginDefines(projectName, "GTA3", "plugin_iii.h", projectType, laSupport, true, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City")
                 local strDefines = table.concat(definesAry, ";")
                 local strLibsRelease = table.concat(getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false), ";")
-                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
-                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
-                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\")))
-            filter { "ΙDebug", "platforms:GTA3" }
+                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
+                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\"), strIincludeDirs, strLibraryDirs, strLibsRelease, strDefines, "-m32 -O2 -fpermissive", "-m32 -s -static-libgcc -static-libstdc++"))
+                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. ext), strTargetDir, (strMingwObjDir .. "Release\\")))
+            filter { "zDebug", "platforms:GTA3" }
                 targetname (projectName .. ".III_d")
                 local targetNameSuf = ".III"
                 local incDirAry = getExamplePluginIncludeFolders("plugin_iii", "game_iii", projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport)
@@ -674,9 +689,9 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
                 local definesAry = getExamplePluginDefines(projectName, "GTA3", "plugin_iii.h", projectType, laSupport, true, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City")
                 local strDefines = table.concat(definesAry, ";")
                 local strLibsDebug = table.concat(getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true), ";")
-                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
-                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
-                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "$(Configuration)\\")))
+                buildcommands (pluginSdkToolBuildConfig("build", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
+                rebuildcommands (pluginSdkToolBuildConfig("rebuild", "DLL", (projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\"), strIincludeDirs, strLibraryDirs, strLibsDebug, strDefines, "-m32 -g -fpermissive", "-m32 -static-libgcc -static-libstdc++"))
+                cleancommands (pluginSdkToolCleanConfig((projectName .. targetNameSuf .. "_d" .. ext), strTargetDir, (strMingwObjDir .. "Debug\\")))
         end
         filter {}
     end
@@ -713,7 +728,7 @@ else
     
         workspace "plugin"
             location (sdkdir)
-            configurations { "Release", "ΙDebug" }
+            configurations { "Release", "zDebug" }
         
         group "shared"
             pluginSdkStaticLibProject("paths", sdkdir .. "\\shared\\paths", "paths", false, "")

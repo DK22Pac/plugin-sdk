@@ -236,7 +236,10 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     target.SetCreateStaticLib(false);
     target.SetCreateDefFile(false);
     target.SetWorkingDir(_T("."));
-    target.SetObjectOutput(_T(".obj"));
+    if (isDebug)
+        target.SetObjectOutput(_T(".obj\\Debug"));
+    else
+        target.SetObjectOutput(_T(".obj\\Release"));
     target.SetTargetFilenameGenerationPolicy(tgfpNone, tgfpNone);
     target.AddCompilerOption(_T("-m32"));
     target.AddCompilerOption(_T("-fpermissive"));

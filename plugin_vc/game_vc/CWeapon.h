@@ -71,6 +71,6 @@ public:
 	static void CheckForShootingVehicleOccupant(CEntity** pCollideEntity, CColPoint* pColPoint, eWeaponType type, CVector const& vecStart, CVector const& vecEnd);
 };
 
-static void FireOneInstantHitRound(CVector* vecStart, CVector* vecEnd, int nDamage);
+void FireOneInstantHitRound(CVector* vecStart, CVector* vecEnd, int nDamage);
 
 VALIDATE_SIZE(CWeapon, 0x18);

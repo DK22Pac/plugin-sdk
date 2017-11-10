@@ -6,6 +6,7 @@
 */
 #include "CHud.h"
 #include <string>
+#include <string.h>
 
 __int64(*CHud::m_HelpMessageToPrint)[] = (__int64(*)[])0x78C5F8;
 __int64(*CHud::m_LastHelpMessage)[] = (__int64(*)[])0x7D3E40;

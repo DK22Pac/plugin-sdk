@@ -6,6 +6,7 @@
 */
 #include "CPager.h"
 #include <string>
+#include <string.h>
 
 // Converted from thiscall void CPager::Init(void) 0x52B6F0
 void CPager::Init() {
