@@ -21,18 +21,18 @@ function deleteAllFoldersWithName(pathToDir, folderName)
 end
 
 function cleanProjectsDirectory(pathToDir)
-    os.execute("del /s " .. pathToDir .. "\\*.sln 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.suo 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.sdf 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.opensdf 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.vcxproj 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.vcxproj.filters 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.vcxproj.user 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.workspace 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.cbp 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.project 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.depend 2>NUL")
-    os.execute("del /s " .. pathToDir .. "\\*.layout 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.sln\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.suo\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.sdf\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.opensdf\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj.filters\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj.user\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.workspace\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.cbp\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.project\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.depend\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.layout\" 2>NUL")
     deleteAllFoldersWithName(pathToDir, "obj")
 end
 
@@ -207,6 +207,7 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     end
     
     if isPluginProject == true then
+        os.execute("mkdir \"" .. projectPath .. "\\proj\"")
         location (projectPath .. "\\proj")
         dependson "paths"
         includedirs "$(ProjectDir)..\\"
