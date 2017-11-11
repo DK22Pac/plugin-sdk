@@ -1,6 +1,26 @@
 vtable 0
 end
 funcs
+// Draw sun
+cdecl void CCoronas::DoSunAndMoon(void)                                                                                                0x4FA380
+// Initialises coronas
+cdecl void CCoronas::Init(void)                                                                                                        0x4F9F90
+cdecl void CCoronas::RegisterCorona(uint id, uchar red, uchar green, uchar blue, uchar alpha, CVector const& posn, float radius, float farClip, RwTexture *, uchar, uchar, uchar, uchar, float) 0x4FA0E0
+cdecl void CCoronas::RegisterCorona(uint id, uchar red, uchar green, uchar blue, uchar alpha, CVector const& posn, float radius, float farClip, uchar, uchar, uchar, uchar, uchar, float) 0x4FA080
+// Renders coronas
+cdecl void CCoronas::Render(void)                                                                                                      0x4F8FB0
+// Renders coronas reflections on a wet ground
+cdecl void CCoronas::RenderReflections(void)                                                                                           0x4F9B40
+// Terminates coronas
+cdecl void CCoronas::Shutdown(void)                                                                                                    0x4FA050
+// Updates coronas
+cdecl void CCoronas::Update(void)                                                                                                      0x4F8EC0
+cdecl void CCoronas::UpdateCoronaCoors(uint id, CVector const& posn, float farClip, float angle) 0x4FA2D0
+end
+
+vtable 0
+end
+funcs
 cdecl bool CCustomCarPlateMgr::Initialise(void)                                            0x6FD500
 cdecl bool CCustomCarPlateMgr::GeneratePlateText(char *plateTextBuf,int length)                               0x6FD5B0
 cdecl bool CCustomCarPlateMgr::Shutdown(void)                                              0x6FD720
