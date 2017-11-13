@@ -8,84 +8,84 @@ Do not delete this comment block. Respect others' work!
 
 // Converted from void CEntity::Add(void) 0x0
 void CEntity::Add() {
-    plugin::CallVirtualMethod<0, CEntity *>(this);
+    plugin::CallVirtualMethod<1, CEntity *>(this);
 }
 
 // Converted from void CEntity::Remove(void) 0x0
 void CEntity::Remove() {
-    plugin::CallVirtualMethod<1, CEntity *>(this);
+    plugin::CallVirtualMethod<2, CEntity *>(this);
 }
 
 // Converted from void CEntity::SetModelIndex(uint modelIndex) 0x0
 void CEntity::SetModelIndex(unsigned int modelIndex) {
-    plugin::CallVirtualMethod<2, CEntity *, unsigned int>(this, modelIndex);
+    plugin::CallVirtualMethod<3, CEntity *, unsigned int>(this, modelIndex);
 }
 
 // Converted from void CEntity::SetModelIndexNoCreate(uint modelIndex) 0x0
 void CEntity::SetModelIndexNoCreate(unsigned int modelIndex) {
-    plugin::CallVirtualMethod<3, CEntity *, unsigned int>(this, modelIndex);
+    plugin::CallVirtualMethod<4, CEntity *, unsigned int>(this, modelIndex);
 }
 
 // Converted from void CEntity::CreateRwObject(void) 0x0
 void CEntity::CreateRwObject() {
-    plugin::CallVirtualMethod<4, CEntity *>(this);
+    plugin::CallVirtualMethod<5, CEntity *>(this);
 }
 
 // Converted from void CEntity::DeleteRwObject(void) 0x0
 void CEntity::DeleteRwObject() {
-    plugin::CallVirtualMethod<5, CEntity *>(this);
+    plugin::CallVirtualMethod<6, CEntity *>(this);
 }
 
 // Converted from CRect CEntity::GetBoundRect(void) 0x0
 CRect CEntity::GetBoundRect() {
     CRect result;
-    plugin::CallVirtualMethodAndReturn<CRect, 6, CEntity *, CRect*>(this, &result);
+    plugin::CallVirtualMethodAndReturn<CRect, 7, CEntity *, CRect*>(this, &result);
     return result;
 }
 
 // Converted from void CEntity::ProcessControl(void) 0x0
 void CEntity::ProcessControl() {
-    plugin::CallVirtualMethod<7, CEntity *>(this);
+    plugin::CallVirtualMethod<8, CEntity *>(this);
 }
 
 // Converted from void CEntity::ProcessCollision(void) 0x0
 void CEntity::ProcessCollision() {
-    plugin::CallVirtualMethod<8, CEntity *>(this);
+    plugin::CallVirtualMethod<9, CEntity *>(this);
 }
 
 // Converted from void CEntity::ProcessShift(void) 0x0
 void CEntity::ProcessShift() {
-    plugin::CallVirtualMethod<9, CEntity *>(this);
+    plugin::CallVirtualMethod<10, CEntity *>(this);
 }
 
 // Converted from void CEntity::Teleport(CVector posn) 0x0
 void CEntity::Teleport(CVector posn) {
-    plugin::CallVirtualMethod<10, CEntity *, CVector>(this, posn);
+    plugin::CallVirtualMethod<11, CEntity *, CVector>(this, posn);
 }
 
 // Converted from void CEntity::PreRender(void) 0x0
 void CEntity::PreRender() {
-    plugin::CallVirtualMethod<11, CEntity *>(this);
+    plugin::CallVirtualMethod<12, CEntity *>(this);
 }
 
 // Converted from void CEntity::Render(void) 0x0
 void CEntity::Render() {
-    plugin::CallVirtualMethod<12, CEntity *>(this);
+    plugin::CallVirtualMethod<13, CEntity *>(this);
 }
 
 // Converted from bool CEntity::SetupLighting(void) 0x0
 bool CEntity::SetupLighting() {
-    return plugin::CallVirtualMethodAndReturn<bool, 13, CEntity *>(this);
+    return plugin::CallVirtualMethodAndReturn<bool, 14, CEntity *>(this);
 }
 
 // Converted from void CEntity::RemoveLighting(bool resetWorldColors) 0x0
 void CEntity::RemoveLighting(bool resetWorldColors) {
-    plugin::CallVirtualMethod<14, CEntity *, bool>(this, resetWorldColors);
+    plugin::CallVirtualMethod<15, CEntity *, bool>(this, resetWorldColors);
 }
 
 // Converted from void CEntity::FlagToDestroyWhenNextProcessed(void) 0x0
 void CEntity::FlagToDestroyWhenNextProcessed() {
-    plugin::CallVirtualMethod<15, CEntity *>(this);
+    plugin::CallVirtualMethod<16, CEntity *>(this);
 }
 
 // Converted from cdecl void CEntity::AddSteamsFromGround(CVector *) 0x4B3FE0
