@@ -164,24 +164,24 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
     filter "zDebug"
         symbols "On"
     filter {}
-    
+
     if mingw or custombuild then
-        targetdir "$(PLUGIN_SDK_DIR)/output/mingw/lib"
+        targetdir "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib"
         filter "Release"
-            objdir "!$(PLUGIN_SDK_DIR)/output/mingw/obj/Release"
+            objdir "!$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Release"
             targetname ("lib" .. outName)
         filter "zDebug"
-            objdir "!$(PLUGIN_SDK_DIR)/output/mingw/obj/Debug"
+            objdir "!$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Debug"
             targetname ("lib" .. outName .. "_d")
         filter {}
         targetextension ".a"
     else
         targetdir "$(PLUGIN_SDK_DIR)/output/lib"
         filter "Release"
-            objdir "!$(PLUGIN_SDK_DIR)/output/obj/Release"
+            objdir "!$(PLUGIN_SDK_DIR)\\output\\obj\\$(ProjectName)\\Release"
             targetname (outName)
         filter "zDebug"
-            objdir "!$(PLUGIN_SDK_DIR)/output/obj/Debug"
+            objdir "!$(PLUGIN_SDK_DIR)\\output\\obj\\$(ProjectName)\\Debug"
             targetname (outName .. "_d")
         filter {}
         targetextension ".lib"
@@ -201,13 +201,13 @@ function pluginSdkStaticLibProject(projectName, projectPath, outName, isPluginPr
             stdAddIncl = "$(ProjectDir)..\\"
         end
         filter "configurations:Release"
-            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Release\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -O2 -fpermissive", ""))
-            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Release\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -O2 -fpermissive", ""))
-            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Release\\$(ProjectName)\\"))
+            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Release\\", stdAddIncl, "", "", "", "-m32 -Wall -O2 -fpermissive", ""))
+            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Release\\", stdAddIncl, "", "", "", "-m32 -Wall -O2 -fpermissive", ""))
+            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. ".a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Release\\"))
         filter "configurations:zDebug"
-            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Debug\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -g -fpermissive", ""))
-            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Debug\\$(ProjectName)\\", stdAddIncl, "", "", "", "-m32 -Wall -g -fpermissive", ""))
-            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\Debug\\$(ProjectName)\\"))
+            buildcommands (pluginSdkToolBuildConfig("build", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Debug\\", stdAddIncl, "", "", "", "-m32 -Wall -g -fpermissive", ""))
+            rebuildcommands (pluginSdkToolBuildConfig("rebuild", "LIB", "lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Debug\\", stdAddIncl, "", "", "", "-m32 -Wall -g -fpermissive", ""))
+            cleancommands (pluginSdkToolCleanConfig("lib" .. outName .. "_d.a", "$(PLUGIN_SDK_DIR)\\output\\mingw\\lib\\", "$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\$(ProjectName)\\Debug\\"))
         filter {}
     end
     
@@ -520,7 +520,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     end
     local strTargetDir = "$(PLUGIN_SDK_DIR)\\output\\examples\\"
     targetdir (strTargetDir)
-    local strMingwObjDir = ("$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\examples\\" .. projectName .. "\\")
+    local strMingwObjDir = ("$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\examples\\$(ProjectName)\\")
     local ext = ".asi"
     if projectType == "CLEO" then
         ext = ".cleo"
@@ -532,7 +532,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         if mingw or custombuild then
             objdir (strMingwObjDir .. "Release\\")
         else
-            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\" .. projectName .. "\\Release\\")
+            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\$(ProjectName)\\Release\\")
         end
         optimize "On"
         symbols "Off"
@@ -543,7 +543,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         if mingw or custombuild then
             objdir (strMingwObjDir .. "Debug\\")
         else
-            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\" .. projectName .. "\\Debug\\")
+            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\$(ProjectName)\\Debug\\")
         end
         symbols "On"
     filter {}
