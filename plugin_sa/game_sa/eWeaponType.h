@@ -6,7 +6,7 @@
 */
 #pragma once
 
-enum eWeaponType
+enum eWeaponType : unsigned int
 {
 	WEAPON_UNARMED = 0x0,
 	WEAPON_BRASSKNUCKLE = 0x1,

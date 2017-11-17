@@ -42,7 +42,7 @@ public:
 
     union {
         struct Light {
-            CRGBA m_color;
+            RwRGBA m_color;
             float m_fCoronaFarClip;
             float m_fPointlightRange;
             float m_fCoronaSize;
@@ -70,9 +70,9 @@ public:
         } particle;
 
         struct PedAttractor {
-            CVector m_vecQueueDir;
-            CVector m_vecUseDir;
-            CVector m_vecForwardDir;
+            RwV3d m_vecQueueDir;
+            RwV3d m_vecUseDir;
+            RwV3d m_vecForwardDir;
             unsigned char m_nAttractorType; // see ePedAttractorType
             unsigned char m_nPedExistingProbability;
             char field_36;
@@ -82,8 +82,8 @@ public:
 
         struct EnEx {
             float m_fEnterAngle;
-            CVector m_vecSize;
-            CVector m_vecExitPosn;
+            RwV3d m_vecSize;
+            RwV3d m_vecExitPosn;
             float m_fExitAngle;
             short m_nInteriorId;
             unsigned char m_nFlags1;
@@ -95,7 +95,7 @@ public:
         } enEx;
 
         struct Roadsign {
-            CVector2D m_vecSize;
+            RwV2d m_vecSize;
             float m_afRotation[3];
             unsigned short m_nFlags;
         private:
@@ -106,7 +106,7 @@ public:
         } roadsign;
 
         struct CoverPoint {
-            CVector2D m_vecDirection;
+            RwV2d m_vecDirection;
             unsigned char m_nType;
         private:
             char _pad19[3];
@@ -114,9 +114,9 @@ public:
         } coverPoint;
 
         struct Escalator {
-            CVector m_vecBottom;
-            CVector m_vecTop;
-            CVector m_vecEnd;
+            RwV3d m_vecBottom;
+            RwV3d m_vecTop;
+            RwV3d m_vecEnd;
             unsigned char m_nDirection;
         private:
             char _pad35[3];

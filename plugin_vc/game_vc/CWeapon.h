@@ -20,7 +20,7 @@ class CVehicle;
 
 class CWeapon {
 public:
-    unsigned int m_nType; // see eWeaponType
+    eWeaponType m_nType;
     unsigned int m_nState;
     unsigned int m_nAmmoInClip;
     unsigned int m_nTotalAmmo;

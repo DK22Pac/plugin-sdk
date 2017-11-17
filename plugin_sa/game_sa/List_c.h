@@ -16,7 +16,7 @@
  */
 class PLUGIN_API List_c
 {
-protected:
+public:
 	ListItem_c *last;
 	ListItem_c *first;
 	unsigned int count;
@@ -24,7 +24,6 @@ protected:
 	List_c(void);
 	~List_c(void);
 
-public:
 	/**
 	 * Add new item to the head
 	 */
