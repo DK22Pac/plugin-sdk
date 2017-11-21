@@ -18,7 +18,7 @@ public:
     bool IsWithinArea(float x1, float y1, float x2, float y2);
     void SetHeading(float heading);
 
-    // CPlaceable virtual table: destructor only
+   // CPlaceable virtual table: destructor only
 
     virtual ~CPlaceable();
 };
