@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eWeaponType : unsigned __int32
+enum eWeaponType : unsigned int
 {
 	WEAPONTYPE_UNARMED = 0,
 	WEAPONTYPE_BRASSKNUCKLE = 1,
