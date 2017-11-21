@@ -34,11 +34,11 @@ public:
     static void Initialise();
     static void ShutDown();
     static void CheckPoolsEmpty();
-    static void GetPedRef(CPed* ped);
+    static int GetPedRef(CPed* ped);
     static CPed* GetPed(int handle);
-    static CVehicle* GetVehicleRef(CVehicle* vehicle);
-    static void GetVehicle(int handle);
-    static void GetObjectRef(CObject* object);
+    static int GetVehicleRef(CVehicle* vehicle);
+    static CVehicle* GetVehicle(int handle);
+    static int GetObjectRef(CObject* object);
     static CObject* GetObject(int handle);
     static void LoadVehiclePool(unsigned char* buffer, unsigned int size);
     static void SaveVehiclePool(unsigned char* buffer, unsigned int* outSize);

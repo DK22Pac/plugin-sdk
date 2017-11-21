@@ -32,9 +32,9 @@ void CPools::CheckPoolsEmpty() {
     plugin::Call<0x4A1A50>();
 }
 
-// Converted from cdecl void CPools::GetPedRef(CPed *ped) 0x4A1A80
-void CPools::GetPedRef(CPed* ped) {
-    plugin::Call<0x4A1A80, CPed*>(ped);
+// Converted from cdecl int CPools::GetPedRef(CPed *ped) 0x4A1A80
+int CPools::GetPedRef(CPed* ped) {
+    return plugin::CallAndReturn<int, 0x4A1A80, CPed*>(ped);
 }
 
 // Converted from cdecl CPed* CPools::GetPed(int handle) 0x4A1AA0
@@ -42,19 +42,19 @@ CPed* CPools::GetPed(int handle) {
     return plugin::CallAndReturn<CPed*, 0x4A1AA0, int>(handle);
 }
 
-// Converted from cdecl CVehicle* CPools::GetVehicleRef(CVehicle *vehicle) 0x4A1AC0
-CVehicle* CPools::GetVehicleRef(CVehicle* vehicle) {
-    return plugin::CallAndReturn<CVehicle*, 0x4A1AC0, CVehicle*>(vehicle);
+// Converted from cdecl int CPools::GetVehicleRef(CVehicle *vehicle) 0x4A1AC0
+int CPools::GetVehicleRef(CVehicle* vehicle) {
+    return plugin::CallAndReturn<int, 0x4A1AC0, CVehicle*>(vehicle);
 }
 
-// Converted from cdecl void CPools::GetVehicle(int handle) 0x4A1AE0
-void CPools::GetVehicle(int handle) {
-    plugin::Call<0x4A1AE0, int>(handle);
+// Converted from cdecl CVehicle* CPools::GetVehicle(int handle) 0x4A1AE0
+CVehicle* CPools::GetVehicle(int handle) {
+    return plugin::CallAndReturn<CVehicle*, 0x4A1AE0, int>(handle);
 }
 
-// Converted from cdecl void CPools::GetObjectRef(CObject *object) 0x4A1B00
-void CPools::GetObjectRef(CObject* object) {
-    plugin::Call<0x4A1B00, CObject*>(object);
+// Converted from cdecl int CPools::GetObjectRef(CObject *object) 0x4A1B00
+int CPools::GetObjectRef(CObject* object) {
+    return plugin::CallAndReturn<int, 0x4A1B00, CObject*>(object);
 }
 
 // Converted from cdecl CObject* CPools::GetObject(int handle) 0x4A1B20
