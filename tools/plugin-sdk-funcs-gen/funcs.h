@@ -1,6 +1,39 @@
 vtable 0
 end
 funcs
+cdecl void CStreaming::RequestModel(int modelIndex, int flags)                                  0x407EA0
+cdecl void CStreaming::LoadRequestedModels(void)                                                0x40A390
+cdecl void CStreaming::Init(void)                                                               0x406430
+cdecl void CStreaming::FlushChannels(void)                                                      0x40A610
+cdecl void CStreaming::FlushRequestList(void)                                                   0x40A680
+cdecl int CStreaming::GetAvailableVehicleSlot(void)                                             0x40B160
+cdecl bool CStreaming::IsTxdUsedByRequestedModels(int index)                                    0x4094C0
+cdecl void CStreaming::LoadAllRequestedModels(bool fileExists)                                  0x40A440
+cdecl void CStreaming::RemoveModel(int modelIndex)                                              0x408830
+cdecl bool CStreaming::RemoveLeastUsedModel(void)                                               0x4089B0
+cdecl bool CStreaming::RemoveLoadedVehicle(void)                                                0x40B180
+cdecl void CStreaming::RemoveAllUnusedModels(void)                                              0x408940
+cdecl void CStreaming::RemoveCurrentZonesModels(void)                                           0x40AD00
+// empty function
+cdecl void CStreaming::RemoveUnusedModelsInLoadedList(void)                                     0x4089A0
+cdecl void CStreaming::RequestModelStream(int streamnum)                                        0x40A060
+cdecl void CStreaming::RequestSpecialChar(int index, char const* txdname, int modelrequestflag) 0x40ADA0
+cdecl void CStreaming::RequestSpecialModel(int slot, char const* name, int modelrequestflag)    0x40A890
+cdecl void CStreaming::RequestSubway(void)                                                      0x407FD0
+cdecl void CStreaming::SetMissionDoesntRequireModel(int modelIndex)                             0x40A820
+cdecl void CStreaming::SetMissionDoesntRequireSpecialChar(int index)                            0x40ADE0
+cdecl void CStreaming::SetModelIsDeletable(int modelIndex)                                      0x40A790
+cdecl void CStreaming::SetModelTxdIsDeletable(int modelIndex)                                   0x40A800
+cdecl void CStreaming::Shutdown(void)                                                           0x406C80
+cdecl void CStreaming::StreamVehiclesAndPeds(void)                                              0x40AE60
+cdecl void CStreaming::Update(void)                                                             0x4076C0
+// empty function
+cdecl void CStreaming::UpdateMemoryUsed(void)                                                   0x4076B0
+end
+
+vtable 0
+end
+funcs
 // Draw sun
 cdecl void CCoronas::DoSunAndMoon(void)                                                                                                0x4FA380
 // Initialises coronas
