@@ -15,3 +15,8 @@ void CWorld::Add(CEntity* entity) {
 void CWorld::Remove(CEntity* entity) {
     plugin::Call<0x4AE9D0, CEntity*>(entity);
 }
+
+// Converted from cdecl float CWorld::FindGroundZForCoord(float x, float y) 0x4B3A80 
+float CWorld::FindGroundZForCoord(float x, float y) {
+    return plugin::CallAndReturn<float, 0x4B3A80, float, float>(x, y);
+}

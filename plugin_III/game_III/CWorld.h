@@ -13,4 +13,5 @@ public:
     //funcs
     static void Add(CEntity* entity);
     static void Remove(CEntity* entity);
+    static float FindGroundZForCoord(float x, float y);
 };

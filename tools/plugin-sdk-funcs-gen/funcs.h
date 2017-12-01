@@ -1,4 +1,18 @@
-vtable 0
+vtable 0 //GTA III
+end
+funcs
+cdecl void CTheScripts::Init(void)                                           0x438790
+cdecl bool CTheScripts::IsPedStopped(CPed *ped)                              0x454670
+cdecl bool CTheScripts::IsPlayerOnAMission(void)                             0x439410
+cdecl bool CTheScripts::IsPlayerStopped(CPlayerInfo *info)                   0x4546C0
+cdecl bool CTheScripts::IsVehicleStopped(CVehicle *vehicle)                  0x454770
+cdecl void CTheScripts::CleanUpThisPed(CPed *ped)                            0x4547A0
+cdecl void CTheScripts::CleanUpThisObject(CObject *object)                   0x454910
+cdecl void CTheScripts::CleanUpThisVehicle(CVehicle *vehicle)                0x4548D0
+cdecl void CTheScripts::ClearSpaceForMissionEntity(CVector const &position, CEntity *entity) 0x454060
+end
+
+vtable 0 //GTA III
 end
 funcs
 cdecl void CStreaming::RequestModel(int modelIndex, int flags)                                  0x407EA0
@@ -31,7 +45,7 @@ cdecl void CStreaming::Update(void)                                             
 cdecl void CStreaming::UpdateMemoryUsed(void)                                                   0x4076B0
 end
 
-vtable 0
+vtable 0 //GTA III
 end
 funcs
 // Draw sun
