@@ -4,17 +4,18 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include <plugin_vc.h>
 #include "CStreaming.h"
 
-char CStreaming::RequestModel(int modelIndex, int flags) {
-    return plugin::CallAndReturn<char, 0x40E310, int, int>(modelIndex, flags);
+CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x94DDD0;
+
+void CStreaming::RequestModel(int modelIndex, int flags) {
+    plugin::Call<0x40E310, int, int>(modelIndex, flags);
 }
 
-int CStreaming::LoadAllRequestedModels(int a1, char a2) {
-    return plugin::CallAndReturn<int, 0x40B5F0, signed int, int>(a1, a2);
+void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests) {
+    plugin::Call<0x40B5F0, bool>(onlyQuickRequests);
 }
 
-char CStreaming::SetModelIsDeletable(int modelIndex) {
-    return plugin::CallAndReturn<int, 0x40AEA0, int>(modelIndex);
+void CStreaming::SetModelIsDeletable(int modelIndex) {
+    plugin::Call<0x40AEA0, int>(modelIndex);
 }

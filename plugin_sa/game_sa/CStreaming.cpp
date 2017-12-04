@@ -86,9 +86,9 @@ unsigned int CStreaming::GetDefaultCopCarModel(unsigned int arg0)
     return ((unsigned int(__cdecl *)(unsigned int))0x407C50)(arg0);
 }
 
-void CStreaming::LoadAllRequestedModels(bool bOnlyQuickRequests)
+void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests)
 {
-    ((void(__cdecl *)(bool))0x40EA10)(bOnlyQuickRequests);
+    ((void(__cdecl *)(bool))0x40EA10)(onlyQuickRequests);
 }
 
 // Used for loading player clothes

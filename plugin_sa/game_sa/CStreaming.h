@@ -56,7 +56,7 @@ public:
     static unsigned int GetDefaultFireEngineModel();
     static unsigned int GetDefaultCopModel();
     static unsigned int GetDefaultCopCarModel(unsigned int arg0);
-    static void LoadAllRequestedModels(bool bOnlyQuickRequests);
+    static void LoadAllRequestedModels(bool onlyQuickRequests);
     // Used for player clothes
     static void LoadRequestedModels();
 

@@ -6,10 +6,14 @@
 */
 #pragma once
 
+#include "plbase\PluginBase_VC.h"
+#include "CStreamingInfo.h"
+
 class CStreaming {
 public:
-    static char RequestModel(int modelIndex, int flags);
-    static int LoadAllRequestedModels(int a1, char a2);
-    static char SetModelIsDeletable(int modelIndex);
+    static CStreamingInfo *ms_aInfoForModel; // static CStreamingInfo ms_aInfoForModel[7951]
 
+    static void RequestModel(int modelIndex, int flags);
+    static void LoadAllRequestedModels(bool onlyQuickRequests);
+    static void SetModelIsDeletable(int modelIndex);
 };
