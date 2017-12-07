@@ -6,6 +6,7 @@
 */
 
 #pragma once
+#include "plbase/PluginBase_SA.h"
 #include "RenderWare.h"
 #include "CMenuManager.h"
 

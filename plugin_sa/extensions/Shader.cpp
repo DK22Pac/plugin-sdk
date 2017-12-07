@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include "plugin.h"
 
 #ifdef __D3DX9_H__
 
@@ -350,10 +351,10 @@ void Shader::GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *vie
 void Shader::DrawRect(float left, float top, float right, float bottom) {
     D3DVIEWPORT9 oldViewport, viewport;
     GetD3DDevice()->GetViewport(&oldViewport);
-    viewport.X = left;
-    viewport.Y = top;
-    viewport.Width = right - left;
-    viewport.Height = bottom - top;
+    viewport.X = static_cast<DWORD>(left);
+    viewport.Y = static_cast<DWORD>(top);
+    viewport.Width = static_cast<DWORD>(right - left);
+    viewport.Height = static_cast<DWORD>(bottom - top);
     viewport.MinZ = 0.0f;
     viewport.MaxZ = 1.0f;
     GetD3DDevice()->SetViewport(&viewport);

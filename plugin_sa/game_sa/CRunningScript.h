@@ -7,7 +7,7 @@
 #pragma once
 #include "plbase/PluginBase_SA.h"
 #include "ePedType.h"
-#include "eCommandName.h"
+#include "eScriptCommands.h"
 #include "eWeaponType.h"
 #include "CPed.h"
 
@@ -73,216 +73,210 @@
 #define FUNC_CRunningScript__ProcessCommands_2500To2599 0x47A760
 #define FUNC_CRunningScript__ProcessCommands_2600To2699 0x479DA0
 
-enum eArgumentDataTypesFormat_GTA_III_VC_SA : __int8
-{
-	SCM_ARGUMENT_TYPE_END_OF_ARGUMENTS,
-	SCM_ARGUMENT_TYPE_STATIC_INT_32BITS,
-	SCM_ARGUMENT_TYPE_GLOBAL_NUMBER_VARIABLE,
-	SCM_ARGUMENT_TYPE_LOCAL_NUMBER_VARIABLE,
-	SCM_ARGUMENT_TYPE_STATIC_INT_8BITS,
-	SCM_ARGUMENT_TYPE_STATIC_INT_16BITS,
-	SCM_ARGUMENT_TYPE_STATIC_FLOAT,
+enum eScriptArgumentType {
+    SCRIPTARG_END_OF_ARGUMENTS,
+    SCRIPTARG_STATIC_INT_32BITS,
+    SCRIPTARG_GLOBAL_NUMBER_VARIABLE,
+    SCRIPTARG_LOCAL_NUMBER_VARIABLE,
+    SCRIPTARG_STATIC_INT_8BITS,
+    SCRIPTARG_STATIC_INT_16BITS,
+    SCRIPTARG_STATIC_FLOAT,
 
-	// Types below are only available in GTA SA
-	SCM_ARGUMENT_TYPES_INTRODUCED_IN_GTASA,
+    // Types below are only available in GTA SA
+    SCRIPTARG_INTRODUCED_IN_GTASA,
 
-	// Number arrays
-	SCM_ARGUMENT_TYPE_GLOBAL_NUMBER_ARRAY = SCM_ARGUMENT_TYPES_INTRODUCED_IN_GTASA,
+    // Number arrays
+    SCRIPTARG_GLOBAL_NUMBER_ARRAY = SCRIPTARG_INTRODUCED_IN_GTASA,
 
-	SCM_ARGUMENT_TYPE_LOCAL_NUMBER_ARRAY,
-	SCM_ARGUMENT_TYPE_STATIC_SHORT_STRING,
-	SCM_ARGUMENT_TYPE_GLOBAL_SHORT_STRING_VARIABLE,
-	SCM_ARGUMENT_TYPE_LOCAL_SHORT_STRING_VARIABLE,
-	SCM_ARGUMENT_TYPE_GLOBAL_SHORT_STRING_ARRAY,
-	SCM_ARGUMENT_TYPE_LOCAL_SHORT_STRING_ARRAY,
-	SCM_ARGUMENT_TYPE_STATIC_PASCAL_STRING,
-	SCM_ARGUMENT_TYPE_STATIC_LONG_STRING,
-	SCM_ARGUMENT_TYPE_GLOBAL_LONG_STRING_VARIABLE,
-	SCM_ARGUMENT_TYPE_LOCAL_LONG_STRING_VARIABLE,
-	SCM_ARGUMENT_TYPE_GLOBAL_LONG_STRING_ARRAY,
-	SCM_ARGUMENT_TYPE_LOCAL_LONG_STRING_ARRAY,
+    SCRIPTARG_LOCAL_NUMBER_ARRAY,
+    SCRIPTARG_STATIC_SHORT_STRING,
+    SCRIPTARG_GLOBAL_SHORT_STRING_VARIABLE,
+    SCRIPTARG_LOCAL_SHORT_STRING_VARIABLE,
+    SCRIPTARG_GLOBAL_SHORT_STRING_ARRAY,
+    SCRIPTARG_LOCAL_SHORT_STRING_ARRAY,
+    SCRIPTARG_STATIC_PASCAL_STRING,
+    SCRIPTARG_STATIC_LONG_STRING,
+    SCRIPTARG_GLOBAL_LONG_STRING_VARIABLE,
+    SCRIPTARG_LOCAL_LONG_STRING_VARIABLE,
+    SCRIPTARG_GLOBAL_LONG_STRING_ARRAY,
+    SCRIPTARG_LOCAL_LONG_STRING_ARRAY,
 };
 
-
-union tScriptVarValue 
-{
-	unsigned __int32	dwParam;
-	__int32			nParam;
-	float			fParam;
-	void		*pParam;
-	char		*szParam;
+union tScriptVarValue {
+    unsigned int uParam;
+    int iParam;
+    float fParam;
+    void *pParam;
+    char *szParam;
 };
 
 VALIDATE_SIZE(tScriptVarValue, 0x4);
 
-#pragma pack(push, 1)
-class PLUGIN_API CRunningScript
-{
+class PLUGIN_API CRunningScript {
 public:
-	// FUNCTIONS
-	CRunningScript	*next;
-	CRunningScript	*prev;
-	char			threadName[8];
-	uint8_t			*baseIP;
-	uint8_t			*curIP;			
-	uint8_t			*gosubStack[8];
-	uint16_t		gosubStackLevel;
-	uint16_t			_f3A;
-	tScriptVarValue	tls[32];	
-	uint32_t		timers[2];	
-	bool			isActive;
-	bool			condResult;	
-	bool			MissionCleanUpFlag;
-	bool			IsExternalThread;
-	uint8_t			_fC8;
-	char			scrType;
-	uint8_t			_fCA;
-	uint8_t			_fCB;
-	uint32_t		wakeTime;
-	uint16_t		logicalOp;
-	bool			notFlag;
-	bool			bDeathArrestCheckEnabled;
-	bool			wastedOrBusted;
-	uint8_t			_fD5;
-	uint16_t		_fD6;
-	uint32_t		sceneSkipOffset;
-	bool			missionFlag;
-	// VARIABLES
+    CRunningScript *m_pNext;
+    CRunningScript *m_pPrev;
+    char            m_szName[8];
+    unsigned char  *m_pBaseIP;
+    unsigned char  *m_pCurrentIP;
+    unsigned char  *m_apStack[8];
+    unsigned short  m_nSP;
+private:
+    char _pad3A[2];
+public:
+    tScriptVarValue	m_aLocalVars[32];
+    int             m_anTimers[2];
+    bool            m_bIsActive;
+    bool            m_bCondResult;
+    bool            m_bUseMissionCleanup;
+    bool            m_bIsExternal;
+    bool            m_bTextBlockOverride;
+private:
+    char _padC9[3];
+public:
+    int             m_nWakeTime;
+    unsigned short  m_nLogicalOp;
+    bool            m_bNotFlag;
+    bool            m_bWastedBustedCheck;
+    bool            m_bWastedOrBusted;
+private:
+    char _padD5[3];
+public:
+    unsigned char  *m_pSceneSkipIP;
+    bool            m_bIsMission;
+private:
+    char _padDD[3];
+public:
 
-	// bellow is align in 4 bytes
-	uint16_t		scmFunction;
-	uint8_t			IsCustom;
+    // Initializes member variables.
+    void Init();
 
-	// Initializes member variables.
-	void Init();
+    // Processes running script
+    void Process();
 
-	// Processes running script
-	void Process();
+    // Processes one command
+    char ProcessOneCommand();
 
-	// Processes one command
-	char ProcessOneCommand();
+    // Performs death arrest check
+    void DoDeatharrestCheck();
 
-	// Performs death arrest check
-	void DoDeatharrestCheck();
+    /////// USED HEAVILY IN COMMANDS //////
 
-	/////// USED HEAVILY IN COMMANDS //////
+    // Reads array offset and value from array index variable.
+    void ReadArrayInformation(__int16 *pOffset, __int32 *pIdx);
 
-	// Reads array offset and value from array index variable.
-	void ReadArrayInformation(__int16 *pOffset, __int32 *pIdx);
+    // Returns offset of global variable
+    __int16 GetIndexOfGlobalVariable();
 
-	// Returns offset of global variable
-	__int16 GetIndexOfGlobalVariable();
+    // Returns pointer to script variable of any type.
+    tScriptVarValue* GetPointerToScriptVariable(unsigned __int8 variableType);
 
-	// Returns pointer to script variable of any type.
-	tScriptVarValue* GetPointerToScriptVariable(unsigned __int8 variableType);
+    // Collects parameters
+    void CollectParameters(__int16 count);
 
-	// Collects parameters
-	void CollectParameters(__int16 count);
+    // Collects parameter and returns it.
+    tScriptVarValue CollectNextParameterWithoutIncreasingPC();
 
-	// Collects parameter and returns it.
-	tScriptVarValue CollectNextParameterWithoutIncreasingPC();
+    // Collects string parameter
+    void ReadTextLabelFromScript(char *pBuffer, unsigned __int8 nBufferLength);
 
-	// Collects string parameter
-	void ReadTextLabelFromScript(char *pBuffer, unsigned __int8 nBufferLength);
+    // Stores parameters
+    void StoreParameters(__int16 count);
 
-	// Stores parameters
-	void StoreParameters(__int16 count);
+    // Collects parameters and puts them to local variables of new script
+    void ReadParametersForNewlyStartedScript(CRunningScript* pNewScript);
 
-	// Collects parameters and puts them to local variables of new script
-	void ReadParametersForNewlyStartedScript(CRunningScript* pNewScript);
+    // Sets instruction pointer, used in GOTO-like commands
+    void UpdatePC(__int32 newIP);
 
-	// Sets instruction pointer, used in GOTO-like commands
-	void UpdatePC(__int32 newIP);
+    // Updates comparement flag, used in conditional commands
+    void UpdateCompareFlag(bool state);
 
-	// Updates comparement flag, used in conditional commands
-	void UpdateCompareFlag(bool state);
+    // Terminates a script
+    void ShutDownThisScript();
 
-	// Terminates a script
-	void ShutDownThisScript();
+    ///////////////////
 
-	///////////////////
+    // Returns condition result
+    bool GetConditionResult();
 
-	// Returns condition result
-	bool GetConditionResult();
+    // Returns pointer to local variable pointed by offset and array index as well as multiplier.
+    void GetPointerToLocalArrayElement(__int16 off, __int16 idx, unsigned __int8 mul);
 
-	// Returns pointer to local variable pointed by offset and array index as well as multiplier.
-	void GetPointerToLocalArrayElement(__int16 off, __int16 idx, unsigned __int8 mul);
+    // Adds script to list
+    void AddScriptToList(CRunningScript ** list);
 
-	// Adds script to list
-	void AddScriptToList(CRunningScript ** list);
+    // Removes script from list
+    void RemoveScriptFromList(CRunningScript ** list);
 
-	// Removes script from list
-	void RemoveScriptFromList(CRunningScript ** list);
+    // Returns state of pad button.
+    short GetPadState(unsigned short playerIndex, unsigned short buttonID);
 
-	// Returns state of pad button.
-	short GetPadState(unsigned short playerIndex, unsigned short buttonID);
+    // Command handlers
+    char ProcessCommands_0To99(int commandID);
+    char ProcessCommands_100To199(int commandID);
+    char ProcessCommands_200To299(int commandID);
+    char ProcessCommands_300To399(int commandID);
+    char ProcessCommands_400To499(int commandID);
+    char ProcessCommands_500To599(int commandID);
+    char ProcessCommands_600To699(int commandID);
+    char ProcessCommands_700To799(int commandID);
+    char ProcessCommands_800To899(int commandID);
+    char ProcessCommands_900To999(int commandID);
+    char ProcessCommands_1000To1099(int commandID);
+    char ProcessCommands_1100To1199(int commandID);
+    char ProcessCommands_1200To1299(int commandID);
+    char ProcessCommands_1300To1399(int commandID);
+    char ProcessCommands_1400To1499(int commandID);
+    char ProcessCommands_1500To1599(int commandID);
+    char ProcessCommands_1600To1699(int commandID);
+    char ProcessCommands_1700To1799(int commandID);
+    char ProcessCommands_1800To1899(int commandID);
+    char ProcessCommands_1900To1999(int commandID);
+    char ProcessCommands_2000To2099(int commandID);
+    char ProcessCommands_2100To2199(int commandID);
+    char ProcessCommands_2200To2299(int commandID);
+    char ProcessCommands_2300To2399(int commandID);
+    char ProcessCommands_2400To2499(int commandID);
+    char ProcessCommands_2500To2599(int commandID);
+    char ProcessCommands_2600To2699(int commandID);
 
-	// Command handlers
-	char ProcessCommands_0To99(eCommandName commandID);
-	char ProcessCommands_100To199(eCommandName commandID);
-	char ProcessCommands_200To299(eCommandName commandID);
-	char ProcessCommands_300To399(eCommandName commandID);
-	char ProcessCommands_400To499(eCommandName commandID);
-	char ProcessCommands_500To599(eCommandName commandID);
-	char ProcessCommands_600To699(eCommandName commandID);
-	char ProcessCommands_700To799(eCommandName commandID);
-	char ProcessCommands_800To899(eCommandName commandID);
-	char ProcessCommands_900To999(eCommandName commandID);
-	char ProcessCommands_1000To1099(eCommandName commandID);
-	char ProcessCommands_1100To1199(eCommandName commandID);
-	char ProcessCommands_1200To1299(eCommandName commandID);
-	char ProcessCommands_1300To1399(eCommandName commandID);
-	char ProcessCommands_1400To1499(eCommandName commandID);
-	char ProcessCommands_1500To1599(eCommandName commandID);
-	char ProcessCommands_1600To1699(eCommandName commandID);
-	char ProcessCommands_1700To1799(eCommandName commandID);
-	char ProcessCommands_1800To1899(eCommandName commandID);
-	char ProcessCommands_1900To1999(eCommandName commandID);
-	char ProcessCommands_2000To2099(eCommandName commandID);
-	char ProcessCommands_2100To2199(eCommandName commandID);
-	char ProcessCommands_2200To2299(eCommandName commandID);
-	char ProcessCommands_2300To2399(eCommandName commandID);
-	char ProcessCommands_2400To2499(eCommandName commandID);
-	char ProcessCommands_2500To2599(eCommandName commandID);
-	char ProcessCommands_2600To2699(eCommandName commandID);
-	
-	// Processes commands that check if car is in specified area.
-	void CarInAreaCheckCommand(eCommandName commandID);
+    // Processes commands that check if car is in specified area.
+    void CarInAreaCheckCommand(int commandID);
 
-	// Processes commands that check if char is in specified area.
-	void CharInAreaCheckCommand(eCommandName commandID);
+    // Processes commands that check if char is in specified area.
+    void CharInAreaCheckCommand(int commandID);
 
-	// Processes commands that locate a vehicle
-	void LocateCarCommand(eCommandName commandID);
+    // Processes commands that locate a vehicle
+    void LocateCarCommand(int commandID);
 
-	// Processes commands where char locates car
-	void LocateCharCarCommand(eCommandName commandID);
+    // Processes commands where char locates car
+    void LocateCharCarCommand(int commandID);
 
-	// Processes commands where char locates another char
-	void LocateCharCharCommand(eCommandName commandID);
+    // Processes commands where char locates another char
+    void LocateCharCharCommand(int commandID);
 
-	// Processes commands where char locates map point
-	void LocateCharCommand(eCommandName commandID);
+    // Processes commands where char locates map point
+    void LocateCharCommand(int commandID);
 
-	// Processes commands where char locates object
-	void LocateCharObjectCommand(eCommandName commandID);
+    // Processes commands where char locates object
+    void LocateCharObjectCommand(int commandID);
 
-	// Processes commands where object locates map point
-	void LocateObjectCommand(eCommandName commandID);
+    // Processes commands where object locates map point
+    void LocateObjectCommand(int commandID);
 
-	// Processes commands that check if object is in area
-	void ObjectInAreaCheckCommand(eCommandName commandID);
+    // Processes commands that check if object is in area
+    void ObjectInAreaCheckCommand(int commandID);
 
-	// Checks if ped type conforms to valid ped types.
-	bool ThisIsAValidRandomPed(ePedType pedType, bool civilian, bool gang, bool criminal);
-	
-    	char* GetPointerToLocalVariable(unsigned int varid);
-    	bool IsPedDead(CPed* pPed);
-    	void SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset);
-    	void GivePedScriptedTask(int ped, CTask* task, int opcode);
-    	void PlayAnimScriptCommand(int opcodeid);
-    	void GetCorrectPedModelIndexForEmergencyServiceType(int pedtype, int* pModelId);
+    // Checks if ped type conforms to valid ped types.
+    bool ThisIsAValidRandomPed(ePedType pedType, bool civilian, bool gang, bool criminal);
+
+    char* GetPointerToLocalVariable(unsigned int varid);
+    bool IsPedDead(CPed* pPed);
+    void SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset);
+    void GivePedScriptedTask(int ped, CTask* task, int opcode);
+    void PlayAnimScriptCommand(int opcodeid);
+    void GetCorrectPedModelIndexForEmergencyServiceType(int pedtype, int* pModelId);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CRunningScript, 0xE0);

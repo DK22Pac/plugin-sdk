@@ -5,6 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CMessages.h"
+#include <string>
+#include <string.h>
 
 // Converted from cdecl void CMessages::AddBigMessage(ushort *pString,uint time,ushort style)	0x584050	
 void CMessages::AddBigMessage(wchar_t* pString, unsigned int time, unsigned short style) {
@@ -121,3 +123,7 @@ void CMessages::WideStringCopy(wchar_t* pString1, wchar_t* pString2, unsigned sh
     plugin::Call<0x584940, wchar_t*, wchar_t*, unsigned short>(pString1, pString2, lengthToCopy);
 }
 
+void CMessages::AddMessageJumpQ(char* text, unsigned int time, unsigned short flag) {
+    _SWSTRING_INIT(text, 1);
+    AddMessageJumpQ(_SWSTRING(1), time, flag);
+}

@@ -6,16 +6,32 @@
 */
 #pragma once
 #include "scripting\ScriptCommandNames.h"
-#include "game_III\CRunningScript.h"
+#include "game_iii\CRunningScript.h"
 #include <vector>
 #include <string.h>
 
+class CPed;
+class CVehicle;
+class CObject;
+
 namespace plugin {
 
-namespace test {
+class scripting {
+
+public:
 
 enum ScriptCommandEndParameter {
     END_PARAMETER
+};
+
+private:
+
+enum ScriptResultVarType {
+    SCRIPT_RESULT_VAR_NUMBER,
+    SCRIPT_RESULT_VAR_STRING,
+    SCRIPT_RESULT_VAR_PED,
+    SCRIPT_RESULT_VAR_VEHICLE,
+    SCRIPT_RESULT_VAR_OBJECT
 };
 
 class ScriptCode {
@@ -25,9 +41,10 @@ class ScriptCode {
 
     struct VarToSet {
         unsigned int varIndex;
-        unsigned int *pVar;
+        void *pVar;
+        ScriptResultVarType varType;
 
-        VarToSet(unsigned int _varIndex, unsigned int *_pVar);
+        VarToSet(unsigned int _varIndex, void *_pVar, ScriptResultVarType _varType);
     };
 
     std::vector<VarToSet> varsToSet;
@@ -54,6 +71,12 @@ public:
     void operator<<(float *p);
     void operator<<(int *p);
     void operator<<(unsigned int *p);
+    void operator<<(CPed *n);
+    void operator<<(CVehicle *n);
+    void operator<<(CObject *n);
+    void operator<<(CPed **p);
+    void operator<<(CVehicle **p);
+    void operator<<(CObject **p);
 
     template <typename T>
     void Pack(T value) {
@@ -65,29 +88,47 @@ public:
         Pack(firstValue);
         Pack(rest...);
     }
+
+    void Pack() {}
 };
 
-template <unsigned int CommandId, typename... ArgTypes>
-bool ScriptCommand(ArgTypes... args) {
+public:
+
+template<typename... ArgTypes>
+static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
     // create our 'script' object
     static CRunningScript script;
     memset(&script, 0, sizeof(CRunningScript));
     strcpy(script.m_szName, "plg-sdk");
-    script.m_bDeathArrestCheckEnabled = true;
+    script.m_bWastedBustedCheck = true;
     script.m_bIsMission = false;
-    script.m_bMissionCleanup = false;
-    script.scriptType = 0;
-    script.m_bNotFlag = (CommandId >> 15) & 1;
+    script.m_bUseMissionCleanup = false;
+    script.m_bNotFlag = (commandId >> 15) & 1;
     // our script code
-    ScriptCode code(CommandId);
+    ScriptCode code(commandId);
     // for all arguments: add them to script code
-    code.Pack(args...);
-    *reinterpret_cast<int *>(&script.m_nIp) = reinterpret_cast<int>(code.GetData()) - reinterpret_cast<int>(CRunningScript::GetScriptSpaceBase());
+    code.Pack(arguments...);
+    script.m_nIp = reinterpret_cast<int>(code.GetData()) - reinterpret_cast<int>(CRunningScript::GetScriptSpaceBase());
     script.ProcessOneCommand();
     code.SaveResultVariables(&script);
-    return script.m_nCondResult ? true : false;
-};
+    return script.m_bCondResult ? true : false;
+}
+
+template<typename... ArgTypes>
+static bool CallCommandById(plugin::Commands commandId, ArgTypes... arguments) {
+    return CallCommandById(static_cast<unsigned int>(CommandId) - 0x10000, arguments...);
+}
 
 };
+
+template <plugin::Commands CommandId, typename... ArgTypes>
+bool Command(ArgTypes... arguments) {
+    return scripting::CallCommandById(static_cast<unsigned int>(CommandId) - 0x10000, arguments...);
+}
+
+template <int CommandId, typename... ArgTypes>
+bool Command(ArgTypes... arguments) {
+    return scripting::CallCommandById(CommandId, arguments...);
+}
 
 };

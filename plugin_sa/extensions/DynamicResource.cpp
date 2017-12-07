@@ -1,4 +1,5 @@
 #include "DynamicResource.h"
+#include "plugin.h"
 
 using namespace plugin;
 

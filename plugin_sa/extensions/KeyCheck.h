@@ -6,7 +6,6 @@
 */
 #pragma once
 
-#include "plugin.h"
 #include "game_sa\CTimer.h"
 
 class KeyCheck {

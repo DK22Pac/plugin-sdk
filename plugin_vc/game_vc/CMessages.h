@@ -33,4 +33,6 @@ public:
 	static void Process();
 	static bool WideStringCompare(wchar_t* pString1, wchar_t* pString2, unsigned short lengthToCompare);
 	static void WideStringCopy(wchar_t* pString1, wchar_t* pString2, unsigned short lengthToCopy);
+
+    static void AddMessageJumpQ(char* pString, unsigned int time, unsigned short flag);
 };

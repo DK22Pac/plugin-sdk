@@ -1,5 +1,4 @@
 # include "PipelinePlugin.h"
-# include "plugin.h"
 # include <cassert>
 
 // US-1.00 @ 0x0072FBD0

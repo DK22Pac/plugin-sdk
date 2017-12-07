@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "plugin.h"
 
 namespace plugin {
     class DynamicResource {

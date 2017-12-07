@@ -1,6 +1,5 @@
 # include "JPegCompress.h"
 # include "CScene.h"
-# include "plugin.h"
 # include <cassert>
 
 // NOTE: pCamera parameter is not used, game's full screen will be saved in any way
