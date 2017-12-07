@@ -117,7 +117,7 @@ void scripting::ScriptCode::operator<<(const char *str) {
 
 void scripting::ScriptCode::operator<<(float *p) {
     AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
-    if (varIndexCounter >= 31)
+    if (varIndexCounter >= 15)
         Error("ScriptCode::operator<<(float *p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_NUMBER);
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
@@ -126,7 +126,7 @@ void scripting::ScriptCode::operator<<(float *p) {
 
 void scripting::ScriptCode::operator<<(int *p) {
     AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
-    if (varIndexCounter >= 31)
+    if (varIndexCounter >= 15)
         Error("ScriptCode::operator<<(int *p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_NUMBER);
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
@@ -135,7 +135,7 @@ void scripting::ScriptCode::operator<<(int *p) {
 
 void scripting::ScriptCode::operator<<(unsigned int *p) {
     AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
-    if (varIndexCounter >= 31)
+    if (varIndexCounter >= 15)
         Error("ScriptCode::operator<<(unsigned int *p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_NUMBER);
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
@@ -165,7 +165,7 @@ void scripting::ScriptCode::operator<<(CObject *n) {
 
 void scripting::ScriptCode::operator<<(CPed **p) {
     AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
-    if (varIndexCounter >= 31)
+    if (varIndexCounter >= 15)
         Error("ScriptCode::operator<<(CPed **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_PED);
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
@@ -174,7 +174,7 @@ void scripting::ScriptCode::operator<<(CPed **p) {
 
 void scripting::ScriptCode::operator<<(CVehicle **p) {
     AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
-    if (varIndexCounter >= 31)
+    if (varIndexCounter >= 15)
         Error("ScriptCode::operator<<(CVehicle **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_VEHICLE);
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
@@ -183,7 +183,7 @@ void scripting::ScriptCode::operator<<(CVehicle **p) {
 
 void scripting::ScriptCode::operator<<(CObject **p) {
     AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
-    if (varIndexCounter >= 31)
+    if (varIndexCounter >= 15)
         Error("ScriptCode::operator<<(CObject **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_OBJECT);
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);

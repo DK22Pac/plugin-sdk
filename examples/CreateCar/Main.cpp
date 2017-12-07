@@ -28,10 +28,10 @@ public:
     // Вынесем создание авто в отдельную функцию SpawnVehicle ; Put everything related to car creation into SpawnVehicle function
     static CVehicle *SpawnVehicle(unsigned int modelIndex, CVector position, float orientation) {
         // Загружаем модель
-        unsigned char oldFlags = CStreaming::ms_aInfoForModel[modelIndex].m_flags;
+        unsigned char oldFlags = CStreaming::ms_aInfoForModel[modelIndex].m_nFlags;
         CStreaming::RequestModel(modelIndex, GAME_REQUIRED);
         CStreaming::LoadAllRequestedModels(false);
-        if (CStreaming::ms_aInfoForModel[modelIndex].m_loadState == LOADSTATE_LOADED) {
+        if (CStreaming::ms_aInfoForModel[modelIndex].m_nLoadState == LOADSTATE_LOADED) {
             if (!(oldFlags & GAME_REQUIRED)) {
                 CStreaming::SetModelIsDeletable(modelIndex);
                 CStreaming::SetModelTxdIsDeletable(modelIndex);

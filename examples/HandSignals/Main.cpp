@@ -53,12 +53,12 @@ public:
                     if (newPlayerModelId == -1)
 #endif
                         newPlayerModelId = gangModelIds[rand() % 12];
-                    if (playa->m_wModelIndex != newPlayerModelId) {
+                    if (playa->m_nModelIndex != newPlayerModelId) {
                         CStreaming::RequestModel(newPlayerModelId, 2);
                         CStreaming::LoadAllRequestedModels(false);
                         unsigned int savedAnimGroup = playa->m_dwAnimGroup;
                         playa->DeleteRwObject();
-                        playa->m_wModelIndex = -1;
+                        playa->m_nModelIndex = -1;
                         playa->SetModelIndex(newPlayerModelId);
                         playa->m_dwAnimGroup = savedAnimGroup;
                         CStreaming::SetModelIsDeletable(newPlayerModelId);

@@ -34,10 +34,10 @@ public:
         static int currentRemap = -1;
 
         Events::vehicleRenderEvent += [](CVehicle *vehicle) {
-            if (vehicle && vehicle->m_wModelIndex > 399 && vehicle->m_wModelIndex < 612) {
+            if (vehicle && vehicle->m_nModelIndex > 399 && vehicle->m_nModelIndex < 612) {
                 RemapInfo &info = remInfo.Get(vehicle);
                 if (info.permitRemap) {
-                    CVehicleModelInfo *vehModel = reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_wModelIndex]);
+                    CVehicleModelInfo *vehModel = reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[vehicle->m_nModelIndex]);
                     amountRemap = vehModel->GetNumRemaps();
                     if (amountRemap > 0) {
                         randomRemap = CGeneral::GetRandomNumberInRange(0, amountRemap);
@@ -50,10 +50,10 @@ public:
 
         Events::gameProcessEvent += [] {
             CVehicle *plVehicle = FindPlayerVehicle(-1, false);
-            if (plVehicle && plVehicle->m_wModelIndex > 399 && plVehicle->m_wModelIndex < 612) {
+            if (plVehicle && plVehicle->m_nModelIndex > 399 && plVehicle->m_nModelIndex < 612) {
                 if (CTimer::m_snTimeInMilliseconds >(m_nLastTimeWhenAnyActionWasEnabled + 1000) && KeyPressed(75)) {
                     m_nLastTimeWhenAnyActionWasEnabled = CTimer::m_snTimeInMilliseconds;
-                    CVehicleModelInfo *plVehModel = reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[plVehicle->m_wModelIndex]);
+                    CVehicleModelInfo *plVehModel = reinterpret_cast<CVehicleModelInfo *>(CModelInfo::ms_modelInfoPtrs[plVehicle->m_nModelIndex]);
                     amountRemap = plVehModel->GetNumRemaps();
                     if (amountRemap > 0) {
                         if (currentRemap < static_cast<int>(amountRemap - 1))
