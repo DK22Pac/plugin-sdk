@@ -1,6 +1,16 @@
 vtable 0 //GTA III
 end
 funcs
+thiscall void CFire::CFire(void)          0x479220
+thiscall void CFire::Extinguish(void)     0x479D40
+thiscall void CFire::ProcessFire(void)    0x4798D0
+thiscall void CFire::ReportThisFire(void) 0x4798B0
+thiscall void CFire::~CFire(void)         0x479280
+end
+
+vtable 0 //GTA III
+end
+funcs
 cdecl void CTheScripts::Init(void)                                           0x438790
 cdecl bool CTheScripts::IsPedStopped(CPed *ped)                              0x454670
 cdecl bool CTheScripts::IsPlayerOnAMission(void)                             0x439410
