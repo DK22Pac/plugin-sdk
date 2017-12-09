@@ -53,4 +53,35 @@ public:
     static inline CBaseModelInfo *GetModelInfo(int index) {
         return ms_modelInfoPtrs[index];
     }
+
+    static inline bool IsCarModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 0);
+    }
+
+    static inline bool IsTrainModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 2);
+    }
+
+    static inline bool IsHeliModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 3);
+    }
+
+    static inline bool IsPlaneModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 4);
+    }
+
+    // return -1 if model is not a vehicle model otherwise returns vehicle model type
+    // 0 - car, 1 - boat, 2 - train, 3 - heli, 4 - plane
+    static inline int IsVehicleModelType(int index) {
+        int result;
+        if (index < 5500 && ms_modelInfoPtrs[index]) {
+            if (ms_modelInfoPtrs[index]->m_nType == 5)
+                result = reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType;
+            else
+                result = -1;
+        }
+        else
+            result = -1;
+        return result;
+    }
 };

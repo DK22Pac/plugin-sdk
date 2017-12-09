@@ -125,6 +125,10 @@ public:
         return m_matrix.pos;
     }
 
+    inline CVector TransformFromObjectSpace(CVector const& offset) {
+        return this->m_matrix * offset;
+    }
+
     CEntity(const CEntity &) = delete;
     CEntity &operator=(const CEntity &) = delete;
 };
