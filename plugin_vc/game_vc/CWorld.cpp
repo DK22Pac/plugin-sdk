@@ -27,6 +27,7 @@ bool &CWorld::bSecondShift = *(bool *)0xA10B70;
 bool &CWorld::bIncludeCarTyres = *(bool *)0xA10B96;
 // Converted from CSector CWorld::ms_aSectors[6400] 0x792D30
 CSector (&CWorld::ms_aSectors)[6400] = *(CSector (*)[6400])*(int *)0x792D30;
+CVector CWorld::createdTaxiCabPosition = *(CVector *)0x9B48B8;
 
 // Converted from cdecl void CWorld::Add(CEntity *entity) 0x4DB3F0
 void CWorld::Add(CEntity* entity) {
@@ -291,4 +292,8 @@ void CWorld::TriggerExplosionSectorList(CPtrList& ptrlist, CVector const& arg1, 
 // Converted from cdecl void CWorld::UseDetonator(CEntity *entity) 0x4D42F0
 void CWorld::UseDetonator(CEntity* entity) {
     plugin::Call<0x4D42F0, CEntity*>(entity);
+}
+
+bool CWorld::CreateTaxiCab(float x, float y, float z, float a4, float a5, int a6, int a7, float a8) {
+    plugin::Call<0x42B7A0, float, float, float, float, float, int, int, float>(x, y, z, a4, a5, a6, a7, a8);
 }
