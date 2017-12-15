@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "RenderWare.h"
+#include "plbase\PluginBase_SA.h"
 
 RwGlobals *&RwEngineInstance = *(RwGlobals **)0xC97B24;
 
@@ -3482,6 +3483,16 @@ RwImage* RtPNGImageRead(const RwChar* imageName) {
     return ((RwImage*(__cdecl *)(const RwChar*))0x7CF9B0)(imageName);
 }
 
+
 void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps) {
     ((void (__cdecl *)(RwSurfaceProperties*))0x74D870)(surfProps);
+}
+
+
+void _rwObjectHasFrameSetFrame(void *object, RwFrame *frame) {
+    plugin::Call<0x804EF0, void *, RwFrame *>(object, frame);
+}
+
+void _rwObjectHasFrameReleaseFrame(void *object) {
+    plugin::Call<0x804F40, void *>(object);
 }
