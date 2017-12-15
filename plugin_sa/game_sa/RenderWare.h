@@ -936,6 +936,9 @@ RwImage* RtPNGImageRead(const RwChar* imageName); // 0x7CF9B0
 
 void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps);
 
+void _rwObjectHasFrameSetFrame(void *object, RwFrame *frame);
+void _rwObjectHasFrameReleaseFrame(void *object);
+
 
 #define RwRenderStateGetMacro(_state, _value)   \
     (RWSRCGLOBAL(dOpenDevice).fpRenderStateGet(_state, _value))
@@ -950,3 +953,8 @@ void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps);
         RwRenderStateSetMacro(_state, _value)
 
 #define RWRSTATE(a) (reinterpret_cast<void *>(a))
+
+#define rwObjectHasFrameSetFrame(object, frame) \
+        _rwObjectHasFrameSetFrame(object, frame)
+#define rwObjectHasFrameReleaseFrame(object) \
+        _rwObjectHasFrameReleaseFrame(object)

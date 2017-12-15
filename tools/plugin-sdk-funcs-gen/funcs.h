@@ -1,6 +1,36 @@
 vtable 0 //GTA III
 end
 funcs
+// returns random float in range [min;max)
+cdecl float CGeneral::GetRandomNumberInRange(float min, float max) 0x54A520
+// returns random int in range [min;max)
+cdecl uint CGeneral::GetRandomNumberInRange(int min, int max)      0x54A4C0
+// returns random int in range 0-32767
+cdecl uint CGeneral::GetRandomNumber(void)                         0x54A4B0
+end
+
+vtable 0 //GTA III
+end
+funcs
+thiscall void CFireManager::CFireManager(void)                                     0x479290
+thiscall void CFireManager::ExtinguishPoint(CVector point, float range)            0x479DB0
+thiscall CFire* CFireManager::FindFurthestFire_NeverMindFireMen(CVector, float, float)               0x479430
+thiscall CFire* CFireManager::FindNearestFire(CVector position, float)            0x479340
+thiscall CFire* CFireManager::GetNextFreeFire(void)                                0x4792E0
+thiscall bool CFireManager::IsScriptFireExtinguished(short fireIndex)              0x479FC0
+thiscall void CFireManager::RemoveAllScriptFires(void)                             0x47A000
+thiscall void CFireManager::RemoveScriptFire(short fireIndex)                      0x479FE0
+thiscall void CFireManager::SetScriptFireAudio(short fireIndex, bool enable)       0x47A040
+thiscall void CFireManager::StartFire(CEntity *target, CEntity *creator, float size, uchar)           0x479590
+thiscall void CFireManager::StartFire(CVector point, float size, uchar)            0x479500
+thiscall int CFireManager::StartScriptFire(CVector const& point, CEntity *target, float size, uchar)  0x479E60
+thiscall void CFireManager::Update(void)                                           0x479310
+thiscall void CFireManager::~CFireManager()                                        0x4792C0
+end
+
+vtable 0 //GTA III
+end
+funcs
 thiscall void CFire::CFire(void)          0x479220
 thiscall void CFire::Extinguish(void)     0x479D40
 thiscall void CFire::ProcessFire(void)    0x4798D0

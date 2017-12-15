@@ -35,3 +35,18 @@ float CGeneral::LimitAngle(float angle) {
 float CGeneral::LimitRadianAngle(float angle) {
     return plugin::CallAndReturn<float, 0x48CB90, float>(angle);
 }
+
+// Converted from cdecl float CGeneral::GetRandomNumberInRange(float min, float max) 0x54A520
+float CGeneral::GetRandomNumberInRange(float min, float max) {
+    return plugin::CallAndReturn<float, 0x54A520, float, float>(min, max);
+}
+
+// Converted from cdecl uint CGeneral::GetRandomNumberInRange(int min, int max) 0x54A4C0
+unsigned int CGeneral::GetRandomNumberInRange(int min, int max) {
+    return plugin::CallAndReturn<unsigned int, 0x54A4C0, int, int>(min, max);
+}
+
+// Converted from cdecl uint CGeneral::GetRandomNumber(void) 0x54A4B0
+unsigned int CGeneral::GetRandomNumber() {
+    return plugin::CallAndReturn<unsigned int, 0x54A4B0>();
+}
