@@ -1,6 +1,17 @@
 vtable 0 //GTA III
 end
 funcs
+// returns random float in range [min;max)
+cdecl float CGeneral::GetRandomNumberInRange(float min, float max) 0x54A520
+// returns random int in range [min;max)
+cdecl uint CGeneral::GetRandomNumberInRange(int min, int max)      0x54A4C0
+// returns random int in range 0-32767
+cdecl uint CGeneral::GetRandomNumber(void)                         0x54A4B0
+end
+
+vtable 0 //GTA III
+end
+funcs
 thiscall void CFireManager::CFireManager(void)                                     0x479290
 thiscall void CFireManager::ExtinguishPoint(CVector point, float range)            0x479DB0
 thiscall CFire* CFireManager::FindFurthestFire_NeverMindFireMen(CVector, float, float)               0x479430
