@@ -15,6 +15,5 @@ public:
     static unsigned char *ScriptSpace; // static unsigned char ScriptSpace[MAX_SCRIPT_SPACE_SIZE]
     static int HighlightImportantArea(int a1, float a2, float a3, float a5, float a6);
     static bool IsPlayerOnAMission();
-    static char IsPlayerStopped(CPlayerInfo *);
-    
+    static char IsPlayerStopped(CPlayerInfo* CPlayerInfo);
 };
