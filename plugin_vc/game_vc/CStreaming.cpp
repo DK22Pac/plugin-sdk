@@ -12,6 +12,10 @@ void CStreaming::RequestModel(int modelIndex, int flags) {
     plugin::Call<0x40E310, int, int>(modelIndex, flags);
 }
 
+void CStreaming::ReleaseModel(int modelIndex) {
+    plugin::Call<0x40AEA0, int>(modelIndex);
+}
+
 void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests) {
     plugin::Call<0x40B5F0, bool>(onlyQuickRequests);
 }

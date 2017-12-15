@@ -14,6 +14,7 @@ public:
     static CStreamingInfo *ms_aInfoForModel; // static CStreamingInfo ms_aInfoForModel[7951]
 
     static void RequestModel(int modelIndex, int flags);
+    static void ReleaseModel(int modelIndex, int flags);
     static void LoadAllRequestedModels(bool onlyQuickRequests);
     static void SetModelIsDeletable(int modelIndex);
 };
