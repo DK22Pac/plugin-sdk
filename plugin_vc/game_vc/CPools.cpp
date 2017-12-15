@@ -13,6 +13,7 @@ CPool<CPtrNode> *&CPools::ms_pPtrNodePool = *(CPool<CPtrNode> **)0xA0FD38;
 CPool<CVehicle, CAutomobile> *&CPools::ms_pVehiclePool = *(CPool<CVehicle, CAutomobile> **)0xA0FDE4;
 CPool<CPed, CPlayerPed> *&CPools::ms_pPedPool = *(CPool<CPed, CPlayerPed> **)0x97F2AC;
 CPool<CObject, CCutsceneObject> *&CPools::ms_pObjectPool = *(CPool<CObject, CCutsceneObject> **)0x94DBE0;
+CPool<CGarage> *&CPools::ms_pGaragePool = *(CPool<CGarage> **)0x812668;
 
 // Converted from cdecl void CPools::MakeSureSlotInObjectPoolIsEmpty(int slot) 0x4BEA80
 void CPools::MakeSureSlotInObjectPoolIsEmpty(int slot) {
