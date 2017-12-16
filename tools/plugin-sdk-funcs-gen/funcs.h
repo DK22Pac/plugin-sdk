@@ -1,6 +1,19 @@
 vtable 0 //GTA III
 end
 funcs
+cdecl void CTrafficLights::DisplayActualLight(CEntity *entity)                   0x455800
+cdecl uchar CTrafficLights::FindTrafficLightType(CEntity *entity)                0x4564A0
+cdecl uchar CTrafficLights::LightForCars1(void)                                  0x455760
+cdecl uchar CTrafficLights::LightForCars2(void)                                  0x455790
+cdecl uchar CTrafficLights::LightForPeds(void)                                   0x4557D0
+cdecl uint CTrafficLights::ScanForLightsOnMap(void)                              0x454F40
+cdecl bool CTrafficLights::ShouldCarStopForBridge(CVehicle *vehicle)             0x456460
+cdecl bool CTrafficLights::ShouldCarStopForLight(CVehicle *vehicle, bool enable) 0x455350
+end
+
+vtable 0 //GTA III
+end
+funcs
 // returns random float in range [min;max)
 cdecl float CGeneral::GetRandomNumberInRange(float min, float max) 0x54A520
 // returns random int in range [min;max)
