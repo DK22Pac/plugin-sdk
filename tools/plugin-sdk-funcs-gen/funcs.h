@@ -1,6 +1,26 @@
 vtable 0 //GTA III
 end
 funcs
+thiscall void CBrightLights::CBrightLights(void)         0x51C340
+cdecl void CBrightLights::Init(void)                     0x5197A0
+cdecl void CBrightLights::Render(void)                   0x5197B0
+cdecl void CBrightLights::RenderOutGeometryBuffer(void)  0x51A3B0
+cdecl void CBrightLights::RegisterOne(CVector posn, CVector right, CVector up, CVector at, uchar red, uchar green, uchar blue, uchar alpha) 0x51A410
+end
+
+vtable 0 //GTA III
+end
+funcs
+thiscall void CShinyTexts::CShinyTexts(void)             0x51C330
+cdecl void CShinyTexts::Init(void)                       0x51A5A0
+cdecl void CShinyTexts::RegisterOne(CVector cornerAA, CVector cornerBA, CVector cornerBB, CVector cornerAB, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, uchar red, uchar green, uchar blue, uchar alpha, float maxDistance) 0x51AAB0
+cdecl void CShinyTexts::Render(void)                     0x51A5B0
+cdecl void CShinyTexts::RenderOutGeometryBuffer(void)    0x51AA50
+end
+
+vtable 0 //GTA III
+end
+funcs
 cdecl void CTrafficLights::DisplayActualLight(CEntity *entity)                   0x455800
 cdecl uchar CTrafficLights::FindTrafficLightType(CEntity *entity)                0x4564A0
 cdecl uchar CTrafficLights::LightForCars1(void)                                  0x455760
