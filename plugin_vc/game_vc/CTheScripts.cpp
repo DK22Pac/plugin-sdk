@@ -12,3 +12,10 @@ unsigned char *CTheScripts::ScriptSpace = (unsigned char *)0x821280;
 int CTheScripts::HighlightImportantArea(int a1, float a2, float a3, float a5, float a6){
      return plugin::CallAndReturn<int, 0x44FE30, int, int, int, int, int, int>(a1, a2, a3, a4, a5, a6);
 }
+
+bool CTheScript::IsPlayerOnAMission(){
+	return plugin::CallMethodAndReturn<bool, 0x450CF0>();
+}
+
+
+
