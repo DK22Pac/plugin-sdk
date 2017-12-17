@@ -1,6 +1,34 @@
 vtable 0 //GTA III
 end
 funcs
+cdecl void CBulletInfo::AddBullet(CEntity *creator, eWeaponType weaponType, CVector position, CVector velocity) 0x558470
+thiscall void CBulletInfo::CBulletInfo(void)                                     0x559020
+cdecl void CBulletInfo::Initialise(void)                                         0x558220
+cdecl void CBulletInfo::Shutdown(void)                                           0x558450
+cdecl bool CBulletInfo::TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2) 0x558D40
+cdecl void CBulletInfo::Update(void)                                             0x558550
+end
+
+vtable 0 //GTA III
+end
+funcs
+thiscall void CRegisteredMotionBlurStreak::Update(void) 0x519580
+thiscall void CRegisteredMotionBlurStreak::Render(void) 0x519600
+end
+
+vtable 0 //GTA III
+end
+funcs
+thiscall void CMotionBlurStreaks::CMotionBlurStreaks(void) 0x51C350
+cdecl void CMotionBlurStreaks::Init(void)                  0x519330
+cdecl void CMotionBlurStreaks::RegisterStreak(uint id, uchar red, uchar green, uchar blue, CVector leftPoint, CVector rightPoint) 0x519460
+cdecl void CMotionBlurStreaks::Render(void)                0x519390
+cdecl void CMotionBlurStreaks::Update(void)                0x519360
+end
+
+vtable 0 //GTA III
+end
+funcs
 thiscall void CBrightLights::CBrightLights(void)         0x51C340
 cdecl void CBrightLights::Init(void)                     0x5197A0
 cdecl void CBrightLights::Render(void)                   0x5197B0

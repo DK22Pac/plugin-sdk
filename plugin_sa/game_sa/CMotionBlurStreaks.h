@@ -16,6 +16,6 @@ public:
 
     static void Update();
     static void Render();
-    static void RegisterStreak(unsigned int red, unsigned char green, unsigned char blue, unsigned char alpha, CVector leftPoint, CVector rightPoint);
+    static void RegisterStreak(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, CVector leftPoint, CVector rightPoint);
     static void Init();
 };

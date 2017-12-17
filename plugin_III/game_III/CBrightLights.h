@@ -12,10 +12,10 @@
 struct tBrightLight {
     CVector       m_vecPosition;
     CVector       m_vecRight;
-    CVector       m_vecTop;
+    CVector       m_vecUp;
     CVector       m_vecAt;
     float         m_fDistanceToCamera;
-    RwRGBA        m_nColor;
+    RwRGBA        m_color;
 };
 
 VALIDATE_SIZE(tBrightLight, 0x38);

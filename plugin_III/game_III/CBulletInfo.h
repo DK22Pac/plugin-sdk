@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase/PluginBase_SA.h"
+#include "plbase\PluginBase_III.h"
 #include "CVector.h"
 #include "eWeaponType.h"
 #include "CEntity.h"
@@ -27,15 +27,16 @@ private:
     char _pad2A[2];
 public:
 
+    //funcs
+    static void AddBullet(CEntity* creator, eWeaponType weaponType, CVector position, CVector velocity);
+    CBulletInfo();
     static void Initialise();
     static void Shutdown();
-    static bool AddBullet(CEntity* creator, eWeaponType weaponType, CVector position, CVector velocity);
+    static bool TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2);
     static void Update();
 };
 
 VALIDATE_SIZE(CBulletInfo, 0x2C);
 
-extern unsigned int MAX_BULLET_INFOS; // default 8
+extern unsigned int MAX_BULLET_INFOS; // default 100
 extern CBulletInfo *aBulletInfos; // CBulletInfo aBulletInfos[MAX_BULLET_INFOS]
-extern CVector &PlayerSniperBulletStart;
-extern CVector &PlayerSniperBulletEnd;

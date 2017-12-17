@@ -20,9 +20,9 @@ void CMotionBlurStreaks::Render() {
     plugin::Call<0x7240E0>();
 }
 
-// Converted from cdecl void CMotionBlurStreaks::RegisterStreak(uint red, uchar green, uchar blue, uchar alpha, CVector leftPoint, CVector rightPoint) 0x721DC0
-void CMotionBlurStreaks::RegisterStreak(unsigned int red, unsigned char green, unsigned char blue, unsigned char alpha, CVector leftPoint, CVector rightPoint) {
-    plugin::Call<0x721DC0, unsigned int, unsigned char, unsigned char, unsigned char, CVector, CVector>(red, green, blue, alpha, leftPoint, rightPoint);
+// Converted from cdecl void CMotionBlurStreaks::RegisterStreak(uint id, uchar red, uchar green, uchar blue, CVector leftPoint, CVector rightPoint) 0x721DC0
+void CMotionBlurStreaks::RegisterStreak(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, CVector leftPoint, CVector rightPoint) {
+    plugin::Call<0x721DC0, unsigned int, unsigned char, unsigned char, unsigned char, CVector, CVector>(id, red, green, blue, leftPoint, rightPoint);
 }
 
 // Converted from cdecl void CMotionBlurStreaks::Init(void) 0x721D90
