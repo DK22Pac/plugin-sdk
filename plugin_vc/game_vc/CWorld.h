@@ -27,7 +27,7 @@ public:
     static bool &bSecondShift;
     static bool &bIncludeCarTyres;
 	static CSector (&ms_aSectors)[6400];		// CSector CWorld::ms_aSectors[6400]
-
+    static CVector* createdTaxiCabPosition;
     //funcs
     static void Add(CEntity* entity);
     static void AddParticles();
@@ -82,6 +82,7 @@ public:
     static void TriggerExplosion(CVector const& arg0, float arg1, float arg2, CEntity* entity, bool arg4);
     static void TriggerExplosionSectorList(CPtrList& ptrlist, CVector const& arg1, float arg2, float arg3, CEntity* entity, bool arg5);
     static void UseDetonator(CEntity* entity);
+    static bool CreateTaxiCab(float x, float y, float z, float a4, float a5, int a6, int a7, float a8);
 };
 
 extern unsigned int MAX_PLAYERS; // 1

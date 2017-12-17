@@ -15,6 +15,7 @@
 #include "CAutomobile.h"
 #include "CPlayerPed.h"
 #include "CCutsceneObject.h"
+#include "CGarage.h"
 
 #ifdef GetObject
 #undef GetObject
@@ -29,6 +30,7 @@ public:
     static CPool<CVehicle, CAutomobile>    *&ms_pVehiclePool;
     static CPool<CPed, CPlayerPed>         *&ms_pPedPool;
     static CPool<CObject, CCutsceneObject> *&ms_pObjectPool;
+    static CPool<CGarage>                  *&ms_pGaragePool;
 
     static void MakeSureSlotInObjectPoolIsEmpty(int slot);
     static void LoadPedPool(unsigned char* buffer, unsigned int size);
