@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase\PluginBase_VC.h"
 #include "CVector.h"
 #include "CRGBA.h"
 
@@ -32,7 +32,6 @@ public:
     char field_53;
 
     //funcs
-    void Update();
     void Render();
 };
 

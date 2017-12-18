@@ -1,6 +1,23 @@
 vtable 0 //VC
 end
 funcs
+thiscall void CRegisteredMotionBlurStreak::Render(void)                               0x572660
+thiscall void CMotionBlurStreaks::CMotionBlurStreaks(void)                            0x575150
+cdecl void CMotionBlurStreaks::RegisterStreak(uint id, uchar red, uchar green, uchar blue, CVector leftPoint, CVector rightPoint) 0x572800
+cdecl void CMotionBlurStreaks::Render(void)                                           0x572920
+end
+
+vtable 0 //VC
+end
+funcs
+thiscall void CBrightLights::CBrightLights(void)  0x575140
+cdecl void CBrightLights::RegisterOne(CVector posn, CVector right, CVector up, CVector at, uchar red, uchar green, uchar blue, uchar alpha) 0x571820
+cdecl void CBrightLights::Render(void)            0x5719B0
+end
+
+vtable 0 //VC
+end
+funcs
 thiscall void CShinyTexts::CShinyTexts(void) 0x575130
 cdecl void CShinyTexts::Render(void)         0x571240
 end
