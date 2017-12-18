@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase\PluginBase_VC.h"
 #include "CVector.h"
 #include "eWeaponType.h"
 #include "CEntity.h"
@@ -32,7 +32,7 @@ public:
     CBulletInfo();
     static void Initialise();
     static void Shutdown();
-    static bool TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2);
+    static void TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2);
     static void Update();
 };
 

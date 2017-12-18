@@ -1,3 +1,32 @@
+vtable 0 //VC
+end
+funcs
+thiscall void CShinyTexts::CShinyTexts(void) 0x575130
+cdecl void CShinyTexts::Render(void)         0x571240
+end
+
+vtable 0 //VC
+end
+funcs
+cdecl void CBulletInfo::AddBullet(CEntity *creator, eWeaponType weaponType, CVector position, CVector velocity) 0x5C47C0
+thiscall void CBulletInfo::CBulletInfo(void)                                     0x5C4B10
+cdecl void CBulletInfo::Initialise(void)                                         0x5C48C0
+cdecl void CBulletInfo::Shutdown(void)                                           0x5C48A0
+cdecl void CBulletInfo::TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2) 0x5C3B20
+cdecl void CBulletInfo::Update(void)                                             0x5C3DE0
+end
+
+vtable 0 //GTA III
+end
+funcs
+thiscall void CBulletTrace::Update(void)          0x519270
+cdecl void CBulletTraces::Update(void)            0x519240
+cdecl void CBulletTraces::Render(void)            0x518F20
+cdecl void CBulletTraces::Init(void)              0x518DE0
+thiscall void CBulletTraces::CBulletTraces(void)  0x51C390
+cdecl void CBulletTraces::AddTrace(CVector *origin, CVector *target) 0x518E90
+end
+
 vtable 0 //GTA III
 end
 funcs
