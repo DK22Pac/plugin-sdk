@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CTheScripts.h"
-
+#include "CPlayerInfo.h"
 unsigned int MAX_SCRIPT_SPACE_SIZE = 260512;
 
 unsigned char *CTheScripts::ScriptSpace = (unsigned char *)0x821280;
@@ -15,6 +15,10 @@ int CTheScripts::HighlightImportantArea(int a1, float a2, float a3, float a4, fl
 
 bool CTheScript::IsPlayerOnAMission(){
 	return plugin::CallMethodAndReturn<bool, 0x450CF0>();
+}
+char *CTheScript::IsPlayerStopped(CPlayerInfo* CPlayerInfo)
+{
+	return plugin::CallAndReturn<char *, 0x45ED50, CPlayerInfo*>(CPlayerInfo);	
 }
 
 
