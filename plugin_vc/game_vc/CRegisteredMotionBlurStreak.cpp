@@ -12,3 +12,8 @@ RxObjSpace3dVertex *StreakVertices = (RxObjSpace3dVertex *)0x77EDD4;
 void CRegisteredMotionBlurStreak::Render() {
     plugin::CallMethod<0x572660, CRegisteredMotionBlurStreak *>(this);
 }
+
+// Converted from thiscall void CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak(void) 0x575150
+CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak() {
+    plugin::CallMethod<0x575150, CRegisteredMotionBlurStreak *>(this);
+}

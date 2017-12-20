@@ -17,7 +17,6 @@ public:
     static void Update();
     static void Render();
     static void Init();
-    CBulletTraces();
     static void AddTrace(CVector* origin, CVector* target);
 };
 

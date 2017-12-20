@@ -21,6 +21,8 @@ public:
     RwTexCoords m_texCoorsBB;
     float m_fDistanceToCamera;
     RwRGBA m_color;
+
+    CRegisteredShinyText();
 };
 
 VALIDATE_SIZE(CRegisteredShinyText, 0x58);
@@ -31,7 +33,6 @@ public:
     static unsigned int &NumShinyTexts;
 
     //funcs
-    CShinyTexts();
     static void Init();
     static void RegisterOne(CVector cornerAA, CVector cornerBA, CVector cornerBB, CVector cornerAB, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, float maxDistance);
     static void Render();

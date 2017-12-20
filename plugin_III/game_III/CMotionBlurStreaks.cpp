@@ -10,11 +10,6 @@ unsigned int MAX_NUM_MOTIONBLUR_STREAKS = 4;
 
 CRegisteredMotionBlurStreak *CMotionBlurStreaks::aStreaks = (CRegisteredMotionBlurStreak *)0x880A00;
 
-// Converted from thiscall void CMotionBlurStreaks::CMotionBlurStreaks(void) 0x51C350
-CMotionBlurStreaks::CMotionBlurStreaks() {
-    plugin::CallMethod<0x51C350, CMotionBlurStreaks *>(this);
-}
-
 // Converted from cdecl void CMotionBlurStreaks::Init(void) 0x519330 
 void CMotionBlurStreaks::Init() {
     plugin::Call<0x519330>();

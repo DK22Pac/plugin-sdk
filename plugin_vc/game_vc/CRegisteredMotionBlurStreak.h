@@ -33,6 +33,7 @@ public:
 
     //funcs
     void Render();
+    CRegisteredMotionBlurStreak();
 };
 
 VALIDATE_SIZE(CRegisteredMotionBlurStreak, 0x54);

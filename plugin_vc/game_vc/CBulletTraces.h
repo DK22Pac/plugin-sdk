@@ -20,6 +20,8 @@ public:
     unsigned int m_nLifeTime;
     float m_fRadius;
     unsigned char m_nTransparency;
+
+    CBulletTrace();
 };
 #pragma pack(pop)
 
@@ -32,7 +34,6 @@ public:
     static CBulletTrace *aTraces; // static CBulletTrace aTraces[16]
 
     //funcs
-    CBulletTraces();
     static void AddTrace(CVector* start, CVector* end, float radius, unsigned int time, unsigned char transparency);
     static void AddTrace(CVector* start, CVector* end, int weaponType, CEntity* entity);
     static void Init();

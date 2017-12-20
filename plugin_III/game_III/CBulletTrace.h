@@ -19,7 +19,9 @@ public:
 private:
     char _pad1B;
 public:
+    
     //funcs
+    CBulletTrace();
     void Update();
 };
 
