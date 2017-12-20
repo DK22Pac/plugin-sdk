@@ -2,7 +2,7 @@ vtable 0 //VC
 end
 funcs
 thiscall void CRegisteredMotionBlurStreak::Render(void)                               0x572660
-thiscall void CMotionBlurStreaks::CMotionBlurStreaks(void)                            0x575150
+thiscall void CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak(void)          0x575150
 cdecl void CMotionBlurStreaks::RegisterStreak(uint id, uchar red, uchar green, uchar blue, CVector leftPoint, CVector rightPoint) 0x572800
 cdecl void CMotionBlurStreaks::Render(void)                                           0x572920
 end
@@ -10,7 +10,7 @@ end
 vtable 0 //VC
 end
 funcs
-thiscall void CBrightLights::CBrightLights(void)  0x575140
+thiscall void CBrightLight::CBrightLight(void)  0x575140
 cdecl void CBrightLights::RegisterOne(CVector posn, CVector right, CVector up, CVector at, uchar red, uchar green, uchar blue, uchar alpha) 0x571820
 cdecl void CBrightLights::Render(void)            0x5719B0
 end
@@ -18,7 +18,7 @@ end
 vtable 0 //VC
 end
 funcs
-thiscall void CShinyTexts::CShinyTexts(void) 0x575130
+thiscall void CRegisteredShinyText::CRegisteredShinyText(void) 0x575130
 cdecl void CShinyTexts::Render(void)         0x571240
 end
 
@@ -40,7 +40,7 @@ thiscall void CBulletTrace::Update(void)          0x519270
 cdecl void CBulletTraces::Update(void)            0x519240
 cdecl void CBulletTraces::Render(void)            0x518F20
 cdecl void CBulletTraces::Init(void)              0x518DE0
-thiscall void CBulletTraces::CBulletTraces(void)  0x51C390
+thiscall void CBulletTrace::CBulletTrace(void)    0x51C390
 cdecl void CBulletTraces::AddTrace(CVector *origin, CVector *target) 0x518E90
 end
 
@@ -60,12 +60,12 @@ end
 funcs
 thiscall void CRegisteredMotionBlurStreak::Update(void) 0x519580
 thiscall void CRegisteredMotionBlurStreak::Render(void) 0x519600
+thiscall void CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak(void) 0x51C350
 end
 
 vtable 0 //GTA III
 end
 funcs
-thiscall void CMotionBlurStreaks::CMotionBlurStreaks(void) 0x51C350
 cdecl void CMotionBlurStreaks::Init(void)                  0x519330
 cdecl void CMotionBlurStreaks::RegisterStreak(uint id, uchar red, uchar green, uchar blue, CVector leftPoint, CVector rightPoint) 0x519460
 cdecl void CMotionBlurStreaks::Render(void)                0x519390
@@ -75,7 +75,7 @@ end
 vtable 0 //GTA III
 end
 funcs
-thiscall void CBrightLights::CBrightLights(void)         0x51C340
+thiscall void CBrightLight::CBrightLight(void)           0x51C340
 cdecl void CBrightLights::Init(void)                     0x5197A0
 cdecl void CBrightLights::Render(void)                   0x5197B0
 cdecl void CBrightLights::RenderOutGeometryBuffer(void)  0x51A3B0
@@ -85,7 +85,7 @@ end
 vtable 0 //GTA III
 end
 funcs
-thiscall void CShinyTexts::CShinyTexts(void)             0x51C330
+thiscall void CRegisteredShinyText::CRegisteredShinyText(void)  0x51C330
 cdecl void CShinyTexts::Init(void)                       0x51A5A0
 cdecl void CShinyTexts::RegisterOne(CVector cornerAA, CVector cornerBA, CVector cornerBB, CVector cornerAB, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, uchar red, uchar green, uchar blue, uchar alpha, float maxDistance) 0x51AAB0
 cdecl void CShinyTexts::Render(void)                     0x51A5B0
