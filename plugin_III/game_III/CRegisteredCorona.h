@@ -52,6 +52,7 @@ public:
     
     //funcs
     void Update();
+    CRegisteredCorona();
 };
 
 VALIDATE_SIZE(CRegisteredCorona, 0x80);

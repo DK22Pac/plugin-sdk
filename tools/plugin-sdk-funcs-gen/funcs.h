@@ -1,3 +1,12 @@
+vtable 0 //GTA3
+end
+funcs
+cdecl void CPointLights::AddLight(uchar lightType, CVector point, CVector direction, float radius, float red, float green, float blue, uchar fogType, bool generateExtraShadows) 0x510790
+cdecl float CPointLights::GenerateLightsAffectingObject(CVector *point) 0x510960
+cdecl void CPointLights::RemoveLightsAffectingObject(void)              0x510C20
+cdecl void CPointLights::RenderFogEffect(void)                          0x510C30
+end
+
 vtable 0 //VC
 end
 funcs
@@ -210,6 +219,7 @@ cdecl void CCoronas::Shutdown(void)                                             
 // Updates coronas
 cdecl void CCoronas::Update(void)                                                                                                      0x4F8EC0
 cdecl void CCoronas::UpdateCoronaCoors(uint id, CVector const& posn, float farClip, float angle) 0x4FA2D0
+thiscall void CRegisteredCorona::CRegisteredCorona(void) 0x4FADE0
 end
 
 vtable 0
