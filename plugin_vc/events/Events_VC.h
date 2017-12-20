@@ -58,5 +58,6 @@ namespace plugin
                                           0x4A492F, H_CALL,
                                           0x4A4E96, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          initScriptsEvent;
         extern CdeclEvent    <AddressList<0x4A45AA, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          processScriptsEvent;
+        extern CdeclEvent    <AddressList<0x4A5BB5, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            bool()>          attachRwPluginsEvent;
     }
 }

@@ -116,5 +116,8 @@ namespace plugin
                                           0x5BA340, H_CALL,
                                           0x5D4FD7, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          initScriptsEvent;
         extern CdeclEvent    <AddressList<0x53C077, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          processScriptsEvent;
+
+        // attach RenderWare plugins (AppEventHandler > PluginAttach())
+        extern CdeclEvent    <AddressList<0x53ECA1, H_CALL>, PRIORITY_AFTER, ArgPickNone,             bool()>          attachRwPluginsEvent;
     }
 }

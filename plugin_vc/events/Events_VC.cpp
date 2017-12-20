@@ -52,3 +52,4 @@ CdeclEvent    <AddressList<0x45F463, H_CALL,
                            0x4A492F, H_CALL,
                            0x4A4E96, H_CALL>, PRIORITY_AFTER,  ArgPickNone,               void()> plugin::Events::initScriptsEvent;
 CdeclEvent    <AddressList<0x4A45AA, H_CALL>, PRIORITY_AFTER,  ArgPickNone,               void()> plugin::Events::processScriptsEvent;
+CdeclEvent    <AddressList<0x4A5BB5, H_CALL>, PRIORITY_AFTER,  ArgPickNone,               bool()> plugin::Events::attachRwPluginsEvent;

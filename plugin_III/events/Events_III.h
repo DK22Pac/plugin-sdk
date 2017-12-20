@@ -63,5 +63,8 @@ namespace plugin
                                           0x4893EF, H_CALL, 0x48A019, H_CALL,
                                           0x48BA25, H_CALL, 0x4FE6B2, H_CALL,
                                           0x4824E1, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          onMenuDrawingEvent;
+
+        // attach RenderWare plugins (AppEventHandler > PluginAttach())
+        extern CdeclEvent    <AddressList<0x48E8D2, H_CALL>, PRIORITY_AFTER, ArgPickNone,             bool()>          attachRwPluginsEvent;
     }
 }

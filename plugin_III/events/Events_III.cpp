@@ -57,3 +57,4 @@ CdeclEvent    <AddressList<0x47AF76, H_CALL, 0x432723, H_CALL,
                            0x4893EF, H_CALL, 0x48A019, H_CALL,
                            0x48BA25, H_CALL, 0x4FE6B2, H_CALL,
                            0x4824E1, H_CALL>, PRIORITY_AFTER,  ArgPickNone,               void()> plugin::Events::onMenuDrawingEvent;
+CdeclEvent    <AddressList<0x48E8D2, H_CALL>, PRIORITY_AFTER, ArgPickNone,                bool()> plugin::Events::attachRwPluginsEvent;
