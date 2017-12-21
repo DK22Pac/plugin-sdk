@@ -15,7 +15,8 @@ Do not delete this comment block. Respect others' work!
 
 class CPlayerPed : public CPed {
 public:
-    
+    char field_53C[0xB4];
+
     //funcs
     void AnnoyPlayerPed(bool arg0);
     CPlayerPed();
@@ -53,3 +54,5 @@ public:
     static void SetupPlayerPed(int playerId);
     void UseSprintEnergy();
 };
+
+VALIDATE_SIZE(CPlayerPed, 0x5F0);
