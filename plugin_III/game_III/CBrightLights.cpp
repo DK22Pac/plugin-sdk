@@ -8,12 +8,12 @@
 
 unsigned int MAX_NUM_BRIGHTLIGHTS = 32;
 
-tBrightLight *CBrightLights::aBrightLights = (tBrightLight *)0x733A68;
+CBrightLight *CBrightLights::aBrightLights = (CBrightLight *)0x733A68;
 unsigned int &CBrightLights::NumBrightLights = *(unsigned int *)0x8F2C70;
 
-// Converted from thiscall void CBrightLights::CBrightLights(void) 0x51C340
-CBrightLights::CBrightLights() {
-    plugin::CallMethod<0x51C340, CBrightLights *>(this);
+// Converted from thiscall void CBrightLight::CBrightLight(void) 0x51C340
+CBrightLight::CBrightLight() {
+    plugin::CallMethod<0x51C340, CBrightLight *>(this);
 }
 
 // Converted from cdecl void CBrightLights::Init(void) 0x5197A0

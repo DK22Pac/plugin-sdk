@@ -25,11 +25,6 @@ void CBulletTraces::Init() {
     plugin::Call<0x518DE0>();
 }
 
-// Converted from thiscall void CBulletTraces::CBulletTraces(void) 0x51C390 
-CBulletTraces::CBulletTraces() {
-    plugin::CallMethod<0x51C390, CBulletTraces *>(this);
-}
-
 // Converted from cdecl void CBulletTraces::AddTrace(CVector *origin, CVector *target) 0x518E90
 void CBulletTraces::AddTrace(CVector* origin, CVector* target) {
     plugin::Call<0x518E90, CVector*, CVector*>(origin, target);

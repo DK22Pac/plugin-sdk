@@ -17,3 +17,8 @@ void CRegisteredMotionBlurStreak::Update() {
 void CRegisteredMotionBlurStreak::Render() {
     plugin::CallMethod<0x519600, CRegisteredMotionBlurStreak *>(this);
 }
+
+// Converted from thiscall void CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak(void) 0x51C350
+CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak() {
+    plugin::CallMethod<0x51C350, CRegisteredMotionBlurStreak *>(this);
+}

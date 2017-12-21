@@ -9,24 +9,26 @@
 #include "plbase\PluginBase_VC.h"
 #include "CVector.h"
 
-struct tBrightLight {
+class CBrightLight {
+public:
     CVector       m_vecPosition;
     CVector       m_vecRight;
     CVector       m_vecUp;
     CVector       m_vecAt;
     float         m_fDistanceToCamera;
     RwRGBA        m_color;
+
+    CBrightLight();
 };
 
-VALIDATE_SIZE(tBrightLight, 0x38);
+VALIDATE_SIZE(CBrightLight, 0x38);
 
 class CBrightLights {
 public:
-    static tBrightLight *aBrightLights; // static tBrightLight aBrightLights[32]
+    static CBrightLight *aBrightLights; // static tBrightLight aBrightLights[32]
     static unsigned int &NumBrightLights;
 
     //funcs
-    CBrightLights();
     static void RegisterOne(CVector posn, CVector right, CVector up, CVector at, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha);
     static void Render();
 };

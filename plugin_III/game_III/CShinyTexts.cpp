@@ -11,9 +11,9 @@ unsigned int MAX_SHINYTEXTS = 32;
 CRegisteredShinyText *CShinyTexts::aShinyTexts = (CRegisteredShinyText *)0x87B2D8;
 unsigned int &CShinyTexts::NumShinyTexts = *(unsigned int *)0x8F1AAC;
 
-// Converted from thiscall void CShinyTexts::CShinyTexts(void) 0x51C330 
-CShinyTexts::CShinyTexts() {
-    plugin::CallMethod<0x51C330, CShinyTexts *>(this);
+// Converted from thiscall void CRegisteredShinyText::CRegisteredShinyText(void) 0x51C330
+CRegisteredShinyText::CRegisteredShinyText() {
+    plugin::CallMethod<0x51C330, CRegisteredShinyText *>(this);
 }
 
 // Converted from cdecl void CShinyTexts::Init(void) 0x51A5A0 

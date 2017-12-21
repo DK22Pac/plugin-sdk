@@ -28,7 +28,7 @@ void CBulletTraces::Render() {
     plugin::Call<0x5729F0>();
 }
 
-// Converted from thiscall void CBulletTraces::CBulletTraces(void) 0x575190 
-CBulletTraces::CBulletTraces() {
-    plugin::CallMethod<0x575190, CBulletTraces *>(this);
+// Converted from thiscall void CBulletTrace::CBulletTrace(void) 0x575190 
+CBulletTrace::CBulletTrace() {
+    plugin::CallMethod<0x575190, CBulletTrace *>(this);
 }

@@ -10,3 +10,8 @@
 void CBulletTrace::Update() {
     plugin::CallMethod<0x519270, CBulletTrace *>(this);
 }
+
+// Converted from thiscall void CBulletTrace::CBulletTrace(void) 0x51C390
+CBulletTrace::CBulletTrace() {
+    plugin::CallMethod<0x51C390, CBulletTrace *>(this);
+}
