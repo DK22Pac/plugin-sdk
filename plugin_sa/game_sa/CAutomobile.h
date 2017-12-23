@@ -65,7 +65,7 @@ public:
     int field_820;
     float m_fWheelRotation[4];
     float field_838[4];
-    int m_fWheelSpeed[4];
+    float m_fWheelSpeed[4];
     int field_858[4];
     char taxiAvaliable;
     char field_869;

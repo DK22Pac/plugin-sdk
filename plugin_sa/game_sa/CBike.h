@@ -43,13 +43,13 @@ public:
     CColPoint      m_anWheelColPoint[4];
     float field_710[4];
     float field_720[4];
-    float field_730[4]; // possibly wheel rotation speed?
+    float field_730[4];
     float field_740;
     int            m_anWheelSurfaceType[2];
     char field_74C[2];
     char field_74E[2];
     float          m_afWheelRotationX[2];
-    float field_758[2];
+    float m_fWheelSpeed[2];
     float field_760;
     float field_764;
     float field_768;
