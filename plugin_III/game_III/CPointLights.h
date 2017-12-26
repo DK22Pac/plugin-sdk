@@ -22,6 +22,9 @@ public:
     bool m_bGenerateShadows;
 private:
     char _pad2B;
+public:
+
+    CPointLight();
 };
 
 VALIDATE_SIZE(CPointLight, 0x2C);

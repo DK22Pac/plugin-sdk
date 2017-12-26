@@ -30,3 +30,8 @@ void CPointLights::RemoveLightsAffectingObject() {
 void CPointLights::RenderFogEffect() {
     plugin::Call<0x510C30>();
 }
+
+// Converted from thiscall void CPointLight::CPointLight(void) 0x511930
+CPointLight::CPointLight() {
+    plugin::CallMethod<0x511930, CPointLight *>(this);
+}

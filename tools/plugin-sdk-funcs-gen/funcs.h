@@ -1,6 +1,46 @@
+vtable 0 //VC
+end
+funcs
+cdecl bool CSceneEdit::SelectWeapon(void)   0x6032E0
+cdecl bool CSceneEdit::SelectVehicle(void)  0x603520
+cdecl bool CSceneEdit::SelectActor2(void)   0x603700
+cdecl bool CSceneEdit::SelectActor(void)    0x603980
+cdecl void CSceneEdit::PlayBack(void)       0x603C10
+cdecl void CSceneEdit::ProcessCommand(void) 0x604500
+cdecl void CSceneEdit::Draw(void)           0x605DB0
+cdecl void CSceneEdit::Update(void)         0x606270
+cdecl void CSceneEdit::ReInitialise(void)   0x6062F0
+cdecl void CSceneEdit::InitPlayBack(void)   0x606470
+cdecl void CSceneEdit::Initialise(void)     0x6065B0
+thiscall void CMovieData::CMovieData(void)  0x606720
+end
+
 vtable 0 //GTA3
 end
 funcs
+// PrevOrNextModelIndex: -1 (prev), 1 (next) 
+cdecl int NextValidModelId(int currentModelIndex, int PrevOrNextModelIndex) 0x585050
+cdecl void CSceneEdit::LoadMovie(void)          0x5850A0
+cdecl void CSceneEdit::SaveMovie(void)          0x585110
+cdecl void CSceneEdit::Initialise(void)         0x585170
+cdecl void CSceneEdit::InitPlayBack(void)       0x5852C0
+cdecl void CSceneEdit::ReInitialise(void)       0x5853F0
+cdecl void CSceneEdit::Update(void)             0x585570
+cdecl void CSceneEdit::Draw(void)               0x5855F0
+cdecl void CSceneEdit::ProcessCommand(void)     0x585BB0
+cdecl void CSceneEdit::PlayBack(void)           0x587200
+cdecl void CSceneEdit::ClearForNewCommand(void) 0x587AF0
+cdecl bool CSceneEdit::SelectActor(void)        0x587B30
+cdecl bool CSceneEdit::SelectActor2(void)       0x587DC0
+cdecl bool CSceneEdit::SelectVehicle(void)      0x588040
+cdecl bool CSceneEdit::SelectWeapon(void)       0x588220
+thiscall void CMovieData::CMovieData(void)      0x588480
+end
+
+vtable 0 //GTA3
+end
+funcs
+thiscall void CPointLight::CPointLight(void) 0x511930
 cdecl void CPointLights::AddLight(uchar lightType, CVector point, CVector direction, float radius, float red, float green, float blue, uchar fogType, bool generateExtraShadows) 0x510790
 cdecl float CPointLights::GenerateLightsAffectingObject(CVector *point) 0x510960
 cdecl void CPointLights::RemoveLightsAffectingObject(void)              0x510C20
