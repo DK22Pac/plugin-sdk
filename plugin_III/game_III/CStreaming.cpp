@@ -28,7 +28,7 @@ int &CStreaming::ms_oldSectorX = *(int *)0x8F2C84;
 int &CStreaming::ms_oldSectorY = *(int *)0x8F2C88;
 int &CStreaming::ms_vehiclesLoaded = *(int *)0x773560;
 
-CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x6C7090;
+CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x6C7088;
 CStreamingInfo *CStreaming::ms_endRequestedList = (CStreamingInfo *)0x940738;
 CStreamingInfo *CStreaming::ms_startLoadedList = (CStreamingInfo *)0x942F60;
 CStreamingInfo *CStreaming::ms_startRequestedList = (CStreamingInfo *)0x8F1B3C;
