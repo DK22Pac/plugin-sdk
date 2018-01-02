@@ -76,7 +76,7 @@ public:
 	static void SetActiveMenuItem(unsigned char panelId, char rowId);
 	static void SetColumnHeader(unsigned char panelId, unsigned char columnId, char *str);
 	static void SetColumnOrientation(unsigned char panelId, unsigned char columnId, eFontAlignment alignment);
-	static void SetColumnWidth(unsigned char panelId, unsigned char columnId, unsigned __int16 width);
+	static void SetColumnWidth(unsigned char panelId, unsigned char columnId, unsigned short width);
 	static void SetDPadInput(unsigned char panelId, bool bEnable);
 	static void SetHeaderOrientation(unsigned char panelId, unsigned char columnId, eFontAlignment alignment);
 	static void SwitchOffMenu(unsigned char panelId);

@@ -58,9 +58,9 @@ public:
                     else {
                         lightsStatus = LIGHTS_OFF;
 
-                        CVector2D prevPoint = GetCarPathLinkPosition(vehicle->m_autoPilot.m_wPreviousPathNodeInfo);
-                        CVector2D currPoint = GetCarPathLinkPosition(vehicle->m_autoPilot.m_wCurrentPathNodeInfo);
-                        CVector2D nextPoint = GetCarPathLinkPosition(vehicle->m_autoPilot.m_wNextPathNodeInfo);
+                        CVector2D prevPoint = GetCarPathLinkPosition(vehicle->m_autoPilot.m_nPreviousPathNodeInfo);
+                        CVector2D currPoint = GetCarPathLinkPosition(vehicle->m_autoPilot.m_nCurrentPathNodeInfo);
+                        CVector2D nextPoint = GetCarPathLinkPosition(vehicle->m_autoPilot.m_nNextPathNodeInfo);
 
                         float angle = GetZAngleForPoint(nextPoint - currPoint) - GetZAngleForPoint(currPoint - prevPoint);
                         while (angle < 0.0f) angle += 360.0f;
@@ -80,7 +80,7 @@ public:
                     }
                 }
                 if (CTimer::m_snTimeInMilliseconds % (TURN_ON_OFF_DELAY * 2) < TURN_ON_OFF_DELAY) {
-                    if (DistanceBetweenPoints(TheCamera.m_vGameCamPos, vehicle->GetPosition()) < MAX_RADIUS) {
+                    if (DistanceBetweenPoints(TheCamera.m_vecGameCamPos, vehicle->GetPosition()) < MAX_RADIUS) {
                         DrawVehicleTurnlights(vehicle, lightsStatus);
                         if (vehicle->m_pTractor)
                             DrawVehicleTurnlights(vehicle->m_pTractor, lightsStatus);
@@ -118,7 +118,7 @@ public:
         }
     }
 
-    static float GetZAngleForPoint(CVector2D &point) {
+    static float GetZAngleForPoint(CVector2D const &point) {
         float angle = CGeneral::GetATanOfXY(point.x, point.y) * 57.295776f - 90.0f;
         while (angle < 0.0f) angle += 360.0f;
         return angle;

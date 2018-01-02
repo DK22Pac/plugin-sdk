@@ -12,7 +12,7 @@ class CPedType {
 public:
     union tPedTypeFlags
     {
-        UInt32 IntValue;
+        unsigned int IntValue;
         struct
         {
             unsigned char bPlayer1 : 1; 

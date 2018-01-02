@@ -61,9 +61,9 @@ int CPlayerPed::FindMeleeAttackPoint(CPed* arg0, CVector& arg1, unsigned int& ar
     return plugin::CallMethodAndReturn<int, 0x531390, CPlayerPed *, CPed*, CVector&, unsigned int&>(this, arg0, arg1, arg2);
 }
 
-// Converted from thiscall __int16 CPlayerPed::FindNewAttackPoints(void) 0x531810
-__int16 CPlayerPed::FindNewAttackPoints() {
-    return plugin::CallMethodAndReturn<__int16, 0x531810, CPlayerPed *>(this);
+// Converted from thiscall short CPlayerPed::FindNewAttackPoints(void) 0x531810
+short CPlayerPed::FindNewAttackPoints() {
+    return plugin::CallMethodAndReturn<short, 0x531810, CPlayerPed *>(this);
 }
 
 // Converted from thiscall bool CPlayerPed::FindNextWeaponLockOnTarget(CEntity *target,bool) 0x532590

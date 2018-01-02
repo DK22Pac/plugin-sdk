@@ -7,8 +7,8 @@
 #include "CSprite2d.h"
 
 // static variables
-unsigned __int32& CSprite2d::nextBufferIndex = *(unsigned __int32 *)0xC80458;
-unsigned __int32& CSprite2d::nextBufferVertex = *(unsigned __int32 *)0xC8045C;
+unsigned int& CSprite2d::nextBufferIndex = *(unsigned int *)0xC80458;
+unsigned int& CSprite2d::nextBufferVertex = *(unsigned int *)0xC8045C;
 float& CSprite2d::NearScreenZ = *(float *)0xC80460;
 float& CSprite2d::RecipNearClip = *(float *)0xC80464;
 RwD3D9Vertex *CSprite2d::maVertices = (RwD3D9Vertex *)0xC80468;

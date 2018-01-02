@@ -19,7 +19,7 @@ public:
     void SetHeading(float heading);
 
     inline float GetHeading() {
-        float angle = atan2(-this->m_matrix.up.x, this->m_matrix.up.y) * 57.295776f;
+        float angle = atan2f(-m_matrix.up.x, m_matrix.up.y) * 57.295776f;
         if (angle < 0.0f)
             angle += 360.0f;
         if (angle > 360.0f)

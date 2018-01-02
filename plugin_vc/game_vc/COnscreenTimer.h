@@ -9,12 +9,12 @@ Do not delete this comment block. Respect others' work!
 
 class COnscreenTimerEntry {
 public:
-	UInt32 m_nVarId;
+	unsigned int m_nVarId;
 	char m_acDescriptionTextKey[10];
 	char m_acDisplayedText[40];
 	char _pad0[2];
-	Bool m_bEnabled;
-	UInt8 m_nTimerDirection;
+	bool m_bEnabled;
+	unsigned char m_nTimerDirection;
 	char _pad1[2];
 
     //funcs
@@ -25,12 +25,12 @@ VALIDATE_SIZE(COnscreenTimerEntry, 0x3C);
 
 class COnscreenCounterEntry {
 public:
-	UInt32 m_nVarId;
+	unsigned int m_nVarId;
 	char m_acDescriptionTextKey[10];
-	UInt16 m_nType;
+	unsigned short m_nType;
 	char m_acDisplayedText[40];
 	char _pad0[2];
-	Bool m_bEnabled;
+	bool m_bEnabled;
 	char _pad1[1];
 };
 
@@ -40,8 +40,8 @@ class COnscreenTimer {
 public:
 	COnscreenTimerEntry m_aClocks[1];
 	COnscreenCounterEntry m_aCounters[3];
-	Bool m_bDisplay;
-	Bool m_bTimerFeezed;
+	bool m_bDisplay;
+	bool m_bTimerFeezed;
 	char _pad0[2];
     
 	//funcs

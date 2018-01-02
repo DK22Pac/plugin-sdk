@@ -269,18 +269,18 @@ void CCamera::StartTransitionWhenNotFinishedInter(short mode) {
 }
 
 // Converted from thiscall void CCamera::StoreValuesDuringInterPol(CVector & SourceDuringInter,CVector & TargetDuringInter,CVector & UpDuringInter,float & FOVDuringInter)	0x46AA01
-void CCamera::StoreValuesDuringInterPol(CVector& SourceDuringInter, CVector& TargetDuringInter, CVector& UpDuringInter, float& FOVDuringInter) {
-	plugin::CallMethod<0x46AA01, CCamera *, CVector&, CVector&, CVector&, float&>(this, SourceDuringInter, TargetDuringInter, UpDuringInter, FOVDuringInter);
+void CCamera::StoreValuesDuringInterPol(CVector& _SourceDuringInter, CVector& _TargetDuringInter, CVector& _UpDuringInter, float& _FOVDuringInter) {
+	plugin::CallMethod<0x46AA01, CCamera *, CVector&, CVector&, CVector&, float&>(this, _SourceDuringInter, _TargetDuringInter, _UpDuringInter, _FOVDuringInter);
 }
 
 // Converted from thiscall void CCamera::TakeControl(CEntity * pEntity,short mode,short TypeOfSwitch,int WhoIsInControlOfTheCamera)	0x46A4F8
-void CCamera::TakeControl(CEntity* pEntity, short mode, short TypeOfSwitch, int WhoIsInControlOfTheCamera) {
-	plugin::CallMethod<0x46A4F8, CCamera *, CEntity*, short, short, int>(this, pEntity, mode, TypeOfSwitch, WhoIsInControlOfTheCamera);
+void CCamera::TakeControl(CEntity* pEntity, short mode, short _TypeOfSwitch, int _WhoIsInControlOfTheCamera) {
+	plugin::CallMethod<0x46A4F8, CCamera *, CEntity*, short, short, int>(this, pEntity, mode, _TypeOfSwitch, _WhoIsInControlOfTheCamera);
 }
 
 // Converted from thiscall void CCamera::TakeControlNoEntity(CVector const& vecFixedModeVector,short TypeOfSwitch,int WhoIsInControlOfTheCamera)	0x46A494
-void CCamera::TakeControlNoEntity(CVector const& vecFixedModeVector, short TypeOfSwitch, int WhoIsInControlOfTheCamera) {
-	plugin::CallMethod<0x46A494, CCamera *, CVector const&, short, int>(this, vecFixedModeVector, TypeOfSwitch, WhoIsInControlOfTheCamera);
+void CCamera::TakeControlNoEntity(CVector const& vecFixedModeVector, short _TypeOfSwitch, int _WhoIsInControlOfTheCamera) {
+	plugin::CallMethod<0x46A494, CCamera *, CVector const&, short, int>(this, vecFixedModeVector, _TypeOfSwitch, _WhoIsInControlOfTheCamera);
 }
 
 // Converted from thiscall void CCamera::TakeControlWithSpline(short TypeOfSwitch)	0x46A46A

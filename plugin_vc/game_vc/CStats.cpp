@@ -10,19 +10,19 @@ Do not delete this comment block. Respect others' work!
 // Converted from float CStats::FavoriteRadioStationList[10] 0x862460
 float* CStats::FavoriteRadioStationList = (float*)0x862460;
 // Converted from Bool CStats::abSonyCDs[1] 0xA10B88
-Bool* CStats::abSonyCDs = (Bool*)0xA10B88;
+bool* CStats::abSonyCDs = (bool*)0xA10B88;
 // Converted from Bool32 CStats::ShowChaseStatOnScreen 0x97F2C4
-Bool32& CStats::ShowChaseStatOnScreen = *(Bool32*)0x97F2C4;
+bool32& CStats::ShowChaseStatOnScreen = *(bool32*)0x97F2C4;
 // Converted from Bool32 CStats::NoMoreHurricanes 0xA0FCAC
-Bool32& CStats::NoMoreHurricanes = *(Bool32*)0xA0FCAC;
+bool32& CStats::NoMoreHurricanes = *(bool32*)0xA0FCAC;
 // Converted from Bool32 CStats::PamphletMissionPassed 0x97F348
-Bool32& CStats::PamphletMissionPassed = *(Bool32*)0x97F348;
+bool32& CStats::PamphletMissionPassed = *(bool32*)0x97F348;
 // Converted from Bool32 CStats::SuburbanPassed 0x978A0C
-Bool32& CStats::SuburbanPassed = *(Bool32*)0x978A0C;
+bool32& CStats::SuburbanPassed = *(bool32*)0x978A0C;
 // Converted from Bool32 CStats::CommercialPassed 0x9B489C
-Bool32& CStats::CommercialPassed = *(Bool32*)0x9B489C;
+bool32& CStats::CommercialPassed = *(bool32*)0x9B489C;
 // Converted from Bool32 CStats::IndustrialPassed 0x9751F4
-Bool32& CStats::IndustrialPassed = *(Bool32*)0x9751F4;
+bool32& CStats::IndustrialPassed = *(bool32*)0x9751F4;
 // Converted from char CStats::LastMissionPassedName[8] 0x7E9D78
 char* CStats::LastMissionPassedName = (char*)0x7E9D78;
 // Converted from int CStats::TotalLegitimateKills 0x9B6AB0
@@ -58,7 +58,7 @@ int& CStats::LongestStoppie = *(int*)0x974B3C;
 // Converted from int CStats::LongestWheelie 0x97530C
 int& CStats::LongestWheelie = *(int*)0x97530C;
 // Converted from Bool CStats::PropertyOwned[15] 0xA10AFD
-Bool* CStats::PropertyOwned = (Bool*)0xA10AFD;
+bool* CStats::PropertyOwned = (bool*)0xA10AFD;
 // Converted from int CStats::BloodRingTime 0xA0D2E0
 int& CStats::BloodRingTime = *(int*)0xA0D2E0;
 // Converted from int CStats::BloodRingKills 0x9B6E54

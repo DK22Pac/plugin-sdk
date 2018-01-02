@@ -65,9 +65,9 @@ CZone* CTheZones::GetZoneInfo(CVector const* pPoint, unsigned char arg1) {
     return plugin::CallAndReturn<CZone*, 0x4DCEA0, CVector const*, unsigned char>(pPoint, arg1);
 }
 
-// Converted from cdecl __int16 CTheZones::GetZoneInfoForTimeOfDay(CVector const* pPoint,CZoneInfo *zoneInfo) 0x4DC500
-__int16 CTheZones::GetZoneInfoForTimeOfDay(CVector const* pPoint, CZoneInfo* zoneInfo) {
-    return plugin::CallAndReturn<__int16, 0x4DC500, CVector const*, CZoneInfo*>(pPoint, zoneInfo);
+// Converted from cdecl short CTheZones::GetZoneInfoForTimeOfDay(CVector const* pPoint,CZoneInfo *zoneInfo) 0x4DC500
+short CTheZones::GetZoneInfoForTimeOfDay(CVector const* pPoint, CZoneInfo* zoneInfo) {
+    return plugin::CallAndReturn<short, 0x4DC500, CVector const*, CZoneInfo*>(pPoint, zoneInfo);
 }
 
 // Converted from cdecl void CTheZones::Init(void) 0x4DDFA0 

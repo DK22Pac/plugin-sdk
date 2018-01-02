@@ -12,7 +12,7 @@
 class PLUGIN_API COctTreeBase : public COctTree {
 public:
     unsigned int numBranches;
-    Bool32       hasTransparentPixels;
+    bool32       hasTransparentPixels;
 
     COctTreeBase();
     void Init(int numBranches);

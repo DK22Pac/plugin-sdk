@@ -14,12 +14,12 @@ class CCutsceneShadow
 {
 public:
 	CShadowCamera m_Camera;
-	Bool m_bResample;
+	bool m_bResample;
 	char _pad0[3];
 	CShadowCamera m_ResampleCamera;
 	int m_nBlurPasses;
 	CShadowCamera m_BlurCamera;
-	Bool m_bGradient;
+    bool m_bGradient;
 	char _pad1[3];
 	CShadowCamera m_GradientCamera;
 	RpAtomic *m_pAtomic;

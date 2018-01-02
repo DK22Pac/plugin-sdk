@@ -171,7 +171,7 @@ class CRadar {
 public:
     // 2990.0 by default
     static float &m_radarRange;
-    // static uint16_t MapLegendList[175];
+    // static unsigned short MapLegendList[175];
     static unsigned short *MapLegendList;
     // num icons in legend
     static unsigned short &MapLegendCounter;

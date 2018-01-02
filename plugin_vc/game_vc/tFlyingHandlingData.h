@@ -11,7 +11,7 @@ Do not delete this comment block. Respect others' work!
 
 #pragma pack(push, 4)
 struct tFlyingHandlingData {
-    __int32 m_dwVehicleId;
+    int m_dwVehicleId;
     float float4; 
     float float8; 
     float floatC; 

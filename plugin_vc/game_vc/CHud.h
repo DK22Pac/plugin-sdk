@@ -15,10 +15,10 @@ enum DRAW_FADE_STATE {
 class CHud {
 public:
     //variables
-    static __int64(*m_HelpMessageToPrint)[];
-    static __int64(*m_LastHelpMessage)[];
-    static __int64(*m_Message)[];
-    static __int64(*m_HelpMessage)[];
+    static long long(*m_HelpMessageToPrint)[];
+    static long long(*m_LastHelpMessage)[];
+    static long long(*m_Message)[];
+    static long long(*m_HelpMessage)[];
     static int &m_HelpMessageState;
     static int &m_pZoneName;
     static int &m_pVehicleName;

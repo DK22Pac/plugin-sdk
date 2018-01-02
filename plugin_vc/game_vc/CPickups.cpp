@@ -15,7 +15,7 @@ CVector& CPickups::StaticCamCoors = *(CVector*)0xA0CFA0;
 // Converted from CVehicle* CPickups::pPlayerVehicle 0x978D90
 CVehicle*& CPickups::pPlayerVehicle = *(CVehicle**)0x978D90;
 // Converted from Bool CPickups::bPickUpcamActivated 0xA10B20
-Bool& CPickups::bPickUpcamActivated = *(Bool*)0xA10B20;
+bool& CPickups::bPickUpcamActivated = *(bool*)0xA10B20;
 // Converted from short CPickups::CollectedPickUpIndex 0xA10A4A
 short& CPickups::CollectedPickUpIndex = *(short*)0xA10A4A;
 // Converted from int CPickups::aPickUpsCollected[20] 0x94AF48

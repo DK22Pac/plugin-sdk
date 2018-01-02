@@ -331,9 +331,9 @@ void CPed::Flee() {
     plugin::CallMethod<0x4FB130, CPed *>(this);
 }
 
-// Converted from thiscall __int16 CPed::FollowPath(void) 0x4F76C0
-__int16 CPed::FollowPath() {
-    return plugin::CallMethodAndReturn<__int16, 0x4F76C0, CPed *>(this);
+// Converted from thiscall short CPed::FollowPath(void) 0x4F76C0
+short CPed::FollowPath() {
+    return plugin::CallMethodAndReturn<short, 0x4F76C0, CPed *>(this);
 }
 
 // Converted from thiscall int CPed::GetFormationPosition(void) 0x519E30 
@@ -576,9 +576,9 @@ void CPed::PlayHitSound(CPed* ped) {
     plugin::CallMethod<0x528850, CPed *, CPed*>(this, ped);
 }
 
-// Converted from thiscall __int16 CPed::PointGunAt(void) 0x52DCD0
-__int16 CPed::PointGunAt() {
-    return plugin::CallMethodAndReturn<__int16, 0x52DCD0, CPed *>(this);
+// Converted from thiscall short CPed::PointGunAt(void) 0x52DCD0
+short CPed::PointGunAt() {
+    return plugin::CallMethodAndReturn<short, 0x52DCD0, CPed *>(this);
 }
 
 // Converted from thiscall bool CPed::PositionAnyPedOutOfCollision(void) 0x511840 

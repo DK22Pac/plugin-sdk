@@ -35,93 +35,101 @@ enum ePedAttractorType {
     PED_ATTRACTOR_STEP           = 9  // Ped sits on steps
 };
 
+struct tEffectLight {
+    RwRGBA m_color;
+    float m_fCoronaFarClip;
+    float m_fPointlightRange;
+    float m_fCoronaSize;
+    float m_fShadowSize;
+    unsigned short m_nFlags;
+    unsigned char m_nCoronaFlashType;
+    bool m_bCoronaEnableReflection;
+    unsigned char m_nCoronaFlareType;
+    unsigned char m_nShadowColorMultiplier;
+    char m_nShadowZDistance;
+    char offsetX;
+    char offsetY;
+    char offsetZ;
+private:
+    char _pad2E[2];
+public:
+    RwTexture *m_pCoronaTex;
+    RwTexture *m_pShadowTex;
+    int field_38;
+    int field_3C;
+};
+
+struct tEffectParticle {
+    char m_szName[24];
+};
+
+struct tEffectPedAttractor {
+    RwV3d m_vecQueueDir;
+    RwV3d m_vecUseDir;
+    RwV3d m_vecForwardDir;
+    unsigned char m_nAttractorType; // see ePedAttractorType
+    unsigned char m_nPedExistingProbability;
+    char field_36;
+    unsigned char m_nFlags;
+    char m_szScriptName[8];
+};
+
+struct tEffectEnEx {
+    float m_fEnterAngle;
+    RwV3d m_vecSize;
+    RwV3d m_vecExitPosn;
+    float m_fExitAngle;
+    short m_nInteriorId;
+    unsigned char m_nFlags1;
+    unsigned char m_nSkyColor;
+    char m_szInteriorName[8];
+    unsigned char m_nTimeOn;
+    unsigned char m_nTimeOff;
+    unsigned char m_nFlags2;
+};
+
+struct tEffectRoadsign {
+    RwV2d m_vecSize;
+    float m_afRotation[3];
+    unsigned short m_nFlags;
+private:
+    char _pad26[2];
+public:
+    char *m_pText;
+    RpAtomic *m_pAtomic;
+};
+
+struct tEffectCoverPoint {
+    RwV2d m_vecDirection;
+    unsigned char m_nType;
+private:
+    char _pad19[3];
+public:
+};
+
+struct tEffectEscalator {
+    RwV3d m_vecBottom;
+    RwV3d m_vecTop;
+    RwV3d m_vecEnd;
+    unsigned char m_nDirection;
+private:
+    char _pad35[3];
+public:
+};
+
 class PLUGIN_API C2dEffect {
 public:
 	CVector m_vecPosn;
 	unsigned int m_nType; // see e2dEffectType
 
     union {
-        struct Light {
-            RwRGBA m_color;
-            float m_fCoronaFarClip;
-            float m_fPointlightRange;
-            float m_fCoronaSize;
-            float m_fShadowSize;
-            unsigned short m_nFlags;
-            unsigned char m_nCoronaFlashType;
-            bool m_bCoronaEnableReflection;
-            unsigned char m_nCoronaFlareType;
-            unsigned char m_nShadowColorMultiplier;
-            char m_nShadowZDistance;
-            char offsetX;
-            char offsetY;
-            char offsetZ;
-        private:
-            char _pad2E[2];
-        public:
-            RwTexture *m_pCoronaTex;
-            RwTexture *m_pShadowTex;
-            int field_38;
-            int field_3C;
-        } light;
-
-        struct Particle {
-            char m_szName[24];
-        } particle;
-
-        struct PedAttractor {
-            RwV3d m_vecQueueDir;
-            RwV3d m_vecUseDir;
-            RwV3d m_vecForwardDir;
-            unsigned char m_nAttractorType; // see ePedAttractorType
-            unsigned char m_nPedExistingProbability;
-            char field_36;
-            unsigned char m_nFlags;
-            char m_szScriptName[8];
-        } pedAttractor;
-
-        struct EnEx {
-            float m_fEnterAngle;
-            RwV3d m_vecSize;
-            RwV3d m_vecExitPosn;
-            float m_fExitAngle;
-            short m_nInteriorId;
-            unsigned char m_nFlags1;
-            unsigned char m_nSkyColor;
-            char m_szInteriorName[8];
-            unsigned char m_nTimeOn;
-            unsigned char m_nTimeOff;
-            unsigned char m_nFlags2;
-        } enEx;
-
-        struct Roadsign {
-            RwV2d m_vecSize;
-            float m_afRotation[3];
-            unsigned short m_nFlags;
-        private:
-            char _pad26[2];
-        public:
-            char *m_pText;
-            RpAtomic *m_pAtomic;
-        } roadsign;
-
-        struct CoverPoint {
-            RwV2d m_vecDirection;
-            unsigned char m_nType;
-        private:
-            char _pad19[3];
-        public:
-        } coverPoint;
-
-        struct Escalator {
-            RwV3d m_vecBottom;
-            RwV3d m_vecTop;
-            RwV3d m_vecEnd;
-            unsigned char m_nDirection;
-        private:
-            char _pad35[3];
-        public:
-        } escalator;
+        tEffectLight light;
+        tEffectParticle particle;
+        tEffectPedAttractor pedAttractor;
+        tEffectEnEx enEx;
+        tEffectRoadsign roadsign;
+        tEffectCoverPoint coverPoint;
+        tEffectEscalator escalator;
     };
 };
 

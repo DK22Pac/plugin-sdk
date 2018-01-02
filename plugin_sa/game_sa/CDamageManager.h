@@ -10,7 +10,7 @@
 
 class CAutomobile;
 
-enum eDamageState {
+enum PLUGIN_API eDamageState {
     DAMSTATE_OK = 0,
     DAMSTATE_OPENED = 1,
     DAMSTATE_DAMAGED = 2,
@@ -18,7 +18,7 @@ enum eDamageState {
     DAMSTATE_NOTPRESENT = 4
 };
 
-enum tComponent {
+enum PLUGIN_API tComponent {
     COMPONENT_WHEEL_LF = 1,
     COMPONENT_WHEEL_RF = 2,
     COMPONENT_WHEEL_LR = 3,
@@ -38,7 +38,7 @@ enum tComponent {
     COMPONENT_BUMP_REAR = 17
 };
 
-enum tComponentGroup {
+enum PLUGIN_API tComponentGroup {
     COMPGROUP_PANEL = 0,
     COMPGROUP_WHEEL = 1,
     COMPGROUP_DOOR = 2,
@@ -48,72 +48,71 @@ enum tComponentGroup {
     COMPGROUP_NA = 6
 };
 
-enum eWheels {
+enum PLUGIN_API eWheels {
     WHEEL_FRONT_LEFT = 0,
     WHEEL_REAR_LEFT = 1,
     WHEEL_FRONT_RIGHT = 2,
     WHEEL_REAR_RIGHT = 3
 };
 
-enum ePanels {
-	WING_FRONT_LEFT = 0,
-	WING_FRONT_RIGHT = 1,
-	WINDSCREEN = 4,
-	BUMP_FRONT = 5,
-	BUMP_REAR = 6
+enum PLUGIN_API ePanels {
+    WING_FRONT_LEFT = 0,
+    WING_FRONT_RIGHT = 1,
+    WINDSCREEN = 4,
+    BUMP_FRONT = 5,
+    BUMP_REAR = 6
 };
 
-enum eDoors {
-	BONNET = 0,
-	BOOT = 1,
-	DOOR_FRONT_LEFT = 2,
-	DOOR_FRONT_RIGHT = 3,
-	DOOR_REAR_LEFT = 4,
-	DOOR_REAR_RIGHT = 5
+enum PLUGIN_API eDoors {
+    BONNET = 0,
+    BOOT = 1,
+    DOOR_FRONT_LEFT = 2,
+    DOOR_FRONT_RIGHT = 3,
+    DOOR_REAR_LEFT = 4,
+    DOOR_REAR_RIGHT = 5
 };
 
-enum eLights {
+enum PLUGIN_API eLights {
     LIGHT_FRONT_LEFT = 0,
     LIGHT_FRONT_RIGHT = 1,
     LIGHT_REAR_RIGHT = 2,
     LIGHT_REAR_LEFT = 3
 };
 
-#pragma pack(push, 4)
-class CDamageManager {
+class PLUGIN_API CDamageManager {
 public:
-	float           m_fWheelDamageEffect;
-	unsigned __int8 m_nEngineStatus;
-	union {
-		unsigned __int8 m_anWheelsStatus[4];
-		struct {
-			unsigned __int8 m_nRightRearWheelsStatus;
-			unsigned __int8 m_nRightFrontWheelsStatus;
-			unsigned __int8 m_nLeftRearWheelsStatus;
-			unsigned __int8 m_nLeftFrontWheelsStatus;
-		};
-	};
-	union {
-		unsigned __int8 m_anDoorsStatus[6];
-		struct {
-			unsigned __int8 m_nBonnetStatus;
-			unsigned __int8 m_nBootStatus;
-			unsigned __int8 m_nLeftFrontDoorStatus;
-			unsigned __int8 m_nRightFrontDoorStatus;
-			unsigned __int8 m_nLeftRearDoorStatus;
-			unsigned __int8 m_nRightRearDoorStatus;
-		};
-	};
-	union {
-		unsigned __int32 m_dwLightsStatus;
-		struct {
-			unsigned __int32 m_nLeftFrontLightStatus : 2;
-			unsigned __int32 m_nRightFrontLightStatus : 2;
-			unsigned __int32 m_nRightRearLightStatus : 2;
-			unsigned __int32 m_nLeftRearLightStatus : 2;
-		};
-	};
-	unsigned __int32 m_dwPanelsStatus;
+    float m_fWheelDamageEffect;
+    unsigned char m_nEngineStatus;
+    union {
+        unsigned char m_anWheelsStatus[4];
+        struct {
+            unsigned char m_nRightRearWheelsStatus;
+            unsigned char m_nRightFrontWheelsStatus;
+            unsigned char m_nLeftRearWheelsStatus;
+            unsigned char m_nLeftFrontWheelsStatus;
+        };
+    };
+    union {
+        unsigned char m_anDoorsStatus[6];
+        struct {
+            unsigned char m_nBonnetStatus;
+            unsigned char m_nBootStatus;
+            unsigned char m_nLeftFrontDoorStatus;
+            unsigned char m_nRightFrontDoorStatus;
+            unsigned char m_nLeftRearDoorStatus;
+            unsigned char m_nRightRearDoorStatus;
+        };
+    };
+    union {
+        unsigned int m_nLightsStatus;
+        struct {
+            unsigned int m_nLeftFrontLightStatus : 2;
+            unsigned int m_nRightFrontLightStatus : 2;
+            unsigned int m_nRightRearLightStatus : 2;
+            unsigned int m_nLeftRearLightStatus : 2;
+        };
+    };
+    unsigned int m_nPanelsStatus;
 
     //funcs
 
@@ -154,6 +153,5 @@ public:
     int GetCarNodeIndexFromDoor(eDoors door);
     void Reset();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CDamageManager, 0x18);

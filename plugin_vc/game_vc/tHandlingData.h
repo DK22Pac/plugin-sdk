@@ -11,7 +11,7 @@ Do not delete this comment block. Respect others' work!
 #include "CVector.h"
 #include "eVehicleFlags.h"
 
-enum eVehicleLightsSize : unsigned __int8
+enum eVehicleLightsSize : unsigned char
 {
     LIGHTS_LONG,
     LIGHTS_SMALL,

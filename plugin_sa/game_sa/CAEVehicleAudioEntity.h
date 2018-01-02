@@ -11,149 +11,139 @@
 #include "cTransmission.h"
 #include "CAETwinLoopSoundEntity.h"
 
-#pragma pack(push, 1)
-class PLUGIN_API cVehicleParams
-{
+class CVehicle;
+
+class PLUGIN_API cVehicleParams {
 public:
-	uint32_t            m_dwVehicleSubclass;
-	uint32_t            m_dwVehicleClass;
-	int8_t field_8;
-	int8_t pad1[3];
-	int32_t field_C;
-	class CVehicle   *m_pVehicle;
-	cTransmission    *m_pTransmission;
-	uint32_t            m_dwModelType;
-	float             m_fVelocity;
-	int16_t             m_wGasState;
-	int16_t             m_wBreakState;
-	float             m_fVelocityAbsolute;
-	float             m_fZVelocity;
-	float             m_fVelocityPercentage;
-	int32_t field_30;
-	float field_34;
-	int8_t              m_nCurrentGear;
-	Bool              m_bHandbrakeOn;
-	int8_t pad2[2];
-	float             m_fVelocityChangingPercentage;
-	float             m_fWheelSpinForAudio;
-	uint16_t            m_wNumberOfGears;
-	uint8_t             m_nWheelsOnGround;
-	int8_t field_47;
-	int32_t field_48;
+    unsigned int    m_nVehicleSubclass;
+    unsigned int    m_nVehicleClass;
+    char field_8;
+    char pad1[3];
+    int field_C;
+    CVehicle       *m_pVehicle;
+    cTransmission  *m_pTransmission;
+    unsigned int    m_nModelType;
+    float           m_fVelocity;
+    short           m_nGasState;
+    short           m_nBreakState;
+    float           m_fVelocityAbsolute;
+    float           m_fZVelocity;
+    float           m_fVelocityPercentage;
+    int field_30;
+    float field_34;
+    char            m_nCurrentGear;
+    bool            m_bHandbrakeOn;
+    char pad2[2];
+    float           m_fVelocityChangingPercentage;
+    float           m_fWheelSpinForAudio;
+    unsigned short  m_nNumberOfGears;
+    unsigned char   m_nWheelsOnGround;
+    char field_47;
+    int field_48;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(cVehicleParams, 0x4C);
 
-#pragma pack(push, 4)
-struct PLUGIN_API tVehicleSound
-{
-	uint32_t    m_dwIndex;
-	CAESound *m_pSound;
+struct PLUGIN_API tVehicleSound {
+    unsigned int  m_nIndex;
+    CAESound     *m_pSound;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tVehicleSound, 0x8);
 
-#pragma pack(push, 1)
-struct PLUGIN_API tVehicleAudioSettings
-{
-	int8_t  m_nVehicleSoundType;
-	int8_t field_1;
-	int16_t m_wEngineOnSoundBankId;
-	int16_t m_wEngineOffSoundBankId;
-	int8_t  m_nStereo;
-	int8_t field_7;
-	int32_t field_8;
-	int32_t field_C;
-	int8_t  m_bHornTon;
-	int8_t field_11[3];
-	float m_fHornHigh;
-	int8_t  m_nDoorSound;
-	int8_t field_19;
-	int8_t  m_nRadioNum;
-	int8_t  m_nRadioType;
-	int8_t field_1C;
-	int8_t field_1D[3];
-	float m_fHornVolumeDelta;
+struct PLUGIN_API tVehicleAudioSettings {
+    char  m_nVehicleSoundType;
+    char field_1;
+    short m_nEngineOnSoundBankId;
+    short m_nEngineOffSoundBankId;
+    char  m_nStereo;
+    char field_7;
+    int field_8;
+    int field_C;
+    char  m_bHornTon;
+    char field_11[3];
+    float m_fHornHigh;
+    char  m_nDoorSound;
+    char field_19;
+    char  m_nRadioNum;
+    char  m_nRadioType;
+    char field_1C;
+    char field_1D[3];
+    float m_fHornVolumeDelta;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tVehicleAudioSettings, 0x24);
 
-#pragma pack(push, 1)
-class PLUGIN_API CAEVehicleAudioEntity : public CAEAudioEntity
-{
+class PLUGIN_API CAEVehicleAudioEntity : public CAEAudioEntity {
 public:
-	int16_t field_7C;
-	int8_t field_7E[2];
-	tVehicleAudioSettings   m_settings;
-	Bool                    m_bEnabled;
-	Bool                    m_bPlayerDriver;
-	Bool                    m_bPlayerPassenger;
-	Bool                    m_bVehicleRadioPaused;
-	Bool                    m_bSoundsStopped;
-	int8_t                    m_nEngineState;
-	int8_t field_AA;
-	int8_t field_AB;
-	int32_t field_AC;
-	Bool                    m_bInhibitAccForLowSpeed;
-	int8_t field_B1;
-	int16_t                   m_wRainDropCounter;
-	int16_t field_B4;
-	int8_t gap_B6[2];
-	int32_t field_B8;
-	int8_t field_BC;
-	Bool                    m_bDisableHeliEngineSounds;
-	int8_t field_BE;
-	Bool                    m_bSirenOrAlarmPlaying;
-	Bool                    m_bHornPlaying;
-	int8_t gap_C1[3];
-	float                   m_fSirenVolume;
-	Bool                    m_bModelWithSiren;
-	int8_t gap_C9[3];
-	uint32_t                  m_dwBoatHitWaveLastPlayedTime;
-	uint32_t                  m_dwTimeToInhibitAcc;
-	uint32_t                  m_dwTimeToInhibitCrz;
-	float                   m_fGeneralVehicleSoundVolume;
-	int16_t                   m_wEngineDecelerateSoundBankId;
-	int16_t                   m_wEngineAccelerateSoundBankId;
-	int16_t                   m_wEngineBankSlotId;
-	int16_t field_E2;
-	tVehicleSound           m_aEngineSounds[12];
-	int32_t field_144;
-	int16_t field_148;
-	int16_t field_14A;
-	int16_t field_14C;
-	int16_t field_14E;
-	int32_t field_150;
-	int16_t field_154;
-	int16_t                   m_wSkidSoundType;
-	CAESound *field_158;
-	int16_t                   m_wRoadNoiseSoundType;
-	int8_t gap_15E[2];
-	CAESound               *m_pRoadNoiseSound;
-	int16_t                   m_wFlatTyreSoundType;
-	int8_t gap_166[2];
-	CAESound               *m_pFlatTyreSound;
-	int16_t                   m_wReverseGearSoundType;
-	int8_t gap_16E[2];
-	CAESound               *m_pReverseGearSound;
-	int8_t gap_174[4];
-	CAESound               *m_pHornTonSound;
-	CAESound               *m_pSirenSound;
-	CAESound               *m_pPoliceSirenSound;
-	CAETwinLoopSoundEntity  m_skidSound;
-	float field_22C;
-	float field_230;
-	float field_234;
-	float field_238;
-	float field_23C;
-	int32_t field_240;
-	Bool                    m_bNitroSoundPresent;
-	int8_t field_245[3];
-	float field_248;
+    short field_7C;
+    char field_7E[2];
+    tVehicleAudioSettings   m_settings;
+    bool                    m_bEnabled;
+    bool                    m_bPlayerDriver;
+    bool                    m_bPlayerPassenger;
+    bool                    m_bVehicleRadioPaused;
+    bool                    m_bSoundsStopped;
+    char                    m_nEngineState;
+    char field_AA;
+    char field_AB;
+    int field_AC;
+    bool                    m_bInhibitAccForLowSpeed;
+    char field_B1;
+    short                   m_nRainDropCounter;
+    short field_B4;
+    char gap_B6[2];
+    int field_B8;
+    char field_BC;
+    bool                    m_bDisableHeliEngineSounds;
+    char field_BE;
+    bool                    m_bSirenOrAlarmPlaying;
+    bool                    m_bHornPlaying;
+    char gap_C1[3];
+    float                   m_fSirenVolume;
+    bool                    m_bModelWithSiren;
+    char gap_C9[3];
+    unsigned int            m_nBoatHitWaveLastPlayedTime;
+    unsigned int            m_nTimeToInhibitAcc;
+    unsigned int            m_nTimeToInhibitCrz;
+    float                   m_fGeneralVehicleSoundVolume;
+    short                   m_nEngineDecelerateSoundBankId;
+    short                   m_nEngineAccelerateSoundBankId;
+    short                   m_nEngineBankSlotId;
+    short field_E2;
+    tVehicleSound           m_aEngineSounds[12];
+    int field_144;
+    short field_148;
+    short field_14A;
+    short field_14C;
+    short field_14E;
+    int field_150;
+    short field_154;
+    short                   m_nSkidSoundType;
+    CAESound *field_158;
+    short                   m_nRoadNoiseSoundType;
+    char gap_15E[2];
+    CAESound               *m_pRoadNoiseSound;
+    short                   m_nFlatTyreSoundType;
+    char gap_166[2];
+    CAESound               *m_pFlatTyreSound;
+    short                   m_nReverseGearSoundType;
+    char gap_16E[2];
+    CAESound               *m_pReverseGearSound;
+    char gap_174[4];
+    CAESound               *m_pHornTonSound;
+    CAESound               *m_pSirenSound;
+    CAESound               *m_pPoliceSirenSound;
+    CAETwinLoopSoundEntity  m_skidSound;
+    float field_22C;
+    float field_230;
+    float field_234;
+    float field_238;
+    float field_23C;
+    int field_240;
+    bool                    m_bNitroSoundPresent;
+    char field_245[3];
+    float field_248;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAEVehicleAudioEntity, 0x24C);

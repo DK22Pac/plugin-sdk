@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum ePedType : __int32
+enum ePedType : int
 {
 	PEDTYPE_PLAYER1 = 0,
 	PEDTYPE_PLAYER2 = 1,

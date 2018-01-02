@@ -63,8 +63,8 @@ typedef float RwReal;
 typedef RwInt32 RwBool;
 
 #if defined(_MSC_VER)
-typedef __int64 RwInt64;
-typedef unsigned __int64 RwUInt64;
+typedef long long RwInt64;
+typedef unsigned long long RwUInt64;
 #define RWZERO64 ((RwUInt64)0)
 #elif defined(__GNUC__)
 typedef long long RwInt64;

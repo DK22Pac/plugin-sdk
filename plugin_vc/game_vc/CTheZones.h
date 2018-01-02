@@ -41,7 +41,7 @@ public:
     static int GetNavigationZone(unsigned short arg0);
     // Returns pointer to zone
     static CZone* GetZoneInfo(CVector const* pPoint, unsigned char arg1);
-    static __int16 GetZoneInfoForTimeOfDay(CVector const* pPoint, CZoneInfo* zoneInfo);
+    static short GetZoneInfoForTimeOfDay(CVector const* pPoint, CZoneInfo* zoneInfo);
     // Initializes CTheZones
     static void Init();
     static void InitialiseAudioZoneArray();

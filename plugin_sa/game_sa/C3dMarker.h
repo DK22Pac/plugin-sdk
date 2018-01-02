@@ -21,14 +21,14 @@ enum e3dMarkerType {
     MARKER3D_NA = 257
 };
 
-class C3dMarker {
+class PLUGIN_API C3dMarker {
 public:
     CMatrix         m_mat;
     RpAtomic       *m_pAtomic;
     RpMaterial     *m_pMaterial;
     unsigned short  m_nType; // see e3dMarkerType
-    Bool            m_bIsUsed;
-    Bool            m_bMustBeRenderedThisFrame;
+    bool            m_bIsUsed;
+    bool            m_bMustBeRenderedThisFrame;
     int             m_nIdentifier;
     CRGBA           m_colour;
     short           m_nPulsePeriod;

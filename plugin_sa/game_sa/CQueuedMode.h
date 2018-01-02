@@ -8,15 +8,12 @@
 
 #include "plbase/PluginBase_SA.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CQueuedMode
-{
+class PLUGIN_API CQueuedMode {
 public:
-	unsigned __int16 m_wMode;
-	float            m_fDuration;
-	unsigned __int16 m_MinZoom;
-	unsigned __int16 m_MaxZoom;
+    unsigned short m_nMode;
+    float m_fDuration;
+    unsigned short m_nMinZoom;
+    unsigned short m_nMaxZoom;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CQueuedMode, 0xC);

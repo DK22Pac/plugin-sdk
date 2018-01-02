@@ -11,40 +11,40 @@
 class CVector {
 public:
     float x, y, z;
-    
-	CVector();
-	CVector(float X, float Y, float Z);
 
-	// Returns length of vector
-	float Magnitude();
+    CVector();
+    CVector(float X, float Y, float Z);
 
-	// Returns length of 2d vector
-	float Magnitude2D();
+    // Returns length of vector
+    float Magnitude();
 
-	// Normalises a vector
-	void Normalise();
+    // Returns length of 2d vector
+    float Magnitude2D();
 
-	// Normalises a vector and returns length
-	float NormaliseAndMag();
+    // Normalises a vector
+    void Normalise();
 
-	// Performs cross calculation
-	void Cross(const CVector& left, const CVector &right);
+    // Normalises a vector and returns length
+    float NormaliseAndMag();
 
-	// Adds left + right and stores result
-	void Sum(const CVector& left, const CVector &right);
+    // Performs cross calculation
+    void Cross(const CVector& left, const CVector &right);
 
-	// Subtracts left - right and stores result
-	void Difference(const CVector& left, const CVector &right);
+    // Adds left + right and stores result
+    void Sum(const CVector& left, const CVector &right);
 
-	void operator=(const CVector& right);
-	void operator+=(const CVector& right);
-	void operator-=(const CVector& right);
-	void operator *= (float multiplier);
-	void operator /= (float divisor);
+    // Subtracts left - right and stores result
+    void Difference(const CVector& left, const CVector &right);
 
-	// matrix * vector multiplication
-	void FromMultiply(class CMatrix  const& matrix, CVector const& vector);
-	void FromMultiply3x3(class CMatrix  const& matrix, CVector const& vector);
+    void operator=(const CVector& right);
+    void operator+=(const CVector& right);
+    void operator-=(const CVector& right);
+    void operator *= (float multiplier);
+    void operator /= (float divisor);
+
+    // matrix * vector multiplication
+    void FromMultiply(class CMatrix  const& matrix, CVector const& vector);
+    void FromMultiply3x3(class CMatrix  const& matrix, CVector const& vector);
 
     inline void Set(float X, float Y, float Z) {
         x = X; y = Y; z = Z;
@@ -79,3 +79,5 @@ inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &point
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
 }
+
+VALIDATE_SIZE(CVector, 0xC);

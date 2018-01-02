@@ -6,9 +6,9 @@
 */
 #include "CAERadioTrackManager.h"
 
-Bool CAERadioTrackManager::IsVehicleRadioActive()
+bool CAERadioTrackManager::IsVehicleRadioActive()
 {
-	return ((Bool (__thiscall *)(CAERadioTrackManager *))0x4E9800)(this);
+	return ((bool (__thiscall *)(CAERadioTrackManager *))0x4E9800)(this);
 }
 
 char *CAERadioTrackManager::GetRadioStationName(signed char id)

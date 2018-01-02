@@ -50,6 +50,6 @@ ListItem_c * List_c::GetPrev(ListItem_c * pItem) {
 
 // US-1.00 @ 0x004A9010
 // EU-1.00 @ 0x004A9010
-ListItem_c * List_c::GetItemOffset(Bool bFromHead, Int32 iOffset) {
-	return plugin::CallMethodAndReturn<ListItem_c *, 0x004A9010, List_c *, Bool, Int32>(this, bFromHead, iOffset);
+ListItem_c * List_c::GetItemOffset(bool bFromHead, int iOffset) {
+	return plugin::CallMethodAndReturn<ListItem_c *, 0x004A9010, List_c *, bool, int>(this, bFromHead, iOffset);
 }

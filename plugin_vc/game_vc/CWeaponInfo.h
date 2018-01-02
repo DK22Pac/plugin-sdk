@@ -14,16 +14,16 @@ class CWeaponInfo {
 public:
     eWeaponFire m_eWeaponFire;
     float m_fRange;
-    UInt32 m_nFiringRate;
-    UInt32 m_nReload;
-    UInt32 m_nAmountofAmmunition;
-    UInt32 m_nDamage;
+    unsigned int m_nFiringRate;
+    unsigned int m_nReload;
+    unsigned int m_nAmountofAmmunition;
+    unsigned int m_nDamage;
     float m_fSpeed;
     float m_fRadius;
     float m_fLifespan;
     float m_fSpread;
 	CVector m_vecFireOffset;
-    UInt32 m_AnimToPlay; // AssocGroupId m_AnimToPlay;
+    unsigned int m_AnimToPlay; // AssocGroupId m_AnimToPlay;
     float m_fAnimLoopStart;
     float m_fAnimLoopEnd;
     float m_fAnimFrameFire;
@@ -31,11 +31,11 @@ public:
     float m_fAnim2LoopEnd;
     float m_fAnim2FrameFire;
     float m_fAnimBreakout;
-    Int32 m_nModelId;
-    Int32 m_nModel2Id;
+    int m_nModelId;
+    int m_nModel2Id;
     union
     {
-        UInt32 m_nWeaponFlags;
+        unsigned int m_nWeaponFlags;
         struct
         {
             unsigned char m_bUseGravity : 1;
@@ -62,7 +62,7 @@ public:
             unsigned char m_bAnimDetonate : 1;
         };
     };
-	UInt32 m_WeaponSlot;
+	unsigned int m_WeaponSlot;
 
     //funcs
 

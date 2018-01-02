@@ -101,9 +101,9 @@ void CMenuSystem::SetColumnOrientation(unsigned char panelId, unsigned char colu
 	((void (__cdecl *)(unsigned char, unsigned char, eFontAlignment))0x582080)(panelId, columnId, alignment);
 }
 
-void CMenuSystem::SetColumnWidth(unsigned char panelId, unsigned char columnId, unsigned __int16 width)
+void CMenuSystem::SetColumnWidth(unsigned char panelId, unsigned char columnId, unsigned short width)
 {
-	((void (__cdecl *)(unsigned char, unsigned char, unsigned __int16))0x582050)(panelId, columnId, width);
+	((void (__cdecl *)(unsigned char, unsigned char, unsigned short))0x582050)(panelId, columnId, width);
 }
 
 void CMenuSystem::SetDPadInput(unsigned char panelId, bool bEnable)

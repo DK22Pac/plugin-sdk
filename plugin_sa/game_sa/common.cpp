@@ -81,7 +81,7 @@ CWanted * FindPlayerWanted(int playerId)
 	return ((CWanted*(__cdecl *)(int))0x56E230)(playerId);
 }
 
-uint32_t &ClumpOffset = *(uint32_t *)0xB5F878;
+unsigned int &ClumpOffset = *(unsigned int *)0xB5F878;
 
 AnimBlendFrameData *RpAnimBlendClumpFindFrame(RpClump *clump, char *name)
 {

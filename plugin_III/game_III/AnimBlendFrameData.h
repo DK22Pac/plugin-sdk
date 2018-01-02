@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -10,19 +10,21 @@ Do not delete this comment block. Respect others' work!
 #include "CVector.h"
 #include "RenderWare.h"
 
-struct IFrame {
+struct PLUGIN_API IFrame {
     RtQuat m_qOrientation;
-    RwV3d m_vTranslation;
+    RwV3d m_vecTranslation;
 };
+
 VALIDATE_SIZE(IFrame, 0x1C);
 
-#pragma pack(push, 4)
-struct AnimBlendFrameData {
-    unsigned __int8 m_nFlags;
-    CVector m_vOffset;
+struct PLUGIN_API AnimBlendFrameData {
+    unsigned char m_nFlags;
+private:
+    char _pad1[3];
+public:
+    CVector m_vecOffset;
     IFrame *m_pIFrame;
-    unsigned __int32 m_dwNodeId;
+    unsigned int m_nNodeId;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(AnimBlendFrameData, 0x18);

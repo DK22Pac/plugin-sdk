@@ -5,73 +5,72 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "plbase/PluginBase_SA.h"
 #include "RenderWare.h"
 #include "CVector.h"
 
-
-#pragma pack(push, 1)
-class PLUGIN_API CQuaternion
-{
+class PLUGIN_API CQuaternion {
 public:
     CVector imag;
     float real;
-    
-	// Quat to matrix
-	void Get(RwMatrix* out);
 
-	// Quat to euler angles
-	void Get(float *x, float *y, float *z);
+    // Quat to matrix
+    void Get(RwMatrix* out);
 
-	// Quat to axis & angle
-	void Get(RwV3d *axis, float *angle);
+    // Quat to euler angles
+    void Get(float *x, float *y, float *z);
 
-	// Stores result of quat multiplication
-	void Multiply(CQuaternion const& a, CQuaternion const& b);
+    // Quat to axis & angle
+    void Get(RwV3d *axis, float *angle);
 
-	// Spherical linear interpolation
-	void Slerp(CQuaternion const& from, CQuaternion const& to, float halftheta, float sintheta_inv, float t);
+    // Stores result of quat multiplication
+    void Multiply(CQuaternion const& a, CQuaternion const& b);
 
-	// Quat from matrix
-	void Set(RwMatrix  const& m);
+    // Spherical linear interpolation
+    void Slerp(CQuaternion const& from, CQuaternion const& to, float halftheta, float sintheta_inv, float t);
 
-	// Quat from euler angles
-	void Set(float x, float y, float z);
+    // Quat from matrix
+    void Set(RwMatrix  const& m);
 
-	// Quat from axis & angle
-	void Set(RwV3d *axis, float angle);
+    // Quat from euler angles
+    void Set(float x, float y, float z);
 
-	// Spherical linear interpolation
-	void Slerp(CQuaternion const& from, CQuaternion const& to, float t);
+    // Quat from axis & angle
+    void Set(RwV3d *axis, float angle);
 
-	// Conjugate of a quat
-	void Conjugate();
+    // Spherical linear interpolation
+    void Slerp(CQuaternion const& from, CQuaternion const& to, float t);
 
-	// Squared length of a quat
-	float GetLengthSquared(void);
+    // Conjugate of a quat
+    void Conjugate();
 
-	// Add right to the quat
-	void operator+=(CQuaternion const& right);
+    // Squared length of a quat
+    float GetLengthSquared(void);
 
-	// Substract right from the quat
-	void operator-=(CQuaternion const& right);
+    // Add right to the quat
+    void operator+=(CQuaternion const& right);
 
-	// Assigns value from other quat
-	void operator=(CQuaternion const& right);
+    // Substract right from the quat
+    void operator-=(CQuaternion const& right);
 
-	// Multiplies quat by a floating point value
-	void operator*=(float multiplier);
+    // Assigns value from other quat
+    void operator=(CQuaternion const& right);
 
-	// Multiplies quat by a floating point value
-	void Scale(float multiplier);
+    // Multiplies quat by a floating point value
+    void operator*=(float multiplier);
 
-	// Copies value from other quat
-	void Copy(CQuaternion const& from);
+    // Multiplies quat by a floating point value
+    void Scale(float multiplier);
 
-	// Gets a dot product for quats
-	void Dot(CQuaternion const& a);
+    // Copies value from other quat
+    void Copy(CQuaternion const& from);
 
-	// Normalises a quat
-	void Normalise();
+    // Gets a dot product for quats
+    void Dot(CQuaternion const& a);
+
+    // Normalises a quat
+    void Normalise();
 };
-#pragma pack(pop)
+
+VALIDATE_SIZE(CQuaternion, 0x10);

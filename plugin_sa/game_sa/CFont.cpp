@@ -8,7 +8,7 @@
 
 CSprite2d *CFont::Sprite = (CSprite2d *)0xC71AD0;
 CSprite2d *CFont::ButtonSprite = (CSprite2d *)0xC71AD8;
-unsigned __int8& CFont::m_nExtraFontSymbolId = *(unsigned __int8 *)0xC71A54;
+unsigned char& CFont::m_nExtraFontSymbolId = *(unsigned char *)0xC71A54;
 bool& CFont::m_bNewLine = *(bool *)0xC71A55;
 CRGBA *CFont::m_Color = (CRGBA *)0xC71A60;
 CVector2D *CFont::m_Scale = (CVector2D *)0xC71A64;
@@ -21,17 +21,17 @@ bool& CFont::m_bFontBackground = *(bool *)0xC71A7B;
 bool& CFont::m_bEnlargeBackgroundBox = *(bool *)0xC71A7C;
 bool& CFont::m_bFontPropOn = *(bool *)0xC71A7D;
 bool& CFont::m_bFontIsBlip = *(bool *)0xC71A7E;
-unsigned __int32 CFont::m_dwFontAlpha = *(unsigned __int32 *)0xC71A80;
+unsigned int CFont::m_dwFontAlpha = *(unsigned int *)0xC71A80;
 CRGBA *CFont::m_FontBackgroundColor = (CRGBA *)0xC71A84;
 float& CFont::m_fWrapx = *(float *)0xC71A88;
 float& CFont::m_fFontCentreSize = *(float *)0xC71A8C;
 float& CFont::m_fRightJustifyWrap = *(float *)0xC71A90;
-unsigned __int8& CFont::m_FontTextureId = *(unsigned __int8 *)0xC71A94;
-unsigned __int8& CFont::m_FontStyle = *(unsigned __int8 *)0xC71A95;
-unsigned __int8& CFont::m_nFontShadow = *(unsigned __int8 *)0xC71A96;
+unsigned char& CFont::m_FontTextureId = *(unsigned char *)0xC71A94;
+unsigned char& CFont::m_FontStyle = *(unsigned char *)0xC71A95;
+unsigned char& CFont::m_nFontShadow = *(unsigned char *)0xC71A96;
 CRGBA *CFont::m_FontDropColor = (CRGBA *)0xC71A97;
-unsigned __int8& CFont::m_nFontOutlineSize = *(unsigned __int8 *)0xC71A9B;
-unsigned __int8& CFont::m_nFontOutline = *(unsigned __int8 *)0xC71A9C;
+unsigned char& CFont::m_nFontOutlineSize = *(unsigned char *)0xC71A9B;
+unsigned char& CFont::m_nFontOutline = *(unsigned char *)0xC71A9C;
 
 void CFont::Initialise()
 {

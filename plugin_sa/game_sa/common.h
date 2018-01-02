@@ -49,7 +49,7 @@ CVector Multiply3x3(CMatrix  const& matrix, CVector  const& vec);
 // returns player wanted
 CWanted * FindPlayerWanted(int playerId);
 
-extern uint32_t &ClumpOffset;
+extern unsigned int &ClumpOffset;
 
 #define RpClumpGetAnimBlendClumpData(clump) (*(CAnimBlendClumpData **)(((unsigned int)(clump) + ClumpOffset)))
 

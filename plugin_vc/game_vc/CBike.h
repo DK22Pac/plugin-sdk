@@ -68,7 +68,7 @@ public:
     char gap_481[3];
     char field_484;
     char gap_485[1];
-    __int16 field_486;
+    short field_486;
     int field_488;
     int field_48C;
     int field_490;

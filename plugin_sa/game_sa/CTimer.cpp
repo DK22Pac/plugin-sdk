@@ -8,15 +8,15 @@
 
 bool& CTimer::m_CodePause = *(bool *)0xB7CB48;
 bool& CTimer::m_UserPause = *(bool *)0xB7CB49;
-unsigned __int32& CTimer::m_FrameCounter = *(unsigned __int32 *)0xB7CB4C;
+unsigned int& CTimer::m_FrameCounter = *(unsigned int *)0xB7CB4C;
 float& CTimer::ms_fTimeStepOld = *(float *)0xB7CB54;
 float& CTimer::ms_fTimeStepNonClipped = *(float *)0xB7CB58;
 float& CTimer::ms_fTimeStep = *(float *)0xB7CB5C;
 float& CTimer::ms_fTimeScale = *(float *)0xB7CB64;
-unsigned __int32& CTimer::m_snPreviousTimeInMilliseconds = *(unsigned __int32 *)0xB7CB78;
-unsigned __int32& CTimer::m_snTimeInMillisecondsPauseMode = *(unsigned __int32 *)0xB7CB7C;
-unsigned __int32& CTimer::m_snTimeInMillisecondsNonClipped = *(unsigned __int32 *)0xB7CB80;
-unsigned __int32& CTimer::m_snTimeInMilliseconds = *(unsigned __int32 *)0xB7CB84;
+unsigned int& CTimer::m_snPreviousTimeInMilliseconds = *(unsigned int *)0xB7CB78;
+unsigned int& CTimer::m_snTimeInMillisecondsPauseMode = *(unsigned int *)0xB7CB7C;
+unsigned int& CTimer::m_snTimeInMillisecondsNonClipped = *(unsigned int *)0xB7CB80;
+unsigned int& CTimer::m_snTimeInMilliseconds = *(unsigned int *)0xB7CB84;
 
 void CTimer::Initialise()
 {

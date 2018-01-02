@@ -24,7 +24,7 @@ public:
 	TList_c<FxEmitterPrt_c> m_fxEmitterPrtList;
 	int                     m_nFxTxdIndex;
 	RwV3d *                 m_pWindDir;
-	Float *                 m_pfWindSpeed;
+	float *                 m_pfWindSpeed;
 	FxFrustumInfo_c         m_frustum;
 	unsigned int            m_nCurrentMatrix;
 	RwMatrix *              m_apMatrices[8];
