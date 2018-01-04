@@ -57,7 +57,7 @@ public:
 	/**
 	 * Get N-th item from list head/tail
 	 */
-	ListItem_c * GetItemOffset(Bool bFromHead, Int32 iOffset);
+	ListItem_c * GetItemOffset(bool bFromHead, int iOffset);
 };
 
 
@@ -87,7 +87,7 @@ public:
 		return static_cast<ItemType *>(List_c::GetPrev(pItem));
 	}
 
-	ItemType * GetItemOffset(Bool bFromHead, Int32 iOffset) {
+	ItemType * GetItemOffset(bool bFromHead, int iOffset) {
 		return static_cast<ItemType *>(List_c::GetItemOffset(bFromHead, iOffset));
 	}
 };

@@ -46,14 +46,14 @@ void CDarkel::Init() {
     plugin::Call<0x42A7A0>();
 }
 
-// Converted from cdecl __int16 CDarkel::QueryModelsKilledByPlayer(int) 0x429AF0
-__int16 CDarkel::QueryModelsKilledByPlayer(int arg0) {
-    return plugin::CallAndReturn<__int16, 0x429AF0, int>(arg0);
+// Converted from cdecl short CDarkel::QueryModelsKilledByPlayer(int) 0x429AF0
+short CDarkel::QueryModelsKilledByPlayer(int arg0) {
+    return plugin::CallAndReturn<short, 0x429AF0, int>(arg0);
 }
 
-// Converted from cdecl __int16 CDarkel::ReadStatus(void) 0x429FD0
-__int16 CDarkel::ReadStatus() {
-    return plugin::CallAndReturn<__int16, 0x429FD0>();
+// Converted from cdecl short CDarkel::ReadStatus(void) 0x429FD0
+short CDarkel::ReadStatus() {
+    return plugin::CallAndReturn<short, 0x429FD0>();
 }
 
 // Converted from cdecl int CDarkel::RegisterCarBlownUpByPlayer(CVehicle *vehicle) 0x429DF0

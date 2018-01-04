@@ -6,8 +6,9 @@
 */
 #pragma once
 
-enum eCamMode : unsigned __int16
-{
+#include "plbase/PluginBase_SA.h"
+
+enum PLUGIN_API eCamMode : unsigned short {
 	MODE_NONE = 0x0,
 	MODE_TOPDOWN = 0x1,
 	MODE_GTACLASSIC = 0x2,

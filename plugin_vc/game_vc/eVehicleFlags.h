@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eVehicleFlags : unsigned __int32
+enum eVehicleFlags : unsigned int
 {
     VEHICLE_FLAGS_1G_BOOST = 0x1,
     VEHICLE_FLAGS_2G_BOOST = 0x2,

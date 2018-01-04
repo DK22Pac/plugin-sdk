@@ -19,21 +19,21 @@ char CRunningScript::ProcessOneCommand()
 }
 
 // Reads array offset and value from array index variable.
-void CRunningScript::ReadArrayInformation(__int16 *pOffset, __int32 *pIdx)
+void CRunningScript::ReadArrayInformation(short *pOffset, int *pIdx)
 {
-    ((void(__thiscall*)(CRunningScript*, __int16*, __int32*)) FUNC_CRunningScript__ReadArrayInformation)(this, pOffset, pIdx);
+    ((void(__thiscall*)(CRunningScript*, short*, int*)) FUNC_CRunningScript__ReadArrayInformation)(this, pOffset, pIdx);
 }
 
 // Returns offset of global variable
-__int16 CRunningScript::GetIndexOfGlobalVariable()
+short CRunningScript::GetIndexOfGlobalVariable()
 {
-    return ((__int16(__thiscall*)(CRunningScript*)) FUNC_CRunningScript__GetIndexOfGlobalVariable)(this);
+    return ((short(__thiscall*)(CRunningScript*)) FUNC_CRunningScript__GetIndexOfGlobalVariable)(this);
 }
 
 // Returns pointer to script variable of any type.
-tScriptVarValue* CRunningScript::GetPointerToScriptVariable(unsigned __int8 variableType)
+tScriptVarValue* CRunningScript::GetPointerToScriptVariable(unsigned char variableType)
 {
-    return ((tScriptVarValue* (__thiscall*)(CRunningScript*, unsigned __int8)) FUNC_CRunningScript__GetPointerToScriptVariable)(this, variableType);
+    return ((tScriptVarValue* (__thiscall*)(CRunningScript*, unsigned char)) FUNC_CRunningScript__GetPointerToScriptVariable)(this, variableType);
 }
 
 // Returns condition result
@@ -43,15 +43,15 @@ inline bool CRunningScript::GetConditionResult()
 }
 
 // Returns pointer to local variable pointed by offset and array index as well as multiplier.
-void CRunningScript::GetPointerToLocalArrayElement(__int16 off, __int16 idx, unsigned __int8 mul)
+void CRunningScript::GetPointerToLocalArrayElement(short off, short idx, unsigned char mul)
 {
-    ((void(__thiscall*)(CRunningScript*, __int16, __int16, unsigned __int8)) FUNC_CRunningScript__GetPointerToLocalArrayElement)(this, off, idx, mul);
+    ((void(__thiscall*)(CRunningScript*, short, short, unsigned char)) FUNC_CRunningScript__GetPointerToLocalArrayElement)(this, off, idx, mul);
 }
 
 // Collects parameters
-void CRunningScript::CollectParameters(__int16 count)
+void CRunningScript::CollectParameters(short count)
 {
-    ((void(__thiscall*)(CRunningScript*, __int16)) FUNC_CRunningScript__CollectParameters)(this, count);
+    ((void(__thiscall*)(CRunningScript*, short)) FUNC_CRunningScript__CollectParameters)(this, count);
 }
 
 // Collects parameter and returns it.
@@ -61,15 +61,15 @@ tScriptVarValue CRunningScript::CollectNextParameterWithoutIncreasingPC()
 }
 
 // Collects string parameter
-void CRunningScript::ReadTextLabelFromScript(char *pBuffer, unsigned __int8 nBufferLength)
+void CRunningScript::ReadTextLabelFromScript(char *pBuffer, unsigned char nBufferLength)
 {
-    ((void(__thiscall*)(CRunningScript*, char *, unsigned __int8)) FUNC_CRunningScript__ReadTextLabelFromScript)(this, pBuffer, nBufferLength);
+    ((void(__thiscall*)(CRunningScript*, char *, unsigned char)) FUNC_CRunningScript__ReadTextLabelFromScript)(this, pBuffer, nBufferLength);
 }
 
 // Stores parameters
-void CRunningScript::StoreParameters(__int16 count)
+void CRunningScript::StoreParameters(short count)
 {
-    ((void(__thiscall*)(CRunningScript*, __int16)) FUNC_CRunningScript__StoreParameters)(this, count);
+    ((void(__thiscall*)(CRunningScript*, short)) FUNC_CRunningScript__StoreParameters)(this, count);
 }
 
 // Collects parameters and puts them to local variables of new script
@@ -79,9 +79,9 @@ void CRunningScript::ReadParametersForNewlyStartedScript(CRunningScript* pNewScr
 }
 
 // Sets instruction pointer, used in GOTO-like commands
-void CRunningScript::UpdatePC(__int32 newIP)
+void CRunningScript::UpdatePC(int newIP)
 {
-    ((void(__thiscall*)(CRunningScript*, __int32)) FUNC_CRunningScript__UpdatePC)(this, newIP);
+    ((void(__thiscall*)(CRunningScript*, int)) FUNC_CRunningScript__UpdatePC)(this, newIP);
 }
 
 // Updates comparement flag, used in conditional commands

@@ -21,9 +21,9 @@ void CDarkel::DrawMessages() {
 	plugin::Call<0x43CEC0>();
 }
 
-// Converted from cdecl __int16 CDarkel::ReadStatus(void) 0x43D1E0 
-__int16 CDarkel::ReadStatus() {
-	return plugin::CallAndReturn<__int16, 0x43D1E0>();
+// Converted from cdecl short CDarkel::ReadStatus(void) 0x43D1E0 
+short CDarkel::ReadStatus() {
+	return plugin::CallAndReturn<short, 0x43D1E0>();
 }
 
 // Converted from cdecl void CDarkel::RegisterKillNotByPlayer(CPed const*pKilledPed) 0x43D210 

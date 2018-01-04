@@ -31,7 +31,7 @@ private:
 public:
 
 	// variables
-	static Bool& bPhotographHasBeenTaken;		// Bool CWeapon::bPhotographHasBeenTaken
+	static bool& bPhotographHasBeenTaken;		// Bool CWeapon::bPhotographHasBeenTaken
 
 	// functions
     CWeapon();

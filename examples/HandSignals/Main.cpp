@@ -56,11 +56,11 @@ public:
                     if (playa->m_nModelIndex != newPlayerModelId) {
                         CStreaming::RequestModel(newPlayerModelId, 2);
                         CStreaming::LoadAllRequestedModels(false);
-                        unsigned int savedAnimGroup = playa->m_dwAnimGroup;
+                        unsigned int savedAnimGroup = playa->m_nAnimGroup;
                         playa->DeleteRwObject();
                         playa->m_nModelIndex = -1;
                         playa->SetModelIndex(newPlayerModelId);
-                        playa->m_dwAnimGroup = savedAnimGroup;
+                        playa->m_nAnimGroup = savedAnimGroup;
                         CStreaming::SetModelIsDeletable(newPlayerModelId);
                     }
                     playa->m_pIntelligence->m_TaskMgr.SetTaskSecondary(new CTaskComplexPlayHandSignalAnim(animationId, 4.0f), 4);

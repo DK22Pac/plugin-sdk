@@ -62,9 +62,9 @@ void CText__TKey::patchOffsets(int PosOffsetMovement)
 }
 
 // Performs a binary search for a specified key and returns pointer if found, otherwise NULL.
-tGXT_VERSION_2_TKEY_item* CText__TKey::bsearch(unsigned int key, tGXT_VERSION_2_TKEY_item *pData, signed __int16 firstIndex, __int16 lastIndex)
+tGXT_VERSION_2_TKEY_item* CText__TKey::bsearch(unsigned int key, tGXT_VERSION_2_TKEY_item *pData, short firstIndex, short lastIndex)
 {
-	return ((tGXT_VERSION_2_TKEY_item* (__thiscall*)(CText__TKey*, unsigned int, tGXT_VERSION_2_TKEY_item *, signed __int16, __int16))FUNC_CText__TKey__Bsearch)(this, key, pData, firstIndex, lastIndex);
+	return ((tGXT_VERSION_2_TKEY_item* (__thiscall*)(CText__TKey*, unsigned int, tGXT_VERSION_2_TKEY_item *, short, short))FUNC_CText__TKey__Bsearch)(this, key, pData, firstIndex, lastIndex);
 }
 
 // Returns pointer to string by GXT key name (label)

@@ -9,7 +9,7 @@
 #include "C3dMarker.h"
 
 struct tUser3dMarker {
-    Bool         m_bIsUsed;
+    bool         m_bIsUsed;
 private:
     char _pad1[3];
 public:
@@ -22,7 +22,7 @@ public:
 VALIDATE_SIZE(tUser3dMarker, 0x1C);
 
 struct tDirectionArrow {
-    Bool         m_bIsUsed;
+    bool         m_bIsUsed;
 private:
     char _pad1[3];
 public:

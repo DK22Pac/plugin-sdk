@@ -5,65 +5,64 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "plbase/PluginBase_SA.h"
 
-class PLUGIN_API CClock
-{
+class PLUGIN_API CClock {
 public:
-	// Variables
-	static bool& bClockHasBeenStored;
+    // Variables
+    static bool& bClockHasBeenStored;
 
-	// Stored clock
-	static std::uint16_t& ms_Stored_nGameClockSeconds;
+    // Stored clock
+    static unsigned short& ms_Stored_nGameClockSeconds;
 
-	static unsigned char& ms_Stored_nGameClockMinutes;
-	static unsigned char& ms_Stored_nGameClockHours;
-	static unsigned char& ms_Stored_nGameClockMonthDay;
-	static unsigned char& ms_Stored_nGameClockMonth;
+    static unsigned char& ms_Stored_nGameClockMinutes;
+    static unsigned char& ms_Stored_nGameClockHours;
+    static unsigned char& ms_Stored_nGameClockMonthDay;
+    static unsigned char& ms_Stored_nGameClockMonth;
 
-	// Current clock
-	static unsigned char& ms_nGameClockDayOfWeek;
-	static std::uint16_t& ms_nGameClockSeconds;
-	static unsigned char& ms_nGameClockMinutes;
-	static unsigned char& ms_nGameClockHours;
-	static unsigned char& ms_nGameClockDays;
-	static unsigned char& ms_nGameClockMonth;
+    // Current clock
+    static unsigned char& ms_nGameClockDayOfWeek;
+    static unsigned short& ms_nGameClockSeconds;
+    static unsigned char& ms_nGameClockMinutes;
+    static unsigned char& ms_nGameClockHours;
+    static unsigned char& ms_nGameClockDays;
+    static unsigned char& ms_nGameClockMonth;
 
-	static std::uint32_t& ms_nLastClockTick;
+    static unsigned int& ms_nLastClockTick;
 
     static unsigned int &ms_nMillisecondsPerGameMinute;
 
     static unsigned char *daysInMonth; // static unsigned char daysInMonth[12]; default values: 31,29,31,30,31,30,31,31,30,31,30,31
 
-	// Functions
+    // Functions
 
-	// Returns true current hour is in range of two specified hours.
-	static bool GetIsTimeInRange(unsigned char hourA, unsigned char hourB);
+    // Returns true current hour is in range of two specified hours.
+    static bool GetIsTimeInRange(unsigned char hourA, unsigned char hourB);
 
-	// Returns number of minutes to specified hour & minute.
-	static std::uint16_t GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes);
+    // Returns number of minutes to specified hour & minute.
+    static unsigned short GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes);
 
-	// Initializes clock
-	static void Initialise(std::uint32_t milisecondsPerGameMinute);
+    // Initializes clock
+    static void Initialise(unsigned int milisecondsPerGameMinute);
 
-	// Updates a time
-	static void Update();
+    // Updates a time
+    static void Update();
 
-	// Normalizes game clock
-	// For example hour of 24 means new day and hour 1.
-	static void NormaliseGameClock();
+    // Normalizes game clock
+    // For example hour of 24 means new day and hour 1.
+    static void NormaliseGameClock();
 
-	// Backups a clock time
-	static void StoreClock();
+    // Backups a clock time
+    static void StoreClock();
 
+    // Restores a clock time
+    static void RestoreClock();
 
-	// Restores a clock time
-	static void RestoreClock();
+    // Sets new day
+    // Directions (0 = one day backwards, 1 = one day forwards)
+    static void SetNewDay(bool timeDirection);
 
-	// Sets new day
-	// Directions (0 = one day backwards, 1 = one day forwards)
-	static void SetNewDay(bool timeDirection);
-
-	// Sets game clock
-	static void SetGameClock(unsigned char hours, unsigned char minutes, unsigned char day);
+    // Sets game clock
+    static void SetGameClock(unsigned char hours, unsigned char minutes, unsigned char day);
 };

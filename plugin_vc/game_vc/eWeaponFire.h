@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eWeaponFire : unsigned __int32
+enum eWeaponFire : unsigned int
 {
     WEAPON_FIRE_MELEE,
     WEAPON_FIRE_INSTANT_HIT,

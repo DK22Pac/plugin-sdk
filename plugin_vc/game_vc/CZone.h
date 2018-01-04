@@ -17,13 +17,13 @@ class CZone {
 public:
     char name[8];
     char text[8];
-    __int16 x1;
-    __int16 y1;
-    __int16 z1;
-    __int16 x2;
-    __int16 y2;
-    __int16 z2;
-    __int16 _zoneExtraIndexInfo;
+    short x1;
+    short y1;
+    short z1;
+    short x2;
+    short y2;
+    short z2;
+    short _zoneExtraIndexInfo;
     char type;
     char townNumber;
 

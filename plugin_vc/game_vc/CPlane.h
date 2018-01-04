@@ -19,8 +19,8 @@ class CPlane : public CVehicle {
 protected:
     CPlane(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    __int16 field_2A0;
-    __int16 field_2A2;
+    short field_2A0;
+    short field_2A2;
     int field_2A4;
     int field_2A8;
     int field_2AC;

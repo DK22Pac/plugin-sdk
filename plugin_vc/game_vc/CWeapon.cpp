@@ -8,7 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 // variables
 // Converted from Bool CWeapon::bPhotographHasBeenTaken 0xA10AF4
-Bool& CWeapon::bPhotographHasBeenTaken = *(Bool*)0xA10AF4;
+bool& CWeapon::bPhotographHasBeenTaken = *(bool*)0xA10AF4;
 
 // functions
 

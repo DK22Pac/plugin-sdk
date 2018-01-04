@@ -9,15 +9,12 @@
 #include "plbase/PluginBase_SA.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API AnimBlendFrameData
-{
+class PLUGIN_API AnimBlendFrameData {
 public:
-	unsigned __int8 m_nFlags;
-	CVector m_vOffset;
-	class IFrame *m_pIFrame;
-	unsigned __int32 m_dwNodeId;
+    unsigned char  m_nFlags;
+    CVector        m_vecOffset;
+    class IFrame  *m_pIFrame;
+    unsigned int   m_nNodeId;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(AnimBlendFrameData, 0x18);

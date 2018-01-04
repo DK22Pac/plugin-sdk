@@ -15,15 +15,15 @@ public:
     char m_aszName[24];
     float m_fFleeDistance;
     float m_fHeadingChangeRate;
-    UInt8 m_nFear;
-    UInt8 m_nTemper;
-    UInt8 m_nLawfullness;
-    UInt8 m_nSexiness;
+    unsigned char m_nFear;
+    unsigned char m_nTemper;
+    unsigned char m_nLawfullness;
+    unsigned char m_nSexiness;
     float m_fAttackStrength;
     float m_fDefendWeakness;
     union
     {
-        UInt8 m_nFlags;
+        unsigned char m_nFlags;
         struct
         {
             unsigned char bPunchOnly : 1;

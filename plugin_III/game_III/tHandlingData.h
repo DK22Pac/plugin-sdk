@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -11,15 +11,14 @@ Do not delete this comment block. Respect others' work!
 #include "cTransmission.h"
 #include "eVehicleFlags.h"
 
-enum eVehicleLightsSize : unsigned __int8 {
+enum PLUGIN_API eVehicleLightsSize : unsigned char {
     LIGHTS_LONG,
     LIGHTS_SMALL,
     LIGHTS_BIG,
     LIGHTS_TALL
 };
 
-#pragma pack(push, 4)
-struct tHandlingData {
+struct PLUGIN_API tHandlingData {
     tHandlingData *index;
     float m_fMass; // 1.0 to 50000.0
     float field_8; 
@@ -48,30 +47,29 @@ struct tHandlingData {
     union {
         eVehicleFlags m_nVehicleFlags;
         struct {
-            unsigned __int32 m_b1gBoost : 1;
-            unsigned __int32 m_b2gBoost : 1;
-            unsigned __int32 m_bRevBonnet : 1;
-            unsigned __int32 m_bHangingBoot : 1;
-            unsigned __int32 m_bNoDoors : 1;
-            unsigned __int32 m_bIsVan : 1;
-            unsigned __int32 m_bIsBus : 1;
-            unsigned __int32 m_bIsLow : 1;
-            unsigned __int32 m_bDblExhaust : 1;
-            unsigned __int32 m_bTailgateBoot : 1;
-            unsigned __int32 m_bNoswingBoot : 1;
-            unsigned __int32 m_bNonplayerStabiliser : 1;
-            unsigned __int32 m_bNeutralHandling : 1;
-            unsigned __int32 m_bHasNoRoof : 1;
-            unsigned __int32 m_bIsBig : 1;
-            unsigned __int32 m_bHalogenLights : 1;
+            unsigned int m_b1gBoost : 1;
+            unsigned int m_b2gBoost : 1;
+            unsigned int m_bRevBonnet : 1;
+            unsigned int m_bHangingBoot : 1;
+            unsigned int m_bNoDoors : 1;
+            unsigned int m_bIsVan : 1;
+            unsigned int m_bIsBus : 1;
+            unsigned int m_bIsLow : 1;
+            unsigned int m_bDblExhaust : 1;
+            unsigned int m_bTailgateBoot : 1;
+            unsigned int m_bNoswingBoot : 1;
+            unsigned int m_bNonplayerStabiliser : 1;
+            unsigned int m_bNeutralHandling : 1;
+            unsigned int m_bHasNoRoof : 1;
+            unsigned int m_bIsBig : 1;
+            unsigned int m_bHalogenLights : 1;
         };
     };
     float m_fSeatOffsetDistance; // ped seat position offset towards centre of car
-    unsigned __int32 m_nMonetaryValue; // 1 to 100000
+    unsigned int m_nMonetaryValue; // 1 to 100000
     eVehicleLightsSize m_nFrontLights;
     eVehicleLightsSize m_nRearLights;
     short field_D6;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tHandlingData, 0xD8);

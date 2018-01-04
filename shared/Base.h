@@ -9,26 +9,16 @@ VALIDATE_SIZE(char, 1);
 VALIDATE_SIZE(short, 2);
 VALIDATE_SIZE(int, 4);
 VALIDATE_SIZE(float, 4);
+VALIDATE_SIZE(long long, 8);
 
 // Basic types for structures describing
-typedef unsigned __int8 Bool;
-typedef __int32 Bool32;
-typedef __int8 Int8;
-typedef unsigned __int8 UInt8, UByte;
-typedef signed __int8 SInt8;
-typedef __int16 Int16;
-typedef unsigned __int16 UInt16;
-typedef signed __int16 SInt16;
-typedef __int32 Int32;
-typedef unsigned __int32 UInt32;
-typedef signed __int32 SInt32;
-typedef __int64 Int64;
-typedef unsigned __int64 UInt64;
-typedef signed __int64 SInt64;
-typedef float Float;
-typedef float Float32;
-typedef double Float64;
-typedef double Double;
+typedef unsigned char bool8;
+typedef int bool32;
+typedef long long int64;
+typedef unsigned long long uint64;
+typedef unsigned char uchar;
+typedef unsigned short ushort;
+typedef unsigned int uint;
 
 #define _IGNORED_
 #define _CAN_BE_NULL_
@@ -71,6 +61,4 @@ namespace plugin {
 	Ret CallVirtualMethodAndReturn(C _this, Args... args) {
 		return reinterpret_cast<Ret(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 	}
-
-
 }

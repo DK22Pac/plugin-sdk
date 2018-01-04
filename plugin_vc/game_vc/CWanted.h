@@ -13,11 +13,11 @@ Do not delete this comment block. Respect others' work!
 class CCrimeBeingQd {
 public:
     eCrimeType m_nCrimeType;
-    UInt32 m_nCrimeId;
-    UInt32 m_nStartTime;
+    unsigned int m_nCrimeId;
+    unsigned int m_nStartTime;
     CVector m_vecCoors;
-    Bool m_bAlreadyReported;
-    Bool m_bPoliceDontReallyCare;
+    bool m_bAlreadyReported;
+    bool m_bPoliceDontReallyCare;
 
 // [FrogByteDQ]: TODO: move this to CCrimeBeingQd.h file
 // [FrogByteDQ]: TODO: constructor sub_5388D0
@@ -27,20 +27,20 @@ VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
 
 class CWanted {
 public:
-    UInt32 m_nChaosLevel;
-    UInt32 m_nChaosLevelBeforeParole;
-    UInt32 m_nLastTimeWantedDecreased;
-    UInt32 m_nLastTimeWantedLevelChanged;
-    UInt32 m_dwTimeOfParole;
+    unsigned int m_nChaosLevel;
+    unsigned int m_nChaosLevelBeforeParole;
+    unsigned int m_nLastTimeWantedDecreased;
+    unsigned int m_nLastTimeWantedLevelChanged;
+    unsigned int m_dwTimeOfParole;
     float m_fMultiplier;
-    UInt8 m_nCopsInPursuit;
-    UInt8 m_nMaxCopsInPursuit;
-    UInt8 m_nMaxCopCarsInPursuit;
-    UInt8 m_nCopsBeatingSuspect;
-    UInt16 m_nChanceOnRoadBlock;
+    unsigned char m_nCopsInPursuit;
+    unsigned char m_nMaxCopsInPursuit;
+    unsigned char m_nMaxCopCarsInPursuit;
+    unsigned char m_nCopsBeatingSuspect;
+    unsigned short m_nChanceOnRoadBlock;
     union
     {
-        UInt8 m_nWantedFlags;
+        unsigned char m_nWantedFlags;
         struct
         {
             unsigned char b0: 1;
@@ -51,8 +51,8 @@ public:
         };
     };
     char _pad0[1];
-    UInt32 m_nWantedLevel;
-    UInt32 m_nWantedLevelBeforeParole;
+    unsigned int m_nWantedLevel;
+    unsigned int m_nWantedLevelBeforeParole;
     CCrimeBeingQd m_asCrimesBeingQd[16];
     class CCopPed *m_apCopsInPursuit[10];
 

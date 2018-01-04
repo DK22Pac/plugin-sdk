@@ -1,12 +1,14 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum ePedType : __int32 {
+#include "plbase\PluginBase_III.h"
+
+enum PLUGIN_API ePedType : int {
     PEDTYPE_PLAYER1 = 0,
     PEDTYPE_PLAYER2 = 1,
     PEDTYPE_PLAYER3 = 2,

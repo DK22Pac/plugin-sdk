@@ -14,7 +14,7 @@ public:
 	static bool FrenzyOnGoing();
 	static void Init();
 	static void DrawMessages();
-	static __int16 ReadStatus();
+	static short ReadStatus();
 	static void RegisterKillNotByPlayer(CPed const* pKilledPed);
 	static bool ThisPedShouldBeKilledForFrenzy(CPed const* pPed);
 	static bool ThisVehicleShouldBeKilledForFrenzy(CVehicle const* pVehicle);

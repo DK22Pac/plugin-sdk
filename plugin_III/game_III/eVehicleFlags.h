@@ -1,12 +1,14 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eVehicleFlags : unsigned __int32 {
+#include "plbase\PluginBase_III.h"
+
+enum PLUGIN_API eVehicleFlags : unsigned int {
     VEHICLE_FLAGS_1G_BOOST = 0x1,
     VEHICLE_FLAGS_2G_BOOST = 0x2,
     VEHICLE_FLAGS_REV_BONNET = 0x4,

@@ -19,7 +19,7 @@ public:
     unsigned short m_nNumTriangles;
     unsigned char m_nNumLines;
     unsigned char m_nColStoreIndex;
-    Bool m_bLoaded;
+    bool m_bLoaded;
 private:
     char _pad31[3];
 public:

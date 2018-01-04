@@ -65,8 +65,8 @@ typedef float RwReal;
 typedef RwInt32 RwBool;
 
 #ifdef _MSC_VER
-typedef __int64 RwInt64;
-typedef unsigned __int64 RwUInt64;
+typedef long long RwInt64;
+typedef unsigned long long RwUInt64;
 #define RWZERO64 ((RwUInt64)0)
 #else /* _MSC_VER */
 

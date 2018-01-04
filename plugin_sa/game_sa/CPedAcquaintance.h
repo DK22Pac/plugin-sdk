@@ -8,16 +8,13 @@
 
 #include "plbase/PluginBase_SA.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CPedAcquaintance
-{
+class PLUGIN_API CPedAcquaintance {
 public:
-	unsigned __int32 m_dwRespect;
-	unsigned __int32 m_dwLike;
-	unsigned __int32 field_8;
-	unsigned __int32 m_dwDislike;
-	unsigned __int32 m_dwHate;
+    unsigned int m_nRespect;
+    unsigned int m_nLike;
+    unsigned int field_8;
+    unsigned int m_nDislike;
+    unsigned int m_nHate;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPedAcquaintance, 0x14);

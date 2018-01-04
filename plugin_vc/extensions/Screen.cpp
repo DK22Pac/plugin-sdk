@@ -19,8 +19,8 @@
 float gScreenResolution = PLUGIN_SCREEN_RESOLUTION_DEFAULT;
 
 float plugin::screen::GetCoord(float a) {
-    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? RsGlobal.maximumHeight : RsGlobal.maximumWidth;
-    return static_cast<int>(a * base / gScreenResolution);
+    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? static_cast<float>(RsGlobal.maximumHeight) : static_cast<float>(RsGlobal.maximumWidth);
+    return static_cast<float>(static_cast<int>(a * base / gScreenResolution));
 }
 
 float plugin::screen::GetCoord(float a, eScreenSide side) {
@@ -80,7 +80,7 @@ float plugin::screen::GetCoordCenterDown(float a) {
 }
 
 float plugin::screen::GetMultiplier(float a) {
-    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? RsGlobal.maximumHeight : RsGlobal.maximumWidth;
+    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? static_cast<float>(RsGlobal.maximumHeight) : static_cast<float>(RsGlobal.maximumWidth);
     return a * base / gScreenResolution;
 }
 
@@ -93,11 +93,11 @@ float plugin::screen::GetBaseResolution() {
 }
 
 float plugin::screen::GetScreenHeight() {
-    return RsGlobal.maximumHeight;
+    return static_cast<float>(RsGlobal.maximumHeight);
 }
 
 float plugin::screen::GetScreenWidth() {
-    return RsGlobal.maximumWidth;
+    return static_cast<float>(RsGlobal.maximumWidth);
 }
 
 float plugin::screen::GetScreenCenterX() {

@@ -407,7 +407,7 @@ public:
     void FightStrike(CVector& arg0, bool arg1);
     bool FindBestCoordsFromNodes(CVector arg0, CVector* arg1);
     void Flee();
-    __int16 FollowPath();
+    short FollowPath();
     int GetFormationPosition();
     int GetLocalDirection(CVector2D const& arg0);
     static int GetLocalPositionToOpenCarDoor(CVehicle* vehicle, unsigned int arg1, float arg2);
@@ -456,7 +456,7 @@ public:
     bool PlacePedOnDryLand();
     void PlayFootSteps();
     void PlayHitSound(CPed* ped);
-    __int16 PointGunAt();
+    short PointGunAt();
     bool PositionAnyPedOutOfCollision();
     void PositionAttachedPed();
     bool PositionPedOutOfCollision();

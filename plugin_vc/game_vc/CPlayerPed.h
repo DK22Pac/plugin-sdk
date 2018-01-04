@@ -82,7 +82,7 @@ public:
     void EvaluateNeighbouringTarget(CEntity* target, CEntity** outTarget, float* outTargetPriority, float maxDistance, float arg4, bool arg5, bool arg6, bool arg7);
     void EvaluateTarget(CEntity* target, CEntity** outTarget, float* outTargetPriority, float maxDistance, float arg4, bool arg5, bool arg6);
     int FindMeleeAttackPoint(CPed* arg0, CVector& arg1, unsigned int& arg2);
-    __int16 FindNewAttackPoints();
+    short FindNewAttackPoints();
     bool FindNextWeaponLockOnTarget(CEntity* target, bool arg1);
     bool FindWeaponLockOnTarget();
     CPlayerInfo* GetPlayerInfoForThisPlayerPed();

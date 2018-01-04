@@ -8,29 +8,26 @@
 
 #include "plbase/PluginBase_SA.h"
 
-#pragma pack(push, 1)
-class CAnimBlendSequence
-{
+class PLUGIN_API CAnimBlendSequence {
 public:
-  int hash;
-  __int16 flags;
-  __int16 frameCount;
-  int frames;
+    unsigned int m_nHash;
+    unsigned short m_nFlags;
+    unsigned short m_nFrameCount;
+    void *m_pFrames;
 
-  //funcs
-  CAnimBlendSequence();
-  void CompressKeyframes(unsigned char* arg1);
-  int GetDataSize(bool arg1);
-  bool MoveMemorY();
-  int RemoveQuaternionFlips();
-  void RemoveUncompressedData(unsigned char* arg1);
-  void SetBoneTag(int hash);
-  void SetName(char const* string);
-  void SetNumFrames(int count, bool arg2, bool arg3, unsigned char* arg4);
-  void Uncompress(unsigned char* arg1);
-  ~CAnimBlendSequence();
+    //funcs
+    CAnimBlendSequence();
+    void CompressKeyframes(unsigned char* arg1);
+    int GetDataSize(bool arg1);
+    bool MoveMemorY();
+    int RemoveQuaternionFlips();
+    void RemoveUncompressedData(unsigned char* arg1);
+    void SetBoneTag(int hash);
+    void SetName(char const* string);
+    void SetNumFrames(int count, bool arg2, bool arg3, unsigned char* arg4);
+    void Uncompress(unsigned char* arg1);
+    ~CAnimBlendSequence();
 
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAnimBlendSequence, 0xC);

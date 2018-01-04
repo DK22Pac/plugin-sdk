@@ -13,9 +13,9 @@
 /**
  * Compress camera screen and save at the given file path
  */
-void JPegCompressScreenToFile(RwChar const * pszPath);
+void JPegCompressScreenToFile(char const * pszPath);
 
 /**
  * Compress camera screen to the given buffer
  */
-void JPegCompressScreenToBuffer(RwInt8 ** pBuffer, RwUInt32 * pSize);
+void JPegCompressScreenToBuffer(char ** pBuffer, unsigned int * pSize);

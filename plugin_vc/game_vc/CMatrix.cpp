@@ -111,8 +111,8 @@ void CMatrix::SetUnity() {
 }
 
 // Converted from thiscall void CMatrix::operator+=(CMatrix const&right) 0x4DF820
-void CMatrix::operator+=(CMatrix const& right) {
-    ((void(__thiscall *)(CMatrix*, CMatrix const&))0x4DF820)(this, right);
+void CMatrix::operator+=(CMatrix const& _right) {
+    ((void(__thiscall *)(CMatrix*, CMatrix const&))0x4DF820)(this, _right);
 }
 
 // Converted from thiscall void CMatrix::CopyOnlyMatrix(CMatrix const&src) 0x4DF8A0
@@ -121,8 +121,8 @@ void CMatrix::CopyOnlyMatrix(CMatrix const& src) {
 }
 
 // Converted from thiscall void CMatrix::operator=(CMatrix const&right) 0x4DF8C0
-void CMatrix::operator=(CMatrix const& right) {
-    ((void(__thiscall *)(CMatrix*, CMatrix const&))0x4DF8C0)(this, right);
+void CMatrix::operator=(CMatrix const& _right) {
+    ((void(__thiscall *)(CMatrix*, CMatrix const&))0x4DF8C0)(this, _right);
 }
 
 // Converted from thiscall void CMatrix::UpdateRW(void) 0x4DF8F0

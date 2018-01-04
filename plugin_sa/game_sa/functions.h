@@ -19,16 +19,16 @@
 #define FUNC_FindPlayerPed 0x56E210
 
 // Calculates GTA SA CRC32 from block of memory
-static auto GTASA_crc32fromBlock = (unsigned __int32 (__cdecl*)(void *block, size_t num))FUNC_GTASA_crc32fromBlock;
+static auto GTASA_crc32fromBlock = (unsigned int (__cdecl*)(void *block, size_t num))FUNC_GTASA_crc32fromBlock;
 
 // Calculates GTA SA CRC32 from string
-static auto GTASA_crc32FromString = (unsigned __int32 (__cdecl*)(const char* str))FUNC_GTASA_crc32FromString;
+static auto GTASA_crc32FromString = (unsigned int(__cdecl*)(const char* str))FUNC_GTASA_crc32FromString;
 
 // Calculates GTA SA CRC32 from string characters that are first turned into upper case.
-static auto GTASA_crc32FromUpcaseString = (unsigned __int32 (__cdecl*)(const char* str))FUNC_GTASA_crc32FromUpcaseString;
+static auto GTASA_crc32FromUpcaseString = (unsigned int(__cdecl*)(const char* str))FUNC_GTASA_crc32FromUpcaseString;
 
 // Continues CRC32 calculation using another string
-static auto GTASA_crc32FromStringContinue = (unsigned __int32 (__cdecl*)(__int32 crc, const char *str))FUNC_GTASA_crc32Continue;
+static auto GTASA_crc32FromStringContinue = (unsigned int(__cdecl*)(int crc, const char *str))FUNC_GTASA_crc32Continue;
 
 // Writes player coordinates to outPoint
 static auto FindPlayerCoors = (void (__cdecl*)(CVector *outPoint, int playerIndex))FUNC_FindPlayerCoors;

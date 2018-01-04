@@ -11,24 +11,23 @@
 #include "AnimBlendFrameData.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
-class PLUGIN_API CPedIK
-{
+class CPed;
+
+class PLUGIN_API CPedIK {
 public:
-	class CPed *m_pPed;
-	LimbOrientation m_TorsoOrien;
-	float m_fSlopePitch;
-	float m_fSlopePitchLimitMult;
-	float m_fSlopeRoll;
-	float m_fBodyRoll;
-	unsigned __int32 m_dwFlags;
-	
-	//funcs
-	void RotateTorso(AnimBlendFrameData* bone, LimbOrientation& orientation, bool flag);
-	bool PointGunInDirection(float Z_angle, float arg2, bool flag, float arg4);
-	void PointGunAtPosition(CVector const& posn, float arg2);
-	static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat);		
+    CPed *m_pPed;
+    LimbOrientation m_TorsoOrien;
+    float m_fSlopePitch;
+    float m_fSlopePitchLimitMult;
+    float m_fSlopeRoll;
+    float m_fBodyRoll;
+    unsigned int m_nFlags;
+
+    //funcs
+    void RotateTorso(AnimBlendFrameData* bone, LimbOrientation& orientation, bool flag);
+    bool PointGunInDirection(float Z_angle, float arg2, bool flag, float arg4);
+    void PointGunAtPosition(CVector const& posn, float arg2);
+    static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPedIK, 0x20);

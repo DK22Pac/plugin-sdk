@@ -35,8 +35,8 @@ public:
     static void DrawMessages();
     static bool FrenzyOnGoing();
     static void Init();
-    static __int16 QueryModelsKilledByPlayer(int arg0);
-    static __int16 ReadStatus();
+    static short QueryModelsKilledByPlayer(int arg0);
+    static short ReadStatus();
     static int RegisterCarBlownUpByPlayer(CVehicle* vehicle);
     static void RegisterKillByPlayer(CPed* ped, eWeaponType weaponType, bool arg2);
     static void RegisterKillNotByPlayer(CPed* arg0, eWeaponType weaponType);

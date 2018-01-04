@@ -19,26 +19,30 @@
 #include "plbase/PluginBase_SA.h"
 #include "CAEAudioEntity.h"
 
-#pragma pack(push, 1)
-class PLUGIN_API CAETwinLoopSoundEntity : public CAEAudioEntity
-{
-	__int16 m_wBankSlotId;
-	__int16 m_wSoundType[2];
-	__int8 pad1[2];
-	CAEAudioEntity *m_pBaseAudio;
-	__int16 field_88;
-	__int16 field_8A;
-	__int16 field_8C;
-	__int16 m_wPlayTimeMin;
-	__int16 m_wPlayTimeMax;
-	__int8 pad2[2];
-	unsigned __int32 m_dwTimeToSwapSounds;
-	bool m_bPlayingFirstSound;
-	__int8 pad3;
-	__int16 m_wStartingPlayPercentage[2]; // 0 - 99 percentage
-	__int16 field_9E;
-	CAESound *m_apSounds[2];
+class PLUGIN_API CAETwinLoopSoundEntity : public CAEAudioEntity {
+public:
+    short           m_nBankSlotId;
+    short           m_nSoundType[2];
+private:
+    char _pad1[2];
+public:
+    CAEAudioEntity *m_pBaseAudio;
+    short field_88;
+    short field_8A;
+    short field_8C;
+    short           m_nPlayTimeMin;
+    short           m_nPlayTimeMax;
+private:
+    char _pad2[2];
+public:
+    unsigned int    m_nTimeToSwapSounds;
+    bool            m_bPlayingFirstSound;
+private:
+    char _pad3;
+public:
+    short           m_anStartingPlayPercentage[2]; // 0 - 99 percentage
+    short field_9E;
+    CAESound       *m_apSounds[2];
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAETwinLoopSoundEntity, 0xA8);

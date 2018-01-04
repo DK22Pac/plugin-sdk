@@ -13,13 +13,13 @@ class CStats
 public:
 	// variables
 	static float* FavoriteRadioStationList;		// float CStats::FavoriteRadioStationList[10]
-	static Bool* abSonyCDs;		// Bool CStats::abSonyCDs[1]
-	static Bool32& ShowChaseStatOnScreen;		// Bool32 CStats::ShowChaseStatOnScreen
-	static Bool32& NoMoreHurricanes;		// Bool32 CStats::NoMoreHurricanes
-	static Bool32& PamphletMissionPassed;		// Bool32 CStats::PamphletMissionPassed
-	static Bool32& SuburbanPassed;		// Bool32 CStats::SuburbanPassed
-	static Bool32& CommercialPassed;		// Bool32 CStats::CommercialPassed
-	static Bool32& IndustrialPassed;		// Bool32 CStats::IndustrialPassed
+	static bool* abSonyCDs;		// Bool CStats::abSonyCDs[1]
+	static bool32& ShowChaseStatOnScreen;		// Bool32 CStats::ShowChaseStatOnScreen
+	static bool32& NoMoreHurricanes;		// Bool32 CStats::NoMoreHurricanes
+	static bool32& PamphletMissionPassed;		// Bool32 CStats::PamphletMissionPassed
+	static bool32& SuburbanPassed;		// Bool32 CStats::SuburbanPassed
+	static bool32& CommercialPassed;		// Bool32 CStats::CommercialPassed
+	static bool32& IndustrialPassed;		// Bool32 CStats::IndustrialPassed
 	static char* LastMissionPassedName;		// char CStats::LastMissionPassedName[8]
 	static int& TotalLegitimateKills;		// int CStats::TotalLegitimateKills
 	static int& KillsSinceLastCheckpoint;		// int CStats::KillsSinceLastCheckpoint
@@ -37,7 +37,7 @@ public:
 	static int& Longest2Wheel;		// int CStats::Longest2Wheel
 	static int& LongestStoppie;		// int CStats::LongestStoppie
 	static int& LongestWheelie;		// int CStats::LongestWheelie
-	static Bool* PropertyOwned;		// Bool CStats::PropertyOwned[15]
+	static bool* PropertyOwned;		// Bool CStats::PropertyOwned[15]
 	static int& BloodRingTime;		// int CStats::BloodRingTime
 	static int& BloodRingKills;		// int CStats::BloodRingKills
 	static int& NumPropertyOwned;		// int CStats::NumPropertyOwned

@@ -5,18 +5,17 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "plbase\PluginBase_SA.h"
 #include "eClothesModelPart.h"
 #include "eClothesTexturePart.h"
 
-#pragma pack(push, 4)
-struct CPedClothesDesc
-{
+class PLUGIN_API CPedClothesDesc {
 public:
-	unsigned __int32 m_adwModelKeys[10];
-	unsigned __int32 m_adwTextureKeys[18];
-	float m_fFatStat;
-	float m_fMuscleStat; 
+    unsigned int m_anModelKeys[10];
+    unsigned int m_anTextureKeys[18];
+    float m_fFatStat;
+    float m_fMuscleStat;
 
     void Initialise();
     void SetModel(unsigned int modelid, int eClothesModelPart);
@@ -27,16 +26,6 @@ public:
     CPedClothesDesc();
     void SetTextureAndModel(unsigned int texture, unsigned int model, int eClothesTexturePart);
     void SetTextureAndModel(char const* texturename, char const* modelname, int eClothesTexturePart);
-	
 };
 
-#pragma pack(pop)
-
 VALIDATE_SIZE(CPedClothesDesc, 0x78);
-
-
-
-
-
- 
-

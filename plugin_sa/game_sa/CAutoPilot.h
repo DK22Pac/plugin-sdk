@@ -10,61 +10,58 @@
 #include "CVector.h"
 #include "CPathFind.h"
 
-#pragma pack(push, 1)
-class PLUGIN_API CAutoPilot
-{
+class PLUGIN_API CAutoPilot {
 public:
-	CNodeAddress currentAddress;
-	CNodeAddress    m_startingRouteNode;
-	CNodeAddress field_8;
-	int32_t field_C;
-	uint32_t          m_dwSpeedScaleFactor;
-	CCarPathLinkAddress m_wCurrentPathNodeInfo;
-	CCarPathLinkAddress m_wNextPathNodeInfo;
-	CCarPathLinkAddress m_wPreviousPathNodeInfo;
-	int8_t field_1A[2];
-	uint32_t          m_dwTimeToStartMission;
-	uint32_t          m_dwTimeSwitchedToRealPhysics;
-	int8_t field_24;
-	int8_t _smthCurr;
-	int8_t _smthNext;
-	int8_t            m_nCurrentLane;
-	int8_t            m_nNextLane;
-	int8_t            m_nCarDrivingStyle;
-	int8_t            m_nCarMission;
-	int8_t            m_nTempAction;
-	uint32_t          m_dwTempActionTime;
-	uint32_t _someStartTime;
-	int8_t field_34;
-	int8_t field_35;
-	int8_t field_36[2];
-	float field_38;
-	float           m_fMaxTrafficSpeed;
-	int8_t m_nCruiseSpeed;
-	int8_t field_41;
-	int8_t field_42[2];
-	float field_44;
-	int8_t field_48[1];
-	int8_t field_49;
-	int8_t field_4A;
-	uint8_t           m_nCarCtrlFlags;
-	int8_t field_4C;
-	int8_t            m_nStraightLineDistance;
-	int8_t field_4E;
-	int8_t field_4F;
-	int8_t field_50;
-	int8_t field_51;
-	int8_t field_52[10];
-	CVector         m_vDestinationCoors;
-	CNodeAddress    m_aPathFindNodesInfo[8];
-	uint16_t        m_wPathFindNodesCount;
-	int8_t field_8A[2];
-	class CVehicle *m_pTargetCar;
-	class CEntity  *m_pCarWeMakingSlowDownFor;
-	int8_t field_94;
-	int8_t field_95;
-	int16_t field_96;
+    CNodeAddress         m_currentAddress;
+    CNodeAddress         m_startingRouteNode;
+    CNodeAddress field_8;
+    int field_C;
+    unsigned int         m_nSpeedScaleFactor;
+    CCarPathLinkAddress  m_nCurrentPathNodeInfo;
+    CCarPathLinkAddress  m_nNextPathNodeInfo;
+    CCarPathLinkAddress  m_nPreviousPathNodeInfo;
+    char field_1A[2];
+    unsigned int         m_nTimeToStartMission;
+    unsigned int         m_nTimeSwitchedToRealPhysics;
+    char field_24;
+    char _smthCurr;
+    char _smthNext;
+    char                 m_nCurrentLane;
+    char                 m_nNextLane;
+    char                 m_nCarDrivingStyle;
+    char                 m_nCarMission;
+    char                 m_nTempAction;
+    unsigned int         m_nTempActionTime;
+    unsigned int _someStartTime;
+    char field_34;
+    char field_35;
+    char field_36[2];
+    float field_38;
+    float                m_fMaxTrafficSpeed;
+    char m_nCruiseSpeed;
+    char field_41;
+    char field_42[2];
+    float field_44;
+    char field_48[1];
+    char field_49;
+    char field_4A;
+    unsigned char        m_nCarCtrlFlags;
+    char field_4C;
+    char                 m_nStraightLineDistance;
+    char field_4E;
+    char field_4F;
+    char field_50;
+    char field_51;
+    char field_52[10];
+    CVector              m_vecDestinationCoors;
+    CNodeAddress         m_aPathFindNodesInfo[8];
+    unsigned short       m_nPathFindNodesCount;
+    char field_8A[2];
+    class CVehicle      *m_pTargetCar;
+    class CEntity       *m_pCarWeMakingSlowDownFor;
+    char field_94;
+    char field_95;
+    short field_96;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAutoPilot, 0x98);

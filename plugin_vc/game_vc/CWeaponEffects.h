@@ -12,7 +12,7 @@ Do not delete this comment block. Respect others' work!
 
 class CWeaponEffects {
 public:
-    Bool m_bActive;
+    bool m_bActive;
     char _pad0[3];
     CVector m_vecPosn;
     CRGBA m_Color;

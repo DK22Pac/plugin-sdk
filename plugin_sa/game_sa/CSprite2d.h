@@ -20,8 +20,8 @@ public:
 	// class variables
 	struct RwTexture *m_pTexture;
 	// static variables
-	static unsigned __int32& nextBufferIndex;
-	static unsigned __int32& nextBufferVertex;
+	static unsigned int& nextBufferIndex;
+	static unsigned int& nextBufferVertex;
 	static float& NearScreenZ;
 	static float& RecipNearClip;
 	// count: 8

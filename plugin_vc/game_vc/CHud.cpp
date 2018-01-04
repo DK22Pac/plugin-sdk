@@ -8,10 +8,10 @@
 #include <string>
 #include <string.h>
 
-__int64(*CHud::m_HelpMessageToPrint)[] = (__int64(*)[])0x78C5F8;
-__int64(*CHud::m_LastHelpMessage)[] = (__int64(*)[])0x7D3E40;
-__int64(*CHud::m_Message)[] = (__int64(*)[])0x814F28;
-__int64(*CHud::m_HelpMessage)[] = (__int64(*)[])0x939028;
+long long(*CHud::m_HelpMessageToPrint)[] = (long long(*)[])0x78C5F8;
+long long(*CHud::m_LastHelpMessage)[] = (long long(*)[])0x7D3E40;
+long long(*CHud::m_Message)[] = (long long(*)[])0x814F28;
+long long(*CHud::m_HelpMessage)[] = (long long(*)[])0x939028;
 int &CHud::m_HelpMessageState = *(int*)0x94DBCC;
 int &CHud::m_pZoneName = *(int*)0x97537C;
 int &CHud::m_pVehicleName = *(int*)0xA0FC98;

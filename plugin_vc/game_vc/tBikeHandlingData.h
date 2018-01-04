@@ -10,7 +10,7 @@ Do not delete this comment block. Respect others' work!
 
 #pragma pack(push, 4)
 struct tBikeHandlingData {
-    __int32 m_dwVehicleId;
+    int m_dwVehicleId;
     float   m_fLeanFwdCOM;
     float   m_fLeanFwdForce;
     float   m_fLeanBakCOM;

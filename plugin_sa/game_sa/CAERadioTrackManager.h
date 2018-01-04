@@ -8,85 +8,81 @@
 
 #include "plbase/PluginBase_SA.h"
 
-struct tMusicTrackHistory
-{
-	int8_t m_indices[20];
+struct PLUGIN_API tMusicTrackHistory {
+    char m_indices[20];
 };
 
-#pragma pack(push, 1)
-class PLUGIN_API CAERadioTrackManager
-{
+class PLUGIN_API CAERadioTrackManager {
 public:
-	int8_t field_0;
-	int8_t field_1;
-	int8_t field_2;
-	int8_t field_3;
-	int8_t field_4;
-	int8_t field_5;
-	int8_t field_6;
-	Bool m_bRadioAutoSelect;
-	int8_t field_8[14];
-	uint8_t m_nMonthDay;
-	uint8_t m_nClockHours;
-	int32_t m_PlayerStats[14];
-	int32_t field_50;
-	uint32_t m_dwTimeToDisplayRadioName;
-	int32_t field_58;
-	int32_t field_5C;
-	int32_t field_60;
-	int32_t field_64;
-	int32_t field_68;
-	int32_t m_dwStationsListed;
-	int32_t m_dwStationsListDown;
-	int32_t field_74;
-	int32_t field_78;
-	int32_t field_7C;
-	int32_t field_80;
-	int32_t field_84;
-	int8_t field_88;
-	int8_t field_89[19];
-	int32_t field_9C;
-	int32_t field_A0;
-	int32_t field_A4;
-	int32_t field_A8;
-	int8_t field_AC;
-	int8_t m_nCurrentRadioStation;
-	int8_t field_AE;
-	int8_t field_AF[10];
-	int8_t field_B9;
-	int8_t field_BA;
-	int8_t field_BB[5];
-	int8_t field_C0;
-	int8_t field_C1;
-	int8_t field_C2[2];
-	int8_t field_C4;
-	int8_t field_C5[25];
-	int8_t field_DE[10];
-	int8_t field_E8;
-	int8_t m_nRadioStationState;
-	Bool m_bStereoActive;
-	int8_t field_EB;
-	int32_t field_EC;
-	int8_t field_F0;
-	int8_t field_F1;
-	int8_t field_F2;
-	int8_t field_F3[5];
-	int8_t field_F8;
-	int8_t field_F9[15];
-	int8_t field_108;
-	int8_t field_109[3];
-	int32_t field_10C[143];
-	int8_t field_348[32];
-	int32_t field_368;
-	int8_t field_36C;
-	int8_t field_36D[3];
+    char field_0;
+    char field_1;
+    char field_2;
+    char field_3;
+    char field_4;
+    char field_5;
+    char field_6;
+    bool          m_bRadioAutoSelect;
+    char field_8[14];
+    unsigned char m_nMonthDay;
+    unsigned char m_nClockHours;
+    int           m_anPlayerStats[14];
+    int field_50;
+    unsigned int  m_nTimeToDisplayRadioName;
+    int field_58;
+    int field_5C;
+    int field_60;
+    int field_64;
+    int field_68;
+    int           m_nStationsListed;
+    int           m_nStationsListDown;
+    int field_74;
+    int field_78;
+    int field_7C;
+    int field_80;
+    int field_84;
+    char field_88;
+    char field_89[19];
+    int field_9C;
+    int field_A0;
+    int field_A4;
+    int field_A8;
+    char field_AC;
+    char          m_nCurrentRadioStation;
+    char field_AE;
+    char field_AF[10];
+    char field_B9;
+    char field_BA;
+    char field_BB[5];
+    char field_C0;
+    char field_C1;
+    char field_C2[2];
+    char field_C4;
+    char field_C5[25];
+    char field_DE[10];
+    char field_E8;
+    char          m_nRadioStationState;
+    bool          m_bStereoActive;
+    char field_EB;
+    int field_EC;
+    char field_F0;
+    char field_F1;
+    char field_F2;
+    char field_F3[5];
+    char field_F8;
+    char field_F9[15];
+    char field_108;
+    char field_109[3];
+    int field_10C[143];
+    char field_348[32];
+    int field_368;
+    char field_36C;
+    char field_36D[3];
 
-	Bool IsVehicleRadioActive();
-	char *GetRadioStationName(signed char id);
+    bool IsVehicleRadioActive();
+    char *GetRadioStationName(signed char id);
 
-	// 11 structures
-	static tMusicTrackHistory *m_nMusicTrackIndexHistory;
+    // 11 structures
+    static tMusicTrackHistory *m_nMusicTrackIndexHistory;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAERadioTrackManager, 0x370);

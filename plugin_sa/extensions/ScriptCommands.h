@@ -118,7 +118,7 @@ static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
 
 template<typename... ArgTypes>
 static bool CallCommandById(plugin::Commands commandId, ArgTypes... arguments) {
-    return CallCommandById(static_cast<unsigned int>(CommandId) - 0x10000, arguments...);
+    return CallCommandById(static_cast<unsigned int>(commandId) - 0x10000, arguments...);
 }
 
 };

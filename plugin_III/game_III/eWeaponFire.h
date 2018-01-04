@@ -1,12 +1,14 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eWeaponFire : unsigned __int32 {
+#include "plbase\PluginBase_III.h"
+
+enum PLUGIN_API eWeaponFire : unsigned int {
     WEAPON_FIRE_MELEE,
     WEAPON_FIRE_INSTANT_HIT,
     WEAPON_FIRE_PROJECTILE,

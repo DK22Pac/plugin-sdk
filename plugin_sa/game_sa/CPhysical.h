@@ -14,13 +14,12 @@
 #include "CRepeatSector.h"
 #include "eWeaponType.h"
 
-#pragma pack(push, 4)
 class CPhysical : public CEntity {
 protected:
     CPhysical(plugin::dummy_func_t) : CEntity(plugin::dummy) {}
 public:
     int field_38;
-    unsigned int m_dwLastCollisionTime;
+    unsigned int m_nLastCollisionTime;
     struct {
         unsigned int b01 : 1;
         unsigned int bApplyGravity : 1;
@@ -73,18 +72,18 @@ public:
     CVector          m_vecCentreOfMass;
     void            *m_pCollisionList;
     void            *m_pMovingList;
-    __int8 field_B8;
-    unsigned __int8  m_nNumEntitiesCollided;
-    unsigned __int8  m_nContactSurface;
-    __int8 field_BB;
+    char field_B8;
+    unsigned char    m_nNumEntitiesCollided;
+    unsigned char    m_nContactSurface;
+    char field_BB;
     CEntity         *m_apCollidedEntities[6];
     float            m_fMovingSpeed; // ref @ CTheScripts::IsVehicleStopped
     float            m_fDamageIntensity;
     CEntity         *m_pDamageEntity;
     CVector          m_vecLastCollisionImpactVelocity;
     CVector          m_vecLastCollisionPosn;
-    unsigned __int16 m_wPieceType;
-    __int16 field_FA;
+    unsigned short   m_nPieceType;
+    short field_FA;
     class CPhysical *m_pAttachedTo;
     CVector          m_vecAttachOffset;
     CVector          m_vecAttachedEntityPosn;
@@ -147,8 +146,6 @@ public:
     void AttachEntityToEntity(CEntity* entity, CVector* , RtQuat* rotation);
     bool CheckCollision();
     bool CheckCollision_SimpleCar();
-
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPhysical, 0x138);

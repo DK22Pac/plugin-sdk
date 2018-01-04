@@ -18,12 +18,12 @@ void CEntryExitManager::Shutdown(void) {
 
 // US-1.00 @ 0x005D5860
 // EU-1.00 @ 0x005D5860
-Bool CEntryExitManager::Save(void) {
-	return plugin::CallAndReturn<Bool, 0x005D5860>();
+bool CEntryExitManager::Save(void) {
+	return plugin::CallAndReturn<bool, 0x005D5860>();
 }
 
 // US-1.00 @ 0x005D55C0
 // EU-1.00 @ 0x005D55C0
-Bool CEntryExitManager::Load(void) {
-	return plugin::CallAndReturn<Bool, 0x005D55C0>();
+bool CEntryExitManager::Load(void) {
+	return plugin::CallAndReturn<bool, 0x005D55C0>();
 }

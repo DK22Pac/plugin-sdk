@@ -163,31 +163,31 @@ public:
     /////// USED HEAVILY IN COMMANDS //////
 
     // Reads array offset and value from array index variable.
-    void ReadArrayInformation(__int16 *pOffset, __int32 *pIdx);
+    void ReadArrayInformation(short *pOffset, int *pIdx);
 
     // Returns offset of global variable
-    __int16 GetIndexOfGlobalVariable();
+    short GetIndexOfGlobalVariable();
 
     // Returns pointer to script variable of any type.
-    tScriptVarValue* GetPointerToScriptVariable(unsigned __int8 variableType);
+    tScriptVarValue* GetPointerToScriptVariable(unsigned char variableType);
 
     // Collects parameters
-    void CollectParameters(__int16 count);
+    void CollectParameters(short count);
 
     // Collects parameter and returns it.
     tScriptVarValue CollectNextParameterWithoutIncreasingPC();
 
     // Collects string parameter
-    void ReadTextLabelFromScript(char *pBuffer, unsigned __int8 nBufferLength);
+    void ReadTextLabelFromScript(char *pBuffer, unsigned char nBufferLength);
 
     // Stores parameters
-    void StoreParameters(__int16 count);
+    void StoreParameters(short count);
 
     // Collects parameters and puts them to local variables of new script
     void ReadParametersForNewlyStartedScript(CRunningScript* pNewScript);
 
     // Sets instruction pointer, used in GOTO-like commands
-    void UpdatePC(__int32 newIP);
+    void UpdatePC(int newIP);
 
     // Updates comparement flag, used in conditional commands
     void UpdateCompareFlag(bool state);
@@ -201,7 +201,7 @@ public:
     bool GetConditionResult();
 
     // Returns pointer to local variable pointed by offset and array index as well as multiplier.
-    void GetPointerToLocalArrayElement(__int16 off, __int16 idx, unsigned __int8 mul);
+    void GetPointerToLocalArrayElement(short off, short idx, unsigned char mul);
 
     // Adds script to list
     void AddScriptToList(CRunningScript ** list);

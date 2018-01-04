@@ -24,15 +24,15 @@ public:
 	float fStandProximity;
 	void* pObject;
 	void* pExtraObject;
-	UInt32 dwPickupQuantity;
-	Int32 nTimer;
-	UInt16 wMoneySpeed;
-	Int16 nModelId;
-	UInt16 wUniqueId;
+	unsigned int dwPickupQuantity;
+	int nTimer;
+	unsigned short wMoneySpeed;
+	short nModelId;
+	unsigned short wUniqueId;
 	char szPickupTextKey[8];
-	UInt8 bPickupType;
-	Bool bRemoved;
-	Bool bEffects;
+	unsigned char bPickupType;
+	bool bRemoved;
+	bool bEffects;
 	char _pad0[3];
 
     //funcs
@@ -51,8 +51,8 @@ struct tPickupMessage
 	float fW;
 	float fH;
 	CRGBA Color;
-	UInt8 Flags;
-	UInt8 nTextID;
+	unsigned char Flags;
+	unsigned char nTextID;
 	char _pad0[2];
 };
 
@@ -66,7 +66,7 @@ public:
 	static int& StaticCamStartTime;		// int CPickups::StaticCamStartTime
 	static CVector& StaticCamCoors;		// CVector CPickups::StaticCamCoors
 	static CVehicle*& pPlayerVehicle;		// CVehicle* CPickups::pPlayerVehicle
-	static Bool& bPickUpcamActivated;		// Bool CPickups::bPickUpcamActivated
+	static bool& bPickUpcamActivated;		// Bool CPickups::bPickUpcamActivated
 	static short& CollectedPickUpIndex;		// short CPickups::CollectedPickUpIndex
 	static int (&aPickUpsCollected)[20];		// int CPickups::aPickUpsCollected[20]
 	static short& NumMessages;		// short CPickups::NumMessages

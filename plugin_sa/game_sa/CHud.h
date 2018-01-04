@@ -32,7 +32,7 @@ public:
     static bool &bScriptForceDisplayWithCounters;
     static bool &bScriptDontDisplayRadar;
     static int &m_LastBreathTime;
-    static Bool &bDrawClock;
+    static bool &bDrawClock;
     static int &m_WeaponState;
     static int &m_WeaponFadeTimer;
     static int &m_WeaponTimer;

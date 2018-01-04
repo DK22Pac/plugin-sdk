@@ -8,16 +8,16 @@
 #include "plbase/PluginBase_SA.h"
 #include "CVector.h"
 
-class CBulletTrace {
+class PLUGIN_API CBulletTrace {
 public:
     CVector       m_vecStart;
     CVector       m_vecEnd;
-    Bool          m_bExists;
+    bool          m_bExists;
 private:
     char _pad19[3];
 public:
-    int           m_dwCreationTime;
-    unsigned int  m_dwLifeTime;
+    int           m_nCreationTime;
+    unsigned int  m_nLifeTime;
     float         m_fRadius;
     unsigned char m_nTransparency;
 private:

@@ -16,6 +16,6 @@ public:
 	static void Init(void);
 	static void Shutdown(void);
 
-	static Bool Save(void);
-	static Bool Load(void);
+	static bool Save(void);
+	static bool Load(void);
 };
