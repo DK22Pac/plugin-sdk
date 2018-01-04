@@ -1,6 +1,34 @@
 vtable 0 //VC
 end
 funcs
+cdecl void CRestart::LoadAllRestartPoints(uchar *bufferPointer, uint structSize)       0x4421D0
+cdecl void CRestart::SaveAllRestartPoints(uchar *bufferPointer, uint *structSize)      0x4425B0
+cdecl void CRestart::CancelOverrideRestart(void)                                       0x4429D0
+cdecl void CRestart::OverrideNextRestart(CVector const& point, float angle)            0x4429E0
+cdecl void CRestart::FindClosestPoliceRestartPoint(CVector const& point, CVector* storedPoint, float *storedAngle)   0x442A10
+cdecl void CRestart::FindClosestHospitalRestartPoint(CVector const& point, CVector* storedPoint, float *storedAngle) 0x442CD0
+cdecl void CRestart::AddPoliceRestartPoint(CVector const& point, float angle)          0x442FC0
+cdecl void CRestart::AddHospitalRestartPoint(CVector const& point, float angle)        0x443010
+cdecl void CRestart::Initialise(void)                                                  0x443060
+end
+
+vtable 0 //GTA3
+end
+funcs
+cdecl void CRestart::Initialise(void)                                                  0x435E20
+cdecl void CRestart::AddHospitalRestartPoint(CVector const& point, float angle)        0x436100
+cdecl void CRestart::AddPoliceRestartPoint(CVector const& point, float angle)          0x436150
+cdecl void CRestart::FindClosestHospitalRestartPoint(CVector const& point, CVector* storedPoint, float *storedAngle) 0x4361A0
+cdecl void CRestart::FindClosestPoliceRestartPoint(CVector const& point, CVector* storedPoint, float *storedAngle)   0x436450
+cdecl void CRestart::OverrideNextRestart(CVector const& point, float angle)            0x4366C0
+cdecl void CRestart::CancelOverrideRestart(void)                                       0x4366F0
+cdecl void CRestart::SaveAllRestartPoints(uchar *bufferPointer, uint *structSize)      0x436700
+cdecl void CRestart::LoadAllRestartPoints(uchar *bufferPointer, uint structSize)       0x436B20
+end
+
+vtable 0 //VC
+end
+funcs
 cdecl bool CSceneEdit::SelectWeapon(void)   0x6032E0
 cdecl bool CSceneEdit::SelectVehicle(void)  0x603520
 cdecl bool CSceneEdit::SelectActor2(void)   0x603700
