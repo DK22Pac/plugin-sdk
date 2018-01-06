@@ -11,8 +11,8 @@
 
 class CBox {
 public:
-    CVector m_vecSup;
-    CVector m_vecInf;
+    CVector m_vecMin;
+    CVector m_vecMax;
 };
 
 VALIDATE_SIZE(CBox, 0x18);

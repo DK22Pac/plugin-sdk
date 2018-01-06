@@ -6,9 +6,9 @@
 */
 #include "CBox.h"
 
-void CBox::Set(CVector  const& sup, CVector  const& inf)
+void CBox::Set(CVector  const& vecMin, CVector  const& vecMax)
 {
-	((void (__thiscall *)(CBox *, CVector  const&, CVector  const&))0x40EDE0)(this, sup, inf);
+	((void (__thiscall *)(CBox *, CVector  const&, CVector  const&))0x40EDE0)(this, vecMin, vecMax);
 }
 
 void CBox::Recalc()

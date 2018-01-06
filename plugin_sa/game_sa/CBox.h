@@ -11,10 +11,10 @@
 
 class CBox {
 public:
-	CVector m_vecSup;
-	CVector m_vecInf;
+	CVector m_vecMin;
+	CVector m_vecMax;
 
-	void Set(CVector  const& sup, CVector  const& inf);
+	void Set(CVector  const& vecMin, CVector  const& vecMax);
 	// updates box corners, like (if left>right then swap(left, right))
 	void Recalc();
 };

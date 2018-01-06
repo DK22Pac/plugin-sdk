@@ -11,10 +11,10 @@ Do not delete this comment block. Respect others' work!
 
 class CBox {
 public:
-    CVector m_vecSup;
-    CVector m_vecInf;
+    CVector m_vecMin;
+    CVector m_vecMax;
 
-    static void Set(CVector const& sup, CVector const& inf);
+    static void Set(CVector const& vecMin, CVector const& vecMax);
 };
 
 VALIDATE_SIZE(CBox, 0x18);
