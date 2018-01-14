@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CStreaming.h"
 
@@ -34,6 +34,7 @@ CStreamingInfo *CStreaming::ms_startLoadedList = (CStreamingInfo *)0x942F60;
 CStreamingInfo *CStreaming::ms_startRequestedList = (CStreamingInfo *)0x8F1B3C;
 
 void *CStreaming::ms_pStreamingBuffer = (void *)0x87F818;
+CDirectory *CStreaming::ms_pExtraObjectsDir = (CDirectory *)0x95CB90;
 
 // Converted from cdecl void CStreaming::RequestModel(int modelIndex, int flags) 0x407EA0
 void CStreaming::RequestModel(int modelIndex, int flags) {
@@ -70,9 +71,9 @@ bool CStreaming::IsTxdUsedByRequestedModels(int index) {
     return plugin::CallAndReturn<bool, 0x4094C0, int>(index);
 }
 
-// Converted from cdecl void CStreaming::LoadAllRequestedModels(bool fileExists) 0x40A440
-void CStreaming::LoadAllRequestedModels(bool fileExists) {
-    plugin::Call<0x40A440, bool>(fileExists);
+// Converted from cdecl void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests) 0x40A440
+void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests) {
+    plugin::Call<0x40A440, bool>(onlyQuickRequests);
 }
 
 // Converted from cdecl void CStreaming::RemoveModel(int modelIndex) 0x408830

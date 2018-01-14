@@ -1,3 +1,86 @@
+vtable 0 //GTA3 
+end
+funcs
+cdecl void CGarages::ActivateGarage(short index)                                                   0x426C60
+//return CGarages::NumGarages++
+cdecl int CGarages::AddOne(CVector pointFront, CVector pointBack, uchar type, uint vehicleModelIndex) 0x421FA0
+//return CGarages::bCamShouldBeOutside
+cdecl bool CGarages::CameraShouldBeOutside(void)                                                   0x427BC0
+cdecl void CGarages::ChangeGarageType(short index, uchar type, uint vehicleModelIndex)             0x4222A0
+cdecl void CGarages::CloseHideOutGaragesBeforeSave(void)                                           0x428130
+cdecl int CGarages::CountCarsInHideoutGarage(uchar type)                                           0x4281E0
+cdecl void CGarages::DeActivateGarage(short index)                                                 0x426C40
+cdecl float CGarages::FindDoorHeightForMI(uint vehicleModelIndex)                                  0x427C10
+cdecl int CGarages::FindMaxNumStoredCarsForGarage(uchar type)                                      0x428230
+cdecl void CGarages::GivePlayerDetonator(void)                                                     0x427BD0
+cdecl bool CGarages::HasCarBeenCrushed(int vehicleModelIndex)                                      0x4275A0
+cdecl bool CGarages::HasCarBeenDroppedOffYet(short index)                                          0x426C20
+cdecl bool CGarages::HasImportExportGarageCollectedThisCar(short index, int vehicleModelIndex)     0x426CB0
+cdecl bool CGarages::HasResprayHappened(short index)                                               0x4274F0
+cdecl bool CGarages::HasThisCarBeenCollected(short index, int vehicleModelIndex)                   0x426D50
+cdecl void CGarages::Init(void)                                                                    0x421C60
+cdecl bool CGarages::IsCarSprayable(CAutomobile *car)                                              0x426700
+cdecl bool CGarages::IsGarageClosed(short index)                                                   0x426D20
+cdecl bool CGarages::IsGarageOpen(short index)                                                     0x426CF0
+cdecl bool CGarages::IsModelIndexADoor(uint modelIndexDoor)                                        0x428D90
+cdecl bool CGarages::IsPointInAGarageCameraZone(CVector point)                                     0x427AB0
+cdecl bool CGarages::IsPointWithinAnyGarage(CVector &point)                                        0x428320
+cdecl bool CGarages::IsPointWithinHideOutGarage(CVector &point)                                    0x428260
+cdecl bool CGarages::IsThisCarWithinGarageArea(short index, CEntity *entity)                       0x427570
+cdecl void CGarages::Load(uchar *bufferPointer, uint structSize)                                   0x428940
+cdecl void CGarages::PlayerArrestedOrDied(void)                                                    0x427F60
+cdecl void CGarages::PrintMessages(void)                                                           0x426310
+cdecl int CGarages::QueryCarsCollected(short index)                                                0x426CA0
+cdecl void CGarages::Save(uchar *bufferPointer, uint *structSize)                                  0x4284E0
+cdecl void CGarages::SetAllDoorsBackToOriginalHeight(void)                                         0x4283D0
+cdecl void CGarages::SetGarageDoorToRotate(short index)                                            0x427510
+cdecl void CGarages::SetLeaveCameraForThisGarage(short index)                                      0x427550
+cdecl void CGarages::SetTargetCarForMissionGarage(short index, CAutomobile *car)                   0x426BD0
+cdecl void CGarages::Shutdown(void)                                                                0x421E10
+cdecl void CGarages::TriggerMessage(char *text, short numberInString, ushort time, short numberInString2) 0x426B20
+cdecl void CGarages::Update(void)                                                                  0x421E40
+end
+
+vtable 0 //GTA3 
+end
+funcs
+thiscall void CGarage::BuildRotatedDoorMatrix(CEntity *door, float angle)              0x4267C0
+thiscall float CGarage::CalcDistToGarageRectangleSquared(float x, float y)             0x426F50
+thiscall float CGarage::CalcSmallestDistToGarageDoorSquared(float x, float y)          0x426FE0
+thiscall bool CGarage::CenterCarInGarage(CVehicle *vehicle)                            0x428000
+thiscall eGarageState CGarage::CloseThisGarage(void)                                   0x426F40
+thiscall int CGarage::CountCarsWithCenterPointWithinGarage(CEntity *vehicle)           0x426130
+thiscall bool CGarage::DoesCraigNeedThisCar(int modelIndex)                            0x426D90
+thiscall bool CGarage::EntityHasASphereWayOutsideGarage(CEntity *entity, float radius) 0x425B30
+thiscall void CGarage::FindDoorsEntities(void)                                         0x427060
+thiscall char CGarage::FindDoorsEntitiesSectorList(CPtrList &list, bool)               0x427300
+thiscall bool CGarage::HasCraigCollectedThisCar(int modelIndex)                        0x426DF0
+thiscall bool CGarage::IsAnyCarBlockingDoor(void)                                      0x425FB0
+thiscall bool CGarage::IsAnyOtherCarTouchingGarage(CVehicle *vehicle)                  0x425C90
+thiscall bool CGarage::IsAnyOtherPedTouchingGarage(CPed *ped)                          0x425E20
+thiscall bool CGarage::IsEntityEntirelyInside(CEntity *entity)                         0x425370
+thiscall bool CGarage::IsEntityEntirelyInside3D(CEntity *entity, float radius)         0x4254F0
+thiscall bool CGarage::IsEntityEntirelyOutside(CEntity *entity, float radius)          0x425740
+thiscall bool CGarage::IsEntityTouching3D(CEntity *entity)                             0x425950
+thiscall bool CGarage::IsGarageEmpty(void)                                             0x425890
+thiscall bool CGarage::IsPlayerOutsideGarage(void)                                     0x425910
+thiscall bool CGarage::IsStaticPlayerCarEntirelyInside(void)                           0x4251C0
+thiscall void CGarage::Load(uchar *bufferPointer, uint structSize)                     0x4288E0
+thiscall bool CGarage::MarkThisCarAsCollectedForCraig(int modelIndex)                  0x426E50
+thiscall eGarageState CGarage::OpenThisGarage(void)                                    0x426F20
+thiscall void CGarage::PlayerArrestedOrDied(void)                                      0x427FC0
+thiscall void CGarage::RefreshDoorPointers(bool)                                       0x426980
+thiscall void CGarage::RemoveCarsBlockingDoorNotInside(void)                           0x4261F0
+thiscall bool CGarage::RestoreCarsForThisHideOut(CStoredCar *car)                      0x427A40
+thiscall void CGarage::StoreAndRemoveCarsForThisHideOut(CStoredCar *car, int count)    0x427840
+thiscall void CGarage::TidyUpGarage(void)                                              0x427C30
+thiscall void CGarage::TidyUpGarageClose(void)                                         0x427D90
+thiscall void CGarage::Update(void)                                                    0x4222D0
+thiscall void CGarage::UpdateCrusherAngle(void)                                        0x4268A0
+thiscall void CGarage::UpdateCrusherShake(float x, float y)                            0x4268E0
+thiscall void CGarage::UpdateDoorsHeight(void)                                         0x426730
+end
+
 vtable 0 //VC
 end
 funcs
@@ -246,7 +329,7 @@ cdecl void CStreaming::FlushChannels(void)                                      
 cdecl void CStreaming::FlushRequestList(void)                                                   0x40A680
 cdecl int CStreaming::GetAvailableVehicleSlot(void)                                             0x40B160
 cdecl bool CStreaming::IsTxdUsedByRequestedModels(int index)                                    0x4094C0
-cdecl void CStreaming::LoadAllRequestedModels(bool fileExists)                                  0x40A440
+cdecl void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests)                           0x40A440
 cdecl void CStreaming::RemoveModel(int modelIndex)                                              0x408830
 cdecl bool CStreaming::RemoveLeastUsedModel(void)                                               0x4089B0
 cdecl bool CStreaming::RemoveLoadedVehicle(void)                                                0x40B180

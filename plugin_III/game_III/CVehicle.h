@@ -14,8 +14,7 @@ Do not delete this comment block. Respect others' work!
 #include "CStoredCollPoly.h"
 #include "tHandlingData.h"
 #include "CAutoPilot.h"
-
-class CPlayerPed;
+#include "CFire.h"
 
 enum eCarWeapon {
 
@@ -94,7 +93,7 @@ public:
     unsigned char           m_nNumMaxPassengers;
     char field_1CD[19];
     CEntity                *m_pRoad;
-    void                   *m_pCarFire;          // CFire *
+    CFire                  *m_pCarFire;          
     float                   m_fSteerAngle;
     float                   m_fGasPedal;
     float                   m_fBreakPedal;
