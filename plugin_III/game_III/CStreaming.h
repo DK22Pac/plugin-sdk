@@ -1,17 +1,17 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-#include "plbase/PluginBase_III.h"
+#include "plbase\PluginBase_III.h"
 #include "CStreamingInfo.h"
+#include "CDirectory.h"
 
 class CStreaming {
 public:
-    
     // variables
     static unsigned int &ms_streamingBufferSize;
     static unsigned int &ms_numPriorityRequests;
@@ -43,7 +43,7 @@ public:
     static CStreamingInfo *ms_aInfoForModel;
 
     static void *ms_pStreamingBuffer;
-    //static void *ms_pExtraObjectsDir; ???  0x95CB90  CStreaming::ms_pExtraObjectsDir  
+    static CDirectory *ms_pExtraObjectsDir;     
 
     // functions
     static void RequestModel(int modelIndex, int flags);
@@ -53,7 +53,7 @@ public:
     static void FlushRequestList();
     static int GetAvailableVehicleSlot();
     static bool IsTxdUsedByRequestedModels(int index);
-    static void LoadAllRequestedModels(bool fileExists);
+    static void LoadAllRequestedModels(bool onlyQuickRequests);
     static void RemoveModel(int modelIndex);
     static bool RemoveLeastUsedModel();
     static bool RemoveLoadedVehicle();
