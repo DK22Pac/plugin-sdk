@@ -7,5 +7,5 @@
 #include "CSprite.h"
 
 bool CSprite::CalcScreenCoors(RwV3d const& posn, RwV3d *out, float *w, float *h, bool checkMaxVisible) {
-    plugin::CallAndReturn<bool, 0x5778B0>(posn, out, w, h, checkMaxVisible);
+    plugin::CallAndReturn<bool, 0x5778B0, RwV3d const&, RwV3d *, float *, float *, bool>(posn, out, w, h, checkMaxVisible);
 }
