@@ -1,12 +1,8 @@
 #pragma once
 
-#include <Windows.h>
 #ifdef _DX9_SDK_INSTALLED
+#include <Windows.h>
 #include "d3dx9.h"
-#endif
-
-#ifdef __D3DX9_H__
-
 #include <stdio.h>
 #include <vector>
 #include <fstream>
@@ -80,6 +76,7 @@ namespace plugin {
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
                 GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
+                delete[] newData;
             }
             else
                 GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
@@ -94,6 +91,7 @@ namespace plugin {
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
                 GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
+                delete[] newData;
             }
             else
                 GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);

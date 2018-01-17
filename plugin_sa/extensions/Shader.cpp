@@ -1,7 +1,7 @@
 #include "Shader.h"
 #include "plugin.h"
 
-#ifdef __D3DX9_H__
+#ifdef _DX9_SDK_INSTALLED
 
 #define PLUGIN_SDK_SHADER_MODULE_VERSION 0x00000001
 

@@ -344,6 +344,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
             target.AddLibDir(rwD3D9Dir + _T("libs\\"));
             target.AddLinkLib(_T("rwd3d9"));
         }
+        target.AddCompilerOption(_T("-D_DX9_SDK_INSTALLED"));
     }
     if (gPluginType == 1) { // CLEO Plugin
         local cleoSdkDirPath = _T("");
