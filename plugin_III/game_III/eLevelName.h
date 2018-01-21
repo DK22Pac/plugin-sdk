@@ -6,8 +6,8 @@
 */
 #pragma once
 
-enum eLevelName {
-	PORTLAND,
-    STAUNTON_ISLAND,
-    SHORESIDE_VALE
+enum eLevelName : unsigned int {
+    PORTLAND = 1,
+    STAUNTON_ISLAND = 2,
+    SHORESIDE_VALE = 3
 };

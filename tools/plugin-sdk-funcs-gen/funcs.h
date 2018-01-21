@@ -350,6 +350,48 @@ cdecl void CStreaming::StreamVehiclesAndPeds(void)                              
 cdecl void CStreaming::Update(void)                                                             0x4076C0
 // empty function
 cdecl void CStreaming::UpdateMemoryUsed(void)                                                   0x4076B0
+cdecl void CStreaming::AddModelsToRequestList(CVector const& point)                 0x4078F0
+cdecl void CStreaming::AddToLoadedVehiclesList(int vehicleId)                       0x40B060
+cdecl bool CStreaming::ConvertBufferToObject(char *pFileContect, int modelIndex)    0x409740
+cdecl void CStreaming::DeleteAllRwObjects(void)                                     0x407390
+cdecl void CStreaming::DeleteFarAwayRwObjects(CVector const& point)                 0x407070
+cdecl void CStreaming::DeleteRwObjectsAfterDeath(CVector const& point)              0x407400
+cdecl void CStreaming::DeleteRwObjectsBehindCamera(int size)                        0x408A60
+cdecl bool CStreaming::DeleteRwObjectsBehindCameraInSectorList(CPtrList &list, int size) 0x409340
+cdecl void CStreaming::DeleteRwObjectsInOverlapSectorList(CPtrList &list, int, int) 0x4075A0
+cdecl void CStreaming::DeleteRwObjectsInSectorList(CPtrList &list)                  0x407560
+cdecl bool CStreaming::DeleteRwObjectsNotInFrustumInSectorList(CPtrList &list, int size) 0x4093C0
+cdecl bool CStreaming::FinishLoadingLargeFile(char *FileName, int modelIndex)       0x409580
+cdecl uint CStreaming::GetCdImageOffset(int)                                        0x409FF0
+cdecl int CStreaming::GetNextFileOnCd(int, bool)                                    0x409E50
+cdecl bool CStreaming::HasSpecialCharLoaded(int modelIndex)                         0x40ADC0
+cdecl void CStreaming::HaveAllBigBuildingsLoaded(eLevelName levelName)              0x408280
+cdecl void CStreaming::IHaveUsedStreamingMemory(void)                               0x409BD0
+// empty function
+cdecl void CStreaming::ImGonnaUseStreamingMemory(void)                              0x409BC0
+cdecl bool CStreaming::IsObjectInCdImage(int)                                       0x407E70
+cdecl void CStreaming::LoadCdDirectory(char const* archivename, int archiveID)      0x406DA0
+cdecl void CStreaming::LoadCdDirectory(void)                                        0x406CC0
+cdecl void CStreaming::LoadInitialPeds(void)                                        0x40AA00
+cdecl void CStreaming::LoadInitialVehicles(void)                                    0x40ADF0
+cdecl void CStreaming::LoadScene(CVector const& point)                              0x40A6D0
+cdecl void CStreaming::MakeSpaceFor(int size)                                       0x409B70
+cdecl void CStreaming::MemoryCardLoad(uchar *, uint)                                0x40B250
+cdecl void CStreaming::MemoryCardSave(uchar *, uint *)                              0x40B210
+cdecl void CStreaming::ProcessEntitiesInSectorList(CPtrList &list)                  0x407DD0
+cdecl void CStreaming::ProcessEntitiesInSectorList(CPtrList &list, float x1, float y1, float z1, float x2, float y2, float z2) 0x407C50
+cdecl bool CStreaming::ProcessLoadingChannel(int channelindex)                      0x409BE0
+cdecl void CStreaming::RemoveBigBuildings(eLevelName levelName)                     0x408680
+cdecl void CStreaming::RemoveBuildings(eLevelName levelName)                        0x4083D0
+cdecl void CStreaming::RemoveIslandsNotUsed(eLevelName levelName)                   0x408780
+cdecl bool CStreaming::RemoveReferencedTxds(int)                                    0x409450
+cdecl void CStreaming::RemoveUnusedBigBuildings(eLevelName levelName)               0x408640
+cdecl void CStreaming::RemoveUnusedBuildings(eLevelName levelName)                  0x4083A0
+cdecl void CStreaming::RequestBigBuildings(eLevelName levelName)                    0x408190
+cdecl void CStreaming::RequestIslands(eLevelName levelName)                         0x408210
+cdecl void CStreaming::RetryLoadFile(int streamnum)                                 0x4077F0
+cdecl void CStreaming::StreamZoneModels(CVector const& point)                       0x40AA30
+cdecl void DeleteIsland(CEntity *entity)                                            0x408740
 end
 
 vtable 0 //GTA III

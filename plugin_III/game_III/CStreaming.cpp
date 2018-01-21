@@ -165,3 +165,208 @@ void CStreaming::Update() {
 void CStreaming::UpdateMemoryUsed() {
     plugin::Call<0x4076B0>();
 }
+
+// Converted from cdecl void CStreaming::AddModelsToRequestList(CVector const& point) 0x4078F0
+void CStreaming::AddModelsToRequestList(CVector const& point) {
+    plugin::Call<0x4078F0, CVector const&>(point);
+}
+
+// Converted from cdecl void CStreaming::AddToLoadedVehiclesList(int vehicleId) 0x40B060
+void CStreaming::AddToLoadedVehiclesList(int vehicleId) {
+    plugin::Call<0x40B060, int>(vehicleId);
+}
+
+// Converted from cdecl bool CStreaming::ConvertBufferToObject(char *pFileContect, int modelIndex) 0x409740
+bool CStreaming::ConvertBufferToObject(char* pFileContect, int modelIndex) {
+    return plugin::CallAndReturn<bool, 0x409740, char*, int>(pFileContect, modelIndex);
+}
+
+// Converted from cdecl void CStreaming::DeleteAllRwObjects(void) 0x407390
+void CStreaming::DeleteAllRwObjects() {
+    plugin::Call<0x407390>();
+}
+
+// Converted from cdecl void CStreaming::DeleteFarAwayRwObjects(CVector const& point) 0x407070
+void CStreaming::DeleteFarAwayRwObjects(CVector const& point) {
+    plugin::Call<0x407070, CVector const&>(point);
+}
+
+// Converted from cdecl void CStreaming::DeleteRwObjectsAfterDeath(CVector const& point) 0x407400
+void CStreaming::DeleteRwObjectsAfterDeath(CVector const& point) {
+    plugin::Call<0x407400, CVector const&>(point);
+}
+
+// Converted from cdecl void CStreaming::DeleteRwObjectsBehindCamera(int size) 0x408A60
+void CStreaming::DeleteRwObjectsBehindCamera(int size) {
+    plugin::Call<0x408A60, int>(size);
+}
+
+// Converted from cdecl bool CStreaming::DeleteRwObjectsBehindCameraInSectorList(CPtrList &list, int size) 0x409340
+bool CStreaming::DeleteRwObjectsBehindCameraInSectorList(CPtrList& list, int size) {
+    return plugin::CallAndReturn<bool, 0x409340, CPtrList&, int>(list, size);
+}
+
+// Converted from cdecl void CStreaming::DeleteRwObjectsInOverlapSectorList(CPtrList &list, int, int) 0x4075A0
+void CStreaming::DeleteRwObjectsInOverlapSectorList(CPtrList& list, int arg1, int arg2) {
+    plugin::Call<0x4075A0, CPtrList&, int, int>(list, arg1, arg2);
+}
+
+// Converted from cdecl void CStreaming::DeleteRwObjectsInSectorList(CPtrList &list) 0x407560
+void CStreaming::DeleteRwObjectsInSectorList(CPtrList& list) {
+    plugin::Call<0x407560, CPtrList&>(list);
+}
+
+// Converted from cdecl bool CStreaming::DeleteRwObjectsNotInFrustumInSectorList(CPtrList &list, int size) 0x4093C0
+bool CStreaming::DeleteRwObjectsNotInFrustumInSectorList(CPtrList& list, int size) {
+    return plugin::CallAndReturn<bool, 0x4093C0, CPtrList&, int>(list, size);
+}
+
+// Converted from cdecl bool CStreaming::FinishLoadingLargeFile(char *FileName, int modelIndex) 0x409580
+bool CStreaming::FinishLoadingLargeFile(char* FileName, int modelIndex) {
+    return plugin::CallAndReturn<bool, 0x409580, char*, int>(FileName, modelIndex);
+}
+
+// Converted from cdecl uint CStreaming::GetCdImageOffset(int) 0x409FF0
+unsigned int CStreaming::GetCdImageOffset(int arg0) {
+    return plugin::CallAndReturn<unsigned int, 0x409FF0, int>(arg0);
+}
+
+// Converted from cdecl int CStreaming::GetNextFileOnCd(int, bool) 0x409E50
+int CStreaming::GetNextFileOnCd(int arg0, bool arg1) {
+    return plugin::CallAndReturn<int, 0x409E50, int, bool>(arg0, arg1);
+}
+
+// Converted from cdecl bool CStreaming::HasSpecialCharLoaded(int modelIndex) 0x40ADC0
+bool CStreaming::HasSpecialCharLoaded(int modelIndex) {
+    return plugin::CallAndReturn<bool, 0x40ADC0, int>(modelIndex);
+}
+
+// Converted from cdecl void CStreaming::HaveAllBigBuildingsLoaded(eLevelName levelName) 0x408280
+void CStreaming::HaveAllBigBuildingsLoaded(eLevelName levelName) {
+    plugin::Call<0x408280, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::IHaveUsedStreamingMemory(void) 0x409BD0
+void CStreaming::IHaveUsedStreamingMemory() {
+    plugin::Call<0x409BD0>();
+}
+
+// Converted from cdecl void CStreaming::ImGonnaUseStreamingMemory(void) 0x409BC0
+void CStreaming::ImGonnaUseStreamingMemory() {
+    plugin::Call<0x409BC0>();
+}
+
+// Converted from cdecl bool CStreaming::IsObjectInCdImage(int) 0x407E70
+bool CStreaming::IsObjectInCdImage(int arg0) {
+    return plugin::CallAndReturn<bool, 0x407E70, int>(arg0);
+}
+
+// Converted from cdecl void CStreaming::LoadCdDirectory(char const* archivename, int archiveID) 0x406DA0
+void CStreaming::LoadCdDirectory(char const* archivename, int archiveID) {
+    plugin::Call<0x406DA0, char const*, int>(archivename, archiveID);
+}
+
+// Converted from cdecl void CStreaming::LoadCdDirectory(void) 0x406CC0
+void CStreaming::LoadCdDirectory() {
+    plugin::Call<0x406CC0>();
+}
+
+// Converted from cdecl void CStreaming::LoadInitialPeds(void) 0x40AA00
+void CStreaming::LoadInitialPeds() {
+    plugin::Call<0x40AA00>();
+}
+
+// Converted from cdecl void CStreaming::LoadInitialVehicles(void) 0x40ADF0
+void CStreaming::LoadInitialVehicles() {
+    plugin::Call<0x40ADF0>();
+}
+
+// Converted from cdecl void CStreaming::LoadScene(CVector const& point) 0x40A6D0
+void CStreaming::LoadScene(CVector const& point) {
+    plugin::Call<0x40A6D0, CVector const&>(point);
+}
+
+// Converted from cdecl void CStreaming::MakeSpaceFor(int size) 0x409B70
+void CStreaming::MakeSpaceFor(int size) {
+    plugin::Call<0x409B70, int>(size);
+}
+
+// Converted from cdecl void CStreaming::MemoryCardLoad(uchar *, uint) 0x40B250
+void CStreaming::MemoryCardLoad(unsigned char* arg0, unsigned int arg1) {
+    plugin::Call<0x40B250, unsigned char*, unsigned int>(arg0, arg1);
+}
+
+// Converted from cdecl void CStreaming::MemoryCardSave(uchar *, uint *) 0x40B210
+void CStreaming::MemoryCardSave(unsigned char* arg0, unsigned int* arg1) {
+    plugin::Call<0x40B210, unsigned char*, unsigned int*>(arg0, arg1);
+}
+
+// Converted from cdecl void CStreaming::ProcessEntitiesInSectorList(CPtrList &list) 0x407DD0
+void CStreaming::ProcessEntitiesInSectorList(CPtrList& list) {
+    plugin::Call<0x407DD0, CPtrList&>(list);
+}
+
+// Converted from cdecl void CStreaming::ProcessEntitiesInSectorList(CPtrList &list, float x1, float y1, float z1, float x2, float y2, float z2) 0x407C50
+void CStreaming::ProcessEntitiesInSectorList(CPtrList& list, float x1, float y1, float z1, float x2, float y2, float z2) {
+    plugin::Call<0x407C50, CPtrList&, float, float, float, float, float, float>(list, x1, y1, z1, x2, y2, z2);
+}
+
+// Converted from cdecl bool CStreaming::ProcessLoadingChannel(int channelindex) 0x409BE0
+bool CStreaming::ProcessLoadingChannel(int channelindex) {
+    return plugin::CallAndReturn<bool, 0x409BE0, int>(channelindex);
+}
+
+// Converted from cdecl void CStreaming::RemoveBigBuildings(eLevelName levelName) 0x408680
+void CStreaming::RemoveBigBuildings(eLevelName levelName) {
+    plugin::Call<0x408680, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::RemoveBuildings(eLevelName levelName) 0x4083D0
+void CStreaming::RemoveBuildings(eLevelName levelName) {
+    plugin::Call<0x4083D0, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::RemoveIslandsNotUsed(eLevelName levelName) 0x408780
+void CStreaming::RemoveIslandsNotUsed(eLevelName levelName) {
+    plugin::Call<0x408780, eLevelName>(levelName);
+}
+
+// Converted from cdecl bool CStreaming::RemoveReferencedTxds(int) 0x409450
+bool CStreaming::RemoveReferencedTxds(int arg0) {
+    return plugin::CallAndReturn<bool, 0x409450, int>(arg0);
+}
+
+// Converted from cdecl void CStreaming::RemoveUnusedBigBuildings(eLevelName levelName) 0x408640
+void CStreaming::RemoveUnusedBigBuildings(eLevelName levelName) {
+    plugin::Call<0x408640, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::RemoveUnusedBuildings(eLevelName levelName) 0x4083A0
+void CStreaming::RemoveUnusedBuildings(eLevelName levelName) {
+    plugin::Call<0x4083A0, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::RequestBigBuildings(eLevelName levelName) 0x408190
+void CStreaming::RequestBigBuildings(eLevelName levelName) {
+    plugin::Call<0x408190, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::RequestIslands(eLevelName levelName) 0x408210
+void CStreaming::RequestIslands(eLevelName levelName) {
+    plugin::Call<0x408210, eLevelName>(levelName);
+}
+
+// Converted from cdecl void CStreaming::RetryLoadFile(int streamnum) 0x4077F0
+void CStreaming::RetryLoadFile(int streamnum) {
+    plugin::Call<0x4077F0, int>(streamnum);
+}
+
+// Converted from cdecl void CStreaming::StreamZoneModels(CVector const& point) 0x40AA30
+void CStreaming::StreamZoneModels(CVector const& point) {
+    plugin::Call<0x40AA30, CVector const&>(point);
+}
+
+// Converted from cdecl void DeleteIsland(CEntity *entity) 0x408740
+void DeleteIsland(CEntity* entity) {
+    plugin::Call<0x408740, CEntity*>(entity);
+}

@@ -9,6 +9,10 @@
 #include "plbase\PluginBase_III.h"
 #include "CStreamingInfo.h"
 #include "CDirectory.h"
+#include "CVector.h"
+#include "eLevelName.h"
+#include "CPtrList.h"
+#include "CEntity.h"
 
 class CStreaming {
 public:
@@ -74,5 +78,47 @@ public:
     static void Update();
     // empty function
     static void UpdateMemoryUsed();
-
+    static void AddModelsToRequestList(CVector const& point);
+    static void AddToLoadedVehiclesList(int vehicleId);
+    static bool ConvertBufferToObject(char* pFileContect, int modelIndex);
+    static void DeleteAllRwObjects();
+    static void DeleteFarAwayRwObjects(CVector const& point);
+    static void DeleteRwObjectsAfterDeath(CVector const& point);
+    static void DeleteRwObjectsBehindCamera(int size);
+    static bool DeleteRwObjectsBehindCameraInSectorList(CPtrList& list, int size);
+    static void DeleteRwObjectsInOverlapSectorList(CPtrList& list, int arg1, int arg2);
+    static void DeleteRwObjectsInSectorList(CPtrList& list);
+    static bool DeleteRwObjectsNotInFrustumInSectorList(CPtrList& list, int size);
+    static bool FinishLoadingLargeFile(char* FileName, int modelIndex);
+    static unsigned int GetCdImageOffset(int arg0);
+    static int GetNextFileOnCd(int arg0, bool arg1);
+    static bool HasSpecialCharLoaded(int modelIndex);
+    static void HaveAllBigBuildingsLoaded(eLevelName levelName);
+    static void IHaveUsedStreamingMemory();
+    // empty function
+    static void ImGonnaUseStreamingMemory();
+    static bool IsObjectInCdImage(int arg0);
+    static void LoadCdDirectory(char const* archivename, int archiveID);
+    static void LoadCdDirectory();
+    static void LoadInitialPeds();
+    static void LoadInitialVehicles();
+    static void LoadScene(CVector const& point);
+    static void MakeSpaceFor(int size);
+    static void MemoryCardLoad(unsigned char* arg0, unsigned int arg1);
+    static void MemoryCardSave(unsigned char* arg0, unsigned int* arg1);
+    static void ProcessEntitiesInSectorList(CPtrList& list);
+    static void ProcessEntitiesInSectorList(CPtrList& list, float x1, float y1, float z1, float x2, float y2, float z2);
+    static bool ProcessLoadingChannel(int channelindex);
+    static void RemoveBigBuildings(eLevelName levelName);
+    static void RemoveBuildings(eLevelName levelName);
+    static void RemoveIslandsNotUsed(eLevelName levelName);
+    static bool RemoveReferencedTxds(int arg0);
+    static void RemoveUnusedBigBuildings(eLevelName levelName);
+    static void RemoveUnusedBuildings(eLevelName levelName);
+    static void RequestBigBuildings(eLevelName levelName);
+    static void RequestIslands(eLevelName levelName);
+    static void RetryLoadFile(int streamnum);
+    static void StreamZoneModels(CVector const& point);
 };
+
+void DeleteIsland(CEntity* entity);
