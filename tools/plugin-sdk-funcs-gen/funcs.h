@@ -1,6 +1,26 @@
 vtable 0 //GTA3 
 end
 funcs
+cdecl void CCarAI::AddAmbulanceOccupants(CVehicle *vehicle)             0x415CE0
+cdecl void CCarAI::AddFiretruckOccupants(CVehicle *vehicle)             0x415D00
+cdecl void CCarAI::AddPoliceCarOccupants(CVehicle *vehicle)             0x415C60
+cdecl void CCarAI::CarHasReasonToStop(CVehicle *vehicle)                0x415B00
+cdecl char CCarAI::FindPoliceCarMissionForWantedLevel(void)             0x415E30
+cdecl float CCarAI::FindPoliceCarSpeedForWantedLevel(CVehicle *vehicle) 0x415EB0
+cdecl float CCarAI::FindSwitchDistanceClose(CVehicle *vehicle)          0x413E20
+cdecl float CCarAI::FindSwitchDistanceFar(CVehicle *vehicle)            0x413E30
+cdecl void CCarAI::GetCarToGoToCoors(CVehicle *vehicle, CVector *coors)  0x415B10
+cdecl void CCarAI::MakeWayForCarWithSiren(CVehicle *vehicle)            0x416280
+cdecl void CCarAI::MellowOutChaseSpeed(CVehicle *vehicle)               0x416050
+cdecl void CCarAI::TellCarToBlockOtherCar(CVehicle *vehicle, CVehicle *blockVehicle) 0x415DE0
+cdecl void CCarAI::TellCarToRamOtherCar(CVehicle *vehicle, CVehicle *ramVehicle)     0x415D90
+cdecl void CCarAI::TellOccupantsToLeaveCar(CVehicle *vehicle)           0x415D20
+cdecl void CCarAI::UpdateCarAI(CVehicle *vehicle)                       0x413E50
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl void CGarages::ActivateGarage(short index)                                                   0x426C60
 //return CGarages::NumGarages++
 cdecl int CGarages::AddOne(CVector pointFront, CVector pointBack, uchar type, uint vehicleModelIndex) 0x421FA0

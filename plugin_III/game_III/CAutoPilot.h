@@ -44,7 +44,7 @@ public:
     CVehicle *m_pCarToRam;
     
     //funcs
-    void ModifySpeed(float arg0);
+    void ModifySpeed(float speed);
     void RemoveOnePathNode();
 };
 
