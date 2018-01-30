@@ -3,22 +3,22 @@ end
 funcs
 cdecl void CWorld::Add(CEntity *entity)                                                                                                                                   0x4AE930
 cdecl void CWorld::AddParticles(void)                                                                                                                                     0x4B4010
-cdecl void CWorld::CallOffChaseForArea(float x1, float y1, float x2, float y2)                                                                                               0x4B5530
-cdecl void CWorld::CallOffChaseForAreaSectorListPeds(CPtrList &list, float x1, float y1, float x2, float y2, float, float, float, float)                                          0x4B5A60
-cdecl void CWorld::CallOffChaseForAreaSectorListVehicles(CPtrList &, float x1, float y1, float x2, float y2, float, float, float, float)                                          0x4B57B0
+cdecl void CWorld::CallOffChaseForArea(float x1, float y1, float x2, float y2)                                                                                            0x4B5530
+cdecl void CWorld::CallOffChaseForAreaSectorListPeds(CPtrList &list, float x1, float y1, float x2, float y2, float, float, float, float)                                  0x4B5A60
+cdecl void CWorld::CallOffChaseForAreaSectorListVehicles(CPtrList &list, float x1, float y1, float x2, float y2, float, float, float, float)                              0x4B57B0
 cdecl bool CWorld::CameraToIgnoreThisObject(CEntity *entity)                                                                                                              0x4B5C30
-cdecl void CWorld::ClearCarsFromArea(float x1, float y1, float z1, float x2, float y2, float z2)                                                                               0x4B50E0
-cdecl void CWorld::ClearExcitingStuffFromArea(CVector const&point, float radius, uchar bRemoveProjectilesAndShadows)                                                        0x4B4E70
+cdecl void CWorld::ClearCarsFromArea(float x1, float y1, float z1, float x2, float y2, float z2)                                                                          0x4B50E0
+cdecl void CWorld::ClearExcitingStuffFromArea(CVector const&point, float radius, uchar bRemoveProjectilesAndShadows)                                                      0x4B4E70
 cdecl void CWorld::ClearForRestart(void)                                                                                                                                  0x4AE850
-cdecl void CWorld::ClearPedsFromArea(float x1, float y1, float z1, float x2, float y2, float z2)                                                                               0x4B52B0
+cdecl void CWorld::ClearPedsFromArea(float x1, float y1, float z1, float x2, float y2, float z2)                                                                          0x4B52B0
 cdecl void CWorld::ClearScanCodes(void)                                                                                                                                   0x4B1F60
-cdecl void CWorld::ExtinguishAllCarFiresInArea(CVector point, float radius)                                                                                                0x4B5460
-cdecl float CWorld::FindGroundZFor3DCoord(float x, float y, float z, bool *outResult)                                                                                        0x4B3AE0
-cdecl float CWorld::FindGroundZForCoord(float x, float y)                                                                                                                  0x4B3A80
+cdecl void CWorld::ExtinguishAllCarFiresInArea(CVector point, float radius)                                                                                               0x4B5460
+cdecl float CWorld::FindGroundZFor3DCoord(float x, float y, float z, bool *outResult)                                                                                     0x4B3AE0
+cdecl float CWorld::FindGroundZForCoord(float x, float y)                                                                                                                 0x4B3A80
 cdecl void CWorld::FindMissionEntitiesIntersectingCube(CVector const&cornerA, CVector const&cornerB, short *outCount, short maxCount, CEntity **outEntities, bool vehicles, bool peds, bool objects)    0x4B3680
 cdecl void CWorld::FindMissionEntitiesIntersectingCubeSectorList(CPtrList &list, CVector const&cornerA, CVector const&cornerB, short *outCount, short maxCount, CEntity **outEntities, bool vehiclesList, bool pedsList, bool objectsList)  0x4B3920
 cdecl void CWorld::FindObjectsInRange(CVector const&point, float radius, bool b2D, short *outCount, short maxCount, CEntity **outEntities, bool buildings, bool vehicles, bool peds, bool objects, bool dummies)                    0x4B2200
-cdecl void CWorld::FindObjectsInRangeSectorList(CPtrList &list, CVector const&point, float radius, bool b2D, short *outCount, short maxCount, CEntity **outEntities)            0x4B2540
+cdecl void CWorld::FindObjectsInRangeSectorList(CPtrList &list, CVector const&point, float radius, bool b2D, short *outCount, short maxCount, CEntity **outEntities)      0x4B2540
 cdecl void CWorld::FindObjectsIntersectingAngledCollisionBox(CColBox const&box, CMatrix const&transform, CVector const&point, float x1, float y1, float x2, float y2, short *outCount, short maxCount, CEntity **outEntities, bool buildings, bool vehicles, bool peds, bool objects, bool dummies) 0x4B3280
 cdecl void CWorld::FindObjectsIntersectingAngledCollisionBoxSectorList(CPtrList &list, CColBox const&box, CMatrix const&transform, CVector const&poin, short *outCount, short maxCount, CEntity **outEntities)                  0x4B3590
 cdecl void CWorld::FindObjectsIntersectingCube(CVector const&cornerA, CVector const&cornerB, short *outCount, short maxCount, CEntity **outEntities, bool buildings, bool vehicles, bool peds, bool objects, bool dummies)         0x4B2E70
@@ -27,10 +27,10 @@ cdecl void CWorld::FindObjectsKindaColliding(CVector const&point, float radius, 
 cdecl void CWorld::FindObjectsKindaCollidingSectorList(CPtrList &list, CVector const&point, float radius, bool b2D, short *outCount, short maxCount, CEntity **outEntities)     0x4B2D70
 cdecl void CWorld::FindObjectsOfTypeInRange(uint modelId, CVector const&point, float radius, bool b2D, short *outCount, short maxCount, CEntity **outEntities, bool buildings, bool vehicles, bool peds, bool objects, bool dummies) 0x4B2600
 cdecl void CWorld::FindObjectsOfTypeInRangeSectorList(uint modelId, CPtrList &list, CVector const&point, float radius, bool b2D, short *outCount, short maxCount, CEntity **outEntities)                                         0x4B2960
-cdecl float CWorld::FindRoofZFor3DCoord(float x, float y, float z, bool *outResult)                                                                                          0x4B3B50
+cdecl float CWorld::FindRoofZFor3DCoord(float x, float y, float z, bool *outResult)                                                                                       0x4B3B50
 cdecl bool CWorld::GetIsLineOfSightClear(CVector const&origin, CVector const&target, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck, bool doCameraIgnoreCheck)                      0x4AEAA0
 cdecl bool CWorld::GetIsLineOfSightSectorClear(CSector &sector, CColLine const&line, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck, bool doCameraIgnoreCheck)                      0x4B2000
-cdecl bool CWorld::GetIsLineOfSightSectorListClear(CPtrList &list, CColLine const&line, bool doSeeThroughCheck, bool doCameraIgnoreCheck)                                    0x4B2160
+cdecl bool CWorld::GetIsLineOfSightSectorListClear(CPtrList &list, CColLine const&line, bool doSeeThroughCheck, bool doCameraIgnoreCheck)                                 0x4B2160
 cdecl void CWorld::Initialise(void)                                                                                                                                       0x4AE410
 cdecl void CWorld::Process(void)                                                                                                                                          0x4B1A60
 cdecl bool CWorld::ProcessLineOfSight(CVector const&origin, CVector const&target, CColPoint &outColPoint, CEntity *&outEntity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck, bool doCameraIgnoreCheck)      0x4AF970
@@ -48,14 +48,14 @@ cdecl void CWorld::RemoveStaticObjects(void)                                    
 cdecl void CWorld::RepositionCertainDynamicObjects(void)                                                                                                                  0x4B42B0
 cdecl void CWorld::RepositionOneObject(CEntity *entity)                                                                                                                   0x4B4300
 cdecl void CWorld::SetAllCarsCanBeDamaged(bool enable)                                                                                                                    0x4B53F0
-cdecl void CWorld::SetCarsOnFire(float x, float y, float z, float radius, CEntity *fireCreator)                                                                               0x4B3E90
-cdecl void CWorld::SetPedsOnFire(float x, float y, float z, float radius, CEntity *fireCreator)                                                                               0x4B3D30
+cdecl void CWorld::SetCarsOnFire(float x, float y, float z, float radius, CEntity *fireCreator)                                                                           0x4B3E90
+cdecl void CWorld::SetPedsOnFire(float x, float y, float z, float radius, CEntity *fireCreator)                                                                           0x4B3D30
 cdecl void CWorld::ShutDown(void)                                                                                                                                         0x4AE450
 cdecl void CWorld::StopAllLawEnforcersInTheirTracks(void)                                                                                                                 0x4B5BC0
-cdecl CEntity* CWorld::TestSphereAgainstSectorList(CPtrList &list, CVector sphereCenter, float sphereRadius, CEntity *ignoreEntity, bool doCameraIgnoreCheck)                 0x4B4AC0
+cdecl CEntity* CWorld::TestSphereAgainstSectorList(CPtrList &list, CVector sphereCenter, float sphereRadius, CEntity *ignoreEntity, bool doCameraIgnoreCheck)             0x4B4AC0
 cdecl CEntity* CWorld::TestSphereAgainstWorld(CVector sphereCenter, float sphereRadius, CEntity *ignoreEntity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck)                      0x4B4710
-cdecl void CWorld::TriggerExplosion(CVector const&point, float radius, float visibleDistance, CEntity *entity, bool processVehicleBombTimer)                                  0x4B1140
-cdecl void CWorld::TriggerExplosionSectorList(CPtrList &list, CVector const&point, float radius, float visibleDistance, CEntity *entity, bool processVehicleBombTimer)         0x4B1340
+cdecl void CWorld::TriggerExplosion(CVector const&point, float radius, float visibleDistance, CEntity *entity, bool processVehicleBombTimer)                              0x4B1140
+cdecl void CWorld::TriggerExplosionSectorList(CPtrList &list, CVector const&point, float radius, float visibleDistance, CEntity *entity, bool processVehicleBombTimer)    0x4B1340
 cdecl void CWorld::UseDetonator(CEntity *creator)                                                                                                                         0x4B4650
 end
 

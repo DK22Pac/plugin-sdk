@@ -12,18 +12,32 @@
 #include "CSector.h"
 #include "CColModel.h"
 #include "CColPoint.h"
+#include "CPlayerInfo.h"
 
 class CWorld {
 public:
     // static variables
-
+    static unsigned char &PlayerInFocus;
+    static CPlayerInfo *Players;
+    static bool &bDoingCarCollisions;
+    static bool &bForceProcessControl;
+    static bool &bIncludeCarTyres;
+    static bool &bIncludeDeadPeds;
+    static bool &bNoMoreCollisionTorque;
+    static bool &bProcessCutsceneOnly;
+    static bool &bSecondShift;
+    static CSector *ms_aSectors;
+    static CPtrList *ms_bigBuildingsList;
+    static CPtrList *ms_listMovingEntityPtrs;
+    static short  &ms_nCurrentScanCode;
+    static CEntity *&pIgnoreEntity;
 
     // static functions
     static void Add(CEntity* entity);
     static void AddParticles();
     static void CallOffChaseForArea(float x1, float y1, float x2, float y2);
     static void CallOffChaseForAreaSectorListPeds(CPtrList& list, float x1, float y1, float x2, float y2, float arg5, float arg6, float arg7, float arg8);
-    static void CallOffChaseForAreaSectorListVehicles(CPtrList& arg0, float x1, float y1, float x2, float y2, float arg5, float arg6, float arg7, float arg8);
+    static void CallOffChaseForAreaSectorListVehicles(CPtrList& list, float x1, float y1, float x2, float y2, float arg5, float arg6, float arg7, float arg8);
     static bool CameraToIgnoreThisObject(CEntity* entity);
     static void ClearCarsFromArea(float x1, float y1, float z1, float x2, float y2, float z2);
     static void ClearExcitingStuffFromArea(CVector const& point, float radius, unsigned char bRemoveProjectilesAndShadows);

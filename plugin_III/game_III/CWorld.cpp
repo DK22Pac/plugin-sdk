@@ -6,6 +6,21 @@
 */
 #include "CWorld.h"
 
+unsigned char &CWorld::PlayerInFocus = *(unsigned char *)0x95CD61;
+CPlayerInfo *CWorld::Players = (CPlayerInfo *)0x9412F0;
+bool &CWorld::bDoingCarCollisions = *(bool *)0x95CD8C;
+bool &CWorld::bForceProcessControl = *(bool *)0x95CD6C;
+bool &CWorld::bIncludeCarTyres = *(bool *)0x95CDAA;
+bool &CWorld::bIncludeDeadPeds = *(bool *)0x95CD8F;
+bool &CWorld::bNoMoreCollisionTorque = *(bool *)0x95CDCC;
+bool &CWorld::bProcessCutsceneOnly = *(bool *)0x95CD8B;
+bool &CWorld::bSecondShift = *(bool *)0x95CD54;
+CSector *CWorld::ms_aSectors = (CSector *)0x665608;
+CPtrList *CWorld::ms_bigBuildingsList = (CPtrList *)0x6FAB60;
+CPtrList *CWorld::ms_listMovingEntityPtrs = (CPtrList *)0x8F433C;
+short &CWorld::ms_nCurrentScanCode = *(short *)0x95CC64;
+CEntity *&CWorld::pIgnoreEntity = *(CEntity **)0x8F6494;
+
 // Converted from cdecl void CWorld::Add(CEntity *entity) 0x4AE930 
 void CWorld::Add(CEntity* entity) {
     plugin::Call<0x4AE930, CEntity*>(entity);
@@ -26,9 +41,9 @@ void CWorld::CallOffChaseForAreaSectorListPeds(CPtrList& list, float x1, float y
     plugin::Call<0x4B5A60, CPtrList&, float, float, float, float, float, float, float, float>(list, x1, y1, x2, y2, arg5, arg6, arg7, arg8);
 }
 
-// Converted from cdecl void CWorld::CallOffChaseForAreaSectorListVehicles(CPtrList &,float x1,float y1,float x2,float y2,float,float,float,float) 0x4B57B0 
-void CWorld::CallOffChaseForAreaSectorListVehicles(CPtrList& arg0, float x1, float y1, float x2, float y2, float arg5, float arg6, float arg7, float arg8) {
-    plugin::Call<0x4B57B0, CPtrList&, float, float, float, float, float, float, float, float>(arg0, x1, y1, x2, y2, arg5, arg6, arg7, arg8);
+// Converted from cdecl void CWorld::CallOffChaseForAreaSectorListVehicles(CPtrList &list,float x1,float y1,float x2,float y2,float,float,float,float) 0x4B57B0 
+void CWorld::CallOffChaseForAreaSectorListVehicles(CPtrList& list, float x1, float y1, float x2, float y2, float arg5, float arg6, float arg7, float arg8) {
+    plugin::Call<0x4B57B0, CPtrList&, float, float, float, float, float, float, float, float>(list, x1, y1, x2, y2, arg5, arg6, arg7, arg8);
 }
 
 // Converted from cdecl bool CWorld::CameraToIgnoreThisObject(CEntity *entity) 0x4B5C30 
