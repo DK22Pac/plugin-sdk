@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_VC.h"
+#include "plbase/PluginBase_VC.h"
 #include "CPlayerInfo.h"
 
 extern unsigned int MAX_SCRIPT_SPACE_SIZE; // default 260512

@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase/PluginBase_III.h"
 #include "CVector.h"
 #include "CPed.h"
 #include "CVehicle.h"

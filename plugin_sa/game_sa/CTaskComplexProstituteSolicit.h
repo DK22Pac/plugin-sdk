@@ -8,7 +8,7 @@
 
 #include "plbase/PluginBase_SA.h"
 #include "CTaskComplex.h"
-#include "game_sa\CPed.h"
+#include "game_sa/CPed.h"
 
 class CTaskComplexProstituteSolicit : public CTaskComplex {
 protected:

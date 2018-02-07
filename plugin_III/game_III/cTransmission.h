@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase/PluginBase_III.h"
 #include "tTransmissionGear.h"
 
 class PLUGIN_API cTransmission {

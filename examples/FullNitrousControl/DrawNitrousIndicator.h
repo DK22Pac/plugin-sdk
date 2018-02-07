@@ -1,10 +1,10 @@
 #pragma once
 #include "Parameters.h"
-#include "game_sa\common.h"
-#include "game_sa\CFont.h"
-#include "game_sa\CSprite2d.h"
-#include "game_sa\CHudColours.h"
-#include "game_sa\CAutomobile.h"
+#include "game_sa/common.h"
+#include "game_sa/CFont.h"
+#include "game_sa/CSprite2d.h"
+#include "game_sa/CHudColours.h"
+#include "game_sa/CAutomobile.h"
 
 void DrawRectBO(int left, int top, int right, int bottom, CRGBA const &color) {
     CSprite2d::DrawRect(CRect(static_cast<float>(left) - 0.5f,

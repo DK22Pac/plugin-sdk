@@ -5,8 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "scripting\ScriptCommandNames.h"
-#include "game_vc\CRunningScript.h"
+#include "scripting/ScriptCommandNames.h"
+#include "game_vc/CRunningScript.h"
 #include <vector>
 #include <string.h>
 

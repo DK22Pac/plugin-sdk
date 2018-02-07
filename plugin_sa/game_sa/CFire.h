@@ -7,8 +7,8 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "game_sa\CEntity.h"
-#include "game_sa\FxSystem_c.h"
+#include "game_sa/CEntity.h"
+#include "game_sa/FxSystem_c.h"
 
 class CFire {
 public:

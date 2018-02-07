@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase/PluginBase_III.h"
 #include "CEntity.h"
 #include "CStoredCollPoly.h"
 #include "CSector.h"

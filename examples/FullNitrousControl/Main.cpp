@@ -3,8 +3,8 @@
 #include "Parameters.h"
 #include "NitrousControl.h"
 #include "DrawNitrousIndicator.h"
-#include "ASM injections\ASM_PassNitrousAcc.h"
-#include "ASM injections\ASM_SelectAccMultiplier.h"
+#include "ASM injections/ASM_PassNitrousAcc.h"
+#include "ASM injections/ASM_SelectAccMultiplier.h"
 
 /* Originally made by Wesser
    http://www.gtagarage.com/mods/show.php?id=19010

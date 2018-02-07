@@ -7,9 +7,9 @@
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
-#include "game_vc\RenderWare.h"
-#include "game_vc\CRect.h"
-#include "game_vc\CRGBA.h"
+#include "game_vc/RenderWare.h"
+#include "game_vc/CRect.h"
+#include "game_vc/CRGBA.h"
 
 class CSprite2d {
 public:

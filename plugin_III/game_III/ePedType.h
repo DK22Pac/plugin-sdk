@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase/PluginBase_III.h"
 
 enum PLUGIN_API ePedType : int {
     PEDTYPE_PLAYER1 = 0,

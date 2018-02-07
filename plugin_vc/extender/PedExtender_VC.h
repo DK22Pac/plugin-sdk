@@ -6,9 +6,9 @@
 */
 #pragma once
 
-#include "game_vc\CPools.h"
-#include "..\shared\Extender.h"
-#include "events\Events_VC.h"
+#include "game_vc/CPools.h"
+#include "../shared/Extender.h"
+#include "events/Events_VC.h"
 #include <vector>
 
 class CPed;

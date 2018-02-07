@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "comp\PluginSupport.h"
+#include "comp/PluginSupport.h"
 
 class Fastman92LimitAdjusterSupport : public PluginSupport {
 public:

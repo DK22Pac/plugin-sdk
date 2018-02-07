@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "game_sa\CTimer.h"
+#include "game_sa/CTimer.h"
 
 class KeyCheck {
     static unsigned char currStates[256];

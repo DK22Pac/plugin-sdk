@@ -1,7 +1,7 @@
 #include "plugin.h"
 #include "CMessages.h"
 #include "CModelInfo.h"
-#include "extensions\ScriptCommands.h"
+#include "extensions/ScriptCommands.h"
 
 using namespace plugin;
 

@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase/PluginBase_III.h"
 
 enum PLUGIN_API eWeaponFire : unsigned int {
     WEAPON_FIRE_MELEE,

@@ -8,12 +8,12 @@
 
 // TODO: Clean up RW headers
 
-#include "rw\rwcore.h"
-#include "rw\rphanim.h"
-#include "rw\rpuvanim.h"
-#include "rw\rpskin.h"
-#include "rw\rpmatfx.h"
-#include "rw\skeleton.h"
+#include "rw/rwcore.h"
+#include "rw/rphanim.h"
+#include "rw/rpuvanim.h"
+#include "rw/rpskin.h"
+#include "rw/rpmatfx.h"
+#include "rw/skeleton.h"
 #ifdef _DX9_SDK_INSTALLED
 #include "d3d9.h"
 #endif

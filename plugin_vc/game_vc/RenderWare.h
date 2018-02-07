@@ -8,11 +8,11 @@
 
 // TODO: Clean up RW headers
 
-#include "rw\rwcore.h"
-#include "rw\rphanim.h"
-#include "rw\rpskin.h"
-#include "rw\rpmatfx.h"
-#include "rw\skeleton.h"
+#include "rw/rwcore.h"
+#include "rw/rphanim.h"
+#include "rw/rpskin.h"
+#include "rw/rpmatfx.h"
+#include "rw/skeleton.h"
 
 extern RwGlobals *&RwEngineInstance;
 

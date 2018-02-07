@@ -7,11 +7,11 @@
 
 #include "plugin.h"
 #include "LimitAdjusterSupport.h"
-#include "game_sa\CCoronas.h"
-#include "game_sa\CShadows.h"
-#include "game_sa\CModelInfo.h"
-#include "game_sa\CStreaming.h"
-#include "game_sa\CRadar.h"
+#include "game_sa/CCoronas.h"
+#include "game_sa/CShadows.h"
+#include "game_sa/CModelInfo.h"
+#include "game_sa/CStreaming.h"
+#include "game_sa/CRadar.h"
 
 using namespace plugin;
 

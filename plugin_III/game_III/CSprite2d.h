@@ -6,10 +6,10 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
-#include "game_III\RenderWare.h"
-#include "game_III\CRect.h"
-#include "game_III\CRGBA.h"
+#include "plbase/PluginBase_III.h"
+#include "game_III/RenderWare.h"
+#include "game_III/CRect.h"
+#include "game_III/CRGBA.h"
 
 class CSprite2d {
 public:

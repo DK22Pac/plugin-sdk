@@ -7,7 +7,7 @@
 #pragma once
 
 #include "plbase/PluginBase_SA.h"
-#include "game_sa\CVector.h"
+#include "game_sa/CVector.h"
 
 class CCreepingFire {
 public:
