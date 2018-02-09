@@ -7,9 +7,9 @@ Do not delete this comment block. Respect others' work!
 #include "CAutomobile.h"
 
 bool &CAutomobile::m_sAllTaxiLights = *(bool *)0x95CD21;
-int &CAutomobile::nGenerateRaindrops = *(int *)0x64CDEC;
-int &CAutomobile::nGenerateWaterCircles = *(int *)0x64CDF4;
-char &CAutomobile::matW2B = *(char *)0x64CE54;
+unsigned int &CAutomobile::nGenerateRaindrops = *(unsigned int *)0x64CDEC;
+unsigned int &CAutomobile::nGenerateWaterCircles = *(unsigned int *)0x64CDF4;
+CMatrix *CAutomobile::matW2B = (CMatrix *)0x64CE54;
 
 // Converted from thiscall void CAutomobile::AddDamagedVehicleParticles(void) 0x535450 
 void CAutomobile::AddDamagedVehicleParticles() {

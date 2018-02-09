@@ -44,9 +44,9 @@ public:
     CDoor           m_aDoors[6];
     RwFrame        *m_aCarNodes[CAR_NUM_NODES];
     CColPoint       m_aWheelColPoint[4];
-    int field_46C[4];
-    float field_47C[4];
-    int field_48C[4];
+    float           m_fWheelSuspDist[4];
+    float           m_fWheelSuspDistSoft[4];
+    float           m_fWheelContactRate[4];
     int field_49C;
     char field_4A0[4];
     char field_4A4[4];
@@ -89,9 +89,9 @@ public:
     
     // variables
     static bool &m_sAllTaxiLights;
-    static int &nGenerateRaindrops;
-    static int &nGenerateWaterCircles;
-    static char &matW2B;
+    static unsigned int &nGenerateRaindrops;
+    static unsigned int &nGenerateWaterCircles;
+    static CMatrix *matW2B;
 
     //funcs
 

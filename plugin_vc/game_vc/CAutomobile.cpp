@@ -6,6 +6,11 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CAutomobile.h"
 
+bool &CAutomobile::m_sAllTaxiLights = *(bool *)0xA10ABB;
+unsigned int &CAutomobile::nGenerateRaindrops = *(unsigned int *)0x77F754;
+unsigned int &CAutomobile::nGenerateWaterCircles = *(unsigned int *)0x77F75C;
+CMatrix *CAutomobile::matW2B = (CMatrix *)0x77F7D0;
+
 // Converted from thiscall void CAutomobile::AddDamagedVehicleParticles(void) 0x5920A0
 void CAutomobile::AddDamagedVehicleParticles() {
     plugin::CallMethod<0x5920A0, CAutomobile *>(this);
