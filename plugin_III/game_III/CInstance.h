@@ -13,7 +13,7 @@ class CInstance : public CPlaceable {
 protected:
     CInstance(plugin::dummy_func_t) : CPlaceable(plugin::dummy) {}
 public:
-    int field_4C;
+    unsigned int m_nModelIndex;
 
     //funcs
     CInstance();
@@ -24,3 +24,10 @@ public:
 };
 
 VALIDATE_SIZE(CInstance, 0x50);
+
+struct MloInstanceStore {
+    unsigned int m_nCount;
+    CInstance m_sObject;
+
+    ~MloInstanceStore();
+};

@@ -15,3 +15,8 @@ CMloModelInfo::CMloModelInfo() {
 CMloModelInfo::~CMloModelInfo() {
     plugin::CallMethod<0x50C0E0, CMloModelInfo *>(this);
 }
+
+// Converted from thiscall void CStore<CMloModelInfo,1>::~CStore() 0x50C0C0 
+MloModelStore::~MloModelStore() {
+    plugin::CallMethod<0x50C0C0, MloModelStore *>(this);
+}

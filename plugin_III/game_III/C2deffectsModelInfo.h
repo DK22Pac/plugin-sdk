@@ -17,3 +17,10 @@ public:
 };
 
 VALIDATE_SIZE(C2deffectsModelInfo, 0x34);
+
+struct EffectStore {
+    unsigned int m_nCount;
+    C2deffectsModelInfo m_sObject[2000];
+
+    ~EffectStore();
+};

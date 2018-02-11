@@ -11,11 +11,18 @@ Do not delete this comment block. Respect others' work!
 
 class CXtraCompsModelInfo : public CClumpModelInfo {
 public:
-    unsigned int dword34;
+    unsigned int m_nModelIndex;
+    
     //funcs
-
     CXtraCompsModelInfo();
     ~CXtraCompsModelInfo();
 };
 
 VALIDATE_SIZE(CXtraCompsModelInfo, 0x38);
+
+struct XtraCompsModelStore {
+    unsigned int m_nCount;
+    CXtraCompsModelInfo m_sObject[2];
+
+    ~XtraCompsModelStore();
+};

@@ -15,3 +15,8 @@ CXtraCompsModelInfo::CXtraCompsModelInfo() {
 CXtraCompsModelInfo::~CXtraCompsModelInfo() {
     plugin::CallMethod<0x50BEF0, CXtraCompsModelInfo *>(this);
 }
+
+// Converted from thiscall void CStore<CXtraCompsModelInfo,2>::~CStore() 0x50BED0 
+XtraCompsModelStore::~XtraCompsModelStore() {
+    plugin::CallMethod<0x50BED0, XtraCompsModelStore *>(this);
+}

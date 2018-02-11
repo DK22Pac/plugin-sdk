@@ -187,3 +187,8 @@ void CVehicleModelInfo::ShutdownEnvironmentMaps() {
 CVehicleModelInfo::~CVehicleModelInfo() {
     plugin::CallMethod<0x50BFF0, CVehicleModelInfo *>(this);
 }
+
+// Converted from thiscall void CStore<CVehicleModelInfo,120>::~CStore() 0x50BFD0 
+VehicleModelStore::~VehicleModelStore() {
+    plugin::CallMethod<0x50BFD0, VehicleModelStore *>(this);
+}

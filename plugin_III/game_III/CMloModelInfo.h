@@ -16,9 +16,15 @@ public:
     unsigned int dword3C;
 
     //funcs
-
     CMloModelInfo();
     ~CMloModelInfo();
 };
 
 VALIDATE_SIZE(CMloModelInfo, 0x40);
+
+struct MloModelStore {
+    unsigned int m_nCount;
+    CMloModelInfo m_sObject;
+
+    ~MloModelStore();
+};
