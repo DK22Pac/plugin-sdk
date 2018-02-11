@@ -1,6 +1,32 @@
 vtable 0 //GTA3 
 end
 funcs
+cdecl bool CShotInfo::AddShot(CEntity *creator, eWeaponType weaponType, CVector origin, CVector target) 0x55BD70
+thiscall void CShotInfo::CShotInfo(void)  0x55C2C0
+cdecl void CShotInfo::Initialise(void)    0x55BC60
+cdecl void CShotInfo::Shutdown(void)      0x55BD50
+cdecl void CShotInfo::Update(void)        0x55BFF0
+end
+
+vtable 0 //GTA3 
+end
+funcs
+cdecl bool CProjectileInfo::AddProjectile(CEntity *creator, eWeaponType weaponType, CVector posn, float force)  0x55B030
+thiscall void CProjectileInfo::CProjectileInfo(void)                                         0x55BC50
+cdecl CProjectileInfo* CProjectileInfo::GetProjectileInfo(int index)                         0x55B010
+cdecl void CProjectileInfo::Initialise(void)                                                 0x55ADF0
+cdecl bool CProjectileInfo::IsProjectileInRange(float x1, float y1, float z1, float x2, float y2, float z2, bool bDestroy) 0x55BA50
+cdecl void CProjectileInfo::RemoveAllProjectiles(void)                                       0x55BB80
+cdecl bool CProjectileInfo::RemoveIfThisIsAProjectile(CObject *object)                       0x55BBD0
+cdecl void CProjectileInfo::RemoveNotAdd(CEntity *creator, eWeaponType weaponType, CVector posn)                 0x55B770
+cdecl void CProjectileInfo::RemoveProjectile(CProjectileInfo *info, CProjectile *projectileObject)               0x55B700
+cdecl void CProjectileInfo::Shutdown(void)                                                   0x55AFF0
+cdecl void CProjectileInfo::Update(void)                                                     0x55B7C0
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl void CWorld::Add(CEntity *entity)                                                                                                                                   0x4AE930
 cdecl void CWorld::AddParticles(void)                                                                                                                                     0x4B4010
 cdecl void CWorld::CallOffChaseForArea(float x1, float y1, float x2, float y2)                                                                                            0x4B5530
