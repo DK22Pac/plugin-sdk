@@ -25,3 +25,8 @@ void CPedModelInfo::SetLowDetailClump(RpClump* clump) {
 CPedModelInfo::~CPedModelInfo() {
     plugin::CallMethod<0x50BF60, CPedModelInfo *>(this);
 }
+
+// Converted from thiscall void CStore<CPedModelInfo,90>::~CStore() 0x50BF40 
+PedModelStore::~PedModelStore() {
+    plugin::CallMethod<0x50BF40, PedModelStore *>(this);
+}

@@ -7,15 +7,15 @@ Do not delete this comment block. Respect others' work!
 #include "CModelInfo.h"
 
 CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo**)0x83D408;
-CXtraCompsModelInfo *CModelInfo::ms_xtraCompsModelStore = (CXtraCompsModelInfo*)0x940348;
-CInstance *CModelInfo::ms_mloInstanceStore = (CInstance*)0x8E2B84;
-C2deffectsModelInfo *CModelInfo::ms_2dEffectStore = (C2deffectsModelInfo*)0x9434F8;
-CModelInfo* (&CModelInfo::ms_clumpModelStore)[5] = *(CModelInfo* (*)[5])*(int *)0x6FA108; 
-CMloModelInfo* (&CModelInfo::ms_mloModelStore)[1] = *(CMloModelInfo* (*)[1])*(int *)0x8F5980;
-CPedModelInfo* (&CModelInfo::ms_pedModelStore)[90] = *(CPedModelInfo* (*)[90])*(int *)0x941600;
-CSimpleModelInfo* (&CModelInfo::ms_simpleModelStore)[5000] = *(CSimpleModelInfo* (*)[5000])*(int *)0x885BB4;
-CTimeModelInfo* (&CModelInfo::ms_timeModelStore)[30] = *(CTimeModelInfo* (*)[30])*(int *)0x94076C;
-CVehicleModelInfo* (&CModelInfo::ms_vehicleModelStore)[120] = *(CVehicleModelInfo* (*)[120])*(int *)0x8E2DE0;
+XtraCompsModelStore *CModelInfo::ms_xtraCompsModelStore = (XtraCompsModelStore*)0x940348;
+MloInstanceStore *CModelInfo::ms_mloInstanceStore = (MloInstanceStore*)0x8E2B84;
+EffectStore *CModelInfo::ms_2dEffectStore = (EffectStore*)0x9434F8;
+ClumpModelStore *CModelInfo::ms_clumpModelStore = (ClumpModelStore*)0x6FA108;
+MloModelStore *CModelInfo::ms_mloModelStore = (MloModelStore*)0x8F5980;
+PedModelStore *CModelInfo::ms_pedModelStore = (PedModelStore*)0x941600;
+SimpleModelStore *CModelInfo::ms_simpleModelStore = (SimpleModelStore*)0x885BB4;
+TimeModelStore *CModelInfo::ms_timeModelStore = (TimeModelStore*)0x94076C;
+VehicleModelStore *CModelInfo::ms_vehicleModelStore = (VehicleModelStore*)0x8E2DE0;
 
 // Converted from cdecl CClumpModelInfo* CModelInfo::AddClumpModel(int index) 0x50BA10
 CClumpModelInfo* CModelInfo::AddClumpModel(int index) {
@@ -52,14 +52,14 @@ void CModelInfo::ConstructMloClumps() {
     plugin::Call<0x50BB40>();
 }
 
-// Converted from cdecl void* CModelInfo::Get2dEffectStore(void) 0x50BB30
-void* CModelInfo::Get2dEffectStore() {
-    return plugin::CallAndReturn<void*, 0x50BB30>();
+// Converted from cdecl EffectStore* CModelInfo::Get2dEffectStore(void) 0x50BB30
+EffectStore* CModelInfo::Get2dEffectStore() {
+    return plugin::CallAndReturn<EffectStore*, 0x50BB30>();
 }
 
-// Converted from cdecl void* CModelInfo::GetMloInstanceStore(void) 0x50BB20
-void* CModelInfo::GetMloInstanceStore() {
-    return plugin::CallAndReturn<void*, 0x50BB20>();
+// Converted from cdecl MloInstanceStore* CModelInfo::GetMloInstanceStore(void) 0x50BB20
+MloInstanceStore* CModelInfo::GetMloInstanceStore() {
+    return plugin::CallAndReturn<MloInstanceStore*, 0x50BB20>();
 }
 
 // Converted from cdecl CBaseModelInfo* CModelInfo::GetModelInfo(char const* name,int *index) 0x50B860
@@ -82,9 +82,9 @@ void CModelInfo::ReInit2dEffects() {
     plugin::Call<0x50B580>();
 }
 
-// Converted from cdecl void CModelInfo::RemoveColModelsFromOtherLevels(eLevelName) 0x50BBC0 
-void CModelInfo::RemoveColModelsFromOtherLevels(eLevelName arg0) {
-    plugin::Call<0x50BBC0, eLevelName>(arg0);
+// Converted from cdecl void CModelInfo::RemoveColModelsFromOtherLevels(eLevelName levelName) 0x50BBC0 
+void CModelInfo::RemoveColModelsFromOtherLevels(eLevelName levelName) {
+    plugin::Call<0x50BBC0, eLevelName>(levelName);
 }
 
 // Converted from cdecl void CModelInfo::ShutDown(void) 0x50B5B0 

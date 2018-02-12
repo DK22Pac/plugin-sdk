@@ -55,3 +55,10 @@ protected:
 };
 
 VALIDATE_SIZE(CClumpModelInfo, 0x34);
+
+struct ClumpModelStore {
+    unsigned int m_nCount;
+    CClumpModelInfo m_sObject[5];
+
+    ~ClumpModelStore();
+};

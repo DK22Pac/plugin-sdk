@@ -75,3 +75,8 @@ void CClumpModelInfo::SetAtomicRendererCB(RpAtomic* atomic, void* renderFunc) {
 void CClumpModelInfo::SetFrameIds(RwObjectNameIdAssocation* data) {
     plugin::CallMethod<0x4F8BB0, CClumpModelInfo *, RwObjectNameIdAssocation*>(this, data);
 }
+
+// Converted from thiscall void CStore<CClumpModelInfo,5>::~CStore() 0x50C010 
+ClumpModelStore::~ClumpModelStore() {
+    plugin::CallMethod<0x50C010, ClumpModelStore *>(this);
+}

@@ -120,3 +120,10 @@ public:
 VALIDATE_SIZE(CVehicleModelInfo, 0x1F8);
 
 extern RwFrame *&pMatFxIdentityFrame;
+
+struct VehicleModelStore {
+    unsigned int m_nCount;
+    CVehicleModelInfo m_sObject[120];
+
+    ~VehicleModelStore();
+};

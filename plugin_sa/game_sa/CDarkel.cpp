@@ -6,6 +6,16 @@
 */
 #include "CDarkel.h"
 
+short** CDarkel::RegisteredKills = (short**)0x969A50;
+char* CDarkel::pStartMessage = (char*)0x96A6D0;
+unsigned int& CDarkel::AmmoInterruptedWeapon = *(unsigned int*)0x96A6D4;
+eWeaponType& CDarkel::InterruptedWeaponType = *(eWeaponType*)0x96A6D8;
+eWeaponType& CDarkel::InterruptedWeaponTypeSelected = *(eWeaponType*)0x96A6DC;
+unsigned int& CDarkel::TimeOfFrenzyStart = *(unsigned int*)0x96A6E0;
+int* CDarkel::ModelToKill = (int*)0x96A6F0;
+eWeaponType& CDarkel::WeaponType = *(eWeaponType*)0x96A700;
+short& CDarkel::Status = *(short*)0x96A704;
+
 bool CDarkel::FrenzyOnGoing()
 {
 	return ((bool (__cdecl *)())0x43D1F0)();

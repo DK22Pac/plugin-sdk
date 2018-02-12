@@ -20,3 +20,8 @@ void CTimeModelInfo::FindOtherTimeModel() {
 CTimeModelInfo::~CTimeModelInfo() {
     plugin::CallMethod<0x50C080, CTimeModelInfo *>(this);
 }
+
+// Converted from thiscall void CStore<CTimeModelInfo,30>::~CStore() 0x50C060 
+TimeModelStore::~TimeModelStore() {
+    plugin::CallMethod<0x50C060, TimeModelStore *>(this);
+}

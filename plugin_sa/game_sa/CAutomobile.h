@@ -136,11 +136,12 @@ public:
     short field_982;
     float field_984;
 
+    // variables
     static bool &m_sAllTaxiLights;
     static CVector &vecHunterGunPos; // { 0.0f, 4.8f, -1.3f }
+    static CMatrix *matW2B;
 
     //vtable
-
     bool ProcessAI(unsigned int& arg0);
     void ResetSuspension();
     void ProcessFlyingCarStuff();
@@ -148,7 +149,6 @@ public:
     void ProcessSuspension();
 
     //funcs
-
     CAutomobile(int modelIndex, unsigned char createdBy, bool setupSuspensionLines);
 
     // Find and save components ptrs (RwFrame) to m_modelNodes array

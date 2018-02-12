@@ -16,9 +16,9 @@ void CSimpleModelInfo::CreateInstance() {
     plugin::CallVirtualMethod<3, CSimpleModelInfo *>(this);
 }
 
-// Converted from void CSimpleModelInfo::CreateInstance(RwMatrixTag *) 0x517AC0
-void CSimpleModelInfo::CreateInstance(RwMatrixTag* arg0) {
-    plugin::CallVirtualMethod<4, CSimpleModelInfo *, RwMatrixTag*>(this, arg0);
+// Converted from void CSimpleModelInfo::CreateInstance(RwMatrixTag *m) 0x517AC0
+void CSimpleModelInfo::CreateInstance(RwMatrixTag* m) {
+    plugin::CallVirtualMethod<4, CSimpleModelInfo *, RwMatrixTag*>(this, m);
 }
 
 // Converted from void CSimpleModelInfo::GetRwObject(void) 0x4A9BA0
@@ -74,4 +74,9 @@ void CSimpleModelInfo::SetLodDistances(float* distance) {
 // Converted from thiscall void CSimpleModelInfo::SetupBigBuilding(void) 0x517B90 
 void CSimpleModelInfo::SetupBigBuilding() {
     plugin::CallMethod<0x517B90, CSimpleModelInfo *>(this);
+}
+
+// Converted from thiscall void CStore<CSimpleModelInfo,5000>::~CStore() 0x50C120 
+SimpleModelStore::~SimpleModelStore() {
+    plugin::CallMethod<0x50C120, SimpleModelStore *>(this);
 }

@@ -18,14 +18,12 @@ public:
     unsigned short m_nFlags;
 
     //vtable
-
     void DeleteRwObject();
     void CreateInstance();
-    void CreateInstance(RwMatrixTag* arg0);
+    void CreateInstance(RwMatrixTag* m);
     void GetRwObject();
 
     //funcs
-
     CSimpleModelInfo();
     void FindRelatedModel();
     RpAtomic* GetAtomicFromDistance(float distance);
@@ -39,3 +37,10 @@ public:
 };
 
 VALIDATE_SIZE(CSimpleModelInfo, 0x4C);
+
+struct SimpleModelStore {
+    unsigned int m_nCount;
+    CSimpleModelInfo m_sObject[5000];
+
+    ~SimpleModelStore();
+};

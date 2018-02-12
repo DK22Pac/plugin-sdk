@@ -8,7 +8,7 @@
 
 bool &CAutomobile::m_sAllTaxiLights = *(bool *)0xC1BFD0;
 CVector &CAutomobile::vecHunterGunPos = *(CVector *)0x8D3394;
-
+CMatrix *CAutomobile::matW2B = (CMatrix *)0xC1C220;
 CColPoint *aAutomobileColPoints = (CColPoint *)0xC1BFF8;
 
 CAutomobile::CAutomobile(int modelIndex, unsigned char createdBy, bool setupSuspensionLines) : CVehicle(plugin::dummy) {

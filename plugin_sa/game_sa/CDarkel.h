@@ -11,6 +11,16 @@
 
 class CDarkel {
 public:
+	static short** RegisteredKills;		// short RegisteredKills[800][2];
+	static char* pStartMessage;							
+	static unsigned int& AmmoInterruptedWeapon;				
+	static eWeaponType& InterruptedWeaponType;				
+	static eWeaponType& InterruptedWeaponTypeSelected;		
+	static unsigned int& TimeOfFrenzyStart;					
+	static int* ModelToKill;		// int CDarkel::ModelToKill[4];
+	static eWeaponType& WeaponType;				
+	static short& Status;
+
 	static bool FrenzyOnGoing();
 	static void Init();
 	static void DrawMessages();

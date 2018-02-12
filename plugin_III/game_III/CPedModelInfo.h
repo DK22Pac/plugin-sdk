@@ -19,7 +19,6 @@ public:
     CColModel    *m_pHitColModel;
 
     //funcs
-
     CPedModelInfo();
     void CreateHitColModel();
     void SetLowDetailClump(RpClump* clump);
@@ -27,3 +26,10 @@ public:
 };
 
 VALIDATE_SIZE(CPedModelInfo, 0x48);
+
+struct PedModelStore {
+    unsigned int m_nCount;
+    CPedModelInfo m_sObject[90];
+
+    ~PedModelStore();
+};

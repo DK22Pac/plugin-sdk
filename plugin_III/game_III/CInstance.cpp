@@ -15,3 +15,8 @@ CInstance::CInstance() {
 void CInstance::Shutdown() {
     plugin::CallMethod<0x50B850, CInstance *>(this);
 }
+
+// Converted from thiscall void CStore<CInstance,1>::~CStore() 0x50BE70 
+MloInstanceStore::~MloInstanceStore() {
+    plugin::CallMethod<0x50BE70, MloInstanceStore *>(this);
+}

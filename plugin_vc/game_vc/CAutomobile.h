@@ -75,6 +75,13 @@ public:
     int fSkidMarkDensity;
     int nTireFriction[4];
 
+    // variables
+    static bool &m_sAllTaxiLights;
+    static unsigned int &nGenerateRaindrops;
+    static unsigned int &nGenerateWaterCircles;
+    static CMatrix *matW2B;
+
+    //funcs
     void AddDamagedVehicleParticles();
     bool AddWheelDirtAndWater(CColPoint& colPoint, unsigned int arg1);
     void BlowUpCarsInPath();
