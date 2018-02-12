@@ -7,7 +7,7 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 
 #include "plugin_vc.h"
-#include "game_vc\CTimer.h"
+#include "game_vc/CTimer.h"
 
 class KeyCheck {
     static unsigned char currStates[256];

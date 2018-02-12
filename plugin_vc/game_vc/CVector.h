@@ -7,7 +7,7 @@
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
-#include "game_vc\RenderWare.h"
+#include "game_vc/RenderWare.h"
 #include <math.h>
 
 class CVector {

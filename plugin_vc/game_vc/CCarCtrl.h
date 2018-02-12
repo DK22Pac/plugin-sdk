@@ -5,9 +5,9 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "plbase\PluginBase_VC.h"
-#include "game_vc\CVehicle.h"
-#include "game_vc\CAutomobile.h"
+#include "plbase/PluginBase_VC.h"
+#include "game_vc/CVehicle.h"
+#include "game_vc/CAutomobile.h"
 
 struct CZoneInfo;
 

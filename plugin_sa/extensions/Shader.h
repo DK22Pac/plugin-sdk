@@ -7,7 +7,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include "game_sa\RenderWare.h"
+#include "game_sa/RenderWare.h"
 #include "DynamicResource.h"
 
 namespace plugin {

@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_VC.h"
+#include "plbase/PluginBase_VC.h"
 #include "CColLine.h"
 #include "CPlayerInfo.h"
 

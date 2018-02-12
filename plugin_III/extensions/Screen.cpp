@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Screen.h"
-#include "game_III\RenderWare.h"
+#include "game_III/RenderWare.h"
 
 #define PLUGIN_SCREEN_RESOLUTION_DEFAULT 1080.0f
 

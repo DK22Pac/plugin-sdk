@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_VC.h"
-#include "game_vc\RenderWare.h"
+#include "plbase/PluginBase_VC.h"
+#include "game_vc/RenderWare.h"
 
 enum ModelInfoType {
     MODEL_INFO_SIMPLE = 1,

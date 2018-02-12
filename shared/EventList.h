@@ -5,7 +5,7 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "..\injector\hooking.hpp"
+#include "../injector/hooking.hpp"
 #include <vector>
 #include <algorithm>
 #include <tuple>

@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_VC.h"
+#include "plbase/PluginBase_VC.h"
 
 enum eStreamingFlags {
     GAME_REQUEST = 0x1, // do not stream this model

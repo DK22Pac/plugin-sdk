@@ -4,7 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "game_vc\CWorld.h"
+#include "game_vc/CWorld.h"
 
 unsigned int MAX_PLAYERS = 1;
 // variables

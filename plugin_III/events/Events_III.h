@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "..\shared\EventList.h"
+#include "../shared/EventList.h"
 
 class CPed;
 class CVehicle;

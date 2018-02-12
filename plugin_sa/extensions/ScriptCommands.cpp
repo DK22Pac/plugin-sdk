@@ -5,8 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "ScriptCommands.h"
-#include "..\shared\Error.h"
-#include "game_sa\CPools.h"
+#include "../shared/Error.h"
+#include "game_sa/CPools.h"
 
 using namespace plugin;
 

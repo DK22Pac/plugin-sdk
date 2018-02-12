@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
+#include "plbase/PluginBase_III.h"
 
 struct Message {
     wchar_t        *m_pText;

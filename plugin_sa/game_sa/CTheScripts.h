@@ -7,9 +7,9 @@
 #pragma once
 #include "plbase/PluginBase_SA.h"
 #include "CRunningScript.h"
-#include "game_sa\CPed.h"
-#include "game_sa\CVehicle.h"
-#include "game_sa\CObject.h"
+#include "game_sa/CPed.h"
+#include "game_sa/CVehicle.h"
+#include "game_sa/CObject.h"
 
 #define VAR_CTheScripts__ScriptSpace 0xA49960
 

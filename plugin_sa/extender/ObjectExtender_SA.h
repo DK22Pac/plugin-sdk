@@ -6,9 +6,9 @@
 */
 #pragma once
 
-#include "game_sa\CPools.h"
-#include "..\shared\Extender.h"
-#include "events\Events_SA.h"
+#include "game_sa/CPools.h"
+#include "../shared/Extender.h"
+#include "events/Events_SA.h"
 #include <vector>
 
 class CObject;

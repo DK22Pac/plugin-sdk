@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_SA.h"
+#include "plbase/PluginBase_SA.h"
 
 enum eStreamingFlags {
     GAME_REQUIRED = 0x2,

@@ -6,7 +6,7 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
-#include "rw\rwplcore.h"     // for RwRGBA stuct
+#include "rw/rwplcore.h"     // for RwRGBA stuct
 
 enum eZoneType {
 	ZONE_TYPE_NAVI = 0,		// controls text s

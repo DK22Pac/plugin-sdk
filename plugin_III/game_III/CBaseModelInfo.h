@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "plbase\PluginBase_III.h"
-#include "game_III\RenderWare.h"
+#include "plbase/PluginBase_III.h"
+#include "game_III/RenderWare.h"
 
 /*
      GTA 3 model classes

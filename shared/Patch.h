@@ -6,7 +6,7 @@
 */
 #pragma once
 #include <windows.h>
-#include "..\injector\injector.hpp"
+#include "../injector/injector.hpp"
 
 namespace plugin
 {

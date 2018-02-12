@@ -6,7 +6,7 @@
 */
 #include "Paths.h"
 #include <Windows.h>
-#include "..\Error.h"
+#include "../Error.h"
 
 struct PluginPathA {
     char _path[MAX_PATH + 1];

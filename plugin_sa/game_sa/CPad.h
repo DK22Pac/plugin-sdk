@@ -6,7 +6,7 @@
 */
 #pragma once
 #include "plbase/PluginBase_SA.h"
-#include "rw\skeleton.h"
+#include "rw/skeleton.h"
 
 #pragma pack(push, 1)
 // Set values to 128 unless otherwise specified
