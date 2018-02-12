@@ -49,8 +49,11 @@ public:
         };
     };
 
-    //funcs
+    // variables
+    // weapon names array
+    static char **ms_aWeaponNames; // [14]
 
+    // functions
     CWeaponInfo();
     // get weapon fire type by name
     static eWeaponFire FindWeaponFireType(char* name);

@@ -7,6 +7,7 @@ Do not delete this comment block. Respect others' work!
 #include "CWeaponInfo.h"
 
 CWeaponInfo(&aWeaponInfo)[14] = *(CWeaponInfo(*)[14])*(int *)0x6503EC;
+char **CWeaponInfo::ms_aWeaponNames = (char **)0x603334;
 
 // Converted from thiscall void CWeaponInfo::CWeaponInfo(void) 0x5654F0
 CWeaponInfo::CWeaponInfo() {

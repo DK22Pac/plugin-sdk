@@ -1,6 +1,59 @@
 vtable 0 //GTA3 
 end
 funcs
+thiscall void CWeapon::AddGunshell(CEntity *pFiringEntity, CVector const&posn, CVector2D const&direction, float size) 0x55F770
+cdecl void CWeapon::BlowUpExplosiveThings(CEntity *thing)                                                          0x564A60
+thiscall void CWeapon::CWeapon(void)                                                                               0x4C50B0
+thiscall void CWeapon::DoBulletImpact(CEntity *pFiringEntity, CEntity *pCollideEntity, CVector *start, CVector *end, CColPoint *colPoint, CVector2D ahead)  0x55F950
+cdecl void CWeapon::DoDoomAiming(CEntity *pFiringEntity, CVector *start, CVector *end)                               0x562EB0
+cdecl void CWeapon::DoDriveByAutoAiming(CEntity *pFiringEntity, CVector *start, CVector *end)                        0x563660
+cdecl void CWeapon::DoTankDoomAiming(CEntity *pFiringEntity1, CEntity *pFiringEntity2, CVector *start, CVector *end)  0x563200
+thiscall bool CWeapon::Fire(CEntity *pFiringEntity, CVector *posn)                                                  0x55C380
+thiscall bool CWeapon::FireAreaEffect(CEntity *pFiringEntity, CVector *posn)                                        0x561E00
+thiscall bool CWeapon::FireFromCar(CAutomobile *car, bool look)                                                     0x55C940
+thiscall bool CWeapon::FireInstantHit(CEntity *pFiringEntity, CVector *posn)                                        0x55D2E0
+thiscall bool CWeapon::FireInstantHitFromCar(CAutomobile *car, bool look)                                           0x5624D0
+thiscall bool CWeapon::FireM16_1stPerson(CEntity *pFiringEntity)                                                   0x562180
+thiscall bool CWeapon::FireMelee(CEntity *pFiringEntity, CVector &posn)                                             0x55CA20
+thiscall bool CWeapon::FireProjectile(CEntity *pFiringEntity, CVector *posn, float force)                            0x561900
+thiscall bool CWeapon::FireShotgun(CEntity *pFiringEntity, CVector *posn)                                           0x560620
+thiscall bool CWeapon::FireSniper(CEntity *pFiringEntity)                                                          0x561FE0
+cdecl void CWeapon::GenerateFlameThrowerParticles(CVector origin, CVector target)                                   0x561C70
+thiscall bool CWeapon::HasWeaponAmmoToBeUsed(void)                                                                 0x564B80
+thiscall bool CWeapon::HitsGround(CEntity *ped, CVector *posn, CEntity *entity)                                      0x564890
+thiscall void CWeapon::Initialise(eWeaponType weaponType, int totalAmmo)                                            0x55C330
+cdecl void CWeapon::InitialiseWeapons(void)                                                                        0x55C2D0
+thiscall bool CWeapon::IsType2Handed(void)                                                                         0x563FD0
+thiscall bool CWeapon::IsTypeMelee(void)                                                                           0x563FB0
+cdecl void CWeapon::MakePedsJumpAtShot(CPhysical *pFiringEntity, CVector *start, CVector *end)                       0x564680
+cdecl bool CWeapon::ProcessLineOfSight(CVector const&origin, CVector const&target, CColPoint &outColPoint, CEntity *&outEntity, eWeaponType weaponType, CEntity *entity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck, bool doCameraIgnoreCheck) 0x564C00
+thiscall void CWeapon::Reload(void)                                                                                0x5639D0
+cdecl void CWeapon::ShutdownWeapons(void)                                                                          0x55C2F0
+thiscall void CWeapon::Update(int audioEntityId)                                                                   0x563A10
+cdecl void CWeapon::UpdateWeapons(void)                                                                            0x55C310
+thiscall void CWeapon::~CWeapon()                                                                                  0x4C50A0
+cdecl void FireOneInstantHitRound(CVector *start, CVector *end, int damage)                                          0x563B00
+end
+
+vtable 0 //GTA3 
+end
+funcs
+cdecl bool CExplosion::AddExplosion(CEntity *victim, CEntity *creator, eExplosionType explosionType, CVector const&posn, uint time)  0x5591C0
+thiscall void CExplosion::CExplosion(void)                                   0x55ADE0
+cdecl uchar CExplosion::GetExplosionActiveCounter(uchar index)               0x559140
+cdecl CVector* CExplosion::GetExplosionPosition(uchar index)                 0x5591A0
+cdecl eExplosionType CExplosion::GetExplosionType(uchar index)               0x559180
+cdecl void CExplosion::Initialise(void)                                      0x559030
+cdecl void CExplosion::RemoveAllExplosionsInArea(CVector posn, float radius) 0x55AD40
+cdecl void CExplosion::ResetExplosionActiveCounter(uchar index)              0x559160
+cdecl void CExplosion::Shutdown(void)                                        0x559100
+cdecl bool CExplosion::TestForExplosionInArea(eExplosionType explosionType, float x1, float y1, float z1, float x2, float y2, float z2) 0x55AC80
+cdecl void CExplosion::Update(void)                                          0x55A0C0
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl bool CShotInfo::AddShot(CEntity *creator, eWeaponType weaponType, CVector origin, CVector target) 0x55BD70
 thiscall void CShotInfo::CShotInfo(void)  0x55C2C0
 cdecl void CShotInfo::Initialise(void)    0x55BC60
