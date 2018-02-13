@@ -120,43 +120,42 @@ namespace plugin
         
         
         inline static void RedirectCode(unsigned int address, void* to)
+	{
+		unsigned char data[16];
+
+		unsigned int movement = (unsigned int)to - address - 5;
+
+		void* lpAddress = (void*)address;
+
+		data[0] = 0xE9;		// jmp
+		*(unsigned int*)(data + 1) = movement;
+
+		DWORD oldProtect;
+		unsigned int lpOldProtect;
+		bool result = VirtualProtect(lpAddress, 5, PAGE_EXECUTE_READWRITE, &oldProtect) != false;
+
+
+		if (result)	lpOldProtect = oldProtect;
+
+		memcpy(lpAddress, data, 5);
+
+		if (result)
 		{
-
-			unsigned char data[16];
-
-			unsigned int movement = (unsigned int)to - address - 5;
-
-			void* lpAddress = (void*)address;
-
-			data[0] = 0xE9;		// jmp
-			*(unsigned int*)(data + 1) = movement;
-
-			DWORD oldProtect;
-			unsigned int lpOldProtect;
-			bool result = VirtualProtect(lpAddress, 5, PAGE_EXECUTE_READWRITE, &oldProtect) != false;
-
-
-			if (result)	lpOldProtect = oldProtect;
-
-			memcpy(lpAddress, data, 5);
-
-			if (result)
-			{
-				VirtualProtect(lpAddress, 5, lpOldProtect,0);
-			}
+			VirtualProtect(lpAddress, 5, lpOldProtect,0);
 		}
+	}
 
-		inline static void RedirectFunction(unsigned int address, void* func)
-		{
-			RedirectCode(address, (void*)func);
-		}
+	inline static void RedirectFunction(unsigned int address, void* func)
+	{
+		RedirectCode(address, (void*)func);
+	}
 
-		template<typename T>static void RedirectMethod(unsigned int address, T method)
-		{
-			auto _ptr = method;
-			void*& ptr = (void*&)_ptr;
-			RedirectCode(address, ptr);
-		}
+	template<typename T>static void RedirectMethod(unsigned int address, T method)
+	{
+		auto _ptr = method;
+		void*& ptr = (void*&)_ptr;
+		RedirectCode(address, ptr);
+	}
         
     };
 };
