@@ -6,7 +6,7 @@
 */
 #include "CRegisteredMotionBlurStreak.h"
 
-RxObjSpace3dVertex *StreakVertices = (RxObjSpace3dVertex *)0x649974;
+RxObjSpace3DVertex *StreakVertices = (RxObjSpace3DVertex *)0x649974;
 
 // Converted from thiscall void CRegisteredMotionBlurStreak::Update(void) 0x519580 
 void CRegisteredMotionBlurStreak::Update() {

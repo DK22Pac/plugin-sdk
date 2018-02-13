@@ -1,3 +1,32 @@
+vtable 0 //VC
+end
+funcs
+thiscall void CWaterCannon::CWaterCannon(void)                                  0x57BE40
+thiscall void CWaterCannon::Init(void)                                          0x57BCD0
+thiscall void CWaterCannon::PushPeds(void)                                      0x57B2F0
+thiscall void CWaterCannon::Render(void)                                        0x57B810
+thiscall void CWaterCannon::Update_OncePerFrame(short index)                    0x57BB90
+cdecl void CWaterCannons::Init(void)                                            0x57B2C0
+cdecl void CWaterCannons::Render(void)                                          0x57B0E0
+cdecl void CWaterCannons::Update(void)                                          0x57B120
+cdecl void CWaterCannons::UpdateOne(uint pCar, CVector *posn, CVector *moveSpeed) 0x57B160
+end
+
+vtable 0 //GTA3 
+end
+funcs
+thiscall void CWaterCannon::CWaterCannon(void)                                    0x522B60
+thiscall void CWaterCannon::Init(void)                                            0x521A30
+thiscall void CWaterCannon::PushPeds(void)                                        0x5220B0
+thiscall void CWaterCannon::Render(void)                                          0x521D30
+thiscall void CWaterCannon::Update_NewInput(CVector *posn, CVector *moveSpeed)    0x521CC0
+thiscall void CWaterCannon::Update_OncePerFrame(short index)                      0x521B80
+cdecl void CWaterCannons::Init(void)                                              0x522440
+cdecl void CWaterCannons::Render(void)                                            0x522550
+cdecl void CWaterCannons::Update(void)                                            0x522510
+cdecl void CWaterCannons::UpdateOne(uint pCar, CVector *posn, CVector *moveSpeed) 0x522470
+end
+
 vtable 0 //GTA3 
 end
 funcs

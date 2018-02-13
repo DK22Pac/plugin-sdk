@@ -10,16 +10,6 @@
 #include "CVector.h"
 #include "CRGBA.h"
 
-struct RxObjSpace3dVertex {
-    RwV3d objVertex;
-    RwV3d objNormal;
-    RwRGBA color;
-    float u;
-    float v;
-};
-
-VALIDATE_SIZE(RxObjSpace3dVertex, 0x24);
-
 class CRegisteredMotionBlurStreak {
 public:
     int     m_nId;
@@ -40,4 +30,4 @@ public:
 
 VALIDATE_SIZE(CRegisteredMotionBlurStreak, 0x54);
 
-extern RxObjSpace3dVertex *StreakVertices;
+extern RxObjSpace3DVertex *StreakVertices;

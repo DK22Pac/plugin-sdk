@@ -23,12 +23,12 @@ protected:
     CBoat(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
     
+    // static variables
     static CBoat **apFrameWakeGeneratingBoats; // static CBoat *apFrameWakeGeneratingBoats[4]
     static float &WAKE_LIFETIME; // 400.0
     static float &MIN_WAKE_INTERVAL; // 1.0
     
-    //funcs
-
+    // functions
     void AddWakePoint(CVector posn);
     void ApplyWaterResistance();
     CBoat(int modelIndex, unsigned char createdBy);
@@ -44,5 +44,7 @@ public:
 extern float &fShapeLength; // 0.4
 extern float &fShapeTime; // 0.05
 extern float &fRangeMult; // 0.75
+extern RxObjSpace3DVertex *KeepWaterOutVertices; // [4]
+extern unsigned short &KeepWaterOutIndices; // [6]
 
 RwObject* GetBoatAtomicObjectCB(RwObject* object, void* data);

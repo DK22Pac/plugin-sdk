@@ -12,6 +12,8 @@ float &CBoat::MIN_WAKE_INTERVAL = *(float *)0x600CC8;
 float &fShapeLength = *(float *)0x600E78;
 float &fShapeTime = *(float *)0x600E7C;
 float &fRangeMult = *(float *)0x600E80;
+RxObjSpace3DVertex *KeepWaterOutVertices = (RxObjSpace3DVertex *)0x64CEAC;
+unsigned short &KeepWaterOutIndices = *(unsigned short *)0x64CEA0;
 
 // Converted from thiscall void CBoat::AddWakePoint(CVector posn) 0x542140
 void CBoat::AddWakePoint(CVector posn) {
