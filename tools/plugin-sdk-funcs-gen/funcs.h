@@ -1,3 +1,22 @@
+vtable 0 //GTA3 
+end
+funcs
+cdecl CCutsceneHead* CCutsceneMgr::AddCutsceneHead(CObject *object, int modelIndex) 0x404CD0
+cdecl CCutsceneObject* CCutsceneMgr::CreateCutsceneObject(int modelIndex)           0x404BE0
+cdecl void CCutsceneMgr::DeleteCutsceneData(void)                                   0x4048E0
+cdecl void CCutsceneMgr::FinishCutscene(void)                                       0x405140
+cdecl double CCutsceneMgr::GetCutsceneTimeInMilleseconds(void)                      0x4051B0
+cdecl double CCutsceneMgr::HasCutsceneFinished(void)                                0x4051F0
+cdecl void CCutsceneMgr::Initialise(void)                                           0x4045D0
+cdecl void CCutsceneMgr::LoadCutsceneData(char const* cutsceneName)                 0x404650
+cdecl void CCutsceneMgr::SetCutsceneAnim(char const* animName, CObject *object)     0x404D20
+cdecl void CCutsceneMgr::SetHeadAnim(char const* animName, CObject *object)         0x404D80
+cdecl void CCutsceneMgr::SetupCutsceneToStart(void)                                 0x404DC0
+cdecl void CCutsceneMgr::Shutdown(void)                                             0x404630
+cdecl void CCutsceneMgr::Update(void)                                               0x404EE0
+cdecl int FindCutsceneAudioTrackId(char const* cutsceneName)                        0x404530
+end
+
 vtable 0 //VC
 end
 funcs
