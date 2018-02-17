@@ -26,7 +26,7 @@ float &CLoadingScreen::m_ClockTimeOnPause = *(float*)0xBAB328;
 float &CLoadingScreen::m_PauseTime = *(float*)0xBAB32C;
 bool &CLoadingScreen::m_bReadyToDelete = *(bool*)0xBAB33D;
 float &CLoadingScreen::m_timeSinceLastScreen = *(float*)0xBAB340;
-CSprite2d *CLoadingScreen::m_aSplashes = (CSprite2d*)0xBAB2C8;  // CSprite2d CLoadingScreen::m_aSplashes[7]
+CSprite2d *CLoadingScreen::m_aSplashes = (CSprite2d*)0xBAB35C;  // CSprite2d CLoadingScreen::m_aSplashes[7]
 
 // Converted from cdecl void CLoadingScreen::Shutdown(void) 0x58FF10 
 void CLoadingScreen::Shutdown() {

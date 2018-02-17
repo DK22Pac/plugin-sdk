@@ -10,6 +10,7 @@
 #include "CPed.h"
 #include "CDummy.h"
 #include "CDummyObject.h"
+#include "CZone.h"
 
 enum ePedRace {
     RACE_DEFAULT = 0,
@@ -29,8 +30,6 @@ struct tPedGroupTranslationData {
     int field_4;
     int field_8;
 };
-
-typedef int eLevelName;
 
 class PLUGIN_API CPopulation {
 public:

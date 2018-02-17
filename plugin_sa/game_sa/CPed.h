@@ -11,7 +11,7 @@
 #include "CPhysical.h"
 #include "CAEPedAudioEntity.h"
 #include "CAEPedSpeechAudioEntity.h"
-#include "CWeaponAudio.h"
+#include "CAEPedWeaponAudioEntity.h"
 #include "CPedIntelligence.h"
 #include "CPlayerData.h"
 #include "AnimBlendFrameData.h"
@@ -48,9 +48,9 @@ protected:
         plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy,
         plugin::dummy, plugin::dummy, plugin::dummy } {}
 public:
-    CAEPedAudioEntity       m_pedAudio;
-    CAEPedSpeechAudioEntity m_pedSpeech;
-    CWeaponAudio            m_weaponAudio;
+    CAEPedAudioEntity			m_pedAudio;
+    CAEPedSpeechAudioEntity		m_pedSpeech;
+	CAEPedWeaponAudioEntity		m_weaponAudio;
     char field_43C[36];
     char field_460[8];
     int field_468;

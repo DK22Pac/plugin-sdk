@@ -12,6 +12,7 @@
 #include "RenderWare.h"
 #include "CEntity.h"
 #include "CPtrList.h"
+#include "CLinkList.h"
 
 class PLUGIN_API CStreaming {
 public:
@@ -39,8 +40,8 @@ public:
     static int *medicModelsByTown;            // int medicModelsByTown[4]
     static int *firetruckModelsByTown;        // int firetruckModelsByTown[4]
     static int *firemanModelsByTown;        // int firemanModelsByTown[4]
-    static int *taxiDriverModelsByTown;        // int taxiDriverModelsByTown[8]
-    static int *ms_pedsLoaded;              // CStreaming::ms_pedsLoaded[8]
+    static int *taxiDriverModelsByTown;        // int taxiDriverModelsByTown[7]
+    static int *ms_pedsLoaded;              // CStreaming::ms_pedsLoaded[8] 
 	
 
     static CStreamingInfo *ms_aInfoForModel; // static CStreamingInfo ms_aInfoForModel[26316]
