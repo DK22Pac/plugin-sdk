@@ -9,6 +9,7 @@
 #include "plbase/PluginBase_SA.h"
 #include "CAEAudioEntity.h"
 #include "CAESound.h"
+#include "CAETwinLoopSoundEntity.h"
 
 class CPed;
 
@@ -27,7 +28,7 @@ public:
     CAESound *field_9C;
     int field_A0;
     CAESound *field_A4;
-    char _85F438[0xA8];
+	CAETwinLoopSoundEntity TwinLoopSoundEntity;
     CAESound *field_150;
     float field_154;
     float field_158;
