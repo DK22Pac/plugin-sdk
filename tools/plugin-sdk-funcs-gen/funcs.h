@@ -1,6 +1,26 @@
 vtable 0 //GTA3 
 end
 funcs
+cdecl void CDraw::SetFOV(float fovValue) 0x4FE7B0
+end
+
+vtable 0 //GTA3 
+end
+funcs
+thiscall void CEvent::CEvent(void)                                                                   0x761C0
+cdecl void CEventList::ClearEvent(int index)                                                         0x75F70
+cdecl bool CEventList::FindClosestEvent(eEventType type, CVector posn, int *index)                   0x75F90
+cdecl bool CEventList::GetEvent(eEventType type, int *index)                                         0x75F40
+cdecl void CEventList::Initialise(void)                                                              0x75B60
+cdecl void CEventList::RegisterEvent(eEventType type, CVector posn, int time)                        0x75E10
+cdecl void CEventList::RegisterEvent(eEventType type, eEventEntity entityType, CEntity *entity, CPed *ped, int time) 0x75C50
+cdecl void CEventList::ReportCrimeForEvent(eEventType type, int crimeId, bool bPoliceDontReallyCare) 0x76070
+cdecl void CEventList::Update(void)                                                                  0x75BE0
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl CCutsceneHead* CCutsceneMgr::AddCutsceneHead(CObject *object, int modelIndex) 0x404CD0
 cdecl CCutsceneObject* CCutsceneMgr::CreateCutsceneObject(int modelIndex)           0x404BE0
 cdecl void CCutsceneMgr::DeleteCutsceneData(void)                                   0x4048E0
