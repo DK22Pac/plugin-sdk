@@ -8,7 +8,7 @@
 
 #include "plbase/PluginBase_III.h"
 #include "CVector.h"
-#include "CPed.h"
+#include "CPlayerPed.h"
 #include "CVehicle.h"
 #include "CTrain.h"
 #include "CAnimBlendClumpData.h"
@@ -20,7 +20,7 @@ CVector& FindPlayerCentreOfWorld_NoSniperShift();
 // gets player coords
 CVector& FindPlayerCentreOfWorld(int playerId);
 // returns player ped
-CPed* FindPlayerPed();
+CPlayerPed* FindPlayerPed();
 // returns player train
 CTrain* FindPlayerTrain();
 // returns player ped or player vehicle if he's driving

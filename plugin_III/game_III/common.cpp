@@ -21,9 +21,9 @@ CVector& FindPlayerCentreOfWorld(int playerId) {
     return plugin::CallAndReturn<CVector&, 0x4A1170, int>(playerId);
 }
 
-// Converted from cdecl CPed* FindPlayerPed(void) 0x4A1150;
-CPed* FindPlayerPed() {
-    return plugin::CallAndReturn<CPed*, 0x4A1150>();
+// Converted from cdecl CPlayerPed* FindPlayerPed(void) 0x4A1150;
+CPlayerPed* FindPlayerPed() {
+    return plugin::CallAndReturn<CPlayerPed*, 0x4A1150>();
 }
 
 // Converted from cdecl CTrain* FindPlayerTrain(void) 0x4A1120;

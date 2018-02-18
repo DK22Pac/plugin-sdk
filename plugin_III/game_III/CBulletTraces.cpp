@@ -6,9 +6,17 @@
 */
 #include "CBulletTraces.h"
 
-unsigned int MAX_NUM_BULLETTRACES = 16;
-
 CBulletTrace *CBulletTraces::aTraces = (CBulletTrace *)0x72B1B8;
+
+// Converted from thiscall void CBulletTrace::Update(void) 0x519270 
+void CBulletTrace::Update() {
+    plugin::CallMethod<0x519270, CBulletTrace *>(this);
+}
+
+// Converted from thiscall void CBulletTrace::CBulletTrace(void) 0x51C390
+CBulletTrace::CBulletTrace() {
+    plugin::CallMethod<0x51C390, CBulletTrace *>(this);
+}
 
 // Converted from cdecl void CBulletTraces::Update(void) 0x519240 
 void CBulletTraces::Update() {

@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -11,13 +11,15 @@ Do not delete this comment block. Respect others' work!
 
 class CClouds {
 public:
-    //variables
+    // static variables
     static RwRGBA *ms_colourTop;
     static RwRGBA *ms_colourBottom;
     static float &CloudRotation;
     static float &IndividualRotation;
+    static float &ms_cameraRoll;
+    static float &ms_horizonZ;
 
-    //funcs
+    // static functions
     static void Init();
     static void Render();
     static void RenderBackground(short redTop, short greenTop, short blueTop, short redBottom, short greenBottom, short blueBottom, short alpha);
@@ -26,8 +28,6 @@ public:
     static void Update();
 };
 
-extern RwTexture*& gpCloudTex;		  // RwTexture* gpCloudTex
-extern RwTexture*& gpCloud2Tex;		  // RwTexture* gpCloud2Tex
-extern RwTexture*& gpCloud3Tex;		  // RwTexture* gpCloud3Tex
-extern RwTexture*& gpCloudHilitTex;	  // RwTexture* gpCloudHilitTex
-extern RwTexture*& gpCloudMaskedTex;  // RwTexture* gpCloudMaskedTex
+extern RwTexture*& gpCloudTex;	// RwTexture* gpCloudTex[5] = {cloud1, cloud2, cloud3, cloudhilit, cloudmasked};
+
+bool UseDarkBackground();

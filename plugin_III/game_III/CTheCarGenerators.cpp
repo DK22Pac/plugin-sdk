@@ -1,15 +1,15 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CTheCarGenerators.h"
 
 CCarGenerator *CTheCarGenerators::CarGeneratorArray = (CCarGenerator*)0x87CB18;
 int &CTheCarGenerators::NumOfCarGenerators = *(int*)0x8E2C1C;
 int &CTheCarGenerators::CurrentActiveCount = *(int*)0x8F2C5C;
-char &CTheCarGenerators::ProcessCounter = *(char*)0x95CDAF;
+unsigned char &CTheCarGenerators::ProcessCounter = *(unsigned char*)0x95CDAF;
 char &CTheCarGenerators::GenerateEvenIfPlayerIsCloseCounter = *(char*)0x95CDC6;
 
 // Converted from thiscall void CTheCarGenerators::CTheCarGenerators(void) 0x543350

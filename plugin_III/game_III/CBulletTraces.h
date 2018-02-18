@@ -7,17 +7,30 @@
 #pragma once
 
 #include "plbase/PluginBase_III.h"
-#include "CBulletTrace.h"
+#include "CVector.h"
+
+#pragma pack(push, 4)
+class CBulletTrace {
+public:
+    CVector m_vecOrigin;
+    CVector m_vecTarget;
+    bool m_bExist;
+    char m_nTimeCounter;
+    char m_nIntensity;
+
+    CBulletTrace();
+    void Update();
+};
+#pragma pack(pop)
+
+VALIDATE_SIZE(CBulletTrace, 0x1C);
 
 class CBulletTraces {
 public:
-    static CBulletTrace *aTraces; // static CBulletTrace aTraces[16]
+    static CBulletTrace *aTraces; // [16]
 
-    //funcs
     static void Update();
     static void Render();
     static void Init();
     static void AddTrace(CVector* origin, CVector* target);
 };
-
-extern unsigned int MAX_NUM_BULLETTRACES; // default 16

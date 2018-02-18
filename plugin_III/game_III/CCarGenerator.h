@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -10,13 +10,10 @@ Do not delete this comment block. Respect others' work!
 #include "CVector.h"
 #include "eVehicleModel.h"
 
-class CVehicle;
-
-#pragma pack(push, 4)
 class CCarGenerator {
 public:
     eVehicleModel  m_nModelId;
-    CVector        m_vPos;
+    CVector        m_vecPos;
     float          m_fAngle;
     short          m_nPrimaryColor;
     short          m_nSecondaryColor;
@@ -27,13 +24,13 @@ public:
     unsigned short m_nMinDelay;
     unsigned short m_nMaxDelay;
     unsigned int   m_nTimeNextGen;
-    CVehicle      *m_pVehicle;
+    int            m_nVehicleHandle;
     short          m_nEnabled;
-    char field_2A;
+    bool           m_bIsBlocking;
     char field_2B;
-    CVector        m_frontColl;
-    CVector        m_rearColl;
-    float float44;
+    CVector        m_vecSup;
+    CVector        m_vecInf;
+    float          m_fDistance;
         
     //funcs
     unsigned int CalcNextGen();
@@ -45,6 +42,5 @@ public:
     void SwitchOff();
     void SwitchOn();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CCarGenerator, 0x48);

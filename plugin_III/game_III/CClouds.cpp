@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CClouds.h"
 
@@ -10,12 +10,10 @@ RwRGBA *CClouds::ms_colourTop = (RwRGBA*)0x94143C;
 RwRGBA *CClouds::ms_colourBottom = (RwRGBA*)0x8F2C38;
 float &CClouds::CloudRotation = *(float*)0x8F5F40;
 float &CClouds::IndividualRotation = *(float*)0x943078;
+float &CClouds::ms_cameraRoll = *(float *)0x8F29CC;
+float &CClouds::ms_horizonZ = *(float *)0x8F31C0;
 
 RwTexture*& gpCloudTex = *(RwTexture**)0x9411C0;
-RwTexture*& gpCloud2Tex = *(RwTexture**)0x9411C4;
-RwTexture*& gpCloud3Tex = *(RwTexture**)0x9411C8;
-RwTexture*& gpCloudHilitTex = *(RwTexture**)0x9411CC;
-RwTexture*& gpCloudMaskedTex = *(RwTexture**)0x9411D0;
 
 // Converted from cdecl void CClouds::Init(void) 0x4F6C10 
 void CClouds::Init() {
@@ -45,4 +43,9 @@ void CClouds::Shutdown() {
 // Converted from cdecl void CClouds::Update(void) 0x4F6CE0 
 void CClouds::Update() {
     plugin::Call<0x4F6CE0>();
+}
+
+// Converted from cdecl bool UseDarkBackground(void) 0x4F7ED0 
+bool UseDarkBackground() {
+    return plugin::CallAndReturn<bool, 0x4F7ED0>();
 }
