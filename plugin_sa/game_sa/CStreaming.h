@@ -13,6 +13,7 @@
 #include "CEntity.h"
 #include "CPtrList.h"
 #include "CLinkList.h"
+#include "CLoadedCarGroup.h"
 
 class PLUGIN_API CStreaming {
 public:
@@ -42,9 +43,9 @@ public:
     static int *firemanModelsByTown;        // int firemanModelsByTown[4]
     static int *taxiDriverModelsByTown;        // int taxiDriverModelsByTown[7]
     static int *ms_pedsLoaded;              // CStreaming::ms_pedsLoaded[8] 
-	
-
+	static CStreamingInfo *ms_pStartLoadedList;
     static CStreamingInfo *ms_aInfoForModel; // static CStreamingInfo ms_aInfoForModel[26316]
+	static CLoadedCarGroup& ms_vehiclesLoaded;
 
     static void ImGonnaUseStreamingMemory();
     static void IHaveUsedStreamingMemory();
