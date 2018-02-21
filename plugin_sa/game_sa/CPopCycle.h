@@ -130,13 +130,13 @@ public:
 	static int& m_nCurrentZoneType;
 	static int& m_nCurrentTimeOfWeek;
 	static int& m_nCurrentTimeIndex;
-	static __int8* m_nPercTypeGroup;				// __int8 m_nPercTypeGroup[8640];
-	static unsigned __int8* m_nPercOther;				// unsigned __int8 m_nPercOther[480];
-	static unsigned __int8* m_nPercCops;			// unsigned __int8 m_nPercCops[480];
-	static unsigned __int8* m_nPercGang;	// unsigned __int8 m_nPercGang[480];
-	static unsigned __int8* m_nPercDealers;				// unsigned __int8 m_nPercDealers[480];
-	static unsigned __int8* m_nMaxNumCars;			 // unsigned __int8 m_nMaxNumCars[480];
-	static unsigned __int8* m_nMaxNumPeds;			 // unsigned __int8 m_nMaxNumPeds[480];
+	static char* m_nPercTypeGroup;				// char m_nPercTypeGroup[8640];
+	static unsigned char* m_nPercOther;				// unsigned char m_nPercOther[480];
+	static unsigned char* m_nPercCops;			// unsigned char m_nPercCops[480];
+	static unsigned char* m_nPercGang;	// unsigned char m_nPercGang[480];
+	static unsigned char* m_nPercDealers;				// unsigned char m_nPercDealers[480];
+	static unsigned char* m_nMaxNumCars;			 // unsigned char m_nMaxNumCars[480];
+	static unsigned char* m_nMaxNumPeds;			 // unsigned char m_nMaxNumPeds[480];
 	static float& m_NumDealers_Peds;
 
 

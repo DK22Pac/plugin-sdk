@@ -11,7 +11,7 @@
 #include "CPhysical.h"
 #include "CAEPedAudioEntity.h"
 #include "CAEPedSpeechAudioEntity.h"
-#include "CAEPedWeaponAudioEntity.h"
+#include "CAEWeaponAudioEntity.h"
 #include "CPedIntelligence.h"
 #include "CPlayerData.h"
 #include "AnimBlendFrameData.h"
@@ -50,7 +50,7 @@ protected:
 public:
     CAEPedAudioEntity			m_pedAudio;
     CAEPedSpeechAudioEntity		m_pedSpeech;
-	CAEPedWeaponAudioEntity		m_weaponAudio;
+    CAEWeaponAudioEntity		m_weaponAudio;
     char field_43C[36];
     char field_460[8];
     int field_468;

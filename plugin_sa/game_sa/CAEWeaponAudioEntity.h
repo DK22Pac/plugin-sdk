@@ -9,10 +9,12 @@
 #include "plbase/PluginBase_SA.h"
 #include "CAEAudioEntity.h"
 #include "CAESound.h"
-#include "CPed.h"
+#include "eWeaponType.h"
 
-class PLUGIN_API CAEWeaponAudioEntity : public CAEAudioEntity
-{
+class CPhysical;
+class CPed;
+
+class PLUGIN_API CAEWeaponAudioEntity : public CAEAudioEntity {
 public:
 	char m_bPlayedMiniGunFireSound;
 	char field_7D;

@@ -24,13 +24,13 @@ CZoneInfo* CPopCycle::m_pCurrZoneInfo = (CZoneInfo*)0xC0BC68;
 int& CPopCycle::m_nCurrentZoneType = *(int*)0xC0BC6C;
 int& CPopCycle::m_nCurrentTimeOfWeek = *(int*)0xC0BC70;
 int& CPopCycle::m_nCurrentTimeIndex = *(int*)0xC0BC74;
-__int8* CPopCycle::m_nPercTypeGroup = (__int8*)0xC0BC78;
-unsigned __int8* CPopCycle::m_nPercOther = (unsigned __int8*)0xC0DE38;
-unsigned __int8* CPopCycle::m_nPercCops = (unsigned __int8*)0xC0E018;
-unsigned __int8* CPopCycle::m_nPercGang = (unsigned __int8*)0xC0E1F8;
-unsigned __int8* CPopCycle::m_nPercDealers = (unsigned __int8*)0xC0E3D8;
-unsigned __int8* CPopCycle::m_nMaxNumCars = (unsigned __int8*)0xC0E5B8;
-unsigned __int8* CPopCycle::m_nMaxNumPeds = (unsigned __int8*)0xC0E798;
+char* CPopCycle::m_nPercTypeGroup = (char*)0xC0BC78;
+unsigned char* CPopCycle::m_nPercOther = (unsigned char*)0xC0DE38;
+unsigned char* CPopCycle::m_nPercCops = (unsigned char*)0xC0E018;
+unsigned char* CPopCycle::m_nPercGang = (unsigned char*)0xC0E1F8;
+unsigned char* CPopCycle::m_nPercDealers = (unsigned char*)0xC0E3D8;
+unsigned char* CPopCycle::m_nMaxNumCars = (unsigned char*)0xC0E5B8;
+unsigned char* CPopCycle::m_nMaxNumPeds = (unsigned char*)0xC0E798;
 float& CPopCycle::m_NumDealers_Peds = *(float*)0xC0E978;
 
 

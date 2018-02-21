@@ -39,13 +39,20 @@ namespace plugin {
 
         static char *GetDirPath(char *substring, ePathDir dir);
         static wchar_t *GetDirPath(wchar_t *substring, ePathDir dir);
+
+        static char *GetPluginFileName(char *out);
+        static wchar_t *GetPluginFileName(wchar_t *out);
+        static char *GetPluginFileNameA();
+        static wchar_t *GetPluginFileNameW();
     };
 }
 
 #ifdef UNICODE
 #define GAME_PATH(a) (plugin::paths::GetGameDirRelativePathW(a))
 #define PLUGIN_PATH(a) (plugin::paths::GetPluginDirRelativePathW(a))
+#define PLUGIN_FILENAME (plugin::paths::GetPluginNameW())
 #else
 #define GAME_PATH(a) (plugin::paths::GetGameDirRelativePathA(a))
 #define PLUGIN_PATH(a) (plugin::paths::GetPluginDirRelativePathA(a))
+#define PLUGIN_FILENAME (plugin::paths::GetPluginFileNameA())
 #endif

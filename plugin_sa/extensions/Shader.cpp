@@ -54,11 +54,11 @@ char *Shader::CompileShaderFromString(char const *str, char const *Entrypoint, c
     ID3DXBuffer* errorBuffer = nullptr;
     HRESULT hr = D3DXCompileShader(str, strlen(str), NULL, NULL, Entrypoint, Version, bDebug? D3DXSHADER_DEBUG : 0, &shader, &errorBuffer, NULL);
     if (errorBuffer) {
-        plugin::Error((char*)errorBuffer->GetBufferPointer());
+        plugin::InternalError((char*)errorBuffer->GetBufferPointer());
         errorBuffer->Release();
     }
     if (FAILED(hr)) {
-        plugin::Error("Failed to compile shader from text file!");
+        plugin::InternalError("Failed to compile shader from text file!");
         return NULL;
     }
     char *data = new char[shader->GetBufferSize()];
@@ -244,10 +244,10 @@ void Shader::Load() {
         if (!LoadFromBinary(file)) {
 #ifdef _MSC_VER
             if (isWidePath)
-                plugin::Error(L"Failed to open shader file (\"%s\")", filename_w);
+                plugin::InternalError(L"Failed to open shader file (\"%s\")", filename_w.c_str());
             else
 #endif
-                plugin::Error("Failed to open shader file (\"%s\")", filename);
+                plugin::InternalError("Failed to open shader file (\"%s\")", filename.c_str());
         }
     }
 }

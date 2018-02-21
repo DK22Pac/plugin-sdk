@@ -10,12 +10,14 @@
 
 struct PluginPathA {
     char _path[MAX_PATH + 1];
+    char *_pfilename;
     char _temp_path[MAX_PATH + 1];
 
     static void func(){}
 
     PluginPathA() {
         _path[0] = '\0';
+        _pfilename = _path;
         HMODULE h = NULL;
         if (!GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS|GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
             (LPCSTR)&func, &h))
@@ -24,8 +26,10 @@ struct PluginPathA {
         }
         GetModuleFileNameA(h, _path, MAX_PATH);
         char *slp = strrchr(_path, '\\');
-        if(slp)
+        if (slp) {
+            _pfilename = slp + 1;
             slp[1] = '\0';
+        }
     }
 };
 
@@ -48,12 +52,14 @@ struct GamePathA {
 
 struct PluginPathW {
     wchar_t _path[MAX_PATH + 1];
+    wchar_t *_pfilename;
     wchar_t _temp_path[MAX_PATH + 1];
 
     static void func() {}
 
     PluginPathW() {
         _path[0] = '\0';
+        _pfilename = _path;
         HMODULE h = NULL;
         if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
             (LPWSTR)&func, &h))
@@ -62,8 +68,10 @@ struct PluginPathW {
         }
         GetModuleFileNameW(h, _path, MAX_PATH);
         wchar_t *slp = wcsrchr(_path, '\\');
-        if (slp)
+        if (slp) {
+            _pfilename = slp + 1;
             slp[1] = '\0';
+        }
     }
 };
 
@@ -201,5 +209,23 @@ wchar_t *plugin::paths::GetDirPath(wchar_t *substring, ePathDir dir) {
     else if (dir == DirPlugin)
         return GetPluginDirRelativePathW(substring);
     wcscpy(PluginPathWInstance()._temp_path, substring);
+    return PluginPathWInstance()._temp_path;
+}
+
+char *plugin::paths::GetPluginFileName(char *out) {
+    strcpy(out, PluginPathAInstance()._pfilename);
+}
+
+wchar_t *plugin::paths::GetPluginFileName(wchar_t *out) {
+    wcscpy(out, PluginPathWInstance()._pfilename);
+}
+
+char *plugin::paths::GetPluginFileNameA() {
+    strcpy(PluginPathAInstance()._temp_path, PluginPathAInstance()._pfilename);
+    return PluginPathAInstance()._temp_path;
+}
+
+wchar_t *plugin::paths::GetPluginFileNameW() {
+    wcscpy(PluginPathWInstance()._temp_path, PluginPathWInstance()._pfilename);
     return PluginPathWInstance()._temp_path;
 }
