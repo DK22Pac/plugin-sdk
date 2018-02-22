@@ -6,10 +6,10 @@
 */
 #pragma once
 
-#include "plbase/PluginBase_VC.h"
+#include "plbase/PluginBase_III.h"
 #include "CVector.h"
 
-class CMovieData {
+class CMovie {
 public:
     int m_nCurrentMovieCommand;
     CVector m_vecCurrentPosition;
@@ -19,7 +19,7 @@ public:
     short m_nVehicle;
     short m_nModelId;
 
-    CMovieData();
+    CMovie();
 };
 
-VALIDATE_SIZE(CMovieData, 0x24);
+VALIDATE_SIZE(CMovie, 0x24);

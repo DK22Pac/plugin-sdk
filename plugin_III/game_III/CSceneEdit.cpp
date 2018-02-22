@@ -27,13 +27,13 @@ unsigned int &CSceneEdit::m_nPedmodelId = *(unsigned int*)0x8F1B00;
 short &CSceneEdit::m_nVehicle = *(short*)0x95CCF0;
 short &CSceneEdit::m_nVehicle2 = *(short*)0x95CCE8;
 unsigned int &CSceneEdit::m_nVehiclemodelId = *(unsigned int*)0x8F6244;
-unsigned short &CSceneEdit::m_nWeaponType = *(unsigned short*)0x95CCB0;
+eWeaponType &CSceneEdit::m_nWeaponType = *(eWeaponType*)0x95CCB0;
 CVector *CSceneEdit::m_vecCamHeading = (CVector*)0x942F8C;
 CVector *CSceneEdit::m_vecCurrentPosition = (CVector*)0x943064;
 CVector *CSceneEdit::m_vecGotoPosition = (CVector*)0x95CC10;
 CPed *CSceneEdit::pActors = (CPed*)0x880F64;
 CVehicle *CSceneEdit::pVehicles = (CVehicle*)0x8F6480;
-CMovieData *CSceneEdit::Movie = (CMovieData*)0x713D28;
+CMovie *CSceneEdit::Movie = (CMovie*)0x713D28;
 
 // Converted from cdecl void CSceneEdit::LoadMovie(void) 0x5850A0 
 void CSceneEdit::LoadMovie() {

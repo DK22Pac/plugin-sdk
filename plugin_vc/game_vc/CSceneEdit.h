@@ -7,14 +7,12 @@
 #pragma once
 
 #include "plbase/PluginBase_VC.h"
-#include "CMovieData.h"
+#include "CMovie.h"
 #include "CPed.h"
 #include "CVehicle.h"
 
 class CSceneEdit {
 public:
-    CMovieData m_aMovie[20];
-
     // static variables
     static bool &m_bActor2Selected;
     static bool &m_bActorSelected;
@@ -37,13 +35,13 @@ public:
     static short &m_nVehicle;
     static short &m_nVehicle2;
     static unsigned int &m_nVehiclemodelId;
-    static unsigned short &m_nWeaponType;
+    static eWeaponType &m_nWeaponType;
     static CVector *m_vecCamHeading;
     static CVector *m_vecCurrentPosition;
     static CVector *m_vecGotoPosition;
-    static CPed *pActors;
-    static CVehicle *pVehicles;
-    static CMovieData *Movie;
+    static CPed *pActors; // [5]
+    static CVehicle *pVehicles; // [5]
+    static CMovie *Movie; // [20]
 
     // static functions
     static bool SelectWeapon();
@@ -58,5 +56,3 @@ public:
     static void InitPlayBack();
     static void Initialise();
 };
-
-VALIDATE_SIZE(CSceneEdit, 0x2D0);
