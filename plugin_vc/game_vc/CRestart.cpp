@@ -8,19 +8,19 @@
 
 CVector *CRestart::HospitalRestartPoints = (CVector *)0x94B930;
 float &CRestart::HospitalRestartHeadings = *(float *)0x7DD740;
-short &CRestart::NumberOfHospitalRestarts = *(short *)0xA10972;
+unsigned short &CRestart::NumberOfHospitalRestarts = *(unsigned short *)0xA10972;
 bool &CRestart::bFadeInAfterNextDeath = *(bool *)0xA10B61;
 
 CVector *CRestart::PoliceRestartPoints = (CVector *)0x933B00;
 float &CRestart::PoliceRestartHeadings = *(float *)0x7DD720;
-short &CRestart::NumberOfPoliceRestarts = *(short *)0xA10970;
+unsigned short &CRestart::NumberOfPoliceRestarts = *(unsigned short *)0xA10970;
 bool &CRestart::bFadeInAfterNextArrest = *(bool *)0xA10B18;
 
 CVector *CRestart::OverridePosition = (CVector *)0x975344;
 float &CRestart::OverrideHeading = *(float *)0x978E54;
 bool &CRestart::bOverrideRestart = *(bool *)0xA10AF8;
-char &CRestart::OverrideHospitalLevel = *(char *)0xA10AE6;
-char &CRestart::OverridePoliceStationLevel = *(char *)0xA10AEA;
+unsigned char &CRestart::OverrideHospitalLevel = *(unsigned char *)0xA10AE6;
+unsigned char &CRestart::OverridePoliceStationLevel = *(unsigned char *)0xA10AEA;
 
 // Converted from cdecl void CRestart::LoadAllRestartPoints(uchar *bufferPointer,uint structSize) 0x4421D0
 void CRestart::LoadAllRestartPoints(unsigned char* bufferPointer, unsigned int structSize) {

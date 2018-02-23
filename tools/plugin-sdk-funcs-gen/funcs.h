@@ -1,6 +1,23 @@
 vtable 0 //GTA3 
 end
 funcs
+cdecl void CGameLogic::InitAtStartOfGame(void)                                                             0x4213F0
+cdecl void CGameLogic::Update(void)                                                                        0x421400
+cdecl void CGameLogic::SortOutStreamingAndMemory(CVector const& point)                                     0x421A20
+cdecl void CGameLogic::RestorePlayerStuffDuringResurrection(CPlayerPed *player, CVector posn, float angle) 0x421A60
+cdecl void CGameLogic::PassTime(uint time)                                                                 0x421C00
+end
+
+vtable 0 //GTA3 
+end
+funcs
+cdecl void CRemote::GivePlayerRemoteControlledCar(float x, float y, float z, float angle, ushort modelIndex) 0x435C30
+cdecl void CRemote::TakeRemoteControlledCarFromPlayer(void)                                                  0x435DA0
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl void CObjectData::Initialise(char *filename)                    0x4BC0E0
 cdecl void CObjectData::SetObjectData(int modelIndex, CObject &object) 0x4BC270
 end

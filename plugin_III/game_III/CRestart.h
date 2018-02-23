@@ -14,19 +14,19 @@ public:
     // variables
     static CVector *HospitalRestartPoints; // [8]
     static float &HospitalRestartHeadings; // [8]
-    static short &NumberOfHospitalRestarts;
+    static unsigned short &NumberOfHospitalRestarts;
     static bool &bFadeInAfterNextDeath;
 
     static CVector *PoliceRestartPoints;   // [8]
     static float &PoliceRestartHeadings;   // [8]
-    static short &NumberOfPoliceRestarts;
+    static unsigned short &NumberOfPoliceRestarts;
     static bool &bFadeInAfterNextArrest;
 
     static CVector *OverridePosition;
     static float &OverrideHeading;
     static bool &bOverrideRestart;
-    static char &OverrideHospitalLevel;
-    static char &OverridePoliceStationLevel;
+    static unsigned char &OverrideHospitalLevel;
+    static unsigned char &OverridePoliceStationLevel;
 
     // functions
     static void Initialise();
