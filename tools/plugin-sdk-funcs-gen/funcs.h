@@ -1,6 +1,16 @@
 vtable 0 //GTA3 
 end
 funcs
+cdecl void CBridge::Init(void)                                   0x413A30
+cdecl void CBridge::Update(void)                                 0x413AC0
+cdecl bool CBridge::ShouldLightsBeFlashing(void)                 0x413D10
+cdecl void CBridge::FindBridgeEntities(void)                     0x413D20
+cdecl bool CBridge::ThisIsABridgeObjectMovingUp(uint modelIndex) 0x413DE0
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl void CGameLogic::InitAtStartOfGame(void)                                                             0x4213F0
 cdecl void CGameLogic::Update(void)                                                                        0x421400
 cdecl void CGameLogic::SortOutStreamingAndMemory(CVector const& point)                                     0x421A20

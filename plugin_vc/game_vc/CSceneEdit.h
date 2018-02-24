@@ -39,8 +39,8 @@ public:
     static CVector *m_vecCamHeading;
     static CVector *m_vecCurrentPosition;
     static CVector *m_vecGotoPosition;
-    static CPed *pActors; // [5]
-    static CVehicle *pVehicles; // [5]
+    static CPed **pActors; // [5]
+    static CVehicle **pVehicles; // [5]
     static CMovie *Movie; // [20]
 
     // static functions

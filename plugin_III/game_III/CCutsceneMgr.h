@@ -34,8 +34,8 @@ public:
     static CCutsceneObject* CreateCutsceneObject(int modelIndex);
     static void DeleteCutsceneData();
     static void FinishCutscene();
-    static double GetCutsceneTimeInMilleseconds();
-    static double HasCutsceneFinished();
+    static int GetCutsceneTimeInMilleseconds();
+    static bool HasCutsceneFinished();
     static void Initialise();
     static void LoadCutsceneData(char const* cutsceneName);
     static void SetCutsceneAnim(char const* animName, CObject* object);

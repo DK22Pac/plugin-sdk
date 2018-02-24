@@ -31,8 +31,8 @@ eWeaponType &CSceneEdit::m_nWeaponType = *(eWeaponType*)0x95CCB0;
 CVector *CSceneEdit::m_vecCamHeading = (CVector*)0x942F8C;
 CVector *CSceneEdit::m_vecCurrentPosition = (CVector*)0x943064;
 CVector *CSceneEdit::m_vecGotoPosition = (CVector*)0x95CC10;
-CPed *CSceneEdit::pActors = (CPed*)0x880F64;
-CVehicle *CSceneEdit::pVehicles = (CVehicle*)0x8F6480;
+CPed **CSceneEdit::pActors = (CPed**)0x880F64;
+CVehicle **CSceneEdit::pVehicles = (CVehicle**)0x8F6480;
 CMovie *CSceneEdit::Movie = (CMovie*)0x713D28;
 
 // Converted from cdecl void CSceneEdit::LoadMovie(void) 0x5850A0 
