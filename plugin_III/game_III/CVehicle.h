@@ -48,7 +48,7 @@ enum eVehicleLightsFlags {
 };
 
 enum eVehicleCreatedBy {
-    RANDOM_VEHICLE = 0,
+    RANDOM_VEHICLE = 1,
     MISSION_VEHICLE = 2,
     PARKED_VEHICLE = 3,
     PERMANENT_VEHICLE = 4
