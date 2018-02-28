@@ -1,6 +1,48 @@
 vtable 0 //GTA3 
 end
 funcs
+cdecl void CBridge::Init(void)                                   0x413A30
+cdecl void CBridge::Update(void)                                 0x413AC0
+cdecl bool CBridge::ShouldLightsBeFlashing(void)                 0x413D10
+cdecl void CBridge::FindBridgeEntities(void)                     0x413D20
+cdecl bool CBridge::ThisIsABridgeObjectMovingUp(uint modelIndex) 0x413DE0
+end
+
+vtable 0 //GTA3 
+end
+funcs
+cdecl void CGameLogic::InitAtStartOfGame(void)                                                             0x4213F0
+cdecl void CGameLogic::Update(void)                                                                        0x421400
+cdecl void CGameLogic::SortOutStreamingAndMemory(CVector const& point)                                     0x421A20
+cdecl void CGameLogic::RestorePlayerStuffDuringResurrection(CPlayerPed *player, CVector posn, float angle) 0x421A60
+cdecl void CGameLogic::PassTime(uint time)                                                                 0x421C00
+end
+
+vtable 0 //GTA3 
+end
+funcs
+cdecl void CRemote::GivePlayerRemoteControlledCar(float x, float y, float z, float angle, ushort modelIndex) 0x435C30
+cdecl void CRemote::TakeRemoteControlledCarFromPlayer(void)                                                  0x435DA0
+end
+
+vtable 0 //GTA3 
+end
+funcs
+cdecl void CObjectData::Initialise(char *filename)                    0x4BC0E0
+cdecl void CObjectData::SetObjectData(int modelIndex, CObject &object) 0x4BC270
+end
+
+vtable 0 //GTA3 
+end
+funcs
+thiscall void CAudioHydrant::CAudioHydrant(void)          0x4BFE00
+cdecl bool CAudioHydrant::Add(CParticleObject *object)    0x4BC330
+cdecl void CAudioHydrant::Remove(CParticleObject *object) 0x4BC390
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl void CDraw::SetFOV(float fovValue) 0x4FE7B0
 end
 
@@ -351,7 +393,7 @@ cdecl void CSceneEdit::Update(void)         0x606270
 cdecl void CSceneEdit::ReInitialise(void)   0x6062F0
 cdecl void CSceneEdit::InitPlayBack(void)   0x606470
 cdecl void CSceneEdit::Initialise(void)     0x6065B0
-thiscall void CMovieData::CMovieData(void)  0x606720
+thiscall void CMovie::CMovie(void)          0x606720
 end
 
 vtable 0 //GTA3
@@ -373,7 +415,7 @@ cdecl bool CSceneEdit::SelectActor(void)        0x587B30
 cdecl bool CSceneEdit::SelectActor2(void)       0x587DC0
 cdecl bool CSceneEdit::SelectVehicle(void)      0x588040
 cdecl bool CSceneEdit::SelectWeapon(void)       0x588220
-thiscall void CMovieData::CMovieData(void)      0x588480
+thiscall void CMovie::CMovie(void)              0x588480
 end
 
 vtable 0 //GTA3

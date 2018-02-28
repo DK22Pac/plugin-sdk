@@ -4,9 +4,9 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CMovieData.h"
+#include "CMovie.h"
 
-// Converted from thiscall void CMovieData::CMovieData(void) 0x606720
-CMovieData::CMovieData() {
-    plugin::CallMethod<0x606720, CMovieData *>(this);
+// Converted from thiscall void CMovie::CMovie(void) 0x588480 
+CMovie::CMovie() {
+    plugin::CallMethod<0x588480, CMovie *>(this);
 }

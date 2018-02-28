@@ -40,14 +40,14 @@ void CCutsceneMgr::FinishCutscene() {
     plugin::Call<0x405140>();
 }
 
-// Converted from cdecl double CCutsceneMgr::GetCutsceneTimeInMilleseconds(void) 0x4051B0
-double CCutsceneMgr::GetCutsceneTimeInMilleseconds() {
-    return plugin::CallAndReturn<double, 0x4051B0>();
+// Converted from cdecl int CCutsceneMgr::GetCutsceneTimeInMilleseconds(void) 0x4051B0
+int CCutsceneMgr::GetCutsceneTimeInMilleseconds() {
+    return plugin::CallAndReturn<int, 0x4051B0>();
 }
 
-// Converted from cdecl double CCutsceneMgr::HasCutsceneFinished(void) 0x4051F0
-double CCutsceneMgr::HasCutsceneFinished() {
-    return plugin::CallAndReturn<double, 0x4051F0>();
+// Converted from cdecl bool CCutsceneMgr::HasCutsceneFinished(void) 0x4051F0
+bool CCutsceneMgr::HasCutsceneFinished() {
+    return plugin::CallAndReturn<bool, 0x4051F0>();
 }
 
 // Converted from cdecl void CCutsceneMgr::Initialise(void) 0x4045D0 

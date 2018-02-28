@@ -34,7 +34,7 @@ CStreamingInfo *CStreaming::ms_startLoadedList = (CStreamingInfo *)0x942F60;
 CStreamingInfo *CStreaming::ms_startRequestedList = (CStreamingInfo *)0x8F1B3C;
 
 void *CStreaming::ms_pStreamingBuffer = (void *)0x87F818;
-CDirectory *CStreaming::ms_pExtraObjectsDir = (CDirectory *)0x95CB90;
+CDirectory **CStreaming::ms_pExtraObjectsDir = (CDirectory **)0x95CB90;
 
 // Converted from cdecl void CStreaming::RequestModel(int modelIndex, int flags) 0x407EA0
 void CStreaming::RequestModel(int modelIndex, int flags) {
@@ -256,9 +256,9 @@ void CStreaming::ImGonnaUseStreamingMemory() {
     plugin::Call<0x409BC0>();
 }
 
-// Converted from cdecl bool CStreaming::IsObjectInCdImage(int) 0x407E70
-bool CStreaming::IsObjectInCdImage(int arg0) {
-    return plugin::CallAndReturn<bool, 0x407E70, int>(arg0);
+// Converted from cdecl bool CStreaming::IsObjectInCdImage(int modelIndex) 0x407E70
+bool CStreaming::IsObjectInCdImage(int modelIndex) {
+    return plugin::CallAndReturn<bool, 0x407E70, int>(modelIndex);
 }
 
 // Converted from cdecl void CStreaming::LoadCdDirectory(char const* archivename, int archiveID) 0x406DA0

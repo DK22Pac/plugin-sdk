@@ -8,19 +8,19 @@
 
 CVector *CRestart::HospitalRestartPoints = (CVector *)0x87F9B0;
 float &CRestart::HospitalRestartHeadings = *(float *)0x6F1D40;
-short &CRestart::NumberOfHospitalRestarts = *(short *)0x95CC46;
+unsigned short &CRestart::NumberOfHospitalRestarts = *(unsigned short *)0x95CC46;
 bool &CRestart::bFadeInAfterNextDeath = *(bool *)0x95CD9D;
 
 CVector *CRestart::PoliceRestartPoints = (CVector *)0x846228;
 float &CRestart::PoliceRestartHeadings = *(float *)0x6F1D20;
-short &CRestart::NumberOfPoliceRestarts = *(short *)0x95CC44;
+unsigned short &CRestart::NumberOfPoliceRestarts = *(unsigned short *)0x95CC44;
 bool &CRestart::bFadeInAfterNextArrest = *(bool *)0x95CD69;
 
 CVector *CRestart::OverridePosition = (CVector *)0x8E2C00;
 float &CRestart::OverrideHeading = *(float *)0x8F2A18;
 bool &CRestart::bOverrideRestart = *(bool *)0x95CD5D;
-char &CRestart::OverrideHospitalLevel = *(char *)0x95CD4C;
-char &CRestart::OverridePoliceStationLevel = *(char *)0x95CD50;
+unsigned char &CRestart::OverrideHospitalLevel = *(unsigned char *)0x95CD4C;
+unsigned char &CRestart::OverridePoliceStationLevel = *(unsigned char *)0x95CD50;
 
 // Converted from cdecl void CRestart::Initialise(void) 0x435E20 
 void CRestart::Initialise() {

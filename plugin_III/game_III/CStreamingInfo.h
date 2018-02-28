@@ -34,10 +34,10 @@ public:
     unsigned int m_nCdSize;
 
     //funcs
-    CStreamingInfo* AddToList(CStreamingInfo* listStart);
+    void AddToList(CStreamingInfo* listStart);
     bool GetCdPosnAndSize(unsigned int& posn, unsigned int& size);
-    int GetCdSize();
-    CStreamingInfo* RemoveFromList();
+    unsigned int GetCdSize();
+    void RemoveFromList();
     void SetCdPosnAndSize(unsigned int posn, unsigned int size);
 };
 

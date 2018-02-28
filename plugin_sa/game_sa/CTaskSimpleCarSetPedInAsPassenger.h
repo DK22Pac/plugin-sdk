@@ -11,7 +11,6 @@
 #include "CVehicle.h"
 #include "CTaskUtilityLineUpPedWithCar.h"
 
-#pragma pack(push,4)
 class PLUGIN_API CTaskSimpleCarSetPedInAsPassenger : public CTaskSimple {
 protected:
     CTaskSimpleCarSetPedInAsPassenger(plugin::dummy_func_t a) : CTaskSimple(a) {}
@@ -19,7 +18,9 @@ public:
 	CTaskSimpleCarSetPedInAsPassenger(CVehicle *pVehicle,int doorframeID, CTaskUtilityLineUpPedWithCar *arg3); 
    
       char byte8;
+private:
       char gap9[3];
+public:
       int dwordC;
       CVehicle *m_pVehicle;
       int m_nDoorFrameId;
@@ -27,8 +28,6 @@ public:
       char m_bDontUseUtility;
       char byte1D;
       char byte1E;
-
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CTaskSimpleCarSetPedInAsPassenger, 0x20);
