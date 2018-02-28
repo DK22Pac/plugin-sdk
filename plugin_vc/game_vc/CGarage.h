@@ -1,5 +1,5 @@
 #pragma once
-#include "plbase/PluginBase_VC.h"
+#include "PluginBase.h"
 
 class CGarage {
 public:

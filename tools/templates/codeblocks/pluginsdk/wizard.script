@@ -10,6 +10,18 @@ gClassName <- _T("");
 gPluginType <- 0; // 0 - ASI Plugin, 1 - CLEO Plugin, 2 - MoonLoader Module, 3 - DLL Library
 gDirectX <- false;
 gLACompatibility <- false;
+gVersionSA_10US <- true;
+gVersionSA_10EU <- false;
+gVersionSA_11US <- false;
+gVersionSA_11EU <- false;
+gVersionSA_Steam <- false;
+gVersionSA_SteamLV <- false;
+gVersionVC_10 <- true;
+gVersionVC_11 <- false;
+gVersionVC_Steam <- false;
+gVersionIII_10 <- true;
+gVersionIII_11 <- false;
+gVersionIII_Steam <- false;
 gOutputDirectory <- _T("");
 gReleaseIncludeDirs <- _T("");
 gReleaseLibraryDirs <- _T("");
@@ -226,7 +238,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     local gameAbbr = gameId.Upper();
     local gameAbbrLow = gameId.Lower();
     local projectName = GetFixedProjectName(Wizard.GetProjectName());
-    local baseTargetName = Wizard.GetReleaseName(); 
+    local baseTargetName = Wizard.GetReleaseName();
     if (isDebug)
         baseTargetName = Wizard.GetDebugName();
     local target = project.DuplicateBuildTarget(baseTargetName, targetName);
@@ -243,6 +255,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     target.SetTargetFilenameGenerationPolicy(tgfpNone, tgfpNone);
     target.AddCompilerOption(_T("-m32"));
     target.AddCompilerOption(_T("-fpermissive"));
+    target.AddCompilerOption(_T("-std=gnu++17"));
     target.AddLinkerOption(_T("-static-libgcc"));
     target.AddLinkerOption(_T("-static-libstdc++"));
     local configName = GetConfigName(isDebug);
@@ -262,7 +275,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
         gameDir = GetName(gGTAVCDir, _T("$(GTA_VC_DIR)"));
     else
         gameDir = GetName(gGTA3Dir, _T("$(GTA_III_DIR)"));
-    
+
     if (gPluginType == 0) // ASI Plugin
         outDirName = _T("scripts");
     else if (gPluginType == 1) // CLEO Plugin
@@ -295,16 +308,13 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     pluginSdkDir = NormalisePath(pluginSdkDir);
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\"));
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\game_") + gameAbbrLow + _T("\\"));
+    target.AddIncludeDir(pluginSdkDir + _T("shared\\"));
     target.AddLibDir(pluginSdkDir + _T("output\\mingw\\lib\\"));
-    local pathsLibName = _T("paths");
     local pluginLibName = _T("plugin");
     if (!gameAbbr.Matches(_T("SA")))
         pluginLibName += _T("_") + gameAbbrLow;
-    if (isDebug) {
-        pathsLibName += _T("_d");
+    if (isDebug)
         pluginLibName += _T("_d");
-    }
-    target.AddLinkLib(pathsLibName);
     target.AddLinkLib(pluginLibName);
     if (gameAbbr.Matches(_T("SA"))) {
         target.AddCompilerOption(_T("-DGTASA"));
@@ -377,6 +387,36 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     }
     if (gLACompatibility)
         target.AddCompilerOption(_T("-D_PLUGIN_LA_COMP"));
+    if (gameAbbr.Matches(_T("SA"))) {
+        if (gVersionSA_10US)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_10US"));
+        if (gVersionSA_10EU)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_10EU"));
+        if (gVersionSA_11US)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_11US"));
+        if (gVersionSA_11EU)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_11EU"));
+        if (gVersionSA_Steam)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_SR2"));
+        if (gVersionSA_SteamLV)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_SR2LV"));
+    }
+    else if (gameAbbr.Matches(_T("VC"))) {
+        if (gVersionVC_10)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_10EN"));
+        if (gVersionVC_11)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_11EN"));
+        if (gVersionVC_Steam)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_STEAM"));
+    }
+    else {
+        if (gVersionIII_10)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_10EN"));
+        if (gVersionIII_11)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_11EN"));
+        if (gVersionIII_Steam)
+            target.AddCompilerOption(_T("-DPLUGIN_SGV_STEAM"));
+    }
     if (!isDebug || gDebugSettingsSameAsRelease)
         AddAdditionalToTarget(target, isDebug, projectName, gameAbbr, gameDir, outDirName, gReleaseIncludeDirs, gReleaseLibraryDirs, gReleaseDependencies, gReleaseDefinitions);
     else
@@ -460,6 +500,27 @@ function AnyGameChecked() {
     return Wizard.IsCheckboxChecked(_T("chkGTASA")) || Wizard.IsCheckboxChecked(_T("chkGTAVC")) || Wizard.IsCheckboxChecked(_T("chkGTA3"));
 }
 
+function SwitchSAVersions(enable) {
+    Wizard.EnableWindow(_T("btmGTASA_small"), enable);
+    Wizard.EnableWindow(_T("chkVersionSA_10EU"), enable);
+    Wizard.EnableWindow(_T("chkVersionSA_11US"), enable);
+    Wizard.EnableWindow(_T("chkVersionSA_11EU"), enable);
+    Wizard.EnableWindow(_T("chkVersionSA_Steam"), enable);
+    Wizard.EnableWindow(_T("chkVersionSA_SteamLV"), enable);
+}
+
+function SwitchVCVersions(enable) {
+    Wizard.EnableWindow(_T("btmGTAVC_small"), enable);
+    Wizard.EnableWindow(_T("chkVersionVC_11"), enable);
+    Wizard.EnableWindow(_T("chkVersionVC_Steam"), enable);
+}
+
+function SwitchIIIVersions(enable) {
+    Wizard.EnableWindow(_T("btmGTA3_small"), enable);
+    Wizard.EnableWindow(_T("chkVersionIII_11"), enable);
+    Wizard.EnableWindow(_T("chkVersionIII_Steam"), enable);
+}
+
 function BasicSetupSwitchComponents(enable) {
     Wizard.EnableWindow(_T("sttPluginType"), enable);
     Wizard.EnableWindow(_T("cmbPluginType"), enable);
@@ -471,6 +532,7 @@ function BasicSetupSwitchComponents(enable) {
     Wizard.EnableWindow(_T("chkCleoSdk"), enable);
     Wizard.EnableWindow(_T("chkUseDirectX"), enable);
     Wizard.EnableWindow(_T("chkLACompatibility"), enable);
+    Wizard.EnableWindow(_T("sttGameVersions"), enable);
     Wizard.EnableWindow(_T("sttOutputDirectory"), enable);
     Wizard.EnableWindow(_T("txtOutputDirectory"), enable);
     Wizard.EnableWindow(_T("btnGameFolder"), enable);
@@ -490,6 +552,7 @@ function BasicSetupCheckForComponentsSwitch(thisCheckbox, secondCheckbox, thirdC
 
 function OnClick_chkGTASA() {
     BasicSetupCheckForComponentsSwitch(_T("chkGTASA"), _T("chkGTAVC"), _T("chkGTA3"));
+    SwitchSAVersions(Wizard.IsCheckboxChecked(_T("chkGTASA")));
 }
 
 function OnClick_chkGTAVC() {
@@ -504,6 +567,7 @@ function OnClick_chkGTAVC() {
         }
     }
     BasicSetupCheckForComponentsSwitch(_T("chkGTAVC"), _T("chkGTASA"), _T("chkGTA3"));
+    SwitchVCVersions(Wizard.IsCheckboxChecked(_T("chkGTAVC")));
 }
 
 function OnClick_chkGTA3() {
@@ -518,6 +582,7 @@ function OnClick_chkGTA3() {
         }
     }
     BasicSetupCheckForComponentsSwitch(_T("chkGTA3"), _T("chkGTASA"), _T("chkGTAVC"));
+    SwitchIIIVersions(Wizard.IsCheckboxChecked(_T("chkGTA3")));
 }
 
 function OnClick_cmbPluginType() {

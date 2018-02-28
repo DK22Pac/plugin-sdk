@@ -1,15 +1,15 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "plbase/PluginBase_SA.h"
+#include "PluginBase.h"
 #include "CRunningScript.h"
-#include "game_sa/CPed.h"
-#include "game_sa/CVehicle.h"
-#include "game_sa/CObject.h"
+#include "CPed.h"
+#include "CVehicle.h"
+#include "CObject.h"
 
 #define VAR_CTheScripts__ScriptSpace 0xA49960
 

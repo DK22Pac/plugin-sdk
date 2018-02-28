@@ -27,7 +27,8 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxBoxSizer">
+				<object class="wxFlexGridSizer">
+					<cols>3</cols>
 					<object class="sizeritem">
 						<object class="wxFlexGridSizer">
 							<cols>1</cols>
@@ -47,7 +48,7 @@
 								<option>1</option>
 							</object>
 						</object>
-						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<option>1</option>
 					</object>
@@ -93,12 +94,12 @@
 								<option>1</option>
 							</object>
 						</object>
-						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<option>1</option>
 					</object>
 				</object>
-				<flag>wxALL|wxEXPAND</flag>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
 			</object>
@@ -107,7 +108,7 @@
 					<cols>1</cols>
 					<object class="sizeritem">
 						<object class="wxFlexGridSizer">
-							<cols>3</cols>
+							<cols>5</cols>
 							<object class="sizeritem">
 								<object class="wxStaticText" name="sttPluginType">
 									<label>Plugin type:</label>
@@ -125,10 +126,32 @@
 										<item>DLL Library</item>
 									</content>
 									<selection>0</selection>
-									<size>211,21</size>
+									<size>160,21</size>
 									<enabled>0</enabled>
 								</object>
 								<flag>wxALIGN_LEFT|wxALIGN_TOP</flag>
+								<option>1</option>
+							</object>
+							<object class="spacer">
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+								<size>5,0</size>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkUseDirectX">
+									<label>DX SDK</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkLACompatibility">
+									<label>LA comp.</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								<option>1</option>
 							</object>
 						</object>
@@ -138,7 +161,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxFlexGridSizer">
-							<cols>3</cols>
+							<cols>2</cols>
 							<object class="sizeritem">
 								<object class="wxStaticText" name="sttPluginName">
 									<label>Plugin name:</label>
@@ -150,7 +173,7 @@
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="txtPluginName">
 									<value>$projectname$.$game$</value>
-									<size>207,21</size>
+									<size>302,21</size>
 									<enabled>0</enabled>
 								</object>
 								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -163,7 +186,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxFlexGridSizer">
-							<cols>3</cols>
+							<cols>2</cols>
 							<object class="sizeritem">
 								<object class="wxStaticText" name="sttClassName">
 									<label>Class name:</label>
@@ -175,7 +198,7 @@
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="txtClassName">
 									<value>$projectname$</value>
-									<size>210,21</size>
+									<size>305,21</size>
 									<enabled>0</enabled>
 								</object>
 								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -188,27 +211,201 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxFlexGridSizer">
-							<cols>3</cols>
+							<cols>1</cols>
 							<object class="sizeritem">
-								<object class="wxCheckBox" name="chkUseDirectX">
-									<label>Use DirectX</label>
+								<object class="wxStaticText" name="sttGameVersions">
+									<label>Game versions:</label>
 									<enabled>0</enabled>
 								</object>
-								<flag>wxRIGHT|wxALIGN_LEFT|wxALIGN_TOP</flag>
-								<border>5</border>
-								<option>1</option>
-							</object>
-							<object class="sizeritem">
-								<object class="wxCheckBox" name="chkLACompatibility">
-									<label>LA compatibility</label>
-									<enabled>0</enabled>
-								</object>
-								<flag>wxALIGN_TOP</flag>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								<option>1</option>
 							</object>
 						</object>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>7</cols>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="btmGTASA_small">
+									<bitmap>images\gtasa_small.png</bitmap>
+									<disabled>images\gtasa_small_d.png</disabled>
+									<selected>images\gtasa_small.png</selected>
+									<focus>images\gtasa_small.png</focus>
+									<size>18,18</size>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkVersionSA_10US">
+									<label>1.0 US</label>
+									<checked>1</checked>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>1</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkVersionSA_10EU">
+									<label>1.0 EU</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>1</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkVersionSA_11US">
+									<label>1.01 US</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>1</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkVersionSA_11EU">
+									<label>1.01 EU</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>1</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkVersionSA_Steam">
+									<label>Steam</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>1</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxCheckBox" name="chkVersionSA_SteamLV">
+									<label>Steam-lv</label>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>1</border>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxEXPAND</flag>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxFlexGridSizer">
+							<cols>3</cols>
+							<object class="sizeritem">
+								<object class="wxFlexGridSizer">
+									<cols>4</cols>
+									<object class="sizeritem">
+										<object class="wxBitmapButton" name="btmGTAVC_small">
+											<bitmap>images\gtavc_small.png</bitmap>
+											<disabled>images\gtavc_small_d.png</disabled>
+											<selected>images\gtavc_small.png</selected>
+											<focus>images\gtavc_small.png</focus>
+											<size>18,18</size>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxCheckBox" name="chkVersionVC_10">
+											<label>1.0</label>
+											<checked>1</checked>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>1</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxCheckBox" name="chkVersionVC_11">
+											<label>1.1</label>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>1</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxCheckBox" name="chkVersionVC_Steam">
+											<label>Steam</label>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>1</border>
+										<option>1</option>
+									</object>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+							<object class="spacer">
+								<flag>wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>14</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxFlexGridSizer">
+									<cols>4</cols>
+									<object class="sizeritem">
+										<object class="wxBitmapButton" name="btmGTA3_small">
+											<bitmap>images\gta3_small.png</bitmap>
+											<disabled>images\gta3_small_d.png</disabled>
+											<selected>images\gta3_small.png</selected>
+											<focus>images\gta3_small.png</focus>
+											<size>18,18</size>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxCheckBox" name="chkVersionIII_10">
+											<label>1.0</label>
+											<checked>1</checked>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>1</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxCheckBox" name="chkVersionIII_11">
+											<label>1.1</label>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>1</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxCheckBox" name="chkVersionIII_Steam">
+											<label>Steam</label>
+											<enabled>0</enabled>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>1</border>
+										<option>1</option>
+									</object>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxEXPAND</flag>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -225,7 +422,7 @@
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="txtOutputDirectory">
 									<value>$gamedir$\\$outdirname$</value>
-									<size>165,21</size>
+									<size>260,21</size>
 									<enabled>0</enabled>
 								</object>
 								<flag>wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -266,7 +463,7 @@
 					</object>
 				</object>
 				<flag>wxALL|wxEXPAND</flag>
-				<border>5</border>
+				<border>3</border>
 				<option>1</option>
 			</object>
 		</object>
@@ -302,7 +499,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtReleaseAdditionalIncludeDirs">
-							<size>203,54</size>
+							<size>294,82</size>
 							<style>wxTE_MULTILINE</style>
 						</object>
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -320,7 +517,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtReleaseAdditionalLibraryDirs">
-							<size>203,54</size>
+							<size>294,82</size>
 							<style>wxTE_MULTILINE</style>
 						</object>
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -338,7 +535,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtReleaseAdditionalDependencies">
-							<size>203,54</size>
+							<size>294,62</size>
 							<style>wxTE_MULTILINE</style>
 						</object>
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -356,7 +553,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtReleaseAdditionalPreprocessorDefinitions">
-							<size>203,54</size>
+							<size>294,62</size>
 							<style>wxTE_MULTILINE</style>
 						</object>
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -410,7 +607,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtDebugAdditionalIncludeDirs">
-							<size>203,54</size>
+							<size>294,82</size>
 							<enabled>0</enabled>
 							<style>wxTE_MULTILINE</style>
 						</object>
@@ -430,7 +627,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtDebugAdditionalLibraryDirs">
-							<size>203,54</size>
+							<size>294,82</size>
 							<enabled>0</enabled>
 							<style>wxTE_MULTILINE</style>
 						</object>
@@ -450,7 +647,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtDebugAdditionalDependencies">
-							<size>203,54</size>
+							<size>294,62</size>
 							<enabled>0</enabled>
 							<style>wxTE_MULTILINE</style>
 						</object>
@@ -470,7 +667,7 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtDebugAdditionalPreprocessorDefinitions">
-							<size>203,54</size>
+							<size>294,62</size>
 							<enabled>0</enabled>
 							<style>wxTE_MULTILINE</style>
 						</object>
@@ -515,10 +712,10 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtPluginSdkDir">
 							<value>$(PLUGIN__SDK__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -533,11 +730,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtGtaSaDir">
 							<value>$(GTA__SA__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -552,11 +749,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtCleoSdkSaDir">
 							<value>$(CLEO__SDK__SA__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -571,11 +768,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtGtaVcDir">
 							<value>$(GTA__VC__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -590,11 +787,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtCleoSdkVcDir">
 							<value>$(CLEO__SDK__VC__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -609,11 +806,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtGta3Dir">
 							<value>$(GTA__III__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -628,11 +825,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtCleoSdk3Dir">
 							<value>$(CLEO__SDK__III__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -647,11 +844,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtMoonLoaderSdkDir">
 							<value>$(MOONLOADER__SDK__SA__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -666,11 +863,11 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtDirectXSdkDir">
 							<value>$(DIRECTX9__SDK__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>2</border>
+						<border>8</border>
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
@@ -685,16 +882,23 @@
 					<object class="sizeritem">
 						<object class="wxTextCtrl" name="txtRwD3d9Dir">
 							<value>$(RWD3D9__DIR)</value>
-							<size>189,-1</size>
+							<size>280,-1</size>
 							<enabled>0</enabled>
 						</object>
 						<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>6</border>
 						<option>1</option>
 					</object>
 				</object>
 				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
+			</object>
+			<object class="spacer">
+				<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+				<size>0,6</size>
 			</object>
 			<object class="sizeritem">
 				<object class="wxButton" name="btnUseEnvVars">

@@ -1,5 +1,5 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto) SHARED header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
@@ -8,7 +8,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <string>
-#include "paths\Paths.h"
+#include "extensions\Paths.h"
 
 namespace plugin
 {

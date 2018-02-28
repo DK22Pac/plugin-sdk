@@ -1,11 +1,11 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "plbase/PluginBase_SA.h"
+#include "PluginBase.h"
 #include "CVector.h"
 #include "CEntity.h"
 #include "CPed.h"
@@ -13,8 +13,6 @@
 #include "CWeaponInfo.h"
 #include "CAnimBlendAssociation.h"
 #include "CAnimBlendClumpData.h"
-
-#include "common_sdk.h"
 
 extern char *gString; // char gString[200]
 

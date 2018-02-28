@@ -1,46 +1,52 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto Vice City) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "plbase/PluginBase_VC.h"
-#include <string.h>
+#include "PluginBase.h"
+#include <cstring>
+
+/*
+    R* terminology      Our terminology
+    JustIndex           Index
+    Index               Id
+    Ref                 Handle/Ref
+*/
 
 union tPoolObjectFlags {
     struct {
         unsigned char nId : 7;
-        bool bIsFreeSlot : 1;
-    } a;
-    unsigned char b;
+        bool bEmpty : 1;
+    };
+private:
+    unsigned char nValue;
+public:
+    unsigned char IntValue() { return nValue; }
 };
 
 VALIDATE_SIZE(tPoolObjectFlags, 1);
 
 template<class A, class B = A> class CPool {
 public:
-    B*                m_pObjects;
-    tPoolObjectFlags* m_byteMap;
+    B                *m_pObjects;
+    tPoolObjectFlags *m_byteMap;
     int               m_nSize;
     int               m_nFirstFree;
 
     // Default constructor for statically allocated pools
     CPool() {}
 
-
-
     // Initializes pool
     CPool(int nSize, const char* pPoolName) {
         m_pObjects = static_cast<B*>(operator new(sizeof(B) * nSize));
         m_byteMap = static_cast<tPoolObjectFlags*>(operator new(sizeof(tPoolObjectFlags) *  nSize));
-
         m_nSize = nSize;
         m_nFirstFree = -1;
-
         for (int i = 0; i < nSize; ++i) {
-            m_byteMap[i].a.bIsFreeSlot = true;
-            m_byteMap[i].a.nId = 0;
+            m_byteMap[i].bEmpty = true;
+            m_byteMap[i].nId = 0;
         }
     }
 
@@ -50,15 +56,15 @@ public:
 
     // Initialises a pool with preallocated
     void Init(int nSize, void* pObjects, void* pInfos) {
-        m_pObjects = static_cast<B*>(operator new(sizeof(B) * nSize));
-        m_byteMap = static_cast<tPoolObjectFlags*>(operator new(nSize));
-
+        // Since we statically allocated the pools we do not deallocate.
+        assert(this->m_pObjects == nullptr);
+        m_pObjects = static_cast<B*>(pObjects);
+        m_byteMap = static_cast<tPoolObjectFlags*>(pInfos);
         m_nSize = nSize;
         m_nFirstFree = -1;
-
         for (int i = 0; i < nSize; ++i) {
-            m_byteMap[i].a.bIsFreeSlot = true;
-            m_byteMap[i].a.nId = 0;
+            m_byteMap[i].bEmpty = true;
+            m_byteMap[i].nId = 0;
         }
     }
 
@@ -77,106 +83,90 @@ public:
     // Clears pool
     void Clear() {
         for (int i = 0; i < m_nSize; i++)
-            m_byteMap[i].a.bIsFreeSlot = true;
+            m_byteMap[i].bEmpty = true;
     }
 
     // Returns if specified slot is free
-    bool IsFreeSlotAtIndex(int idx)
-    {
-        return m_byteMap[idx].a.bIsFreeSlot;
+    bool IsFreeSlotAtIndex(int idx) {
+        return m_byteMap[idx].bEmpty;
     }
 
-    int GetIndex(A* pObject)
-    {
+    // Returns slot index for this object
+    int GetIndex(A* pObject) {
         return reinterpret_cast<B*>(pObject) - m_pObjects;
     }
 
     // Returns pointer to object by index
-    A* GetAt(int nIndex)
-    {
+    A* GetAt(int nIndex) {
         return !IsFreeSlotAtIndex(nIndex) ? (A *)&m_pObjects[nIndex] : nullptr;
     }
 
     // Marks slot as free / used
-    void SetFreeAt(int idx, bool bFree)
-    {
-        m_byteMap[idx].a.bIsFreeSlot = bFree;
+    void SetFreeAt(int idx, bool bFree) {
+        m_byteMap[idx].bEmpty = bFree;
     }
 
     // Set new id for slot
-    void SetIdAt(int idx, unsigned char id)
-    {
-        m_byteMap[idx].a.nId = id;
+    void SetIdAt(int idx, unsigned char id) {
+        m_byteMap[idx].nId = id;
     }
 
-    // Get id for slot 
-    unsigned char GetIdAt(int idx)
-    {
-        return m_byteMap[idx].a.nId;
+    // Get id for slot
+    unsigned char GetIdAt(int idx) {
+        return m_byteMap[idx].nId;
     }
 
     // Allocates object
-    A* New()
-    {
-        bool		bReachedTop = false;
-        do
-        {
-            if (++m_nFirstFree >= m_nSize)
-            {
-                if (bReachedTop)
-                {
+    A* New() {
+        bool bReachedTop = false;
+        do {
+            if (++m_nFirstFree >= m_nSize) {
+                if (bReachedTop) {
                     m_nFirstFree = -1;
                     return nullptr;
                 }
                 bReachedTop = true;
                 m_nFirstFree = 0;
             }
-        } while (!m_byteMap[m_nFirstFree].a.bIsFreeSlot);
-        m_byteMap[m_nFirstFree].a.bIsFreeSlot = false;
-        ++m_byteMap[m_nFirstFree].a.nId;
+        } while (!m_byteMap[m_nFirstFree].bEmpty);
+        m_byteMap[m_nFirstFree].bEmpty = false;
+        ++m_byteMap[m_nFirstFree].nId;
         return &m_pObjects[m_nFirstFree];
     }
 
-    // Allocates object at a specific index from a SCM handle
-    void CreateAtHandle(int nHandle)
-    {
-        nHandle >>= 8;
-
-        m_byteMap[nHandle].a.bIsFreeSlot = false;
-        ++m_byteMap[nHandle].a.nId;
+    // Allocates object at a specific index from a SCM handle (ref)
+    void CreateAtRef(int nRef) {
+        nRef >>= 8;
+        m_byteMap[nRef].bEmpty = false;
+        ++m_byteMap[nRef].nId;
         m_nFirstFree = 0;
-
-        while (!m_byteMap[m_nFirstFree].a.bIsFreeSlot)
+        while (!m_byteMap[m_nFirstFree].bEmpty)
             ++m_nFirstFree;
     }
 
-    A *New(int nHandle)
-    {
-        A *result = &m_pObjects[nHandle >> 8];
-        CreateAtHandle(nHandle);
+    A *New(int nRef) {
+        A *result = &m_pObjects[nRef >> 8];
+        CreateAtRef(nRef);
         return result;
     }
 
     // Deallocates object
-    void Delete(A* pObject)
-    {
-        int		nIndex = reinterpret_cast<B*>(pObject) - m_pObjects;
-        m_byteMap[nIndex].a.bIsFreeSlot = true;
+    void Delete(A* pObject) {
+        int nIndex = reinterpret_cast<B*>(pObject) - m_pObjects;
+        m_byteMap[nIndex].bEmpty = true;
         if (nIndex < m_nFirstFree)
             m_nFirstFree = nIndex;
     }
 
-    // Returns SCM handle for object
-    int GetHandle(A* pObject)
-    {
-        return (GetIndex(pObject) << 8) + m_byteMap[GetIndex(pObject)].b;
+    // Returns SCM handle (ref) for object
+    int GetRef(A* pObject) {
+        return (GetIndex(pObject) << 8) + m_byteMap[GetIndex(pObject)].IntValue();
     }
 
-    // Returns pointer to object by SCM handle
-    A* GetAtHandle(int handle)
-    {
-        int nSlotIndex = handle >> 8;
-        return nSlotIndex >= 0 && nSlotIndex < m_nSize && m_byteMap[nSlotIndex].b == (handle & 0xFF) ? reinterpret_cast<A*>(&m_pObjects[nSlotIndex]) : nullptr;
+    // Returns pointer to object by SCM handle (ref)
+    A* GetAtRef(int ref) {
+        int nSlotIndex = ref >> 8;
+        return nSlotIndex >= 0 && nSlotIndex < m_nSize && m_byteMap[nSlotIndex].IntValue() == (ref & 0xFF) ? reinterpret_cast<A*>(&m_pObjects[nSlotIndex]) : nullptr;
     }
 
     unsigned int GetNoOfUsedSpaces() {

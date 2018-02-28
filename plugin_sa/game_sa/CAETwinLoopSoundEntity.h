@@ -1,5 +1,5 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
@@ -16,7 +16,7 @@
    m_pBaseAudio is a pointer to audio which created twin sound. For example,
    this could be CAEVehicleAudioEntity for playing skid sounds.              */
 
-#include "plbase/PluginBase_SA.h"
+#include "PluginBase.h"
 #include "CAEAudioEntity.h"
 
 class PLUGIN_API CAETwinLoopSoundEntity : public CAEAudioEntity {
