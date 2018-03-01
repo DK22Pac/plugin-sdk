@@ -221,11 +221,11 @@ wchar_t *plugin::paths::GetDirPath(wchar_t *substring, ePathDir dir) {
 }
 
 char *plugin::paths::GetPluginFileName(char *out) {
-    strcpy(out, PluginPathAInstance()._filename);
+    return strcpy(out, PluginPathAInstance()._filename);
 }
 
 wchar_t *plugin::paths::GetPluginFileName(wchar_t *out) {
-    wcscpy(out, PluginPathWInstance()._filename);
+    return wcscpy(out, PluginPathWInstance()._filename);
 }
 
 char *plugin::paths::GetPluginFileNameA() {
