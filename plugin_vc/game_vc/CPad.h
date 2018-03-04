@@ -102,9 +102,6 @@ public:
     signed short ShockButtonL;
     signed short ShockButtonR;
 
-    signed short m_bChatIndicated;
-    signed short m_bPedWalk;
-    signed short m_bVehicleMouseLook;
     signed short m_bRadioTrackSkip;
 };
 #pragma pack(pop)
@@ -114,6 +111,24 @@ class CPad {
 public:
     CControllerState NewState;
     CControllerState OldState;
+    short SteeringLeftRightBuffer[10];
+    int DrunkDrivingBufferUsed;
+    CControllerState PCTempKeyState;
+    CControllerState PCTempJoyState;
+    CControllerState PCTempMouseState;
+    short WORD_EA;
+    short Mode;
+    short ShakeDur;
+    short DisablePlayerControls;
+    char ShakeFreq;
+    char bHornHistory[5];
+    char iCurrHornHistory;
+    char JustOutOfFrontEnd;
+    char bApplyBrakes;
+    char TEMP[13];
+    int LastTimeTouched;
+    int AverageWeapon;
+    int AverageEntries;
 
 public:
     static CMouseState &PreviousMouseState;
@@ -154,3 +169,5 @@ public:
     bool GetPedWalkLeftRight();
 };
 #pragma pack(pop)
+
+extern CPad* Pads;      //CPad Pads[2];

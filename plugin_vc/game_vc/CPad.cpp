@@ -6,6 +6,7 @@
 */
 #include "CPad.h"
 
+CPad* Pads = (CPad*)0x7DBCB0;
 CMouseState &CPad::PreviousMouseState = *(CMouseState*)0x00936908;
 CMouseState &CPad::CurrentMouseState = *(CMouseState*)0x007DD860;
 CKeyState &CPad::CurrentKeyState = *(CKeyState*)(0x007D15A8 + 0x216);
