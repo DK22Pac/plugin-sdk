@@ -11,7 +11,6 @@ Do not delete this comment block. Respect others' work!
 #include "CVector.h"
 
 
-#pragma pack(push, 1)
 class CQuaternion {
 public:
     CVector imag;
@@ -24,6 +23,5 @@ public:
     void Slerp(CQuaternion const& from, CQuaternion const& to, float halftheta, float sintheta_inv, float t);
     
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CQuaternion, 0x10);

@@ -17,7 +17,7 @@
 
 class CVehicle;
 
-#pragma pack(push, 4)
+
 class CPed : public CPhysical {
 protected:
     CPed(plugin::dummy_func_t) : CPhysical(plugin::dummy), m_aWeapons{ plugin::dummy, plugin::dummy,
@@ -264,7 +264,6 @@ public:
     void ClearPointGunAt();
     char ClearLookFlag();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPed, 0x53C);
 

@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
+
 class CBulletTrace {
 public:
     CVector m_vecOrigin;
@@ -21,7 +21,6 @@ public:
     CBulletTrace();
     void Update();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBulletTrace, 0x1C);
 

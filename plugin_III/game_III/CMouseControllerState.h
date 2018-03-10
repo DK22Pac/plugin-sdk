@@ -13,7 +13,7 @@ public:
     int GetMouseSetUp();
 };
 
-#pragma pack(push, 1)
+
 class CMouseControllerState {
 public:
     unsigned char lmb;
@@ -31,6 +31,5 @@ public:
     CMouseControllerState();
     void Clear();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CMouseControllerState, 0x10);

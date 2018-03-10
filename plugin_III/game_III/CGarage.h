@@ -13,7 +13,6 @@
 #include "eGarageState.h"
 #include "eGarageID.h"
 
-#pragma pack(push, 4)
 class CGarage {
 public:
     eGarageType m_nType;
@@ -87,8 +86,6 @@ public:
     void UpdateCrusherShake(float x, float y);
     void UpdateDoorsHeight();
 };
-#pragma pack(pop)
-
 VALIDATE_SIZE(CGarage, 0x8C);
 
 extern unsigned int *gaCarsToCollectInCraigsGarages; 

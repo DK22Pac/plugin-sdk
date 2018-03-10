@@ -14,7 +14,7 @@ Do not delete this comment block. Respect others' work!
 
 class CPed;
 
-#pragma pack(push, 4)
+
 class CPedIK {
 public:
     CPed *m_pPed;
@@ -49,6 +49,5 @@ public:
     bool RestoreLookAt();
     void RotateTorso(AnimBlendFrameData* data, LimbOrientation& orient, bool arg2);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPedIK, 0x28);

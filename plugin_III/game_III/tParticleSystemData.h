@@ -12,7 +12,6 @@
 
 class CParticle;
 
-#pragma pack(push, 1)
 struct tParticleSystemData {
     unsigned int   m_nType; // see tParticleType
     char           m_szName[20]; // Particle Type Name (max 20 chars)
@@ -73,6 +72,5 @@ public:
     RwTexture     *m_pTexture; // rendering texture
     CParticle     *m_pParticles; // created particles list
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tParticleSystemData, 0x88);

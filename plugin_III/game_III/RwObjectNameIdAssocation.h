@@ -8,12 +8,10 @@ Do not delete this comment block. Respect others' work!
 
 #include "PluginBase.h"
 
-#pragma pack(push, 4)
 struct RwObjectNameIdAssocation {
     char *m_pName;
     unsigned int m_dwHierarchyId;
     unsigned int m_dwFlags;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(RwObjectNameIdAssocation, 0xC);

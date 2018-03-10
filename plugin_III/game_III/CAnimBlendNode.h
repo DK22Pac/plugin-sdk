@@ -12,7 +12,7 @@ Do not delete this comment block. Respect others' work!
 
 class CAnimBlendAssociation;
 
-#pragma pack(push, 4)
+
 class CAnimBlendNode {
 public:
     CVector2D dword0;
@@ -30,6 +30,5 @@ public:
     void Init();
     void NextKeyFrame();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAnimBlendNode, 0x1C);

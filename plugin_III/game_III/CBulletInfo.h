@@ -11,7 +11,7 @@
 #include "eWeaponType.h"
 #include "CEntity.h"
 
-#pragma pack(push, 4)
+
 class CBulletInfo {
 public:
     eWeaponType  m_nWeaponType;
@@ -30,7 +30,6 @@ public:
     static bool TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2);
     static void Update();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBulletInfo, 0x2C);
 

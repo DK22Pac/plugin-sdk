@@ -9,7 +9,6 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "AnimBlendFrameData.h"
 
-#pragma pack(push, 4)
 class CAnimBlendClumpData {
 public:
     void *m_pLastAssociationLink;
@@ -24,6 +23,5 @@ public:
     ~CAnimBlendClumpData();
     //CAnimBlendClumpData::ForAllFrames(void (*)(AnimBlendFrameData *,void *),void *) 0x401930
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAnimBlendClumpData, 0x14);

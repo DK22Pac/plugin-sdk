@@ -10,7 +10,7 @@
 #include "eWeaponType.h"
 #include "CEntity.h"
 
-#pragma pack(push, 4)
+
 class CShotInfo {
 public:
     eWeaponType weaponType;
@@ -30,7 +30,6 @@ public:
     static void Shutdown();
     static void Update();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CShotInfo, 0x2C);
 

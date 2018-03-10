@@ -13,7 +13,6 @@ Do not delete this comment block. Respect others' work!
 
 class CAnimBlendHierarchy;
 
-#pragma pack(push, 8)
 class CAnimBlendAssociation {
 public:
     void *vtable;
@@ -54,6 +53,5 @@ public:
     //CAnimBlendAssociation::SetDeleteCallback(void(*)(CAnimBlendAssociation*, void *), void *) 0x401800
     //CAnimBlendAssociation::SetFinishCallback(void(*)(CAnimBlendAssociation*, void *), void *) 0x401820
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAnimBlendAssociation, 0x40);
