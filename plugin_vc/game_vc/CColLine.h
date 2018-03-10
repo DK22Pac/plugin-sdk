@@ -9,7 +9,6 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
 class CColLine
 {
 public:
@@ -19,6 +18,5 @@ public:
         
     CColLine(CVector const& start, CVector const& end);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CColLine, 0x1C);

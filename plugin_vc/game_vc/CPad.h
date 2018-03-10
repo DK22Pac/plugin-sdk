@@ -7,7 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 
-#pragma pack(push, 1)
+
 struct CMouseState {
     char lmb;
     char rmb;
@@ -20,9 +20,9 @@ struct CMouseState {
     long X;
     long Y;
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CMouseState, 0x10);
 
-#pragma pack(push, 1)
+
 struct CKeyState {
     short standardKey;
     short esc;
@@ -70,9 +70,9 @@ struct CKeyState {
     short rwin;
     short apps;
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CKeyState, 0x5A);
 
-#pragma pack(push, 1)
+
 // Set values to 128 unless otherwise specified
 class CControllerState {
 public:
@@ -104,9 +104,10 @@ public:
 
     signed short m_bRadioTrackSkip;
 };
-#pragma pack(pop)
 
-#pragma pack(push, 1)
+VALIDATE_SIZE(CControllerState, 0x2A);
+
+
 class CPad {
 public:
     CControllerState NewState;
@@ -130,7 +131,6 @@ public:
     int AverageWeapon;
     int AverageEntries;
 
-public:
     static CMouseState &PreviousMouseState;
     static CMouseState &CurrentMouseState;
     static CKeyState &CurrentKeyState;
@@ -168,6 +168,7 @@ public:
     bool GetPedWalkUpDown();
     bool GetPedWalkLeftRight();
 };
-#pragma pack(pop)
+
+VALIDATE_SIZE(CPad, 0x114);
 
 extern CPad* Pads;      //CPad Pads[2];

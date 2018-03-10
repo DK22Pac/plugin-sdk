@@ -9,7 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "tTransmissionGear.h"
 
-#pragma pack(push, 4)
+
 class PLUGIN_API cTransmission
 {
 public:
@@ -33,6 +33,5 @@ public:
     void InitGearRatios();
     cTransmission();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(cTransmission, 0x68);

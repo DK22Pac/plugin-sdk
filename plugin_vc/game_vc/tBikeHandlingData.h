@@ -8,7 +8,6 @@ Do not delete this comment block. Respect others' work!
 
 #include "PluginBase.h"
 
-#pragma pack(push, 4)
 struct tBikeHandlingData {
     int m_dwVehicleId;
     float   m_fLeanFwdCOM;
@@ -27,6 +26,5 @@ struct tBikeHandlingData {
     float   m_fWheelieStabMult;
     float   m_fStoppieStabMult;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tBikeHandlingData, 0x40);

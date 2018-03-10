@@ -38,7 +38,6 @@ enum eCarNodes {
     CAR_NUM_NODES
 };
 
-#pragma pack(push, 1)
 class CAutomobile : public CVehicle {
 protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
@@ -130,6 +129,5 @@ public:
     // Create colliding particles
     void dmgDrawCarCollidingParticles(CVector const& position, float force);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAutomobile, 0x5DC);

@@ -22,7 +22,6 @@ class C2dEffect;
 class CColModel;
 
 // originally an abstract class
-#pragma pack(push, 1)
 class CBaseModelInfo {
 public:
     char           m_szName[21];
@@ -64,6 +63,5 @@ protected:
     CBaseModelInfo(const CBaseModelInfo &) {};
     CBaseModelInfo &operator=(const CBaseModelInfo &) { return *this; };
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBaseModelInfo, 0x28);

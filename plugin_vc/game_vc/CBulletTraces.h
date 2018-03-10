@@ -10,7 +10,7 @@
 #include "CVector.h"
 #include "CEntity.h"
 
-#pragma pack(push, 4)
+
 class CBulletTrace {
 public:
     CVector m_vStart;
@@ -23,7 +23,6 @@ public:
 
     CBulletTrace();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBulletTrace, 0x2C);
 
