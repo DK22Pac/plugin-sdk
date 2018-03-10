@@ -19,7 +19,6 @@
 	
 */
 
-#pragma pack(push, 4)
 class PLUGIN_API CRect
 {
 public:
@@ -40,6 +39,5 @@ public:
 	void GetCenter(float *x, float *y);
 	void StretchToPoint(float x, float y);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CRect, 0x10);

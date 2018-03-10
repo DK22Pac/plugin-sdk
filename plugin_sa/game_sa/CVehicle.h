@@ -102,7 +102,7 @@ class CWeapon;
 class CPed;
 typedef int tWheelState;
 
-#pragma pack(push, 4)
+
 class PLUGIN_API  CVehicle : public CPhysical {
 protected:
     CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
@@ -539,7 +539,6 @@ public:
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CVehicle, 0x5A0);
 

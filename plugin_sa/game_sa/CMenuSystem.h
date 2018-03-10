@@ -14,7 +14,7 @@ enum eMenuType : unsigned char
     MENU_TYPE_GRID,
 };
 
-#pragma pack(push, 1)
+
 class PLUGIN_API tMenuPanel
 {
 public:
@@ -44,7 +44,6 @@ private:
     char           _pad2;
 public:
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tMenuPanel, 0x418);
 

@@ -10,13 +10,17 @@
 #include "CPed.h"
 #include "eCopType.h"
 
-#pragma pack(push, 4)
+
 class PLUGIN_API CCopPed : public CPed {
 public:
-	int field_79C;
+	char field_79C;
+	char field_79D;
+private:
+	char padding[2];
+public:
 	eCopType       m_copType;
     int field_7A4;
-	class CCopPed *m_pCopPartner;
+	CCopPed *m_pCopPartner;
 	CPed          *m_apCriminalsToKill[5];
 	char field_7C0;
 
@@ -28,6 +32,5 @@ public:
 	void RemoveCriminalToKill(CPed* likeUnused, int criminalIdx);
 	void ClearCriminalsToKill();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CCopPed, 0x7C4);

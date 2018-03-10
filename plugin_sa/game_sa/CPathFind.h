@@ -13,8 +13,6 @@
 #define NUM_PATH_MAP_AREAS 64
 #define NUM_PATH_INTERIOR_AREAS 8
 
-#pragma pack(push, 1)
-
 class PLUGIN_API CForbiddenArea
 {
 	float x1, x2, y1, y2, z1, z2;
@@ -61,22 +59,22 @@ VALIDATE_SIZE(CPathIntersectionInfo, 0x1);
 class PLUGIN_API CCarPathLink
 {
 public:
-    struct Position {
+    struct {
         short x;
         short y;
     } m_posn;
     CNodeAddress m_address;
     char m_nDirX;
     char m_nDirY;
-    unsigned int m_nPathNodeWidth : 8;
+    char m_nPathNodeWidth;
 
-    unsigned int m_nNumLeftLanes : 3;
-    unsigned int m_nNumRightLanes : 3;
-    unsigned int m_bTrafficLightDirection : 1; // 1 if the navi node has the same direction as the traffic light and 0 if the navi node points somewhere else
-    unsigned int unk1 : 1;
+    unsigned short m_nNumLeftLanes : 3;
+    unsigned short m_nNumRightLanes : 3;
+    unsigned short m_bTrafficLightDirection : 1; // 1 if the navi node has the same direction as the traffic light and 0 if the navi node points somewhere else
+    unsigned short unk1 : 1;
 
-    unsigned int m_nTrafficLightState : 2; // 1 - North-South, 2 - West-East cycle
-    unsigned int m_bTrainCrossing : 1;
+    unsigned short m_nTrafficLightState : 2; // 1 - North-South, 2 - West-East cycle
+    unsigned short m_bTrainCrossing : 1;
 };
 
 VALIDATE_SIZE(CCarPathLink, 0xE);
@@ -159,7 +157,5 @@ public:
 };
 
 VALIDATE_SIZE(CPathFind, 0x3C80);
-
-#pragma pack(pop)
 
 extern PLUGIN_API CPathFind& ThePaths;

@@ -9,7 +9,6 @@
 #include "CSimpleTransform.h"
 #include "CMatrixLink.h"
 
-#pragma pack(push, 4)
 class PLUGIN_API CPlaceable {
 protected:
     CPlaceable(plugin::dummy_func_t) {}
@@ -45,6 +44,5 @@ public:
         return m_matrix ? m_matrix->pos : m_placement.m_vPosn;
     }
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPlaceable, 0x18);

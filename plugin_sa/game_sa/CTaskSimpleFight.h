@@ -11,7 +11,7 @@
 #include "CAnimBlendAssociation.h"
 #include "CEntity.h"
 
-#pragma pack(push,4)
+
 class PLUGIN_API CTaskSimpleFight : public CTaskSimple {
 protected:
     CTaskSimpleFight(plugin::dummy_func_t a) : CTaskSimple(a) {}
@@ -36,6 +36,5 @@ public:
    char field_27;
     
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CTaskSimpleFight, 0x28);

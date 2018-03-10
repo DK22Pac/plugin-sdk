@@ -9,7 +9,6 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
-#pragma pack(push, 4)
 class PLUGIN_API CShadowCamera
 {
 public:
@@ -36,6 +35,6 @@ public:
 	void RasterResample(RwRaster *raster);
 	void RasterBlur(RwRaster *raster, int numPasses);
 };
-#pragma pack(pop)
+
 
 VALIDATE_SIZE(CShadowCamera, 8);

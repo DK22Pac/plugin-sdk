@@ -6,6 +6,13 @@
 */
 #include "CPed.h"
 
+CPed::CPed(ePedType pedtype) : CPhysical(plugin::dummy), m_aWeapons{ plugin::dummy, plugin::dummy, plugin::dummy,
+plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy, plugin::dummy,
+plugin::dummy, plugin::dummy, plugin::dummy }
+{
+	((void(__thiscall *)(CPed*,ePedType))0x5E8030)(this,pedtype);
+}
+
 // Converted from thiscall void* CPed::operator new(uint size) 0x5E4720
 void* CPed::operator new(unsigned int size) {
 	return ((void* (__cdecl *)(unsigned int))0x5E4720)(size);
@@ -812,4 +819,9 @@ void CPed::MakeTyresMuddySectorList(CPtrList& ptrList)
 void CPed::DeadPedMakesTyresBloody()
 {
 	((void (__thiscall *)(CPed*))0x6B4200)(this);
+}
+
+void CPed::SetModelIndex(unsigned int modelIndex)
+{
+	((void(__thiscall *)(CPed*,unsigned int))0x5E4880)(this, modelIndex);
 }

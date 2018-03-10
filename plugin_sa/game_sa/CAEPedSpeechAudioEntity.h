@@ -19,7 +19,7 @@ enum eAudioPedType {
     PED_TYPE_SPC = 5
 };
 
-#pragma pack(push, 1)
+
 class CAEPedSpeechAudioEntity : public CAEAudioEntity {
 public:
 	char field_7C[20];
@@ -46,6 +46,5 @@ public:
 	short field_B2;
 	int field_B4[19];
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAEPedSpeechAudioEntity, 0x100);

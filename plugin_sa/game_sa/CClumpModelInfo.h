@@ -14,7 +14,6 @@ struct RpAtomic;
 struct RpClump;
 
 
-#pragma pack(push, 4)
 class PLUGIN_API CClumpModelInfo : public CBaseModelInfo {
 public:
 	union{
@@ -41,6 +40,5 @@ public:
 	static void FillFrameArray(RpClump *clump, RwFrame **frames);
     void SetFrameIds(RwObjectNameIdAssocation* data);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CClumpModelInfo, 0x24);

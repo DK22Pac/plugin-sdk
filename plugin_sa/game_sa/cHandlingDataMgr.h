@@ -12,7 +12,6 @@
 #include "tFlyingHandlingData.h"
 #include "tBoatHandlingData.h"
 
-#pragma pack(push, 4)
 class PLUGIN_API cHandlingDataMgr
 {
 public:
@@ -48,6 +47,5 @@ public:
 	// get boat handling by id
 	tBoatHandlingData *GetBoatPointer(unsigned char handlingId);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(cHandlingDataMgr, 0xC624);

@@ -9,7 +9,6 @@
 #include "RenderWare.h"
 #include "CQuaternion.h"
 
-#pragma pack(push, 4)
 class CMatrix {
 public:
     // RwV3d-like:
@@ -67,7 +66,6 @@ public:
 	void operator+=(CMatrix const& right);
 	void operator*=(CMatrix const& right);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CMatrix, 0x48);
 

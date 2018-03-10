@@ -11,7 +11,6 @@
 #include "CVector.h"
 #include "CVector2D.h"
 
-#pragma pack(push, 1)
 class CTaskSimpleUseGun : public CTaskSimple
 {
 public:
@@ -42,6 +41,5 @@ public:
 	char field_3A;
 	char field_3B;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CTaskSimpleUseGun, 0x3C);
