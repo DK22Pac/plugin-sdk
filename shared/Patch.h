@@ -132,6 +132,14 @@ public:
     inline static void ReplaceFunctionCall(int address, void *func, bool vp = true) {
         RedirectCall(address, func, vp);
     }
+    
+    template <typename T>
+    inline static void ReplaceMethod(int address, T func, bool vp = true)
+    {
+        auto funcPtr = &func;
+        void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
+        patch::RedirectJump(address, _funcPtr, vp);
+    }
 };
 
 }
