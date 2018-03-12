@@ -138,8 +138,17 @@ public:
     {
         auto funcPtr = &func;
         void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
-        patch::RedirectJump(address, _funcPtr, vp);
+        RedirectJump(address, _funcPtr, vp);
     }
+    
+    template <typename T>
+    inline static void ReplaceMethodCall(int address, T func, bool vp = true)
+    {
+        auto funcPtr = &func;
+        void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
+        RedirectCall(address, _funcPtr, vp);
+    }
+    
 };
 
 }
