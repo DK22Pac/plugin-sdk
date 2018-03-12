@@ -8,6 +8,8 @@
 #include <Windows.h>
 #include "Error.h"
 
+#define MAX_VALUE(a,b) (((a) > (b)) ? (a) : (b))
+
 struct PluginPathA {
     char _path[MAX_PATH + 1];
     char _filename[MAX_PATH + 1];
@@ -27,7 +29,7 @@ struct PluginPathA {
         GetModuleFileNameA(h, _path, MAX_PATH);
         char *bslp = strrchr(_path, '\\');
         char *fslp = strrchr(_path, '/');
-        char *slp = max(bslp, fslp);
+        char *slp = MAX_VALUE(bslp, fslp);
         if (slp) {
             strcpy(_filename, slp + 1);
             slp[1] = '\0';
@@ -48,7 +50,7 @@ struct GamePathA {
         GetModuleFileNameA(h, _path, MAX_PATH);
         char *bslp = strrchr(_path, '\\');
         char *fslp = strrchr(_path, '/');
-        char *slp = max(bslp, fslp);
+        char *slp = MAX_VALUE(bslp, fslp);
         if (slp)
             slp[1] = '\0';
     }
@@ -73,7 +75,7 @@ struct PluginPathW {
         GetModuleFileNameW(h, _path, MAX_PATH);
         wchar_t *bslp = wcsrchr(_path, '\\');
         wchar_t *fslp = wcsrchr(_path, '/');
-        wchar_t *slp = max(bslp, fslp);
+        wchar_t *slp = MAX_VALUE(bslp, fslp);
         if (slp) {
             wcscpy(_filename, slp + 1);
             slp[1] = '\0';
@@ -94,7 +96,7 @@ struct GamePathW {
         GetModuleFileNameW(h, _path, MAX_PATH);
         wchar_t *bslp = wcsrchr(_path, '\\');
         wchar_t *fslp = wcsrchr(_path, '/');
-        wchar_t *slp = max(bslp, fslp);
+        wchar_t *slp = MAX_VALUE(bslp, fslp);
         if (slp)
             slp[1] = '\0';
     }
