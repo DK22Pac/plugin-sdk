@@ -12,7 +12,7 @@ Do not delete this comment block. Respect others' work!
 
 class CVehicle;
 
-#pragma pack(push, 4)
+
 class CCarGenerator {
 public:
     eVehicleModel  m_nModelId;
@@ -41,6 +41,5 @@ public:
     void SwitchOff();
     void SwitchOn();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CCarGenerator, 0x2C);

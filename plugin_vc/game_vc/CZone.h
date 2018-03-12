@@ -12,7 +12,7 @@ enum eZoneType {
     
 };
 
-#pragma pack(push, 1)
+
 class CZone {
 public:
     char name[8];
@@ -30,6 +30,5 @@ public:
     // Returns pointer to GXT name string.
     const char* GetTranslatedName();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CZone, 0x20);

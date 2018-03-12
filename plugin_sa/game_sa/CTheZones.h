@@ -10,8 +10,6 @@
 #include "CZone.h"
 
 
-
-#pragma pack(push, 1)
 class PLUGIN_API CTheZones
 {
 public:
@@ -96,4 +94,3 @@ public:
 	static void Load();
 
 };
-#pragma pack(pop)

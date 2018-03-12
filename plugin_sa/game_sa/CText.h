@@ -9,7 +9,7 @@
 
 #include "PluginBase.h"
 
-#pragma pack(push, 1)
+
 struct PLUGIN_API CText__TDat
 {
 	char* data;
@@ -18,17 +18,17 @@ struct PLUGIN_API CText__TDat
 	// Reads TABL block from GXT file
 	bool read(size_t TABLblockSize, FILE *file, int *pFileOffset, bool skipRead);
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CText__TDat, 0x8);
 
-#pragma pack(push, 1)
+
 struct PLUGIN_API CText__TablEntry
 {
   char name[8];
   int offset;
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CText__TablEntry, 0xC);
 
-#pragma pack(push, 1)
+
 struct PLUGIN_API CText__Tabl
 {
 	CText__TablEntry data[200];
@@ -41,17 +41,18 @@ struct PLUGIN_API CText__Tabl
 	// Reads TABL block from GXT file
 	void read(size_t TABLblockSize, FILE *file, int *pFileOffset, int maxReadSize);
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CText__Tabl, 0x964);
 
-#pragma pack(push, 1)
+
 struct PLUGIN_API tGXT_VERSION_2_TKEY_item
 {
 	unsigned long int Position;		// TDAT + 8 offset
 	unsigned long int KeyHash;
 };
-#pragma pack(pop)
+VALIDATE_SIZE(tGXT_VERSION_2_TKEY_item, 0x8);
 
-#pragma pack(push, 4)
+
+
 struct PLUGIN_API CText__TKey
 {
 	tGXT_VERSION_2_TKEY_item* data;
@@ -73,9 +74,10 @@ struct PLUGIN_API CText__TKey
 	// Destructor
 	~CText__TKey();
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CText__TKey, 0x8);
 
-#pragma pack(push, 1)
+
+
 class PLUGIN_API CText
 {
 public:
@@ -118,6 +120,6 @@ public:
 	// Writes a mission table name into buffer
 	void getMissionTableName(char *outStr);
 };
-#pragma pack(pop)
+VALIDATE_SIZE(CText, 0xA90);
 
 extern PLUGIN_API CText& TheText;

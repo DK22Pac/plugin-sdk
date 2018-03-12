@@ -140,7 +140,7 @@ struct airstrip_info {
 
 VALIDATE_SIZE(airstrip_info, 0x10);
 
-#pragma pack(push, 4)
+
 struct tRadarTrace {
     unsigned int   m_dwColour; // see eBlipColour
     unsigned int   m_dwEntityHandle;
@@ -160,7 +160,6 @@ struct tRadarTrace {
     unsigned char  m_nBlipDisplayFlag : 2; // see eBlipDisplay
     unsigned char  m_nBlipType : 4; // see eBlipType
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tRadarTrace, 0x28);
 

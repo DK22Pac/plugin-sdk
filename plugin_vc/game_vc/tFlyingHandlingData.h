@@ -9,7 +9,6 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
 struct tFlyingHandlingData {
     int m_dwVehicleId;
     float float4; 
@@ -31,6 +30,5 @@ struct tFlyingHandlingData {
     float float44; 
     float float48; 
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tFlyingHandlingData, 0x4C);

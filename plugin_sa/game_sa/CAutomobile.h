@@ -43,7 +43,6 @@ enum eCarNodes {
     CAR_NUM_NODES
 };
 
-#pragma pack(push, 1)
 class CAutomobile : public CVehicle {
 protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
@@ -246,7 +245,6 @@ public:
     void FireTruckControl(float arg0);
     bool HasCarStoppedBecauseOfLight();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CAutomobile, 0x988);
 

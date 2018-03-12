@@ -14,7 +14,6 @@
 #include "CColModel.h"
 #include "C2dEffect.h"
 
-#pragma pack(push, 4)
 class PLUGIN_API CEntity : public CPlaceable {
 protected:
     CEntity(plugin::dummy_func_t) : CPlaceable(plugin::dummy) {}
@@ -143,7 +142,6 @@ public:
     void RemoveEscalatorsForEntity();
     bool IsEntityOccluded();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CEntity, 0x38);
 

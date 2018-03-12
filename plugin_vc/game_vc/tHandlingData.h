@@ -19,7 +19,6 @@ enum eVehicleLightsSize : unsigned char
     LIGHTS_TALL
 };
 
-#pragma pack(push, 4)
 struct tHandlingData {
     tHandlingData *index;
     float fMass; 
@@ -42,6 +41,5 @@ struct tHandlingData {
     char gap90[56];
     float floatC8;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tHandlingData, 0xCC);

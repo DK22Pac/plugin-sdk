@@ -8,7 +8,6 @@ Do not delete this comment block. Respect others' work!
 
 #include "PluginBase.h"
 
-#pragma pack(push, 2)
 class CControllerState {
 public:
     signed short LeftStickX; // move/steer left (-128?)/right (+128)
@@ -42,6 +41,5 @@ public:
     //funcs
     void Clear();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CControllerState, 0x2A);

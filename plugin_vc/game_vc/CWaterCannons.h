@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CEntity.h"
 
-#pragma pack(push, 4)
+
 class CWaterCannon {
 public:
     CEntity *m_pCreator;
@@ -26,8 +26,6 @@ public:
     void Render();
     void Update_OncePerFrame(short index);
 };
-#pragma pack(pop)
-
 VALIDATE_SIZE(CWaterCannon, 0x19C);
 
 extern RxObjSpace3DVertex *WaterCannonVertices; // [4]

@@ -8,7 +8,6 @@
 #include "PluginBase.h"
 #include "rw/skeleton.h"
 
-#pragma pack(push, 1)
 // Set values to 128 unless otherwise specified
 class CControllerState {
 public:
@@ -43,11 +42,11 @@ public:
     signed short m_bVehicleMouseLook;
     signed short m_bRadioTrackSkip;
 };
-#pragma pack(pop)
+
 
 VALIDATE_SIZE(CControllerState, 0x30);
 
-#pragma pack(push, 1)
+
 class CMouseControllerState {
 public:
     unsigned char lmb;
@@ -62,11 +61,10 @@ public:
     float X;
     float Y;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CMouseControllerState, 0x14);
 
-#pragma pack(push, 1)
+
 class CKeyboardState {
 public:
     short FKeys[12];
@@ -116,12 +114,13 @@ public:
     short rwin;
     short apps;
 };
-#pragma pack(pop)
+
+VALIDATE_SIZE(CKeyboardState, 0x270);
 
 
 class CPed;
 
-#pragma pack(push, 1)
+
 class CPad {
 public:
     CControllerState NewState;
@@ -212,7 +211,7 @@ public:
     bool SprintJustDown();
     bool ShiftTargetLeftJustDown();
     bool ShiftTargetRightJustDown();
-    short GetDisplayVitalStats(CPed* ped);
+    short GetDisplayVitalStats(class CPed* ped);
     bool CollectPickupJustDown();
     bool GetForceCameraBehindPlayer();
     bool SniperZoomIn();
@@ -226,6 +225,5 @@ public:
     void Clear(bool enablePlayerControls, bool resetPhase);
     void UpdatePads();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPad, 0x134);

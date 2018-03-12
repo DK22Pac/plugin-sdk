@@ -10,7 +10,6 @@ Do not delete this comment block. Respect others' work!
 
 #include "PluginBase.h"
 
-#pragma pack(push, 2)
 class CKeyboardState {
 public:
     short FKeys[12];
@@ -63,6 +62,5 @@ public:
     //funcs
     void Clear();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CKeyboardState, 0x270);

@@ -10,10 +10,10 @@ Do not delete this comment block. Respect others' work!
 #include "CRGBA.h"
 #include "CVector2D.h"
 
-#pragma pack(push, 2)
+
 class CFontDetails {
 public:
-    CRGBA m_Color; 
+    CRGBA m_Color;  
     CVector2D m_vScale; 
     float m_fSlant; 
     CVector2D m_vSlantRefPoint; 
@@ -39,9 +39,9 @@ public:
     short m_nDropShadowPosition;
     CRGBA m_DropColor; 
 
+public:
     //funcs
     ~CFontDetails();
 };
-#pragma pack(pop)
 
-VALIDATE_SIZE(CFontDetails, 0x42);
+VALIDATE_SIZE(CFontDetails, 0x44);

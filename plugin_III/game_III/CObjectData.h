@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CObject.h"
 
-#pragma pack(push, 4)
+
 class CObjectData {
 public:
     float m_fMass;
@@ -26,6 +26,5 @@ public:
     static void Initialise(char* filename);
     static void SetObjectData(int modelIndex, CObject& object);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CObjectData, 0x20);

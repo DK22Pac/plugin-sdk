@@ -10,7 +10,6 @@
 #include "eWeaponType.h"
 #include "CProjectile.h"
 
-#pragma pack(push, 4)
 class CProjectileInfo {
 public:
     eWeaponType m_nWeaponType;
@@ -33,7 +32,6 @@ public:
     static void Shutdown();
     static void Update();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CProjectileInfo, 0x1C);
 

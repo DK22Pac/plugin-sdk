@@ -18,7 +18,7 @@ enum ePlaneNodes {
     PLANE_NUM_NODES
 };
 
-#pragma pack(push, 4)
+
 class CPlane : public CVehicle {
 protected:
     CPlane(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
@@ -45,7 +45,6 @@ public:
     static bool TestRocketCollision(CVector* arg0);
     static void UpdatePlanes();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CPlane, 0x29C);
 

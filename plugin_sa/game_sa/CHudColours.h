@@ -28,17 +28,17 @@ enum eHudColours
 	HUD_COLOUR_NUM_COLOURS
 };
 
-#pragma pack(push, 4)
+
 class PLUGIN_API CHudColour
 {
 public:
 	unsigned char red, green, blue, alpha;
 };
-#pragma pack(pop)
+
 
 VALIDATE_SIZE(CHudColour, 4);
 
-#pragma pack(push, 4)
+
 class PLUGIN_API CHudColours
 {
 public:
@@ -59,7 +59,7 @@ public:
 	// get color RGBA. "color" parameter - index of color in the table, see eHudColours enum.
 	CRGBA GetRGBA(unsigned char color);
 };
-#pragma pack(pop)
+
 
 VALIDATE_SIZE(CHudColours, 0x3C);
 

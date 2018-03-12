@@ -9,7 +9,6 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "CPed.h"
 
-#pragma pack(push, 4)
 class CEmergencyPed : public CPed {
 public:
     unsigned int dword53C;
@@ -28,6 +27,5 @@ public:
     bool InRange(CPed* ped);
     void MedicAI();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CEmergencyPed, 0x554);

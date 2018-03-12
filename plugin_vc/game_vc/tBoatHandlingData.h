@@ -9,7 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "CVector.h"
 
-#pragma pack(push, 4)
+
 struct tBoatHandlingData {
     int m_dwVehicleId;
     float   m_fThrustY;
@@ -23,6 +23,5 @@ struct tBoatHandlingData {
     CVector m_vMoveRes;
     CVector m_vTurnRes;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(tBoatHandlingData, 0x3C);

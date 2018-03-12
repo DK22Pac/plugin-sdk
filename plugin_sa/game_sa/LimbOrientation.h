@@ -8,13 +8,11 @@
 
 #include "PluginBase.h"
 
-#pragma pack(push, 4)
 class PLUGIN_API LimbOrientation
 {
 public:
 	float m_fYaw;
 	float m_fPitch;
 };
-#pragma pack(pop)
 
-VALIDATE_SIZE(LimbOrientation, 8);
+VALIDATE_SIZE(LimbOrientation, 0x8);

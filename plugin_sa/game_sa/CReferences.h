@@ -11,7 +11,6 @@
 
 #define MAX_NUM_REFERENCES 3000
 
-#pragma pack(push,4)
 class PLUGIN_API CReferences
 {
 public:
@@ -24,4 +23,3 @@ public:
 	void RemoveReferencesToPlayer();
 	void PruneAllReferencesInWorld();
 };
-#pragma pack(pop)

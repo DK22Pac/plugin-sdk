@@ -9,7 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "CBox.h"
 
-#pragma pack(push, 4)
+
 class CTimeCycleBox
 {
 public:
@@ -20,6 +20,5 @@ public:
   float strength;
   float falloff;
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CTimeCycleBox,0x28)

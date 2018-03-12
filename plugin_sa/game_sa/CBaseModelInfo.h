@@ -32,7 +32,6 @@ struct tTimeInfo
 VALIDATE_SIZE(tTimeInfo, 4);
 
 // originally an abstract class
-#pragma pack(push, 4)
 class PLUGIN_API CBaseModelInfo {
 public:
 	unsigned int   m_nKey;
@@ -124,6 +123,5 @@ public:
 	void SetOwnsColModel(int bOwns);
 	void IncreaseAlpha();
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CBaseModelInfo, 0x20);

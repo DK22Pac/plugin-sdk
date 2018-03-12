@@ -21,7 +21,14 @@ enum eCarWeapon {
 };
 
 enum eCarLock {
-
+    CARLOCK_NOT_USED,
+    CARLOCK_UNLOCKED,
+    CARLOCK_LOCKED,
+    CARLOCK_LOCKOUT_PLAYER_ONLY,
+    CARLOCK_LOCKED_PLAYER_INSIDE,
+    CARLOCK_COP_CAR,
+    CARLOCK_FORCE_SHUT_DOORS,
+    CARLOCK_SKIP_SHUT_DOORS
 };
 
 enum eVehicleType {
@@ -71,7 +78,6 @@ class CWeapon;
 class CPed;
 typedef int tWheelState;
 
-#pragma pack(push, 4)
 class CVehicle : public CPhysical {
 protected:
     CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
@@ -293,7 +299,6 @@ public:
     static void* operator new(unsigned int size, int arg1);
     static void operator delete(void* data);
 };
-#pragma pack(pop)
 
 VALIDATE_SIZE(CVehicle, 0x2A0);
 

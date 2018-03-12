@@ -283,6 +283,8 @@ public:
 
     // class functions
 
+
+	CPed(ePedType);
     bool PedIsInvolvedInConversation();
     bool PedIsReadyForConversation(bool arg0);
     bool PedCanPickUpPickUp();
@@ -416,6 +418,7 @@ public:
     void KillPedWithCar(CVehicle* car, float arg1, bool arg2);
     void MakeTyresMuddySectorList(CPtrList& ptrList);
     void DeadPedMakesTyresBloody();
+	void SetModelIndex(unsigned int modelIndex);
 
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
