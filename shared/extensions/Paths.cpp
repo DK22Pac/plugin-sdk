@@ -8,6 +8,8 @@
 #include <Windows.h>
 #include "Error.h"
 
+using namespace std;
+
 struct PluginPathA {
     char _path[MAX_PATH + 1];
     char _filename[MAX_PATH + 1];
@@ -99,6 +101,8 @@ struct GamePathW {
             slp[1] = '\0';
     }
 };
+
+
 
 PluginPathA &PluginPathAInstance() {
     static PluginPathA pluginPath;
@@ -221,7 +225,7 @@ wchar_t *plugin::paths::GetDirPath(wchar_t *substring, ePathDir dir) {
 }
 
 char *plugin::paths::GetPluginFileName(char *out) {
-    return strcpy(out, PluginPathAInstance()._filename);
+	return strcpy(out, PluginPathAInstance()._filename);
 }
 
 wchar_t *plugin::paths::GetPluginFileName(wchar_t *out) {
