@@ -17,7 +17,7 @@ public:
     int PickRandomCar(bool arg1, bool arg2);
     int PickLeastUsedModel(int minRefs);
     int GetMember(int count);
-    int CountMembers();
+    unsigned int CountMembers();
     void Clear();
     void AddMember(int member);
 };

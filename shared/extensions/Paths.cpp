@@ -102,6 +102,8 @@ struct GamePathW {
     }
 };
 
+
+
 PluginPathA &PluginPathAInstance() {
     static PluginPathA pluginPath;
     return pluginPath;
@@ -223,7 +225,7 @@ wchar_t *plugin::paths::GetDirPath(wchar_t *substring, ePathDir dir) {
 }
 
 char *plugin::paths::GetPluginFileName(char *out) {
-    return strcpy(out, PluginPathAInstance()._filename);
+	return strcpy(out, PluginPathAInstance()._filename);
 }
 
 wchar_t *plugin::paths::GetPluginFileName(wchar_t *out) {

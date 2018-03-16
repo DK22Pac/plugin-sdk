@@ -23,12 +23,18 @@ public:
         injector::MakeNOP(GetGlobalAddress(address), size, vp);
     }
 
-    inline static void RedirectCall(int address, void *func, bool vp = true) {
-        injector::MakeCALL(GetGlobalAddress(address), func, vp);
+    template <typename T>
+    inline static void RedirectCall(int address, T func, bool vp = true) {
+        auto funcPtr = &func;
+        void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
+        injector::MakeCALL(GetGlobalAddress(address), _funcPtr, vp);
     }
 
-    inline static void RedirectJump(int address, void *func, bool vp = true) {
-        injector::MakeJMP(GetGlobalAddress(address), func, vp);
+    template <typename T>
+    inline static void RedirectJump(int address, T func, bool vp = true) {
+        auto funcPtr = &func;
+        void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
+        injector::MakeJMP(GetGlobalAddress(address), _funcPtr, vp);
     }
 
     inline static void SetChar(int address, char value, bool vp = true) {
@@ -125,30 +131,21 @@ public:
         return nullptr;
     }
 
-    inline static void ReplaceFunction(int address, void *func, bool vp = true) {
-        RedirectJump(address, func, vp);
-    }
-
-    inline static void ReplaceFunctionCall(int address, void *func, bool vp = true) {
-        RedirectCall(address, func, vp);
-    }
-    
     template <typename T>
-    inline static void ReplaceMethod(int address, T func, bool vp = true)
-    {
+    inline static void ReplaceFunction(int address, T func, bool vp = true) {
         auto funcPtr = &func;
         void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
         RedirectJump(address, _funcPtr, vp);
     }
-    
+
     template <typename T>
-    inline static void ReplaceMethodCall(int address, T func, bool vp = true)
-    {
+    inline static void ReplaceFunctionCall(int address, T func, bool vp = true) {
         auto funcPtr = &func;
         void*& _funcPtr = reinterpret_cast<void*&>(funcPtr);
         RedirectCall(address, _funcPtr, vp);
     }
-    
+
+
 };
 
 }
