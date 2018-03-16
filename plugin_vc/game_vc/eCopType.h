@@ -8,10 +8,11 @@ Do not delete this comment block. Respect others' work!
 
 enum eCopType : unsigned int
 {
-    COP_TYPE_COP,
-    COP_TYPE_FBI,
-    COP_TYPE_SWAT1,
-    COP_TYPE_SWAT2,
-    COP_TYPE_ARMY,
-    COP_TYPE_VICE
+	COP_TYPE_COP,
+	COP_TYPE_FBI,
+	COP_TYPE_SWAT1,
+	COP_TYPE_SWAT2,
+	COP_TYPE_ARMY,
+	COP_TYPE_VICE
+
 };

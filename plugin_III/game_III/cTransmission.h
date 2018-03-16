@@ -18,7 +18,7 @@ public:
     struct {
         unsigned char m_b1gBoost : 1;
         unsigned char m_b2gBoost : 1;
-    } m_nBoostFlags;
+    } m_nHandlingFlags;
     float             m_fEngineAcceleration; // 0.1 to 10.0
     float             m_fMaxGearVelocity;
     float             m_fEngineInertia; // 0.0 to 50.0

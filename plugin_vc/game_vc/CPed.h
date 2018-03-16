@@ -20,8 +20,10 @@
 #include "ePedPieceTypes.h"
 #include "eMoveState.h"
 #include "eEventType.h"
-#include "eMoveState.h"
 #include "eObjective.h"
+#include "CFire.h"
+#include "ePedType.h"
+#include "ePedAction.h"
 
 class CVehicle;
 
@@ -157,12 +159,12 @@ public:
 private:
     char _pad15D[3];
 public:
-    unsigned char m_nPedStatus;
+    unsigned char m_nPedStatus; //1 - normal ped, can be removed, 2 - script ped
 private:
     char _pad161[3];
 public:
-    int m_dwObjective;
-    int m_dwPrevObjective;
+    eObjective m_dwObjective;
+    eObjective m_dwPrevObjective;
     CEntity *m_pObjectiveEntity;
     CVehicle *m_pObjectiveVehicle;
     CVector m_vecObjective;
@@ -171,8 +173,7 @@ public:
     int m_dwPedFormation;
     unsigned int m_dwFearFlags;
     CEntity *m_pThreatEntity;
-    float m_fEventOrThreatX;
-    float m_fEventOrThreatY;
+    CVector2D m_EventOrThreatPos;
     unsigned int m_dwEventType;
     CEntity *m_pEventEntity;
     float m_fAngleToEvent;
@@ -183,14 +184,13 @@ public:
     CVector2D m_vecAnimMoveDelta;
     CVector m_vecOffsetSeek;
     CPedIK m_pedIK;
-    float m_fActionX;
-    float m_fActionY;
+    CVector2D m_ActionPos;
     int m_dwActionTimer;
-    int m_dwAction;
-    int m_dwLastAction;
-    int m_dwMoveState;
-    int m_dwStoredActionState;
-    int m_dwPrevActionState;
+    ePedAction m_dwAction;
+    ePedAction m_dwLastAction;
+    eMoveState m_dwMoveState;
+    eMoveState m_dwStoredMoveState;
+    eMoveState m_dwPrevActionState;
     int m_dwWaitState;
     int m_dwWaitTimer;
     CPathNode *m_apPathNodesStates[8];
@@ -226,7 +226,7 @@ public:
     float m_fRotationCur;
     float m_fRotationDest;
     float m_fHeadingRate;
-    unsigned short m_nEnterType;
+    unsigned short m_nEnterType; //shows how the ped enters the vehicle (from the driver side or passenger side, from the back, etc : 11 - passenger side 15 - driver side)
     unsigned short m_nWalkAroundType;
     CPhysical *m_pCurPhysSurface;
     CVector m_vecOffsetFromPhysSurface;
@@ -242,7 +242,7 @@ public:
     float m_fSeatPrecisionY;
     CVehicle *m_pFromVehicle;
     void *m_pSeat;
-    unsigned int m_dwSeatType;
+    unsigned int m_dwSeatType; //specify seat type, is -1 when not sitting
     bool m_bHasPhone;
 private:
     char _pad3C5;
@@ -251,14 +251,14 @@ public:
     int m_dwLookingForPhone;
     int m_dwPhoneTalkTimer;
     void *m_pLastAccident;
-    unsigned int m_dwPedType;
+    ePedType m_dwPedType;
     CPedStats *m_pPedStats;
     float m_fFleeFromPosX;
     float m_fFleeFromPosY;
-    void *m_pFleeFrom;
+    CEntity *m_pFleeFrom;
     int m_dwFleeTimer;
-    void *m_pThreatEx;
-    void *m_pLastThreatAt;
+    CEntity *m_pThreatEx;
+    CEntity *m_pLastThreatAt;
     int m_dwLastThreatTimer;
     CVehicle *m_pVehicleColliding;
     unsigned char m_nStateUnused;
@@ -278,12 +278,12 @@ public:
     CEntity *m_pPointGunAt;
     CVector m_vecHitLastPos;
     int m_dwHitCounter;
-    int m_dwLastHitState;
-    unsigned char m_nFightFlags1;
-    unsigned char m_nFightFlags2;
-    unsigned char m_nFightFlags3;
+    int m_dwLastHitState; //state after a hit, 2 - just received a hit, 24 - recovered after a hit, 8 - just hit someone, this is not always accurate though  
+    unsigned char m_nFightFlags1; //FF - looking behind while hitting or getting hit, 00 - normal mode (not sure exactly)
+    unsigned char m_nFightFlags2; //flag 01 - you are hitting, flags FE - normal position (?)
+    unsigned char m_nFightFlags3; 
     unsigned char m_nBleedCounter;
-    void *m_pPedFire; // CFire ptr
+    CFire *m_pPedFire;
     void *m_pPedFight;
     float m_fLookDirection;
     int m_dwWepModelID;

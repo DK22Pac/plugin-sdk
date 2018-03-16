@@ -8,6 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 #include "PluginBase.h"
 #include "CVehicle.h"
+#include "CObject.h"
 
 enum eHeliNodes {
     HELI_NODE_NONE = 0,
@@ -21,7 +22,6 @@ enum eHeliNodes {
     HELI_NUM_NODES
 };
 
-class CObject;
 
 class CHeli : public CVehicle {
 protected:
@@ -44,10 +44,8 @@ public:
     char m_nHeliDestinationPoint;   // 0 - 12
     char m_nNumSwatPassengers;      // num swat peds & ropes to create, max 4
     char m_anRopeLifeTime[4];       // 0 - 255
-    float field_2E8[5];
-    int field_2FC[5];
-    int field_310;
-    int field_314;
+    float fLastXPoses[6];
+    float fLastYPoses[6];
     int field_318;
     int field_31C;
     int field_320;

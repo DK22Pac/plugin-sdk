@@ -14,6 +14,14 @@ Do not delete this comment block. Respect others' work!
 #include "CColPoint.h"
 
 
+enum eWeaponState : unsigned int
+{
+    WEAPONSTATE_READY,
+    WEAPONSTATE_FIRING,
+    WEAPONSTATE_RELOADING,
+    WEAPONSTATE_OUT_OF_AMMO
+};
+
 class CPed;
 class CPhysical;
 class CVehicle;
@@ -21,7 +29,7 @@ class CVehicle;
 class CWeapon {
 public:
     eWeaponType m_nType;
-    unsigned int m_nState;
+    eWeaponState m_nState;
     unsigned int m_nAmmoInClip;
     unsigned int m_nTotalAmmo;
     unsigned int m_nNextShotTime;

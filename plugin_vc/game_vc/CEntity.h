@@ -47,8 +47,8 @@ public:
         unsigned char bBulletProof : 1;
         unsigned char bFireProof : 1;
         unsigned char bCollisionProof : 1;
-        unsigned char bEntUFlag21 : 1;
-        unsigned char bEntUFlag22 : 1;
+        unsigned char bMeleeProof : 1;
+        unsigned char bImmuneToNonPlayerDamage : 1;
         unsigned char bEntUFlag23 : 1;
         unsigned char bRemoveFromWorld : 1;
 

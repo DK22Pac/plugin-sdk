@@ -17,8 +17,8 @@ protected:
     CPhysical(plugin::dummy_func_t) : CEntity(plugin::dummy) {}
 public:
     unsigned int m_nAudioEntityId;
-    float field_68;
-    int field_6C;
+    float fUnknownX;
+    float fUnknownY;
     CVector m_vecMoveSpeed;
     CVector m_vecTurnSpeed;
     CVector m_vecFrictionMoveForce;
@@ -34,7 +34,8 @@ public:
     CVector m_vecCentreOfMass;
     CEntryInfoList m_collisionList;
     CPtrNode *m_pMovingListNode;
-    char field_E4[2];
+    unsigned char uCollideExtra;                        
+    unsigned char uCollideInfo;
     unsigned char m_nNumCollisionRecords;
     char field_E7;
     CEntity *m_apCollisionRecords[6];

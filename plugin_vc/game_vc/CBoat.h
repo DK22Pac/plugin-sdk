@@ -9,6 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "CVehicle.h"
 #include "CVector2D.h"
 #include "CDoor.h"
+#include "tBoatHandlingData.h"
 
 enum eBoatNodes {
     BOAT_NODE_NONE = 0,
@@ -31,8 +32,17 @@ public:
     int field_2A8;
     RwFrame *m_aBoatNodes[8];
     CDoor m_boatDoor;
-    void *m_pBoatHandling;
-    unsigned char m_nBoatFlags;
+    tBoatHandlingData *m_pBoatHandling;
+    union
+    {
+        struct
+        {
+            unsigned char bUnknownBoatFlagsA : 1; 
+            unsigned char bIsBoatInWater : 1; 
+            unsigned char bUnknownBoatFlagsB : 6; 
+
+        } m_nBoatFlags;
+    };
     char field_2F5;
     char gap_2F6[2];
     float m_fForcedZRotation;

@@ -10,6 +10,10 @@ Do not delete this comment block. Respect others' work!
 #include "CPed.h"
 #include "eCopType.h"
 
+
+class CHeli;
+class CStinger;
+
 class CCopPed : public CPed {
 public:
     int field_5F4;
@@ -22,21 +26,21 @@ public:
     char field_601;
     char field_602;
     char field_603; // padding?
-    float field_604; // related to heli swat
-    unsigned int m_nCopType;
-    char field_60C;
+    float fAbseilPos; //current abseil position (on the rope)
+    unsigned int nCopType; //type of the cop, 0-4 (3 - descending from rope)
+    bool bThrowsSpikeTrap; //if this is set, the cop will throw a spike trap as soon as it can
 private:
-    char _pad60D[3];
+    char _pad1[3]; // 1549-1552
 public:
-    int field_610;
-    unsigned int m_nRopeId; // swat rope (CRopes)
+    CHeli* pHeliAbseil; //pointer to the heli this cop is abseiling from
+    unsigned int dwRopeIdentifier; // swat rope (CRopes)
     int field_618;
     int field_61C;
-    void *m_pStinger; // CStinger object
+    CStinger *m_pStinger; // CStinger object
     int field_624;
     char field_628;
 private:
-    char _pad629[3];
+    char _pad4[3];
 public:
 
     void ArrestPlayer();

@@ -18,9 +18,9 @@ enum eStreamingFlags {
 enum eStreamingLoadState {
     LOADSTATE_NOT_LOADED = 0,
     LOADSTATE_LOADED = 1,
-    LOADSTATE_LOADING1 = 2,
-    LOADSTATE_LOADING2 = 3,
-    LOADSTATE_LOADING3 = 4
+    LOADSTATE_Requested = 2,
+    LOADSTATE_Channeled = 3,
+    LOADSTATE_Finishing = 4
 };
 
 class CStreamingInfo {

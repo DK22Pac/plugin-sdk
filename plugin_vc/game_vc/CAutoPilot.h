@@ -10,7 +10,13 @@
 
 class CAutoPilot {
 public:
-    char field_0[116];
+    char pad_0[42];
+    unsigned char uFlagsEx;
+    char pad_2B[3];
+    bool bRealPhysics;  // using real physics
+    char pad_34[9];
+    unsigned char byteUnknown_3D;
+    char pad_3E[59];
 };
 
 VALIDATE_SIZE(CAutoPilot, 0x74);

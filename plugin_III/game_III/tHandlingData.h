@@ -19,7 +19,7 @@ enum PLUGIN_API eVehicleLightsSize : unsigned char {
 };
 
 struct PLUGIN_API tHandlingData {
-    tHandlingData *index;
+    int m_dwVehicleId;
     float m_fMass; // 1.0 to 50000.0
     float field_8; 
     float m_fTurnMass; 

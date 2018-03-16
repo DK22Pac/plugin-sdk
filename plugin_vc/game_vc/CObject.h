@@ -81,6 +81,8 @@ public:
     static void operator delete(void* data);
     static void* operator new(unsigned int size);
     static void* operator new(unsigned int size, int arg1);
+
+    static unsigned char& nNoTempObjects;
 };
 
 VALIDATE_SIZE(CObject, 0x194);

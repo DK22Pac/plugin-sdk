@@ -11,24 +11,20 @@ Do not delete this comment block. Respect others' work!
 
 struct tFlyingHandlingData {
     int m_dwVehicleId;
-    float float4; 
-    float float8; 
-    float floatC; 
-    float float10; 
-    float float14; 
-    float float18; 
-    float float1C; 
-    float float20; 
-    float float24; 
-    float float28; 
-    float float2C; 
-    float float30; 
-    float float34; 
-    float float38; 
-    float float3C; 
-    float float40; 
-    float float44; 
-    float float48; 
+    float fThrust; 
+    float fThrustFallOff; 
+    float fYaw; 
+    float fYawStab; 
+    float fSideSlip; 
+    float fRoll; 
+    float fRollStab;
+    float fPitch; 
+    float fPitchStab; 
+    float fFormLift; 
+    float fAttackLift;
+    float fMoveRes; 
+    CVector vecTurnRes; 
+    CVector vecSpeedRes;
 };
 
 VALIDATE_SIZE(tFlyingHandlingData, 0x4C);

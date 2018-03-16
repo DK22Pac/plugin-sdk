@@ -6,6 +6,8 @@
 */
 #include "CObject.h"
 
+unsigned char& CObject::nNoTempObjects = *(unsigned char*)0xA10A64;
+
 // Converted from thiscall void CObject::CObject(CDummyObject * dummyObject) 0x4E40F0 
 CObject::CObject(CDummyObject* dummyObject) : CPhysical(plugin::dummy) {
     plugin::CallMethod<0x4E40F0, CObject *, CDummyObject*>(this, dummyObject);

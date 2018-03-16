@@ -12,6 +12,14 @@ Do not delete this comment block. Respect others' work!
 #include "CPtrList.h"
 #include "RenderWare.h"
 
+enum PLUGIN_API ePlayerState {
+    PLAYERSTATE_PLAYING,
+    PLAYERSTATE_HASDIED,
+    PLAYERSTATE_HASBEENARRESTED,
+    PLAYERSTATE_FAILEDMISSION,
+    PLAYERSTATE_LEFTGAME
+};
+
 class CPlayerPed;
 
 class CPlayerInfo {
@@ -19,9 +27,11 @@ public:
 	CPlayerPed *m_pPed;
 	CVehicle *m_pRemoteVehicle;
 	CColModel m_ColModel;
-	CAutomobile *field_54;
+	CVehicle *m_pVehicleEx; //never really given a value
 	char m_aszPlayerName[70];
+private:
 	char _pad0[2];
+public:
 	int m_nMoney;
 	int m_nDisplayMoney;
 	int m_nCollectablesCollected;
@@ -29,27 +39,31 @@ public:
 	int field_B0;
 	int m_snTaxiTimer;
 	bool m_bTaxiTimerScore;
+private:
 	char _pad1[3];
+public:
 	int m_snHookerTimer;
 	int m_snHookerMoneyTimer;
 	int m_nHookerTime;
 	CPed *m_pHooker;
 	unsigned char m_nPlayerState;
+private:
 	char _pad2[3];
-	int field_D0;
+public:
+    unsigned int m_nDeathFadeTimer;
 	bool m_bFadeAfterRemoteVehicleExplosion;
 	char field_D5;
 	char field_D6;
 	char field_D7;
-	int field_D8;
+	unsigned int m_nLastTimeArrested;
 	int field_DC;
 	int field_E0;
 	int field_E4;
 	int field_E8;
 	int field_EC;
-	int field_F0;
-	float field_F4;
-	int field_F8;
+    unsigned int m_dwVehicleTimeOnTwoWheels;
+    float m_fVehicleDistanceOnTwoWheels;
+	unsigned int m_dwVehicleTimeInAir;
 	int field_FC;
 	float field_100;
 	int field_104;
@@ -62,8 +76,10 @@ public:
 	int field_120;
 	float field_124;
 	short m_nCarDensityForCurrentZone;
+private:
 	char _pad3[2];
-	float m_fRoadDensityAroundPlayer;
+public:
+    float m_fRoadDensityAroundPlayer;
 	int m_nTimeOfLastCarExplosionCaused;
 	int m_nExplosionMultiplier;
 	int field_138;
@@ -77,7 +93,9 @@ public:
 	bool m_bFreeHealthCare;
 	bool m_bCanDoDriveBy;
 	unsigned char m_nBustedAudioStatus;
+private:
 	char _pad4;
+public:
 	short m_nLastBustMessageNumber;
 	char m_aszSkinName[32];
 	RwTexture *m_pSkinTexture;

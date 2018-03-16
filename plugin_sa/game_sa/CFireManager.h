@@ -42,6 +42,6 @@ public:
     void Update();
 };
 
-VALIDATE_SIZE(CFire, 0x28);
+VALIDATE_SIZE(CFireManager, 0x964);
 
 extern CFireManager &gFireManager;

@@ -8,16 +8,18 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "eCrimeType.h"
 #include "CVector.h"
+#include "CEntity.h"
 
 
 class CCrimeBeingQd {
 public:
     eCrimeType m_nCrimeType;
-    unsigned int m_nCrimeId;
+    CEntity* pVictim; //entity who was the victim of the crime
     unsigned int m_nStartTime;
     CVector m_vecCoors;
     bool m_bAlreadyReported;
     bool m_bPoliceDontReallyCare;
+    char pad[2];
 
 // [FrogByteDQ]: TODO: move this to CCrimeBeingQd.h file
 // [FrogByteDQ]: TODO: constructor sub_5388D0
@@ -27,8 +29,8 @@ VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
 
 class CWanted {
 public:
-    unsigned int m_nChaosLevel;
-    unsigned int m_nChaosLevelBeforeParole;
+    unsigned int m_nChaosLevel; //amount of wanted points
+    unsigned int m_nChaosLevelBeforeParole;  //minimum amount of points, not used
     unsigned int m_nLastTimeWantedDecreased;
     unsigned int m_nLastTimeWantedLevelChanged;
     unsigned int m_dwTimeOfParole;

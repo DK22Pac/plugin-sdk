@@ -20,9 +20,10 @@ public:
     float field_C;
     float field_10;
     tHandlingData       m_aVehicleHandling[106];
-    tBikeHandlingData   m_aBikeHandling[5]; 
-    tFlyingHandlingData m_aFlyingHandling[10];
-    tBoatHandlingData   m_aBoatHandling[11];
+    tBikeHandlingData   m_aBikeHandling[5];   
+    tFlyingHandlingData m_aFlyingHandling[10]; 
+    tBoatHandlingData   m_aBoatHandling[11]; 
+    char _pad[4];
 
     cHandlingDataMgr();
     // update some handling variables with some game-specific multipliers
@@ -38,6 +39,10 @@ public:
     void Initialise();
     // process handling.cfg
     void LoadHandlingData();
+
+    
 };
 
-VALIDATE_SIZE(cHandlingDataMgr, 0x5B58);
+VALIDATE_SIZE(cHandlingDataMgr, 0x61FC);
+
+extern cHandlingDataMgr& gHandlingDataMgr;

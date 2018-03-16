@@ -13,62 +13,55 @@ Do not delete this comment block. Respect others' work!
 #include "CPlayerInfo.h"
 #include "CWanted.h"
 
-struct sPlayerPed12 {
-    int field_0;
-    int field_4;
-    int field_8;
-};
 
 class CPlayerPed : public CPed {
 public:
     CWanted *m_pWanted;
-    int field_5F8;
-    float field_5FC;
-    float field_600;
-    float field_604;
-    int field_608;
-    unsigned char m_nChosenWeapon;
-    char field_60D;
-    char field_60E;
-    int field_610;
-    int field_614;
-    int field_618;
-    char field_61C;
-    CPhysical *field_620;
-    int field_624;
-    int field_628;
-    int field_62C;
-    int field_630;
-    int m_nAdrenalineEndTime;
-    char field_638;
-    char field_639;
-    char field_63A;
-    bool m_bAdrenaline;
-    char gap63C;
-    char field_63D;
-    char gap63E;
-    char field_63F;
-    sPlayerPed12 field_640[6];
-    int field_688;
-    int field_68C;
-    int field_690;
-    int field_694;
-    int field_698;
-    int field_69C;
-    int field_6A0;
-    int field_6A4;
-    int field_6A8;
-    int field_6AC;
-    int field_6B0;
-    int field_6B4;
-    short field_6B8;
-    int field_6BC;
-    float field_6C0;
-    int field_6C4;
-    int field_6C8;
-    int field_6CC;
-    int field_6D0;
-    int field_6D4;
+    CCopPed *m_pArrestingCop;   //  CCopPed *m_pArrestingCop;
+	float m_fMoveSpeed;
+	float m_fCurrentStamina;
+	float m_fMaxStamina;
+	float m_fStaminaProgress;
+    unsigned char m_nSelectedWepSlot;
+    bool m_bStoppedMoving;
+    bool m_bShouldEvade;
+private:
+    char _pad1;
+public:
+    unsigned int m_nStandStillTimer;
+    int m_nShotDelay;
+    float m_fAttackButtonCounter;
+    bool m_bHaveTargetSelected;
+private:
+    char _pad2[3];
+public:
+    CEntity *m_pEvadingFrom;
+    int m_nTargettableObjects[4];
+    unsigned int m_nAdrenalineEndTime;
+    unsigned char m_nDrunkenness;             // Needed to work out whether we lost target this frame
+    unsigned char m_nFadeDrunkenness;
+    unsigned char m_nDrunkCountdown; //countdown in frames when the drunk effect ends
+    bool m_bAdrenaline; 
+    bool m_bFreeAiming;
+    bool m_bDrunkVisualsWearOff;
+    bool m_checkPlayerFlag;
+private:
+    char _pad3;
+public:
+    CVector m_vecSafePos[6];  //safe places from the player, for example behind a tree
+    CPed* m_pPedAtSafePos[6]; //ped assigned to the safe place (cops)
+    CPlayerPed* m_pCheckPlayers[6]; //checks something with players, could be a leftover from original multiplayer
+    short m_nCheckPlayersIndex;
+private:
+    char pad[2];
+public:
+    float m_fWalkAngle; //angle between heading and walking direction
+    float m_fFPSMoveHeading;
+    RpAtomic* m_pMinigunTopAtomic; //atomic for the spinning part of the minigun model
+    float m_fGunSpinSpeed; // for minigun
+    float m_fGunSpinAngle;
+    unsigned int m_nPadDownPressedInMilliseconds;
+    unsigned int m_nPadUpPressedInMilliseconds;
 
     //funcs
     void AnnoyPlayerPed(bool arg0);

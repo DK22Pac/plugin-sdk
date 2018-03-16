@@ -6,7 +6,8 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eMoveState {
+enum eMoveState : unsigned int
+{
     STATE_DO_NOTHING = 0,
     STATE_NEW_ACTOR = 1,
     STATE_MOVE_ACTOR = 2,

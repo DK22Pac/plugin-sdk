@@ -7,8 +7,9 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 #include "PluginBase.h"
 #include "CVehicle.h"
+#include "tBikeHandlingData.h"
 
-struct tBikeHandlingData;
+
 
 enum eBikeNodes {
     BIKE_NODE_NONE = 0,
@@ -29,8 +30,8 @@ public:
     RwFrame *m_aBikeNodes[9];
     CMatrix field_2C4;
     char gap_30C[24];
-    int pBikeHandling;
-    int field_328;
+    tBikeHandlingData* pBikeHandling;
+    int nBikeAnimGroup;
     char tireStatus[2];
     char gap_32E[2];
     char field_330[160];

@@ -14,7 +14,7 @@ class CPedIK {
 public:
     CPed *m_pPed;
     char field_4[32];
-    unsigned int m_dwFlags;
+    unsigned int m_dwFlags; //aim flags - 0x2 - torso used - 0x4 - aims with hand rather than with body
 };
 
 VALIDATE_SIZE(CPedIK, 0x28);

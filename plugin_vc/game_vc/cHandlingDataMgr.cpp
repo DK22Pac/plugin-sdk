@@ -6,6 +6,8 @@ Do not delete this comment block. Respect others' work!
 */
 #include "cHandlingDataMgr.h"
 
+cHandlingDataMgr& gHandlingDataMgr = *(cHandlingDataMgr*)0x978E58;
+
 // Converted from thiscall void cHandlingDataMgr::cHandlingDataMgr(void) 0x5ABDC0
 cHandlingDataMgr::cHandlingDataMgr() {
     plugin::CallMethod<0x5ABDC0, cHandlingDataMgr *>(this);

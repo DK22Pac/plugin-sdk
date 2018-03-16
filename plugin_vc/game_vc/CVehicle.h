@@ -11,10 +11,15 @@ Do not delete this comment block. Respect others' work!
 #include "CAutoPilot.h"
 #include "CStoredCollPoly.h"
 #include "CDamageManager.h"
-#include "CCopPed.h"
+#include "tFlyingHandlingData.h"
+#include "tBikeHandlingData.h"
+#include "tHandlingData.h"
+#include "eWeaponType.h"
+
 
 
 class CPlayerPed;
+class CCopPed;
 
 enum eCarWeapon {
 
@@ -82,8 +87,8 @@ class CVehicle : public CPhysical {
 protected:
     CVehicle(plugin::dummy_func_t) : CPhysical(plugin::dummy) {}
 public:
-    void *m_pHandlingData;
-    void *m_pFlyingHandling;
+    tHandlingData *m_pHandlingData;
+    tFlyingHandlingData *m_pFlyingHandling;
     CAutoPilot m_autopilot;
     CVehicle *m_pVehicleToRam;
     unsigned char m_nPrimaryColor;
@@ -132,16 +137,16 @@ public:
         unsigned char bSpawnCops : 1;
         unsigned char b23 : 1;
         unsigned char bUsePlayerColModel : 1;
-        unsigned char b25 : 1;
+        unsigned char bIsLawEnforcementVeh : 1;
         unsigned char b26 : 1;
-        unsigned char b27 : 1;
+        unsigned char bHasDriver : 1;
         unsigned char b28 : 1;
         unsigned char b29 : 1;
         unsigned char b30 : 1;
         unsigned char b31 : 1;
         unsigned char b32 : 1;
         unsigned char b33 : 1;
-        unsigned char b34 : 1;
+        unsigned char bCarTiresInvulnerable : 1;
         unsigned char b35 : 1;
         unsigned char b36 : 1;
         unsigned char b37 : 1;
