@@ -136,7 +136,7 @@ namespace injector
             void write(memory_pointer_tr addr, void* value, size_t size, bool vp)
             {
                 this->save(addr, size, vp);
-                return WriteMemoryRaw(addr, value, size, vp);
+                WriteMemoryRaw(addr, value, size, vp);
             }
 
             // Save buffer at @addr with size sizeof(@value) and virtual protect @vp and then overwrite it with @value
@@ -144,7 +144,7 @@ namespace injector
             void write(memory_pointer_tr addr, T value, bool vp = false)
             {
                 this->save(addr, sizeof(T), vp);
-                return WriteMemory<T>(addr, value, vp);
+                WriteMemory<T>(addr, value, vp);
             }
 
             // Constructors, move constructors, assigment operators........
@@ -167,7 +167,7 @@ namespace injector
             void fill(memory_pointer_tr addr, uint8_t value, size_t size, bool vp)
             {
                 this->save(addr, size, vp);
-                return MemoryFill(addr, value, size, vp);
+                MemoryFill(addr, value, size, vp);
             }
 
             // Constructors, move constructors, assigment operators........
@@ -193,7 +193,7 @@ namespace injector
             void make_nop(memory_pointer_tr addr, size_t size = 1, bool vp = true)
             {
                 this->save(addr, size, vp);
-                return MakeNOP(addr, size, vp);
+                MakeNOP(addr, size, vp);
             }
 
             // Constructors, move constructors, assigment operators........
@@ -221,6 +221,11 @@ namespace injector
                 return MakeJMP(at, dest, vp);
             }
 
+            memory_pointer_raw install(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
+            {
+                return make_jmp(at, dest, vp);
+            }
+
             // Constructors, move constructors, assigment operators........
             scoped_jmp() = default;
             scoped_jmp(const scoped_jmp&) = delete;
@@ -246,6 +251,11 @@ namespace injector
                 return MakeCALL(at, dest, vp);
             }
 
+            memory_pointer_raw install(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
+            {
+                return make_call(at, dest, vp);
+            }
+
             // Constructors, move constructors, assigment operators........
             scoped_call() = default;
             scoped_call(const scoped_call&) = delete;
@@ -258,6 +268,34 @@ namespace injector
             { make_call(at, dest, vp); }
     };
 
+    class scoped_callback : public scoped_basic<4>
+    {
+        public:
+            // Makes NOP at @addr with value @value and size @size and virtual protect @vp
+            memory_pointer_raw make_callback(memory_pointer_tr at, memory_pointer_raw cb, bool vp = true)
+            {
+                this->save(at, 4, vp);
+                uintptr_t original = ReadMemory<uintptr_t>(at, vp);
+                WriteMemory(at, cb.as_int(), vp);
+                return original;
+            }
+
+            memory_pointer_raw install(memory_pointer_tr at, memory_pointer_raw cb, bool vp = true)
+            {
+                return make_callback(at, cb, vp);
+            }
+
+            // Constructors, move constructors, assigment operators........
+            scoped_callback() = default;
+            scoped_callback(const scoped_callback&) = delete;
+            scoped_callback(scoped_callback&& rhs) : scoped_basic<4>(std::move(rhs)) {}
+            scoped_callback& operator=(const scoped_callback& rhs) = delete;
+            scoped_callback& operator=(scoped_callback&& rhs)
+            { scoped_basic<4>::operator=(std::move(rhs)); return *this; }
+
+            scoped_callback(memory_pointer_tr at, memory_pointer_raw cb, bool vp = true)
+            { make_callback(at, cb, vp); }
+    };
 
 #if __cplusplus >= 201103L || _MSC_VER >= 1800  // C++11 or MSVC 2013 required for variadic templates
 
@@ -267,8 +305,8 @@ namespace injector
      *      The need for this function arises because otherwise we would only be able to allow one hook per address using function_hookers
      *      This manager takes care of the amount of hooks placed in a particular address, calls the hooks and unhooks when necessary.
      */
-    template<class ToManage, class Ret, class ...Args>
-    class function_hooker_manager : protected scoped_call
+    template<class CallType, class ToManage, class Ret, class ...Args>
+    class function_hooker_manager : protected CallType
     {
         private:
             using func_type_raw = typename ToManage::func_type_raw;
@@ -345,7 +383,7 @@ namespace injector
 
             // Installs a hook associated with the function_hooker 'hooker' which would call the specified 'functor'
             // We need an auxiliar function pointer 'ptr' (to abstract calling conventions) which should forward itself to ^call_hooks
-            void make_call(const ToManage& hooker, functor_type functor, memory_pointer_raw ptr)
+            void install(const ToManage& hooker, functor_type functor, memory_pointer_raw ptr)
             {
                 this->add(hooker, std::move(functor));
 
@@ -353,7 +391,7 @@ namespace injector
                 if(!this->has_hooked)
                 {
                     // (the following cast is needed for __thiscall functions)
-                    this->original = (func_type_raw) (void*) scoped_call::make_call(hooker.addr, ptr).get();
+                    this->original = (func_type_raw) (void*)CallType::install(hooker.addr, ptr).get();
                     this->has_hooked = true;
                 }
             }
@@ -366,7 +404,7 @@ namespace injector
                 {
                     this->has_hooked = false;
                     this->assoc.clear();
-                    return scoped_call::restore();
+                    return CallType::restore();
                 }
             }
 
@@ -411,7 +449,7 @@ namespace injector
      *  function_hooker_base
      *      Base for any function_hooker, this class manages the relationship with the function hooker manager
      */
-    template<uintptr_t addr1, class FuncType, class Ret, class ...Args>
+    template<class CallType, uintptr_t addr1, class FuncType, class Ret, class ...Args>
     class function_hooker_base : public scoped_base
     {
         public:
@@ -420,7 +458,7 @@ namespace injector
             using func_type_raw = FuncType;
             using func_type     = std::function<Ret(Args...)>;
             using functor_type  = std::function<Ret(func_type, Args&...)>;
-            using manager_type  = function_hooker_manager<function_hooker_base, Ret, Args...>;
+            using manager_type  = function_hooker_manager<CallType, function_hooker_base, Ret, Args...>;
 
         public:
             // Constructors, move constructors, assigment operators........
@@ -438,7 +476,7 @@ namespace injector
 
             // The move constructor should do a replace in the manager
             function_hooker_base(function_hooker_base&& rhs)
-                : scoped_base(std::move(rhs)), has_call(rhs.has_call),
+                : scoped_base(std::move(rhs)), installed(rhs.installed),
                   manager(rhs.manager)    // (don't move the manager!, every function_hooker should own one)
             {
                 manager->replace(rhs, *this);
@@ -449,38 +487,38 @@ namespace injector
             {
                 scoped_base::operator=(std::move(rhs));
                 manager->replace(rhs, *this);
-                this->has_call = rhs.has_call;
+                this->installed = rhs.installed;
                 this->manager = rhs.manager;        // (don't move the manager! every function_hooker should own one) 
                 return *this;
             }
 
-            // Deriveds should implement a proper make_call (yeah it's virtual so derived-deriveds can do some fest)
-            virtual void make_call(functor_type functor) = 0;
+            // Deriveds should implement a proper install (yeah it's virtual so derived-deriveds can do some fest)
+            virtual void install(functor_type functor) = 0;
 
             // Restores the state of the call we've replaced in the game code
             virtual void restore()
             {
-                this->has_call = false;
+                this->installed = false;
                 manager->remove(*this);
             }
 
             // Checkers whether a hook is installed
             bool has_hooked()
             {
-                return this->has_call;
+                return this->installed;
             }
 
         private:
-            bool has_call = false;                      // Has a hook installed?
+            bool installed = false;                     // Has a hook installed?
             std::shared_ptr<manager_type> manager;      // **EVERY** function_hooker should have a ownership over it's manager_type
                                                         // this prevents the static destruction of the manager_type while it may be still needed.
 
         protected: // Forwarders to the function hooker manager
 
-            void make_call(functor_type functor, memory_pointer_raw ptr)
+            void install(functor_type functor, memory_pointer_raw ptr)
             {
-                this->has_call = true;
-                manager->make_call(*this, std::move(functor), ptr);
+                this->installed = true;
+                manager->install(*this, std::move(functor), ptr);
             }
 
             static Ret call_hooks(Args&... a)
@@ -496,15 +534,15 @@ namespace injector
      *  function_hooker
      *      For standard conventions (usually __cdecl)
      */
-    template<uintptr_t addr1, class Prototype>
+    template<class CallType, uintptr_t addr1, class Prototype>
     struct function_hooker;
 
-    template<uintptr_t addr1, class Ret, class ...Args>
-    class function_hooker<addr1, Ret(Args...)>
-        : public function_hooker_base<addr1, Ret(*)(Args...), Ret, Args...>
+    template<class CallType, uintptr_t addr1, class Ret, class ...Args>
+    class function_hooker<CallType, addr1, Ret(Args...)>
+        : public function_hooker_base<CallType, addr1, Ret(*)(Args...), Ret, Args...>
     {
         private:
-            using base = function_hooker_base<addr1, Ret(*)(Args...), Ret, Args...>;
+            using base = function_hooker_base<CallType, addr1, Ret(*)(Args...), Ret, Args...>;
 
             // The hook caller
             static Ret call(Args... a)
@@ -522,9 +560,9 @@ namespace injector
             { base::operator=(std::move(rhs)); return *this; }
 
             // Makes the hook
-            void make_call(typename base::functor_type functor)
+            void install(typename base::functor_type functor)
             {
-                return base::make_call(std::move(functor), raw_ptr(call));
+                return base::install(std::move(functor), raw_ptr(call));
             }
     };
 
@@ -533,15 +571,15 @@ namespace injector
      *  function_hooker_stdcall
      *      For stdcall conventions (__stdcall)
      */
-    template<uintptr_t addr1, class Prototype>
+    template<class CallType, uintptr_t addr1, class Prototype>
     struct function_hooker_stdcall;
 
-    template<uintptr_t addr1, class Ret, class ...Args>
-    struct function_hooker_stdcall<addr1, Ret(Args...)>
-        : public function_hooker_base<addr1, Ret(__stdcall*)(Args...), Ret, Args...>
+    template<class CallType, uintptr_t addr1, class Ret, class ...Args>
+    struct function_hooker_stdcall<CallType, addr1, Ret(Args...)>
+        : public function_hooker_base<CallType, addr1, Ret(__stdcall*)(Args...), Ret, Args...>
     {
         private:
-            using base = function_hooker_base<addr1, Ret(__stdcall*)(Args...), Ret, Args...>;
+            using base = function_hooker_base<CallType, addr1, Ret(__stdcall*)(Args...), Ret, Args...>;
 
             // The hook caller
             static Ret __stdcall call(Args... a)
@@ -559,9 +597,9 @@ namespace injector
             { base::operator=(std::move(rhs)); return *this; }
 
             // Makes the hook
-            void make_call(typename base::functor_type functor)
+            void install(typename base::functor_type functor)
             {
-                return base::make_call(std::move(functor), raw_ptr(call));
+                return base::install(std::move(functor), raw_ptr(call));
             }
     };
 
@@ -570,15 +608,15 @@ namespace injector
      *  function_hooker_fastcall
      *      For fastcall conventions (__fastcall)
      */
-    template<uintptr_t addr1, class Prototype>
+    template<class CallType, uintptr_t addr1, class Prototype>
     struct function_hooker_fastcall;
 
-    template<uintptr_t addr1, class Ret, class ...Args>
-    struct function_hooker_fastcall<addr1, Ret(Args...)>
-        : public function_hooker_base<addr1, Ret(__fastcall*)(Args...), Ret, Args...>
+    template<class CallType, uintptr_t addr1, class Ret, class ...Args>
+    struct function_hooker_fastcall<CallType, addr1, Ret(Args...)>
+        : public function_hooker_base<CallType, addr1, Ret(__fastcall*)(Args...), Ret, Args...>
     {
         private:
-            using base = function_hooker_base<addr1, Ret(__fastcall*)(Args...), Ret, Args...>;
+            using base = function_hooker_base<CallType, addr1, Ret(__fastcall*)(Args...), Ret, Args...>;
 
             // The hook caller
             static Ret __fastcall call(Args... a)
@@ -596,9 +634,9 @@ namespace injector
             { base::operator=(std::move(rhs)); return *this; }
 
             // Makes the hook
-            void make_call(typename base::functor_type functor)
+            void install(typename base::functor_type functor)
             {
-                return base::make_call(std::move(functor), raw_ptr(call));
+                return base::install(std::move(functor), raw_ptr(call));
             }
     };
 
@@ -607,15 +645,15 @@ namespace injector
      *  function_hooker_thiscall
      *      For thiscall conventions (__thiscall, class methods)
      */
-    template<uintptr_t addr1, class Prototype>
+    template<class CallType, uintptr_t addr1, class Prototype>
     struct function_hooker_thiscall;
 
-    template<uintptr_t addr1, class Ret, class ...Args>
-    struct function_hooker_thiscall<addr1, Ret(Args...)>
-        : public function_hooker_base<addr1, Ret(__thiscall*)(Args...), Ret, Args...>
+    template<class CallType, uintptr_t addr1, class Ret, class ...Args>
+    struct function_hooker_thiscall<CallType, addr1, Ret(Args...)>
+        : public function_hooker_base<CallType, addr1, Ret(__thiscall*)(Args...), Ret, Args...>
     {
         private:
-            using base = function_hooker_base<addr1, Ret(__thiscall*)(Args...), Ret, Args...>;
+            using base = function_hooker_base<CallType, addr1, Ret(__thiscall*)(Args...), Ret, Args...>;
 
             // The hook caller
             static Ret __thiscall call(Args... a)
@@ -633,9 +671,9 @@ namespace injector
             { base::operator=(std::move(rhs)); return *this; }
 
             // Makes the hook
-            void make_call(typename base::functor_type functor)
+            void install(typename base::functor_type functor)
             {
-                return base::make_call(std::move(functor), raw_ptr(call));
+                return base::install(std::move(functor), raw_ptr(call));
             }
     };
 
@@ -663,7 +701,7 @@ namespace injector
     T make_function_hook(F functor)
     {
         T a;
-        a.make_call(std::move(functor));
+        a.install(std::move(functor));
         return a;
     }
 

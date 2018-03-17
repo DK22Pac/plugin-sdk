@@ -17,7 +17,8 @@ namespace plugin
 
     enum eHookType {
         H_CALL,
-        H_JUMP
+        H_JUMP,
+        H_CALLBACK
     };
 
     enum eEventPriority {
@@ -60,10 +61,22 @@ namespace plugin
         }
     };
 
-    template<template<uintptr_t, class> class Injector, class AddrList /* AddressList<...> */, class ArgPicker, class Prototype>
+    template<class Type, size_t N, class Type2, size_t N2, class Type3, size_t N3>
+    struct ArgPick3N
+    {
+        using CallbackType = std::function<void(Type, Type2, Type3)>;
+
+        template<typename Tuple>
+        void operator()(CallbackType fun, Tuple& t) const
+        {
+            fun(std::get<N>(t), std::get<N2>(t), std::get<N3>(t));
+        }
+    };
+
+    template<template<class, uintptr_t, class> class Injector, class AddrList /* AddressList<...> */, class ArgPicker, class Prototype>
     class BaseEventI;
 
-    template<template<uintptr_t, class> class Injector, class AddrList, class ArgPicker, class Ret, class... Args>
+    template<template<class, uintptr_t, class> class Injector, class AddrList, class ArgPicker, class Ret, class... Args>
     class BaseEventI<Injector, AddrList, ArgPicker, Ret(Args...)>
     {
     public:
@@ -105,7 +118,9 @@ namespace plugin
         {
             // Using void* instead of Ret as the return value because we need to capture the return value and return that,
             // and void* has the size of the x86/x64 (and most arches) register types, so let's use that.
-            using hook_type = Injector<Addr, void*(Args...)>;
+            using hook_type = Injector<std::conditional_t<HookType == H_CALL, injector::scoped_call,
+                std::conditional_t<HookType == H_JUMP, injector::scoped_jmp, injector::scoped_callback>>,
+                Addr, void*(Args...)>;
             injector::make_static_hook<hook_type>([this](typename hook_type::func_type func, Args... args) {
                 auto arg_tie = std::forward_as_tuple(std::forward<Args>(args)...);
                 std::for_each(vecBefore.begin(), vecBefore.end(), [&](CallbackType& fun) { ArgPicker()(fun, arg_tie); });
@@ -113,15 +128,14 @@ namespace plugin
                 std::for_each(vecAfter.begin(), vecAfter.end(), [&](CallbackType& fun) { ArgPicker()(fun, arg_tie); });
                 return ret;
             });
-            if (HookType == H_JUMP) injector::WriteMemory<uint8_t>(Addr, 0xE9, true);
             PatchAll(AddressList<MoreHooks...>());
         }
     };
 
-    template<template<uintptr_t, class> class Injector, class AddrList /* AddressList<...> */, eEventPriority Priority, class ArgPicker, class Prototype>
+    template<template<class, uintptr_t, class> class Injector, class AddrList /* AddressList<...> */, eEventPriority Priority, class ArgPicker, class Prototype>
     class BaseEvent;
 
-    template<template<uintptr_t, class> class Injector, class AddrList, eEventPriority Priority, class ArgPicker, class Ret, class... Args>
+    template<template<class, uintptr_t, class> class Injector, class AddrList, eEventPriority Priority, class ArgPicker, class Ret, class... Args>
     class BaseEvent<Injector, AddrList, Priority, ArgPicker, Ret(Args...)>
     {
     protected:
