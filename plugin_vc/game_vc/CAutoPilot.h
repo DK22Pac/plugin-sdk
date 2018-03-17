@@ -7,16 +7,39 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CPathFind.h"
+#include "CPathNode.h"
 
 class CAutoPilot {
 public:
-    char pad_0[42];
-    unsigned char uFlagsEx;
-    char pad_2B[3];
-    bool bRealPhysics;  // using real physics
-    char pad_34[9];
-    unsigned char byteUnknown_3D;
-    char pad_3E[59];
+    CNodeAddress         m_currentAddress;
+    CNodeAddress         m_startingRouteNode;
+    CNodeAddress field_8;
+    int field_C;
+    unsigned int         m_nSpeedScaleFactor;
+    CCarPathLinkAddress  m_nCurrentPathNodeInfo;
+    CCarPathLinkAddress  m_nNextPathNodeInfo;
+    CCarPathLinkAddress  m_nPreviousPathNodeInfo;
+    char field_1A[2];
+    unsigned int         unknownint;
+    unsigned int         m_dwTimeToStartMission;
+    unsigned int m_dwTimeSwitchedToRealPhysics;
+    char pad_0;
+    unsigned char _smthcurr;
+    unsigned char _smthNext;
+    char m_nCuurentLane;
+    char m_nNextLane;
+    char m_nDrivingStyle;
+    char m_nCarMission;  // using real physics
+    char m_nTempAction;
+    unsigned int m_dwTempActionTime;
+    float m_fMaxTrafficSpeed;
+    char unknown[12];
+    CVector m_vecDestinationCoors;
+    CNodeAddress m_aPathFindNodesInfo[8];
+    short m_wPathFindNodesCount;
+private:
+    char _pad[2];
 };
 
 VALIDATE_SIZE(CAutoPilot, 0x74);
