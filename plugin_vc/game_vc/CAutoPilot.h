@@ -21,16 +21,18 @@ public:
     CCarPathLinkAddress  m_nNextPathNodeInfo;
     CCarPathLinkAddress  m_nPreviousPathNodeInfo;
     char field_1A[2];
-    unsigned int         unknownint;
+    int         field_1C;
     unsigned int         m_dwTimeToStartMission;
     unsigned int m_dwTimeSwitchedToRealPhysics;
+private:
     char pad_0;
+public:
     unsigned char _smthcurr;
     unsigned char _smthNext;
     char m_nCuurentLane;
     char m_nNextLane;
     char m_nDrivingStyle;
-    char m_nCarMission;  // using real physics
+    char m_nCarMission; 
     char m_nTempAction;
     unsigned int m_dwTempActionTime;
     float m_fMaxTrafficSpeed;
