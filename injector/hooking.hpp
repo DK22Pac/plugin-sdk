@@ -214,7 +214,7 @@ namespace injector
     class scoped_jmp : public scoped_basic<5>
     {
         public:
-            // Makes NOP at @addr with value @value and size @size and virtual protect @vp
+            // Makes a jump at @addr to @dest and virtual protect @vp
             memory_pointer_raw make_jmp(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
             {
                 this->save(at, 5, vp);
@@ -244,7 +244,7 @@ namespace injector
     class scoped_call : public scoped_basic<5>
     {
         public:
-            // Makes NOP at @addr with value @value and size @size and virtual protect @vp
+            // Makes a call at @addr to @dest and virtual protect @vp
             memory_pointer_raw make_call(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
             {
                 this->save(at, 5, vp);
@@ -268,10 +268,13 @@ namespace injector
             { make_call(at, dest, vp); }
     };
 
+    /*
+     *  RAII wrapper for callback (address) replacement
+     */
     class scoped_callback : public scoped_basic<4>
     {
         public:
-            // Makes NOP at @addr with value @value and size @size and virtual protect @vp
+            // Writes an address of @cb at @addr and virtual protect @vp
             memory_pointer_raw make_callback(memory_pointer_tr at, memory_pointer_raw cb, bool vp = true)
             {
                 this->save(at, 4, vp);
