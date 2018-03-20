@@ -19,7 +19,9 @@ public:
     unsigned char m_nRadio1;
     unsigned char m_nRadio2;
     unsigned char m_nRace;
-    char field_3B;
+private:
+    char __pad;
+public:
     short m_nPedAudioType;
     short m_nVoice1;
     short m_nVoice2;

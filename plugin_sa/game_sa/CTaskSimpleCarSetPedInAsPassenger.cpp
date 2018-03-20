@@ -6,8 +6,12 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CTaskSimpleCarSetPedInAsPassenger.h"
 
-CTaskSimpleCarSetPedInAsPassenger::CTaskSimpleCarSetPedInAsPassenger(CVehicle *pVehicle, int doorframeID, CTaskUtilityLineUpPedWithCar *arg3) : CTaskSimple(plugin::dummy) {
-	((void(__thiscall *)(CTaskSimpleCarSetPedInAsPassenger*, CVehicle*,int,CTaskUtilityLineUpPedWithCar*))0x646FE0)(this, pVehicle,doorframeID,arg3);
+CTaskSimpleCarSetPedInAsPassenger::CTaskSimpleCarSetPedInAsPassenger(CVehicle *pTargetVehicle, int nTargetDoor, 
+    CTaskUtilityLineUpPedWithCar *pUtility) : CTaskSimple(plugin::dummy) 
+{
+    plugin::CallMethod<0x646FE0, CTaskSimpleCarSetPedInAsPassenger*, CVehicle*, int, CTaskUtilityLineUpPedWithCar*>
+        (this,pTargetVehicle, nTargetDoor, pUtility);
 }
+
 
 

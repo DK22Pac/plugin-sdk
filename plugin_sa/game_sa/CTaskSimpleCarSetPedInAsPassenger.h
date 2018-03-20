@@ -15,19 +15,24 @@ class PLUGIN_API CTaskSimpleCarSetPedInAsPassenger : public CTaskSimple {
 protected:
     CTaskSimpleCarSetPedInAsPassenger(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
-	CTaskSimpleCarSetPedInAsPassenger(CVehicle *pVehicle,int doorframeID, CTaskUtilityLineUpPedWithCar *arg3); 
-   
-      char byte8;
+    bool m_bIsFinished;
 private:
-      char gap9[3];
+    char gap9[3];
 public:
-      int dwordC;
-      CVehicle *m_pVehicle;
-      int m_nDoorFrameId;
-      CTaskUtilityLineUpPedWithCar* m_pUtility;
-      char m_bDontUseUtility;
-      char byte1D;
-      char byte1E;
+    CAnimBlendAssociation* m_pAnim;
+    CVehicle* m_pTargetVehicle;
+    int m_iTargetDoor;
+    CTaskUtilityLineUpPedWithCar* m_pUtility;
+    bool m_bWarpingInToCar;
+    unsigned char m_nDoorFlagsToClear;
+    unsigned char m_nNumGettingInToClear;
+private:
+    char _pad2[1];
+public:
+
+    CTaskSimpleCarSetPedInAsPassenger(CVehicle *pTargetVehicle, int nTargetDoor, CTaskUtilityLineUpPedWithCar *pUtility);
+
 };
 
 VALIDATE_SIZE(CTaskSimpleCarSetPedInAsPassenger, 0x20);
+

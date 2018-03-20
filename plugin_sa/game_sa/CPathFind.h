@@ -9,6 +9,7 @@
 #include "PluginBase.h"
 #include "CompressedVector.h"
 #include "CVector.h"
+#include "CNodeAddress.h"
 
 #define NUM_PATH_MAP_AREAS 64
 #define NUM_PATH_INTERIOR_AREAS 8
@@ -25,18 +26,6 @@ public:
 };
 
 VALIDATE_SIZE(CForbiddenArea, 0x1C);
-
-
-class PLUGIN_API CNodeAddress
-{
-public:
-    short m_wAreaId;
-    short m_wNodeId;
-
-    CNodeAddress() : m_wAreaId(-1), m_wNodeId(-1) {}
-};
-
-VALIDATE_SIZE(CNodeAddress, 0x4);
 
 
 class PLUGIN_API CCarPathLinkAddress

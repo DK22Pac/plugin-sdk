@@ -8,12 +8,37 @@
 
 #include "PluginBase.h"
 #include "CTaskComplex.h"
+#include "CNodeAddress.h"
 
 class PLUGIN_API CTaskComplexWander : public CTaskComplex {
 protected:
     CTaskComplexWander(plugin::dummy_func_t a) : CTaskComplex(a) {}
 public:
+    int m_nMoveState; // see eMoveState
+    unsigned char m_nDir;
+private:
+    char _pad[3];
+public:
+    float m_fTargetRadius;
+
+    CNodeAddress m_LastNode;
+    CNodeAddress m_NextNode;
+
+    int m_nLastUpdateDirFrameCount;
+
+    union
+    {
+        unsigned char m_nFlags;
+        struct {
+            unsigned char m_bWanderSensibly : 1;
+            unsigned char m_bNewDir : 1;
+            unsigned char m_bNewNodes : 1;
+            unsigned char m_bAllNodesBlocked : 1;
+        };
+    };
+
+    CTaskComplexWander(int MoveState, unsigned char Dir, bool bWanderSensibly, float TargetRadius = 0.5f);
     
 };
 
-//VALIDATE_SIZE(CTaskComplexWander, 0x);
+VALIDATE_SIZE(CTaskComplexWander, 0x28);

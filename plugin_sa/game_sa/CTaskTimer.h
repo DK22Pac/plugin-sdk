@@ -8,13 +8,16 @@
 
 #include "PluginBase.h"
 
-class PLUGIN_API CTaskTimer {
+class PLUGIN_API CTaskTimer 
+{
 public:
     int  m_nStartTime;
     int  m_nInterval;
     bool m_bStarted;
     bool m_bStopped;
+private:
     char _pad[2];
+public:
     
     inline CTaskTimer(int start, int interval) { // @420E10
         m_nStartTime = start;
@@ -27,10 +30,10 @@ public:
         m_nInterval = 0;
         m_bStarted = false;
         m_bStopped = false;
-    }
-
-    CTaskTimer(plugin::dummy_func_t) {}
+    }   
     
+    CTaskTimer(plugin::dummy_func_t) {}
+
     bool IsOutOfTime();
 };
 

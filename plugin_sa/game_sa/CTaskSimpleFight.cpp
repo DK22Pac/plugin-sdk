@@ -6,6 +6,8 @@
 */
 #include "CTaskSimpleFight.h"
 
-CTaskSimpleFight::CTaskSimpleFight(CEntity* pEntity, int arg2, unsigned int time ) : CTaskSimple(plugin::dummy) {
-   ((void(__thiscall *)(CTaskSimpleFight*, CEntity*, int , unsigned int))0x61C470)(this, pEntity, arg2, time);
+CTaskSimpleFight::CTaskSimpleFight(CEntity *pTargetEntity, int nCommand, unsigned int nIdlePeriod)
+    : CTaskSimple(plugin::dummy)
+{
+    plugin::CallMethod<0x61C470, CTaskSimpleFight*, CEntity*, int, unsigned int>(this, pTargetEntity, nCommand, nIdlePeriod);
 }

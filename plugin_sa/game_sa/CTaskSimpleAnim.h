@@ -14,10 +14,31 @@ class PLUGIN_API CTaskSimpleAnim : public CTaskSimple {
 protected:
     CTaskSimpleAnim(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
-	CAnimBlendAssociation *m_pBlendAssociation;
-	unsigned char m_nFlags;
+	CAnimBlendAssociation *m_pAnim;
+    union
+    {
+        unsigned char m_nFlags;
+        struct
+        {
+            unsigned char                        m_bIsFinished : 1;
+            unsigned char                        m_bDontInterrupt : 1;
+            unsigned char                        m_bHoldLastFrame : 1;
+
+            // These flags are used in CTaskSimpleRunAnim only
+            unsigned char                        m_bDontBlendOut : 1;
+
+            // These flags are used in 	CTaskSimpleRunNamedAnim only
+            unsigned char                        m_bRunInSequence : 1;
+            unsigned char                        m_bOffsetAtEnd : 1;
+            unsigned char                        m_bOffsetAvailable : 1;
+        };
+    };
 private:
-	char _pad0[3];
+	char _pad[3];
+public:
+
+    CTaskSimpleAnim(bool bHoldLastFrame);
+
 };
 
 VALIDATE_SIZE(CTaskSimpleAnim, 0x10);

@@ -81,7 +81,7 @@ public:
     bool             m_bWorldViewerBeingUsed;
     bool             m_bTransitionJUSTStarted;
     bool             m_bTransitionState;
-    bool             m_nActiveCam;
+    unsigned char             m_nActiveCam; // 0 or 1
 private:
     char pad0[2];
 public:
@@ -188,8 +188,8 @@ public:
     CVector          m_vecAttachedCamLookAt;
     float            m_fAttachedCamAngle;
     RwCamera        *m_pRwCamera;
-    class CEntity   *m_pTargetEntity;
-    class CEntity   *m_pAttachedEntity;
+    CEntity   *m_pTargetEntity;
+    CEntity   *m_pAttachedEntity;
     CCamPathSplines  m_aPathArray[4];
     bool             m_bMirrorActive;
     bool             m_bResetOldMatrix;
@@ -203,11 +203,11 @@ public:
     CMatrix          m_mMatMirrorInverse;
     CMatrix          m_mMatMirror;
     CVector          m_avecFrustumNormals[4];
-    CVector field_B54[4];
-    CVector field_B84[4];
-    float field_BB4[4];
-    float field_BC4[4];
-    CVector field_BD4;
+    CVector     m_avecFrustumWorldNormals[4];
+    CVector m_avecFrustumWorldNormals_Mirror[4];
+    float m_fFrustumPlaneOffsets[4];
+    float m_fFrustumPlaneOffsets_Mirror[4];
+    CVector m_vecRightFrustumNormal;
     int field_BE0;
     int field_BE4;
     int field_BE8;
@@ -218,25 +218,29 @@ public:
     float            m_fFadeAlpha;
     int field_C00;
     float            m_fFadeDuration;
-    int field_C08;
-    int field_C0C;
-    int field_C10;
-    int field_C14;
-    int field_C18;
-    int field_C1C;
-    int field_C20;
-    int field_C24;
-    int field_C28;
-    int field_C2C;
-    unsigned short   m_nFadeInOutFlag;
-    short field_C32;
-    int field_C34;
-    short field_C38;
-    short field_C3A;
-    short field_C3C;
-    short field_C3E;
+    float m_fTimeToFadeMusic;
+    float m_fTimeToWaitToFadeMusic;
+    float   m_fFractionInterToStopMoving;
+    float 	m_fFractionInterToStopCatchUp;
+    float   m_fFractionInterToStopMovingTarget;
+    float 	m_fFractionInterToStopCatchUpTarget;
+    float 	m_fGaitSwayBuffer;
+    float   m_fScriptPercentageInterToStopMoving;
+    float   m_fScriptPercentageInterToCatchUp;
+    unsigned int	m_fScriptTimeForInterPolation;
+    unsigned short   m_nFadeInOutFlag; // fading direction
+private:
+    short _padding;
+public:
+    int m_nModeObbeCamIsInForCar;
+    short 	m_nModeToGoTo;
+    short 	m_nMusicFadingDirection;
+    short 	m_nTypeOfSwitch;
+private:
+    short _padding1;
+public:
     unsigned int     m_nFadeStartTime;
-    int field_C44;
+    unsigned int m_nFadeTimeStartedMusic;
     int field_C48;
     int field_C4C;
     int field_C50;
@@ -286,10 +290,35 @@ public:
     char field_CF1;
     char field_CF2;
     char field_CF3;
-    char field_CF4[80];
-    int field_D44;
-    int field_D48;
-    int field_D4C;
+    
+    // CameraVehicleTweaks
+    int field_CF4;
+    float field_CF8;
+    float field_CFC;
+    float field_D00;
+    int field_D04;
+    float field_D08;
+    float field_D0C;
+    int field_D10;
+    int field_D14;
+    float field_D18;
+    float field_D1C;
+    int field_D20;
+    int field_D24;
+    float field_D28;
+    float field_D2C;
+    int field_D30;
+    int field_D34;
+    float field_D38;
+    float field_D3C;
+    int field_D40;
+
+    char field_D44;
+private:
+    char _pad3[3];
+public:
+    float field_D48;
+    float field_D4C;
     int field_D50;
     int field_D54;
     int field_D58;

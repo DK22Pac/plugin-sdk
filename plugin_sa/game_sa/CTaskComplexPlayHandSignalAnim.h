@@ -15,10 +15,16 @@ class PLUGIN_API CTaskComplexPlayHandSignalAnim : public CTaskComplex {
 public:
     int   m_animationId;
     float m_fBlendFactor;
-    unsigned char m_bLeftHandLoaded : 1;
-    unsigned char m_bRightHandLoaded : 1;
-    unsigned char m_bAnimationLoaded : 1;
-    unsigned char m_bUseFatHands : 1;
+    union {
+        unsigned char m_nFlags;
+        struct
+        {
+            unsigned char m_bLeftHandLoaded : 1;
+            unsigned char m_bRightHandLoaded : 1;
+            unsigned char m_bAnimationLoaded : 1;
+            unsigned char m_bUseFatHands : 1;
+        };
+    };
     unsigned char _pad[3];
 
     CTaskComplexPlayHandSignalAnim(AnimationId animationId, float blendFactor);

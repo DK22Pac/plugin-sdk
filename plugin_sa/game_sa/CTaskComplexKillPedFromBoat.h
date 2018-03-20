@@ -20,3 +20,4 @@ public:
 };
 
 VALIDATE_SIZE(CTaskComplexKillPedFromBoat, 0x10);
+

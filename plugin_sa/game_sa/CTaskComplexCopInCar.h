@@ -13,26 +13,18 @@
 
 class PLUGIN_API CTaskComplexCopInCar : public CTaskComplex {
 protected:
-    CTaskComplexCopInCar(plugin::dummy_func_t a) : CTaskComplex(a) {}
+    CTaskComplexCopInCar(plugin::dummy_func_t a) : CTaskComplex(a), m_timer1(a), m_timer2(a) {}
 public:
-    CVehicle *pVehicle;
-    CPed *pPed1;
-    CPed *pPed2;
-    int field_18;
-	int field_1C;
-    char field_20;
-    char field_21;
-private:
-    char gap[2];
-public:
-	int field_24;
-	int field_28;
-    char field_2C;
-    char field_2D;
-    char field_2E;
-    char field_2F;
+    CVehicle *m_pVehicle;
+    CPed *m_pCop1;
+    CPed *m_pCop2;
+    CTaskTimer m_timer1;
+    CTaskTimer m_timer2;
+    unsigned char m_nFlags;
+    char __flags[3];
 
-    CTaskComplexCopInCar(CVehicle* arg0, CPed* arg1, CPed* arg2, bool arg3);
+    CTaskComplexCopInCar(CVehicle* pVeh, CPed* pCop1, CPed* pCop2, bool arg3);
 };
 
-VALIDATE_SIZE(CTaskComplexCopInCar, 0x30);
+VALIDATE_SIZE(CTaskComplexCopInCar, 0x34);
+

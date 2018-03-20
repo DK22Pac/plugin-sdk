@@ -17,24 +17,33 @@ protected:
     CTaskSimpleFight(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
 
-   CTaskSimpleFight(CEntity* pEntity, int arg2, unsigned int time);
+   bool m_bIsFinished;
+   bool m_bIsInControl;
 
-   char field_8;
-   char field_9;
-   char field_A;
-   int m_dwIfpIndex;
-   short m_dwTime;
-   short field_12;
-   char field_14;
-   char field_15;
-   CEntity* m_pEntity;
-   CAnimBlendAssociation *m_pAnimAssociation;
-   int field_20;
-   char comboType;
-   char attackType;
-   char _paramA3;
-   char field_27;
+   bool m_bAnimsReferenced;
+private:
+    char _pad;
+public:
+   unsigned int m_nRequiredAnimGroup;
+
+   unsigned short m_nIdlePeriod;
+   unsigned short m_nIdleCounter;
+   char m_nContinueStrike;
+   char m_nChainCounter;
+private:
+    char _pad2[2];
+public:
+
+   CEntity *m_pTargetEntity;
+   CAnimBlendAssociation *m_pAnim;
+   CAnimBlendAssociation *m_pIdleAnim;
+
+   char m_nComboSet;
+   char m_nCurrentMove;
+   unsigned char m_nNextCommand;
+   unsigned char m_nLastCommand;
     
+   CTaskSimpleFight(CEntity *pTargetEntity, int nCommand, unsigned int nIdlePeriod = 10000);
 };
 
 VALIDATE_SIZE(CTaskSimpleFight, 0x28);
