@@ -8,17 +8,12 @@
 #pragma once
 
 #include "../injector/injector.hpp"
+#include "DynAddress.h"
 
 namespace plugin {
 
 class patch {
 public:
-    static int GetBaseAddress();
-    
-    static inline int GetGlobalAddress(int address) {
-        return GetBaseAddress() - 0x400000 + address;
-    }
-
     inline static void Nop(int address, size_t size, bool vp = true) {
         injector::MakeNOP(GetGlobalAddress(address), size, vp);
     }

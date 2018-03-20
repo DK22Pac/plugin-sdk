@@ -15,10 +15,13 @@
 
 class PLUGIN_API CForbiddenArea
 {
+public:
 	float x1, x2, y1, y2, z1, z2;
 	bool bEnable;
 	unsigned char type;
+private:
 	char _padding[2];
+public:
 };
 
 VALIDATE_SIZE(CForbiddenArea, 0x1C);

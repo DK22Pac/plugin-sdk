@@ -5,10 +5,14 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#include "Patch.h"
+#include "DynAddress.h"
 #include <Windows.h>
 
-int plugin::patch::GetBaseAddress() {
+int plugin::GetBaseAddress() {
     static int addr = reinterpret_cast<int>(GetModuleHandleA(NULL));
     return addr;
+}
+
+int plugin::GetGlobalAddress(int address) {
+    return GetBaseAddress() - 0x400000 + address;
 }

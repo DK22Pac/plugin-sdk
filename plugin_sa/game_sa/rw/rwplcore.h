@@ -214,7 +214,7 @@ int32fromreal(RwReal x)
 
 #endif /* (!defined(RWINT32FROMFLOAT)) */
 
-#if (!defined(NOASM))
+#if (!defined(NOASM) && !defined(__GNUC__) && !defined(__clang__))
 static __inline RwUInt32 
 RwFastRealToUInt32Inline(RwReal x)
 {

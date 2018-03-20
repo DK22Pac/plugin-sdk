@@ -54,6 +54,9 @@
         If defined, the game_version_manager should be implemented by the user before including this library.
         By default it provides a nice gvm for Grand Theft Auto series
 */
+
+#define INJECTOR_GVM_PLUGIN_NAME "Plugin-SDK Plugin";
+
 #include "gvm/gvm.hpp"
 
 

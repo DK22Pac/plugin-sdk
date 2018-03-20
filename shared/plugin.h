@@ -8,6 +8,7 @@
 
 #include "PluginBase.h"
 #include "Events.h"
+#include "GameVersionMessage.h"
 #include "extender/PedExtender.h"
 #include "extender/VehicleExtender.h"
 #include "extender/ObjectExtender.h"

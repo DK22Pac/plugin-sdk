@@ -29,6 +29,7 @@
 #include <functional>
 #include <memory>       // for std::shared_ptr
 #include <list>
+#include "..\shared\DynAddress.h"
 
 namespace injector
 {
@@ -109,7 +110,7 @@ namespace injector
             scoped_basic& operator=(const scoped_basic& rhs) = delete;
             scoped_basic& operator=(scoped_basic&& rhs)
             {
-                if(this->saved = rhs.saved)
+                if((this->saved = rhs.saved))
                 {
                     assert(bufsize >= rhs.size);
 
@@ -394,7 +395,7 @@ namespace injector
                 if(!this->has_hooked)
                 {
                     // (the following cast is needed for __thiscall functions)
-                    this->original = (func_type_raw) (void*)CallType::install(hooker.addr, ptr).get();
+                    this->original = (func_type_raw) (void*)CallType::install(plugin::GetGlobalAddress(hooker.addr), ptr).get();
                     this->has_hooked = true;
                 }
             }
@@ -538,7 +539,7 @@ namespace injector
      *      For standard conventions (usually __cdecl)
      */
     template<class CallType, uintptr_t addr1, class Prototype>
-    struct function_hooker;
+    class function_hooker;
 
     template<class CallType, uintptr_t addr1, class Ret, class ...Args>
     class function_hooker<CallType, addr1, Ret(Args...)>
