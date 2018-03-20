@@ -9,13 +9,14 @@
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 #include "CTaskTimer.h"
+#include "CPed.h"
 
 class PLUGIN_API CTaskComplexKillPedOnFoot : public CTaskComplex {
 protected:
-    CTaskComplexKillPedOnFoot(plugin::dummy_func_t a) : CTaskComplex(a) {}
+    CTaskComplexKillPedOnFoot(plugin::dummy_func_t a) : CTaskComplex(a) , m_taskTimer(a) {}
 public:
     unsigned char  m_nFlags;
-    class CPed    *m_pTarget;
+    CPed    *m_pTarget;
     unsigned int   m_nAttackFlags;
     unsigned int   m_nActionDelay;
     unsigned int   m_nActionChance;

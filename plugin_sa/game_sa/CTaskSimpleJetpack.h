@@ -8,41 +8,49 @@
 
 #include "PluginBase.h"
 #include "CTaskSimple.h"
-#include "RenderWare.h"
 #include "CVector.h"
+#include "CAnimBlendAssociation.h"
+#include "FxSystem_c.h"
 
 class PLUGIN_API CTaskSimpleJetPack : public CTaskSimple
 {
+protected:
+    CTaskSimpleJetPack(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
-	char byte8;
-	char byte9;
-	char byteA;
-	char byteB;
-	char byteC;
-	char byteD;
-	char byteE;
-	char fF;
-	int dword10;
-	int dword14;
-	float dword18;
-	int dword1C;
-	int dword20;
-	int dword24;
-	int dword28;
-	int dword2C;
-	int dword30;
-	int dword34;
-	int dword38;
-	float dword3C;
-	RpClump *m_pJetpackObject;
-    int dword44;
-	CVector dword48;
-	int dword54;
-	int dword58;
-	int dword5C;
-	class CObject *pcobject60;
-	void *m_apPparticles[2]; // CParticle *
-	float m_fParticleIntensity;
+    bool m_bIsFinished;
+    bool m_bAddedIdleAnim;
+    bool m_bAnimsReferenced;
+    bool m_bAttackButtonPressed;
+    bool m_bSwitchedWeapons;
+
+    char m_nThrustStop;
+    char m_nThrustFwd;
+    float m_fThrustStrafe;
+    float m_fThrustAngle;
+
+    float m_fLegSwingFwd;
+    float m_fLegSwingSide;
+    float m_fLegTwist;
+
+    float m_fLegSwingFwdSpeed;
+    float m_fLegSwingSideSpeed;
+    float m_fLegTwistSpeed;
+
+    CVector m_vecOldSpeed;
+    float m_fOldHeading;
+
+    RpClump *m_pJetPackClump;
+    CAnimBlendAssociation* m_pAnim;
+
+    CVector m_vecTargetPos;
+    float m_fCruiseHeight;
+    int m_nHoverTime;
+    unsigned int m_nStartHover;
+    CEntity *m_pTargetEnt;
+
+    FxSystem_c* m_pFxSysL;
+    FxSystem_c* m_pFxSysR;
+    float m_fxKeyTime;
 
     static float &THRUST_NOMINAL;         // 0.8
     static float &THRUST_FULL;            // 0.6
@@ -56,6 +64,8 @@ public:
     static float &LEG_SWING_DELTA_V_MULT; // -0.2
     static float &LEG_SWING_GRAVITY_MULT; // 0.01
     static float &LEG_SWING_DAMP_FRAC;    // 0.98
+
+    CTaskSimpleJetPack(const CVector *pVecTargetPos = NULL, float fCruiseHeight = 10.0f, int nHoverTime = 0);
 };
 
 extern CVector &JETPACK_POS_OFFSET; // { 0.1, 0.08, 0.0 }

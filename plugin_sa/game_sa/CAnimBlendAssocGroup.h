@@ -8,6 +8,7 @@
 #include "PluginBase.h"
 #include "CAnimBlendAssociation.h"
 #include "RenderWare.h"
+#include "CAnimBlock.h"
 
 class CAnimBlendStaticAssociation;
 
@@ -15,7 +16,7 @@ class CAnimBlendStaticAssociation;
 class CAnimBlendAssocGroup
 {
 public:
-    void *m_pAnimBlock;
+    CAnimBlock *m_pAnimBlock;
     CAnimBlendStaticAssociation *m_pAssociations;
     unsigned int m_nNumAnimations;
     int m_nIdOffset;

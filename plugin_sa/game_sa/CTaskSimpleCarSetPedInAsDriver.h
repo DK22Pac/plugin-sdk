@@ -15,18 +15,22 @@ class PLUGIN_API CTaskSimpleCarSetPedInAsDriver : public CTaskSimple {
 protected:
     CTaskSimpleCarSetPedInAsDriver(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
-	CTaskSimpleCarSetPedInAsDriver(CVehicle *pVehicle, CTaskUtilityLineUpPedWithCar *arg2 );   
-
-      char byte8;
+    bool m_bIsFinished;
 private:
-      char gap9[3];
+    char _pad[3];
 public:
-      int dwordC;
-      CVehicle *m_pVehicle;
-      int m_pUtility;
-      char field_18;
-      char byte19;
-      char byte1A;
+    CAnimBlendAssociation* m_pAnim;
+    CVehicle * m_pTargetVehicle;
+    CTaskUtilityLineUpPedWithCar* m_pUtility;
+    bool m_bWarpingInToCar;
+    unsigned char m_nDoorFlagsToClear;
+    unsigned char m_nNumGettingInToClear;
+private:
+    char _pad2[1];
+public:
+
+    CTaskSimpleCarSetPedInAsDriver(CVehicle *pTargetVehicle, CTaskUtilityLineUpPedWithCar *pUtility);
+
 
 };
 

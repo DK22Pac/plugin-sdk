@@ -8,12 +8,16 @@
 
 #include "PluginBase.h"
 #include "CTaskComplexWander.h"
+#include "CTaskTimer.h"
 
 class PLUGIN_API CTaskComplexWanderStandard : public CTaskComplexWander {
 protected:
-    CTaskComplexWanderStandard(plugin::dummy_func_t a) : CTaskComplexWander(a) {}
+    CTaskComplexWanderStandard(plugin::dummy_func_t a) : CTaskComplexWander(a) , m_TaskTimer(a) {}
 public:
-    CTaskComplexWanderStandard(int arg0, unsigned char arg1, bool arg2);
+    CTaskTimer m_TaskTimer;
+    int m_nMinNextScanTime;
+
+    CTaskComplexWanderStandard(int MoveState, unsigned char Dir, bool bWanderSensibly = true);
 };
 
-//VALIDATE_SIZE(CTaskComplexWanderStandard, 0x);
+VALIDATE_SIZE(CTaskComplexWanderStandard, 0x38);

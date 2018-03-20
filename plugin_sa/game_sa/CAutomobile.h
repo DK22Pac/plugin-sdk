@@ -71,7 +71,7 @@ public:
     char field_86A;
     char field_867;
     short m_wMiscComponentAngle;
-    short field_86E;
+    short m_wVoodooSuspension;
     int m_dwBusDoorTimerEnd;
     int m_dwBusDoorTimerStart;
     float field_878;

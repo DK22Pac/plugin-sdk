@@ -6,6 +6,7 @@
 */
 #include "CTaskSimpleCarSetPedInAsDriver.h"
 
-CTaskSimpleCarSetPedInAsDriver::CTaskSimpleCarSetPedInAsDriver(CVehicle *pVehicle, CTaskUtilityLineUpPedWithCar *arg2 ) : CTaskSimple(plugin::dummy) {
-    ((void(__thiscall *)(CTaskSimpleCarSetPedInAsDriver*,CVehicle*, CTaskUtilityLineUpPedWithCar*))0x6470E0)(this,pVehicle, arg2);
+CTaskSimpleCarSetPedInAsDriver::CTaskSimpleCarSetPedInAsDriver(CVehicle *pTargetVehicle, CTaskUtilityLineUpPedWithCar *pUtility) : CTaskSimple(plugin::dummy) {
+    ((void(__thiscall *)(CTaskSimpleCarSetPedInAsDriver*,CVehicle*, CTaskUtilityLineUpPedWithCar*))0x6470E0)(this, pTargetVehicle, pUtility);
 }
+

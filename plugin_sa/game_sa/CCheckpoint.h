@@ -22,8 +22,8 @@ public:
     CVector        m_vecDirection;
     float          m_fPulseFraction;
     float          m_fSize;
-    float          m_fDistanceToPlayer;
-    float field_34;
+    float          m_fDistanceToPlayer; //or CameraRange
+    float m_multiSize;
 
     void Render();
 };

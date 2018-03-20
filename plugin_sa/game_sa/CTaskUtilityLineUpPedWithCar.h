@@ -10,7 +10,8 @@
 #include "CTaskSimple.h"
 #include "CPed.h"
 
-class PLUGIN_API CTaskUtilityLineUpPedWithCar{
+class PLUGIN_API CTaskUtilityLineUpPedWithCar
+{
 public:
 
 	CVector* pCoords;

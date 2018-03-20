@@ -20,3 +20,10 @@ float &CTaskSimpleJetPack::LEG_SWING_GRAVITY_MULT = *(float *)0x8D2F60; // 0.01
 float &CTaskSimpleJetPack::LEG_SWING_DAMP_FRAC    = *(float *)0x8D2F64; // 0.98
 CVector &JETPACK_POS_OFFSET = *(CVector *)0x8D2F68; // { 0.1, 0.08, 0.0 }
 CVector &JETPACK_ROT_AXIS   = *(CVector *)0x8D2F74; // { 0.0, 1.0, 0.0 }
+
+
+CTaskSimpleJetPack::CTaskSimpleJetPack(const CVector *pVecTargetPos, float fCruiseHeight, int nHoverTime) 
+    : CTaskSimple(plugin::dummy)
+{
+    plugin::CallMethod<0x67B4E0, CTaskSimpleJetPack*, const CVector*, float,int>(this, pVecTargetPos, fCruiseHeight, nHoverTime);
+}

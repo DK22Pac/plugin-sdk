@@ -5,3 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CTaskSimpleAnim.h"
+
+CTaskSimpleAnim::CTaskSimpleAnim(bool bHoldLastFrame) : CTaskSimple(plugin::dummy)
+{
+    plugin::CallMethod<0x61A6C0, CTaskSimpleAnim*, bool>(this, bHoldLastFrame);
+}

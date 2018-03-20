@@ -14,19 +14,21 @@ class PLUGIN_API CTaskSimpleCarSetPedOut : public CTaskSimple {
 protected:
 	CTaskSimpleCarSetPedOut(plugin::dummy_func_t a) : CTaskSimple(a) {}
 public:
+    CVehicle* m_pTargetVehicle;
+    int m_nTargetDoor; 
+    bool m_bSwitchOffEngine; 
+    bool m_bWarpingOutOfCar;
+    bool m_bFallingOutOfCar;	// jumping or falling off car or bike
+    bool m_bKnockedOffBike;
+    unsigned char m_nDoorFlagsToClear;
+    unsigned char m_nNumGettingInToClear;
+private:
+    char pad[2];
+public:
 
-	CVehicle *pVeh;
-	int DoorId;
-	char flag;
-	char field_11;
-	char field_12;
-	char field_13;
-	char field_14;
-	char field_15;
-	char pad[2];
-
-	CTaskSimpleCarSetPedOut(CVehicle *pVehicle, int DoorId, bool arg1);
+	CTaskSimpleCarSetPedOut(CVehicle *pTargetVehicle, int nTargetDoor, bool bSwitchOffEngine);
 
 };
 
 VALIDATE_SIZE(CTaskSimpleCarSetPedOut, 0x18);
+
