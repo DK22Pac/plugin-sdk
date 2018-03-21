@@ -11,7 +11,7 @@
     http://www.gtamodding.com/wiki/IMG_archive
 */
 
-class CDirectory {
+class PLUGIN_API CDirectory {
 public:
     struct DirectoryInfo {
         unsigned int m_nOffset;

@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
-class CFileLoader {
+class PLUGIN_API CFileLoader {
 public:
     // load txd from file
     static RwTexDictionary *LoadTexDictionary(char const* filename);

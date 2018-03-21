@@ -42,7 +42,7 @@ struct tVolumetricClouds {
     float      m_fCloudVCoords[18];
 };
 
-class CClouds {
+class PLUGIN_API CClouds {
 public:
     static float &m_fVolumetricCloudDensity; // default 1.0f
     static bool &m_bVolumetricCloudHeightSwitch; // default true

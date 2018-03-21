@@ -11,7 +11,7 @@
 
 #define MAX_NUM_FIRES 60
 
-class CFireManager {
+class PLUGIN_API CFireManager {
 public:
     CFire m_aFires[MAX_NUM_FIRES];
     unsigned int m_nMaxFireGenerationsAllowed; // initialised with 999999 in Init()

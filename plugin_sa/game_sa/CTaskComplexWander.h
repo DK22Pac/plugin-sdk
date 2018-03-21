@@ -10,6 +10,18 @@
 #include "CTaskComplex.h"
 #include "CNodeAddress.h"
 
+enum eWanderType
+{
+    WANDER_TYPE_STANDARD = 0,
+    WANDER_TYPE_COP,
+    WANDER_TYPE_MEDIC,
+    WANDER_TYPE_CRIMINAL,
+    WANDER_TYPE_GANG,
+    WANDER_TYPE_SHOP,
+    WANDER_TYPE_FLEE,
+    WANDER_TYPE_PROSTITUTE
+};
+
 class PLUGIN_API CTaskComplexWander : public CTaskComplex {
 protected:
     CTaskComplexWander(plugin::dummy_func_t a) : CTaskComplex(a) {}

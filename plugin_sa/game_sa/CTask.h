@@ -9,6 +9,13 @@
 #include "PluginBase.h"
 #include "eTaskType.h"
 
+enum eAbortPriority
+{
+    ABORT_PRIORITY_LEISURE = 0,
+    ABORT_PRIORITY_URGENT,
+    ABORT_PRIORITY_IMMEDIATE
+};
+
 class PLUGIN_API CTask {
     CTask() = delete;
 protected:
@@ -25,7 +32,7 @@ public:
 	virtual bool IsSimple();//=0
 	virtual eTaskType GetId();//=0
 	virtual void StopTimer(class CEvent *_event);
-	virtual bool MakeAbortable(class CPed *ped, int priority, class CEvent *_event);//=0
+	virtual bool MakeAbortable(class CPed *ped, eAbortPriority priority, class CEvent *_event);//=0
 };
 
 VALIDATE_SIZE(CTask, 8);

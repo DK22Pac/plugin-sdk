@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-class CGeneral {
+class PLUGIN_API CGeneral {
 public:
     static float LimitAngle(float angle);
     static float LimitRadianAngle(float angle);

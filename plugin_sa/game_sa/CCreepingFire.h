@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-class CCreepingFire {
+class PLUGIN_API CCreepingFire {
 public:
     // 32x32 map areas
     static unsigned char(*m_aFireStatus)[32]; // static unsigned char m_aFireStatus[32][32]

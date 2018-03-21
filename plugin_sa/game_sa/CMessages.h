@@ -31,7 +31,7 @@ struct PreviousBrief {
 	char * m_pString;
 };
 
-class CMessages {
+class PLUGIN_API CMessages {
 public:
 	// count: 20
 	static PreviousBrief *PreviousBriefs;

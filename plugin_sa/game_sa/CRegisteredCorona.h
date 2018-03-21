@@ -14,12 +14,24 @@
 
 enum eCoronaType
 {
-	CORONATYPE_SHINYSTAR,
-	CORONATYPE_HEADLIGHT,
-	CORONATYPE_MOON,
-	CORONATYPE_REFLECTION,
-	CORONATYPE_HEADLIGHTLINE,
-	CORONATYPE_RING_B = 9
+    CORONATYPE_SHINYSTAR,
+    CORONATYPE_HEADLIGHT,
+    CORONATYPE_MOON,
+    CORONATYPE_REFLECTION,
+    CORONATYPE_HEADLIGHTLINE,
+    CORONATYPE_HEX,
+    CORONATYPE_CIRCLE,
+    CORONATYPE_RING,
+    CORONATYPE_STREAK,
+    CORONATYPE_TORUS,
+    CORONATYPE_NONE
+};
+
+enum eCoronaFlareType : unsigned char
+{
+    FLARETYPE_NONE,
+    FLARETYPE_SUN,
+    FLARETYPE_HEADLIGHTS
 };
 
 class CRegisteredCorona {
@@ -36,7 +48,7 @@ public:
 	CRGBA m_Color;
 	unsigned char m_nFadeState;
 	unsigned char m_bRegisteredThisFrame;
-	unsigned char m_nFlareType;
+    eCoronaFlareType m_nFlareType;
 	unsigned char m_bUsesReflection;
 	unsigned char m_bCheckObstacles : 1;
 	unsigned char m_bOffScreen : 1;

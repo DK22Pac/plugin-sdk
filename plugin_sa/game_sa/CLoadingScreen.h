@@ -10,7 +10,7 @@
 
 
 
-class CLoadingScreen {
+class PLUGIN_API CLoadingScreen {
 public:
 	
 	static int &m_currDisplayedSplash;  // 0x8D093C

@@ -39,6 +39,17 @@ enum PLUGIN_API eMoveState {
     PEDMOVE_SPRINT
 };
 
+enum eFightingStyle
+{
+    STYLE_STANDARD = 4,
+    STYLE_BOXING,
+    STYLE_KUNG_FU,
+    STYLE_KNEE_HEAD,
+    // various melee weapon styles
+    STYLE_GRAB_KICK = 15,
+    STYLE_ELBOWS = 16,
+};
+
 class CObject;
 class CVehicle;
 
@@ -240,7 +251,7 @@ public:
     int field_724;
     int field_728;
     char                m_nWeaponSkill;
-    char                m_nFightingStyle;
+    char                m_nFightingStyle; // see eFightingStyle
     char                m_nAllowedAttackMoves;
     char field_72F;
     CFire              *m_pFire;

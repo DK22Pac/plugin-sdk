@@ -8,7 +8,7 @@
 #include "CRect.h"
 #include "CVector.h"
 
-class CEntryExit {
+class PLUGIN_API CEntryExit {
 public:
 	char         m_szName[8];      //!< +0x00
 	CRect        m_recEntrance;    //!< +0x08

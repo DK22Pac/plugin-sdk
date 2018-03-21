@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-class CLocalisation {
+class PLUGIN_API CLocalisation {
 public:
     static void Initialise();
     static void SetNormalGame();
