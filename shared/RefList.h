@@ -14,14 +14,22 @@ private:
     template<int... FilterValues>
     struct FilterList {};
 
-    template<bool CompareType, int ArySize>
-    constexpr static bool CompareFn(const int(&ary)[ArySize], int value) {
-        for (size_t i = 0; i < ArySize; i++) {
-            if (ary[i] == value)
-                return CompareType;
-        }
-        return !CompareType;
-    }
+    template<bool, int...>
+    struct CompareFn;
+
+    template<bool CompareType, int V>
+    struct CompareFn<CompareType, V> {
+        constexpr static bool value = !CompareType;
+    };
+
+    template<bool CompareType, int V, int A, int... Ary>
+    struct CompareFn<CompareType, V, A, Ary...> {
+        using type = std::conditional_t<
+            V == A,
+            CompareFn<CompareType, V>,
+            CompareFn<CompareType, V, Ary...>>;
+        constexpr static bool value = (V == A) ? CompareType : CompareFn<CompareType, V, Ary...>::value;
+    };
 
     template <int FilterCmpIndex, bool FilterType, typename RL, typename FV, int...>
     struct filter_iterator;
@@ -33,11 +41,10 @@ private:
 
     template <int FilterCmpIndex, bool FilterType, int... acceptedValues, int... filters, int RefAddr, int GameVersion, int RefType, int RefObjectId, int RefIndexInObject, int... values>
     struct filter_iterator<FilterCmpIndex, FilterType, RefList<acceptedValues...>, FilterList<filters...>, RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject, values...> {
-        static constexpr int filterAry[sizeof...(filters)] = { filters... };
         static constexpr int compValue[4] = { GameVersion, RefType, RefObjectId, RefIndexInObject };
 
         using type = typename filter_iterator<FilterCmpIndex, FilterType,
-            std::conditional_t<CompareFn<FilterType, sizeof...(filters)>(filterAry, compValue[FilterCmpIndex]),
+            std::conditional_t<CompareFn<FilterType, compValue[FilterCmpIndex], filters...>::value,
                 RefList<acceptedValues..., RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject>,
                 RefList<acceptedValues...>>,
             FilterList<filters...>, values...>::type;
