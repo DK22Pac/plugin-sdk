@@ -175,3 +175,10 @@ CVector Multiply3x3(CMatrix const& m, CVector const& v) {
     ((void(__cdecl *)(CVector*, CMatrix const&, CVector const&))0x4BA3D0)(&result, m, v);
     return result;
 }
+
+void CMatrix::SetOrientation(float x, float y, float z)
+{
+    CVector currPos = this->pos;
+    CMatrix::SetRotate(x, y, z);
+    this->pos = currPos;
+}
