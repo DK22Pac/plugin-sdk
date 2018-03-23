@@ -21,7 +21,7 @@
 #define FUNC_CTheZones__ZoneIsEntirelyContainedWithinOtherZone 0x572220
 #define FUNC_CTheZones__PointLiesWithinZone 0x572270
 #define FUNC_CTheZones__GetLevelFromPosition 0x572300
-#define FUNC_CTheZones__FindZoneForPoint 0x572360
+#define FUNC_CTheZones__FindSmallestZoneForPosition 0x572360
 #define FUNC_CTheZones__GetZoneInfo 0x572400
 #define FUNC_CTheZones__FillZonesWithGangColours 0x572440
 #define FUNC_CTheZones__GetInfoZone 0x572590
@@ -30,8 +30,8 @@
 #define FUNC_CTheZones__Init 0x572670
 #define FUNC_CTheZones__SetCurrentZoneAsUnlocked 0x572800
 #define FUNC_CTheZones__CreateZone 0x5728A0
-#define FUNC_CTheZones__PointLiesWithinZoneNamed 0x572B80
-#define FUNC_CTheZones__FindZoneByLabelAndReturnIndex 0x572C40
+#define FUNC_CTheZones__FindZone 0x572B80
+#define FUNC_CTheZones__FindZoneByLabel 0x572C40
 #define FUNC_CTheZones__SetZoneRadarColours 0x572cc0
 #define FUNC_CTheZones__Update 0x572D10
 #define FUNC_CTheZones__Save 0x5D2E60 
@@ -89,9 +89,9 @@ eLevelName CTheZones::GetLevelFromPosition(CVector const* pPoint)
 }
 
 // Returns pointer to zone by a point
-CZone* CTheZones::FindZoneForPoint(const CVector& point, bool FindOnlyZonesType0)
+CZone* CTheZones::FindSmallestZoneForPosition(const CVector& point, bool FindOnlyZonesType0)
 {
-	return ((CZone* (__cdecl*)(const CVector&, bool)) FUNC_CTheZones__FindZoneForPoint)(point, FindOnlyZonesType0);
+	return ((CZone* (__cdecl*)(const CVector&, bool)) FUNC_CTheZones__FindSmallestZoneForPosition)(point, FindOnlyZonesType0);
 }
 
 CZoneExtraInfo* CTheZones::GetZoneInfo(CVector *point, CZone **outzone)
@@ -141,15 +141,15 @@ void CTheZones::CreateZone(const char *name, eZoneType type, float posX1, float 
 }
 
 // Returns 1 if point lies within the specified zonename otherwise return 0
-bool CTheZones::PointLiesWithinZoneNamed(CVector* point, int zonename_part1 ,int zonename_part2, eZoneType type)
+bool CTheZones::FindZone(CVector* point, int zonename_part1 ,int zonename_part2, eZoneType type)
 {
-	return ((bool (__cdecl*)(CVector*, int, int, eZoneType)) FUNC_CTheZones__PointLiesWithinZoneNamed)(point, zonename_part1, zonename_part2, type);
+	return ((bool (__cdecl*)(CVector*, int, int, eZoneType)) FUNC_CTheZones__FindZone)(point, zonename_part1, zonename_part2, type);
 }
 
 // Returns pointer to zone by index
-short CTheZones::FindZoneByLabelAndReturnIndex(const char* name, eZoneType type)
+short CTheZones::FindZoneByLabel(const char* name, eZoneType type)
 {
-	return ((short (__cdecl*)(const char*, eZoneType)) FUNC_CTheZones__FindZoneByLabelAndReturnIndex)(name, type);
+	return ((short (__cdecl*)(const char*, eZoneType)) FUNC_CTheZones__FindZoneByLabel)(name, type);
 }
 
 void CTheZones::SetZoneRadarColours(short index, char flag, unsigned char red, unsigned char green, unsigned char blue)

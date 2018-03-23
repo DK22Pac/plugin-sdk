@@ -27,7 +27,7 @@ public:
     static unsigned int &ms_memoryAvailable;
     static unsigned int &desiredNumVehiclesLoaded;
     static unsigned int &ms_numPriorityRequests;
-    static int &ms_lastCullZone;
+    static int &ms_lastCullZone; // initialized to -1 and never used
     static unsigned short &ms_loadedGangs;
     static unsigned int &ms_numPedsLoaded;
     static bool &ms_bIsInitialised;
@@ -35,17 +35,24 @@ public:
     static int &copBikeModel;
     static int &copBikerModel;
     static bool &disablePoliceBikes;
-    static int *copCarModelByTown;             // int copCarModelByTown[4]	
-    static int *copModelByTown;                // int copModelByTown[4]	
-    static int *ambulanceByTown;            // int ambulanceByTown[4]
-    static int *medicModelsByTown;            // int medicModelsByTown[4]
-    static int *firetruckModelsByTown;        // int firetruckModelsByTown[4]
-    static int *firemanModelsByTown;        // int firemanModelsByTown[4]
-    static int *taxiDriverModelsByTown;        // int taxiDriverModelsByTown[7]
-    static int *ms_pedsLoaded;              // CStreaming::ms_pedsLoaded[8] 
-	static CStreamingInfo *ms_pStartLoadedList;
-    static CStreamingInfo *ms_aInfoForModel; // static CStreamingInfo ms_aInfoForModel[26316]
+    static int *copCarModelByTown;             // copCarModelByTown[4]	
+    static int *copModelByTown;                // copModelByTown[4]	
+    static int *ambulanceByTown;              // ambulanceByTown[4]
+    static int *medicModelsByTown;            // medicModelsByTown[4]
+    static int *firetruckModelsByTown;        // firetruckModelsByTown[4]
+    static int *firemanModelsByTown;          // firemanModelsByTown[4]
+    static int *taxiDriverModelsByTown;        // taxiDriverModelsByTown[7]
+    static int *ms_pedsLoaded;                // CStreaming::ms_pedsLoaded[8] 
+    static CStreamingInfo *ms_pEndRequestedList;
+    static CStreamingInfo *ms_pStartRequestedList;
+	static CStreamingInfo *ms_pEndLoadedList;
+    static CStreamingInfo *ms_pStartLoadedList;
+    static CStreamingInfo *ms_aInfoForModel;    //CStreamingInfo ms_aInfoForModel[26316]
 	static CLoadedCarGroup& ms_vehiclesLoaded;
+    static CLinkList<RwObject*>& ms_rwObjectInstances; 
+    static bool& bLoadVehiclesInLoadScene;
+    static bool& m_bHarvesterModelsRequested;
+    static bool& m_bStreamHarvesterModelsThisFrame;
 
     static void ImGonnaUseStreamingMemory();
     static void IHaveUsedStreamingMemory();
