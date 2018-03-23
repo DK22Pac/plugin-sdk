@@ -7,8 +7,8 @@ Do not delete this comment block. Respect others' work!
 #include "CEmergencyPed.h"
 
 // Converted from thiscall void CEmergencyPed::CEmergencyPed(uint) 0x4EEB40 
-CEmergencyPed::CEmergencyPed(unsigned int arg0) : CPed(plugin::dummy) {
-    plugin::CallMethod<0x4EEB40, CEmergencyPed *, unsigned int>(this, arg0);
+CEmergencyPed::CEmergencyPed(unsigned int emergencyType) : CPed(plugin::dummy) {
+    plugin::CallMethod<0x4EEB40, CEmergencyPed *, unsigned int>(this, emergencyType);
 }
 
 // Converted from thiscall void CEmergencyPed::FiremanAI(void) 0x4EDA80 
