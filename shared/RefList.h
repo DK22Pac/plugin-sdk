@@ -24,10 +24,6 @@ private:
 
     template<bool CompareType, int V, int A, int... Ary>
     struct CompareFn<CompareType, V, A, Ary...> {
-        using type = std::conditional_t<
-            V == A,
-            CompareFn<CompareType, V>,
-            CompareFn<CompareType, V, Ary...>>;
         constexpr static bool value = (V == A) ? CompareType : CompareFn<CompareType, V, Ary...>::value;
     };
 
@@ -65,14 +61,14 @@ public:
     template <int... filters>
     using only_index = typename filter<3, true, filters...>::type;
 
-   template <int... filters>
-   using except_from = typename filter<2, false, filters...>::type;
+    template <int... filters>
+    using except_from = typename filter<2, false, filters...>::type;
 
-   template <int... filters>
-   using except_gameversion = typename filter<0, false, filters...>::type;
+    template <int... filters>
+    using except_gameversion = typename filter<0, false, filters...>::type;
 
-   template <int... filters>
-   using except_reftype = typename filter<1, false, filters...>::type;
+    template <int... filters>
+    using except_reftype = typename filter<1, false, filters...>::type;
 
     template <int... filters>
     using except_index = typename filter<3, false, filters...>::type;
@@ -93,9 +89,9 @@ public:
 template<typename Refs, int... Values>
 struct MakeRefListFromAddressList;
 
-template<int... RefValues, int Addr, int HookType>
-struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType> {
-    using type = RefList<RefValues..., Addr, 100, HookType, 0, 0>;
+template<int... RefValues>
+struct MakeRefListFromAddressList<RefList<RefValues...>> {
+    using type = RefList<RefValues...>;
 };
 
 template<int... RefValues, int Addr, int HookType, int... Values>
@@ -109,9 +105,9 @@ using AddressList = typename MakeRefListFromAddressList<RefList<>, Values...>::t
 template<typename Refs, int... Values>
 struct MakeRefListFromAddressListMulti;
 
-template<int... RefValues, int Addr, int GameVersion, int HookType>
-struct MakeRefListFromAddressListMulti<RefList<RefValues...>, Addr, GameVersion, HookType> {
-    using type = RefList<RefValues..., Addr, GameVersion, HookType, 0, 0>;
+template<int... RefValues>
+struct MakeRefListFromAddressListMulti<RefList<RefValues...>> {
+    using type = RefList<RefValues...>;
 };
 
 template<int... RefValues, int Addr, int GameVersion, int HookType, int... Values>

@@ -8,7 +8,7 @@
 
 void CAtomicModelInfo::SetAtomic(RpAtomic *atomic)
 {
-	((void (__thiscall *)(CAtomicModelInfo *, RpAtomic *))GetVMT(this, 15))(this, atomic);
+	((void (__thiscall *)(CAtomicModelInfo *, RpAtomic *))plugin::GetVMT(this, 15))(this, atomic);
 }
 
 RpAtomic *CAtomicModelInfo::GetAtomicFromDistance(float distance)

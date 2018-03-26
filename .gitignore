@@ -6,7 +6,7 @@ vsproject
 Makefile
 output
 DXSDK
-
+generated/
 
 ### Eclipse ###
 
