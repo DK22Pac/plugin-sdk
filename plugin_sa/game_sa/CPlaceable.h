@@ -31,6 +31,7 @@ public:
     void SetPosn(float x, float y, float z);
     void SetPosn(CVector const& posn);
     void SetOrientation(float x, float y, float z);
+    void GetOrientation(float& x, float& y, float& z);
     void SetHeading(float heading);
     float GetHeading();
     bool IsWithinArea(float x1, float y1, float x2, float y2);

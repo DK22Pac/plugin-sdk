@@ -14,7 +14,7 @@
     for 'The Birds Update' mod
 */
 
-class CBird {
+class PLUGIN_API CBird {
 public:
     CVector m_vecPosn;            // Bird position
     CVector m_vecCurrentVelocity; // Velocity in the current frame
@@ -38,7 +38,7 @@ VALIDATE_SIZE(CBird, 0x44);
 
 extern unsigned int MAX_BIRDS; // default: 6
 
-class CBirds {
+class PLUGIN_API CBirds {
 public:
     static bool &bHasBirdBeenShot;
     static unsigned int &NumberOfBirds;

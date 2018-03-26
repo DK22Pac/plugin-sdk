@@ -8,7 +8,7 @@
 #include "CEntryExit.h"
 #include "CPool.h"
 
-class CEntryExitManager {
+class PLUGIN_API CEntryExitManager {
 public:
 	static CPool<CEntryExit> *& mp_poolEntryExits;
 

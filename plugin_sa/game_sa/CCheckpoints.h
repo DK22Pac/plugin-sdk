@@ -10,7 +10,7 @@
 
 extern unsigned int MAX_NUM_CHECKPOINTS; // default 32
 
-class CCheckpoints {
+class PLUGIN_API CCheckpoints {
 public:
     static unsigned int &NumActiveCPts; // not used, only initialised (0)
     static CCheckpoint *m_aCheckPtArray; // static CCheckpoint m_aCheckPtArray[32]

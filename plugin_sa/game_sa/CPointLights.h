@@ -11,6 +11,13 @@
 
 class CEntity;
 
+enum ePointLightType : unsigned char
+{
+    PLTYPE_POINTLIGHT = 0,
+    PLTYPE_SPOTLIGHT = 1,
+    PLTYPE_DARKLIGHT = 2,
+};
+
 class CPointLight {
 public:
 	CVector m_vecPosn;
@@ -20,7 +27,7 @@ public:
     float m_fColorGreen;
     float m_fColorBlue;
     CEntity *m_pEntityToLight;
-    unsigned char m_nType;
+    ePointLightType m_nType; // see ePointLightType
     unsigned char m_nFogType;
     bool m_bGenerateShadows;
 private:

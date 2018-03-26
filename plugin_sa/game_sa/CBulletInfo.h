@@ -11,7 +11,7 @@
 #include "eWeaponType.h"
 #include "CEntity.h"
 
-class CBulletInfo {
+class PLUGIN_API CBulletInfo {
 public:
     eWeaponType m_nWeaponType;
     CEntity *m_pCreator;

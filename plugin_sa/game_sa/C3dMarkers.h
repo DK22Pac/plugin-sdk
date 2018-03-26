@@ -41,7 +41,7 @@ extern unsigned int MAX_NUM_3DMARKERS; // default 32
 extern unsigned int MAX_NUM_USER_3DMARKERS; // default 5
 extern unsigned int MAX_NUM_DIRECTION_ARROWS; // default 5
 
-class C3dMarkers {
+class PLUGIN_API C3dMarkers {
 public:
     static unsigned char &m_colDiamond; // default 255
     static tDirectionArrow *ms_directionArrows;

@@ -41,7 +41,7 @@ void CTask::StopTimer(class CEvent *_event)
 	((void (__thiscall *)(CTask *, class CEvent *))plugin::GetVMT(this, 5))(this, _event);
 }
 
-bool CTask::MakeAbortable(class CPed *ped, int priority, class CEvent *_event)
+bool CTask::MakeAbortable(class CPed *ped, eAbortPriority priority, class CEvent *_event)
 {
 	return ((bool (__thiscall *)(CTask *, CPed *, int, class CEvent *))plugin::GetVMT(this, 6))(this, ped, priority, _event);
 }

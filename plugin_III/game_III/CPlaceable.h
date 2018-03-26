@@ -43,6 +43,18 @@ public:
         this->m_matrix.pos = pos;
     }
 
+    inline void GetOrientation(float& x, float& y, float& z){
+
+        x = asinf(this->m_matrix.up.z);
+
+        float cosx = cosf(x);
+        float cosy = this->m_matrix.at.z / cosx;
+        y = acosf(cosy);
+        float cosz = this->m_matrix.up.y / cosx;
+        z = acosf(cosz);
+
+    }
+
    // CPlaceable virtual table: destructor only
 
     virtual ~CPlaceable();

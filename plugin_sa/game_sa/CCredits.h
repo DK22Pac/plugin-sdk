@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-class CCredits {
+class PLUGIN_API CCredits {
 public:
     static int &CreditsStartTime;
     static bool &bCreditsGoing;

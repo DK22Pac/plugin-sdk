@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CVehicle.h"
 
-class CDarkel {
+class PLUGIN_API CDarkel {
 public:
 	static short** RegisteredKills;		// short RegisteredKills[800][2];
 	static char* pStartMessage;							

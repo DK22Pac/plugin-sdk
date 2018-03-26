@@ -10,7 +10,7 @@
 #include "CPedClothesDesc.h"
 
 
-class CClothes
+class PLUGIN_API CClothes
 {
 public:	
 	//funcs

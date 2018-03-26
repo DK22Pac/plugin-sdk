@@ -10,7 +10,7 @@
 #include "CEntity.h"
 #include "FxSystem_c.h"
 
-class CFire {
+class PLUGIN_API CFire {
 public:
     struct {
         unsigned char bActive : 1;
