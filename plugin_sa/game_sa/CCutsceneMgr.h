@@ -43,7 +43,7 @@ extern unsigned int MAX_NUM_CUTSCENE_PARTICLE_EFFECTS; // default: 8
 extern unsigned int MAX_NUM_CUTSCENE_ITEMS_TO_HIDE; // default: 50
 extern unsigned int MAX_NUM_CUTSCENE_ATTACHMENTS; // default: 50
 
-class CCutsceneMgr {
+class PLUGIN_API CCutsceneMgr {
 public:
     static bool &ms_useCutsceneShadows; // always 'true', doesn't change anything
     static unsigned int &numPlayerWeaponsToRestore;

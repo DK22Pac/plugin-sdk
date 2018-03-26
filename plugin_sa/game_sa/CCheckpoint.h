@@ -9,7 +9,7 @@
 #include "CRGBA.h"
 #include "CVector.h"
 
-class CCheckpoint {
+class PLUGIN_API CCheckpoint {
 public:
     unsigned short m_nType;
     bool           m_bIsUsed;

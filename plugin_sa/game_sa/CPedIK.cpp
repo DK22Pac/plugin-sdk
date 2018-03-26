@@ -29,14 +29,14 @@ RwMatrixTag* CPedIK::GetWorldMatrix(RwFrame* frame, RwMatrixTag* transformMat) {
 
 MoveLimbResult CPedIK::MoveLimb(LimbOrientation& TorsoOrien, float yaw, float pitch, LimbMovementInfo &LimbMoveInfo)
 {
-    plugin::CallAndReturn<MoveLimbResult, 0x5FDA60, LimbOrientation&, float, float, LimbMovementInfo &>
+    return plugin::CallAndReturn<MoveLimbResult, 0x5FDA60, LimbOrientation&, float, float, LimbMovementInfo &>
         (TorsoOrien, yaw, pitch, LimbMoveInfo);
 }
 
 MoveLimbResult CPedIK::MoveLimb(LimbOrientation& TorsoOrien, float yaw, float pitch,LimbMovementInfo &LimbMoveInfo,
     float fNormalize)
 {
-    plugin::CallAndReturn<MoveLimbResult, 0x5FDB60, LimbOrientation&, float, float, LimbMovementInfo &, float>
+    return plugin::CallAndReturn<MoveLimbResult, 0x5FDB60, LimbOrientation&, float, float, LimbMovementInfo &, float>
         (TorsoOrien, yaw, pitch, LimbMoveInfo, fNormalize);
 }
 

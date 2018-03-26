@@ -18,7 +18,7 @@ enum CAR_GENERATOR_FLAG : char
   bIgnorePopulationLimit = 0x10,
 };
 
-class CCarGenerator {
+class PLUGIN_API CCarGenerator {
     short            m_nModelId;
     char             m_nColor1;
     char             m_nColor2;

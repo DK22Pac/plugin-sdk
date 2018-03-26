@@ -15,7 +15,7 @@ enum eCarPlateType {
     CARPLATE_LA = 2
 };
 
-class CCustomCarPlateMgr {
+class PLUGIN_API CCustomCarPlateMgr {
 public:
     static RwTexture *&pCharsetTex;
     static RwTexture **pPlatebackTexTab; // static RwTexture *pPlatebackTexTab[3]

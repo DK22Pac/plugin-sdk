@@ -11,89 +11,82 @@ namespace plugin {
 template<int... Values>
 struct RefList {
 private:
-    template<int... Values>
+    template<int... FilterValues>
     struct FilterList {};
 
-    template <int FilterCmpIndex, bool FilterType, typename RL, int...>
-    struct filter_interface;
+    template<bool, int...>
+    struct CompareFn;
 
-    template <int FilterCmpIndex, bool FilterType, typename RL, typename FV, int...>
-    struct filter_base;
-
-    template<bool CompareType, int ArySize>
-    constexpr static bool CompareFn(const int(&ary)[ArySize], int value) {
-        for (size_t i = 0; i < ArySize; i++) {
-            if (ary[i] == value)
-                return CompareType;
-        }
-        return !CompareType;
-    }
-
-    template <int FilterCmpIndex, bool FilterType, int... filters>
-    struct filter_base<FilterCmpIndex, FilterType, RefList<>, FilterList<filters...>> {
-        using type = RefList<>;
+    template<bool CompareType, int V>
+    struct CompareFn<CompareType, V> {
+        constexpr static bool value = !CompareType;
     };
 
-    template <int FilterCmpIndex, bool FilterType, int... acceptedValues, int... filters, int RefAddr, int GameVersion, int RefType, int RefObjectId, int RefIndexInObject>
-    struct filter_base<FilterCmpIndex, FilterType, RefList<acceptedValues...>, FilterList<filters...>, RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject> {
-        static constexpr int filterAry[sizeof...(filters)] = { filters... };
-        static constexpr int compValue[4] = { GameVersion, RefType, RefObjectId, RefIndexInObject };
+    template<bool CompareType, int V, int A, int... Ary>
+    struct CompareFn<CompareType, V, A, Ary...> {
+        using type = std::conditional_t<
+            V == A,
+            CompareFn<CompareType, V>,
+            CompareFn<CompareType, V, Ary...>>;
+        constexpr static bool value = (V == A) ? CompareType : CompareFn<CompareType, V, Ary...>::value;
+    };
 
-        using type = std::conditional_t<CompareFn<FilterType, sizeof...(filters)>(filterAry, compValue[FilterCmpIndex]),
-            RefList<acceptedValues..., RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject>,
-            RefList<acceptedValues...>>;
+    template <int FilterCmpIndex, bool FilterType, typename RL, typename FV, int...>
+    struct filter_iterator;
+
+    template <int FilterCmpIndex, bool FilterType, int... acceptedValues, int... filters>
+    struct filter_iterator<FilterCmpIndex, FilterType, RefList<acceptedValues...>, FilterList<filters...>> {
+        using type = RefList<acceptedValues...>;
     };
 
     template <int FilterCmpIndex, bool FilterType, int... acceptedValues, int... filters, int RefAddr, int GameVersion, int RefType, int RefObjectId, int RefIndexInObject, int... values>
-    struct filter_base<FilterCmpIndex, FilterType, RefList<acceptedValues...>, FilterList<filters...>, RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject, values...> {
-        static constexpr int filterAry[sizeof...(filters)] = { filters... };
+    struct filter_iterator<FilterCmpIndex, FilterType, RefList<acceptedValues...>, FilterList<filters...>, RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject, values...> {
         static constexpr int compValue[4] = { GameVersion, RefType, RefObjectId, RefIndexInObject };
 
-        using type = typename filter_base<FilterCmpIndex, FilterType,
-            std::conditional_t<CompareFn<FilterType, sizeof...(filters)>(filterAry, compValue[FilterCmpIndex]),
-            RefList<acceptedValues..., RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject>,
-            RefList<acceptedValues...>>,
+        using type = typename filter_iterator<FilterCmpIndex, FilterType,
+            std::conditional_t<CompareFn<FilterType, compValue[FilterCmpIndex], filters...>::value,
+                RefList<acceptedValues..., RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject>,
+                RefList<acceptedValues...>>,
             FilterList<filters...>, values...>::type;
     };
 
-    template <int FilterCmpIndex, bool FilterType, int... values, int... filters>
-    struct filter_interface<FilterCmpIndex, FilterType, RefList<values...>, filters...> :
-        public filter_base<FilterCmpIndex, FilterType, RefList<>, FilterList<filters...>, values...> {};
+    template <int FilterCmpIndex, bool FilterType, int... filters>
+    struct filter : filter_iterator<FilterCmpIndex, FilterType, RefList<>, FilterList<filters...>, Values...> {};
 public:
     template <int... filters>
-    using only_from = typename filter_interface<2, true, RefList<Values...>, filters...>::type;
+    using only_from = typename filter<2, true, filters...>::type;
 
     template <int... filters>
-    using only_gameversion = typename filter_interface<0, true, RefList<Values...>, filters...>::type;
+    using only_gameversion = typename filter<0, true, filters...>::type;
 
     template <int... filters>
-    using only_reftype = typename filter_interface<1, true, RefList<Values...>, filters...>::type;
+    using only_reftype = typename filter<1, true, filters...>::type;
 
     template <int... filters>
-    using only_index = typename filter_interface<3, true, RefList<Values...>, filters...>::type;
+    using only_index = typename filter<3, true, filters...>::type;
+
+   template <int... filters>
+   using except_from = typename filter<2, false, filters...>::type;
+
+   template <int... filters>
+   using except_gameversion = typename filter<0, false, filters...>::type;
+
+   template <int... filters>
+   using except_reftype = typename filter<1, false, filters...>::type;
 
     template <int... filters>
-    using except_from = typename filter_interface<2, false, RefList<Values...>, filters...>::type;
+    using except_index = typename filter<3, false, filters...>::type;
 
-    template <int... filters>
-    using except_gameversion = typename filter_interface<0, false, RefList<Values...>, filters...>::type;
+    using only_first = only_index<1>;
 
-    template <int... filters>
-    using except_reftype = typename filter_interface<1, false, RefList<Values...>, filters...>::type;
-
-    template <int... filters>
-    using except_index = typename filter_interface<3, false, RefList<Values...>, filters...>::type;
-
-    using only_first = typename filter_interface<3, true, RefList<Values...>, 1>::type;
-    
     using only_second = only_index<2>;
-    
+
     using only_third = only_index<3>;
 
     using except_first = except_index<1>;
-    
+
     using except_second = except_index<2>;
-    
+
     using except_third = except_index<3>;
 };
 

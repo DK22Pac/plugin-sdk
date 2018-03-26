@@ -39,6 +39,7 @@ public:
     void CopyOnlyMatrix(CMatrix const& src);
     void Detach();
     void Reorthogonalise();
+    void SetOrientation(float x,float y,float z);
     void ResetOrientation();
     void Rotate(float x, float y, float z);
     void RotateX(float angle);

@@ -11,6 +11,14 @@ Do not delete this comment block. Respect others' work!
 #include "CPathFind.h"
 #include "CTaskUtilityLineUpPedWithCar.h"
 
+enum eTargetDoor
+{
+    DOOR_FRONT_LEFT = 0,
+    DOOR_FRONT_RIGHT = 8,
+    DOOR_REAR_RIGHT = 9,
+    DOOR_REAR_LEFT = 11
+};
+
 class PLUGIN_API CTaskComplexEnterCar : public CTaskComplex {
 protected:
     CTaskComplexEnterCar(plugin::dummy_func_t a) : CTaskComplex(a) {}

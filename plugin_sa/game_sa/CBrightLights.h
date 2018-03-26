@@ -33,7 +33,7 @@ VALIDATE_SIZE(tBrightLight, 0x38);
 
 extern unsigned int MAX_NUM_BRIGHTLIGHTS; // default 32
 
-class CBrightLights {
+class PLUGIN_API CBrightLights {
 public:
     static tBrightLight *aBrightLights; // static tBrightLight aBrightLights[32]
     static unsigned int &NumBrightLights;

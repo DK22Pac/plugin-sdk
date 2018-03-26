@@ -39,7 +39,7 @@ struct CustomSpecMapPipeMaterialData
 };
 VALIDATE_SIZE(CustomSpecMapPipeMaterialData, 0x8);
 
-class CCustomCarEnvMapPipeline {
+class PLUGIN_API CCustomCarEnvMapPipeline {
 public:
 
 	static int CustomPipeInstanceCB(int arg1, int arg2, int(__cdecl *callback)(int, int, int));

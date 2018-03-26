@@ -7,7 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 
-class CDraw {
+class PLUGIN_API CDraw {
 public:
     static float &ms_fFOV; // default 45.0
     static float &ms_fLODDistance;

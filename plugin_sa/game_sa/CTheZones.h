@@ -53,7 +53,7 @@ public:
 	static eLevelName GetLevelFromPosition(CVector const* pPoint);
 	
 	// Returns pointer to zone by a point
-	static CZone* FindZoneForPoint(const CVector& point, bool FindOnlyZonesType0);
+	static CZone* FindSmallestZoneForPosition(const CVector& point, bool FindOnlyZonesType0);
 	
 	static CZoneExtraInfo* GetZoneInfo(CVector *point, CZone **outzone);
 	
@@ -77,10 +77,10 @@ public:
 	static void CreateZone(const char *name, eZoneType type, float posX1, float posY1, float posZ1, float posX2, float posY2, float posZ2, eLevelName island, const char *GXT_key);
 
 	// Returns 1 if point within the specified zonename otherwise return 0
-	static bool PointLiesWithinZoneNamed(CVector* point, int zonename_part1 ,int zonename_part2,eZoneType type);
+	static bool FindZone(CVector* point, int zonename_part1 ,int zonename_part2,eZoneType type);
 	
 	// Returns pointer to zone by index
-	static short FindZoneByLabelAndReturnIndex(const char* name, eZoneType type);
+	static short FindZoneByLabel(const char* name, eZoneType type);
 	
 	static void SetZoneRadarColours(short index, char flag, unsigned char red, unsigned char green, unsigned char blue);
 	

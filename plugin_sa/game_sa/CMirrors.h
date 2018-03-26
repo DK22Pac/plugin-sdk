@@ -8,7 +8,7 @@
 #include "PluginBase.h"
 #include "CMatrix.h"
 
-class CMirrors {
+class PLUGIN_API CMirrors {
 public:
     static RwRaster *&pBuffer;
     static RwRaster *&pZBuffer;

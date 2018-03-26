@@ -73,8 +73,8 @@ public:
     };
     unsigned char m_nNumLodChildren;
     unsigned char m_nNumLodChildrenRendered;
-    unsigned char m_nType : 3;
-    unsigned char m_nStatus : 5;
+    unsigned char m_nType : 3; // see eEntityType
+    unsigned char m_nStatus : 5; // see eEntityStatus
     
     // originally virtual functions
     void Add(CRect &rect);

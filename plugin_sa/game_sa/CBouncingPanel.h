@@ -11,7 +11,7 @@
 
 class CVehicle;
 
-class CBouncingPanel {
+class PLUGIN_API CBouncingPanel {
 public:
     unsigned short m_nFrameId;
     unsigned short m_nAxis;

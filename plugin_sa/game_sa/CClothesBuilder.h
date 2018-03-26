@@ -11,7 +11,7 @@
 #include "CPedClothesDesc.h"
 
 
-class CClothesBuilder
+class PLUGIN_API CClothesBuilder
 {
 public:
 	 

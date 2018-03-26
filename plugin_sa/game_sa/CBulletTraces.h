@@ -11,7 +11,7 @@
 
 extern unsigned int MAX_NUM_BULLETTRACES; // default 16
 
-class CBulletTraces {
+class PLUGIN_API CBulletTraces {
 public:
 	static CBulletTrace *aTraces; // static CBulletTrace aTraces[16]
 	

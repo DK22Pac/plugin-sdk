@@ -91,3 +91,21 @@ void CPlaceable::InitMatrixArray() {
 void CPlaceable::FreeStaticMatrix() {
     ((void(__thiscall *)(CPlaceable *))0x54F010)(this);
 }
+
+void CPlaceable::GetOrientation(float& x, float& y, float& z)
+{
+    if (this->m_matrix)
+    {
+        x = asinf(this->m_matrix->up.z);
+
+        float cosx = cosf(x);
+        float cosy = this->m_matrix->at.z / cosx;
+        y = acosf(cosy);
+        float cosz = this->m_matrix->up.y / cosx;
+        z = acosf(cosz);
+    }
+    else
+    {
+        z = this->m_placement.m_fHeading;
+    }
+}

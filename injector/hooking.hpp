@@ -6,19 +6,19 @@
  *  This software is provided 'as-is', without any express or implied
  *  warranty. In no event will the authors be held liable for any damages
  *  arising from the use of this software.
- * 
+ *
  *  Permission is granted to anyone to use this software for any purpose,
  *  including commercial applications, and to alter it and redistribute it
  *  freely, subject to the following restrictions:
- * 
+ *
  *     1. The origin of this software must not be misrepresented; you must not
  *     claim that you wrote the original software. If you use this software
  *     in a product, an acknowledgment in the product documentation would be
  *     appreciated but is not required.
- * 
+ *
  *     2. Altered source versions must be plainly marked as such, and must not be
  *     misrepresented as being the original software.
- * 
+ *
  *     3. This notice may not be removed or altered from any source
  *     distribution.
  *
@@ -29,7 +29,7 @@
 #include <functional>
 #include <memory>       // for std::shared_ptr
 #include <list>
-#include "..\shared\DynAddress.h"
+#include "../shared/DynAddress.h"
 
 namespace injector
 {
@@ -182,7 +182,7 @@ namespace injector
             scoped_fill(memory_pointer_tr addr, uint8_t value, size_t size, bool vp)
             { fill(addr, value, vp); }
     };
-    
+
     /*
      *  RAII wrapper for nopping
      */
@@ -208,9 +208,9 @@ namespace injector
             scoped_nop(memory_pointer_tr addr, size_t size = 1, bool vp = true)
             { make_nop(addr, size, vp); }
     };
-    
+
     /*
-     *  RAII wrapper for MakeJMP 
+     *  RAII wrapper for MakeJMP
      */
     class scoped_jmp : public scoped_basic<5>
     {
@@ -238,9 +238,9 @@ namespace injector
             scoped_jmp(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
             { make_jmp(at, dest, vp); }
     };
-    
+
     /*
-     *  RAII wrapper for MakeCALL 
+     *  RAII wrapper for MakeCALL
      */
     class scoped_call : public scoped_basic<5>
     {
@@ -492,7 +492,7 @@ namespace injector
                 scoped_base::operator=(std::move(rhs));
                 manager->replace(rhs, *this);
                 this->installed = rhs.installed;
-                this->manager = rhs.manager;        // (don't move the manager! every function_hooker should own one) 
+                this->manager = rhs.manager;        // (don't move the manager! every function_hooker should own one)
                 return *this;
             }
 

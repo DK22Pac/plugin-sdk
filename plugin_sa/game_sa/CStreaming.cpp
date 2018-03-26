@@ -33,9 +33,17 @@ int *CStreaming::firetruckModelsByTown = (int *)0x8A5AD4;
 int *CStreaming::firemanModelsByTown = (int *)0x8A5AE4;
 int *CStreaming::taxiDriverModelsByTown = (int *)0x8A5AF4;
 int *CStreaming::ms_pedsLoaded = (int *)0x8E4C00;
+CStreamingInfo *CStreaming::ms_pEndRequestedList = (CStreamingInfo *)0x8E4C54;
+CStreamingInfo *CStreaming::ms_pStartRequestedList = (CStreamingInfo *)0x8E4C58;
+CStreamingInfo *CStreaming::ms_pEndLoadedList = (CStreamingInfo *)0x8E4C5C;
 CStreamingInfo *CStreaming::ms_pStartLoadedList = (CStreamingInfo *)0x8E4C60;
 CLoadedCarGroup &CStreaming::ms_vehiclesLoaded = *(CLoadedCarGroup*)0x8E4C24;
 CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x8E4CC0;
+CLinkList<RwObject*>& CStreaming::ms_rwObjectInstances = *(CLinkList<RwObject*>*)0x9654F0;
+bool& CStreaming::bLoadVehiclesInLoadScene = *(bool*)0x8A5A88;
+bool& CStreaming::m_bHarvesterModelsRequested = *(bool*)0x8E4B9C;
+bool& CStreaming::m_bStreamHarvesterModelsThisFrame = *(bool*)0x8E4B9D;
+
 
 void CStreaming::ImGonnaUseStreamingMemory()
 {
