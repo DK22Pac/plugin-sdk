@@ -1,53 +1,48 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
 #include "PluginBase.h"
 #include "LimbOrientation.h"
-#include "RenderWare.h"
-#include "CVector.h"
 #include "AnimBlendFrameData.h"
-
-class CPed;
-
+#include "CPed.h"
+#include "eBodyParts.h"
 
 class CPedIK {
 public:
     CPed *m_pPed;
-    LimbOrientation m_TorsoOrien;
-    int dwordC; 
-    int dword10; 
-    int dword14; 
-    int dword18; 
-    int dword1C; 
-    int dword20; 
+    LimbOrientation m_sHead;
+    LimbOrientation m_sTorso;
+    LimbOrientation m_sUpperArm;
+    LimbOrientation m_sLowerArm;
     unsigned int m_flags;
 
-    //variables
-    //CPedIK::ms_headInfo        0x5F9F5C 
-    //CPedIK::ms_headRestoreInfo 0x5F9F74 
-    //CPedIK::ms_torsoInfo       0x5F9F8C 
-    //CPedIK::ms_upperArmInfo    0x5F9FA4 
+    // variables
+    static LimbMovementInfo *ms_headInfo;
+    static LimbMovementInfo *ms_headRestoreInfo;
+    static LimbMovementInfo *ms_torsoInfo;
+    static LimbMovementInfo *ms_upperArmInfo;
+    static LimbMovementInfo *ms_lowerArmInfo;
 
-    //funcs
-    CPedIK();
-    void ExtractYawAndPitchLocal(RwMatrixTag* matrix, float& x, float& y);
-    void ExtractYawAndPitchWorld(RwMatrixTag* matrix, float& x, float& y);
-    void GetComponentPosition(RwV3d& pos, unsigned int component);
+    // functions
+    void Init(CPed* ped);
     static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* matrix);
-    bool LookAtPosition(CVector const& pos);
+    void GetComponentPosition(RwV3d& posnOut, eBodyParts component);
+    void ExtractYawAndPitchWorld(RwMatrixTag* matrix, float& x, float& y);
+    void ExtractYawAndPitchLocal(RwMatrixTag* matrix, float& x, float& y);
+    unsigned int MoveLimb(LimbOrientation& orient, float x, float y, LimbMovementInfo& info);
+    bool LookAtPosition(CVector const& posn);
     bool LookInDirection(float x, float y);
-    void MoveLimb(LimbOrientation& orient, float x, float y, LimbMovementInfo& info);
-    bool PointGunAtPosition(CVector const& pos);
+    bool RestoreLookAt();
+    bool PointGunAtPosition(CVector const& posn);
     bool PointGunInDirection(float x, float y);
     bool PointGunInDirectionUsingArm(float x, float y);
     bool RestoreGunPosn();
-    bool RestoreLookAt();
-    void RotateTorso(AnimBlendFrameData* data, LimbOrientation& orient, bool arg2);
+    void RotateTorso(AnimBlendFrameData* frameData, LimbOrientation& orient, bool flag);
 };
 
 VALIDATE_SIZE(CPedIK, 0x28);

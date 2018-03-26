@@ -1,6 +1,25 @@
 vtable 0 //GTA3 
 end
 funcs
+thiscall void CPedIK::Init(CPed *ped)                                                                0x4ED010
+cdecl RwMatrixTag* CPedIK::GetWorldMatrix(RwFrame *frame, RwMatrixTag *matrix)                       0x4ED060
+thiscall void CPedIK::GetComponentPosition(RwV3d &posnOut, eBodyParts component)                     0x4ED0F0
+thiscall void CPedIK::ExtractYawAndPitchWorld(RwMatrixTag *matrix, float &x, float &y)               0x4ED140
+thiscall void CPedIK::ExtractYawAndPitchLocal(RwMatrixTag *matrix, float &x, float &y)               0x4ED2C0
+thiscall uint CPedIK::MoveLimb(LimbOrientation &orient, float x, float y, LimbMovementInfo &info)    0x4ED440
+thiscall bool CPedIK::LookAtPosition(CVector const&posn)                                             0x4ED590
+thiscall bool CPedIK::LookInDirection(float x, float y)                                              0x4ED620
+thiscall bool CPedIK::RestoreLookAt(void)                                                            0x4ED810
+thiscall bool CPedIK::PointGunAtPosition(CVector const&posn)                                         0x4ED920
+thiscall bool CPedIK::PointGunInDirection(float x, float y)                                          0x4ED9B0
+thiscall bool CPedIK::PointGunInDirectionUsingArm(float x, float y)                                  0x4EDB20
+thiscall bool CPedIK::RestoreGunPosn(void)                                                           0x4EDD70
+thiscall void CPedIK::RotateTorso(AnimBlendFrameData *frameData, LimbOrientation &orient, bool flag) 0x4EDDB0
+end
+
+vtable 0 //GTA3 
+end
+funcs
 cdecl void CBridge::Init(void)                                   0x413A30
 cdecl void CBridge::Update(void)                                 0x413AC0
 cdecl bool CBridge::ShouldLightsBeFlashing(void)                 0x413D10
