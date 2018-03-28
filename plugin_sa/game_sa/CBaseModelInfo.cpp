@@ -8,72 +8,72 @@
 
 CBaseModelInfo *CBaseModelInfo::AsAtomicModelInfoPtr()
 {
-	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 1))(this);
+	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 1))(this);
 }
 
 CBaseModelInfo *CBaseModelInfo::AsDamageAtomicModelInfoPtr()
 {
-	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 2))(this);
+	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 2))(this);
 }
 
 CBaseModelInfo *CBaseModelInfo::AsLodAtomicModelInfoPtr()
 {
-	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 3))(this);
+	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 3))(this);
 }
 
 ModelInfoType CBaseModelInfo::GetModelType()
 {
-	return ((ModelInfoType (__thiscall *)(CBaseModelInfo *))GetVMT(this, 4))(this);
+	return ((ModelInfoType (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 4))(this);
 }
 
 struct tTimeInfo *CBaseModelInfo::GetTimeInfo()
 {
-	return ((struct tTimeInfo *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 5))(this);
+	return ((struct tTimeInfo *(__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 5))(this);
 }
 
 void CBaseModelInfo::Init()
 {
-	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 6))(this);
+	((void (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 6))(this);
 }
 
 void CBaseModelInfo::Shutdown()
 {
-	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 7))(this);
+	((void (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 7))(this);
 }
 
 void CBaseModelInfo::DeleteRwObject()
 {
-	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 8))(this);
+	((void (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 8))(this);
 }
 
 unsigned int CBaseModelInfo::GetRwModelType()
 {
-	return ((unsigned int (__thiscall *)(CBaseModelInfo *))GetVMT(this, 9))(this);
+	return ((unsigned int (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 9))(this);
 }
 
 RwObject *CBaseModelInfo::CreateInstance(RwMatrix *matrix)
 {
-	return ((RwObject *(__thiscall *)(CBaseModelInfo *, RwMatrix *))GetVMT(this, 10))(this, matrix);
+	return ((RwObject *(__thiscall *)(CBaseModelInfo *, RwMatrix *))plugin::GetVMT(this, 10))(this, matrix);
 }
 
 RwObject *CBaseModelInfo::CreateInstance()
 {
-	return ((RwObject *(__thiscall *)(CBaseModelInfo *))GetVMT(this, 11))(this);
+	return ((RwObject *(__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 11))(this);
 }
 
 void CBaseModelInfo::SetAnimFile(char *filename)
 {
-	((void (__thiscall *)(CBaseModelInfo *, char *))GetVMT(this, 12))(this, filename);
+	((void (__thiscall *)(CBaseModelInfo *, char *))plugin::GetVMT(this, 12))(this, filename);
 }
 
 void CBaseModelInfo::ConvertAnimFileIndex()
 {
-	((void (__thiscall *)(CBaseModelInfo *))GetVMT(this, 13))(this);
+	((void (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 13))(this);
 }
 
 signed int CBaseModelInfo::GetAnimFileIndex()
 {
-	return ((signed int (__thiscall *)(CBaseModelInfo *))GetVMT(this, 14))(this);
+	return ((signed int (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 14))(this);
 }
 
 void CBaseModelInfo::SetTexDictionary(char *txdName)

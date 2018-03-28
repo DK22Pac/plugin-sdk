@@ -8,12 +8,12 @@
 
 CBox *CClumpModelInfo::GetBoundingBox()
 {
-	return ((CBox *(__thiscall *)(CClumpModelInfo *))GetVMT(this, 15))(this);
+	return ((CBox *(__thiscall *)(CClumpModelInfo *))plugin::GetVMT(this, 15))(this);
 }
 
 void CClumpModelInfo::SetClump(RpClump *clump)
 {
-	((void (__thiscall *)(CClumpModelInfo *, RpClump *))GetVMT(this, 16))(this, clump);
+	((void (__thiscall *)(CClumpModelInfo *, RpClump *))plugin::GetVMT(this, 16))(this, clump);
 }
 
 void CClumpModelInfo::SetAtomicRendererCB(RpAtomic *atomic, void *renderFunc)

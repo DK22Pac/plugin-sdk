@@ -16,14 +16,14 @@
 namespace plugin {
 
 enum eHookType {
-    H_CALL,
-    H_JUMP,
-    H_CALLBACK
+    H_CALL = 0,
+    H_JUMP = 1,
+    H_CALLBACK = 2
 };
 
 enum eEventPriority {
-    PRIORITY_BEFORE,
-    PRIORITY_AFTER
+    PRIORITY_BEFORE = 0,
+    PRIORITY_AFTER = 1
 };
 
 template<template<class, uintptr_t, class> class Injector, class RList /* RefList<...> */, class ArgPicker, class Prototype>

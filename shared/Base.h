@@ -6,6 +6,8 @@
 */
 #pragma once
 
+#define PLUGIN_API
+
 #define VALIDATE_SIZE(struc, size) static_assert(sizeof(struc) == size, "Invalid structure size of " #struc)
 #define VALIDATE_OFFSET(struc, member, offset) \
 	static_assert(offsetof(struc, member) == offset, "The offset of " #member " in " #struc " is not " #offset "...")
@@ -29,6 +31,17 @@ typedef unsigned int uint;
 #define _IGNORED_
 #define _CAN_BE_NULL_
 
+#if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
+#define PLUGIN_SOURCE_FILE
+#define PLUGIN_VARIABLE __attribute__ ((init_priority (101)))
+#elif (defined(_MSC_VER))
+#define PLUGIN_SOURCE_FILE __pragma(init_seg(lib))
+#define PLUGIN_VARIABLE
+#else
+#define PLUGIN_SOURCE_FILE
+#define PLUGIN_VARIABLE
+#endif
+
 // III/VC char > wchar_t string conversion
 #define _SWSTRING_INIT(str, id) std::wstring my_ws##id; for (size_t i = 0; i < strlen(str); i++) my_ws##id += str[i]
 #define _SWSTRING(id) const_cast<wchar_t *>(my_ws##id.c_str())
@@ -36,35 +49,3 @@ typedef unsigned int uint;
 #define _SWSTRING_STATIC(id) my_ws##id
 #define _SWSTRING_STATIC_FROM(id, src) for (size_t i = 0; i < strlen(src); i++) my_ws##id[i] = src[i]
 #define _SWSTRING_STATIC_TO(id, dst) for (size_t i = 0; i < wcslen(my_ws##id); i++) dst[i] = static_cast<char>(my_ws##id[i])
-
-namespace plugin {
-	template <unsigned int address, typename... Args>
-	void Call(Args... args) {
-		reinterpret_cast<void(__cdecl *)(Args...)>(address)(args...);
-	}
-
-	template <typename Ret, unsigned int address, typename... Args>
-	Ret CallAndReturn(Args... args) {
-		return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
-	}
-
-	template <unsigned int address, typename C, typename... Args>
-	void CallMethod(C _this, Args... args) {
-		reinterpret_cast<void(__thiscall *)(C, Args...)>(address)(_this, args...);
-	}
-
-	template <typename Ret, unsigned int address, typename C, typename... Args>
-	Ret CallMethodAndReturn(C _this, Args... args) {
-		return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(address)(_this, args...);
-	}
-
-	template <unsigned int tableIndex, typename C, typename... Args>
-	void CallVirtualMethod(C _this, Args... args) {
-		reinterpret_cast<void(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
-	}
-
-	template <typename Ret, unsigned int tableIndex, typename C, typename... Args>
-	Ret CallVirtualMethodAndReturn(C _this, Args... args) {
-		return reinterpret_cast<Ret(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
-	}
-}

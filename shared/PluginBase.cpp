@@ -6,8 +6,8 @@
 */
 #include "PluginBase.h"
 
-// Gets the SDK version
-unsigned int plugin::Core::GetVersion()
-{
+#define _PLUGIN_VERSION 0x00000010
+
+unsigned int plugin::Core::GetVersion() {
     return _PLUGIN_VERSION;
 }
