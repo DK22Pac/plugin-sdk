@@ -74,7 +74,7 @@ public:
     short                 m_nPlayingState;
     char field_6A[2];
     float                 m_fSoundHeadRoom;
-    short field_70;
+    short m_nSoundLength;
     short field_72;
 
     CAESound();

@@ -12,9 +12,9 @@
 class CColLine {
 public:
 	CVector m_vecStart;
-	float field_C;
+	float m_fStartSize;
 	CVector m_vecEnd;
-	float field_1C;
+	float m_fEndSize;
 
 	CColLine(CVector  const& start, CVector  const& end);
 	void Set(CVector  const& start, CVector  const& end);

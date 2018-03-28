@@ -12,7 +12,7 @@ class PLUGIN_API CPedAcquaintance {
 public:
     unsigned int m_nRespect;
     unsigned int m_nLike;
-    unsigned int field_8;
+    unsigned int m_nIgnore;
     unsigned int m_nDislike;
     unsigned int m_nHate;
 };

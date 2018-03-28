@@ -11,7 +11,7 @@
 class PLUGIN_API CRideAnimData {
 public:
     unsigned int m_nAnimGroup;
-    int dword4;
+    float m_fSteerAngle;
     float        m_fAnimLean;
     int dwordC;
     float dword10;

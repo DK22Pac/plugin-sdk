@@ -9,7 +9,14 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-class CColPoint {
+struct PLUGIN_API tColLighting
+{
+    unsigned char day : 4;
+    unsigned char night : 4;
+};
+
+
+class PLUGIN_API CColPoint {
 public:
 	/* https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CColPointSA.h */
 	CVector       m_vecPoint;
@@ -17,13 +24,19 @@ public:
 	CVector       m_vecNormal;
 	float field_1C;
     // col shape 1 info
-	unsigned char m_nSurfaceTypeA;
+	unsigned char m_nSurfaceTypeA; // see eSurfaceType
 	unsigned char m_nPieceTypeA;
-	unsigned char m_nLightingA;
+    tColLighting m_nLightingA;
+private:
+    char _pad;
+public:
     // col shape 2 info
-	unsigned char m_nSurfaceTypeB;
+	unsigned char m_nSurfaceTypeB; // see eSurfaceType
 	unsigned char m_nPieceTypeB;
-	unsigned char m_nLightingB;
+    tColLighting m_nLightingB;
+private:
+    char _pad2;
+public:
     // col depth
 	float         m_fDepth;
 

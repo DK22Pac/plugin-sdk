@@ -81,7 +81,7 @@ public:
     int field_A08;
     class FxSystem_c **m_ppGunflashFx;
     char               m_nFiringMultiplier;
-    char               m_bSearchLightEnabled;
+    bool               m_bSearchLightEnabled;
     char _pad3[2];
     float field_A14;
 
