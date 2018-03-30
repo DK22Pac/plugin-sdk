@@ -6,6 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
+#include "RenderWare.h"
 
 class PLUGIN_API CZoneInfo
 {
