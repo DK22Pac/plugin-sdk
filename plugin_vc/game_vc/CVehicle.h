@@ -65,7 +65,10 @@ enum eVehicleCreatedBy {
 };
 
 enum eBombState {
-
+    BOMB_DETONATED = 0,
+    BOMB_READY = 3,
+    BOMB_NOT_SET = 8,
+    BOMB_SET = 11
 };
 
 #if 0
