@@ -201,7 +201,7 @@ public:
     static void TransformRadarPointToRealWorldSpace(CVector2D& out, CVector2D const& in);
     static void TransformRealWorldToTexCoordSpace(CVector2D& out, CVector2D const& in, int arg2, int arg3);
     static void CalculateCachedSinCos();
-    static int SetCoordBlip(eBlipType type, CVector posn, unsigned int arg2, eBlipDisplay blipDisplay, char* scriptName);
+    static int SetCoordBlip(eBlipType type, CVector posn, _IGNORED_ unsigned int arg2 , eBlipDisplay blipDisplay, _IGNORED_ char* scriptName );
     static int SetShortRangeCoordBlip(eBlipType type, CVector posn, unsigned int arg2, eBlipDisplay blipDisplay, char* scriptName);
     static int SetEntityBlip(eBlipType type, int entityHandle, unsigned int arg2, eBlipDisplay blipDisplay);
     static void ChangeBlipColour(int blipIndex, unsigned int color);

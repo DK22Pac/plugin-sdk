@@ -276,7 +276,8 @@ public:
     void SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset);
     void GivePedScriptedTask(int ped, CTask* task, int opcode);
     void PlayAnimScriptCommand(int opcodeid);
-    void GetCorrectPedModelIndexForEmergencyServiceType(int pedtype, int* pModelId);
+
+    static void GetCorrectPedModelIndexForEmergencyServiceType(ePedType pedtype, int* pModelId);
 };
 
 VALIDATE_SIZE(CRunningScript, 0xE0);

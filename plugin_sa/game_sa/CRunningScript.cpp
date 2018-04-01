@@ -350,6 +350,6 @@ void CRunningScript::PlayAnimScriptCommand(int opcodeid) {
 }
 
 // Converted from thiscall void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(int pedtype,int *pModelId) 0x464F50 
-void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(int pedtype, int* pModelId) {
-    plugin::CallMethod<0x464F50, CRunningScript *, int, int*>(this, pedtype, pModelId);
+void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(ePedType pedtype, int* pModelId) {
+    plugin::Call<0x464F50,int, int*>(pedtype, pModelId);
 }
