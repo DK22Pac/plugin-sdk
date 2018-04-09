@@ -198,6 +198,7 @@ public:
         unsigned char bImpounded : 1; // Has this vehicle been in a police impounding garage
         unsigned char bVehicleCanBeTargettedByHS : 1;// Heat seeking missiles will not target this vehicle.
         unsigned char bSirenOrAlarm : 1; // Set to TRUE if siren or alarm active, else FALSE
+        
         unsigned char bHasGangLeaningOn : 1;
         unsigned char bGangMembersForRoadBlock : 1;// Will generate gang members if NumPedsForRoadBlock > 0
         unsigned char bDoesProvideCover : 1; // If this is false this particular vehicle can not be used to take cover behind.
@@ -206,6 +207,7 @@ public:
         unsigned char bConsideredByPlayer : 1; // This vehicle is considered by the player to enter
         unsigned char bPetrolTankIsWeakPoint : 1;// If false shootong the petrol tank will NOT Blow up the car
         unsigned char bDisableParticles : 1; // Disable particles from this car. Used in garage.
+        
         unsigned char bHasBeenResprayed : 1; // Has been resprayed in a respray garage. Reset after it has been checked.
         unsigned char bUseCarCheats : 1; // If this is true will set the car cheat stuff up in ProcessControl()
         unsigned char bDontSetColourWhenRemapping : 1;// If the texture gets remapped we don't want to change the colour with it.
