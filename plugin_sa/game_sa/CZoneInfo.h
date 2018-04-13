@@ -6,13 +6,14 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
+#include "RenderWare.h"
 
 class PLUGIN_API CZoneInfo
 {
 public:
 	char GangDensity[10];
 	char DrugDealerCounter;
-	char ZoneRGBA[4];
+	RwRGBA ZoneColor;
 	char Flags1;
 	char Flags2;
 };

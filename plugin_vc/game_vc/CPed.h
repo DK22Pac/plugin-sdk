@@ -18,12 +18,19 @@
 #include "eFormation.h"
 #include "eWaitState.h"
 #include "ePedPieceTypes.h"
-#include "eMoveState.h"
 #include "eEventType.h"
 #include "eObjective.h"
 #include "CFire.h"
 #include "ePedType.h"
 #include "ePedAction.h"
+
+enum PLUGIN_API eMoveState {
+    PEDMOVE_NONE,
+    PEDMOVE_STILL,
+    PEDMOVE_WALK,
+    PEDMOVE_RUN = 4,
+    PEDMOVE_SPRINT = 5
+};
 
 class CVehicle;
 

@@ -15,6 +15,15 @@
 #include "CPedStats.h"
 #include "CWeapon.h"
 
+
+enum PLUGIN_API eMoveState {
+    PEDMOVE_NONE,
+    PEDMOVE_STILL,
+    PEDMOVE_WALK,
+    PEDMOVE_RUN,
+    PEDMOVE_SPRINT
+};
+
 class CVehicle;
 
 
@@ -140,7 +149,7 @@ public:
     int m_nActionTimer;
     int m_nAction;
     int m_nLastAction;
-    int m_nMoveState;
+    eMoveState m_nMoveState;
     int m_nStoredActionState;
     int m_nPrevActionState;
     int m_nWaitState;

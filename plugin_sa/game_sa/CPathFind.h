@@ -119,7 +119,7 @@ public:
 	CNodeAddress *m_pNodeLinks[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
 	unsigned char *m_pLinkLengths[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
 	CPathIntersectionInfo *m_pPathIntersections[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
-	CCarPathLinkAddress *pNaviLinks[NUM_PATH_MAP_AREAS];
+	CCarPathLinkAddress *m_pNaviLinks[NUM_PATH_MAP_AREAS];
 	void *field_EA4[NUM_PATH_MAP_AREAS];
 	unsigned int m_dwNumNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];
 	unsigned int m_dwNumVehicleNodes[NUM_PATH_MAP_AREAS + NUM_PATH_INTERIOR_AREAS];

@@ -98,7 +98,7 @@ void CRadar::CalculateCachedSinCos()
 }
 
 // Converted from cdecl int CRadar::SetCoordBlip(eBlipType type,CVector posn,uint,eBlipDisplay blipDisplay, char* scriptName) 0x583820
-int CRadar::SetCoordBlip(eBlipType type, CVector posn, unsigned int arg2, eBlipDisplay blipDisplay, char* scriptName)
+int CRadar::SetCoordBlip(eBlipType type, CVector posn, _IGNORED_ unsigned int arg2, eBlipDisplay blipDisplay, _IGNORED_ char* scriptName)
 {
 	return ((int (__cdecl *)(eBlipType, CVector, unsigned int, eBlipDisplay, char*))0x583820)(type, posn, arg2, blipDisplay, scriptName);
 }
