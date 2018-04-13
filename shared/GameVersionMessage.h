@@ -19,21 +19,22 @@ inline std::string GetSupportedGameVersionsString(std::string const &sep) {
     std::vector<std::string> versions;
 #ifdef GTASA
     #ifdef PLUGIN_SGV_10US
-        versions.push_back(GetGameVersionName(GAME_10US));
+        versions.push_back(GetGameVersionName(GAME_10US_COMPACT));
+        versions.push_back(GetGameVersionName(GAME_10US_HOODLUM));
     #endif
     #ifdef PLUGIN_SGV_10EU
         versions.push_back(GetGameVersionName(GAME_10EU));
     #endif
-    #ifdef PLUGIN_SGV_10US
+    #ifdef PLUGIN_SGV_11US
         versions.push_back(GetGameVersionName(GAME_11US));
     #endif
-    #ifdef PLUGIN_SGV_10US
+    #ifdef PLUGIN_SGV_11EU
         versions.push_back(GetGameVersionName(GAME_11EU));
     #endif
-    #ifdef PLUGIN_SGV_10US
+    #ifdef PLUGIN_SGV_SR2
         versions.push_back(GetGameVersionName(GAME_STEAM));
     #endif
-    #ifdef PLUGIN_SGV_10US
+    #ifdef PLUGIN_SGV_SR2LV
         versions.push_back(GetGameVersionName(GAME_STEAM_LV));
     #endif
 #else

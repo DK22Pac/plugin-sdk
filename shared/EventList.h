@@ -26,6 +26,12 @@ enum eEventPriority {
     PRIORITY_AFTER = 1
 };
 
+// calling conventions
+struct CallingConventions {
+    struct Cdecl {};
+    struct Thiscall {};
+};
+
 template<template<class, uintptr_t, class> class Injector, class RList /* RefList<...> */, class ArgPicker, class Prototype>
 class BaseEventI;
 
@@ -136,10 +142,10 @@ private:
     }
 };
 
-template<template<class, uintptr_t, class> class Injector, class RList /* RefList<...> */, eEventPriority Priority, class ArgPicker, class Prototype>
+template<template<class, uintptr_t, class> class Injector, class RList /* RefList<...> */, int Priority, class ArgPicker, class Prototype>
 class BaseEvent;
 
-template<template<class, uintptr_t, class> class Injector, class RList, eEventPriority Priority, class ArgPicker, class Ret, class... Args>
+template<template<class, uintptr_t, class> class Injector, class RList, int Priority, class ArgPicker, class Ret, class... Args>
 class BaseEvent<Injector, RList, Priority, ArgPicker, Ret(Args...)> {
 protected:
     BaseEventI<Injector, RList, ArgPicker, Ret(Args...)> &GetInstance() {
@@ -225,7 +231,7 @@ public:
         AddAtId(id_after, cb_after, PRIORITY_AFTER);
     }
 
-    BaseEvent& AddAtId(unsigned int id, CallbackType const &cb, eEventPriority priority = Priority) {
+    BaseEvent& AddAtId(unsigned int id, CallbackType const &cb, int priority = Priority) {
         if (priority == PRIORITY_BEFORE)
             GetInstance().AddBefore(cb, id);
         else
@@ -233,11 +239,11 @@ public:
         return *this;
     }
 
-    BaseEvent& Add(CallbackType const &cb, eEventPriority priority = Priority) {
+    BaseEvent& Add(CallbackType const &cb, int priority = Priority) {
         return AddAtId(0, cb, priority);
     }
 
-    BaseEvent& Remove(FnPtrType fn, eEventPriority priority = Priority) {
+    BaseEvent& Remove(FnPtrType fn, int priority = Priority) {
         if (priority == PRIORITY_BEFORE)
             GetInstance().RemoveBefore(fn);
         else
@@ -245,7 +251,7 @@ public:
         return *this;
     }
 
-    BaseEvent& RemoveById(unsigned int id, eEventPriority priority = Priority) {
+    BaseEvent& RemoveById(unsigned int id, int priority = Priority) {
         if (priority == PRIORITY_BEFORE)
             GetInstance().RemoveBeforeById(id);
         else
@@ -295,13 +301,13 @@ public:
     BaseEvent& operator-=(FnPtrType fn) { return Remove(fn); }
 };
 
-template<class RList, eEventPriority Priority, class ArgPicker, class Prototype>
+template<class RList, int Priority, class ArgPicker, class Prototype>
 using CdeclEvent = BaseEvent<injector::function_hooker, RList, Priority, ArgPicker, Prototype>;
 
-template<class RList, eEventPriority Priority, class ArgPicker, class Prototype>
+template<class RList, int Priority, class ArgPicker, class Prototype>
 using StdcallEvent = BaseEvent<injector::function_hooker_stdcall, RList, Priority, ArgPicker, Prototype>;
 
-template<class RList, eEventPriority Priority, class ArgPicker, class Prototype>
+template<class RList, int Priority, class ArgPicker, class Prototype>
 using ThiscallEvent = BaseEvent<injector::function_hooker_thiscall, RList, Priority, ArgPicker, Prototype>;
 
 }

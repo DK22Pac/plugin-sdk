@@ -8,12 +8,15 @@
 
 #define GAME_UNKNOWN 0
 #ifdef GTASA
-#define GAME_10US 100
-#define GAME_10EU 101
-#define GAME_11US 110
-#define GAME_11EU 111
-#define GAME_STEAM 320
-#define GAME_STEAM_LV 321
+#define GAME_10US_COMPACT 1001
+#define GAME_10US_HOODLUM 1002
+#define GAME_10EU 1011
+#define GAME_11US 1101
+#define GAME_11EU 1111
+#define GAME_SR2 3200
+#define GAME_SR2LV 3210
+#define GAME_STEAM GAME_SR2
+#define GAME_STEAM_LV GAME_SR2LV
 #else
 #define GAME_10EN 100
 #define GAME_11EN 110
@@ -29,8 +32,10 @@ unsigned int GetGameVersion();
 inline char const *GetGameVersionName(int gameVersionId) {
     switch (gameVersionId) {
 #ifdef GTASA
-    case GAME_10US:
-        return "GTA SA 1.0 US";
+    case GAME_10US_COMPACT:
+        return "GTA SA 1.0 US 'Compact'";
+    case GAME_10US_HOODLUM:
+        return "GTA SA 1.0 US 'HoodLum'";
     case GAME_10EU:
         return "GTA SA 1.0 EU";
     case GAME_11US:
@@ -75,7 +80,7 @@ inline bool IsGameVersionUnknown() {
 #ifdef GTASA
 // Checks if launched game version is 1.0 US
 inline bool IsGameVersion10us() {
-    return GetGameVersion() == GAME_10US;
+    return GetGameVersion() == GAME_10US_COMPACT || GAME_10US_HOODLUM;
 }
 
 // Checks if launched game version is 1.0 EU
@@ -123,7 +128,8 @@ inline bool IsGameVersionSteam() {
 inline bool IsSupportedGameVersion(int gameVersionId) {
     switch (gameVersionId) {
 #ifdef GTASA
-    case GAME_10US:
+    case GAME_10US_COMPACT:
+    case GAME_10US_HOODLUM:
       #ifdef PLUGIN_SGV_10US
         return true;
       #else
@@ -195,22 +201,57 @@ inline bool IsSupportedGameVersion() {
  */
 
 #ifdef GTASA
+inline int by_v_dyn(int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
+    switch (GetGameVersion()) {
+    case GAME_10US_COMPACT:
+        return A_10US_C;
+    case GAME_10US_HOODLUM:
+        return A_10US_H;
+    case GAME_10EU:
+        return A_10EU;
+    case GAME_11US:
+        return A_11US;
+    case GAME_11EU:
+        return A_11EU;
+    case GAME_STEAM:
+        return A_Steam;
+    case GAME_STEAM_LV:
+        return A_Steam_LV;
+    }
+    return 0;
+}
+
+inline int by_version_dyn(int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
+    return by_v_dyn(A_10US_C, A_10US_H, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
+}
+
+template <int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV>
+int by_v() {
+    return by_v_dyn(A_10US_C, A_10US_H, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
+}
+
+template <int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV>
+int by_version() {
+    return by_v_dyn(A_10US_C, A_10US_H, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
+}
+
 inline int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
     switch (GetGameVersion()) {
-    case GAME_10US:
+    case GAME_10US_COMPACT:
+    case GAME_10US_HOODLUM:
         return A_10US;
     case GAME_10EU:
-        return ((A_10EU == 0) ? A_10US : A_10EU);
+        return A_10EU;
     case GAME_11US:
-        return ((A_11US == 0) ? A_10US : A_11US);
+        return A_11US;
     case GAME_11EU:
-        return ((A_11EU == 0) ? A_10US : A_11EU);
+        return A_11EU;
     case GAME_STEAM:
-        return ((A_Steam == 0) ? A_10US : A_Steam);
+        return A_Steam;
     case GAME_STEAM_LV:
-        return ((A_Steam_LV == 0) ? A_10US : A_Steam_LV);
+        return A_Steam_LV;
     }
-    return A_10US;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
@@ -229,12 +270,13 @@ int by_version() {
 
 inline int by_v_dyn(int A_10US, int A_10EU) {
     switch (GetGameVersion()) {
-    case GAME_10US:
+    case GAME_10US_COMPACT:
+    case GAME_10US_HOODLUM:
         return A_10US;
     case GAME_10EU:
-        return ((A_10EU == 0) ? A_10US : A_10EU);
+        return A_10EU;
     }
-    return A_10US;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10US, int A_10EU) {
@@ -253,16 +295,17 @@ int by_version() {
 
 inline int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU) {
     switch (GetGameVersion()) {
-    case GAME_10US:
+    case GAME_10US_COMPACT:
+    case GAME_10US_HOODLUM:
         return A_10US;
     case GAME_10EU:
-        return ((A_10EU == 0) ? A_10US : A_10EU);
+        return A_10EU;
     case GAME_11US:
-        return ((A_11US == 0) ? A_10US : A_11US);
+        return A_11US;
     case GAME_11EU:
-        return ((A_11EU == 0) ? A_10US : A_11EU);
+        return A_11EU;
     }
-    return A_10US;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU) {
@@ -281,18 +324,19 @@ int by_version() {
 
 inline int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam) {
     switch (GetGameVersion()) {
-    case GAME_10US:
+    case GAME_10US_COMPACT:
+    case GAME_10US_HOODLUM:
         return A_10US;
     case GAME_10EU:
-        return ((A_10EU == 0) ? A_10US : A_10EU);
+        return A_10EU;
     case GAME_11US:
-        return ((A_11US == 0) ? A_10US : A_11US);
+        return A_11US;
     case GAME_11EU:
-        return ((A_11EU == 0) ? A_10US : A_11EU);
+        return A_11EU;
     case GAME_STEAM:
-        return ((A_Steam == 0) ? A_10US : A_Steam);
+        return A_Steam;
     }
-    return A_10US;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam) {
@@ -311,14 +355,15 @@ int by_version() {
 
 inline int by_v_dyn(int A_10US, int A_10EU, int A_Steam) {
     switch (GetGameVersion()) {
-    case GAME_10US:
+    case GAME_10US_COMPACT:
+    case GAME_10US_HOODLUM:
         return A_10US;
     case GAME_10EU:
-        return ((A_10EU == 0) ? A_10US : A_10EU);
+        return A_10EU;
     case GAME_STEAM:
-        return ((A_Steam == 0) ? A_10US : A_Steam);
+        return A_Steam;
     }
-    return A_10US;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10US, int A_10EU, int A_Steam) {
@@ -340,11 +385,11 @@ inline int by_v_dyn(int A_10EN, int A_11EN, int A_Steam) {
     case GAME_10EN:
         return A_10EN;
     case GAME_11EN:
-        return ((A_11EN == 0) ? A_10EN : A_11EN);
+        return A_11EN;
     case GAME_STEAM:
-        return ((A_Steam == 0) ? A_10EN : A_Steam);
+        return A_Steam;
     }
-    return A_10EN;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10EN, int A_11EN, int A_Steam) {
@@ -366,9 +411,9 @@ inline int by_v_dyn(int A_10EN, int A_11EN) {
     case GAME_10EN:
         return A_10EN;
     case GAME_11EN:
-        return ((A_11EN == 0) ? A_10EN : A_11EN);
+        return A_11EN;
     }
-    return A_10EN;
+    return 0;
 }
 
 inline int by_version_dyn(int A_10EN, int A_11EN) {
