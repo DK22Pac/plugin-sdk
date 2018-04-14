@@ -49,3 +49,5 @@ public:
 };
 
 VALIDATE_SIZE(cHandlingDataMgr, 0xC624);
+
+extern cHandlingDataMgr& gHandlingDataMgr;

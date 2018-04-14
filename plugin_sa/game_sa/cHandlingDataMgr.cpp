@@ -6,6 +6,8 @@
 */
 #include "cHandlingDataMgr.h"
 
+cHandlingDataMgr& gHandlingDataMgr = *(cHandlingDataMgr*)0xC2B9C8;
+
 cHandlingDataMgr::cHandlingDataMgr()
 {
 	((void (__thiscall *)(cHandlingDataMgr *))0x6F5330)(this);

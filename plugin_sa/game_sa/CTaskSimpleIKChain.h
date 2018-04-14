@@ -41,7 +41,7 @@ public:
     int		m_targetTime;
     int		m_isBlendingOut;
 
-    CTaskSimpleIKChain(char* idString _IGNORED_,int effectorBoneTag,RwV3d effectorVec,int pivotBoneTag,
+    CTaskSimpleIKChain(char* _IGNORED_ idString ,int effectorBoneTag,RwV3d effectorVec,int pivotBoneTag,
         CEntity* pEntity,int offsetBoneTag, RwV3d offsetPos,float speed,int time,int blendTime);
 };
 

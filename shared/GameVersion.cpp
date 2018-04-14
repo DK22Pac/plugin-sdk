@@ -11,8 +11,12 @@ namespace plugin {
 
 unsigned int detect_game_id() {
 #ifdef GTASA
-    if (plugin::patch::GetUInt(0x82457C) == 0x94BF)
-        return GAME_10US;
+    //if (plugin::patch::GetUInt(0x82457C) == 0x94BF)
+     //   return GAME_10US;
+    if (plugin::patch::GetUInt(0x401000) == 0x53EC8B55)
+        return GAME_10US_COMPACT;
+    if (plugin::patch::GetUInt(0x401000) == 0x16197BE9)
+        return GAME_10US_HOODLUM;
     if (plugin::patch::GetUInt(0x8245BC) == 0x94BF)
         return GAME_10EU;
     if (plugin::patch::GetUInt(0x8252FC) == 0x94BF)

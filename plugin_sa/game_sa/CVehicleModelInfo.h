@@ -14,6 +14,23 @@
 #include "CRGBA.h"
 #include "CPool.h"
 
+enum eVehicleClass : signed char
+{
+    CLASS_NORMAL,
+    CLASS_POORFAMILY,
+    CLASS_RICHFAMILY,
+    CLASS_EXECUTIVE,
+    CLASS_WORKER,
+    CLASS_BIG,
+    CLASS_TAXI,
+    CLASS_MOPED,
+    CLASS_MOTORBIKE,
+    CLASS_LEISUREBOAT,
+    CLASS_WORKERBOAT,
+    CLASS_BICYCLE,
+    CLASS_IGNORE = -1
+};
+
 enum VehicleUpgradePosn {
 	UPGRADE_BONNET,
 	UPGRADE_BONNET_LEFT,
@@ -57,7 +74,7 @@ public:
 	short m_nWheelModelIndex;
 	unsigned short m_nHandlingId;
 	unsigned char m_nNumDoors;
-	unsigned char m_nVehicleClass;
+	eVehicleClass m_nVehicleClass;
 	unsigned char m_nFlags;
 	unsigned char m_nWheelUpgradeClass;
 	unsigned char m_nTimesUsed;

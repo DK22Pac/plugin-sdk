@@ -113,7 +113,7 @@ void CFont::SetDropShadowPosition(short value)
 	((void (__cdecl *)(short))0x719570)(value);
 }
 
-void CFont::SetOutlinePosition(short value)
+void CFont::SetEdge(short value)
 {
 	((void (__cdecl *)(short))0x719590)(value);
 }
@@ -123,7 +123,7 @@ void CFont::SetOutlinePosition(short value)
 #define SET_PROP_USED
 #undef SetProp
 #endif
-void CFont::SetProp(bool on)
+void CFont::SetProportional(bool on)
 {
 	((void (__cdecl *)(bool))0x7195B0)(on);
 }
@@ -147,7 +147,7 @@ void CFont::SetJustify(bool on)
 	((void (__cdecl *)(bool))0x719600)(on);
 }
 
-void CFont::SetAlignment(eFontAlignment alignment)
+void CFont::SetOrientation(eFontAlignment alignment)
 {
 	((void (__cdecl *)(eFontAlignment))0x719610)(alignment);
 }
@@ -172,17 +172,17 @@ void CFont::DrawFonts()
 	((void (__cdecl *)())0x71A210)();
 }
 
-short CFont::GetNumberLines(bool print, float x, float y, char *text)
+short CFont::ProcessCurrentString(bool print, float x, float y, char *text)
 {
 	return ((short (__cdecl *)(bool, float, float, char *))0x71A220)(print, x, y, text);
 }
 
-short CFont::GetNumberLinesNoPrint(float x, float y, char *text)
+short CFont::GetNumberLines(float x, float y, char *text)
 {
 	return ((short (__cdecl *)(float, float, char *))0x71A5E0)(x, y, text);
 }
 
-short CFont::GetNumberLinesPrint(float x, float y, char *text)
+short CFont::ProcessStringToDisplay(float x, float y, char *text)
 {
 	return ((short (__cdecl *)(float, float, char *))0x71A600)(x, y, text);
 }

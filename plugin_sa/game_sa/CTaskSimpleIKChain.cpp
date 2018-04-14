@@ -7,7 +7,7 @@ Do not delete this comment block. Respect others' work!
 
 #include "CTaskSimpleIKChain.h"
 
-CTaskSimpleIKChain::CTaskSimpleIKChain(char* idString _IGNORED_, int effectorBoneTag, RwV3d effectorVec, int pivotBoneTag,
+CTaskSimpleIKChain::CTaskSimpleIKChain(char* _IGNORED_ idString , int effectorBoneTag, RwV3d effectorVec, int pivotBoneTag,
     CEntity* pEntity, int offsetBoneTag, RwV3d offsetPos, float speed, int time, int blendTime) : CTaskSimple(plugin::dummy)
 {
     plugin::CallMethod<0x6339C0, CTaskSimpleIKChain*, char*, int, RwV3d, int, CEntity*, int, RwV3d, float, int, int>
