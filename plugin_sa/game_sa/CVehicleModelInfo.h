@@ -22,7 +22,7 @@ enum eVehicleClass : signed char
     CLASS_EXECUTIVE,
     CLASS_WORKER,
     CLASS_BIG,
-    CLASS_BIG,
+    CLASS_TAXI,
     CLASS_MOPED,
     CLASS_MOTORBIKE,
     CLASS_LEISUREBOAT,

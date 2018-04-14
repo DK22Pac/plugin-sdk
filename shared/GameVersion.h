@@ -80,7 +80,7 @@ inline bool IsGameVersionUnknown() {
 #ifdef GTASA
 // Checks if launched game version is 1.0 US
 inline bool IsGameVersion10us() {
-    return GetGameVersion() == GAME_10US_COMPACT || GAME_10US_HOODLUM;
+    return GetGameVersion() == GAME_10US_COMPACT || GetGameVersion() == GAME_10US_HOODLUM;
 }
 
 // Checks if launched game version is 1.0 EU
