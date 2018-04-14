@@ -96,18 +96,18 @@ public:
     // set shadow size
     static void SetDropShadowPosition(short value);
     // set outline size
-    static void SetOutlinePosition(short value);
+    static void SetEdge(short value);
     // toggles character proportions in text
 #ifdef SetProp
 #undef SetProp
 #endif
-    static void SetProp(bool on);
+    static void SetProportional(bool on);
     // setups text background
     static void SetBackground(bool enable, bool includeWrap);
     // sets background color
     static void SetBackgroundColor(CRGBA color);
     static void SetJustify(bool on);
-    static void SetAlignment(eFontAlignment alignment);
+    static void SetOrientation(eFontAlignment alignment);
     // need to call this each frame
     static void InitPerFrame();
     // draw text we have in buffer
@@ -115,9 +115,9 @@ public:
     static float GetStringWidth(char *string, bool unk1, bool unk2);
     // same as RenderFontBuffer()
     static void DrawFonts();
-    static short GetNumberLines(bool print, float x, float y, char *text);
-    static short GetNumberLinesNoPrint(float x, float y, char *text);
-    static short GetNumberLinesPrint(float x, float y, char *text);
+    static short ProcessCurrentString(bool print, float x, float y, char *text);
+    static short GetNumberLines(float x, float y, char *text);
+    static short ProcessStringToDisplay(float x, float y, char *text);
     static void GetTextRect(CRect *rect, float x, float y, char *text);
     static void PrintString(float x, float y, char *text);
     static void PrintStringFromBottom(float x, float y, char *text);
