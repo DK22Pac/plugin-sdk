@@ -37,6 +37,20 @@ struct meta;
 
 #endif
 
+// helpers for event creating
+
+template<typename Meta>
+using event_t = std::conditional_t<std::is_same<typename Meta::calling_convention_t, CallingConventions::Thiscall>::value,
+    ThiscallEvent<typename Meta::refs_t, Meta::cb_priority, typename Meta::args_t, typename Meta::def_t>,
+    CdeclEvent<typename Meta::refs_t, Meta::cb_priority, typename Meta::args_t, typename Meta::def_t>
+>;
+
+template<typename Meta, typename Refs, int Priority = Meta::cb_priority, typename Args = typename Meta::args_t, typename Def = typename Meta::def_t>
+using custom_event_t = std::conditional_t<std::is_same<typename Meta::calling_convention_t, CallingConventions::Thiscall>::value,
+    ThiscallEvent<Refs, Priority, Args, Def>,
+    CdeclEvent<Refs, Priority, Args, Def>
+>;
+
 // multi-version address list
 template<int...>
 struct MvAddresses {};
@@ -81,13 +95,53 @@ Ret CallVirtualMethodAndReturn(C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 }
 
+template <typename... Args>
+void CallDyn(unsigned int address, Args... args) {
+    reinterpret_cast<void(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
+}
+
+template <typename Ret, typename... Args>
+Ret CallAndReturnDyn(unsigned int address, Args... args) {
+    return reinterpret_cast<Ret(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
+}
+
+template <typename C, typename... Args>
+void CallMethodDyn(unsigned int address, C _this, Args... args) {
+    reinterpret_cast<void(__thiscall *)(C, Args...)>(GetGlobalAddress(address))(_this, args...);
+}
+
+template <typename Ret, typename C, typename... Args>
+Ret CallMethodAndReturnDyn(unsigned int address, C _this, Args... args) {
+    return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(GetGlobalAddress(address))(_this, args...);
+}
+
+template <typename... Args>
+void CallDynGlobal(unsigned int address, Args... args) {
+    reinterpret_cast<void(__cdecl *)(Args...)>(address)(args...);
+}
+
+template <typename Ret, typename... Args>
+Ret CallAndReturnDynGlobal(unsigned int address, Args... args) {
+    return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
+}
+
+template <unsigned int address, typename C, typename... Args>
+void CallMethodDynGlobal(C _this, Args... args) {
+    reinterpret_cast<void(__thiscall *)(C, Args...)>(address)(_this, args...);
+}
+
+template <typename Ret, unsigned int address, typename C, typename... Args>
+Ret CallMethodAndReturnDynGlobal(C _this, Args... args) {
+    return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(address)(_this, args...);
+}
+
 }
 
 // meta access
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
 #define metaof(obj) plugin::meta<&obj>
 #define metaof_o(obj, decl) plugin::meta<static_cast<decl>(&obj)>
-#define META_BEGIN template<> struct meta<&obj> {
+#define META_BEGIN(obj) template<> struct meta<&obj> {
 #define META_BEGIN_OVERLOADED(obj, decl) template<> struct meta<static_cast<decl>(&obj)> {
 #elif (defined(_MSC_VER))
 #define metaof(obj) plugin::meta<decltype(&obj), &obj>
@@ -101,10 +155,12 @@ Ret CallVirtualMethodAndReturn(C _this, Args... args) {
 #define META_END };
 
 #define addrof(obj) metaof(obj)::address
+#define gaddrof(obj) metaof(obj)::global_address
 #define argsof(obj) metaof(obj)::args_t
 #define refsof(obj) metaof(obj)::refs_t
 #define idof(obj) metaof(obj)::id
 #define addrof_o(obj, decl) metaof_o(obj, decl)::address
+#define gaddrof_o(obj, decl) metaof_o(obj, decl)::global_address
 #define argsof_o(obj, decl) metaof_o(obj, decl)::args_t
 #define refsof_o(obj, decl) metaof_o(obj, decl)::refs_t
 #define idof_o(obj, decl) metaof_o(obj, decl)::id
@@ -112,6 +168,8 @@ Ret CallVirtualMethodAndReturn(C _this, Args... args) {
 // get global address for current exe version
 #ifdef GTASA
 #define GLOBAL_ADDRESS_BY_VERSION(a,b,c,d,e,f) (plugin::GetGlobalAddress(plugin::by_version_dyn(a,b,c,d,e,f)))
+#define ADDRESS_BY_VERSION(a,b,c,d,e,f) (plugin::by_version_dyn(a,b,c,d,e,f))
 #else
 #define GLOBAL_ADDRESS_BY_VERSION(a,b,c) (plugin::GetGlobalAddress(plugin::by_version_dyn(a,b,c)))
+#define ADDRESS_BY_VERSION(a,b,c) (plugin::by_version_dyn(a,b,c))
 #endif

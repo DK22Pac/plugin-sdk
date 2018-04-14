@@ -103,7 +103,8 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     
     if msbuild then
         defines { "_USING_V110_SDK71_", "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
-        buildoptions "/Zc:threadSafeInit-"
+        buildoptions { "/Zc:threadSafeInit-", "/sdl-" }
+        disablewarnings "4073"
     end
     if mingw then
         buildoptions "-fpermissive"
@@ -477,7 +478,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     characterset ("MBCS")
     flags { "StaticRuntime", "NoImportLib" }
     if msbuild then
-        buildoptions "/Zc:threadSafeInit-"
+        buildoptions { "/Zc:threadSafeInit-", "/sdl-" }
         linkoptions "/LTCG" 
     end
     if mingw then
