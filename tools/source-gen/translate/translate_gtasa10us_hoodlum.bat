@@ -1,0 +1,1 @@
+address_translator %PLUGIN_SDK_DIR% gtasa 10ushl
