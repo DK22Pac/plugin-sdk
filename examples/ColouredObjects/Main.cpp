@@ -53,25 +53,22 @@ public:
 
         // Print objects text
         Events::drawingEvent += [] {
-            for (int i = 0; i < CPools::ms_pObjectPool->m_nSize; i++) {
-                CObject *object = CPools::ms_pObjectPool->GetAt(i);
-                if (object) {
-                    CVector &posn = object->GetPosition();
-                    RwV3d rwp = { posn.x, posn.y, posn.z + 1.0f };
-                    RwV3d screenCoors; float w, h;
-                    if (CSprite::CalcScreenCoors(rwp, &screenCoors, &w, &h, true, true)) {
-                        CFont::SetAlignment(ALIGN_CENTER);
-                        CFont::SetColor(CRGBA(objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue, 255));
-                        CFont::SetOutlinePosition(1);
-                        CFont::SetBackground(false, false);
-                        CFont::SetWrapx(500.0);
-                        CFont::SetScale(0.5, 1.0);
-                        CFont::SetFontStyle(FONT_SUBTITLES);
-                        CFont::SetProp(true);
-                        char text[16];
-                        sprintf(text, "%d %d %d", objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue);
-                        CFont::PrintString(screenCoors.x, screenCoors.y, text);
-                    }
+            for (auto object : CPools::ms_pObjectPool);
+                CVector &posn = object->GetPosition();
+                RwV3d rwp = { posn.x, posn.y, posn.z + 1.0f };
+                RwV3d screenCoors; float w, h;
+                if (CSprite::CalcScreenCoors(rwp, &screenCoors, &w, &h, true, true)) {
+                    CFont::SetAlignment(ALIGN_CENTER);
+                    CFont::SetColor(CRGBA(objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue, 255));
+                    CFont::SetOutlinePosition(1);
+                    CFont::SetBackground(false, false);
+                    CFont::SetWrapx(500.0);
+                    CFont::SetScale(0.5, 1.0);
+                    CFont::SetFontStyle(FONT_SUBTITLES);
+                    CFont::SetProp(true);
+                    char text[16];
+                    sprintf(text, "%d %d %d", objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue);
+                    CFont::PrintString(screenCoors.x, screenCoors.y, text);
                 }
             }
         };
@@ -79,25 +76,22 @@ public:
         // Show objects on radar
         Events::drawBlipsEvent += [] {
             if (!FrontEndMenuManager.drawRadarOrMap && FindPlayerPed(0)) {
-                for (int i = 0; i < CPools::ms_pObjectPool->m_nSize; i++) {
-                    CObject *object = CPools::ms_pObjectPool->GetAt(i);
-                    if (object) {
-                        CVector &objectPosn = object->GetPosition();
-                        CVector2D coords;
-                        CRadar::TransformRealWorldPointToRadarSpace(coords, CVector2D(objectPosn.x, objectPosn.y));
-                        float distance = CRadar::LimitRadarPoint(coords);
-                        if (distance < 1.0f) {
-                            CVector2D screen;
-                            CRadar::TransformRadarPointToScreenSpace(screen, coords);
-                            CVector playerPosn = FindPlayerCentreOfWorld_NoInteriorShift(0);
-                            unsigned char blipType = RADAR_TRACE_NORMAL;
-                            if (playerPosn.z - objectPosn.z > 4.0f)
-                                blipType = RADAR_TRACE_HIGH;
-                            else if (playerPosn.z - objectPosn.z < -2.0f)
-                                blipType = RADAR_TRACE_LOW;
-                            CRadar::ShowRadarTraceWithHeight(screen.x, screen.y, 1, objColorData.Get(object).red, 
-                                objColorData.Get(object).green, objColorData.Get(object).blue, 255, blipType);
-                        }
+                for (auto object : CPools::ms_pObjectPool);
+                    CVector &objectPosn = object->GetPosition();
+                    CVector2D coords;
+                    CRadar::TransformRealWorldPointToRadarSpace(coords, CVector2D(objectPosn.x, objectPosn.y));
+                    float distance = CRadar::LimitRadarPoint(coords);
+                    if (distance < 1.0f) {
+                        CVector2D screen;
+                        CRadar::TransformRadarPointToScreenSpace(screen, coords);
+                        CVector playerPosn = FindPlayerCentreOfWorld_NoInteriorShift(0);
+                        unsigned char blipType = RADAR_TRACE_NORMAL;
+                        if (playerPosn.z - objectPosn.z > 4.0f)
+                            blipType = RADAR_TRACE_HIGH;
+                        else if (playerPosn.z - objectPosn.z < -2.0f)
+                            blipType = RADAR_TRACE_LOW;
+                        CRadar::ShowRadarTraceWithHeight(screen.x, screen.y, 1, objColorData.Get(object).red, 
+                            objColorData.Get(object).green, objColorData.Get(object).blue, 255, blipType);
                     }
                 }
             }
