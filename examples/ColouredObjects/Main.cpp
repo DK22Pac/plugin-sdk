@@ -53,7 +53,7 @@ public:
 
         // Print objects text
         Events::drawingEvent += [] {
-            for (auto object : CPools::ms_pObjectPool);
+            for (auto object : CPools::ms_pObjectPool) {
                 CVector &posn = object->GetPosition();
                 RwV3d rwp = { posn.x, posn.y, posn.z + 1.0f };
                 RwV3d screenCoors; float w, h;
@@ -76,7 +76,7 @@ public:
         // Show objects on radar
         Events::drawBlipsEvent += [] {
             if (!FrontEndMenuManager.drawRadarOrMap && FindPlayerPed(0)) {
-                for (auto object : CPools::ms_pObjectPool);
+                for (auto object : CPools::ms_pObjectPool) {
                     CVector &objectPosn = object->GetPosition();
                     CVector2D coords;
                     CRadar::TransformRealWorldPointToRadarSpace(coords, CVector2D(objectPosn.x, objectPosn.y));

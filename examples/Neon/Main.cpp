@@ -82,7 +82,7 @@ public:
                     VehNeon.Get(playaVeh).Disable();
             }
         }
-        for (auto vehicle : CPools::ms_pVehiclePool);
+        for (auto vehicle : CPools::ms_pVehiclePool) {
             if (vehicle != playaVeh)
                 ProcessNpcVehicle(vehicle);
         }
