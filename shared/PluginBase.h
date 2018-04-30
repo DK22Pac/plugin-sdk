@@ -37,6 +37,10 @@ struct meta;
 
 #endif
 
+// vtable description
+template<typename T>
+struct VtableDesc;
+
 // helpers for event creating
 
 template<typename Meta>
@@ -125,13 +129,13 @@ Ret CallAndReturnDynGlobal(unsigned int address, Args... args) {
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
 }
 
-template <unsigned int address, typename C, typename... Args>
-void CallMethodDynGlobal(C _this, Args... args) {
+template <typename C, typename... Args>
+void CallMethodDynGlobal(unsigned int address, C _this, Args... args) {
     reinterpret_cast<void(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
-template <typename Ret, unsigned int address, typename C, typename... Args>
-Ret CallMethodAndReturnDynGlobal(C _this, Args... args) {
+template <typename Ret, typename C, typename... Args>
+Ret CallMethodAndReturnDynGlobal(unsigned int address, C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
@@ -164,6 +168,17 @@ Ret CallMethodAndReturnDynGlobal(C _this, Args... args) {
 #define argsof_o(obj, decl) metaof_o(obj, decl)::args_t
 #define refsof_o(obj, decl) metaof_o(obj, decl)::refs_t
 #define idof_o(obj, decl) metaof_o(obj, decl)::id
+
+// vtable description - macro
+#define VTABLE_DESC(className, vtAddr, vtSize)\
+namespace plugin {\
+template<> struct VtableDesc<className> {\
+    static const unsigned int address = vtAddr;\
+    static const unsigned int size = vtSize;\
+};\
+}
+
+#define vtableid(className) plugin::VtableDesc<className>::address
 
 // get global address for current exe version
 #ifdef GTASA
