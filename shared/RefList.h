@@ -96,7 +96,8 @@ struct MakeRefListFromAddressList<RefList<RefValues...>> {
 
 template<int... RefValues, int Addr, int HookType, int... Values>
 struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType, Values...> {
-    using type = typename MakeRefListFromAddressList<RefList<RefValues..., Addr, 100, HookType, 0, 0>, Values...>::type;
+    using type = typename MakeRefListFromAddressList<RefList<RefValues..., Addr, 1001, HookType, 0, 0,
+                                                                           Addr, 1002, HookType, 0, 0>, Values...>::type;
 };
 
 template<int... Values>
