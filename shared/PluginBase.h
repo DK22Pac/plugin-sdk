@@ -23,23 +23,93 @@ PLUGIN_API unsigned int GetVersion();
 
 }
 
+// helpers for constructor overloading (deprecated)
+
 struct dummy_func_t { }; // Dummy func tag type
 static const dummy_func_t dummy; // Dummy func tag object
 
-// meta<> template
+// meta template for functions
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
-template<auto F>
+template<auto Func>
 struct meta;
 #elif (defined(_MSC_VER))
-template<typename FT, FT>
+template<typename FuncType, FuncType Func>
 struct meta;
 #else
 
 #endif
 
+// meta templates for constructors, destructors and new/delete operators
+
+template<typename ClassType, typename OverloadedDecl = void()>
+struct ctor_meta;
+
+template<typename ClassType>
+struct dtor_meta;
+
+template<typename ClassType>
+struct del_dtor_meta;
+
+template<typename ClassType, typename OverloadedDecl = void *(unsigned int)>
+struct op_new_meta;
+
+template<typename ClassType, typename OverloadedDecl = void *(unsigned int)>
+struct op_new_array_meta;
+
+template<typename ClassType, typename OverloadedDecl = void(void *)>
+struct op_delete_meta;
+
+template<typename ClassType, typename OverloadedDecl = void *(unsigned int)>
+struct op_delete_array_meta;
+
 // vtable description
-template<typename T>
-struct VtableDesc;
+template<typename ClassType>
+struct vtable_meta;
+
+// stack_object
+
+template <typename T>
+struct stack_object {
+private:
+    T object;
+public:
+    template<typename ...ArgTypes>
+    stack_object(ArgTypes... args) : object(args...) {}
+    T *operator->() { return &object; }
+    T &get_object() { return object; }
+};
+
+template <typename T>
+struct stack_object_no_default {
+    stack_object_no_default() {}
+    stack_object_no_default(stack_object_no_default &&) = delete;
+    stack_object_no_default &operator=(stack_object_no_default &&) = delete;
+    char buff[sizeof(T)];
+    T *operator->() { return reinterpret_cast<T *>(buff); }
+    T &get_object() { return *reinterpret_cast<T *>(buff); }
+};
+
+// custom new/delete
+
+template <typename ClassType, typename... ArgTypes>
+ClassType *operator_new(ArgTypes... args) {
+    return new ClassType(args...);
+}
+
+template <typename ClassType>
+ClassType *operator_new_array(size_t size) {
+    return new ClassType[size];
+}
+
+template <typename ClassType>
+void operator_delete(ClassType *data) {
+    delete data;
+}
+
+template <typename ClassType>
+void operator_delete_array(ClassType *data) {
+    delete[] data;
+}
 
 // helpers for event creating
 
@@ -56,7 +126,7 @@ using custom_event_t = std::conditional_t<std::is_same<typename Meta::calling_co
 >;
 
 // multi-version address list
-template<int...>
+template<int... Addresses>
 struct MvAddresses {};
 
 // Gets the virtual method table from the object @self
@@ -143,42 +213,147 @@ Ret CallMethodAndReturnDynGlobal(unsigned int address, C _this, Args... args) {
 
 // meta access
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
-#define metaof(obj) plugin::meta<&obj>
-#define metaof_o(obj, decl) plugin::meta<static_cast<decl>(&obj)>
-#define META_BEGIN(obj) template<> struct meta<&obj> {
-#define META_BEGIN_OVERLOADED(obj, decl) template<> struct meta<static_cast<decl>(&obj)> {
+#define metaof(func) plugin::meta<&func>
+#define metaof_o(func, decl) plugin::meta<static_cast<decl>(&func)>
+#define META_BEGIN(func) template<> struct meta<&func> {
+#define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<static_cast<decl>(&func)> {
 #elif (defined(_MSC_VER))
-#define metaof(obj) plugin::meta<decltype(&obj), &obj>
-#define metaof_o(obj, decl) plugin::meta<decl, &obj>
-#define META_BEGIN(obj) template<> struct meta<decltype(&obj), &obj> {
-#define META_BEGIN_OVERLOADED(obj, decl) template<> struct meta<decl, &obj> {
+#define metaof(func) plugin::meta<decltype(&func), &func>
+#define metaof_o(func, decl) plugin::meta<decl, &func>
+#define META_BEGIN(func) template<> struct meta<decltype(&func), &func> {
+#define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<decl, &func> {
 #else
 
 #endif
 
+#define CTOR_META_BEGIN(classType) template<> struct ctor_meta<classType> {
+#define CTOR_META_BEGIN_OVERLOADED(classType, decl) template<> struct ctor_meta<classType, decl> {
+#define DTOR_META_BEGIN(classType) template<> struct dtor_meta<classType> {
+#define DEL_DTOR_META_BEGIN(classType) template<> struct del_dtor_meta<classType> {
+#define OP_NEW_META_BEGIN(classType) template<> struct op_new_meta<classType> {
+#define OP_NEW_META_BEGIN_OVERLOADED(classType, decl) template<> struct op_new_meta<classType, decl> {
+#define OP_NEW_ARRAY_META_BEGIN(classType) template<> struct op_new_array_meta<classType> {
+#define OP_NEW_ARRAY_META_BEGIN_OVERLOADED(classType, decl) template<> struct op_new_array_meta<classType, decl> {
+#define OP_DELETE_META_BEGIN(classType) template<> struct op_delete_meta<classType> {
+#define OP_DELETE_META_BEGIN_OVERLOADED(classType, decl) template<> struct op_delete_meta<classType, decl> {
+#define OP_DELETE_ARRAY_META_BEGIN(classType) template<> struct op_delete_array_meta<classType> {
+#define OP_DELETE_ARRAY_META_BEGIN_OVERLOADED(classType, decl) template<> struct op_delete_array_meta<classType, decl> {
+
 #define META_END };
 
-#define addrof(obj) metaof(obj)::address
-#define gaddrof(obj) metaof(obj)::global_address
-#define argsof(obj) metaof(obj)::args_t
-#define refsof(obj) metaof(obj)::refs_t
-#define idof(obj) metaof(obj)::id
-#define addrof_o(obj, decl) metaof_o(obj, decl)::address
-#define gaddrof_o(obj, decl) metaof_o(obj, decl)::global_address
-#define argsof_o(obj, decl) metaof_o(obj, decl)::args_t
-#define refsof_o(obj, decl) metaof_o(obj, decl)::refs_t
-#define idof_o(obj, decl) metaof_o(obj, decl)::id
+#define ctor_metaof(classType) plugin::ctor_meta<classType>
+#define ctor_metaof_o(classType, decl) plugin::ctor_meta<classType, decl>
+#define dtor_metaof(classType) plugin::dtor_meta<classType>
+#define del_dtor_metaof(classType, d_type) plugin::del_dtor_meta<classType>
+#define op_new_metaof(classType) plugin::op_new_meta<classType>
+#define op_new_metaof_o(classType, d_type) plugin::op_new_meta<classType, d_type>
+#define op_new_array_metaof(classType) plugin::op_new_array_meta<classType>
+#define op_new_array_metaof_o(classType, d_type) plugin::op_new_array_meta<classType, d_type>
+#define op_delete_metaof(classType) plugin::op_delete_meta<classType>
+#define op_delete_metaof_o(classType, d_type) plugin::op_delete_meta<classType, d_type>
+#define op_delete_array_metaof(classType) plugin::op_delete_array_meta<classType>
+#define op_delete_array_metaof_o(classType, d_type) plugin::op_delete_array_meta<classType, d_type>
+
+#define addrof(func) metaof(func)::address
+#define gaddrof(func) metaof(func)::global_address
+#define argsof(func) metaof(func)::args_t
+#define refsof(func) metaof(func)::refs_t
+#define idof(func) metaof(func)::id
+#define addrof_o(func, decl) metaof_o(func, decl)::address
+#define gaddrof_o(func, decl) metaof_o(func, decl)::global_address
+#define argsof_o(func, decl) metaof_o(func, decl)::args_t
+#define refsof_o(func, decl) metaof_o(func, decl)::refs_t
+#define idof_o(func, decl) metaof_o(func, decl)::id
+
+#define ctor_addr(classType) ctor_metaof(classType)::address
+#define ctor_gaddr(classType) ctor_metaof(classType)::global_address
+#define ctor_args(classType) ctor_metaof(classType)::args_t
+#define ctor_refs(classType) ctor_metaof(classType)::refs_t
+#define ctor_id(classType) ctor_metaof(classType)::id
+#define ctor_addr_o(classType, decl) ctor_metaof_o(classType, decl)::address
+#define ctor_gaddr_o(classType, decl) ctor_metaof_o(classType, decl)::global_address
+#define ctor_args_o(classType, decl) ctor_metaof_o(classType, decl)::args_t
+#define ctor_refs_o(classType, decl) ctor_metaof_o(classType, decl)::refs_t
+#define ctor_id_o(classType, decl) ctor_metaof_o(classType, decl)::id
+
+#define dtor_addr(classType) dtor_metaof(classType)::address
+#define dtor_gaddr(classType) dtor_metaof(classType)::global_address
+#define dtor_args(classType) dtor_metaof(classType)::args_t
+#define dtor_refs(classType) dtor_metaof(classType)::refs_t
+#define dtor_id(classType) dtor_metaof(classType)::id
+
+#define del_dtor_addr(classType) del_dtor_metaof(classType)::address
+#define del_dtor_gaddr(classType) del_dtor_metaof(classType)::global_address
+#define del_dtor_args(classType) del_dtor_metaof(classType)::args_t
+#define del_dtor_refs(classType) del_dtor_metaof(classType)::refs_t
+#define del_dtor_id(classType) del_dtor_metaof(classType)::id
+
+#define op_new_addr(classType) op_new_metaof(classType)::address
+#define op_new_gaddr(classType) op_new_metaof(classType)::global_address
+#define op_new_args(classType) op_new_metaof(classType)::args_t
+#define op_new_refs(classType) op_new_metaof(classType)::refs_t
+#define op_new_id(classType) op_new_metaof(classType)::id
+#define op_new_addr_o(classType, decl) op_new_metaof_o(classType, decl)::address
+#define op_new_gaddr_o(classType, decl) op_new_metaof_o(classType, decl)::global_address
+#define op_new_args_o(classType, decl) op_new_metaof_o(classType, decl)::args_t
+#define op_new_refs_o(classType, decl) op_new_metaof_o(classType, decl)::refs_t
+#define op_new_id_o(classType, decl) op_new_metaof_o(classType, decl)::id
+
+#define op_new_array_addr(classType) op_new_array_metaof(classType)::address
+#define op_new_array_gaddr(classType) op_new_array_metaof(classType)::global_address
+#define op_new_array_args(classType) op_new_array_metaof(classType)::args_t
+#define op_new_array_refs(classType) op_new_array_metaof(classType)::refs_t
+#define op_new_array_id(classType) op_new_array_metaof(classType)::id
+#define op_new_array_addr_o(classType, decl) op_new_array_metaof_o(classType, decl)::address
+#define op_new_array_gaddr_o(classType, decl) op_new_array_metaof_o(classType, decl)::global_address
+#define op_new_array_args_o(classType, decl) op_new_array_metaof_o(classType, decl)::args_t
+#define op_new_array_refs_o(classType, decl) op_new_array_metaof_o(classType, decl)::refs_t
+#define op_new_array_id_o(classType, decl) op_new_array_metaof_o(classType, decl)::id
+
+#define op_delete_addr(classType) op_delete_metaof(classType)::address
+#define op_delete_gaddr(classType) op_delete_metaof(classType)::global_address
+#define op_delete_args(classType) op_delete_metaof(classType)::args_t
+#define op_delete_refs(classType) op_delete_metaof(classType)::refs_t
+#define op_delete_id(classType) op_delete_metaof(classType)::id
+#define op_delete_addr_o(classType, decl) op_delete_metaof_o(classType, decl)::address
+#define op_delete_gaddr_o(classType, decl) op_delete_metaof_o(classType, decl)::global_address
+#define op_delete_args_o(classType, decl) op_delete_metaof_o(classType, decl)::args_t
+#define op_delete_refs_o(classType, decl) op_delete_metaof_o(classType, decl)::refs_t
+#define op_delete_id_o(classType, decl) op_delete_metaof_o(classType, decl)::id
+
+#define op_delete_array_addr(classType) op_delete_array_metaof(classType)::address
+#define op_delete_array_gaddr(classType) op_delete_array_metaof(classType)::global_address
+#define op_delete_array_args(classType) op_delete_array_metaof(classType)::args_t
+#define op_delete_array_refs(classType) op_delete_array_metaof(classType)::refs_t
+#define op_delete_array_id(classType) op_delete_array_metaof(classType)::id
+#define op_delete_array_addr_o(classType, decl) op_delete_array_metaof_o(classType, decl)::address
+#define op_delete_array_gaddr_o(classType, decl) op_delete_array_metaof_o(classType, decl)::global_address
+#define op_delete_array_args_o(classType, decl) op_delete_array_metaof_o(classType, decl)::args_t
+#define op_delete_array_refs_o(classType, decl) op_delete_array_metaof_o(classType, decl)::refs_t
+#define op_delete_array_id_o(classType, decl) op_delete_array_metaof_o(classType, decl)::id
 
 // vtable description - macro
+
 #define VTABLE_DESC(className, vtAddr, vtSize)\
 namespace plugin {\
-template<> struct VtableDesc<className> {\
+template<> struct vtable_meta<className> {\
     static const unsigned int address = vtAddr;\
     static const unsigned int size = vtSize;\
 };\
 }
 
-#define vtableid(className) plugin::VtableDesc<className>::address
+#define metaof_vtable(className) plugin::vtable_meta<className>
+
+#define vtableid(className) plugin::vtable_meta<className>::address
+
+// custom object construction
+
+#define PLUGIN_NO_DEFAULT_CONSTRUCTION(className) \
+    className() = delete;\
+    className& className(className const &) = delete;\
+    className& className(className &&) = delete;\
+    ~className() = delete;\
+    className &operator=(className &&) = delete;
 
 // get global address for current exe version
 #ifdef GTASA
