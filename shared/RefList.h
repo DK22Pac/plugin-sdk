@@ -94,11 +94,18 @@ struct MakeRefListFromAddressList<RefList<RefValues...>> {
     using type = RefList<RefValues...>;
 };
 
+#ifdef GTASA
 template<int... RefValues, int Addr, int HookType, int... Values>
 struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType, Values...> {
     using type = typename MakeRefListFromAddressList<RefList<RefValues..., Addr, 1001, HookType, 0, 0,
                                                                            Addr, 1002, HookType, 0, 0>, Values...>::type;
 };
+#else
+template<int... RefValues, int Addr, int HookType, int... Values>
+struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType, Values...> {
+    using type = typename MakeRefListFromAddressList<RefList<RefValues..., Addr, 100, HookType, 0, 0>, Values...>::type;
+};
+#endif
 
 template<int... Values>
 using AddressList = typename MakeRefListFromAddressList<RefList<>, Values...>::type;
