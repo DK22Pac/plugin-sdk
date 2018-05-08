@@ -88,7 +88,7 @@ public:
 	// Removes big message with this text
 	static void ClearThisBigPrint(char *text);
 	// Removes first big message in messages stack
-	static void ClearThisPrintBigNow(unsigned short style);
+	static void ClearThisPrintBigNow(eMessageStyle style);
 	// Initialises messages
 	static void Init(bool flag);
 	// Removes all displayed messages

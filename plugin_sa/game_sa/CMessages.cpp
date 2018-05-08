@@ -122,15 +122,15 @@ void CMessages::AddMessageJumpQWithNumber(char *text, unsigned int time, unsigne
 }
 
 // Adds big message with numbers and shows it instantly
-void CMessages::AddBigMessageWithNumber(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6)
+void CMessages::AddBigMessageWithNumber(char *text, unsigned int time, eMessageStyle style, int n1, int n2, int n3, int n4, int n5, int n6)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumber)(text, time, style, n1, n2, n3, n4, n5, n6);
+	((void (__cdecl *)(char *, unsigned int, eMessageStyle, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumber)(text, time, style, n1, n2, n3, n4, n5, n6);
 }
 
 // Adds big message with numbers to queue
-void CMessages::AddBigMessageWithNumberQ(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6)
+void CMessages::AddBigMessageWithNumberQ(char *text, unsigned int time, eMessageStyle style, int n1, int n2, int n3, int n4, int n5, int n6)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumberQ)(text, time, style, n1, n2, n3, n4, n5, n6);
+	((void (__cdecl *)(char *, unsigned int, eMessageStyle, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumberQ)(text, time, style, n1, n2, n3, n4, n5, n6);
 }
 
 // Adds message with string to queue
@@ -158,9 +158,9 @@ void CMessages::ClearThisBigPrint(char *text)
 }
 
 // Removes first big message in messages stack
-void CMessages::ClearThisPrintBigNow(unsigned short style)
+void CMessages::ClearThisPrintBigNow(eMessageStyle style)
 {
-	((void (__cdecl *)(unsigned short))FUNC_CMessages__ClearThisPrintBigNow)(style);
+	((void (__cdecl *)(eMessageStyle))FUNC_CMessages__ClearThisPrintBigNow)(style);
 }
 
 // Initialises messages
@@ -200,13 +200,13 @@ void CMessages::AddMessageJumpQ(char *text, unsigned int time, unsigned short fl
 }
 
 // Adds big message and shows it instantly
-void CMessages::AddBigMessage(char *text, unsigned int time, unsigned short style)
+void CMessages::AddBigMessage(char *text, unsigned int time, eMessageStyle style)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short))FUNC_CMessages__AddBigMessage)(text, time, style);
+	((void (__cdecl *)(char *, unsigned int, eMessageStyle))FUNC_CMessages__AddBigMessage)(text, time, style);
 }
 
 // Adds big message to queue
-void CMessages::AddBigMessageQ(char *text, unsigned int time, unsigned short style)
+void CMessages::AddBigMessageQ(char *text, unsigned int time, eMessageStyle style)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short))FUNC_CMessages__AddBigMessageQ)(text, time, style);
+	((void (__cdecl *)(char *, unsigned int, eMessageStyle))FUNC_CMessages__AddBigMessageQ)(text, time, style);
 }
