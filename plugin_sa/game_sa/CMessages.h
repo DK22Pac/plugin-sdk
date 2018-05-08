@@ -8,15 +8,15 @@
 
 #include "PluginBase.h"
 
-enum eMessageStyle
+enum eMessageStyle : unsigned short
 {
-    InTheMiddle,
-    AtTheBottomRight,
-    WhiteText_InTheMiddle,
-    InTheMiddle_Smaller,
-    InTheMiddle_Smaller_ABitHigherOnTheScreen,
-    SmallWhiteText_InTheMiddleOfTheScreen,
-    LightBlueText_OnTopOfTheScreen
+    STYLE_MIDDLE,                 // InTheMiddle
+    STYLE_BOTTOM_RIGHT,           // AtTheBottomRight
+    STYLE_WHITE_MIDDLE,           // WhiteText_InTheMiddle
+    STYLE_MIDDLE_SMALLER,         // InTheMiddle_Smaller
+    STYLE_MIDDLE_SMALLER_HIGHER,  // InTheMiddle_Smaller_ABitHigherOnTheScreen
+    STYLE_WHITE_MIDDLE_SMALLER,   // SmallWhiteText_InTheMiddleOfTheScreen
+    STYLE_LIGHTBLUE_TOP           // LightBlueText_OnTopOfTheScreen
 };
 
 struct Message {
@@ -76,9 +76,9 @@ public:
 	// Adds message with numbers and shows it instantly
 	static void AddMessageJumpQWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief);
 	// Adds big message with numbers and shows it instantly
-	static void AddBigMessageWithNumber(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
+	static void AddBigMessageWithNumber(char *text, unsigned int time, eMessageStyle style, int n1, int n2, int n3, int n4, int n5, int n6);
 	// Adds big message with numbers to queue
-	static void AddBigMessageWithNumberQ(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
+	static void AddBigMessageWithNumberQ(char *text, unsigned int time, eMessageStyle style, int n1, int n2, int n3, int n4, int n5, int n6);
 	// Adds message with string to queue
 	static void AddMessageWithString(char *text, unsigned int time, unsigned short flag, char *string, char bPreviousBrief);
 	// Adds message with string and shows it instantly
@@ -102,7 +102,7 @@ public:
 	// Adds message and shows it instantly
 	static void AddMessageJumpQ(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief);
 	// Adds big message and shows it instantly
-	static void AddBigMessage(char *text, unsigned int time, unsigned short style);
+	static void AddBigMessage(char *text, unsigned int time, eMessageStyle style);
 	// Adds big message to queue
-	static void AddBigMessageQ(char *text, unsigned int time, unsigned short style);
+	static void AddBigMessageQ(char *text, unsigned int time, eMessageStyle style);
 };
