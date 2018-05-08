@@ -9,6 +9,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 #include "CPathFind.h"
+#include "eCarMission.h"
 
 class PLUGIN_API CAutoPilot {
 public:
@@ -29,7 +30,7 @@ public:
     char                 m_nCurrentLane;
     char                 m_nNextLane;
     char                 m_nCarDrivingStyle;
-    char                 m_nCarMission;
+    eCarMission                 m_nCarMission;
     char                 m_nTempAction;
     unsigned int         m_nTempActionTime;
     unsigned int _someStartTime;

@@ -273,10 +273,10 @@ public:
 
     char* GetPointerToLocalVariable(unsigned int varid);
     bool IsPedDead(CPed* pPed);
-    void SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset);
     void GivePedScriptedTask(int ped, CTask* task, int opcode);
     void PlayAnimScriptCommand(int opcodeid);
 
+    static void SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset);
     static void GetCorrectPedModelIndexForEmergencyServiceType(ePedType pedtype, int* pModelId);
 };
 

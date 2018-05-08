@@ -39,4 +39,5 @@ public:
     static void CleanUpThisObject(CObject* object);
     static void ClearSpaceForMissionEntity(CVector const& position, CEntity* entity);
     static bool IsPlayerOnAMission();
+    static void HighlightImportantArea(unsigned int markerID, float x1, float y1, float x2, float y2, float z);
 };

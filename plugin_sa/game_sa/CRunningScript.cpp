@@ -334,11 +334,6 @@ bool CRunningScript::IsPedDead(CPed* pPed) {
     return plugin::CallMethodAndReturn<bool, 0x464D70, CRunningScript *, CPed*>(this, pPed);
 }
 
-// Converted from thiscall void CRunningScript::SetCharCoordinates(CPed *pPed,float x_coord,float y_coord,float z_coord,bool bWarpGang,bool bOffset) 0x464DC0 
-void CRunningScript::SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset) {
-    plugin::CallMethod<0x464DC0, CRunningScript *, CPed*, float, float, float, bool, bool>(this, pPed, x_coord, y_coord, z_coord, bWarpGang, bOffset);
-}
-
 // Converted from thiscall void CRunningScript::GivePedScriptedTask(int ped,CTask *task,int opcode) 0x465C20 
 void CRunningScript::GivePedScriptedTask(int ped, CTask* task, int opcode) {
     plugin::CallMethod<0x465C20, CRunningScript *, int, CTask*, int>(this, ped, task, opcode);
@@ -349,7 +344,10 @@ void CRunningScript::PlayAnimScriptCommand(int opcodeid) {
     plugin::CallMethod<0x470150, CRunningScript *, int>(this, opcodeid);
 }
 
-// Converted from thiscall void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(int pedtype,int *pModelId) 0x464F50 
+void CRunningScript::SetCharCoordinates(CPed* pPed, float x_coord, float y_coord, float z_coord, bool bWarpGang, bool bOffset) {
+    plugin::Call<0x464DC0, CPed*, float, float, float, bool, bool>(pPed, x_coord, y_coord, z_coord, bWarpGang, bOffset);
+}
+
 void CRunningScript::GetCorrectPedModelIndexForEmergencyServiceType(ePedType pedtype, int* pModelId) {
     plugin::Call<0x464F50,int, int*>(pedtype, pModelId);
 }
