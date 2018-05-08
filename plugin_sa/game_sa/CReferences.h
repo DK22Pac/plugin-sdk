@@ -18,8 +18,8 @@ public:
 	static CReference *aRefs;
 	static CReference **pEmptyList;
 
-	void Init();
-	unsigned int ListSize(CReference *ref);
-	void RemoveReferencesToPlayer();
-	void PruneAllReferencesInWorld();
+	static void Init();
+	static unsigned int ListSize(CReference *ref);
+	static void RemoveReferencesToPlayer();
+	static void PruneAllReferencesInWorld();
 };

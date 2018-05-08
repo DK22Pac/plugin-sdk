@@ -53,3 +53,7 @@ void CTheScripts::ClearSpaceForMissionEntity(CVector const&position, CEntity* en
 bool CTheScripts::IsPlayerOnAMission() {
     return ((bool(__cdecl *)())0x464D50)();
 }
+
+void CTheScripts::HighlightImportantArea(unsigned int markerID, float x1, float y1, float x2, float y2, float z) {
+    ((void(__cdecl *)(unsigned int, float, float, float, float, float))0x485E00)(markerID, x1, y1, x2, y2, z);
+}
