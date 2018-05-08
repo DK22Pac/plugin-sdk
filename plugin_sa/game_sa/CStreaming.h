@@ -49,7 +49,7 @@ public:
     static CStreamingInfo *ms_pStartLoadedList;
     static CStreamingInfo *ms_aInfoForModel;    //CStreamingInfo ms_aInfoForModel[26316]
 	static CLoadedCarGroup& ms_vehiclesLoaded;
-    static CLinkList<RwObject*>& ms_rwObjectInstances; 
+    static CLinkList<CEntity*>& ms_rwObjectInstances; 
     static bool& bLoadVehiclesInLoadScene;
     static bool& m_bHarvesterModelsRequested;
     static bool& m_bStreamHarvesterModelsThisFrame;

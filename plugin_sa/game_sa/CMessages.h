@@ -8,6 +8,17 @@
 
 #include "PluginBase.h"
 
+enum eMessageStyle
+{
+    InTheMiddle,
+    AtTheBottomRight,
+    WhiteText_InTheMiddle,
+    InTheMiddle_Smaller,
+    InTheMiddle_Smaller_ABitHigherOnTheScreen,
+    SmallWhiteText_InTheMiddleOfTheScreen,
+    LightBlueText_OnTopOfTheScreen
+};
+
 struct Message {
 	char *          m_pText;
 	unsigned short  m_wFlag;

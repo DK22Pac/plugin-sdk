@@ -11,6 +11,15 @@
 #include "CPathFind.h"
 #include "eCarMission.h"
 
+enum eCarDrivingStyle : char
+{
+    DRIVINGSTYLE_STOP_FOR_CARS,
+    DRIVINGSTYLE_SLOW_DOWN_FOR_CARS,
+    DRIVINGSTYLE_AVOID_CARS,
+    DRIVINGSTYLE_PLOUGH_THROUGH,
+    DRIVINGSTYLE_STOP_FOR_CARS_IGNORE_LIGHTS
+};
+
 class PLUGIN_API CAutoPilot {
 public:
     CNodeAddress         m_currentAddress;
@@ -29,7 +38,7 @@ public:
     char _smthNext;
     char                 m_nCurrentLane;
     char                 m_nNextLane;
-    char                 m_nCarDrivingStyle;
+    eCarDrivingStyle                 m_nCarDrivingStyle;
     eCarMission                 m_nCarMission;
     char                 m_nTempAction;
     unsigned int         m_nTempActionTime;
