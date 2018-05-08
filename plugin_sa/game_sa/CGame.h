@@ -7,38 +7,54 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CColModel.h"
+#include "RenderWare.h"
+#include "CEntity.h"
 
-class PLUGIN_API CGame
-{
+class PLUGIN_API CGame {
 public:
-	// Current number of area
-	static int& currArea;
+    //! Current number of area
+    SUPPORTED_10US static char *aDatFile; // static char aDatFile[32]
+    SUPPORTED_10US static int &currLevel;
+    SUPPORTED_10US static unsigned char &bMissionPackGame;
+    SUPPORTED_10US static int &currArea;
+    SUPPORTED_10US static RwMatrix *&m_pWorkingMatrix1;
+    SUPPORTED_10US static RwMatrix *&m_pWorkingMatrix2;
 
-	static int &currLevel;
-	static bool &bMissionPackGame;
-
-	static char *aDatFile;  // char aDatFile[28]
-
-	//funcs
-	static void TidyUpMemory(bool arg1, bool arg2);
-
-	static void InitialiseOnceBeforeRW();
-	static void ShutdownRenderWare();
-	static void FinalShutdown();
-	static void Initialise(char const* filename);
-	static void ReInitGameObjectVariables();
-	static void Process();
-	static bool CanSeeOutSideFromCurrArea();
-	static bool CanSeeWaterFromCurrArea();
-	static void ShutDownForRestart();
-	static void InitialiseWhenRestarting();
-	static void DrasticTidyUpMemory(bool arg0);
-	static void Shutdown();
-	static bool InitialiseEssentialsAfterRW();
-	static void Init2();
-	static void Init3();
-	static bool InitialiseRenderWare();
-	static bool Init1(char const* filename);
-	static bool InitialiseCoreDataAfterRW();
-	static void InitAfterLostFocus();
+    SUPPORTED_10US static bool CanSeeOutSideFromCurrArea();
+    SUPPORTED_10US static bool CanSeeWaterFromCurrArea();
+    SUPPORTED_10US static void DrasticTidyUpMemory(bool a1);
+    SUPPORTED_10US static void FinalShutdown();
+    //! dummy function
+    SUPPORTED_10US static void GenerateTempPedAtStartOfNetworkGame();
+    SUPPORTED_10US static bool Init1(char const *datFile);
+    SUPPORTED_10US static bool Init2(char const *datFile);
+    SUPPORTED_10US static bool Init3(char const *datFile);
+    SUPPORTED_10US static void InitAfterLostFocus();
+    SUPPORTED_10US static bool Initialise(char const *datFile);
+    SUPPORTED_10US static bool InitialiseCoreDataAfterRW();
+    SUPPORTED_10US static bool InitialiseEssentialsAfterRW();
+    SUPPORTED_10US static bool InitialiseOnceBeforeRW();
+    SUPPORTED_10US static bool InitialiseRenderWare();
+    SUPPORTED_10US static void InitialiseWhenRestarting();
+    SUPPORTED_10US static void Process();
+    SUPPORTED_10US static void ReInitGameObjectVariables();
+    //! dummy function
+    SUPPORTED_10US static void ReloadIPLs();
+    SUPPORTED_10US static void ShutDownForRestart();
+    SUPPORTED_10US static bool Shutdown();
+    SUPPORTED_10US static void ShutdownRenderWare();
+    SUPPORTED_10US static void TidyUpMemory(bool a1, bool clearD3Dmem);
 };
+
+SUPPORTED_10US extern int &gameTxdSlot;
+
+SUPPORTED_10US bool MoveMem(void **pMem);
+SUPPORTED_10US bool MoveColModelMemory(CColModel &colModel, bool a2);
+SUPPORTED_10US RpGeometry *MoveGeometryMemory(RpGeometry *geometry);
+SUPPORTED_10US bool TidyUpModelInfo2(CEntity *entity, bool a2);
+SUPPORTED_10US void ValidateVersion();
+SUPPORTED_10US void D3DDeviceRestoreCallback();
+SUPPORTED_10US bool DoHaspChecks();
+
+#include "meta/meta.CGame.h"
