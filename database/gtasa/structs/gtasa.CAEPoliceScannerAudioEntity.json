@@ -1,0 +1,19 @@
+{
+    "name": "CAEPoliceScannerAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7C",
+    "alignment": 0,
+    "vtableAddress": "0x85F368",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "base",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        }
+    ]
+}

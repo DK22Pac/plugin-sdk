@@ -1,0 +1,21 @@
+{
+    "name": "MACRO_WS_OVERLAPPEDWINDOW",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": true,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "WS_OVERLAPPEDWINDOW",
+            "value": 13565952
+        },
+        {
+            "name": "WS_POPUPWINDOW",
+            "value": 2156396544
+        }
+    ]
+}

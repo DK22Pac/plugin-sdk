@@ -1,0 +1,29 @@
+{
+    "name": "CPedStuckChecker",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "RwV3d",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "field_C",
+            "type": "__int16",
+            "offset": "0xC",
+            "size": 2
+        },
+        {
+            "name": "field_E",
+            "type": "__int16",
+            "offset": "0xE",
+            "size": 2
+        }
+    ]
+}

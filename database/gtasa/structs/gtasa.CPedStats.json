@@ -1,0 +1,89 @@
+{
+    "name": "CPedStats",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x34",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "nNum",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "sName",
+            "type": "char[24]",
+            "offset": 4,
+            "size": "0x18"
+        },
+        {
+            "name": "fFleeDistance",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "fHeadingChangeRate",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "bFear",
+            "type": "char",
+            "offset": "0x24",
+            "size": 1
+        },
+        {
+            "name": "bTemper",
+            "type": "char",
+            "offset": "0x25",
+            "size": 1
+        },
+        {
+            "name": "bLawfullness",
+            "type": "char",
+            "offset": "0x26",
+            "size": 1
+        },
+        {
+            "name": "bSexiness",
+            "type": "char",
+            "offset": "0x27",
+            "size": 1
+        },
+        {
+            "name": "fAttackStrenght",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "fDefendWeakness",
+            "type": "int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "wShootingRate",
+            "type": "__int16",
+            "offset": "0x30",
+            "size": 2
+        },
+        {
+            "name": "bDecision",
+            "type": "char",
+            "offset": "0x32",
+            "size": 1
+        },
+        {
+            "name": "field_33",
+            "type": "char",
+            "offset": "0x33",
+            "size": 1
+        }
+    ]
+}

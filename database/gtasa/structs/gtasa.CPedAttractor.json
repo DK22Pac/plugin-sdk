@@ -1,0 +1,126 @@
+{
+    "name": "CPedAttractor",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x8C",
+    "alignment": 0,
+    "vtableAddress": "0x86C538",
+    "vtableSize": 6,
+    "comment": "",
+    "members": [
+        {
+            "name": "vmt",
+            "type": "_vtable_CPedAttractor *",
+            "offset": 0,
+            "size": 4,
+            "comment": "_vtable_CPedAttractor *"
+        },
+        {
+            "name": "m_pEffect",
+            "type": "tEffectPedAttractor *",
+            "offset": 4,
+            "size": 4,
+            "comment": "C2dEffect *"
+        },
+        {
+            "name": "m_pEntity",
+            "type": "CEntity *",
+            "offset": 8,
+            "size": 4,
+            "comment": "CEntity *"
+        },
+        {
+            "name": "field_C",
+            "type": "SArray",
+            "offset": "0xC",
+            "size": "0x10",
+            "comment": "SArray<CPed *>"
+        },
+        {
+            "name": "m_pedQueue",
+            "type": "SArray",
+            "offset": "0x1C",
+            "size": "0x10",
+            "comment": "SArray<CPed *>"
+        },
+        {
+            "name": "m_pedTasks",
+            "type": "SArray",
+            "offset": "0x2C",
+            "size": "0x10"
+        },
+        {
+            "name": "field_3C",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "queueMp",
+            "type": "float",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "time2",
+            "type": "float",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "time1",
+            "type": "float",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "field_4C",
+            "type": "_BYTE[8]",
+            "offset": "0x4C",
+            "size": 8
+        },
+        {
+            "name": "m_fRange",
+            "type": "float",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "field_58",
+            "type": "float",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "m_vecAttractorPosn",
+            "type": "CVector",
+            "offset": "0x5C",
+            "size": "0xC"
+        },
+        {
+            "name": "m_vecQueueDir",
+            "type": "CVector",
+            "offset": "0x68",
+            "size": "0xC"
+        },
+        {
+            "name": "m_vecUseDir",
+            "type": "CVector",
+            "offset": "0x74",
+            "size": "0xC"
+        },
+        {
+            "name": "field_80",
+            "type": "int",
+            "offset": "0x80",
+            "size": 4
+        },
+        {
+            "name": "m_szScriptName",
+            "type": "char[8]",
+            "offset": "0x84",
+            "size": 8
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "name": "CAnimBlendAssociation",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x3C",
+    "alignment": 0,
+    "vtableAddress": "0x85C6D0",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtable",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_clumpAssoc",
+            "type": "SClumpAnimAssoc",
+            "offset": 4,
+            "size": "0x2C"
+        },
+        {
+            "name": "m_nCallbackType",
+            "type": "_DWORD",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "m_pCallbackFunc",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "m_pCallbackData",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        }
+    ]
+}

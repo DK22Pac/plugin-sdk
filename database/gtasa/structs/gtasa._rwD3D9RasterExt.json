@@ -1,0 +1,82 @@
+{
+    "name": "_rwD3D9RasterExt",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "texture",
+            "type": "IDirect3DTexture9 *",
+            "offset": 0,
+            "size": 4,
+            "comment": "IDirect3DTexture9 *"
+        },
+        {
+            "name": "palette",
+            "type": "_DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "alpha",
+            "type": "char",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "cube_face",
+            "type": "char",
+            "offset": 9,
+            "size": 1
+        },
+        {
+            "name": "automipmapgen_compressed",
+            "type": "char",
+            "offset": "0xA",
+            "size": 1,
+            "comment": "0x01 AUTO_GEN_MIP_MAPS;;0x10 IS_COMPRESSED"
+        },
+        {
+            "name": "lockedMipLevel",
+            "type": "char",
+            "offset": "0xB",
+            "size": 1
+        },
+        {
+            "name": "lockedSurface",
+            "type": "IDirect3DSurface9 *",
+            "offset": "0xC",
+            "size": 4,
+            "comment": "IDirect3DSurface9 *"
+        },
+        {
+            "name": "lockedRect",
+            "type": "D3DLOCKED_RECT",
+            "offset": "0x10",
+            "size": 8
+        },
+        {
+            "name": "d3dFormat",
+            "type": "D3DFORMAT",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "swapChain",
+            "type": "IDirect3DSwapChain9 *",
+            "offset": "0x1C",
+            "size": 4,
+            "comment": "IDirect3DSwapChain9 *"
+        },
+        {
+            "name": "window",
+            "type": "HWND *",
+            "offset": "0x20",
+            "size": 4,
+            "comment": "HWND *"
+        }
+    ]
+}

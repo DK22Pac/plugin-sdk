@@ -1,0 +1,55 @@
+{
+    "name": "CTrailer",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x9F4",
+    "alignment": 0,
+    "vtableAddress": "0x871C28",
+    "vtableSize": 71,
+    "comment": "",
+    "members": [
+        {
+            "name": "automobile",
+            "type": "CAutomobile",
+            "offset": 0,
+            "size": "0x988"
+        },
+        {
+            "name": "field_988",
+            "type": "CColPoint[2]",
+            "offset": "0x988",
+            "size": "0x58"
+        },
+        {
+            "name": "field_9E0",
+            "type": "float",
+            "offset": "0x9E0",
+            "size": 4
+        },
+        {
+            "name": "field_9E4",
+            "type": "float",
+            "offset": "0x9E4",
+            "size": 4
+        },
+        {
+            "name": "field_9E8",
+            "type": "_BYTE[4]",
+            "offset": "0x9E8",
+            "size": 4
+        },
+        {
+            "name": "field_9EC",
+            "type": "float",
+            "offset": "0x9EC",
+            "size": 4
+        },
+        {
+            "name": "field_9F0",
+            "type": "float",
+            "offset": "0x9F0",
+            "size": 4
+        }
+    ]
+}

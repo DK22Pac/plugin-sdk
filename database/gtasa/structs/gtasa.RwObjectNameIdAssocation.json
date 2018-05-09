@@ -1,0 +1,29 @@
+{
+    "name": "RwObjectNameIdAssocation",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "name",
+            "type": "char *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "hirerarchyID",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "flags",
+            "type": "unsigned int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

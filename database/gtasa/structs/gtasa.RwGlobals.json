@@ -1,0 +1,304 @@
+{
+    "name": "RwGlobals",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x158",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "curCamera",
+            "type": "RwCamera *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "curWorld",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "renderFrame",
+            "type": "__int16",
+            "offset": 8,
+            "size": 2
+        },
+        {
+            "name": "lightFrame",
+            "type": "__int16",
+            "offset": "0xA",
+            "size": 2
+        },
+        {
+            "name": "pad",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "dOpenDevice",
+            "type": "RwDevice",
+            "offset": "0x10",
+            "size": "0x38"
+        },
+        {
+            "name": "field_48",
+            "type": "int",
+            "offset": "0x48",
+            "size": 4,
+            "comment": "0"
+        },
+        {
+            "name": "_cameraBeginUpdate",
+            "type": "int",
+            "offset": "0x4C",
+            "size": 4,
+            "comment": "1"
+        },
+        {
+            "name": "_rgbToPixel",
+            "type": "int",
+            "offset": "0x50",
+            "size": 4,
+            "comment": "2"
+        },
+        {
+            "name": "_pixelToRgb",
+            "type": "int",
+            "offset": "0x54",
+            "size": 4,
+            "comment": "3"
+        },
+        {
+            "name": "_rasterCreate",
+            "type": "int",
+            "offset": "0x58",
+            "size": 4,
+            "comment": "5"
+        },
+        {
+            "name": "_rasterDestroy",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x5C",
+            "size": 4,
+            "comment": "5"
+        },
+        {
+            "name": "_getImageFromRaster",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x60",
+            "size": 4,
+            "comment": "6"
+        },
+        {
+            "name": "_setRasterFromImage",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x64",
+            "size": 4,
+            "comment": "7"
+        },
+        {
+            "name": "_textureSetRaster",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x68",
+            "size": 4,
+            "comment": "8"
+        },
+        {
+            "name": "_findRasterFormat",
+            "type": "int",
+            "offset": "0x6C",
+            "size": 4,
+            "comment": "9"
+        },
+        {
+            "name": "_cameraEndUpdate",
+            "type": "int",
+            "offset": "0x70",
+            "size": 4,
+            "comment": "10"
+        },
+        {
+            "name": "_setRasterContext",
+            "type": "int",
+            "offset": "0x74",
+            "size": 4,
+            "comment": "11"
+        },
+        {
+            "name": "_rasterSubraster",
+            "type": "int",
+            "offset": "0x78",
+            "size": 4,
+            "comment": "12"
+        },
+        {
+            "name": "_rasterClearRect",
+            "type": "int",
+            "offset": "0x7C",
+            "size": 4,
+            "comment": "13"
+        },
+        {
+            "name": "_rasterClear",
+            "type": "int",
+            "offset": "0x80",
+            "size": 4,
+            "comment": "14"
+        },
+        {
+            "name": "_rasterLock",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x84",
+            "size": 4,
+            "comment": "15"
+        },
+        {
+            "name": "_rasterUnlock",
+            "type": "int",
+            "offset": "0x88",
+            "size": 4,
+            "comment": "16"
+        },
+        {
+            "name": "_rasterRender",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x8C",
+            "size": 4,
+            "comment": "17"
+        },
+        {
+            "name": "_rasterRenderScaled",
+            "type": "int",
+            "offset": "0x90",
+            "size": 4,
+            "comment": "18"
+        },
+        {
+            "name": "_rasterRenderFast",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0x94",
+            "size": 4,
+            "comment": "19"
+        },
+        {
+            "name": "_rasterShowRaster",
+            "type": "int",
+            "offset": "0x98",
+            "size": 4,
+            "comment": "20"
+        },
+        {
+            "name": "_cameraClear",
+            "type": "int",
+            "offset": "0x9C",
+            "size": 4,
+            "comment": "21"
+        },
+        {
+            "name": "_hintRenderF2B",
+            "type": "int",
+            "offset": "0xA0",
+            "size": 4,
+            "comment": "22"
+        },
+        {
+            "name": "_rasterLockPalette",
+            "type": "int",
+            "offset": "0xA4",
+            "size": 4,
+            "comment": "23"
+        },
+        {
+            "name": "_rasterUnlockPalette",
+            "type": "int",
+            "offset": "0xA8",
+            "size": 4,
+            "comment": "24"
+        },
+        {
+            "name": "_nativeTextureGetSize",
+            "type": "int",
+            "offset": "0xAC",
+            "size": 4,
+            "comment": "25"
+        },
+        {
+            "name": "_nativeTextureRead",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": "0xB0",
+            "size": 4,
+            "comment": "26"
+        },
+        {
+            "name": "_nativeTextureWrite",
+            "type": "int",
+            "offset": "0xB4",
+            "size": 4,
+            "comment": "27"
+        },
+        {
+            "name": "_rasterGetMipLevels",
+            "type": "int",
+            "offset": "0xB8",
+            "size": 4,
+            "comment": "28"
+        },
+        {
+            "name": "dirtyFrameList",
+            "type": "RwLinkList",
+            "offset": "0xBC",
+            "size": 8
+        },
+        {
+            "name": "fileFuncs",
+            "type": "RwFileFunction",
+            "offset": "0xC4",
+            "size": "0x2C"
+        },
+        {
+            "name": "stringFuncs",
+            "type": "RwStringFunctions",
+            "offset": "0xF0",
+            "size": "0x44"
+        },
+        {
+            "name": "memoryFuncs",
+            "type": "RwMemoryFunctions",
+            "offset": "0x134",
+            "size": "0x10"
+        },
+        {
+            "name": "memoryAlloc",
+            "type": "void *(__cdecl *)(void *freeList, int size)",
+            "offset": "0x144",
+            "size": 4
+        },
+        {
+            "name": "memoryFree",
+            "type": "int (__cdecl *)(_DWORD, _DWORD)",
+            "offset": "0x148",
+            "size": 4
+        },
+        {
+            "name": "metrics",
+            "type": "int",
+            "offset": "0x14C",
+            "size": 4
+        },
+        {
+            "name": "engineStatus",
+            "type": "int",
+            "offset": "0x150",
+            "size": 4
+        },
+        {
+            "name": "resArenaSize",
+            "type": "int",
+            "offset": "0x154",
+            "size": 4
+        }
+    ]
+}

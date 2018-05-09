@@ -1,0 +1,173 @@
+{
+    "name": "IDirectInputDevice2AVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x6C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "QueryInterface",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, const IID *const riid, LPVOID *ppvObj)",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AddRef",
+            "type": "ULONG (__stdcall *)(IDirectInputDevice2A *This)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Release",
+            "type": "ULONG (__stdcall *)(IDirectInputDevice2A *This)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetCapabilities",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIDEVCAPS)",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "EnumObjects",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIENUMDEVICEOBJECTSCALLBACKA, LPVOID, DWORD)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "GetProperty",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, const GUID *const , LPDIPROPHEADER)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "SetProperty",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, const GUID *const , LPCDIPROPHEADER)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "Acquire",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "Unacquire",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This)",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "GetDeviceState",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, DWORD, LPVOID)",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "GetDeviceData",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, DWORD, LPDIDEVICEOBJECTDATA, LPDWORD, DWORD)",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "SetDataFormat",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPCDIDATAFORMAT)",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "SetEventNotification",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, HANDLE)",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "SetCooperativeLevel",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, HWND, DWORD)",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "GetObjectInfo",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIDEVICEOBJECTINSTANCEA, DWORD, DWORD)",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "GetDeviceInfo",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIDEVICEINSTANCEA)",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "RunControlPanel",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, HWND, DWORD)",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "Initialize",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, HINSTANCE, DWORD, const GUID *const )",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "CreateEffect",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, const GUID *const , LPCDIEFFECT, LPDIRECTINPUTEFFECT *, LPUNKNOWN)",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "EnumEffects",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIENUMEFFECTSCALLBACKA, LPVOID, DWORD)",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "GetEffectInfo",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIEFFECTINFOA, const GUID *const )",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "GetForceFeedbackState",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDWORD)",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "SendForceFeedbackCommand",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, DWORD)",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "EnumCreatedEffectObjects",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, LPVOID, DWORD)",
+            "offset": "0x5C",
+            "size": 4
+        },
+        {
+            "name": "Escape",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, LPDIEFFESCAPE)",
+            "offset": "0x60",
+            "size": 4
+        },
+        {
+            "name": "Poll",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This)",
+            "offset": "0x64",
+            "size": 4
+        },
+        {
+            "name": "SendDeviceData",
+            "type": "HRESULT (__stdcall *)(IDirectInputDevice2A *This, DWORD, LPCDIDEVICEOBJECTDATA, LPDWORD, DWORD)",
+            "offset": "0x68",
+            "size": 4
+        }
+    ]
+}

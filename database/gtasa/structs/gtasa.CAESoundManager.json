@@ -1,0 +1,92 @@
+{
+    "name": "CAESoundManager",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x8CBC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nCountSounds",
+            "type": "_WORD",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "field_2",
+            "type": "_WORD",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "m_aSounds",
+            "type": "CAESound[300]",
+            "offset": 4,
+            "size": "0x87F0"
+        },
+        {
+            "name": "field_87F4",
+            "type": "WORD *",
+            "offset": "0x87F4",
+            "size": 4,
+            "comment": "WORD *"
+        },
+        {
+            "name": "field_87F8",
+            "type": "WORD *",
+            "offset": "0x87F8",
+            "size": 4,
+            "comment": "WORD *"
+        },
+        {
+            "name": "field_87FC",
+            "type": "WORD *",
+            "offset": "0x87FC",
+            "size": 4,
+            "comment": "WORD *"
+        },
+        {
+            "name": "field_8800",
+            "type": "__int16[300]",
+            "offset": "0x8800",
+            "size": "0x258"
+        },
+        {
+            "name": "field_8A58",
+            "type": "__int16[300]",
+            "offset": "0x8A58",
+            "size": "0x258"
+        },
+        {
+            "name": "m_dwTimeInitialized",
+            "type": "_DWORD",
+            "offset": "0x8CB0",
+            "size": 4
+        },
+        {
+            "name": "field_8CB4",
+            "type": "_BYTE",
+            "offset": "0x8CB4",
+            "size": 1
+        },
+        {
+            "name": "m_bManuallyPaused",
+            "type": "_BYTE",
+            "offset": "0x8CB5",
+            "size": 1
+        },
+        {
+            "name": "field_8CB6",
+            "type": "_BYTE[2]",
+            "offset": "0x8CB6",
+            "size": 2
+        },
+        {
+            "name": "field_8CB8",
+            "type": "_DWORD",
+            "offset": "0x8CB8",
+            "size": 4
+        }
+    ]
+}

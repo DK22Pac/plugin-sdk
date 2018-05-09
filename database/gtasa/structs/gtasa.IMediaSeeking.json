@@ -1,0 +1,17 @@
+{
+    "name": "IMediaSeeking",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "lpVtbl",
+            "type": "struct IMediaSeekingVtbl *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "name": "mcType",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "mcNull",
+            "value": "0x0"
+        },
+        {
+            "name": "mcVehicle",
+            "value": "0x1"
+        },
+        {
+            "name": "mcActor",
+            "value": "0x2"
+        },
+        {
+            "name": "mcObject",
+            "value": "0x3"
+        },
+        {
+            "name": "mcParticle",
+            "value": "0x4"
+        },
+        {
+            "name": "mcGroup",
+            "value": "0x5"
+        },
+        {
+            "name": "mcUnk6",
+            "value": "0x6"
+        },
+        {
+            "name": "mcUnk7",
+            "value": "0x7"
+        },
+        {
+            "name": "mcActionSequence",
+            "value": "0x8"
+        },
+        {
+            "name": "mcDecisionMaker",
+            "value": "0x9"
+        },
+        {
+            "name": "mcUnk10",
+            "value": "0xA"
+        },
+        {
+            "name": "mcSearchLight",
+            "value": "0xB"
+        },
+        {
+            "name": "mcUnk12",
+            "value": "0xC"
+        },
+        {
+            "name": "mcTexDictionary",
+            "value": "0xD"
+        }
+    ]
+}

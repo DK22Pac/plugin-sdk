@@ -1,0 +1,287 @@
+{
+    "name": "CPlayerData_2",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x270",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "int[6]",
+            "offset": 0,
+            "size": "0x18"
+        },
+        {
+            "name": "field_18",
+            "type": "int[128]",
+            "offset": "0x18",
+            "size": "0x200"
+        },
+        {
+            "name": "field_218",
+            "type": "__int16",
+            "offset": "0x218",
+            "size": 2
+        },
+        {
+            "name": "field_21A",
+            "type": "__int16",
+            "offset": "0x21A",
+            "size": 2
+        },
+        {
+            "name": "field_21C",
+            "type": "__int16",
+            "offset": "0x21C",
+            "size": 2
+        },
+        {
+            "name": "field_21E",
+            "type": "__int16",
+            "offset": "0x21E",
+            "size": 2
+        },
+        {
+            "name": "field_220",
+            "type": "__int16",
+            "offset": "0x220",
+            "size": 2
+        },
+        {
+            "name": "field_222",
+            "type": "__int16",
+            "offset": "0x222",
+            "size": 2
+        },
+        {
+            "name": "field_224",
+            "type": "__int16",
+            "offset": "0x224",
+            "size": 2
+        },
+        {
+            "name": "field_226",
+            "type": "__int16",
+            "offset": "0x226",
+            "size": 2
+        },
+        {
+            "name": "field_228",
+            "type": "__int16",
+            "offset": "0x228",
+            "size": 2
+        },
+        {
+            "name": "field_22A",
+            "type": "__int16",
+            "offset": "0x22A",
+            "size": 2
+        },
+        {
+            "name": "field_22C",
+            "type": "__int16",
+            "offset": "0x22C",
+            "size": 2
+        },
+        {
+            "name": "field_22E",
+            "type": "__int16",
+            "offset": "0x22E",
+            "size": 2
+        },
+        {
+            "name": "field_230",
+            "type": "__int16",
+            "offset": "0x230",
+            "size": 2
+        },
+        {
+            "name": "field_232",
+            "type": "__int16",
+            "offset": "0x232",
+            "size": 2
+        },
+        {
+            "name": "field_234",
+            "type": "__int16",
+            "offset": "0x234",
+            "size": 2
+        },
+        {
+            "name": "field_236",
+            "type": "__int16",
+            "offset": "0x236",
+            "size": 2
+        },
+        {
+            "name": "field_238",
+            "type": "__int16",
+            "offset": "0x238",
+            "size": 2
+        },
+        {
+            "name": "field_23A",
+            "type": "__int16",
+            "offset": "0x23A",
+            "size": 2
+        },
+        {
+            "name": "field_23C",
+            "type": "__int16",
+            "offset": "0x23C",
+            "size": 2
+        },
+        {
+            "name": "field_23E",
+            "type": "__int16",
+            "offset": "0x23E",
+            "size": 2
+        },
+        {
+            "name": "field_240",
+            "type": "__int16",
+            "offset": "0x240",
+            "size": 2
+        },
+        {
+            "name": "field_242",
+            "type": "__int16",
+            "offset": "0x242",
+            "size": 2
+        },
+        {
+            "name": "field_244",
+            "type": "__int16",
+            "offset": "0x244",
+            "size": 2
+        },
+        {
+            "name": "field_246",
+            "type": "__int16",
+            "offset": "0x246",
+            "size": 2
+        },
+        {
+            "name": "field_248",
+            "type": "__int16",
+            "offset": "0x248",
+            "size": 2
+        },
+        {
+            "name": "field_24A",
+            "type": "__int16",
+            "offset": "0x24A",
+            "size": 2
+        },
+        {
+            "name": "field_24C",
+            "type": "__int16",
+            "offset": "0x24C",
+            "size": 2
+        },
+        {
+            "name": "field_24E",
+            "type": "__int16",
+            "offset": "0x24E",
+            "size": 2
+        },
+        {
+            "name": "field_250",
+            "type": "__int16",
+            "offset": "0x250",
+            "size": 2
+        },
+        {
+            "name": "field_252",
+            "type": "__int16",
+            "offset": "0x252",
+            "size": 2
+        },
+        {
+            "name": "field_254",
+            "type": "__int16",
+            "offset": "0x254",
+            "size": 2
+        },
+        {
+            "name": "field_256",
+            "type": "__int16",
+            "offset": "0x256",
+            "size": 2
+        },
+        {
+            "name": "field_258",
+            "type": "__int16",
+            "offset": "0x258",
+            "size": 2
+        },
+        {
+            "name": "field_25A",
+            "type": "__int16",
+            "offset": "0x25A",
+            "size": 2
+        },
+        {
+            "name": "field_25C",
+            "type": "__int16",
+            "offset": "0x25C",
+            "size": 2
+        },
+        {
+            "name": "field_25E",
+            "type": "__int16",
+            "offset": "0x25E",
+            "size": 2
+        },
+        {
+            "name": "field_260",
+            "type": "__int16",
+            "offset": "0x260",
+            "size": 2
+        },
+        {
+            "name": "field_262",
+            "type": "__int16",
+            "offset": "0x262",
+            "size": 2
+        },
+        {
+            "name": "field_264",
+            "type": "__int16",
+            "offset": "0x264",
+            "size": 2
+        },
+        {
+            "name": "field_266",
+            "type": "__int16",
+            "offset": "0x266",
+            "size": 2
+        },
+        {
+            "name": "field_268",
+            "type": "__int16",
+            "offset": "0x268",
+            "size": 2
+        },
+        {
+            "name": "field_26A",
+            "type": "__int16",
+            "offset": "0x26A",
+            "size": 2
+        },
+        {
+            "name": "field_26C",
+            "type": "__int16",
+            "offset": "0x26C",
+            "size": 2
+        },
+        {
+            "name": "field_26E",
+            "type": "__int16",
+            "offset": "0x26E",
+            "size": 2
+        }
+    ]
+}

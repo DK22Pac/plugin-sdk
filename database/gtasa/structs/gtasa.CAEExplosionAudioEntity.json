@@ -1,0 +1,31 @@
+{
+    "name": "CAEExplosionAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x80",
+    "alignment": 0,
+    "vtableAddress": "0x862E60",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "audio",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        },
+        {
+            "name": "field_7C",
+            "type": "char",
+            "offset": "0x7C",
+            "size": 1
+        },
+        {
+            "name": "_pad7D",
+            "type": "char[3]",
+            "offset": "0x7D",
+            "size": 3
+        }
+    ]
+}

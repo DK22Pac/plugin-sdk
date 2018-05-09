@@ -1,0 +1,35 @@
+{
+    "name": "RpLightTie",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "lightInWorldSector",
+            "type": "RwLLLink",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "light",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "worldSectorInLight",
+            "type": "RwLLLink",
+            "offset": "0xC",
+            "size": 8
+        },
+        {
+            "name": "sect",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

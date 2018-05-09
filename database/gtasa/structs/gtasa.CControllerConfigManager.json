@@ -1,0 +1,90 @@
+{
+    "name": "CControllerConfigManager",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x12E4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "field_1",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "field_2",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "field_3",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "prevPadState",
+            "type": "DIJOYSTATE2",
+            "offset": 4,
+            "size": "0x110"
+        },
+        {
+            "name": "currPadState",
+            "type": "DIJOYSTATE2",
+            "offset": "0x114",
+            "size": "0x110"
+        },
+        {
+            "name": "eventNames",
+            "type": "CInputEvents__EventName[59]",
+            "offset": "0x224",
+            "size": "0x938",
+            "comment": "char eventNames[40][59];"
+        },
+        {
+            "name": "field_B5C",
+            "type": "char[17]",
+            "offset": "0xB5C",
+            "size": "0x11"
+        },
+        {
+            "name": "__pad2",
+            "type": "char[3]",
+            "offset": "0xB6D",
+            "size": 3
+        },
+        {
+            "name": "events",
+            "type": "CInputEvents__Event[59]",
+            "offset": "0xB70",
+            "size": "0x760"
+        },
+        {
+            "name": "field_12D0",
+            "type": "char[16]",
+            "offset": "0x12D0",
+            "size": "0x10"
+        },
+        {
+            "name": "field_12E0",
+            "type": "char",
+            "offset": "0x12E0",
+            "size": 1
+        },
+        {
+            "name": "__pad",
+            "type": "char[3]",
+            "offset": "0x12E1",
+            "size": 3
+        }
+    ]
+}

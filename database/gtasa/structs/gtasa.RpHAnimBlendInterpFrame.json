@@ -1,0 +1,23 @@
+{
+    "name": "RpHAnimBlendInterpFrame",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "orientation",
+            "type": "RtQuat",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "translation",
+            "type": "RwV3d",
+            "offset": "0x10",
+            "size": "0xC"
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "name": "RwTexture",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x58",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "raster",
+            "type": "RwRaster *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dict",
+            "type": "RwTexDictionary *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "lInDictionary",
+            "type": "RwLLLink",
+            "offset": 8,
+            "size": 8
+        },
+        {
+            "name": "name",
+            "type": "char[32]",
+            "offset": "0x10",
+            "size": "0x20"
+        },
+        {
+            "name": "mask",
+            "type": "char[32]",
+            "offset": "0x30",
+            "size": "0x20"
+        },
+        {
+            "name": "filterAddressing",
+            "type": "unsigned int",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "refCount",
+            "type": "int",
+            "offset": "0x54",
+            "size": 4
+        }
+    ]
+}

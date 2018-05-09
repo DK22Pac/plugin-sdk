@@ -1,0 +1,23 @@
+{
+    "name": "MaterialFxStream",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_Active",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_Type",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "name": "RwMemoryFunctions",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "rwmalloc",
+            "type": "void *(__cdecl *)(int, unsigned int)",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "rwfree",
+            "type": "int (__cdecl *)(_DWORD)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "rwrealloc",
+            "type": "int (__cdecl *)(_DWORD, _DWORD, _DWORD)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "rwcalloc",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

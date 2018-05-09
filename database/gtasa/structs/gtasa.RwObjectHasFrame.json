@@ -1,0 +1,29 @@
+{
+    "name": "RwObjectHasFrame",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "object",
+            "type": "RwObject",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "lFrame",
+            "type": "RwLLLink",
+            "offset": 8,
+            "size": 8
+        },
+        {
+            "name": "sync",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

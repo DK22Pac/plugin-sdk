@@ -1,0 +1,23 @@
+{
+    "name": "SurfaceInfos_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x8F4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "surface",
+            "type": "int[36]",
+            "offset": 0,
+            "size": "0x90"
+        },
+        {
+            "name": "surfType",
+            "type": "SurfaceInfo_c[179]",
+            "offset": "0x90",
+            "size": "0x864"
+        }
+    ]
+}

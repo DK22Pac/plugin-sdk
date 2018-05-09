@@ -1,0 +1,108 @@
+{
+    "name": "eVehCompFlags",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "VEHCOMP_IS_NOT_IN_ARRAY",
+            "value": "0x1"
+        },
+        {
+            "name": "VEHCOMP_IS_DAMAGABLE",
+            "value": "0x2"
+        },
+        {
+            "name": "VEHCOMP_IS_WHEEL",
+            "value": "0x4"
+        },
+        {
+            "name": "VEHCOMP_IS_POS_DUMMY",
+            "value": "0x8"
+        },
+        {
+            "name": "VEHCOMP_IS_DOOR",
+            "value": "0x10"
+        },
+        {
+            "name": "VEHCOMP_IS_LEFT_SIDE",
+            "value": "0x20"
+        },
+        {
+            "name": "VEHCOMP_IS_RIGHT_SIDE",
+            "value": "0x40"
+        },
+        {
+            "name": "VEHCOMP_IS_FRONT_SIDE",
+            "value": "0x80"
+        },
+        {
+            "name": "VEHCOMP_IS_REAR_SIDE",
+            "value": "0x100"
+        },
+        {
+            "name": "VEHCOMP_IS_EXTRA",
+            "value": "0x200"
+        },
+        {
+            "name": "VEHCOMP_HAS_ALPHA",
+            "value": "0x400"
+        },
+        {
+            "name": "VEHCOMP_IS_WINDSCREEN",
+            "value": "0x800"
+        },
+        {
+            "name": "VEHCOMP_12",
+            "value": "0x1000",
+            "comment": "used to mark some doors? related to camera-atomic checks;;IS_PLACED_HORIZONTALLY?"
+        },
+        {
+            "name": "VEHCOMP_IS_REAR_DOOR",
+            "value": "0x2000"
+        },
+        {
+            "name": "VEHCOMP_IS_FRONT_DOOR",
+            "value": "0x4000"
+        },
+        {
+            "name": "VEHCOMP_15",
+            "value": "0x8000",
+            "comment": "related to camera-atomic checks;;alternative to IS_HATCHBACK flag?;;HAS_WINDOW?;;CAN_SEE_INSIDE?"
+        },
+        {
+            "name": "VEHCOMP_IS_MAIN_WHEEL",
+            "value": "0x10000"
+        },
+        {
+            "name": "VEHCOMP_IS_UPGRADE",
+            "value": "0x20000"
+        },
+        {
+            "name": "VEHCOMP_HAS_DYNAMIC_TEXTURES",
+            "value": "0x40000"
+        },
+        {
+            "name": "VEHCOMP_19",
+            "value": "0x80000",
+            "comment": "unused"
+        },
+        {
+            "name": "VEHCOMP_IS_BOGGIE_FRONT",
+            "value": "0x100000"
+        },
+        {
+            "name": "VEHCOMP_IS_BOGGIE_REAR",
+            "value": "0x200000"
+        },
+        {
+            "name": "VEHCOMP_RENDER_ALWAYS",
+            "value": "0x400000"
+        }
+    ]
+}

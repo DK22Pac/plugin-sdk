@@ -1,0 +1,23 @@
+{
+    "name": "sockaddr",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "sa_family",
+            "type": "u_short",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "sa_data",
+            "type": "char[14]",
+            "offset": 2,
+            "size": "0xE"
+        }
+    ]
+}

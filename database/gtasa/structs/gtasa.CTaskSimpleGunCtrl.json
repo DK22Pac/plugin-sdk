@@ -1,0 +1,107 @@
+{
+    "name": "CTaskSimpleGunCtrl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x3C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CTaskSimple",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "field_8",
+            "type": "char",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "gap_9",
+            "type": "char[3]",
+            "offset": 9,
+            "size": 3
+        },
+        {
+            "name": "m_pTarget",
+            "type": "CEntity *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_vTarget",
+            "type": "RwV3d",
+            "offset": "0x10",
+            "size": "0xC"
+        },
+        {
+            "name": "field_1C",
+            "type": "RwV3d",
+            "offset": "0x1C",
+            "size": "0xC"
+        },
+        {
+            "name": "field_28",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "field_2C",
+            "type": "__int16",
+            "offset": "0x2C",
+            "size": 2
+        },
+        {
+            "name": "m_nState",
+            "type": "char",
+            "offset": "0x2E",
+            "size": 1
+        },
+        {
+            "name": "gap_2F",
+            "type": "char[1]",
+            "offset": "0x2F",
+            "size": 1
+        },
+        {
+            "name": "m_fAnimLength",
+            "type": "float",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "m_dwTimeForAttack",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "field_38",
+            "type": "char",
+            "offset": "0x38",
+            "size": 1
+        },
+        {
+            "name": "field_39",
+            "type": "char",
+            "offset": "0x39",
+            "size": 1
+        },
+        {
+            "name": "field_3A",
+            "type": "char",
+            "offset": "0x3A",
+            "size": 1
+        },
+        {
+            "name": "field_3B",
+            "type": "char",
+            "offset": "0x3B",
+            "size": 1
+        }
+    ]
+}

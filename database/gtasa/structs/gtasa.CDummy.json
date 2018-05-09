@@ -1,0 +1,133 @@
+{
+    "name": "CDummy",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x38",
+    "alignment": 0,
+    "vtableAddress": "0x8638C0",
+    "vtableSize": 22,
+    "comment": "",
+    "members": [
+        {
+            "name": "__vmt",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "field_8",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "field_C",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "field_18",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "field_1C",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "field_20",
+            "type": "__int16",
+            "offset": "0x20",
+            "size": 2
+        },
+        {
+            "name": "field_22",
+            "type": "__int16",
+            "offset": "0x22",
+            "size": 2
+        },
+        {
+            "name": "field_24",
+            "type": "int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "field_28",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "field_2C",
+            "type": "__int16",
+            "offset": "0x2C",
+            "size": 2
+        },
+        {
+            "name": "field_2E",
+            "type": "char",
+            "offset": "0x2E",
+            "size": 1
+        },
+        {
+            "name": "field_2F",
+            "type": "char",
+            "offset": "0x2F",
+            "size": 1
+        },
+        {
+            "name": "field_30",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "field_34",
+            "type": "char",
+            "offset": "0x34",
+            "size": 1
+        },
+        {
+            "name": "field_35",
+            "type": "char",
+            "offset": "0x35",
+            "size": 1
+        },
+        {
+            "name": "field_36",
+            "type": "char",
+            "offset": "0x36",
+            "size": 1
+        },
+        {
+            "name": "field_37",
+            "type": "char",
+            "offset": "0x37",
+            "size": 1
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "name": "D3DVERTEXELEMENT9",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "Stream",
+            "type": "WORD",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "Offset",
+            "type": "WORD",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "Type",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "Method",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "Usage",
+            "type": "char",
+            "offset": 6,
+            "size": 1
+        },
+        {
+            "name": "UsageIndex",
+            "type": "char",
+            "offset": 7,
+            "size": 1
+        }
+    ]
+}

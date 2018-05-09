@@ -1,0 +1,31 @@
+{
+    "name": "CAEWeatherAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x80",
+    "alignment": 0,
+    "vtableAddress": "0x872A74",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "base",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        },
+        {
+            "name": "m_nThunderFrequencyVariationCounter",
+            "type": "_BYTE",
+            "offset": "0x7C",
+            "size": 1
+        },
+        {
+            "name": "_pad7D",
+            "type": "char[3]",
+            "offset": "0x7D",
+            "size": 3
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "name": "tGeometryStreamFlags",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "flags",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "numUvSets",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "nativeFlags",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        }
+    ]
+}

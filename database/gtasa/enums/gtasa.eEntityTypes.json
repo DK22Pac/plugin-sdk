@@ -1,0 +1,33 @@
+{
+    "name": "eEntityTypes",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "ENTITY_TYPE_BUILDING",
+            "value": "0x1"
+        },
+        {
+            "name": "ENTITY_TYPE_VEHICLE",
+            "value": "0x2"
+        },
+        {
+            "name": "ENTITY_TYPE_PED",
+            "value": "0x3"
+        },
+        {
+            "name": "ENTITY_TYPE_OBJECT",
+            "value": "0x4"
+        },
+        {
+            "name": "ENTITY_TYPE_DUMMY",
+            "value": "0x5"
+        }
+    ]
+}

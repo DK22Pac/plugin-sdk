@@ -1,0 +1,29 @@
+{
+    "name": "_SECURITY_ATTRIBUTES",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "nLength",
+            "type": "DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "lpSecurityDescriptor",
+            "type": "LPVOID",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "bInheritHandle",
+            "type": "BOOL",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

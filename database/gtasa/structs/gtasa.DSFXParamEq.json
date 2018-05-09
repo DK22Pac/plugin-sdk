@@ -1,0 +1,29 @@
+{
+    "name": "DSFXParamEq",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "fCenter",
+            "type": "FLOAT",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "fBandwidth",
+            "type": "FLOAT",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "fGain",
+            "type": "FLOAT",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

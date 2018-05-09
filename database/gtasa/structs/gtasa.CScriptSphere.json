@@ -1,0 +1,47 @@
+{
+    "name": "CScriptSphere",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "bUsed",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "field_1",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "wUniqueID",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "field_4",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "vCoords",
+            "type": "RwV3d",
+            "offset": 8,
+            "size": "0xC"
+        },
+        {
+            "name": "fRadius",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

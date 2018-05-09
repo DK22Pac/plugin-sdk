@@ -1,0 +1,41 @@
+{
+    "name": "CEventHandlerHistory",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "CEvent *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_pNonTempEvent",
+            "type": "CEvent *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_pTempEvent",
+            "type": "CEvent *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_pStoredActiveEvent",
+            "type": "CEvent *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_storedActiveEventTimer",
+            "type": "CTaskTimer",
+            "offset": "0x10",
+            "size": "0xC"
+        }
+    ]
+}

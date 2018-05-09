@@ -1,0 +1,141 @@
+{
+    "name": "ePedType",
+    "module": "",
+    "scope": "",
+    "width": 4,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "PED_TYPE_PLAYER1",
+            "value": "0x0"
+        },
+        {
+            "name": "PED_TYPE_PLAYER2",
+            "value": "0x1"
+        },
+        {
+            "name": "PED_TYPE_PLAYER_NETWORK",
+            "value": "0x2"
+        },
+        {
+            "name": "PED_TYPE_PLAYER_UNUSED",
+            "value": "0x3"
+        },
+        {
+            "name": "PED_TYPE_CIVMALE",
+            "value": "0x4"
+        },
+        {
+            "name": "PED_TYPE_CIVFEMALE",
+            "value": "0x5"
+        },
+        {
+            "name": "PED_TYPE_COP",
+            "value": "0x6"
+        },
+        {
+            "name": "PED_TYPE_GANG1",
+            "value": "0x7"
+        },
+        {
+            "name": "PED_TYPE_GANG2",
+            "value": "0x8"
+        },
+        {
+            "name": "PED_TYPE_GANG3",
+            "value": "0x9"
+        },
+        {
+            "name": "PED_TYPE_GANG4",
+            "value": "0xA"
+        },
+        {
+            "name": "PED_TYPE_GANG5",
+            "value": "0xB"
+        },
+        {
+            "name": "PED_TYPE_GANG6",
+            "value": "0xC"
+        },
+        {
+            "name": "PED_TYPE_GANG7",
+            "value": "0xD"
+        },
+        {
+            "name": "PED_TYPE_GANG8",
+            "value": "0xE"
+        },
+        {
+            "name": "PED_TYPE_GANG9",
+            "value": "0xF"
+        },
+        {
+            "name": "PED_TYPE_GANG10",
+            "value": "0x10"
+        },
+        {
+            "name": "PED_TYPE_DEALER",
+            "value": "0x11"
+        },
+        {
+            "name": "PED_TYPE_MEDIC",
+            "value": "0x12"
+        },
+        {
+            "name": "PED_TYPE_FIREMAN",
+            "value": "0x13"
+        },
+        {
+            "name": "PED_TYPE_CRIMINAL",
+            "value": "0x14"
+        },
+        {
+            "name": "PED_TYPE_BUM",
+            "value": "0x15"
+        },
+        {
+            "name": "PED_TYPE_PROSTITUTE",
+            "value": "0x16"
+        },
+        {
+            "name": "PED_TYPE_SPECIAL",
+            "value": "0x17"
+        },
+        {
+            "name": "PED_TYPE_MISSION1",
+            "value": "0x18"
+        },
+        {
+            "name": "PED_TYPE_MISSION2",
+            "value": "0x19"
+        },
+        {
+            "name": "PED_TYPE_MISSION3",
+            "value": "0x1A"
+        },
+        {
+            "name": "PED_TYPE_MISSION4",
+            "value": "0x1B"
+        },
+        {
+            "name": "PED_TYPE_MISSION5",
+            "value": "0x1C"
+        },
+        {
+            "name": "PED_TYPE_MISSION6",
+            "value": "0x1D"
+        },
+        {
+            "name": "PED_TYPE_MISSION7",
+            "value": "0x1E"
+        },
+        {
+            "name": "PED_TYPE_MISSION8",
+            "value": "0x1F"
+        }
+    ]
+}

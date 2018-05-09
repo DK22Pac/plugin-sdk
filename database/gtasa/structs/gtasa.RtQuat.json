@@ -1,0 +1,23 @@
+{
+    "name": "RtQuat",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "imag",
+            "type": "RwV3d",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "real",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

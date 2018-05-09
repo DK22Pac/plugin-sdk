@@ -1,0 +1,73 @@
+{
+    "name": "eEntityFlags",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "eEntityFlags_1",
+            "value": "0x1"
+        },
+        {
+            "name": "eEntityFlags_2",
+            "value": "0x2"
+        },
+        {
+            "name": "eEntityFlags_4",
+            "value": "0x4"
+        },
+        {
+            "name": "eEntityFlags_8",
+            "value": "0x8"
+        },
+        {
+            "name": "eEntityFlags_10",
+            "value": "0x10"
+        },
+        {
+            "name": "eEntityFlags_20",
+            "value": "0x20"
+        },
+        {
+            "name": "eEntityFlags_40",
+            "value": "0x40"
+        },
+        {
+            "name": "eEntityFlags_80",
+            "value": "0x80"
+        },
+        {
+            "name": "eEntityFlags_100",
+            "value": "0x100"
+        },
+        {
+            "name": "eEntityFlags_200",
+            "value": "0x200"
+        },
+        {
+            "name": "eEntityFlags_400",
+            "value": "0x400"
+        },
+        {
+            "name": "eEntityFlags_800",
+            "value": "0x800"
+        },
+        {
+            "name": "eEntityFlags_1000",
+            "value": "0x1000"
+        },
+        {
+            "name": "eEntityFlags_2000",
+            "value": "0x2000"
+        },
+        {
+            "name": "eEntityFlags_4000",
+            "value": "0x4000"
+        }
+    ]
+}

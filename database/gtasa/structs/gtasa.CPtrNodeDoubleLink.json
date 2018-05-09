@@ -1,0 +1,29 @@
+{
+    "name": "CPtrNodeDoubleLink",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "pItem",
+            "type": "CEntity *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "pNext",
+            "type": "CPtrNodeDoubleLink *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "pPrev",
+            "type": "CPtrNodeDoubleLink *",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

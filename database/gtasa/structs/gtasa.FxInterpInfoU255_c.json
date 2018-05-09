@@ -1,0 +1,25 @@
+{
+    "name": "FxInterpInfoU255_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "vtableAddress": "0x85A978",
+    "vtableSize": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "base",
+            "type": "FxInterpInfo_c",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_pValKeys",
+            "type": "unsigned __int8 **",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

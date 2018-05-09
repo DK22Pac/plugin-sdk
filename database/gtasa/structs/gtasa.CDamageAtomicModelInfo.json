@@ -1,0 +1,25 @@
+{
+    "name": "CDamageAtomicModelInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "vtableAddress": "0x85BC30",
+    "vtableSize": 16,
+    "comment": "",
+    "members": [
+        {
+            "name": "simple",
+            "type": "CAtomicModelInfo",
+            "offset": 0,
+            "size": "0x20"
+        },
+        {
+            "name": "m_pDamagedAtomic",
+            "type": "RpAtomic *",
+            "offset": "0x20",
+            "size": 4
+        }
+    ]
+}

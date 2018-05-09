@@ -1,0 +1,277 @@
+{
+    "name": "eCamMode",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "MODE_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "MODE_TOPDOWN",
+            "value": "0x1"
+        },
+        {
+            "name": "MODE_GTACLASSIC",
+            "value": "0x2"
+        },
+        {
+            "name": "MODE_BEHINDCAR",
+            "value": "0x3"
+        },
+        {
+            "name": "MODE_FOLLOWPED",
+            "value": "0x4"
+        },
+        {
+            "name": "MODE_AIMING",
+            "value": "0x5"
+        },
+        {
+            "name": "MODE_DEBUG",
+            "value": "0x6"
+        },
+        {
+            "name": "MODE_SNIPER",
+            "value": "0x7"
+        },
+        {
+            "name": "MODE_ROCKETLAUNCHER",
+            "value": "0x8"
+        },
+        {
+            "name": "MODE_MODELVIEW",
+            "value": "0x9"
+        },
+        {
+            "name": "MODE_BILL",
+            "value": "0xA"
+        },
+        {
+            "name": "MODE_SYPHON",
+            "value": "0xB"
+        },
+        {
+            "name": "MODE_CIRCLE",
+            "value": "0xC"
+        },
+        {
+            "name": "MODE_CHEESYZOOM",
+            "value": "0xD"
+        },
+        {
+            "name": "MODE_WHEELCAM",
+            "value": "0xE"
+        },
+        {
+            "name": "MODE_FIXED",
+            "value": "0xF"
+        },
+        {
+            "name": "MODE_1STPERSON",
+            "value": "0x10"
+        },
+        {
+            "name": "MODE_FLYBY",
+            "value": "0x11"
+        },
+        {
+            "name": "MODE_CAM_ON_A_STRING",
+            "value": "0x12"
+        },
+        {
+            "name": "MODE_REACTION",
+            "value": "0x13"
+        },
+        {
+            "name": "MODE_FOLLOW_PED_WITH_BIND",
+            "value": "0x14"
+        },
+        {
+            "name": "MODE_CHRIS",
+            "value": "0x15"
+        },
+        {
+            "name": "MODE_BEHINDBOAT",
+            "value": "0x16"
+        },
+        {
+            "name": "MODE_PLAYER_FALLEN_WATER",
+            "value": "0x17"
+        },
+        {
+            "name": "MODE_CAM_ON_TRAIN_ROOF",
+            "value": "0x18"
+        },
+        {
+            "name": "MODE_CAM_RUNNING_SIDE_TRAIN",
+            "value": "0x19"
+        },
+        {
+            "name": "MODE_BLOOD_ON_THE_TRACKS",
+            "value": "0x1A"
+        },
+        {
+            "name": "MODE_IM_THE_PASSENGER_WOOWOO",
+            "value": "0x1B"
+        },
+        {
+            "name": "MODE_SYPHON_CRIM_IN_FRONT",
+            "value": "0x1C"
+        },
+        {
+            "name": "MODE_PED_DEAD_BABY",
+            "value": "0x1D"
+        },
+        {
+            "name": "MODE_PILLOWS_PAPS",
+            "value": "0x1E"
+        },
+        {
+            "name": "MODE_LOOK_AT_CARS",
+            "value": "0x1F"
+        },
+        {
+            "name": "MODE_ARRESTCAM_ONE",
+            "value": "0x20"
+        },
+        {
+            "name": "MODE_ARRESTCAM_TWO",
+            "value": "0x21"
+        },
+        {
+            "name": "MODE_M16_1STPERSON",
+            "value": "0x22"
+        },
+        {
+            "name": "MODE_SPECIAL_FIXED_FOR_SYPHON",
+            "value": "0x23"
+        },
+        {
+            "name": "MODE_FIGHT_CAM",
+            "value": "0x24"
+        },
+        {
+            "name": "MODE_TOP_DOWN_PED",
+            "value": "0x25"
+        },
+        {
+            "name": "MODE_LIGHTHOUSE",
+            "value": "0x26"
+        },
+        {
+            "name": "MODE_SNIPER_RUNABOUT",
+            "value": "0x27"
+        },
+        {
+            "name": "MODE_ROCKETLAUNCHER_RUNABOUT",
+            "value": "0x28"
+        },
+        {
+            "name": "MODE_1STPERSON_RUNABOUT",
+            "value": "0x29"
+        },
+        {
+            "name": "MODE_M16_1STPERSON_RUNABOUT",
+            "value": "0x2A"
+        },
+        {
+            "name": "MODE_FIGHT_CAM_RUNABOUT",
+            "value": "0x2B"
+        },
+        {
+            "name": "MODE_EDITOR",
+            "value": "0x2C"
+        },
+        {
+            "name": "MODE_HELICANNON_1STPERSON",
+            "value": "0x2D"
+        },
+        {
+            "name": "MODE_CAMERA",
+            "value": "0x2E"
+        },
+        {
+            "name": "MODE_ATTACHCAM",
+            "value": "0x2F"
+        },
+        {
+            "name": "MODE_TWOPLAYER",
+            "value": "0x30"
+        },
+        {
+            "name": "MODE_TWOPLAYER_IN_CAR_AND_SHOOTING",
+            "value": "0x31"
+        },
+        {
+            "name": "MODE_TWOPLAYER_SEPARATE_CARS",
+            "value": "0x32"
+        },
+        {
+            "name": "MODE_ROCKETLAUNCHER_HS",
+            "value": "0x33"
+        },
+        {
+            "name": "MODE_ROCKETLAUNCHER_RUNABOUT_HS",
+            "value": "0x34"
+        },
+        {
+            "name": "MODE_AIMWEAPON",
+            "value": "0x35"
+        },
+        {
+            "name": "MODE_TWOPLAYER_SEPARATE_CARS_TOPDOWN",
+            "value": "0x36"
+        },
+        {
+            "name": "MODE_AIMWEAPON_FROMCAR",
+            "value": "0x37"
+        },
+        {
+            "name": "MODE_DW_HELI_CHASE",
+            "value": "0x38"
+        },
+        {
+            "name": "MODE_DW_CAM_MAN",
+            "value": "0x39"
+        },
+        {
+            "name": "MODE_DW_BIRDY",
+            "value": "0x3A"
+        },
+        {
+            "name": "MODE_DW_PLANE_SPOTTER",
+            "value": "0x3B"
+        },
+        {
+            "name": "MODE_DW_DOG_FIGHT",
+            "value": "0x3C"
+        },
+        {
+            "name": "MODE_DW_FISH",
+            "value": "0x3D"
+        },
+        {
+            "name": "MODE_DW_PLANECAM1",
+            "value": "0x3E"
+        },
+        {
+            "name": "MODE_DW_PLANECAM2",
+            "value": "0x3F"
+        },
+        {
+            "name": "MODE_DW_PLANECAM3",
+            "value": "0x40"
+        },
+        {
+            "name": "MODE_AIMWEAPON_ATTACHED",
+            "value": "0x41"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "name": "D3DVECTOR",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "x",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "y",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "z",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

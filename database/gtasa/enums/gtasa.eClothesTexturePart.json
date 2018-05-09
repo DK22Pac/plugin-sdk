@@ -1,0 +1,89 @@
+{
+    "name": "eClothesTexturePart",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "CLOTHES_TEXTURE_TORSO",
+            "value": "0x0"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_HEAD",
+            "value": "0x1"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_LEGS",
+            "value": "0x2"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_SHOES",
+            "value": "0x3"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_LOWER_LEFT_ARM",
+            "value": "0x4"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_UPPER_LEFT_ARM",
+            "value": "0x5"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_UPPER_RIGHT_ARM",
+            "value": "0x6"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_LOWER_RIGHT_ARM",
+            "value": "0x7"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_BACK_TOP",
+            "value": "0x8"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_LEFT_CHEST",
+            "value": "0x9"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_RIGHT_CHEST",
+            "value": "0xA"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_STOMACH",
+            "value": "0xB"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_LOWER_BACK",
+            "value": "0xB"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_NECKLACE",
+            "value": "0xD"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_BRACELET",
+            "value": "0xE"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_GLASSES",
+            "value": "0xF"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_HATS",
+            "value": "0x10"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_SPECIAL",
+            "value": "0x11"
+        },
+        {
+            "name": "CLOTHES_TEXTURE_UNAVAILABLE",
+            "value": "0x12"
+        }
+    ]
+}

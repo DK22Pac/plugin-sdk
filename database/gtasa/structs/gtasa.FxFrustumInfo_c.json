@@ -1,0 +1,23 @@
+{
+    "name": "FxFrustumInfo_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x54",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_sphere",
+            "type": "FxSphere_c",
+            "offset": 0,
+            "size": "0x14"
+        },
+        {
+            "name": "m_planes",
+            "type": "FxPlane_c[4]",
+            "offset": "0x14",
+            "size": "0x40"
+        }
+    ]
+}

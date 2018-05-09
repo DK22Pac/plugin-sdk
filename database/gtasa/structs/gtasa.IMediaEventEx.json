@@ -1,0 +1,17 @@
+{
+    "name": "IMediaEventEx",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "lpVtbl",
+            "type": "struct IMediaEventEx::IMediaEventExVtbl *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

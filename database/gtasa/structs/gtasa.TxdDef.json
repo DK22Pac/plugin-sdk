@@ -1,0 +1,35 @@
+{
+    "name": "TxdDef",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "dictionary",
+            "type": "RwTexDictionary *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "usageCount",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "parentIndex",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "hash",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

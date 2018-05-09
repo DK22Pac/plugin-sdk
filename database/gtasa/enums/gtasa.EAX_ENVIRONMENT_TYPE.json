@@ -1,0 +1,125 @@
+{
+    "name": "EAX_ENVIRONMENT_TYPE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "EAX_ENVIRONMENT_GENERIC",
+            "value": "0x0"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_PADDEDCELL",
+            "value": "0x1"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_ROOM",
+            "value": "0x2"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_BATHROOM",
+            "value": "0x3"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_LIVINGROOM",
+            "value": "0x4"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_STONEROOM",
+            "value": "0x5"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_AUDITORIUM",
+            "value": "0x6"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_CONCERTHALL",
+            "value": "0x7"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_CAVE",
+            "value": "0x8"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_ARENA",
+            "value": "0x9"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_HANGAR",
+            "value": "0xA"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_CARPETEDHALLWAY",
+            "value": "0xB"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_HALLWAY",
+            "value": "0xC"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_STONECORRIDOR",
+            "value": "0xD"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_ALLEY",
+            "value": "0xE"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_FOREST",
+            "value": "0xF"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_CITY",
+            "value": "0x10"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_MOUNTAINS",
+            "value": "0x11"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_QUARRY",
+            "value": "0x12"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_PLAIN",
+            "value": "0x13"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_PARKINGLOT",
+            "value": "0x14"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_SEWERPIPE",
+            "value": "0x15"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_UNDERWATER",
+            "value": "0x16"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_DRUGGED",
+            "value": "0x17"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_DIZZY",
+            "value": "0x18"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_PSYCHOTIC",
+            "value": "0x19"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_UNDEFINED",
+            "value": "0x1A"
+        },
+        {
+            "name": "EAX_ENVIRONMENT_COUNT",
+            "value": "0x1B"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "BoneNodeManager_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x4C0C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_space",
+            "type": "BoneNode_c[128]",
+            "offset": 0,
+            "size": "0x4C00"
+        },
+        {
+            "name": "m_bonesList",
+            "type": "List_c",
+            "offset": "0x4C00",
+            "size": "0xC"
+        }
+    ]
+}

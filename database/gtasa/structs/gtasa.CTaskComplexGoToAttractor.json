@@ -1,0 +1,56 @@
+{
+    "name": "CTaskComplexGoToAttractor",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2C",
+    "alignment": 2,
+    "vtableAddress": "0x86FF3C",
+    "vtableSize": 11,
+    "comment": "",
+    "members": [
+        {
+            "name": "complex",
+            "type": "CTaskComplex",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_pAttractor",
+            "type": "CPedAttractor *",
+            "offset": "0xC",
+            "size": 4,
+            "comment": "CPedAttractor *"
+        },
+        {
+            "name": "m_vecAttrPosn",
+            "type": "CVector",
+            "offset": "0x10",
+            "size": "0xC"
+        },
+        {
+            "name": "m_fAttrHeading",
+            "type": "float",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "m_fAttrTime",
+            "type": "float",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "m_nQueueNumber",
+            "type": "_DWORD",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "field_28",
+            "type": "_DWORD",
+            "offset": "0x28",
+            "size": 4
+        }
+    ]
+}

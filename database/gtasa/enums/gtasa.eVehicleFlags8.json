@@ -1,0 +1,29 @@
+{
+    "name": "eVehicleFlags8",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "HAS_BEEN_RESPRAYED",
+            "value": "0x1"
+        },
+        {
+            "name": "USE_CAR_CHEATS",
+            "value": "0x2"
+        },
+        {
+            "name": "DONT_SET_COLOUR_WHEN_REMAPPING",
+            "value": "0x4"
+        },
+        {
+            "name": "USED_FOR_REPLAY",
+            "value": "0x8"
+        }
+    ]
+}

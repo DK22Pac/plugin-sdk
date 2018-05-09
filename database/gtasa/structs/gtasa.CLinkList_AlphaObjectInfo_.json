@@ -1,0 +1,41 @@
+{
+    "name": "CLinkList_AlphaObjectInfo_",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x54",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "usedListHead",
+            "type": "CLink_AlphaObjectInfo_",
+            "offset": 0,
+            "size": "0x14"
+        },
+        {
+            "name": "usedListTail",
+            "type": "CLink_AlphaObjectInfo_",
+            "offset": "0x14",
+            "size": "0x14"
+        },
+        {
+            "name": "freeListHead",
+            "type": "CLink_AlphaObjectInfo_",
+            "offset": "0x28",
+            "size": "0x14"
+        },
+        {
+            "name": "freeListTail",
+            "type": "CLink_AlphaObjectInfo_",
+            "offset": "0x3C",
+            "size": "0x14"
+        },
+        {
+            "name": "pEntries",
+            "type": "int",
+            "offset": "0x50",
+            "size": 4
+        }
+    ]
+}

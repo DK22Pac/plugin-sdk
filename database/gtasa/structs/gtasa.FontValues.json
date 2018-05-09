@@ -1,0 +1,29 @@
+{
+    "name": "FontValues",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xD2",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "proportionalValues",
+            "type": "char[208]",
+            "offset": 0,
+            "size": "0xD0"
+        },
+        {
+            "name": "replacementSpaceChar",
+            "type": "char",
+            "offset": "0xD0",
+            "size": 1
+        },
+        {
+            "name": "unproportionalValue",
+            "type": "char",
+            "offset": "0xD1",
+            "size": 1
+        }
+    ]
+}

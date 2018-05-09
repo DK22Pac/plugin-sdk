@@ -1,0 +1,45 @@
+{
+    "name": "D3DTEXTUREFILTERTYPE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DTEXF_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "D3DTEXF_POINT",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DTEXF_LINEAR",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DTEXF_ANISOTROPIC",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DTEXF_PYRAMIDALQUAD",
+            "value": "0x6"
+        },
+        {
+            "name": "D3DTEXF_GAUSSIANQUAD",
+            "value": "0x7"
+        },
+        {
+            "name": "D3DTEXF_CONVOLUTIONMONO",
+            "value": "0x8"
+        },
+        {
+            "name": "D3DTEXF_FORCE_DWORD",
+            "value": "0x7FFFFFFF"
+        }
+    ]
+}

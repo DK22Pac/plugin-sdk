@@ -1,0 +1,125 @@
+{
+    "name": "pedBones",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "BONE_PELVIS1",
+            "value": 1
+        },
+        {
+            "name": "BONE_PELVIS",
+            "value": 2
+        },
+        {
+            "name": "BONE_SPINE1",
+            "value": 3
+        },
+        {
+            "name": "BONE_UPPERTORSO",
+            "value": 4
+        },
+        {
+            "name": "BONE_NECK",
+            "value": 5
+        },
+        {
+            "name": "BONE_HEAD2",
+            "value": 6
+        },
+        {
+            "name": "BONE_HEAD1",
+            "value": 7
+        },
+        {
+            "name": "BONE_HEAD",
+            "value": 8
+        },
+        {
+            "name": "BONE_RIGHTUPPERTORSO",
+            "value": 21
+        },
+        {
+            "name": "BONE_RIGHTSHOULDER",
+            "value": 22
+        },
+        {
+            "name": "BONE_RIGHTELBOW",
+            "value": 23
+        },
+        {
+            "name": "BONE_RIGHTWRIST",
+            "value": 24
+        },
+        {
+            "name": "BONE_RIGHTHAND",
+            "value": 25
+        },
+        {
+            "name": "BONE_RIGHTTHUMB",
+            "value": 26
+        },
+        {
+            "name": "BONE_LEFTUPPERTORSO",
+            "value": 31
+        },
+        {
+            "name": "BONE_LEFTSHOULDER",
+            "value": 32
+        },
+        {
+            "name": "BONE_LEFTELBOW",
+            "value": 33
+        },
+        {
+            "name": "BONE_LEFTWRIST",
+            "value": 34
+        },
+        {
+            "name": "BONE_LEFTHAND",
+            "value": 35
+        },
+        {
+            "name": "BONE_LEFTTHUMB",
+            "value": 36
+        },
+        {
+            "name": "BONE_LEFTHIP",
+            "value": 41
+        },
+        {
+            "name": "BONE_LEFTKNEE",
+            "value": 42
+        },
+        {
+            "name": "BONE_LEFTANKLE",
+            "value": 43
+        },
+        {
+            "name": "BONE_LEFTFOOT",
+            "value": 44
+        },
+        {
+            "name": "BONE_RIGHTHIP",
+            "value": 51
+        },
+        {
+            "name": "BONE_RIGHTKNEE",
+            "value": 52
+        },
+        {
+            "name": "BONE_RIGHTANKLE",
+            "value": 53
+        },
+        {
+            "name": "BONE_RIGHTFOOT",
+            "value": 54
+        }
+    ]
+}

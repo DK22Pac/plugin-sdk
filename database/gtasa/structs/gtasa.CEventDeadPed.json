@@ -1,0 +1,91 @@
+{
+    "name": "CEventDeadPed",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "vtableAddress": "0x85AE00",
+    "vtableSize": 17,
+    "comment": "",
+    "members": [
+        {
+            "name": "vmt",
+            "type": "_DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dword4",
+            "type": "_DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "byte8",
+            "type": "_BYTE",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "f9",
+            "type": "_BYTE[3]",
+            "offset": 9,
+            "size": 3
+        },
+        {
+            "name": "byteC",
+            "type": "_BYTE",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "fD",
+            "type": "_BYTE[1]",
+            "offset": "0xD",
+            "size": 1
+        },
+        {
+            "name": "possiblyTime",
+            "type": "_WORD",
+            "offset": "0xE",
+            "size": 2
+        },
+        {
+            "name": "word10",
+            "type": "_WORD",
+            "offset": "0x10",
+            "size": 2
+        },
+        {
+            "name": "f12",
+            "type": "_BYTE[2]",
+            "offset": "0x12",
+            "size": 2
+        },
+        {
+            "name": "m_pPed",
+            "type": "CPed *",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "byte18",
+            "type": "_BYTE",
+            "offset": "0x18",
+            "size": 1
+        },
+        {
+            "name": "f19",
+            "type": "_BYTE[3]",
+            "offset": "0x19",
+            "size": 3
+        },
+        {
+            "name": "dword1C",
+            "type": "_DWORD",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

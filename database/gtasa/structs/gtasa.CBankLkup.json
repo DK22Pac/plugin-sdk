@@ -1,0 +1,35 @@
+{
+    "name": "CBankLkup",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nPakFileNumber",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "__pad0",
+            "type": "char[3]",
+            "offset": 1,
+            "size": 3
+        },
+        {
+            "name": "m_dwOffset",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_dwLength",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

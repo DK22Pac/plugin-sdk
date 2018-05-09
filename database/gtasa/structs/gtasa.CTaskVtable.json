@@ -1,0 +1,77 @@
+{
+    "name": "CTaskVtable",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "DeletingDestructor",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Clone",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "GetSubTask",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "IsSimple",
+            "type": "bool (__thiscall *)(CTask *)",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "GetId",
+            "type": "eTaskIds (__thiscall *)(CTask *)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "StopTimer",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "MakeAbortable",
+            "type": "bool (__thiscall *)(CTask *, CPed *, int, void *)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "ProcessPed_or_SetSubTask",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "SetPedPosition_or_CreateNextSubTask",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "CreateFirstSubTask",
+            "type": "int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "ControlSubTask",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        }
+    ]
+}

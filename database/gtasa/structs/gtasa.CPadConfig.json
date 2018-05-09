@@ -1,0 +1,53 @@
+{
+    "name": "CPadConfig",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "present",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "zaxisPresent",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "rzAxisPresent",
+            "type": "char",
+            "offset": 6,
+            "size": 1
+        },
+        {
+            "name": "__align",
+            "type": "char",
+            "offset": 7,
+            "size": 1
+        },
+        {
+            "name": "vendorId",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "productId",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "name": "eObjectTypes",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "OBJECT_TYPE_FLYING_COMPONENT",
+            "value": "0x3"
+        },
+        {
+            "name": "OBJECT_TYPE_CUTSCENE",
+            "value": "0x4"
+        },
+        {
+            "name": "OBJECT_TYPE_HAND",
+            "value": "0x5"
+        }
+    ]
+}

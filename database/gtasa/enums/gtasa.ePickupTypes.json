@@ -1,0 +1,105 @@
+{
+    "name": "ePickupTypes",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "PICKUP_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "PICKUP_IN_SHOP",
+            "value": "0x1"
+        },
+        {
+            "name": "PICKUP_ON_STREET",
+            "value": "0x2"
+        },
+        {
+            "name": "PICKUP_ONCE",
+            "value": "0x3"
+        },
+        {
+            "name": "PICKUP_ONCE_TIMEOUT",
+            "value": "0x4"
+        },
+        {
+            "name": "PICKUP_ONCE_TIMEOUT_SLOW",
+            "value": "0x5"
+        },
+        {
+            "name": "PICKUP_COLLECTABLE1",
+            "value": "0x6"
+        },
+        {
+            "name": "PICKUP_IN_SHOP_OUT_OF_STOCK",
+            "value": "0x7"
+        },
+        {
+            "name": "PICKUP_MONEY",
+            "value": "0x8"
+        },
+        {
+            "name": "PICKUP_MINE_INACTIVE",
+            "value": "0x9"
+        },
+        {
+            "name": "PICKUP_MINE_ARMED",
+            "value": "0xA"
+        },
+        {
+            "name": "PICKUP_NAUTICAL_MINE_INACTIVE",
+            "value": "0xB"
+        },
+        {
+            "name": "PICKUP_NAUTICAL_MINE_ARMED",
+            "value": "0xC"
+        },
+        {
+            "name": "PICKUP_FLOATINGPACKAGE",
+            "value": "0xD"
+        },
+        {
+            "name": "PICKUP_FLOATINGPACKAGE_FLOATING",
+            "value": "0xE"
+        },
+        {
+            "name": "PICKUP_ON_STREET_SLOW",
+            "value": "0xF"
+        },
+        {
+            "name": "PICKUP_ASSET_REVENUE",
+            "value": "0x10"
+        },
+        {
+            "name": "PICKUP_PROPERTY_LOCKED",
+            "value": "0x11"
+        },
+        {
+            "name": "PICKUP_PROPERTY_FORSALE",
+            "value": "0x12"
+        },
+        {
+            "name": "PICKUP_MONEY_DOESNTDISAPPEAR",
+            "value": "0x13"
+        },
+        {
+            "name": "PICKUP_SNAPSHOT",
+            "value": "0x14"
+        },
+        {
+            "name": "PICKUP_2P",
+            "value": "0x15"
+        },
+        {
+            "name": "PICKUP_ONCE_FOR_MISSION",
+            "value": "0x16"
+        }
+    ]
+}

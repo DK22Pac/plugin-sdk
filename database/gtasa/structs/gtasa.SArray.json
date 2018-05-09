@@ -1,0 +1,35 @@
+{
+    "name": "SArray",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "allocator",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "_First",
+            "type": "void **",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "_Last",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "_End",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

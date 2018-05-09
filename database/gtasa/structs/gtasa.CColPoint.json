@@ -1,0 +1,83 @@
+{
+    "name": "CColPoint",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "point",
+            "type": "CVector",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "field_C",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "normal",
+            "type": "CVector",
+            "offset": "0x10",
+            "size": "0xC"
+        },
+        {
+            "name": "field_1C",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "surfaceTypeA",
+            "type": "char",
+            "offset": "0x20",
+            "size": 1
+        },
+        {
+            "name": "pieceTypeA",
+            "type": "char",
+            "offset": "0x21",
+            "size": 1
+        },
+        {
+            "name": "lightingA",
+            "type": "char",
+            "offset": "0x22",
+            "size": 1
+        },
+        {
+            "name": "surfaceTypeB",
+            "type": "unsigned __int8",
+            "offset": "0x23",
+            "size": 1
+        },
+        {
+            "name": "pieceTypeB",
+            "type": "char",
+            "offset": "0x24",
+            "size": 1
+        },
+        {
+            "name": "lightingB",
+            "type": "char",
+            "offset": "0x25",
+            "size": 1
+        },
+        {
+            "name": "field_26",
+            "type": "char[2]",
+            "offset": "0x26",
+            "size": 2
+        },
+        {
+            "name": "depth",
+            "type": "float",
+            "offset": "0x28",
+            "size": 4
+        }
+    ]
+}

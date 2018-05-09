@@ -1,0 +1,41 @@
+{
+    "name": "BreakObject_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "m_bActive",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "field_2",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "m_nRenderPhase",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "field_4",
+            "type": "char[28]",
+            "offset": 4,
+            "size": "0x1C"
+        }
+    ]
+}

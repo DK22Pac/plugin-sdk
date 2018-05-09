@@ -1,0 +1,69 @@
+{
+    "name": "eScmDataType",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "SCM_TYPE_EOAL",
+            "value": "0x0"
+        },
+        {
+            "name": "SCM_TYPE_INT32",
+            "value": "0x1"
+        },
+        {
+            "name": "SCM_TYPE_GVAR",
+            "value": "0x2"
+        },
+        {
+            "name": "SCM_TYPE_LVAR",
+            "value": "0x3"
+        },
+        {
+            "name": "SCM_TYPE_INT8",
+            "value": "0x4"
+        },
+        {
+            "name": "SCM_TYPE_INT16",
+            "value": "0x5"
+        },
+        {
+            "name": "SCM_TYPE_FLOAT",
+            "value": "0x6"
+        },
+        {
+            "name": "SCM_TYPE_GVAR_ARRAY",
+            "value": "0x7"
+        },
+        {
+            "name": "SCM_TYPE_LVAR_ARRAY",
+            "value": "0x8"
+        },
+        {
+            "name": "SCM_TYPE_STRING_8B",
+            "value": "0x9"
+        },
+        {
+            "name": "SCM_TYPE_GVAR_STRING_8B",
+            "value": "0xA"
+        },
+        {
+            "name": "SCM_TYPE_LVAR_STRING_8B",
+            "value": "0xB"
+        },
+        {
+            "name": "SCM_TYPE_GVAR_STRING_8B_ARRAY",
+            "value": "0xC"
+        },
+        {
+            "name": "SCM_TYPE_LVAR_STRING_8B_ARRAY",
+            "value": "0xD"
+        }
+    ]
+}

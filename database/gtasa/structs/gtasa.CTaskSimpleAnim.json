@@ -1,0 +1,37 @@
+{
+    "name": "CTaskSimpleAnim",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "vtableAddress": "0x86D504",
+    "vtableSize": 9,
+    "comment": "public CTask_86D4A8",
+    "members": [
+        {
+            "name": "simple",
+            "type": "CTaskSimple",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "m_pBlendAssociation",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_nFlags",
+            "type": "char",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "field_D",
+            "type": "char[3]",
+            "offset": "0xD",
+            "size": 3
+        }
+    ]
+}

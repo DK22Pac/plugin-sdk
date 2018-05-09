@@ -1,0 +1,17 @@
+{
+    "name": "CInputEvents__Event",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "data",
+            "type": "pair[4]",
+            "offset": 0,
+            "size": "0x20"
+        }
+    ]
+}

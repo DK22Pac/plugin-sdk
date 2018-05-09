@@ -1,0 +1,33 @@
+{
+    "name": "eNameState",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "NAME_DONT_SHOW",
+            "value": "0x0"
+        },
+        {
+            "name": "NAME_SHOW",
+            "value": "0x1"
+        },
+        {
+            "name": "NAME_FADE_IN",
+            "value": "0x2"
+        },
+        {
+            "name": "NAME_FADE_OUT",
+            "value": "0x3"
+        },
+        {
+            "name": "NAME_SWITCH",
+            "value": "0x4"
+        }
+    ]
+}

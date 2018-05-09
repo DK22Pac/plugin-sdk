@@ -1,0 +1,25 @@
+{
+    "name": "MACRO_E",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "E_NOTIMPL",
+            "value": "0x80004001"
+        },
+        {
+            "name": "E_OUTOFMEMORY",
+            "value": "0x8007000E"
+        },
+        {
+            "name": "E_INVALIDARG",
+            "value": "0x80070057"
+        }
+    ]
+}

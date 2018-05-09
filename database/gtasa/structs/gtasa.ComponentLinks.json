@@ -1,0 +1,29 @@
+{
+    "name": "ComponentLinks",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "component1",
+            "type": "__int16[30]",
+            "offset": 0,
+            "size": "0x3C"
+        },
+        {
+            "name": "component2",
+            "type": "__int16[30]",
+            "offset": "0x3C",
+            "size": "0x3C"
+        },
+        {
+            "name": "componentCount",
+            "type": "int",
+            "offset": "0x78",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,174 @@
+{
+    "name": "CObject",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x17C",
+    "alignment": 0,
+    "vtableAddress": "0x866F60",
+    "vtableSize": 23,
+    "comment": "",
+    "members": [
+        {
+            "name": "physical",
+            "type": "CPhysical",
+            "offset": 0,
+            "size": "0x138"
+        },
+        {
+            "name": "m_pControlCodeList",
+            "type": "CPtrNodeDoubleLink *",
+            "offset": "0x138",
+            "size": 4
+        },
+        {
+            "name": "m_nObjectType",
+            "type": "char",
+            "offset": "0x13C",
+            "size": 1,
+            "comment": "2 - MISSION_OBJECT;;3 - TEMP_OBJECT;;6 - MISSION_OBJECT"
+        },
+        {
+            "name": "m_nBonusValue",
+            "type": "char",
+            "offset": "0x13D",
+            "size": 1
+        },
+        {
+            "name": "m_nCostValue",
+            "type": "__int16",
+            "offset": "0x13E",
+            "size": 2
+        },
+        {
+            "name": "m_nObjectFlags",
+            "type": "int",
+            "offset": "0x140",
+            "size": 4,
+            "comment": "0 - ;;1 - ;;2 -  PICKUP_PROPERTY_FORSALE;;3 -  PICKUP_IN_SHOP_OUT_OF_STOCK;;4 - ;;5 - ;;6 -  IS_EXPLODED;;7 - ;;8 -  IS_LAMPPOST;;9 -  IS_TARGETABLE;;10 - IS_BROKEN;;11 - TRAINCROSS_ENABLED;;12 - IS_PHOTOGRAPGED;;13 - IS_LIFTABLE;;14 - ;;15 - IS_DOOR;;16 - HAS_NO_MODEL;;17 - OBJECT_SCALED;;18 - CAN_BE_ATTACHED_TO_MAGNET;;19 - ;;20 - ;;21 - ;;22 - FADING_IN;;23 - IS_AFFECTED_BY_COL_BRIGHTNESS;;24 - ;;25 - DO_NOT_RENDER;;26 - FADING_IN;;27 - ;;28 - ;;29 - ;;30 - ;;31 - ;;32 -"
+        },
+        {
+            "name": "m_nCurrentColDamageEffect",
+            "type": "char",
+            "offset": "0x144",
+            "size": 1
+        },
+        {
+            "name": "m_nStoredColDamageEffect",
+            "type": "char",
+            "offset": "0x145",
+            "size": 1
+        },
+        {
+            "name": "field_146",
+            "type": "char",
+            "offset": "0x146",
+            "size": 1
+        },
+        {
+            "name": "m_nGarageDoorGarageIndex",
+            "type": "char",
+            "offset": "0x147",
+            "size": 1
+        },
+        {
+            "name": "m_nLastWeaponDamage",
+            "type": "char",
+            "offset": "0x148",
+            "size": 1
+        },
+        {
+            "name": "m_nColBrightness",
+            "type": "char",
+            "offset": "0x149",
+            "size": 1
+        },
+        {
+            "name": "m_wCarPartModelIndex",
+            "type": "WORD",
+            "offset": "0x14A",
+            "size": 2
+        },
+        {
+            "name": "m_nColorId",
+            "type": "BYTE[4]",
+            "offset": "0x14C",
+            "size": 4
+        },
+        {
+            "name": "m_nRemovalTime",
+            "type": "int",
+            "offset": "0x150",
+            "size": 4
+        },
+        {
+            "name": "m_fHealth",
+            "type": "float",
+            "offset": "0x154",
+            "size": 4
+        },
+        {
+            "name": "m_fDoorAngle",
+            "type": "float",
+            "offset": "0x158",
+            "size": 4
+        },
+        {
+            "name": "m_fScale",
+            "type": "int",
+            "offset": "0x15C",
+            "size": 4
+        },
+        {
+            "name": "m_pObjectInfo",
+            "type": "CObjectInfo *",
+            "offset": "0x160",
+            "size": 4
+        },
+        {
+            "name": "m_pFire",
+            "type": "CFire *",
+            "offset": "0x164",
+            "size": 4,
+            "comment": "CFire *"
+        },
+        {
+            "name": "m_wScriptTriggerIndex",
+            "type": "__int16",
+            "offset": "0x168",
+            "size": 2
+        },
+        {
+            "name": "m_wRemapTxd",
+            "type": "__int16",
+            "offset": "0x16A",
+            "size": 2
+        },
+        {
+            "name": "m_pRemapTexture",
+            "type": "int",
+            "offset": "0x16C",
+            "size": 4,
+            "comment": "RwTexture *"
+        },
+        {
+            "name": "m_pDummyObject",
+            "type": "int",
+            "offset": "0x170",
+            "size": 4,
+            "comment": "CDummyObject *"
+        },
+        {
+            "name": "m_dwTimeToRemoveParticles",
+            "type": "int",
+            "offset": "0x174",
+            "size": 4
+        },
+        {
+            "name": "m_fParticlesIntensity",
+            "type": "float",
+            "offset": "0x178",
+            "size": 4
+        }
+    ]
+}

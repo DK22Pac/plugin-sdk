@@ -1,0 +1,37 @@
+{
+    "name": "CTaskComplexJump",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "vtableAddress": "0x870570",
+    "vtableSize": 11,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CTaskComplex",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "field_C",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "char",
+            "offset": "0x10",
+            "size": 1
+        },
+        {
+            "name": "field_11",
+            "type": "char[3]",
+            "offset": "0x11",
+            "size": 3
+        }
+    ]
+}

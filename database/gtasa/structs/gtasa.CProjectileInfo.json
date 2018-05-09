@@ -1,0 +1,59 @@
+{
+    "name": "CProjectileInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_dwWeaponType",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_pLauncher",
+            "type": "CEntity *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_pTarget",
+            "type": "CEntity *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_dwTimeToDestroy",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_bState",
+            "type": "char",
+            "offset": "0x10",
+            "size": 1
+        },
+        {
+            "name": "_pad11",
+            "type": "char[3]",
+            "offset": "0x11",
+            "size": 3
+        },
+        {
+            "name": "m_vLastPos",
+            "type": "CVector",
+            "offset": "0x14",
+            "size": "0xC"
+        },
+        {
+            "name": "m_pParticle",
+            "type": "FxSystem_c *",
+            "offset": "0x20",
+            "size": 4
+        }
+    ]
+}

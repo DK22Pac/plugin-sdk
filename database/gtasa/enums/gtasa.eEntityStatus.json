@@ -1,0 +1,69 @@
+{
+    "name": "eEntityStatus",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "STATUS_PLAYER",
+            "value": "0x0"
+        },
+        {
+            "name": "STATUS_PLAYER_PLAYBACKFROMBUFFER",
+            "value": "0x1"
+        },
+        {
+            "name": "STATUS_SIMPLE",
+            "value": "0x2"
+        },
+        {
+            "name": "STATUS_PHYSICS",
+            "value": "0x3"
+        },
+        {
+            "name": "STATUS_ABANDONED",
+            "value": "0x4"
+        },
+        {
+            "name": "STATUS_WRECKED",
+            "value": "0x5"
+        },
+        {
+            "name": "STATUS_TRAIN_MOVING",
+            "value": "0x6"
+        },
+        {
+            "name": "STATUS_TRAIN_NOT_MOVING",
+            "value": "0x7"
+        },
+        {
+            "name": "STATUS_HELI",
+            "value": "0x8"
+        },
+        {
+            "name": "STATUS_PLANE",
+            "value": "0x9"
+        },
+        {
+            "name": "STATUS_REMOTE_CONTROLLED",
+            "value": "0xA"
+        },
+        {
+            "name": "STATUS_PLAYER_DISABLED",
+            "value": "0xB"
+        },
+        {
+            "name": "STATUS_TRAILER",
+            "value": "0xC"
+        },
+        {
+            "name": "STATUS_SIMPLE_TRAILER",
+            "value": "0xD"
+        }
+    ]
+}

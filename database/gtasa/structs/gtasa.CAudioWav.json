@@ -1,0 +1,17 @@
+{
+    "name": "CAudioWav",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "char[32]",
+            "offset": 0,
+            "size": "0x20"
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "name": "D3DMULTISAMPLE_TYPE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DMULTISAMPLE_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "D3DMULTISAMPLE_NONMASKABLE",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DMULTISAMPLE_2_SAMPLES",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DMULTISAMPLE_3_SAMPLES",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DMULTISAMPLE_4_SAMPLES",
+            "value": "0x4"
+        },
+        {
+            "name": "D3DMULTISAMPLE_5_SAMPLES",
+            "value": "0x5"
+        },
+        {
+            "name": "D3DMULTISAMPLE_6_SAMPLES",
+            "value": "0x6"
+        },
+        {
+            "name": "D3DMULTISAMPLE_7_SAMPLES",
+            "value": "0x7"
+        },
+        {
+            "name": "D3DMULTISAMPLE_8_SAMPLES",
+            "value": "0x8"
+        },
+        {
+            "name": "D3DMULTISAMPLE_9_SAMPLES",
+            "value": "0x9"
+        },
+        {
+            "name": "D3DMULTISAMPLE_10_SAMPLES",
+            "value": "0xA"
+        },
+        {
+            "name": "D3DMULTISAMPLE_11_SAMPLES",
+            "value": "0xB"
+        },
+        {
+            "name": "D3DMULTISAMPLE_12_SAMPLES",
+            "value": "0xC"
+        },
+        {
+            "name": "D3DMULTISAMPLE_13_SAMPLES",
+            "value": "0xD"
+        },
+        {
+            "name": "D3DMULTISAMPLE_14_SAMPLES",
+            "value": "0xE"
+        },
+        {
+            "name": "D3DMULTISAMPLE_15_SAMPLES",
+            "value": "0xF"
+        },
+        {
+            "name": "D3DMULTISAMPLE_16_SAMPLES",
+            "value": "0x10"
+        },
+        {
+            "name": "D3DMULTISAMPLE_FORCE_DWORD",
+            "value": "0x7FFFFFFF"
+        }
+    ]
+}

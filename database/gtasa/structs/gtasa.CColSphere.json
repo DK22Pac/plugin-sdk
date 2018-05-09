@@ -1,0 +1,23 @@
+{
+    "name": "CColSphere",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "sphere",
+            "type": "CSphere",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "surface",
+            "type": "CColSurface",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

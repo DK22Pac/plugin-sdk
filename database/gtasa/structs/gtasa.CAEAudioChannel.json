@@ -1,0 +1,169 @@
+{
+    "name": "CAEAudioChannel",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x60",
+    "alignment": 2,
+    "vtableAddress": "0x85F03C",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtable",
+            "type": "_vtable_CAEAudioChannel *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_pDirectSound",
+            "type": "IDirectSound *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_pDirectSoundBuffer",
+            "type": "IDirectSoundBuffer8 *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_pDirectSound3DBuffer",
+            "type": "IDirectSound3DBuffer *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "gap10",
+            "type": "_BYTE[24]",
+            "offset": "0x10",
+            "size": "0x18"
+        },
+        {
+            "name": "m_dwFlags",
+            "type": "_DWORD",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "m_dwLengthInBytes",
+            "type": "int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "field_30",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "m_fVolume",
+            "type": "float",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "field_38",
+            "type": "_BYTE",
+            "offset": "0x38",
+            "size": 1
+        },
+        {
+            "name": "field_39",
+            "type": "char",
+            "offset": "0x39",
+            "size": 1
+        },
+        {
+            "name": "field_3A",
+            "type": "_WORD",
+            "offset": "0x3A",
+            "size": 2
+        },
+        {
+            "name": "m_dwFrequency",
+            "type": "_DWORD",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "m_dwOriginalFrequency",
+            "type": "_DWORD",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "m_bLooped",
+            "type": "_BYTE",
+            "offset": "0x44",
+            "size": 1
+        },
+        {
+            "name": "field_45",
+            "type": "_BYTE",
+            "offset": "0x45",
+            "size": 1
+        },
+        {
+            "name": "field_46",
+            "type": "_BYTE[1]",
+            "offset": "0x46",
+            "size": 1
+        },
+        {
+            "name": "field_47",
+            "type": "_WORD",
+            "offset": "0x47",
+            "size": 2
+        },
+        {
+            "name": "field_49",
+            "type": "_WORD",
+            "offset": "0x49",
+            "size": 2
+        },
+        {
+            "name": "field_4B",
+            "type": "_DWORD",
+            "offset": "0x4B",
+            "size": 4
+        },
+        {
+            "name": "field_4F",
+            "type": "_DWORD",
+            "offset": "0x4F",
+            "size": 4
+        },
+        {
+            "name": "field_53",
+            "type": "_WORD",
+            "offset": "0x53",
+            "size": 2
+        },
+        {
+            "name": "m_wBitsPerSample",
+            "type": "_WORD",
+            "offset": "0x55",
+            "size": 2
+        },
+        {
+            "name": "field_57",
+            "type": "_WORD",
+            "offset": "0x57",
+            "size": 2
+        },
+        {
+            "name": "field_59",
+            "type": "char[3]",
+            "offset": "0x59",
+            "size": 3
+        },
+        {
+            "name": "dwBufferStatus",
+            "type": "_DWORD",
+            "offset": "0x5C",
+            "size": 4
+        }
+    ]
+}

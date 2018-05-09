@@ -1,0 +1,12 @@
+{
+    "name": "VehicleClasses",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": []
+}

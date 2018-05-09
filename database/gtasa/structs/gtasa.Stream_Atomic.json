@@ -1,0 +1,35 @@
+{
+    "name": "Stream_Atomic",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "frameId",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "geometryId",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "flags",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "field_C",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

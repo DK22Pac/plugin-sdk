@@ -1,0 +1,29 @@
+{
+    "name": "RpSkinHeader",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "numBones",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "numBoneIds",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "maxNumWeightsPerVertex",
+            "type": "BYTE[2]",
+            "offset": 2,
+            "size": 2
+        }
+    ]
+}

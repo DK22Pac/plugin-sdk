@@ -1,0 +1,77 @@
+{
+    "name": "GTA_STREAM",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x30",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "nSectorOffset",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "nSectorsToRead",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "lpBuffer",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "field_C",
+            "type": "char",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "bLocked",
+            "type": "char",
+            "offset": "0xD",
+            "size": 1
+        },
+        {
+            "name": "bInUse",
+            "type": "char",
+            "offset": "0xE",
+            "size": 1
+        },
+        {
+            "name": "field_F",
+            "type": "char",
+            "offset": "0xF",
+            "size": 1
+        },
+        {
+            "name": "status",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "hSemaphore",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "hFile",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "overlapped",
+            "type": "OVERLAPPED",
+            "offset": "0x1C",
+            "size": "0x14"
+        }
+    ]
+}

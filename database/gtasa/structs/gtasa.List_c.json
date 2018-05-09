@@ -1,0 +1,29 @@
+{
+    "name": "List_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "last",
+            "type": "ListItem_c *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "first",
+            "type": "ListItem_c *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "count",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

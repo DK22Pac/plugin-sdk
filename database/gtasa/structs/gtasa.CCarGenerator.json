@@ -1,0 +1,107 @@
+{
+    "name": "CCarGenerator",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nModelId",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "m_nColor",
+            "type": "char[2]",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "m_vecPosn",
+            "type": "CCompressedVector",
+            "offset": 4,
+            "size": 6
+        },
+        {
+            "name": "m_nAngle",
+            "type": "char",
+            "offset": "0xA",
+            "size": 1
+        },
+        {
+            "name": "m_nAlarm",
+            "type": "char",
+            "offset": "0xB",
+            "size": 1
+        },
+        {
+            "name": "m_nDoorLock",
+            "type": "char",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "m_nFlags",
+            "type": "char",
+            "offset": "0xD",
+            "size": 1
+        },
+        {
+            "name": "m_nMinDelay",
+            "type": "__int16",
+            "offset": "0xE",
+            "size": 2
+        },
+        {
+            "name": "m_nMaxDelay",
+            "type": "__int16",
+            "offset": "0x10",
+            "size": 2
+        },
+        {
+            "name": "_pad12",
+            "type": "char[2]",
+            "offset": "0x12",
+            "size": 2
+        },
+        {
+            "name": "m_nNextGenTime",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_nVehicleHandle",
+            "type": "__int16",
+            "offset": "0x18",
+            "size": 2
+        },
+        {
+            "name": "m_nState",
+            "type": "__int16",
+            "offset": "0x1A",
+            "size": 2
+        },
+        {
+            "name": "m_nIplId",
+            "type": "char",
+            "offset": "0x1C",
+            "size": 1
+        },
+        {
+            "name": "m_bIsUsed",
+            "type": "char",
+            "offset": "0x1D",
+            "size": 1
+        },
+        {
+            "name": "_pad1E",
+            "type": "char[2]",
+            "offset": "0x1E",
+            "size": 2
+        }
+    ]
+}

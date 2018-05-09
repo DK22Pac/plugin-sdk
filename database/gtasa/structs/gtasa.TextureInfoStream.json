@@ -1,0 +1,35 @@
+{
+    "name": "TextureInfoStream",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "filterAndAddress",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "uvAddressing",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "hasMipMaps",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "__pad",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        }
+    ]
+}

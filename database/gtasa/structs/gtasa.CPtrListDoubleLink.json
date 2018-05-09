@@ -1,0 +1,17 @@
+{
+    "name": "CPtrListDoubleLink",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "pNode",
+            "type": "CPtrNodeDoubleLink *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

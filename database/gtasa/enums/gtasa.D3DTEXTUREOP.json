@@ -1,0 +1,121 @@
+{
+    "name": "D3DTEXTUREOP",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DTOP_DISABLE",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DTOP_SELECTARG1",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DTOP_SELECTARG2",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DTOP_MODULATE",
+            "value": "0x4"
+        },
+        {
+            "name": "D3DTOP_MODULATE2X",
+            "value": "0x5"
+        },
+        {
+            "name": "D3DTOP_MODULATE4X",
+            "value": "0x6"
+        },
+        {
+            "name": "D3DTOP_ADD",
+            "value": "0x7"
+        },
+        {
+            "name": "D3DTOP_ADDSIGNED",
+            "value": "0x8"
+        },
+        {
+            "name": "D3DTOP_ADDSIGNED2X",
+            "value": "0x9"
+        },
+        {
+            "name": "D3DTOP_SUBTRACT",
+            "value": "0xA"
+        },
+        {
+            "name": "D3DTOP_ADDSMOOTH",
+            "value": "0xB"
+        },
+        {
+            "name": "D3DTOP_BLENDDIFFUSEALPHA",
+            "value": "0xC"
+        },
+        {
+            "name": "D3DTOP_BLENDTEXTUREALPHA",
+            "value": "0xD"
+        },
+        {
+            "name": "D3DTOP_BLENDFACTORALPHA",
+            "value": "0xE"
+        },
+        {
+            "name": "D3DTOP_BLENDTEXTUREALPHAPM",
+            "value": "0xF"
+        },
+        {
+            "name": "D3DTOP_BLENDCURRENTALPHA",
+            "value": "0x10"
+        },
+        {
+            "name": "D3DTOP_PREMODULATE",
+            "value": "0x11"
+        },
+        {
+            "name": "D3DTOP_MODULATEALPHA_ADDCOLOR",
+            "value": "0x12"
+        },
+        {
+            "name": "D3DTOP_MODULATECOLOR_ADDALPHA",
+            "value": "0x13"
+        },
+        {
+            "name": "D3DTOP_MODULATEINVALPHA_ADDCOLOR",
+            "value": "0x14"
+        },
+        {
+            "name": "D3DTOP_MODULATEINVCOLOR_ADDALPHA",
+            "value": "0x15"
+        },
+        {
+            "name": "D3DTOP_BUMPENVMAP",
+            "value": "0x16"
+        },
+        {
+            "name": "D3DTOP_BUMPENVMAPLUMINANCE",
+            "value": "0x17"
+        },
+        {
+            "name": "D3DTOP_DOTPRODUCT3",
+            "value": "0x18"
+        },
+        {
+            "name": "D3DTOP_MULTIPLYADD",
+            "value": "0x19"
+        },
+        {
+            "name": "D3DTOP_LERP",
+            "value": "0x1A"
+        },
+        {
+            "name": "D3DTOP_FORCE_DWORD",
+            "value": "0x7FFFFFFF"
+        }
+    ]
+}

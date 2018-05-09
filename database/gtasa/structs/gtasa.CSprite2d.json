@@ -1,0 +1,17 @@
+{
+    "name": "CSprite2d",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pTexture",
+            "type": "RwTexture *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

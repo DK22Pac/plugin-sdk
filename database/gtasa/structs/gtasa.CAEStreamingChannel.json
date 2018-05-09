@@ -1,0 +1,139 @@
+{
+    "name": "CAEStreamingChannel",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x60098",
+    "alignment": 2,
+    "vtableAddress": "0x85F3F0",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "base",
+            "type": "CAEAudioChannel",
+            "offset": 0,
+            "size": "0x60"
+        },
+        {
+            "name": "field_60",
+            "type": "_BYTE",
+            "offset": "0x60",
+            "size": 1
+        },
+        {
+            "name": "field_61",
+            "type": "_BYTE",
+            "offset": "0x61",
+            "size": 1
+        },
+        {
+            "name": "field_62",
+            "type": "_BYTE",
+            "offset": "0x62",
+            "size": 1
+        },
+        {
+            "name": "field_63",
+            "type": "_BYTE",
+            "offset": "0x63",
+            "size": 1
+        },
+        {
+            "name": "field_64",
+            "type": "_BYTE",
+            "offset": "0x64",
+            "size": 1
+        },
+        {
+            "name": "m_bFxEnabled",
+            "type": "_BYTE",
+            "offset": "0x65",
+            "size": 1
+        },
+        {
+            "name": "field_66",
+            "type": "_BYTE",
+            "offset": "0x66",
+            "size": 1
+        },
+        {
+            "name": "field_67",
+            "type": "_BYTE",
+            "offset": "0x67",
+            "size": 1
+        },
+        {
+            "name": "field_68",
+            "type": "_DWORD",
+            "offset": "0x68",
+            "size": 4
+        },
+        {
+            "name": "field_6C",
+            "type": "_BYTE[393216]",
+            "offset": "0x6C",
+            "size": "0x60000"
+        },
+        {
+            "name": "field_6006C",
+            "type": "_DWORD",
+            "offset": "0x6006C",
+            "size": 4
+        },
+        {
+            "name": "m_pStreamingDecoder",
+            "type": "_DWORD",
+            "offset": "0x60070",
+            "size": 4
+        },
+        {
+            "name": "field_60074",
+            "type": "_DWORD",
+            "offset": "0x60074",
+            "size": 4
+        },
+        {
+            "name": "field_60078",
+            "type": "_DWORD",
+            "offset": "0x60078",
+            "size": 4
+        },
+        {
+            "name": "field_6007C",
+            "type": "_BYTE[8]",
+            "offset": "0x6007C",
+            "size": 8
+        },
+        {
+            "name": "field_60084",
+            "type": "_DWORD",
+            "offset": "0x60084",
+            "size": 4
+        },
+        {
+            "name": "field_60088",
+            "type": "int",
+            "offset": "0x60088",
+            "size": 4
+        },
+        {
+            "name": "field_6008C",
+            "type": "int",
+            "offset": "0x6008C",
+            "size": 4
+        },
+        {
+            "name": "field_60090",
+            "type": "IDirectSoundBuffer *",
+            "offset": "0x60090",
+            "size": 4
+        },
+        {
+            "name": "field_60094",
+            "type": "_DWORD",
+            "offset": "0x60094",
+            "size": 4
+        }
+    ]
+}

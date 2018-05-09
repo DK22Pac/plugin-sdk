@@ -1,0 +1,25 @@
+{
+    "name": "eBankId",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "BANK_HORNS_AND_SIRENS",
+            "value": 74
+        },
+        {
+            "name": "BANK_MRWHOOPIE_SOUNDS",
+            "value": 79
+        },
+        {
+            "name": "BANK_RAIN_SOUNDS",
+            "value": 105
+        }
+    ]
+}

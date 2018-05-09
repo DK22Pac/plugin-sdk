@@ -1,0 +1,23 @@
+{
+    "name": "CFireManager",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x964",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_aFires",
+            "type": "CFire[60]",
+            "offset": 0,
+            "size": "0x960"
+        },
+        {
+            "name": "m_nMaxFireGenerationsAllowed",
+            "type": "int",
+            "offset": "0x960",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "CPolyBunch",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x68",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_avecPosn",
+            "type": "CVector[7]",
+            "offset": 0,
+            "size": "0x54"
+        },
+        {
+            "name": "m_pNext",
+            "type": "CPolyBunch *",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "m_wNumVerts",
+            "type": "__int16",
+            "offset": "0x58",
+            "size": 2
+        },
+        {
+            "name": "m_aU",
+            "type": "char[7]",
+            "offset": "0x5A",
+            "size": 7
+        },
+        {
+            "name": "m_aV",
+            "type": "char[7]",
+            "offset": "0x61",
+            "size": 7
+        }
+    ]
+}

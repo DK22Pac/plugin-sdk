@@ -1,0 +1,69 @@
+{
+    "name": "D3DDECLUSAGE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DDECLUSAGE_POSITION",
+            "value": "0x0"
+        },
+        {
+            "name": "D3DDECLUSAGE_BLENDWEIGHT",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DDECLUSAGE_BLENDINDICES",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DDECLUSAGE_NORMAL",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DDECLUSAGE_PSIZE",
+            "value": "0x4"
+        },
+        {
+            "name": "D3DDECLUSAGE_TEXCOORD",
+            "value": "0x5"
+        },
+        {
+            "name": "D3DDECLUSAGE_TANGENT",
+            "value": "0x6"
+        },
+        {
+            "name": "D3DDECLUSAGE_BINORMAL",
+            "value": "0x7"
+        },
+        {
+            "name": "D3DDECLUSAGE_TESSFACTOR",
+            "value": "0x8"
+        },
+        {
+            "name": "D3DDECLUSAGE_POSITIONT",
+            "value": "0x9"
+        },
+        {
+            "name": "D3DDECLUSAGE_COLOR",
+            "value": "0xA"
+        },
+        {
+            "name": "D3DDECLUSAGE_FOG",
+            "value": "0xB"
+        },
+        {
+            "name": "D3DDECLUSAGE_DEPTH",
+            "value": "0xC"
+        },
+        {
+            "name": "D3DDECLUSAGE_SAMPLE",
+            "value": "0xD"
+        }
+    ]
+}

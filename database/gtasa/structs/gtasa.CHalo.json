@@ -1,0 +1,53 @@
+{
+    "name": "CHalo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "DistanceToScreenCenter",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Size",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "red",
+            "type": "__int16",
+            "offset": 8,
+            "size": 2
+        },
+        {
+            "name": "green",
+            "type": "__int16",
+            "offset": "0xA",
+            "size": 2
+        },
+        {
+            "name": "blue",
+            "type": "__int16",
+            "offset": "0xC",
+            "size": 2
+        },
+        {
+            "name": "alpha",
+            "type": "__int16",
+            "offset": "0xE",
+            "size": 2
+        },
+        {
+            "name": "numVertices?",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

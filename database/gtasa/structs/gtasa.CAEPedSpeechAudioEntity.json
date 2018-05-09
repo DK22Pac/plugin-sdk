@@ -1,0 +1,157 @@
+{
+    "name": "CAEPedSpeechAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x100",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "dummy",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        },
+        {
+            "name": "field_7C",
+            "type": "char[20]",
+            "offset": "0x7C",
+            "size": "0x14"
+        },
+        {
+            "name": "field_90",
+            "type": "char",
+            "offset": "0x90",
+            "size": 1
+        },
+        {
+            "name": "field_91",
+            "type": "char",
+            "offset": "0x91",
+            "size": 1
+        },
+        {
+            "name": "m_nAudioPedType",
+            "type": "__int16",
+            "offset": "0x92",
+            "size": 2
+        },
+        {
+            "name": "m_nVoiceId",
+            "type": "__int16",
+            "offset": "0x94",
+            "size": 2
+        },
+        {
+            "name": "m_nAudioGender",
+            "type": "__int16",
+            "offset": "0x96",
+            "size": 2,
+            "comment": "0 - Male - 1 - Female"
+        },
+        {
+            "name": "m_bTalking",
+            "type": "char",
+            "offset": "0x98",
+            "size": 1
+        },
+        {
+            "name": "m_bEnableSpeech",
+            "type": "char",
+            "offset": "0x99",
+            "size": 1
+        },
+        {
+            "name": "m_bEnableSpeechForScripts",
+            "type": "char",
+            "offset": "0x9A",
+            "size": 1
+        },
+        {
+            "name": "m_nVocalEnableFlag",
+            "type": "char",
+            "offset": "0x9B",
+            "size": 1
+        },
+        {
+            "name": "field_9C",
+            "type": "char",
+            "offset": "0x9C",
+            "size": 1
+        },
+        {
+            "name": "field_9D",
+            "type": "char",
+            "offset": "0x9D",
+            "size": 1
+        },
+        {
+            "name": "field_9E",
+            "type": "char",
+            "offset": "0x9E",
+            "size": 1
+        },
+        {
+            "name": "field_9F",
+            "type": "char",
+            "offset": "0x9F",
+            "size": 1
+        },
+        {
+            "name": "m_pSound",
+            "type": "CAESound *",
+            "offset": "0xA0",
+            "size": 4,
+            "comment": "CSound *"
+        },
+        {
+            "name": "field_A4",
+            "type": "__int16",
+            "offset": "0xA4",
+            "size": 2
+        },
+        {
+            "name": "field_A6",
+            "type": "__int16",
+            "offset": "0xA6",
+            "size": 2
+        },
+        {
+            "name": "field_A8",
+            "type": "__int16",
+            "offset": "0xA8",
+            "size": 2
+        },
+        {
+            "name": "field_AA",
+            "type": "__int16",
+            "offset": "0xAA",
+            "size": 2
+        },
+        {
+            "name": "m_fVoiceVolume",
+            "type": "float",
+            "offset": "0xAC",
+            "size": 4
+        },
+        {
+            "name": "m_nPhraseId",
+            "type": "__int16",
+            "offset": "0xB0",
+            "size": 2
+        },
+        {
+            "name": "field_B2",
+            "type": "__int16",
+            "offset": "0xB2",
+            "size": 2
+        },
+        {
+            "name": "field_B4",
+            "type": "int[19]",
+            "offset": "0xB4",
+            "size": "0x4C"
+        }
+    ]
+}

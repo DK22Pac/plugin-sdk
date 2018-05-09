@@ -1,0 +1,29 @@
+{
+    "name": "CDecisionSimple",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x34",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_anTasks",
+            "type": "int[6]",
+            "offset": 0,
+            "size": "0x18"
+        },
+        {
+            "name": "m_anChances",
+            "type": "float[6]",
+            "offset": "0x18",
+            "size": "0x18"
+        },
+        {
+            "name": "m_nCount",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        }
+    ]
+}

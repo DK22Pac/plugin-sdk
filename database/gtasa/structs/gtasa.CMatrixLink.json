@@ -1,0 +1,35 @@
+{
+    "name": "CMatrixLink",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x54",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "mat",
+            "type": "CMatrix",
+            "offset": 0,
+            "size": "0x48"
+        },
+        {
+            "name": "m_pOwner",
+            "type": "int",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "m_pPrev",
+            "type": "CMatrixLink *",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "m_pNext",
+            "type": "CMatrixLink *",
+            "offset": "0x50",
+            "size": 4
+        }
+    ]
+}

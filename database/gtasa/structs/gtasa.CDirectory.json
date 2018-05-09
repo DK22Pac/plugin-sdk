@@ -1,0 +1,41 @@
+{
+    "name": "CDirectory",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pEntries",
+            "type": "DirectoryInfo *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nCapacity",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_nNumEntries",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_bOwnsEntries",
+            "type": "char",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "__pad",
+            "type": "char[3]",
+            "offset": "0xD",
+            "size": 3
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "name": "CPedGroupIntelligence",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2A0",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pPedGroup",
+            "type": "CPedGroup *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_pEventGroupEvent",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_groupTasks",
+            "type": "CPedTaskPair[32]",
+            "offset": "0xC",
+            "size": "0x280"
+        },
+        {
+            "name": "field_28C",
+            "type": "int",
+            "offset": "0x28C",
+            "size": 4
+        },
+        {
+            "name": "m_pPrimaryTaskAllocator",
+            "type": "int",
+            "offset": "0x290",
+            "size": 4
+        },
+        {
+            "name": "m_pEventResponseTaskAllocator",
+            "type": "int",
+            "offset": "0x294",
+            "size": 4
+        },
+        {
+            "name": "m_dwDecisionMakerType",
+            "type": "int",
+            "offset": "0x298",
+            "size": 4
+        },
+        {
+            "name": "field_29C",
+            "type": "int",
+            "offset": "0x29C",
+            "size": 4
+        }
+    ]
+}

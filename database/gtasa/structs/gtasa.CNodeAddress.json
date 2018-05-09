@@ -1,0 +1,23 @@
+{
+    "name": "CNodeAddress",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "areaId",
+            "type": "unsigned __int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "nodeId",
+            "type": "unsigned __int16",
+            "offset": 2,
+            "size": 2
+        }
+    ]
+}

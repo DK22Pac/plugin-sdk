@@ -1,0 +1,35 @@
+{
+    "name": "CExternalScripts",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xA48",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "scripts",
+            "type": "CExternalScriptInfo[82]",
+            "offset": 0,
+            "size": "0xA40"
+        },
+        {
+            "name": "field_A40",
+            "type": "int",
+            "offset": "0xA40",
+            "size": 4
+        },
+        {
+            "name": "field_A44",
+            "type": "__int16",
+            "offset": "0xA44",
+            "size": 2
+        },
+        {
+            "name": "field_A46",
+            "type": "__int16",
+            "offset": "0xA46",
+            "size": 2
+        }
+    ]
+}

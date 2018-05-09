@@ -1,0 +1,17 @@
+{
+    "name": "BigMessage",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC0",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_aMessages",
+            "type": "Message[4]",
+            "offset": 0,
+            "size": "0xC0"
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "name": "ePedAttractorType",
+    "module": "C2dEffect",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "PED_ATTRACTOR_ATM",
+            "value": 0,
+            "comment": "Ped uses ATM(at day time only)"
+        },
+        {
+            "name": "PED_ATTRACTOR_SEAT",
+            "value": 1,
+            "comment": "Ped sits(at day time only)"
+        },
+        {
+            "name": "PED_ATTRACTOR_STOP",
+            "value": 2,
+            "comment": "Ped stands(at day time only)"
+        },
+        {
+            "name": "PED_ATTRACTOR_PIZZA",
+            "value": 3,
+            "comment": "Ped stands for few seconds"
+        },
+        {
+            "name": "PED_ATTRACTOR_SHELTER",
+            "value": 4,
+            "comment": "Ped goes away after spawning, but stands if weather is rainy"
+        },
+        {
+            "name": "PED_ATTRACTOR_TRIGGER_SCRIPT",
+            "value": 5,
+            "comment": "Launches an external script"
+        },
+        {
+            "name": "PED_ATTRACTOR_LOOK_AT",
+            "value": 6,
+            "comment": "Ped looks at object, then goes away"
+        },
+        {
+            "name": "PED_ATTRACTOR_SCRIPTED",
+            "value": 7,
+            "comment": "This type is not valid"
+        },
+        {
+            "name": "PED_ATTRACTOR_PARK",
+            "value": 8,
+            "comment": "Ped lays(at day time only, ped goes away after 6 PM)"
+        },
+        {
+            "name": "PED_ATTRACTOR_STEP",
+            "value": 9,
+            "comment": "Ped sits on steps"
+        }
+    ]
+}

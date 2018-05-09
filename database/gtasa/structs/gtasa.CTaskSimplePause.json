@@ -1,0 +1,31 @@
+{
+    "name": "CTaskSimplePause",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "vtableAddress": "0x85A278",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CTask",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "m_timer",
+            "type": "CTaskTimer",
+            "offset": 8,
+            "size": "0xC"
+        },
+        {
+            "name": "m_nTime",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

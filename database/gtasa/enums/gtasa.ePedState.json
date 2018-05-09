@@ -1,0 +1,273 @@
+{
+    "name": "ePedState",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "PED_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "PED_IDLE",
+            "value": "0x1"
+        },
+        {
+            "name": "PED_LOOK_ENTITY",
+            "value": "0x2"
+        },
+        {
+            "name": "PED_LOOK_HEADING",
+            "value": "0x3"
+        },
+        {
+            "name": "PED_WANDER_RANGE",
+            "value": "0x4"
+        },
+        {
+            "name": "PED_WANDER_PATH",
+            "value": "0x5"
+        },
+        {
+            "name": "PED_SEEK_POSITION",
+            "value": "0x6"
+        },
+        {
+            "name": "PED_SEEK_ENTITY",
+            "value": "0x7"
+        },
+        {
+            "name": "PED_FLEE_POSITION",
+            "value": "0x8"
+        },
+        {
+            "name": "PED_FLEE_ENTITY",
+            "value": "0x9"
+        },
+        {
+            "name": "PED_PURSUE",
+            "value": "0xA"
+        },
+        {
+            "name": "PED_FOLLOW_PATH",
+            "value": "0xB"
+        },
+        {
+            "name": "PED_SNIPER_MODE",
+            "value": "0xC"
+        },
+        {
+            "name": "PED_ROCKETLAUNCHER_MODE",
+            "value": "0xD"
+        },
+        {
+            "name": "PED_DUMMY",
+            "value": "0xE"
+        },
+        {
+            "name": "PED_PAUSE",
+            "value": "0xF"
+        },
+        {
+            "name": "PED_ATTACK",
+            "value": "0x10"
+        },
+        {
+            "name": "PED_FIGHT",
+            "value": "0x11"
+        },
+        {
+            "name": "PED_FACE_PHONE",
+            "value": "0x12"
+        },
+        {
+            "name": "PED_MAKE_PHONECALL",
+            "value": "0x13"
+        },
+        {
+            "name": "PED_CHAT",
+            "value": "0x14"
+        },
+        {
+            "name": "PED_MUG",
+            "value": "0x15"
+        },
+        {
+            "name": "PED_AIMGUN",
+            "value": "0x16"
+        },
+        {
+            "name": "PED_AI_CONTROL",
+            "value": "0x17"
+        },
+        {
+            "name": "PED_SEEK_CAR",
+            "value": "0x18"
+        },
+        {
+            "name": "PED_SEEK_BOAT_POSITION",
+            "value": "0x19"
+        },
+        {
+            "name": "PED_FOLLOW_ROUTE",
+            "value": "0x1A"
+        },
+        {
+            "name": "PED_CPR",
+            "value": "0x1B"
+        },
+        {
+            "name": "PED_SOLICIT",
+            "value": "0x1C"
+        },
+        {
+            "name": "PED_BUY_ICE_CREAM",
+            "value": "0x1D"
+        },
+        {
+            "name": "PED_INVESTIGATE_EVENT",
+            "value": "0x1E"
+        },
+        {
+            "name": "PED_EVADE_STEP",
+            "value": "0x1F"
+        },
+        {
+            "name": "PED_ON_FIRE",
+            "value": "0x20"
+        },
+        {
+            "name": "PED_SUNBATHE",
+            "value": "0x21"
+        },
+        {
+            "name": "PED_FLASH",
+            "value": "0x22"
+        },
+        {
+            "name": "PED_JOG",
+            "value": "0x23"
+        },
+        {
+            "name": "PED_ANSWER_MOBILE",
+            "value": "0x24"
+        },
+        {
+            "name": "PED_HANG_OUT",
+            "value": "0x25"
+        },
+        {
+            "name": "PED_STATES_NO_AI",
+            "value": "0x26"
+        },
+        {
+            "name": "PED_ABSEIL_FROM_HELI",
+            "value": "0x27"
+        },
+        {
+            "name": "PED_SIT",
+            "value": "0x28"
+        },
+        {
+            "name": "PED_JUMP",
+            "value": "0x29"
+        },
+        {
+            "name": "PED_FALL",
+            "value": "0x2A"
+        },
+        {
+            "name": "PED_GETUP",
+            "value": "0x2B"
+        },
+        {
+            "name": "PED_STAGGER",
+            "value": "0x2C"
+        },
+        {
+            "name": "PED_EVADE_DIVE",
+            "value": "0x2D"
+        },
+        {
+            "name": "PED_STATES_CAN_SHOOT",
+            "value": "0x2E"
+        },
+        {
+            "name": "PED_ENTER_TRAIN",
+            "value": "0x2F"
+        },
+        {
+            "name": "PED_EXIT_TRAIN",
+            "value": "0x30"
+        },
+        {
+            "name": "PED_ARREST_PLAYER",
+            "value": "0x31"
+        },
+        {
+            "name": "PED_DRIVING",
+            "value": "0x32"
+        },
+        {
+            "name": "PED_PASSENGER",
+            "value": "0x33"
+        },
+        {
+            "name": "PED_TAXI_PASSENGER",
+            "value": "0x34"
+        },
+        {
+            "name": "PED_OPEN_DOOR",
+            "value": "0x35"
+        },
+        {
+            "name": "PED_DIE",
+            "value": "0x36"
+        },
+        {
+            "name": "PED_DEAD",
+            "value": "0x37"
+        },
+        {
+            "name": "PED_DIE_BY_STEALTH",
+            "value": "0x38"
+        },
+        {
+            "name": "PED_CARJACK",
+            "value": "0x39"
+        },
+        {
+            "name": "PED_DRAGGED_FROM_CAR",
+            "value": "0x3A"
+        },
+        {
+            "name": "PED_ENTER_CAR",
+            "value": "0x3B"
+        },
+        {
+            "name": "PED_STEAL_CAR",
+            "value": "0x3C"
+        },
+        {
+            "name": "PED_EXIT_CAR",
+            "value": "0x3D"
+        },
+        {
+            "name": "PED_HANDS_UP",
+            "value": "0x3E"
+        },
+        {
+            "name": "PED_ARRESTED",
+            "value": "0x3F"
+        },
+        {
+            "name": "PED_DEPLOY_STINGER",
+            "value": "0x40"
+        }
+    ]
+}

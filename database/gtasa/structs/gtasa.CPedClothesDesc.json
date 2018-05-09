@@ -1,0 +1,35 @@
+{
+    "name": "CPedClothesDesc",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x78",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_aModelKeys",
+            "type": "int[10]",
+            "offset": 0,
+            "size": "0x28"
+        },
+        {
+            "name": "m_aTextureKeys",
+            "type": "int[18]",
+            "offset": "0x28",
+            "size": "0x48"
+        },
+        {
+            "name": "m_fFatStat",
+            "type": "float",
+            "offset": "0x70",
+            "size": 4
+        },
+        {
+            "name": "m_fMuscleStat",
+            "type": "float",
+            "offset": "0x74",
+            "size": 4
+        }
+    ]
+}

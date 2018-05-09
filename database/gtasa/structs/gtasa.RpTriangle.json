@@ -1,0 +1,23 @@
+{
+    "name": "RpTriangle",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "vertIndex",
+            "type": "__int16[3]",
+            "offset": 0,
+            "size": 6
+        },
+        {
+            "name": "matIndex",
+            "type": "WORD",
+            "offset": 6,
+            "size": 2
+        }
+    ]
+}

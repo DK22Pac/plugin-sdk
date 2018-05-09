@@ -1,0 +1,47 @@
+{
+    "name": "struc_621",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xB7D4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "field_8",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "field_C",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "vehicleHandling",
+            "type": "tHandlingData[210]",
+            "offset": "0x14",
+            "size": "0xB7C0"
+        }
+    ]
+}

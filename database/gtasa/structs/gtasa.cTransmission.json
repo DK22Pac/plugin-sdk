@@ -1,0 +1,83 @@
+{
+    "name": "cTransmission",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x68",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_aGears",
+            "type": "CTransmissionGear[6]",
+            "offset": 0,
+            "size": "0x48"
+        },
+        {
+            "name": "m_nDriveType",
+            "type": "char",
+            "offset": "0x48",
+            "size": 1
+        },
+        {
+            "name": "m_nEngineType",
+            "type": "char",
+            "offset": "0x49",
+            "size": 1
+        },
+        {
+            "name": "m_nNumberOfGears",
+            "type": "char",
+            "offset": "0x4A",
+            "size": 1
+        },
+        {
+            "name": "field_4B",
+            "type": "char",
+            "offset": "0x4B",
+            "size": 1
+        },
+        {
+            "name": "m_dwHandlingFlags",
+            "type": "int",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "m_fEngineAcceleration",
+            "type": "float",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "m_fEngineInertia",
+            "type": "float",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "m_fMaxGearVelocity",
+            "type": "float",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "field_5C",
+            "type": "int",
+            "offset": "0x5C",
+            "size": 4
+        },
+        {
+            "name": "m_fMinGearVelocity",
+            "type": "float",
+            "offset": "0x60",
+            "size": 4
+        },
+        {
+            "name": "m_fCurrentSpeed",
+            "type": "float",
+            "offset": "0x64",
+            "size": 4
+        }
+    ]
+}

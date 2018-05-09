@@ -1,0 +1,47 @@
+{
+    "name": "_rwD3D9StageStateCache",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "curTexRaster",
+            "type": "RwRaster *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "texAddressU",
+            "type": "unsigned int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "texAddressV",
+            "type": "unsigned int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "filterMode",
+            "type": "unsigned int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "borderColor",
+            "type": "unsigned int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "maxAnisotropy",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

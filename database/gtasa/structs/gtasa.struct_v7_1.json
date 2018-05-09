@@ -1,0 +1,65 @@
+{
+    "name": "struct_v7_1",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_bJustFaces",
+            "type": "_BYTE",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "byte1",
+            "type": "_BYTE",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "m_dwSparksOnImpact",
+            "type": "_BYTE",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "byte3",
+            "type": "_BYTE",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "numObjects",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "field_8",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "dwordC",
+            "type": "_DWORD",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "pointZ",
+            "type": "_DWORD",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "normal",
+            "type": "RwV3d",
+            "offset": "0x14",
+            "size": "0xC"
+        }
+    ]
+}

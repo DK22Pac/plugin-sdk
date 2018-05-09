@@ -1,0 +1,111 @@
+{
+    "name": "CTaskSimpleFight",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x28",
+    "alignment": 0,
+    "vtableAddress": "0x86D684",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CTask",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "field_8",
+            "type": "char",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "field_9",
+            "type": "char",
+            "offset": 9,
+            "size": 1
+        },
+        {
+            "name": "field_A",
+            "type": "char",
+            "offset": "0xA",
+            "size": 1
+        },
+        {
+            "name": "m_dwIfpIndex",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_dwTime",
+            "type": "__int16",
+            "offset": "0x10",
+            "size": 2
+        },
+        {
+            "name": "field_12",
+            "type": "__int16",
+            "offset": "0x12",
+            "size": 2
+        },
+        {
+            "name": "field_14",
+            "type": "char",
+            "offset": "0x14",
+            "size": 1
+        },
+        {
+            "name": "field_15",
+            "type": "char",
+            "offset": "0x15",
+            "size": 1
+        },
+        {
+            "name": "m_pEntity",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_pAnimAssociation",
+            "type": "CAnimBlendAssociation *",
+            "offset": "0x1C",
+            "size": 4,
+            "comment": "pointer"
+        },
+        {
+            "name": "field_20",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4,
+            "comment": "pointer"
+        },
+        {
+            "name": "comboType",
+            "type": "char",
+            "offset": "0x24",
+            "size": 1
+        },
+        {
+            "name": "attackType",
+            "type": "char",
+            "offset": "0x25",
+            "size": 1
+        },
+        {
+            "name": "_paramA3",
+            "type": "char",
+            "offset": "0x26",
+            "size": 1
+        },
+        {
+            "name": "field_27",
+            "type": "char",
+            "offset": "0x27",
+            "size": 1
+        }
+    ]
+}

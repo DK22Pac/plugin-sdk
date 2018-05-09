@@ -1,0 +1,95 @@
+{
+    "name": "DDS_HEADER",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "dwSize",
+            "type": "DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dwFlags",
+            "type": "DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "dwHeight",
+            "type": "DWORD",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "dwWidth",
+            "type": "DWORD",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "dwPitchOrLinearSize",
+            "type": "DWORD",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "dwDepth",
+            "type": "DWORD",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "dwMipMapCount",
+            "type": "DWORD",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "dwReserved1",
+            "type": "DWORD[11]",
+            "offset": "0x1C",
+            "size": "0x2C"
+        },
+        {
+            "name": "ddspf",
+            "type": "DDS_PIXELFORMAT",
+            "offset": "0x48",
+            "size": "0x20"
+        },
+        {
+            "name": "dwCaps",
+            "type": "DWORD",
+            "offset": "0x68",
+            "size": 4
+        },
+        {
+            "name": "dwCaps2",
+            "type": "DWORD",
+            "offset": "0x6C",
+            "size": 4
+        },
+        {
+            "name": "dwCaps3",
+            "type": "DWORD",
+            "offset": "0x70",
+            "size": 4
+        },
+        {
+            "name": "dwCaps4",
+            "type": "DWORD",
+            "offset": "0x74",
+            "size": 4
+        },
+        {
+            "name": "dwReserved2",
+            "type": "DWORD",
+            "offset": "0x78",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "name": "rxHeapSuperBlockDescriptor",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "start",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "size",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "next",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

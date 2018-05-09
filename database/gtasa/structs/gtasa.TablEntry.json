@@ -1,0 +1,23 @@
+{
+    "name": "TablEntry",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "name",
+            "type": "char[8]",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "offset",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

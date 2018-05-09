@@ -1,0 +1,107 @@
+{
+    "name": "CHandlingBike",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x40",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "index",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "leanFwdCOM",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "leanFwdForce",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "leanBakCOM",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "leanBakForce",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "maxLean",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "fullAnimLean",
+            "type": "float",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "desLean",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "speedSteer",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "slipSteer",
+            "type": "int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "noPlayerCOMz",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "wheelieAng",
+            "type": "float",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "stoppieAng",
+            "type": "float",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "wheelieSteer",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "wheelieStabMult",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "stoppieStabMult",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        }
+    ]
+}

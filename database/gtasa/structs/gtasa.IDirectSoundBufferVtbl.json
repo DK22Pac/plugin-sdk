@@ -1,0 +1,137 @@
+{
+    "name": "IDirectSoundBufferVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x54",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "QueryInterface",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, const IID *const , LPVOID *)",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AddRef",
+            "type": "ULONG (__stdcall *)(IDirectSoundBuffer *This)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Release",
+            "type": "ULONG (__stdcall *)(IDirectSoundBuffer *This)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetCaps",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPDSBCAPS pDSBufferCaps)",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "GetCurrentPosition",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPDWORD pdwCurrentPlayCursor, LPDWORD pdwCurrentWriteCursor)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "GetFormat",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPWAVEFORMATEX pwfxFormat, DWORD dwSizeAllocated, LPDWORD pdwSizeWritten)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "GetVolume",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPLONG plVolume)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "GetPan",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPLONG plPan)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "GetFrequency",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPDWORD pdwFrequency)",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "GetStatus",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPDWORD pdwStatus)",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "Initialize",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPDIRECTSOUND pDirectSound, LPCDSBUFFERDESC pcDSBufferDesc)",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "Lock",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, DWORD dwOffset, DWORD dwBytes, LPVOID *ppvAudioPtr1, LPDWORD pdwAudioBytes1, LPVOID *ppvAudioPtr2, LPDWORD pdwAudioBytes2, DWORD dwFlags)",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "Play",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, DWORD dwReserved1, DWORD dwPriority, DWORD dwFlags)",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "SetCurrentPosition",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, DWORD dwNewPosition)",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "SetFormat",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPCWAVEFORMATEX pcfxFormat)",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "SetVolume",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LONG lVolume)",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "SetPan",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LONG lPan)",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "SetFrequency",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, DWORD dwFrequency)",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "Stop",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This)",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "Unlock",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This, LPVOID pvAudioPtr1, DWORD dwAudioBytes1, LPVOID pvAudioPtr2, DWORD dwAudioBytes2)",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "Restore",
+            "type": "HRESULT (__stdcall *)(IDirectSoundBuffer *This)",
+            "offset": "0x50",
+            "size": 4
+        }
+    ]
+}

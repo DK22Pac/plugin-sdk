@@ -1,0 +1,49 @@
+{
+    "name": "CAnimBlendStaticAssociation",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "vtableAddress": "0x85C6CC",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtable",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nAnimID",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "m_nAnimGroup",
+            "type": "__int16",
+            "offset": 8,
+            "size": 2
+        },
+        {
+            "name": "m_nFlags",
+            "type": "__int16",
+            "offset": "0xA",
+            "size": 2
+        },
+        {
+            "name": "field_C",
+            "type": "void *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_pAnimHeirarchy",
+            "type": "CAnimBlendHierarchy *",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

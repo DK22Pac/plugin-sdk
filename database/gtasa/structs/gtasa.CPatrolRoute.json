@@ -1,0 +1,167 @@
+{
+    "name": "CPatrolRoute",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1A4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "CPatrolRouteInternal[8]",
+            "offset": 4,
+            "size": "0x140"
+        },
+        {
+            "name": "field_144",
+            "type": "int",
+            "offset": "0x144",
+            "size": 4
+        },
+        {
+            "name": "field_148",
+            "type": "int",
+            "offset": "0x148",
+            "size": 4
+        },
+        {
+            "name": "field_14C",
+            "type": "int",
+            "offset": "0x14C",
+            "size": 4
+        },
+        {
+            "name": "field_150",
+            "type": "int",
+            "offset": "0x150",
+            "size": 4
+        },
+        {
+            "name": "field_154",
+            "type": "int",
+            "offset": "0x154",
+            "size": 4
+        },
+        {
+            "name": "field_158",
+            "type": "int",
+            "offset": "0x158",
+            "size": 4
+        },
+        {
+            "name": "field_15C",
+            "type": "int",
+            "offset": "0x15C",
+            "size": 4
+        },
+        {
+            "name": "field_160",
+            "type": "int",
+            "offset": "0x160",
+            "size": 4
+        },
+        {
+            "name": "field_164",
+            "type": "int",
+            "offset": "0x164",
+            "size": 4
+        },
+        {
+            "name": "field_168",
+            "type": "int",
+            "offset": "0x168",
+            "size": 4
+        },
+        {
+            "name": "field_16C",
+            "type": "int",
+            "offset": "0x16C",
+            "size": 4
+        },
+        {
+            "name": "field_170",
+            "type": "int",
+            "offset": "0x170",
+            "size": 4
+        },
+        {
+            "name": "field_174",
+            "type": "int",
+            "offset": "0x174",
+            "size": 4
+        },
+        {
+            "name": "field_178",
+            "type": "int",
+            "offset": "0x178",
+            "size": 4
+        },
+        {
+            "name": "field_17C",
+            "type": "int",
+            "offset": "0x17C",
+            "size": 4
+        },
+        {
+            "name": "field_180",
+            "type": "int",
+            "offset": "0x180",
+            "size": 4
+        },
+        {
+            "name": "field_184",
+            "type": "int",
+            "offset": "0x184",
+            "size": 4
+        },
+        {
+            "name": "field_188",
+            "type": "int",
+            "offset": "0x188",
+            "size": 4
+        },
+        {
+            "name": "field_18C",
+            "type": "int",
+            "offset": "0x18C",
+            "size": 4
+        },
+        {
+            "name": "field_190",
+            "type": "int",
+            "offset": "0x190",
+            "size": 4
+        },
+        {
+            "name": "field_194",
+            "type": "int",
+            "offset": "0x194",
+            "size": 4
+        },
+        {
+            "name": "field_198",
+            "type": "int",
+            "offset": "0x198",
+            "size": 4
+        },
+        {
+            "name": "field_19C",
+            "type": "int",
+            "offset": "0x19C",
+            "size": 4
+        },
+        {
+            "name": "field_1A0",
+            "type": "int",
+            "offset": "0x1A0",
+            "size": 4
+        }
+    ]
+}

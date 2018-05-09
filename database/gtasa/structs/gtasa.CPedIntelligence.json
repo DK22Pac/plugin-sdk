@@ -1,0 +1,167 @@
+{
+    "name": "CPedIntelligence",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x294",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pPed",
+            "type": "CPed *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_TaskMgr",
+            "type": "CTaskManager",
+            "offset": 4,
+            "size": "0x30"
+        },
+        {
+            "name": "m_eventHandler",
+            "type": "CEventHandler",
+            "offset": "0x34",
+            "size": "0x34"
+        },
+        {
+            "name": "m_eventGroup",
+            "type": "CEventGroup",
+            "offset": "0x68",
+            "size": "0x4C"
+        },
+        {
+            "name": "m_dwDecisionMakerType",
+            "type": "int",
+            "offset": "0xB4",
+            "size": 4
+        },
+        {
+            "name": "m_dwDecisionMakerTypeInGroup",
+            "type": "int",
+            "offset": "0xB8",
+            "size": 4
+        },
+        {
+            "name": "m_fHearingRange",
+            "type": "float",
+            "offset": "0xBC",
+            "size": 4
+        },
+        {
+            "name": "m_fSeeingRange",
+            "type": "float",
+            "offset": "0xC0",
+            "size": 4
+        },
+        {
+            "name": "m_dwDmNumPedsToScan",
+            "type": "int",
+            "offset": "0xC4",
+            "size": 4
+        },
+        {
+            "name": "m_fDmRadius",
+            "type": "float",
+            "offset": "0xC8",
+            "size": 4
+        },
+        {
+            "name": "field_CC",
+            "type": "float",
+            "offset": "0xCC",
+            "size": 4
+        },
+        {
+            "name": "field_D0",
+            "type": "char",
+            "offset": "0xD0",
+            "size": 1
+        },
+        {
+            "name": "m_nHighestPriorityEvent",
+            "type": "char",
+            "offset": "0xD1",
+            "size": 1
+        },
+        {
+            "name": "eventPriority",
+            "type": "char",
+            "offset": "0xD2",
+            "size": 1
+        },
+        {
+            "name": "field_D3",
+            "type": "char",
+            "offset": "0xD3",
+            "size": 1
+        },
+        {
+            "name": "n_vehicleScanner",
+            "type": "CEntityScanner",
+            "offset": "0xD4",
+            "size": "0x50"
+        },
+        {
+            "name": "m_pedScanner",
+            "type": "CEntityScanner",
+            "offset": "0x124",
+            "size": "0x50"
+        },
+        {
+            "name": "m_mentalState",
+            "type": "CMentalState",
+            "offset": "0x174",
+            "size": "0x14"
+        },
+        {
+            "name": "field_188",
+            "type": "char",
+            "offset": "0x188",
+            "size": 1
+        },
+        {
+            "name": "m_eventScanner",
+            "type": "CEventScanner",
+            "offset": "0x18C",
+            "size": "0xD4"
+        },
+        {
+            "name": "field_260",
+            "type": "char",
+            "offset": "0x260",
+            "size": 1
+        },
+        {
+            "name": "m_pedStuckCheker",
+            "type": "CPedStuckChecker",
+            "offset": "0x264",
+            "size": "0x10"
+        },
+        {
+            "name": "field_274",
+            "type": "int",
+            "offset": "0x274",
+            "size": 4
+        },
+        {
+            "name": "field_278",
+            "type": "int",
+            "offset": "0x278",
+            "size": 4
+        },
+        {
+            "name": "field_27C",
+            "type": "CVector",
+            "offset": "0x27C",
+            "size": "0xC"
+        },
+        {
+            "name": "m_apInterestingEntities",
+            "type": "CEntity *[3]",
+            "offset": "0x288",
+            "size": "0xC"
+        }
+    ]
+}

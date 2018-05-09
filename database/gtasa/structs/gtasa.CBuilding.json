@@ -1,0 +1,19 @@
+{
+    "name": "CBuilding",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x38",
+    "alignment": 0,
+    "vtableAddress": "0x8585C8",
+    "vtableSize": 22,
+    "comment": "",
+    "members": [
+        {
+            "name": "entity",
+            "type": "CEntity",
+            "offset": 0,
+            "size": "0x38"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "_LARGE_INTEGER::$837407842DC9087486FDFA5FEB63B74E",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "LowPart",
+            "type": "DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "HighPart",
+            "type": "LONG",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "name": "CAudioLink",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_vPosition",
+            "type": "RwV3d",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_pEntity",
+            "type": "CEntity *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_nAudioEvent",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_nBankId",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_nBankSlotId",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

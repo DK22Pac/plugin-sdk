@@ -1,0 +1,89 @@
+{
+    "name": "RsEvent",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "rsCAMERASIZE",
+            "value": 0
+        },
+        {
+            "name": "rsCOMMANDLINE",
+            "value": 1
+        },
+        {
+            "name": "rsFILELOAD",
+            "value": 2
+        },
+        {
+            "name": "rsINPUTDEVICEATTACH",
+            "value": 4
+        },
+        {
+            "name": "rsPLUGINATTACH",
+            "value": 9
+        },
+        {
+            "name": "rsRWINITIALIZE",
+            "value": 21
+        },
+        {
+            "name": "rsRWTERMINATE",
+            "value": 22
+        },
+        {
+            "name": "rsSELECTDEVICE",
+            "value": 23
+        },
+        {
+            "name": "rsINITIALIZE",
+            "value": 24
+        },
+        {
+            "name": "rsTERMINATE",
+            "value": 25
+        },
+        {
+            "name": "rsIDLE",
+            "value": 26
+        },
+        {
+            "name": "rsRENDER",
+            "value": 27
+        },
+        {
+            "name": "rsKEYDOWN",
+            "value": 28
+        },
+        {
+            "name": "rsKEYUP",
+            "value": 29
+        },
+        {
+            "name": "rsQUITAPP",
+            "value": 30
+        },
+        {
+            "name": "rsPADBUTTONDOWN",
+            "value": 31
+        },
+        {
+            "name": "rsPADBUTTONUP",
+            "value": 32
+        },
+        {
+            "name": "rsPREINITCOMMANDLINE",
+            "value": 37
+        },
+        {
+            "name": "rsACTIVATE",
+            "value": 38
+        }
+    ]
+}

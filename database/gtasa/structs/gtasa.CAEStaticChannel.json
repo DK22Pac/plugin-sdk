@@ -1,0 +1,127 @@
+{
+    "name": "CAEStaticChannel",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x90",
+    "alignment": 0,
+    "vtableAddress": "0x85F3CC",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "base",
+            "type": "CAEAudioChannel",
+            "offset": 0,
+            "size": "0x60"
+        },
+        {
+            "name": "field_60",
+            "type": "_BYTE",
+            "offset": "0x60",
+            "size": 1
+        },
+        {
+            "name": "field_61",
+            "type": "char",
+            "offset": "0x61",
+            "size": 1
+        },
+        {
+            "name": "field_62",
+            "type": "_BYTE",
+            "offset": "0x62",
+            "size": 1
+        },
+        {
+            "name": "field_63",
+            "type": "char",
+            "offset": "0x63",
+            "size": 1
+        },
+        {
+            "name": "m_nCurrentBufferOffset",
+            "type": "int",
+            "offset": "0x64",
+            "size": 4
+        },
+        {
+            "name": "field_68",
+            "type": "int",
+            "offset": "0x68",
+            "size": 4
+        },
+        {
+            "name": "field_6C",
+            "type": "int",
+            "offset": "0x6C",
+            "size": 4
+        },
+        {
+            "name": "m_nSyncTime",
+            "type": "int",
+            "offset": "0x70",
+            "size": 4
+        },
+        {
+            "name": "field_74",
+            "type": "int",
+            "offset": "0x74",
+            "size": 4
+        },
+        {
+            "name": "m_dwLockOffset",
+            "type": "int",
+            "offset": "0x78",
+            "size": 4
+        },
+        {
+            "name": "m_nNumLockBytes",
+            "type": "int",
+            "offset": "0x7C",
+            "size": 4
+        },
+        {
+            "name": "field_80",
+            "type": "__int16",
+            "offset": "0x80",
+            "size": 2
+        },
+        {
+            "name": "field_82",
+            "type": "__int16",
+            "offset": "0x82",
+            "size": 2
+        },
+        {
+            "name": "m_pBuffer",
+            "type": "int",
+            "offset": "0x84",
+            "size": 4
+        },
+        {
+            "name": "field_88",
+            "type": "__int16",
+            "offset": "0x88",
+            "size": 2
+        },
+        {
+            "name": "field_8A",
+            "type": "_BYTE",
+            "offset": "0x8A",
+            "size": 1
+        },
+        {
+            "name": "field_8B",
+            "type": "char",
+            "offset": "0x8B",
+            "size": 1
+        },
+        {
+            "name": "field_8C",
+            "type": "int",
+            "offset": "0x8C",
+            "size": 4
+        }
+    ]
+}

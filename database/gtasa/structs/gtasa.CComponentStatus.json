@@ -1,0 +1,47 @@
+{
+    "name": "CComponentStatus",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 6,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "bonnet",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "boot",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "door_lf",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "door_rf",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "door_lr",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "door_rr",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        }
+    ]
+}

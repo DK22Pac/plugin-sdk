@@ -1,0 +1,23 @@
+{
+    "name": "__int64_s",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "numUsed",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "counter",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

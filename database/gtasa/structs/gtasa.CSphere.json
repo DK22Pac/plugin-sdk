@@ -1,0 +1,23 @@
+{
+    "name": "CSphere",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_vecCenter",
+            "type": "CVector",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_fRadius",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

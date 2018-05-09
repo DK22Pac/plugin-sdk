@@ -1,0 +1,57 @@
+{
+    "name": "eBmxNodes",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "BMX_NODE_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "BMX_CHASSIS",
+            "value": "0x1"
+        },
+        {
+            "name": "BMX_FORKS_FRONT",
+            "value": "0x2"
+        },
+        {
+            "name": "BMX_FORKS_REAR",
+            "value": "0x3"
+        },
+        {
+            "name": "BMX_WHEEL_FRONT",
+            "value": "0x4"
+        },
+        {
+            "name": "BMX_WHEEL_REAR",
+            "value": "0x5"
+        },
+        {
+            "name": "BMX_HANDLEBARS",
+            "value": "0x6"
+        },
+        {
+            "name": "BMX_CHAINSET",
+            "value": "0x7"
+        },
+        {
+            "name": "BMX_PEDAL_R",
+            "value": "0x8"
+        },
+        {
+            "name": "BMX_PEDAL_L",
+            "value": "0x9"
+        },
+        {
+            "name": "BMX_NUM_NODES",
+            "value": "0xA"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "name": "CPlayerPed",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7A4",
+    "alignment": 0,
+    "vtableAddress": "0x86D168",
+    "vtableSize": 26,
+    "comment": "",
+    "members": [
+        {
+            "name": "ped",
+            "type": "CPed",
+            "offset": 0,
+            "size": "0x79C"
+        },
+        {
+            "name": "m_p3rdPersonMouseTarget",
+            "type": "CEntity *",
+            "offset": "0x79C",
+            "size": 4
+        },
+        {
+            "name": "dword7A0",
+            "type": "_DWORD",
+            "offset": "0x7A0",
+            "size": 4
+        }
+    ]
+}

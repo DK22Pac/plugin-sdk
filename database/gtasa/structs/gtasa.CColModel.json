@@ -1,0 +1,29 @@
+{
+    "name": "CColModel",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x30",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_Box",
+            "type": "CBox",
+            "offset": 0,
+            "size": "0x18"
+        },
+        {
+            "name": "m_Sphere",
+            "type": "CColSphere",
+            "offset": "0x18",
+            "size": "0x14"
+        },
+        {
+            "name": "m_pColData",
+            "type": "CColData *",
+            "offset": "0x2C",
+            "size": 4
+        }
+    ]
+}

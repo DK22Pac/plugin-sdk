@@ -1,0 +1,25 @@
+{
+    "name": "RpUVAnimMaterial",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x28",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "matrices",
+            "type": "RwMatrixTag *[2]",
+            "offset": 0,
+            "size": 8,
+            "comment": "RwMatrix *"
+        },
+        {
+            "name": "interpolators",
+            "type": "RtAnimInterpolator *[8]",
+            "offset": 8,
+            "size": "0x20",
+            "comment": "RtAnimInterpolator *"
+        }
+    ]
+}

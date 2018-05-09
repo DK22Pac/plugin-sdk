@@ -1,0 +1,29 @@
+{
+    "name": "eBankSlotId",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "BANKSLOT_RAIN_ON_VEHICLE",
+            "value": 6
+        },
+        {
+            "name": "BANKSLOT_HORNS_AND_SIRENS",
+            "value": 17
+        },
+        {
+            "name": "BANKSLOT_WHEEL_SOUND",
+            "value": 19
+        },
+        {
+            "name": "BANKSLOT_SPECIAL_VEHICLE_SOUNDS",
+            "value": 40
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "name": "CAEAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7C",
+    "alignment": 0,
+    "vtableAddress": "0x859988",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtable",
+            "type": "void *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_pEntity",
+            "type": "CVehicle *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_sound",
+            "type": "CAESound",
+            "offset": 8,
+            "size": "0x74"
+        }
+    ]
+}

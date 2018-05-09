@@ -1,0 +1,71 @@
+{
+    "name": "CWeapon",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nType",
+            "type": "eWeaponType",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nState",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_nAmmoInClip",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_nTotalAmmo",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_nShotTimer",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "char",
+            "offset": "0x14",
+            "size": 1
+        },
+        {
+            "name": "m_bNoModel",
+            "type": "char",
+            "offset": "0x15",
+            "size": 1
+        },
+        {
+            "name": "field_16",
+            "type": "char",
+            "offset": "0x16",
+            "size": 1
+        },
+        {
+            "name": "field_17",
+            "type": "char",
+            "offset": "0x17",
+            "size": 1
+        },
+        {
+            "name": "m_pFxSystem",
+            "type": "FxSystem_c *",
+            "offset": "0x18",
+            "size": 4
+        }
+    ]
+}

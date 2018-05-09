@@ -1,0 +1,17 @@
+{
+    "name": "CString",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "char[8]",
+            "offset": 0,
+            "size": 8
+        }
+    ]
+}

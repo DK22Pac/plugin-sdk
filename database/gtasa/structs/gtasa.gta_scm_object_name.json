@@ -1,0 +1,23 @@
+{
+    "name": "gta_scm_object_name",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "name",
+            "type": "char[24]",
+            "offset": 0,
+            "size": "0x18"
+        },
+        {
+            "name": "index",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        }
+    ]
+}

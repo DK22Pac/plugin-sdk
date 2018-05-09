@@ -1,0 +1,49 @@
+{
+    "name": "CMonsterTruck",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x99C",
+    "alignment": 0,
+    "vtableAddress": "0x8717D8",
+    "vtableSize": 71,
+    "comment": "",
+    "members": [
+        {
+            "name": "auto",
+            "type": "CAutomobile",
+            "offset": 0,
+            "size": "0x988"
+        },
+        {
+            "name": "field_988",
+            "type": "float",
+            "offset": "0x988",
+            "size": 4
+        },
+        {
+            "name": "field_98C",
+            "type": "float",
+            "offset": "0x98C",
+            "size": 4
+        },
+        {
+            "name": "field_990",
+            "type": "float",
+            "offset": "0x990",
+            "size": 4
+        },
+        {
+            "name": "field_994",
+            "type": "float",
+            "offset": "0x994",
+            "size": 4
+        },
+        {
+            "name": "field_998",
+            "type": "float",
+            "offset": "0x998",
+            "size": 4
+        }
+    ]
+}

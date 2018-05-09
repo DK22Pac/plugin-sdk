@@ -1,0 +1,41 @@
+{
+    "name": "rwImmediGlobals",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x74",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "im3DTransformPipeline",
+            "type": "RxPipeline *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "im3DRenderPipelines",
+            "type": "rwIm3DRenderPipelines",
+            "offset": 4,
+            "size": "0x18"
+        },
+        {
+            "name": "platformIm3DTransformPipeline",
+            "type": "RxPipeline *",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "platformIm3DRenderPipelines",
+            "type": "rwIm3DRenderPipelines",
+            "offset": "0x20",
+            "size": "0x18"
+        },
+        {
+            "name": "curPool",
+            "type": "rwIm3DPool",
+            "offset": "0x38",
+            "size": "0x3C"
+        }
+    ]
+}

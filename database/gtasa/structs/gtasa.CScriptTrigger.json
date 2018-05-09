@@ -1,0 +1,59 @@
+{
+    "name": "CScriptTrigger",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "IMG_index",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "AttachType",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "Type",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "Status?",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Radius",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "modelID",
+            "type": "__int16",
+            "offset": "0xC",
+            "size": 2
+        },
+        {
+            "name": "priority",
+            "type": "__int16",
+            "offset": "0xE",
+            "size": 2
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

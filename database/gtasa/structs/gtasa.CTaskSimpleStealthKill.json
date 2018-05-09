@@ -1,0 +1,61 @@
+{
+    "name": "CTaskSimpleStealthKill",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 3,
+    "vtableAddress": "0x86DA74",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "simple",
+            "type": "CTaskSimple",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "m_bKeepTargetAlive",
+            "type": "_BYTE",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "m_pTarget",
+            "type": "CPed *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_nAssocGroupId",
+            "type": "_DWORD",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "byte14",
+            "type": "_BYTE",
+            "offset": "0x14",
+            "size": 1
+        },
+        {
+            "name": "byte15",
+            "type": "_BYTE",
+            "offset": "0x15",
+            "size": 1
+        },
+        {
+            "name": "dword18",
+            "type": "_DWORD",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "dword1C",
+            "type": "_DWORD",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

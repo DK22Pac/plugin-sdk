@@ -1,0 +1,47 @@
+{
+    "name": "WINDOWPLACEMENT",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "length",
+            "type": "UINT",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "flags",
+            "type": "UINT",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "showCmd",
+            "type": "UINT",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "ptMinPosition",
+            "type": "POINT",
+            "offset": "0xC",
+            "size": 8
+        },
+        {
+            "name": "ptMaxPosition",
+            "type": "POINT",
+            "offset": "0x14",
+            "size": 8
+        },
+        {
+            "name": "rcNormalPosition",
+            "type": "RECT",
+            "offset": "0x1C",
+            "size": "0x10"
+        }
+    ]
+}

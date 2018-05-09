@@ -1,0 +1,23 @@
+{
+    "name": "RestoreEntry",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "address",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "value",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

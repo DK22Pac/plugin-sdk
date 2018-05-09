@@ -1,0 +1,45 @@
+{
+    "name": "e3dMarkerType",
+    "module": "C3dMarker",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "MARKER3D_ARROW",
+            "value": 0
+        },
+        {
+            "name": "MARKER3D_CYLINDER",
+            "value": 1
+        },
+        {
+            "name": "MARKER3D_TUBE",
+            "value": 2
+        },
+        {
+            "name": "MARKER3D_ARROW2",
+            "value": 3
+        },
+        {
+            "name": "MARKER3D_TORUS",
+            "value": 4
+        },
+        {
+            "name": "MARKER3D_CONE",
+            "value": 5
+        },
+        {
+            "name": "MARKER3D_CONE_NO_COLLISION",
+            "value": 6
+        },
+        {
+            "name": "MARKER3D_NA",
+            "value": 257
+        }
+    ]
+}

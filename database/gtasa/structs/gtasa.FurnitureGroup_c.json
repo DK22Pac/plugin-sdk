@@ -1,0 +1,17 @@
+{
+    "name": "FurnitureGroup_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_subGroupsList",
+            "type": "List_c",
+            "offset": 0,
+            "size": "0xC"
+        }
+    ]
+}

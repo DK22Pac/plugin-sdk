@@ -1,0 +1,29 @@
+{
+    "name": "CScriptParticle",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "bUsed",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "wUniqueID",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "m_pFxSystem",
+            "type": "FxSystem_c *",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

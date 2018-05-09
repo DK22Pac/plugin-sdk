@@ -1,0 +1,47 @@
+{
+    "name": "CRoadblock",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "cornerA",
+            "type": "RwV3d",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "cornerB",
+            "type": "RwV3d",
+            "offset": "0xC",
+            "size": "0xC"
+        },
+        {
+            "name": "m_nActive",
+            "type": "char",
+            "offset": "0x18",
+            "size": 1
+        },
+        {
+            "name": "m_bIsCreated",
+            "type": "char",
+            "offset": "0x19",
+            "size": 1
+        },
+        {
+            "name": "type",
+            "type": "char",
+            "offset": "0x1A",
+            "size": 1
+        },
+        {
+            "name": "field_1B",
+            "type": "char",
+            "offset": "0x1B",
+            "size": 1
+        }
+    ]
+}

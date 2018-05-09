@@ -1,0 +1,41 @@
+{
+    "name": "_RTTICompleteObjectLocator",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "signature",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "offset",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "cdOffset",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "typeDescriptor",
+            "type": "void *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "classDescriptor",
+            "type": "void *",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

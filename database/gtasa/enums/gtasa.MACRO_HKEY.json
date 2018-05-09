@@ -1,0 +1,41 @@
+{
+    "name": "MACRO_HKEY",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "HKEY_CLASSES_ROOT",
+            "value": "0x80000000"
+        },
+        {
+            "name": "HKEY_CURRENT_USER",
+            "value": "0x80000001"
+        },
+        {
+            "name": "HKEY_LOCAL_MACHINE",
+            "value": "0x80000002"
+        },
+        {
+            "name": "HKEY_USERS",
+            "value": "0x80000003"
+        },
+        {
+            "name": "HKEY_PERFORMANCE_DATA",
+            "value": "0x80000004"
+        },
+        {
+            "name": "HKEY_CURRENT_CONFIG",
+            "value": "0x80000005"
+        },
+        {
+            "name": "HKEY_DYN_DATA",
+            "value": "0x80000006"
+        }
+    ]
+}

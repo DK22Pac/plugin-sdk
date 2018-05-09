@@ -1,0 +1,89 @@
+{
+    "name": "CSkidmark",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x158",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_vPosn",
+            "type": "CVector[16]",
+            "offset": 0,
+            "size": "0xC0"
+        },
+        {
+            "name": "dwordC0",
+            "type": "_DWORD",
+            "offset": "0xC0",
+            "size": 4
+        },
+        {
+            "name": "fC4",
+            "type": "_BYTE[60]",
+            "offset": "0xC4",
+            "size": "0x3C"
+        },
+        {
+            "name": "dword100",
+            "type": "_DWORD",
+            "offset": "0x100",
+            "size": 4
+        },
+        {
+            "name": "f104",
+            "type": "_BYTE[60]",
+            "offset": "0x104",
+            "size": "0x3C"
+        },
+        {
+            "name": "dword140",
+            "type": "_DWORD",
+            "offset": "0x140",
+            "size": 4
+        },
+        {
+            "name": "dword144",
+            "type": "_DWORD",
+            "offset": "0x144",
+            "size": 4
+        },
+        {
+            "name": "time1",
+            "type": "int",
+            "offset": "0x148",
+            "size": 4
+        },
+        {
+            "name": "time2",
+            "type": "int",
+            "offset": "0x14C",
+            "size": 4
+        },
+        {
+            "name": "m_nSurfaceType",
+            "type": "_DWORD",
+            "offset": "0x150",
+            "size": 4
+        },
+        {
+            "name": "m_nNumParts",
+            "type": "_WORD",
+            "offset": "0x154",
+            "size": 2
+        },
+        {
+            "name": "m_nState",
+            "type": "_BYTE",
+            "offset": "0x156",
+            "size": 1
+        },
+        {
+            "name": "byte157",
+            "type": "_BYTE",
+            "offset": "0x157",
+            "size": 1
+        }
+    ]
+}

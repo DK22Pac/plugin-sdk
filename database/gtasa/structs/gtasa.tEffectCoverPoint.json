@@ -1,0 +1,29 @@
+{
+    "name": "tEffectCoverPoint",
+    "module": "C2dEffect",
+    "scope": "",
+    "kind": "struct",
+    "size": "0xC",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_vecDirection",
+            "type": "RwV2d",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "m_nCoverType",
+            "type": "unsigned __int8",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "_pad19",
+            "type": "char[3]",
+            "offset": 9,
+            "size": 3
+        }
+    ]
+}

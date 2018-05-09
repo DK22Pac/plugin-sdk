@@ -1,0 +1,65 @@
+{
+    "name": "eBoatNodes",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "BOAT_NODE_NONE",
+            "value": "0x0"
+        },
+        {
+            "name": "BOAT_MOVING",
+            "value": "0x1"
+        },
+        {
+            "name": "BOAT_WINDSCREEN",
+            "value": "0x2"
+        },
+        {
+            "name": "BOAT_RUDDER",
+            "value": "0x3"
+        },
+        {
+            "name": "BOAT_FLAP_LEFT",
+            "value": "0x4"
+        },
+        {
+            "name": "BOAT_FLAP_RIGHT",
+            "value": "0x5"
+        },
+        {
+            "name": "BOAT_REARFLAP_LEFT",
+            "value": "0x6"
+        },
+        {
+            "name": "BOAT_REARFLAP_RIGHT",
+            "value": "0x7"
+        },
+        {
+            "name": "BOAT_STATIC_PROP",
+            "value": "0x8"
+        },
+        {
+            "name": "BOAT_MOVING_PROP",
+            "value": "0x9"
+        },
+        {
+            "name": "BOAT_STATIC_PROP_2",
+            "value": "0xA"
+        },
+        {
+            "name": "BOAT_MOVING_PROP_2",
+            "value": "0xB"
+        },
+        {
+            "name": "BOAT_NUM_NODES",
+            "value": "0xC"
+        }
+    ]
+}

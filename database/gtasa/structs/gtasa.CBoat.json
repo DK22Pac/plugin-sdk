@@ -1,0 +1,182 @@
+{
+    "name": "CBoat",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7E8",
+    "alignment": 0,
+    "vtableAddress": "0x8721A0",
+    "vtableSize": 66,
+    "comment": "",
+    "members": [
+        {
+            "name": "vehicle",
+            "type": "CVehicle",
+            "offset": 0,
+            "size": "0x5A0"
+        },
+        {
+            "name": "m_fMovingHiRotation",
+            "type": "float",
+            "offset": "0x5A0",
+            "size": 4
+        },
+        {
+            "name": "m_fPropSpeed",
+            "type": "float",
+            "offset": "0x5A4",
+            "size": 4
+        },
+        {
+            "name": "m_fPropRotation",
+            "type": "float",
+            "offset": "0x5A8",
+            "size": 4
+        },
+        {
+            "name": "m_nBoatFlags",
+            "type": "_BYTE",
+            "offset": "0x5AC",
+            "size": 1
+        },
+        {
+            "name": "__pad5AD",
+            "type": "_BYTE[3]",
+            "offset": "0x5AD",
+            "size": 3
+        },
+        {
+            "name": "m_aBoatNodes",
+            "type": "RwFrame *[12]",
+            "offset": "0x5B0",
+            "size": "0x30",
+            "comment": "RwFrame *"
+        },
+        {
+            "name": "m_marquisDoor",
+            "type": "CDoor",
+            "offset": "0x5E0",
+            "size": "0x18"
+        },
+        {
+            "name": "m_pBoatHandling",
+            "type": "tBoatHandlingData *",
+            "offset": "0x5F8",
+            "size": 4,
+            "comment": "tBoatHandlingData *"
+        },
+        {
+            "name": "m_fForcedZRotation",
+            "type": "float",
+            "offset": "0x5FC",
+            "size": 4
+        },
+        {
+            "name": "m_nAttackPlayerTime",
+            "type": "_DWORD",
+            "offset": "0x600",
+            "size": 4
+        },
+        {
+            "name": "field_604",
+            "type": "_DWORD",
+            "offset": "0x604",
+            "size": 4,
+            "comment": "initialised (0), not used"
+        },
+        {
+            "name": "m_fBurningTimer",
+            "type": "float",
+            "offset": "0x608",
+            "size": 4
+        },
+        {
+            "name": "m_pWhoDestroyedMe",
+            "type": "_DWORD",
+            "offset": "0x60C",
+            "size": 4
+        },
+        {
+            "name": "m_vecBoatMoveForce",
+            "type": "CVector",
+            "offset": "0x610",
+            "size": "0xC"
+        },
+        {
+            "name": "m_vecBoatTurnForce",
+            "type": "CVector",
+            "offset": "0x61C",
+            "size": "0xC"
+        },
+        {
+            "name": "m_pPropSplashFx",
+            "type": "FxSystem_c *[2]",
+            "offset": "0x628",
+            "size": 8,
+            "comment": "FxSystem_c *"
+        },
+        {
+            "name": "m_vecWaterDamping",
+            "type": "CVector",
+            "offset": "0x630",
+            "size": "0xC"
+        },
+        {
+            "name": "field_63C",
+            "type": "_BYTE",
+            "offset": "0x63C",
+            "size": 1,
+            "comment": "initialised (0), used in CBoat::DebugCode, possibly a leftover"
+        },
+        {
+            "name": "m_nPadNumber",
+            "type": "_BYTE",
+            "offset": "0x63D",
+            "size": 1,
+            "comment": "0 - 3"
+        },
+        {
+            "name": "__pad63E",
+            "type": "_BYTE[2]",
+            "offset": "0x63E",
+            "size": 2
+        },
+        {
+            "name": "m_fWaterResistance",
+            "type": "float",
+            "offset": "0x640",
+            "size": 4,
+            "comment": "initialised with 7.0f, 0.0f - not in water"
+        },
+        {
+            "name": "m_nNumWaterTrailPoints",
+            "type": "_WORD",
+            "offset": "0x644",
+            "size": 2
+        },
+        {
+            "name": "__pad646",
+            "type": "char[2]",
+            "offset": "0x646",
+            "size": 2
+        },
+        {
+            "name": "m_avecWakePoints",
+            "type": "CVector2D[32]",
+            "offset": "0x648",
+            "size": "0x100"
+        },
+        {
+            "name": "m_afWakePointLifeTime",
+            "type": "float[32]",
+            "offset": "0x748",
+            "size": "0x80"
+        },
+        {
+            "name": "m_anWakePointIntensity",
+            "type": "char[32]",
+            "offset": "0x7C8",
+            "size": "0x20"
+        }
+    ]
+}

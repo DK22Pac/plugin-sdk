@@ -1,0 +1,29 @@
+{
+    "name": "CMissionCleanup",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "type",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "__pad",
+            "type": "char[3]",
+            "offset": 1,
+            "size": 3
+        },
+        {
+            "name": "handle",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

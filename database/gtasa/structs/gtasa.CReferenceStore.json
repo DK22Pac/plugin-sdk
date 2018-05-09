@@ -1,0 +1,23 @@
+{
+    "name": "CReferenceStore",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x5DC4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "aRefs",
+            "type": "CReference[3000]",
+            "offset": 0,
+            "size": "0x5DC0"
+        },
+        {
+            "name": "pEmptyList",
+            "type": "int",
+            "offset": "0x5DC0",
+            "size": 4
+        }
+    ]
+}

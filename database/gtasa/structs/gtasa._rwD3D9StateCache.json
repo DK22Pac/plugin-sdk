@@ -1,0 +1,149 @@
+{
+    "name": "_rwD3D9StateCache",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x118",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "zWriteEnable",
+            "type": "unsigned int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "zTestEnable",
+            "type": "unsigned int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "stencilEnable",
+            "type": "unsigned int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "stencilFailOp",
+            "type": "unsigned int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "stencilZFailOp",
+            "type": "unsigned int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "stencilPassOp",
+            "type": "unsigned int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "stencilFunction",
+            "type": "unsigned int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "stencilRef",
+            "type": "unsigned int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "stencilMask",
+            "type": "unsigned int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "stencilWriteMask",
+            "type": "unsigned int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "vertexAlphaBlendEnable",
+            "type": "unsigned int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "textureAlphaBlendEnable",
+            "type": "unsigned int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "cullMode",
+            "type": "unsigned int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "fogEnable",
+            "type": "unsigned int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "fogType",
+            "type": "unsigned int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "fogDensity",
+            "type": "float",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "fogColor",
+            "type": "unsigned int",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "shadeMode",
+            "type": "unsigned int",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "stage",
+            "type": "_rwD3D9StageStateCache[8]",
+            "offset": "0x48",
+            "size": "0xC0"
+        },
+        {
+            "name": "srcBlend",
+            "type": "unsigned int",
+            "offset": "0x108",
+            "size": 4
+        },
+        {
+            "name": "dstBlend",
+            "type": "unsigned int",
+            "offset": "0x10C",
+            "size": 4
+        },
+        {
+            "name": "alphaTestFunction",
+            "type": "unsigned int",
+            "offset": "0x110",
+            "size": 4
+        },
+        {
+            "name": "alphaTestEnable",
+            "type": "unsigned int",
+            "offset": "0x114",
+            "size": 4
+        }
+    ]
+}

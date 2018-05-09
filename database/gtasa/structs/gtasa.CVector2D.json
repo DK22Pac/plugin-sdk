@@ -1,0 +1,23 @@
+{
+    "name": "CVector2D",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "x",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "y",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

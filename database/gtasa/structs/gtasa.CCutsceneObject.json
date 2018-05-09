@@ -1,0 +1,43 @@
+{
+    "name": "CCutsceneObject",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x19C",
+    "alignment": 0,
+    "vtableAddress": "0x868A60",
+    "vtableSize": 23,
+    "comment": "",
+    "members": [
+        {
+            "name": "object",
+            "type": "CObject",
+            "offset": 0,
+            "size": "0x17C"
+        },
+        {
+            "name": "m_pAttachToBone",
+            "type": "RwFrame *",
+            "offset": "0x17C",
+            "size": 4
+        },
+        {
+            "name": "m_pAttachToObject",
+            "type": "CEntity *",
+            "offset": "0x180",
+            "size": 4
+        },
+        {
+            "name": "m_vWorldPosition",
+            "type": "CVector",
+            "offset": "0x184",
+            "size": "0xC"
+        },
+        {
+            "name": "m_vForce",
+            "type": "CVector",
+            "offset": "0x190",
+            "size": "0xC"
+        }
+    ]
+}

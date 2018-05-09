@@ -1,0 +1,29 @@
+{
+    "name": "tCutsceneAttachment",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nCutscenePedObjectId",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nCutsceneAttachmentObjectId",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_nBoneId",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

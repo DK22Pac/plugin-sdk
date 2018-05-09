@@ -1,0 +1,37 @@
+{
+    "name": "RwPrimitiveTypeConverted",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "_rwPRIMTYPENAPRIMTYPE",
+            "value": "0x0"
+        },
+        {
+            "name": "_rwPRIMTYPELINELIST",
+            "value": "0x2"
+        },
+        {
+            "name": "_rwPRIMTYPEPOLYLINE",
+            "value": "0x3"
+        },
+        {
+            "name": "_rwPRIMTYPETRILIST",
+            "value": "0x4"
+        },
+        {
+            "name": "_rwPRIMTYPETRIFAN",
+            "value": "0x5"
+        },
+        {
+            "name": "_rwPRIMTYPETRISTRIP",
+            "value": "0x6"
+        }
+    ]
+}

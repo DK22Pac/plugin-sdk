@@ -1,0 +1,23 @@
+{
+    "name": "Unk4",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nBankId",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "m_nUsageCount",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        }
+    ]
+}

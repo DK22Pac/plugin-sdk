@@ -1,0 +1,45 @@
+{
+    "name": "RwRasterType",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "rwRASTERTYPENORMAL",
+            "value": "0x0"
+        },
+        {
+            "name": "rwRASTERTYPEZBUFFER",
+            "value": "0x1"
+        },
+        {
+            "name": "rwRASTERTYPECAMERA",
+            "value": "0x2"
+        },
+        {
+            "name": "rwRASTERTYPETEXTURE",
+            "value": "0x4"
+        },
+        {
+            "name": "rwRASTERTYPECAMERATEXTURE",
+            "value": "0x5"
+        },
+        {
+            "name": "rwRASTERTYPEMASK",
+            "value": "0x7"
+        },
+        {
+            "name": "rwRASTERPALETTEVOLATILE",
+            "value": "0x40"
+        },
+        {
+            "name": "rwRASTERDONTALLOCATE",
+            "value": "0x80"
+        }
+    ]
+}

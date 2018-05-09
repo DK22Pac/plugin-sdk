@@ -1,0 +1,41 @@
+{
+    "name": "CAnimBlendAssocGroup",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "pAnimBlock",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "ppAssociations",
+            "type": "CAnimBlendStaticAssociation *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "iNumAnimations",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "iIDOffset",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "groupID",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "name": "GUID",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "Data1",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Data2",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "Data3",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "Data4",
+            "type": "char[8]",
+            "offset": 8,
+            "size": 8
+        }
+    ]
+}

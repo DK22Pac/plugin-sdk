@@ -1,0 +1,41 @@
+{
+    "name": "RwChunkHeaderInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "type",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "length",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "version",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "buildNum",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "isComplex",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

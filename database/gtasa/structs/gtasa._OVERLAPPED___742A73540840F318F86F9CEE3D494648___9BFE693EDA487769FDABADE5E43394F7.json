@@ -1,0 +1,23 @@
+{
+    "name": "_OVERLAPPED::$742A73540840F318F86F9CEE3D494648::$9BFE693EDA487769FDABADE5E43394F7",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "Offset",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "OffsetHigh",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

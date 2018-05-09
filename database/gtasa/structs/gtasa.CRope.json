@@ -1,0 +1,101 @@
+{
+    "name": "CRope",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x328",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_avRopeSegments",
+            "type": "CVector[32]",
+            "offset": 0,
+            "size": "0x180"
+        },
+        {
+            "name": "m_avRopeSegmentsReleased",
+            "type": "CVector[32]",
+            "offset": "0x180",
+            "size": "0x180"
+        },
+        {
+            "name": "m_dwId",
+            "type": "int",
+            "offset": "0x300",
+            "size": 4
+        },
+        {
+            "name": "field_304",
+            "type": "float",
+            "offset": "0x304",
+            "size": 4
+        },
+        {
+            "name": "m_fMass",
+            "type": "float",
+            "offset": "0x308",
+            "size": 4
+        },
+        {
+            "name": "m_dwRopeTotalLength",
+            "type": "int",
+            "offset": "0x30C",
+            "size": 4
+        },
+        {
+            "name": "m_pRopeHolder",
+            "type": "int",
+            "offset": "0x310",
+            "size": 4
+        },
+        {
+            "name": "m_pRopeAttachObject",
+            "type": "int",
+            "offset": "0x314",
+            "size": 4
+        },
+        {
+            "name": "m_pAttachedEntity",
+            "type": "int",
+            "offset": "0x318",
+            "size": 4
+        },
+        {
+            "name": "m_dwHeight",
+            "type": "float",
+            "offset": "0x31C",
+            "size": 4
+        },
+        {
+            "name": "m_dwTime",
+            "type": "_DWORD",
+            "offset": "0x320",
+            "size": 4
+        },
+        {
+            "name": "m_nNumSegments",
+            "type": "char",
+            "offset": "0x324",
+            "size": 1
+        },
+        {
+            "name": "m_nRopeType",
+            "type": "char",
+            "offset": "0x325",
+            "size": 1
+        },
+        {
+            "name": "m_nFlags1",
+            "type": "char",
+            "offset": "0x326",
+            "size": 1
+        },
+        {
+            "name": "m_nFlags2",
+            "type": "char",
+            "offset": "0x327",
+            "size": 1
+        }
+    ]
+}

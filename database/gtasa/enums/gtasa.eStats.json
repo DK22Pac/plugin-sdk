@@ -1,0 +1,1233 @@
+{
+    "name": "eStats",
+    "module": "",
+    "scope": "",
+    "width": 2,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "STAT_PROGRESS_MADE",
+            "value": 0
+        },
+        {
+            "name": "STAT_TOTAL_PROGRESS",
+            "value": 1
+        },
+        {
+            "name": "STAT_FURTHEST_HOOP",
+            "value": 2
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_ON_FOOT",
+            "value": 3
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_CAR",
+            "value": 4
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_MOTORBIKE",
+            "value": 5
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_BOAT",
+            "value": 6
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_GOLF_CART",
+            "value": 7
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_HELICOPTER",
+            "value": 8
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_PLANE",
+            "value": 9
+        },
+        {
+            "name": "STAT_LONGEST_WHEELIE_DISTANCE",
+            "value": 10
+        },
+        {
+            "name": "STAT_LONGEST_STOPPIE_DISTANCE",
+            "value": 11
+        },
+        {
+            "name": "STAT_LONGEST_2_WHEELS_DISTANCE",
+            "value": 12
+        },
+        {
+            "name": "STAT_WEAPON_BUDGET",
+            "value": 13
+        },
+        {
+            "name": "STAT_FASHION_BUDGET",
+            "value": 14
+        },
+        {
+            "name": "STAT_PROPERTY_BUDGET",
+            "value": 15
+        },
+        {
+            "name": "STAT_AUTO_REPAIR_AND_PAINTING_BUDGET",
+            "value": 16
+        },
+        {
+            "name": "STAT_LONGEST_WHEELIE_TIME",
+            "value": 17
+        },
+        {
+            "name": "STAT_LONGEST_STOPPIE_TIME",
+            "value": 18
+        },
+        {
+            "name": "STAT_LONGEST_2_WHEELS_TIME",
+            "value": 19
+        },
+        {
+            "name": "STAT_FOOD_BUDGET",
+            "value": 20
+        },
+        {
+            "name": "STAT_FAT",
+            "value": 21
+        },
+        {
+            "name": "STAT_STAMINA",
+            "value": 22
+        },
+        {
+            "name": "STAT_MUSCLE",
+            "value": 23
+        },
+        {
+            "name": "STAT_MAX_HEALTH",
+            "value": 24
+        },
+        {
+            "name": "STAT_SEX_APPEAL",
+            "value": 25
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_SWIMMING",
+            "value": 26
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_BY_BICYCLE",
+            "value": 27
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_ON_TREADMILL",
+            "value": 28
+        },
+        {
+            "name": "STAT_DISTANCE_TRAVELLED_ON_EXERCISE_BIKE",
+            "value": 29
+        },
+        {
+            "name": "STAT_TATTOO_BUDGET",
+            "value": 30
+        },
+        {
+            "name": "STAT_HAIRDRESSING_BUDGET",
+            "value": 31
+        },
+        {
+            "name": "STAT_GIRLFRIEND_BUDGET",
+            "value": 32
+        },
+        {
+            "name": "STAT_PROSTITUTE_BUDGET",
+            "value": 33
+        },
+        {
+            "name": "STAT_FURNITURE_BUDGET",
+            "value": 34
+        },
+        {
+            "name": "STAT_MONEY_SPENT_GAMBLING",
+            "value": 35
+        },
+        {
+            "name": "STAT_MONEY_MADE_FROM_PIMPING",
+            "value": 36
+        },
+        {
+            "name": "STAT_MONEY_WON_GAMBLING",
+            "value": 37
+        },
+        {
+            "name": "STAT_BIGGEST_GAMBLING_WIN",
+            "value": 38
+        },
+        {
+            "name": "STAT_BIGGEST_GAMBLING_LOSS",
+            "value": 39
+        },
+        {
+            "name": "STAT_LARGEST_BURGLARY_SWAG",
+            "value": 40
+        },
+        {
+            "name": "STAT_MONEY_MADE_FROM_BURGLARY",
+            "value": 41
+        },
+        {
+            "name": "STAT_MONEY_SPENT_BUILDING_PROPERTY",
+            "value": 42
+        },
+        {
+            "name": "STAT_UNUSED",
+            "value": 43
+        },
+        {
+            "name": "STAT_LONGEST_TREADMILL_TIME",
+            "value": 44
+        },
+        {
+            "name": "STAT_LONGEST_EXERCISE_BIKE_TIME",
+            "value": 45
+        },
+        {
+            "name": "STAT_HEAVIEST_WEIGHT_ON_BENCH_PRESS",
+            "value": 46
+        },
+        {
+            "name": "STAT_HEAVIEST_WEIGHT_ON_DUMBBELLS",
+            "value": 47
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_8_TRACK",
+            "value": 48
+        },
+        {
+            "name": "STAT_BMX_BEST_TIME",
+            "value": 49
+        },
+        {
+            "name": "STAT_LIGHTEST_WEIGHT",
+            "value": 50
+        },
+        {
+            "name": "STAT_LONGEST_CHASE_TIME_WITH_5_OR_MORE_STARS",
+            "value": 51
+        },
+        {
+            "name": "STAT_LAST_CHASE_TIME_WITH_5_OR_MORE_STARS",
+            "value": 52
+        },
+        {
+            "name": "STAT_WAGE_BILL",
+            "value": 53
+        },
+        {
+            "name": "STAT_STRIP_CLUB_BUDGET",
+            "value": 54
+        },
+        {
+            "name": "STAT_CAR_MODIFICATION_BUDGET",
+            "value": 55
+        },
+        {
+            "name": "STAT_TIME_SPENT_SHOPPING",
+            "value": 56
+        },
+        {
+            "name": "STAT_TIME_SPENT_GAMBLING",
+            "value": 57
+        },
+        {
+            "name": "STAT_TIME_SPENT_ON_LONGEST_MISSION",
+            "value": 58
+        },
+        {
+            "name": "STAT_TIME_SPENT_ON_QUICKEST_MISSION",
+            "value": 59
+        },
+        {
+            "name": "STAT_AVERAGE_MISSION_TIME",
+            "value": 60
+        },
+        {
+            "name": "STAT_DRUGS_BUDGET",
+            "value": 61
+        },
+        {
+            "name": "STAT_TOTAL_SHOPPING_BUDGET",
+            "value": 62
+        },
+        {
+            "name": "STAT_TIME_SPENT_UNDERWATER",
+            "value": 63
+        },
+        {
+            "name": "STAT_TOTAL_RESPECT",
+            "value": 64
+        },
+        {
+            "name": "STAT_GIRLFRIEND_RESPECT",
+            "value": 65
+        },
+        {
+            "name": "STAT_CLOTHES_RESPECT",
+            "value": 66
+        },
+        {
+            "name": "STAT_FITNESS_RESPECT",
+            "value": 67
+        },
+        {
+            "name": "STAT_RESPECT",
+            "value": 68
+        },
+        {
+            "name": "STAT_PISTOL_SKILL",
+            "value": 69
+        },
+        {
+            "name": "STAT_SILENCED_PISTOL_SKILL",
+            "value": 70
+        },
+        {
+            "name": "STAT_DESERT_EAGLE_SKILL",
+            "value": 71
+        },
+        {
+            "name": "STAT_SHOTGUN_SKILL",
+            "value": 72
+        },
+        {
+            "name": "STAT_SAWN_OFF_SHOTGUN_SKILL",
+            "value": 73
+        },
+        {
+            "name": "STAT_COMBAT_SHOTGUN_SKILL",
+            "value": 74
+        },
+        {
+            "name": "STAT_MACHINE_PISTOL_SKILL",
+            "value": 75
+        },
+        {
+            "name": "STAT_SMG_SKILL",
+            "value": 76
+        },
+        {
+            "name": "STAT_AK_47_SKILL",
+            "value": 77
+        },
+        {
+            "name": "STAT_M4_SKILL",
+            "value": 78
+        },
+        {
+            "name": "STAT_RIFLE_SKILL",
+            "value": 79
+        },
+        {
+            "name": "STAT_APPEARANCE",
+            "value": 80
+        },
+        {
+            "name": "STAT_GAMBLING",
+            "value": 81
+        },
+        {
+            "name": "STAT_PEOPLE_WASTED_BY_OTHERS",
+            "value": 120
+        },
+        {
+            "name": "STAT_PEOPLE_YOUVE_WASTED",
+            "value": 121
+        },
+        {
+            "name": "STAT_ROAD_VEHICLES_DESTROYED",
+            "value": 122
+        },
+        {
+            "name": "STAT_BOATS_DESTROYED",
+            "value": 123
+        },
+        {
+            "name": "STAT_PLANES_HELICOPTERS_DESTROYED",
+            "value": 124
+        },
+        {
+            "name": "STAT_COST_OF_PROPERTY_DAMAGED",
+            "value": 125
+        },
+        {
+            "name": "STAT_BULLETS_FIRED",
+            "value": 126
+        },
+        {
+            "name": "STAT_KGS_OF_EXPLOSIVES_USED",
+            "value": 127
+        },
+        {
+            "name": "STAT_BULLETS_THAT_HIT",
+            "value": 128
+        },
+        {
+            "name": "STAT_TIRES_POPPED_WITH_GUNFIRE",
+            "value": 129
+        },
+        {
+            "name": "STAT_NUMBER_OF_HEADSHOTS",
+            "value": 130
+        },
+        {
+            "name": "STAT_TOTAL_NUMBER_OF_WANTED_STARS_ATTAINED",
+            "value": 131
+        },
+        {
+            "name": "STAT_TOTAL_NUMBER_OF_WANTED_STARS_EVADED",
+            "value": 132
+        },
+        {
+            "name": "STAT_TIMES_BUSTED",
+            "value": 133
+        },
+        {
+            "name": "STAT_DAYS_PASSED_IN_GAME",
+            "value": 134
+        },
+        {
+            "name": "STAT_NUMBER_OF_HOSPITAL_VISITS",
+            "value": 135
+        },
+        {
+            "name": "STAT_SAFEHOUSE_VISITS",
+            "value": 136
+        },
+        {
+            "name": "STAT_TIMES_CHEATED",
+            "value": 137
+        },
+        {
+            "name": "STAT_VEHICLE_RESPRAYS",
+            "value": 138
+        },
+        {
+            "name": "STAT_MAXIMUM_INSANE_JUMP_DISTANCE",
+            "value": 139
+        },
+        {
+            "name": "STAT_MAXIMUM_INSANE_JUMP_HEIGHT",
+            "value": 140
+        },
+        {
+            "name": "STAT_MAXIMUM_INSANE_JUMP_FLIPS",
+            "value": 141
+        },
+        {
+            "name": "STAT_MAXIMUM_INSANE_JUMP_ROTATION",
+            "value": 142
+        },
+        {
+            "name": "STAT_BEST_INSANE_STUNT_AWARDED",
+            "value": 143
+        },
+        {
+            "name": "STAT_UNIQUE_JUMPS_FOUND",
+            "value": 144
+        },
+        {
+            "name": "STAT_UNIQUE_JUMPS_DONE",
+            "value": 145
+        },
+        {
+            "name": "STAT_MISSION_ATTEMPTS",
+            "value": 146
+        },
+        {
+            "name": "STAT_MISSIONS_PASSED",
+            "value": 147
+        },
+        {
+            "name": "STAT_TOTAL_NUMBER_OF_MISSIONS_IN_GAME",
+            "value": 148
+        },
+        {
+            "name": "STAT_CASH_MADE_IN_A_TAXI",
+            "value": 149
+        },
+        {
+            "name": "STAT_PASSENGERS_DROPPED_OFF",
+            "value": 150
+        },
+        {
+            "name": "STAT_PEOPLE_SAVED_IN_AN_AMBULANCE",
+            "value": 151
+        },
+        {
+            "name": "STAT_CRIMINALS_KILLED_ON_VIGILANTE_MISSION",
+            "value": 152
+        },
+        {
+            "name": "STAT_TOTAL_FIRES_EXTINGUISHED",
+            "value": 153
+        },
+        {
+            "name": "STAT_PACKAGES_DELIVERED",
+            "value": 154
+        },
+        {
+            "name": "STAT_ASSASSINATIONS",
+            "value": 155
+        },
+        {
+            "name": "STAT_LAST_DANCE_SCORE",
+            "value": 156
+        },
+        {
+            "name": "STAT_HIGHEST_VIGILANTE_MISSION_LEVEL",
+            "value": 157
+        },
+        {
+            "name": "STAT_HIGHEST_PARAMEDIC_MISSION_LEVEL",
+            "value": 158
+        },
+        {
+            "name": "STAT_HIGHEST_FIREFIGHTER_MISSION_LEVEL",
+            "value": 159
+        },
+        {
+            "name": "STAT_DRIVING_SKILL",
+            "value": 160
+        },
+        {
+            "name": "STAT_NUMBER_OF_TRUCK_MISSIONS_PASSED",
+            "value": 161
+        },
+        {
+            "name": "STAT_MONEY_MADE_IN_TRUCK",
+            "value": 162
+        },
+        {
+            "name": "STAT_RECRUITED_GANG_MEMBERS_KILLED",
+            "value": 163
+        },
+        {
+            "name": "STAT_ARMOR",
+            "value": 164
+        },
+        {
+            "name": "STAT_ENERGY",
+            "value": 165
+        },
+        {
+            "name": "STAT_PHOTOGRAPHS_TAKEN",
+            "value": 166
+        },
+        {
+            "name": "STAT_RAMPAGES_ATTEMPTED",
+            "value": 167
+        },
+        {
+            "name": "STAT_RAMPAGES_PASSED",
+            "value": 168
+        },
+        {
+            "name": "STAT_FLIGHT_TIME",
+            "value": 169
+        },
+        {
+            "name": "STAT_TIMES_DROWNED",
+            "value": 170
+        },
+        {
+            "name": "STAT_NUMBER_OF_GIRLS_PIMPED",
+            "value": 171
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_8_TRACK",
+            "value": 172
+        },
+        {
+            "name": "STAT_TIME_ON_JETPACK",
+            "value": 173
+        },
+        {
+            "name": "STAT_SHOOTING_RANGE_LEVELS_PASSED",
+            "value": 174
+        },
+        {
+            "name": "STAT_MOST_CARS_PARKED_ON_VALET_PARKING",
+            "value": 175
+        },
+        {
+            "name": "STAT_KILLS_SINCE_LAST_CHECKPOINT",
+            "value": 176
+        },
+        {
+            "name": "STAT_TOTAL_LEGITIMATE_KILLS",
+            "value": 177
+        },
+        {
+            "name": "STAT_NUMBER_OF_BLOODRING_KILLS",
+            "value": 178
+        },
+        {
+            "name": "STAT_TOTAL_TIME_IN_BLOODRING",
+            "value": 179
+        },
+        {
+            "name": "STAT_NO_MORE_HURRICANES_FLAG",
+            "value": 180
+        },
+        {
+            "name": "STAT_CITY_UNLOCKED",
+            "value": 181
+        },
+        {
+            "name": "STAT_NUMBER_OF_POLICE_BRIBES",
+            "value": 182
+        },
+        {
+            "name": "STAT_NUMBER_OF_CARS_STOLEN",
+            "value": 183
+        },
+        {
+            "name": "STAT_CURRENT_NUMBER_OF_GIRLFRIENDS",
+            "value": 184
+        },
+        {
+            "name": "STAT_NUMBER_OF_DISASTROUS_DATES",
+            "value": 185
+        },
+        {
+            "name": "STAT_NUMBER_OF_GIRLS_DATED",
+            "value": 186
+        },
+        {
+            "name": "STAT_NUMBER_OF_TIMES_SCORED_WITH_A_GIRL",
+            "value": 187
+        },
+        {
+            "name": "STAT_NUMBER_OF_SUCCESSFUL_DATES",
+            "value": 188
+        },
+        {
+            "name": "STAT_NUMBER_OF_GIRLS_DUMPED",
+            "value": 189
+        },
+        {
+            "name": "STAT_NUMBER_OF_PROSTITUTES_VISITED",
+            "value": 190
+        },
+        {
+            "name": "STAT_NUMBER_OF_HOUSES_BURGLED",
+            "value": 191
+        },
+        {
+            "name": "STAT_NUMBER_OF_SAFES_CRACKED",
+            "value": 192
+        },
+        {
+            "name": "STAT_BURGULAR_STATUS",
+            "value": 193
+        },
+        {
+            "name": "STAT_NUMBER_OF_STOLEN_ITEMS_SOLD",
+            "value": 194
+        },
+        {
+            "name": "STAT_NUMBER_OF_EIGHT_BALLS_IN_POOL",
+            "value": 195
+        },
+        {
+            "name": "STAT_TOTAL_NUMBER_OF_WINS_PLAYING_POOL",
+            "value": 196
+        },
+        {
+            "name": "STAT_TOTAL_NUMBER_OF_LOSSES_PLAYING_POOL",
+            "value": 197
+        },
+        {
+            "name": "STAT_TIMES_VISITED_THE_GYM",
+            "value": 198
+        },
+        {
+            "name": "STAT_BODY_TYPE",
+            "value": 199
+        },
+        {
+            "name": "STAT_NUMBER_OF_MEALS_EATEN",
+            "value": 200
+        },
+        {
+            "name": "STAT_MONEY_MADE_IN_QUARRY",
+            "value": 201
+        },
+        {
+            "name": "STAT_TIME_TAKEN_TO_COMPLETE_QUARRY",
+            "value": 202
+        },
+        {
+            "name": "STAT_NUMBER_OF_FURNITURE_PURCHASED",
+            "value": 203
+        },
+        {
+            "name": "STAT_FAVORITE_CONSOLE_GAME",
+            "value": 204
+        },
+        {
+            "name": "STAT_HIGHEST_CIVILIAN_PEDS_KILLED_ON_RAMPAGE",
+            "value": 205
+        },
+        {
+            "name": "STAT_HIGHEST_POLICE_PEDS_KILLED_ON_RAMPAGE",
+            "value": 206
+        },
+        {
+            "name": "STAT_HIGHEST_CIVILIAN_VEHICLES_DESTROYED_ON_RAMPAGE",
+            "value": 207
+        },
+        {
+            "name": "STAT_HIGHEST_POLICE_VEHICLES_DESTROYED_ON_RAMPAGE",
+            "value": 208
+        },
+        {
+            "name": "STAT_HIGHEST_NUMBER_OF_TANKS_DESTROYED_ON_RAMPAGE",
+            "value": 209
+        },
+        {
+            "name": "STAT_PIMPING_LEVEL",
+            "value": 210
+        },
+        {
+            "name": "STAT_KICKSTART_BEST_SCORE",
+            "value": 211
+        },
+        {
+            "name": "STAT_BEST_LAP_TIME_IN_8_TRACK",
+            "value": 212
+        },
+        {
+            "name": "STAT_NUMBER_OF_VEHICLES_EXPORTED",
+            "value": 213
+        },
+        {
+            "name": "STAT_NUMBER_OF_VEHICLES_IMPORTED",
+            "value": 214
+        },
+        {
+            "name": "STAT_HIGHEST_BASKETBALL_SCORE",
+            "value": 215
+        },
+        {
+            "name": "STAT_FIRES_STARTED",
+            "value": 216
+        },
+        {
+            "name": "STAT_AMOUNT_OF_DRUGS_SOLD",
+            "value": 217
+        },
+        {
+            "name": "STAT_AMOUNT_OF_DRUGS_BOUGHT",
+            "value": 218
+        },
+        {
+            "name": "STAT_BEST_LAP_TIME_IN_DIRT_TRACK",
+            "value": 219
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_DIRT_TRACK",
+            "value": 220
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_DIRT_TRACK",
+            "value": 221
+        },
+        {
+            "name": "STAT_NRG_500_BEST_TIME",
+            "value": 222
+        },
+        {
+            "name": "STAT_FLYING_SKILL",
+            "value": 223
+        },
+        {
+            "name": "STAT_RESPECT_MISSION",
+            "value": 224
+        },
+        {
+            "name": "STAT_LUNG_CAPACITY",
+            "value": 225
+        },
+        {
+            "name": "STAT_GAME_GORE_RATING",
+            "value": 226
+        },
+        {
+            "name": "STAT_GAME_SEX_RATING",
+            "value": 227
+        },
+        {
+            "name": "STAT_RESPECT_MISSION_TOTAL",
+            "value": 228
+        },
+        {
+            "name": "STAT_BIKE_SKILL",
+            "value": 229
+        },
+        {
+            "name": "STAT_CYCLING_SKILL",
+            "value": 230
+        },
+        {
+            "name": "STAT_SNAPSHOTS_TAKEN",
+            "value": 231
+        },
+        {
+            "name": "STAT_TOTAL_SNAPSHOTS",
+            "value": 232
+        },
+        {
+            "name": "STAT_LUCK",
+            "value": 233
+        },
+        {
+            "name": "STAT_TERRITORIES_TAKEN_OVER",
+            "value": 234
+        },
+        {
+            "name": "STAT_TERRITORIES_LOST",
+            "value": 235
+        },
+        {
+            "name": "STAT_TERRITORIES_HELD",
+            "value": 236
+        },
+        {
+            "name": "STAT_HIGHEST_NUMBER_OF_TERRITORIES_HELD",
+            "value": 237
+        },
+        {
+            "name": "STAT_GANG_MEMBERS_RECRUITED",
+            "value": 238
+        },
+        {
+            "name": "STAT_ENEMY_GANG_MEMBERS_KILLED",
+            "value": 239
+        },
+        {
+            "name": "STAT_FRIENDLY_GANG_MEMBERS_KILLED",
+            "value": 240
+        },
+        {
+            "name": "STAT_HORSESHOES_COLLECTED",
+            "value": 241
+        },
+        {
+            "name": "STAT_TOTAL_HORSESHOES",
+            "value": 242
+        },
+        {
+            "name": "STAT_OYSTERS_COLLECTED",
+            "value": 243
+        },
+        {
+            "name": "STAT_TOTAL_OYSTERS",
+            "value": 244
+        },
+        {
+            "name": "STAT_CALORIES",
+            "value": 245
+        },
+        {
+            "name": "STAT_2_PLAYER_RAMPAGE_BEST_TIME",
+            "value": 246
+        },
+        {
+            "name": "STAT_2_PLAYER_CAR_RAMPAGE_BEST_TIME",
+            "value": 247
+        },
+        {
+            "name": "STAT_2_PLAYER_ON_FOOT_RAMPAGE_BEST_TIME",
+            "value": 248
+        },
+        {
+            "name": "STAT_2_PLAYER_CHOPPER_RAMPAGE_BEST_TIME",
+            "value": 249
+        },
+        {
+            "name": "STAT_2_PLAYER_BIKE_RAMPAGE_BEST_TIME",
+            "value": 250
+        },
+        {
+            "name": "STAT_KEEPIE_UPPY_BEST_TIME",
+            "value": 251
+        },
+        {
+            "name": "STAT_PROGRESS_WITH_DENISE",
+            "value": 252
+        },
+        {
+            "name": "STAT_PROGRESS_WITH_MICHELLE",
+            "value": 253
+        },
+        {
+            "name": "STAT_PROGRESS_WITH_HELENA",
+            "value": 254
+        },
+        {
+            "name": "STAT_PROGRESS_WITH_BARBARA",
+            "value": 255
+        },
+        {
+            "name": "STAT_PROGRESS_WITH_KATIE",
+            "value": 256
+        },
+        {
+            "name": "STAT_PROGRESS_WITH_MILLIE",
+            "value": 257
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_LOWRIDER_RACE",
+            "value": 258
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_LOWRIDER_RACE",
+            "value": 259
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_LITTLE_LOOP",
+            "value": 260
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_LITTLE_LOOP",
+            "value": 261
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_BACKROAD_WANDERER",
+            "value": 262
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_BACKROAD_WANDERER",
+            "value": 263
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_CITY_CIRCUIT",
+            "value": 264
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_CITY_CIRCUIT",
+            "value": 265
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_VINEWOOD",
+            "value": 266
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_VINEWOOD",
+            "value": 267
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_FREEWAY",
+            "value": 268
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_FREEWAY",
+            "value": 269
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_INTO_THE_COUNTRY",
+            "value": 270
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_INTO_THE_COUNTRY",
+            "value": 271
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_BADLANDS_A",
+            "value": 272
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_BADLANDS_A",
+            "value": 273
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_BADLANDS_B",
+            "value": 274
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_BADLANDS_B",
+            "value": 275
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_DIRTBIKE_DANGER",
+            "value": 276
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_DIRTBIKE_DANGER",
+            "value": 277
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_BANDITO_COUNTY",
+            "value": 278
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_BANDITO_COUNTY",
+            "value": 279
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_GO_GO_KART",
+            "value": 280
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_GO_GO_KART",
+            "value": 281
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_SAN_FIERRO_FASTLANE",
+            "value": 282
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_SAN_FIERRO_FASTLANE",
+            "value": 283
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_SAN_FIERRO_HILLS",
+            "value": 284
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_SAN_FIERRO_HILLS",
+            "value": 285
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_COUNTRY_ENDURANCE",
+            "value": 286
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_COUNTRY_ENDURANCE",
+            "value": 287
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_SF_TO_LV",
+            "value": 288
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_SF_TO_LV",
+            "value": 289
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_DAM_RIDER",
+            "value": 290
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_DAM_RIDER",
+            "value": 291
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_DESERT_TRICKS",
+            "value": 292
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_DESERT_TRICKS",
+            "value": 293
+        },
+        {
+            "name": "STAT_BEST_POSITION_IN_LV_RINGROAD",
+            "value": 294
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_LV_RINGROAD",
+            "value": 295
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_WORLD_WAR_ACES",
+            "value": 296
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_BARNSTORMING",
+            "value": 297
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_MILITARY_SERVICE",
+            "value": 298
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_CHOPPER_CHECKPOINT",
+            "value": 299
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_WHIRLY_BIRD_WAYPOINT",
+            "value": 300
+        },
+        {
+            "name": "STAT_BEST_TIME_IN_HELI_HELL",
+            "value": 301
+        },
+        {
+            "name": "STAT_DRIVE_THRU_MISSION_ACCOMPLISHED",
+            "value": 302
+        },
+        {
+            "name": "STAT_MANAGEMENT_ISSUES_MISSION_ACCOMPLISHED",
+            "value": 303
+        },
+        {
+            "name": "STAT_555_WE_TIP_MISSION_ACCOMPLISHED",
+            "value": 304
+        },
+        {
+            "name": "STAT_YAY_KA_BOOM_BOOM_MISSION_ACCOMPLISHED",
+            "value": 305
+        },
+        {
+            "name": "STAT_FISH_IN_A_BARREL_MISSION_ACCOMPLISHED",
+            "value": 306
+        },
+        {
+            "name": "STAT_BREAKING_THE_BANK_AT_CALIGULAS_MISSION_ACCOMPLISHED",
+            "value": 307
+        },
+        {
+            "name": "STAT_A_HOME_IN_THE_HILLS_MISSION_ACCOMPLISHED",
+            "value": 308
+        },
+        {
+            "name": "STAT_MAYBE_SET_RIOT_MODE",
+            "value": 309
+        },
+        {
+            "name": "STAT_RYDERS_MISSION_ROBBING_UNCLE_SAM_ACCOMPLISHED",
+            "value": 310
+        },
+        {
+            "name": "STAT_MIKE_TORENO_MISSION_ACCOMPLISHED",
+            "value": 311
+        },
+        {
+            "name": "STAT_ARCHITECTURAL_ESPIONAGE_MISSION_ACCOMPLISHED",
+            "value": 312
+        },
+        {
+            "name": "STAT_JIZZY_MISSION_ACCOMPLISHED",
+            "value": 313
+        },
+        {
+            "name": "STAT_REUNITING_THE_FAMILIES_MISSION_ACCOMPLISHED",
+            "value": 314
+        },
+        {
+            "name": "STAT_SMALL_TOWN_BANK_MISSION_ACCOMPLISHED",
+            "value": 315
+        },
+        {
+            "name": "STAT_PHOTO_OPPORTUNITY_MISSION_ACCOMPLISHED",
+            "value": 316
+        },
+        {
+            "name": "STAT_DON_PEYOTE_MISSION_ACCOMPLISHED",
+            "value": 317
+        },
+        {
+            "name": "STAT_LOCAL_LIQUOR_STORE_MISSION_ACCOMPLISHED",
+            "value": 318
+        },
+        {
+            "name": "STAT_BADLANDS_MISSION_ACCOMPLISHED",
+            "value": 319
+        },
+        {
+            "name": "STAT_PLAYING_TIME",
+            "value": 320
+        },
+        {
+            "name": "STAT_HIDDEN_PACKAGES_FOUND",
+            "value": 321
+        },
+        {
+            "name": "STAT_TAGS_SPRAYED",
+            "value": 322
+        },
+        {
+            "name": "STAT_LEAST_FAVORITE_GANG",
+            "value": 323
+        },
+        {
+            "name": "STAT_GANG_MEMBERS_WASTED",
+            "value": 324
+        },
+        {
+            "name": "STAT_CRIMINALS_WASTED",
+            "value": 325
+        },
+        {
+            "name": "STAT_MOST_FAVORITE_RADIO_STATION",
+            "value": 326
+        },
+        {
+            "name": "STAT_LEAST_FAVORITE_RADIO_STATION",
+            "value": 327
+        },
+        {
+            "name": "STAT_CURRENT_WEAPON_SKILL",
+            "value": 328
+        },
+        {
+            "name": "STAT_WEAPON_SKILL_LEVELS",
+            "value": 329
+        },
+        {
+            "name": "STAT_PILOT_RANKING",
+            "value": 330
+        },
+        {
+            "name": "STAT_STRONGEST_GANG",
+            "value": 331
+        },
+        {
+            "name": "STAT_2ND_STRONGEST_GANG",
+            "value": 332
+        },
+        {
+            "name": "STAT_3RD_STRONGEST_GANG",
+            "value": 333
+        },
+        {
+            "name": "STAT_MONEY_LOST_GAMBLING",
+            "value": 334
+        },
+        {
+            "name": "STAT_RIOT_MISSION_ACCOMPLISHED",
+            "value": 335
+        },
+        {
+            "name": "STAT_GANG_STRENGTH",
+            "value": 336
+        },
+        {
+            "name": "STAT_TERRITORY_UNDER_CONTROL",
+            "value": 337
+        },
+        {
+            "name": "STAT_ARE_YOU_GOING_TO_SAN_FIERRO_MISSION_ACCOMPLISHED",
+            "value": 338
+        },
+        {
+            "name": "STAT_HIGH_NOON_MISSION_ACCOMPLISHED",
+            "value": 339
+        },
+        {
+            "name": "STAT_THE_GREEN_SABRE_MISSION_ACCOMPLISHED",
+            "value": 340
+        },
+        {
+            "name": "STAT_MAYBE_CATALINA_MEETING",
+            "value": 341
+        },
+        {
+            "name": "STAT_MAYBE_WU_ZI_MEETING",
+            "value": 342
+        }
+    ]
+}

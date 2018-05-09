@@ -1,0 +1,729 @@
+{
+    "name": "eSurfaceTypes",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "DEFAULT",
+            "value": 0
+        },
+        {
+            "name": "TARMAC",
+            "value": 1
+        },
+        {
+            "name": "TARMAC_FUCKED",
+            "value": 2
+        },
+        {
+            "name": "TARMAC_REALLYFUCKED",
+            "value": 3
+        },
+        {
+            "name": "PAVEMENT",
+            "value": 4
+        },
+        {
+            "name": "PAVEMENT_FUCKED",
+            "value": 5
+        },
+        {
+            "name": "GRAVEL",
+            "value": 6
+        },
+        {
+            "name": "FUCKED_CONCRETE",
+            "value": 7
+        },
+        {
+            "name": "PAINTED_GROUND",
+            "value": 8
+        },
+        {
+            "name": "GRASS_SHORT_LUSH",
+            "value": 9
+        },
+        {
+            "name": "GRASS_MEDIUM_LUSH",
+            "value": 10
+        },
+        {
+            "name": "GRASS_LONG_LUSH",
+            "value": 11
+        },
+        {
+            "name": "GRASS_SHORT_DRY",
+            "value": 12
+        },
+        {
+            "name": "GRASS_MEDIUM_DRY",
+            "value": 13
+        },
+        {
+            "name": "GRASS_LONG_DRY",
+            "value": 14
+        },
+        {
+            "name": "GOLFGRASS_ROUGH",
+            "value": 15
+        },
+        {
+            "name": "GOLFGRASS_SMOOTH",
+            "value": 16
+        },
+        {
+            "name": "STEEP_SLIDYGRASS",
+            "value": 17
+        },
+        {
+            "name": "STEEP_CLIFF",
+            "value": 18
+        },
+        {
+            "name": "FLOWERBED",
+            "value": 19
+        },
+        {
+            "name": "MEADOW",
+            "value": 20
+        },
+        {
+            "name": "WASTEGROUND",
+            "value": 21
+        },
+        {
+            "name": "WOODLANDGROUND",
+            "value": 22
+        },
+        {
+            "name": "VEGETATION",
+            "value": 23
+        },
+        {
+            "name": "MUD_WET",
+            "value": 24
+        },
+        {
+            "name": "MUD_DRY",
+            "value": 25
+        },
+        {
+            "name": "DIRT",
+            "value": 26
+        },
+        {
+            "name": "DIRTTRACK",
+            "value": 27
+        },
+        {
+            "name": "SAND_DEEP",
+            "value": 28
+        },
+        {
+            "name": "SAND_MEDIUM",
+            "value": 29
+        },
+        {
+            "name": "SAND_COMPACT",
+            "value": 30
+        },
+        {
+            "name": "SAND_ARID",
+            "value": 31
+        },
+        {
+            "name": "SAND_MORE",
+            "value": 32
+        },
+        {
+            "name": "SAND_BEACH",
+            "value": 33
+        },
+        {
+            "name": "CONCRETE_BEACH",
+            "value": 34
+        },
+        {
+            "name": "ROCK_DRY",
+            "value": 35
+        },
+        {
+            "name": "ROCK_WET",
+            "value": 36
+        },
+        {
+            "name": "ROCK_CLIFF",
+            "value": 37
+        },
+        {
+            "name": "WATER_RIVERBED",
+            "value": 38
+        },
+        {
+            "name": "WATER_SHALLOW",
+            "value": 39
+        },
+        {
+            "name": "CORNFIELD",
+            "value": 40
+        },
+        {
+            "name": "HEDGE",
+            "value": 41
+        },
+        {
+            "name": "WOOD_CRATES",
+            "value": 42
+        },
+        {
+            "name": "WOOD_SOLID",
+            "value": 43
+        },
+        {
+            "name": "WOOD_THIN",
+            "value": 44
+        },
+        {
+            "name": "GLASS",
+            "value": 45
+        },
+        {
+            "name": "GLASS_WINDOWS_LARGE",
+            "value": 46
+        },
+        {
+            "name": "GLASS_WINDOWS_SMALL",
+            "value": 47
+        },
+        {
+            "name": "EMPTY1",
+            "value": 48
+        },
+        {
+            "name": "EMPTY2",
+            "value": 49
+        },
+        {
+            "name": "GARAGE_DOOR",
+            "value": 50
+        },
+        {
+            "name": "THICK_METAL_PLATE",
+            "value": 51
+        },
+        {
+            "name": "SCAFFOLD_POLE",
+            "value": 52
+        },
+        {
+            "name": "LAMP_POST",
+            "value": 53
+        },
+        {
+            "name": "METAL_GATE",
+            "value": 54
+        },
+        {
+            "name": "METAL_CHAIN_FENCE",
+            "value": 55
+        },
+        {
+            "name": "GIRDER",
+            "value": 56
+        },
+        {
+            "name": "SURFACE_FIRE_HYDRANT",
+            "value": 57
+        },
+        {
+            "name": "CONTAINER",
+            "value": 58
+        },
+        {
+            "name": "NEWS_VENDOR",
+            "value": 59
+        },
+        {
+            "name": "WHEELBASE",
+            "value": 60
+        },
+        {
+            "name": "CARDBOARDBOX",
+            "value": 61
+        },
+        {
+            "name": "PED",
+            "value": 62
+        },
+        {
+            "name": "CAR",
+            "value": 63
+        },
+        {
+            "name": "CAR_PANEL",
+            "value": 64
+        },
+        {
+            "name": "CAR_MOVINGCOMPONENT",
+            "value": 65
+        },
+        {
+            "name": "TRANSPARENT_CLOTH",
+            "value": 66
+        },
+        {
+            "name": "RUBBER",
+            "value": 67
+        },
+        {
+            "name": "PLASTIC",
+            "value": 68
+        },
+        {
+            "name": "TRANSPARENT_STONE",
+            "value": 69
+        },
+        {
+            "name": "WOOD_BENCH",
+            "value": 70
+        },
+        {
+            "name": "CARPET",
+            "value": 71
+        },
+        {
+            "name": "FLOORBOARD",
+            "value": 72
+        },
+        {
+            "name": "STAIRSWOOD",
+            "value": 73
+        },
+        {
+            "name": "P_SAND",
+            "value": 74
+        },
+        {
+            "name": "P_SAND_DENSE",
+            "value": 75
+        },
+        {
+            "name": "P_SAND_ARID",
+            "value": 76
+        },
+        {
+            "name": "P_SAND_COMPACT",
+            "value": 77
+        },
+        {
+            "name": "P_SAND_ROCKY",
+            "value": 78
+        },
+        {
+            "name": "P_SANDBEACH",
+            "value": 79
+        },
+        {
+            "name": "P_GRASS_SHORT",
+            "value": 80
+        },
+        {
+            "name": "P_GRASS_MEADOW",
+            "value": 81
+        },
+        {
+            "name": "P_GRASS_DRY",
+            "value": 82
+        },
+        {
+            "name": "P_WOODLAND",
+            "value": 83
+        },
+        {
+            "name": "P_WOODDENSE",
+            "value": 84
+        },
+        {
+            "name": "P_ROADSIDE",
+            "value": 85
+        },
+        {
+            "name": "P_ROADSIDEDES",
+            "value": 86
+        },
+        {
+            "name": "P_FLOWERBED",
+            "value": 87
+        },
+        {
+            "name": "P_WASTEGROUND",
+            "value": 88
+        },
+        {
+            "name": "P_CONCRETE",
+            "value": 89
+        },
+        {
+            "name": "P_OFFICEDESK",
+            "value": 90
+        },
+        {
+            "name": "P_711SHELF1",
+            "value": 91
+        },
+        {
+            "name": "P_711SHELF2",
+            "value": 92
+        },
+        {
+            "name": "P_711SHELF3",
+            "value": 93
+        },
+        {
+            "name": "P_RESTUARANTTABLE",
+            "value": 94
+        },
+        {
+            "name": "P_BARTABLE",
+            "value": 95
+        },
+        {
+            "name": "P_UNDERWATERLUSH",
+            "value": 96
+        },
+        {
+            "name": "P_UNDERWATERBARREN",
+            "value": 97
+        },
+        {
+            "name": "P_UNDERWATERCORAL",
+            "value": 98
+        },
+        {
+            "name": "P_UNDERWATERDEEP",
+            "value": 99
+        },
+        {
+            "name": "P_RIVERBED",
+            "value": 100
+        },
+        {
+            "name": "P_RUBBLE",
+            "value": 101
+        },
+        {
+            "name": "P_BEDROOMFLOOR",
+            "value": 102
+        },
+        {
+            "name": "P_KIRCHENFLOOR",
+            "value": 103
+        },
+        {
+            "name": "P_LIVINGRMFLOOR",
+            "value": 104
+        },
+        {
+            "name": "P_CORRIDORFLOOR",
+            "value": 105
+        },
+        {
+            "name": "P_711FLOOR",
+            "value": 106
+        },
+        {
+            "name": "P_FASTFOODFLOOR",
+            "value": 107
+        },
+        {
+            "name": "P_SKANKYFLOOR",
+            "value": 108
+        },
+        {
+            "name": "P_MOUNTAIN",
+            "value": 109
+        },
+        {
+            "name": "P_MARSH",
+            "value": 110
+        },
+        {
+            "name": "P_BUSHY",
+            "value": 111
+        },
+        {
+            "name": "P_BUSHYMIX",
+            "value": 112
+        },
+        {
+            "name": "P_BUSHYDRY",
+            "value": 113
+        },
+        {
+            "name": "P_BUSHYMID",
+            "value": 114
+        },
+        {
+            "name": "P_GRASSWEEFLOWERS",
+            "value": 115
+        },
+        {
+            "name": "P_GRASSDRYTALL",
+            "value": 116
+        },
+        {
+            "name": "P_GRASSLUSHTALL",
+            "value": 117
+        },
+        {
+            "name": "P_GRASSGRNMIX",
+            "value": 118
+        },
+        {
+            "name": "P_GRASSBRNMIX",
+            "value": 119
+        },
+        {
+            "name": "P_GRASSLOW",
+            "value": 120
+        },
+        {
+            "name": "P_GRASSROCKY",
+            "value": 121
+        },
+        {
+            "name": "P_GRASSSMALLTREES",
+            "value": 122
+        },
+        {
+            "name": "P_DIRTROCKY",
+            "value": 123
+        },
+        {
+            "name": "P_DIRTWEEDS",
+            "value": 124
+        },
+        {
+            "name": "P_GRASSWEEDS",
+            "value": 125
+        },
+        {
+            "name": "P_RIVEREDGE",
+            "value": 126
+        },
+        {
+            "name": "P_POOLSIDE",
+            "value": 127
+        },
+        {
+            "name": "P_FORESTSTUMPS",
+            "value": 128
+        },
+        {
+            "name": "P_FORESTSTICKS",
+            "value": 129
+        },
+        {
+            "name": "P_FORRESTLEAVES",
+            "value": 130
+        },
+        {
+            "name": "P_DESERTROCKS",
+            "value": 131
+        },
+        {
+            "name": "P_FORRESTDRY",
+            "value": 132
+        },
+        {
+            "name": "P_SPARSEFLOWERS",
+            "value": 133
+        },
+        {
+            "name": "P_BUILDINGSITE",
+            "value": 134
+        },
+        {
+            "name": "P_DOCKLANDS",
+            "value": 135
+        },
+        {
+            "name": "P_INDUSTRIAL",
+            "value": 136
+        },
+        {
+            "name": "P_INDUSTJETTY",
+            "value": 137
+        },
+        {
+            "name": "P_CONCRETELITTER",
+            "value": 138
+        },
+        {
+            "name": "P_ALLEYRUBISH",
+            "value": 139
+        },
+        {
+            "name": "P_JUNKYARDPILES",
+            "value": 140
+        },
+        {
+            "name": "P_JUNKYARDGRND",
+            "value": 141
+        },
+        {
+            "name": "P_DUMP",
+            "value": 142
+        },
+        {
+            "name": "P_CACTUSDENSE",
+            "value": 143
+        },
+        {
+            "name": "P_AIRPORTGRND",
+            "value": 144
+        },
+        {
+            "name": "P_CORNFIELD",
+            "value": 145
+        },
+        {
+            "name": "P_GRASSLIGHT",
+            "value": 146
+        },
+        {
+            "name": "P_GRASSLIGHTER",
+            "value": 147
+        },
+        {
+            "name": "P_GRASSLIGHTER2",
+            "value": 148
+        },
+        {
+            "name": "P_GRASSMID1",
+            "value": 149
+        },
+        {
+            "name": "P_GRASSMID2",
+            "value": 150
+        },
+        {
+            "name": "P_GRASSDARK",
+            "value": 151
+        },
+        {
+            "name": "P_GRASSDARK2",
+            "value": 152
+        },
+        {
+            "name": "P_GRASSDIRTMIX",
+            "value": 153
+        },
+        {
+            "name": "P_RIVERBEDSTONE",
+            "value": 154
+        },
+        {
+            "name": "P_RIVERBEDSHALLOW",
+            "value": 155
+        },
+        {
+            "name": "P_RIVERBEDWEEDS",
+            "value": 156
+        },
+        {
+            "name": "P_SEAWEED",
+            "value": 157
+        },
+        {
+            "name": "DOOR",
+            "value": 158
+        },
+        {
+            "name": "PLASTICBARRIER",
+            "value": 159
+        },
+        {
+            "name": "PARKGRASS",
+            "value": 160
+        },
+        {
+            "name": "STAIRSSTONE",
+            "value": 161
+        },
+        {
+            "name": "STAIRSMETAL",
+            "value": 162
+        },
+        {
+            "name": "STAIRSCARPET",
+            "value": 163
+        },
+        {
+            "name": "FLOORMETAL",
+            "value": 164
+        },
+        {
+            "name": "FLOORCONCRETE",
+            "value": 165
+        },
+        {
+            "name": "BIN_BAG",
+            "value": 166
+        },
+        {
+            "name": "THIN_METAL_SHEET",
+            "value": 167
+        },
+        {
+            "name": "METAL_BARREL",
+            "value": 168
+        },
+        {
+            "name": "PLASTIC_CONE",
+            "value": 169
+        },
+        {
+            "name": "PLASTIC_DUMPSTER",
+            "value": 170
+        },
+        {
+            "name": "METAL_DUMPSTER",
+            "value": 171
+        },
+        {
+            "name": "WOOD_PICKET_FENCE",
+            "value": 172
+        },
+        {
+            "name": "WOOD_SLATTED_FENCE",
+            "value": 173
+        },
+        {
+            "name": "WOOD_RANCH_FENCE",
+            "value": 174
+        },
+        {
+            "name": "UNBREAKABLE_GLASS",
+            "value": 175
+        },
+        {
+            "name": "HAY_BALE",
+            "value": 176
+        },
+        {
+            "name": "GORE",
+            "value": 177
+        },
+        {
+            "name": "RAILTRACK",
+            "value": 178
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "name": "CAEScriptAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x21C",
+    "alignment": 0,
+    "vtableAddress": "0x862E58",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "audio",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        },
+        {
+            "name": "field_7C",
+            "type": "char",
+            "offset": "0x7C",
+            "size": 1
+        },
+        {
+            "name": "field_7D",
+            "type": "char",
+            "offset": "0x7D",
+            "size": 1
+        },
+        {
+            "name": "field_7E",
+            "type": "char",
+            "offset": "0x7E",
+            "size": 1
+        },
+        {
+            "name": "m_dwLastTimeHornPlayed",
+            "type": "int",
+            "offset": "0x80",
+            "size": 4
+        },
+        {
+            "name": "field_84",
+            "type": "int",
+            "offset": "0x84",
+            "size": 4
+        },
+        {
+            "name": "field_88",
+            "type": "float",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "field_8C",
+            "type": "float",
+            "offset": "0x8C",
+            "size": 4
+        },
+        {
+            "name": "wavLinks",
+            "type": "CAudioLink[4]",
+            "offset": "0x90",
+            "size": "0x80"
+        },
+        {
+            "name": "field_110",
+            "type": "int",
+            "offset": "0x110",
+            "size": 4
+        },
+        {
+            "name": "field_114",
+            "type": "CAEDoorAudioEntity",
+            "offset": "0x114",
+            "size": "0x88"
+        },
+        {
+            "name": "m_explosionAudio",
+            "type": "CAEExplosionAudioEntity",
+            "offset": "0x19C",
+            "size": "0x80"
+        }
+    ]
+}

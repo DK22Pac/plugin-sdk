@@ -1,0 +1,41 @@
+{
+    "name": "CLinkList",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x34",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "usedListHead",
+            "type": "CLink",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "usedListTail",
+            "type": "CLink",
+            "offset": "0xC",
+            "size": "0xC"
+        },
+        {
+            "name": "freeListHead",
+            "type": "CLink",
+            "offset": "0x18",
+            "size": "0xC"
+        },
+        {
+            "name": "freeListTail",
+            "type": "CLink",
+            "offset": "0x24",
+            "size": "0xC"
+        },
+        {
+            "name": "pEntries",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        }
+    ]
+}

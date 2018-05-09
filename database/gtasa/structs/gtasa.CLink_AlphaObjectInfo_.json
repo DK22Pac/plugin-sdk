@@ -1,0 +1,29 @@
+{
+    "name": "CLink_AlphaObjectInfo_",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "data",
+            "type": "AlphaObjectInfo",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "prev",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "next",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

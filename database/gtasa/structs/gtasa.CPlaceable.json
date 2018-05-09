@@ -1,0 +1,32 @@
+{
+    "name": "CPlaceable",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "vtableAddress": "0x863C40",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtbl",
+            "type": "CVehicle_vtbl *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_SimpleCoors",
+            "type": "CSimpleTransform",
+            "offset": 4,
+            "size": "0x10"
+        },
+        {
+            "name": "m_pMatrix",
+            "type": "CMatrixLink *",
+            "offset": "0x14",
+            "size": 4,
+            "comment": "CCoors *"
+        }
+    ]
+}

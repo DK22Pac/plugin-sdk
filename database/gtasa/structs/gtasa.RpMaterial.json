@@ -1,0 +1,47 @@
+{
+    "name": "RpMaterial",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "texture",
+            "type": "RwTexture *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "color",
+            "type": "RwRGBA",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "pipeline",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "surfaceProps",
+            "type": "RwSurfaceProperties",
+            "offset": "0xC",
+            "size": "0xC"
+        },
+        {
+            "name": "refCount",
+            "type": "__int16",
+            "offset": "0x18",
+            "size": 2
+        },
+        {
+            "name": "pad",
+            "type": "__int16",
+            "offset": "0x1A",
+            "size": 2
+        }
+    ]
+}

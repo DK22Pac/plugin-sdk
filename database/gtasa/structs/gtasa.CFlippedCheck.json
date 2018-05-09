@@ -1,0 +1,23 @@
+{
+    "name": "CFlippedCheck",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "vehicle",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

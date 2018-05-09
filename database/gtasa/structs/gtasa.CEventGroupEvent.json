@@ -1,0 +1,19 @@
+{
+    "name": "CEventGroupEvent",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 2,
+    "vtableAddress": "0x85AE48",
+    "vtableSize": 16,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtable",
+            "type": "CEvent",
+            "offset": 0,
+            "size": "0xC"
+        }
+    ]
+}

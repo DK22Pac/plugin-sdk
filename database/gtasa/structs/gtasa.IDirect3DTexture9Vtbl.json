@@ -1,0 +1,143 @@
+{
+    "name": "IDirect3DTexture9Vtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x58",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "QueryInterface",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, const IID *const riid, void **ppvObj)",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AddRef",
+            "type": "ULONG (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Release",
+            "type": "ULONG (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetDevice",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, IDirect3DDevice9 **ppDevice)",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "SetPrivateData",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, const GUID *const refguid, const void *pData, DWORD SizeOfData, DWORD Flags)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "GetPrivateData",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, const GUID *const refguid, void *pData, DWORD *pSizeOfData)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "FreePrivateData",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, const GUID *const refguid)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "SetPriority",
+            "type": "DWORD (__stdcall *)(IDirect3DTexture9 *This, DWORD PriorityNew)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "GetPriority",
+            "type": "DWORD (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "PreLoad",
+            "type": "void (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "GetType",
+            "type": "D3DRESOURCETYPE (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "SetLOD",
+            "type": "DWORD (__stdcall *)(IDirect3DTexture9 *This, DWORD LODNew)",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "GetLOD",
+            "type": "DWORD (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "GetLevelCount",
+            "type": "DWORD (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "SetAutoGenFilterType",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, D3DTEXTUREFILTERTYPE FilterType)",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "GetAutoGenFilterType",
+            "type": "D3DTEXTUREFILTERTYPE (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "GenerateMipSubLevels",
+            "type": "void (__stdcall *)(IDirect3DTexture9 *This)",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "GetLevelDesc",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, UINT Level, D3DSURFACE_DESC *pDesc)",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "GetSurfaceLevel",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, UINT Level, IDirect3DSurface9 **ppSurfaceLevel)",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "LockRect",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, UINT Level, D3DLOCKED_RECT *pLockedRect, const RECT *pRect, DWORD Flags)",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "UnlockRect",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, UINT Level)",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "AddDirtyRect",
+            "type": "HRESULT (__stdcall *)(IDirect3DTexture9 *This, const RECT *pDirtyRect)",
+            "offset": "0x54",
+            "size": 4
+        }
+    ]
+}

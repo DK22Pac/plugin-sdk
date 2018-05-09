@@ -1,0 +1,127 @@
+{
+    "name": "CRegisteredCorona",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x3C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_vPos",
+            "type": "RwV3d",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_dwId",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_pTexture",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4,
+            "comment": "RwTexture *"
+        },
+        {
+            "name": "m_fSize",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_fAngle",
+            "type": "float",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_fFarClip",
+            "type": "float",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "m_fNearClip",
+            "type": "float",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "m_fHeightAboveGround",
+            "type": "DWORD",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "m_fFadeSpeed",
+            "type": "float",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "m_sColor",
+            "type": "RwRGBA",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "m_bFadeState",
+            "type": "unsigned __int8",
+            "offset": "0x30",
+            "size": 1
+        },
+        {
+            "name": "m_bRegisteredThisFrame",
+            "type": "char",
+            "offset": "0x31",
+            "size": 1
+        },
+        {
+            "name": "m_bFlare",
+            "type": "char",
+            "offset": "0x32",
+            "size": 1
+        },
+        {
+            "name": "m_bUsesReflection",
+            "type": "char",
+            "offset": "0x33",
+            "size": 1
+        },
+        {
+            "name": "m_bFlags1",
+            "type": "unsigned __int8",
+            "offset": "0x34",
+            "size": 1
+        },
+        {
+            "name": "m_bJustCreated",
+            "type": "char",
+            "offset": "0x35",
+            "size": 1
+        },
+        {
+            "name": "m_bFlags2",
+            "type": "unsigned __int8",
+            "offset": "0x36",
+            "size": 1
+        },
+        {
+            "name": "__padding0",
+            "type": "char",
+            "offset": "0x37",
+            "size": 1
+        },
+        {
+            "name": "m_pAttachedTo",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4,
+            "comment": "CEntity *"
+        }
+    ]
+}

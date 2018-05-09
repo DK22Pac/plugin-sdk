@@ -1,0 +1,79 @@
+{
+    "name": "CTaskSimpleCarOpenDoorFromOutside",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "vtableAddress": "0x86EC9C",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "vmt",
+            "type": "CTask",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "byte8",
+            "type": "_BYTE",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "f9",
+            "type": "_BYTE[3]",
+            "offset": 9,
+            "size": 3
+        },
+        {
+            "name": "dwordC",
+            "type": "_DWORD",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_pEntity",
+            "type": "CObject *",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "dword14",
+            "type": "_DWORD",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "byte18",
+            "type": "_BYTE",
+            "offset": "0x18",
+            "size": 1
+        },
+        {
+            "name": "byte19",
+            "type": "_BYTE",
+            "offset": "0x19",
+            "size": 1
+        },
+        {
+            "name": "f1A",
+            "type": "_BYTE[2]",
+            "offset": "0x1A",
+            "size": 2
+        },
+        {
+            "name": "dword1C",
+            "type": "_DWORD",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "dword20",
+            "type": "_DWORD",
+            "offset": "0x20",
+            "size": 4
+        }
+    ]
+}

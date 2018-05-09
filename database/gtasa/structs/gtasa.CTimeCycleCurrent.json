@@ -1,0 +1,341 @@
+{
+    "name": "CTimeCycleCurrent",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xAC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_fAmbientRed",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_fAmbientGreen",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_fAmbientBlue",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_fAmbientRed_Obj",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_fAmbientGreen_Obj",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_fAmbientBlue_Obj",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_fDirectionalRed",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_fDirectionalGreen",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "m_fDirectionalBlue",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "m_wSkyTopRed",
+            "type": "_WORD",
+            "offset": "0x24",
+            "size": 2
+        },
+        {
+            "name": "m_wSkyTopGreen",
+            "type": "_WORD",
+            "offset": "0x26",
+            "size": 2
+        },
+        {
+            "name": "m_wSkyTopBlue",
+            "type": "_WORD",
+            "offset": "0x28",
+            "size": 2
+        },
+        {
+            "name": "m_wSkyBottomRed",
+            "type": "_WORD",
+            "offset": "0x2A",
+            "size": 2
+        },
+        {
+            "name": "m_wSkyBottomGreen",
+            "type": "_WORD",
+            "offset": "0x2C",
+            "size": 2
+        },
+        {
+            "name": "m_wSkyBottomBlue",
+            "type": "_WORD",
+            "offset": "0x2E",
+            "size": 2
+        },
+        {
+            "name": "m_wSunCoreRed",
+            "type": "_WORD",
+            "offset": "0x30",
+            "size": 2
+        },
+        {
+            "name": "m_wSunCoreGreen",
+            "type": "_WORD",
+            "offset": "0x32",
+            "size": 2
+        },
+        {
+            "name": "m_wSunCoreBlue",
+            "type": "_WORD",
+            "offset": "0x34",
+            "size": 2
+        },
+        {
+            "name": "m_wSunCoronaRed",
+            "type": "_WORD",
+            "offset": "0x36",
+            "size": 2
+        },
+        {
+            "name": "m_wSunCoronaGreen",
+            "type": "_WORD",
+            "offset": "0x38",
+            "size": 2
+        },
+        {
+            "name": "m_wSunCoronaBlue",
+            "type": "_WORD",
+            "offset": "0x3A",
+            "size": 2
+        },
+        {
+            "name": "m_fSunSize",
+            "type": "float",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "m_fSpriteSize",
+            "type": "float",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "m_fSpriteBrightness",
+            "type": "float",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "m_wShadowStrength",
+            "type": "_WORD",
+            "offset": "0x48",
+            "size": 2
+        },
+        {
+            "name": "m_wLightShadowStrength",
+            "type": "_WORD",
+            "offset": "0x4A",
+            "size": 2
+        },
+        {
+            "name": "m_wPoleShadowStrength",
+            "type": "_WORD",
+            "offset": "0x4C",
+            "size": 2
+        },
+        {
+            "name": "_padding0",
+            "type": "_BYTE[2]",
+            "offset": "0x4E",
+            "size": 2
+        },
+        {
+            "name": "m_fFarClip",
+            "type": "float",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "m_fFogSt",
+            "type": "float",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "m_fLightOnGround",
+            "type": "float",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "m_wLowCloudsRed",
+            "type": "_WORD",
+            "offset": "0x5C",
+            "size": 2
+        },
+        {
+            "name": "m_wLowCloudsGreen",
+            "type": "_WORD",
+            "offset": "0x5E",
+            "size": 2
+        },
+        {
+            "name": "m_wLowCloudsBlue",
+            "type": "_WORD",
+            "offset": "0x60",
+            "size": 2
+        },
+        {
+            "name": "m_wBottomCloudsRed",
+            "type": "_WORD",
+            "offset": "0x62",
+            "size": 2
+        },
+        {
+            "name": "m_wBottomCloudsGreen",
+            "type": "_WORD",
+            "offset": "0x64",
+            "size": 2
+        },
+        {
+            "name": "m_wBottomCloudsBlue",
+            "type": "_WORD",
+            "offset": "0x66",
+            "size": 2
+        },
+        {
+            "name": "m_fWaterRed",
+            "type": "float",
+            "offset": "0x68",
+            "size": 4
+        },
+        {
+            "name": "m_fWaterGreen",
+            "type": "float",
+            "offset": "0x6C",
+            "size": 4
+        },
+        {
+            "name": "m_fWaterBlue",
+            "type": "float",
+            "offset": "0x70",
+            "size": 4
+        },
+        {
+            "name": "m_fWaterAlpha",
+            "type": "float",
+            "offset": "0x74",
+            "size": 4
+        },
+        {
+            "name": "m_fRGB1_R",
+            "type": "float",
+            "offset": "0x78",
+            "size": 4
+        },
+        {
+            "name": "m_fRGB1_G",
+            "type": "float",
+            "offset": "0x7C",
+            "size": 4
+        },
+        {
+            "name": "m_fRGB1_B",
+            "type": "float",
+            "offset": "0x80",
+            "size": 4
+        },
+        {
+            "name": "m_fAlpha1",
+            "type": "float",
+            "offset": "0x84",
+            "size": 4
+        },
+        {
+            "name": "m_fRGB2_R",
+            "type": "float",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "m_fRGB2_G",
+            "type": "float",
+            "offset": "0x8C",
+            "size": 4
+        },
+        {
+            "name": "m_fRGB2_B",
+            "type": "float",
+            "offset": "0x90",
+            "size": 4
+        },
+        {
+            "name": "m_fAlpha2",
+            "type": "float",
+            "offset": "0x94",
+            "size": 4
+        },
+        {
+            "name": "m_fCloudAlpha1",
+            "type": "float",
+            "offset": "0x98",
+            "size": 4
+        },
+        {
+            "name": "m_dwCloudAlpha2",
+            "type": "_DWORD",
+            "offset": "0x9C",
+            "size": 4
+        },
+        {
+            "name": "m_wCloudAlpha3",
+            "type": "_WORD",
+            "offset": "0xA0",
+            "size": 2
+        },
+        {
+            "name": "_padding1",
+            "type": "_BYTE[2]",
+            "offset": "0xA2",
+            "size": 2
+        },
+        {
+            "name": "m_fIllumination",
+            "type": "float",
+            "offset": "0xA4",
+            "size": 4
+        },
+        {
+            "name": "field_A8",
+            "type": "float",
+            "offset": "0xA8",
+            "size": 4
+        }
+    ]
+}

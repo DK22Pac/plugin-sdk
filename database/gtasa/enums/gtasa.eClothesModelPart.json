@@ -1,0 +1,53 @@
+{
+    "name": "eClothesModelPart",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "CLOTHES_MODEL_TORSO",
+            "value": "0x0"
+        },
+        {
+            "name": "CLOTHES_MODEL_HEAD",
+            "value": "0x1"
+        },
+        {
+            "name": "CLOTHES_MODEL_LEGS",
+            "value": "0x3"
+        },
+        {
+            "name": "CLOTHES_MODEL_SHOES",
+            "value": "0x4"
+        },
+        {
+            "name": "CLOTHES_MODEL_NECKLACE",
+            "value": "0x5"
+        },
+        {
+            "name": "CLOTHES_MODEL_BRACELET",
+            "value": "0x6"
+        },
+        {
+            "name": "CLOTHES_MODEL_GLASSES",
+            "value": "0x7"
+        },
+        {
+            "name": "CLOTHES_MODEL_HATS",
+            "value": "0x8"
+        },
+        {
+            "name": "CLOTHES_MODEL_SPECIAL",
+            "value": "0x9"
+        },
+        {
+            "name": "CLOTHES_MODEL_UNAVAILABLE",
+            "value": "0xA"
+        }
+    ]
+}

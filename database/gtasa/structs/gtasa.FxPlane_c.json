@@ -1,0 +1,17 @@
+{
+    "name": "FxPlane_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "plane",
+            "type": "RwPlane",
+            "offset": 0,
+            "size": "0x10"
+        }
+    ]
+}

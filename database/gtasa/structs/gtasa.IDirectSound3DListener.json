@@ -1,0 +1,17 @@
+{
+    "name": "IDirectSound3DListener",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "lpVtbl",
+            "type": "IDirectSound3DListenerVtbl *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

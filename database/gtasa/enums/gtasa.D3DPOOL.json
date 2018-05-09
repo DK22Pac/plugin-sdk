@@ -1,0 +1,33 @@
+{
+    "name": "D3DPOOL",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DPOOL_DEFAULT",
+            "value": "0x0"
+        },
+        {
+            "name": "D3DPOOL_MANAGED",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DPOOL_SYSTEMMEM",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DPOOL_SCRATCH",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DPOOL_FORCE_DWORD",
+            "value": "0x7FFFFFFF"
+        }
+    ]
+}

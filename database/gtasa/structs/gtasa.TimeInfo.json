@@ -1,0 +1,29 @@
+{
+    "name": "TimeInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nTimeOn",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "m_nTimeOff",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "m_wOtherTimeModel",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "name": "D3DSURFACE_DESC",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "Format",
+            "type": "D3DFORMAT",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Type",
+            "type": "D3DRESOURCETYPE",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Usage",
+            "type": "DWORD",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "Pool",
+            "type": "D3DPOOL",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "MultiSampleType",
+            "type": "D3DMULTISAMPLE_TYPE",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "MultiSampleQuality",
+            "type": "DWORD",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "Width",
+            "type": "UINT",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "Height",
+            "type": "UINT",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

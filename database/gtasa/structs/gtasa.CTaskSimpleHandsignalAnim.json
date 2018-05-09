@@ -1,0 +1,47 @@
+{
+    "name": "CTaskSimpleHandsignalAnim",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "anim",
+            "type": "CTaskSimpleAnim",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "m_animationId",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_fBlendFactor",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_bUseFatHands",
+            "type": "char",
+            "offset": "0x18",
+            "size": 1
+        },
+        {
+            "name": "m_pHandObject",
+            "type": "CHandObject *",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "field_20",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        }
+    ]
+}

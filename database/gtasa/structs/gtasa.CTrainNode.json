@@ -1,0 +1,47 @@
+{
+    "name": "CTrainNode",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xA",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "x",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "y",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "z",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "m_nDistanceFromStart",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "m_nSurfaceLighting",
+            "type": "char",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "m_bSurfLightingFound",
+            "type": "char",
+            "offset": 9,
+            "size": 1
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "name": "DDSCAPS2",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "dwCaps",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dwCaps2",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "dwCaps3",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "dwCaps4",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

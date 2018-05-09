@@ -1,0 +1,61 @@
+{
+    "name": "MACRO_CS_VREDRAW",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "CS_VREDRAW",
+            "value": "0x1"
+        },
+        {
+            "name": "CS_HREDRAW",
+            "value": "0x2"
+        },
+        {
+            "name": "CS_DBLCLKS",
+            "value": "0x8"
+        },
+        {
+            "name": "CS_OWNDC",
+            "value": "0x20"
+        },
+        {
+            "name": "CS_CLASSDC",
+            "value": "0x40"
+        },
+        {
+            "name": "CS_PARENTDC",
+            "value": "0x80"
+        },
+        {
+            "name": "CS_NOCLOSE",
+            "value": "0x200"
+        },
+        {
+            "name": "CS_SAVEBITS",
+            "value": "0x800"
+        },
+        {
+            "name": "CS_BYTEALIGNCLIENT",
+            "value": "0x1000"
+        },
+        {
+            "name": "CS_BYTEALIGNWINDOW",
+            "value": "0x2000"
+        },
+        {
+            "name": "CS_GLOBALCLASS",
+            "value": "0x4000"
+        },
+        {
+            "name": "CS_IME",
+            "value": "0x10000"
+        }
+    ]
+}

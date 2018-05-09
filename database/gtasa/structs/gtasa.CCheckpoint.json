@@ -1,0 +1,89 @@
+{
+    "name": "CCheckpoint",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x38",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nType",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "m_bIsUsed",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "m_bMustBeRenderedThisFrame",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "m_nIdentifier",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_colour",
+            "type": "CRGBA",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_nPulsePeriod",
+            "type": "__int16",
+            "offset": "0xC",
+            "size": 2
+        },
+        {
+            "name": "m_nRotateRate",
+            "type": "__int16",
+            "offset": "0xE",
+            "size": 2
+        },
+        {
+            "name": "m_vecPosition",
+            "type": "CVector",
+            "offset": "0x10",
+            "size": "0xC"
+        },
+        {
+            "name": "m_vecDirection",
+            "type": "CVector",
+            "offset": "0x1C",
+            "size": "0xC"
+        },
+        {
+            "name": "m_fPulseFraction",
+            "type": "float",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "m_fSize",
+            "type": "float",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "m_fDistanceToPlayer",
+            "type": "float",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "field_34",
+            "type": "float",
+            "offset": "0x34",
+            "size": 4
+        }
+    ]
+}

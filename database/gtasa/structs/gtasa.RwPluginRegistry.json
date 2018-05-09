@@ -1,0 +1,47 @@
+{
+    "name": "RwPluginRegistry",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "sizeOfStruct",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "origSizeOfStruct",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "maxSizeOfStruct",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "staticAlloc",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "firstRegEntry",
+            "type": "RwPluginRegEntry *",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "lastRegEntry",
+            "type": "RwPluginRegistry **",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

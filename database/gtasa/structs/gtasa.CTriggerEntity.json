@@ -1,0 +1,29 @@
+{
+    "name": "CTriggerEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "entity",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "index",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "__pad",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        }
+    ]
+}

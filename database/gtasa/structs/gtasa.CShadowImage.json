@@ -1,0 +1,25 @@
+{
+    "name": "CShadowImage",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "camera",
+            "type": "RwCamera *",
+            "offset": 0,
+            "size": 4,
+            "comment": "RwCamera *"
+        },
+        {
+            "name": "texture",
+            "type": "RwTexture *",
+            "offset": 4,
+            "size": 4,
+            "comment": "RwTexture *"
+        }
+    ]
+}

@@ -1,0 +1,329 @@
+{
+    "name": "eEventType",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "EVENT_VEHICLE_COLLISION",
+            "value": 1
+        },
+        {
+            "name": "EVENT_PED_COLLISION_WITH_PED",
+            "value": 2
+        },
+        {
+            "name": "EVENT_PED_COLLISION_WITH_PLAYER",
+            "value": 3
+        },
+        {
+            "name": "EVENT_PLAYER_COLLISION_WITH_PED",
+            "value": 4
+        },
+        {
+            "name": "EVENT_OBJECT_COLLISION",
+            "value": 5
+        },
+        {
+            "name": "EVENT_BUILDING_COLLISION",
+            "value": 6
+        },
+        {
+            "name": "EVENT_DRAGGED_OUT_CAR",
+            "value": 7
+        },
+        {
+            "name": "EVENT_KNOCK_OFF_BIKE",
+            "value": 8
+        },
+        {
+            "name": "EVENT_DAMAGE",
+            "value": 9
+        },
+        {
+            "name": "EVENT_DEATH",
+            "value": 10
+        },
+        {
+            "name": "EVENT_DEAD_PED",
+            "value": 11
+        },
+        {
+            "name": "EVENT_POTENTIAL_GET_RUN_OVER",
+            "value": 12
+        },
+        {
+            "name": "EVENT_POTENTIAL_WALK_INTO_PED",
+            "value": 13
+        },
+        {
+            "name": "EVENT_VEHICLE_HIT_AND_RUN",
+            "value": 14
+        },
+        {
+            "name": "EVENT_SHOT_FIRED",
+            "value": 15
+        },
+        {
+            "name": "EVENT_COP_CAR_BEING_STOLEN",
+            "value": 16
+        },
+        {
+            "name": "EVENT_PED_ENTERED_MY_VEHICLE",
+            "value": 17
+        },
+        {
+            "name": "EVENT_REVIVE",
+            "value": 18
+        },
+        {
+            "name": "EVENT_CHAT_PARTNER",
+            "value": 19
+        },
+        {
+            "name": "EVENT_SEXY_PED",
+            "value": 20
+        },
+        {
+            "name": "EVENT_SEXY_VEHICLE",
+            "value": 21
+        },
+        {
+            "name": "EVENT_PED_TO_CHASE",
+            "value": 25
+        },
+        {
+            "name": "EVENT_PED_TO_FLEE",
+            "value": 26
+        },
+        {
+            "name": "EVENT_ATTRACTOR",
+            "value": 27
+        },
+        {
+            "name": "EVENT_VEHICLE_TO_STEAL",
+            "value": 28
+        },
+        {
+            "name": "EVENT_VEHICLE_THREAT",
+            "value": 30
+        },
+        {
+            "name": "EVENT_GUN_AIMED_AT",
+            "value": 31
+        },
+        {
+            "name": "EVENT_SCRIPT_COMMAND",
+            "value": 32
+        },
+        {
+            "name": "EVENT_IN_AIR",
+            "value": 33
+        },
+        {
+            "name": "EVENT_VEHICLE_DIED",
+            "value": 35
+        },
+        {
+            "name": "EVENT_ACQUAINTANCE_PED_HATE",
+            "value": 36
+        },
+        {
+            "name": "EVENT_ACQUAINTANCE_PED_DISLIKE",
+            "value": 37
+        },
+        {
+            "name": "EVENT_ACQUAINTANCE_PED_LIKE",
+            "value": 38
+        },
+        {
+            "name": "EVENT_ACQUAINTANCE_PED_RESPECT",
+            "value": 39
+        },
+        {
+            "name": "EVENT_VEHICLE_DAMAGE_WEAPON",
+            "value": 41
+        },
+        {
+            "name": "EVENT_SPECIAL",
+            "value": 42
+        },
+        {
+            "name": "EVENT_GOT_KNOCKED_OVER_BY_CAR",
+            "value": 43
+        },
+        {
+            "name": "EVENT_POTENTIAL_WALK_INTO_OBJECT",
+            "value": 44
+        },
+        {
+            "name": "EVENT_CAR_UPSIDE_DOWN",
+            "value": 45
+        },
+        {
+            "name": "EVENT_POTENTIAL_WALK_INTO_FIRE",
+            "value": 46
+        },
+        {
+            "name": "EVENT_GROUP_EVENT",
+            "value": 47
+        },
+        {
+            "name": "EVENT_SCRIPTED_ATTRACTOR",
+            "value": 48
+        },
+        {
+            "name": "EVENT_SHOT_FIRED_WHIZZED_BY",
+            "value": 49
+        },
+        {
+            "name": "EVENT_LOW_ANGER_AT_PLAYER",
+            "value": 50
+        },
+        {
+            "name": "EVENT_HIGH_ANGER_AT_PLAYER",
+            "value": 51
+        },
+        {
+            "name": "EVENT_HEALTH_REALLY_LOW",
+            "value": 52
+        },
+        {
+            "name": "EVENT_HEALTH_LOW",
+            "value": 53
+        },
+        {
+            "name": "EVENT_LEADER_ENTERED_CAR_AS_DRIVER",
+            "value": 54
+        },
+        {
+            "name": "EVENT_LEADER_EXITED_CAR_AS_DRIVER",
+            "value": 55
+        },
+        {
+            "name": "EVENT_POTENTIAL_WALK_INTO_VEHICLE",
+            "value": 56
+        },
+        {
+            "name": "EVENT_LEADER_QUIT_ENTERING_CAR_AS_DRIVER",
+            "value": 57
+        },
+        {
+            "name": "EVENT_ON_FIRE",
+            "value": 58
+        },
+        {
+            "name": "EVENT_FIRE_NEARBY",
+            "value": 59
+        },
+        {
+            "name": "EVENT_POTENTIAL_WALK_INTO_BUILDING",
+            "value": 60
+        },
+        {
+            "name": "EVENT_SOUND_LOUD",
+            "value": 61
+        },
+        {
+            "name": "EVENT_SOUND_QUIET",
+            "value": 62
+        },
+        {
+            "name": "EVENT_ACQUAINTANCE_PED_HATE_BADLY_LIT",
+            "value": 63
+        },
+        {
+            "name": "EVENT_WATER_CANNON",
+            "value": 64
+        },
+        {
+            "name": "EVENT_SEEN_PANICKED_PED",
+            "value": 65
+        },
+        {
+            "name": "EVENT_IN_WATER",
+            "value": 66
+        },
+        {
+            "name": "EVENT_AREA_CODES",
+            "value": 67
+        },
+        {
+            "name": "EVENT_PLAYER_WANTED_LEVEL",
+            "value": 69
+        },
+        {
+            "name": "EVENT_CREATE_PARTNER_TASK",
+            "value": 70
+        },
+        {
+            "name": "EVENT_PLAYER_COMMAND_TO_GROUP",
+            "value": 71
+        },
+        {
+            "name": "EVENT_SEEN_COP",
+            "value": 72
+        },
+        {
+            "name": "EVENT_VEHICLE_DAMAGE_COLLISION",
+            "value": 73
+        },
+        {
+            "name": "EVENT_ON_ESCALATOR",
+            "value": 74
+        },
+        {
+            "name": "EVENT_DANGER",
+            "value": 75
+        },
+        {
+            "name": "EVENT_PLAYER_COMMAND_TO_GROUP_GATHER",
+            "value": 76
+        },
+        {
+            "name": "EVENT_LEADER_ENTRY_EXIT",
+            "value": 77
+        },
+        {
+            "name": "EVENT_VEHICLE_ON_FIRE",
+            "value": 79
+        },
+        {
+            "name": "EVENT_INTERIOR_USE_INFO",
+            "value": 81
+        },
+        {
+            "name": "EVENT_SIGNAL_AT_PED",
+            "value": 88
+        },
+        {
+            "name": "EVENT_PASS_OBJECT",
+            "value": 89
+        },
+        {
+            "name": "EVENT_NEW_GANG_MEMBER",
+            "value": 90
+        },
+        {
+            "name": "EVENT_LEAN_ON_VEHICLE",
+            "value": 92
+        },
+        {
+            "name": "EVENT_STUCK_IN_AIR",
+            "value": 93
+        },
+        {
+            "name": "EVENT_DONT_JOIN_GROUP",
+            "value": 94
+        },
+        {
+            "name": "EVENT_TOTAL_NUM_EVENTS",
+            "value": 96
+        }
+    ]
+}

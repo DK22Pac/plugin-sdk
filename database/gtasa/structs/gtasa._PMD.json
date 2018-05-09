@@ -1,0 +1,29 @@
+{
+    "name": "_PMD",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "mdisp",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "pdisp",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "vdisp",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

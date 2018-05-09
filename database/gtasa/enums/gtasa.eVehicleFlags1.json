@@ -1,0 +1,45 @@
+{
+    "name": "eVehicleFlags1",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "IS_LAW_ENFORCER",
+            "value": "0x1"
+        },
+        {
+            "name": "IS_AMBULANCE_ON_DUTY",
+            "value": "0x2"
+        },
+        {
+            "name": "IS_FIRE_TRUCK_ON_DUTY",
+            "value": "0x4"
+        },
+        {
+            "name": "IS_LOCKED",
+            "value": "0x8"
+        },
+        {
+            "name": "ENGINE_ON",
+            "value": "0x10"
+        },
+        {
+            "name": "IS_HANDBRAKE_ON",
+            "value": "0x20"
+        },
+        {
+            "name": "LIGHTS_ON",
+            "value": "0x40"
+        },
+        {
+            "name": "FREEBIES",
+            "value": "0x80"
+        }
+    ]
+}

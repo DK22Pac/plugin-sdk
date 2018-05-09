@@ -1,0 +1,563 @@
+{
+    "name": "cheatTable",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x5C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "WeaponSet1",
+            "type": "BYTE",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "WeaponSet2",
+            "type": "BYTE",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "WeaponSet3",
+            "type": "BYTE",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "HealthArmor250k",
+            "type": "BYTE",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "WantedLevel2Stars",
+            "type": "BYTE",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "ClearWantedLevel",
+            "type": "BYTE",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "SunnyWeather",
+            "type": "BYTE",
+            "offset": 6,
+            "size": 1
+        },
+        {
+            "name": "VerySunnyWeather",
+            "type": "BYTE",
+            "offset": 7,
+            "size": 1
+        },
+        {
+            "name": "OvercastWeather",
+            "type": "BYTE",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "RainyWeather",
+            "type": "BYTE",
+            "offset": 9,
+            "size": 1
+        },
+        {
+            "name": "FoggyWeather",
+            "type": "BYTE",
+            "offset": "0xA",
+            "size": 1
+        },
+        {
+            "name": "FasterClock",
+            "type": "BYTE",
+            "offset": "0xB",
+            "size": 1
+        },
+        {
+            "name": "FasterGameplay",
+            "type": "BYTE",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "SlowerGameplay",
+            "type": "BYTE",
+            "offset": "0xD",
+            "size": 1
+        },
+        {
+            "name": "PedsAttackOtherWithGolfclub",
+            "type": "BYTE",
+            "offset": "0xE",
+            "size": 1
+        },
+        {
+            "name": "HaveABountyOnYourHead",
+            "type": "BYTE",
+            "offset": "0xF",
+            "size": 1
+        },
+        {
+            "name": "EveryoneArmed",
+            "type": "BYTE",
+            "offset": "0x10",
+            "size": 1
+        },
+        {
+            "name": "SpawnRhino",
+            "type": "BYTE",
+            "offset": "0x11",
+            "size": 1
+        },
+        {
+            "name": "SpawnBloodringBanger",
+            "type": "BYTE",
+            "offset": "0x12",
+            "size": 1
+        },
+        {
+            "name": "SpawnRancher",
+            "type": "BYTE",
+            "offset": "0x13",
+            "size": 1
+        },
+        {
+            "name": "SpawnHotringA",
+            "type": "BYTE",
+            "offset": "0x14",
+            "size": 1
+        },
+        {
+            "name": "SpawnHotringB",
+            "type": "BYTE",
+            "offset": "0x15",
+            "size": 1
+        },
+        {
+            "name": "SpawnRomero",
+            "type": "BYTE",
+            "offset": "0x16",
+            "size": 1
+        },
+        {
+            "name": "SpawnStretch",
+            "type": "BYTE",
+            "offset": "0x17",
+            "size": 1
+        },
+        {
+            "name": "SpawnTrashmaster",
+            "type": "BYTE",
+            "offset": "0x18",
+            "size": 1
+        },
+        {
+            "name": "SpawnCaddy",
+            "type": "BYTE",
+            "offset": "0x19",
+            "size": 1
+        },
+        {
+            "name": "BlowUpAllCars",
+            "type": "BYTE",
+            "offset": "0x1A",
+            "size": 1
+        },
+        {
+            "name": "InvisibleCar",
+            "type": "BYTE",
+            "offset": "0x1B",
+            "size": 1
+        },
+        {
+            "name": "PerfectHandling",
+            "type": "BYTE",
+            "offset": "0x1C",
+            "size": 1
+        },
+        {
+            "name": "Suicide",
+            "type": "BYTE",
+            "offset": "0x1D",
+            "size": 1
+        },
+        {
+            "name": "bGreenLightsCheat",
+            "type": "BYTE",
+            "offset": "0x1E",
+            "size": 1
+        },
+        {
+            "name": "AggressiveDrivers",
+            "type": "BYTE",
+            "offset": "0x1F",
+            "size": 1
+        },
+        {
+            "name": "PinkTraffic",
+            "type": "BYTE",
+            "offset": "0x20",
+            "size": 1
+        },
+        {
+            "name": "BlackTraffic",
+            "type": "BYTE",
+            "offset": "0x21",
+            "size": 1
+        },
+        {
+            "name": "CarsOnWater",
+            "type": "BYTE",
+            "offset": "0x22",
+            "size": 1
+        },
+        {
+            "name": "BoatsFly",
+            "type": "BYTE",
+            "offset": "0x23",
+            "size": 1
+        },
+        {
+            "name": "FatPlayer",
+            "type": "BYTE",
+            "offset": "0x24",
+            "size": 1
+        },
+        {
+            "name": "MaxMuscle",
+            "type": "BYTE",
+            "offset": "0x25",
+            "size": 1
+        },
+        {
+            "name": "SkinnyPlayer",
+            "type": "BYTE",
+            "offset": "0x26",
+            "size": 1
+        },
+        {
+            "name": "ElvisIsEverywhere",
+            "type": "BYTE",
+            "offset": "0x27",
+            "size": 1
+        },
+        {
+            "name": "PedsAttackYouWithRockets",
+            "type": "BYTE",
+            "offset": "0x28",
+            "size": 1
+        },
+        {
+            "name": "BeachParty",
+            "type": "BYTE",
+            "offset": "0x29",
+            "size": 1
+        },
+        {
+            "name": "GangMembersEverywhere",
+            "type": "BYTE",
+            "offset": "0x2A",
+            "size": 1
+        },
+        {
+            "name": "GangsControlsTheStreets",
+            "type": "BYTE",
+            "offset": "0x2B",
+            "size": 1
+        },
+        {
+            "name": "NinjaTheme",
+            "type": "BYTE",
+            "offset": "0x2C",
+            "size": 1
+        },
+        {
+            "name": "SlutMagnet",
+            "type": "BYTE",
+            "offset": "0x2D",
+            "size": 1
+        },
+        {
+            "name": "CheapTraffic",
+            "type": "BYTE",
+            "offset": "0x2E",
+            "size": 1
+        },
+        {
+            "name": "FastTraffic",
+            "type": "BYTE",
+            "offset": "0x2F",
+            "size": 1
+        },
+        {
+            "name": "CarsFly",
+            "type": "BYTE",
+            "offset": "0x30",
+            "size": 1
+        },
+        {
+            "name": "HugeBunnyHop",
+            "type": "BYTE",
+            "offset": "0x31",
+            "size": 1
+        },
+        {
+            "name": "SpawnHydra",
+            "type": "BYTE",
+            "offset": "0x32",
+            "size": 1
+        },
+        {
+            "name": "SpawnVortex",
+            "type": "BYTE",
+            "offset": "0x33",
+            "size": 1
+        },
+        {
+            "name": "SmashNBoom",
+            "type": "BYTE",
+            "offset": "0x34",
+            "size": 1
+        },
+        {
+            "name": "AllCarsHaveNitro",
+            "type": "BYTE",
+            "offset": "0x35",
+            "size": 1
+        },
+        {
+            "name": "CarsFloatAwayWhenHit",
+            "type": "BYTE",
+            "offset": "0x36",
+            "size": 1
+        },
+        {
+            "name": "AlwaysMidnight",
+            "type": "BYTE",
+            "offset": "0x37",
+            "size": 1
+        },
+        {
+            "name": "StopGameClockOrangeSky",
+            "type": "BYTE",
+            "offset": "0x38",
+            "size": 1
+        },
+        {
+            "name": "ThunderStorm",
+            "type": "BYTE",
+            "offset": "0x39",
+            "size": 1
+        },
+        {
+            "name": "SandStorm",
+            "type": "BYTE",
+            "offset": "0x3A",
+            "size": 1
+        },
+        {
+            "name": "Unused",
+            "type": "BYTE",
+            "offset": "0x3B",
+            "size": 1
+        },
+        {
+            "name": "MegaJump",
+            "type": "BYTE",
+            "offset": "0x3C",
+            "size": 1
+        },
+        {
+            "name": "InfiniteHealth",
+            "type": "BYTE",
+            "offset": "0x3D",
+            "size": 1
+        },
+        {
+            "name": "InfiniteOxygen",
+            "type": "BYTE",
+            "offset": "0x3E",
+            "size": 1
+        },
+        {
+            "name": "GetParachute",
+            "type": "BYTE",
+            "offset": "0x3F",
+            "size": 1
+        },
+        {
+            "name": "GetJetpack",
+            "type": "BYTE",
+            "offset": "0x40",
+            "size": 1
+        },
+        {
+            "name": "IDoAsIPlease",
+            "type": "BYTE",
+            "offset": "0x41",
+            "size": 1
+        },
+        {
+            "name": "SixWantedStars",
+            "type": "BYTE",
+            "offset": "0x42",
+            "size": 1
+        },
+        {
+            "name": "MegaPunch",
+            "type": "BYTE",
+            "offset": "0x43",
+            "size": 1
+        },
+        {
+            "name": "NeverGetHungry",
+            "type": "BYTE",
+            "offset": "0x44",
+            "size": 1
+        },
+        {
+            "name": "RiotMode",
+            "type": "BYTE",
+            "offset": "0x45",
+            "size": 1
+        },
+        {
+            "name": "FunhouseTheme",
+            "type": "BYTE",
+            "offset": "0x46",
+            "size": 1
+        },
+        {
+            "name": "AdrenalineMode",
+            "type": "BYTE",
+            "offset": "0x47",
+            "size": 1
+        },
+        {
+            "name": "InfiniteAmmo",
+            "type": "BYTE",
+            "offset": "0x48",
+            "size": 1
+        },
+        {
+            "name": "WeaponAimingWhileDriving",
+            "type": "BYTE",
+            "offset": "0x49",
+            "size": 1
+        },
+        {
+            "name": "ReducedTraffic",
+            "type": "BYTE",
+            "offset": "0x4A",
+            "size": 1
+        },
+        {
+            "name": "CountryTraffic",
+            "type": "BYTE",
+            "offset": "0x4B",
+            "size": 1
+        },
+        {
+            "name": "WannaBeInMyGang",
+            "type": "BYTE",
+            "offset": "0x4C",
+            "size": 1
+        },
+        {
+            "name": "NoOneCanStopUs",
+            "type": "BYTE",
+            "offset": "0x4D",
+            "size": 1
+        },
+        {
+            "name": "RocketMayhem",
+            "type": "BYTE",
+            "offset": "0x4E",
+            "size": 1
+        },
+        {
+            "name": "MaxRespect",
+            "type": "BYTE",
+            "offset": "0x4F",
+            "size": 1
+        },
+        {
+            "name": "MaxSexAppeal",
+            "type": "BYTE",
+            "offset": "0x50",
+            "size": 1
+        },
+        {
+            "name": "MaxStamina",
+            "type": "BYTE",
+            "offset": "0x51",
+            "size": 1
+        },
+        {
+            "name": "HitmanLevelForAllWeapons",
+            "type": "BYTE",
+            "offset": "0x52",
+            "size": 1
+        },
+        {
+            "name": "MaxDrivingSkills",
+            "type": "BYTE",
+            "offset": "0x53",
+            "size": 1
+        },
+        {
+            "name": "SpawnHunter",
+            "type": "BYTE",
+            "offset": "0x54",
+            "size": 1
+        },
+        {
+            "name": "SpawnQuad",
+            "type": "BYTE",
+            "offset": "0x55",
+            "size": 1
+        },
+        {
+            "name": "SpawnTankerTruck",
+            "type": "BYTE",
+            "offset": "0x56",
+            "size": 1
+        },
+        {
+            "name": "SpawnDozer",
+            "type": "BYTE",
+            "offset": "0x57",
+            "size": 1
+        },
+        {
+            "name": "SpawnStuntPlane",
+            "type": "BYTE",
+            "offset": "0x58",
+            "size": 1
+        },
+        {
+            "name": "SpawnMonster",
+            "type": "BYTE",
+            "offset": "0x59",
+            "size": 1
+        },
+        {
+            "name": "ProstitutesPayYou",
+            "type": "char",
+            "offset": "0x5A",
+            "size": 1
+        },
+        {
+            "name": "AllTaxisNitro",
+            "type": "char",
+            "offset": "0x5B",
+            "size": 1
+        }
+    ]
+}

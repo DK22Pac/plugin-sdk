@@ -1,0 +1,29 @@
+{
+    "name": "CDecision",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x3C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_anTaskTypes",
+            "type": "int[6]",
+            "offset": 0,
+            "size": "0x18"
+        },
+        {
+            "name": "m_anChancesOnRelationship",
+            "type": "char[6][4]",
+            "offset": "0x18",
+            "size": "0x18"
+        },
+        {
+            "name": "m_anFlags",
+            "type": "char[6][2]",
+            "offset": "0x30",
+            "size": "0xC"
+        }
+    ]
+}

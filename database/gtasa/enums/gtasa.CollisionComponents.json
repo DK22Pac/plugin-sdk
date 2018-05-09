@@ -1,0 +1,69 @@
+{
+    "name": "CollisionComponents",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "COLLISION_DEFAULT",
+            "value": "0x0"
+        },
+        {
+            "name": "COLLISION_BONNET",
+            "value": "0x1"
+        },
+        {
+            "name": "COLLISION_BOOT",
+            "value": "0x2"
+        },
+        {
+            "name": "COLLISION_BUMP_FRONT",
+            "value": "0x3"
+        },
+        {
+            "name": "COLLISION_BUMP_REAR",
+            "value": "0x4"
+        },
+        {
+            "name": "COLLISION_DOOR_LF",
+            "value": "0x5"
+        },
+        {
+            "name": "COLLISION_DOOR_RF",
+            "value": "0x6"
+        },
+        {
+            "name": "COLLISION_DOOR_LR",
+            "value": "0x7"
+        },
+        {
+            "name": "COLLISION_DOOR_RR",
+            "value": "0x8"
+        },
+        {
+            "name": "COLLISION_WING_LF",
+            "value": "0x9"
+        },
+        {
+            "name": "COLLISION_WING_RF",
+            "value": "0xA"
+        },
+        {
+            "name": "COLLISION_WING_LR",
+            "value": "0xB"
+        },
+        {
+            "name": "COLLISION_WING_RR",
+            "value": "0xC"
+        },
+        {
+            "name": "COLLISION_WINDSCREEN",
+            "value": "0x13"
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "name": "CDecisionMakerTypes",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xF1C0",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "decisionMakers",
+            "type": "CDecisionMaker[20]",
+            "offset": 4,
+            "size": "0xC030"
+        },
+        {
+            "name": "m_eventIndices",
+            "type": "int[96]",
+            "offset": "0xC034",
+            "size": "0x180"
+        },
+        {
+            "name": "m_randomPed",
+            "type": "CDecisionMaker",
+            "offset": "0xC1B4",
+            "size": "0x99C"
+        },
+        {
+            "name": "m_normalPed",
+            "type": "CDecisionMaker",
+            "offset": "0xCB50",
+            "size": "0x99C"
+        },
+        {
+            "name": "m_player",
+            "type": "CDecisionMaker",
+            "offset": "0xD4EC",
+            "size": "0x99C"
+        },
+        {
+            "name": "m_randomGroup",
+            "type": "CDecisionMaker",
+            "offset": "0xDE88",
+            "size": "0x99C"
+        },
+        {
+            "name": "m_missionGroup",
+            "type": "CDecisionMaker",
+            "offset": "0xE824",
+            "size": "0x99C"
+        }
+    ]
+}

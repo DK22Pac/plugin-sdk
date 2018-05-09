@@ -1,0 +1,45 @@
+{
+    "name": "eTrainFlags1",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "TF_1",
+            "value": "0x1"
+        },
+        {
+            "name": "TF_2",
+            "value": "0x2"
+        },
+        {
+            "name": "IS_STREAK",
+            "value": "0x4"
+        },
+        {
+            "name": "IS_FRONT_CARRIAGE",
+            "value": "0x8"
+        },
+        {
+            "name": "IS_LAST_CARRIAGE",
+            "value": "0x10"
+        },
+        {
+            "name": "MISSION_TRAIN",
+            "value": "0x20"
+        },
+        {
+            "name": "CLOCKWISE_DIRECTION",
+            "value": "0x40"
+        },
+        {
+            "name": "TF_80",
+            "value": "0x80"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "name": "CAEPedWeaponAudioEntity",
+    "module": "CAEPedWeaponAudioEntity",
+    "scope": "",
+    "kind": "class",
+    "size": "0xA8",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "baseclass_0",
+            "type": "CAEWeaponAudioEntity",
+            "offset": 0,
+            "size": "0xA0",
+            "isBase": true
+        },
+        {
+            "name": "m_bActive",
+            "type": "bool",
+            "offset": "0xA0",
+            "size": 1
+        },
+        {
+            "name": "_padA1",
+            "type": "char[3]",
+            "offset": "0xA1",
+            "size": 3
+        },
+        {
+            "name": "m_pPed",
+            "type": "CPed *",
+            "offset": "0xA4",
+            "size": 4
+        }
+    ]
+}

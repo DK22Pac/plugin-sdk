@@ -1,0 +1,17 @@
+{
+    "name": "CGlassAudio",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "dummy",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        }
+    ]
+}

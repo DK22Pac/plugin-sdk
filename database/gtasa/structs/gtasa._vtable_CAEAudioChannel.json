@@ -1,0 +1,65 @@
+{
+    "name": "_vtable_CAEAudioChannel",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "DeletingDestructor",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Service",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "IsSoundPlaying",
+            "type": "bool (*)(void)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetPlayTime",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "GetLength",
+            "type": "int (__thiscall *)(void *a)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "Play",
+            "type": "int (__thiscall *)(void *a, __int16, signed __int8, float)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "SynchPlayback",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "Stop",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "SetFrequencyScalingFactor",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        }
+    ]
+}

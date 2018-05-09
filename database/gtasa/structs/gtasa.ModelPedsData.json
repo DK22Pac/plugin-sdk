@@ -1,0 +1,23 @@
+{
+    "name": "ModelPedsData",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x49DC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "count",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "objects",
+            "type": "CPedModelInfo[278]",
+            "offset": 4,
+            "size": "0x49D8"
+        }
+    ]
+}

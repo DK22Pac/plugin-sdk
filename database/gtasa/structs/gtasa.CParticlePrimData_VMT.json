@@ -1,0 +1,47 @@
+{
+    "name": "CParticlePrimData_VMT",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "Scalar_Destructor",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Init",
+            "type": "char (__stdcall *)(FxEmitterBP_c *, FxSystem_c *)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "field_8",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "fpDestroy",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "CObjectPotentialCollisionScanner",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_timer",
+            "type": "CTaskTimer",
+            "offset": 0,
+            "size": "0xC"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "MACRO_KEY",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "KEY_QUERY_VALUE",
+            "value": "0x1"
+        },
+        {
+            "name": "KEY_SET_VALUE",
+            "value": "0x2"
+        },
+        {
+            "name": "KEY_CREATE_SUB_KEY",
+            "value": "0x4"
+        },
+        {
+            "name": "KEY_ENUMERATE_SUB_KEYS",
+            "value": "0x8"
+        },
+        {
+            "name": "KEY_NOTIFY",
+            "value": "0x10"
+        },
+        {
+            "name": "KEY_CREATE_LINK",
+            "value": "0x20"
+        },
+        {
+            "name": "KEY_READ",
+            "value": "0x20019"
+        }
+    ]
+}

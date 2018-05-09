@@ -1,0 +1,95 @@
+{
+    "name": "Interior_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x794",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_listItem",
+            "type": "ListItem_c",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "field_8",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_pGroup",
+            "type": "_DWORD",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "_BYTE[4]",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_pInteriorData",
+            "type": "void *",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_matrix",
+            "type": "RwMatrix",
+            "offset": "0x18",
+            "size": "0x40"
+        },
+        {
+            "name": "field_58",
+            "type": "int",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "field_5C",
+            "type": "List_c",
+            "offset": "0x5C",
+            "size": "0xC"
+        },
+        {
+            "name": "field_68",
+            "type": "char[900]",
+            "offset": "0x68",
+            "size": "0x384"
+        },
+        {
+            "name": "field_3EC",
+            "type": "__int16",
+            "offset": "0x3EC",
+            "size": 2
+        },
+        {
+            "name": "field_3F0",
+            "type": "__int16",
+            "offset": "0x3F0",
+            "size": 2
+        },
+        {
+            "name": "field_3F4",
+            "type": "char[920]",
+            "offset": "0x3F4",
+            "size": "0x398"
+        },
+        {
+            "name": "field_78C",
+            "type": "int",
+            "offset": "0x78C",
+            "size": 4
+        },
+        {
+            "name": "field_790",
+            "type": "int",
+            "offset": "0x790",
+            "size": 4
+        }
+    ]
+}

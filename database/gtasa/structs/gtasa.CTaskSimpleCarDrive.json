@@ -1,0 +1,87 @@
+{
+    "name": "CTaskSimpleCarDrive",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x5D",
+    "alignment": 0,
+    "vtableAddress": "0x86E904",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CTask",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "m_pVehicle",
+            "type": "CVehicle *",
+            "offset": 8,
+            "size": 4,
+            "comment": "CEntity *"
+        },
+        {
+            "name": "field_C",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4,
+            "comment": "pointer"
+        },
+        {
+            "name": "field_14",
+            "type": "CTaskTimer",
+            "offset": "0x14",
+            "size": "0xC"
+        },
+        {
+            "name": "field_20",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "field_3C",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "field_40",
+            "type": "int",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "field_44",
+            "type": "int",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "processingTime",
+            "type": "int",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "aiTimer",
+            "type": "CTaskTimer",
+            "offset": "0x50",
+            "size": "0xC"
+        },
+        {
+            "name": "flags",
+            "type": "char",
+            "offset": "0x5C",
+            "size": 1
+        }
+    ]
+}

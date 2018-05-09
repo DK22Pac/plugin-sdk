@@ -1,0 +1,65 @@
+{
+    "name": "CStreamingInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nNextIndex",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "m_nPrevIndex",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "m_nNextOnCd",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "m_nFlags",
+            "type": "unsigned __int8",
+            "offset": 6,
+            "size": 1
+        },
+        {
+            "name": "m_nImgId",
+            "type": "char",
+            "offset": 7,
+            "size": 1
+        },
+        {
+            "name": "m_nCdPosn",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_nCdSize",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_nLoadState",
+            "type": "char",
+            "offset": "0x10",
+            "size": 1
+        },
+        {
+            "name": "_pad11",
+            "type": "char[3]",
+            "offset": "0x11",
+            "size": 3
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "name": "RxD3D9ResEntryHeaderWithMeshes",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x64",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "serialNumber",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "numMeshes",
+            "type": "_DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "indexBuffer",
+            "type": "IDirect3DIndexBuffer9 *",
+            "offset": 8,
+            "size": 4,
+            "comment": "void *"
+        },
+        {
+            "name": "primType",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "vertexStream",
+            "type": "RxD3D9VertexStream[2]",
+            "offset": "0x10",
+            "size": "0x20"
+        },
+        {
+            "name": "useOffsets",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "vertexDeclaration",
+            "type": "void *",
+            "offset": "0x34",
+            "size": 4,
+            "comment": "void *"
+        },
+        {
+            "name": "totalNumIndex",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "totalNumVertex",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "meshes",
+            "type": "RxD3D9InstanceData",
+            "offset": "0x40",
+            "size": "0x24"
+        }
+    ]
+}

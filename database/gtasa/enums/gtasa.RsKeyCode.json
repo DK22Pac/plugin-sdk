@@ -1,0 +1,241 @@
+{
+    "name": "RsKeyCode",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "rsESC",
+            "value": 1000
+        },
+        {
+            "name": "rsF1",
+            "value": 1001
+        },
+        {
+            "name": "rsF2",
+            "value": 1002
+        },
+        {
+            "name": "rsF3",
+            "value": 1003
+        },
+        {
+            "name": "rsF4",
+            "value": 1004
+        },
+        {
+            "name": "rsF5",
+            "value": 1005
+        },
+        {
+            "name": "rsF6",
+            "value": 1006
+        },
+        {
+            "name": "rsF7",
+            "value": 1007
+        },
+        {
+            "name": "rsF8",
+            "value": 1008
+        },
+        {
+            "name": "rsF9",
+            "value": 1009
+        },
+        {
+            "name": "rsF10",
+            "value": 1010
+        },
+        {
+            "name": "rsF11",
+            "value": 1011
+        },
+        {
+            "name": "rsF12",
+            "value": 1012
+        },
+        {
+            "name": "rsINSERT",
+            "value": 1013
+        },
+        {
+            "name": "rsDEL",
+            "value": 1014
+        },
+        {
+            "name": "rsHOME",
+            "value": 1015
+        },
+        {
+            "name": "rsEND",
+            "value": 1016
+        },
+        {
+            "name": "rsPGUP",
+            "value": 1017
+        },
+        {
+            "name": "rsPGDN",
+            "value": 1018
+        },
+        {
+            "name": "rsUP",
+            "value": 1019
+        },
+        {
+            "name": "rsDOWN",
+            "value": 1020
+        },
+        {
+            "name": "rsLEFT",
+            "value": 1021
+        },
+        {
+            "name": "rsRIGHT",
+            "value": 1022
+        },
+        {
+            "name": "rsDIV",
+            "value": 1023
+        },
+        {
+            "name": "rsMUL",
+            "value": 1024
+        },
+        {
+            "name": "rsADD",
+            "value": 1025
+        },
+        {
+            "name": "rsSUB",
+            "value": 1026
+        },
+        {
+            "name": "rsEXTDEL",
+            "value": 1027
+        },
+        {
+            "name": "rsEXT_END",
+            "value": 1028
+        },
+        {
+            "name": "rsEXTDOWN",
+            "value": 1029
+        },
+        {
+            "name": "rsEXTPGDN",
+            "value": 1030
+        },
+        {
+            "name": "rsEXTLEFT",
+            "value": 1031
+        },
+        {
+            "name": "rsNUM5",
+            "value": 1032
+        },
+        {
+            "name": "rsNUMLOCK",
+            "value": 1033
+        },
+        {
+            "name": "rsEXTRIGHT",
+            "value": 1034
+        },
+        {
+            "name": "rsEXTHOME",
+            "value": 1035
+        },
+        {
+            "name": "rsEXTUP",
+            "value": 1036
+        },
+        {
+            "name": "rsEXTPGUP",
+            "value": 1037
+        },
+        {
+            "name": "rsEXTINSERT",
+            "value": 1038
+        },
+        {
+            "name": "rsENTER",
+            "value": 1039
+        },
+        {
+            "name": "rsSCROLL",
+            "value": 1040
+        },
+        {
+            "name": "rsPAUSE",
+            "value": 1041
+        },
+        {
+            "name": "rsBACK",
+            "value": 1042
+        },
+        {
+            "name": "rsTAB",
+            "value": 1043
+        },
+        {
+            "name": "rsCAPSLOCK",
+            "value": 1044
+        },
+        {
+            "name": "rsEXTENTER",
+            "value": 1045
+        },
+        {
+            "name": "rsLSHIFT",
+            "value": 1046
+        },
+        {
+            "name": "rsRSHIFT",
+            "value": 1047
+        },
+        {
+            "name": "rsSHIFT",
+            "value": 1048
+        },
+        {
+            "name": "rsLCTRL",
+            "value": 1049
+        },
+        {
+            "name": "rsRCTRL",
+            "value": 1050
+        },
+        {
+            "name": "rsLMENU",
+            "value": 1051
+        },
+        {
+            "name": "rsRMENU",
+            "value": 1052
+        },
+        {
+            "name": "rsLWIN",
+            "value": 1053
+        },
+        {
+            "name": "rsRWIN",
+            "value": 1054
+        },
+        {
+            "name": "rsAPPS",
+            "value": 1055
+        },
+        {
+            "name": "rsNULL",
+            "value": 1056
+        }
+    ]
+}

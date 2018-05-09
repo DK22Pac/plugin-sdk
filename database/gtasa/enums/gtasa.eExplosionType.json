@@ -1,0 +1,65 @@
+{
+    "name": "eExplosionType",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "EXPLOSION_GRENADE",
+            "value": "0x0"
+        },
+        {
+            "name": "EXPLOSION_MOLOTOV",
+            "value": "0x1"
+        },
+        {
+            "name": "EXPLOSION_ROCKET",
+            "value": "0x2"
+        },
+        {
+            "name": "EXPLOSION_WEAK_ROCKET",
+            "value": "0x3"
+        },
+        {
+            "name": "EXPLOSION_CAR",
+            "value": "0x4"
+        },
+        {
+            "name": "EXPLOSION_QUICK_CAR",
+            "value": "0x5"
+        },
+        {
+            "name": "EXPLOSION_BOAT",
+            "value": "0x6"
+        },
+        {
+            "name": "EXPLOSION_AIRCRAFT",
+            "value": "0x7"
+        },
+        {
+            "name": "EXPLOSION_MINE",
+            "value": "0x8"
+        },
+        {
+            "name": "EXPLOSION_OBJECT",
+            "value": "0x9"
+        },
+        {
+            "name": "EXPLOSION_TANK_FIRE",
+            "value": "0xA"
+        },
+        {
+            "name": "EXPLOSION_SMALL",
+            "value": "0xB"
+        },
+        {
+            "name": "EXPLOSION_RC_VEHICLE",
+            "value": "0xC"
+        }
+    ]
+}

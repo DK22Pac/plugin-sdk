@@ -1,0 +1,287 @@
+{
+    "name": "IVideoWindowVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xB8",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "QueryInterface",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, const IID *const riid, LPVOID *ppvObj)",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AddRef",
+            "type": "ULONG (__stdcall *)(IVideoWindow *This)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Release",
+            "type": "ULONG (__stdcall *)(IVideoWindow *This)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetTypeInfoCount",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, UINT *pctinfo)",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "GetTypeInfo",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, UINT itinfo, LCID lcid, ITypeInfo **pptinfo)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "GetIDsOfNames",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, const IID *const riid, OLECHAR **rgszNames, UINT cNames, LCID lcid, DISPID *rgdispid)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "Invoke",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, DISPID dispidMember, const IID *const riid, LCID lcid, WORD wFlags, DISPPARAMS *pdispparams, VARIANT *pvarResult, EXCEPINFO *pexcepinfo, UINT *puArgErr)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "put_Caption",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, BSTR strCaption)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "get_Caption",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, BSTR *strCaption)",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "put_WindowStyle",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 WindowStyle)",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "get_WindowStyle",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *WindowStyle)",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "put_WindowStyleEx",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 WindowStyleEx)",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "get_WindowStyleEx",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *WindowStyleEx)",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "put_AutoShow",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 AutoShow)",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "get_AutoShow",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *AutoShow)",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "put_WindowState",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 WindowState)",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "get_WindowState",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *WindowState)",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "put_BackgroundPalette",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 BackgroundPalette)",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "get_BackgroundPalette",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pBackgroundPalette)",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "put_Visible",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Visible)",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "get_Visible",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pVisible)",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "put_Left",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Left)",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "get_Left",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pLeft)",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "put_Width",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Width)",
+            "offset": "0x5C",
+            "size": 4
+        },
+        {
+            "name": "get_Width",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pWidth)",
+            "offset": "0x60",
+            "size": 4
+        },
+        {
+            "name": "put_Top",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Top)",
+            "offset": "0x64",
+            "size": 4
+        },
+        {
+            "name": "get_Top",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pTop)",
+            "offset": "0x68",
+            "size": 4
+        },
+        {
+            "name": "put_Height",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Height)",
+            "offset": "0x6C",
+            "size": 4
+        },
+        {
+            "name": "get_Height",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pHeight)",
+            "offset": "0x70",
+            "size": 4
+        },
+        {
+            "name": "put_Owner",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, OAHWND Owner)",
+            "offset": "0x74",
+            "size": 4
+        },
+        {
+            "name": "get_Owner",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, OAHWND *Owner)",
+            "offset": "0x78",
+            "size": 4
+        },
+        {
+            "name": "put_MessageDrain",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, OAHWND Drain)",
+            "offset": "0x7C",
+            "size": 4
+        },
+        {
+            "name": "get_MessageDrain",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, OAHWND *Drain)",
+            "offset": "0x80",
+            "size": 4
+        },
+        {
+            "name": "get_BorderColor",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *Color)",
+            "offset": "0x84",
+            "size": 4
+        },
+        {
+            "name": "put_BorderColor",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Color)",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "get_FullScreenMode",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *FullScreenMode)",
+            "offset": "0x8C",
+            "size": 4
+        },
+        {
+            "name": "put_FullScreenMode",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 FullScreenMode)",
+            "offset": "0x90",
+            "size": 4
+        },
+        {
+            "name": "SetWindowForeground",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Focus)",
+            "offset": "0x94",
+            "size": 4
+        },
+        {
+            "name": "NotifyOwnerMessage",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 hwnd, __int32 uMsg, __int32 wParam, __int32 lParam)",
+            "offset": "0x98",
+            "size": 4
+        },
+        {
+            "name": "SetWindowPosition",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 Left, __int32 Top, __int32 Width, __int32 Height)",
+            "offset": "0x9C",
+            "size": 4
+        },
+        {
+            "name": "GetWindowPosition",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pLeft, __int32 *pTop, __int32 *pWidth, __int32 *pHeight)",
+            "offset": "0xA0",
+            "size": 4
+        },
+        {
+            "name": "GetMinIdealImageSize",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pWidth, __int32 *pHeight)",
+            "offset": "0xA4",
+            "size": 4
+        },
+        {
+            "name": "GetMaxIdealImageSize",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pWidth, __int32 *pHeight)",
+            "offset": "0xA8",
+            "size": 4
+        },
+        {
+            "name": "GetRestorePosition",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *pLeft, __int32 *pTop, __int32 *pWidth, __int32 *pHeight)",
+            "offset": "0xAC",
+            "size": 4
+        },
+        {
+            "name": "HideCursor",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 HideCursor)",
+            "offset": "0xB0",
+            "size": 4
+        },
+        {
+            "name": "IsCursorHidden",
+            "type": "HRESULT (__stdcall *)(IVideoWindow *This, __int32 *CursorHidden)",
+            "offset": "0xB4",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,179 @@
+{
+    "name": "RwRasterModule",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x64",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "field_8",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "field_C",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "field_18",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "field_1C",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "field_20",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "field_24",
+            "type": "int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "currentContext",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "field_2C",
+            "type": "int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "field_30",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "field_34",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "field_38",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "field_3C",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "field_40",
+            "type": "int",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "field_44",
+            "type": "int",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "field_48",
+            "type": "int",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "field_4C",
+            "type": "char",
+            "offset": "0x4C",
+            "size": 1
+        },
+        {
+            "name": "field_4D",
+            "type": "char",
+            "offset": "0x4D",
+            "size": 1
+        },
+        {
+            "name": "field_4E",
+            "type": "char",
+            "offset": "0x4E",
+            "size": 1
+        },
+        {
+            "name": "field_4F",
+            "type": "char",
+            "offset": "0x4F",
+            "size": 1
+        },
+        {
+            "name": "field_50",
+            "type": "int",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "field_54",
+            "type": "int",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "field_58",
+            "type": "int",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "field_5C",
+            "type": "int",
+            "offset": "0x5C",
+            "size": 4
+        },
+        {
+            "name": "rasterFreeList",
+            "type": "int",
+            "offset": "0x60",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "name": "RwTexDictionary",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "object",
+            "type": "RwObject",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "texturesInDict",
+            "type": "RwLinkList",
+            "offset": 8,
+            "size": 8
+        },
+        {
+            "name": "lInInstance",
+            "type": "RwLLLink",
+            "offset": "0x10",
+            "size": 8
+        }
+    ]
+}

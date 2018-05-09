@@ -1,0 +1,375 @@
+{
+    "name": "CAEVehicleAudioEntity",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24C",
+    "alignment": 0,
+    "vtableAddress": "0x862CEC",
+    "vtableSize": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "audio",
+            "type": "CAEAudioEntity",
+            "offset": 0,
+            "size": "0x7C"
+        },
+        {
+            "name": "field_7C",
+            "type": "__int16",
+            "offset": "0x7C",
+            "size": 2
+        },
+        {
+            "name": "m_settings",
+            "type": "tVehicleAudioSettings",
+            "offset": "0x80",
+            "size": "0x24"
+        },
+        {
+            "name": "m_bEnabled",
+            "type": "_BYTE",
+            "offset": "0xA4",
+            "size": 1
+        },
+        {
+            "name": "m_bPlayerDriver",
+            "type": "char",
+            "offset": "0xA5",
+            "size": 1
+        },
+        {
+            "name": "m_bPlayerPassenger",
+            "type": "char",
+            "offset": "0xA6",
+            "size": 1
+        },
+        {
+            "name": "m_bVehicleRadioPaused",
+            "type": "char",
+            "offset": "0xA7",
+            "size": 1
+        },
+        {
+            "name": "m_bSoundsStopped",
+            "type": "char",
+            "offset": "0xA8",
+            "size": 1
+        },
+        {
+            "name": "m_nEngineState",
+            "type": "char",
+            "offset": "0xA9",
+            "size": 1
+        },
+        {
+            "name": "field_AA",
+            "type": "char",
+            "offset": "0xAA",
+            "size": 1
+        },
+        {
+            "name": "field_AC",
+            "type": "int",
+            "offset": "0xAC",
+            "size": 4
+        },
+        {
+            "name": "m_bInhibitAccForLowSpeed",
+            "type": "char",
+            "offset": "0xB0",
+            "size": 1,
+            "comment": "1"
+        },
+        {
+            "name": "m_wRainDropCounter",
+            "type": "__int16",
+            "offset": "0xB2",
+            "size": 2,
+            "comment": "if () > 3 () = 0"
+        },
+        {
+            "name": "field_B4",
+            "type": "__int16",
+            "offset": "0xB4",
+            "size": 2
+        },
+        {
+            "name": "field_B8",
+            "type": "int",
+            "offset": "0xB8",
+            "size": 4
+        },
+        {
+            "name": "field_BC",
+            "type": "char",
+            "offset": "0xBC",
+            "size": 1
+        },
+        {
+            "name": "m_bDisableHeliEngineSounds",
+            "type": "char",
+            "offset": "0xBD",
+            "size": 1
+        },
+        {
+            "name": "field_BE",
+            "type": "char",
+            "offset": "0xBE",
+            "size": 1
+        },
+        {
+            "name": "m_bSirenOrAlarmPlaying",
+            "type": "char",
+            "offset": "0xBF",
+            "size": 1
+        },
+        {
+            "name": "m_bHornPlaying",
+            "type": "char",
+            "offset": "0xC0",
+            "size": 1
+        },
+        {
+            "name": "m_fSirenVolume",
+            "type": "float",
+            "offset": "0xC4",
+            "size": 4,
+            "comment": "-100.0"
+        },
+        {
+            "name": "m_bModelWithSiren",
+            "type": "char",
+            "offset": "0xC8",
+            "size": 1
+        },
+        {
+            "name": "m_dwBoatHitWaveLastPlayedTime",
+            "type": "int",
+            "offset": "0xCC",
+            "size": 4
+        },
+        {
+            "name": "m_dwTimeToInhibitAcc",
+            "type": "int",
+            "offset": "0xD0",
+            "size": 4
+        },
+        {
+            "name": "m_dwTimeToInhibitCrz",
+            "type": "int",
+            "offset": "0xD4",
+            "size": 4
+        },
+        {
+            "name": "m_fGeneralVehicleSoundVolume",
+            "type": "float",
+            "offset": "0xD8",
+            "size": 4
+        },
+        {
+            "name": "m_wEngineDecelerateSoundBankId",
+            "type": "__int16",
+            "offset": "0xDC",
+            "size": 2
+        },
+        {
+            "name": "m_wEngineAccelerateSoundBankId",
+            "type": "__int16",
+            "offset": "0xDE",
+            "size": 2
+        },
+        {
+            "name": "m_nEngineBankSlotId",
+            "type": "__int16",
+            "offset": "0xE0",
+            "size": 2
+        },
+        {
+            "name": "field_E2",
+            "type": "__int16",
+            "offset": "0xE2",
+            "size": 2
+        },
+        {
+            "name": "m_aEngineSounds",
+            "type": "CVehicleSound[12]",
+            "offset": "0xE4",
+            "size": "0x60"
+        },
+        {
+            "name": "field_144",
+            "type": "int",
+            "offset": "0x144",
+            "size": 4
+        },
+        {
+            "name": "field_148",
+            "type": "__int16",
+            "offset": "0x148",
+            "size": 2
+        },
+        {
+            "name": "field_14A",
+            "type": "__int16",
+            "offset": "0x14A",
+            "size": 2
+        },
+        {
+            "name": "field_14C",
+            "type": "__int16",
+            "offset": "0x14C",
+            "size": 2
+        },
+        {
+            "name": "field_14E",
+            "type": "__int16",
+            "offset": "0x14E",
+            "size": 2
+        },
+        {
+            "name": "field_150",
+            "type": "int",
+            "offset": "0x150",
+            "size": 4
+        },
+        {
+            "name": "field_154",
+            "type": "__int16",
+            "offset": "0x154",
+            "size": 2
+        },
+        {
+            "name": "m_wSkidSoundType",
+            "type": "signed __int16",
+            "offset": "0x156",
+            "size": 2
+        },
+        {
+            "name": "field_158",
+            "type": "CAESound *",
+            "offset": "0x158",
+            "size": 4
+        },
+        {
+            "name": "m_wRoadNoiseSoundType",
+            "type": "signed __int16",
+            "offset": "0x15C",
+            "size": 2
+        },
+        {
+            "name": "m_pRoadNoiseSound",
+            "type": "CAESound *",
+            "offset": "0x160",
+            "size": 4
+        },
+        {
+            "name": "m_wFlatTyreSoundType",
+            "type": "__int16",
+            "offset": "0x164",
+            "size": 2
+        },
+        {
+            "name": "m_pFlatTyreSound",
+            "type": "CAESound *",
+            "offset": "0x168",
+            "size": 4
+        },
+        {
+            "name": "m_wReverseGearSoundType",
+            "type": "__int16",
+            "offset": "0x16C",
+            "size": 2
+        },
+        {
+            "name": "m_pReverseGearSound",
+            "type": "CAESound *",
+            "offset": "0x170",
+            "size": 4
+        },
+        {
+            "name": "m_pHornTonSound",
+            "type": "CAESound *",
+            "offset": "0x178",
+            "size": 4
+        },
+        {
+            "name": "m_pSirenSound",
+            "type": "CAESound *",
+            "offset": "0x17C",
+            "size": 4
+        },
+        {
+            "name": "m_pPoliceSirenSound",
+            "type": "CAESound *",
+            "offset": "0x180",
+            "size": 4
+        },
+        {
+            "name": "m_skidSound",
+            "type": "CAETwinLoopSoundEntity",
+            "offset": "0x184",
+            "size": "0xA8"
+        },
+        {
+            "name": "field_22C",
+            "type": "float",
+            "offset": "0x22C",
+            "size": 4,
+            "comment": "-1.0"
+        },
+        {
+            "name": "field_230",
+            "type": "float",
+            "offset": "0x230",
+            "size": 4,
+            "comment": "-100.0"
+        },
+        {
+            "name": "field_234",
+            "type": "float",
+            "offset": "0x234",
+            "size": 4,
+            "comment": "-1.0"
+        },
+        {
+            "name": "field_238",
+            "type": "float",
+            "offset": "0x238",
+            "size": 4
+        },
+        {
+            "name": "field_23C",
+            "type": "float",
+            "offset": "0x23C",
+            "size": 4,
+            "comment": "1.0"
+        },
+        {
+            "name": "field_240",
+            "type": "int",
+            "offset": "0x240",
+            "size": 4
+        },
+        {
+            "name": "m_bNitroSoundPresent",
+            "type": "char",
+            "offset": "0x244",
+            "size": 1
+        },
+        {
+            "name": "field_245",
+            "type": "char[3]",
+            "offset": "0x245",
+            "size": 3
+        },
+        {
+            "name": "field_248",
+            "type": "float",
+            "offset": "0x248",
+            "size": 4,
+            "comment": "-1.0"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "CWaterTriangle",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_wFlags",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "field_2",
+            "type": "char[6]",
+            "offset": 2,
+            "size": 6
+        }
+    ]
+}

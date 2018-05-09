@@ -1,0 +1,125 @@
+{
+    "name": "CExplosion",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x7C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_Type",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_vPosition",
+            "type": "CVector",
+            "offset": 4,
+            "size": "0xC"
+        },
+        {
+            "name": "m_fRadius",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_fPropagationRate",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_pCreator",
+            "type": "CEntity *",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_pVictim",
+            "type": "CEntity *",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "m_fExpireTime",
+            "type": "float",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "m_fDamagePercentage",
+            "type": "float",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "m_bIsActive",
+            "type": "_BYTE",
+            "offset": "0x28",
+            "size": 1
+        },
+        {
+            "name": "m_nActiveCounter",
+            "type": "_BYTE",
+            "offset": "0x29",
+            "size": 1
+        },
+        {
+            "name": "m_bMakeSound",
+            "type": "_BYTE",
+            "offset": "0x2A",
+            "size": 1
+        },
+        {
+            "name": "_pad",
+            "type": "_BYTE[1]",
+            "offset": "0x2B",
+            "size": 1
+        },
+        {
+            "name": "m_dwCreatedTime",
+            "type": "float",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "m_dwParticlesExpireTime",
+            "type": "_DWORD",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "m_fVisibleDistance",
+            "type": "float",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "m_fGroundZ",
+            "type": "_DWORD",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "m_dwFuelTime",
+            "type": "_DWORD",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "m_vAdditionalExplosionOffset",
+            "type": "RwV3d[3]",
+            "offset": "0x40",
+            "size": "0x24"
+        },
+        {
+            "name": "m_fAdditionalExplosionRange",
+            "type": "int[6]",
+            "offset": "0x64",
+            "size": "0x18"
+        }
+    ]
+}

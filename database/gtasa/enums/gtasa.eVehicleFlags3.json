@@ -1,0 +1,45 @@
+{
+    "name": "eVehicleFlags3",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "IS_DAMAGED",
+            "value": "0x1"
+        },
+        {
+            "name": "HAS_BEEN_OWNED_BY_PLAYER",
+            "value": "0x2"
+        },
+        {
+            "name": "FADE_OUT",
+            "value": "0x4"
+        },
+        {
+            "name": "IS_BEING_CAR_JACKED",
+            "value": "0x8"
+        },
+        {
+            "name": "CREATE_ROAD_BLOCK_PEDS",
+            "value": "0x10"
+        },
+        {
+            "name": "CAN_BE_DAMAGED",
+            "value": "0x20"
+        },
+        {
+            "name": "OCCUPANTS_HAVE_BEEN_GENERATED",
+            "value": "0x40"
+        },
+        {
+            "name": "GUN_SWITCHED_OFF",
+            "value": "0x80"
+        }
+    ]
+}

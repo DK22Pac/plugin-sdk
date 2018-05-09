@@ -1,0 +1,45 @@
+{
+    "name": "eVehicleFlags4",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "VEHICLE_COL_PROCESSED",
+            "value": "0x1"
+        },
+        {
+            "name": "IS_CAR_PARK_VEHICLE",
+            "value": "0x2"
+        },
+        {
+            "name": "HAS_ALREADY_BEEN_RECORDED",
+            "value": "0x4"
+        },
+        {
+            "name": "PART_OF_CONVOY",
+            "value": "0x8"
+        },
+        {
+            "name": "HELI_MINIMUM_TILT",
+            "value": "0x10"
+        },
+        {
+            "name": "AUDIO_CHANGING_GEAR",
+            "value": "0x20"
+        },
+        {
+            "name": "IS_DROWNING",
+            "value": "0x40"
+        },
+        {
+            "name": "TYRES_DONT_BURST",
+            "value": "0x80"
+        }
+    ]
+}

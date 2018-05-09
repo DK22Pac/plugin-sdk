@@ -1,0 +1,35 @@
+{
+    "name": "FxPrtMult_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "color",
+            "type": "RwRGBAReal",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "size",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "life",
+            "type": "float",
+            "offset": "0x18",
+            "size": 4
+        }
+    ]
+}

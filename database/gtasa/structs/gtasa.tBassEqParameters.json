@@ -1,0 +1,29 @@
+{
+    "name": "tBassEqParameters",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0xC",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_fCenter",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_fBandwidth",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_fGain",
+            "type": "FLOAT",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

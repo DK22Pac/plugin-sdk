@@ -1,0 +1,25 @@
+{
+    "name": "FxInterpInfo32_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 2,
+    "vtableAddress": "0x85A980",
+    "vtableSize": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "base",
+            "type": "FxInterpInfo_c",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_pValKeys",
+            "type": "int **",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

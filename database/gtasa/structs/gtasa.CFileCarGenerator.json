@@ -1,0 +1,107 @@
+{
+    "name": "CFileCarGenerator",
+    "module": "CFileCarGenerator",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2E",
+    "alignment": 1,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_vecPosn",
+            "type": "CVector",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_fAngle",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_nModelId",
+            "type": "_DWORD",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_nColor1",
+            "type": "_WORD",
+            "offset": "0x14",
+            "size": 2
+        },
+        {
+            "name": "_pad16",
+            "type": "_BYTE[2]",
+            "offset": "0x16",
+            "size": 2
+        },
+        {
+            "name": "m_nColor2",
+            "type": "_WORD",
+            "offset": "0x18",
+            "size": 2
+        },
+        {
+            "name": "_pad1A",
+            "type": "_BYTE[2]",
+            "offset": "0x1A",
+            "size": 2
+        },
+        {
+            "name": "m_nFlags",
+            "type": "_BYTE",
+            "offset": "0x1C",
+            "size": 1
+        },
+        {
+            "name": "_pad1D",
+            "type": "_BYTE[3]",
+            "offset": "0x1D",
+            "size": 3
+        },
+        {
+            "name": "m_nAlarm",
+            "type": "_BYTE",
+            "offset": "0x20",
+            "size": 1
+        },
+        {
+            "name": "_pad21",
+            "type": "_BYTE[3]",
+            "offset": "0x21",
+            "size": 3
+        },
+        {
+            "name": "m_nDoorLock",
+            "type": "_BYTE",
+            "offset": "0x24",
+            "size": 1
+        },
+        {
+            "name": "_pad25",
+            "type": "_BYTE[3]",
+            "offset": "0x25",
+            "size": 3
+        },
+        {
+            "name": "m_nMinDelay",
+            "type": "_WORD",
+            "offset": "0x28",
+            "size": 2
+        },
+        {
+            "name": "_pad2A",
+            "type": "_BYTE[2]",
+            "offset": "0x2A",
+            "size": 2
+        },
+        {
+            "name": "m_nMaxDelay",
+            "type": "_WORD",
+            "offset": "0x2C",
+            "size": 2
+        }
+    ]
+}

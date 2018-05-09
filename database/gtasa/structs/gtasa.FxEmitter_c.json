@@ -1,0 +1,25 @@
+{
+    "name": "FxEmitter_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "vtableAddress": "0x85A7A4",
+    "vtableSize": 6,
+    "comment": "",
+    "members": [
+        {
+            "name": "prim",
+            "type": "FxPrim_c",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "m_fEmissionIntensity",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

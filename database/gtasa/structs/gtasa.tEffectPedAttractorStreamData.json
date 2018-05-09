@@ -1,0 +1,59 @@
+{
+    "name": "tEffectPedAttractorStreamData",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x38",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "type",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "rotation",
+            "type": "RwV3d[3]",
+            "offset": 4,
+            "size": "0x24"
+        },
+        {
+            "name": "externalScript",
+            "type": "char[8]",
+            "offset": "0x28",
+            "size": 8
+        },
+        {
+            "name": "pedExistingProbability",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "flags1",
+            "type": "char",
+            "offset": "0x34",
+            "size": 1
+        },
+        {
+            "name": "field_35",
+            "type": "char",
+            "offset": "0x35",
+            "size": 1
+        },
+        {
+            "name": "flags2",
+            "type": "char",
+            "offset": "0x36",
+            "size": 1
+        },
+        {
+            "name": "field_37",
+            "type": "char",
+            "offset": "0x37",
+            "size": 1
+        }
+    ]
+}

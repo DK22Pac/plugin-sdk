@@ -1,0 +1,35 @@
+{
+    "name": "CRange2D",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_fLeft",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_fBottom",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_fRight",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "m_fTop",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

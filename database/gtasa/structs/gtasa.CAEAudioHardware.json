@@ -1,0 +1,287 @@
+{
+    "name": "CAEAudioHardware",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1018",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "_BYTE",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "m_bDisableEffectsLoading",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "field_2",
+            "type": "char",
+            "offset": 2,
+            "size": 1
+        },
+        {
+            "name": "field_3",
+            "type": "char",
+            "offset": 3,
+            "size": 1
+        },
+        {
+            "name": "field_4",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "m_nReverbEnvironment",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "m_awChannelFlags",
+            "type": "__int16[64]",
+            "offset": 6,
+            "size": "0x80"
+        },
+        {
+            "name": "field_86",
+            "type": "__int16",
+            "offset": "0x86",
+            "size": 2
+        },
+        {
+            "name": "m_nReverbDepth",
+            "type": "int",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "m_wNumAvailableChannels",
+            "type": "_WORD",
+            "offset": "0x8C",
+            "size": 2
+        },
+        {
+            "name": "m_nNumChannels",
+            "type": "_WORD",
+            "offset": "0x8E",
+            "size": 2
+        },
+        {
+            "name": "m_anNumSoundsInSlot",
+            "type": "__int16[64]",
+            "offset": "0x90",
+            "size": "0x80"
+        },
+        {
+            "name": "m_afChannelVolumes",
+            "type": "float[64]",
+            "offset": "0x110",
+            "size": "0x100"
+        },
+        {
+            "name": "field_210",
+            "type": "int[64]",
+            "offset": "0x210",
+            "size": "0x100"
+        },
+        {
+            "name": "m_afChannelsFrqScalingFactor",
+            "type": "float[64]",
+            "offset": "0x310",
+            "size": "0x100"
+        },
+        {
+            "name": "m_fMusicMasterScalingFactor",
+            "type": "float",
+            "offset": "0x410",
+            "size": 4
+        },
+        {
+            "name": "m_fEffectMasterScalingFactor",
+            "type": "float",
+            "offset": "0x414",
+            "size": 4
+        },
+        {
+            "name": "m_fMusicFaderScalingFactor",
+            "type": "float",
+            "offset": "0x418",
+            "size": 4
+        },
+        {
+            "name": "m_fEffectsFaderScalingFactor",
+            "type": "float",
+            "offset": "0x41C",
+            "size": 4
+        },
+        {
+            "name": "m_fStreamFaderScalingFactor",
+            "type": "float",
+            "offset": "0x420",
+            "size": 4
+        },
+        {
+            "name": "m_fNonStreamFaderScalingFactor",
+            "type": "float",
+            "offset": "0x424",
+            "size": 4
+        },
+        {
+            "name": "field_428",
+            "type": "float",
+            "offset": "0x428",
+            "size": 4
+        },
+        {
+            "name": "field_42C",
+            "type": "float",
+            "offset": "0x42C",
+            "size": 4
+        },
+        {
+            "name": "m_aBankSlotIds",
+            "type": "__int16[300]",
+            "offset": "0x430",
+            "size": "0x258"
+        },
+        {
+            "name": "m_aSoundTypes",
+            "type": "__int16[300]",
+            "offset": "0x688",
+            "size": "0x258"
+        },
+        {
+            "name": "m_anVirtualChannelSoundLoopStartTimes",
+            "type": "__int16[300]",
+            "offset": "0x8E0",
+            "size": "0x258"
+        },
+        {
+            "name": "m_anVirtualChannelSoundLengths",
+            "type": "__int16[300]",
+            "offset": "0xB38",
+            "size": "0x258"
+        },
+        {
+            "name": "m_nBassSet",
+            "type": "char",
+            "offset": "0xD90",
+            "size": 1
+        },
+        {
+            "name": "__pad1__",
+            "type": "char[3]",
+            "offset": "0xD91",
+            "size": 3
+        },
+        {
+            "name": "m_fBassEqGain",
+            "type": "float",
+            "offset": "0xD94",
+            "size": 4
+        },
+        {
+            "name": "m_pMP3BankLoader",
+            "type": "CAEMP3BankLoader *",
+            "offset": "0xD98",
+            "size": 4
+        },
+        {
+            "name": "m_pMP3TrackLoader",
+            "type": "_DWORD",
+            "offset": "0xD9C",
+            "size": 4
+        },
+        {
+            "name": "m_pDirectSound",
+            "type": "IDirectSound8 *",
+            "offset": "0xDA0",
+            "size": 4
+        },
+        {
+            "name": "m_dwSpeakerConfig",
+            "type": "int",
+            "offset": "0xDA4",
+            "size": 4
+        },
+        {
+            "name": "m_n3dEffectsQueryResult",
+            "type": "char",
+            "offset": "0xDA8",
+            "size": 1
+        },
+        {
+            "name": "m_dsCaps",
+            "type": "DSCAPS",
+            "offset": "0xDAC",
+            "size": "0x60"
+        },
+        {
+            "name": "m_pDirectSound3dListener",
+            "type": "IDirectSound3DListener *",
+            "offset": "0xE0C",
+            "size": 4
+        },
+        {
+            "name": "m_pStreamingChannel",
+            "type": "CAEStreamingChannel *",
+            "offset": "0xE10",
+            "size": 4
+        },
+        {
+            "name": "m_streamThread",
+            "type": "CAEStreamThread",
+            "offset": "0xE14",
+            "size": "0x50"
+        },
+        {
+            "name": "m_aChannels",
+            "type": "CAEAudioChannel *[64]",
+            "offset": "0xE64",
+            "size": "0x100"
+        },
+        {
+            "name": "field_F64",
+            "type": "char[160]",
+            "offset": "0xF64",
+            "size": "0xA0"
+        },
+        {
+            "name": "field_1004",
+            "type": "int",
+            "offset": "0x1004",
+            "size": 4
+        },
+        {
+            "name": "field_1008",
+            "type": "int",
+            "offset": "0x1008",
+            "size": 4
+        },
+        {
+            "name": "field_100C",
+            "type": "int",
+            "offset": "0x100C",
+            "size": 4
+        },
+        {
+            "name": "field_1010",
+            "type": "char",
+            "offset": "0x1010",
+            "size": 1
+        },
+        {
+            "name": "field_1014",
+            "type": "int",
+            "offset": "0x1014",
+            "size": 4
+        }
+    ]
+}

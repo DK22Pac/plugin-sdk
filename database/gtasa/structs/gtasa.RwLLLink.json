@@ -1,0 +1,23 @@
+{
+    "name": "RwLLLink",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "next",
+            "type": "RwLinkList *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "prev",
+            "type": "RwLinkList *",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

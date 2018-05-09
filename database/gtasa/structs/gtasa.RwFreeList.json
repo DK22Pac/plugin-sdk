@@ -1,0 +1,53 @@
+{
+    "name": "RwFreeList",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "entrySize",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "entriesPerBlock",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "heapSize",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "alignment",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "blockList",
+            "type": "RwLinkList",
+            "offset": "0x10",
+            "size": 8
+        },
+        {
+            "name": "flags",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "link",
+            "type": "RwLLLink",
+            "offset": "0x1C",
+            "size": 8
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "name": "MACRO_E_NOINTERFACE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "E_NOINTERFACE",
+            "value": "0x80004002"
+        },
+        {
+            "name": "E_POINTER",
+            "value": "0x80004003"
+        },
+        {
+            "name": "E_HANDLE",
+            "value": "0x80070006"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "IShellDetailsVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "QueryInterface",
+            "type": "void *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AddRef",
+            "type": "void *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Release",
+            "type": "void *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetDetailsOf",
+            "type": "void *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "ColumnClick",
+            "type": "void *",
+            "offset": "0x10",
+            "size": 4
+        }
+    ]
+}

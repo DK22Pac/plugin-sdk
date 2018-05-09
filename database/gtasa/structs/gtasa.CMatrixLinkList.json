@@ -1,0 +1,54 @@
+{
+    "name": "CMatrixLinkList",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1FC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "_l1Head",
+            "type": "CMatrixLink",
+            "offset": 0,
+            "size": "0x54"
+        },
+        {
+            "name": "_l1Tail",
+            "type": "CMatrixLink",
+            "offset": "0x54",
+            "size": "0x54"
+        },
+        {
+            "name": "allocatedListHead",
+            "type": "CMatrixLink",
+            "offset": "0xA8",
+            "size": "0x54"
+        },
+        {
+            "name": "allocatedListTail",
+            "type": "CMatrixLink",
+            "offset": "0xFC",
+            "size": "0x54"
+        },
+        {
+            "name": "freeListHead",
+            "type": "CMatrixLink",
+            "offset": "0x150",
+            "size": "0x54"
+        },
+        {
+            "name": "freeListTail",
+            "type": "CMatrixLink",
+            "offset": "0x1A4",
+            "size": "0x54"
+        },
+        {
+            "name": "m_pObjects",
+            "type": "CMatrixLink *",
+            "offset": "0x1F8",
+            "size": 4,
+            "comment": "CCoors *"
+        }
+    ]
+}

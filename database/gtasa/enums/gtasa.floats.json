@@ -1,0 +1,17 @@
+{
+    "name": "floats",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "f1_0",
+            "value": "0x3F800000"
+        }
+    ]
+}

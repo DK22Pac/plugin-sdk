@@ -1,0 +1,60 @@
+{
+    "name": "CAnimBlendHierarchy",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "hash",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "sequences",
+            "type": "CAnimBlendSequence *",
+            "offset": 4,
+            "size": 4,
+            "comment": "CAnimBlendSequence *"
+        },
+        {
+            "name": "seqCount",
+            "type": "__int16",
+            "offset": 8,
+            "size": 2
+        },
+        {
+            "name": "bRunningCompressed",
+            "type": "char",
+            "offset": "0xA",
+            "size": 1
+        },
+        {
+            "name": "field_B",
+            "type": "char",
+            "offset": "0xB",
+            "size": 1
+        },
+        {
+            "name": "iAnimBlockID",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "fTotalTime",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

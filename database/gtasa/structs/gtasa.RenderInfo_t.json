@@ -1,0 +1,210 @@
+{
+    "name": "RenderInfo_t",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xA4",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_color",
+            "type": "RwRGBA",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nColorRangeRed",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "m_nColorRangeGreen",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "m_nColorRangeBlue",
+            "type": "char",
+            "offset": 6,
+            "size": 1
+        },
+        {
+            "name": "m_nColorBrightBias",
+            "type": "char",
+            "offset": 7,
+            "size": 1
+        },
+        {
+            "name": "m_nColourType",
+            "type": "_DWORD",
+            "offset": 8,
+            "size": 4,
+            "comment": "0 - COLOUR_SINGLE,;;1 - COLOUR_RANGE,;;2 - COLOUR_BRIGHT"
+        },
+        {
+            "name": "m_fSizeX",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_fSizeY",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_fSizeXBias",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_fSizeYBias",
+            "type": "float",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_fSpriteTop",
+            "type": "float",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "m_fSpriteBottom",
+            "type": "float",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "m_fSpriteLeft",
+            "type": "float",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "m_fSpriteRight",
+            "type": "float",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "m_nTrailScreenMode",
+            "type": "_DWORD",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "m_fTrailTime",
+            "type": "float",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "m_bAnimTextureUsed",
+            "type": "_BYTE",
+            "offset": "0x34",
+            "size": 1
+        },
+        {
+            "name": "m_nAnimTexId",
+            "type": "char",
+            "offset": "0x35",
+            "size": 1
+        },
+        {
+            "name": "m_bHeatHaze",
+            "type": "_BYTE",
+            "offset": "0x36",
+            "size": 1
+        },
+        {
+            "name": "m_bSelfLit",
+            "type": "_BYTE",
+            "offset": "0x37",
+            "size": 1
+        },
+        {
+            "name": "m_flatMatrix",
+            "type": "RwMatrix",
+            "offset": "0x38",
+            "size": "0x40"
+        },
+        {
+            "name": "m_bFlatUsed",
+            "type": "_BYTE",
+            "offset": "0x78",
+            "size": 1
+        },
+        {
+            "name": "m_bDirUsed",
+            "type": "_BYTE",
+            "offset": "0x79",
+            "size": 1
+        },
+        {
+            "name": "m_bIgnoreDirThisFrame",
+            "type": "_BYTE",
+            "offset": "0x7A",
+            "size": 1
+        },
+        {
+            "name": "field_7B",
+            "type": "_BYTE",
+            "offset": "0x7B",
+            "size": 1
+        },
+        {
+            "name": "m_dir",
+            "type": "RwV3d",
+            "offset": "0x7C",
+            "size": "0xC"
+        },
+        {
+            "name": "field_88",
+            "type": "float",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "field_8C",
+            "type": "float",
+            "offset": "0x8C",
+            "size": 4
+        },
+        {
+            "name": "field_90",
+            "type": "float",
+            "offset": "0x90",
+            "size": 4
+        },
+        {
+            "name": "field_94",
+            "type": "float",
+            "offset": "0x94",
+            "size": 4
+        },
+        {
+            "name": "field_98",
+            "type": "float",
+            "offset": "0x98",
+            "size": 4
+        },
+        {
+            "name": "field_9C",
+            "type": "float",
+            "offset": "0x9C",
+            "size": 4
+        },
+        {
+            "name": "field_A0",
+            "type": "float",
+            "offset": "0xA0",
+            "size": 4
+        }
+    ]
+}

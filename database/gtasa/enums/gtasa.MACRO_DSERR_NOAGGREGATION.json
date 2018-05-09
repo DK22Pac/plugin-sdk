@@ -1,0 +1,29 @@
+{
+    "name": "MACRO_DSERR_NOAGGREGATION",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": true,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "DSERR_NOAGGREGATION",
+            "value": 2147746064
+        },
+        {
+            "name": "DSERR_BUFFERLOST",
+            "value": 2289565846
+        },
+        {
+            "name": "DSERR_OTHERAPPHASPRIO",
+            "value": 2289565856
+        },
+        {
+            "name": "DSERR_UNINITIALIZED",
+            "value": 2289565866
+        }
+    ]
+}

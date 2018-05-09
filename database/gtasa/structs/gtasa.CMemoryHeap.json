@@ -1,0 +1,83 @@
+{
+    "name": "CMemoryHeap",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x48",
+    "alignment": 3,
+    "comment": "",
+    "members": [
+        {
+            "name": "dword0",
+            "type": "_DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dword4",
+            "type": "_DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "char8",
+            "type": "char",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "gap9",
+            "type": "_BYTE[15]",
+            "offset": 9,
+            "size": "0xF"
+        },
+        {
+            "name": "dword18",
+            "type": "_DWORD",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "dword20",
+            "type": "_DWORD",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "gap24",
+            "type": "_BYTE[16]",
+            "offset": "0x24",
+            "size": "0x10"
+        },
+        {
+            "name": "dword34",
+            "type": "_DWORD",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "dword38",
+            "type": "_DWORD",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "byte3C",
+            "type": "_BYTE",
+            "offset": "0x3C",
+            "size": 1
+        },
+        {
+            "name": "dword40",
+            "type": "_DWORD",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "dword44",
+            "type": "_DWORD",
+            "offset": "0x44",
+            "size": 4
+        }
+    ]
+}

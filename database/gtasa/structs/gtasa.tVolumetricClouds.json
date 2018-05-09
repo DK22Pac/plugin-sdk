@@ -1,0 +1,83 @@
+{
+    "name": "tVolumetricClouds",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x16A8",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nSlots",
+            "type": "char[180]",
+            "offset": 0,
+            "size": "0xB4"
+        },
+        {
+            "name": "m_bInsideVisibilityRange",
+            "type": "char[180]",
+            "offset": "0xB4",
+            "size": "0xB4"
+        },
+        {
+            "name": "field_168",
+            "type": "CVector[180]",
+            "offset": "0x168",
+            "size": "0x870"
+        },
+        {
+            "name": "field_9D8",
+            "type": "CVector[180]",
+            "offset": "0x9D8",
+            "size": "0x870"
+        },
+        {
+            "name": "m_nHeight",
+            "type": "int[180]",
+            "offset": "0x1248",
+            "size": "0x2D0"
+        },
+        {
+            "name": "m_pTex",
+            "type": "RwTexture *",
+            "offset": "0x1518",
+            "size": 4
+        },
+        {
+            "name": "m_vecCloudsSpace",
+            "type": "CVector[3]",
+            "offset": "0x151C",
+            "size": "0x24"
+        },
+        {
+            "name": "m_fCloudXCoords",
+            "type": "float[18]",
+            "offset": "0x1540",
+            "size": "0x48"
+        },
+        {
+            "name": "m_fCloudYCoords",
+            "type": "float[18]",
+            "offset": "0x1588",
+            "size": "0x48"
+        },
+        {
+            "name": "m_fCloudZCoords",
+            "type": "float[18]",
+            "offset": "0x15D0",
+            "size": "0x48"
+        },
+        {
+            "name": "m_fCloudUCoords",
+            "type": "float[18]",
+            "offset": "0x1618",
+            "size": "0x48"
+        },
+        {
+            "name": "m_fCloudVCoords",
+            "type": "float[18]",
+            "offset": "0x1660",
+            "size": "0x48"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "name": "D3DLIGHTTYPE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DLIGHT_POINT",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DLIGHT_SPOT",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DLIGHT_DIRECTIONAL",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DLIGHT_FORCE_DWORD",
+            "value": "0x7FFFFFFF"
+        }
+    ]
+}

@@ -1,0 +1,107 @@
+{
+    "name": "RpSkin",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x40",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "numBones",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "numBoneIds",
+            "type": "_DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "boneIds",
+            "type": "char *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "skinToBoneMatrices",
+            "type": "RwMatrixTag *",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "maxNumWeightsForVertex",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "vertexBoneIndices",
+            "type": "unsigned int *",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "vertexBoneWeights",
+            "type": "RwMatrixWeights *",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "field_1C",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "m_bSkinUsesVertexShader",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "boneLimit",
+            "type": "unsigned int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "numMeshes",
+            "type": "unsigned int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "numRLE",
+            "type": "unsigned int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "meshBoneRemapIndices",
+            "type": "void *",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "meshBoneRLECount",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "meshBoneRLE",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "field_3C",
+            "type": "void *",
+            "offset": "0x3C",
+            "size": 4
+        }
+    ]
+}

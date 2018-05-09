@@ -1,0 +1,120 @@
+{
+    "name": "RwCamera",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x184",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "object",
+            "type": "RwObjectHasFrame",
+            "offset": 0,
+            "size": "0x14"
+        },
+        {
+            "name": "projectionType",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "beginUpdate",
+            "type": "int (__cdecl *)(RwCamera *camera)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "endUpdate",
+            "type": "int (*)(void)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "viewMatrix",
+            "type": "RwMatrixTag",
+            "offset": "0x20",
+            "size": "0x40"
+        },
+        {
+            "name": "frameBuffer",
+            "type": "RwRaster *",
+            "offset": "0x60",
+            "size": 4,
+            "comment": "RwRaster *"
+        },
+        {
+            "name": "zBuffer",
+            "type": "RwRaster *",
+            "offset": "0x64",
+            "size": 4
+        },
+        {
+            "name": "viewWindow",
+            "type": "RwV2d",
+            "offset": "0x68",
+            "size": 8
+        },
+        {
+            "name": "recipViewWindow",
+            "type": "RwV2d",
+            "offset": "0x70",
+            "size": 8
+        },
+        {
+            "name": "viewOffset",
+            "type": "RwV2d",
+            "offset": "0x78",
+            "size": 8
+        },
+        {
+            "name": "nearPlane",
+            "type": "float",
+            "offset": "0x80",
+            "size": 4
+        },
+        {
+            "name": "farPlane",
+            "type": "float",
+            "offset": "0x84",
+            "size": 4
+        },
+        {
+            "name": "fogPlane",
+            "type": "float",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "zScale",
+            "type": "int",
+            "offset": "0x8C",
+            "size": 4
+        },
+        {
+            "name": "zShift",
+            "type": "int",
+            "offset": "0x90",
+            "size": 4
+        },
+        {
+            "name": "frustrumPlanes",
+            "type": "RwFrustumPlane[6]",
+            "offset": "0x94",
+            "size": "0x78"
+        },
+        {
+            "name": "frustrumBoundBox",
+            "type": "RwBBox",
+            "offset": "0x10C",
+            "size": "0x18"
+        },
+        {
+            "name": "frustrumCorners",
+            "type": "RwV3d[8]",
+            "offset": "0x124",
+            "size": "0x60"
+        }
+    ]
+}

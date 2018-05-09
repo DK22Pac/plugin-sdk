@@ -1,0 +1,77 @@
+{
+    "name": "tBoatHandlingData",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x3C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "index",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "thrustY",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "thrustZ",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "thrustAppZ",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "aqPlaneForce",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "aqPlaneLimit",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "aqPlaneOffset",
+            "type": "float",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "waveAudioMult",
+            "type": "float",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "look_L_R_BehindCamHeight",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "moveRes",
+            "type": "RwV3d",
+            "offset": "0x24",
+            "size": "0xC"
+        },
+        {
+            "name": "turnRes",
+            "type": "RwV3d",
+            "offset": "0x30",
+            "size": "0xC"
+        }
+    ]
+}

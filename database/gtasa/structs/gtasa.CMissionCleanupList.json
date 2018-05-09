@@ -1,0 +1,23 @@
+{
+    "name": "CMissionCleanupList",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x259",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "objects",
+            "type": "CMissionCleanup[75]",
+            "offset": 0,
+            "size": "0x258"
+        },
+        {
+            "name": "count",
+            "type": "char",
+            "offset": "0x258",
+            "size": 1
+        }
+    ]
+}

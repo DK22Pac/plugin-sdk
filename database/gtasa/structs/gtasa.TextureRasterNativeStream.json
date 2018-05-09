@@ -1,0 +1,59 @@
+{
+    "name": "TextureRasterNativeStream",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "rasterFormat",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "d3d9Format",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "width",
+            "type": "unsigned __int16",
+            "offset": 8,
+            "size": 2
+        },
+        {
+            "name": "height",
+            "type": "unsigned __int16",
+            "offset": "0xA",
+            "size": 2
+        },
+        {
+            "name": "stride",
+            "type": "unsigned __int8",
+            "offset": "0xC",
+            "size": 1
+        },
+        {
+            "name": "numLevels",
+            "type": "char",
+            "offset": "0xD",
+            "size": 1
+        },
+        {
+            "name": "rasterType",
+            "type": "unsigned __int8",
+            "offset": "0xE",
+            "size": 1
+        },
+        {
+            "name": "creationFlags",
+            "type": "char",
+            "offset": "0xF",
+            "size": 1
+        }
+    ]
+}

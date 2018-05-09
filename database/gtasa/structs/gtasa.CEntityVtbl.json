@@ -1,0 +1,143 @@
+{
+    "name": "CEntityVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x58",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "__dtor",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Add",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "add",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "remove",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "int (__stdcall *)(_DWORD)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "setModelIndex",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "setModelIndexNoCreate",
+            "type": "int (__stdcall *)(_DWORD)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "createRwObject",
+            "type": "int (__thiscall *)(_DWORD)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "deleteRwObject",
+            "type": "int (*)(void)",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "getBoundRect",
+            "type": "int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "processControl",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "processCollision",
+            "type": "int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "field_30",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "field_34",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "teleport",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "field_3C",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "field_40",
+            "type": "int",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "preRender",
+            "type": "int",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "render",
+            "type": "int",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "setupLighting",
+            "type": "int",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "removeLighting",
+            "type": "int",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "flagToDestroyWhenNextProcessing",
+            "type": "int",
+            "offset": "0x54",
+            "size": 4
+        }
+    ]
+}

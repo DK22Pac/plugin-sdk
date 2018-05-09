@@ -1,0 +1,53 @@
+{
+    "name": "e2dEffectType",
+    "module": "C2dEffect",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "EFFECT_LIGHT",
+            "value": 0
+        },
+        {
+            "name": "EFFECT_PARTICLE",
+            "value": 1
+        },
+        {
+            "name": "EFFECT_ATTRACTOR",
+            "value": 3
+        },
+        {
+            "name": "EFFECT_SUN_GLARE",
+            "value": 4
+        },
+        {
+            "name": "EFFECT_FURNITURE",
+            "value": 5
+        },
+        {
+            "name": "EFFECT_ENEX",
+            "value": 6
+        },
+        {
+            "name": "EFFECT_ROADSIGN",
+            "value": 7
+        },
+        {
+            "name": "EFFECT_TRIGGER_POINT",
+            "value": 8
+        },
+        {
+            "name": "EFFECT_COVER_POINT",
+            "value": 9
+        },
+        {
+            "name": "EFFECT_ESCALATOR",
+            "value": 10
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "name": "eGarageDoorState",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "GARAGE_DOOR_CLOSED",
+            "value": "0x0"
+        },
+        {
+            "name": "GARAGE_DOOR_OPEN",
+            "value": "0x1"
+        },
+        {
+            "name": "GARAGE_DOOR_CLOSING",
+            "value": "0x2"
+        },
+        {
+            "name": "GARAGE_DOOR_OPENING",
+            "value": "0x3"
+        },
+        {
+            "name": "GARAGE_DOOR_WAITING_PLAYER_TO_EXIT",
+            "value": "0x4"
+        },
+        {
+            "name": "GARAGE_DOOR_CLOSED_DROPPED_CAR",
+            "value": "0x5"
+        }
+    ]
+}

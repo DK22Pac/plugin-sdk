@@ -1,0 +1,29 @@
+{
+    "name": "obj_8E4C24",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x30",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "__int16[22]",
+            "offset": 0,
+            "size": "0x2C"
+        },
+        {
+            "name": "field_2C",
+            "type": "__int16",
+            "offset": "0x2C",
+            "size": 2
+        },
+        {
+            "name": "__pad_2E",
+            "type": "__int16",
+            "offset": "0x2E",
+            "size": 2
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "name": "CTaskSimpleRunNamedAnim",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x64",
+    "alignment": 0,
+    "vtableAddress": "0x86D54C",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "anim",
+            "type": "CTaskSimpleAnim",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "m_szAnimName",
+            "type": "char[24]",
+            "offset": "0x10",
+            "size": "0x18"
+        },
+        {
+            "name": "m_szFileName",
+            "type": "char[16]",
+            "offset": "0x28",
+            "size": "0x10"
+        },
+        {
+            "name": "m_fFrameDelta",
+            "type": "float",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "animation",
+            "type": "CAnimBlendHierarchy *",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "m_nTime",
+            "type": "int",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "m_timer",
+            "type": "CTaskTimer",
+            "offset": "0x44",
+            "size": "0xC"
+        },
+        {
+            "name": "field_50",
+            "type": "int",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "field_54",
+            "type": "int",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "field_58",
+            "type": "int",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "m_nSpecialFlags",
+            "type": "int",
+            "offset": "0x5C",
+            "size": 4
+        },
+        {
+            "name": "field_60",
+            "type": "int",
+            "offset": "0x60",
+            "size": 4
+        }
+    ]
+}

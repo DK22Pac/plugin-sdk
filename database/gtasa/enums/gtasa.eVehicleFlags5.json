@@ -1,0 +1,45 @@
+{
+    "name": "eVehicleFlags5",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "CREATED_AS_POLICE_VEHICLE",
+            "value": "0x1"
+        },
+        {
+            "name": "RESTING_ON_PHYSICAL",
+            "value": "0x2"
+        },
+        {
+            "name": "PARKING",
+            "value": "0x4"
+        },
+        {
+            "name": "CAN_PARK",
+            "value": "0x8"
+        },
+        {
+            "name": "FITE_GUN",
+            "value": "0x10"
+        },
+        {
+            "name": "DRIVER_LAST_FRAME",
+            "value": "0x20"
+        },
+        {
+            "name": "NEVER_USE_SMALLER_REMOVAL_RANGE",
+            "value": "0x40"
+        },
+        {
+            "name": "IS_RC_VEHICLE",
+            "value": "0x80"
+        }
+    ]
+}

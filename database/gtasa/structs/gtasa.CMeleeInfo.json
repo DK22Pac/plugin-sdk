@@ -1,0 +1,107 @@
+{
+    "name": "CMeleeInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x88",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_dwAnimGroup",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_fRanges",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_fHit",
+            "type": "int[5]",
+            "offset": 8,
+            "size": "0x14"
+        },
+        {
+            "name": "m_fChain",
+            "type": "int[5]",
+            "offset": "0x1C",
+            "size": "0x14"
+        },
+        {
+            "name": "m_fRadius",
+            "type": "int[5]",
+            "offset": "0x30",
+            "size": "0x14"
+        },
+        {
+            "name": "m_fGroundLoop",
+            "type": "float",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "ABlockHit",
+            "type": "float",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "ABlockChain",
+            "type": "float",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "m_nHitLevel",
+            "type": "char",
+            "offset": "0x50",
+            "size": 1
+        },
+        {
+            "name": "__pad0",
+            "type": "char[3]",
+            "offset": "0x51",
+            "size": 3
+        },
+        {
+            "name": "damage",
+            "type": "int",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "field_58",
+            "type": "int",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "hit",
+            "type": "int[5]",
+            "offset": "0x5C",
+            "size": "0x14"
+        },
+        {
+            "name": "altHit",
+            "type": "int[5]",
+            "offset": "0x70",
+            "size": "0x14"
+        },
+        {
+            "name": "m_wFlags",
+            "type": "__int16",
+            "offset": "0x84",
+            "size": 2
+        },
+        {
+            "name": "__pad1",
+            "type": "char[2]",
+            "offset": "0x86",
+            "size": 2
+        }
+    ]
+}

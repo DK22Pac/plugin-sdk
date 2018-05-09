@@ -1,0 +1,45 @@
+{
+    "name": "eVehicleFlags2",
+    "module": "",
+    "scope": "",
+    "width": 1,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": true,
+    "comment": "",
+    "members": [
+        {
+            "name": "IS_VAN",
+            "value": "0x1"
+        },
+        {
+            "name": "IS_BUS",
+            "value": "0x2"
+        },
+        {
+            "name": "IS_BIG",
+            "value": "0x4"
+        },
+        {
+            "name": "LOW_VEHICLE",
+            "value": "0x8"
+        },
+        {
+            "name": "COMEDY_CONTROLS",
+            "value": "0x10"
+        },
+        {
+            "name": "WARNED_PEDS",
+            "value": "0x20"
+        },
+        {
+            "name": "CRANE_MESSAGE_DONE",
+            "value": "0x40"
+        },
+        {
+            "name": "TAKE_LESS_DAMAGE",
+            "value": "0x80"
+        }
+    ]
+}

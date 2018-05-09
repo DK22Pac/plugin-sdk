@@ -1,0 +1,17 @@
+{
+    "name": "CBoundingBox",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "box",
+            "type": "CBox",
+            "offset": 0,
+            "size": "0x18"
+        }
+    ]
+}

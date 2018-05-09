@@ -1,0 +1,23 @@
+{
+    "name": "EXCEPTION_POINTERS",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "ExceptionRecord",
+            "type": "void *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "ContextRecord",
+            "type": "void *",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

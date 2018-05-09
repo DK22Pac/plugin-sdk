@@ -1,0 +1,119 @@
+{
+    "name": "IDirectSound3DListenerVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x48",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "QueryInterface",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, const IID *const , LPVOID *)",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AddRef",
+            "type": "ULONG (__stdcall *)(IDirectSound3DListener *This)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "Release",
+            "type": "ULONG (__stdcall *)(IDirectSound3DListener *This)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "GetAllParameters",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, LPDS3DLISTENER pListener)",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "GetDistanceFactor",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE *pflDistanceFactor)",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "GetDopplerFactor",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE *pflDopplerFactor)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "GetOrientation",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVECTOR *pvOrientFront, D3DVECTOR *pvOrientTop)",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "GetPosition",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVECTOR *pvPosition)",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "GetRolloffFactor",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE *pflRolloffFactor)",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "GetVelocity",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVECTOR *pvVelocity)",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "SetAllParameters",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, LPCDS3DLISTENER pcListener, DWORD dwApply)",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "SetDistanceFactor",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE flDistanceFactor, DWORD dwApply)",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "SetDopplerFactor",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE flDopplerFactor, DWORD dwApply)",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "SetOrientation",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE xFront, D3DVALUE yFront, D3DVALUE zFront, D3DVALUE xTop, D3DVALUE yTop, D3DVALUE zTop, DWORD dwApply)",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "SetPosition",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE x, D3DVALUE y, D3DVALUE z, DWORD dwApply)",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "SetRolloffFactor",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE flRolloffFactor, DWORD dwApply)",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "SetVelocity",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This, D3DVALUE x, D3DVALUE y, D3DVALUE z, DWORD dwApply)",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "CommitDeferredSettings",
+            "type": "HRESULT (__stdcall *)(IDirectSound3DListener *This)",
+            "offset": "0x44",
+            "size": 4
+        }
+    ]
+}

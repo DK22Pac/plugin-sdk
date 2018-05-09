@@ -1,0 +1,31 @@
+{
+    "name": "CTaskComplexKillPedOnFootStealth",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x48",
+    "alignment": 2,
+    "vtableAddress": "0x86D8C0",
+    "vtableSize": 11,
+    "comment": "",
+    "members": [
+        {
+            "name": "p",
+            "type": "CTaskComplexKillPedOnFoot",
+            "offset": 0,
+            "size": "0x38"
+        },
+        {
+            "name": "m_vecVictimStartPosn",
+            "type": "CVector",
+            "offset": "0x38",
+            "size": "0xC"
+        },
+        {
+            "name": "m_nStartTime",
+            "type": "_DWORD",
+            "offset": "0x44",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "name": "DSBUFFERDESC",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "dwSize",
+            "type": "DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dwFlags",
+            "type": "DWORD",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "dwBufferBytes",
+            "type": "DWORD",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "dwReserved",
+            "type": "DWORD",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "lpwfxFormat",
+            "type": "LPWAVEFORMATEX",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "guid3DAlgorithm",
+            "type": "GUID",
+            "offset": "0x14",
+            "size": "0x10"
+        }
+    ]
+}

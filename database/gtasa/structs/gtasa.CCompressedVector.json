@@ -1,0 +1,29 @@
+{
+    "name": "CCompressedVector",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 6,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "x",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "y",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "z",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        }
+    ]
+}

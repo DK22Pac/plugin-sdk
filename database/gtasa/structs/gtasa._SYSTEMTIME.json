@@ -1,0 +1,59 @@
+{
+    "name": "_SYSTEMTIME",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "wYear",
+            "type": "WORD",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "wMonth",
+            "type": "WORD",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "wDayOfWeek",
+            "type": "WORD",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "wDay",
+            "type": "WORD",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "wHour",
+            "type": "WORD",
+            "offset": 8,
+            "size": 2
+        },
+        {
+            "name": "wMinute",
+            "type": "WORD",
+            "offset": "0xA",
+            "size": 2
+        },
+        {
+            "name": "wSecond",
+            "type": "WORD",
+            "offset": "0xC",
+            "size": 2
+        },
+        {
+            "name": "wMilliseconds",
+            "type": "WORD",
+            "offset": "0xE",
+            "size": 2
+        }
+    ]
+}

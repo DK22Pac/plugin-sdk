@@ -1,0 +1,77 @@
+{
+    "name": "COnscreenCounterEntry",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x44",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_dwVarId",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_dwMaxVarValue",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "m_acDescriptionTextKey",
+            "type": "char[10]",
+            "offset": 8,
+            "size": "0xA"
+        },
+        {
+            "name": "m_nType",
+            "type": "__int16",
+            "offset": "0x12",
+            "size": 2
+        },
+        {
+            "name": "m_acDisplayedText",
+            "type": "char[40]",
+            "offset": "0x14",
+            "size": "0x28"
+        },
+        {
+            "name": "field_3C",
+            "type": "char",
+            "offset": "0x3C",
+            "size": 1
+        },
+        {
+            "name": "field_3D",
+            "type": "char",
+            "offset": "0x3D",
+            "size": 1
+        },
+        {
+            "name": "m_bEnabled",
+            "type": "char",
+            "offset": "0x3E",
+            "size": 1
+        },
+        {
+            "name": "m_bFlashWhenFirstDisplayed",
+            "type": "char",
+            "offset": "0x3F",
+            "size": 1
+        },
+        {
+            "name": "m_nColourId",
+            "type": "char",
+            "offset": "0x40",
+            "size": 1
+        },
+        {
+            "name": "__pad",
+            "type": "char[3]",
+            "offset": "0x41",
+            "size": 3
+        }
+    ]
+}

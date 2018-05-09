@@ -1,0 +1,77 @@
+{
+    "name": "CutsceneParticle",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x6C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_szEffectName",
+            "type": "char[32]",
+            "offset": 0,
+            "size": "0x20"
+        },
+        {
+            "name": "m_pFxSystem",
+            "type": "FxSystem_c *",
+            "offset": "0x20",
+            "size": 4
+        },
+        {
+            "name": "m_nStartTime",
+            "type": "int",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "m_nEndTime",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "m_nObjectId",
+            "type": "int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "m_szObjectPart",
+            "type": "char[32]",
+            "offset": "0x30",
+            "size": "0x20"
+        },
+        {
+            "name": "m_vecPosn",
+            "type": "CVector",
+            "offset": "0x50",
+            "size": "0xC"
+        },
+        {
+            "name": "m_vecDirection",
+            "type": "CVector",
+            "offset": "0x5C",
+            "size": "0xC"
+        },
+        {
+            "name": "m_bPlaying",
+            "type": "char",
+            "offset": "0x68",
+            "size": 1
+        },
+        {
+            "name": "m_bStopped",
+            "type": "char",
+            "offset": "0x69",
+            "size": 1
+        },
+        {
+            "name": "_pad6A",
+            "type": "char[2]",
+            "offset": "0x6A",
+            "size": 2
+        }
+    ]
+}

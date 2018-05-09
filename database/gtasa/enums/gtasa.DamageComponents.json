@@ -1,0 +1,37 @@
+{
+    "name": "DamageComponents",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "COMPONENT_BONNET",
+            "value": "0x0"
+        },
+        {
+            "name": "COMPONENT_BOOT",
+            "value": "0x1"
+        },
+        {
+            "name": "COMPONENT_DOOR_LF",
+            "value": "0x2"
+        },
+        {
+            "name": "COMPONENT_DOOR_RF",
+            "value": "0x3"
+        },
+        {
+            "name": "COMPONENT_DOOR_LR",
+            "value": "0x4"
+        },
+        {
+            "name": "COMPONENT_DOOR_RR",
+            "value": "0x5"
+        }
+    ]
+}

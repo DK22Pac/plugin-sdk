@@ -1,0 +1,81 @@
+{
+    "name": "tComponent",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "TCOMPONENT_WHEEL_LF",
+            "value": 1
+        },
+        {
+            "name": "TCOMPONENT_WHEEL_RF",
+            "value": 2
+        },
+        {
+            "name": "TCOMPONENT_WHEEL_LR",
+            "value": 3
+        },
+        {
+            "name": "TCOMPONENT_WHEEL_RR",
+            "value": 4
+        },
+        {
+            "name": "TCOMPONENT_BONNET",
+            "value": 5
+        },
+        {
+            "name": "TCOMPONENT_BOOT",
+            "value": 6
+        },
+        {
+            "name": "TCOMPONENT_DOOR_LF",
+            "value": 7
+        },
+        {
+            "name": "TCOMPONENT_DOOR_RF",
+            "value": 8
+        },
+        {
+            "name": "TCOMPONENT_DOOR_LR",
+            "value": 9
+        },
+        {
+            "name": "TCOMPONENT_DOOR_RR",
+            "value": 10
+        },
+        {
+            "name": "TCOMPONENT_WING_LF",
+            "value": 11
+        },
+        {
+            "name": "TCOMPONENT_WING_RF",
+            "value": 12
+        },
+        {
+            "name": "TCOMPONENT_WING_LR",
+            "value": 13
+        },
+        {
+            "name": "TCOMPONENT_WING_RR",
+            "value": 14
+        },
+        {
+            "name": "TCOMPONENT_WINDSCREEN",
+            "value": 15
+        },
+        {
+            "name": "TCOMPONENT_BUMP_FRONT",
+            "value": 16
+        },
+        {
+            "name": "TCOMPONENT_BUMP_REAR",
+            "value": 17
+        }
+    ]
+}

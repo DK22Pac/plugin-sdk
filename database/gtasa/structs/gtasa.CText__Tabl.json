@@ -1,0 +1,29 @@
+{
+    "name": "CText__Tabl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x964",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "data",
+            "type": "TablEntry[200]",
+            "offset": 0,
+            "size": "0x960"
+        },
+        {
+            "name": "size",
+            "type": "__int16",
+            "offset": "0x960",
+            "size": 2
+        },
+        {
+            "name": "__pad",
+            "type": "__int16",
+            "offset": "0x962",
+            "size": 2
+        }
+    ]
+}

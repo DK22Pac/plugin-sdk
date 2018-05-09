@@ -1,0 +1,48 @@
+{
+    "name": "CExternalScriptInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "data",
+            "type": "void *",
+            "offset": 0,
+            "size": 4,
+            "comment": "absAddress очень плохо читается в конструкциях вида (delete absAddress)"
+        },
+        {
+            "name": "status",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "field_5",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "wScmIndex",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "name",
+            "type": "char[20]",
+            "offset": 8,
+            "size": "0x14"
+        },
+        {
+            "name": "size",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

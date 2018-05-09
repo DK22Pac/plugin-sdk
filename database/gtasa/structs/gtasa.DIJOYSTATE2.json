@@ -1,0 +1,191 @@
+{
+    "name": "DIJOYSTATE2",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x110",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "lX",
+            "type": "LONG",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "lY",
+            "type": "LONG",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "lZ",
+            "type": "LONG",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "lRx",
+            "type": "LONG",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "lRy",
+            "type": "LONG",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "lRz",
+            "type": "LONG",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "rglSlider",
+            "type": "LONG[2]",
+            "offset": "0x18",
+            "size": 8
+        },
+        {
+            "name": "rgdwPOV",
+            "type": "DWORD[4]",
+            "offset": "0x20",
+            "size": "0x10"
+        },
+        {
+            "name": "rgbButtons",
+            "type": "BYTE[128]",
+            "offset": "0x30",
+            "size": "0x80"
+        },
+        {
+            "name": "lVX",
+            "type": "LONG",
+            "offset": "0xB0",
+            "size": 4
+        },
+        {
+            "name": "lVY",
+            "type": "LONG",
+            "offset": "0xB4",
+            "size": 4
+        },
+        {
+            "name": "lVZ",
+            "type": "LONG",
+            "offset": "0xB8",
+            "size": 4
+        },
+        {
+            "name": "lVRx",
+            "type": "LONG",
+            "offset": "0xBC",
+            "size": 4
+        },
+        {
+            "name": "lVRy",
+            "type": "LONG",
+            "offset": "0xC0",
+            "size": 4
+        },
+        {
+            "name": "lVRz",
+            "type": "LONG",
+            "offset": "0xC4",
+            "size": 4
+        },
+        {
+            "name": "rglVSlider",
+            "type": "LONG[2]",
+            "offset": "0xC8",
+            "size": 8
+        },
+        {
+            "name": "lAX",
+            "type": "LONG",
+            "offset": "0xD0",
+            "size": 4
+        },
+        {
+            "name": "lAY",
+            "type": "LONG",
+            "offset": "0xD4",
+            "size": 4
+        },
+        {
+            "name": "lAZ",
+            "type": "LONG",
+            "offset": "0xD8",
+            "size": 4
+        },
+        {
+            "name": "lARx",
+            "type": "LONG",
+            "offset": "0xDC",
+            "size": 4
+        },
+        {
+            "name": "lARy",
+            "type": "LONG",
+            "offset": "0xE0",
+            "size": 4
+        },
+        {
+            "name": "lARz",
+            "type": "LONG",
+            "offset": "0xE4",
+            "size": 4
+        },
+        {
+            "name": "rglASlider",
+            "type": "LONG[2]",
+            "offset": "0xE8",
+            "size": 8
+        },
+        {
+            "name": "lFX",
+            "type": "LONG",
+            "offset": "0xF0",
+            "size": 4
+        },
+        {
+            "name": "lFY",
+            "type": "LONG",
+            "offset": "0xF4",
+            "size": 4
+        },
+        {
+            "name": "lFZ",
+            "type": "LONG",
+            "offset": "0xF8",
+            "size": 4
+        },
+        {
+            "name": "lFRx",
+            "type": "LONG",
+            "offset": "0xFC",
+            "size": 4
+        },
+        {
+            "name": "lFRy",
+            "type": "LONG",
+            "offset": "0x100",
+            "size": 4
+        },
+        {
+            "name": "lFRz",
+            "type": "LONG",
+            "offset": "0x104",
+            "size": 4
+        },
+        {
+            "name": "rglFSlider",
+            "type": "LONG[2]",
+            "offset": "0x108",
+            "size": 8
+        }
+    ]
+}

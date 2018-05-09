@@ -1,0 +1,17 @@
+{
+    "name": "IDirectSoundFXParamEq",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "lpVtbl",
+            "type": "IDirectSoundFXParamEqVtbl *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

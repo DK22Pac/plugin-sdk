@@ -1,0 +1,3357 @@
+{
+    "name": "MACRO_ERROR_CODE",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": true,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "NO_ERROR",
+            "value": 0
+        },
+        {
+            "name": "ERROR_INVALID_FUNCTION",
+            "value": 1
+        },
+        {
+            "name": "ERROR_FILE_NOT_FOUND",
+            "value": 2
+        },
+        {
+            "name": "ERROR_PATH_NOT_FOUND",
+            "value": 3
+        },
+        {
+            "name": "ERROR_TOO_MANY_OPEN_FILES",
+            "value": 4
+        },
+        {
+            "name": "ERROR_ACCESS_DENIED",
+            "value": 5
+        },
+        {
+            "name": "ERROR_INVALID_HANDLE",
+            "value": 6
+        },
+        {
+            "name": "ERROR_ARENA_TRASHED",
+            "value": 7
+        },
+        {
+            "name": "ERROR_NOT_ENOUGH_MEMORY",
+            "value": 8
+        },
+        {
+            "name": "ERROR_INVALID_BLOCK",
+            "value": 9
+        },
+        {
+            "name": "ERROR_BAD_ENVIRONMENT",
+            "value": 10
+        },
+        {
+            "name": "ERROR_BAD_FORMAT",
+            "value": 11
+        },
+        {
+            "name": "ERROR_INVALID_ACCESS",
+            "value": 12
+        },
+        {
+            "name": "ERROR_INVALID_DATA",
+            "value": 13
+        },
+        {
+            "name": "ERROR_OUTOFMEMORY",
+            "value": 14
+        },
+        {
+            "name": "ERROR_INVALID_DRIVE",
+            "value": 15
+        },
+        {
+            "name": "ERROR_CURRENT_DIRECTORY",
+            "value": 16
+        },
+        {
+            "name": "ERROR_NOT_SAME_DEVICE",
+            "value": 17
+        },
+        {
+            "name": "ERROR_NO_MORE_FILES",
+            "value": 18
+        },
+        {
+            "name": "ERROR_WRITE_PROTECT",
+            "value": 19
+        },
+        {
+            "name": "ERROR_BAD_UNIT",
+            "value": 20
+        },
+        {
+            "name": "ERROR_NOT_READY",
+            "value": 21
+        },
+        {
+            "name": "ERROR_BAD_COMMAND",
+            "value": 22
+        },
+        {
+            "name": "ERROR_CRC",
+            "value": 23
+        },
+        {
+            "name": "ERROR_BAD_LENGTH",
+            "value": 24
+        },
+        {
+            "name": "ERROR_SEEK",
+            "value": 25
+        },
+        {
+            "name": "ERROR_NOT_DOS_DISK",
+            "value": 26
+        },
+        {
+            "name": "ERROR_SECTOR_NOT_FOUND",
+            "value": 27
+        },
+        {
+            "name": "ERROR_OUT_OF_PAPER",
+            "value": 28
+        },
+        {
+            "name": "ERROR_WRITE_FAULT",
+            "value": 29
+        },
+        {
+            "name": "ERROR_READ_FAULT",
+            "value": 30
+        },
+        {
+            "name": "ERROR_GEN_FAILURE",
+            "value": 31
+        },
+        {
+            "name": "ERROR_SHARING_VIOLATION",
+            "value": 32
+        },
+        {
+            "name": "ERROR_LOCK_VIOLATION",
+            "value": 33
+        },
+        {
+            "name": "ERROR_WRONG_DISK",
+            "value": 34
+        },
+        {
+            "name": "ERROR_SHARING_BUFFER_EXCEEDED",
+            "value": 36
+        },
+        {
+            "name": "ERROR_HANDLE_EOF",
+            "value": 38
+        },
+        {
+            "name": "ERROR_HANDLE_DISK_FULL",
+            "value": 39
+        },
+        {
+            "name": "ERROR_NOT_SUPPORTED",
+            "value": 50
+        },
+        {
+            "name": "ERROR_REM_NOT_LIST",
+            "value": 51
+        },
+        {
+            "name": "ERROR_DUP_NAME",
+            "value": 52
+        },
+        {
+            "name": "ERROR_BAD_NETPATH",
+            "value": 53
+        },
+        {
+            "name": "ERROR_NETWORK_BUSY",
+            "value": 54
+        },
+        {
+            "name": "ERROR_DEV_NOT_EXIST",
+            "value": 55
+        },
+        {
+            "name": "ERROR_TOO_MANY_CMDS",
+            "value": 56
+        },
+        {
+            "name": "ERROR_ADAP_HDW_ERR",
+            "value": 57
+        },
+        {
+            "name": "ERROR_BAD_NET_RESP",
+            "value": 58
+        },
+        {
+            "name": "ERROR_UNEXP_NET_ERR",
+            "value": 59
+        },
+        {
+            "name": "ERROR_BAD_REM_ADAP",
+            "value": 60
+        },
+        {
+            "name": "ERROR_PRINTQ_FULL",
+            "value": 61
+        },
+        {
+            "name": "ERROR_NO_SPOOL_SPACE",
+            "value": 62
+        },
+        {
+            "name": "ERROR_PRINT_CANCELLED",
+            "value": 63
+        },
+        {
+            "name": "ERROR_NETNAME_DELETED",
+            "value": 64
+        },
+        {
+            "name": "ERROR_NETWORK_ACCESS_DENIED",
+            "value": 65
+        },
+        {
+            "name": "ERROR_BAD_DEV_TYPE",
+            "value": 66
+        },
+        {
+            "name": "ERROR_BAD_NET_NAME",
+            "value": 67
+        },
+        {
+            "name": "ERROR_TOO_MANY_NAMES",
+            "value": 68
+        },
+        {
+            "name": "ERROR_TOO_MANY_SESS",
+            "value": 69
+        },
+        {
+            "name": "ERROR_SHARING_PAUSED",
+            "value": 70
+        },
+        {
+            "name": "ERROR_REQ_NOT_ACCEP",
+            "value": 71
+        },
+        {
+            "name": "ERROR_REDIR_PAUSED",
+            "value": 72
+        },
+        {
+            "name": "ERROR_FILE_EXISTS",
+            "value": 80
+        },
+        {
+            "name": "ERROR_CANNOT_MAKE",
+            "value": 82
+        },
+        {
+            "name": "ERROR_FAIL_I24",
+            "value": 83
+        },
+        {
+            "name": "ERROR_OUT_OF_STRUCTURES",
+            "value": 84
+        },
+        {
+            "name": "ERROR_ALREADY_ASSIGNED",
+            "value": 85
+        },
+        {
+            "name": "ERROR_INVALID_PASSWORD",
+            "value": 86
+        },
+        {
+            "name": "ERROR_INVALID_PARAMETER",
+            "value": 87
+        },
+        {
+            "name": "ERROR_NET_WRITE_FAULT",
+            "value": 88
+        },
+        {
+            "name": "ERROR_NO_PROC_SLOTS",
+            "value": 89
+        },
+        {
+            "name": "ERROR_TOO_MANY_SEMAPHORES",
+            "value": 100
+        },
+        {
+            "name": "ERROR_EXCL_SEM_ALREADY_OWNED",
+            "value": 101
+        },
+        {
+            "name": "ERROR_SEM_IS_SET",
+            "value": 102
+        },
+        {
+            "name": "ERROR_TOO_MANY_SEM_REQUESTS",
+            "value": 103
+        },
+        {
+            "name": "ERROR_INVALID_AT_INTERRUPT_TIME",
+            "value": 104
+        },
+        {
+            "name": "ERROR_SEM_OWNER_DIED",
+            "value": 105
+        },
+        {
+            "name": "ERROR_SEM_USER_LIMIT",
+            "value": 106
+        },
+        {
+            "name": "ERROR_DISK_CHANGE",
+            "value": 107
+        },
+        {
+            "name": "ERROR_DRIVE_LOCKED",
+            "value": 108
+        },
+        {
+            "name": "ERROR_BROKEN_PIPE",
+            "value": 109
+        },
+        {
+            "name": "ERROR_OPEN_FAILED",
+            "value": 110
+        },
+        {
+            "name": "ERROR_BUFFER_OVERFLOW",
+            "value": 111
+        },
+        {
+            "name": "ERROR_DISK_FULL",
+            "value": 112
+        },
+        {
+            "name": "ERROR_NO_MORE_SEARCH_HANDLES",
+            "value": 113
+        },
+        {
+            "name": "ERROR_INVALID_TARGET_HANDLE",
+            "value": 114
+        },
+        {
+            "name": "ERROR_INVALID_CATEGORY",
+            "value": 117
+        },
+        {
+            "name": "ERROR_INVALID_VERIFY_SWITCH",
+            "value": 118
+        },
+        {
+            "name": "ERROR_BAD_DRIVER_LEVEL",
+            "value": 119
+        },
+        {
+            "name": "ERROR_CALL_NOT_IMPLEMENTED",
+            "value": 120
+        },
+        {
+            "name": "ERROR_SEM_TIMEOUT",
+            "value": 121
+        },
+        {
+            "name": "ERROR_INSUFFICIENT_BUFFER",
+            "value": 122
+        },
+        {
+            "name": "ERROR_INVALID_NAME",
+            "value": 123
+        },
+        {
+            "name": "ERROR_INVALID_LEVEL",
+            "value": 124
+        },
+        {
+            "name": "ERROR_NO_VOLUME_LABEL",
+            "value": 125
+        },
+        {
+            "name": "ERROR_MOD_NOT_FOUND",
+            "value": 126
+        },
+        {
+            "name": "ERROR_PROC_NOT_FOUND",
+            "value": 127
+        },
+        {
+            "name": "ERROR_WAIT_NO_CHILDREN",
+            "value": 128
+        },
+        {
+            "name": "ERROR_CHILD_NOT_COMPLETE",
+            "value": 129
+        },
+        {
+            "name": "ERROR_DIRECT_ACCESS_HANDLE",
+            "value": 130
+        },
+        {
+            "name": "ERROR_NEGATIVE_SEEK",
+            "value": 131
+        },
+        {
+            "name": "ERROR_SEEK_ON_DEVICE",
+            "value": 132
+        },
+        {
+            "name": "ERROR_IS_JOIN_TARGET",
+            "value": 133
+        },
+        {
+            "name": "ERROR_IS_JOINED",
+            "value": 134
+        },
+        {
+            "name": "ERROR_IS_SUBSTED",
+            "value": 135
+        },
+        {
+            "name": "ERROR_NOT_JOINED",
+            "value": 136
+        },
+        {
+            "name": "ERROR_NOT_SUBSTED",
+            "value": 137
+        },
+        {
+            "name": "ERROR_JOIN_TO_JOIN",
+            "value": 138
+        },
+        {
+            "name": "ERROR_SUBST_TO_SUBST",
+            "value": 139
+        },
+        {
+            "name": "ERROR_JOIN_TO_SUBST",
+            "value": 140
+        },
+        {
+            "name": "ERROR_SUBST_TO_JOIN",
+            "value": 141
+        },
+        {
+            "name": "ERROR_BUSY_DRIVE",
+            "value": 142
+        },
+        {
+            "name": "ERROR_SAME_DRIVE",
+            "value": 143
+        },
+        {
+            "name": "ERROR_DIR_NOT_ROOT",
+            "value": 144
+        },
+        {
+            "name": "ERROR_DIR_NOT_EMPTY",
+            "value": 145
+        },
+        {
+            "name": "ERROR_IS_SUBST_PATH",
+            "value": 146
+        },
+        {
+            "name": "ERROR_IS_JOIN_PATH",
+            "value": 147
+        },
+        {
+            "name": "ERROR_PATH_BUSY",
+            "value": 148
+        },
+        {
+            "name": "ERROR_IS_SUBST_TARGET",
+            "value": 149
+        },
+        {
+            "name": "ERROR_SYSTEM_TRACE",
+            "value": 150
+        },
+        {
+            "name": "ERROR_INVALID_EVENT_COUNT",
+            "value": 151
+        },
+        {
+            "name": "ERROR_TOO_MANY_MUXWAITERS",
+            "value": 152
+        },
+        {
+            "name": "ERROR_INVALID_LIST_FORMAT",
+            "value": 153
+        },
+        {
+            "name": "ERROR_LABEL_TOO_LONG",
+            "value": 154
+        },
+        {
+            "name": "ERROR_TOO_MANY_TCBS",
+            "value": 155
+        },
+        {
+            "name": "ERROR_SIGNAL_REFUSED",
+            "value": 156
+        },
+        {
+            "name": "ERROR_DISCARDED",
+            "value": 157
+        },
+        {
+            "name": "ERROR_NOT_LOCKED",
+            "value": 158
+        },
+        {
+            "name": "ERROR_BAD_THREADID_ADDR",
+            "value": 159
+        },
+        {
+            "name": "ERROR_BAD_ARGUMENTS",
+            "value": 160
+        },
+        {
+            "name": "ERROR_BAD_PATHNAME",
+            "value": 161
+        },
+        {
+            "name": "ERROR_SIGNAL_PENDING",
+            "value": 162
+        },
+        {
+            "name": "ERROR_MAX_THRDS_REACHED",
+            "value": 164
+        },
+        {
+            "name": "ERROR_LOCK_FAILED",
+            "value": 167
+        },
+        {
+            "name": "ERROR_BUSY",
+            "value": 170
+        },
+        {
+            "name": "ERROR_CANCEL_VIOLATION",
+            "value": 173
+        },
+        {
+            "name": "ERROR_ATOMIC_LOCKS_NOT_SUPPORTED",
+            "value": 174
+        },
+        {
+            "name": "ERROR_INVALID_SEGMENT_NUMBER",
+            "value": 180
+        },
+        {
+            "name": "ERROR_INVALID_ORDINAL",
+            "value": 182
+        },
+        {
+            "name": "ERROR_ALREADY_EXISTS",
+            "value": 183
+        },
+        {
+            "name": "ERROR_INVALID_FLAG_NUMBER",
+            "value": 186
+        },
+        {
+            "name": "ERROR_SEM_NOT_FOUND",
+            "value": 187
+        },
+        {
+            "name": "ERROR_INVALID_STARTING_CODESEG",
+            "value": 188
+        },
+        {
+            "name": "ERROR_INVALID_STACKSEG",
+            "value": 189
+        },
+        {
+            "name": "ERROR_INVALID_MODULETYPE",
+            "value": 190
+        },
+        {
+            "name": "ERROR_INVALID_EXE_SIGNATURE",
+            "value": 191
+        },
+        {
+            "name": "ERROR_EXE_MARKED_INVALID",
+            "value": 192
+        },
+        {
+            "name": "ERROR_BAD_EXE_FORMAT",
+            "value": 193
+        },
+        {
+            "name": "ERROR_ITERATED_DATA_EXCEEDS_64k",
+            "value": 194
+        },
+        {
+            "name": "ERROR_INVALID_MINALLOCSIZE",
+            "value": 195
+        },
+        {
+            "name": "ERROR_DYNLINK_FROM_INVALID_RING",
+            "value": 196
+        },
+        {
+            "name": "ERROR_IOPL_NOT_ENABLED",
+            "value": 197
+        },
+        {
+            "name": "ERROR_INVALID_SEGDPL",
+            "value": 198
+        },
+        {
+            "name": "ERROR_AUTODATASEG_EXCEEDS_64k",
+            "value": 199
+        },
+        {
+            "name": "ERROR_RING2SEG_MUST_BE_MOVABLE",
+            "value": 200
+        },
+        {
+            "name": "ERROR_RELOC_CHAIN_XEEDS_SEGLIM",
+            "value": 201
+        },
+        {
+            "name": "ERROR_INFLOOP_IN_RELOC_CHAIN",
+            "value": 202
+        },
+        {
+            "name": "ERROR_ENVVAR_NOT_FOUND",
+            "value": 203
+        },
+        {
+            "name": "ERROR_NO_SIGNAL_SENT",
+            "value": 205
+        },
+        {
+            "name": "ERROR_FILENAME_EXCED_RANGE",
+            "value": 206
+        },
+        {
+            "name": "ERROR_RING2_STACK_IN_USE",
+            "value": 207
+        },
+        {
+            "name": "ERROR_META_EXPANSION_TOO_LONG",
+            "value": 208
+        },
+        {
+            "name": "ERROR_INVALID_SIGNAL_NUMBER",
+            "value": 209
+        },
+        {
+            "name": "ERROR_THREAD_1_INACTIVE",
+            "value": 210
+        },
+        {
+            "name": "ERROR_LOCKED",
+            "value": 212
+        },
+        {
+            "name": "ERROR_TOO_MANY_MODULES",
+            "value": 214
+        },
+        {
+            "name": "ERROR_NESTING_NOT_ALLOWED",
+            "value": 215
+        },
+        {
+            "name": "ERROR_EXE_MACHINE_TYPE_MISMATCH",
+            "value": 216
+        },
+        {
+            "name": "ERROR_BAD_PIPE",
+            "value": 230
+        },
+        {
+            "name": "ERROR_PIPE_BUSY",
+            "value": 231
+        },
+        {
+            "name": "ERROR_NO_DATA",
+            "value": 232
+        },
+        {
+            "name": "ERROR_PIPE_NOT_CONNECTED",
+            "value": 233
+        },
+        {
+            "name": "ERROR_MORE_DATA",
+            "value": 234
+        },
+        {
+            "name": "ERROR_VC_DISCONNECTED",
+            "value": 240
+        },
+        {
+            "name": "ERROR_INVALID_EA_NAME",
+            "value": 254
+        },
+        {
+            "name": "ERROR_EA_LIST_INCONSISTENT",
+            "value": 255
+        },
+        {
+            "name": "ERROR_NO_MORE_ITEMS",
+            "value": 259
+        },
+        {
+            "name": "ERROR_CANNOT_COPY",
+            "value": 266
+        },
+        {
+            "name": "ERROR_DIRECTORY",
+            "value": 267
+        },
+        {
+            "name": "ERROR_EAS_DIDNT_FIT",
+            "value": 275
+        },
+        {
+            "name": "ERROR_EA_FILE_CORRUPT",
+            "value": 276
+        },
+        {
+            "name": "ERROR_EA_TABLE_FULL",
+            "value": 277
+        },
+        {
+            "name": "ERROR_INVALID_EA_HANDLE",
+            "value": 278
+        },
+        {
+            "name": "ERROR_EAS_NOT_SUPPORTED",
+            "value": 282
+        },
+        {
+            "name": "ERROR_NOT_OWNER",
+            "value": 288
+        },
+        {
+            "name": "ERROR_TOO_MANY_POSTS",
+            "value": 298
+        },
+        {
+            "name": "ERROR_PARTIAL_COPY",
+            "value": 299
+        },
+        {
+            "name": "ERROR_OPLOCK_NOT_GRANTED",
+            "value": 300
+        },
+        {
+            "name": "ERROR_INVALID_OPLOCK_PROTOCOL",
+            "value": 301
+        },
+        {
+            "name": "ERROR_MR_MID_NOT_FOUND",
+            "value": 317
+        },
+        {
+            "name": "ERROR_INVALID_ADDRESS",
+            "value": 487
+        },
+        {
+            "name": "ERROR_ARITHMETIC_OVERFLOW",
+            "value": 534
+        },
+        {
+            "name": "ERROR_PIPE_CONNECTED",
+            "value": 535
+        },
+        {
+            "name": "ERROR_PIPE_LISTENING",
+            "value": 536
+        },
+        {
+            "name": "ERROR_EA_ACCESS_DENIED",
+            "value": 994
+        },
+        {
+            "name": "ERROR_OPERATION_ABORTED",
+            "value": 995
+        },
+        {
+            "name": "ERROR_IO_INCOMPLETE",
+            "value": 996
+        },
+        {
+            "name": "ERROR_IO_PENDING",
+            "value": 997
+        },
+        {
+            "name": "ERROR_NOACCESS",
+            "value": 998
+        },
+        {
+            "name": "ERROR_SWAPERROR",
+            "value": 999
+        },
+        {
+            "name": "ERROR_STACK_OVERFLOW",
+            "value": 1001
+        },
+        {
+            "name": "ERROR_INVALID_MESSAGE",
+            "value": 1002
+        },
+        {
+            "name": "ERROR_CAN_NOT_COMPLETE",
+            "value": 1003
+        },
+        {
+            "name": "ERROR_INVALID_FLAGS",
+            "value": 1004
+        },
+        {
+            "name": "ERROR_UNRECOGNIZED_VOLUME",
+            "value": 1005
+        },
+        {
+            "name": "ERROR_FILE_INVALID",
+            "value": 1006
+        },
+        {
+            "name": "ERROR_FULLSCREEN_MODE",
+            "value": 1007
+        },
+        {
+            "name": "ERROR_NO_TOKEN",
+            "value": 1008
+        },
+        {
+            "name": "ERROR_BADDB",
+            "value": 1009
+        },
+        {
+            "name": "ERROR_BADKEY",
+            "value": 1010
+        },
+        {
+            "name": "ERROR_CANTOPEN",
+            "value": 1011
+        },
+        {
+            "name": "ERROR_CANTREAD",
+            "value": 1012
+        },
+        {
+            "name": "ERROR_CANTWRITE",
+            "value": 1013
+        },
+        {
+            "name": "ERROR_REGISTRY_RECOVERED",
+            "value": 1014
+        },
+        {
+            "name": "ERROR_REGISTRY_CORRUPT",
+            "value": 1015
+        },
+        {
+            "name": "ERROR_REGISTRY_IO_FAILED",
+            "value": 1016
+        },
+        {
+            "name": "ERROR_NOT_REGISTRY_FILE",
+            "value": 1017
+        },
+        {
+            "name": "ERROR_KEY_DELETED",
+            "value": 1018
+        },
+        {
+            "name": "ERROR_NO_LOG_SPACE",
+            "value": 1019
+        },
+        {
+            "name": "ERROR_KEY_HAS_CHILDREN",
+            "value": 1020
+        },
+        {
+            "name": "ERROR_CHILD_MUST_BE_VOLATILE",
+            "value": 1021
+        },
+        {
+            "name": "ERROR_NOTIFY_ENUM_DIR",
+            "value": 1022
+        },
+        {
+            "name": "ERROR_DEPENDENT_SERVICES_RUNNING",
+            "value": 1051
+        },
+        {
+            "name": "ERROR_INVALID_SERVICE_CONTROL",
+            "value": 1052
+        },
+        {
+            "name": "ERROR_SERVICE_REQUEST_TIMEOUT",
+            "value": 1053
+        },
+        {
+            "name": "ERROR_SERVICE_NO_THREAD",
+            "value": 1054
+        },
+        {
+            "name": "ERROR_SERVICE_DATABASE_LOCKED",
+            "value": 1055
+        },
+        {
+            "name": "ERROR_SERVICE_ALREADY_RUNNING",
+            "value": 1056
+        },
+        {
+            "name": "ERROR_INVALID_SERVICE_ACCOUNT",
+            "value": 1057
+        },
+        {
+            "name": "ERROR_SERVICE_DISABLED",
+            "value": 1058
+        },
+        {
+            "name": "ERROR_CIRCULAR_DEPENDENCY",
+            "value": 1059
+        },
+        {
+            "name": "ERROR_SERVICE_DOES_NOT_EXIST",
+            "value": 1060
+        },
+        {
+            "name": "ERROR_SERVICE_CANNOT_ACCEPT_CTRL",
+            "value": 1061
+        },
+        {
+            "name": "ERROR_SERVICE_NOT_ACTIVE",
+            "value": 1062
+        },
+        {
+            "name": "ERROR_FAILED_SERVICE_CONTROLLER_CONNECT",
+            "value": 1063
+        },
+        {
+            "name": "ERROR_EXCEPTION_IN_SERVICE",
+            "value": 1064
+        },
+        {
+            "name": "ERROR_DATABASE_DOES_NOT_EXIST",
+            "value": 1065
+        },
+        {
+            "name": "ERROR_SERVICE_SPECIFIC_ERROR",
+            "value": 1066
+        },
+        {
+            "name": "ERROR_PROCESS_ABORTED",
+            "value": 1067
+        },
+        {
+            "name": "ERROR_SERVICE_DEPENDENCY_FAIL",
+            "value": 1068
+        },
+        {
+            "name": "ERROR_SERVICE_LOGON_FAILED",
+            "value": 1069
+        },
+        {
+            "name": "ERROR_SERVICE_START_HANG",
+            "value": 1070
+        },
+        {
+            "name": "ERROR_INVALID_SERVICE_LOCK",
+            "value": 1071
+        },
+        {
+            "name": "ERROR_SERVICE_MARKED_FOR_DELETE",
+            "value": 1072
+        },
+        {
+            "name": "ERROR_SERVICE_EXISTS",
+            "value": 1073
+        },
+        {
+            "name": "ERROR_ALREADY_RUNNING_LKG",
+            "value": 1074
+        },
+        {
+            "name": "ERROR_SERVICE_DEPENDENCY_DELETED",
+            "value": 1075
+        },
+        {
+            "name": "ERROR_BOOT_ALREADY_ACCEPTED",
+            "value": 1076
+        },
+        {
+            "name": "ERROR_SERVICE_NEVER_STARTED",
+            "value": 1077
+        },
+        {
+            "name": "ERROR_DUPLICATE_SERVICE_NAME",
+            "value": 1078
+        },
+        {
+            "name": "ERROR_DIFFERENT_SERVICE_ACCOUNT",
+            "value": 1079
+        },
+        {
+            "name": "ERROR_CANNOT_DETECT_DRIVER_FAILURE",
+            "value": 1080
+        },
+        {
+            "name": "ERROR_CANNOT_DETECT_PROCESS_ABORT",
+            "value": 1081
+        },
+        {
+            "name": "ERROR_NO_RECOVERY_PROGRAM",
+            "value": 1082
+        },
+        {
+            "name": "ERROR_END_OF_MEDIA",
+            "value": 1100
+        },
+        {
+            "name": "ERROR_FILEMARK_DETECTED",
+            "value": 1101
+        },
+        {
+            "name": "ERROR_BEGINNING_OF_MEDIA",
+            "value": 1102
+        },
+        {
+            "name": "ERROR_SETMARK_DETECTED",
+            "value": 1103
+        },
+        {
+            "name": "ERROR_NO_DATA_DETECTED",
+            "value": 1104
+        },
+        {
+            "name": "ERROR_PARTITION_FAILURE",
+            "value": 1105
+        },
+        {
+            "name": "ERROR_INVALID_BLOCK_LENGTH",
+            "value": 1106
+        },
+        {
+            "name": "ERROR_DEVICE_NOT_PARTITIONED",
+            "value": 1107
+        },
+        {
+            "name": "ERROR_UNABLE_TO_LOCK_MEDIA",
+            "value": 1108
+        },
+        {
+            "name": "ERROR_UNABLE_TO_UNLOAD_MEDIA",
+            "value": 1109
+        },
+        {
+            "name": "ERROR_MEDIA_CHANGED",
+            "value": 1110
+        },
+        {
+            "name": "ERROR_BUS_RESET",
+            "value": 1111
+        },
+        {
+            "name": "ERROR_NO_MEDIA_IN_DRIVE",
+            "value": 1112
+        },
+        {
+            "name": "ERROR_NO_UNICODE_TRANSLATION",
+            "value": 1113
+        },
+        {
+            "name": "ERROR_DLL_INIT_FAILED",
+            "value": 1114
+        },
+        {
+            "name": "ERROR_SHUTDOWN_IN_PROGRESS",
+            "value": 1115
+        },
+        {
+            "name": "ERROR_NO_SHUTDOWN_IN_PROGRESS",
+            "value": 1116
+        },
+        {
+            "name": "ERROR_IO_DEVICE",
+            "value": 1117
+        },
+        {
+            "name": "ERROR_SERIAL_NO_DEVICE",
+            "value": 1118
+        },
+        {
+            "name": "ERROR_IRQ_BUSY",
+            "value": 1119
+        },
+        {
+            "name": "ERROR_MORE_WRITES",
+            "value": 1120
+        },
+        {
+            "name": "ERROR_COUNTER_TIMEOUT",
+            "value": 1121
+        },
+        {
+            "name": "ERROR_FLOPPY_ID_MARK_NOT_FOUND",
+            "value": 1122
+        },
+        {
+            "name": "ERROR_FLOPPY_WRONG_CYLINDER",
+            "value": 1123
+        },
+        {
+            "name": "ERROR_FLOPPY_UNKNOWN_ERROR",
+            "value": 1124
+        },
+        {
+            "name": "ERROR_FLOPPY_BAD_REGISTERS",
+            "value": 1125
+        },
+        {
+            "name": "ERROR_DISK_RECALIBRATE_FAILED",
+            "value": 1126
+        },
+        {
+            "name": "ERROR_DISK_OPERATION_FAILED",
+            "value": 1127
+        },
+        {
+            "name": "ERROR_DISK_RESET_FAILED",
+            "value": 1128
+        },
+        {
+            "name": "ERROR_EOM_OVERFLOW",
+            "value": 1129
+        },
+        {
+            "name": "ERROR_NOT_ENOUGH_SERVER_MEMORY",
+            "value": 1130
+        },
+        {
+            "name": "ERROR_POSSIBLE_DEADLOCK",
+            "value": 1131
+        },
+        {
+            "name": "ERROR_MAPPED_ALIGNMENT",
+            "value": 1132
+        },
+        {
+            "name": "ERROR_SET_POWER_STATE_VETOED",
+            "value": 1140
+        },
+        {
+            "name": "ERROR_SET_POWER_STATE_FAILED",
+            "value": 1141
+        },
+        {
+            "name": "ERROR_TOO_MANY_LINKS",
+            "value": 1142
+        },
+        {
+            "name": "ERROR_OLD_WIN_VERSION",
+            "value": 1150
+        },
+        {
+            "name": "ERROR_APP_WRONG_OS",
+            "value": 1151
+        },
+        {
+            "name": "ERROR_SINGLE_INSTANCE_APP",
+            "value": 1152
+        },
+        {
+            "name": "ERROR_RMODE_APP",
+            "value": 1153
+        },
+        {
+            "name": "ERROR_INVALID_DLL",
+            "value": 1154
+        },
+        {
+            "name": "ERROR_NO_ASSOCIATION",
+            "value": 1155
+        },
+        {
+            "name": "ERROR_DDE_FAIL",
+            "value": 1156
+        },
+        {
+            "name": "ERROR_DLL_NOT_FOUND",
+            "value": 1157
+        },
+        {
+            "name": "ERROR_NO_MORE_USER_HANDLES",
+            "value": 1158
+        },
+        {
+            "name": "ERROR_MESSAGE_SYNC_ONLY",
+            "value": 1159
+        },
+        {
+            "name": "ERROR_SOURCE_ELEMENT_EMPTY",
+            "value": 1160
+        },
+        {
+            "name": "ERROR_DESTINATION_ELEMENT_FULL",
+            "value": 1161
+        },
+        {
+            "name": "ERROR_ILLEGAL_ELEMENT_ADDRESS",
+            "value": 1162
+        },
+        {
+            "name": "ERROR_MAGAZINE_NOT_PRESENT",
+            "value": 1163
+        },
+        {
+            "name": "ERROR_DEVICE_REINITIALIZATION_NEEDED",
+            "value": 1164
+        },
+        {
+            "name": "ERROR_DEVICE_REQUIRES_CLEANING",
+            "value": 1165
+        },
+        {
+            "name": "ERROR_DEVICE_DOOR_OPEN",
+            "value": 1166
+        },
+        {
+            "name": "ERROR_DEVICE_NOT_CONNECTED",
+            "value": 1167
+        },
+        {
+            "name": "ERROR_NOT_FOUND",
+            "value": 1168
+        },
+        {
+            "name": "ERROR_NO_MATCH",
+            "value": 1169
+        },
+        {
+            "name": "ERROR_SET_NOT_FOUND",
+            "value": 1170
+        },
+        {
+            "name": "ERROR_POINT_NOT_FOUND",
+            "value": 1171
+        },
+        {
+            "name": "ERROR_NO_TRACKING_SERVICE",
+            "value": 1172
+        },
+        {
+            "name": "ERROR_NO_VOLUME_ID",
+            "value": 1173
+        },
+        {
+            "name": "ERROR_BAD_DEVICE",
+            "value": 1200
+        },
+        {
+            "name": "ERROR_CONNECTION_UNAVAIL",
+            "value": 1201
+        },
+        {
+            "name": "ERROR_DEVICE_ALREADY_REMEMBERED",
+            "value": 1202
+        },
+        {
+            "name": "ERROR_NO_NET_OR_BAD_PATH",
+            "value": 1203
+        },
+        {
+            "name": "ERROR_BAD_PROVIDER",
+            "value": 1204
+        },
+        {
+            "name": "ERROR_CANNOT_OPEN_PROFILE",
+            "value": 1205
+        },
+        {
+            "name": "ERROR_BAD_PROFILE",
+            "value": 1206
+        },
+        {
+            "name": "ERROR_NOT_CONTAINER",
+            "value": 1207
+        },
+        {
+            "name": "ERROR_EXTENDED_ERROR",
+            "value": 1208
+        },
+        {
+            "name": "ERROR_INVALID_GROUPNAME",
+            "value": 1209
+        },
+        {
+            "name": "ERROR_INVALID_COMPUTERNAME",
+            "value": 1210
+        },
+        {
+            "name": "ERROR_INVALID_EVENTNAME",
+            "value": 1211
+        },
+        {
+            "name": "ERROR_INVALID_DOMAINNAME",
+            "value": 1212
+        },
+        {
+            "name": "ERROR_INVALID_SERVICENAME",
+            "value": 1213
+        },
+        {
+            "name": "ERROR_INVALID_NETNAME",
+            "value": 1214
+        },
+        {
+            "name": "ERROR_INVALID_SHARENAME",
+            "value": 1215
+        },
+        {
+            "name": "ERROR_INVALID_PASSWORDNAME",
+            "value": 1216
+        },
+        {
+            "name": "ERROR_INVALID_MESSAGENAME",
+            "value": 1217
+        },
+        {
+            "name": "ERROR_INVALID_MESSAGEDEST",
+            "value": 1218
+        },
+        {
+            "name": "ERROR_SESSION_CREDENTIAL_CONFLICT",
+            "value": 1219
+        },
+        {
+            "name": "ERROR_REMOTE_SESSION_LIMIT_EXCEEDED",
+            "value": 1220
+        },
+        {
+            "name": "ERROR_DUP_DOMAINNAME",
+            "value": 1221
+        },
+        {
+            "name": "ERROR_NO_NETWORK",
+            "value": 1222
+        },
+        {
+            "name": "ERROR_CANCELLED",
+            "value": 1223
+        },
+        {
+            "name": "ERROR_USER_MAPPED_FILE",
+            "value": 1224
+        },
+        {
+            "name": "ERROR_CONNECTION_REFUSED",
+            "value": 1225
+        },
+        {
+            "name": "ERROR_GRACEFUL_DISCONNECT",
+            "value": 1226
+        },
+        {
+            "name": "ERROR_ADDRESS_ALREADY_ASSOCIATED",
+            "value": 1227
+        },
+        {
+            "name": "ERROR_ADDRESS_NOT_ASSOCIATED",
+            "value": 1228
+        },
+        {
+            "name": "ERROR_CONNECTION_INVALID",
+            "value": 1229
+        },
+        {
+            "name": "ERROR_CONNECTION_ACTIVE",
+            "value": 1230
+        },
+        {
+            "name": "ERROR_NETWORK_UNREACHABLE",
+            "value": 1231
+        },
+        {
+            "name": "ERROR_HOST_UNREACHABLE",
+            "value": 1232
+        },
+        {
+            "name": "ERROR_PROTOCOL_UNREACHABLE",
+            "value": 1233
+        },
+        {
+            "name": "ERROR_PORT_UNREACHABLE",
+            "value": 1234
+        },
+        {
+            "name": "ERROR_REQUEST_ABORTED",
+            "value": 1235
+        },
+        {
+            "name": "ERROR_CONNECTION_ABORTED",
+            "value": 1236
+        },
+        {
+            "name": "ERROR_RETRY",
+            "value": 1237
+        },
+        {
+            "name": "ERROR_CONNECTION_COUNT_LIMIT",
+            "value": 1238
+        },
+        {
+            "name": "ERROR_LOGIN_TIME_RESTRICTION",
+            "value": 1239
+        },
+        {
+            "name": "ERROR_LOGIN_WKSTA_RESTRICTION",
+            "value": 1240
+        },
+        {
+            "name": "ERROR_INCORRECT_ADDRESS",
+            "value": 1241
+        },
+        {
+            "name": "ERROR_ALREADY_REGISTERED",
+            "value": 1242
+        },
+        {
+            "name": "ERROR_SERVICE_NOT_FOUND",
+            "value": 1243
+        },
+        {
+            "name": "ERROR_NOT_AUTHENTICATED",
+            "value": 1244
+        },
+        {
+            "name": "ERROR_NOT_LOGGED_ON",
+            "value": 1245
+        },
+        {
+            "name": "ERROR_CONTINUE",
+            "value": 1246
+        },
+        {
+            "name": "ERROR_ALREADY_INITIALIZED",
+            "value": 1247
+        },
+        {
+            "name": "ERROR_NO_MORE_DEVICES",
+            "value": 1248
+        },
+        {
+            "name": "ERROR_NO_SUCH_SITE",
+            "value": 1249
+        },
+        {
+            "name": "ERROR_DOMAIN_CONTROLLER_EXISTS",
+            "value": 1250
+        },
+        {
+            "name": "ERROR_DS_NOT_INSTALLED",
+            "value": 1251
+        },
+        {
+            "name": "ERROR_NOT_ALL_ASSIGNED",
+            "value": 1300
+        },
+        {
+            "name": "ERROR_SOME_NOT_MAPPED",
+            "value": 1301
+        },
+        {
+            "name": "ERROR_NO_QUOTAS_FOR_ACCOUNT",
+            "value": 1302
+        },
+        {
+            "name": "ERROR_LOCAL_USER_SESSION_KEY",
+            "value": 1303
+        },
+        {
+            "name": "ERROR_NULL_LM_PASSWORD",
+            "value": 1304
+        },
+        {
+            "name": "ERROR_UNKNOWN_REVISION",
+            "value": 1305
+        },
+        {
+            "name": "ERROR_REVISION_MISMATCH",
+            "value": 1306
+        },
+        {
+            "name": "ERROR_INVALID_OWNER",
+            "value": 1307
+        },
+        {
+            "name": "ERROR_INVALID_PRIMARY_GROUP",
+            "value": 1308
+        },
+        {
+            "name": "ERROR_NO_IMPERSONATION_TOKEN",
+            "value": 1309
+        },
+        {
+            "name": "ERROR_CANT_DISABLE_MANDATORY",
+            "value": 1310
+        },
+        {
+            "name": "ERROR_NO_LOGON_SERVERS",
+            "value": 1311
+        },
+        {
+            "name": "ERROR_NO_SUCH_LOGON_SESSION",
+            "value": 1312
+        },
+        {
+            "name": "ERROR_NO_SUCH_PRIVILEGE",
+            "value": 1313
+        },
+        {
+            "name": "ERROR_PRIVILEGE_NOT_HELD",
+            "value": 1314
+        },
+        {
+            "name": "ERROR_INVALID_ACCOUNT_NAME",
+            "value": 1315
+        },
+        {
+            "name": "ERROR_USER_EXISTS",
+            "value": 1316
+        },
+        {
+            "name": "ERROR_NO_SUCH_USER",
+            "value": 1317
+        },
+        {
+            "name": "ERROR_GROUP_EXISTS",
+            "value": 1318
+        },
+        {
+            "name": "ERROR_NO_SUCH_GROUP",
+            "value": 1319
+        },
+        {
+            "name": "ERROR_MEMBER_IN_GROUP",
+            "value": 1320
+        },
+        {
+            "name": "ERROR_MEMBER_NOT_IN_GROUP",
+            "value": 1321
+        },
+        {
+            "name": "ERROR_LAST_ADMIN",
+            "value": 1322
+        },
+        {
+            "name": "ERROR_WRONG_PASSWORD",
+            "value": 1323
+        },
+        {
+            "name": "ERROR_ILL_FORMED_PASSWORD",
+            "value": 1324
+        },
+        {
+            "name": "ERROR_PASSWORD_RESTRICTION",
+            "value": 1325
+        },
+        {
+            "name": "ERROR_LOGON_FAILURE",
+            "value": 1326
+        },
+        {
+            "name": "ERROR_ACCOUNT_RESTRICTION",
+            "value": 1327
+        },
+        {
+            "name": "ERROR_INVALID_LOGON_HOURS",
+            "value": 1328
+        },
+        {
+            "name": "ERROR_INVALID_WORKSTATION",
+            "value": 1329
+        },
+        {
+            "name": "ERROR_PASSWORD_EXPIRED",
+            "value": 1330
+        },
+        {
+            "name": "ERROR_ACCOUNT_DISABLED",
+            "value": 1331
+        },
+        {
+            "name": "ERROR_NONE_MAPPED",
+            "value": 1332
+        },
+        {
+            "name": "ERROR_TOO_MANY_LUIDS_REQUESTED",
+            "value": 1333
+        },
+        {
+            "name": "ERROR_LUIDS_EXHAUSTED",
+            "value": 1334
+        },
+        {
+            "name": "ERROR_INVALID_SUB_AUTHORITY",
+            "value": 1335
+        },
+        {
+            "name": "ERROR_INVALID_ACL",
+            "value": 1336
+        },
+        {
+            "name": "ERROR_INVALID_SID",
+            "value": 1337
+        },
+        {
+            "name": "ERROR_INVALID_SECURITY_DESCR",
+            "value": 1338
+        },
+        {
+            "name": "ERROR_BAD_INHERITANCE_ACL",
+            "value": 1340
+        },
+        {
+            "name": "ERROR_SERVER_DISABLED",
+            "value": 1341
+        },
+        {
+            "name": "ERROR_SERVER_NOT_DISABLED",
+            "value": 1342
+        },
+        {
+            "name": "ERROR_INVALID_ID_AUTHORITY",
+            "value": 1343
+        },
+        {
+            "name": "ERROR_ALLOTTED_SPACE_EXCEEDED",
+            "value": 1344
+        },
+        {
+            "name": "ERROR_INVALID_GROUP_ATTRIBUTES",
+            "value": 1345
+        },
+        {
+            "name": "ERROR_BAD_IMPERSONATION_LEVEL",
+            "value": 1346
+        },
+        {
+            "name": "ERROR_CANT_OPEN_ANONYMOUS",
+            "value": 1347
+        },
+        {
+            "name": "ERROR_BAD_VALIDATION_CLASS",
+            "value": 1348
+        },
+        {
+            "name": "ERROR_BAD_TOKEN_TYPE",
+            "value": 1349
+        },
+        {
+            "name": "ERROR_NO_SECURITY_ON_OBJECT",
+            "value": 1350
+        },
+        {
+            "name": "ERROR_CANT_ACCESS_DOMAIN_INFO",
+            "value": 1351
+        },
+        {
+            "name": "ERROR_INVALID_SERVER_STATE",
+            "value": 1352
+        },
+        {
+            "name": "ERROR_INVALID_DOMAIN_STATE",
+            "value": 1353
+        },
+        {
+            "name": "ERROR_INVALID_DOMAIN_ROLE",
+            "value": 1354
+        },
+        {
+            "name": "ERROR_NO_SUCH_DOMAIN",
+            "value": 1355
+        },
+        {
+            "name": "ERROR_DOMAIN_EXISTS",
+            "value": 1356
+        },
+        {
+            "name": "ERROR_DOMAIN_LIMIT_EXCEEDED",
+            "value": 1357
+        },
+        {
+            "name": "ERROR_INTERNAL_DB_CORRUPTION",
+            "value": 1358
+        },
+        {
+            "name": "ERROR_INTERNAL_ERROR",
+            "value": 1359
+        },
+        {
+            "name": "ERROR_GENERIC_NOT_MAPPED",
+            "value": 1360
+        },
+        {
+            "name": "ERROR_BAD_DESCRIPTOR_FORMAT",
+            "value": 1361
+        },
+        {
+            "name": "ERROR_NOT_LOGON_PROCESS",
+            "value": 1362
+        },
+        {
+            "name": "ERROR_LOGON_SESSION_EXISTS",
+            "value": 1363
+        },
+        {
+            "name": "ERROR_NO_SUCH_PACKAGE",
+            "value": 1364
+        },
+        {
+            "name": "ERROR_BAD_LOGON_SESSION_STATE",
+            "value": 1365
+        },
+        {
+            "name": "ERROR_LOGON_SESSION_COLLISION",
+            "value": 1366
+        },
+        {
+            "name": "ERROR_INVALID_LOGON_TYPE",
+            "value": 1367
+        },
+        {
+            "name": "ERROR_CANNOT_IMPERSONATE",
+            "value": 1368
+        },
+        {
+            "name": "ERROR_RXACT_INVALID_STATE",
+            "value": 1369
+        },
+        {
+            "name": "ERROR_RXACT_COMMIT_FAILURE",
+            "value": 1370
+        },
+        {
+            "name": "ERROR_SPECIAL_ACCOUNT",
+            "value": 1371
+        },
+        {
+            "name": "ERROR_SPECIAL_GROUP",
+            "value": 1372
+        },
+        {
+            "name": "ERROR_SPECIAL_USER",
+            "value": 1373
+        },
+        {
+            "name": "ERROR_MEMBERS_PRIMARY_GROUP",
+            "value": 1374
+        },
+        {
+            "name": "ERROR_TOKEN_ALREADY_IN_USE",
+            "value": 1375
+        },
+        {
+            "name": "ERROR_NO_SUCH_ALIAS",
+            "value": 1376
+        },
+        {
+            "name": "ERROR_MEMBER_NOT_IN_ALIAS",
+            "value": 1377
+        },
+        {
+            "name": "ERROR_MEMBER_IN_ALIAS",
+            "value": 1378
+        },
+        {
+            "name": "ERROR_ALIAS_EXISTS",
+            "value": 1379
+        },
+        {
+            "name": "ERROR_LOGON_NOT_GRANTED",
+            "value": 1380
+        },
+        {
+            "name": "ERROR_TOO_MANY_SECRETS",
+            "value": 1381
+        },
+        {
+            "name": "ERROR_SECRET_TOO_LONG",
+            "value": 1382
+        },
+        {
+            "name": "ERROR_INTERNAL_DB_ERROR",
+            "value": 1383
+        },
+        {
+            "name": "ERROR_TOO_MANY_CONTEXT_IDS",
+            "value": 1384
+        },
+        {
+            "name": "ERROR_LOGON_TYPE_NOT_GRANTED",
+            "value": 1385
+        },
+        {
+            "name": "ERROR_NT_CROSS_ENCRYPTION_REQUIRED",
+            "value": 1386
+        },
+        {
+            "name": "ERROR_NO_SUCH_MEMBER",
+            "value": 1387
+        },
+        {
+            "name": "ERROR_INVALID_MEMBER",
+            "value": 1388
+        },
+        {
+            "name": "ERROR_TOO_MANY_SIDS",
+            "value": 1389
+        },
+        {
+            "name": "ERROR_LM_CROSS_ENCRYPTION_REQUIRED",
+            "value": 1390
+        },
+        {
+            "name": "ERROR_NO_INHERITANCE",
+            "value": 1391
+        },
+        {
+            "name": "ERROR_FILE_CORRUPT",
+            "value": 1392
+        },
+        {
+            "name": "ERROR_DISK_CORRUPT",
+            "value": 1393
+        },
+        {
+            "name": "ERROR_NO_USER_SESSION_KEY",
+            "value": 1394
+        },
+        {
+            "name": "ERROR_LICENSE_QUOTA_EXCEEDED",
+            "value": 1395
+        },
+        {
+            "name": "ERROR_INVALID_WINDOW_HANDLE",
+            "value": 1400
+        },
+        {
+            "name": "ERROR_INVALID_MENU_HANDLE",
+            "value": 1401
+        },
+        {
+            "name": "ERROR_INVALID_CURSOR_HANDLE",
+            "value": 1402
+        },
+        {
+            "name": "ERROR_INVALID_ACCEL_HANDLE",
+            "value": 1403
+        },
+        {
+            "name": "ERROR_INVALID_HOOK_HANDLE",
+            "value": 1404
+        },
+        {
+            "name": "ERROR_INVALID_DWP_HANDLE",
+            "value": 1405
+        },
+        {
+            "name": "ERROR_TLW_WITH_WSCHILD",
+            "value": 1406
+        },
+        {
+            "name": "ERROR_CANNOT_FIND_WND_CLASS",
+            "value": 1407
+        },
+        {
+            "name": "ERROR_WINDOW_OF_OTHER_THREAD",
+            "value": 1408
+        },
+        {
+            "name": "ERROR_HOTKEY_ALREADY_REGISTERED",
+            "value": 1409
+        },
+        {
+            "name": "ERROR_CLASS_ALREADY_EXISTS",
+            "value": 1410
+        },
+        {
+            "name": "ERROR_CLASS_DOES_NOT_EXIST",
+            "value": 1411
+        },
+        {
+            "name": "ERROR_CLASS_HAS_WINDOWS",
+            "value": 1412
+        },
+        {
+            "name": "ERROR_INVALID_INDEX",
+            "value": 1413
+        },
+        {
+            "name": "ERROR_INVALID_ICON_HANDLE",
+            "value": 1414
+        },
+        {
+            "name": "ERROR_PRIVATE_DIALOG_INDEX",
+            "value": 1415
+        },
+        {
+            "name": "ERROR_LISTBOX_ID_NOT_FOUND",
+            "value": 1416
+        },
+        {
+            "name": "ERROR_NO_WILDCARD_CHARACTERS",
+            "value": 1417
+        },
+        {
+            "name": "ERROR_CLIPBOARD_NOT_OPEN",
+            "value": 1418
+        },
+        {
+            "name": "ERROR_HOTKEY_NOT_REGISTERED",
+            "value": 1419
+        },
+        {
+            "name": "ERROR_WINDOW_NOT_DIALOG",
+            "value": 1420
+        },
+        {
+            "name": "ERROR_CONTROL_ID_NOT_FOUND",
+            "value": 1421
+        },
+        {
+            "name": "ERROR_INVALID_COMBOBOX_MESSAGE",
+            "value": 1422
+        },
+        {
+            "name": "ERROR_WINDOW_NOT_COMBOBOX",
+            "value": 1423
+        },
+        {
+            "name": "ERROR_INVALID_EDIT_HEIGHT",
+            "value": 1424
+        },
+        {
+            "name": "ERROR_DC_NOT_FOUND",
+            "value": 1425
+        },
+        {
+            "name": "ERROR_INVALID_HOOK_FILTER",
+            "value": 1426
+        },
+        {
+            "name": "ERROR_INVALID_FILTER_PROC",
+            "value": 1427
+        },
+        {
+            "name": "ERROR_HOOK_NEEDS_HMOD",
+            "value": 1428
+        },
+        {
+            "name": "ERROR_GLOBAL_ONLY_HOOK",
+            "value": 1429
+        },
+        {
+            "name": "ERROR_JOURNAL_HOOK_SET",
+            "value": 1430
+        },
+        {
+            "name": "ERROR_HOOK_NOT_INSTALLED",
+            "value": 1431
+        },
+        {
+            "name": "ERROR_INVALID_LB_MESSAGE",
+            "value": 1432
+        },
+        {
+            "name": "ERROR_SETCOUNT_ON_BAD_LB",
+            "value": 1433
+        },
+        {
+            "name": "ERROR_LB_WITHOUT_TABSTOPS",
+            "value": 1434
+        },
+        {
+            "name": "ERROR_DESTROY_OBJECT_OF_OTHER_THREAD",
+            "value": 1435
+        },
+        {
+            "name": "ERROR_CHILD_WINDOW_MENU",
+            "value": 1436
+        },
+        {
+            "name": "ERROR_NO_SYSTEM_MENU",
+            "value": 1437
+        },
+        {
+            "name": "ERROR_INVALID_MSGBOX_STYLE",
+            "value": 1438
+        },
+        {
+            "name": "ERROR_INVALID_SPI_VALUE",
+            "value": 1439
+        },
+        {
+            "name": "ERROR_SCREEN_ALREADY_LOCKED",
+            "value": 1440
+        },
+        {
+            "name": "ERROR_HWNDS_HAVE_DIFF_PARENT",
+            "value": 1441
+        },
+        {
+            "name": "ERROR_NOT_CHILD_WINDOW",
+            "value": 1442
+        },
+        {
+            "name": "ERROR_INVALID_GW_COMMAND",
+            "value": 1443
+        },
+        {
+            "name": "ERROR_INVALID_THREAD_ID",
+            "value": 1444
+        },
+        {
+            "name": "ERROR_NON_MDICHILD_WINDOW",
+            "value": 1445
+        },
+        {
+            "name": "ERROR_POPUP_ALREADY_ACTIVE",
+            "value": 1446
+        },
+        {
+            "name": "ERROR_NO_SCROLLBARS",
+            "value": 1447
+        },
+        {
+            "name": "ERROR_INVALID_SCROLLBAR_RANGE",
+            "value": 1448
+        },
+        {
+            "name": "ERROR_INVALID_SHOWWIN_COMMAND",
+            "value": 1449
+        },
+        {
+            "name": "ERROR_NO_SYSTEM_RESOURCES",
+            "value": 1450
+        },
+        {
+            "name": "ERROR_NONPAGED_SYSTEM_RESOURCES",
+            "value": 1451
+        },
+        {
+            "name": "ERROR_PAGED_SYSTEM_RESOURCES",
+            "value": 1452
+        },
+        {
+            "name": "ERROR_WORKING_SET_QUOTA",
+            "value": 1453
+        },
+        {
+            "name": "ERROR_PAGEFILE_QUOTA",
+            "value": 1454
+        },
+        {
+            "name": "ERROR_COMMITMENT_LIMIT",
+            "value": 1455
+        },
+        {
+            "name": "ERROR_MENU_ITEM_NOT_FOUND",
+            "value": 1456
+        },
+        {
+            "name": "ERROR_INVALID_KEYBOARD_HANDLE",
+            "value": 1457
+        },
+        {
+            "name": "ERROR_HOOK_TYPE_NOT_ALLOWED",
+            "value": 1458
+        },
+        {
+            "name": "ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION",
+            "value": 1459
+        },
+        {
+            "name": "ERROR_TIMEOUT",
+            "value": 1460
+        },
+        {
+            "name": "ERROR_INVALID_MONITOR_HANDLE",
+            "value": 1461
+        },
+        {
+            "name": "ERROR_EVENTLOG_FILE_CORRUPT",
+            "value": 1500
+        },
+        {
+            "name": "ERROR_EVENTLOG_CANT_START",
+            "value": 1501
+        },
+        {
+            "name": "ERROR_LOG_FILE_FULL",
+            "value": 1502
+        },
+        {
+            "name": "ERROR_EVENTLOG_FILE_CHANGED",
+            "value": 1503
+        },
+        {
+            "name": "ERROR_INSTALL_SERVICE",
+            "value": 1601
+        },
+        {
+            "name": "ERROR_INSTALL_USEREXIT",
+            "value": 1602
+        },
+        {
+            "name": "ERROR_INSTALL_FAILURE",
+            "value": 1603
+        },
+        {
+            "name": "ERROR_INSTALL_SUSPEND",
+            "value": 1604
+        },
+        {
+            "name": "ERROR_UNKNOWN_PRODUCT",
+            "value": 1605
+        },
+        {
+            "name": "ERROR_UNKNOWN_FEATURE",
+            "value": 1606
+        },
+        {
+            "name": "ERROR_UNKNOWN_COMPONENT",
+            "value": 1607
+        },
+        {
+            "name": "ERROR_UNKNOWN_PROPERTY",
+            "value": 1608
+        },
+        {
+            "name": "ERROR_INVALID_HANDLE_STATE",
+            "value": 1609
+        },
+        {
+            "name": "ERROR_BAD_CONFIGURATION",
+            "value": 1610
+        },
+        {
+            "name": "ERROR_INDEX_ABSENT",
+            "value": 1611
+        },
+        {
+            "name": "ERROR_INSTALL_SOURCE_ABSENT",
+            "value": 1612
+        },
+        {
+            "name": "ERROR_BAD_DATABASE_VERSION",
+            "value": 1613
+        },
+        {
+            "name": "ERROR_PRODUCT_UNINSTALLED",
+            "value": 1614
+        },
+        {
+            "name": "ERROR_BAD_QUERY_SYNTAX",
+            "value": 1615
+        },
+        {
+            "name": "ERROR_INVALID_FIELD",
+            "value": 1616
+        },
+        {
+            "name": "RPC_S_INVALID_STRING_BINDING",
+            "value": 1700
+        },
+        {
+            "name": "RPC_S_WRONG_KIND_OF_BINDING",
+            "value": 1701
+        },
+        {
+            "name": "RPC_S_INVALID_BINDING",
+            "value": 1702
+        },
+        {
+            "name": "RPC_S_PROTSEQ_NOT_SUPPORTED",
+            "value": 1703
+        },
+        {
+            "name": "RPC_S_INVALID_RPC_PROTSEQ",
+            "value": 1704
+        },
+        {
+            "name": "RPC_S_INVALID_STRING_UUID",
+            "value": 1705
+        },
+        {
+            "name": "RPC_S_INVALID_ENDPOINT_FORMAT",
+            "value": 1706
+        },
+        {
+            "name": "RPC_S_INVALID_NET_ADDR",
+            "value": 1707
+        },
+        {
+            "name": "RPC_S_NO_ENDPOINT_FOUND",
+            "value": 1708
+        },
+        {
+            "name": "RPC_S_INVALID_TIMEOUT",
+            "value": 1709
+        },
+        {
+            "name": "RPC_S_OBJECT_NOT_FOUND",
+            "value": 1710
+        },
+        {
+            "name": "RPC_S_ALREADY_REGISTERED",
+            "value": 1711
+        },
+        {
+            "name": "RPC_S_TYPE_ALREADY_REGISTERED",
+            "value": 1712
+        },
+        {
+            "name": "RPC_S_ALREADY_LISTENING",
+            "value": 1713
+        },
+        {
+            "name": "RPC_S_NO_PROTSEQS_REGISTERED",
+            "value": 1714
+        },
+        {
+            "name": "RPC_S_NOT_LISTENING",
+            "value": 1715
+        },
+        {
+            "name": "RPC_S_UNKNOWN_MGR_TYPE",
+            "value": 1716
+        },
+        {
+            "name": "RPC_S_UNKNOWN_IF",
+            "value": 1717
+        },
+        {
+            "name": "RPC_S_NO_BINDINGS",
+            "value": 1718
+        },
+        {
+            "name": "RPC_S_NO_PROTSEQS",
+            "value": 1719
+        },
+        {
+            "name": "RPC_S_CANT_CREATE_ENDPOINT",
+            "value": 1720
+        },
+        {
+            "name": "RPC_S_OUT_OF_RESOURCES",
+            "value": 1721
+        },
+        {
+            "name": "RPC_S_SERVER_UNAVAILABLE",
+            "value": 1722
+        },
+        {
+            "name": "RPC_S_SERVER_TOO_BUSY",
+            "value": 1723
+        },
+        {
+            "name": "RPC_S_INVALID_NETWORK_OPTIONS",
+            "value": 1724
+        },
+        {
+            "name": "RPC_S_NO_CALL_ACTIVE",
+            "value": 1725
+        },
+        {
+            "name": "RPC_S_CALL_FAILED",
+            "value": 1726
+        },
+        {
+            "name": "RPC_S_CALL_FAILED_DNE",
+            "value": 1727
+        },
+        {
+            "name": "RPC_S_PROTOCOL_ERROR",
+            "value": 1728
+        },
+        {
+            "name": "RPC_S_UNSUPPORTED_TRANS_SYN",
+            "value": 1730
+        },
+        {
+            "name": "RPC_S_UNSUPPORTED_TYPE",
+            "value": 1732
+        },
+        {
+            "name": "RPC_S_INVALID_TAG",
+            "value": 1733
+        },
+        {
+            "name": "RPC_S_INVALID_BOUND",
+            "value": 1734
+        },
+        {
+            "name": "RPC_S_NO_ENTRY_NAME",
+            "value": 1735
+        },
+        {
+            "name": "RPC_S_INVALID_NAME_SYNTAX",
+            "value": 1736
+        },
+        {
+            "name": "RPC_S_UNSUPPORTED_NAME_SYNTAX",
+            "value": 1737
+        },
+        {
+            "name": "RPC_S_UUID_NO_ADDRESS",
+            "value": 1739
+        },
+        {
+            "name": "RPC_S_DUPLICATE_ENDPOINT",
+            "value": 1740
+        },
+        {
+            "name": "RPC_S_UNKNOWN_AUTHN_TYPE",
+            "value": 1741
+        },
+        {
+            "name": "RPC_S_MAX_CALLS_TOO_SMALL",
+            "value": 1742
+        },
+        {
+            "name": "RPC_S_STRING_TOO_LONG",
+            "value": 1743
+        },
+        {
+            "name": "RPC_S_PROTSEQ_NOT_FOUND",
+            "value": 1744
+        },
+        {
+            "name": "RPC_S_PROCNUM_OUT_OF_RANGE",
+            "value": 1745
+        },
+        {
+            "name": "RPC_S_BINDING_HAS_NO_AUTH",
+            "value": 1746
+        },
+        {
+            "name": "RPC_S_UNKNOWN_AUTHN_SERVICE",
+            "value": 1747
+        },
+        {
+            "name": "RPC_S_UNKNOWN_AUTHN_LEVEL",
+            "value": 1748
+        },
+        {
+            "name": "RPC_S_INVALID_AUTH_IDENTITY",
+            "value": 1749
+        },
+        {
+            "name": "RPC_S_UNKNOWN_AUTHZ_SERVICE",
+            "value": 1750
+        },
+        {
+            "name": "EPT_S_INVALID_ENTRY",
+            "value": 1751
+        },
+        {
+            "name": "EPT_S_CANT_PERFORM_OP",
+            "value": 1752
+        },
+        {
+            "name": "EPT_S_NOT_REGISTERED",
+            "value": 1753
+        },
+        {
+            "name": "RPC_S_NOTHING_TO_EXPORT",
+            "value": 1754
+        },
+        {
+            "name": "RPC_S_INCOMPLETE_NAME",
+            "value": 1755
+        },
+        {
+            "name": "RPC_S_INVALID_VERS_OPTION",
+            "value": 1756
+        },
+        {
+            "name": "RPC_S_NO_MORE_MEMBERS",
+            "value": 1757
+        },
+        {
+            "name": "RPC_S_NOT_ALL_OBJS_UNEXPORTED",
+            "value": 1758
+        },
+        {
+            "name": "RPC_S_INTERFACE_NOT_FOUND",
+            "value": 1759
+        },
+        {
+            "name": "RPC_S_ENTRY_ALREADY_EXISTS",
+            "value": 1760
+        },
+        {
+            "name": "RPC_S_ENTRY_NOT_FOUND",
+            "value": 1761
+        },
+        {
+            "name": "RPC_S_NAME_SERVICE_UNAVAILABLE",
+            "value": 1762
+        },
+        {
+            "name": "RPC_S_INVALID_NAF_ID",
+            "value": 1763
+        },
+        {
+            "name": "RPC_S_CANNOT_SUPPORT",
+            "value": 1764
+        },
+        {
+            "name": "RPC_S_NO_CONTEXT_AVAILABLE",
+            "value": 1765
+        },
+        {
+            "name": "RPC_S_INTERNAL_ERROR",
+            "value": 1766
+        },
+        {
+            "name": "RPC_S_ZERO_DIVIDE",
+            "value": 1767
+        },
+        {
+            "name": "RPC_S_ADDRESS_ERROR",
+            "value": 1768
+        },
+        {
+            "name": "RPC_S_FP_DIV_ZERO",
+            "value": 1769
+        },
+        {
+            "name": "RPC_S_FP_UNDERFLOW",
+            "value": 1770
+        },
+        {
+            "name": "RPC_S_FP_OVERFLOW",
+            "value": 1771
+        },
+        {
+            "name": "RPC_X_NO_MORE_ENTRIES",
+            "value": 1772
+        },
+        {
+            "name": "RPC_X_SS_CHAR_TRANS_OPEN_FAIL",
+            "value": 1773
+        },
+        {
+            "name": "RPC_X_SS_CHAR_TRANS_SHORT_FILE",
+            "value": 1774
+        },
+        {
+            "name": "RPC_X_SS_IN_NULL_CONTEXT",
+            "value": 1775
+        },
+        {
+            "name": "RPC_X_SS_CONTEXT_DAMAGED",
+            "value": 1777
+        },
+        {
+            "name": "RPC_X_SS_HANDLES_MISMATCH",
+            "value": 1778
+        },
+        {
+            "name": "RPC_X_SS_CANNOT_GET_CALL_HANDLE",
+            "value": 1779
+        },
+        {
+            "name": "RPC_X_NULL_REF_POINTER",
+            "value": 1780
+        },
+        {
+            "name": "RPC_X_ENUM_VALUE_OUT_OF_RANGE",
+            "value": 1781
+        },
+        {
+            "name": "RPC_X_BYTE_COUNT_TOO_SMALL",
+            "value": 1782
+        },
+        {
+            "name": "RPC_X_BAD_STUB_DATA",
+            "value": 1783
+        },
+        {
+            "name": "ERROR_INVALID_USER_BUFFER",
+            "value": 1784
+        },
+        {
+            "name": "ERROR_UNRECOGNIZED_MEDIA",
+            "value": 1785
+        },
+        {
+            "name": "ERROR_NO_TRUST_LSA_SECRET",
+            "value": 1786
+        },
+        {
+            "name": "ERROR_NO_TRUST_SAM_ACCOUNT",
+            "value": 1787
+        },
+        {
+            "name": "ERROR_TRUSTED_DOMAIN_FAILURE",
+            "value": 1788
+        },
+        {
+            "name": "ERROR_TRUSTED_RELATIONSHIP_FAILURE",
+            "value": 1789
+        },
+        {
+            "name": "ERROR_TRUST_FAILURE",
+            "value": 1790
+        },
+        {
+            "name": "RPC_S_CALL_IN_PROGRESS",
+            "value": 1791
+        },
+        {
+            "name": "ERROR_NETLOGON_NOT_STARTED",
+            "value": 1792
+        },
+        {
+            "name": "ERROR_ACCOUNT_EXPIRED",
+            "value": 1793
+        },
+        {
+            "name": "ERROR_REDIRECTOR_HAS_OPEN_HANDLES",
+            "value": 1794
+        },
+        {
+            "name": "ERROR_PRINTER_DRIVER_ALREADY_INSTALLED",
+            "value": 1795
+        },
+        {
+            "name": "ERROR_UNKNOWN_PORT",
+            "value": 1796
+        },
+        {
+            "name": "ERROR_UNKNOWN_PRINTER_DRIVER",
+            "value": 1797
+        },
+        {
+            "name": "ERROR_UNKNOWN_PRINTPROCESSOR",
+            "value": 1798
+        },
+        {
+            "name": "ERROR_INVALID_SEPARATOR_FILE",
+            "value": 1799
+        },
+        {
+            "name": "ERROR_INVALID_PRIORITY",
+            "value": 1800
+        },
+        {
+            "name": "ERROR_INVALID_PRINTER_NAME",
+            "value": 1801
+        },
+        {
+            "name": "ERROR_PRINTER_ALREADY_EXISTS",
+            "value": 1802
+        },
+        {
+            "name": "ERROR_INVALID_PRINTER_COMMAND",
+            "value": 1803
+        },
+        {
+            "name": "ERROR_INVALID_DATATYPE",
+            "value": 1804
+        },
+        {
+            "name": "ERROR_INVALID_ENVIRONMENT",
+            "value": 1805
+        },
+        {
+            "name": "RPC_S_NO_MORE_BINDINGS",
+            "value": 1806
+        },
+        {
+            "name": "ERROR_NOLOGON_INTERDOMAIN_TRUST_ACCOUNT",
+            "value": 1807
+        },
+        {
+            "name": "ERROR_NOLOGON_WORKSTATION_TRUST_ACCOUNT",
+            "value": 1808
+        },
+        {
+            "name": "ERROR_NOLOGON_SERVER_TRUST_ACCOUNT",
+            "value": 1809
+        },
+        {
+            "name": "ERROR_DOMAIN_TRUST_INCONSISTENT",
+            "value": 1810
+        },
+        {
+            "name": "ERROR_SERVER_HAS_OPEN_HANDLES",
+            "value": 1811
+        },
+        {
+            "name": "ERROR_RESOURCE_DATA_NOT_FOUND",
+            "value": 1812
+        },
+        {
+            "name": "ERROR_RESOURCE_TYPE_NOT_FOUND",
+            "value": 1813
+        },
+        {
+            "name": "ERROR_RESOURCE_NAME_NOT_FOUND",
+            "value": 1814
+        },
+        {
+            "name": "ERROR_RESOURCE_LANG_NOT_FOUND",
+            "value": 1815
+        },
+        {
+            "name": "ERROR_NOT_ENOUGH_QUOTA",
+            "value": 1816
+        },
+        {
+            "name": "RPC_S_NO_INTERFACES",
+            "value": 1817
+        },
+        {
+            "name": "RPC_S_CALL_CANCELLED",
+            "value": 1818
+        },
+        {
+            "name": "RPC_S_BINDING_INCOMPLETE",
+            "value": 1819
+        },
+        {
+            "name": "RPC_S_COMM_FAILURE",
+            "value": 1820
+        },
+        {
+            "name": "RPC_S_UNSUPPORTED_AUTHN_LEVEL",
+            "value": 1821
+        },
+        {
+            "name": "RPC_S_NO_PRINC_NAME",
+            "value": 1822
+        },
+        {
+            "name": "RPC_S_NOT_RPC_ERROR",
+            "value": 1823
+        },
+        {
+            "name": "RPC_S_UUID_LOCAL_ONLY",
+            "value": 1824
+        },
+        {
+            "name": "RPC_S_SEC_PKG_ERROR",
+            "value": 1825
+        },
+        {
+            "name": "RPC_S_NOT_CANCELLED",
+            "value": 1826
+        },
+        {
+            "name": "RPC_X_INVALID_ES_ACTION",
+            "value": 1827
+        },
+        {
+            "name": "RPC_X_WRONG_ES_VERSION",
+            "value": 1828
+        },
+        {
+            "name": "RPC_X_WRONG_STUB_VERSION",
+            "value": 1829
+        },
+        {
+            "name": "RPC_X_INVALID_PIPE_OBJECT",
+            "value": 1830
+        },
+        {
+            "name": "RPC_X_WRONG_PIPE_ORDER",
+            "value": 1831
+        },
+        {
+            "name": "RPC_X_WRONG_PIPE_VERSION",
+            "value": 1832
+        },
+        {
+            "name": "RPC_S_GROUP_MEMBER_NOT_FOUND",
+            "value": 1898
+        },
+        {
+            "name": "EPT_S_CANT_CREATE",
+            "value": 1899
+        },
+        {
+            "name": "RPC_S_INVALID_OBJECT",
+            "value": 1900
+        },
+        {
+            "name": "ERROR_INVALID_TIME",
+            "value": 1901
+        },
+        {
+            "name": "ERROR_INVALID_FORM_NAME",
+            "value": 1902
+        },
+        {
+            "name": "ERROR_INVALID_FORM_SIZE",
+            "value": 1903
+        },
+        {
+            "name": "ERROR_ALREADY_WAITING",
+            "value": 1904
+        },
+        {
+            "name": "ERROR_PRINTER_DELETED",
+            "value": 1905
+        },
+        {
+            "name": "ERROR_INVALID_PRINTER_STATE",
+            "value": 1906
+        },
+        {
+            "name": "ERROR_PASSWORD_MUST_CHANGE",
+            "value": 1907
+        },
+        {
+            "name": "ERROR_DOMAIN_CONTROLLER_NOT_FOUND",
+            "value": 1908
+        },
+        {
+            "name": "ERROR_ACCOUNT_LOCKED_OUT",
+            "value": 1909
+        },
+        {
+            "name": "OR_INVALID_OXID",
+            "value": 1910
+        },
+        {
+            "name": "OR_INVALID_OID",
+            "value": 1911
+        },
+        {
+            "name": "OR_INVALID_SET",
+            "value": 1912
+        },
+        {
+            "name": "RPC_S_SEND_INCOMPLETE",
+            "value": 1913
+        },
+        {
+            "name": "RPC_S_INVALID_ASYNC_HANDLE",
+            "value": 1914
+        },
+        {
+            "name": "RPC_S_INVALID_ASYNC_CALL",
+            "value": 1915
+        },
+        {
+            "name": "RPC_X_PIPE_CLOSED",
+            "value": 1916
+        },
+        {
+            "name": "RPC_X_PIPE_DISCIPLINE_ERROR",
+            "value": 1917
+        },
+        {
+            "name": "RPC_X_PIPE_EMPTY",
+            "value": 1918
+        },
+        {
+            "name": "ERROR_NO_SITENAME",
+            "value": 1919
+        },
+        {
+            "name": "ERROR_CANT_ACCESS_FILE",
+            "value": 1920
+        },
+        {
+            "name": "ERROR_CANT_RESOLVE_FILENAME",
+            "value": 1921
+        },
+        {
+            "name": "ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY",
+            "value": 1922
+        },
+        {
+            "name": "ERROR_DS_NO_ATTRIBUTE_OR_VALUE",
+            "value": 1923
+        },
+        {
+            "name": "ERROR_DS_INVALID_ATTRIBUTE_SYNTAX",
+            "value": 1924
+        },
+        {
+            "name": "ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED",
+            "value": 1925
+        },
+        {
+            "name": "ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS",
+            "value": 1926
+        },
+        {
+            "name": "ERROR_DS_BUSY",
+            "value": 1927
+        },
+        {
+            "name": "ERROR_DS_UNAVAILABLE",
+            "value": 1928
+        },
+        {
+            "name": "ERROR_DS_NO_RIDS_ALLOCATED",
+            "value": 1929
+        },
+        {
+            "name": "ERROR_DS_NO_MORE_RIDS",
+            "value": 1930
+        },
+        {
+            "name": "ERROR_DS_INCORRECT_ROLE_OWNER",
+            "value": 1931
+        },
+        {
+            "name": "ERROR_DS_RIDMGR_INIT_ERROR",
+            "value": 1932
+        },
+        {
+            "name": "ERROR_DS_OBJ_CLASS_VIOLATION",
+            "value": 1933
+        },
+        {
+            "name": "ERROR_DS_CANT_ON_NON_LEAF",
+            "value": 1934
+        },
+        {
+            "name": "ERROR_DS_CANT_ON_RDN",
+            "value": 1935
+        },
+        {
+            "name": "ERROR_DS_CANT_MOD_OBJ_CLASS",
+            "value": 1936
+        },
+        {
+            "name": "ERROR_DS_CROSS_DOM_MOVE_ERROR",
+            "value": 1937
+        },
+        {
+            "name": "ERROR_DS_GC_NOT_AVAILABLE",
+            "value": 1938
+        },
+        {
+            "name": "ERROR_INVALID_PIXEL_FORMAT",
+            "value": 2000
+        },
+        {
+            "name": "ERROR_BAD_DRIVER",
+            "value": 2001
+        },
+        {
+            "name": "ERROR_INVALID_WINDOW_STYLE",
+            "value": 2002
+        },
+        {
+            "name": "ERROR_METAFILE_NOT_SUPPORTED",
+            "value": 2003
+        },
+        {
+            "name": "ERROR_TRANSFORM_NOT_SUPPORTED",
+            "value": 2004
+        },
+        {
+            "name": "ERROR_CLIPPING_NOT_SUPPORTED",
+            "value": 2005
+        },
+        {
+            "name": "ERROR_CONNECTED_OTHER_PASSWORD",
+            "value": 2108
+        },
+        {
+            "name": "ERROR_BAD_USERNAME",
+            "value": 2202
+        },
+        {
+            "name": "ERROR_NOT_CONNECTED",
+            "value": 2250
+        },
+        {
+            "name": "ERROR_INVALID_CMM",
+            "value": 2300
+        },
+        {
+            "name": "ERROR_INVALID_PROFILE",
+            "value": 2301
+        },
+        {
+            "name": "ERROR_TAG_NOT_FOUND",
+            "value": 2302
+        },
+        {
+            "name": "ERROR_TAG_NOT_PRESENT",
+            "value": 2303
+        },
+        {
+            "name": "ERROR_DUPLICATE_TAG",
+            "value": 2304
+        },
+        {
+            "name": "ERROR_PROFILE_NOT_ASSOCIATED_WITH_DEVICE",
+            "value": 2305
+        },
+        {
+            "name": "ERROR_PROFILE_NOT_FOUND",
+            "value": 2306
+        },
+        {
+            "name": "ERROR_INVALID_COLORSPACE",
+            "value": 2307
+        },
+        {
+            "name": "ERROR_ICM_NOT_ENABLED",
+            "value": 2308
+        },
+        {
+            "name": "ERROR_DELETING_ICM_XFORM",
+            "value": 2309
+        },
+        {
+            "name": "ERROR_INVALID_TRANSFORM",
+            "value": 2310
+        },
+        {
+            "name": "ERROR_OPEN_FILES",
+            "value": 2401
+        },
+        {
+            "name": "ERROR_ACTIVE_CONNECTIONS",
+            "value": 2402
+        },
+        {
+            "name": "ERROR_DEVICE_IN_USE",
+            "value": 2404
+        },
+        {
+            "name": "ERROR_UNKNOWN_PRINT_MONITOR",
+            "value": 3000
+        },
+        {
+            "name": "ERROR_PRINTER_DRIVER_IN_USE",
+            "value": 3001
+        },
+        {
+            "name": "ERROR_SPOOL_FILE_NOT_FOUND",
+            "value": 3002
+        },
+        {
+            "name": "ERROR_SPL_NO_STARTDOC",
+            "value": 3003
+        },
+        {
+            "name": "ERROR_SPL_NO_ADDJOB",
+            "value": 3004
+        },
+        {
+            "name": "ERROR_PRINT_PROCESSOR_ALREADY_INSTALLED",
+            "value": 3005
+        },
+        {
+            "name": "ERROR_PRINT_MONITOR_ALREADY_INSTALLED",
+            "value": 3006
+        },
+        {
+            "name": "ERROR_INVALID_PRINT_MONITOR",
+            "value": 3007
+        },
+        {
+            "name": "ERROR_PRINT_MONITOR_IN_USE",
+            "value": 3008
+        },
+        {
+            "name": "ERROR_PRINTER_HAS_JOBS_QUEUED",
+            "value": 3009
+        },
+        {
+            "name": "ERROR_SUCCESS_REBOOT_REQUIRED",
+            "value": 3010
+        },
+        {
+            "name": "ERROR_SUCCESS_RESTART_REQUIRED",
+            "value": 3011
+        },
+        {
+            "name": "ERROR_WINS_INTERNAL",
+            "value": 4000
+        },
+        {
+            "name": "ERROR_CAN_NOT_DEL_LOCAL_WINS",
+            "value": 4001
+        },
+        {
+            "name": "ERROR_STATIC_INIT",
+            "value": 4002
+        },
+        {
+            "name": "ERROR_INC_BACKUP",
+            "value": 4003
+        },
+        {
+            "name": "ERROR_FULL_BACKUP",
+            "value": 4004
+        },
+        {
+            "name": "ERROR_REC_NON_EXISTENT",
+            "value": 4005
+        },
+        {
+            "name": "ERROR_RPL_NOT_ALLOWED",
+            "value": 4006
+        },
+        {
+            "name": "ERROR_DHCP_ADDRESS_CONFLICT",
+            "value": 4100
+        },
+        {
+            "name": "ERROR_WMI_GUID_NOT_FOUND",
+            "value": 4200
+        },
+        {
+            "name": "ERROR_WMI_INSTANCE_NOT_FOUND",
+            "value": 4201
+        },
+        {
+            "name": "ERROR_WMI_ITEMID_NOT_FOUND",
+            "value": 4202
+        },
+        {
+            "name": "ERROR_WMI_TRY_AGAIN",
+            "value": 4203
+        },
+        {
+            "name": "ERROR_WMI_DP_NOT_FOUND",
+            "value": 4204
+        },
+        {
+            "name": "ERROR_WMI_UNRESOLVED_INSTANCE_REF",
+            "value": 4205
+        },
+        {
+            "name": "ERROR_WMI_ALREADY_ENABLED",
+            "value": 4206
+        },
+        {
+            "name": "ERROR_WMI_GUID_DISCONNECTED",
+            "value": 4207
+        },
+        {
+            "name": "ERROR_WMI_SERVER_UNAVAILABLE",
+            "value": 4208
+        },
+        {
+            "name": "ERROR_WMI_DP_FAILED",
+            "value": 4209
+        },
+        {
+            "name": "ERROR_WMI_INVALID_MOF",
+            "value": 4210
+        },
+        {
+            "name": "ERROR_WMI_INVALID_REGINFO",
+            "value": 4211
+        },
+        {
+            "name": "ERROR_INVALID_MEDIA",
+            "value": 4300
+        },
+        {
+            "name": "ERROR_INVALID_LIBRARY",
+            "value": 4301
+        },
+        {
+            "name": "ERROR_INVALID_MEDIA_POOL",
+            "value": 4302
+        },
+        {
+            "name": "ERROR_DRIVE_MEDIA_MISMATCH",
+            "value": 4303
+        },
+        {
+            "name": "ERROR_MEDIA_OFFLINE",
+            "value": 4304
+        },
+        {
+            "name": "ERROR_LIBRARY_OFFLINE",
+            "value": 4305
+        },
+        {
+            "name": "ERROR_EMPTY",
+            "value": 4306
+        },
+        {
+            "name": "ERROR_NOT_EMPTY",
+            "value": 4307
+        },
+        {
+            "name": "ERROR_MEDIA_UNAVAILABLE",
+            "value": 4308
+        },
+        {
+            "name": "ERROR_RESOURCE_DISABLED",
+            "value": 4309
+        },
+        {
+            "name": "ERROR_INVALID_CLEANER",
+            "value": 4310
+        },
+        {
+            "name": "ERROR_UNABLE_TO_CLEAN",
+            "value": 4311
+        },
+        {
+            "name": "ERROR_OBJECT_NOT_FOUND",
+            "value": 4312
+        },
+        {
+            "name": "ERROR_DATABASE_FAILURE",
+            "value": 4313
+        },
+        {
+            "name": "ERROR_DATABASE_FULL",
+            "value": 4314
+        },
+        {
+            "name": "ERROR_MEDIA_INCOMPATIBLE",
+            "value": 4315
+        },
+        {
+            "name": "ERROR_RESOURCE_NOT_PRESENT",
+            "value": 4316
+        },
+        {
+            "name": "ERROR_INVALID_OPERATION",
+            "value": 4317
+        },
+        {
+            "name": "ERROR_MEDIA_NOT_AVAILABLE",
+            "value": 4318
+        },
+        {
+            "name": "ERROR_DEVICE_NOT_AVAILABLE",
+            "value": 4319
+        },
+        {
+            "name": "ERROR_REQUEST_REFUSED",
+            "value": 4320
+        },
+        {
+            "name": "ERROR_FILE_OFFLINE",
+            "value": 4350
+        },
+        {
+            "name": "ERROR_REMOTE_STORAGE_NOT_ACTIVE",
+            "value": 4351
+        },
+        {
+            "name": "ERROR_REMOTE_STORAGE_MEDIA_ERROR",
+            "value": 4352
+        },
+        {
+            "name": "ERROR_NOT_A_REPARSE_POINT",
+            "value": 4390
+        },
+        {
+            "name": "ERROR_REPARSE_ATTRIBUTE_CONFLICT",
+            "value": 4391
+        },
+        {
+            "name": "ERROR_DEPENDENT_RESOURCE_EXISTS",
+            "value": 5001
+        },
+        {
+            "name": "ERROR_DEPENDENCY_NOT_FOUND",
+            "value": 5002
+        },
+        {
+            "name": "ERROR_DEPENDENCY_ALREADY_EXISTS",
+            "value": 5003
+        },
+        {
+            "name": "ERROR_RESOURCE_NOT_ONLINE",
+            "value": 5004
+        },
+        {
+            "name": "ERROR_HOST_NODE_NOT_AVAILABLE",
+            "value": 5005
+        },
+        {
+            "name": "ERROR_RESOURCE_NOT_AVAILABLE",
+            "value": 5006
+        },
+        {
+            "name": "ERROR_RESOURCE_NOT_FOUND",
+            "value": 5007
+        },
+        {
+            "name": "ERROR_SHUTDOWN_CLUSTER",
+            "value": 5008
+        },
+        {
+            "name": "ERROR_CANT_EVICT_ACTIVE_NODE",
+            "value": 5009
+        },
+        {
+            "name": "ERROR_OBJECT_ALREADY_EXISTS",
+            "value": 5010
+        },
+        {
+            "name": "ERROR_OBJECT_IN_LIST",
+            "value": 5011
+        },
+        {
+            "name": "ERROR_GROUP_NOT_AVAILABLE",
+            "value": 5012
+        },
+        {
+            "name": "ERROR_GROUP_NOT_FOUND",
+            "value": 5013
+        },
+        {
+            "name": "ERROR_GROUP_NOT_ONLINE",
+            "value": 5014
+        },
+        {
+            "name": "ERROR_HOST_NODE_NOT_RESOURCE_OWNER",
+            "value": 5015
+        },
+        {
+            "name": "ERROR_HOST_NODE_NOT_GROUP_OWNER",
+            "value": 5016
+        },
+        {
+            "name": "ERROR_RESMON_CREATE_FAILED",
+            "value": 5017
+        },
+        {
+            "name": "ERROR_RESMON_ONLINE_FAILED",
+            "value": 5018
+        },
+        {
+            "name": "ERROR_RESOURCE_ONLINE",
+            "value": 5019
+        },
+        {
+            "name": "ERROR_QUORUM_RESOURCE",
+            "value": 5020
+        },
+        {
+            "name": "ERROR_NOT_QUORUM_CAPABLE",
+            "value": 5021
+        },
+        {
+            "name": "ERROR_CLUSTER_SHUTTING_DOWN",
+            "value": 5022
+        },
+        {
+            "name": "ERROR_INVALID_STATE",
+            "value": 5023
+        },
+        {
+            "name": "ERROR_RESOURCE_PROPERTIES_STORED",
+            "value": 5024
+        },
+        {
+            "name": "ERROR_NOT_QUORUM_CLASS",
+            "value": 5025
+        },
+        {
+            "name": "ERROR_CORE_RESOURCE",
+            "value": 5026
+        },
+        {
+            "name": "ERROR_QUORUM_RESOURCE_ONLINE_FAILED",
+            "value": 5027
+        },
+        {
+            "name": "ERROR_QUORUMLOG_OPEN_FAILED",
+            "value": 5028
+        },
+        {
+            "name": "ERROR_CLUSTERLOG_CORRUPT",
+            "value": 5029
+        },
+        {
+            "name": "ERROR_CLUSTERLOG_RECORD_EXCEEDS_MAXSIZE",
+            "value": 5030
+        },
+        {
+            "name": "ERROR_CLUSTERLOG_EXCEEDS_MAXSIZE",
+            "value": 5031
+        },
+        {
+            "name": "ERROR_CLUSTERLOG_CHKPOINT_NOT_FOUND",
+            "value": 5032
+        },
+        {
+            "name": "ERROR_CLUSTERLOG_NOT_ENOUGH_SPACE",
+            "value": 5033
+        },
+        {
+            "name": "ERROR_ENCRYPTION_FAILED",
+            "value": 6000
+        },
+        {
+            "name": "ERROR_DECRYPTION_FAILED",
+            "value": 6001
+        },
+        {
+            "name": "ERROR_FILE_ENCRYPTED",
+            "value": 6002
+        },
+        {
+            "name": "ERROR_NO_RECOVERY_POLICY",
+            "value": 6003
+        },
+        {
+            "name": "ERROR_NO_EFS",
+            "value": 6004
+        },
+        {
+            "name": "ERROR_WRONG_EFS",
+            "value": 6005
+        },
+        {
+            "name": "ERROR_NO_USER_KEYS",
+            "value": 6006
+        },
+        {
+            "name": "ERROR_FILE_NOT_ENCRYPTED",
+            "value": 6007
+        },
+        {
+            "name": "ERROR_NOT_EXPORT_FORMAT",
+            "value": 6008
+        },
+        {
+            "name": "ERROR_NO_BROWSER_SERVERS_FOUND",
+            "value": 6118
+        }
+    ]
+}

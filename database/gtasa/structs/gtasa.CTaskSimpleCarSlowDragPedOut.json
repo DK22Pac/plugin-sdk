@@ -1,0 +1,67 @@
+{
+    "name": "CTaskSimpleCarSlowDragPedOut",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "vtableAddress": "0x86EEE8",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "char0",
+            "type": "CTask",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "byte8",
+            "type": "_BYTE",
+            "offset": 8,
+            "size": 1
+        },
+        {
+            "name": "f9",
+            "type": "_BYTE[3]",
+            "offset": 9,
+            "size": 3
+        },
+        {
+            "name": "dwordC",
+            "type": "_DWORD",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "m_pEntity",
+            "type": "CObject *",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "dword14",
+            "type": "_DWORD",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "dword18",
+            "type": "_DWORD",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "byte1C",
+            "type": "_BYTE",
+            "offset": "0x1C",
+            "size": 1
+        },
+        {
+            "name": "_padding",
+            "type": "char[3]",
+            "offset": "0x1D",
+            "size": 3
+        }
+    ]
+}

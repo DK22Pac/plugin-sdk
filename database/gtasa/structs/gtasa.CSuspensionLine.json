@@ -1,0 +1,35 @@
+{
+    "name": "CSuspensionLine",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "RwV3d",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "field_C",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "field_10",
+            "type": "RwV3d",
+            "offset": "0x10",
+            "size": "0xC"
+        },
+        {
+            "name": "field_1C",
+            "type": "float",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

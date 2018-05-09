@@ -1,0 +1,29 @@
+{
+    "name": "CPlaceName",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pZone",
+            "type": "CZone *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_wAdditionalTimer",
+            "type": "_WORD",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "_padding",
+            "type": "char[2]",
+            "offset": 6,
+            "size": 2
+        }
+    ]
+}

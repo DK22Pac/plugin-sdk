@@ -1,0 +1,29 @@
+{
+    "name": "AlphaObjectInfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xC",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "entity",
+            "type": "CEntity *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "renderCB",
+            "type": "void *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "distance",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        }
+    ]
+}

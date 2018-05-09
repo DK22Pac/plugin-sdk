@@ -1,0 +1,59 @@
+{
+    "name": "CAudioFileVtbl",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "init",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "read",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "getTotlaTimeInMS",
+            "type": "int (__fastcall *)(_DWORD, _DWORD)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "getCurrentTimeInMS",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "seek",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "getSamplingRate",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "destructor",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "getId",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

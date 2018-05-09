@@ -1,0 +1,61 @@
+{
+    "name": "RpGeometryFlag",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "rpGEOMETRYTRISTRIP",
+            "value": "0x1"
+        },
+        {
+            "name": "rpGEOMETRYPOSITIONS",
+            "value": "0x2"
+        },
+        {
+            "name": "rpGEOMETRYTEXTURED",
+            "value": "0x4"
+        },
+        {
+            "name": "rpGEOMETRYPRELIT",
+            "value": "0x8"
+        },
+        {
+            "name": "rpGEOMETRYNORMALS",
+            "value": "0x10"
+        },
+        {
+            "name": "rpGEOMETRYLIGHT",
+            "value": "0x20"
+        },
+        {
+            "name": "rpGEOMETRYMODULATEMATERIALCOLOR",
+            "value": "0x40"
+        },
+        {
+            "name": "rpGEOMETRYTEXTURED2",
+            "value": "0x80"
+        },
+        {
+            "name": "rpGEOMETRYFLAGSMASK",
+            "value": "0xFF"
+        },
+        {
+            "name": "rpGEOMETRYNATIVE",
+            "value": "0x1000000"
+        },
+        {
+            "name": "rpGEOMETRYNATIVEINSTANCE",
+            "value": "0x2000000"
+        },
+        {
+            "name": "rpGEOMETRYNATIVEFLAGSMASK",
+            "value": "0xF000000"
+        }
+    ]
+}

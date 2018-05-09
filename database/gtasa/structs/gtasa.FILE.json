@@ -1,0 +1,59 @@
+{
+    "name": "FILE",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x20",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "_ptr",
+            "type": "char *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "_cnt",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "_base",
+            "type": "char *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "_flag",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "_file",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "_charbuf",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "_bufsiz",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "_tmpfname",
+            "type": "char *",
+            "offset": "0x1C",
+            "size": 4
+        }
+    ]
+}

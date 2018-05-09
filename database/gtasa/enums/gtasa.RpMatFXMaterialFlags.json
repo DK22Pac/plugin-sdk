@@ -1,0 +1,41 @@
+{
+    "name": "RpMatFXMaterialFlags",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "rpMATFXEFFECTNULL",
+            "value": 0
+        },
+        {
+            "name": "rpMATFXEFFECTBUMPMAP",
+            "value": 1
+        },
+        {
+            "name": "rpMATFXEFFECTENVMAP",
+            "value": 2
+        },
+        {
+            "name": "rpMATFXEFFECTBUMPENVMAP",
+            "value": 3
+        },
+        {
+            "name": "rpMATFXEFFECTDUAL",
+            "value": 4
+        },
+        {
+            "name": "rpMATFXEFFECTUVTRANSFORM",
+            "value": 5
+        },
+        {
+            "name": "rpMATFXEFFECTDUALUVTRANSFORM",
+            "value": 6
+        }
+    ]
+}

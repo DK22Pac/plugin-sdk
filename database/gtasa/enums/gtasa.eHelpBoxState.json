@@ -1,0 +1,17 @@
+{
+    "name": "eHelpBoxState",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "HELPBOX_FADING",
+            "value": "0x3"
+        }
+    ]
+}

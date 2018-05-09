@@ -1,0 +1,47 @@
+{
+    "name": "_RTL_CRITICAL_SECTION",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "DebugInfo",
+            "type": "PRTL_CRITICAL_SECTION_DEBUG",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "LockCount",
+            "type": "LONG",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "RecursionCount",
+            "type": "LONG",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "OwningThread",
+            "type": "HANDLE",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "LockSemaphore",
+            "type": "HANDLE",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "SpinCount",
+            "type": "ULONG_PTR",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

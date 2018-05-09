@@ -1,0 +1,17 @@
+{
+    "name": "CPedTaskPair",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "char[20]",
+            "offset": 0,
+            "size": "0x14"
+        }
+    ]
+}

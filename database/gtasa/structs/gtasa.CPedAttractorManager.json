@@ -1,0 +1,17 @@
+{
+    "name": "CPedAttractorManager",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xA0",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "field_0",
+            "type": "SArray[10]",
+            "offset": 0,
+            "size": "0xA0"
+        }
+    ]
+}

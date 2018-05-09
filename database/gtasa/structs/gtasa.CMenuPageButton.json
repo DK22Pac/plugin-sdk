@@ -1,0 +1,60 @@
+{
+    "name": "CMenuPageButton",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x12",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nActionType",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "m_szName",
+            "type": "char[8]",
+            "offset": 1,
+            "size": 8,
+            "isString": true
+        },
+        {
+            "name": "m_nType",
+            "type": "char",
+            "offset": 9,
+            "size": 1
+        },
+        {
+            "name": "m_nTargetMenu",
+            "type": "char",
+            "offset": "0xA",
+            "size": 1
+        },
+        {
+            "name": "_pad",
+            "type": "char",
+            "offset": "0xB",
+            "size": 1
+        },
+        {
+            "name": "m_nPosnX",
+            "type": "__int16",
+            "offset": "0xC",
+            "size": 2
+        },
+        {
+            "name": "m_nPosnY",
+            "type": "__int16",
+            "offset": "0xE",
+            "size": 2
+        },
+        {
+            "name": "m_nAlign",
+            "type": "__int16",
+            "offset": "0x10",
+            "size": 2
+        }
+    ]
+}

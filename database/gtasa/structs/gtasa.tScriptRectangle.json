@@ -1,0 +1,113 @@
+{
+    "name": "tScriptRectangle",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x3C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "type",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_bDrawBeforeFade",
+            "type": "char",
+            "offset": 4,
+            "size": 1
+        },
+        {
+            "name": "field_5",
+            "type": "char",
+            "offset": 5,
+            "size": 1
+        },
+        {
+            "name": "textureID",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "cornerA_X",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "cornerA_Y",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "cornerB_X",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "cornerB_Y",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "angle",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "transparentColor",
+            "type": "int",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "gxt",
+            "type": "char[8]",
+            "offset": "0x20",
+            "size": 8
+        },
+        {
+            "name": "field_28",
+            "type": "int",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "field_2C",
+            "type": "int",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "field_30",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "field_34",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "textboxStyle",
+            "type": "char",
+            "offset": "0x38",
+            "size": 1
+        },
+        {
+            "name": "field_39",
+            "type": "char[3]",
+            "offset": "0x39",
+            "size": 3
+        }
+    ]
+}

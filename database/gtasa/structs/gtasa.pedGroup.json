@@ -1,0 +1,17 @@
+{
+    "name": "pedGroup",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2A",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_awPedModelIds",
+            "type": "__int16[21]",
+            "offset": 0,
+            "size": "0x2A"
+        }
+    ]
+}

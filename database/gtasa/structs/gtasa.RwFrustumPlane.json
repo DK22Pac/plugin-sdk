@@ -1,0 +1,41 @@
+{
+    "name": "RwFrustumPlane",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "plane",
+            "type": "RwPlane",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "closestX",
+            "type": "char",
+            "offset": "0x10",
+            "size": 1
+        },
+        {
+            "name": "closestY",
+            "type": "char",
+            "offset": "0x11",
+            "size": 1
+        },
+        {
+            "name": "closestZ",
+            "type": "char",
+            "offset": "0x12",
+            "size": 1
+        },
+        {
+            "name": "pad",
+            "type": "char",
+            "offset": "0x13",
+            "size": 1
+        }
+    ]
+}

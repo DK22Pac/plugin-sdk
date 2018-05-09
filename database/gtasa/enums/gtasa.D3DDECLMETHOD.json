@@ -1,0 +1,41 @@
+{
+    "name": "D3DDECLMETHOD",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "D3DDECLMETHOD_DEFAULT",
+            "value": "0x0"
+        },
+        {
+            "name": "D3DDECLMETHOD_PARTIALU",
+            "value": "0x1"
+        },
+        {
+            "name": "D3DDECLMETHOD_PARTIALV",
+            "value": "0x2"
+        },
+        {
+            "name": "D3DDECLMETHOD_CROSSUV",
+            "value": "0x3"
+        },
+        {
+            "name": "D3DDECLMETHOD_UV",
+            "value": "0x4"
+        },
+        {
+            "name": "D3DDECLMETHOD_LOOKUP",
+            "value": "0x5"
+        },
+        {
+            "name": "D3DDECLMETHOD_LOOKUPPRESAMPLED",
+            "value": "0x6"
+        }
+    ]
+}

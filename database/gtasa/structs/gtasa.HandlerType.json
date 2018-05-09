@@ -1,0 +1,35 @@
+{
+    "name": "HandlerType",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "adjectives",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "pType",
+            "type": "void *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "dispCatchObj",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "addressOfHandler",
+            "type": "void *",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "name": "WSADATA",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x190",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "wVersion",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "wHighVersion",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "iMaxSockets",
+            "type": "__int16",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "iMaxUdpDg",
+            "type": "__int16",
+            "offset": 6,
+            "size": 2
+        },
+        {
+            "name": "lpVendorInfo",
+            "type": "void *",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "szDescription",
+            "type": "char[257]",
+            "offset": "0xC",
+            "size": "0x101"
+        },
+        {
+            "name": "szSystemStatus",
+            "type": "char[129]",
+            "offset": "0x10D",
+            "size": "0x81"
+        },
+        {
+            "name": "_padding",
+            "type": "char[2]",
+            "offset": "0x18E",
+            "size": 2
+        }
+    ]
+}

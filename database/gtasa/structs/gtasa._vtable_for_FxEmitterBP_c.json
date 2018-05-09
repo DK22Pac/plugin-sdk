@@ -1,0 +1,53 @@
+{
+    "name": "_vtable_for_FxEmitterBP_c",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "Destructor",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "Load",
+            "type": "char (__thiscall *)(void *this, FILE *file, int, char *textureNames)",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "LoadTextures",
+            "type": "char (__thiscall *)(FxEmitterBP_c *this, char *name, signed int value)",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "CreateInstance",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "Update",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "Render",
+            "type": "int (__thiscall *)(FxEmitterBP_c *, RwCamera *, _DWORD, float, int)",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "FreePrtFromPrim",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        }
+    ]
+}

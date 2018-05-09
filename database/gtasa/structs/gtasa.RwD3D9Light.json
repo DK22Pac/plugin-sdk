@@ -1,0 +1,23 @@
+{
+    "name": "RwD3D9Light",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x6C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "d3dLight",
+            "type": "D3DLIGHT9",
+            "offset": 0,
+            "size": "0x68"
+        },
+        {
+            "name": "bEnable",
+            "type": "int",
+            "offset": "0x68",
+            "size": 4
+        }
+    ]
+}

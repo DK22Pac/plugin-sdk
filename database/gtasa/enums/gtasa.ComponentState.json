@@ -1,0 +1,33 @@
+{
+    "name": "ComponentState",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "STATE_OK",
+            "value": "0x0"
+        },
+        {
+            "name": "STATE_OPENED",
+            "value": "0x1"
+        },
+        {
+            "name": "STATE_DAMAGED",
+            "value": "0x2"
+        },
+        {
+            "name": "STATE_OPENED_DAMAGED",
+            "value": "0x3"
+        },
+        {
+            "name": "STATE_NOTPRESENT",
+            "value": "0x4"
+        }
+    ]
+}

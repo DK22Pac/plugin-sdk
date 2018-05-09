@@ -1,0 +1,23 @@
+{
+    "name": "ModelCarsData",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x282A4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "count",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "objects",
+            "type": "CVehicleModelInfo[212]",
+            "offset": 4,
+            "size": "0x282A0"
+        }
+    ]
+}

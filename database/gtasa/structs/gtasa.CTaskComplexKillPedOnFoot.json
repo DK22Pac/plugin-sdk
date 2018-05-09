@@ -1,0 +1,86 @@
+{
+    "name": "CTaskComplexKillPedOnFoot",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x38",
+    "alignment": 0,
+    "vtableAddress": "0x86D894",
+    "vtableSize": 11,
+    "comment": "",
+    "members": [
+        {
+            "name": "complex",
+            "type": "CTaskComplex",
+            "offset": 0,
+            "size": "0xC"
+        },
+        {
+            "name": "m_nFlags",
+            "type": "_BYTE",
+            "offset": "0xC",
+            "size": 1,
+            "comment": "4 - ATTACK_PED_IN_CAR;;8 - TARGET_HAS_NO_HEALTH"
+        },
+        {
+            "name": "_pad0",
+            "type": "_BYTE[3]",
+            "offset": "0xD",
+            "size": 3
+        },
+        {
+            "name": "m_pTarget",
+            "type": "CPed *",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "m_dwPedFlags",
+            "type": "_DWORD",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "m_dwActionDelay",
+            "type": "_DWORD",
+            "offset": "0x18",
+            "size": 4
+        },
+        {
+            "name": "m_dwActionChance",
+            "type": "_DWORD",
+            "offset": "0x1C",
+            "size": 4
+        },
+        {
+            "name": "field_20",
+            "type": "_BYTE",
+            "offset": "0x20",
+            "size": 1
+        },
+        {
+            "name": "_pad1",
+            "type": "_BYTE[3]",
+            "offset": "0x21",
+            "size": 3
+        },
+        {
+            "name": "m_dwStartTime",
+            "type": "_DWORD",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "m_dwTime",
+            "type": "_DWORD",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "m_Timer",
+            "type": "CTaskTimer",
+            "offset": "0x2C",
+            "size": "0xC"
+        }
+    ]
+}

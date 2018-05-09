@@ -1,0 +1,23 @@
+{
+    "name": "struc_B1E128",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x2C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "count",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "objects",
+            "type": "obj_85BCF0",
+            "offset": 4,
+            "size": "0x28"
+        }
+    ]
+}

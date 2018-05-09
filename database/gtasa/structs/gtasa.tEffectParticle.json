@@ -1,0 +1,17 @@
+{
+    "name": "tEffectParticle",
+    "module": "C2dEffect",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_szName",
+            "type": "char[24]",
+            "offset": 0,
+            "size": "0x18"
+        }
+    ]
+}

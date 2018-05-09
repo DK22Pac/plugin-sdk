@@ -1,0 +1,59 @@
+{
+    "name": "CGunAimingOffset",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "AimX",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "AimZ",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "DuckX",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "DuckZ",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "RLoadA",
+            "type": "__int16",
+            "offset": "0x10",
+            "size": 2
+        },
+        {
+            "name": "RLoadB",
+            "type": "__int16",
+            "offset": "0x12",
+            "size": 2
+        },
+        {
+            "name": "CrouchRLoadA",
+            "type": "__int16",
+            "offset": "0x14",
+            "size": 2
+        },
+        {
+            "name": "CrouchRLoadB",
+            "type": "__int16",
+            "offset": "0x16",
+            "size": 2
+        }
+    ]
+}

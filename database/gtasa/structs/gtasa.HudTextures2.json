@@ -1,0 +1,47 @@
+{
+    "name": "HudTextures2",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "fist",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "siteM16",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "siterocket",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "radardisc",
+            "type": "CSprite2d",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "radarRingPlane",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "skipIcon",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

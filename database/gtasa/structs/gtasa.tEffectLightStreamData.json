@@ -1,0 +1,119 @@
+{
+    "name": "tEffectLightStreamData",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x50",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "color",
+            "type": "_DWORD",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "coronaFarClip",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "pointlightRange",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "coronaSize",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "shadowSize",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "coronaFlashType",
+            "type": "char",
+            "offset": "0x14",
+            "size": 1
+        },
+        {
+            "name": "coronaEnableReflection",
+            "type": "char",
+            "offset": "0x15",
+            "size": 1
+        },
+        {
+            "name": "coronaFlareType",
+            "type": "char",
+            "offset": "0x16",
+            "size": 1
+        },
+        {
+            "name": "shadowColorMultiplier",
+            "type": "char",
+            "offset": "0x17",
+            "size": 1
+        },
+        {
+            "name": "flags1",
+            "type": "char",
+            "offset": "0x18",
+            "size": 1
+        },
+        {
+            "name": "coronaName",
+            "type": "char[24]",
+            "offset": "0x19",
+            "size": "0x18"
+        },
+        {
+            "name": "shadowName",
+            "type": "char[24]",
+            "offset": "0x31",
+            "size": "0x18"
+        },
+        {
+            "name": "shadowZDistance",
+            "type": "char",
+            "offset": "0x49",
+            "size": 1
+        },
+        {
+            "name": "flags2",
+            "type": "char",
+            "offset": "0x4A",
+            "size": 1
+        },
+        {
+            "name": "offsetX",
+            "type": "char",
+            "offset": "0x4B",
+            "size": 1
+        },
+        {
+            "name": "offsetY",
+            "type": "char",
+            "offset": "0x4C",
+            "size": 1
+        },
+        {
+            "name": "offsetZ",
+            "type": "char",
+            "offset": "0x4D",
+            "size": 1
+        },
+        {
+            "name": "__pad",
+            "type": "char[2]",
+            "offset": "0x4E",
+            "size": 2
+        }
+    ]
+}

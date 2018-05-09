@@ -1,0 +1,600 @@
+{
+    "name": "CPed",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x79C",
+    "alignment": 0,
+    "vtableAddress": "0x86C358",
+    "vtableSize": 26,
+    "comment": "",
+    "members": [
+        {
+            "name": "physical",
+            "type": "CPhysical",
+            "offset": 0,
+            "size": "0x138"
+        },
+        {
+            "name": "m_pedAudio",
+            "type": "CAEPedAudioEntity",
+            "offset": "0x138",
+            "size": "0x15C"
+        },
+        {
+            "name": "m_pedSpeech",
+            "type": "CAEPedSpeechAudioEntity",
+            "offset": "0x294",
+            "size": "0x100"
+        },
+        {
+            "name": "m_weaponAudio",
+            "type": "CAEPedWeaponAudioEntity",
+            "offset": "0x394",
+            "size": "0xA8"
+        },
+        {
+            "name": "field_43C",
+            "type": "char[36]",
+            "offset": "0x43C",
+            "size": "0x24"
+        },
+        {
+            "name": "field_460",
+            "type": "char[8]",
+            "offset": "0x460",
+            "size": 8
+        },
+        {
+            "name": "field_468",
+            "type": "int",
+            "offset": "0x468",
+            "size": 4
+        },
+        {
+            "name": "m_nPedFlags",
+            "type": "int[4]",
+            "offset": "0x46C",
+            "size": "0x10"
+        },
+        {
+            "name": "m_pIntelligence",
+            "type": "CPedIntelligence *",
+            "offset": "0x47C",
+            "size": 4
+        },
+        {
+            "name": "m_pPlayerData",
+            "type": "CPlayerPedData *",
+            "offset": "0x480",
+            "size": 4,
+            "comment": "CPlayerData *"
+        },
+        {
+            "name": "m_nCreatedBy",
+            "type": "char",
+            "offset": "0x484",
+            "size": 1,
+            "comment": "1 - game, 2 - script, 3 - ?"
+        },
+        {
+            "name": "_pad0",
+            "type": "char[3]",
+            "offset": "0x485",
+            "size": 3
+        },
+        {
+            "name": "m_apPedBones",
+            "type": "AnimBlendFrameData *[19]",
+            "offset": "0x488",
+            "size": "0x4C",
+            "comment": "AnimBlendFrameData *"
+        },
+        {
+            "name": "m_dwAnimGroup",
+            "type": "int",
+            "offset": "0x4D4",
+            "size": 4
+        },
+        {
+            "name": "m_vAnimMovingShiftLocal",
+            "type": "CVector2D",
+            "offset": "0x4D8",
+            "size": 8
+        },
+        {
+            "name": "m_acquaintance",
+            "type": "CPedAcquaintance",
+            "offset": "0x4E0",
+            "size": "0x14"
+        },
+        {
+            "name": "m_pWeaponObject",
+            "type": "RpClump *",
+            "offset": "0x4F4",
+            "size": 4,
+            "comment": "RpAtomic *"
+        },
+        {
+            "name": "m_pGunflashObject",
+            "type": "RwFrame *",
+            "offset": "0x4F8",
+            "size": 4,
+            "comment": "RpAtomic *"
+        },
+        {
+            "name": "m_pGogglesObject",
+            "type": "int",
+            "offset": "0x4FC",
+            "size": 4,
+            "comment": "RpAtomic *"
+        },
+        {
+            "name": "m_pGogglesState",
+            "type": "BYTE *",
+            "offset": "0x500",
+            "size": 4,
+            "comment": "unsigned char *"
+        },
+        {
+            "name": "m_nWeaponGunflashStateLeftHand",
+            "type": "__int16",
+            "offset": "0x504",
+            "size": 2
+        },
+        {
+            "name": "field_506",
+            "type": "__int16",
+            "offset": "0x506",
+            "size": 2
+        },
+        {
+            "name": "m_nWeaponGunflashStateRightHand",
+            "type": "__int16",
+            "offset": "0x508",
+            "size": 2
+        },
+        {
+            "name": "field_50A",
+            "type": "__int16",
+            "offset": "0x50A",
+            "size": 2
+        },
+        {
+            "name": "m_pedIK",
+            "type": "CPedIK",
+            "offset": "0x50C",
+            "size": "0x20"
+        },
+        {
+            "name": "field_52C",
+            "type": "int",
+            "offset": "0x52C",
+            "size": 4
+        },
+        {
+            "name": "m_nPedState",
+            "type": "ePedState",
+            "offset": "0x530",
+            "size": 4
+        },
+        {
+            "name": "m_dwMoveState",
+            "type": "int",
+            "offset": "0x534",
+            "size": 4
+        },
+        {
+            "name": "field_538",
+            "type": "int",
+            "offset": "0x538",
+            "size": 4
+        },
+        {
+            "name": "field_53C",
+            "type": "int",
+            "offset": "0x53C",
+            "size": 4
+        },
+        {
+            "name": "m_fHealth",
+            "type": "float",
+            "offset": "0x540",
+            "size": 4
+        },
+        {
+            "name": "m_fMaxHealth",
+            "type": "float",
+            "offset": "0x544",
+            "size": 4
+        },
+        {
+            "name": "m_fArmour",
+            "type": "float",
+            "offset": "0x548",
+            "size": 4
+        },
+        {
+            "name": "m_dwTimeTillWeNeedThisPed",
+            "type": "int",
+            "offset": "0x54C",
+            "size": 4
+        },
+        {
+            "name": "m_vAnimMovingShift",
+            "type": "CVector2D",
+            "offset": "0x550",
+            "size": 8
+        },
+        {
+            "name": "m_fCurrentRotation",
+            "type": "float",
+            "offset": "0x558",
+            "size": 4
+        },
+        {
+            "name": "m_fAimingRotation",
+            "type": "float",
+            "offset": "0x55C",
+            "size": 4
+        },
+        {
+            "name": "m_fHeadingChangeRate",
+            "type": "float",
+            "offset": "0x560",
+            "size": 4
+        },
+        {
+            "name": "m_dwMoveAnim",
+            "type": "int",
+            "offset": "0x564",
+            "size": 4,
+            "comment": "1 - on foot, 4 - starting to move, 6 - walking/running, 7 - sprinting"
+        },
+        {
+            "name": "field_568",
+            "type": "int",
+            "offset": "0x568",
+            "size": 4
+        },
+        {
+            "name": "field_56C",
+            "type": "RwV3d",
+            "offset": "0x56C",
+            "size": "0xC"
+        },
+        {
+            "name": "field_578",
+            "type": "RwV3d",
+            "offset": "0x578",
+            "size": "0xC"
+        },
+        {
+            "name": "m_pContactEntity",
+            "type": "int",
+            "offset": "0x584",
+            "size": 4,
+            "comment": "CEntity *"
+        },
+        {
+            "name": "m_pLastVehicle",
+            "type": "float",
+            "offset": "0x588",
+            "size": 4,
+            "comment": "CVehicle *"
+        },
+        {
+            "name": "m_pVehicle",
+            "type": "CVehicle *",
+            "offset": "0x58C",
+            "size": 4,
+            "comment": "CVehicle *"
+        },
+        {
+            "name": "field_590",
+            "type": "int",
+            "offset": "0x590",
+            "size": 4
+        },
+        {
+            "name": "field_594",
+            "type": "int",
+            "offset": "0x594",
+            "size": 4
+        },
+        {
+            "name": "m_nPedType",
+            "type": "int",
+            "offset": "0x598",
+            "size": 4,
+            "comment": "ePedType"
+        },
+        {
+            "name": "m_pStats",
+            "type": "CPedStat *",
+            "offset": "0x59C",
+            "size": 4,
+            "comment": "CPedStat *"
+        },
+        {
+            "name": "m_aWeapons",
+            "type": "CWeapon[13]",
+            "offset": "0x5A0",
+            "size": "0x16C"
+        },
+        {
+            "name": "m_nSavedWeapon",
+            "type": "eWeaponType",
+            "offset": "0x70C",
+            "size": 4,
+            "comment": "when we need to hide ped weapon, we save it temporary here"
+        },
+        {
+            "name": "m_nDelayedWeapon",
+            "type": "eWeaponType",
+            "offset": "0x710",
+            "size": 4,
+            "comment": "'delayed' weapon is like an additional weapon, f.e., simple cop has a nitestick as current and pistol as delayed weapons"
+        },
+        {
+            "name": "m_dwDelayedWeaponAmmo",
+            "type": "int",
+            "offset": "0x714",
+            "size": 4
+        },
+        {
+            "name": "m_nActiveWeaponSlot",
+            "type": "char",
+            "offset": "0x718",
+            "size": 1
+        },
+        {
+            "name": "m_nWeaponShootingRate",
+            "type": "char",
+            "offset": "0x719",
+            "size": 1
+        },
+        {
+            "name": "m_nWeaponAccuracy",
+            "type": "char",
+            "offset": "0x71A",
+            "size": 1
+        },
+        {
+            "name": "_pad",
+            "type": "char",
+            "offset": "0x71B",
+            "size": 1
+        },
+        {
+            "name": "m_pTargetedObject",
+            "type": "int",
+            "offset": "0x71C",
+            "size": 4,
+            "comment": "CObject *"
+        },
+        {
+            "name": "field_720",
+            "type": "float",
+            "offset": "0x720",
+            "size": 4
+        },
+        {
+            "name": "field_724",
+            "type": "float",
+            "offset": "0x724",
+            "size": 4
+        },
+        {
+            "name": "field_728",
+            "type": "float",
+            "offset": "0x728",
+            "size": 4
+        },
+        {
+            "name": "m_nWeaponSkill",
+            "type": "char",
+            "offset": "0x72C",
+            "size": 1
+        },
+        {
+            "name": "m_nFightingStyle",
+            "type": "char",
+            "offset": "0x72D",
+            "size": 1
+        },
+        {
+            "name": "m_nAllowedAttackMoves",
+            "type": "char",
+            "offset": "0x72E",
+            "size": 1
+        },
+        {
+            "name": "field_72F",
+            "type": "char",
+            "offset": "0x72F",
+            "size": 1
+        },
+        {
+            "name": "m_pFire",
+            "type": "CFire *",
+            "offset": "0x730",
+            "size": 4,
+            "comment": "CFire *"
+        },
+        {
+            "name": "field_734",
+            "type": "int",
+            "offset": "0x734",
+            "size": 4
+        },
+        {
+            "name": "m_pLookAtEntity",
+            "type": "CEntity *",
+            "offset": "0x738",
+            "size": 4
+        },
+        {
+            "name": "m_fLookHeading",
+            "type": "float",
+            "offset": "0x73C",
+            "size": 4
+        },
+        {
+            "name": "m_dwWeaponModelId",
+            "type": "int",
+            "offset": "0x740",
+            "size": 4
+        },
+        {
+            "name": "field_744",
+            "type": "int",
+            "offset": "0x744",
+            "size": 4
+        },
+        {
+            "name": "m_dwLookTime",
+            "type": "int",
+            "offset": "0x748",
+            "size": 4
+        },
+        {
+            "name": "field_74C",
+            "type": "int",
+            "offset": "0x74C",
+            "size": 4
+        },
+        {
+            "name": "m_dwTimeWhenDead",
+            "type": "int",
+            "offset": "0x750",
+            "size": 4,
+            "comment": "this is used for making blood foot prints"
+        },
+        {
+            "name": "m_nBodypartToRemove",
+            "type": "char",
+            "offset": "0x754",
+            "size": 1
+        },
+        {
+            "name": "field_755",
+            "type": "char",
+            "offset": "0x755",
+            "size": 1
+        },
+        {
+            "name": "m_nMoneyCount",
+            "type": "__int16",
+            "offset": "0x756",
+            "size": 2
+        },
+        {
+            "name": "field_758",
+            "type": "float",
+            "offset": "0x758",
+            "size": 4
+        },
+        {
+            "name": "field_75C",
+            "type": "int",
+            "offset": "0x75C",
+            "size": 4
+        },
+        {
+            "name": "m_nLastWeaponDamage",
+            "type": "char",
+            "offset": "0x760",
+            "size": 1,
+            "comment": "eWeaponType"
+        },
+        {
+            "name": "field_761",
+            "type": "char[3]",
+            "offset": "0x761",
+            "size": 3
+        },
+        {
+            "name": "m_pLastEntityDamaged",
+            "type": "int",
+            "offset": "0x764",
+            "size": 4,
+            "comment": "CPed *"
+        },
+        {
+            "name": "field_768",
+            "type": "int",
+            "offset": "0x768",
+            "size": 4
+        },
+        {
+            "name": "m_vTurretOffset",
+            "type": "CVector",
+            "offset": "0x76C",
+            "size": "0xC"
+        },
+        {
+            "name": "m_fTurretAngleA",
+            "type": "int",
+            "offset": "0x778",
+            "size": 4
+        },
+        {
+            "name": "m_fTurretAngleB",
+            "type": "int",
+            "offset": "0x77C",
+            "size": 4
+        },
+        {
+            "name": "m_dwTurretPosnMode",
+            "type": "int",
+            "offset": "0x780",
+            "size": 4
+        },
+        {
+            "name": "m_dwTurretAmmo",
+            "type": "int",
+            "offset": "0x784",
+            "size": 4
+        },
+        {
+            "name": "m_pCoverPoint",
+            "type": "int",
+            "offset": "0x788",
+            "size": 4,
+            "comment": "CCoverPoint *, related to CTaskComplexKillPedOnFootArmed"
+        },
+        {
+            "name": "m_pEnex",
+            "type": "int",
+            "offset": "0x78C",
+            "size": 4,
+            "comment": "CEnEx *"
+        },
+        {
+            "name": "m_fRemovalDistMultiplier",
+            "type": "float",
+            "offset": "0x790",
+            "size": 4,
+            "comment": "float"
+        },
+        {
+            "name": "m_wSpecialModelIndex",
+            "type": "__int16",
+            "offset": "0x794",
+            "size": 2
+        },
+        {
+            "name": "field_796",
+            "type": "char[2]",
+            "offset": "0x796",
+            "size": 2
+        },
+        {
+            "name": "field_798",
+            "type": "int",
+            "offset": "0x798",
+            "size": 4
+        }
+    ]
+}

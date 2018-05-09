@@ -1,0 +1,47 @@
+{
+    "name": "CCullZoneReflection",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CZoneDef",
+            "offset": 0,
+            "size": "0x10"
+        },
+        {
+            "name": "cm",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "vx",
+            "type": "char",
+            "offset": "0x14",
+            "size": 1
+        },
+        {
+            "name": "vy",
+            "type": "char",
+            "offset": "0x15",
+            "size": 1
+        },
+        {
+            "name": "vz",
+            "type": "char",
+            "offset": "0x16",
+            "size": 1
+        },
+        {
+            "name": "flags",
+            "type": "char",
+            "offset": "0x17",
+            "size": 1
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "SFXMaterial",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x34",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "sEffect",
+            "type": "SFXEnvMapMaterial[2]",
+            "offset": 0,
+            "size": "0x30"
+        },
+        {
+            "name": "dwFlags",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        }
+    ]
+}

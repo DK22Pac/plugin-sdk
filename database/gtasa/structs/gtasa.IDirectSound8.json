@@ -1,0 +1,17 @@
+{
+    "name": "IDirectSound8",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 4,
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "lpVtbl",
+            "type": "IDirectSound8Vtbl *",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

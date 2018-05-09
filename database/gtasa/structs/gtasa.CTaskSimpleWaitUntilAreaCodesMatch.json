@@ -1,0 +1,25 @@
+{
+    "name": "CTaskSimpleWaitUntilAreaCodesMatch",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x24",
+    "alignment": 0,
+    "vtableAddress": "0x86E544",
+    "vtableSize": 9,
+    "comment": "",
+    "members": [
+        {
+            "name": "__parent",
+            "type": "CTaskSimpleStandStill",
+            "offset": 0,
+            "size": "0x20"
+        },
+        {
+            "name": "m_pEntity",
+            "type": "int",
+            "offset": "0x20",
+            "size": 4
+        }
+    ]
+}

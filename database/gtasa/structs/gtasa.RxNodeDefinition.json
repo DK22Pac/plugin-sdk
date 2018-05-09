@@ -1,0 +1,47 @@
+{
+    "name": "RxNodeDefinition",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x40",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "name",
+            "type": "char *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "nodeMethods",
+            "type": "RxNodeMethods",
+            "offset": 4,
+            "size": "0x1C"
+        },
+        {
+            "name": "io",
+            "type": "RxIoSpec",
+            "offset": "0x20",
+            "size": "0x14"
+        },
+        {
+            "name": "pipelineNodePrivateDataSize",
+            "type": "int",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "editable",
+            "type": "int",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "InputPipesCnt",
+            "type": "int",
+            "offset": "0x3C",
+            "size": 4
+        }
+    ]
+}

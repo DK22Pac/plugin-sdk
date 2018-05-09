@@ -1,0 +1,23 @@
+{
+    "name": "STICKYKEYS",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "cbSize",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "dwFlags",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

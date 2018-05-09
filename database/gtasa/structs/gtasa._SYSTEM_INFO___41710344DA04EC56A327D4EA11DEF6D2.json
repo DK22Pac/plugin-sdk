@@ -1,0 +1,23 @@
+{
+    "name": "_SYSTEM_INFO::$41710344DA04EC56A327D4EA11DEF6D2",
+    "module": "",
+    "scope": "",
+    "kind": "union",
+    "size": 4,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "dwOemId",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "anonymous_0",
+            "type": "_SYSTEM_INFO::$41710344DA04EC56A327D4EA11DEF6D2::$AA04DEB0C6383F89F13D312A174572A9",
+            "offset": 0,
+            "size": 4
+        }
+    ]
+}

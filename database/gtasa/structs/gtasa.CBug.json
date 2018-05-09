@@ -1,0 +1,23 @@
+{
+    "name": "CBug",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pMessage",
+            "type": "void *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nMessageSize",
+            "type": "_DWORD",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

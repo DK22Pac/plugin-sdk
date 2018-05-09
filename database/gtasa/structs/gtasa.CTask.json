@@ -1,0 +1,26 @@
+{
+    "name": "CTask",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": 8,
+    "alignment": 0,
+    "vtableAddress": "0x86D48C",
+    "vtableSize": 7,
+    "comment": "",
+    "members": [
+        {
+            "name": "vtable",
+            "type": "CTaskVtable *",
+            "offset": 0,
+            "size": 4,
+            "comment": "CTaskVtable *"
+        },
+        {
+            "name": "m_pParentTask",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

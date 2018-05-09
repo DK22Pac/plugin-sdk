@@ -1,0 +1,48 @@
+{
+    "name": "CShadowManager",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x54",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "bInitialized",
+            "type": "char",
+            "offset": 0,
+            "size": 1
+        },
+        {
+            "name": "bNotReInitialized",
+            "type": "char",
+            "offset": 1,
+            "size": 1
+        },
+        {
+            "name": "_pad",
+            "type": "char[2]",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "pShadowData",
+            "type": "void *[16]",
+            "offset": 4,
+            "size": "0x40",
+            "comment": "CShadowData *"
+        },
+        {
+            "name": "image",
+            "type": "CShadowImage",
+            "offset": "0x44",
+            "size": 8
+        },
+        {
+            "name": "imageBlurred",
+            "type": "CShadowImage",
+            "offset": "0x4C",
+            "size": 8
+        }
+    ]
+}

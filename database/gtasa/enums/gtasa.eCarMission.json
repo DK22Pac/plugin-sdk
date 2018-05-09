@@ -1,0 +1,337 @@
+{
+    "name": "eCarMission",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "MISSION_NONE",
+            "value": 0
+        },
+        {
+            "name": "MISSION_CRUISE",
+            "value": 1
+        },
+        {
+            "name": "MISSION_RAMPLAYER_FARAWAY",
+            "value": 2
+        },
+        {
+            "name": "MISSION_RAMPLAYER_CLOSE",
+            "value": 3
+        },
+        {
+            "name": "MISSION_BLOCKPLAYER_FARAWAY",
+            "value": 4
+        },
+        {
+            "name": "MISSION_BLOCKPLAYER_CLOSE",
+            "value": 5
+        },
+        {
+            "name": "MISSION_BLOCKPLAYER_HANDBRAKESTOP",
+            "value": 6
+        },
+        {
+            "name": "MISSION_WAITFORDELETION",
+            "value": 7
+        },
+        {
+            "name": "MISSION_GOTOCOORDS",
+            "value": 8
+        },
+        {
+            "name": "MISSION_GOTOCOORDS_STRAIGHT",
+            "value": 9
+        },
+        {
+            "name": "MISSION_EMERGENCYVEHICLE_STOP",
+            "value": 10
+        },
+        {
+            "name": "MISSION_STOP_FOREVER",
+            "value": 11
+        },
+        {
+            "name": "MISSION_GOTOCOORDS_ACCURATE",
+            "value": 12
+        },
+        {
+            "name": "MISSION_GOTOCOORDS_STRAIGHT_ACCURATE",
+            "value": 13
+        },
+        {
+            "name": "MISSION_GOTOCOORDS_ASTHECROWSWIMS",
+            "value": 14
+        },
+        {
+            "name": "MISSION_RAMCAR_FARAWAY",
+            "value": 15
+        },
+        {
+            "name": "MISSION_RAMCAR_CLOSE",
+            "value": 16
+        },
+        {
+            "name": "MISSION_BLOCKCAR_FARAWAY",
+            "value": 17
+        },
+        {
+            "name": "MISSION_BLOCKCAR_CLOSE",
+            "value": 18
+        },
+        {
+            "name": "MISSION_BLOCKCAR_HANDBRAKESTOP",
+            "value": 19
+        },
+        {
+            "name": "MISSION_HELI_FLYTOCOORS",
+            "value": 20
+        },
+        {
+            "name": "MISSION_ATTACKPLAYER",
+            "value": 21
+        },
+        {
+            "name": "MISSION_PLANE_FLYTOCOORS",
+            "value": 22
+        },
+        {
+            "name": "MISSION_HELI_LAND",
+            "value": 23
+        },
+        {
+            "name": "MISSION_SLOWLY_DRIVE_TOWARDS_PLAYER_1",
+            "value": 24
+        },
+        {
+            "name": "MISSION_SLOWLY_DRIVE_TOWARDS_PLAYER_2",
+            "value": 25
+        },
+        {
+            "name": "MISSION_BLOCKPLAYER_FORWARDANDBACK",
+            "value": 26
+        },
+        {
+            "name": "MISSION_1B",
+            "value": 27
+        },
+        {
+            "name": "MISSION_1C",
+            "value": 28
+        },
+        {
+            "name": "MISSION_1D",
+            "value": 29
+        },
+        {
+            "name": "MISSION_1E",
+            "value": 30
+        },
+        {
+            "name": "MISSION_1F",
+            "value": 31
+        },
+        {
+            "name": "MISSION_20",
+            "value": 32
+        },
+        {
+            "name": "MISSION_RACING",
+            "value": 33
+        },
+        {
+            "name": "MISSION_FOLLOW_PRE_RECORDED_PATH",
+            "value": 34
+        },
+        {
+            "name": "MISSION_23",
+            "value": 35
+        },
+        {
+            "name": "MISSION_24",
+            "value": 36
+        },
+        {
+            "name": "MISSION_25",
+            "value": 37
+        },
+        {
+            "name": "MISSION_26",
+            "value": 38
+        },
+        {
+            "name": "MISSION_27",
+            "value": 39
+        },
+        {
+            "name": "MISSION_28",
+            "value": 40
+        },
+        {
+            "name": "MISSION_29",
+            "value": 41
+        },
+        {
+            "name": "MISSION_2A",
+            "value": 42
+        },
+        {
+            "name": "MISSION_POLICE_BIKE",
+            "value": 43
+        },
+        {
+            "name": "MISSION_2C",
+            "value": 44
+        },
+        {
+            "name": "MISSION_PARKING_2D",
+            "value": 45
+        },
+        {
+            "name": "MISSION_PARKING_2E",
+            "value": 46
+        },
+        {
+            "name": "MISSION_2F",
+            "value": 47
+        },
+        {
+            "name": "MISSION_30",
+            "value": 48
+        },
+        {
+            "name": "MISSION_PARKING_31",
+            "value": 49
+        },
+        {
+            "name": "MISSION_PARKING_32",
+            "value": 50
+        },
+        {
+            "name": "MISSION_33",
+            "value": 51
+        },
+        {
+            "name": "MISSION_34",
+            "value": 52
+        },
+        {
+            "name": "MISSION_35",
+            "value": 53
+        },
+        {
+            "name": "MISSION_36",
+            "value": 54
+        },
+        {
+            "name": "MISSION_37",
+            "value": 55
+        },
+        {
+            "name": "MISSION_38",
+            "value": 56
+        },
+        {
+            "name": "MISSION_39",
+            "value": 57
+        },
+        {
+            "name": "MISSION_3A",
+            "value": 58
+        },
+        {
+            "name": "MISSION_3B",
+            "value": 59
+        },
+        {
+            "name": "MISSION_3C",
+            "value": 60
+        },
+        {
+            "name": "MISSION_3D",
+            "value": 61
+        },
+        {
+            "name": "MISSION_3E",
+            "value": 62
+        },
+        {
+            "name": "MISSION_3F",
+            "value": 63
+        },
+        {
+            "name": "MISSION_POLICE_WAIT_FOR_PLAYER",
+            "value": 64
+        },
+        {
+            "name": "MISSION_41",
+            "value": 65
+        },
+        {
+            "name": "MISSION_42",
+            "value": 66
+        },
+        {
+            "name": "MISSION_43",
+            "value": 67
+        },
+        {
+            "name": "MISSION_44",
+            "value": 68
+        },
+        {
+            "name": "MISSION_45",
+            "value": 69
+        },
+        {
+            "name": "MISSION_46",
+            "value": 70
+        },
+        {
+            "name": "MISSION_47",
+            "value": 71
+        },
+        {
+            "name": "MISSION_48",
+            "value": 72
+        },
+        {
+            "name": "MISSION_49",
+            "value": 73
+        },
+        {
+            "name": "MISSION_4A",
+            "value": 74
+        },
+        {
+            "name": "MISSION_4B",
+            "value": 75
+        },
+        {
+            "name": "MISSION_4C",
+            "value": 76
+        },
+        {
+            "name": "MISSION_4D",
+            "value": 77
+        },
+        {
+            "name": "MISSION_4E",
+            "value": 78
+        },
+        {
+            "name": "MISSION_4F",
+            "value": 79
+        },
+        {
+            "name": "MISSION_50",
+            "value": 80
+        }
+    ]
+}

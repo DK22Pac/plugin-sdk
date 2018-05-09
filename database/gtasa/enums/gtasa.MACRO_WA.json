@@ -1,0 +1,809 @@
+{
+    "name": "MACRO_WA",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": false,
+    "isSigned": true,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "WA_INACTIVE",
+            "value": 0
+        },
+        {
+            "name": "WA_ACTIVE",
+            "value": 1
+        },
+        {
+            "name": "WA_CLICKACTIVE",
+            "value": 2
+        },
+        {
+            "name": "WM_SETFOCUS",
+            "value": 7
+        },
+        {
+            "name": "WM_KILLFOCUS",
+            "value": 8
+        },
+        {
+            "name": "WM_ENABLE",
+            "value": 10
+        },
+        {
+            "name": "WM_SETREDRAW",
+            "value": 11
+        },
+        {
+            "name": "WM_SETTEXT",
+            "value": 12
+        },
+        {
+            "name": "WM_GETTEXT",
+            "value": 13
+        },
+        {
+            "name": "WM_GETTEXTLENGTH",
+            "value": 14
+        },
+        {
+            "name": "WM_PAINT",
+            "value": 15
+        },
+        {
+            "name": "WM_CLOSE",
+            "value": 16
+        },
+        {
+            "name": "WM_QUERYENDSESSION",
+            "value": 17
+        },
+        {
+            "name": "WM_QUIT",
+            "value": 18
+        },
+        {
+            "name": "WM_QUERYOPEN",
+            "value": 19
+        },
+        {
+            "name": "WM_ERASEBKGND",
+            "value": 20
+        },
+        {
+            "name": "WM_SYSCOLORCHANGE",
+            "value": 21
+        },
+        {
+            "name": "WM_ENDSESSION",
+            "value": 22
+        },
+        {
+            "name": "WM_SHOWWINDOW",
+            "value": 24
+        },
+        {
+            "name": "WM_WININICHANGE",
+            "value": 26
+        },
+        {
+            "name": "WM_SETTINGCHANGE",
+            "value": 26
+        },
+        {
+            "name": "WM_DEVMODECHANGE",
+            "value": 27
+        },
+        {
+            "name": "WM_ACTIVATEAPP",
+            "value": 28
+        },
+        {
+            "name": "WM_FONTCHANGE",
+            "value": 29
+        },
+        {
+            "name": "WM_TIMECHANGE",
+            "value": 30
+        },
+        {
+            "name": "WM_CANCELMODE",
+            "value": 31
+        },
+        {
+            "name": "WM_SETCURSOR",
+            "value": 32
+        },
+        {
+            "name": "WM_MOUSEACTIVATE",
+            "value": 33
+        },
+        {
+            "name": "WM_CHILDACTIVATE",
+            "value": 34
+        },
+        {
+            "name": "WM_QUEUESYNC",
+            "value": 35
+        },
+        {
+            "name": "WM_GETMINMAXINFO",
+            "value": 36
+        },
+        {
+            "name": "WM_PAINTICON",
+            "value": 38
+        },
+        {
+            "name": "WM_ICONERASEBKGND",
+            "value": 39
+        },
+        {
+            "name": "WM_NEXTDLGCTL",
+            "value": 40
+        },
+        {
+            "name": "WM_SPOOLERSTATUS",
+            "value": 42
+        },
+        {
+            "name": "WM_DRAWITEM",
+            "value": 43
+        },
+        {
+            "name": "WM_MEASUREITEM",
+            "value": 44
+        },
+        {
+            "name": "WM_DELETEITEM",
+            "value": 45
+        },
+        {
+            "name": "WM_VKEYTOITEM",
+            "value": 46
+        },
+        {
+            "name": "WM_CHARTOITEM",
+            "value": 47
+        },
+        {
+            "name": "WM_SETFONT",
+            "value": 48
+        },
+        {
+            "name": "WM_GETFONT",
+            "value": 49
+        },
+        {
+            "name": "WM_SETHOTKEY",
+            "value": 50
+        },
+        {
+            "name": "WM_GETHOTKEY",
+            "value": 51
+        },
+        {
+            "name": "WM_QUERYDRAGICON",
+            "value": 55
+        },
+        {
+            "name": "WM_COMPAREITEM",
+            "value": 57
+        },
+        {
+            "name": "WM_GETOBJECT",
+            "value": 61
+        },
+        {
+            "name": "WM_COMPACTING",
+            "value": 65
+        },
+        {
+            "name": "WM_COMMNOTIFY",
+            "value": 68
+        },
+        {
+            "name": "WM_WINDOWPOSCHANGING",
+            "value": 70
+        },
+        {
+            "name": "WM_WINDOWPOSCHANGED",
+            "value": 71
+        },
+        {
+            "name": "WM_POWER",
+            "value": 72
+        },
+        {
+            "name": "WM_COPYDATA",
+            "value": 74
+        },
+        {
+            "name": "WM_CANCELJOURNAL",
+            "value": 75
+        },
+        {
+            "name": "WM_NOTIFY",
+            "value": 78
+        },
+        {
+            "name": "WM_INPUTLANGCHANGEREQUEST",
+            "value": 80
+        },
+        {
+            "name": "WM_INPUTLANGCHANGE",
+            "value": 81
+        },
+        {
+            "name": "WM_TCARD",
+            "value": 82
+        },
+        {
+            "name": "WM_HELP",
+            "value": 83
+        },
+        {
+            "name": "WM_USERCHANGED",
+            "value": 84
+        },
+        {
+            "name": "WM_NOTIFYFORMAT",
+            "value": 85
+        },
+        {
+            "name": "WM_CONTEXTMENU",
+            "value": 123
+        },
+        {
+            "name": "WM_STYLECHANGING",
+            "value": 124
+        },
+        {
+            "name": "WM_STYLECHANGED",
+            "value": 125
+        },
+        {
+            "name": "WM_DISPLAYCHANGE",
+            "value": 126
+        },
+        {
+            "name": "WM_GETICON",
+            "value": 127
+        },
+        {
+            "name": "WM_SETICON",
+            "value": 128
+        },
+        {
+            "name": "WM_NCCREATE",
+            "value": 129
+        },
+        {
+            "name": "WM_NCDESTROY",
+            "value": 130
+        },
+        {
+            "name": "WM_NCCALCSIZE",
+            "value": 131
+        },
+        {
+            "name": "WM_NCHITTEST",
+            "value": 132
+        },
+        {
+            "name": "WM_NCPAINT",
+            "value": 133
+        },
+        {
+            "name": "WM_NCACTIVATE",
+            "value": 134
+        },
+        {
+            "name": "WM_GETDLGCODE",
+            "value": 135
+        },
+        {
+            "name": "WM_SYNCPAINT",
+            "value": 136
+        },
+        {
+            "name": "WM_NCMOUSEMOVE",
+            "value": 160
+        },
+        {
+            "name": "WM_NCLBUTTONDOWN",
+            "value": 161
+        },
+        {
+            "name": "WM_NCLBUTTONUP",
+            "value": 162
+        },
+        {
+            "name": "WM_NCLBUTTONDBLCLK",
+            "value": 163
+        },
+        {
+            "name": "WM_NCRBUTTONDOWN",
+            "value": 164
+        },
+        {
+            "name": "WM_NCRBUTTONUP",
+            "value": 165
+        },
+        {
+            "name": "WM_NCRBUTTONDBLCLK",
+            "value": 166
+        },
+        {
+            "name": "WM_NCMBUTTONDOWN",
+            "value": 167
+        },
+        {
+            "name": "WM_NCMBUTTONUP",
+            "value": 168
+        },
+        {
+            "name": "WM_NCMBUTTONDBLCLK",
+            "value": 169
+        },
+        {
+            "name": "WM_KEYFIRST",
+            "value": 256
+        },
+        {
+            "name": "WM_KEYDOWN",
+            "value": 256
+        },
+        {
+            "name": "WM_KEYUP",
+            "value": 257
+        },
+        {
+            "name": "WM_CHAR",
+            "value": 258
+        },
+        {
+            "name": "WM_DEADCHAR",
+            "value": 259
+        },
+        {
+            "name": "WM_SYSKEYDOWN",
+            "value": 260
+        },
+        {
+            "name": "WM_SYSKEYUP",
+            "value": 261
+        },
+        {
+            "name": "WM_SYSCHAR",
+            "value": 262
+        },
+        {
+            "name": "WM_SYSDEADCHAR",
+            "value": 263
+        },
+        {
+            "name": "WM_KEYLAST",
+            "value": 264
+        },
+        {
+            "name": "WM_IME_STARTCOMPOSITION",
+            "value": 269
+        },
+        {
+            "name": "WM_IME_ENDCOMPOSITION",
+            "value": 270
+        },
+        {
+            "name": "WM_IME_COMPOSITION",
+            "value": 271
+        },
+        {
+            "name": "WM_IME_KEYLAST",
+            "value": 271
+        },
+        {
+            "name": "WM_INITDIALOG",
+            "value": 272
+        },
+        {
+            "name": "WM_COMMAND",
+            "value": 273
+        },
+        {
+            "name": "WM_SYSCOMMAND",
+            "value": 274
+        },
+        {
+            "name": "WM_TIMER",
+            "value": 275
+        },
+        {
+            "name": "WM_HSCROLL",
+            "value": 276
+        },
+        {
+            "name": "WM_VSCROLL",
+            "value": 277
+        },
+        {
+            "name": "WM_INITMENU",
+            "value": 278
+        },
+        {
+            "name": "WM_INITMENUPOPUP",
+            "value": 279
+        },
+        {
+            "name": "WM_MENUSELECT",
+            "value": 287
+        },
+        {
+            "name": "WM_MENUCHAR",
+            "value": 288
+        },
+        {
+            "name": "WM_ENTERIDLE",
+            "value": 289
+        },
+        {
+            "name": "WM_MENURBUTTONUP",
+            "value": 290
+        },
+        {
+            "name": "WM_MENUDRAG",
+            "value": 291
+        },
+        {
+            "name": "WM_MENUGETOBJECT",
+            "value": 292
+        },
+        {
+            "name": "WM_UNINITMENUPOPUP",
+            "value": 293
+        },
+        {
+            "name": "WM_MENUCOMMAND",
+            "value": 294
+        },
+        {
+            "name": "WM_CTLCOLORMSGBOX",
+            "value": 306
+        },
+        {
+            "name": "WM_CTLCOLOREDIT",
+            "value": 307
+        },
+        {
+            "name": "WM_CTLCOLORLISTBOX",
+            "value": 308
+        },
+        {
+            "name": "WM_CTLCOLORBTN",
+            "value": 309
+        },
+        {
+            "name": "WM_CTLCOLORDLG",
+            "value": 310
+        },
+        {
+            "name": "WM_CTLCOLORSCROLLBAR",
+            "value": 311
+        },
+        {
+            "name": "WM_CTLCOLORSTATIC",
+            "value": 312
+        },
+        {
+            "name": "WM_MOUSEFIRST",
+            "value": 512
+        },
+        {
+            "name": "WM_MOUSEMOVE",
+            "value": 512
+        },
+        {
+            "name": "WM_LBUTTONDOWN",
+            "value": 513
+        },
+        {
+            "name": "WM_LBUTTONUP",
+            "value": 514
+        },
+        {
+            "name": "WM_LBUTTONDBLCLK",
+            "value": 515
+        },
+        {
+            "name": "WM_RBUTTONDOWN",
+            "value": 516
+        },
+        {
+            "name": "WM_RBUTTONUP",
+            "value": 517
+        },
+        {
+            "name": "WM_RBUTTONDBLCLK",
+            "value": 518
+        },
+        {
+            "name": "WM_MBUTTONDOWN",
+            "value": 519
+        },
+        {
+            "name": "WM_MBUTTONUP",
+            "value": 520
+        },
+        {
+            "name": "WM_MBUTTONDBLCLK",
+            "value": 521
+        },
+        {
+            "name": "WM_MOUSEWHEEL",
+            "value": 522
+        },
+        {
+            "name": "WM_MOUSELAST",
+            "value": 522
+        },
+        {
+            "name": "WM_PARENTNOTIFY",
+            "value": 528
+        },
+        {
+            "name": "WM_ENTERMENULOOP",
+            "value": 529
+        },
+        {
+            "name": "WM_EXITMENULOOP",
+            "value": 530
+        },
+        {
+            "name": "WM_NEXTMENU",
+            "value": 531
+        },
+        {
+            "name": "WM_SIZING",
+            "value": 532
+        },
+        {
+            "name": "WM_CAPTURECHANGED",
+            "value": 533
+        },
+        {
+            "name": "WM_MOVING",
+            "value": 534
+        },
+        {
+            "name": "WM_POWERBROADCAST",
+            "value": 536
+        },
+        {
+            "name": "WM_DEVICECHANGE",
+            "value": 537
+        },
+        {
+            "name": "WM_MDICREATE",
+            "value": 544
+        },
+        {
+            "name": "WM_MDIDESTROY",
+            "value": 545
+        },
+        {
+            "name": "WM_MDIACTIVATE",
+            "value": 546
+        },
+        {
+            "name": "WM_MDIRESTORE",
+            "value": 547
+        },
+        {
+            "name": "WM_MDINEXT",
+            "value": 548
+        },
+        {
+            "name": "WM_MDIMAXIMIZE",
+            "value": 549
+        },
+        {
+            "name": "WM_MDITILE",
+            "value": 550
+        },
+        {
+            "name": "WM_MDICASCADE",
+            "value": 551
+        },
+        {
+            "name": "WM_MDIICONARRANGE",
+            "value": 552
+        },
+        {
+            "name": "WM_MDIGETACTIVE",
+            "value": 553
+        },
+        {
+            "name": "WM_MDISETMENU",
+            "value": 560
+        },
+        {
+            "name": "WM_ENTERSIZEMOVE",
+            "value": 561
+        },
+        {
+            "name": "WM_EXITSIZEMOVE",
+            "value": 562
+        },
+        {
+            "name": "WM_DROPFILES",
+            "value": 563
+        },
+        {
+            "name": "WM_MDIREFRESHMENU",
+            "value": 564
+        },
+        {
+            "name": "WM_IME_SETCONTEXT",
+            "value": 641
+        },
+        {
+            "name": "WM_IME_NOTIFY",
+            "value": 642
+        },
+        {
+            "name": "WM_IME_CONTROL",
+            "value": 643
+        },
+        {
+            "name": "WM_IME_COMPOSITIONFULL",
+            "value": 644
+        },
+        {
+            "name": "WM_IME_SELECT",
+            "value": 645
+        },
+        {
+            "name": "WM_IME_CHAR",
+            "value": 646
+        },
+        {
+            "name": "WM_IME_REQUEST",
+            "value": 648
+        },
+        {
+            "name": "WM_IME_KEYDOWN",
+            "value": 656
+        },
+        {
+            "name": "WM_IME_KEYUP",
+            "value": 657
+        },
+        {
+            "name": "WM_MOUSEHOVER",
+            "value": 673
+        },
+        {
+            "name": "WM_MOUSELEAVE",
+            "value": 675
+        },
+        {
+            "name": "WM_CUT",
+            "value": 768
+        },
+        {
+            "name": "WM_COPY",
+            "value": 769
+        },
+        {
+            "name": "WM_PASTE",
+            "value": 770
+        },
+        {
+            "name": "WM_CLEAR",
+            "value": 771
+        },
+        {
+            "name": "WM_UNDO",
+            "value": 772
+        },
+        {
+            "name": "WM_RENDERFORMAT",
+            "value": 773
+        },
+        {
+            "name": "WM_RENDERALLFORMATS",
+            "value": 774
+        },
+        {
+            "name": "WM_DESTROYCLIPBOARD",
+            "value": 775
+        },
+        {
+            "name": "WM_DRAWCLIPBOARD",
+            "value": 776
+        },
+        {
+            "name": "WM_PAINTCLIPBOARD",
+            "value": 777
+        },
+        {
+            "name": "WM_VSCROLLCLIPBOARD",
+            "value": 778
+        },
+        {
+            "name": "WM_SIZECLIPBOARD",
+            "value": 779
+        },
+        {
+            "name": "WM_ASKCBFORMATNAME",
+            "value": 780
+        },
+        {
+            "name": "WM_CHANGECBCHAIN",
+            "value": 781
+        },
+        {
+            "name": "WM_HSCROLLCLIPBOARD",
+            "value": 782
+        },
+        {
+            "name": "WM_QUERYNEWPALETTE",
+            "value": 783
+        },
+        {
+            "name": "WM_PALETTEISCHANGING",
+            "value": 784
+        },
+        {
+            "name": "WM_PALETTECHANGED",
+            "value": 785
+        },
+        {
+            "name": "WM_HOTKEY",
+            "value": 786
+        },
+        {
+            "name": "WM_PRINT",
+            "value": 791
+        },
+        {
+            "name": "WM_PRINTCLIENT",
+            "value": 792
+        },
+        {
+            "name": "WM_HANDHELDFIRST",
+            "value": 856
+        },
+        {
+            "name": "WM_HANDHELDLAST",
+            "value": 863
+        },
+        {
+            "name": "WM_AFXFIRST",
+            "value": 864
+        },
+        {
+            "name": "WM_AFXLAST",
+            "value": 895
+        },
+        {
+            "name": "WM_PENWINFIRST",
+            "value": 896
+        },
+        {
+            "name": "WM_PENWINLAST",
+            "value": 911
+        },
+        {
+            "name": "WM_USER",
+            "value": 1024
+        },
+        {
+            "name": "WM_APP",
+            "value": 32768
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "tAudioEnvironment",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": 8,
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_nEnvironment",
+            "type": "unsigned int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "m_nDepth",
+            "type": "signed int",
+            "offset": 4,
+            "size": 4
+        }
+    ]
+}

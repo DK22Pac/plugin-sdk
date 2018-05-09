@@ -1,0 +1,227 @@
+{
+    "name": "CIdleCam",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x9C",
+    "alignment": 2,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_pTargetEntity",
+            "type": "CEntity *",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "field_4",
+            "type": "CVector",
+            "offset": 4,
+            "size": "0xC"
+        },
+        {
+            "name": "dword10",
+            "type": "float",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "field_14",
+            "type": "float",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "field_18",
+            "type": "CVector",
+            "offset": "0x18",
+            "size": "0xC"
+        },
+        {
+            "name": "dword24",
+            "type": "float",
+            "offset": "0x24",
+            "size": 4
+        },
+        {
+            "name": "field_28",
+            "type": "float",
+            "offset": "0x28",
+            "size": 4
+        },
+        {
+            "name": "dword2C",
+            "type": "float",
+            "offset": "0x2C",
+            "size": 4
+        },
+        {
+            "name": "field_30",
+            "type": "int",
+            "offset": "0x30",
+            "size": 4
+        },
+        {
+            "name": "dword34",
+            "type": "float",
+            "offset": "0x34",
+            "size": 4
+        },
+        {
+            "name": "field_38",
+            "type": "float",
+            "offset": "0x38",
+            "size": 4
+        },
+        {
+            "name": "dword3C",
+            "type": "float",
+            "offset": "0x3C",
+            "size": 4
+        },
+        {
+            "name": "field_40",
+            "type": "float",
+            "offset": "0x40",
+            "size": 4
+        },
+        {
+            "name": "field_44",
+            "type": "float",
+            "offset": "0x44",
+            "size": 4
+        },
+        {
+            "name": "field_48",
+            "type": "float",
+            "offset": "0x48",
+            "size": 4
+        },
+        {
+            "name": "field_4C",
+            "type": "float",
+            "offset": "0x4C",
+            "size": 4
+        },
+        {
+            "name": "field_50",
+            "type": "int",
+            "offset": "0x50",
+            "size": 4
+        },
+        {
+            "name": "dword54",
+            "type": "_DWORD",
+            "offset": "0x54",
+            "size": 4
+        },
+        {
+            "name": "dword58",
+            "type": "_DWORD",
+            "offset": "0x58",
+            "size": 4
+        },
+        {
+            "name": "dword5C",
+            "type": "float",
+            "offset": "0x5C",
+            "size": 4
+        },
+        {
+            "name": "dword60",
+            "type": "float",
+            "offset": "0x60",
+            "size": 4
+        },
+        {
+            "name": "dword64",
+            "type": "float",
+            "offset": "0x64",
+            "size": 4
+        },
+        {
+            "name": "field_68",
+            "type": "float",
+            "offset": "0x68",
+            "size": 4
+        },
+        {
+            "name": "field_6C",
+            "type": "float",
+            "offset": "0x6C",
+            "size": 4
+        },
+        {
+            "name": "dword70",
+            "type": "float",
+            "offset": "0x70",
+            "size": 4
+        },
+        {
+            "name": "field_74",
+            "type": "float",
+            "offset": "0x74",
+            "size": 4
+        },
+        {
+            "name": "m_bHasTarget",
+            "type": "_BYTE",
+            "offset": "0x78",
+            "size": 1
+        },
+        {
+            "name": "byte79",
+            "type": "_BYTE",
+            "offset": "0x79",
+            "size": 1
+        },
+        {
+            "name": "field_7C",
+            "type": "float",
+            "offset": "0x7C",
+            "size": 4
+        },
+        {
+            "name": "dword80",
+            "type": "float",
+            "offset": "0x80",
+            "size": 4
+        },
+        {
+            "name": "field_84",
+            "type": "float",
+            "offset": "0x84",
+            "size": 4
+        },
+        {
+            "name": "field_88",
+            "type": "float",
+            "offset": "0x88",
+            "size": 4
+        },
+        {
+            "name": "field_8C",
+            "type": "float",
+            "offset": "0x8C",
+            "size": 4
+        },
+        {
+            "name": "field_90",
+            "type": "int",
+            "offset": "0x90",
+            "size": 4
+        },
+        {
+            "name": "field_94",
+            "type": "int",
+            "offset": "0x94",
+            "size": 4
+        },
+        {
+            "name": "field_98",
+            "type": "int",
+            "offset": "0x98",
+            "size": 4
+        }
+    ]
+}

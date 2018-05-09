@@ -1,0 +1,41 @@
+{
+    "name": "rwIm3DPool",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x3C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "numElements",
+            "type": "__int16",
+            "offset": 0,
+            "size": 2
+        },
+        {
+            "name": "pad",
+            "type": "__int16",
+            "offset": 2,
+            "size": 2
+        },
+        {
+            "name": "elements",
+            "type": "void *",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "stride",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "stash",
+            "type": "_rwIm3DPoolStash",
+            "offset": "0xC",
+            "size": "0x30"
+        }
+    ]
+}

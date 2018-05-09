@@ -1,0 +1,35 @@
+{
+    "name": "_cpinfo",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x14",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "MaxCharSize",
+            "type": "UINT",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "DefaultChar",
+            "type": "BYTE[2]",
+            "offset": 4,
+            "size": 2
+        },
+        {
+            "name": "LeadByte",
+            "type": "BYTE[12]",
+            "offset": 6,
+            "size": "0xC"
+        },
+        {
+            "name": "_padding",
+            "type": "char[2]",
+            "offset": "0x12",
+            "size": 2
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "tEffectParticleStreamData",
+    "module": "",
+    "scope": "",
+    "kind": "struct",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "effectName",
+            "type": "char[24]",
+            "offset": 0,
+            "size": "0x18"
+        }
+    ]
+}

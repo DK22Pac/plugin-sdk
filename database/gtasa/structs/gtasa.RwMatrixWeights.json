@@ -1,0 +1,35 @@
+{
+    "name": "RwMatrixWeights",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x10",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "w0",
+            "type": "float",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "w1",
+            "type": "float",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "w2",
+            "type": "float",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "w3",
+            "type": "float",
+            "offset": "0xC",
+            "size": 4
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "name": "RpTie",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x18",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "lAtomicInWorldSector",
+            "type": "RwLLLink",
+            "offset": 0,
+            "size": 8
+        },
+        {
+            "name": "apAtom",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "lWorldSectorInAtomic",
+            "type": "RwLLLink",
+            "offset": "0xC",
+            "size": 8
+        },
+        {
+            "name": "worldSector",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        }
+    ]
+}

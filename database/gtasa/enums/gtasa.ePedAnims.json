@@ -1,0 +1,777 @@
+{
+    "name": "ePedAnims",
+    "module": "",
+    "scope": "",
+    "width": 0,
+    "isClass": false,
+    "isHexademical": true,
+    "isSigned": false,
+    "isBitfield": false,
+    "comment": "",
+    "members": [
+        {
+            "name": "PED_ANIM_WALK_CIVI",
+            "value": "0x0"
+        },
+        {
+            "name": "PED_ANIM_RUN_CIVI",
+            "value": "0x1"
+        },
+        {
+            "name": "PED_ANIM_SPRINT_PANIC",
+            "value": "0x2"
+        },
+        {
+            "name": "PED_ANIM_IDLE_STANCE",
+            "value": "0x3"
+        },
+        {
+            "name": "PED_ANIM_ROADCROSS",
+            "value": "0x4"
+        },
+        {
+            "name": "PED_ANIM_WALK_START",
+            "value": "0x5"
+        },
+        {
+            "name": "PED_ANIM_RUN_STOP",
+            "value": "0x6"
+        },
+        {
+            "name": "PED_ANIM_RUN_STOPR",
+            "value": "0x7"
+        },
+        {
+            "name": "PED_ANIM_IDLE_HBHB",
+            "value": "0x8"
+        },
+        {
+            "name": "PED_ANIM_IDLE_HBHB_2",
+            "value": "0x9"
+        },
+        {
+            "name": "PED_ANIM_IDLE_TIRED",
+            "value": "0xA"
+        },
+        {
+            "name": "PED_ANIM_IDLE_ARMED",
+            "value": "0xB"
+        },
+        {
+            "name": "PED_ANIM_IDLE_CHAT",
+            "value": "0xC"
+        },
+        {
+            "name": "PED_ANIM_IDLE_TAXI",
+            "value": "0xD"
+        },
+        {
+            "name": "PED_ANIM_SWIM_TREAD",
+            "value": "0xE"
+        },
+        {
+            "name": "PED_ANIM_KO_SHOT_FRONT",
+            "value": "0xF"
+        },
+        {
+            "name": "PED_ANIM_KO_SHOT_FRONT_2",
+            "value": "0x10"
+        },
+        {
+            "name": "PED_ANIM_KO_SHOT_FRONT_3",
+            "value": "0x11"
+        },
+        {
+            "name": "PED_ANIM_KO_SHOT_FRONT_4",
+            "value": "0x12"
+        },
+        {
+            "name": "PED_ANIM_KO_SHOT_FACE",
+            "value": "0x13"
+        },
+        {
+            "name": "PED_ANIM_KO_SHOT_STOM",
+            "value": "0x14"
+        },
+        {
+            "name": "PED_ANIM_GAS_CWR",
+            "value": "0x15"
+        },
+        {
+            "name": "PED_ANIM_KD_LEFT",
+            "value": "0x16"
+        },
+        {
+            "name": "PED_ANIM_KD_RIGHT",
+            "value": "0x17"
+        },
+        {
+            "name": "PED_ANIM_KO_SKID_FRONT",
+            "value": "0x18"
+        },
+        {
+            "name": "PED_ANIM_KO_SPIN_R",
+            "value": "0x19"
+        },
+        {
+            "name": "PED_ANIM_KO_SKID_BACK",
+            "value": "0x1A"
+        },
+        {
+            "name": "PED_ANIM_KO_SPIN_L",
+            "value": "0x1B"
+        },
+        {
+            "name": "PED_ANIM_SHOT_PARTIAL",
+            "value": "0x1C"
+        },
+        {
+            "name": "PED_ANIM_SHOT_LEFTP",
+            "value": "0x1D"
+        },
+        {
+            "name": "PED_ANIM_SHOT_PARTIAL_B",
+            "value": "0x1E"
+        },
+        {
+            "name": "PED_ANIM_SHOT_RIGHTP",
+            "value": "0x1F"
+        },
+        {
+            "name": "PED_ANIM_HIT_FRONT",
+            "value": "0x20"
+        },
+        {
+            "name": "PED_ANIM_HIT_L",
+            "value": "0x21"
+        },
+        {
+            "name": "PED_ANIM_HIT_BACK",
+            "value": "0x22"
+        },
+        {
+            "name": "PED_ANIM_HIT_R",
+            "value": "0x23"
+        },
+        {
+            "name": "PED_ANIM_FLOOR_HIT",
+            "value": "0x24"
+        },
+        {
+            "name": "PED_ANIM_HIT_WALK",
+            "value": "0x25"
+        },
+        {
+            "name": "PED_ANIM_HIT_WALL",
+            "value": "0x26"
+        },
+        {
+            "name": "PED_ANIM_FLOOR_HIT_F",
+            "value": "0x27"
+        },
+        {
+            "name": "PED_ANIM_HIT_BEHIND",
+            "value": "0x28"
+        },
+        {
+            "name": "PED_ANIM_FIGHTSH_FWD",
+            "value": "0x29"
+        },
+        {
+            "name": "PED_ANIM_FIGHTSH_LEFT",
+            "value": "0x2A"
+        },
+        {
+            "name": "PED_ANIM_FIGHTSH_BWD",
+            "value": "0x2B"
+        },
+        {
+            "name": "PED_ANIM_FIGHTSH_RIGHT",
+            "value": "0x2C"
+        },
+        {
+            "name": "PED_ANIM_FIGHTSHF",
+            "value": "0x2D"
+        },
+        {
+            "name": "PED_ANIM_FIGHTSHB",
+            "value": "0x2E"
+        },
+        {
+            "name": "PED_ANIM_FIGHT2IDLE",
+            "value": "0x2F"
+        },
+        {
+            "name": "PED_ANIM_BOMBER",
+            "value": "0x30"
+        },
+        {
+            "name": "PED_ANIM_GUN_STAND",
+            "value": "0x31"
+        },
+        {
+            "name": "PED_ANIM_GUNMOVE_FWD",
+            "value": "0x32"
+        },
+        {
+            "name": "PED_ANIM_GUNMOVE_L",
+            "value": "0x33"
+        },
+        {
+            "name": "PED_ANIM_GUNMOVE_BWD",
+            "value": "0x34"
+        },
+        {
+            "name": "PED_ANIM_GUNMOVE_R",
+            "value": "0x35"
+        },
+        {
+            "name": "PED_ANIM_GUN_2_IDLE",
+            "value": "0x36"
+        },
+        {
+            "name": "PED_ANIM_WEAPON_CROUCH",
+            "value": "0x37"
+        },
+        {
+            "name": "PED_ANIM_GUNCROUCHFWD",
+            "value": "0x38"
+        },
+        {
+            "name": "PED_ANIM_CROUCH_ROLL_L",
+            "value": "0x39"
+        },
+        {
+            "name": "PED_ANIM_GUNCROUCHBWD",
+            "value": "0x3A"
+        },
+        {
+            "name": "PED_ANIM_CROUCH_ROLL_R",
+            "value": "0x3B"
+        },
+        {
+            "name": "PED_ANIM_CAR_SIT",
+            "value": "0x3C"
+        },
+        {
+            "name": "PED_ANIM_CAR_LSIT",
+            "value": "0x3D"
+        },
+        {
+            "name": "PED_ANIM_CAR_SIT_WEAK",
+            "value": "0x3E"
+        },
+        {
+            "name": "PED_ANIM_CAR_SIT_PRO",
+            "value": "0x3F"
+        },
+        {
+            "name": "PED_ANIM_CAR_SITP",
+            "value": "0x40"
+        },
+        {
+            "name": "PED_ANIM_CAR_SITPLO",
+            "value": "0x41"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_L",
+            "value": "0x42"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_R",
+            "value": "0x43"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_LO_L",
+            "value": "0x44"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_LO_R",
+            "value": "0x45"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_L_WEAK",
+            "value": "0x46"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_R_WEAK",
+            "value": "0x47"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_L_PRO",
+            "value": "0x48"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_R_PRO",
+            "value": "0x49"
+        },
+        {
+            "name": "PED_ANIM_DRIVEBY_L",
+            "value": "0x4A"
+        },
+        {
+            "name": "PED_ANIM_DRIVEBY_R",
+            "value": "0x4B"
+        },
+        {
+            "name": "PED_ANIM_DRIVEBYL_L",
+            "value": "0x4C"
+        },
+        {
+            "name": "PED_ANIM_DRIVEBYL_R",
+            "value": "0x4D"
+        },
+        {
+            "name": "PED_ANIM_CAR_LB",
+            "value": "0x4E"
+        },
+        {
+            "name": "PED_ANIM_CAR_LB_WEAK",
+            "value": "0x4F"
+        },
+        {
+            "name": "PED_ANIM_CAR_LB_PRO",
+            "value": "0x50"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_BOAT",
+            "value": "0x51"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_BOAT_L",
+            "value": "0x52"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_BOAT_R",
+            "value": "0x53"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_BOAT_BACK",
+            "value": "0x54"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_L_SLOW",
+            "value": "0x55"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_R_SLOW",
+            "value": "0x56"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_L_WEAK_SLOW",
+            "value": "0x57"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_R_WEAK_SLOW",
+            "value": "0x58"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_L_PRO_SLOW",
+            "value": "0x59"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_R_PRO_SLOW",
+            "value": "0x5A"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_TRUCK",
+            "value": "0x5B"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_TRUCK_L",
+            "value": "0x5C"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_TRUCK_R",
+            "value": "0x5D"
+        },
+        {
+            "name": "PED_ANIM_DRIVE_TRUCK_BACK",
+            "value": "0x5E"
+        },
+        {
+            "name": "PED_ANIM_KART_DRIVE",
+            "value": "0x5F"
+        },
+        {
+            "name": "PED_ANIM_KART_L",
+            "value": "0x60"
+        },
+        {
+            "name": "PED_ANIM_KART_R",
+            "value": "0x61"
+        },
+        {
+            "name": "PED_ANIM_KART_LB",
+            "value": "0x62"
+        },
+        {
+            "name": "PED_ANIM_BIKE_PICKUPR",
+            "value": "0x63"
+        },
+        {
+            "name": "PED_ANIM_BIKE_PICKUPL",
+            "value": "0x64"
+        },
+        {
+            "name": "PED_ANIM_BIKE_PULLUPR",
+            "value": "0x65"
+        },
+        {
+            "name": "PED_ANIM_BIKE_PULLUPL",
+            "value": "0x66"
+        },
+        {
+            "name": "PED_ANIM_BIKE_ELBOWL",
+            "value": "0x67"
+        },
+        {
+            "name": "PED_ANIM_BIKE_ELBOWR",
+            "value": "0x68"
+        },
+        {
+            "name": "PED_ANIM_BIKE_FALL_OFF",
+            "value": "0x69"
+        },
+        {
+            "name": "PED_ANIM_BIKE_FALLR",
+            "value": "0x6A"
+        },
+        {
+            "name": "PED_ANIM_CAR_HOOKERTALK",
+            "value": "0x6B"
+        },
+        {
+            "name": "PED_ANIM_CAR_CRAWLOUTRHS",
+            "value": "0x6C"
+        },
+        {
+            "name": "PED_ANIM_CAR_CRAWLOUTRHS_2",
+            "value": "0x6D"
+        },
+        {
+            "name": "PED_ANIM_CAR_ROLLOUT_LHS",
+            "value": "0x6E"
+        },
+        {
+            "name": "PED_ANIM_CAR_ROLLOUT_RHS",
+            "value": "0x6F"
+        },
+        {
+            "name": "PED_ANIM_GETUP",
+            "value": "0x70"
+        },
+        {
+            "name": "PED_ANIM_GETUP_2",
+            "value": "0x71"
+        },
+        {
+            "name": "PED_ANIM_GETUP_3",
+            "value": "0x72"
+        },
+        {
+            "name": "PED_ANIM_GETUP_FRONT",
+            "value": "0x73"
+        },
+        {
+            "name": "PED_ANIM_JUMP_LAUNCH",
+            "value": "0x74"
+        },
+        {
+            "name": "PED_ANIM_JUMP_LAUNCH_R",
+            "value": "0x75"
+        },
+        {
+            "name": "PED_ANIM_JUMP_GLIDE",
+            "value": "0x76"
+        },
+        {
+            "name": "PED_ANIM_JUMP_LAND",
+            "value": "0x77"
+        },
+        {
+            "name": "PED_ANIM_FALL_FALL",
+            "value": "0x78"
+        },
+        {
+            "name": "PED_ANIM_FALL_GLIDE",
+            "value": "0x79"
+        },
+        {
+            "name": "PED_ANIM_FALL_LAND",
+            "value": "0x7A"
+        },
+        {
+            "name": "PED_ANIM_FALL_COLLAPSE",
+            "value": "0x7B"
+        },
+        {
+            "name": "PED_ANIM_FALL_BACK",
+            "value": "0x7C"
+        },
+        {
+            "name": "PED_ANIM_FALL_FRONT",
+            "value": "0x7D"
+        },
+        {
+            "name": "PED_ANIM_EV_STEP",
+            "value": "0x7E"
+        },
+        {
+            "name": "PED_ANIM_EV_DIVE",
+            "value": "0x7F"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_JUMP",
+            "value": "0x80"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_IDLE",
+            "value": "0x81"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_PULL",
+            "value": "0x82"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_STAND",
+            "value": "0x83"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_STAND_FINISH",
+            "value": "0x84"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_JUMP_B",
+            "value": "0x85"
+        },
+        {
+            "name": "PED_ANIM_CLIMB_JUMP2FALL",
+            "value": "0x86"
+        },
+        {
+            "name": "PED_ANIM_XPRESSSCRATCH",
+            "value": "0x87"
+        },
+        {
+            "name": "PED_ANIM_TURN_180",
+            "value": "0x88"
+        },
+        {
+            "name": "PED_ANIM_TURN_L",
+            "value": "0x89"
+        },
+        {
+            "name": "PED_ANIM_TURN_R",
+            "value": "0x8A"
+        },
+        {
+            "name": "PED_ANIM_ARRESTGUN",
+            "value": "0x8B"
+        },
+        {
+            "name": "PED_ANIM_DROWN",
+            "value": "0x8C"
+        },
+        {
+            "name": "PED_ANIM_DUCK_COWER",
+            "value": "0x8D"
+        },
+        {
+            "name": "PED_ANIM_HANDSUP",
+            "value": "0x8E"
+        },
+        {
+            "name": "PED_ANIM_HANDSCOWER",
+            "value": "0x8F"
+        },
+        {
+            "name": "PED_ANIM_FUCKU",
+            "value": "0x90"
+        },
+        {
+            "name": "PED_ANIM_PHONE_IN",
+            "value": "0x91"
+        },
+        {
+            "name": "PED_ANIM_PHONE_OUT",
+            "value": "0x92"
+        },
+        {
+            "name": "PED_ANIM_PHONE_TALK",
+            "value": "0x93"
+        },
+        {
+            "name": "PED_ANIM_SEAT_DOWN",
+            "value": "0x94"
+        },
+        {
+            "name": "PED_ANIM_SEAT_UP",
+            "value": "0x95"
+        },
+        {
+            "name": "PED_ANIM_SEAT_IDLE",
+            "value": "0x96"
+        },
+        {
+            "name": "PED_ANIM_ATM",
+            "value": "0x97"
+        },
+        {
+            "name": "PED_ANIM_ABSEIL",
+            "value": "0x98"
+        },
+        {
+            "name": "PED_ANIM_WALK_DOORPARTIAL",
+            "value": "0x99"
+        },
+        {
+            "name": "PED_ANIM_FACSURP",
+            "value": "0x9A"
+        },
+        {
+            "name": "PED_ANIM_FACSURPM",
+            "value": "0x9B"
+        },
+        {
+            "name": "PED_ANIM_FACURIOS",
+            "value": "0x9C"
+        },
+        {
+            "name": "PED_ANIM_FACANGER",
+            "value": "0x9D"
+        },
+        {
+            "name": "PED_ANIM_FACANGER_2",
+            "value": "0x9E"
+        },
+        {
+            "name": "PED_ANIM_FACANGER_3",
+            "value": "0x9F"
+        },
+        {
+            "name": "PED_ANIM_FACTALK",
+            "value": "0xA0"
+        },
+        {
+            "name": "PED_ANIM_FACGUM",
+            "value": "0xA1"
+        },
+        {
+            "name": "PED_ANIM_TAP_HAND",
+            "value": "0xA2"
+        },
+        {
+            "name": "PED_ANIM_TAP_HANDP",
+            "value": "0xA3"
+        },
+        {
+            "name": "PED_ANIM_SHOVE_PARTIAL",
+            "value": "0xA4"
+        },
+        {
+            "name": "PED_ANIM_FLEE_LKAROUND_01",
+            "value": "0xA5"
+        },
+        {
+            "name": "PED_ANIM_ENDCHAT_01",
+            "value": "0xA6"
+        },
+        {
+            "name": "PED_ANIM_ENDCHAT_02",
+            "value": "0xA7"
+        },
+        {
+            "name": "PED_ANIM_ENDCHAT_03",
+            "value": "0xA8"
+        },
+        {
+            "name": "PED_ANIM_SMOKE_IN_CAR",
+            "value": "0xA9"
+        },
+        {
+            "name": "PED_ANIM_PASS_SMOKE_IN_CAR",
+            "value": "0xAA"
+        },
+        {
+            "name": "PED_ANIM_DAM_ARML_FRMBK",
+            "value": "0xAB"
+        },
+        {
+            "name": "PED_ANIM_DAM_ARML_FRMFT",
+            "value": "0xAC"
+        },
+        {
+            "name": "PED_ANIM_DAM_ARML_FRMLT",
+            "value": "0xAD"
+        },
+        {
+            "name": "PED_ANIM_DAM_ARMR_FRMBK",
+            "value": "0xAE"
+        },
+        {
+            "name": "PED_ANIM_DAM_ARMR_FRMFT",
+            "value": "0xAF"
+        },
+        {
+            "name": "PED_ANIM_DAM_ARMR_FRMRT",
+            "value": "0xB0"
+        },
+        {
+            "name": "PED_ANIM_DAM_LEGL_FRMBK",
+            "value": "0xB1"
+        },
+        {
+            "name": "PED_ANIM_DAM_LEGL_FRMFT",
+            "value": "0xB2"
+        },
+        {
+            "name": "PED_ANIM_DAM_LEGL_FRMLT",
+            "value": "0xB3"
+        },
+        {
+            "name": "PED_ANIM_DAM_LEGR_FRMBK",
+            "value": "0xB4"
+        },
+        {
+            "name": "PED_ANIM_DAM_LEGR_FRMFT",
+            "value": "0xB5"
+        },
+        {
+            "name": "PED_ANIM_DAM_LEGR_FRMRT",
+            "value": "0xB6"
+        },
+        {
+            "name": "PED_ANIM_DAM_STOMACH_FRMBK",
+            "value": "0xB7"
+        },
+        {
+            "name": "PED_ANIM_DAM_STOMACH_FRMFT",
+            "value": "0xB8"
+        },
+        {
+            "name": "PED_ANIM_DAM_STOMACH_FRMLT",
+            "value": "0xB9"
+        },
+        {
+            "name": "PED_ANIM_DAM_STOMACH_FRMRT",
+            "value": "0xBA"
+        },
+        {
+            "name": "PED_ANIM_CAR_DEAD_LHS",
+            "value": "0xBB"
+        },
+        {
+            "name": "PED_ANIM_CAR_DEAD_RHS",
+            "value": "0xBC"
+        },
+        {
+            "name": "PED_ANIM_CAR_TUNE_RADIO",
+            "value": "0xBD"
+        },
+        {
+            "name": "PED_ANIM_GANG_GUNSTAND",
+            "value": "0xBE"
+        }
+    ]
+}

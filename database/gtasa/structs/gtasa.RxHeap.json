@@ -1,0 +1,53 @@
+{
+    "name": "RxHeap",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0x1C",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "superBlockSize",
+            "type": "int",
+            "offset": 0,
+            "size": 4
+        },
+        {
+            "name": "head",
+            "type": "int",
+            "offset": 4,
+            "size": 4
+        },
+        {
+            "name": "headBlocks",
+            "type": "int",
+            "offset": 8,
+            "size": 4
+        },
+        {
+            "name": "freeBlocks",
+            "type": "int",
+            "offset": "0xC",
+            "size": 4
+        },
+        {
+            "name": "entriesAlloced",
+            "type": "int",
+            "offset": "0x10",
+            "size": 4
+        },
+        {
+            "name": "entriesUsed",
+            "type": "int",
+            "offset": "0x14",
+            "size": 4
+        },
+        {
+            "name": "dirty",
+            "type": "int",
+            "offset": "0x18",
+            "size": 4
+        }
+    ]
+}

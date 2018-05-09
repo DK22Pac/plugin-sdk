@@ -1,0 +1,23 @@
+{
+    "name": "CSpecialPlateHandler",
+    "module": "",
+    "scope": "",
+    "kind": "class",
+    "size": "0xF4",
+    "alignment": 0,
+    "comment": "",
+    "members": [
+        {
+            "name": "m_plateTextEntries",
+            "type": "tCarGenPlateText[15]",
+            "offset": 0,
+            "size": "0xF0"
+        },
+        {
+            "name": "m_nCount",
+            "type": "int",
+            "offset": "0xF0",
+            "size": 4
+        }
+    ]
+}
