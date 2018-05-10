@@ -14,15 +14,6 @@
 #include "CBuilding.h"
 #include "CSprite2d.h"
 
-union tScriptParam
-{
-    unsigned int uParam;
-    int iParam;
-    float fParam;
-    void *pParam;
-    char *szParam;
-};
-
 struct tBuildingSwap
 {
     CBuilding *m_pCBuilding;
@@ -234,8 +225,8 @@ public:
     SUPPORTED_10US static CStreamedScripts &StreamedScripts;
     SUPPORTED_10US static CScriptResourceManager &ScriptResourceManager;
     SUPPORTED_10US static CUpsideDownCarCheck *UpsideDownCars; // static CUpsideDownCarCheck UpsideDownCars[6]
-    SUPPORTED_10US static tScriptVarValue *LocalVariablesForCurrentMission; // static ScriptVar LocalVariablesForCurrentMission[1024]
-                                                                      //! // Script space, where main.scm MAIN section is loaded.
+    SUPPORTED_10US static tScriptParam *LocalVariablesForCurrentMission; // static ScriptVar LocalVariablesForCurrentMission[1024]
+    //! Script space, where main.scm MAIN section is loaded.
     SUPPORTED_10US static char *ScriptSpace; // static char ScriptSpace[200000]
     SUPPORTED_10US static char *MissionBlock; // static char MissionBlock[69000]
     SUPPORTED_10US static CRunningScript *&pIdleScripts;

@@ -102,7 +102,7 @@ enum eScriptArgumentType {
     SCRIPTARG_LOCAL_LONG_STRING_ARRAY,
 };
 
-union tScriptVarValue {
+union tScriptParam {
     unsigned int uParam;
     int iParam;
     float fParam;
@@ -110,7 +110,7 @@ union tScriptVarValue {
     char *szParam;
 };
 
-VALIDATE_SIZE(tScriptVarValue, 0x4);
+VALIDATE_SIZE(tScriptParam, 0x4);
 
 class PLUGIN_API CRunningScript {
 public:
@@ -124,7 +124,7 @@ public:
 private:
     char _pad3A[2];
 public:
-    tScriptVarValue	m_aLocalVars[32];
+    tScriptParam	m_aLocalVars[32];
     int             m_anTimers[2];
     bool            m_bIsActive;
     bool            m_bCondResult;
@@ -169,13 +169,13 @@ public:
     short GetIndexOfGlobalVariable();
 
     // Returns pointer to script variable of any type.
-    tScriptVarValue* GetPointerToScriptVariable(unsigned char variableType);
+    tScriptParam* GetPointerToScriptVariable(unsigned char variableType);
 
     // Collects parameters
     void CollectParameters(short count);
 
     // Collects parameter and returns it.
-    tScriptVarValue CollectNextParameterWithoutIncreasingPC();
+    tScriptParam CollectNextParameterWithoutIncreasingPC();
 
     // Collects string parameter
     void ReadTextLabelFromScript(char *pBuffer, unsigned char nBufferLength);

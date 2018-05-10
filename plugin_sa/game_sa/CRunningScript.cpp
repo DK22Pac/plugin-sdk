@@ -31,9 +31,9 @@ short CRunningScript::GetIndexOfGlobalVariable()
 }
 
 // Returns pointer to script variable of any type.
-tScriptVarValue* CRunningScript::GetPointerToScriptVariable(unsigned char variableType)
+tScriptParam* CRunningScript::GetPointerToScriptVariable(unsigned char variableType)
 {
-    return ((tScriptVarValue* (__thiscall*)(CRunningScript*, unsigned char)) FUNC_CRunningScript__GetPointerToScriptVariable)(this, variableType);
+    return ((tScriptParam* (__thiscall*)(CRunningScript*, unsigned char)) FUNC_CRunningScript__GetPointerToScriptVariable)(this, variableType);
 }
 
 // Returns condition result
@@ -55,9 +55,9 @@ void CRunningScript::CollectParameters(short count)
 }
 
 // Collects parameter and returns it.
-tScriptVarValue CRunningScript::CollectNextParameterWithoutIncreasingPC()
+tScriptParam CRunningScript::CollectNextParameterWithoutIncreasingPC()
 {
-    return ((tScriptVarValue(__thiscall*)(CRunningScript*))FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC)(this);
+    return ((tScriptParam(__thiscall*)(CRunningScript*))FUNC_CRunningScript__CollectNextParameterWithoutIncreasingPC)(this);
 }
 
 // Collects string parameter
