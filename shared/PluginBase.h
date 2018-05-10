@@ -350,8 +350,8 @@ template<> struct vtable_meta<className> {\
 
 #define PLUGIN_NO_DEFAULT_CONSTRUCTION(className) \
     className() = delete;\
-    className& className(className const &) = delete;\
-    className& className(className &&) = delete;\
+    className(className const &) = delete;\
+    className(className &&) = delete;\
     ~className() = delete;\
     className &operator=(className &&) = delete;
 

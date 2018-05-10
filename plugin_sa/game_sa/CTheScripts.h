@@ -13,6 +13,11 @@
 #include "CMissionCleanup.h"
 #include "CBuilding.h"
 #include "CSprite2d.h"
+#include "CStreamedScripts.h"
+#include "CScriptResourceManager.h"
+#include "CStuckCarCheck.h"
+#include "CUpsideDownCarCheck.h"
+#include "CScriptsForBrains.h"
 
 struct tBuildingSwap
 {
@@ -145,13 +150,6 @@ struct tScriptSphere
 };
 
 
-class CStreamedScripts;
-class CScriptResourceManager;
-class CStuckCarCheck;
-class CUpsideDownCarCheck;
-class CScriptsForBrains;
-
-
 
 class PLUGIN_API CTheScripts
 {
@@ -224,7 +222,7 @@ public:
     SUPPORTED_10US static CEntity *&EntitiesWaitingForScriptBrain;
     SUPPORTED_10US static CStreamedScripts &StreamedScripts;
     SUPPORTED_10US static CScriptResourceManager &ScriptResourceManager;
-    SUPPORTED_10US static CUpsideDownCarCheck *UpsideDownCars; // static CUpsideDownCarCheck UpsideDownCars[6]
+    SUPPORTED_10US static CUpsideDownCarCheck &UpsideDownCars;
     SUPPORTED_10US static tScriptParam *LocalVariablesForCurrentMission; // static ScriptVar LocalVariablesForCurrentMission[1024]
     //! Script space, where main.scm MAIN section is loaded.
     SUPPORTED_10US static char *ScriptSpace; // static char ScriptSpace[200000]
@@ -234,8 +232,8 @@ public:
     SUPPORTED_10US static CRunningScript *ScriptsArray; // static CRunningScript ScriptsArray[96]
     SUPPORTED_10US static unsigned short &NumberOfScriptSearchLights;
     SUPPORTED_10US static CMissionCleanup &MissionCleanUp;
-    SUPPORTED_10US static CStuckCarCheck *StuckCars; // static CStuckCarCheck StuckCars[16]
-    SUPPORTED_10US static CScriptsForBrains *ScriptsForBrains; // static CScriptsForBrains ScriptsForBrains[70]
+    SUPPORTED_10US static CStuckCarCheck &StuckCars;
+    SUPPORTED_10US static CScriptsForBrains &ScriptsForBrains;
     SUPPORTED_10US static tScriptSphere *ScriptSphereArray; // static CScriptSphere ScriptSphereArray[16]
     SUPPORTED_10US static tScriptText *IntroTextLines; // static tScriptText IntroTextLines[96]
     SUPPORTED_10US static tScriptRectangle *IntroRectangles; // static tScriptRectangle IntroRectangles[128]
