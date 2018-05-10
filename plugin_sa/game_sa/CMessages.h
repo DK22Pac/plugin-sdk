@@ -75,9 +75,9 @@ public:
 	static void AddMessageWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief);
 	// Adds message with numbers and shows it instantly
 	static void AddMessageJumpQWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief);
-	// Adds big message with numbers and shows it instantly
+	// Adds big message with numbers and shows it instantly , see eMessageStyle
 	static void AddBigMessageWithNumber(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
-	// Adds big message with numbers to queue
+	// Adds big message with numbers to queue , see eMessageStyle
 	static void AddBigMessageWithNumberQ(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
 	// Adds message with string to queue
 	static void AddMessageWithString(char *text, unsigned int time, unsigned short flag, char *string, char bPreviousBrief);
@@ -87,8 +87,8 @@ public:
 	static void ClearThisPrint(char *text);
 	// Removes big message with this text
 	static void ClearThisBigPrint(char *text);
-	// Removes first big message in messages stack
-	static void ClearThisPrintBigNow(eMessageStyle style);
+	// Removes first big message in messages stack , see eMessageStyle
+	static void ClearThisPrintBigNow(unsigned short style);
 	// Initialises messages
 	static void Init(bool flag);
 	// Removes all displayed messages
@@ -101,8 +101,8 @@ public:
 	static void AddMessage(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief);
 	// Adds message and shows it instantly
 	static void AddMessageJumpQ(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief);
-	// Adds big message and shows it instantly
+	// Adds big message and shows it instantly , see eMessageStyle
 	static void AddBigMessage(char *text, unsigned int time, unsigned short style);
-	// Adds big message to queue
+	// Adds big message to queue , see eMessageStyle
 	static void AddBigMessageQ(char *text, unsigned int time, unsigned short style);
 };
