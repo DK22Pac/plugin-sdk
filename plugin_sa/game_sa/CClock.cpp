@@ -6,107 +6,83 @@
 */
 #include "CClock.h"
 
-#define VAR_CClock__bClockHasBeenStored 0xB70144
-#define VAR_CClock__ms_Stored_nGameClockSeconds 0xB70148
-#define VAR_CClock__ms_Stored_nGameClockMinutes 0xB7014A
-#define VAR_CClock__ms_Stored_nGameClockHours 0xB7014B
-#define VAR_CClock__ms_Stored_nGameClockMonthDay 0xB7014C
-#define VAR_CClock__ms_Stored_nGameClockMonth 0xB7014D
+PLUGIN_SOURCE_FILE
 
-#define VAR_CClock__ms_nGameClockDayOfWeek 0xB7014E
-#define VAR_CClock__ms_nGameClockSeconds 0xB70150
-#define VAR_CClock__ms_nGameClockMinutes 0x0B70152
-#define VAR_CClock__ms_nGameClockHours 0xB70153
-#define VAR_CClock__ms_nGameClockMonthDay 0xB70154
-#define VAR_CClock__ms_nGameClockMonth 0xB70155
-#define VAR_CClock__ms_nLastClockTick 0xB70158
+unsigned char *CClock::daysInMonth = reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0x8CCF24, 0, 0, 0, 0, 0));
+bool &CClock::bClockHasBeenStored = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xB70144, 0, 0, 0, 0, 0));
+unsigned short &CClock::ms_Stored_nGameClockSeconds = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xB70148, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_Stored_nGameClockMinutes = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB7014A, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_Stored_nGameClockHours = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB7014B, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_Stored_nGameClockDays = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB7014C, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_Stored_nGameClockMonths = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB7014D, 0, 0, 0, 0, 0));
+unsigned char &CClock::CurrentDay = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB7014E, 0, 0, 0, 0, 0));
+unsigned short &CClock::ms_nGameClockSeconds = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xB70150, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_nGameClockMinutes = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB70152, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_nGameClockHours = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB70153, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_nGameClockDays = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB70154, 0, 0, 0, 0, 0));
+unsigned char &CClock::ms_nGameClockMonth = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB70155, 0, 0, 0, 0, 0));
+unsigned int &CClock::ms_nLastClockTick = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xB70158, 0, 0, 0, 0, 0));
+unsigned int &CClock::ms_nMillisecondsPerGameMinute = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xB7015C, 0, 0, 0, 0, 0));
 
-#define FUNC_CClock__GetIsTimeInRange 0x52CEE0
-#define FUNC_CClock__GetGameClockMinutesUntil 0x52CEB0
-#define FUNC_CClock__Initialise 0x52CD90
-#define FUNC_CClock__Update 0x52CF10
-#define FUNC_CClock__NormaliseGameClock 0x52CDE0
-#define FUNC_CClock__StoreClock 0x52D020
-#define FUNC_CClock__RestoreClock 0x52D070
-#define FUNC_CClock__SetNewDay 0x52D0B0
-#define FUNC_CClock__SetGameClock 0x52D150
+int addrof(CClock::GetGameClockMinutesUntil) = ADDRESS_BY_VERSION(0x52CEB0, 0, 0, 0, 0, 0);
+int gaddrof(CClock::GetGameClockMinutesUntil) = GLOBAL_ADDRESS_BY_VERSION(0x52CEB0, 0, 0, 0, 0, 0);
 
-// Stored clock
-bool& CClock::bClockHasBeenStored = *(bool*)VAR_CClock__bClockHasBeenStored;
-
-unsigned short& CClock::ms_Stored_nGameClockSeconds = *(unsigned short*)VAR_CClock__ms_Stored_nGameClockSeconds;
-unsigned char& CClock::ms_Stored_nGameClockMinutes = *(unsigned char*)VAR_CClock__ms_Stored_nGameClockMinutes;
-unsigned char& CClock::ms_Stored_nGameClockHours = *(unsigned char*)VAR_CClock__ms_Stored_nGameClockHours;
-unsigned char& CClock::ms_Stored_nGameClockMonthDay = *(unsigned char*)VAR_CClock__ms_Stored_nGameClockMonthDay;
-unsigned char& CClock::ms_Stored_nGameClockMonth = *(unsigned char*)VAR_CClock__ms_Stored_nGameClockMonth;
-
-// Current clock
-unsigned char& CClock::ms_nGameClockDayOfWeek = *(unsigned char*)VAR_CClock__ms_nGameClockDayOfWeek;
-unsigned short& CClock::ms_nGameClockSeconds = *(unsigned short*)VAR_CClock__ms_nGameClockSeconds;
-unsigned char& CClock::ms_nGameClockMinutes = *(unsigned char*)VAR_CClock__ms_nGameClockMinutes;
-unsigned char& CClock::ms_nGameClockHours = *(unsigned char*)VAR_CClock__ms_nGameClockHours;
-unsigned char& CClock::ms_nGameClockDays = *(unsigned char*)VAR_CClock__ms_nGameClockMonthDay;
-unsigned char& CClock::ms_nGameClockMonth = *(unsigned char*)VAR_CClock__ms_nGameClockMonth;
-
-unsigned int& CClock::ms_nLastClockTick = *(unsigned int*)VAR_CClock__ms_nLastClockTick;
-
-unsigned int &CClock::ms_nMillisecondsPerGameMinute = *(unsigned int *)0xB7015C;
-
-unsigned char *CClock::daysInMonth = (unsigned char *)0x8CCF24;
-
-// Returns true current hour is in range of two specified hours.
-bool CClock::GetIsTimeInRange(unsigned char hourA, unsigned char hourB)
-{
-    return plugin::CallAndReturn <bool, FUNC_CClock__GetIsTimeInRange, unsigned char, unsigned char>(hourA, hourB);
+unsigned short CClock::GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes) {
+    return plugin::CallAndReturnDynGlobal<unsigned short, unsigned char, unsigned char>(gaddrof(CClock::GetGameClockMinutesUntil), hours, minutes);
 }
 
-// Returns number of minutes to specified hour & minute.
-unsigned short CClock::GetGameClockMinutesUntil(unsigned char hours, unsigned char minutes)
-{
-    return plugin::CallAndReturn <unsigned short, FUNC_CClock__GetGameClockMinutesUntil, unsigned char, unsigned char>(hours, minutes);
+int addrof(CClock::GetIsTimeInRange) = ADDRESS_BY_VERSION(0x52CEE0, 0, 0, 0, 0, 0);
+int gaddrof(CClock::GetIsTimeInRange) = GLOBAL_ADDRESS_BY_VERSION(0x52CEE0, 0, 0, 0, 0, 0);
+
+bool CClock::GetIsTimeInRange(unsigned char hourA, unsigned char hourB) {
+    return plugin::CallAndReturnDynGlobal<bool, unsigned char, unsigned char>(gaddrof(CClock::GetIsTimeInRange), hourA, hourB);
 }
 
-// Initializes clock
-void CClock::Initialise(unsigned int milisecondsPerGameMinute)
-{
-    plugin::Call <FUNC_CClock__Initialise, unsigned int>(milisecondsPerGameMinute);
+int addrof(CClock::Initialise) = ADDRESS_BY_VERSION(0x52CD90, 0, 0, 0, 0, 0);
+int gaddrof(CClock::Initialise) = GLOBAL_ADDRESS_BY_VERSION(0x52CD90, 0, 0, 0, 0, 0);
+
+void CClock::Initialise(unsigned int milisecondsPerGameMinute) {
+    plugin::CallDynGlobal<unsigned int>(gaddrof(CClock::Initialise), milisecondsPerGameMinute);
 }
 
-// Updates a time
-void CClock::Update()
-{
-    plugin::Call <FUNC_CClock__Update>();
+int addrof(CClock::NormaliseGameClock) = ADDRESS_BY_VERSION(0x52CDE0, 0, 0, 0, 0, 0);
+int gaddrof(CClock::NormaliseGameClock) = GLOBAL_ADDRESS_BY_VERSION(0x52CDE0, 0, 0, 0, 0, 0);
+
+void CClock::NormaliseGameClock() {
+    plugin::CallDynGlobal(gaddrof(CClock::NormaliseGameClock));
 }
 
-// Normalizes game clock
-// For example hour of 24 means new day and hour 1.
-void CClock::NormaliseGameClock()
-{
-    plugin::Call <FUNC_CClock__NormaliseGameClock>();
+int addrof(CClock::OffsetClockByADay) = ADDRESS_BY_VERSION(0x52D0B0, 0, 0, 0, 0, 0);
+int gaddrof(CClock::OffsetClockByADay) = GLOBAL_ADDRESS_BY_VERSION(0x52D0B0, 0, 0, 0, 0, 0);
+
+void CClock::OffsetClockByADay(unsigned int timeDirection) {
+    plugin::CallDynGlobal<unsigned int>(gaddrof(CClock::OffsetClockByADay), timeDirection);
 }
 
-// Backups a clock time
-void CClock::StoreClock()
-{
-    plugin::Call <FUNC_CClock__StoreClock>();
+int addrof(CClock::RestoreClock) = ADDRESS_BY_VERSION(0x52D070, 0, 0, 0, 0, 0);
+int gaddrof(CClock::RestoreClock) = GLOBAL_ADDRESS_BY_VERSION(0x52D070, 0, 0, 0, 0, 0);
+
+void CClock::RestoreClock() {
+    plugin::CallDynGlobal(gaddrof(CClock::RestoreClock));
 }
 
+int addrof(CClock::SetGameClock) = ADDRESS_BY_VERSION(0x52D150, 0, 0, 0, 0, 0);
+int gaddrof(CClock::SetGameClock) = GLOBAL_ADDRESS_BY_VERSION(0x52D150, 0, 0, 0, 0, 0);
 
-// Restores a clock time
-void CClock::RestoreClock()
-{
-    plugin::Call <FUNC_CClock__RestoreClock>();
+void CClock::SetGameClock(unsigned char hours, unsigned char minutes, unsigned char day) {
+    plugin::CallDynGlobal<unsigned char, unsigned char, unsigned char>(gaddrof(CClock::SetGameClock), hours, minutes, day);
 }
 
-// Sets new day
-// Directions (0 = one day backwards, 1 = one day forwards)
-void CClock::SetNewDay(bool timeDirection)
-{
-    plugin::Call <FUNC_CClock__SetNewDay, bool>(timeDirection);
+int addrof(CClock::StoreClock) = ADDRESS_BY_VERSION(0x52D020, 0, 0, 0, 0, 0);
+int gaddrof(CClock::StoreClock) = GLOBAL_ADDRESS_BY_VERSION(0x52D020, 0, 0, 0, 0, 0);
+
+void CClock::StoreClock() {
+    plugin::CallDynGlobal(gaddrof(CClock::StoreClock));
 }
 
-// Sets game clock
-void CClock::SetGameClock(unsigned char hours, unsigned char minutes, unsigned char day)
-{
-    plugin::Call <FUNC_CClock__SetGameClock, unsigned char, unsigned char, unsigned char>(hours, minutes, day);
+int addrof(CClock::Update) = ADDRESS_BY_VERSION(0x52CF10, 0, 0, 0, 0, 0);
+int gaddrof(CClock::Update) = GLOBAL_ADDRESS_BY_VERSION(0x52CF10, 0, 0, 0, 0, 0);
+
+void CClock::Update() {
+    plugin::CallDynGlobal(gaddrof(CClock::Update));
 }

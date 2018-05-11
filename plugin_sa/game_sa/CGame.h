@@ -7,8 +7,8 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CColModel.h"
 #include "RenderWare.h"
+#include "CColModel.h"
 #include "CEntity.h"
 
 class PLUGIN_API CGame {
