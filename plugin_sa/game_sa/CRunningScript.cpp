@@ -91,14 +91,14 @@ int addrof(CRunningScript::GetPointerToLocalArrayElement) = ADDRESS_BY_VERSION(0
 int gaddrof(CRunningScript::GetPointerToLocalArrayElement) = GLOBAL_ADDRESS_BY_VERSION(0x463CC0, 0, 0, 0, 0, 0);
 
 void *CRunningScript::GetPointerToLocalArrayElement(int off, unsigned short idx, unsigned char mul) {
-    plugin::CallMethodDynGlobal<CRunningScript *, int, unsigned short, unsigned char>(gaddrof(CRunningScript::GetPointerToLocalArrayElement), this, off, idx, mul);
+    return plugin::CallMethodAndReturnDynGlobal<void*,CRunningScript *, int, unsigned short, unsigned char>(gaddrof(CRunningScript::GetPointerToLocalArrayElement), this, off, idx, mul);
 }
 
 int addrof(CRunningScript::GetPointerToLocalVariable) = ADDRESS_BY_VERSION(0x463CA0, 0, 0, 0, 0, 0);
 int gaddrof(CRunningScript::GetPointerToLocalVariable) = GLOBAL_ADDRESS_BY_VERSION(0x463CA0, 0, 0, 0, 0, 0);
 
 void *CRunningScript::GetPointerToLocalVariable(int varId) {
-    plugin::CallMethodDynGlobal<CRunningScript *, int>(gaddrof(CRunningScript::GetPointerToLocalVariable), this, varId);
+    return plugin::CallMethodAndReturnDynGlobal<void* ,CRunningScript *, int>(gaddrof(CRunningScript::GetPointerToLocalVariable), this, varId);
 }
 
 int addrof(CRunningScript::GetPointerToScriptVariable) = ADDRESS_BY_VERSION(0x464790, 0, 0, 0, 0, 0);
