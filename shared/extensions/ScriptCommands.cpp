@@ -87,47 +87,47 @@ void scripting::ScriptCode::SaveResultVariables(CRunningScript *script) {
     }
 }
 
-void scripting::ScriptCode::operator<<(char n) { AddParameterDescription(SCRIPTARG_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
-void scripting::ScriptCode::operator<<(unsigned char n) { AddParameterDescription(SCRIPTARG_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
-void scripting::ScriptCode::operator<<(short n) { AddParameterDescription(SCRIPTARG_STATIC_INT_16BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 2); }
-void scripting::ScriptCode::operator<<(unsigned short n) { AddParameterDescription(SCRIPTARG_STATIC_INT_16BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 2); }
-void scripting::ScriptCode::operator<<(int n) { AddParameterDescription(SCRIPTARG_STATIC_INT_32BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 4); }
-void scripting::ScriptCode::operator<<(unsigned int n) { AddParameterDescription(SCRIPTARG_STATIC_INT_32BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 4); }
+void scripting::ScriptCode::operator<<(char n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
+void scripting::ScriptCode::operator<<(unsigned char n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
+void scripting::ScriptCode::operator<<(short n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_16BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 2); }
+void scripting::ScriptCode::operator<<(unsigned short n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_16BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 2); }
+void scripting::ScriptCode::operator<<(int n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_32BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 4); }
+void scripting::ScriptCode::operator<<(unsigned int n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_32BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 4); }
 #ifdef GTA3
 void scripting::ScriptCode::operator<<(float n) {
-    AddParameterDescription(SCRIPTARG_STATIC_FLOAT);
+    AddParameterDescription(SCRIPTPARAM_STATIC_FLOAT);
     short s = static_cast<short>(n * 16);
     AddBytes(reinterpret_cast<unsigned char *>(&s), 2);
 }
 
 void scripting::ScriptCode::operator<<(double n) {
-    AddParameterDescription(SCRIPTARG_STATIC_FLOAT);
+    AddParameterDescription(SCRIPTPARAM_STATIC_FLOAT);
     short s = static_cast<short>(static_cast<float>(n) * 16);
     AddBytes(reinterpret_cast<unsigned char *>(&s), 2);
 }
 #else
-void scripting::ScriptCode::operator<<(float n) { AddParameterDescription(SCRIPTARG_STATIC_FLOAT); AddBytes(reinterpret_cast<unsigned char *>(&n), 4); }
-void scripting::ScriptCode::operator<<(double n) { AddParameterDescription(SCRIPTARG_STATIC_FLOAT); float f = static_cast<float>(n); AddBytes(reinterpret_cast<unsigned char *>(&f), 4); }
+void scripting::ScriptCode::operator<<(float n) { AddParameterDescription(SCRIPTPARAM_STATIC_FLOAT); AddBytes(reinterpret_cast<unsigned char *>(&n), 4); }
+void scripting::ScriptCode::operator<<(double n) { AddParameterDescription(SCRIPTPARAM_STATIC_FLOAT); float f = static_cast<float>(n); AddBytes(reinterpret_cast<unsigned char *>(&f), 4); }
 #endif
-void scripting::ScriptCode::operator<<(ScriptCommandEndParameter) { AddParameterDescription(SCRIPTARG_END_OF_ARGUMENTS); }
+void scripting::ScriptCode::operator<<(ScriptCommandEndParameter) { AddParameterDescription(SCRIPTPARAM_END_OF_ARGUMENTS); }
 
 #ifdef GTASA
 void scripting::ScriptCode::operator<<(char *str) {
-    AddParameterDescription(SCRIPTARG_STATIC_PASCAL_STRING);
+    AddParameterDescription(SCRIPTPARAM_STATIC_PASCAL_STRING);
     unsigned int length = strlen(str);
     AddParameterDescription(length);
     AddBytes(reinterpret_cast<unsigned char *>(str), length);
 }
 
 void scripting::ScriptCode::operator<<(const char *str) {
-    AddParameterDescription(SCRIPTARG_STATIC_PASCAL_STRING);
+    AddParameterDescription(SCRIPTPARAM_STATIC_PASCAL_STRING);
     unsigned int length = strlen(str);
     AddParameterDescription(length);
     AddBytes(reinterpret_cast<unsigned char *>(const_cast<char *>(str)), length);
 }
 
 void scripting::ScriptCode::operator<<(char(*p)[16]) {
-    AddParameterDescription(SCRIPTARG_LOCAL_LONG_STRING_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_LONG_STRING_VARIABLE);
     if (varIndexCounter >= 28)
         Error("ScriptCode::operator<<(char **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(*p), SCRIPT_RESULT_VAR_STRING);
@@ -151,7 +151,7 @@ void scripting::ScriptCode::operator<<(const char *str) {
 #endif
 
 void scripting::ScriptCode::operator<<(float *p) {
-    AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_NUMBER_VARIABLE);
     if (varIndexCounter >= SCRIPT_COMMANDS_LVAR_MAX_INDEX)
         Error("ScriptCode::operator<<(float *p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_NUMBER);
@@ -160,7 +160,7 @@ void scripting::ScriptCode::operator<<(float *p) {
 }
 
 void scripting::ScriptCode::operator<<(int *p) {
-    AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_NUMBER_VARIABLE);
     if (varIndexCounter >= SCRIPT_COMMANDS_LVAR_MAX_INDEX)
         Error("ScriptCode::operator<<(int *p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_NUMBER);
@@ -169,7 +169,7 @@ void scripting::ScriptCode::operator<<(int *p) {
 }
 
 void scripting::ScriptCode::operator<<(unsigned int *p) {
-    AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_NUMBER_VARIABLE);
     if (varIndexCounter >= SCRIPT_COMMANDS_LVAR_MAX_INDEX)
         Error("ScriptCode::operator<<(unsigned int *p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_NUMBER);
@@ -199,7 +199,7 @@ void scripting::ScriptCode::operator<<(CObject *n) {
 }
 
 void scripting::ScriptCode::operator<<(CPed **p) {
-    AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_NUMBER_VARIABLE);
     if (varIndexCounter >= SCRIPT_COMMANDS_LVAR_MAX_INDEX)
         Error("ScriptCode::operator<<(CPed **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_PED);
@@ -208,7 +208,7 @@ void scripting::ScriptCode::operator<<(CPed **p) {
 }
 
 void scripting::ScriptCode::operator<<(CVehicle **p) {
-    AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_NUMBER_VARIABLE);
     if (varIndexCounter >= SCRIPT_COMMANDS_LVAR_MAX_INDEX)
         Error("ScriptCode::operator<<(CVehicle **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_VEHICLE);
@@ -217,7 +217,7 @@ void scripting::ScriptCode::operator<<(CVehicle **p) {
 }
 
 void scripting::ScriptCode::operator<<(CObject **p) {
-    AddParameterDescription(SCRIPTARG_LOCAL_NUMBER_VARIABLE);
+    AddParameterDescription(SCRIPTPARAM_LOCAL_NUMBER_VARIABLE);
     if (varIndexCounter >= SCRIPT_COMMANDS_LVAR_MAX_INDEX)
         Error("ScriptCode::operator<<(CObject **p): reached local var limit");
     varsToSet.emplace_back(varIndexCounter, reinterpret_cast<void *>(p), SCRIPT_RESULT_VAR_OBJECT);
