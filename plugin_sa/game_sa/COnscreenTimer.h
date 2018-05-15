@@ -7,32 +7,8 @@
 #pragma once
 
 #include "PluginBase.h"
-
-class PLUGIN_API COnscreenTimerEntry {
-public:
-	unsigned int  m_nVarId;
-	char          m_szDescriptionTextKey[10];
-	char          m_szDisplayedText[42]; // possibly 2b padding?
-	bool          m_bEnabled;
-	unsigned char m_nTimerDirection;
-	unsigned int  m_nClockBeepCountdownSecs;
-};
-
-VALIDATE_SIZE(COnscreenTimerEntry, 0x40);
-
-class PLUGIN_API COnscreenCounterEntry {
-public:
-	unsigned int   m_nVarId;
-	unsigned int   m_nMaxVarValue;
-	char           m_szDescriptionTextKey[10];
-	unsigned short m_nType; // 0 - counter (%), 1 - line, 2 - conter counter (%/%)
-	char           m_szDisplayedText[42]; // possibly 2b padding?
-	bool           m_bEnabled;
-	bool           m_bFlashWhenFirstDisplayed;
-	unsigned char  m_nColourId; // color index from HudColours
-};
-
-VALIDATE_SIZE(COnscreenCounterEntry, 0x44);
+#include "COnscreenTimerEntry.h"
+#include "COnscreenCounterEntry.h"
 
 class PLUGIN_API COnscreenTimer {
 public:
@@ -40,6 +16,22 @@ public:
 	COnscreenCounterEntry m_aCounters[4];
 	bool m_bDisplay;
 	bool m_bPaused;
-};
 
+    SUPPORTED_10US void AddClock(unsigned int varId, char *gxt, bool bTimerDirection);
+    SUPPORTED_10US void AddCounter(int varId, short type, char *gxt, unsigned short counterIndex);
+    //! unused
+    SUPPORTED_10US void AddCounterCounter(unsigned int varId, unsigned int maxValue, char *gxt, unsigned short lineId);
+    SUPPORTED_10US int ClearClock(unsigned int varId);
+    SUPPORTED_10US void ClearCounter(unsigned int varId);
+    SUPPORTED_10US void Init();
+    SUPPORTED_10US void Process();
+    SUPPORTED_10US void ProcessForDisplay();
+    SUPPORTED_10US void SetClockBeepCountdownSecs(unsigned int varID, unsigned int time);
+    //! unused
+    SUPPORTED_10US void SetCounterColourID(unsigned int varID, unsigned char ColourID);
+    SUPPORTED_10US void SetCounterFlashWhenFirstDisplayed(unsigned int varId, unsigned char bFlashWhenFirstDisplayed);
+};
 VALIDATE_SIZE(COnscreenTimer, 0x154);
+
+#include "meta/meta.COnscreenTimer.h"
+

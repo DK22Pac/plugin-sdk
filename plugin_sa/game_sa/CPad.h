@@ -136,7 +136,23 @@ private:
 public:
     short Mode;
     short ShakeDur;
-    short DisablePlayerControls;
+
+    union
+    {
+        struct
+        {
+            unsigned short unk1 : 1; // eCamMode::MODE_1STPERSON leftover?
+            unsigned short unk2 : 1; // unused
+            unsigned short bPlayerAwaitsInGarage : 1;
+            unsigned short bPlayerOnInteriorTransition : 1;
+            unsigned short unk3 : 1; // unused
+            unsigned short bPlayerSafe : 1;
+            unsigned short bPlayerTalksOnPhone : 1; // bPlayerSafeForPhoneCall?
+            unsigned short bPlayerSafeForCutscene : 1;
+            unsigned short bPlayerSkipsToDestination : 1; // bPlayerSafeForDestination?
+        };
+        unsigned short DisablePlayerControls; 
+    };
     char ShakeFreq;
     char bHornHistory[5];
     char iCurrHornHistory;
