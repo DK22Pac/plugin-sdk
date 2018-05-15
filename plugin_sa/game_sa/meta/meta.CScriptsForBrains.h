@@ -248,11 +248,4 @@ META_BEGIN(CScriptsForBrains::CheckIfNewEntityNeedsScript)
     using args_t = ArgPick<ArgTypes<CScriptsForBrains *,CEntity *,signed char,void *>, 0,1,2,3>;
 META_END
 
-template<>
-struct stack_object<CScriptsForBrains> : stack_object_no_default<CScriptsForBrains> {
-    SUPPORTED_10US stack_object() {
-        plugin::CallMethodDynGlobal<CScriptsForBrains *>(ctor_gaddr(CScriptsForBrains), reinterpret_cast<CScriptsForBrains *>(buff));
-    }
-};
-
 }

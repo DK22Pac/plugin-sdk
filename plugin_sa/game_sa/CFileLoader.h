@@ -46,7 +46,7 @@ public:
     SUPPORTED_10US static void LoadEntryExit(char const *line);
     SUPPORTED_10US static void LoadGarage(char const *line);
     SUPPORTED_10US static void LoadLevel(char const *filename);
-    SUPPORTED_10US static char *LoadLine(FILESTREAM rt_file);
+    SUPPORTED_10US static char *LoadLine(FILESTREAM file);
     SUPPORTED_10US static char *LoadLine(char **outLine, int ref_outSize);
     SUPPORTED_10US static int LoadObject(char const *line);
     SUPPORTED_10US static CEntity *LoadObjectInstance(CFileObjectInstance *objInstance, char const *modelname);

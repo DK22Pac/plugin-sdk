@@ -84,9 +84,11 @@ struct stack_object_no_default {
     stack_object_no_default() {}
     stack_object_no_default(stack_object_no_default &&) = delete;
     stack_object_no_default &operator=(stack_object_no_default &&) = delete;
-    char buff[sizeof(T)];
-    T *operator->() { return reinterpret_cast<T *>(buff); }
-    T &get_object() { return *reinterpret_cast<T *>(buff); }
+protected:
+    char objBuff[sizeof(T)];
+public:
+    T *operator->() { return reinterpret_cast<T *>(objBuff); }
+    T &get_object() { return *reinterpret_cast<T *>(objBuff); }
 };
 
 // custom new/delete
@@ -213,15 +215,15 @@ Ret CallMethodAndReturnDynGlobal(unsigned int address, C _this, Args... args) {
 
 // meta access
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
-#define metaof(func) plugin::meta<&func>
+#define metaof(func) plugin::meta<&func >
 #define metaof_o(func, decl) plugin::meta<static_cast<decl>(&func)>
-#define META_BEGIN(func) template<> struct meta<&func> {
+#define META_BEGIN(func) template<> struct meta<&func > {
 #define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<static_cast<decl>(&func)> {
 #elif (defined(_MSC_VER))
-#define metaof(func) plugin::meta<decltype(&func), &func>
-#define metaof_o(func, decl) plugin::meta<decl, &func>
-#define META_BEGIN(func) template<> struct meta<decltype(&func), &func> {
-#define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<decl, &func> {
+#define metaof(func) plugin::meta<decltype(&func), (&func)>
+#define metaof_o(func, decl) plugin::meta<decl, (&func)>
+#define META_BEGIN(func) template<> struct meta<decltype(&func), (&func)> {
+#define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<decl, (&func)> {
 #else
 
 #endif
@@ -244,15 +246,15 @@ Ret CallMethodAndReturnDynGlobal(unsigned int address, C _this, Args... args) {
 #define ctor_metaof(classType) plugin::ctor_meta<classType>
 #define ctor_metaof_o(classType, decl) plugin::ctor_meta<classType, decl>
 #define dtor_metaof(classType) plugin::dtor_meta<classType>
-#define del_dtor_metaof(classType, d_type) plugin::del_dtor_meta<classType>
+#define del_dtor_metaof(classType) plugin::del_dtor_meta<classType>
 #define op_new_metaof(classType) plugin::op_new_meta<classType>
-#define op_new_metaof_o(classType, d_type) plugin::op_new_meta<classType, d_type>
+#define op_new_metaof_o(classType, decl) plugin::op_new_meta<classType, decl>
 #define op_new_array_metaof(classType) plugin::op_new_array_meta<classType>
-#define op_new_array_metaof_o(classType, d_type) plugin::op_new_array_meta<classType, d_type>
+#define op_new_array_metaof_o(classType, decl) plugin::op_new_array_meta<classType, decl>
 #define op_delete_metaof(classType) plugin::op_delete_meta<classType>
-#define op_delete_metaof_o(classType, d_type) plugin::op_delete_meta<classType, d_type>
+#define op_delete_metaof_o(classType, decl) plugin::op_delete_meta<classType, decl>
 #define op_delete_array_metaof(classType) plugin::op_delete_array_meta<classType>
-#define op_delete_array_metaof_o(classType, d_type) plugin::op_delete_array_meta<classType, d_type>
+#define op_delete_array_metaof_o(classType, decl) plugin::op_delete_array_meta<classType, decl>
 
 #define addrof(func) metaof(func)::address
 #define gaddrof(func) metaof(func)::global_address
@@ -342,9 +344,9 @@ template<> struct vtable_meta<className> {\
 };\
 }
 
-#define metaof_vtable(className) plugin::vtable_meta<className>
+#define metaof_vtable(className) plugin::vtable_meta<className >
 
-#define vtableid(className) plugin::vtable_meta<className>::address
+#define vtableid(className) plugin::vtable_meta<className >::address
 
 // custom object construction
 

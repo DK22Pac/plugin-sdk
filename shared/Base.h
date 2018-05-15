@@ -33,7 +33,7 @@ typedef unsigned int uint;
 
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
 #define PLUGIN_SOURCE_FILE
-#define PLUGIN_VARIABLE __attribute__ ((init_priority (101)))
+#define PLUGIN_VARIABLE
 #elif (defined(_MSC_VER))
 #define PLUGIN_SOURCE_FILE __pragma(init_seg(lib))
 #define PLUGIN_VARIABLE

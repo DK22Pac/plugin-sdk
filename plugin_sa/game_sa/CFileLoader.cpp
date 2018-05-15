@@ -8,8 +8,8 @@
 
 PLUGIN_SOURCE_FILE
 
-PLUGIN_VARIABLE char *CFileLoader::ms_line = reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0xB71848, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE unsigned int &gAtomicModelId = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xB71840, 0, 0, 0, 0, 0));
+char *CFileLoader::ms_line = reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0xB71848, 0, 0, 0, 0, 0));
+unsigned int &gAtomicModelId = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xB71840, 0, 0, 0, 0, 0));
 
 int addrof(CFileLoader::AddTexDictionaries) = ADDRESS_BY_VERSION(0x5B3910, 0, 0, 0, 0, 0);
 int gaddrof(CFileLoader::AddTexDictionaries) = GLOBAL_ADDRESS_BY_VERSION(0x5B3910, 0, 0, 0, 0, 0);
@@ -196,8 +196,8 @@ void CFileLoader::LoadLevel(char const *filename) {
 int addrof_o(CFileLoader::LoadLine, char *(*)(FILESTREAM)) = ADDRESS_BY_VERSION(0x536F80, 0, 0, 0, 0, 0);
 int gaddrof_o(CFileLoader::LoadLine, char *(*)(FILESTREAM)) = GLOBAL_ADDRESS_BY_VERSION(0x536F80, 0, 0, 0, 0, 0);
 
-char *CFileLoader::LoadLine(FILESTREAM rt_file) {
-    return plugin::CallAndReturnDynGlobal<char *, FILESTREAM>(gaddrof_o(CFileLoader::LoadLine, char *(*)(FILESTREAM)), rt_file);
+char *CFileLoader::LoadLine(FILESTREAM file) {
+    return plugin::CallAndReturnDynGlobal<char *, FILESTREAM>(gaddrof_o(CFileLoader::LoadLine, char *(*)(FILESTREAM)), file);
 }
 
 int addrof_o(CFileLoader::LoadLine, char *(*)(char **, int)) = ADDRESS_BY_VERSION(0x536FE0, 0, 0, 0, 0, 0);

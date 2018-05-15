@@ -6,23 +6,23 @@
 */
 #pragma once
 
-// NOT FINISHED!
-
 #include "PluginBase.h"
 #include "CMatrix.h"
-#include "CVector.h"
 
-class PLUGIN_API CMatrixLink : public CMatrix
-{
+class CPlaceable;
+
+class PLUGIN_API CMatrixLink : public CMatrix {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CMatrixLink)
+
 public:
-	class CPlaceable  *m_pOwner;
-	class CMatrixLink *m_pPrev;
-	class CMatrixLink *m_pNext;
+    CPlaceable *m_pOwner;
+    CMatrixLink *m_pPrev;
+    CMatrixLink *m_pNext;
 
-	CMatrixLink();
-	~CMatrixLink();
-	void Insert(CMatrixLink *matrixLink);
-	void Remove();
+    SUPPORTED_10US void Insert(CMatrixLink *where);
+    SUPPORTED_10US void Remove();
 };
 
 VALIDATE_SIZE(CMatrixLink, 0x54);
+
+#include "meta/meta.CMatrixLink.h"

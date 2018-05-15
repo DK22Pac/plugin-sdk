@@ -8,13 +8,13 @@
 
 PLUGIN_SOURCE_FILE
 
-PLUGIN_VARIABLE char *CGame::aDatFile = reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0xB728EC, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE int &CGame::currLevel = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB7290C, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE unsigned char &CGame::bMissionPackGame = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB72910, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE int &CGame::currArea = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB72914, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE RwMatrix *&CGame::m_pWorkingMatrix1 = *reinterpret_cast<RwMatrix **>(GLOBAL_ADDRESS_BY_VERSION(0xB72920, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE RwMatrix *&CGame::m_pWorkingMatrix2 = *reinterpret_cast<RwMatrix **>(GLOBAL_ADDRESS_BY_VERSION(0xB72924, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE int &gameTxdSlot = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB728E8, 0, 0, 0, 0, 0));
+char *CGame::aDatFile = reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0xB728EC, 0, 0, 0, 0, 0));
+int &CGame::currLevel = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB7290C, 0, 0, 0, 0, 0));
+unsigned char &CGame::bMissionPackGame = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB72910, 0, 0, 0, 0, 0));
+int &CGame::currArea = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB72914, 0, 0, 0, 0, 0));
+RwMatrix *&CGame::m_pWorkingMatrix1 = *reinterpret_cast<RwMatrix **>(GLOBAL_ADDRESS_BY_VERSION(0xB72920, 0, 0, 0, 0, 0));
+RwMatrix *&CGame::m_pWorkingMatrix2 = *reinterpret_cast<RwMatrix **>(GLOBAL_ADDRESS_BY_VERSION(0xB72924, 0, 0, 0, 0, 0));
+int &gameTxdSlot = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB728E8, 0, 0, 0, 0, 0));
 
 int addrof(CGame::CanSeeOutSideFromCurrArea) = ADDRESS_BY_VERSION(0x53C4A0, 0, 0, 0, 0, 0);
 int gaddrof(CGame::CanSeeOutSideFromCurrArea) = GLOBAL_ADDRESS_BY_VERSION(0x53C4A0, 0, 0, 0, 0, 0);
