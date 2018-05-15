@@ -42,7 +42,7 @@ private:
     char _pad0[2];
 public:
     CVehicle *m_pLastTargetVehicle;         // Last vehicle player tried to enter.
-    unsigned char m_nPlayerState;           // What's going on.
+    unsigned char m_nPlayerState;           // see ePlayerState
     bool m_bAfterRemoteVehicleExplosion;
     bool m_bCreateRemoteVehicleExplosion;
     bool m_bFadeAfterRemoteVehicleExplosion;
