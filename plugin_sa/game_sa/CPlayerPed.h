@@ -10,10 +10,10 @@
 #include "CPed.h"
 #include "eWeaponType.h"
 #include "CPad.h"
-#include "CPlayerInfo.h"
 #include "eSprintType.h"
 
 class CEventDamage;
+class CPlayerInfo;
 
 class CPlayerPed : public CPed {
 public:

@@ -335,15 +335,15 @@ bool Shader::SaveToBinary(std::string const &Filename) {
 
 void Shader::GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *view, D3DMATRIX *proj, D3DMATRIX *wvp) {
     if (atomic && (world || wvp)) {
-        RwMatrix *ltm = RwFrameGetLTM(reinterpret_cast<RwFrame *>(atomic->object.object.parent));
+        RwMatrix *ltm = RwFrameGetLTM(static_cast<RwFrame *>(atomic->object.object.parent));
         memcpy(world, ltm, sizeof(RwMatrix));
         world->_14 = world->_24 = world->_34 = 0.0f;
         world->_44 = 1.0f;
     }
     if (wvp) {
         D3DXMATRIX D3D9ViewProjTransform;
-        D3DXMATRIX view = *GetD3DViewTransform();
-        D3DXMATRIX proj = *GetD3DProjTransform();
+        view = GetD3DViewTransform();
+        proj = GetD3DProjTransform();
         D3DXMatrixMultiply(&D3D9ViewProjTransform, &view, &proj);
         if (atomic) {
             D3DXMATRIX D3D9WorldViewProjTransform;

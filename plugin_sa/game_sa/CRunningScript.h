@@ -38,6 +38,30 @@ enum eScriptParameterType {
     SCRIPTPARAM_LOCAL_LONG_STRING_ARRAY,
 };
 
+enum eButtonID
+{
+    BUTTON_LEFT_STICK_X,
+    BUTTON_LEFT_STICK_Y,
+    BUTTON_RIGHT_STICK_X,
+    BUTTON_RIGHT_STICK_Y,
+    BUTTON_LEFT_SHOULDER1,
+    BUTTON_LEFT_SHOULDER2,
+    BUTTON_RIGHT_SHOULDER1,
+    BUTTON_RIGHT_SHOULDER2,
+    BUTTON_DPAD_UP,
+    BUTTON_DPAD_DOWN,
+    BUTTON_DPAD_LEFT,
+    BUTTON_DPAD_RIGHT,
+    BUTTON_START,
+    BUTTON_SELECT,
+    BUTTON_SQUARE,
+    BUTTON_TRIANGLE,
+    BUTTON_CROSS,
+    BUTTON_CIRCLE,
+    BUTTON_LEFTSHOCK,
+    BUTTON_RIGHTSHOCK,
+};
+
 union tScriptParam {
     unsigned int uParam;
     int iParam;
@@ -99,8 +123,8 @@ public:
     SUPPORTED_10US void GetCorrectPedModelIndexForEmergencyServiceType(ePedType pedType, int *pModelId);
     //! Returns offset of global variable
     SUPPORTED_10US short GetIndexOfGlobalVariable();
-    //! Returns state of pad button.
-    SUPPORTED_10US short GetPadState(unsigned short playerIndex, unsigned short buttonID);
+    //! Returns state of pad button , see eButtonID.
+    SUPPORTED_10US short GetPadState(unsigned short playerIndex, unsigned short buttonID);   
     //! Returns pointer to local variable pointed by offset and array index as well as multiplier.
     SUPPORTED_10US void *GetPointerToLocalArrayElement(int off, unsigned short idx, unsigned char mul);
     SUPPORTED_10US void *GetPointerToLocalVariable(int varId);

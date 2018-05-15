@@ -8,7 +8,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 #include "CEntity.h"
-#include "CPed.h"
+#include "CPlayerPed.h"
 #include "CVehicle.h"
 #include "CWeaponInfo.h"
 #include "CAnimBlendAssociation.h"
@@ -35,7 +35,7 @@ float FindPlayerHeading(int playerId);
 // returns Z coord for active player
 float FindPlayerHeight();
 // returns player ped
-CPed * FindPlayerPed(int playerId = -1);
+CPlayerPed * FindPlayerPed(int playerId = -1);
 // returns player vehicle
 CVehicle * FindPlayerVehicle(int playerId, bool bIncludeRemote);
 // 2 players are playing
