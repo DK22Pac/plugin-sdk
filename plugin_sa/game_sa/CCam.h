@@ -130,4 +130,3 @@ public:
 };
 
 VALIDATE_SIZE(CCam, 0x238);
-//VALIDATE_OFFSET(CCam, m_nFinishTime, 0x10);

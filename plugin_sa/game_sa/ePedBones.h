@@ -6,7 +6,7 @@
 */
 #pragma once
 
-enum pedBones
+enum ePedBones
 {
 	BONE_PELVIS1 = 1,
 	BONE_PELVIS = 2,
@@ -37,4 +37,6 @@ enum pedBones
 	BONE_RIGHTANKLE = 53,
 	BONE_RIGHTFOOT = 54,
 };
+
+
 
