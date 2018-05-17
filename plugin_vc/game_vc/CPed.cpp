@@ -481,9 +481,11 @@ bool CPed::IsPointerValid() {
     return plugin::CallMethodAndReturn<bool, 0x4F4860, CPed *>(this);
 }
 
+
 // Converted from thiscall bool CPed::IsRoomToBeCarJacked(void) 0x512670 
 bool CPed::IsRoomToBeCarJacked() {
     return plugin::CallMethodAndReturn<bool, 0x512670, CPed *>(this);
+	
 }
 
 // Converted from thiscall void CPed::KillCharOnFootArmed(CVector &,CVector &,CVector &) 0x50FFC0 
