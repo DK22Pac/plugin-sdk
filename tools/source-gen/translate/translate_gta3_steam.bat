@@ -1,1 +1,1 @@
-address_translator %PLUGIN_SDK_DIR% gta3 steam
+address_translator %GTA_DATABASES% gta3 steam

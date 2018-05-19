@@ -1,1 +1,1 @@
-plugin-sdk-source-gen %PLUGIN_SDK_DIR%
+plugin-sdk-source-gen %GTA_DATABASES%

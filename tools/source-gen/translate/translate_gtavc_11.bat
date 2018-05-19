@@ -1,1 +1,1 @@
-address_translator %PLUGIN_SDK_DIR% gtavc 11en
+address_translator %GTA_DATABASES% gtavc 11en

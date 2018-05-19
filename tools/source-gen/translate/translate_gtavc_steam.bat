@@ -1,1 +1,1 @@
-address_translator %PLUGIN_SDK_DIR% gtavc steam
+address_translator %GTA_DATABASES% gtavc steam

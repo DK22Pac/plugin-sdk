@@ -1,1 +1,1 @@
-address_translator %PLUGIN_SDK_DIR% gtasa 10ushl
+address_translator %GTA_DATABASES% gtasa 10ushl
