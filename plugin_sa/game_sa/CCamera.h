@@ -20,6 +20,13 @@ Do not delete this comment block. Respect others' work!
 
 class CGarage;
 
+enum eSwitchType : unsigned short
+{
+    SWITCHTYPE_NONE,
+    SWITCHTYPE_INTERPOLATION,
+    SWITCHTYPE_JUMPCUT
+};
+
 class PLUGIN_API CCamera : public CPlaceable {
     //PLUGIN_NO_DEFAULT_CONSTRUCTION(CCamera)
 public:
@@ -232,9 +239,9 @@ private:
     char _padC32[2];
 public:
     int m_nModeObbeCamIsInForCar;
-    short m_nModeToGoTo;
+    short m_nModeToGoTo;    // see eCamMode
     short m_nMusicFadingDirection;
-    short m_nTypeOfSwitch;
+    short m_nTypeOfSwitch; // see eSwitchType
 private:
     char _padC3E[2];
 public:
@@ -435,15 +442,21 @@ public:
     //! zoomMode : value between 0 - 2
     SUPPORTED_10US void SetZoomValueFollowPedScript(short zoomMode);
     SUPPORTED_10US void StartCooperativeCamMode();
+    //! currentCamMode : see eCamMode
     SUPPORTED_10US void StartTransition(short currentCamMode);
-    //! unused
+    //! unused , see eCamMode
     SUPPORTED_10US void StartTransitionWhenNotFinishedInter(short currentCamMode);
     //! unused
     SUPPORTED_10US void StopCooperativeCamMode();
     SUPPORTED_10US void StoreValuesDuringInterPol(CVector *SourceDuringInter, CVector *TargetDuringInter, CVector *UpDuringInter, float *FOVDuringInter);
+    //! TypeOfSwitch : see eSwitchType
+    //! ModeToGoTo : see eCamMode
     SUPPORTED_10US void TakeControl(CEntity *target, short ModeToGoTo, short TypeOfSwitch, int WhoIsInControlOfTheCamera);
+    //! TypeOfSwitch : see eSwitchType
     SUPPORTED_10US void TakeControlAttachToEntity(CEntity *target, CEntity *attached, CVector *AttachedCamOffset, CVector *AttachedCamLookAt, float AttachedCamAngle, short TypeOfSwitch, int WhoIsInControlOfTheCamera);
+    //! TypeOfSwitch : see eSwitchType
     SUPPORTED_10US void TakeControlNoEntity(CVector const *FixedModeVector, short TypeOfSwitch, int WhoIsInControlOfTheCamera);
+    //! TypeOfSwitch : see eSwitchType
     SUPPORTED_10US void TakeControlWithSpline(short TypeOfSwitch);
     SUPPORTED_10US bool TryToStartNewCamMode(int CamSequence);
     SUPPORTED_10US void UpdateAimingCoors(CVector const *AimingTargetCoors);

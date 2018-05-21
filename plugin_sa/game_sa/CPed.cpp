@@ -288,9 +288,9 @@ void CPed::RestoreHeadingRate()
 }
 
 // Converted from cdecl void CPed::RestoreHeadingRateCB(CAnimBlendAssociation *,void *data) 0x5DFD70
-void CPed::RestoreHeadingRateCB(CAnimBlendAssociation* arg0, void* data)
+void CPed::RestoreHeadingRateCB(CAnimBlendAssociation* association, void* data)
 {
-	((void (__cdecl *)(CAnimBlendAssociation*, void*))0x5DFD70)(arg0, data);
+	((void (__cdecl *)(CAnimBlendAssociation*, void*))0x5DFD70)(association, data);
 }
 
 // Converted from thiscall void CPed::SetRadioStation(void) 0x5DFD90
