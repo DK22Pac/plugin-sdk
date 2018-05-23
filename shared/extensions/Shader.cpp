@@ -344,7 +344,7 @@ void Shader::GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *vie
         D3DXMATRIX D3D9ViewProjTransform;
         view = GetD3DViewTransform();
         proj = GetD3DProjTransform();
-        D3DXMatrixMultiply(&D3D9ViewProjTransform, &view, &proj);
+        D3DXMatrixMultiply(&D3D9ViewProjTransform, (D3DXMATRIX*)view, (D3DXMATRIX*)proj);
         if (atomic) {
             D3DXMATRIX D3D9WorldViewProjTransform;
             D3DXMatrixMultiplyTranspose((D3DXMATRIX *)&D3D9WorldViewProjTransform, (D3DXMATRIX *)world, &D3D9ViewProjTransform);
