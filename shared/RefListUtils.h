@@ -7,6 +7,7 @@
 #pragma once
 #include "RefList.h"
 #include <string>
+#include "GameVersion.h"
 
 namespace plugin {
 
@@ -40,8 +41,10 @@ struct RefListUtils<RefList<Values...>> {
                 result += std::to_string(values[i * 5 + 0]) + ", ";
                 int gameid = values[i * 5 + 1];
 #ifdef GTASA
-                if (gameid == GAME_10US)
-                    result += "GAME_10US";
+                if (gameid == GAME_10US_COMPACT)
+                    result += "GAME_10US_COMPACT";
+                else if (gameid == GAME_10US_HOODLUM)
+                    result += "GAME_10US_HOODLUM";
                 else if (gameid == GAME_10EU)
                     result += "GAME_10EU";
                 else if (gameid == GAME_11US)

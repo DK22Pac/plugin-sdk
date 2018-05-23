@@ -6,7 +6,7 @@
 */
 #pragma once
 #include <Windows.h>
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include "extensions\Paths.h"
 

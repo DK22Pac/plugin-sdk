@@ -6,556 +6,822 @@
 */
 #include "CStreaming.h"
 
-int &CStreaming::ms_currentZoneType = *(int *)0x8E4C20;
-unsigned int &CStreaming::ms_streamingBufferSize = *(unsigned int *)0x8E4CA8;
-unsigned int &CStreaming::ms_memoryUsed = *(unsigned int *)0x8E4CB4;
-unsigned int &CStreaming::ms_numModelsRequested = *(unsigned int *)0x8E4CB8;
-bool &CStreaming::ms_disableStreaming = *(bool *)0x9654B0;
+PLUGIN_SOURCE_FILE
 
-bool &CStreaming::ms_bLoadingBigModel = *(bool *)0x8E4A58;
-bool &CStreaming::ms_bIsInitialised = *(bool *)0x8E4C00;
-bool &CStreaming::m_bBoatsNeeded = *(bool *)0x9654BC;
-bool &CStreaming::disablePoliceBikes = *(bool *)0x9654BF;
-unsigned int &CStreaming::ms_memoryAvailable = *(unsigned int *)0x8A5A80;
-unsigned int &CStreaming::desiredNumVehiclesLoaded = *(unsigned int *)0x8A5A84;
-unsigned int &CStreaming::ms_numPriorityRequests = *(unsigned int *)0x8E4BA0;
-int &CStreaming::ms_lastCullZone = *(int *)0x8E4BA4;
-unsigned short &CStreaming::ms_loadedGangs = *(unsigned short *)0x8E4BAC;
-unsigned int &CStreaming::ms_numPedsLoaded = *(unsigned int *)0x8E4BB0;
-int &CStreaming::copBikeModel = *(int *)0x8A5A9C;
-int &CStreaming::copBikerModel = *(int *)0x8A5AB0;
+unsigned int &CStreaming::ms_memoryAvailable = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5A80, 0, 0, 0, 0, 0));
+unsigned int &CStreaming::desiredNumVehiclesLoaded = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5A84, 0, 0, 0, 0, 0));
+bool &CStreaming::ms_bLoadVehiclesInLoadScene = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5A88, 0, 0, 0, 0, 0));
+int *CStreaming::ms_aDefaultCopCarModel = reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5A8C, 0, 0, 0, 0, 0));
+int &CStreaming::ms_DefaultCopBikeModel = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5A9C, 0, 0, 0, 0, 0));
+int *CStreaming::ms_aDefaultCopModel = reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AA0, 0, 0, 0, 0, 0));
+int &CStreaming::ms_DefaultCopBikerModel = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AB0, 0, 0, 0, 0, 0));
+signed int *CStreaming::ms_aDefaultAmbulanceModel = reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AB4, 0, 0, 0, 0, 0));
+signed int *CStreaming::ms_aDefaultMedicModel = reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AC4, 0, 0, 0, 0, 0));
+signed int *CStreaming::ms_aDefaultFireEngineModel = reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AD4, 0, 0, 0, 0, 0));
+signed int *CStreaming::ms_aDefaultFiremanModel = reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AE4, 0, 0, 0, 0, 0));
+signed int *CStreaming::ms_aDefaultCabDriverModel = reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8A5AF4, 0, 0, 0, 0, 0));
+CDirectory *&CStreaming::ms_pExtraObjectsDir = *reinterpret_cast<CDirectory **>(GLOBAL_ADDRESS_BY_VERSION(0x8E48D0, 0, 0, 0, 0, 0));
+tStreamingFileDesc *CStreaming::ms_files = reinterpret_cast<tStreamingFileDesc *>(GLOBAL_ADDRESS_BY_VERSION(0x8E48D8, 0, 0, 0, 0, 0));
+bool &CStreaming::ms_bLoadingBigModel = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4A58, 0, 0, 0, 0, 0));
+tStreamingChannel *CStreaming::ms_channel = reinterpret_cast<tStreamingChannel *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4A60, 0, 0, 0, 0, 0));
+signed int &CStreaming::ms_channelError = *reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4B90, 0, 0, 0, 0, 0));
+bool &CStreaming::m_bHarvesterModelsRequested = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4B9C, 0, 0, 0, 0, 0));
+bool &CStreaming::m_bStreamHarvesterModelsThisFrame = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4B9D, 0, 0, 0, 0, 0));
+unsigned int &CStreaming::ms_numPriorityRequests = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4BA0, 0, 0, 0, 0, 0));
+int &CStreaming::ms_lastCullZone = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4BA4, 0, 0, 0, 0, 0));
+unsigned short &CStreaming::ms_loadedGangCars = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4BA8, 0, 0, 0, 0, 0));
+unsigned short &CStreaming::ms_loadedGangs = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4BAC, 0, 0, 0, 0, 0));
+unsigned int &CStreaming::ms_numPedsLoaded = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4BB0, 0, 0, 0, 0, 0));
+unsigned int *CStreaming::ms_pedsLoaded = reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C00, 0, 0, 0, 0, 0));
+int &CStreaming::ms_currentZoneType = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C20, 0, 0, 0, 0, 0));
+CLoadedCarGroup &CStreaming::ms_vehiclesLoaded = *reinterpret_cast<CLoadedCarGroup *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C24, 0, 0, 0, 0, 0));
+CStreamingInfo *&CStreaming::ms_pEndRequestedList = *reinterpret_cast<CStreamingInfo **>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C54, 0, 0, 0, 0, 0));
+CStreamingInfo *&CStreaming::ms_pStartRequestedList = *reinterpret_cast<CStreamingInfo **>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C58, 0, 0, 0, 0, 0));
+CStreamingInfo *&CStreaming::ms_pEndLoadedList = *reinterpret_cast<CStreamingInfo **>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C5C, 0, 0, 0, 0, 0));
+CStreamingInfo *&CStreaming::ms_startLoadedList = *reinterpret_cast<CStreamingInfo **>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C60, 0, 0, 0, 0, 0));
+int &CStreaming::ms_lastImageRead = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C64, 0, 0, 0, 0, 0));
+signed int *CStreaming::ms_imageOffsets = reinterpret_cast<signed int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4C8C, 0, 0, 0, 0, 0));
+bool &CStreaming::ms_bEnableRequestListPurge = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4CA4, 0, 0, 0, 0, 0));
+unsigned int &CStreaming::ms_streamingBufferSize = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4CA8, 0, 0, 0, 0, 0));
+char *&CStreaming::ms_pStreamingBuffer = *reinterpret_cast<char **>(GLOBAL_ADDRESS_BY_VERSION(0x8E4CAC, 0, 0, 0, 0, 0));
+unsigned int &CStreaming::ms_memoryUsed = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4CB4, 0, 0, 0, 0, 0));
+unsigned int &CStreaming::ms_numModelsRequested = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4CB8, 0, 0, 0, 0, 0));
+CStreamingInfo *CStreaming::ms_aInfoForModel = reinterpret_cast<CStreamingInfo *>(GLOBAL_ADDRESS_BY_VERSION(0x8E4CC0, 0, 0, 0, 0, 0));
+bool &CStreaming::ms_disableStreaming = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x9654B0, 0, 0, 0, 0, 0));
+int &CStreaming::ms_bIsInitialised = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x9654B8, 0, 0, 0, 0, 0));
+bool &CStreaming::m_bBoatsNeeded = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x9654BC, 0, 0, 0, 0, 0));
+bool &CStreaming::m_bLoadingScene = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x9654BD, 0, 0, 0, 0, 0));
+bool &CStreaming::m_bCopBikeLoaded = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x9654BE, 0, 0, 0, 0, 0));
+bool &CStreaming::m_bDisableCopBikes = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x9654BF, 0, 0, 0, 0, 0));
+CLinkList<CEntity*> &CStreaming::ms_rwObjectInstances = *reinterpret_cast<CLinkList<CEntity*> *>(GLOBAL_ADDRESS_BY_VERSION(0x9654F0, 0, 0, 0, 0, 0));
+RwStream &gRwStream = *reinterpret_cast<RwStream *>(GLOBAL_ADDRESS_BY_VERSION(0x8E48AC, 0, 0, 0, 0, 0));
 
-int *CStreaming::copCarModelByTown = (int *)0x8A5A8C;
-int *CStreaming::copModelByTown = (int *)0x8A5AA0;
-int *CStreaming::ambulanceByTown = (int *)0x8A5AB4;
-int *CStreaming::medicModelsByTown = (int *)0x8A5AC4;
-int *CStreaming::firetruckModelsByTown = (int *)0x8A5AD4;
-int *CStreaming::firemanModelsByTown = (int *)0x8A5AE4;
-int *CStreaming::taxiDriverModelsByTown = (int *)0x8A5AF4;
-int *CStreaming::ms_pedsLoaded = (int *)0x8E4C00;
-CStreamingInfo *CStreaming::ms_pEndRequestedList = (CStreamingInfo *)0x8E4C54;
-CStreamingInfo *CStreaming::ms_pStartRequestedList = (CStreamingInfo *)0x8E4C58;
-CStreamingInfo *CStreaming::ms_pEndLoadedList = (CStreamingInfo *)0x8E4C5C;
-CStreamingInfo *CStreaming::ms_pStartLoadedList = (CStreamingInfo *)0x8E4C60;
-CLoadedCarGroup &CStreaming::ms_vehiclesLoaded = *(CLoadedCarGroup*)0x8E4C24;
-CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x8E4CC0;
-CLinkList<CEntity*>& CStreaming::ms_rwObjectInstances = *(CLinkList<CEntity*>*)0x9654F0;
-bool& CStreaming::bLoadVehiclesInLoadScene = *(bool*)0x8A5A88;
-bool& CStreaming::m_bHarvesterModelsRequested = *(bool*)0x8E4B9C;
-bool& CStreaming::m_bStreamHarvesterModelsThisFrame = *(bool*)0x8E4B9D;
+int addrof(CStreaming::AddEntity) = ADDRESS_BY_VERSION(0x409650, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AddEntity) = GLOBAL_ADDRESS_BY_VERSION(0x409650, 0, 0, 0, 0, 0);
 
-
-void CStreaming::ImGonnaUseStreamingMemory()
-{
-	((void (__cdecl *)())0x407BE0)();
+void *CStreaming::AddEntity(CEntity *a2) {
+    return plugin::CallAndReturnDynGlobal<void *, CEntity *>(gaddrof(CStreaming::AddEntity), a2);
 }
 
-void CStreaming::IHaveUsedStreamingMemory()
-{
-	((void (__cdecl *)())0x407BF0)();
+int addrof(CStreaming::AddImageToList) = ADDRESS_BY_VERSION(0x407610, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AddImageToList) = GLOBAL_ADDRESS_BY_VERSION(0x407610, 0, 0, 0, 0, 0);
+
+int CStreaming::AddImageToList(char const *lpFileName, bool bNotPlayerImg) {
+    return plugin::CallAndReturnDynGlobal<int, char const *, bool>(gaddrof(CStreaming::AddImageToList), lpFileName, bNotPlayerImg);
 }
 
-void CStreaming::MakeSpaceFor(unsigned int size)
-{
-	((void (__cdecl *)(unsigned int))0x40E120)(size);
+int addrof(CStreaming::AddLodsToRequestList) = ADDRESS_BY_VERSION(0x40C520, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AddLodsToRequestList) = GLOBAL_ADDRESS_BY_VERSION(0x40C520, 0, 0, 0, 0, 0);
+
+void CStreaming::AddLodsToRequestList(CVector const *Posn, unsigned int Streamingflags) {
+    plugin::CallDynGlobal<CVector const *, unsigned int>(gaddrof(CStreaming::AddLodsToRequestList), Posn, Streamingflags);
 }
 
-void CStreaming::DisableCopBikes(bool bDisable)
-{
-    ((void(__cdecl *)(bool))0x407D10)(bDisable);
+int addrof(CStreaming::AddModelsToRequestList) = ADDRESS_BY_VERSION(0x40D3F0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AddModelsToRequestList) = GLOBAL_ADDRESS_BY_VERSION(0x40D3F0, 0, 0, 0, 0, 0);
+
+void CStreaming::AddModelsToRequestList(CVector const *posn, unsigned int StreamingFlags) {
+    plugin::CallDynGlobal<CVector const *, unsigned int>(gaddrof(CStreaming::AddModelsToRequestList), posn, StreamingFlags);
 }
 
-unsigned int CStreaming::GetDefaultMedicModel()
-{
-    return ((unsigned int(__cdecl *)())0x407D20)();
+int addrof(CStreaming::AddToLoadedVehiclesList) = ADDRESS_BY_VERSION(0x408000, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AddToLoadedVehiclesList) = GLOBAL_ADDRESS_BY_VERSION(0x408000, 0, 0, 0, 0, 0);
+
+bool CStreaming::AddToLoadedVehiclesList() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::AddToLoadedVehiclesList));
 }
 
-unsigned int CStreaming::GetDefaultAmbulanceModel()
-{
-    return ((unsigned int(__cdecl *)())0x407D30)();
+int addrof(CStreaming::AreAnimsUsedByRequestedModels) = ADDRESS_BY_VERSION(0x407AD0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AreAnimsUsedByRequestedModels) = GLOBAL_ADDRESS_BY_VERSION(0x407AD0, 0, 0, 0, 0, 0);
+
+bool CStreaming::AreAnimsUsedByRequestedModels(int AnimFileIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::AreAnimsUsedByRequestedModels), AnimFileIndex);
 }
 
-unsigned int CStreaming::GetDefaultFiremanModel()
-{
-    return ((unsigned int(__cdecl *)())0x407D40)();
+int addrof(CStreaming::AreTexturesUsedByRequestedModels) = ADDRESS_BY_VERSION(0x409A90, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::AreTexturesUsedByRequestedModels) = GLOBAL_ADDRESS_BY_VERSION(0x409A90, 0, 0, 0, 0, 0);
+
+bool CStreaming::AreTexturesUsedByRequestedModels(int txdIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::AreTexturesUsedByRequestedModels), txdIndex);
 }
 
-unsigned int CStreaming::GetDefaultFireEngineModel()
-{
-    return ((unsigned int(__cdecl *)())0x407DC0)();
+int addrof(CStreaming::ClearFlagForAll) = ADDRESS_BY_VERSION(0x407A40, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ClearFlagForAll) = GLOBAL_ADDRESS_BY_VERSION(0x407A40, 0, 0, 0, 0, 0);
+
+void CStreaming::ClearFlagForAll(unsigned int eStreamingFlag) {
+    plugin::CallDynGlobal<unsigned int>(gaddrof(CStreaming::ClearFlagForAll), eStreamingFlag);
 }
 
-unsigned int CStreaming::GetDefaultCopModel()
-{
-    return ((unsigned int(__cdecl *)())0x407C00)();
+int addrof(CStreaming::ClearSlots) = ADDRESS_BY_VERSION(0x40BAA0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ClearSlots) = GLOBAL_ADDRESS_BY_VERSION(0x40BAA0, 0, 0, 0, 0, 0);
+
+void CStreaming::ClearSlots(int NumOfSlots) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::ClearSlots), NumOfSlots);
 }
 
-unsigned int CStreaming::GetDefaultCopCarModel(unsigned int arg0)
-{
-    return ((unsigned int(__cdecl *)(unsigned int))0x407C50)(arg0);
+int addrof(CStreaming::ConvertBufferToObject) = ADDRESS_BY_VERSION(0x40C6B0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ConvertBufferToObject) = GLOBAL_ADDRESS_BY_VERSION(0x40C6B0, 0, 0, 0, 0, 0);
+
+char CStreaming::ConvertBufferToObject(char *pFileContect, int index, int ChannelIndex) {
+    return plugin::CallAndReturnDynGlobal<char, char *, int, int>(gaddrof(CStreaming::ConvertBufferToObject), pFileContect, index, ChannelIndex);
 }
 
-void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests)
-{
-    ((void(__cdecl *)(bool))0x40EA10)(onlyQuickRequests);
+int addrof(CStreaming::DeleteAllRwObjects) = ADDRESS_BY_VERSION(0x4090A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteAllRwObjects) = GLOBAL_ADDRESS_BY_VERSION(0x4090A0, 0, 0, 0, 0, 0);
+
+void CStreaming::DeleteAllRwObjects() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::DeleteAllRwObjects));
 }
 
-// Used for loading player clothes
-void CStreaming::LoadRequestedModels()
-{
-    ((void(__cdecl *)())0x40E3A0)();
+int addrof(CStreaming::DeleteLeastUsedEntityRwObject) = ADDRESS_BY_VERSION(0x409760, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteLeastUsedEntityRwObject) = GLOBAL_ADDRESS_BY_VERSION(0x409760, 0, 0, 0, 0, 0);
+
+bool CStreaming::DeleteLeastUsedEntityRwObject(bool bNotOnScreen, unsigned int StreamingFlags) {
+    return plugin::CallAndReturnDynGlobal<bool, bool, unsigned int>(gaddrof(CStreaming::DeleteLeastUsedEntityRwObject), bNotOnScreen, StreamingFlags);
 }
 
-void CStreaming::RemoveAllUnusedModels()
-{
-    ((void(__cdecl *)())0x40CF80)();
+int addrof(CStreaming::DeleteRwObjectsAfterDeath) = ADDRESS_BY_VERSION(0x409210, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteRwObjectsAfterDeath) = GLOBAL_ADDRESS_BY_VERSION(0x409210, 0, 0, 0, 0, 0);
+
+void CStreaming::DeleteRwObjectsAfterDeath(CVector const *PlayerPosn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::DeleteRwObjectsAfterDeath), PlayerPosn);
 }
 
-void CStreaming::RemoveModel(int modelIndex)
-{
-    ((void(__cdecl *)(int))0x4089A0)(modelIndex);
+int addrof(CStreaming::DeleteRwObjectsBehindCamera) = ADDRESS_BY_VERSION(0x40D7C0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteRwObjectsBehindCamera) = GLOBAL_ADDRESS_BY_VERSION(0x40D7C0, 0, 0, 0, 0, 0);
+
+void CStreaming::DeleteRwObjectsBehindCamera(int memoryToCleanInBytes) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::DeleteRwObjectsBehindCamera), memoryToCleanInBytes);
 }
 
-void CStreaming::RequestModel(int modelIndex, int flags)
-{
-    ((void(__cdecl *)(int, int))0x4087E0)(modelIndex, flags);
+int addrof(CStreaming::DeleteRwObjectsBehindCameraInSectorList) = ADDRESS_BY_VERSION(0x409940, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteRwObjectsBehindCameraInSectorList) = GLOBAL_ADDRESS_BY_VERSION(0x409940, 0, 0, 0, 0, 0);
+
+bool CStreaming::DeleteRwObjectsBehindCameraInSectorList(CPtrList *List, int memoryToCleanInBytes) {
+    return plugin::CallAndReturnDynGlobal<bool, CPtrList *, int>(gaddrof(CStreaming::DeleteRwObjectsBehindCameraInSectorList), List, memoryToCleanInBytes);
 }
 
-void CStreaming::SetModelIsDeletable(int modelIndex)
-{
-    ((void(__cdecl *)(int))0x409C10)(modelIndex);
+int addrof(CStreaming::DeleteRwObjectsInSectorList) = ADDRESS_BY_VERSION(0x407A70, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteRwObjectsInSectorList) = GLOBAL_ADDRESS_BY_VERSION(0x407A70, 0, 0, 0, 0, 0);
+
+void CStreaming::DeleteRwObjectsInSectorList(CPtrList *PtrList, int arg2, int arg3) {
+    plugin::CallDynGlobal<CPtrList *, int, int>(gaddrof(CStreaming::DeleteRwObjectsInSectorList), PtrList, arg2, arg3);
 }
+
+int addrof(CStreaming::DeleteRwObjectsNotInFrustumInSectorList) = ADDRESS_BY_VERSION(0x4099E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DeleteRwObjectsNotInFrustumInSectorList) = GLOBAL_ADDRESS_BY_VERSION(0x4099E0, 0, 0, 0, 0, 0);
+
+char CStreaming::DeleteRwObjectsNotInFrustumInSectorList(CPtrList *List, int memoryToCleanInBytes) {
+    return plugin::CallAndReturnDynGlobal<char, CPtrList *, int>(gaddrof(CStreaming::DeleteRwObjectsNotInFrustumInSectorList), List, memoryToCleanInBytes);
+}
+
+int addrof(CStreaming::DisableCopBikes) = ADDRESS_BY_VERSION(0x407D10, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::DisableCopBikes) = GLOBAL_ADDRESS_BY_VERSION(0x407D10, 0, 0, 0, 0, 0);
+
+void CStreaming::DisableCopBikes(bool bDisable) {
+    plugin::CallDynGlobal<bool>(gaddrof(CStreaming::DisableCopBikes), bDisable);
+}
+
+int addrof(CStreaming::FindMIPedSlotForInterior) = ADDRESS_BY_VERSION(0x407FB0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::FindMIPedSlotForInterior) = GLOBAL_ADDRESS_BY_VERSION(0x407FB0, 0, 0, 0, 0, 0);
+
+int CStreaming::FindMIPedSlotForInterior(int RandFactor) {
+    return plugin::CallAndReturnDynGlobal<int, int>(gaddrof(CStreaming::FindMIPedSlotForInterior), RandFactor);
+}
+
+int addrof(CStreaming::FinishLoadingLargeFile) = ADDRESS_BY_VERSION(0x408CB0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::FinishLoadingLargeFile) = GLOBAL_ADDRESS_BY_VERSION(0x408CB0, 0, 0, 0, 0, 0);
+
+bool CStreaming::FinishLoadingLargeFile(char *FileName, int modelIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, char *, int>(gaddrof(CStreaming::FinishLoadingLargeFile), FileName, modelIndex);
+}
+
+int addrof(CStreaming::FlushChannels) = ADDRESS_BY_VERSION(0x40E460, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::FlushChannels) = GLOBAL_ADDRESS_BY_VERSION(0x40E460, 0, 0, 0, 0, 0);
+
+bool CStreaming::FlushChannels() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::FlushChannels));
+}
+
+int addrof(CStreaming::FlushRequestList) = ADDRESS_BY_VERSION(0x40E4E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::FlushRequestList) = GLOBAL_ADDRESS_BY_VERSION(0x40E4E0, 0, 0, 0, 0, 0);
+
+bool CStreaming::FlushRequestList() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::FlushRequestList));
+}
+
+int addrof(CStreaming::ForceLayerToRead) = ADDRESS_BY_VERSION(0x407A10, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ForceLayerToRead) = GLOBAL_ADDRESS_BY_VERSION(0x407A10, 0, 0, 0, 0, 0);
+
+void CStreaming::ForceLayerToRead(int arg1) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::ForceLayerToRead), arg1);
+}
+
+int addrof(CStreaming::GetDefaultCabDriverModel) = ADDRESS_BY_VERSION(0x407D50, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetDefaultCabDriverModel) = GLOBAL_ADDRESS_BY_VERSION(0x407D50, 0, 0, 0, 0, 0);
+
+int CStreaming::GetDefaultCabDriverModel() {
+    return plugin::CallAndReturnDynGlobal<int>(gaddrof(CStreaming::GetDefaultCabDriverModel));
+}
+
+int addrof(CStreaming::GetDefaultCopCarModel) = ADDRESS_BY_VERSION(0x407C50, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetDefaultCopCarModel) = GLOBAL_ADDRESS_BY_VERSION(0x407C50, 0, 0, 0, 0, 0);
+
+int CStreaming::GetDefaultCopCarModel(unsigned int bIncludeCopBike) {
+    return plugin::CallAndReturnDynGlobal<int, unsigned int>(gaddrof(CStreaming::GetDefaultCopCarModel), bIncludeCopBike);
+}
+
+int addrof(CStreaming::GetDefaultCopModel) = ADDRESS_BY_VERSION(0x407C00, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetDefaultCopModel) = GLOBAL_ADDRESS_BY_VERSION(0x407C00, 0, 0, 0, 0, 0);
+
+int CStreaming::GetDefaultCopModel() {
+    return plugin::CallAndReturnDynGlobal<int>(gaddrof(CStreaming::GetDefaultCopModel));
+}
+
+int addrof(CStreaming::GetDefaultFiremanModel) = ADDRESS_BY_VERSION(0x407D40, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetDefaultFiremanModel) = GLOBAL_ADDRESS_BY_VERSION(0x407D40, 0, 0, 0, 0, 0);
+
+int CStreaming::GetDefaultFiremanModel() {
+    return plugin::CallAndReturnDynGlobal<int>(gaddrof(CStreaming::GetDefaultFiremanModel));
+}
+
+int addrof(CStreaming::GetDefaultMedicModel) = ADDRESS_BY_VERSION(0x407D20, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetDefaultMedicModel) = GLOBAL_ADDRESS_BY_VERSION(0x407D20, 0, 0, 0, 0, 0);
+
+int CStreaming::GetDefaultMedicModel() {
+    return plugin::CallAndReturnDynGlobal<int>(gaddrof(CStreaming::GetDefaultMedicModel));
+}
+
+int addrof(CStreaming::GetDiscInDrive) = ADDRESS_BY_VERSION(0x40E9B0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetDiscInDrive) = GLOBAL_ADDRESS_BY_VERSION(0x40E9B0, 0, 0, 0, 0, 0);
+
+signed int CStreaming::GetDiscInDrive() {
+    return plugin::CallAndReturnDynGlobal<signed int>(gaddrof(CStreaming::GetDiscInDrive));
+}
+
+int addrof(CStreaming::GetNextFileOnCd) = ADDRESS_BY_VERSION(0x408E20, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::GetNextFileOnCd) = GLOBAL_ADDRESS_BY_VERSION(0x408E20, 0, 0, 0, 0, 0);
+
+int CStreaming::GetNextFileOnCd(unsigned int arg1, bool bNotPriority) {
+    return plugin::CallAndReturnDynGlobal<int, unsigned int, bool>(gaddrof(CStreaming::GetNextFileOnCd), arg1, bNotPriority);
+}
+
+int addrof(CStreaming::HasSpecialCharLoaded) = ADDRESS_BY_VERSION(0x407F00, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::HasSpecialCharLoaded) = GLOBAL_ADDRESS_BY_VERSION(0x407F00, 0, 0, 0, 0, 0);
+
+bool CStreaming::HasSpecialCharLoaded(int slot) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::HasSpecialCharLoaded), slot);
+}
+
+int addrof(CStreaming::HasVehicleUpgradeLoaded) = ADDRESS_BY_VERSION(0x407820, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::HasVehicleUpgradeLoaded) = GLOBAL_ADDRESS_BY_VERSION(0x407820, 0, 0, 0, 0, 0);
+
+bool CStreaming::HasVehicleUpgradeLoaded(int ModelIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::HasVehicleUpgradeLoaded), ModelIndex);
+}
+
+int addrof(CStreaming::IHaveUsedStreamingMemory) = ADDRESS_BY_VERSION(0x407BF0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::IHaveUsedStreamingMemory) = GLOBAL_ADDRESS_BY_VERSION(0x407BF0, 0, 0, 0, 0, 0);
+
+void CStreaming::IHaveUsedStreamingMemory() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::IHaveUsedStreamingMemory));
+}
+
+int addrof(CStreaming::ImGonnaUseStreamingMemory) = ADDRESS_BY_VERSION(0x407BE0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ImGonnaUseStreamingMemory) = GLOBAL_ADDRESS_BY_VERSION(0x407BE0, 0, 0, 0, 0, 0);
+
+void CStreaming::ImGonnaUseStreamingMemory() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::ImGonnaUseStreamingMemory));
+}
+
+int addrof(CStreaming::Init) = ADDRESS_BY_VERSION(0x5B9020, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::Init) = GLOBAL_ADDRESS_BY_VERSION(0x5B9020, 0, 0, 0, 0, 0);
+
+void CStreaming::Init() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::Init));
+}
+
+int addrof(CStreaming::Init2) = ADDRESS_BY_VERSION(0x5B8AD0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::Init2) = GLOBAL_ADDRESS_BY_VERSION(0x5B8AD0, 0, 0, 0, 0, 0);
+
+void CStreaming::Init2() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::Init2));
+}
+
+int addrof(CStreaming::InitImageList) = ADDRESS_BY_VERSION(0x4083C0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::InitImageList) = GLOBAL_ADDRESS_BY_VERSION(0x4083C0, 0, 0, 0, 0, 0);
+
+void CStreaming::InitImageList() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::InitImageList));
+}
+
+int addrof(CStreaming::InstanceLoadedModels) = ADDRESS_BY_VERSION(0x4084F0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::InstanceLoadedModels) = GLOBAL_ADDRESS_BY_VERSION(0x4084F0, 0, 0, 0, 0, 0);
+
+void CStreaming::InstanceLoadedModels(CVector const *posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::InstanceLoadedModels), posn);
+}
+
+int addrof(CStreaming::IsCarModelNeededInCurrentZone) = ADDRESS_BY_VERSION(0x407DD0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::IsCarModelNeededInCurrentZone) = GLOBAL_ADDRESS_BY_VERSION(0x407DD0, 0, 0, 0, 0, 0);
+
+bool CStreaming::IsCarModelNeededInCurrentZone(int VehicleModelIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::IsCarModelNeededInCurrentZone), VehicleModelIndex);
+}
+
+int addrof(CStreaming::IsInitialised) = ADDRESS_BY_VERSION(0x407600, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::IsInitialised) = GLOBAL_ADDRESS_BY_VERSION(0x407600, 0, 0, 0, 0, 0);
+
+bool CStreaming::IsInitialised() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::IsInitialised));
+}
+
+int addrof(CStreaming::IsObjectInCdImage) = ADDRESS_BY_VERSION(0x407800, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::IsObjectInCdImage) = GLOBAL_ADDRESS_BY_VERSION(0x407800, 0, 0, 0, 0, 0);
+
+bool CStreaming::IsObjectInCdImage(int ModelInex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::IsObjectInCdImage), ModelInex);
+}
+
+int addrof(CStreaming::IsVeryBusy) = ADDRESS_BY_VERSION(0x4076A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::IsVeryBusy) = GLOBAL_ADDRESS_BY_VERSION(0x4076A0, 0, 0, 0, 0, 0);
+
+bool CStreaming::IsVeryBusy() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::IsVeryBusy));
+}
+
+int addrof(CStreaming::Load) = ADDRESS_BY_VERSION(0x5D29E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::Load) = GLOBAL_ADDRESS_BY_VERSION(0x5D29E0, 0, 0, 0, 0, 0);
+
+void CStreaming::Load() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::Load));
+}
+
+int addrof(CStreaming::LoadAllRequestedModels) = ADDRESS_BY_VERSION(0x40EA10, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadAllRequestedModels) = GLOBAL_ADDRESS_BY_VERSION(0x40EA10, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadAllRequestedModels(char bOnlyPriorityRequests) {
+    plugin::CallDynGlobal<char>(gaddrof(CStreaming::LoadAllRequestedModels), bOnlyPriorityRequests);
+}
+
+int addrof_o(CStreaming::LoadCdDirectory, void (*)(char const *, int)) = ADDRESS_BY_VERSION(0x5B6170, 0, 0, 0, 0, 0);
+int gaddrof_o(CStreaming::LoadCdDirectory, void (*)(char const *, int)) = GLOBAL_ADDRESS_BY_VERSION(0x5B6170, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadCdDirectory(char const *ArchiveName, int archiveID) {
+    plugin::CallDynGlobal<char const *, int>(gaddrof_o(CStreaming::LoadCdDirectory, void (*)(char const *, int)), ArchiveName, archiveID);
+}
+
+int addrof_o(CStreaming::LoadCdDirectory, void (*)()) = ADDRESS_BY_VERSION(0x5B82C0, 0, 0, 0, 0, 0);
+int gaddrof_o(CStreaming::LoadCdDirectory, void (*)()) = GLOBAL_ADDRESS_BY_VERSION(0x5B82C0, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadCdDirectory() {
+    plugin::CallDynGlobal(gaddrof_o(CStreaming::LoadCdDirectory, void (*)()));
+}
+
+int addrof(CStreaming::LoadInitialPeds) = ADDRESS_BY_VERSION(0x40D3D0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadInitialPeds) = GLOBAL_ADDRESS_BY_VERSION(0x40D3D0, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadInitialPeds() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::LoadInitialPeds));
+}
+
+int addrof(CStreaming::LoadInitialVehicles) = ADDRESS_BY_VERSION(0x407F20, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadInitialVehicles) = GLOBAL_ADDRESS_BY_VERSION(0x407F20, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadInitialVehicles() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::LoadInitialVehicles));
+}
+
+int addrof(CStreaming::LoadInitialWeapons) = ADDRESS_BY_VERSION(0x40A120, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadInitialWeapons) = GLOBAL_ADDRESS_BY_VERSION(0x40A120, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadInitialWeapons() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::LoadInitialWeapons));
+}
+
+int addrof(CStreaming::LoadRequestedModels) = ADDRESS_BY_VERSION(0x40E3A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadRequestedModels) = GLOBAL_ADDRESS_BY_VERSION(0x40E3A0, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadRequestedModels() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::LoadRequestedModels));
+}
+
+int addrof(CStreaming::LoadScene) = ADDRESS_BY_VERSION(0x40EB70, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadScene) = GLOBAL_ADDRESS_BY_VERSION(0x40EB70, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadScene(CVector const *Posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::LoadScene), Posn);
+}
+
+int addrof(CStreaming::LoadSceneCollision) = ADDRESS_BY_VERSION(0x40ED80, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadSceneCollision) = GLOBAL_ADDRESS_BY_VERSION(0x40ED80, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadSceneCollision(CVector const *Posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::LoadSceneCollision), Posn);
+}
+
+int addrof(CStreaming::LoadZoneVehicle) = ADDRESS_BY_VERSION(0x40B4B0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::LoadZoneVehicle) = GLOBAL_ADDRESS_BY_VERSION(0x40B4B0, 0, 0, 0, 0, 0);
+
+void CStreaming::LoadZoneVehicle(CVector const *posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::LoadZoneVehicle), posn);
+}
+
+int addrof(CStreaming::MakeSpaceFor) = ADDRESS_BY_VERSION(0x40E120, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::MakeSpaceFor) = GLOBAL_ADDRESS_BY_VERSION(0x40E120, 0, 0, 0, 0, 0);
+
+void CStreaming::MakeSpaceFor(int memoryToCleanInBytes) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::MakeSpaceFor), memoryToCleanInBytes);
+}
+
+int addrof(CStreaming::PossiblyStreamCarOutAfterCreation) = ADDRESS_BY_VERSION(0x40BA70, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::PossiblyStreamCarOutAfterCreation) = GLOBAL_ADDRESS_BY_VERSION(0x40BA70, 0, 0, 0, 0, 0);
+
+void CStreaming::PossiblyStreamCarOutAfterCreation(int modelId) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::PossiblyStreamCarOutAfterCreation), modelId);
+}
+
+int addrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, float, float, float, float, float, float, float, unsigned int)) = ADDRESS_BY_VERSION(0x40C270, 0, 0, 0, 0, 0);
+int gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, float, float, float, float, float, float, float, unsigned int)) = GLOBAL_ADDRESS_BY_VERSION(0x40C270, 0, 0, 0, 0, 0);
+
+void CStreaming::ProcessEntitiesInSectorList(CPtrList *list, float posn_x, float posn_y, float min_posn_x, float min_posn_y, float max_posn_x, float max_posn_y, float distance, unsigned int Streamingflags) {
+    plugin::CallDynGlobal<CPtrList *, float, float, float, float, float, float, float, unsigned int>(gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, float, float, float, float, float, float, float, unsigned int)), list, posn_x, posn_y, min_posn_x, min_posn_y, max_posn_x, max_posn_y, distance, Streamingflags);
+}
+
+int addrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)) = ADDRESS_BY_VERSION(0x40C450, 0, 0, 0, 0, 0);
+int gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)) = GLOBAL_ADDRESS_BY_VERSION(0x40C450, 0, 0, 0, 0, 0);
+
+void CStreaming::ProcessEntitiesInSectorList(CPtrList *arg1, unsigned int streamingFlags) {
+    plugin::CallDynGlobal<CPtrList *, unsigned int>(gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)), arg1, streamingFlags);
+}
+
+int addrof(CStreaming::ProcessLoadingChannel) = ADDRESS_BY_VERSION(0x40E170, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ProcessLoadingChannel) = GLOBAL_ADDRESS_BY_VERSION(0x40E170, 0, 0, 0, 0, 0);
+
+bool CStreaming::ProcessLoadingChannel(int channelIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::ProcessLoadingChannel), channelIndex);
+}
+
+int addrof(CStreaming::PurgeRequestList) = ADDRESS_BY_VERSION(0x40C1E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::PurgeRequestList) = GLOBAL_ADDRESS_BY_VERSION(0x40C1E0, 0, 0, 0, 0, 0);
+
+void CStreaming::PurgeRequestList() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::PurgeRequestList));
+}
+
+int addrof(CStreaming::ReInit) = ADDRESS_BY_VERSION(0x40E560, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ReInit) = GLOBAL_ADDRESS_BY_VERSION(0x40E560, 0, 0, 0, 0, 0);
+
+unsigned int CStreaming::ReInit() {
+    return plugin::CallAndReturnDynGlobal<unsigned int>(gaddrof(CStreaming::ReInit));
+}
+
+int addrof(CStreaming::ReadIniFile) = ADDRESS_BY_VERSION(0x5BCCD0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ReadIniFile) = GLOBAL_ADDRESS_BY_VERSION(0x5BCCD0, 0, 0, 0, 0, 0);
+
+void CStreaming::ReadIniFile() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::ReadIniFile));
+}
+
+int addrof(CStreaming::ReclassifyLoadedCars) = ADDRESS_BY_VERSION(0x40AFA0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::ReclassifyLoadedCars) = GLOBAL_ADDRESS_BY_VERSION(0x40AFA0, 0, 0, 0, 0, 0);
+
+void CStreaming::ReclassifyLoadedCars() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::ReclassifyLoadedCars));
+}
+
+int addrof(CStreaming::RemoveAllUnusedModels) = ADDRESS_BY_VERSION(0x40CF80, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveAllUnusedModels) = GLOBAL_ADDRESS_BY_VERSION(0x40CF80, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveAllUnusedModels() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::RemoveAllUnusedModels));
+}
+
+int addrof(CStreaming::RemoveBigBuildings) = ADDRESS_BY_VERSION(0x4093B0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveBigBuildings) = GLOBAL_ADDRESS_BY_VERSION(0x4093B0, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveBigBuildings() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::RemoveBigBuildings));
+}
+
+int addrof(CStreaming::RemoveBuildingsNotInArea) = ADDRESS_BY_VERSION(0x4094B0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveBuildingsNotInArea) = GLOBAL_ADDRESS_BY_VERSION(0x4094B0, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveBuildingsNotInArea(int AreaCode) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RemoveBuildingsNotInArea), AreaCode);
+}
+
+int addrof(CStreaming::RemoveCarModel) = ADDRESS_BY_VERSION(0x4080F0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveCarModel) = GLOBAL_ADDRESS_BY_VERSION(0x4080F0, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveCarModel(int modelIndex) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RemoveCarModel), modelIndex);
+}
+
+int addrof(CStreaming::RemoveCurrentZonesModels) = ADDRESS_BY_VERSION(0x40B080, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveCurrentZonesModels) = GLOBAL_ADDRESS_BY_VERSION(0x40B080, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveCurrentZonesModels() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::RemoveCurrentZonesModels));
+}
+
+int addrof(CStreaming::RemoveDodgyPedsFromRandomSlots) = ADDRESS_BY_VERSION(0x40BE60, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveDodgyPedsFromRandomSlots) = GLOBAL_ADDRESS_BY_VERSION(0x40BE60, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveDodgyPedsFromRandomSlots() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::RemoveDodgyPedsFromRandomSlots));
+}
+
+int addrof(CStreaming::RemoveEntity) = ADDRESS_BY_VERSION(0x409710, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveEntity) = GLOBAL_ADDRESS_BY_VERSION(0x409710, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveEntity(CLink<CEntity*> *streamingLink) {
+    plugin::CallDynGlobal<CLink<CEntity*> *>(gaddrof(CStreaming::RemoveEntity), streamingLink);
+}
+
+int addrof(CStreaming::RemoveInappropriatePedModels) = ADDRESS_BY_VERSION(0x40B3A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveInappropriatePedModels) = GLOBAL_ADDRESS_BY_VERSION(0x40B3A0, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveInappropriatePedModels() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::RemoveInappropriatePedModels));
+}
+
+int addrof(CStreaming::RemoveLeastUsedModel) = ADDRESS_BY_VERSION(0x40CFD0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveLeastUsedModel) = GLOBAL_ADDRESS_BY_VERSION(0x40CFD0, 0, 0, 0, 0, 0);
+
+bool CStreaming::RemoveLeastUsedModel(unsigned int StreamingFlags) {
+    return plugin::CallAndReturnDynGlobal<bool, unsigned int>(gaddrof(CStreaming::RemoveLeastUsedModel), StreamingFlags);
+}
+
+int addrof(CStreaming::RemoveLoadedVehicle) = ADDRESS_BY_VERSION(0x40C020, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveLoadedVehicle) = GLOBAL_ADDRESS_BY_VERSION(0x40C020, 0, 0, 0, 0, 0);
+
+bool CStreaming::RemoveLoadedVehicle() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::RemoveLoadedVehicle));
+}
+
+int addrof(CStreaming::RemoveLoadedZoneModel) = ADDRESS_BY_VERSION(0x40B340, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveLoadedZoneModel) = GLOBAL_ADDRESS_BY_VERSION(0x40B340, 0, 0, 0, 0, 0);
+
+bool CStreaming::RemoveLoadedZoneModel() {
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::RemoveLoadedZoneModel));
+}
+
+int addrof(CStreaming::RemoveModel) = ADDRESS_BY_VERSION(0x4089A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveModel) = GLOBAL_ADDRESS_BY_VERSION(0x4089A0, 0, 0, 0, 0, 0);
+
+void CStreaming::RemoveModel(int Modelindex) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RemoveModel), Modelindex);
+}
+
+int addrof(CStreaming::RemoveUnusedModelsInLoadedList) = ADDRESS_BY_VERSION(0x407AC0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RemoveUnusedModelsInLoadedList) = GLOBAL_ADDRESS_BY_VERSION(0x407AC0, 0, 0, 0, 0, 0);
+
+unsigned int CStreaming::RemoveUnusedModelsInLoadedList() {
+    return plugin::CallAndReturnDynGlobal<unsigned int>(gaddrof(CStreaming::RemoveUnusedModelsInLoadedList));
+}
+
+int addrof(CStreaming::RenderEntity) = ADDRESS_BY_VERSION(0x4096D0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RenderEntity) = GLOBAL_ADDRESS_BY_VERSION(0x4096D0, 0, 0, 0, 0, 0);
+
+void CStreaming::RenderEntity(CLink<CEntity*> *streamingLink) {
+    plugin::CallDynGlobal<CLink<CEntity*> *>(gaddrof(CStreaming::RenderEntity), streamingLink);
+}
+
+int addrof(CStreaming::RequestBigBuildings) = ADDRESS_BY_VERSION(0x409430, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestBigBuildings) = GLOBAL_ADDRESS_BY_VERSION(0x409430, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestBigBuildings(CVector const *posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::RequestBigBuildings), posn);
+}
+
+int addrof(CStreaming::RequestFile) = ADDRESS_BY_VERSION(0x40A080, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestFile) = GLOBAL_ADDRESS_BY_VERSION(0x40A080, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestFile(int index, int offset, int size, int imgId, int streamingFlags) {
+    plugin::CallDynGlobal<int, int, int, int, int>(gaddrof(CStreaming::RequestFile), index, offset, size, imgId, streamingFlags);
+}
+
+int addrof(CStreaming::RequestFilesInChannel) = ADDRESS_BY_VERSION(0x409050, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestFilesInChannel) = GLOBAL_ADDRESS_BY_VERSION(0x409050, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestFilesInChannel(int channelId) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RequestFilesInChannel), channelId);
+}
+
+int addrof(CStreaming::RequestModel) = ADDRESS_BY_VERSION(0x4087E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestModel) = GLOBAL_ADDRESS_BY_VERSION(0x4087E0, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestModel(int dwModelId, int Streamingflags) {
+    plugin::CallDynGlobal<int, int>(gaddrof(CStreaming::RequestModel), dwModelId, Streamingflags);
+}
+
+int addrof(CStreaming::RequestModelStream) = ADDRESS_BY_VERSION(0x40CBA0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestModelStream) = GLOBAL_ADDRESS_BY_VERSION(0x40CBA0, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestModelStream(int streamNum) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RequestModelStream), streamNum);
+}
+
+int addrof(CStreaming::RequestPlayerSection) = ADDRESS_BY_VERSION(0x409FF0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestPlayerSection) = GLOBAL_ADDRESS_BY_VERSION(0x409FF0, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestPlayerSection(int modelIndex, char const *string, int streamingFlags) {
+    plugin::CallDynGlobal<int, char const *, int>(gaddrof(CStreaming::RequestPlayerSection), modelIndex, string, streamingFlags);
+}
+
+int addrof(CStreaming::RequestSpecialChar) = ADDRESS_BY_VERSION(0x40B450, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestSpecialChar) = GLOBAL_ADDRESS_BY_VERSION(0x40B450, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestSpecialChar(int arg1, char const *Name, int streamingFlags) {
+    plugin::CallDynGlobal<int, char const *, int>(gaddrof(CStreaming::RequestSpecialChar), arg1, Name, streamingFlags);
+}
+
+int addrof(CStreaming::RequestSpecialModel) = ADDRESS_BY_VERSION(0x409D10, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestSpecialModel) = GLOBAL_ADDRESS_BY_VERSION(0x409D10, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestSpecialModel(int slot, char *name, int StreamingFlags) {
+    plugin::CallDynGlobal<int, char *, int>(gaddrof(CStreaming::RequestSpecialModel), slot, name, StreamingFlags);
+}
+
+int addrof(CStreaming::RequestTxdModel) = ADDRESS_BY_VERSION(0x407100, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestTxdModel) = GLOBAL_ADDRESS_BY_VERSION(0x407100, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestTxdModel(int TxdModelID, int Streamingflags) {
+    plugin::CallDynGlobal<int, int>(gaddrof(CStreaming::RequestTxdModel), TxdModelID, Streamingflags);
+}
+
+int addrof(CStreaming::RequestVehicleUpgrade) = ADDRESS_BY_VERSION(0x408C70, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RequestVehicleUpgrade) = GLOBAL_ADDRESS_BY_VERSION(0x408C70, 0, 0, 0, 0, 0);
+
+void CStreaming::RequestVehicleUpgrade(int modelIndex, int StreamingFlags) {
+    plugin::CallDynGlobal<int, int>(gaddrof(CStreaming::RequestVehicleUpgrade), modelIndex, StreamingFlags);
+}
+
+int addrof(CStreaming::RetryLoadFile) = ADDRESS_BY_VERSION(0x4076C0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::RetryLoadFile) = GLOBAL_ADDRESS_BY_VERSION(0x4076C0, 0, 0, 0, 0, 0);
+
+void CStreaming::RetryLoadFile(int arg1) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RetryLoadFile), arg1);
+}
+
+int addrof(CStreaming::Save) = ADDRESS_BY_VERSION(0x5D29A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::Save) = GLOBAL_ADDRESS_BY_VERSION(0x5D29A0, 0, 0, 0, 0, 0);
+
+void CStreaming::Save() {
+    plugin::CallDynGlobal(gaddrof(CStreaming::Save));
+}
+
+int addrof(CStreaming::SetLoadVehiclesInLoadScene) = ADDRESS_BY_VERSION(0x407A30, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetLoadVehiclesInLoadScene) = GLOBAL_ADDRESS_BY_VERSION(0x407A30, 0, 0, 0, 0, 0);
+
+void CStreaming::SetLoadVehiclesInLoadScene(bool bEnable) {
+    plugin::CallDynGlobal<bool>(gaddrof(CStreaming::SetLoadVehiclesInLoadScene), bEnable);
+}
+
+int addrof(CStreaming::SetMissionDoesntRequireAnim) = ADDRESS_BY_VERSION(0x48B570, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetMissionDoesntRequireAnim) = GLOBAL_ADDRESS_BY_VERSION(0x48B570, 0, 0, 0, 0, 0);
+
+void CStreaming::SetMissionDoesntRequireAnim(int slot) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::SetMissionDoesntRequireAnim), slot);
+}
+
+int addrof(CStreaming::SetMissionDoesntRequireModel) = ADDRESS_BY_VERSION(0x409C90, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetMissionDoesntRequireModel) = GLOBAL_ADDRESS_BY_VERSION(0x409C90, 0, 0, 0, 0, 0);
+
+void CStreaming::SetMissionDoesntRequireModel(int modelIndex) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::SetMissionDoesntRequireModel), modelIndex);
+}
+
+int addrof(CStreaming::SetMissionDoesntRequireSpecialChar) = ADDRESS_BY_VERSION(0x40B490, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetMissionDoesntRequireSpecialChar) = GLOBAL_ADDRESS_BY_VERSION(0x40B490, 0, 0, 0, 0, 0);
+
+void CStreaming::SetMissionDoesntRequireSpecialChar(int slot) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::SetMissionDoesntRequireSpecialChar), slot);
+}
+
+int addrof(CStreaming::SetModelIsDeletable) = ADDRESS_BY_VERSION(0x409C10, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetModelIsDeletable) = GLOBAL_ADDRESS_BY_VERSION(0x409C10, 0, 0, 0, 0, 0);
+
+void CStreaming::SetModelIsDeletable(int modelIndex) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::SetModelIsDeletable), modelIndex);
+}
+
+int addrof(CStreaming::SetModelTxdIsDeletable) = ADDRESS_BY_VERSION(0x409C70, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetModelTxdIsDeletable) = GLOBAL_ADDRESS_BY_VERSION(0x409C70, 0, 0, 0, 0, 0);
 
 void CStreaming::SetModelTxdIsDeletable(int modelIndex) {
-    ((void(__cdecl *)(int))0x409C70)(modelIndex);
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::SetModelTxdIsDeletable), modelIndex);
 }
 
-void CStreaming::SetMissionDoesntRequireModel(int modelIndex)
-{
-    ((void(__cdecl *)(int))0x409C90)(modelIndex);
+int addrof(CStreaming::SetSpecialCharIsDeletable) = ADDRESS_BY_VERSION(0x40B470, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::SetSpecialCharIsDeletable) = GLOBAL_ADDRESS_BY_VERSION(0x40B470, 0, 0, 0, 0, 0);
+
+void CStreaming::SetSpecialCharIsDeletable(int slot) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::SetSpecialCharIsDeletable), slot);
 }
 
-void CStreaming::LoadScene(CVector const& point)
-{
-    ((void(__cdecl *)(CVector const&))0x40ED80)(point);
-}
+int addrof(CStreaming::Shutdown) = ADDRESS_BY_VERSION(0x4084B0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::Shutdown) = GLOBAL_ADDRESS_BY_VERSION(0x4084B0, 0, 0, 0, 0, 0);
 
-void CStreaming::LoadSceneCollision(CVector const& coord)
-{
-    ((void(__cdecl *)(CVector const&))0x40ED80)(coord);
-}
-
-// Converted from cdecl int CStreaming::AddEntity(CEntity *pEntity) 0x409650
-int CStreaming::AddEntity(CEntity* pEntity) {
-    return plugin::CallAndReturn<int, 0x409650, CEntity*>(pEntity);
-}
-
-// Converted from cdecl int CStreaming::AddImageToList(char const* filename, bool notPlayerFile) 0x407610
-int CStreaming::AddImageToList(char const* filename, bool notPlayerFile) {
-    return plugin::CallAndReturn<int, 0x407610, char const*, bool>(filename, notPlayerFile);
-}
-
-// Converted from cdecl void CStreaming::AddModelsToRequestList(CVector const &arg1, uint modelrequestflag) 0x40D3F0
-void CStreaming::AddModelsToRequestList(CVector const& arg1, unsigned int modelrequestflag) {
-    plugin::Call<0x40D3F0, CVector const&, unsigned int>(arg1, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::AddToLoadedVehiclesList(int vehicleid) 0x408000
-void CStreaming::AddToLoadedVehiclesList(int vehicleid) {
-    plugin::Call<0x408000, int>(vehicleid);
-}
-
-// Converted from cdecl void CStreaming::DeleteAllRwObjects(void) 0x4090A0
-void CStreaming::DeleteAllRwObjects() {
-    plugin::Call<0x4090A0>();
-}
-
-// Converted from cdecl void CStreaming::DeleteRwObjectsBehindCamera(int arg1) 0x40D7C0
-void CStreaming::DeleteRwObjectsBehindCamera(int arg1) {
-    plugin::Call<0x40D7C0, int>(arg1);
-}
-
-// Converted from cdecl void CStreaming::DeleteRwObjectsInSectorList(CPtrList &arg1, int arg2, int arg3) 0x407A70
-void CStreaming::DeleteRwObjectsInSectorList(CPtrList& arg1, int arg2, int arg3) {
-    plugin::Call<0x407A70, CPtrList&, int, int>(arg1, arg2, arg3);
-}
-
-// Converted from cdecl bool CStreaming::FinishLoadingLargeFile(char* FileName,int index) 0x408CB0
-bool CStreaming::FinishLoadingLargeFile(char* FileName, int index) {
-    return plugin::CallAndReturn<bool, 0x408CB0, char*, int>(FileName, index);
-}
-
-// Converted from cdecl void CStreaming::FlushChannels(void) 0x40E460
-void CStreaming::FlushChannels() {
-    plugin::Call<0x40E460>();
-}
-
-// Converted from cdecl void CStreaming::FlushRequestList(void) 0x40E4E0
-void CStreaming::FlushRequestList() {
-    plugin::Call<0x40E4E0>();
-}
-
-// Converted from cdecl void CStreaming::ForceLayerToRead(int arg1) 0x407A10
-void CStreaming::ForceLayerToRead(int arg1) {
-    plugin::Call<0x407A10, int>(arg1);
-}
-
-// Converted from cdecl int CStreaming::GetDefaultCabDriverModel(void) 0x407D50
-int CStreaming::GetDefaultCabDriverModel() {
-    return plugin::CallAndReturn<int, 0x407D50>();
-}
-
-// Converted from cdecl int CStreaming::GetNextFileOnCd(int arg1,bool arg2) 0x408E20
-int CStreaming::GetNextFileOnCd(int arg1, bool arg2) {
-    return plugin::CallAndReturn<int, 0x408E20, int, bool>(arg1, arg2);
-}
-
-// Converted from cdecl void CStreaming::Init(void) 0x5B8AD0
-void CStreaming::Init() {
-    plugin::Call<0x5B8AD0>();
-}
-
-// Converted from cdecl void CStreaming::InitImageList(void) 0x4083C0
-void CStreaming::InitImageList() {
-    plugin::Call<0x4083C0>();
-}
-
-// Converted from cdecl bool CStreaming::IsCarModelNeededInCurrentZone(int modelid) 0x407DD0
-bool CStreaming::IsCarModelNeededInCurrentZone(int modelid) {
-    return plugin::CallAndReturn<bool, 0x407DD0, int>(modelid);
-}
-
-// Converted from cdecl bool CStreaming::IsInitialised(void) 0x407600
-bool CStreaming::IsInitialised() {
-    return plugin::CallAndReturn<bool, 0x407600>();
-}
-
-// Converted from cdecl bool CStreaming::IsVeryBusy(void) 0x4076A0
-bool CStreaming::IsVeryBusy() {
-    return plugin::CallAndReturn<bool, 0x4076A0>();
-}
-
-// Converted from cdecl void CStreaming::LoadCdDirectory(char const *archivename, int archiveID) 0x5B6170
-void CStreaming::LoadCdDirectory(char const* archivename, int archiveID) {
-    plugin::Call<0x5B6170, char const*, int>(archivename, archiveID);
-}
-
-// Converted from cdecl void CStreaming::LoadInitialPeds(void) 0x40D3D0
-void CStreaming::LoadInitialPeds() {
-    plugin::Call<0x40D3D0>();
-}
-
-// Converted from cdecl void CStreaming::LoadInitialWeapons(void) 0x40A120
-void CStreaming::LoadInitialWeapons() {
-    plugin::Call<0x40A120>();
-}
-
-// Converted from cdecl void CStreaming::LoadZoneVehicle(CVector const& arg1) 0x40B4B0
-void CStreaming::LoadZoneVehicle(CVector const& arg1) {
-    plugin::Call<0x40B4B0, CVector const&>(arg1);
-}
-
-// Converted from cdecl void CStreaming::PossiblyStreamCarOutAfterCreation(int modelid) 0x40BA70
-void CStreaming::PossiblyStreamCarOutAfterCreation(int modelid) {
-    plugin::Call<0x40BA70, int>(modelid);
-}
-
-// Converted from cdecl void CStreaming::ProcessEntitiesInSectorList(CPtrList &list, float arg2, float arg3, float arg4, float arg5, float arg6, float arg7, float distance, int modelrequestflag) 0x40C270
-void CStreaming::ProcessEntitiesInSectorList(CPtrList& list, float arg2, float arg3, float arg4, float arg5, float arg6, float arg7, float distance, int modelrequestflag) {
-    plugin::Call<0x40C270, CPtrList&, float, float, float, float, float, float, float, int>(list, arg2, arg3, arg4, arg5, arg6, arg7, distance, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::ProcessEntitiesInSectorList(CPtrList &list ,uint modelrequestflag) 0x40C450
-void CStreaming::ProcessEntitiesInSectorList(CPtrList& list, unsigned int modelrequestflag) {
-    plugin::Call<0x40C450, CPtrList&, unsigned int>(list, modelrequestflag);
-}
-
-// Converted from cdecl bool CStreaming::ProcessLoadingChannel(int channelindex) 0x40E170
-bool CStreaming::ProcessLoadingChannel(int channelindex) {
-    return plugin::CallAndReturn<bool, 0x40E170, int>(channelindex);
-}
-
-// Converted from cdecl void CStreaming::ReInit(void) 0x40E560
-void CStreaming::ReInit() {
-    plugin::Call<0x40E560>();
-}
-
-// Converted from cdecl void CStreaming::ReadIniFile(void) 0x5BCCD0
-void CStreaming::ReadIniFile() {
-    plugin::Call<0x5BCCD0>();
-}
-
-// Converted from cdecl void CStreaming::ReclassifyLoadedCars(void) 0x40AFA0
-void CStreaming::ReclassifyLoadedCars() {
-    plugin::Call<0x40AFA0>();
-}
-
-// Converted from cdecl void CStreaming::RemoveBigBuildings(void) 0x4093B0
-void CStreaming::RemoveBigBuildings() {
-    plugin::Call<0x4093B0>();
-}
-
-// Converted from cdecl void CStreaming::RemoveBuildingsNotInArea(int area) 0x4094B0
-void CStreaming::RemoveBuildingsNotInArea(int area) {
-    plugin::Call<0x4094B0, int>(area);
-}
-
-// Converted from cdecl void CStreaming::RemoveCarModel(int vehicleid) 0x4080F0
-void CStreaming::RemoveCarModel(int vehicleid) {
-    plugin::Call<0x4080F0, int>(vehicleid);
-}
-
-// Converted from cdecl void CStreaming::RemoveCurrentZonesModels(void) 0x40B080
-void CStreaming::RemoveCurrentZonesModels() {
-    plugin::Call<0x40B080>();
-}
-
-// Converted from cdecl void CStreaming::RemoveInappropriatePedModels(void) 0x40B3A0
-void CStreaming::RemoveInappropriatePedModels() {
-    plugin::Call<0x40B3A0>();
-}
-
-// Converted from cdecl bool CStreaming::RemoveLeastUsedModel(uchar flag) 0x40CFD0
-bool CStreaming::RemoveLeastUsedModel(unsigned char flag) {
-    return plugin::CallAndReturn<bool, 0x40CFD0, unsigned char>(flag);
-}
-
-// Converted from cdecl bool CStreaming::RemoveLoadedVehicle(void) 0x40C020
-bool CStreaming::RemoveLoadedVehicle() {
-    return plugin::CallAndReturn<bool, 0x40C020>();
-}
-
-// Converted from cdecl void CStreaming::RenderEntity(CLink<CEntity *> *arg1) 0x4096D0
-void CStreaming::RenderEntity(CLink<CEntity*> *arg1) {
-    plugin::Call<0x4096D0, CLink<CEntity*>*>(arg1);
-}
-
-// Converted from cdecl void CStreaming::RequestBigBuildings(CVector const &arg1) 0x409430
-void CStreaming::RequestBigBuildings(CVector const& arg1) {
-    plugin::Call<0x409430, CVector const&>(arg1);
-}
-
-// Converted from cdecl void CStreaming::RequestFile(int index, int offset, int size, int imgid, int modelrequestflag) 0x40A080
-void CStreaming::RequestFile(int index, int offset, int size, int imgid, int modelrequestflag) {
-    plugin::Call<0x40A080, int, int, int, int, int>(index, offset, size, imgid, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::RequestFilesInChannel(int channelindex) 0x409050
-void CStreaming::RequestFilesInChannel(int channelindex) {
-    plugin::Call<0x409050, int>(channelindex);
-}
-
-// Converted from cdecl void CStreaming::RequestModelStream(int streamnum) 0x40CBA0
-void CStreaming::RequestModelStream(int streamnum) {
-    plugin::Call<0x40CBA0, int>(streamnum);
-}
-
-// Converted from cdecl void CStreaming::RequestSpecialChar(int index,char const *txdname,int modelrequestflag) 0x40B450
-void CStreaming::RequestSpecialChar(int index, char const* txdname, int modelrequestflag) {
-    plugin::Call<0x40B450, int, char const*, int>(index, txdname, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::RequestSpecialModel(int slot,char const *name, int modelrequestflag) 0x409D10
-void CStreaming::RequestSpecialModel(int slot, char const* name, int modelrequestflag) {
-    plugin::Call<0x409D10, int, char const*, int>(slot, name, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::RequestVehicleUpgrade(int modelid, int modelrequestflag) 0x408C70
-void CStreaming::RequestVehicleUpgrade(int modelid, int modelrequestflag) {
-    plugin::Call<0x408C70, int, int>(modelid, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::RetryLoadFile(int streamnum) 0x4076C0
-void CStreaming::RetryLoadFile(int streamnum) {
-    plugin::Call<0x4076C0, int>(streamnum);
-}
-
-// Converted from cdecl void CStreaming::Save(void) 0x5D29A0
-void CStreaming::Save() {
-    plugin::Call<0x5D29A0>();
-}
-
-// Converted from cdecl void CStreaming::SetLoadVehiclesInLoadScene(bool bLoadVehiclesInLoadScene) 0x407A30
-void CStreaming::SetLoadVehiclesInLoadScene(bool bLoadVehiclesInLoadScene) {
-    plugin::Call<0x407A30, bool>(bLoadVehiclesInLoadScene);
-}
-
-// Converted from cdecl void CStreaming::SetMissionDoesntRequireAnim(int index) 0x48B570
-void CStreaming::SetMissionDoesntRequireAnim(int index) {
-    plugin::Call<0x48B570, int>(index);
-}
-
-// Converted from cdecl void CStreaming::SetMissionDoesntRequireSpecialChar(int index) 0x40B490
-void CStreaming::SetMissionDoesntRequireSpecialChar(int index) {
-    plugin::Call<0x40B490, int>(index);
-}
-
-// Converted from cdecl void CStreaming::Shutdown(void) 0x4084B0
 void CStreaming::Shutdown() {
-    plugin::Call<0x4084B0>();
+    plugin::CallDynGlobal(gaddrof(CStreaming::Shutdown));
 }
 
-// Converted from cdecl void CStreaming::StartRenderEntities(void) 0x4096C0
+int addrof(CStreaming::StartRenderEntities) = ADDRESS_BY_VERSION(0x4096C0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StartRenderEntities) = GLOBAL_ADDRESS_BY_VERSION(0x4096C0, 0, 0, 0, 0, 0);
+
 void CStreaming::StartRenderEntities() {
-    plugin::Call<0x4096C0>();
+    plugin::CallDynGlobal(gaddrof(CStreaming::StartRenderEntities));
 }
 
-// Converted from cdecl bool CStreaming::StreamAmbulanceAndMedic(bool bStream) 0x40A2A0
-bool CStreaming::StreamAmbulanceAndMedic(bool bStream) {
-    return plugin::CallAndReturn<bool, 0x40A2A0, bool>(bStream);
+int addrof(CStreaming::StreamAmbulanceAndMedic) = ADDRESS_BY_VERSION(0x40A2A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamAmbulanceAndMedic) = GLOBAL_ADDRESS_BY_VERSION(0x40A2A0, 0, 0, 0, 0, 0);
+
+bool CStreaming::StreamAmbulanceAndMedic(bool bStreamForAccident) {
+    return plugin::CallAndReturnDynGlobal<bool, bool>(gaddrof(CStreaming::StreamAmbulanceAndMedic), bStreamForAccident);
 }
 
-// Converted from cdecl void CStreaming::StreamCopModels(int townID) 0x40A150
+int addrof(CStreaming::StreamCopModels) = ADDRESS_BY_VERSION(0x40A150, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamCopModels) = GLOBAL_ADDRESS_BY_VERSION(0x40A150, 0, 0, 0, 0, 0);
+
 void CStreaming::StreamCopModels(int townID) {
-    plugin::Call<0x40A150, int>(townID);
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::StreamCopModels), townID);
 }
 
-// Converted from cdecl bool CStreaming::StreamFireEngineAndFireman(bool bStream) 0x40A400
-bool CStreaming::StreamFireEngineAndFireman(bool bStream) {
-    return plugin::CallAndReturn<bool, 0x40A400, bool>(bStream);
+int addrof(CStreaming::StreamFireEngineAndFireman) = ADDRESS_BY_VERSION(0x40A400, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamFireEngineAndFireman) = GLOBAL_ADDRESS_BY_VERSION(0x40A400, 0, 0, 0, 0, 0);
+
+bool CStreaming::StreamFireEngineAndFireman(bool bStreamForFire) {
+    return plugin::CallAndReturnDynGlobal<bool, bool>(gaddrof(CStreaming::StreamFireEngineAndFireman), bStreamForFire);
 }
 
-// Converted from cdecl void CStreaming::StreamOneNewCar(void) 0x40B4F0
+int addrof(CStreaming::StreamOneNewCar) = ADDRESS_BY_VERSION(0x40B4F0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamOneNewCar) = GLOBAL_ADDRESS_BY_VERSION(0x40B4F0, 0, 0, 0, 0, 0);
+
 void CStreaming::StreamOneNewCar() {
-    plugin::Call<0x40B4F0>();
+    plugin::CallDynGlobal(gaddrof(CStreaming::StreamOneNewCar));
 }
 
-// Converted from cdecl void CStreaming::StreamPedsIntoRandomSlots(int *modelid) 0x40BDA0
-void CStreaming::StreamPedsIntoRandomSlots(int* modelid) {
-    plugin::Call<0x40BDA0, int*>(modelid);
+int addrof(CStreaming::StreamPedsForInterior) = ADDRESS_BY_VERSION(0x40BBB0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamPedsForInterior) = GLOBAL_ADDRESS_BY_VERSION(0x40BBB0, 0, 0, 0, 0, 0);
+
+void CStreaming::StreamPedsForInterior(int interiorType) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::StreamPedsForInterior), interiorType);
 }
 
-// Converted from cdecl void CStreaming::StreamVehiclesAndPeds(void) 0x40B700
+int addrof(CStreaming::StreamPedsIntoRandomSlots) = ADDRESS_BY_VERSION(0x40BDA0, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamPedsIntoRandomSlots) = GLOBAL_ADDRESS_BY_VERSION(0x40BDA0, 0, 0, 0, 0, 0);
+
+void CStreaming::StreamPedsIntoRandomSlots(int *pModelID) {
+    plugin::CallDynGlobal<int *>(gaddrof(CStreaming::StreamPedsIntoRandomSlots), pModelID);
+}
+
+int addrof(CStreaming::StreamVehiclesAndPeds) = ADDRESS_BY_VERSION(0x40B700, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamVehiclesAndPeds) = GLOBAL_ADDRESS_BY_VERSION(0x40B700, 0, 0, 0, 0, 0);
+
 void CStreaming::StreamVehiclesAndPeds() {
-    plugin::Call<0x40B700>();
+    plugin::CallDynGlobal(gaddrof(CStreaming::StreamVehiclesAndPeds));
 }
 
-// Converted from cdecl void CStreaming::StreamVehiclesAndPeds_Always(CVector const &arg1) 0x40B650
-void CStreaming::StreamVehiclesAndPeds_Always(CVector const& arg1) {
-    plugin::Call<0x40B650, CVector const&>(arg1);
+int addrof(CStreaming::StreamVehiclesAndPeds_Always) = ADDRESS_BY_VERSION(0x40B650, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamVehiclesAndPeds_Always) = GLOBAL_ADDRESS_BY_VERSION(0x40B650, 0, 0, 0, 0, 0);
+
+void CStreaming::StreamVehiclesAndPeds_Always(CVector const *posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::StreamVehiclesAndPeds_Always), posn);
 }
 
-// Converted from cdecl void CStreaming::StreamZoneModels(void) 0x40A560
-void CStreaming::StreamZoneModels() {
-    plugin::Call<0x40A560>();
+int addrof(CStreaming::StreamZoneModels) = ADDRESS_BY_VERSION(0x40A560, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamZoneModels) = GLOBAL_ADDRESS_BY_VERSION(0x40A560, 0, 0, 0, 0, 0);
+
+void CStreaming::StreamZoneModels(CVector const *posn) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::StreamZoneModels), posn);
 }
 
-// Converted from cdecl void CStreaming::StreamZoneModels_Gangs(void) 0x40AA10
-void CStreaming::StreamZoneModels_Gangs() {
-    plugin::Call<0x40AA10>();
+int addrof(CStreaming::StreamZoneModels_Gangs) = ADDRESS_BY_VERSION(0x40AA10, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::StreamZoneModels_Gangs) = GLOBAL_ADDRESS_BY_VERSION(0x40AA10, 0, 0, 0, 0, 0);
+
+void CStreaming::StreamZoneModels_Gangs(CVector const *unused) {
+    plugin::CallDynGlobal<CVector const *>(gaddrof(CStreaming::StreamZoneModels_Gangs), unused);
 }
 
-// Converted from cdecl void CStreaming::Update(void) 0x40E670
+int addrof(CStreaming::Update) = ADDRESS_BY_VERSION(0x40E670, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::Update) = GLOBAL_ADDRESS_BY_VERSION(0x40E670, 0, 0, 0, 0, 0);
+
 void CStreaming::Update() {
-    plugin::Call<0x40E670>();
+    plugin::CallDynGlobal(gaddrof(CStreaming::Update));
 }
 
-// Converted from cdecl void CStreaming::UpdateForAnimViewer(void) 0x40E960
+int addrof(CStreaming::UpdateForAnimViewer) = ADDRESS_BY_VERSION(0x40E960, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::UpdateForAnimViewer) = GLOBAL_ADDRESS_BY_VERSION(0x40E960, 0, 0, 0, 0, 0);
+
 void CStreaming::UpdateForAnimViewer() {
-    plugin::Call<0x40E960>();
+    plugin::CallDynGlobal(gaddrof(CStreaming::UpdateForAnimViewer));
 }
 
-// Converted from cdecl void CStreaming::RequestTxd(uint index,uint modelrequestflag) 0x407100
-void CStreaming::RequestTxd(unsigned int index, unsigned int modelrequestflag) {
-    plugin::Call<0x407100, unsigned int, unsigned int>(index, modelrequestflag);
-}
+int addrof(CStreaming::WeAreTryingToPhaseVehicleOut) = ADDRESS_BY_VERSION(0x407F80, 0, 0, 0, 0, 0);
+int gaddrof(CStreaming::WeAreTryingToPhaseVehicleOut) = GLOBAL_ADDRESS_BY_VERSION(0x407F80, 0, 0, 0, 0, 0);
 
-// Converted from cdecl bool CStreaming::HasVehicleUpgradeLoaded(int modelid) 0x407820
-bool CStreaming::HasVehicleUpgradeLoaded(int modelid) {
-    return plugin::CallAndReturn<bool, 0x407820, int>(modelid);
-}
-
-// Converted from cdecl void CStreaming::ClearFlagForAll(uint arg1) 0x407A40
-void CStreaming::ClearFlagForAll(unsigned int arg1) {
-    plugin::Call<0x407A40, unsigned int>(arg1);
-}
-
-// Converted from cdecl void CStreaming::RequestAllModels(void) 0x4095C0
-void CStreaming::RequestAllModels() {
-    plugin::Call<0x4095C0>();
-}
-
-// Converted from cdecl void CStreaming::RemoveEntity(CLink<CEntity *> *pEntity) 0x409710
-void CStreaming::RemoveEntity(CLink<CEntity*> *pEntity) {
-    plugin::Call<0x409710, CLink<CEntity*>*>(pEntity);
-}
-
-// Converted from cdecl bool CStreaming::DeleteLeastUsedEntityRwObject(bool arg1,uchar flag) 0x409760
-bool CStreaming::DeleteLeastUsedEntityRwObject(bool arg1, unsigned char flag) {
-    return plugin::CallAndReturn<bool, 0x409760, bool, unsigned char>(arg1, flag);
-}
-
-// Converted from cdecl bool CStreaming::DeleteRwObjectsBehindCameraInSectorList(CPtrList &arg1, int arg2) 0x409940
-bool CStreaming::DeleteRwObjectsBehindCameraInSectorList(CPtrList& arg1, int arg2) {
-    return plugin::CallAndReturn<bool, 0x409940, CPtrList&, int>(arg1, arg2);
-}
-
-// Converted from cdecl bool CStreaming::DeleteRwObjectsNotInFrustumInSectorList(CPtrList &arg1, int arg2) 0x4099E0
-bool CStreaming::DeleteRwObjectsNotInFrustumInSectorList(CPtrList& arg1, int arg2) {
-    return plugin::CallAndReturn<bool, 0x4099E0, CPtrList&, int>(arg1, arg2);
-}
-
-// Converted from cdecl void CStreaming::RequestPlayerSection(int index, char const *arg2,int modelrequestflag) 0x409FF0
-void CStreaming::RequestPlayerSection(int index, char const* arg2, int modelrequestflag) {
-    plugin::Call<0x409FF0, int, char const*, int>(index, arg2, modelrequestflag);
-}
-
-// Converted from cdecl void CStreaming::PurgeRequestList(void) 0x40C1E0
-void CStreaming::PurgeRequestList() {
-    plugin::Call<0x40C1E0>();
-}
-
-// Converted from cdecl void CStreaming::AddLodsToRequestList(CVector const &arg1, uint modelrequestflag) 0x40C520
-void CStreaming::AddLodsToRequestList(CVector const& arg1, unsigned int modelrequestflag) {
-    plugin::Call<0x40C520, CVector const&, unsigned int>(arg1, modelrequestflag);
-}
-
-// Converted from cdecl bool CStreaming::ConvertBufferToObject(char *pFileContect,int index, int streamnum) 0x40C6B0
-bool CStreaming::ConvertBufferToObject(char* pFileContect, int index, int streamnum) {
-    return plugin::CallAndReturn<bool, 0x40C6B0, char*, int, int>(pFileContect, index, streamnum);
-}
-
-// Converted from cdecl void CStreaming::LoadCdDirectory(void) 0x5B82C0 // load all .img except player.img
-void CStreaming::LoadCdDirectory() {
-    plugin::Call<0x5B82C0>();
-}
-
-// Converted from cdecl void CStreaming::Load(void) 0x5D29E0
-void CStreaming::Load() {
-    plugin::Call<0x5D29E0>();
-}
-
-// Converted from cdecl void CStreaming::InstanceLoadedModels(CVector const &arg1) 0x4084F0
-void CStreaming::InstanceLoadedModels(CVector const& arg1) {
-    plugin::Call<0x4084F0, CVector const&>(arg1);
-}
-
-// Converted from cdecl void CStreaming::DeleteRwObjectsAfterDeath(CVector const &arg1) 0x409210
-void CStreaming::DeleteRwObjectsAfterDeath(CVector const& arg1) {
-    plugin::Call<0x409210, CVector const&>(arg1);
-}
-
-// Converted from cdecl void CStreaming::StreamPedsForInterior(int interior) 0x40BBB0
-void CStreaming::StreamPedsForInterior(int interior) {
-    plugin::Call<0x40BBB0, int>(interior);
-}
-
-// Converted from cdecl bool CStreaming::AreAnimsUsedByRequestedModels(int arg1) 0x407AD0
-bool CStreaming::AreAnimsUsedByRequestedModels(int arg1) {
-    return plugin::CallAndReturn<bool, 0x407AD0, int>(arg1);
-}
-
-// Converted from cdecl bool CStreaming::HasModelLoaded(int modelid) 0x407800
-bool CStreaming::HasModelLoaded(int modelid) {
-    return plugin::CallAndReturn<bool, 0x407800, int>(modelid);
-}
-
-// Converted from cdecl bool CStreaming::AreTexturesUsedByRequestedModels(int arg1) 0x409A90
-bool CStreaming::AreTexturesUsedByRequestedModels(int arg1) {
-    return plugin::CallAndReturn<bool, 0x409A90, int>(arg1);
-}
-
-// Converted from cdecl void CStreaming::RemoveTexture(int index) 0x40C180
-void CStreaming::RemoveTexture(int index) {
-    plugin::Call<0x40C180, int>(index);
+bool CStreaming::WeAreTryingToPhaseVehicleOut(int modelIndex) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::WeAreTryingToPhaseVehicleOut), modelIndex);
 }

@@ -6,52 +6,76 @@
 */
 #include "CStreamingInfo.h"
 
-// Converted from thiscall void CStreamingInfo::Init(void) 0x407460
-void CStreamingInfo::Init() {
-    ((void(__thiscall *)(CStreamingInfo*))0x407460)(this);
+PLUGIN_SOURCE_FILE
+
+CStreamingInfo *&CStreamingInfo::ms_pArrayBase = *reinterpret_cast<CStreamingInfo **>(GLOBAL_ADDRESS_BY_VERSION(0x9654B4, 0, 0, 0, 0, 0));
+
+int addrof(CStreamingInfo::AddToList) = ADDRESS_BY_VERSION(0x407480, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::AddToList) = GLOBAL_ADDRESS_BY_VERSION(0x407480, 0, 0, 0, 0, 0);
+
+void CStreamingInfo::AddToList(CStreamingInfo *listStart) {
+    plugin::CallMethodDynGlobal<CStreamingInfo *, CStreamingInfo *>(gaddrof(CStreamingInfo::AddToList), this, listStart);
 }
 
-// Converted from thiscall void CStreamingInfo::AddToList(CStreamingInfo* listStart) 0x407480
-void CStreamingInfo::AddToList(CStreamingInfo* listStart) {
-    ((void(__thiscall *)(CStreamingInfo*, CStreamingInfo*))0x407480)(this, listStart);
-}
+int addrof(CStreamingInfo::GetCdPosn) = ADDRESS_BY_VERSION(0x407570, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::GetCdPosn) = GLOBAL_ADDRESS_BY_VERSION(0x407570, 0, 0, 0, 0, 0);
 
-// Converted from thiscall void CStreamingInfo::RemoveFromList(void) 0x4074E0
-void CStreamingInfo::RemoveFromList() {
-    ((void(__thiscall *)(CStreamingInfo*))0x4074E0)(this);
-}
-
-// Converted from thiscall CStreamingInfo* CStreamingInfo::GetNext(void) 0x407520
-CStreamingInfo* CStreamingInfo::GetNext() {
-    return ((CStreamingInfo* (__thiscall *)(CStreamingInfo*))0x407520)(this);
-}
-
-// Converted from thiscall CStreamingInfo* CStreamingInfo::GetPrev(void) 0x407540
-CStreamingInfo* CStreamingInfo::GetPrev() {
-    return ((CStreamingInfo* (__thiscall *)(CStreamingInfo*))0x407540)(this);
-}
-
-// Converted from thiscall bool CStreamingInfo::InList(void) 0x407560
-bool CStreamingInfo::InList() {
-    return ((bool(__thiscall *)(CStreamingInfo*))0x407560)(this);
-}
-
-// Converted from thiscall uint CStreamingInfo::GetCdPosn(void) 0x407570
 unsigned int CStreamingInfo::GetCdPosn() {
-    return ((unsigned int(__thiscall *)(CStreamingInfo*))0x407570)(this);
+    return plugin::CallMethodAndReturnDynGlobal<unsigned int, CStreamingInfo *>(gaddrof(CStreamingInfo::GetCdPosn), this);
 }
 
-// Converted from thiscall uint CStreamingInfo::GetCdSize(void) 0x407590
+int addrof(CStreamingInfo::GetCdPosnAndSize) = ADDRESS_BY_VERSION(0x4075A0, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::GetCdPosnAndSize) = GLOBAL_ADDRESS_BY_VERSION(0x4075A0, 0, 0, 0, 0, 0);
+
+bool CStreamingInfo::GetCdPosnAndSize(unsigned int *CdPosn, unsigned int *CdSize) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CStreamingInfo *, unsigned int *, unsigned int *>(gaddrof(CStreamingInfo::GetCdPosnAndSize), this, CdPosn, CdSize);
+}
+
+int addrof(CStreamingInfo::GetCdSize) = ADDRESS_BY_VERSION(0x407590, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::GetCdSize) = GLOBAL_ADDRESS_BY_VERSION(0x407590, 0, 0, 0, 0, 0);
+
 unsigned int CStreamingInfo::GetCdSize() {
-    return ((unsigned int(__thiscall *)(CStreamingInfo*))0x407590)(this);
+    return plugin::CallMethodAndReturnDynGlobal<unsigned int, CStreamingInfo *>(gaddrof(CStreamingInfo::GetCdSize), this);
 }
 
-// Converted from thiscall bool CStreamingInfo::GetCdPosnAndSize(uint &outPosn,uint &outSize) 0x4075A0
-bool CStreamingInfo::GetCdPosnAndSize(unsigned int& outPosn, unsigned int& outSize) {
-    return ((bool(__thiscall *)(CStreamingInfo*, unsigned int&, unsigned int&))0x4075A0)(this, outPosn, outSize);
+int addrof(CStreamingInfo::GetNext) = ADDRESS_BY_VERSION(0x407520, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::GetNext) = GLOBAL_ADDRESS_BY_VERSION(0x407520, 0, 0, 0, 0, 0);
+
+CStreamingInfo *CStreamingInfo::GetNext() {
+    return plugin::CallMethodAndReturnDynGlobal<CStreamingInfo *, CStreamingInfo *>(gaddrof(CStreamingInfo::GetNext), this);
 }
 
-// Converted from thiscall void CStreamingInfo::SetCdPosnAndSize(uint posn,uint size) 0x4075E0
-void CStreamingInfo::SetCdPosnAndSize(unsigned int posn, unsigned int size) {
-    ((void(__thiscall *)(CStreamingInfo*, unsigned int, unsigned int))0x4075E0)(this, posn, size);
+int addrof(CStreamingInfo::GetPrev) = ADDRESS_BY_VERSION(0x407540, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::GetPrev) = GLOBAL_ADDRESS_BY_VERSION(0x407540, 0, 0, 0, 0, 0);
+
+CStreamingInfo *CStreamingInfo::GetPrev() {
+    return plugin::CallMethodAndReturnDynGlobal<CStreamingInfo *, CStreamingInfo *>(gaddrof(CStreamingInfo::GetPrev), this);
+}
+
+int addrof(CStreamingInfo::InList) = ADDRESS_BY_VERSION(0x407560, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::InList) = GLOBAL_ADDRESS_BY_VERSION(0x407560, 0, 0, 0, 0, 0);
+
+bool CStreamingInfo::InList() {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CStreamingInfo *>(gaddrof(CStreamingInfo::InList), this);
+}
+
+int addrof(CStreamingInfo::Init) = ADDRESS_BY_VERSION(0x407460, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::Init) = GLOBAL_ADDRESS_BY_VERSION(0x407460, 0, 0, 0, 0, 0);
+
+void CStreamingInfo::Init() {
+    plugin::CallMethodDynGlobal<CStreamingInfo *>(gaddrof(CStreamingInfo::Init), this);
+}
+
+int addrof(CStreamingInfo::RemoveFromList) = ADDRESS_BY_VERSION(0x4074E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::RemoveFromList) = GLOBAL_ADDRESS_BY_VERSION(0x4074E0, 0, 0, 0, 0, 0);
+
+void CStreamingInfo::RemoveFromList() {
+    plugin::CallMethodDynGlobal<CStreamingInfo *>(gaddrof(CStreamingInfo::RemoveFromList), this);
+}
+
+int addrof(CStreamingInfo::SetCdPosnAndSize) = ADDRESS_BY_VERSION(0x4075E0, 0, 0, 0, 0, 0);
+int gaddrof(CStreamingInfo::SetCdPosnAndSize) = GLOBAL_ADDRESS_BY_VERSION(0x4075E0, 0, 0, 0, 0, 0);
+
+void CStreamingInfo::SetCdPosnAndSize(unsigned int CdPosn, unsigned int CdSize) {
+    plugin::CallMethodDynGlobal<CStreamingInfo *, unsigned int, unsigned int>(gaddrof(CStreamingInfo::SetCdPosnAndSize), this, CdPosn, CdSize);
 }

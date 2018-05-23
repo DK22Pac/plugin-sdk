@@ -23,7 +23,7 @@ enum eStreamingLoadState {
     LOADSTATE_Finishing = 4
 };
 
-class CStreamingInfo {
+class PLUGIN_API CStreamingInfo {
 public:
     short m_nNextIndex; // ms_pArrayBase array index
     short m_nPrevIndex; // ms_pArrayBase array index
@@ -34,19 +34,28 @@ public:
     unsigned int m_nCdSize;
     unsigned char m_nLoadState; // see eStreamingLoadState
 private:
-    unsigned char  _pad11[3];
+    char  __pad[3];
 
 public:
-    void Init();
-    void AddToList(CStreamingInfo* listStart);
-    void RemoveFromList();
-    CStreamingInfo* GetNext();
-    CStreamingInfo* GetPrev();
-    bool InList();
-    unsigned int GetCdPosn();
-    unsigned int GetCdSize();
-    bool GetCdPosnAndSize(unsigned int& outPosn, unsigned int& outSize);
-    void SetCdPosnAndSize(unsigned int posn, unsigned int size);
+    SUPPORTED_10US static CStreamingInfo *&ms_pArrayBase;
+
+    SUPPORTED_10US void AddToList(CStreamingInfo *listStart);
+    //! unused
+    SUPPORTED_10US unsigned int GetCdPosn();
+    SUPPORTED_10US bool GetCdPosnAndSize(unsigned int *CdPosn, unsigned int *CdSize);
+    //! unused
+    SUPPORTED_10US unsigned int GetCdSize();
+    //! unused
+    SUPPORTED_10US CStreamingInfo *GetNext();
+    //! unused
+    SUPPORTED_10US CStreamingInfo *GetPrev();
+    //! unused
+    SUPPORTED_10US bool InList();
+    SUPPORTED_10US void Init();
+    SUPPORTED_10US void RemoveFromList();
+    SUPPORTED_10US void SetCdPosnAndSize(unsigned int CdPosn, unsigned int CdSize);
 };
 
 VALIDATE_SIZE(CStreamingInfo, 0x14);
+
+#include "meta/meta.CStreamingInfo.h"

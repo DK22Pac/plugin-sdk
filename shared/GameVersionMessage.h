@@ -51,13 +51,14 @@ inline std::string GetSupportedGameVersionsString(std::string const &sep) {
     std::string result;
     if (!versions.empty()) {
         bool first = true;
-        for (size_t i = 0; i < versions.size(); i++) {
+        for (const auto& version : versions)
+        {
             if (first) {
-                result += versions[i];
+                result += version;
                 first = false;
             }
             else
-                result += sep + versions[i];
+                result += sep + version;
         }
     }
     return result;
