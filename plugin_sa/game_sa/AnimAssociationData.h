@@ -7,18 +7,14 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "RenderWare.h"
 
 class CAnimBlendNode;
 class CAnimBlendHierarchy;
-class CAnimBlendClumpData;
 
 class PLUGIN_API AnimAssociationData {
 public:
-    AnimAssociationData *m_pNext;
-    union {
-        AnimAssociationData *m_pPrev;
-        CAnimBlendClumpData *m_pClumpData; //!< this one is used when a data is the first in the list
-    };
+    RwLLLink m_link;
     unsigned short m_nNumBlendNodes;
     unsigned short m_nAnimGroup;
     CAnimBlendNode *m_pNodeArray;

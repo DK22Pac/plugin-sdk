@@ -29,16 +29,23 @@ void CAnimBlendClumpData::ForAllFrames(void(*callback)(AnimBlendFrameData *, voi
     plugin::CallMethodDynGlobal<CAnimBlendClumpData *, void(*)(AnimBlendFrameData *, void *), void *>(gaddrof(CAnimBlendClumpData::ForAllFrames), this, callback, data);
 }
 
-int addrof(CAnimBlendClumpData::SetNumberOfBones) = ADDRESS_BY_VERSION(0x4CF140, 0, 0, 0, 0, 0);
-int gaddrof(CAnimBlendClumpData::SetNumberOfBones) = GLOBAL_ADDRESS_BY_VERSION(0x4CF140, 0, 0, 0, 0, 0);
+int addrof(CAnimBlendClumpData::ForAllFramesInSPR) = ADDRESS_BY_VERSION(0x4CF1E0, 0, 0, 0, 0, 0);
+int gaddrof(CAnimBlendClumpData::ForAllFramesInSPR) = GLOBAL_ADDRESS_BY_VERSION(0x4CF1E0, 0, 0, 0, 0, 0);
 
-void CAnimBlendClumpData::SetNumberOfBones(int numBones) {
-    plugin::CallMethodDynGlobal<CAnimBlendClumpData *, int>(gaddrof(CAnimBlendClumpData::SetNumberOfBones), this, numBones);
+void CAnimBlendClumpData::ForAllFramesInSPR(void(*callback)(AnimBlendFrameData *, void *), void *data, unsigned int a3) {
+    plugin::CallMethodDynGlobal<CAnimBlendClumpData *, void(*)(AnimBlendFrameData *, void *), void *, unsigned int>(gaddrof(CAnimBlendClumpData::ForAllFramesInSPR), this, callback, data, a3);
 }
 
 int addrof(CAnimBlendClumpData::LoadFramesIntoSPR) = ADDRESS_BY_VERSION(0x4CF1D0, 0, 0, 0, 0, 0);
 int gaddrof(CAnimBlendClumpData::LoadFramesIntoSPR) = GLOBAL_ADDRESS_BY_VERSION(0x4CF1D0, 0, 0, 0, 0, 0);
 
 void CAnimBlendClumpData::LoadFramesIntoSPR() {
-    plugin::CallDynGlobal(gaddrof(CAnimBlendClumpData::LoadFramesIntoSPR));
+    plugin::CallMethodDynGlobal<CAnimBlendClumpData *>(gaddrof(CAnimBlendClumpData::LoadFramesIntoSPR), this);
+}
+
+int addrof(CAnimBlendClumpData::SetNumberOfBones) = ADDRESS_BY_VERSION(0x4CF140, 0, 0, 0, 0, 0);
+int gaddrof(CAnimBlendClumpData::SetNumberOfBones) = GLOBAL_ADDRESS_BY_VERSION(0x4CF140, 0, 0, 0, 0, 0);
+
+void CAnimBlendClumpData::SetNumberOfBones(int numBones) {
+    plugin::CallMethodDynGlobal<CAnimBlendClumpData *, int>(gaddrof(CAnimBlendClumpData::SetNumberOfBones), this, numBones);
 }
