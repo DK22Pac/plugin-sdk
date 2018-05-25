@@ -15,6 +15,7 @@ CTOR_META_BEGIN(CDate)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x618D10, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = CDate *(CDate *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -29,6 +30,7 @@ META_BEGIN(CDate::operator>)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x618D30, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = bool(CDate *, CDate const &);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -43,6 +45,7 @@ META_BEGIN(CDate::operator<)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x618D90, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = bool(CDate *, CDate const &);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -57,6 +60,7 @@ META_BEGIN(CDate::operator==)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x618DF0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = bool(CDate *, CDate const &);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -71,6 +75,7 @@ META_BEGIN(CDate::PopulateDateFields)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x618E30, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(CDate *, char const &, char const &, char const &, char const &, char const &, short);
     static const int cb_priority = PRIORITY_BEFORE; 

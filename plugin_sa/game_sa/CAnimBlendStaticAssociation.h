@@ -7,24 +7,30 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CAnimBlendHierarchy.h"
 #include "RenderWare.h"
 
+class CAnimBlendSequence;
+class CAnimBlendHierarchy;
+
 class PLUGIN_API CAnimBlendStaticAssociation {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(CAnimBlendStaticAssociation)
+
 public:
-    unsigned short m_nNumBlendNodes;       // +0x04
-    short m_nAnimID;                       // +0x06
-    short m_nAnimGroup;                    // +0x08
-    short m_nFlags;                        // +0x0A
-    int* m_pAnimBlendNodesSequenceArray;   // +0x0C 
-    CAnimBlendHierarchy* m_pAnimBlendHier; // +0x10
+    unsigned short m_nNumBlendNodes;
+    short m_nAnimId;
+    unsigned short m_nAnimGroup;
+    unsigned short m_nFlags;
+    CAnimBlendSequence **m_pSequenceArray;
+    CAnimBlendHierarchy *m_pHeirarchy;
 
-    //funcs
+    // vtable function #0 (destructor)
 
-    void AllocateSequenceArray(int size);
-    CAnimBlendStaticAssociation();
-    void Init(RpClump* pClump, CAnimBlendHierarchy* pAnimBlendHier);
-    virtual ~CAnimBlendStaticAssociation() = 0;
+    SUPPORTED_10US void AllocateSequenceArray(int count);
+    SUPPORTED_10US void FreeSequenceArray();
+    SUPPORTED_10US void Init(RpClump *clump, CAnimBlendHierarchy *hierarchy);
 };
 
+VTABLE_DESC(CAnimBlendStaticAssociation, 0x85C6CC, 1);
 VALIDATE_SIZE(CAnimBlendStaticAssociation, 0x14);
+
+#include "meta/meta.CAnimBlendStaticAssociation.h"

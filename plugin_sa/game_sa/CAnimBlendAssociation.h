@@ -7,57 +7,44 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "AnimAssociationData.h"
+#include "eAnimBlendCallbackType.h"
 #include "RenderWare.h"
-#include "CAnimBlendStaticAssociation.h"
-#include "CAnimBlendNode.h"
-#include "CAnimBlendClumpData.h"
 
-enum PLUGIN_API eAnimBlendFlags {
-    ANIM_PLAYING = 1,
-    ANIM_LOOP = 2,
-    ANIM_PARTIAL = 16
-};
+class CAnimBlendNode;
+class CAnimBlendHierarchy;
+class CAnimBlendStaticAssociation;
 
-class PLUGIN_API CAnimBlendAssociation {
-protected:
-    void *vtable;
+class PLUGIN_API CAnimBlendAssociation : public AnimAssociationData {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(CAnimBlendAssociation)
+
 public:
-    void *m_pPrev;
-    CAnimBlendClumpData *m_pAnimBlendClumpData;
-    unsigned short m_nNumBlendNodes;
-    short m_nAnimGroup;
-    CAnimBlendNode *m_pAnimBlendNodeArray;
-    CAnimBlendHierarchy *m_pAnimBlendHierarchy;
-    float m_fBlendAmount;
-    float m_fBlendDelta;
-    float m_fCurrentTime;
-    float m_fSpeed;
-    float m_fTimeStep;
-    short m_nwAnimID;
-    unsigned short m_nFlags;
-    unsigned int m_nCallbackType;
-    void *m_pCallbackFunc;
+    eAnimBlendCallbackType m_nCallbackType;
+    void(*m_pCallbackFunc)(CAnimBlendAssociation *, void *);
     void *m_pCallbackData;
 
-    //funcs
-    CAnimBlendNode* AllocateAnimBlendNodeArray(int numBlendNodes);
-    CAnimBlendAssociation(CAnimBlendStaticAssociation& arg1);
-    CAnimBlendAssociation(RpClump* pClump, CAnimBlendHierarchy* pAnimBlendHier);
-    CAnimBlendNode* GetNode(int index);
-    void Init(CAnimBlendStaticAssociation& arg1);
-    void Init(RpClump* pClump, CAnimBlendHierarchy* pAnimBlendHier);
-    void ReferenceAnimBlock();
-    void SetBlend(float fBlendAmount, float fBlendDelta);
-    void SetCurrentTime(float currentTime);
-    void SetDeleteCallback(void* func, void* data);
-    void SetFinishCallback(void* func, void* data);
-    void Start(float currentTime);
-    void SyncAnimation(CAnimBlendAssociation* arg1);
-    bool UpdateBlend(float BlendDeltaMult);
-    void UpdateTime();
-    //~CAnimBlendAssociation();
-    //virtual ~CAnimBlendAssociation();
+    // vtable function #0 (destructor)
+
+    SUPPORTED_10US void AllocateAnimBlendNodeArray(int count);
+    SUPPORTED_10US void FreeAnimBlendNodeArray();
+    SUPPORTED_10US CAnimBlendNode *GetNode(int nodeIndex);
+    SUPPORTED_10US void Init(RpClump *clump, CAnimBlendHierarchy *hierarchy);
+    SUPPORTED_10US void Init(CAnimBlendAssociation &source);
+    SUPPORTED_10US void Init(CAnimBlendStaticAssociation &source);
+    SUPPORTED_10US void ReferenceAnimBlock();
+    SUPPORTED_10US void SetBlend(float blendAmount, float blendDelta);
+    SUPPORTED_10US void SetBlendTo(float blendAmount, float blendDelta);
+    SUPPORTED_10US void SetCurrentTime(float currentTime);
+    SUPPORTED_10US void SetDeleteCallback(void(*callback)(CAnimBlendAssociation *, void *), void *data);
+    SUPPORTED_10US void SetFinishCallback(void(*callback)(CAnimBlendAssociation *, void *), void *data);
+    SUPPORTED_10US void Start(float currentTime);
+    SUPPORTED_10US void SyncAnimation(CAnimBlendAssociation *syncWith);
+    SUPPORTED_10US bool UpdateBlend(float blendDeltaMult);
+    SUPPORTED_10US bool UpdateTime(float unused1, float unused2);
+    SUPPORTED_10US void UpdateTimeStep(float speedMult, float timeMult);
 };
 
-
+VTABLE_DESC(CAnimBlendAssociation, 0x85C6D0, 1);
 VALIDATE_SIZE(CAnimBlendAssociation, 0x3C);
+
+#include "meta/meta.CAnimBlendAssociation.h"

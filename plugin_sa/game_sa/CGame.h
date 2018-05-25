@@ -14,7 +14,7 @@
 class PLUGIN_API CGame {
 public:
     //! Current number of area
-    SUPPORTED_10US static char *aDatFile; // static char aDatFile[32]
+    SUPPORTED_10US static char(&aDatFile)[32]; // static char aDatFile[32]
     SUPPORTED_10US static int &currLevel;
     SUPPORTED_10US static unsigned char &bMissionPackGame;
     SUPPORTED_10US static int &currArea;

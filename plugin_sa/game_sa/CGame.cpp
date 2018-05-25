@@ -8,7 +8,7 @@
 
 PLUGIN_SOURCE_FILE
 
-char *CGame::aDatFile = reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0xB728EC, 0, 0, 0, 0, 0));
+char(&CGame::aDatFile)[32] = *reinterpret_cast<char(*)[32]>(GLOBAL_ADDRESS_BY_VERSION(0xB728EC, 0, 0, 0, 0, 0));
 int &CGame::currLevel = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB7290C, 0, 0, 0, 0, 0));
 unsigned char &CGame::bMissionPackGame = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB72910, 0, 0, 0, 0, 0));
 int &CGame::currArea = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB72914, 0, 0, 0, 0, 0));

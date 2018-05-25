@@ -357,6 +357,13 @@ template<> struct vtable_meta<className> {\
     ~className() = delete;\
     className &operator=(className &&) = delete;
 
+#define PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(className) \
+    className() = delete;\
+    className(className const &) = delete;\
+    className(className &&) = delete;\
+    virtual ~className() = delete;\
+    className &operator=(className &&) = delete;
+
 // get global address for current exe version
 #ifdef GTASA
 #define GLOBAL_ADDRESS_BY_VERSION(a,b,c,d,e,f) (plugin::GetGlobalAddress(plugin::by_version_dyn(a,b,c,d,e,f)))

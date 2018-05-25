@@ -8,7 +8,7 @@
 
 PLUGIN_SOURCE_FILE
 
-unsigned char *CClock::daysInMonth = reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0x8CCF24, 0, 0, 0, 0, 0));
+unsigned char(&CClock::daysInMonth)[12] = *reinterpret_cast<unsigned char(*)[12]>(GLOBAL_ADDRESS_BY_VERSION(0x8CCF24, 0, 0, 0, 0, 0));
 bool &CClock::bClockHasBeenStored = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xB70144, 0, 0, 0, 0, 0));
 unsigned short &CClock::ms_Stored_nGameClockSeconds = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xB70148, 0, 0, 0, 0, 0));
 unsigned char &CClock::ms_Stored_nGameClockMinutes = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0xB7014A, 0, 0, 0, 0, 0));

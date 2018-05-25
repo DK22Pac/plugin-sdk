@@ -8,7 +8,7 @@
 
 PLUGIN_SOURCE_FILE
 
-char *CFileLoader::ms_line = reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0xB71848, 0, 0, 0, 0, 0));
+char(&CFileLoader::ms_line)[512] = *reinterpret_cast<char(*)[512]>(GLOBAL_ADDRESS_BY_VERSION(0xB71848, 0, 0, 0, 0, 0));
 unsigned int &gAtomicModelId = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xB71840, 0, 0, 0, 0, 0));
 
 int addrof(CFileLoader::AddTexDictionaries) = ADDRESS_BY_VERSION(0x5B3910, 0, 0, 0, 0, 0);
@@ -200,11 +200,11 @@ char *CFileLoader::LoadLine(FILESTREAM file) {
     return plugin::CallAndReturnDynGlobal<char *, FILESTREAM>(gaddrof_o(CFileLoader::LoadLine, char *(*)(FILESTREAM)), file);
 }
 
-int addrof_o(CFileLoader::LoadLine, char *(*)(char **, int)) = ADDRESS_BY_VERSION(0x536FE0, 0, 0, 0, 0, 0);
-int gaddrof_o(CFileLoader::LoadLine, char *(*)(char **, int)) = GLOBAL_ADDRESS_BY_VERSION(0x536FE0, 0, 0, 0, 0, 0);
+int addrof_o(CFileLoader::LoadLine, char *(*)(char **, int &)) = ADDRESS_BY_VERSION(0x536FE0, 0, 0, 0, 0, 0);
+int gaddrof_o(CFileLoader::LoadLine, char *(*)(char **, int &)) = GLOBAL_ADDRESS_BY_VERSION(0x536FE0, 0, 0, 0, 0, 0);
 
-char *CFileLoader::LoadLine(char **outLine, int ref_outSize) {
-    return plugin::CallAndReturnDynGlobal<char *, char **, int>(gaddrof_o(CFileLoader::LoadLine, char *(*)(char **, int)), outLine, ref_outSize);
+char *CFileLoader::LoadLine(char **outLine, int &outSize) {
+    return plugin::CallAndReturnDynGlobal<char *, char **, int &>(gaddrof_o(CFileLoader::LoadLine, char *(*)(char **, int &)), outLine, outSize);
 }
 
 int addrof(CFileLoader::LoadObject) = ADDRESS_BY_VERSION(0x5B3C60, 0, 0, 0, 0, 0);
@@ -245,8 +245,8 @@ void CFileLoader::LoadOcclusionVolume(char const *line, char const *filename) {
 int addrof(CFileLoader::LoadPathHeader) = ADDRESS_BY_VERSION(0x5B41C0, 0, 0, 0, 0, 0);
 int gaddrof(CFileLoader::LoadPathHeader) = GLOBAL_ADDRESS_BY_VERSION(0x5B41C0, 0, 0, 0, 0, 0);
 
-int CFileLoader::LoadPathHeader(char const *line, int ref_outPathType) {
-    return plugin::CallAndReturnDynGlobal<int, char const *, int>(gaddrof(CFileLoader::LoadPathHeader), line, ref_outPathType);
+int CFileLoader::LoadPathHeader(char const *line, int &outPathType) {
+    return plugin::CallAndReturnDynGlobal<int, char const *, int &>(gaddrof(CFileLoader::LoadPathHeader), line, outPathType);
 }
 
 int addrof(CFileLoader::LoadPedObject) = ADDRESS_BY_VERSION(0x5B7420, 0, 0, 0, 0, 0);

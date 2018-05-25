@@ -15,6 +15,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadLine, char *(*)(FILESTREAM))
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x536F80, 0, 0, 0, 0, 0>;
+    // total references count: 10us (74), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x49AE7B, GAME_10US_COMPACT, H_CALL, 0x49AE70, 1,
         0x49AEF7, GAME_10US_COMPACT, H_CALL, 0x49AE70, 2,
@@ -96,22 +97,23 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadLine, char *(*)(FILESTREAM))
     using args_t = ArgPick<ArgTypes<FILESTREAM>, 0>;
 META_END
 
-META_BEGIN_OVERLOADED(CFileLoader::LoadLine, char *(*)(char **, int))
+META_BEGIN_OVERLOADED(CFileLoader::LoadLine, char *(*)(char **, int &))
     static int address;
     static int global_address;
     static const int id = 0x536FE0;
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x536FE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (4), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x405D90, GAME_10US_COMPACT, H_CALL, 0x405C00, 1,
         0x405E9E, GAME_10US_COMPACT, H_CALL, 0x405C00, 2,
         0x406296, GAME_10US_COMPACT, H_CALL, 0x406080, 1,
         0x406338, GAME_10US_COMPACT, H_CALL, 0x406080, 2>;
-    using def_t = char *(char **, int);
+    using def_t = char *(char **, int &);
     static const int cb_priority = PRIORITY_BEFORE; 
     using calling_convention_t = CallingConventions::Cdecl;
-    using args_t = ArgPick<ArgTypes<char **,int>, 0,1>;
+    using args_t = ArgPick<ArgTypes<char **,int &>, 0,1>;
 META_END
 
 META_BEGIN(CFileLoader::LoadAtomicFile2Return)
@@ -121,6 +123,7 @@ META_BEGIN(CFileLoader::LoadAtomicFile2Return)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537060, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = RpClump *(char const *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -135,6 +138,7 @@ META_BEGIN(CFileLoader::SetRelatedModelInfoCB)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537150, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x537241, GAME_10US_COMPACT, H_CALLBACK, 0, 1>;
     using def_t = RpAtomic *(RpAtomic *, void *);
@@ -150,6 +154,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadAtomicFile, void (*)(RwStream *, unsigned
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5371F0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x40C7E6, GAME_10US_COMPACT, H_CALL, 0x40C6B0, 1>;
     using def_t = void(RwStream *, unsigned int);
@@ -165,6 +170,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadClumpFile, bool (*)(RwStream *, unsigned 
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5372D0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x40C80F, GAME_10US_COMPACT, H_CALL, 0x40C6B0, 1>;
     using def_t = bool(RwStream *, unsigned int);
@@ -180,6 +186,7 @@ META_BEGIN(CFileLoader::StartLoadClumpFile)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5373F0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = bool(RwStream *, unsigned int);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -194,6 +201,7 @@ META_BEGIN(CFileLoader::FinishLoadClumpFile)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537450, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x408D34, GAME_10US_COMPACT, H_CALL, 0x408CB0, 1>;
     using def_t = bool(RwStream *, unsigned int);
@@ -209,6 +217,7 @@ META_BEGIN(CFileLoader::LoadBoundingBox)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5374B0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(unsigned char *, CBoundingBox &);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -223,6 +232,7 @@ META_BEGIN(CFileLoader::LoadCollisionModel)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537580, 0, 0, 0, 0, 0>;
+    // total references count: 10us (4), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x41B2A5, GAME_10US_COMPACT, H_CALL, 0x41B1D0, 1,
         0x5385D3, GAME_10US_COMPACT, H_CALL, 0x538440, 1,
@@ -241,6 +251,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadCarGenerator, void (*)(CFileCarGenerator 
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537990, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x406267, GAME_10US_COMPACT, H_CALL, 0x406080, 1,
         0x5B47A0, GAME_10US_COMPACT, H_CALL, 0x5B4740, 1>;
@@ -257,6 +268,7 @@ META_BEGIN(CFileLoader::LoadCollisionModelVer4)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537AE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x538618, GAME_10US_COMPACT, H_CALL, 0x538440, 1>;
     using def_t = void(void *, unsigned int, CColModel &, char const *);
@@ -272,6 +284,7 @@ META_BEGIN(CFileLoader::LoadCollisionModelVer3)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537CE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (4), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x41B27E, GAME_10US_COMPACT, H_CALL, 0x41B1D0, 1,
         0x538602, GAME_10US_COMPACT, H_CALL, 0x538440, 1,
@@ -290,6 +303,7 @@ META_BEGIN(CFileLoader::LoadCollisionModelVer2)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537EE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (4), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x41B296, GAME_10US_COMPACT, H_CALL, 0x41B1D0, 1,
         0x5385EC, GAME_10US_COMPACT, H_CALL, 0x538440, 1,
@@ -308,6 +322,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadObjectInstance, CEntity *(*)(CFileObjectI
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x538090, 0, 0, 0, 0, 0>;
+    // total references count: 10us (3), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x405C99, GAME_10US_COMPACT, H_CALL, 0x405C00, 1,
         0x4061E8, GAME_10US_COMPACT, H_CALL, 0x406080, 1,
@@ -325,6 +340,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadCollisionFile, bool (*)(unsigned char *, 
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x538440, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x410717, GAME_10US_COMPACT, H_CALL, 0x4106D0, 1>;
     using def_t = bool(unsigned char *, unsigned int, unsigned char);
@@ -340,6 +356,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadObjectInstance, CEntity *(*)(char const *
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x538690, 0, 0, 0, 0, 0>;
+    // total references count: 10us (3), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x405E0A, GAME_10US_COMPACT, H_CALL, 0x405C00, 1,
         0x4062F2, GAME_10US_COMPACT, H_CALL, 0x406080, 1,
@@ -357,6 +374,7 @@ META_BEGIN(CFileLoader::LoadTexDictionary)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3860, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B910A, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1>;
     using def_t = RwTexDictionary *(char const *);
@@ -372,6 +390,7 @@ META_BEGIN(CFileLoader::SaveTexDictionary)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B38C0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(RwTexDictionary *, char const *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -386,6 +405,7 @@ META_BEGIN(CFileLoader::AddTexDictionaries)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3910, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(RwTexDictionary *, RwTexDictionary *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -400,6 +420,7 @@ META_BEGIN(CFileLoader::FindRelatedModelInfoCB)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3930, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B3A06, GAME_10US_COMPACT, H_CALLBACK, 0, 1>;
     using def_t = RpAtomic *(RpAtomic *, void *);
@@ -415,6 +436,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadAtomicFile, void (*)(char const *))
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B39D0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B91B0, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1>;
     using def_t = void(char const *);
@@ -430,6 +452,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadClumpFile, void (*)(char const *))
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3A30, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B91DB, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1>;
     using def_t = void(char const *);
@@ -445,6 +468,7 @@ META_BEGIN(CFileLoader::ReloadObjectTypes)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3AC0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(char const *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -459,6 +483,7 @@ META_BEGIN(CFileLoader::LoadObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3C60, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B85DD, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = int(char const *);
@@ -474,6 +499,7 @@ META_BEGIN(CFileLoader::LoadTimeObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3DE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B862C, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = int(char const *);
@@ -489,6 +515,7 @@ META_BEGIN(CFileLoader::LoadWeaponObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3FB0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8634, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = int(char const *);
@@ -504,6 +531,7 @@ META_BEGIN(CFileLoader::LoadClumpObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4040, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B863C, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = int(char const *);
@@ -519,6 +547,7 @@ META_BEGIN(CFileLoader::LoadAnimatedClumpObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B40C0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8644, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = void(char const *);
@@ -534,13 +563,14 @@ META_BEGIN(CFileLoader::LoadPathHeader)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B41C0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8666, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1,
         0x5B899A, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
-    using def_t = int(char const *, int);
+    using def_t = int(char const *, int &);
     static const int cb_priority = PRIORITY_BEFORE; 
     using calling_convention_t = CallingConventions::Cdecl;
-    using args_t = ArgPick<ArgTypes<char const *,int>, 0,1>;
+    using args_t = ArgPick<ArgTypes<char const *,int &>, 0,1>;
 META_END
 
 META_BEGIN(CFileLoader::LoadPedPathNode)
@@ -550,6 +580,7 @@ META_BEGIN(CFileLoader::LoadPedPathNode)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B41F0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (3), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B6EE0, GAME_10US_COMPACT, H_CALL, 0x5B6E10, 1,
         0x5B867F, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1,
@@ -567,6 +598,7 @@ META_BEGIN(CFileLoader::LoadCarPathNode)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4380, 0, 0, 0, 0, 0>;
+    // total references count: 10us (3), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B6EFD, GAME_10US_COMPACT, H_CALL, 0x5B6E10, 1,
         0x5B869C, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1,
@@ -584,6 +616,7 @@ META_BEGIN(CFileLoader::LoadGarage)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4530, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8988, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -599,6 +632,7 @@ META_BEGIN(CFileLoader::LoadStuntJump)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B45D0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B89F9, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -614,6 +648,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadCarGenerator, void (*)(char const *, int)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4740, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B89EE, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *, int);
@@ -629,6 +664,7 @@ META_BEGIN(CFileLoader::LoadPickup)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B47B0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B89E4, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -644,6 +680,7 @@ META_BEGIN(CFileLoader::LoadZone)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4AB0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B894C, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -659,6 +696,7 @@ META_BEGIN(CFileLoader::LoadCullZone)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4B40, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8957, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -674,6 +712,7 @@ META_BEGIN(CFileLoader::LoadOcclusionVolume)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4C80, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8967, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *, char const *);
@@ -689,6 +728,7 @@ META_BEGIN(CFileLoader::LoadAudioZone)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4D70, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8975, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -704,6 +744,7 @@ META_BEGIN_OVERLOADED(CFileLoader::LoadCollisionFile, void (*)(char const *, uns
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B4E60, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x4106B7, GAME_10US_COMPACT, H_CALL, 0x410690, 1,
         0x5B9188, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1>;
@@ -720,6 +761,7 @@ META_BEGIN(CFileLoader::LoadCollisionFileFirstTime)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B5000, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x410706, GAME_10US_COMPACT, H_CALL, 0x4106D0, 1>;
     using def_t = bool(unsigned char *, unsigned int, unsigned char);
@@ -735,6 +777,7 @@ META_BEGIN(CFileLoader::ReloadPaths)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B6E10, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(char const *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -749,6 +792,7 @@ META_BEGIN(CFileLoader::LoadVehicleObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B6F30, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B864C, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = int(char const *);
@@ -764,6 +808,7 @@ META_BEGIN(CFileLoader::LoadPedObject)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B7420, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8654, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = int(char const *);
@@ -779,6 +824,7 @@ META_BEGIN(CFileLoader::LoadTXDParent)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B75E0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B86C5, GAME_10US_COMPACT, H_CALL, 0x5B8400, 1>;
     using def_t = void(char const *);
@@ -794,6 +840,7 @@ META_BEGIN(CFileLoader::LoadEntryExit)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B8030, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8980, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -809,6 +856,7 @@ META_BEGIN(CFileLoader::LoadTimeCyclesModifier)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B81D0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B8A01, GAME_10US_COMPACT, H_CALL, 0x5B8700, 1>;
     using def_t = void(char const *);
@@ -824,6 +872,7 @@ META_BEGIN(CFileLoader::LoadObjectTypes)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B8400, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B9206, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1>;
     using def_t = void(char const *);
@@ -839,6 +888,7 @@ META_BEGIN(CFileLoader::LoadScene)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B8700, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B92C7, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1>;
     using def_t = void(char const *);
@@ -854,6 +904,7 @@ META_BEGIN(CFileLoader::LoadLevel)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B9030, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x53BC95, GAME_10US_COMPACT, H_CALL, 0x53BC80, 1,
         0x53BC9B, GAME_10US_COMPACT, H_CALL, 0x53BC80, 2>;
@@ -870,6 +921,7 @@ META_BEGIN(GetNameAndDamage)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5370A0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x537183, GAME_10US_COMPACT, H_CALL, 0x537150, 1,
         0x5B394F, GAME_10US_COMPACT, H_CALL, 0x5B3930, 1>;
@@ -886,6 +938,7 @@ META_BEGIN(CloneAtomicToClumpCB)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x537290, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x537346, GAME_10US_COMPACT, H_CALLBACK, 0, 1>;
     using def_t = RpAtomic *(RpAtomic *, void *);
@@ -901,6 +954,7 @@ META_BEGIN(GetFilename)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3660, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = char const *(char const *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -915,6 +969,7 @@ META_BEGIN(LoadingScreenLoadingFile)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B3680, 0, 0, 0, 0, 0>;
+    // total references count: 10us (9), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B9180, GAME_10US_COMPACT, H_CALL, 0x5B9030, 1,
         0x5B91AA, GAME_10US_COMPACT, H_CALL, 0x5B9030, 2,
@@ -938,6 +993,7 @@ META_BEGIN(AddTextureCB)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x5B38F0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x5B391A, GAME_10US_COMPACT, H_CALLBACK, 0, 1,
         0x5B9113, GAME_10US_COMPACT, H_CALLBACK, 0, 1>;

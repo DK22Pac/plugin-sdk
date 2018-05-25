@@ -10,7 +10,7 @@
 
 class PLUGIN_API CClock {
 public:
-    SUPPORTED_10US static unsigned char *daysInMonth; // static unsigned char const daysInMonth[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+    SUPPORTED_10US static unsigned char(&daysInMonth)[12]; // static unsigned char const daysInMonth[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
     SUPPORTED_10US static bool &bClockHasBeenStored;
     SUPPORTED_10US static unsigned short &ms_Stored_nGameClockSeconds;
     SUPPORTED_10US static unsigned char &ms_Stored_nGameClockMinutes;

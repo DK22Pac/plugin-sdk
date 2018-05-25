@@ -17,7 +17,7 @@
 
 class PLUGIN_API CFileLoader {
 public:
-    SUPPORTED_10US static char *ms_line; // static char ms_line[512]
+    SUPPORTED_10US static char(&ms_line)[512]; // static char ms_line[512]
 
     //! copy textures from dictionary to baseDictionary
     SUPPORTED_10US static void AddTexDictionaries(RwTexDictionary *dictionary, RwTexDictionary *baseDictionary);
@@ -47,13 +47,13 @@ public:
     SUPPORTED_10US static void LoadGarage(char const *line);
     SUPPORTED_10US static void LoadLevel(char const *filename);
     SUPPORTED_10US static char *LoadLine(FILESTREAM file);
-    SUPPORTED_10US static char *LoadLine(char **outLine, int ref_outSize);
+    SUPPORTED_10US static char *LoadLine(char **outLine, int &outSize);
     SUPPORTED_10US static int LoadObject(char const *line);
     SUPPORTED_10US static CEntity *LoadObjectInstance(CFileObjectInstance *objInstance, char const *modelname);
     SUPPORTED_10US static CEntity *LoadObjectInstance(char const *line);
     SUPPORTED_10US static void LoadObjectTypes(char const *filename);
     SUPPORTED_10US static void LoadOcclusionVolume(char const *line, char const *filename);
-    SUPPORTED_10US static int LoadPathHeader(char const *line, int ref_outPathType);
+    SUPPORTED_10US static int LoadPathHeader(char const *line, int &outPathType);
     SUPPORTED_10US static int LoadPedObject(char const *line);
     SUPPORTED_10US static void LoadPedPathNode(char const *line, int objModelIndex, int pathEntryIndex);
     SUPPORTED_10US static void LoadPickup(char const *line);

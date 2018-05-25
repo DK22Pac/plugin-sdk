@@ -15,6 +15,7 @@ META_BEGIN(CClock::Initialise)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52CD90, 0, 0, 0, 0, 0>;
+    // total references count: 10us (2), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x53BDF0, GAME_10US_COMPACT, H_CALL, 0x53BCF0, 1,
         0x5BA363, GAME_10US_COMPACT, H_CALL, 0x5BA1A0, 1>;
@@ -31,6 +32,7 @@ META_BEGIN(CClock::NormaliseGameClock)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52CDE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x52D18A, GAME_10US_COMPACT, H_JUMP, 0x52D150, 1>;
     using def_t = void();
@@ -46,6 +48,7 @@ META_BEGIN(CClock::GetGameClockMinutesUntil)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52CEB0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x46828C, GAME_10US_COMPACT, H_CALL, 0x466DE0, 1>;
     using def_t = unsigned short(unsigned char, unsigned char);
@@ -61,6 +64,7 @@ META_BEGIN(CClock::GetIsTimeInRange)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52CEE0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (11), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x40C31D, GAME_10US_COMPACT, H_CALL, 0x40C270, 1,
         0x40C4DF, GAME_10US_COMPACT, H_CALL, 0x40C450, 1,
@@ -86,6 +90,7 @@ META_BEGIN(CClock::Update)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52CF10, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x53BFBD, GAME_10US_COMPACT, H_CALL, 0x53BEE0, 1>;
     using def_t = void();
@@ -101,6 +106,7 @@ META_BEGIN(CClock::StoreClock)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52D020, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x47F1AC, GAME_10US_COMPACT, H_CALL, 0x47E090, 1>;
     using def_t = void();
@@ -116,6 +122,7 @@ META_BEGIN(CClock::RestoreClock)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52D070, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x47F1C7, GAME_10US_COMPACT, H_CALL, 0x47E090, 1>;
     using def_t = void();
@@ -131,6 +138,7 @@ META_BEGIN(CClock::OffsetClockByADay)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52D0B0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x47207F, GAME_10US_COMPACT, H_CALL, 0x470A90, 1>;
     using def_t = void(unsigned int);
@@ -146,6 +154,7 @@ META_BEGIN(CClock::SetGameClock)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x52D150, 0, 0, 0, 0, 0>;
+    // total references count: 10us (4), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x441534, GAME_10US_COMPACT, H_CALL, 0x4414C0, 1,
         0x45EE76, GAME_10US_COMPACT, H_CALL, 0x45ECD0, 1,

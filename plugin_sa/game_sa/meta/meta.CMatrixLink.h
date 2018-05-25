@@ -15,6 +15,7 @@ DTOR_META_BEGIN(CMatrixLink)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x54E8E0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (10), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x54E96A, GAME_10US_COMPACT, H_CALL, 0x54E930, 1,
         0x83CAC3, GAME_10US_COMPACT, H_JUMP, 0x54EB70, 1,
@@ -39,6 +40,7 @@ META_BEGIN(CMatrixLink::Insert)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x54E8F0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(CMatrixLink *, CMatrixLink *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -53,6 +55,7 @@ META_BEGIN(CMatrixLink::Remove)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x54E910, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
     using def_t = void(CMatrixLink *);
     static const int cb_priority = PRIORITY_BEFORE; 
@@ -67,6 +70,7 @@ CTOR_META_BEGIN(CMatrixLink)
     static const bool is_virtual = false;
     static const int vtable_index = -1;
     using mv_addresses_t = MvAddresses<0x54F0C0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (1), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<
         0x54F114, GAME_10US_COMPACT, H_CALLBACK, 0, 1>;
     using def_t = CMatrixLink *(CMatrixLink *);
