@@ -12,13 +12,6 @@ tIntroText(&CTheScripts::IntroTextLines)[48] = *reinterpret_cast<tIntroText(*)[4
 unsigned char(&CTheScripts::ScriptSpace)[260512] = *reinterpret_cast<unsigned char(*)[260512]>(GLOBAL_ADDRESS_BY_VERSION(0x821280, 0x821288, 0x820288));
 short &CTheScripts::NumberOfIntroTextLinesThisFrame = *reinterpret_cast<short *>(GLOBAL_ADDRESS_BY_VERSION(0xA10A48, 0xA10A50, 0xA0FA50));
 
-int addrof(CTheZones::FindAudioZone) = ADDRESS_BY_VERSION(0x4DC370, 0x4DC390, 0x4DC230);
-int gaddrof(CTheZones::FindAudioZone) = GLOBAL_ADDRESS_BY_VERSION(0x4DC370, 0x4DC390, 0x4DC230);
-
-int CTheZones::FindAudioZone(CVector vPosn) {
-    return plugin::CallAndReturnDynGlobal<int, CVector>(gaddrof(CTheZones::FindAudioZone), vPosn);
-}
-
 int addrof(CTheScripts::CleanUpThisObject) = ADDRESS_BY_VERSION(0x45EA80, 0x45EA80, 0x45E960);
 int gaddrof(CTheScripts::CleanUpThisObject) = GLOBAL_ADDRESS_BY_VERSION(0x45EA80, 0x45EA80, 0x45E960);
 

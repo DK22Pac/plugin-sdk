@@ -13,12 +13,6 @@
 #include "CPed.h"
 #include "CPlayerInfo.h"
 #include "tIntroText.h"
-#include "CVector.h"
-
-class PLUGIN_API CTheZones {
-public:
-    SUPPORTED_10EN_11EN_STEAM static int FindAudioZone(CVector vPosn);
-};
 
 class PLUGIN_API CTheScripts {
 public:
