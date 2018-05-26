@@ -8,6 +8,27 @@
 
 namespace plugin {
 
+META_BEGIN(CTheZones::FindAudioZone)
+    static int address;
+    static int global_address;
+    static const int id = 0x4DC370;
+    static const bool is_virtual = false;
+    static const int vtable_index = -1;
+    using mv_addresses_t = MvAddresses<0x4DC370, 0x4DC390, 0x4DC230>;
+    // total references count: 10en (2), 11en (2), steam (2)
+    using refs_t = RefList<
+        0x5FCF1D, GAME_10EN, H_CALL, 0x5FCEC0, 1,
+        0x5FDBE3, GAME_10EN, H_CALL, 0x5FDB60, 1,
+        0x5FCF3D, GAME_11EN, H_CALL, 0x5FCEE0, 1,
+        0x5FDC03, GAME_11EN, H_CALL, 0x5FDB80, 1,
+        0x5FCB7D, GAME_STEAM, H_CALL, 0x5FCB20, 1,
+        0x5FD843, GAME_STEAM, H_CALL, 0x5FD7C0, 1>;
+    using def_t = int(CVector);
+    static const int cb_priority = PRIORITY_BEFORE; 
+    using calling_convention_t = CallingConventions::Cdecl;
+    using args_t = ArgPick<ArgTypes<CVector>, 0>;
+META_END
+
 META_BEGIN(CTheScripts::IsPlayerOnAMission)
     static int address;
     static int global_address;
@@ -149,10 +170,10 @@ META_BEGIN(CTheScripts::StartNewScript)
         0x608C9A, GAME_11EN, H_CALL, 0x6084A0, 1,
         0x45F615, GAME_STEAM, H_CALL, 0x45F330, 1,
         0x6088DA, GAME_STEAM, H_CALL, 0x6080E0, 1>;
-    using def_t = CRunningScript *(unsigned char *);
+    using def_t = CRunningScript *(int);
     static const int cb_priority = PRIORITY_BEFORE; 
     using calling_convention_t = CallingConventions::Cdecl;
-    using args_t = ArgPick<ArgTypes<unsigned char *>, 0>;
+    using args_t = ArgPick<ArgTypes<int>, 0>;
 META_END
 
 META_BEGIN(CTheScripts::Init)

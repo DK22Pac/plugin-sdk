@@ -13,10 +13,17 @@
 #include "CPed.h"
 #include "CPlayerInfo.h"
 #include "tIntroText.h"
+#include "CVector.h"
+
+class PLUGIN_API CTheZones {
+public:
+    SUPPORTED_10EN_11EN_STEAM static int FindAudioZone(CVector vPosn);
+};
 
 class PLUGIN_API CTheScripts {
 public:
-    SUPPORTED_10EN_11EN_STEAM static tIntroText *IntroTextLines; // static tIntroText IntroTextLines[48]
+    SUPPORTED_10EN_11EN_STEAM static tIntroText(&IntroTextLines)[48]; // static tIntroText IntroTextLines[48]
+    SUPPORTED_10EN_11EN_STEAM static unsigned char(&ScriptSpace)[260512]; // static unsigned char ScriptSpace[260512]
     SUPPORTED_10EN_11EN_STEAM static short &NumberOfIntroTextLinesThisFrame;
 
     SUPPORTED_10EN_11EN_STEAM static void CleanUpThisObject(CObject *pObject);
@@ -32,12 +39,11 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ReadObjectNamesFromScript();
     SUPPORTED_10EN_11EN_STEAM static void RemoveScriptTextureDictionary();
     SUPPORTED_10EN_11EN_STEAM static void RemoveThisPed(CPed *pPed);
-    SUPPORTED_10EN_11EN_STEAM static CRunningScript *StartNewScript(unsigned char *pPC);
+    SUPPORTED_10EN_11EN_STEAM static CRunningScript *StartNewScript(int addr);
     SUPPORTED_10EN_11EN_STEAM static CRunningScript *StartTestScript();
     SUPPORTED_10EN_11EN_STEAM static void UndoBuildingSwaps();
     SUPPORTED_10EN_11EN_STEAM static void UndoEntityInvisibilitySettings();
     SUPPORTED_10EN_11EN_STEAM static void UpdateObjectIndices();
 };
-
 
 #include "meta/meta.CTheScripts.h"

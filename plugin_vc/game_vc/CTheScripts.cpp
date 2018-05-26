@@ -8,8 +8,16 @@
 
 PLUGIN_SOURCE_FILE
 
-tIntroText *CTheScripts::IntroTextLines = reinterpret_cast<tIntroText *>(GLOBAL_ADDRESS_BY_VERSION(0x7F0EA0, 0x7F0EA8, 0x7EFEA8));
+tIntroText(&CTheScripts::IntroTextLines)[48] = *reinterpret_cast<tIntroText(*)[48]>(GLOBAL_ADDRESS_BY_VERSION(0x7F0EA0, 0x7F0EA8, 0x7EFEA8));
+unsigned char(&CTheScripts::ScriptSpace)[260512] = *reinterpret_cast<unsigned char(*)[260512]>(GLOBAL_ADDRESS_BY_VERSION(0x821280, 0x821288, 0x820288));
 short &CTheScripts::NumberOfIntroTextLinesThisFrame = *reinterpret_cast<short *>(GLOBAL_ADDRESS_BY_VERSION(0xA10A48, 0xA10A50, 0xA0FA50));
+
+int addrof(CTheZones::FindAudioZone) = ADDRESS_BY_VERSION(0x4DC370, 0x4DC390, 0x4DC230);
+int gaddrof(CTheZones::FindAudioZone) = GLOBAL_ADDRESS_BY_VERSION(0x4DC370, 0x4DC390, 0x4DC230);
+
+int CTheZones::FindAudioZone(CVector vPosn) {
+    return plugin::CallAndReturnDynGlobal<int, CVector>(gaddrof(CTheZones::FindAudioZone), vPosn);
+}
 
 int addrof(CTheScripts::CleanUpThisObject) = ADDRESS_BY_VERSION(0x45EA80, 0x45EA80, 0x45E960);
 int gaddrof(CTheScripts::CleanUpThisObject) = GLOBAL_ADDRESS_BY_VERSION(0x45EA80, 0x45EA80, 0x45E960);
@@ -105,8 +113,8 @@ void CTheScripts::RemoveThisPed(CPed *pPed) {
 int addrof(CTheScripts::StartNewScript) = ADDRESS_BY_VERSION(0x450270, 0x450270, 0x450180);
 int gaddrof(CTheScripts::StartNewScript) = GLOBAL_ADDRESS_BY_VERSION(0x450270, 0x450270, 0x450180);
 
-CRunningScript *CTheScripts::StartNewScript(unsigned char *pPC) {
-    return plugin::CallAndReturnDynGlobal<CRunningScript *, unsigned char *>(gaddrof(CTheScripts::StartNewScript), pPC);
+CRunningScript *CTheScripts::StartNewScript(int addr) {
+    return plugin::CallAndReturnDynGlobal<CRunningScript *, int>(gaddrof(CTheScripts::StartNewScript), addr);
 }
 
 int addrof(CTheScripts::StartTestScript) = ADDRESS_BY_VERSION(0x44FE60, 0x44FE60, 0x44FD70);
