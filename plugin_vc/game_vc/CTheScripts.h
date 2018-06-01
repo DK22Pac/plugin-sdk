@@ -7,17 +7,37 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CPlayerInfo.h"
+#include "CRunningScript.h"
+#include "CObject.h"
 #include "CVehicle.h"
-extern unsigned int MAX_SCRIPT_SPACE_SIZE; // default 260512
+#include "CPed.h"
+#include "CPlayerInfo.h"
+#include "tIntroText.h"
 
 class PLUGIN_API CTheScripts {
 public:
-	static unsigned char *ScriptSpace; // static unsigned char ScriptSpace[MAX_SCRIPT_SPACE_SIZE]
+    SUPPORTED_10EN_11EN_STEAM static tIntroText(&IntroTextLines)[48]; // static tIntroText IntroTextLines[48]
+    SUPPORTED_10EN_11EN_STEAM static unsigned char(&ScriptSpace)[260512]; // static unsigned char ScriptSpace[260512]
+    SUPPORTED_10EN_11EN_STEAM static short &NumberOfIntroTextLinesThisFrame;
 
-	static bool CTheScripts::IsPlayerOnAMission();
-
-	static bool CTheScripts::IsPlayerStopped(CPlayerInfo* player);
-
-	static bool CTheScripts::IsVehicleStopped(CVehicle* vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void CleanUpThisObject(CObject *pObject);
+    SUPPORTED_10EN_11EN_STEAM static void CleanUpThisPed(CPed *pPed);
+    SUPPORTED_10EN_11EN_STEAM static void CleanUpThisVehicle(CVehicle *pVehicle);
+    SUPPORTED_10EN_11EN_STEAM static void DrawScriptSpheres();
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static bool IsPlayerOnAMission();
+    SUPPORTED_10EN_11EN_STEAM static bool IsPlayerStopped(CPlayerInfo *pPlayerIfo);
+    SUPPORTED_10EN_11EN_STEAM static bool IsVehicleStopped(CVehicle *pPlayer);
+    SUPPORTED_10EN_11EN_STEAM static void Process();
+    SUPPORTED_10EN_11EN_STEAM static void ReadMultiScriptFileOffsetsFromScript();
+    SUPPORTED_10EN_11EN_STEAM static void ReadObjectNamesFromScript();
+    SUPPORTED_10EN_11EN_STEAM static void RemoveScriptTextureDictionary();
+    SUPPORTED_10EN_11EN_STEAM static void RemoveThisPed(CPed *pPed);
+    SUPPORTED_10EN_11EN_STEAM static CRunningScript *StartNewScript(int addr);
+    SUPPORTED_10EN_11EN_STEAM static CRunningScript *StartTestScript();
+    SUPPORTED_10EN_11EN_STEAM static void UndoBuildingSwaps();
+    SUPPORTED_10EN_11EN_STEAM static void UndoEntityInvisibilitySettings();
+    SUPPORTED_10EN_11EN_STEAM static void UpdateObjectIndices();
 };
+
+#include "meta/meta.CTheScripts.h"

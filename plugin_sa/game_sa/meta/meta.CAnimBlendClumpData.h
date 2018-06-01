@@ -96,10 +96,25 @@ META_BEGIN(CAnimBlendClumpData::LoadFramesIntoSPR)
     using mv_addresses_t = MvAddresses<0x4CF1D0, 0, 0, 0, 0, 0>;
     // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
     using refs_t = RefList<>;
-    using def_t = void();
+    using def_t = void(CAnimBlendClumpData *);
     static const int cb_priority = PRIORITY_BEFORE; 
-    using calling_convention_t = CallingConventions::Cdecl;
-    using args_t = ArgPick<ArgTypes<>>;
+    using calling_convention_t = CallingConventions::Thiscall;
+    using args_t = ArgPick<ArgTypes<CAnimBlendClumpData *>, 0>;
+META_END
+
+META_BEGIN(CAnimBlendClumpData::ForAllFramesInSPR)
+    static int address;
+    static int global_address;
+    static const int id = 0x4CF1E0;
+    static const bool is_virtual = false;
+    static const int vtable_index = -1;
+    using mv_addresses_t = MvAddresses<0x4CF1E0, 0, 0, 0, 0, 0>;
+    // total references count: 10us (0), 10ushl (0), 10eu (0), 11us (0), 11eu (0), sr2 (0), sr2lv (0)
+    using refs_t = RefList<>;
+    using def_t = void(CAnimBlendClumpData *, void(*)(AnimBlendFrameData *, void *), void *, unsigned int);
+    static const int cb_priority = PRIORITY_BEFORE; 
+    using calling_convention_t = CallingConventions::Thiscall;
+    using args_t = ArgPick<ArgTypes<CAnimBlendClumpData *,void(*)(AnimBlendFrameData *, void *),void *,unsigned int>, 0,1,2,3>;
 META_END
 
 DEL_DTOR_META_BEGIN(CAnimBlendClumpData)

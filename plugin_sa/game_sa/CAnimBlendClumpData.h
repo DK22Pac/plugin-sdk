@@ -7,14 +7,13 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "AnimAssociationData.h"
+#include "RenderWare.h"
 #include "CVector.h"
 #include "AnimBlendFrameData.h"
 
 class PLUGIN_API CAnimBlendClumpData {
 public:
-    AnimAssociationData *m_pFirstAssociation;
-    int field_4;
+    RwLinkList m_associationsList;
     int m_nNumFrames;
     CVector *m_pvecPedPosition;
     AnimBlendFrameData *m_pFrames;
@@ -24,10 +23,11 @@ public:
     SUPPORTED_10US ~CAnimBlendClumpData();
 
     SUPPORTED_10US void ForAllFrames(void(*callback)(AnimBlendFrameData *, void *), void *data);
-    SUPPORTED_10US void SetNumberOfBones(int numBones);
-
     //! dummy function
-    SUPPORTED_10US static void LoadFramesIntoSPR();
+    SUPPORTED_10US void ForAllFramesInSPR(void(*callback)(AnimBlendFrameData *, void *), void *data, unsigned int a3);
+    //! dummy function
+    SUPPORTED_10US void LoadFramesIntoSPR();
+    SUPPORTED_10US void SetNumberOfBones(int numBones);
 };
 
 VALIDATE_SIZE(CAnimBlendClumpData, 0x14);
