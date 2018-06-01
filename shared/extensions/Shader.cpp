@@ -132,9 +132,9 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
         char version[16];
 
         // Find fx name
-        for (unsigned int i = 0; i < lines.size(); i++) {
-            if (!lines[i].compare(0, 3, "#FX")) {
-                std::string fxLine = lines[i];
+        for (auto & line : lines) {
+            if (!line.compare(0, 3, "#FX")) {
+                std::string fxLine = line;
                 size_t strBegin = fxLine.find_first_of('"');
                 if (strBegin != std::string::npos) {
                     size_t strEnd = fxLine.find_first_of('"', strBegin + 1);
@@ -152,7 +152,7 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
                     version[strlen(version) - 1] = '\0';
                     std::string shaderCode;
                     for (unsigned int j = i + 1; j < lines.size(); j++) {
-                        if (lines[j].size() > 0 && lines[j].at(0) == '#')
+                        if (!lines[j].empty() && lines[j].at(0) == '#')
                             break;
                         else {
                             shaderCode.append(lines[j]);
@@ -176,7 +176,7 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
                     version[strlen(version) - 1] = '\0';
                     std::string shaderCode;
                     for (unsigned int j = i + 1; j < lines.size(); j++) {
-                        if (lines[j].size() > 0 && lines[j].at(0) == '#')
+                        if (!lines[j].empty() && lines[j].at(0) == '#')
                             break;
                         else {
                             shaderCode.append(lines[j]);

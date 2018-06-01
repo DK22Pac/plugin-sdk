@@ -25,7 +25,7 @@ public:
     CVector2D m_vecFightMovement;
     float m_fMoveBlendRatio;
     float m_fTimeCanRun;
-    float m_fSprintEnergy;
+    float m_fMoveSpeed;
     unsigned char m_nChosenWeapon;
     unsigned char m_nCarDangerCounter;
 private:
