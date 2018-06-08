@@ -72,7 +72,7 @@ public:
     SUPPORTED_10US static unsigned short &ms_loadedGangCars;
     SUPPORTED_10US static unsigned short &ms_loadedGangs;
     SUPPORTED_10US static unsigned int &ms_numPedsLoaded;
-    SUPPORTED_10US static unsigned int *ms_pedsLoaded; // static unsigned int ms_pedsLoaded[8]
+    SUPPORTED_10US static unsigned int **ms_pedsLoaded; // static unsigned int* ms_pedsLoaded[8]
     SUPPORTED_10US static int &ms_currentZoneType;
     SUPPORTED_10US static CLoadedCarGroup &ms_vehiclesLoaded;
     SUPPORTED_10US static CStreamingInfo *&ms_pEndRequestedList;
