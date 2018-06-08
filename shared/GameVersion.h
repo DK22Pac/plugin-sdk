@@ -201,29 +201,8 @@ inline bool IsSupportedGameVersion() {
  */
 
 #ifdef GTASA
-inline int by_v_dyn(int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
-    switch (GetGameVersion()) {
-    case GAME_10US_COMPACT:
-        return A_10US_C;
-    case GAME_10US_HOODLUM:
-        return A_10US_H;
-    case GAME_10EU:
-        return A_10EU;
-    case GAME_11US:
-        return A_11US;
-    case GAME_11EU:
-        return A_11EU;
-    case GAME_STEAM:
-        return A_Steam;
-    case GAME_STEAM_LV:
-        return A_Steam_LV;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
-    return by_v_dyn(A_10US_C, A_10US_H, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
-}
+int by_v_dyn(int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV);
+int by_version_dyn(int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV);
 
 template <int A_10US_C, int A_10US_H, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV>
 int by_v() {
@@ -235,28 +214,8 @@ int by_version() {
     return by_v_dyn(A_10US_C, A_10US_H, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
 }
 
-inline int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
-    switch (GetGameVersion()) {
-    case GAME_10US_COMPACT:
-    case GAME_10US_HOODLUM:
-        return A_10US;
-    case GAME_10EU:
-        return A_10EU;
-    case GAME_11US:
-        return A_11US;
-    case GAME_11EU:
-        return A_11EU;
-    case GAME_STEAM:
-        return A_Steam;
-    case GAME_STEAM_LV:
-        return A_Steam_LV;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV) {
-    return by_v_dyn(A_10US, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
-}
+int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV);
+int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV);
 
 template <int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam, int A_Steam_LV>
 int by_v() {
@@ -268,20 +227,8 @@ int by_version() {
     return by_v_dyn(A_10US, A_10EU, A_11US, A_11EU, A_Steam, A_Steam_LV);
 }
 
-inline int by_v_dyn(int A_10US, int A_10EU) {
-    switch (GetGameVersion()) {
-    case GAME_10US_COMPACT:
-    case GAME_10US_HOODLUM:
-        return A_10US;
-    case GAME_10EU:
-        return A_10EU;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10US, int A_10EU) {
-    return by_v_dyn(A_10US, A_10EU);
-}
+int by_v_dyn(int A_10US, int A_10EU);
+int by_version_dyn(int A_10US, int A_10EU);
 
 template <int A_10US, int A_10EU>
 int by_v() {
@@ -293,24 +240,8 @@ int by_version() {
     return by_v_dyn(A_10US, A_10EU);
 }
 
-inline int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU) {
-    switch (GetGameVersion()) {
-    case GAME_10US_COMPACT:
-    case GAME_10US_HOODLUM:
-        return A_10US;
-    case GAME_10EU:
-        return A_10EU;
-    case GAME_11US:
-        return A_11US;
-    case GAME_11EU:
-        return A_11EU;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU) {
-    return by_v_dyn(A_10US, A_10EU, A_11US, A_11EU);
-}
+int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU);
+int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU);
 
 template <int A_10US, int A_10EU, int A_11US, int A_11EU>
 int by_v() {
@@ -322,26 +253,8 @@ int by_version() {
     return by_v_dyn(A_10US, A_10EU, A_11US, A_11EU);
 }
 
-inline int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam) {
-    switch (GetGameVersion()) {
-    case GAME_10US_COMPACT:
-    case GAME_10US_HOODLUM:
-        return A_10US;
-    case GAME_10EU:
-        return A_10EU;
-    case GAME_11US:
-        return A_11US;
-    case GAME_11EU:
-        return A_11EU;
-    case GAME_STEAM:
-        return A_Steam;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam) {
-    return by_v_dyn(A_10US, A_10EU, A_11US, A_11EU, A_Steam);
-}
+int by_v_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam);
+int by_version_dyn(int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam);
 
 template <int A_10US, int A_10EU, int A_11US, int A_11EU, int A_Steam>
 int by_v() {
@@ -353,22 +266,8 @@ int by_version() {
     return by_v_dyn(A_10US, A_10EU, A_11US, A_11EU, A_Steam);
 }
 
-inline int by_v_dyn(int A_10US, int A_10EU, int A_Steam) {
-    switch (GetGameVersion()) {
-    case GAME_10US_COMPACT:
-    case GAME_10US_HOODLUM:
-        return A_10US;
-    case GAME_10EU:
-        return A_10EU;
-    case GAME_STEAM:
-        return A_Steam;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10US, int A_10EU, int A_Steam) {
-    return by_v_dyn(A_10US, A_10EU, A_Steam);
-}
+int by_v_dyn(int A_10US, int A_10EU, int A_Steam);
+int by_version_dyn(int A_10US, int A_10EU, int A_Steam);
 
 template <int A_10US, int A_10EU, int A_Steam>
 int by_v() {
@@ -380,21 +279,8 @@ int by_version() {
     return by_v_dyn(A_10US, A_10EU, A_Steam);
 }
 #else
-inline int by_v_dyn(int A_10EN, int A_11EN, int A_Steam) {
-    switch (GetGameVersion()) {
-    case GAME_10EN:
-        return A_10EN;
-    case GAME_11EN:
-        return A_11EN;
-    case GAME_STEAM:
-        return A_Steam;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10EN, int A_11EN, int A_Steam) {
-    return by_v_dyn(A_10EN, A_11EN, A_Steam);
-}
+int by_v_dyn(int A_10EN, int A_11EN, int A_Steam);
+int by_version_dyn(int A_10EN, int A_11EN, int A_Steam);
 
 template <int A_10EN, int A_11EN, int A_Steam>
 int by_v() {
@@ -406,19 +292,8 @@ int by_version() {
     return by_v_dyn(A_10EN, A_11EN, A_Steam);
 }
 
-inline int by_v_dyn(int A_10EN, int A_11EN) {
-    switch (GetGameVersion()) {
-    case GAME_10EN:
-        return A_10EN;
-    case GAME_11EN:
-        return A_11EN;
-    }
-    return 0;
-}
-
-inline int by_version_dyn(int A_10EN, int A_11EN) {
-    return by_v_dyn(A_10EN, A_11EN);
-}
+int by_v_dyn(int A_10EN, int A_11EN);
+int by_version_dyn(int A_10EN, int A_11EN);
 
 template <int A_10EN, int A_11EN>
 int by_v() {

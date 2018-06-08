@@ -34,12 +34,15 @@ typedef unsigned int uint;
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
 #define PLUGIN_SOURCE_FILE
 #define PLUGIN_VARIABLE
+#define _NOINLINE_
 #elif (defined(_MSC_VER))
-#define PLUGIN_SOURCE_FILE __pragma(init_seg(lib))
+#define PLUGIN_SOURCE_FILE  __pragma(init_seg(lib))
 #define PLUGIN_VARIABLE
+#define _NOINLINE_ __declspec(noinline)
 #else
 #define PLUGIN_SOURCE_FILE
 #define PLUGIN_VARIABLE
+#define _NOINLINE_
 #endif
 
 // III/VC char > wchar_t string conversion
