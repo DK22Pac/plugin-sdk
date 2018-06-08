@@ -7,12 +7,13 @@
 
 #include "DynAddress.h"
 #include <Windows.h>
+#include "Base.h"
 
-int plugin::GetBaseAddress() {
+int _NOINLINE_ plugin::GetBaseAddress() {
     static int addr = reinterpret_cast<int>(GetModuleHandleA(NULL));
     return addr;
 }
 
-int plugin::GetGlobalAddress(int address) {
+int _NOINLINE_ plugin::GetGlobalAddress(int address) {
     return GetBaseAddress() - 0x400000 + address;
 }

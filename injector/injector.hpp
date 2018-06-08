@@ -55,10 +55,7 @@
         By default it provides a nice gvm for Grand Theft Auto series
 */
 
-#define INJECTOR_GVM_PLUGIN_NAME "Plugin-SDK Plugin";
-
 #include "gvm/gvm.hpp"
-
 
 
 namespace injector
