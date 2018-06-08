@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "plugin.h"
+#include "PluginBase.h"
 
 enum PLUGIN_API eRadioID : char
 {

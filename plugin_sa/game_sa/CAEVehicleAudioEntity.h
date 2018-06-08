@@ -33,12 +33,9 @@ enum eRadioType : char
     RADIO_SPECIAL = 0x1,
     RADIO_UNKNOWN = 0x2,
     RADIO_EMERGENCY = 0x3,
-    RADIO_DISABLED = 0xFF,
+    RADIO_DISABLED = -1,
 };
 
-
-
-class CVehicle;
 
 class PLUGIN_API cVehicleParams {
 public:
@@ -47,7 +44,7 @@ public:
     char field_8;
     char pad1[3];
     int field_C;
-    CVehicle       *m_pVehicle;
+    class CVehicle       *m_pVehicle;
     cTransmission  *m_pTransmission;
     unsigned int    m_nModelType;
     float           m_fVelocity;
