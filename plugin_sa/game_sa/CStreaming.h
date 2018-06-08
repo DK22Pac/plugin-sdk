@@ -132,7 +132,7 @@ public:
     //! unused
     SUPPORTED_10US static signed int GetDiscInDrive();
     //! return modelIndex
-    SUPPORTED_10US static int GetNextFileOnCd(unsigned int arg1, bool bNotPriority);
+    SUPPORTED_10US static int GetNextFileOnCd(int pos, bool bNotPriority);
     SUPPORTED_10US static bool HasSpecialCharLoaded(int slot);
     SUPPORTED_10US static bool HasVehicleUpgradeLoaded(int ModelIndex);
     //! does nothing (NOP)
@@ -149,7 +149,7 @@ public:
     SUPPORTED_10US static bool IsObjectInCdImage(int ModelInex);
     SUPPORTED_10US static bool IsVeryBusy();
     SUPPORTED_10US static void Load();
-    SUPPORTED_10US static void LoadAllRequestedModels(char bOnlyPriorityRequests);
+    SUPPORTED_10US static void LoadAllRequestedModels(bool bOnlyPriorityRequests);
     SUPPORTED_10US static void LoadCdDirectory(char const *ArchiveName, int archiveID);
     SUPPORTED_10US static void LoadCdDirectory();
     SUPPORTED_10US static void LoadInitialPeds();
@@ -164,7 +164,7 @@ public:
     SUPPORTED_10US static void MakeSpaceFor(int memoryToCleanInBytes);
     SUPPORTED_10US static void PossiblyStreamCarOutAfterCreation(int modelId);
     SUPPORTED_10US static void ProcessEntitiesInSectorList(CPtrList *list, float posn_x, float posn_y, float min_posn_x, float min_posn_y, float max_posn_x, float max_posn_y, float distance, unsigned int Streamingflags);
-    SUPPORTED_10US static void ProcessEntitiesInSectorList(CPtrList *arg1, unsigned int streamingFlags);
+    SUPPORTED_10US static void ProcessEntitiesInSectorList(CPtrList *list, unsigned int streamingFlags);
     SUPPORTED_10US static bool ProcessLoadingChannel(int channelIndex);
     SUPPORTED_10US static void PurgeRequestList();
     SUPPORTED_10US static unsigned int ReInit();
@@ -193,11 +193,11 @@ public:
     SUPPORTED_10US static void RequestModelStream(int streamNum);
     //! unused
     SUPPORTED_10US static void RequestPlayerSection(int modelIndex, char const *string, int streamingFlags);
-    SUPPORTED_10US static void RequestSpecialChar(int arg1, char const *Name, int streamingFlags);
+    SUPPORTED_10US static void RequestSpecialChar(int slot, char const *Name, int streamingFlags);
     SUPPORTED_10US static void RequestSpecialModel(int slot, char *name, int StreamingFlags);
     SUPPORTED_10US static void RequestTxdModel(int TxdModelID, int Streamingflags);
     SUPPORTED_10US static void RequestVehicleUpgrade(int modelIndex, int StreamingFlags);
-    SUPPORTED_10US static void RetryLoadFile(int arg1);
+    SUPPORTED_10US static void RetryLoadFile(int streamNum);
     SUPPORTED_10US static void Save();
     SUPPORTED_10US static void SetLoadVehiclesInLoadScene(bool bEnable);
     SUPPORTED_10US static void SetMissionDoesntRequireAnim(int slot);

@@ -10,6 +10,33 @@
 #include "CAEAudioEntity.h"
 #include "cTransmission.h"
 #include "CAETwinLoopSoundEntity.h"
+#include "eRadioID.h"
+
+enum eVehicleSoundType : char
+{
+    VEHICLE_SOUND_CAR = 0x0,
+    VEHICLE_SOUND_MOTORCYCLE = 0x1,
+    VEHICLE_SOUND_BICYCLE = 0x2,
+    VEHICLE_SOUND_BOAT = 0x3,
+    VEHICLE_SOUND_HELI = 0x4,
+    VEHICLE_SOUND_PLANE = 0x5,
+    VEHICLE_SOUND_NON_VEH = 0x6,
+    VEHICLE_SOUND_USED_BY_NONE_VEH = 0x7,
+    VEHICLE_SOUND_TRAIN = 0x8,
+    VEHICLE_SOUND_TRAILER = 0x9,
+    VEHICLE_SOUND_SPECIAL = 0xA,
+};
+
+enum eRadioType : char
+{
+    RADIO_CIVILIAN = 0x0,
+    RADIO_SPECIAL = 0x1,
+    RADIO_UNKNOWN = 0x2,
+    RADIO_EMERGENCY = 0x3,
+    RADIO_DISABLED = 0xFF,
+};
+
+
 
 class CVehicle;
 
@@ -52,23 +79,23 @@ struct PLUGIN_API tVehicleSound {
 VALIDATE_SIZE(tVehicleSound, 0x8);
 
 struct PLUGIN_API tVehicleAudioSettings {
-    char  m_nVehicleSoundType;
-    char field_1;
+    eVehicleSoundType  m_nVehicleSoundType;
+    char _pad;
     short m_nEngineOnSoundBankId;
     short m_nEngineOffSoundBankId;
-    char  m_nStereo;
-    char field_7;
-    int field_8;
+    char  m_nBassSetting; // m_nStereo
+    char _pad1;
+    int m_fBassEq;
     int field_C;
     char  m_bHornTon;
-    char field_11[3];
+    char _pad2[3];
     float m_fHornHigh;
     char  m_nDoorSound;
     char field_19;
-    char  m_nRadioNum;
-    char  m_nRadioType;
-    char field_1C;
-    char field_1D[3];
+    eRadioID m_nRadioID;
+    eRadioType m_nRadioType;
+    char vehTypeForAudio;
+    char _pad4[3];
     float m_fHornVolumeDelta;
 };
 

@@ -938,10 +938,10 @@ META_BEGIN(CStreaming::GetNextFileOnCd)
         0x409043, GAME_10US_COMPACT, H_JUMP, 0x408E20, 1,
         0x40CBBD, GAME_10US_COMPACT, H_CALL, 0x40CBA0, 1,
         0x40CC75, GAME_10US_COMPACT, H_CALL, 0x40CBA0, 2>;
-    using def_t = int(unsigned int, bool);
+    using def_t = int(int, bool);
     static const int cb_priority = PRIORITY_BEFORE; 
     using calling_convention_t = CallingConventions::Cdecl;
-    using args_t = ArgPick<ArgTypes<unsigned int,bool>, 0,1>;
+    using args_t = ArgPick<ArgTypes<int,bool>, 0,1>;
 META_END
 
 META_BEGIN(CStreaming::RequestFilesInChannel)
@@ -2266,10 +2266,10 @@ META_BEGIN(CStreaming::LoadAllRequestedModels)
         0x724F3D, GAME_10US_COMPACT, H_CALL, 0x724E40, 1,
         0x724F93, GAME_10US_COMPACT, H_CALL, 0x724E40, 2,
         0x724FE9, GAME_10US_COMPACT, H_CALL, 0x724E40, 3>;
-    using def_t = void(char);
+    using def_t = void(bool);
     static const int cb_priority = PRIORITY_BEFORE; 
     using calling_convention_t = CallingConventions::Cdecl;
-    using args_t = ArgPick<ArgTypes<char>, 0>;
+    using args_t = ArgPick<ArgTypes<bool>, 0>;
 META_END
 
 META_BEGIN(CStreaming::LoadScene)

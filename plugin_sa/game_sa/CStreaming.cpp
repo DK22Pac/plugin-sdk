@@ -262,8 +262,8 @@ signed int CStreaming::GetDiscInDrive() {
 int addrof(CStreaming::GetNextFileOnCd) = ADDRESS_BY_VERSION(0x408E20, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::GetNextFileOnCd) = GLOBAL_ADDRESS_BY_VERSION(0x408E20, 0, 0, 0, 0, 0);
 
-int CStreaming::GetNextFileOnCd(unsigned int arg1, bool bNotPriority) {
-    return plugin::CallAndReturnDynGlobal<int, unsigned int, bool>(gaddrof(CStreaming::GetNextFileOnCd), arg1, bNotPriority);
+int CStreaming::GetNextFileOnCd(int pos, bool bNotPriority) {
+    return plugin::CallAndReturnDynGlobal<int, int, bool>(gaddrof(CStreaming::GetNextFileOnCd), pos, bNotPriority);
 }
 
 int addrof(CStreaming::HasSpecialCharLoaded) = ADDRESS_BY_VERSION(0x407F00, 0, 0, 0, 0, 0);
@@ -360,8 +360,8 @@ void CStreaming::Load() {
 int addrof(CStreaming::LoadAllRequestedModels) = ADDRESS_BY_VERSION(0x40EA10, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::LoadAllRequestedModels) = GLOBAL_ADDRESS_BY_VERSION(0x40EA10, 0, 0, 0, 0, 0);
 
-void CStreaming::LoadAllRequestedModels(char bOnlyPriorityRequests) {
-    plugin::CallDynGlobal<char>(gaddrof(CStreaming::LoadAllRequestedModels), bOnlyPriorityRequests);
+void CStreaming::LoadAllRequestedModels(bool bOnlyPriorityRequests) {
+    plugin::CallDynGlobal<bool>(gaddrof(CStreaming::LoadAllRequestedModels), bOnlyPriorityRequests);
 }
 
 int addrof_o(CStreaming::LoadCdDirectory, void (*)(char const *, int)) = ADDRESS_BY_VERSION(0x5B6170, 0, 0, 0, 0, 0);
@@ -451,8 +451,8 @@ void CStreaming::ProcessEntitiesInSectorList(CPtrList *list, float posn_x, float
 int addrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)) = ADDRESS_BY_VERSION(0x40C450, 0, 0, 0, 0, 0);
 int gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)) = GLOBAL_ADDRESS_BY_VERSION(0x40C450, 0, 0, 0, 0, 0);
 
-void CStreaming::ProcessEntitiesInSectorList(CPtrList *arg1, unsigned int streamingFlags) {
-    plugin::CallDynGlobal<CPtrList *, unsigned int>(gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)), arg1, streamingFlags);
+void CStreaming::ProcessEntitiesInSectorList(CPtrList *list, unsigned int streamingFlags) {
+    plugin::CallDynGlobal<CPtrList *, unsigned int>(gaddrof_o(CStreaming::ProcessEntitiesInSectorList, void (*)(CPtrList *, unsigned int)), list, streamingFlags);
 }
 
 int addrof(CStreaming::ProcessLoadingChannel) = ADDRESS_BY_VERSION(0x40E170, 0, 0, 0, 0, 0);
@@ -633,8 +633,8 @@ void CStreaming::RequestPlayerSection(int modelIndex, char const *string, int st
 int addrof(CStreaming::RequestSpecialChar) = ADDRESS_BY_VERSION(0x40B450, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::RequestSpecialChar) = GLOBAL_ADDRESS_BY_VERSION(0x40B450, 0, 0, 0, 0, 0);
 
-void CStreaming::RequestSpecialChar(int arg1, char const *Name, int streamingFlags) {
-    plugin::CallDynGlobal<int, char const *, int>(gaddrof(CStreaming::RequestSpecialChar), arg1, Name, streamingFlags);
+void CStreaming::RequestSpecialChar(int slot, char const *Name, int streamingFlags) {
+    plugin::CallDynGlobal<int, char const *, int>(gaddrof(CStreaming::RequestSpecialChar), slot, Name, streamingFlags);
 }
 
 int addrof(CStreaming::RequestSpecialModel) = ADDRESS_BY_VERSION(0x409D10, 0, 0, 0, 0, 0);
@@ -661,8 +661,8 @@ void CStreaming::RequestVehicleUpgrade(int modelIndex, int StreamingFlags) {
 int addrof(CStreaming::RetryLoadFile) = ADDRESS_BY_VERSION(0x4076C0, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::RetryLoadFile) = GLOBAL_ADDRESS_BY_VERSION(0x4076C0, 0, 0, 0, 0, 0);
 
-void CStreaming::RetryLoadFile(int arg1) {
-    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RetryLoadFile), arg1);
+void CStreaming::RetryLoadFile(int streamNum) {
+    plugin::CallDynGlobal<int>(gaddrof(CStreaming::RetryLoadFile), streamNum);
 }
 
 int addrof(CStreaming::Save) = ADDRESS_BY_VERSION(0x5D29A0, 0, 0, 0, 0, 0);

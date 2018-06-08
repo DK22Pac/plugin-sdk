@@ -30,11 +30,11 @@ public:
     CTaskManager   m_TaskMgr;
     CEventHandler  m_eventHandler;
     CEventGroup    m_eventGroup;
-    unsigned int   m_dwDecisionMakerType;
-    unsigned int   m_dwDecisionMakerTypeInGroup;
+    unsigned int   m_nDecisionMakerType;
+    unsigned int   m_nDecisionMakerTypeInGroup;
     float          m_fHearingRange;
     float          m_fSeeingRange;
-    unsigned int   m_dwDmNumPedsToScan;
+    unsigned int   m_nDmNumPedsToScan;
     float          m_fDmRadius;
     int field_CC;
     char field_D0;
