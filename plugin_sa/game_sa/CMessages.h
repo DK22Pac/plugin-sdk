@@ -19,7 +19,7 @@ enum eMessageStyle : unsigned short
     STYLE_LIGHTBLUE_TOP           // LightBlueText_OnTopOfTheScreen
 };
 
-struct Message {
+struct tMessage {
 	char *          m_pText;
 	unsigned short  m_wFlag;
 	char _pad1[2];
@@ -31,12 +31,12 @@ struct Message {
 	char _pad2[3];
 };
 
-struct BigMessage {
-	Message m_Current;
-	Message m_Stack[3];
+struct tBigMessage {
+	tMessage m_Current;
+	tMessage m_Stack[3];
 };
 
-struct PreviousBrief {
+struct tPreviousBrief {
 	char * m_pText;
 	int    m_nNumber[6];
 	char * m_pString;
@@ -45,11 +45,11 @@ struct PreviousBrief {
 class PLUGIN_API CMessages {
 public:
 	// count: 20
-	static PreviousBrief *PreviousBriefs;
+	static tPreviousBrief *PreviousBriefs;
 	// count: 8
-	static Message *BriefMessages;
+	static tMessage *BriefMessages;
 	// count: 7 (for each text style)
-	static BigMessage *BIGMessages;
+	static tBigMessage *BIGMessages;
 	// Returns length of a string
 	static unsigned int GetStringLength(char *string);
 	// Copies string src to dest

@@ -38,11 +38,11 @@
 #define FUNC_CMessages__AddBigMessage 0x69F2B0
 #define FUNC_CMessages__AddBigMessageQ 0x69F370
 
-PreviousBrief *CMessages::PreviousBriefs = (PreviousBrief *)0xC1A570;
+tPreviousBrief *CMessages::PreviousBriefs = (tPreviousBrief *)0xC1A570;
 
-Message *CMessages::BriefMessages = (Message *)0xC1A7F0;
+tMessage *CMessages::BriefMessages = (tMessage *)0xC1A7F0;
 
-BigMessage *CMessages::BIGMessages = (BigMessage *)0xC1A970;
+tBigMessage *CMessages::BIGMessages = (tBigMessage *)0xC1A970;
 
 // Returns length of a string
 unsigned int CMessages::GetStringLength(char *string)

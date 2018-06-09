@@ -8,9 +8,9 @@
 #include <string>
 #include <string.h>
 
-PreviousBrief *CMessages::PreviousBriefs = (PreviousBrief *)0x713C08;
-Message *CMessages::BriefMessages = (Message *)0x8786E0;
-BigMessage *CMessages::BIGMessages = (BigMessage *)0x773628;
+tPreviousBrief *CMessages::PreviousBriefs = (tPreviousBrief *)0x713C08;
+tMessage *CMessages::BriefMessages = (tMessage *)0x8786E0;
+tBigMessage *CMessages::BIGMessages = (tBigMessage *)0x773628;
 
 // Converted from cdecl void CMessages::Init(void) 0x529310
 void CMessages::Init() {

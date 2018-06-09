@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-struct Message {
+struct tMessage {
     wchar_t        *m_pText;
     unsigned short  m_nFlag;
 private:
@@ -20,28 +20,28 @@ public:
     wchar_t        *m_pString;
 };
 
-VALIDATE_SIZE(Message, 0x2C);
+VALIDATE_SIZE(tMessage, 0x2C);
 
-struct BigMessage {
-    Message m_Current;
-    Message m_Stack[3];
+struct tBigMessage {
+    tMessage m_Current;
+    tMessage m_Stack[3];
 };
 
-VALIDATE_SIZE(BigMessage, 0xB0);
+VALIDATE_SIZE(tBigMessage, 0xB0);
 
-struct PreviousBrief {
+struct tPreviousBrief {
     wchar_t *m_pText;
     int      m_nNumber[6];
     wchar_t *m_pString;
 };
 
-VALIDATE_SIZE(PreviousBrief, 0x20);
+VALIDATE_SIZE(tPreviousBrief, 0x20);
 
 class CMessages {
 public:
-    static PreviousBrief *PreviousBriefs; // static PreviousBrief PreviousBriefs[5]
-    static Message *BriefMessages; // static Message BriefMessages[8];
-    static BigMessage *BIGMessages; // static BigMessage BIGMessages[6];
+    static tPreviousBrief *PreviousBriefs; // static PreviousBrief PreviousBriefs[5]
+    static tMessage *BriefMessages; // static Message BriefMessages[8];
+    static tBigMessage *BIGMessages; // static BigMessage BIGMessages[6];
 
     static void Init();
     static int GetWideStringLength(wchar_t* str);
