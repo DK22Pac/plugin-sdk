@@ -40,9 +40,16 @@ public:
 	// Renders sun reflection on a water
 	static void RenderSunReflection();
 	// Creates corona by texture
-	static void RegisterCorona(unsigned int id, CEntity *attachTo, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, CVector const &posn, float radius, float farClip, RwTexture *texture, eCoronaFlareType flaretype, bool enableReflection, bool checkObstacles, int _param_not_used, float angle, bool longDistance, float nearClip, unsigned char fadeState, float fadeSpeed, bool onlyFromBelow, bool reflectionDelay);
+	static void RegisterCorona(unsigned int id, CEntity *attachTo, unsigned char red, unsigned char green, unsigned char blue, 
+        unsigned char alpha, CVector const &posn, float radius, float farClip, RwTexture *texture, eCoronaFlareType flaretype, 
+        bool enableReflection, bool checkObstacles, int _param_not_used, float angle, bool longDistance, float nearClip,
+        unsigned char fadeState, float fadeSpeed, bool onlyFromBelow, bool reflectionDelay);
 	// Creates corona by type
-	static void RegisterCorona(unsigned int id, CEntity *attachTo, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, CVector const &posn, float radius, float farClip, eCoronaType coronaType, eCoronaFlareType flaretype, bool enableReflection, bool checkObstacles, int _param_not_used, float angle, bool longDistance, float nearClip, unsigned char fadeState, float fadeSpeed, bool onlyFromBelow, bool reflectionDelay);
+	static void RegisterCorona(unsigned int id, CEntity *attachTo, unsigned char red, unsigned char green, unsigned char blue,
+        unsigned char alpha, CVector const &posn, float radius, float farClip, eCoronaType coronaType, eCoronaFlareType flaretype,
+        bool enableReflection, bool checkObstacles, int _param_not_used, float angle, bool longDistance, float nearClip, 
+        unsigned char fadeState, float fadeSpeed, bool onlyFromBelow, bool reflectionDelay);
+
 	static void UpdateCoronaCoors(unsigned int id, CVector  const& posn, float farClip, float angle);
 	// Draw sun (Moon went to CClouds since SA)
 	static void DoSunAndMoon();

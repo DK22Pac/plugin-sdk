@@ -36,6 +36,10 @@ enum eRadioType : char
     RADIO_DISABLED = -1,
 };
 
+struct PLUGIN_API tEngineDummySlot {
+    short m_nBankId;
+    short m_nUsageCount;
+};
 
 class PLUGIN_API cVehicleParams {
 public:
@@ -80,11 +84,11 @@ struct PLUGIN_API tVehicleAudioSettings {
     char _pad;
     short m_nEngineOnSoundBankId;
     short m_nEngineOffSoundBankId;
-    char  m_nBassSetting; // m_nStereo
+    char  m_nBassSetting;   // m_nStereo
     char _pad1;
-    int m_fBassEq;
-    int field_C;
-    char  m_bHornTon;
+    float m_fBassEq;
+    float field_C;
+    char  m_bHornTon;   // sfx id
     char _pad2[3];
     float m_fHornHigh;
     char  m_nDoorSound;
@@ -97,6 +101,8 @@ struct PLUGIN_API tVehicleAudioSettings {
 };
 
 VALIDATE_SIZE(tVehicleAudioSettings, 0x24);
+
+class CPed;
 
 class PLUGIN_API CAEVehicleAudioEntity : public CAEAudioEntity {
 public:
@@ -168,6 +174,16 @@ public:
     bool                    m_bNitroSoundPresent;
     char field_245[3];
     float field_248;
+
+    SUPPORTED_10US static CPed *&s_pPlayerAttachedForRadio;
+    SUPPORTED_10US static CPed *&s_pPlayerDriver;
+    SUPPORTED_10US static bool &s_HelicoptorsDisabled;
+    SUPPORTED_10US static short &s_NextDummyEngineSlot;
+    SUPPORTED_10US static tVehicleAudioSettings *&s_pVehicleAudioSettingsForRadio;
+    SUPPORTED_10US static tEngineDummySlot(&s_DummyEngineSlots)[10]; // static tEngineDummySlot s_DummyEngineSlots[10]
 };
 
 VALIDATE_SIZE(CAEVehicleAudioEntity, 0x24C);
+
+// indexes = (Vehicles modelid - 400)
+SUPPORTED_10US extern tVehicleAudioSettings const(&gVehicleAudioSettings)[232]; // tVehicleAudioSettings gVehicleAudioSettings[232]
