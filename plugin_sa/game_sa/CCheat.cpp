@@ -424,8 +424,8 @@ void CCheat::TrashmasterCheat() {
 int addrof(CCheat::VehicleCheat) = ADDRESS_BY_VERSION(0x43A0B0, 0, 0, 0, 0, 0);
 int gaddrof(CCheat::VehicleCheat) = GLOBAL_ADDRESS_BY_VERSION(0x43A0B0, 0, 0, 0, 0, 0);
 
-void CCheat::VehicleCheat(int vehicleModelId) {
-    plugin::CallDynGlobal<int>(gaddrof(CCheat::VehicleCheat), vehicleModelId);
+CVehicle* CCheat::VehicleCheat(int vehicleModelId) {
+    return plugin::CallAndReturnDynGlobal<CVehicle*,int>(gaddrof(CCheat::VehicleCheat), vehicleModelId);
 }
 
 int addrof(CCheat::VehicleSkillsCheat) = ADDRESS_BY_VERSION(0x4399D0, 0, 0, 0, 0, 0);

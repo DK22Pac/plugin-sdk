@@ -146,14 +146,14 @@ public:
 
         Events::drawHudEvent += [] {
             if (gpsShown) {
-                CFont::SetAlignment(ALIGN_CENTER);
+                CFont::SetOrientation(ALIGN_CENTER);
                 CFont::SetColor(CRGBA(200, 200, 200, 255));
                 CFont::SetBackground(false, false);
                 CFont::SetWrapx(500.0f);
                 CFont::SetScale(0.4f * static_cast<float>(RsGlobal.maximumWidth) / 640.0f, 
                     0.8f * static_cast<float>(RsGlobal.maximumHeight) / 448.0f);
                 CFont::SetFontStyle(FONT_SUBTITLES);
-                CFont::SetProp(true);
+                CFont::SetProportional(true);
                 CFont::SetDropShadowPosition(1);
                 CFont::SetDropColor(CRGBA(0, 0, 0, 255));
                 CVector2D radarBottom;

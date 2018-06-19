@@ -101,7 +101,7 @@ public:
             case NEON_PURPLE: r = 255; g = 0;   b = 255;  break;
             }
             if (CTimer::m_snTimeInMilliseconds % (TURN_ON_OFF_DELAY + 250) < TURN_ON_OFF_DELAY) {
-                CVector Pos = CModelInfo::ms_modelInfoPtrs[vehicle->m_nModelIndex]->m_pColModel->m_boundBox.m_vecSup;
+                CVector Pos = CModelInfo::ms_modelInfoPtrs[vehicle->m_nModelIndex]->m_pColModel->m_boundBox.m_vecMin;
                 CVector center = vehicle->TransformFromObjectSpace(CVector(0.0f, 0.0f, 0.0f));
                 CVector up = vehicle->TransformFromObjectSpace(CVector(0.0f, -Pos.y - 0.5f, 0.0f)) - center;
                 CVector right = vehicle->TransformFromObjectSpace(CVector(Pos.x + 0.2f, 0.0f, 0.0f)) - center;

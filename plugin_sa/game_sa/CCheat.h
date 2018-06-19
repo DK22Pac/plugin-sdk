@@ -7,6 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CVehicle.h"
 
 
 
@@ -80,7 +81,7 @@ public:
     SUPPORTED_10US static void TankCheat();
     SUPPORTED_10US static void TankerCheat();
     SUPPORTED_10US static void TrashmasterCheat();
-    SUPPORTED_10US static void VehicleCheat(int vehicleModelId);
+    SUPPORTED_10US static CVehicle* VehicleCheat(int vehicleModelId);
     SUPPORTED_10US static void VehicleSkillsCheat();
     SUPPORTED_10US static void VillagePeopleCheat();
     SUPPORTED_10US static void VortexCheat();

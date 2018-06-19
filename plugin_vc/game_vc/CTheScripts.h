@@ -12,7 +12,30 @@
 #include "CVehicle.h"
 #include "CPed.h"
 #include "CPlayerInfo.h"
-#include "tIntroText.h"
+#include "CRGBA.h"
+
+struct PLUGIN_API tIntroText
+{
+    float m_fWidth;
+    float m_fHeight;
+    CRGBA m_Color;
+    bool m_bJustify;
+    bool m_bCenter;
+    bool m_bBackground;
+    bool m_bBackgroundOnlyText;
+    float m_fSize;
+    float m_fCentreSize;
+    CRGBA m_BackgroundColor;
+    bool m_bProportional;
+    bool m_bDisable;
+    bool m_bRightJustify;
+    char __pad;
+    unsigned int m_nFontStyle;
+    float m_fX;
+    float m_fY;
+    wchar_t m_Text[100];
+};
+VALIDATE_SIZE(tIntroText, 0xF4);
 
 class PLUGIN_API CTheScripts {
 public:

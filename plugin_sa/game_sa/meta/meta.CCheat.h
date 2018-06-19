@@ -864,7 +864,7 @@ META_BEGIN(CCheat::VehicleCheat)
         0x43A665, GAME_10US_COMPACT, H_CALL, 0x43A660, 1,
         0x43A675, GAME_10US_COMPACT, H_CALL, 0x43A670, 1,
         0x43A685, GAME_10US_COMPACT, H_CALL, 0x43A680, 1>;
-    using def_t = void(int);
+    using def_t = CVehicle*(int);
     static const int cb_priority = PRIORITY_BEFORE; 
     using calling_convention_t = CallingConventions::Cdecl;
     using args_t = ArgPick<ArgTypes<int>, 0>;

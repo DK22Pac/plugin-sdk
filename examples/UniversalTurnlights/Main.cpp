@@ -104,7 +104,7 @@ public:
         if (posn.x == 0.0f) posn.x = 0.15f;
         if (leftSide) posn.x *= -1.0f;
         CCoronas::RegisterCorona(reinterpret_cast<unsigned int>(vehicle) + 50 + dummyId + (leftSide ? 0 : 2), vehicle, 255, 128, 0, 255, posn,
-            0.3f, 150.0f, CORONATYPE_SHINYSTAR, 0, false, false, 0, 0.0f, false, 0.5f, 0, 50.0f, false, true);
+            0.3f, 150.0f, CORONATYPE_SHINYSTAR, eCoronaFlareType::FLARETYPE_NONE, false, false, 0, 0.0f, false, 0.5f, 0, 50.0f, false, true);
     }
 
     static void DrawVehicleTurnlights(CVehicle *vehicle, eLightsStatus lightsStatus) {

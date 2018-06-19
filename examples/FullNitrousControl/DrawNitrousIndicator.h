@@ -38,8 +38,8 @@ void DrawNitrousIndicator() {
     {
         CAutomobile *playaVeh = reinterpret_cast<CAutomobile *>(playa->m_pVehicle);
         CFont::SetBackground(false, false);
-        CFont::SetAlignment(ALIGN_CENTER);
-        CFont::SetProp(true);
+        CFont::SetOrientation(ALIGN_CENTER);
+        CFont::SetProportional(true);
         CFont::SetFontStyle(FONT_SUBTITLES);
         CFont::SetColor(HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT));
         static char text[16];
@@ -48,7 +48,7 @@ void DrawNitrousIndicator() {
         if (progress >= 0.9999f)
             progress = 1.0f;
         if (FNC_DRAW_V_HUD) {
-            CFont::SetOutlinePosition(1);
+            CFont::SetDropShadowPosition(1);
             CFont::SetDropColor(CRGBA(0, 0, 0, 150));
             CFont::SetScale(SCREEN_MULTIPLIER(FNC_DRAW_VHUD_NITROUS_TEXT_WIDTH),
                 SCREEN_MULTIPLIER(FNC_DRAW_VHUD_NITROUS_TEXT_HEIGHT));
@@ -62,7 +62,7 @@ void DrawNitrousIndicator() {
                 CRGBA(0, 0, 0, 150), true, HudColour.GetRGB(HUD_COLOUR_BLUELIGHT, 100), progress, 1);
         }
         else if (FNC_DRAW_WIDESCREEN_PARAMETERS) {
-            CFont::SetOutlinePosition(1);
+            CFont::SetDropShadowPosition(1);
             CFont::SetDropColor(CRGBA(0, 0, 0, 200));
             CFont::SetScale(SCREEN_MULTIPLIER(FNC_DRAW_WIDE_NITROUS_TEXT_WIDTH),
                 SCREEN_MULTIPLIER(FNC_DRAW_WIDE_NITROUS_TEXT_HEIGHT));

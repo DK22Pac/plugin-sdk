@@ -58,14 +58,14 @@ public:
                 RwV3d rwp = { posn.x, posn.y, posn.z + 1.0f };
                 RwV3d screenCoors; float w, h;
                 if (CSprite::CalcScreenCoors(rwp, &screenCoors, &w, &h, true, true)) {
-                    CFont::SetAlignment(ALIGN_CENTER);
+                    CFont::SetOrientation(ALIGN_CENTER);
                     CFont::SetColor(CRGBA(objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue, 255));
-                    CFont::SetOutlinePosition(1);
+                    CFont::SetDropShadowPosition(1);
                     CFont::SetBackground(false, false);
                     CFont::SetWrapx(500.0);
                     CFont::SetScale(0.5, 1.0);
                     CFont::SetFontStyle(FONT_SUBTITLES);
-                    CFont::SetProp(true);
+                    CFont::SetProportional(true);
                     char text[16];
                     sprintf(text, "%d %d %d", objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue);
                     CFont::PrintString(screenCoors.x, screenCoors.y, text);
