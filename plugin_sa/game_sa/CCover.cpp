@@ -81,6 +81,7 @@ int gaddrof(CCover::FindVectorFromDir) = GLOBAL_ADDRESS_BY_VERSION(0x698D60, 0, 
 CVector CCover::FindVectorFromDir(unsigned char direction) {
     CVector ret_vec;
     plugin::CallDynGlobal<CVector *, unsigned char>(gaddrof(CCover::FindVectorFromDir), &ret_vec, direction);
+    return ret_vec;
 }
 
 int addrof(CCover::FindVectorFromFirstToMissingVertex) = ADDRESS_BY_VERSION(0x698790, 0, 0, 0, 0, 0);
@@ -89,6 +90,7 @@ int gaddrof(CCover::FindVectorFromFirstToMissingVertex) = GLOBAL_ADDRESS_BY_VERS
 CVector CCover::FindVectorFromFirstToMissingVertex(CColTriangle *triangle, int *a3, CVector *vertPositions) {
     CVector ret_vec;
     plugin::CallDynGlobal<CVector *, CColTriangle *, int *, CVector *>(gaddrof(CCover::FindVectorFromFirstToMissingVertex), &ret_vec, triangle, a3, vertPositions);
+    return ret_vec;
 }
 
 int addrof(CCover::Init) = ADDRESS_BY_VERSION(0x698710, 0, 0, 0, 0, 0);
