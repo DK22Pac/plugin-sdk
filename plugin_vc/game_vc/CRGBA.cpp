@@ -6,7 +6,4 @@
 */
 #include "CRGBA.h"
 
-// Converted from thiscall void CRGBA::CRGBA(uchar r, uchar g, uchar b, uchar a) 0x541570
-CRGBA::CRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
-    ((void(__thiscall *)(CRGBA*, unsigned char, unsigned char, unsigned char, unsigned char))0x541570)(this, r, g, b, a);
-}
+#include "game/shared.CRGBA.source.h"

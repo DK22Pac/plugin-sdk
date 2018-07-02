@@ -12,6 +12,7 @@
 #include "extender/PedExtender.h"
 #include "extender/VehicleExtender.h"
 #include "extender/ObjectExtender.h"
+#include "Color.h"
 #include "Error.h"
 #include "Other.h"
 #include "Patch.h"

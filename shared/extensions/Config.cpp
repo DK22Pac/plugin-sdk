@@ -157,13 +157,13 @@ CRGBA config_parameter::asRGBA(CRGBA defaultVal) {
     CRGBA rgba = defaultVal;
     unsigned int arrSize = valArr.size();
     if (arrSize > 0) {
-        rgba.red = valArr[0];
+        rgba.r = valArr[0];
         if (arrSize > 1) {
-            rgba.green = valArr[1];
+            rgba.g = valArr[1];
             if (arrSize > 2) {
-                rgba.blue = valArr[2];
+                rgba.b = valArr[2];
                 if (arrSize > 3)
-                    rgba.alpha = valArr[3];
+                    rgba.a = valArr[3];
             }
         }
     }

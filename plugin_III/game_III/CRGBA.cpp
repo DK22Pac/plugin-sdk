@@ -6,12 +6,4 @@
 */
 #include "CRGBA.h"
 
-// Converted from thiscall void CRGBA::CRGBA(uchar r, uchar g, uchar b, uchar a) 0x4F8C20
-CRGBA::CRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
-    ((void(__thiscall *)(CRGBA*, unsigned char, unsigned char, unsigned char, unsigned char))0x4F8C20)(this, r, g, b, a);
-}
-
-// Converted from thiscall void CRGBA::~CRGBA() 0x40B290
-CRGBA::~CRGBA() {
-    plugin::CallMethod<0x40B290, CRGBA *>(this);
-}
+#include "game/shared.CRGBA.source.h"
