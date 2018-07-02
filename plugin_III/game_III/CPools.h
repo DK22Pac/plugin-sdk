@@ -14,7 +14,7 @@
 #include "CPtrList.h"
 #include "CAutomobile.h"
 #include "CPlayerPed.h"
-#include "CCutsceneObject.h"
+#include "CCutsceneHead.h"
 
 #ifdef GetObject
 #undef GetObject
@@ -28,7 +28,7 @@ public:
     static CPool<CEntryInfoNode>           *&ms_pEntryInfoNodePool;
     static CPool<CVehicle, CAutomobile>    *&ms_pVehiclePool;
     static CPool<CPed, CPlayerPed>         *&ms_pPedPool;
-    static CPool<CObject, CCutsceneObject> *&ms_pObjectPool;
+    static CPool<CObject, CCutsceneHead> *&ms_pObjectPool;
     static CPool<CDummy, CDummyObject>     *&ms_pDummyPool;
 
     static void Initialise();

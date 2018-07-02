@@ -12,7 +12,7 @@ CPool<CEntryInfoNode> *&CPools::ms_pEntryInfoNodePool = *(CPool<CEntryInfoNode> 
 CPool<CPtrNode> *&CPools::ms_pPtrNodePool = *(CPool<CPtrNode> **)0x943044; 
 CPool<CVehicle, CAutomobile> *&CPools::ms_pVehiclePool = *(CPool<CVehicle, CAutomobile> **)0x9430DC;
 CPool<CPed, CPlayerPed> *&CPools::ms_pPedPool = *(CPool<CPed, CPlayerPed> **)0x8F2C60; 
-CPool<CObject, CCutsceneObject> *&CPools::ms_pObjectPool = *(CPool<CObject, CCutsceneObject> **)0x880E28; 
+CPool<CObject, CCutsceneHead> *&CPools::ms_pObjectPool = *(CPool<CObject, CCutsceneHead> **)0x880E28;
 CPool<CDummy, CDummyObject>  *&CPools::ms_pDummyPool = *(CPool<CDummy, CDummyObject> **)0x8F2C18;
 
 // CPools::ms_pAudioScriptObjectPool 0x8F1B6C; 
