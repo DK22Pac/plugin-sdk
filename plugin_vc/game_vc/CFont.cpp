@@ -144,8 +144,8 @@ void CFont::DrawFonts() {
 }
 
 // Converted from cdecl void CFont::FilterOutTokensFromString(ushort *str) 0x550260
-void CFont::FilterOutTokensFromString(wchar_t* str) {
-    plugin::Call<0x550260, wchar_t*>(str);
+void CFont::FilterOutTokensFromString(const wchar_t* str) {
+    plugin::Call<0x550260, const wchar_t*>(str);
 }
 
 // Converted from cdecl ushort* CFont::ParseToken(ushort *str) 0x5502D0
@@ -159,33 +159,33 @@ wchar_t* CFont::ParseToken(wchar_t* str, CRGBA& color, bool& flashing, bool& bol
 }
 
 // Converted from cdecl float CFont::GetStringWidth(ushort *str,bool sentence) 0x550650
-float CFont::GetStringWidth(wchar_t* str, bool sentence) {
-    return plugin::CallAndReturn<float, 0x550650, wchar_t*, bool>(str, sentence);
+float CFont::GetStringWidth(const wchar_t* str, bool sentence) {
+    return plugin::CallAndReturn<float, 0x550650, const wchar_t*, bool>(str, sentence);
 }
 
 // Converted from cdecl void CFont::GetTextRect(CRect *rect_out,float x,float y,ushort *text) 0x550720
-void CFont::GetTextRect(CRect* rect_out, float x, float y, wchar_t* text) {
-    plugin::Call<0x550720, CRect*, float, float, wchar_t*>(rect_out, x, y, text);
+void CFont::GetTextRect(CRect* rect_out, float x, float y, const wchar_t* text) {
+    plugin::Call<0x550720, CRect*, float, float, const wchar_t*>(rect_out, x, y, text);
 }
 
 // Converted from cdecl int CFont::GetNumberLines(float x,float y,ushort *text) 0x550C70
-int CFont::GetNumberLines(float x, float y, wchar_t* text) {
-    return plugin::CallAndReturn<int, 0x550C70, float, float, wchar_t*>(x, y, text);
+int CFont::GetNumberLines(float x, float y, const wchar_t* text) {
+    return plugin::CallAndReturn<int, 0x550C70, float, float, const wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,ushort *text) 0x551040
-void CFont::PrintString(float x, float y, wchar_t* text) {
-    plugin::Call<0x551040, float, float, wchar_t*>(x, y, text);
+void CFont::PrintString(float x, float y, const wchar_t* text) {
+    plugin::Call<0x551040, float, float, const wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintStringFromBottom(float x,float y,ushort *text) 0x551620
-void CFont::PrintStringFromBottom(float x, float y, wchar_t* text) {
-    plugin::Call<0x551620, float, float, wchar_t*>(x, y, text);
+void CFont::PrintStringFromBottom(float x, float y, const wchar_t* text) {
+    plugin::Call<0x551620, float, float, const wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,uint,ushort *,ushort *,float) 0x5516C0
-void CFont::PrintString(float x, float y, unsigned int arg2, wchar_t* arg3, wchar_t* arg4, float arg5) {
-    plugin::Call<0x5516C0, float, float, unsigned int, wchar_t*, wchar_t*, float>(x, y, arg2, arg3, arg4, arg5);
+void CFont::PrintString(float x, float y, unsigned int arg2, const wchar_t* arg3, const wchar_t* arg4, float arg5) {
+    plugin::Call<0x5516C0, float, float, unsigned int, const wchar_t*, const wchar_t*, float>(x, y, arg2, arg3, arg4, arg5);
 }
 
 // Converted from cdecl void CFont::RenderFontBuffer(void) 0x551A30
@@ -226,4 +226,9 @@ int UnicodeStrlen(wchar_t const* str) {
 // Converted from cdecl void AsciiToUnicode(char const*str_ascii,ushort *str_unicode) 0x552500
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode) {
     plugin::Call<0x552500, char const*, wchar_t*>(str_ascii, str_unicode);
+}
+
+void CFont::PrintString(float x, float y, const char* text) {
+    _SWSTRING_INIT(text, 1);
+    PrintString(x, y, _SWSTRING(1));
 }

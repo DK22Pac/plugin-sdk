@@ -20,5 +20,6 @@
 #include "extensions/Screen.h"
 #include "extensions/Config.h"
 #include "extensions/PoolIterator.h"
+#include "extensions/FontPrint.h"
 #include "comp/PluginsCompatibility.h"
 #include "common_sdk.h"

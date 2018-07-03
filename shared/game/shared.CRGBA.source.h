@@ -58,11 +58,11 @@ void CRGBA::Set(RwRGBA const &rwcolor) {
     Set(rwcolor.red, rwcolor.green, rwcolor.blue, rwcolor.alpha);
 }
 
-unsigned int CRGBA::ToInt() {
-    return r | (g << 8) | (b << 16) | (a << 32);
+unsigned int CRGBA::ToInt() const {
+    return r | (g << 8) | (b << 16) | (a << 24);
 }
 
-RwRGBA CRGBA::ToRwRGBA() {
+RwRGBA CRGBA::ToRwRGBA() const {
     return { r, g, b, a };
 }
 
@@ -74,13 +74,13 @@ void CRGBA::Invert() {
     Set(255 - r, 255 - g, 255 - b);
 }
 
-CRGBA CRGBA::Inverted() {
+CRGBA CRGBA::Inverted() const {
     CRGBA invertedColor = *this;
     invertedColor.Invert();
     return invertedColor;
 }
 
-bool CRGBA::operator==(CRGBA const &rhs) {
+bool CRGBA::operator==(CRGBA const &rhs) const {
     return r == rhs.r && g == rhs.g && b == rhs.b && a == rhs.a;
 }
 
@@ -88,6 +88,6 @@ CRGBA &CRGBA::operator=(CRGBA const &rhs) {
     Set(rhs);
 }
 
-CRGBA CRGBA::ToRGB() {
+CRGBA CRGBA::ToRGB() const {
     return CRGBA(r, g, b, 255);
 }

@@ -29,15 +29,15 @@ public:
     void Set(CRGBA const &rhs, unsigned char alpha);
     void Set(RwRGBA const &rwcolor);
 
-    CRGBA ToRGB();
-    unsigned int ToInt();
-    RwRGBA ToRwRGBA();
+    CRGBA ToRGB() const;
+    unsigned int ToInt() const;
+    RwRGBA ToRwRGBA() const;
 
     void FromRwRGBA(RwRGBA const &rwcolor);
 
     void Invert();
-    CRGBA Inverted();
+    CRGBA Inverted() const;
 
-    bool operator==(CRGBA const &rhs);
+    bool operator==(CRGBA const &rhs) const;
     CRGBA &operator=(CRGBA const &rhs);
 };

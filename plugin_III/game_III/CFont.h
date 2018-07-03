@@ -23,18 +23,18 @@ public:
 
     static void DrawFonts();
     // get next ' ' character in a string
-    static wchar_t* GetNextSpace(wchar_t* str);
-    static int GetNumberLines(float x, float y, wchar_t* text);
-    static float GetStringWidth(wchar_t* str, bool sentence);
-    static CRect* GetTextRect(CRect* rect_out, float x, float y, wchar_t* text);
+    static wchar_t* GetNextSpace(const wchar_t* str);
+    static int GetNumberLines(float x, float y, const wchar_t* text);
+    static float GetStringWidth(const wchar_t* str, bool sentence);
+    static CRect* GetTextRect(CRect* rect_out, float x, float y, const wchar_t* text);
     static void InitPerFrame();
     // CFont initialisation
     static void Initialise();
     static wchar_t* ParseToken(wchar_t* str);
     // this adds a single character into rendering buffer
     static void PrintChar(float x, float y, short character);
-    static void PrintString(float x, float y, wchar_t* text);
-    static void PrintString(float x, float y, wchar_t* start, wchar_t* end, float arg4);
+    static void PrintString(float x, float y, const wchar_t* text);
+    static void PrintString(float x, float y, const wchar_t* start, const wchar_t* end, float arg4);
     // like a 'global' font alpha, multiplied with each text alpha (from SetColor)
     static void SetAlphaFade(float alpha);
     static void SetBackGroundOnlyTextOff();
@@ -74,15 +74,15 @@ public:
     static void Shutdown();
     static short character_code(unsigned char character);
 
-    static char* GetNextSpace(char* str);
-    static int GetNumberLines(float x, float y, char* text);
-    static float GetStringWidth(char* str, bool sentence);
-    static CRect* GetTextRect(CRect* rect_out, float x, float y, char* text);
+    static char* GetNextSpace(const char* str);
+    static int GetNumberLines(float x, float y, const char* text);
+    static float GetStringWidth(const char* str, bool sentence);
+    static CRect* GetTextRect(CRect* rect_out, float x, float y, const char* text);
     static char* ParseToken(char* str);
     // this adds a single character into rendering buffer
     static void PrintChar(float x, float y, char character);
-    static void PrintString(float x, float y, char* text);
-    static void PrintString(float x, float y, char* start, char* end, float arg4);
+    static void PrintString(float x, float y, const char* text);
+    static void PrintString(float x, float y, const char* start, const char* end, float arg4);
 };
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);

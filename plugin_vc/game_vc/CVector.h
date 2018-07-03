@@ -78,7 +78,7 @@ public:
 
     float Normalise();
 
-    inline RwV3d ToRwV3d() {
+    inline RwV3d ToRwV3d() const {
         return{ x, y, z };
     }
 

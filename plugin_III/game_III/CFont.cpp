@@ -19,23 +19,23 @@ void CFont::DrawFonts() {
 }
 
 // Converted from cdecl wchar_t* CFont::GetNextSpace(wchar_t *str) 0x501960
-wchar_t* CFont::GetNextSpace(wchar_t* str) {
-    return plugin::CallAndReturn<wchar_t*, 0x501960, wchar_t*>(str);
+wchar_t* CFont::GetNextSpace(const wchar_t* str) {
+    return plugin::CallAndReturn<wchar_t*, 0x501960, const wchar_t*>(str);
 }
 
 // Converted from cdecl int CFont::GetNumberLines(float x,float y,wchar_t *text) 0x501260
-int CFont::GetNumberLines(float x, float y, wchar_t* text) {
-    return plugin::CallAndReturn<int, 0x501260, float, float, wchar_t*>(x, y, text);
+int CFont::GetNumberLines(float x, float y, const wchar_t* text) {
+    return plugin::CallAndReturn<int, 0x501260, float, float, const wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl float CFont::GetStringWidth(wchar_t *str,bool sentence) 0x5018A0
-float CFont::GetStringWidth(wchar_t* str, bool sentence) {
-    return plugin::CallAndReturn<float, 0x5018A0, wchar_t*, bool>(str, sentence);
+float CFont::GetStringWidth(const wchar_t* str, bool sentence) {
+    return plugin::CallAndReturn<float, 0x5018A0, const wchar_t*, bool>(str, sentence);
 }
 
 // Converted from cdecl CRect* CFont::GetTextRect(CRect *rect_out,float x,float y,wchar_t *text) 0x5013B0
-CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, wchar_t* text) {
-    return plugin::CallAndReturn<CRect*, 0x5013B0, CRect*, float, float, wchar_t*>(rect_out, x, y, text);
+CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, const wchar_t* text) {
+    return plugin::CallAndReturn<CRect*, 0x5013B0, CRect*, float, float, const wchar_t*>(rect_out, x, y, text);
 }
 
 // Converted from cdecl void CFont::InitPerFrame(void) 0x500BE0 
@@ -59,13 +59,13 @@ void CFont::PrintChar(float x, float y, short character) {
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,wchar_t *text) 0x500F50
-void CFont::PrintString(float x, float y, wchar_t* text) {
-    plugin::Call<0x500F50, float, float, wchar_t*>(x, y, text);
+void CFont::PrintString(float x, float y, const wchar_t* text) {
+    plugin::Call<0x500F50, float, float, const wchar_t*>(x, y, text);
 }
 
 // Converted from cdecl void CFont::PrintString(float x,float y,wchar_t *str1,wchar_t *str2,float) 0x501730
-void CFont::PrintString(float x, float y, wchar_t* start, wchar_t* end, float arg4) {
-    plugin::Call<0x501730, float, float, wchar_t*, wchar_t*, float>(x, y, start, end, arg4);
+void CFont::PrintString(float x, float y, const wchar_t* start, const wchar_t* end, float arg4) {
+    plugin::Call<0x501730, float, float, const wchar_t*, const wchar_t*, float>(x, y, start, end, arg4);
 }
 
 // Converted from cdecl void CFont::SetAlphaFade(float alpha) 0x501DD0
@@ -198,23 +198,23 @@ short CFont::character_code(unsigned char character) {
     return plugin::CallAndReturn<short, 0x501E80, unsigned char>(character);
 }
 
-char* CFont::GetNextSpace(char* str) {
+char* CFont::GetNextSpace(const char* str) {
     _SWSTRING_INIT(str, 1);
     wchar_t *result = GetNextSpace(_SWSTRING(1));
-    return &str[result - _SWSTRING(1)];
+    return const_cast<char *>(&str[result - _SWSTRING(1)]);
 }
 
-int CFont::GetNumberLines(float x, float y, char* text) {
+int CFont::GetNumberLines(float x, float y, const char* text) {
     _SWSTRING_INIT(text, 1);
     return GetNumberLines(x, y, _SWSTRING(1));
 }
 
-float CFont::GetStringWidth(char* str, bool sentence) {
+float CFont::GetStringWidth(const char* str, bool sentence) {
     _SWSTRING_INIT(str, 1);
     return GetStringWidth(_SWSTRING(1), sentence);
 }
 
-CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, char* text) {
+CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, const char* text) {
     _SWSTRING_INIT(text, 1);
     return GetTextRect(rect_out, x, y, _SWSTRING(1));
 }
@@ -229,12 +229,12 @@ void CFont::PrintChar(float x, float y, char character) {
     PrintChar(x, y, static_cast<short>(character));
 }
 
-void CFont::PrintString(float x, float y, char* text) {
+void CFont::PrintString(float x, float y, const char* text) {
     _SWSTRING_INIT(text, 1);
     PrintString(x, y, _SWSTRING(1));
 }
 
-void CFont::PrintString(float x, float y, char* start, char* end, float arg4) {
+void CFont::PrintString(float x, float y, const char* start, const char* end, float arg4) {
     _SWSTRING_INIT(start, 1);
     PrintString(x, y, _SWSTRING(1), &_SWSTRING(1)[end - start], arg4);
 }

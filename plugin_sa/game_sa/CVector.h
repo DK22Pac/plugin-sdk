@@ -50,7 +50,7 @@ public:
         x = X; y = Y; z = Z;
     }
 
-    inline RwV3d ToRwV3d() {
+    inline RwV3d ToRwV3d() const {
         return{ x, y, z };
     }
 

@@ -5,18 +5,37 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include <Windows.h>
+#include <string>
 
 namespace plugin {
-    inline unsigned int Random(unsigned int min, unsigned int max) {
-        return min + (rand() % (max - min + 1));
+
+    unsigned int Random(unsigned int min, unsigned int max);
+    bool KeyPressed(unsigned int keyCode);
+    bool IsPluginInstalled(const char *pluginName);
+    std::wstring AtoW(std::string const &str);
+    std::string WtoA(std::wstring const &str);
+
+    template<typename ...ArgTypes>
+    char *FormatStatic(const std::string &format, ArgTypes... args) {
+        static char buf[4096];
+        snprintf(buf, 4096, format.c_str(), args...);
+        return buf;
     }
 
-    inline bool KeyPressed(unsigned int keyCode) {
-        return (GetKeyState(keyCode) & 0x8000) != 0;
+    template<typename ...ArgTypes>
+    std::string Format(const std::string &format, ArgTypes... args) {
+        return FormatStatic(format, args...);
     }
 
-    inline bool IsPluginInstalled(const char *pluginName) {
-        return GetModuleHandle(pluginName) ? true : false;
+    template<typename ...ArgTypes>
+    wchar_t *FormatStatic(const std::wstring &format, ArgTypes... args) {
+        static wchar_t buf[4096];
+        _snwprintf(buf, 4096, format.c_str(), args...);
+        return buf;
+    }
+
+    template<typename ...ArgTypes>
+    std::wstring Format(const std::wstring &format, ArgTypes... args) {
+        return FormatStatic(format, args...);
     }
 }

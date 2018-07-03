@@ -30,7 +30,7 @@ bool KeyCheck::CheckJustUp(unsigned int key) {
 
 bool KeyCheck::CheckWithDelay(unsigned int key, unsigned int time) {
     if (key < 256 && (currStates[key] & 0x80)) {
-        if (!(prevStates[key] & 0x80) || CTimer::m_snTimeInMilliseconds >(timeDelayPressed[key] + time)) {
+        if (!(prevStates[key] & 0x80) || CTimer::m_snTimeInMilliseconds > static_cast<int>((timeDelayPressed[key] + time))) {
             timeDelayPressed[key] = CTimer::m_snTimeInMilliseconds;
             return true;
         }
