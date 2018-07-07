@@ -86,6 +86,7 @@ bool CRGBA::operator==(CRGBA const &rhs) const {
 
 CRGBA &CRGBA::operator=(CRGBA const &rhs) {
     Set(rhs);
+    return *this;
 }
 
 CRGBA CRGBA::ToRGB() const {
