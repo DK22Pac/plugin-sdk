@@ -37,7 +37,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     CFont::SetSlant(0.0f);
     CFont::SetDropColor(dropColor);
     switch (alignment) {
-    case Center:
+    case AlignCenter:
     #ifdef GTASA
         CFont::SetOrientation(ALIGN_CENTER);
     #else
@@ -47,7 +47,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     #endif
         CFont::SetCentreSize(ScreenInteger(lineSize));
         break;
-    case Left:
+    case AlignLeft:
     #ifdef GTASA
         CFont::SetOrientation(ALIGN_LEFT);
     #else
@@ -57,7 +57,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     #endif
         CFont::SetWrapx(ScreenInteger(x + lineSize));
         break;
-    case Right:
+    case AlignRight:
     #ifdef GTASA
         CFont::SetOrientation(ALIGN_RIGHT);
     #else
@@ -71,7 +71,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
 #ifdef GTASA
     CFont::SetProportional(proportional);
     CFont::SetBackground(false, false);
-    //CFont::SetJustify(justify);
+    CFont::SetJustify(justify);
     if (shadow)
         CFont::SetDropShadowPosition(dropPosition);
     else
@@ -90,11 +90,29 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
 
 void plugin::gamefont::Print(const std::string &line, float x, float y, unsigned char style, float w, float h,
     CRGBA const &color, Alignment alignment, unsigned char dropPosition, CRGBA const &dropColor, bool shadow, float lineSize,
-    bool proportional, bool justify, screen::eScreenSide screenSide)
+    bool proportional, bool justify, ScreenSide screenSide)
 {
+    switch (screenSide) {
+    case LeftBottom:
+        x = screen::GetCoord(x, screen::SIDE_LEFT);
+        y = screen::GetCoord(y, screen::SIDE_BOTTOM);
+        break;
+    case RightTop:
+        x = screen::GetCoord(x, screen::SIDE_RIGHT);
+        y = screen::GetCoord(y, screen::SIDE_TOP);
+        break;
+    case RightBottom:
+        x = screen::GetCoord(x, screen::SIDE_RIGHT);
+        y = screen::GetCoord(y, screen::SIDE_BOTTOM);
+        break;
+    default:
+        x = screen::GetCoord(x, screen::SIDE_LEFT);
+        y = screen::GetCoord(y, screen::SIDE_TOP);
+        break;
+    }
     PrintUnscaled(line,
-        screen::GetCoord(x, screenSide),
-        screen::GetCoord(y, screenSide),
+        x,
+        y,
         style,
         screen::GetMultiplier(w),
         screen::GetMultiplier(h),
@@ -103,9 +121,9 @@ void plugin::gamefont::Print(const std::string &line, float x, float y, unsigned
         proportional, justify);
 }
 
-void plugin::gamefont::Print(screen::eScreenSide screenSide,
+void plugin::gamefont::Print(ScreenSide screenSide, Alignment alignment,
     const std::string &line, float x, float y, unsigned char style, float w, float h,
-    CRGBA const &color, Alignment alignment, unsigned char dropPosition, CRGBA const &dropColor, bool shadow, float lineSize,
+    CRGBA const &color, unsigned char dropPosition, CRGBA const &dropColor, bool shadow, float lineSize,
     bool proportional, bool justify)
 {
     Print(line, x, y, style, w, h, color, alignment, dropPosition, dropColor, shadow, lineSize, proportional, justify, screenSide);
@@ -113,7 +131,7 @@ void plugin::gamefont::Print(screen::eScreenSide screenSide,
 
 void plugin::gamefont::Print(std::vector<std::string> const &lines, float x, float y, float spacing, unsigned char style,
     float w, float h, CRGBA const &color, Alignment alignment, unsigned char dropPosition, CRGBA const &dropColor,
-    bool shadow, float lineSize, bool proportional, bool justify, screen::eScreenSide screenSide)
+    bool shadow, float lineSize, bool proportional, bool justify, ScreenSide screenSide)
 {
     spacing *= h * SCALEH * SPACING;
     for (size_t i = 0; i < lines.size(); i++) {
@@ -122,14 +140,14 @@ void plugin::gamefont::Print(std::vector<std::string> const &lines, float x, flo
     }
 }
 
-void plugin::gamefont::Print(screen::eScreenSide screenSide,
+void plugin::gamefont::Print(ScreenSide screenSide, Alignment alignment,
     std::vector<std::string> const &lines, float x, float y, float spacing, unsigned char style, float w, float h,
-    CRGBA const &color, Alignment alignment, unsigned char dropPosition, CRGBA const &dropColor, bool shadow, float lineSize,
+    CRGBA const &color, unsigned char dropPosition, CRGBA const &dropColor, bool shadow, float lineSize,
     bool proportional, bool justify)
 {
     spacing *= h * SCALEH * SPACING;
     for (size_t i = 0; i < lines.size(); i++) {
-        Print(screenSide, lines[i], x, y + spacing * i, style, w, h, color, alignment,
+        Print(screenSide, alignment, lines[i], x, y + spacing * i, style, w, h, color,
             dropPosition, dropColor, shadow, lineSize, proportional, justify);
     }
 }
