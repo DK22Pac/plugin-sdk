@@ -16,7 +16,14 @@ namespace plugin {
 class gamefont {
 public:
     enum Alignment {
-        Center, Left, Right
+        AlignCenter, AlignLeft, AlignRight
+    };
+
+    enum ScreenSide {
+        LeftTop,
+        LeftBottom,
+        RightTop,
+        RightBottom
     };
 
 private:
@@ -24,38 +31,38 @@ private:
 public:
 
     static void PrintUnscaled(const std::string &line, float x, float y, unsigned char style = STYLE,
-        float w = 1.0f, float h = 1.0f, CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = Left,
+        float w = 1.0f, float h = 1.0f, CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = AlignLeft,
         unsigned char dropPosition = 1, CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false,
         float lineSize = 9999.0f, bool proportional = true, bool justify = false);
     static void Print(const std::string &line, float x, float y, unsigned char style = STYLE, float w = 1.0f, float h = 1.0f,
-        CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = Left, unsigned char dropPosition = 1,
+        CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = AlignLeft, unsigned char dropPosition = 1,
         CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false, float lineSize = 9999.0f,
-        bool proportional = true, bool justify = false, screen::eScreenSide screenSide = screen::SIDE_LEFT);
-    static void Print(screen::eScreenSide screenSide,
+        bool proportional = true, bool justify = false, ScreenSide screenSide = LeftTop);
+    static void Print(ScreenSide screenSide, Alignment alignment,
         const std::string &line, float x, float y, unsigned char style = STYLE, float w = 1.0f, float h = 1.0f,
-        CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = Left, unsigned char dropPosition = 1,
+        CRGBA const &color = CRGBA(255, 255, 255, 255), unsigned char dropPosition = 1,
         CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false, float lineSize = 9999.0f,
         bool proportional = true, bool justify = false);
     static void Print(std::vector<std::string> const &lines, float x, float y, float spacing = 1.0f, unsigned char style = STYLE,
         float w = 1.0f, float h = 1.0f,
-        CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = Left, unsigned char dropPosition = 1,
+        CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = AlignLeft, unsigned char dropPosition = 1,
         CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false, float lineSize = 9999.0f,
-        bool proportional = true, bool justify = false, screen::eScreenSide screenSide = screen::SIDE_LEFT);
-    static void Print(screen::eScreenSide screenSide,
+        bool proportional = true, bool justify = false, ScreenSide screenSide = LeftTop);
+    static void Print(ScreenSide screenSide, Alignment alignment,
         std::vector<std::string> const &lines, float x, float y, float spacing = 1.0f, unsigned char style = STYLE,
         float w = 1.0f, float h = 1.0f,
-        CRGBA const &color = CRGBA(255, 255, 255, 255), Alignment alignment = Left, unsigned char dropPosition = 1,
+        CRGBA const &color = CRGBA(255, 255, 255, 255), unsigned char dropPosition = 1,
         CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false, float lineSize = 9999.0f,
         bool proportional = true, bool justify = false);
     static bool PrintAt3d(CVector const &posn, const std::string &line, float offset_x = 0.0f, float offset_y = 0.0f,
         unsigned char style = STYLE, float w = 1.0f, float h = 1.0f, CRGBA const &color = CRGBA(255, 255, 255, 255),
-        bool scaleOnDistance = true, Alignment alignment = Left, unsigned char dropPosition = 1,
+        bool scaleOnDistance = true, Alignment alignment = AlignLeft, unsigned char dropPosition = 1,
         CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false, float lineSize = 9999.0f,
         bool proportional = true, bool justify = false);
     static bool PrintAt3d(CVector const &posn, std::vector<std::string> const &lines, float spacing = 1.0f,
         float offset_x = 0.0f, float offset_y = 0.0f,
         unsigned char style = STYLE, float w = 1.0f, float h = 1.0f, CRGBA const &color = CRGBA(255, 255, 255, 255),
-        bool scaleOnDistance = true, Alignment alignment = Left, unsigned char dropPosition = 1,
+        bool scaleOnDistance = true, Alignment alignment = AlignLeft, unsigned char dropPosition = 1,
         CRGBA const &dropColor = CRGBA(0, 0, 0, 255), bool shadow = false, float lineSize = 9999.0f,
         bool proportional = true, bool justify = false);
 };

@@ -16,7 +16,7 @@ float plugin::screen::GetCoord(float a) {
     return static_cast<float>(static_cast<int>(a * base / gScreenResolution));
 }
 
-float plugin::screen::GetCoord(float a, eScreenSide side) {
+float plugin::screen::GetCoord(float a, eScreenCoordTranslationSide side) {
     switch (side) {
     case SIDE_ANY:
         return GetCoord(a);

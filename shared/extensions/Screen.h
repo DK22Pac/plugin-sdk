@@ -11,7 +11,7 @@
 namespace plugin {
     class screen {
     public:
-        enum eScreenSide {
+        enum eScreenCoordTranslationSide {
             SIDE_ANY,
             SIDE_LEFT,
             SIDE_RIGHT,
@@ -23,7 +23,7 @@ namespace plugin {
             SIDE_CENTER_DOWN
         };
 
-        static float GetCoord(float a, eScreenSide side);
+        static float GetCoord(float a, eScreenCoordTranslationSide side);
         static float GetCoord(float a);
         static float GetCoordLeft(float a);
         static float GetCoordRight(float a);
