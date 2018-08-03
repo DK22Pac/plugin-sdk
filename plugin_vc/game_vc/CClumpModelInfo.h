@@ -10,11 +10,14 @@ Do not delete this comment block. Respect others' work!
 #include "CBaseModelInfo.h"
 #include "RenderWare.h"
 #include "RwObjectNameIdAssocation.h"
+#include "NodeName.h"
 
 struct FrameSearchData {
     char const *name;
     RwFrame *result;
 };
+
+VALIDATE_SIZE(FrameSearchData, 8);
 
 class CClumpModelInfo : public CBaseModelInfo {
 public:
@@ -41,11 +44,23 @@ public:
     static void SetAtomicRendererCB(RpAtomic* atomic, void* renderFunc);
     void SetFrameIds(RwObjectNameIdAssocation* data);
 
-    static inline RwFrame *GetFrameFromName(RpClump *clump, char const *name) {
+    static RwFrame* FindFrameFromNameCB_Fixed(RwFrame* frame, void* data) {
+        auto searchData = reinterpret_cast<FrameSearchData *>(data);
+        if (!_stricmp(GetFrameNodeName(frame), searchData->name)) {
+            searchData->result = frame;
+            return nullptr;
+        }
+        RwFrameForAllChildren(frame, FindFrameFromNameCB_Fixed, data);
+        if (searchData->result)
+            return nullptr;
+        return frame;
+    }
+
+    static RwFrame *GetFrameFromName(RpClump *clump, char const *name) {
         FrameSearchData searchData;
         searchData.name = name;
         searchData.result = nullptr;
-        RwFrameForAllChildren(reinterpret_cast<RwFrame *>(clump->object.parent), FindFrameFromNameCB, &searchData);
+        RwFrameForAllChildren(reinterpret_cast<RwFrame *>(clump->object.parent), FindFrameFromNameCB_Fixed, &searchData);
         return searchData.result;
     }
 
