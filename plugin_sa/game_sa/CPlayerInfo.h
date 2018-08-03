@@ -101,6 +101,8 @@ private:
     char _pad4[3];
 public:
     unsigned int m_nRequireParachuteTimer;
+
+    CPlayerInfo();
 };
 
 VALIDATE_SIZE(CPlayerInfo, 0x190);

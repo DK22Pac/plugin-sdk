@@ -183,6 +183,7 @@ public:
     
     // Functions list : Not finished
 
+    CPad();
     void UpdateMouse();
     void ReconcileTwoControllersInput(CControllerState const& controllerA, CControllerState const& controllerB);
     void SetDrunkInputDelay(int delay);
