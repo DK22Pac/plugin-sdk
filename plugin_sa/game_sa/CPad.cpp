@@ -11,6 +11,13 @@ CMouseControllerState & CPad::PCTempMouseControllerState = *(CMouseControllerSta
 CMouseControllerState & CPad::NewMouseControllerState = *(CMouseControllerState *)0xB73418;
 CMouseControllerState & CPad::OldMouseControllerState = *(CMouseControllerState *)0xB7342C;
 
+
+
+CPad::CPad()
+{
+    plugin::CallMethod<0x541D80, CPad*>(this);
+}
+
 // Converted from thiscall void CPad::UpdateMouse(void) 0x53F3C0
 void CPad::UpdateMouse() {
     plugin::CallMethod<0x53F3C0, CPad *>(this);
