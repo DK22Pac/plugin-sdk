@@ -30,7 +30,7 @@ struct CZoneExtraInfo {
 
 class CZone {
 public:
-    unsigned int  m_nLabel[2];
+    char          m_szLabel[8];
 	char          m_szTextKey[8];
 	short         m_fX1;
 	short         m_fY1;
