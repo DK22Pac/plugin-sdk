@@ -7,43 +7,52 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CObject.h"
+#include "CVehicle.h"
+#include "CPed.h"
 #include "CPool.h"
-#include "CTreadable.h"
-#include "CDummy.h"
-#include "CEntryInfoList.h"
-#include "CPtrList.h"
-#include "CAutomobile.h"
-#include "CPlayerPed.h"
 #include "CCutsceneObject.h"
+#include "CColModel.h"
+#include "cAudioScriptObject.h"
+#include "CTreadable.h"
+#include "CBuilding.h"
+#include "CDummy.h"
+#include "CPlayerPed.h"
+#include "CEntryInfoNode.h"
+#include "CPtrNode.h"
+#include "CAutomobile.h"
 
-#ifdef GetObject
 #undef GetObject
-#endif
 
-class CPools {
+class PLUGIN_API CPools {
 public:
-    static CPool<CBuilding>                *&ms_pBuildingPool;
-    static CPool<CTreadable>               *&ms_pTreadablePool;
-    static CPool<CPtrNode>                 *&ms_pPtrNodePool;
-    static CPool<CEntryInfoNode>           *&ms_pEntryInfoNodePool;
-    static CPool<CVehicle, CAutomobile>    *&ms_pVehiclePool;
-    static CPool<CPed, CPlayerPed>         *&ms_pPedPool;
-    static CPool<CObject, CCutsceneObject> *&ms_pObjectPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CObject, CCutsceneObject> *&ms_pObjectPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CColModel> *&ms_pColModelPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<cAudioScriptObject> *&ms_pAudioScriptObjectPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CTreadable> *&ms_pTreadablePool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CBuilding> *&ms_pBuildingPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CDummy> *&ms_pDummyPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CPed, CPlayerPed> *&ms_pPedPool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CEntryInfoNode> *&ms_pEntryInfoNodePool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CPtrNode> *&ms_pPtrNodePool;
+    SUPPORTED_10EN_11EN_STEAM static CPool<CVehicle, CAutomobile> *&ms_pVehiclePool;
 
-    static void MakeSureSlotInObjectPoolIsEmpty(int slot);
-    static void LoadPedPool(unsigned char* buffer, unsigned int size);
-    static void SavePedPool(unsigned char* buffer, unsigned int* outSize);
-    static void LoadObjectPool(unsigned char* buffer, unsigned int size);
-    static void SaveObjectPool(unsigned char* buffer, unsigned int* outSize);
-    static void SaveVehiclePool(unsigned char* buffer, unsigned int* outSize);
-    static void LoadVehiclePool(unsigned char* buffer, unsigned int size);
-    static CObject* GetObject(int handle);
-    static int GetObjectRef(CObject* object);
-    static CVehicle* GetVehicle(int handle);
-    static int GetVehicleRef(CVehicle* vehicle);
-    static CPed* GetPed(int handle);
-    static int GetPedRef(CPed* ped);
-    static void CheckPoolsEmpty();
-    static void ShutDown();
-    static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static void CheckPoolsEmpty();
+    SUPPORTED_10EN_11EN_STEAM static CObject *GetObject(int handle);
+    SUPPORTED_10EN_11EN_STEAM static int GetObjectRef(CObject *object);
+    SUPPORTED_10EN_11EN_STEAM static CPed *GetPed(int handle);
+    SUPPORTED_10EN_11EN_STEAM static int GetPedRef(CPed *ped);
+    SUPPORTED_10EN_11EN_STEAM static CVehicle *GetVehicle(int handle);
+    SUPPORTED_10EN_11EN_STEAM static int GetVehicleRef(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static void LoadObjectPool(unsigned char *buffer, unsigned int size);
+    SUPPORTED_10EN_11EN_STEAM static void LoadPedPool(unsigned char *buffer, unsigned int size);
+    SUPPORTED_10EN_11EN_STEAM static void LoadVehiclePool(unsigned char *buffer, unsigned int size);
+    SUPPORTED_10EN_11EN_STEAM static void MakeSureSlotInObjectPoolIsEmpty(int slot);
+    SUPPORTED_10EN_11EN_STEAM static void SaveObjectPool(unsigned char *buffer, unsigned int *outSize);
+    SUPPORTED_10EN_11EN_STEAM static void SavePedPool(unsigned char *buffer, unsigned int *outSize);
+    SUPPORTED_10EN_11EN_STEAM static void SaveVehiclePool(unsigned char *buffer, unsigned int *outSize);
+    SUPPORTED_10EN_11EN_STEAM static void ShutDown();
 };
+
+#include "meta/meta.CPools.h"
