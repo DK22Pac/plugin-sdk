@@ -7,22 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
-
-class CPtrNode {
-public:
-    void     *m_ptr; // usually a ptr to CEntity
-    CPtrNode *m_pNext;
-    CPtrNode *m_pPrev;
-
-    CPtrNode() {}
-
-    inline CPtrNode(void *Ptr) : m_ptr(Ptr) {}
-
-    static void operator delete(void* data);
-    static void* operator new(unsigned int size);
-};
-
-VALIDATE_SIZE(CPtrNode, 0xC);
+#include "CPtrNode.h"
 
 class CPtrList {
 public:
