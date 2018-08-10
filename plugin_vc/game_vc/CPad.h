@@ -5,110 +5,15 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "PluginBase.h"
+#include "CControllerState.h"
+#include "CKeyboardState.h"
+#include "CMouseControllerState.h"
 
+class PLUGIN_API CPad {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CPad)
 
-struct CMouseState {
-    char lmb;
-    char rmb;
-    char mmb;
-    char wheelUp;
-    char wheelDown;
-    char bmx1;
-    char bmx2;
-    char __padding;
-    long X;
-    long Y;
-};
-VALIDATE_SIZE(CMouseState, 0x10);
-
-
-struct CKeyState {
-    short standardKey;
-    short esc;
-    short insert;
-    short del;
-    short home;
-    short end;
-    short pgup;
-    short pgdn;
-    short up;
-    short down;
-    short left;
-    short right;
-    short scroll;
-    short pause;
-    short numlock;
-    short div;
-    short mul;
-    short sub;
-    short add;
-    short enter;
-    short decimal;
-    short num1;
-    short num2;
-    short num3;
-    short num4;
-    short num5;
-    short num6;
-    short num7;
-    short num8;
-    short num9;
-    short num0;
-    short back;
-    short tab;
-    short capslock;
-    short extenter;
-    short lshift;
-    short rshift;
-    short shift;
-    short lctrl;
-    short rctrl;
-    short lmenu;
-    short rmenu;
-    short lwin;
-    short rwin;
-    short apps;
-};
-VALIDATE_SIZE(CKeyState, 0x5A);
-
-
-// Set values to 128 unless otherwise specified
-class CControllerState {
-public:
-    signed short LeftStickX;
-    signed short LeftStickY;
-    signed short RightStickX;
-    signed short RightStickY;
-
-    signed short LeftShoulder1;
-    signed short LeftShoulder2;
-    signed short RightShoulder1;
-    signed short RightShoulder2;
-
-    signed short DPadUp;
-    signed short DPadDown;
-    signed short DPadLeft; 
-    signed short DPadRight;
-
-    signed short Start;
-    signed short Select;
-
-    signed short ButtonSquare;
-    signed short ButtonTriangle;
-    signed short ButtonCross;
-    signed short ButtonCircle;
-
-    signed short ShockButtonL;
-    signed short ShockButtonR;
-
-    signed short m_bRadioTrackSkip;
-};
-
-VALIDATE_SIZE(CControllerState, 0x2A);
-
-
-class CPad {
 public:
     CControllerState NewState;
     CControllerState OldState;
@@ -117,7 +22,7 @@ public:
     CControllerState PCTempKeyState;
     CControllerState PCTempJoyState;
     CControllerState PCTempMouseState;
-    short WORD_EA;
+    short field_EA;
     short Mode;
     short ShakeDur;
     short DisablePlayerControls;
@@ -126,49 +31,101 @@ public:
     char iCurrHornHistory;
     char JustOutOfFrontEnd;
     char bApplyBrakes;
-    char TEMP[13];
+    char field_FB[12];
+private:
+    char _pad107;
+public:
     int LastTimeTouched;
     int AverageWeapon;
     int AverageEntries;
 
-    static CMouseState &PreviousMouseState;
-    static CMouseState &CurrentMouseState;
-    static CKeyState &CurrentKeyState;
+    SUPPORTED_10EN_11EN_STEAM static CKeyboardState &NewKeyState;
+    SUPPORTED_10EN_11EN_STEAM static CMouseControllerState &PCTempMouseControllerState;
+    SUPPORTED_10EN_11EN_STEAM static CKeyboardState &OldKeyState;
+    SUPPORTED_10EN_11EN_STEAM static CKeyboardState &TempKeyState;
+    SUPPORTED_10EN_11EN_STEAM static CMouseControllerState &OldMouseControllerState;
+    SUPPORTED_10EN_11EN_STEAM static CMouseControllerState &NewMouseControllerState;
+    SUPPORTED_10EN_11EN_STEAM static char(&KeyBoardCheatString)[30]; // static char KeyBoardCheatString[30]
+    SUPPORTED_10EN_11EN_STEAM static bool &m_bMapPadOneToPadTwo;
+    SUPPORTED_10EN_11EN_STEAM static bool &bDisplayNoControllerMessage;
+    SUPPORTED_10EN_11EN_STEAM static bool &bInvertLook4Pad;
+    SUPPORTED_10EN_11EN_STEAM static bool &bHasPlayerCheated;
+    SUPPORTED_10EN_11EN_STEAM static bool &bObsoleteControllerMessage;
 
-    static CPad * GetPad(int padNumber);
+    SUPPORTED_10EN_11EN_STEAM void AddToPCCheatString(char character);
+    SUPPORTED_10EN_11EN_STEAM bool CarGunJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool ChangeStationJustDown();
+    SUPPORTED_10EN_11EN_STEAM void Clear(char bDisablePlayerControls);
+    SUPPORTED_10EN_11EN_STEAM bool CollectPickupJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool CycleCameraModeDownJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool CycleCameraModeJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool CycleCameraModeUpJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool CycleWeaponLeftJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool CycleWeaponRightJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool DuckJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool ExitVehicleJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool ForceCameraBehindPlayer();
+    SUPPORTED_10EN_11EN_STEAM short GetAccelerate();
+    SUPPORTED_10EN_11EN_STEAM short GetAnalogueLeftRight();
+    SUPPORTED_10EN_11EN_STEAM bool GetAnaloguePadDown();
+    SUPPORTED_10EN_11EN_STEAM bool GetAnaloguePadLeft();
+    SUPPORTED_10EN_11EN_STEAM bool GetAnaloguePadLeftJustUp();
+    SUPPORTED_10EN_11EN_STEAM bool GetAnaloguePadRight();
+    SUPPORTED_10EN_11EN_STEAM bool GetAnaloguePadRightJustUp();
+    SUPPORTED_10EN_11EN_STEAM bool GetAnaloguePadUp();
+    SUPPORTED_10EN_11EN_STEAM short GetAnalogueUpDown();
+    SUPPORTED_10EN_11EN_STEAM short GetBrake();
+    SUPPORTED_10EN_11EN_STEAM bool GetCarGunFired();
+    SUPPORTED_10EN_11EN_STEAM short GetCarGunLeftRight();
+    SUPPORTED_10EN_11EN_STEAM short GetCarGunUpDown();
+    SUPPORTED_10EN_11EN_STEAM bool GetExitVehicle();
+    SUPPORTED_10EN_11EN_STEAM short GetHandBrake();
+    SUPPORTED_10EN_11EN_STEAM bool GetHorn();
+    SUPPORTED_10EN_11EN_STEAM bool GetLookBehindForCar();
+    SUPPORTED_10EN_11EN_STEAM bool GetLookBehindForPed();
+    SUPPORTED_10EN_11EN_STEAM bool GetLookLeft();
+    SUPPORTED_10EN_11EN_STEAM bool GetLookRight();
+    SUPPORTED_10EN_11EN_STEAM short GetPedWalkLeftRight();
+    SUPPORTED_10EN_11EN_STEAM short GetPedWalkUpDown();
+    SUPPORTED_10EN_11EN_STEAM bool GetSprint();
+    SUPPORTED_10EN_11EN_STEAM short GetSteeringLeftRight();
+    SUPPORTED_10EN_11EN_STEAM short GetSteeringUpDown();
+    SUPPORTED_10EN_11EN_STEAM bool GetTarget();
+    SUPPORTED_10EN_11EN_STEAM short GetWeapon();
+    SUPPORTED_10EN_11EN_STEAM bool HornJustDown();
+    SUPPORTED_10EN_11EN_STEAM int InputHowLongAgo();
+    SUPPORTED_10EN_11EN_STEAM bool JumpJustDown();
+    SUPPORTED_10EN_11EN_STEAM int LookAroundLeftRight();
+    SUPPORTED_10EN_11EN_STEAM int LookAroundUpDown();
+    SUPPORTED_10EN_11EN_STEAM CControllerState ReconcileTwoControllersInput(CControllerState const &controller1, CControllerState const &controller2);
+    SUPPORTED_10EN_11EN_STEAM void ResetAverageWeapon();
+    SUPPORTED_10EN_11EN_STEAM void SetDrunkInputDelay(int bEnable);
+    SUPPORTED_10EN_11EN_STEAM bool ShiftTargetLeftJustDown();
+    SUPPORTED_10EN_11EN_STEAM bool ShiftTargetRightJustDown();
+    SUPPORTED_10EN_11EN_STEAM int SniperModeLookLeftRight();
+    SUPPORTED_10EN_11EN_STEAM int SniperModeLookUpDown();
+    SUPPORTED_10EN_11EN_STEAM bool SniperZoomIn();
+    SUPPORTED_10EN_11EN_STEAM bool SniperZoomOut();
+    SUPPORTED_10EN_11EN_STEAM void StartShake(short duration, unsigned char frequency);
+    SUPPORTED_10EN_11EN_STEAM void StopShaking(int a1);
+    SUPPORTED_10EN_11EN_STEAM bool TargetJustDown();
+    SUPPORTED_10EN_11EN_STEAM void Update(int a2);
+    SUPPORTED_10EN_11EN_STEAM bool WeaponJustDown();
 
-    bool CycleCameraModeJustDown();
-    bool CycleCameraModeUpJustDown();
-
-    bool GetTarget();
-
-    bool TargetJustDown();
-
-    bool GetAnaloguePadLeft();
-    bool GetAnaloguePadRight();
-
-    bool GetAnaloguePadUp();
-    bool GetAnaloguePadDown();
-    bool GetSprint();
-    bool GetCarGunFired();
-    bool GetLookRight();
-    bool GetLookLeft();
-    bool GetLookBehindForCar();
-    bool GetLookBehindForPed();
-    bool ForceCameraBehindPlayer();
-    bool GetWeapon();
-    bool WeaponJustDown();
-    bool LookAroundLeftRight();
-    bool LookAroundUpDown();
-    bool ExitVehicleJustDown();
-    bool GetExitVehicle();
-    bool JumpJustDown();
-    bool GetAccelerate();
-    bool GetBrake();
-    bool GetPedWalkUpDown();
-    bool GetPedWalkLeftRight();
+    SUPPORTED_10EN_11EN_STEAM static void ClearMouseHistory();
+    //! dummy function
+    SUPPORTED_10EN_11EN_STEAM static void DoCheats();
+    SUPPORTED_10EN_11EN_STEAM static void EditCodesForControls(int *outKeyCode, int a2);
+    SUPPORTED_10EN_11EN_STEAM static void FixPadsAfterSave();
+    SUPPORTED_10EN_11EN_STEAM static CPad *GetPad(int padNumber);
+    SUPPORTED_10EN_11EN_STEAM static void PrintErrorMessage();
+    SUPPORTED_10EN_11EN_STEAM static void ResetCheats();
+    //! dummy function
+    SUPPORTED_10EN_11EN_STEAM static void StopPadsShaking();
+    SUPPORTED_10EN_11EN_STEAM static void UpdateMouse();
+    SUPPORTED_10EN_11EN_STEAM static void UpdatePads();
 };
 
 VALIDATE_SIZE(CPad, 0x114);
 
-extern CPad* Pads;      //CPad Pads[2];
+#include "meta/meta.CPad.h"
