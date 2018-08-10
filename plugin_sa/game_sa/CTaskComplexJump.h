@@ -13,10 +13,8 @@ class PLUGIN_API CTaskComplexJump : public CTaskComplex {
 protected:
     CTaskComplexJump(plugin::dummy_func_t a) : CTaskComplex(a) {}
 public:
-    uint m_nType; // 0 - jump , 1 - climb
+    unsigned int m_nType; // 0 - jump , 1 - climb
     bool bUnkFlag;
-private:
-    char _pad[3];
 
     // 0 - jump , 1 - climb
     CTaskComplexJump(unsigned int jumpType); 
