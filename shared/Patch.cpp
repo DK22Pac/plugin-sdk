@@ -89,3 +89,32 @@ void plugin::patch::ReplaceFunction(int address, void *func, bool vp) {
 void plugin::patch::ReplaceFunctionCall(int address, void *func, bool vp) {
     RedirectCall(address, func, vp);
 }
+
+void plugin::patch::SetRaw(int address, void* value, size_t size, bool vp) {   
+    injector::WriteMemoryRaw(GetGlobalAddress(address), value, size, vp);
+}
+
+void plugin::patch::GetRaw(int address,void* ret, size_t size, bool vp) {
+
+    injector::ReadMemoryRaw(GetGlobalAddress(address), ret, size, vp);
+}
+
+void plugin::patch::RedirectShortJump(int address, void* dest, bool vp) {
+
+    int GlobalAddress = GetGlobalAddress(address);
+    injector::WriteMemory<uint8_t>(GlobalAddress, 0xEB, vp);
+    if (dest)
+        injector::MakeRelativeOffset(GlobalAddress + 1, dest, 1, vp);
+}
+
+void plugin::patch::PutRetn(int address, unsigned short BytesToPop, bool vp) {
+    injector::MakeRET(GetGlobalAddress(address), BytesToPop, vp);
+}
+
+void plugin::patch::PutRetn0(int address,unsigned short BytesToPop, bool vp) {
+
+    int GlobalAddress = GetGlobalAddress(address);
+    injector::WriteMemory(GlobalAddress, 0x33, vp); // xor eax, eax
+    injector::WriteMemory(GlobalAddress + 1, 0xC0, vp);
+    injector::MakeRET(GlobalAddress + 2, BytesToPop, vp);
+}
