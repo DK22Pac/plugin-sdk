@@ -53,7 +53,7 @@ public:
     char field_42[2];
     float field_44;
     char field_48[1];
-    char field_49;
+    char heliThrustPower;
     char field_4A;
     unsigned char        m_nCarCtrlFlags;
     char field_4C;
