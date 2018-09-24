@@ -31,9 +31,11 @@ public:
 
     CRGBA ToRGB() const;
     unsigned int ToInt() const;
+    unsigned int ToIntARGB() const;
     RwRGBA ToRwRGBA() const;
 
     void FromRwRGBA(RwRGBA const &rwcolor);
+    void FromARGB(unsigned int intValue);
 
     void Invert();
     CRGBA Inverted() const;
