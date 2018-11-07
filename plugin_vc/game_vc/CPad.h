@@ -126,6 +126,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void UpdatePads();
 };
 
+SUPPORTED_10EN_11EN_STEAM extern CPad(&Pads)[2]; // CPad Pads[2]
+
 VALIDATE_SIZE(CPad, 0x114);
 
 #include "meta/meta.CPad.h"

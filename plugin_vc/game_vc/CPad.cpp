@@ -20,6 +20,7 @@ PLUGIN_VARIABLE bool &CPad::bDisplayNoControllerMessage = *reinterpret_cast<bool
 PLUGIN_VARIABLE bool &CPad::bInvertLook4Pad = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xA10AF7, 0xA10AFF, 0xA0FAFF));
 PLUGIN_VARIABLE bool &CPad::bHasPlayerCheated = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xA10B2E, 0xA10B36, 0xA0FB37));
 PLUGIN_VARIABLE bool &CPad::bObsoleteControllerMessage = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xA10B83, 0xA10B8C, 0xA0FB8D));
+PLUGIN_VARIABLE CPad(&Pads)[2] = *reinterpret_cast<CPad(*)[2]>(GLOBAL_ADDRESS_BY_VERSION(0x7DBCB0, 0x7DBCB8, 0x7DACB8));
 
 int ctor_addr(CPad) = ADDRESS_BY_VERSION(0x4AF0F0, 0x4AF110, 0x4AEFC0);
 int ctor_gaddr(CPad) = GLOBAL_ADDRESS_BY_VERSION(0x4AF0F0, 0x4AF110, 0x4AEFC0);
