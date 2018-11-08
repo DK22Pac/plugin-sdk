@@ -40,10 +40,10 @@ void CRGBA::Set(unsigned char red, unsigned char green, unsigned char blue, unsi
 }
 
 void CRGBA::Set(unsigned int intValue) {
-    r = intValue & 0xFF;
-    g = (intValue >> 8) & 0xFF;
+    r = (intValue >> 24) & 0xFF;
     g = (intValue >> 16) & 0xFF;
-    g = (intValue >> 24) & 0xFF;
+    b = (intValue >> 8) & 0xFF;
+    a = intValue & 0xFF;
 }
 
 void CRGBA::Set(CRGBA const &rhs) {
@@ -59,7 +59,11 @@ void CRGBA::Set(RwRGBA const &rwcolor) {
 }
 
 unsigned int CRGBA::ToInt() const {
-    return r | (g << 8) | (b << 16) | (a << 24);
+    return a | (b << 8) | (g << 16) | (r << 24);
+}
+
+unsigned int CRGBA::ToIntARGB() const {
+    return b | (g << 8) | (r << 16) | (a << 24);
 }
 
 RwRGBA CRGBA::ToRwRGBA() const {
@@ -68,6 +72,13 @@ RwRGBA CRGBA::ToRwRGBA() const {
 
 void CRGBA::FromRwRGBA(RwRGBA const &rwcolor) {
     Set(rwcolor);
+}
+
+void CRGBA::FromARGB(unsigned int intValue) {
+    a = (intValue >> 24) & 0xFF;
+    r = (intValue >> 16) & 0xFF;
+    g = (intValue >> 8) & 0xFF;
+    b = intValue & 0xFF;
 }
 
 void CRGBA::Invert() {
