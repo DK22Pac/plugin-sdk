@@ -14,14 +14,6 @@
 #define SCALEH 1.6f
 #define SPACING 15.0f
 
-const unsigned char plugin::gamefont::STYLE =
-#ifdef GTA3
-0
-#else
-1
-#endif
-;
-
 float ScreenInteger(float value) {
     return static_cast<float>(static_cast<int>(value));
 }
