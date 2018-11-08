@@ -6,12 +6,13 @@
 */
 #pragma once
 #include <string>
+#include <Windows.h>
 
 namespace plugin {
 
     unsigned int Random(unsigned int min, unsigned int max);
     bool KeyPressed(unsigned int keyCode);
-    bool IsPluginInstalled(const char *pluginName);
+    bool IsPluginInstalled(const TCHAR *pluginName);
     std::wstring AtoW(std::string const &str);
     std::string WtoA(std::wstring const &str);
 

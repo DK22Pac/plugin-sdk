@@ -50,7 +50,7 @@ namespace plugin {
 #ifdef UNICODE
 #define GAME_PATH(a) (plugin::paths::GetGameDirRelativePathW(a))
 #define PLUGIN_PATH(a) (plugin::paths::GetPluginDirRelativePathW(a))
-#define PLUGIN_FILENAME (plugin::paths::GetPluginNameW())
+#define PLUGIN_FILENAME (plugin::paths::GetPluginFileNameW())
 #else
 #define GAME_PATH(a) (plugin::paths::GetGameDirRelativePathA(a))
 #define PLUGIN_PATH(a) (plugin::paths::GetPluginDirRelativePathA(a))

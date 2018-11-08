@@ -70,7 +70,7 @@ inline bool ValidateGameVersion(bool showErrorMessage = true) {
         return true;
     if (showErrorMessage) {
         Error("This game version is not supported by %s plugin.\n%s plugin supports these game versions:\n    %s",
-            PLUGIN_FILENAME, PLUGIN_FILENAME, GetSupportedGameVersionsString("\n    ").c_str());
+            plugin::paths::GetPluginFileNameA(), plugin::paths::GetPluginFileNameA(), GetSupportedGameVersionsString("\n    ").c_str());
     }
     return false;
 }
