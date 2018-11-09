@@ -15,7 +15,7 @@ bool plugin::KeyPressed(unsigned int keyCode) {
     return (GetKeyState(keyCode) & 0x8000) != 0;
 }
 
-bool plugin::IsPluginInstalled(const char *pluginName) {
+bool plugin::IsPluginInstalled(const TCHAR *pluginName) {
     return GetModuleHandle(pluginName) ? true : false;
 }
 

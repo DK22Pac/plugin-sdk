@@ -37,27 +37,27 @@ namespace plugin
     };
 
 	template <typename... ArgTypes> bool Message(char const *format, ArgTypes... Args) {
-        return message_gen::msga(PLUGIN_FILENAME, MB_ICONINFORMATION, format, Args...);
+        return message_gen::msga(plugin::paths::GetPluginFileNameA(), MB_ICONINFORMATION, format, Args...);
 	}
 
     template <typename... ArgTypes> bool Warning(char const *format, ArgTypes... Args) {
-        return message_gen::msga(PLUGIN_FILENAME, MB_ICONWARNING, format, Args...);
+        return message_gen::msga(plugin::paths::GetPluginFileNameA(), MB_ICONWARNING, format, Args...);
     }
 
     template <typename... ArgTypes> bool Error(char const *format, ArgTypes... Args) {
-        return message_gen::msga(PLUGIN_FILENAME, MB_ICONERROR, format, Args...);
+        return message_gen::msga(plugin::paths::GetPluginFileNameA(), MB_ICONERROR, format, Args...);
     }
 
     template <typename... ArgTypes> bool Message(wchar_t const *format, ArgTypes... Args) {
-        return message_gen::msgw(PLUGIN_FILENAME, MB_ICONINFORMATION, format, Args...);
+        return message_gen::msgw(plugin::paths::GetPluginFileNameW(), MB_ICONINFORMATION, format, Args...);
     }
 
     template <typename... ArgTypes> bool Warning(wchar_t const *format, ArgTypes... Args) {
-        return message_gen::msgw(PLUGIN_FILENAME, MB_ICONWARNING, format, Args...);
+        return message_gen::msgw(plugin::paths::GetPluginFileNameW(), MB_ICONWARNING, format, Args...);
     }
 
     template <typename... ArgTypes> bool Error(wchar_t const *format, ArgTypes... Args) {
-        return message_gen::msgw(PLUGIN_FILENAME, MB_ICONERROR, format, Args...);
+        return message_gen::msgw(plugin::paths::GetPluginFileNameW(), MB_ICONERROR, format, Args...);
     }
 
     template <typename... ArgTypes> bool InternalMessage(char const *format, ArgTypes... Args) {
