@@ -6,7 +6,9 @@
 */
 #pragma once
 
-#include "RenderWare.h"
+#include "PluginBase.h"
+
+struct RwRGBA;
 
 class CRGBA {
 public:

@@ -1,10 +1,11 @@
 /*
-    Plugin-SDK (Grand Theft Auto) SHARED header file
+    Plugin-SDK (Grand Theft Auto) SHARED source file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "shared.CRGBA.h"
+#include "CRGBA.h"
+#include "RenderWare.h"
 
 CRGBA::CRGBA(unsigned char red, unsigned char green, unsigned char blue) {
     Set(red, green, blue, 255);

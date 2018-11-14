@@ -174,7 +174,8 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         includedirs {
             ("$(PLUGIN_SDK_DIR)\\" .. projectName),
             ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName),
-            "$(PLUGIN_SDK_DIR)\\shared"
+            "$(PLUGIN_SDK_DIR)\\shared",
+            "$(PLUGIN_SDK_DIR)\\shared\\game"
         }
         files {
             (projectPath .. "\\**.h"),
@@ -367,7 +368,8 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
     aryDirs[counter] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir)
     aryDirs[counter + 1] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir)
     aryDirs[counter + 2] = "$(PLUGIN_SDK_DIR)\\shared"
-    counter = counter + 3
+    aryDirs[counter + 3] = "$(PLUGIN_SDK_DIR)\\shared\\game"
+    counter = counter + 4
     if projectType == "MOON" then
         aryDirs[counter] = "$(MOONLOADER_SDK_SA_DIR)\\src"
         aryDirs[counter + 1] = "$(MOONLOADER_SDK_SA_DIR)\\src\\libs\\lua"
