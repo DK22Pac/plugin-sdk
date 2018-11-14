@@ -309,6 +309,7 @@ function CreateNewBuildTarget(project, targetName, gameId, isDebug) {
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\"));
     target.AddIncludeDir(pluginSdkDir + _T("plugin_") + gameAbbrLow + _T("\\game_") + gameAbbrLow + _T("\\"));
     target.AddIncludeDir(pluginSdkDir + _T("shared\\"));
+    target.AddIncludeDir(pluginSdkDir + _T("shared\\game\\"));
     target.AddLibDir(pluginSdkDir + _T("output\\mingw\\lib\\"));
     local pluginLibName = _T("plugin");
     if (!gameAbbr.Matches(_T("SA")))
