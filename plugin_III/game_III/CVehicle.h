@@ -98,10 +98,43 @@ public:
     float                   m_fGasPedal;
     float                   m_fBreakPedal;
     unsigned char           m_nCreatedBy;        // see eVehicleCreatedBy
-    unsigned char           m_nVehicleFlags;
-    char field_1F6;
-    char field_1F7;
-    char field_1F8;
+    struct {
+        unsigned char bIsLawEnforcer : 1; 
+        unsigned char bIsAmbulanceOnDuty : 1; 
+        unsigned char bIsFireTruckOnDuty : 1; 
+        unsigned char bIsLocked : 1; 
+        unsigned char bEngineOn : 1; 
+        unsigned char b06 : 1;
+        unsigned char bLightsOn : 1; 
+        unsigned char b08 : 1;
+
+        unsigned char b09 : 1;
+        unsigned char b10 : 1;
+        unsigned char b11 : 1;
+        unsigned char b12 : 1;
+        unsigned char b13 : 1;
+        unsigned char b14 : 1;
+        unsigned char b15 : 1;
+        unsigned char b16 : 1;
+
+        unsigned char b17 : 1;
+        unsigned char bIsDamaged : 1;
+        unsigned char b19 : 1;
+        unsigned char b20 : 1;
+        unsigned char b21 : 1;
+        unsigned char b22 : 1;
+        unsigned char b23 : 1;
+        unsigned char b24 : 1;
+
+        unsigned char b25 : 1;
+        unsigned char b26 : 1;
+        unsigned char b27 : 1;
+        unsigned char b28 : 1;
+        unsigned char b29 : 1;
+        unsigned char b30 : 1;
+        unsigned char b31 : 1;
+        unsigned char b32 : 1;
+    } m_nVehicleFlags;
     char field_1F9;
     unsigned char           m_nAmmoInClip[1];    // Used to make the guns on boat do a reload (20 by default)
     char field_1FB;
