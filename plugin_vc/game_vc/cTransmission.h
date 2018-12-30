@@ -19,7 +19,7 @@ public:
     unsigned char m_nHandlingFlags;
     float             m_fEngineAcceleration; // 0.1 to 10.0
     float             m_fMaxGearVelocity; // 5.0 to 150.0
-    float              m_fEngineInertia; // 0.0 to 50.0
+    float             m_fMaxSpeed;
     float             m_fMinGearVelocity;
     float             m_fCurrentSpeed;
 

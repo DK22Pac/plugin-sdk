@@ -108,10 +108,10 @@ public:
         unsigned char bLightsOn : 1; 
         unsigned char b08 : 1;
 
-        unsigned char b09 : 1;
-        unsigned char b10 : 1;
-        unsigned char b11 : 1;
-        unsigned char b12 : 1;
+        unsigned char bIsVan : 1;
+        unsigned char bIsBus : 1;
+        unsigned char bIsBig : 1;
+        unsigned char bIsLow : 1;
         unsigned char b13 : 1;
         unsigned char b14 : 1;
         unsigned char b15 : 1;

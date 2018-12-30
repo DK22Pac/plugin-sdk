@@ -21,7 +21,7 @@ public:
     } m_nHandlingFlags;
     float             m_fEngineAcceleration; // 0.1 to 10.0
     float             m_fMaxGearVelocity;
-    float             m_fEngineInertia; // 0.0 to 50.0
+    float             m_fMaxSpeed;
     float             m_fMinGearVelocity;
     float             m_fCurrentGearVelocity;
     float field_60;

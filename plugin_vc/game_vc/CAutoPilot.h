@@ -36,7 +36,8 @@ public:
     char m_nTempAction;
     unsigned int m_dwTempActionTime;
     float m_fMaxTrafficSpeed;
-    char unknown[12];
+    unsigned char m_nCruiseSpeed;
+    char unknown[11];
     CVector m_vecDestinationCoors;
     CNodeAddress m_aPathFindNodesInfo[8];
     short m_wPathFindNodesCount;
