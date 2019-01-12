@@ -121,6 +121,11 @@ VALIDATE_SIZE(CVehicleModelInfo, 0x1F8);
 
 extern RwFrame *&pMatFxIdentityFrame;
 
+bool IsValidCompRule(int rule);
+int GetListOfComponentsNotUsedByRules(unsigned int compRulesBits, int numExtras, int* variationsList);
+int CountCompsInRule(int compRulesBits);
+int ChooseComponent(int rule, int compRulesBits);
+
 struct VehicleModelStore {
     unsigned int m_nCount;
     CVehicleModelInfo m_sObject[120];

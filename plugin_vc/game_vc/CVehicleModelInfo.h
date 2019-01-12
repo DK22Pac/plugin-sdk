@@ -56,8 +56,14 @@ public:
     RpAtomic *m_apExtras[6];
     char *m_pszAnimName;
 
-    //funcs
+    //variables
+    static CRGBA *ms_colourTextureTable;
+    static char *ms_compsUsed;  // [2]
+    static char *ms_compsToUse; // [2]
+    static RwTexture **ms_pEnvironmentMaps; // array with 1 element
+    static RwObjectNameIdAssocation *ms_vehicleDescs;
 
+    //funcs
     void AvoidSameVehicleColour(unsigned char* prim, unsigned char* sec);
     // get vehicle extra with rules. Returns extra id.
     int ChooseComponent();
@@ -108,3 +114,15 @@ public:
 };
 
 VALIDATE_SIZE(CVehicleModelInfo, 0x174);
+
+extern RwFrame *&pMatFxIdentityFrame;
+
+int GetListOfComponentsNotUsedByRules(unsigned int compRulesBits, int numExtras, int* variationsList);
+int ChooseComponent(int rule, int compRulesBits);
+
+struct VehicleModelStore {
+    unsigned int m_nCount;
+    CVehicleModelInfo m_sObject[110];
+
+    ~VehicleModelStore();
+};

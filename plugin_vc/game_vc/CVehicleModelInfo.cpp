@@ -1,10 +1,17 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CVehicleModelInfo.h"
+
+CRGBA *CVehicleModelInfo::ms_colourTextureTable = (CRGBA *)0x939228;
+char *CVehicleModelInfo::ms_compsToUse = (char *)0x699538;
+char *CVehicleModelInfo::ms_compsUsed = (char *)0xA10A70;
+RwTexture **CVehicleModelInfo::ms_pEnvironmentMaps = (RwTexture **)0x978570;
+RwObjectNameIdAssocation *CVehicleModelInfo::ms_vehicleDescs = (RwObjectNameIdAssocation*)0x699C78;
+RwFrame *&pMatFxIdentityFrame = *(RwFrame **)0x77EF78;
 
 // Converted from thiscall void CVehicleModelInfo::AvoidSameVehicleColour(uchar * prim, uchar * sec) 0x579090
 void CVehicleModelInfo::AvoidSameVehicleColour(unsigned char* prim, unsigned char* sec) {
@@ -154,4 +161,19 @@ void CVehicleModelInfo::SetVehicleComponentFlags(RwFrame* component, unsigned in
 // Converted from cdecl void CVehicleModelInfo::ShutdownEnvironmentMaps(void) 0x578BD0
 void CVehicleModelInfo::ShutdownEnvironmentMaps() {
     plugin::Call<0x578BD0>();
+}
+
+// Converted from thiscall void CStore<CVehicleModelInfo,110>::~CStore() 0x560150 
+VehicleModelStore::~VehicleModelStore() {
+    plugin::CallMethod<0x560150, VehicleModelStore *>(this);
+}
+
+// Converted from cdecl int GetListOfComponentsNotUsedByRules(uint compRulesBits, int numExtras, int *variationsList) 0x5799B0
+int GetListOfComponentsNotUsedByRules(unsigned int compRulesBits, int numExtras, int* variationsList) {
+    return plugin::CallAndReturn<int, 0x5799B0, unsigned int, int, int*>(compRulesBits, numExtras, variationsList);
+}
+
+// Converted from cdecl int ChooseComponent(int rule, int compRulesBits) 0x5797C0
+int ChooseComponent(int rule, int compRulesBits) {
+    return plugin::CallAndReturn<int, 0x5797C0, int, int>(rule, compRulesBits);
 }

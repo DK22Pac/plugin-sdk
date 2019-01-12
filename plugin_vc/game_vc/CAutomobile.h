@@ -42,10 +42,10 @@ class CAutomobile : public CVehicle {
 protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
 public:
-    CDamageManager stDamage;
+    CDamageManager m_carDamage;
     char bDamSwitch;
     char __f02B5[3];
-    CDoor stDoors[6];
+    CDoor m_aDoors[6];
     RwFrame *m_aCarNodes[20];
     CWheel stWheels[4];
     int fWheelSuspDist[4];

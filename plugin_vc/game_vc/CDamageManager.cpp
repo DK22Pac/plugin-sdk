@@ -70,3 +70,8 @@ void CDamageManager::SetEngineStatus(unsigned int status) {
 void CDamageManager::SetWheelStatus(int wheel, unsigned int status) {
     plugin::CallMethod<0x5A9840, CDamageManager *, int, unsigned int>(this, wheel, status);
 }
+
+void __thiscall CDamageManager::SetLightStatus(eLights light, unsigned int status) {
+    this->uLightBits &= ~(3 << 2 * light);
+    this->uLightBits |= status << 2 * light;
+}

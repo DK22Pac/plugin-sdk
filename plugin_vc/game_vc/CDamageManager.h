@@ -104,6 +104,7 @@ public:
      // Status is a value between 0-250
      void SetEngineStatus(unsigned int status);
      void SetWheelStatus(int wheel, unsigned int status);
+     void SetLightStatus(eLights light, unsigned int status);
 };
 
 VALIDATE_SIZE(CDamageManager, 0x18);

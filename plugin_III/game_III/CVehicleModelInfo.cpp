@@ -192,3 +192,23 @@ CVehicleModelInfo::~CVehicleModelInfo() {
 VehicleModelStore::~VehicleModelStore() {
     plugin::CallMethod<0x50BFD0, VehicleModelStore *>(this);
 }
+
+// Converted from cdecl bool IsValidCompRule(int rule) 0x520880
+bool IsValidCompRule(int rule) {
+    return plugin::CallAndReturn<bool, 0x520880, int>(rule);
+}
+
+// Converted from cdecl int GetListOfComponentsNotUsedByRules(uint compRulesBits,int numExtras,int *variationsList) 0x5208C0
+int GetListOfComponentsNotUsedByRules(unsigned int compRulesBits, int numExtras, int* variationsList) {
+    return plugin::CallAndReturn<int, 0x5208C0, unsigned int, int, int*>(compRulesBits, numExtras, variationsList);
+}
+
+// Converted from cdecl int CountCompsInRule(int compRulesBits) 0x520990
+int CountCompsInRule(int compRulesBits) {
+    return plugin::CallAndReturn<int, 0x520990, int>(compRulesBits);
+}
+
+// Converted from cdecl int ChooseComponent(int rule,int compRulesBits) 0x5209C0
+int ChooseComponent(int rule, int compRulesBits) {
+    return plugin::CallAndReturn<int, 0x5209C0, int, int>(rule, compRulesBits);
+}

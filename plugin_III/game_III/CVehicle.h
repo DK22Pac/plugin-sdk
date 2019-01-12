@@ -77,11 +77,11 @@ typedef int tWheelState;
 
 class CVehicle : public CPhysical {
 public:
-    tHandlingData          *m_pHandling;
+    tHandlingData          *m_pHandlingData;
     CAutoPilot              m_autoPilot;
     unsigned char           m_nPrimaryColor;
     unsigned char           m_nSecondaryColor;
-    unsigned char           m_nExtra[2];
+    char                    m_anExtras[2];
     short                   m_nWantedStarsOnEnter;
     short                   m_nMissionValue;
     CPed                   *m_pDriver;
@@ -104,7 +104,7 @@ public:
         unsigned char bIsFireTruckOnDuty : 1; 
         unsigned char bIsLocked : 1; 
         unsigned char bEngineOn : 1; 
-        unsigned char b06 : 1;
+        unsigned char bIsHandbrakeOn : 1;
         unsigned char bLightsOn : 1; 
         unsigned char b08 : 1;
 

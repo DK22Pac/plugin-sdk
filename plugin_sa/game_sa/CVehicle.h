@@ -212,7 +212,7 @@ public:
         unsigned char bUseCarCheats : 1; // If this is true will set the car cheat stuff up in ProcessControl()
         unsigned char bDontSetColourWhenRemapping : 1;// If the texture gets remapped we don't want to change the colour with it.
         unsigned char bUsedForReplay : 1; // This car is controlled by replay and should be removed when replay is done.
-    } m_nFlags;
+    } m_nVehicleFlags;
     unsigned int m_nCreationTime;
     unsigned char  m_nPrimaryColor;
     unsigned char  m_nSecondaryColor;

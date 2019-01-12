@@ -92,11 +92,11 @@ protected:
 public:
     tHandlingData *m_pHandlingData;
     tFlyingHandlingData *m_pFlyingHandling;
-    CAutoPilot m_autopilot;
+    CAutoPilot m_autoPilot;
     CVehicle *m_pVehicleToRam;
     unsigned char m_nPrimaryColor;
     unsigned char m_nSecondaryColor;
-    unsigned char m_anExtras[2];
+    char m_anExtras[2];
     short m_wWantedStarsOnEnter;
     short m_wMissionValue;
     class CPed *m_pDriver;
@@ -121,7 +121,7 @@ public:
         unsigned char b03 : 1;
         unsigned char bIsLocked : 1; // Is this guy locked by the script (cannot be removed)
         unsigned char bIsEngineOn : 1; // For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
-        unsigned char bBrakeLightsOn : 1;
+        unsigned char bIsHandbrakeOn : 1;
         unsigned char bLightsOn : 1; // Are the lights switched on ?
         unsigned char b08 : 1;
         unsigned char bIsVan : 1; // Is this vehicle a van (doors at back of vehicle)
