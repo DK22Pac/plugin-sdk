@@ -21,9 +21,9 @@ CVector& FindPlayerCentreOfWorld(int playerId) {
     return plugin::CallAndReturn<CVector&, 0x4BC0A0, int>(playerId);
 }
 
-// Converted from cdecl CPed* FindPlayerPed(void) 0x4BC120;
-CPed* FindPlayerPed() {
-    return plugin::CallAndReturn<CPed*, 0x4BC120>();
+// Converted from cdecl CPlayerPed* FindPlayerPed(void) 0x4BC120;
+CPlayerPed* FindPlayerPed() {
+    return plugin::CallAndReturn<CPlayerPed*, 0x4BC120>();
 }
 
 // Converted from cdecl CTrain* FindPlayerTrain(void) 0x4BC140;
@@ -147,4 +147,9 @@ void SetLightsWithTimeOfDayColour(RpWorld* world) {
 RpAtomic* GetCurrentAtomicObjectCB(RwObject* object, void* data)
 {
     return ((RpAtomic* (__cdecl *)(RwObject*, void*))0x59F1E0)(object, data);
+}
+
+CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId)
+{
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x407780, RpClump*, unsigned int>(clump, animId);
 }

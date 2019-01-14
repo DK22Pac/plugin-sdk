@@ -12,10 +12,12 @@
 #include "CVehicle.h"
 #include "CTrain.h"
 
+class CAnimBlendAssociation;
+
 float FindPlayerHeading();
 CVector& FindPlayerCentreOfWorld_NoSniperShift();
 CVector& FindPlayerCentreOfWorld(int playerId);
-CPed* FindPlayerPed();
+CPlayerPed* FindPlayerPed();
 CTrain* FindPlayerTrain();
 CEntity* FindPlayerEntity();
 CVehicle* FindPlayerVehicle();
@@ -43,3 +45,5 @@ RpWorld* LightsCreate(RpWorld* world);
 void SetLightsWithTimeOfDayColour(RpWorld* world);
 
 RpAtomic* GetCurrentAtomicObjectCB(RwObject* object, void* data);
+
+CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId);
