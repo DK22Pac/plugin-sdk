@@ -390,7 +390,7 @@ extern CdeclEvent <AddressListMulti<0x48E49B, GAME_10EN, H_CALL,
                                     0x48E4EB, GAME_STEAM, H_CALL>, PRIORITY_AFTER,  ArgPickNone, void()> gameProcessEvent;
 extern CdeclEvent <AddressListMulti<0x582E6C, GAME_10EN, H_CALL,
                                     0x5831AC, GAME_11EN, H_CALL,
-                                    0x000000, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> initGameEvent;
+                                    0x58309C, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> initGameEvent;
 extern CdeclEvent <AddressListMulti<0x453B43, GAME_10EN, H_CALL,
                                     0x48C26B, GAME_10EN, H_CALL,
                                     0x48C575, GAME_10EN, H_CALL,
