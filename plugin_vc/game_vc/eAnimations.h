@@ -1,0 +1,854 @@
+/*
+Plugin-SDK (Grand Theft Auto Vice City) header file
+Authors: GTA Community. See more here
+https://github.com/DK22Pac/plugin-sdk
+Do not delete this comment block. Respect others' work!
+*/
+#pragma once
+
+enum eAnimGroup
+{
+    ANIM_GROUP_MAN = 0,
+    ANIM_GROUP_VAN = 1,
+    ANIM_GROUP_COACH = 2,
+    ANIM_GROUP_BIKES = 3,
+    ANIM_GROUP_BIKEV = 4,
+    ANIM_GROUP_BIKEH = 5,
+    ANIM_GROUP_BIKED = 6,
+    ANIM_GROUP_UNARMED = 7,
+    ANIM_GROUP_SCREWDRV = 8,
+    ANIM_GROUP_KNIFE = 9,
+    ANIM_GROUP_BASEBALL = 10,
+    ANIM_GROUP_GOLFCLUB = 11,
+    ANIM_GROUP_CHAINSAW = 12,
+    ANIM_GROUP_PYTHON = 13,
+    ANIM_GROUP_COLT45 = 14,
+    ANIM_GROUP_SHOTGUN = 15,
+    ANIM_GROUP_BUDDY = 16,
+    ANIM_GROUP_TEC = 17,
+    ANIM_GROUP_UZI = 18,
+    ANIM_GROUP_RIFLE = 19,
+    ANIM_GROUP_M60 = 20,
+    ANIM_GROUP_SNIPER = 21,
+    ANIM_GROUP_GRENADE = 22,
+    ANIM_GROUP_FLAME = 23,
+    ANIM_GROUP_MEDIC = 24,
+    ANIM_GROUP_SUNBATHE = 25,
+    ANIM_GROUP_PLAYIDLES = 26,
+    ANIM_GROUP_RIOT = 27,
+    ANIM_GROUP_STRIP = 28,
+    ANIM_GROUP_LANCE = 29,
+    ANIM_GROUP_PLAYER = 30,
+    ANIM_GROUP_PLAYERROCKET = 31,
+    ANIM_GROUP_PLAYER1ARMED = 32,
+    ANIM_GROUP_PLAYER2ARMED = 33,
+    ANIM_GROUP_PLAYERBBBAT = 34,
+    ANIM_GROUP_PLAYERCSAW = 35,
+    ANIM_GROUP_SHUFFLE = 36,
+    ANIM_GROUP_OLDMAN = 37,
+    ANIM_GROUP_GANG1 = 38,
+    ANIM_GROUP_GANG2 = 39,
+    ANIM_GROUP_FATMAN = 40,
+    ANIM_GROUP_OLDFATMAN = 41,
+    ANIM_GROUP_JOGGER = 42,
+    ANIM_GROUP_WOMAN = 43,
+    ANIM_GROUP_SHOPPING = 44,
+    ANIM_GROUP_BUSYWOMAN = 45,
+    ANIM_GROUP_SEXYWOMAN = 46,
+    ANIM_GROUP_FATWOMAN = 47,
+    ANIM_GROUP_OLDWOMAN = 48,
+    ANIM_GROUP_JOGWOMAN = 49,
+    ANIM_GROUP_PANICCHUNKY = 50,
+    ANIM_GROUP_SKATE = 51,
+    ANIM_GROUP_PLAYERBACK = 52,
+    ANIM_GROUP_PLAYERLEFT = 53,
+    ANIM_GROUP_PLAYERRIGHT = 54,
+    ANIM_GROUP_ROCKETBACK = 55,
+    ANIM_GROUP_ROCKETLEFT = 56,
+    ANIM_GROUP_ROCKETRIGHT = 57,
+    ANIM_GROUP_CSAWBACK = 58,
+    ANIM_GROUP_CSAWLEFT = 59,
+    ANIM_GROUP_CSAWRIGHT = 60
+};
+
+// GroupName : man | Group ID: 0 | BlockName: ped | Total Animations: 173
+enum emanAnimGroup
+{
+    ANIM_MAN_WALK_CIVI = 0,
+    ANIM_MAN_RUN_CIVI = 1,
+    ANIM_MAN_SPRINT_PANIC = 2,
+    ANIM_MAN_IDLE_STANCE = 3,
+    ANIM_MAN_WALK_START = 4,
+    ANIM_MAN_RUN_STOP = 5,
+    ANIM_MAN_RUN_STOPR = 6,
+    ANIM_MAN_IDLE_HBHB = 7,
+    ANIM_MAN_IDLE_HBHB_1 = 8,
+    ANIM_MAN_IDLE_TIRED = 9,
+    ANIM_MAN_IDLE_ARMED = 10,
+    ANIM_MAN_IDLE_CHAT = 11,
+    ANIM_MAN_IDLE_TAXI = 12,
+    ANIM_MAN_KO_SHOT_FRONT = 13,
+    ANIM_MAN_KO_SHOT_FRONT_1 = 14,
+    ANIM_MAN_KO_SHOT_FRONT_2 = 15,
+    ANIM_MAN_KO_SHOT_FRONT_3 = 16,
+    ANIM_MAN_KO_SHOT_FACE = 17,
+    ANIM_MAN_KO_SHOT_STOM = 18,
+    ANIM_MAN_KO_SHOT_ARML = 19,
+    ANIM_MAN_KO_SHOT_ARMR = 20,
+    ANIM_MAN_KO_SHOT_LEGL = 21,
+    ANIM_MAN_KO_SHOT_LEGR = 22,
+    ANIM_MAN_KD_LEFT = 23,
+    ANIM_MAN_KD_RIGHT = 24,
+    ANIM_MAN_KO_SKID_FRONT = 25,
+    ANIM_MAN_KO_SPIN_R = 26,
+    ANIM_MAN_KO_SKID_BACK = 27,
+    ANIM_MAN_KO_SPIN_L = 28,
+    ANIM_MAN_SHOT_PARTIAL = 29,
+    ANIM_MAN_SHOT_LEFTP = 30,
+    ANIM_MAN_SHOT_PARTIAL_1 = 31,
+    ANIM_MAN_SHOT_RIGHTP = 32,
+    ANIM_MAN_HIT_FRONT = 33,
+    ANIM_MAN_HIT_L = 34,
+    ANIM_MAN_HIT_BACK = 35,
+    ANIM_MAN_HIT_R = 36,
+    ANIM_MAN_FLOOR_HIT = 37,
+    ANIM_MAN_HIT_BODYBLOW = 38,
+    ANIM_MAN_HIT_CHEST = 39,
+    ANIM_MAN_HIT_HEAD = 40,
+    ANIM_MAN_HIT_WALK = 41,
+    ANIM_MAN_HIT_WALL = 42,
+    ANIM_MAN_FLOOR_HIT_F = 43,
+    ANIM_MAN_HIT_BEHIND = 44,
+    ANIM_MAN_FIGHTIDLE = 45,
+    ANIM_MAN_FIGHT2IDLE = 46,
+    ANIM_MAN_FIGHTSH_F = 47,
+    ANIM_MAN_FIGHTBODYBLOW = 48,
+    ANIM_MAN_FIGHTHEAD = 49,
+    ANIM_MAN_FIGHTKICK = 50,
+    ANIM_MAN_FIGHTKNEE = 51,
+    ANIM_MAN_FIGHTLHOOK = 52,
+    ANIM_MAN_FIGHTPUNCH = 53,
+    ANIM_MAN_FIGHTRNDHSE = 54,
+    ANIM_MAN_FIGHTLNGKCK = 55,
+    ANIM_MAN_FIGHTPPUNCH = 56,
+    ANIM_MAN_FIGHTJAB = 57,
+    ANIM_MAN_FIGHTELBOWL = 58,
+    ANIM_MAN_FIGHTELBOWR = 59,
+    ANIM_MAN_FIGHTBKICKL = 60,
+    ANIM_MAN_FIGHTBKICKR = 61,
+    ANIM_MAN_BOMBER = 62,
+    ANIM_MAN_PUNCHR = 63,
+    ANIM_MAN_FIGHTPPUNCH_1 = 64,
+    ANIM_MAN_KICK_FLOOR = 65,
+    ANIM_MAN_WEAPON_THROWU = 66,
+    ANIM_MAN_FIGHTSH_BACK = 67,
+    ANIM_MAN_CAR_JACKEDRHS = 68,
+    ANIM_MAN_CAR_LJACKEDRHS = 69,
+    ANIM_MAN_CAR_JACKEDLHS = 70,
+    ANIM_MAN_CAR_LJACKEDLHS = 71,
+    ANIM_MAN_CAR_QJACK = 72,
+    ANIM_MAN_CAR_QJACKED = 73,
+    ANIM_MAN_CAR_ALIGN_LHS = 74,
+    ANIM_MAN_CAR_ALIGNHI_LHS = 75,
+    ANIM_MAN_CAR_OPEN_LHS = 76,
+    ANIM_MAN_CAR_DOORLOCKED_LHS = 77,
+    ANIM_MAN_CAR_PULLOUT_LHS = 78,
+    ANIM_MAN_CAR_PULLOUTL_LHS = 79,
+    ANIM_MAN_CAR_GETIN_LHS = 80,
+    ANIM_MAN_CAR_GETINL_LHS = 81,
+    ANIM_MAN_CAR_CLOSEDOOR_LHS = 82,
+    ANIM_MAN_CAR_CLOSEDOORL_LHS = 83,
+    ANIM_MAN_CAR_ROLLDOOR = 84,
+    ANIM_MAN_CAR_ROLLDOORLO = 85,
+    ANIM_MAN_CAR_JUMPIN_LHS = 86,
+    ANIM_MAN_CAR_GETOUT_LHS = 87,
+    ANIM_MAN_CAR_GETOUTL_LHS = 88,
+    ANIM_MAN_CAR_CLOSE_LHS = 89,
+    ANIM_MAN_CAR_ALIGN_RHS = 90,
+    ANIM_MAN_CAR_ALIGNHI_RHS = 91,
+    ANIM_MAN_CAR_OPEN_RHS = 92,
+    ANIM_MAN_CAR_DOORLOCKED_RHS = 93,
+    ANIM_MAN_CAR_PULLOUT_RHS = 94,
+    ANIM_MAN_CAR_PULLOUTL_RHS = 95,
+    ANIM_MAN_CAR_GETIN_RHS = 96,
+    ANIM_MAN_CAR_GETINL_RHS = 97,
+    ANIM_MAN_CAR_CLOSEDOOR_RHS = 98,
+    ANIM_MAN_CAR_CLOSEDOORL_RHS = 99,
+    ANIM_MAN_CAR_SHUFFLE_RHS = 100,
+    ANIM_MAN_CAR_LSHUFFLE_RHS = 101,
+    ANIM_MAN_CAR_SIT = 102,
+    ANIM_MAN_CAR_LSIT = 103,
+    ANIM_MAN_CAR_SITP = 104,
+    ANIM_MAN_CAR_SITPLO = 105,
+    ANIM_MAN_DRIVE_L = 106,
+    ANIM_MAN_DRIVE_R = 107,
+    ANIM_MAN_DRIVE_LO_L = 108,
+    ANIM_MAN_DRIVE_LO_R = 109,
+    ANIM_MAN_DRIVEBY_L = 110,
+    ANIM_MAN_DRIVEBY_R = 111,
+    ANIM_MAN_DRIVEBYL_L = 112,
+    ANIM_MAN_DRIVEBYL_R = 113,
+    ANIM_MAN_CAR_LB = 114,
+    ANIM_MAN_DRIVE_BOAT = 115,
+    ANIM_MAN_DRIVE_BOAT_L = 116,
+    ANIM_MAN_DRIVE_BOAT_R = 117,
+    ANIM_MAN_DRIVE_BOAT_BACK = 118,
+    ANIM_MAN_BIKE_PICKUPR = 119,
+    ANIM_MAN_BIKE_PICKUPL = 120,
+    ANIM_MAN_BIKE_PULLUPR = 121,
+    ANIM_MAN_BIKE_PULLUPL = 122,
+    ANIM_MAN_BIKE_ELBOWR = 123,
+    ANIM_MAN_BIKE_ELBOWL = 124,
+    ANIM_MAN_BIKE_FALL_OFF = 125,
+    ANIM_MAN_BIKE_FALLR = 126,
+    ANIM_MAN_CAR_GETOUT_RHS = 127,
+    ANIM_MAN_CAR_GETOUTL_RHS = 128,
+    ANIM_MAN_CAR_CLOSE_RHS = 129,
+    ANIM_MAN_CAR_HOOKERTALK = 130,
+    ANIM_MAN_IDLE_STANCE_1 = 131,
+    ANIM_MAN_IDLE_STANCE_2 = 132,
+    ANIM_MAN_CAR_CRAWLOUTRHS = 133,
+    ANIM_MAN_CAR_CRAWLOUTRHS_1 = 134,
+    ANIM_MAN_CAR_ROLLOUT_LHS = 135,
+    ANIM_MAN_CAR_ROLLOUT_LHS_1 = 136,
+    ANIM_MAN_GETUP = 137,
+    ANIM_MAN_GETUP_1 = 138,
+    ANIM_MAN_GETUP_2 = 139,
+    ANIM_MAN_GETUP_FRONT = 140,
+    ANIM_MAN_JUMP_LAUNCH = 141,
+    ANIM_MAN_JUMP_GLIDE = 142,
+    ANIM_MAN_JUMP_LAND = 143,
+    ANIM_MAN_FALL_FALL = 144,
+    ANIM_MAN_FALL_GLIDE = 145,
+    ANIM_MAN_FALL_LAND = 146,
+    ANIM_MAN_FALL_COLLAPSE = 147,
+    ANIM_MAN_FALL_BACK = 148,
+    ANIM_MAN_FALL_FRONT = 149,
+    ANIM_MAN_EV_STEP = 150,
+    ANIM_MAN_EV_DIVE = 151,
+    ANIM_MAN_XPRESSSCRATCH = 152,
+    ANIM_MAN_ROADCROSS = 153,
+    ANIM_MAN_TURN_180 = 154,
+    ANIM_MAN_ARRESTGUN = 155,
+    ANIM_MAN_DROWN = 156,
+    ANIM_MAN_DUCK_DOWN = 157,
+    ANIM_MAN_DUCK_LOW = 158,
+    ANIM_MAN_WEAPON_CROUCH = 159,
+    ANIM_MAN_RBLOCK_CSHOOT = 160,
+    ANIM_MAN_HANDSUP = 161,
+    ANIM_MAN_HANDSCOWER = 162,
+    ANIM_MAN_FUCKU = 163,
+    ANIM_MAN_PHONE_IN = 164,
+    ANIM_MAN_PHONE_OUT = 165,
+    ANIM_MAN_PHONE_TALK = 166,
+    ANIM_MAN_SEAT_DOWN = 167,
+    ANIM_MAN_SEAT_UP = 168,
+    ANIM_MAN_SEAT_IDLE = 169,
+    ANIM_MAN_SEAT_DOWN_1 = 170,
+    ANIM_MAN_ATM = 171,
+    ANIM_MAN_ABSEIL = 172,
+};
+
+// GroupName : van | Group ID: 1 | BlockName: van | Total Animations: 8
+enum evanAnimGroup
+{
+    ANIM_VAN_VAN_OPENL = 174,
+    ANIM_VAN_VAN_GETINL = 175,
+    ANIM_VAN_VAN_CLOSEL = 176,
+    ANIM_VAN_VAN_GETOUTL = 177,
+    ANIM_VAN_VAN_OPEN = 178,
+    ANIM_VAN_VAN_GETIN = 179,
+    ANIM_VAN_VAN_CLOSE = 180,
+    ANIM_VAN_VAN_GETOUT = 181,
+};
+
+// GroupName : coach | Group ID: 2 | BlockName: coach | Total Animations: 5
+enum ecoachAnimGroup
+{
+    ANIM_COACH_COACH_OPNL = 182,
+    ANIM_COACH_COACH_OPNL_1 = 183,
+    ANIM_COACH_COACH_INL = 184,
+    ANIM_COACH_COACH_INL_1 = 185,
+    ANIM_COACH_COACH_OUTL = 186,
+};
+
+// GroupName : bikes | Group ID: 3 | BlockName: bikes | Total Animations: 18
+enum ebikesAnimGroup
+{
+    ANIM_BIKES_BIKES_RIDE = 187,
+    ANIM_BIKES_BIKES_STILL = 188,
+    ANIM_BIKES_BIKES_LEFT = 189,
+    ANIM_BIKES_BIKES_RIGHT = 190,
+    ANIM_BIKES_BIKES_BACK = 191,
+    ANIM_BIKES_BIKES_FWD = 192,
+    ANIM_BIKES_BIKES_PUSHES = 193,
+    ANIM_BIKES_BIKES_JUMPONR = 194,
+    ANIM_BIKES_BIKES_JUMPONL = 195,
+    ANIM_BIKES_BIKES_KICK = 196,
+    ANIM_BIKES_BIKES_HIT = 197,
+    ANIM_BIKES_BIKES_GETOFFRHS = 198,
+    ANIM_BIKES_BIKES_GETOFFLHS = 199,
+    ANIM_BIKES_BIKES_GETOFFBACK = 200,
+    ANIM_BIKES_BIKES_DRIVEBYLHS = 201,
+    ANIM_BIKES_BIKES_DRIVEBYRHS = 202,
+    ANIM_BIKES_BIKES_DRIVEBYFT = 203,
+    ANIM_BIKES_BIKES_PASSENGER = 204,
+};
+
+// GroupName : bikev | Group ID: 4 | BlockName: bikev | Total Animations: 18
+enum ebikevAnimGroup
+{
+    ANIM_BIKEV_BIKEV_RIDE = 187,
+    ANIM_BIKEV_BIKEV_STILL = 188,
+    ANIM_BIKEV_BIKEV_LEFT = 189,
+    ANIM_BIKEV_BIKEV_RIGHT = 190,
+    ANIM_BIKEV_BIKEV_BACK = 191,
+    ANIM_BIKEV_BIKEV_FWD = 192,
+    ANIM_BIKEV_BIKEV_PUSHES = 193,
+    ANIM_BIKEV_BIKEV_JUMPONR = 194,
+    ANIM_BIKEV_BIKEV_JUMPONL = 195,
+    ANIM_BIKEV_BIKEV_KICK = 196,
+    ANIM_BIKEV_BIKEV_HIT = 197,
+    ANIM_BIKEV_BIKEV_GETOFFRHS = 198,
+    ANIM_BIKEV_BIKEV_GETOFFLHS = 199,
+    ANIM_BIKEV_BIKEV_GETOFFBACK = 200,
+    ANIM_BIKEV_BIKEV_DRIVEBYLHS = 201,
+    ANIM_BIKEV_BIKEV_DRIVEBYRHS = 202,
+    ANIM_BIKEV_BIKEV_DRIVEBYFT = 203,
+    ANIM_BIKEV_BIKEV_PASSENGER = 204,
+};
+
+// GroupName : bikeh | Group ID: 5 | BlockName: bikeh | Total Animations: 18
+enum ebikehAnimGroup
+{
+    ANIM_BIKEH_BIKEH_RIDE = 187,
+    ANIM_BIKEH_BIKEH_STILL = 188,
+    ANIM_BIKEH_BIKEH_LEFT = 189,
+    ANIM_BIKEH_BIKEH_RIGHT = 190,
+    ANIM_BIKEH_BIKEH_BACK = 191,
+    ANIM_BIKEH_BIKEH_FWD = 192,
+    ANIM_BIKEH_BIKEH_PUSHES = 193,
+    ANIM_BIKEH_BIKEH_JUMPONR = 194,
+    ANIM_BIKEH_BIKEH_JUMPONL = 195,
+    ANIM_BIKEH_BIKEH_KICK = 196,
+    ANIM_BIKEH_BIKEH_HIT = 197,
+    ANIM_BIKEH_BIKEH_GETOFFRHS = 198,
+    ANIM_BIKEH_BIKEH_GETOFFLHS = 199,
+    ANIM_BIKEH_BIKEH_GETOFFBACK = 200,
+    ANIM_BIKEH_BIKEH_DRIVEBYLHS = 201,
+    ANIM_BIKEH_BIKEH_DRIVEBYRHS = 202,
+    ANIM_BIKEH_BIKEH_DRIVEBYFT = 203,
+    ANIM_BIKEH_BIKEH_PASSENGER = 204,
+};
+
+// GroupName : biked | Group ID: 6 | BlockName: biked | Total Animations: 18
+enum ebikedAnimGroup
+{
+    ANIM_BIKED_BIKED_RIDE = 187,
+    ANIM_BIKED_BIKED_STILL = 188,
+    ANIM_BIKED_BIKED_LEFT = 189,
+    ANIM_BIKED_BIKED_RIGHT = 190,
+    ANIM_BIKED_BIKED_BACK = 191,
+    ANIM_BIKED_BIKED_FWD = 192,
+    ANIM_BIKED_BIKED_PUSHES = 193,
+    ANIM_BIKED_BIKED_JUMPONR = 194,
+    ANIM_BIKED_BIKED_JUMPONL = 195,
+    ANIM_BIKED_BIKED_KICK = 196,
+    ANIM_BIKED_BIKED_HIT = 197,
+    ANIM_BIKED_BIKED_GETOFFRHS = 198,
+    ANIM_BIKED_BIKED_GETOFFLHS = 199,
+    ANIM_BIKED_BIKED_GETOFFBACK = 200,
+    ANIM_BIKED_BIKED_DRIVEBYLHS = 201,
+    ANIM_BIKED_BIKED_DRIVEBYRHS = 202,
+    ANIM_BIKED_BIKED_DRIVEBYFT = 203,
+    ANIM_BIKED_BIKED_PASSENGER = 204,
+};
+
+// GroupName : unarmed | Group ID: 7 | BlockName: ped | Total Animations: 3
+enum eunarmedAnimGroup
+{
+    ANIM_UNARMED_PUNCHR = 205,
+    ANIM_UNARMED_KICK_FLOOR = 206,
+    ANIM_UNARMED_FIGHTPPUNCH = 207,
+};
+
+// GroupName : screwdrv | Group ID: 8 | BlockName: ped | Total Animations: 5
+enum escrewdrvAnimGroup
+{
+    ANIM_SCREWDRV_FIGHTBODYBLOW = 205,
+    ANIM_SCREWDRV_FIGHTBODYBLOW_1 = 206,
+    ANIM_SCREWDRV_FIGHTPPUNCH = 207,
+    ANIM_SCREWDRV_FIGHTIDLE = 208,
+    ANIM_SCREWDRV_FIGHTBODYBLOW_2 = 209,
+};
+
+// GroupName : knife | Group ID: 9 | BlockName: knife | Total Animations: 5
+enum eknifeAnimGroup
+{
+    ANIM_KNIFE_WEAPON_KNIFE_1 = 205,
+    ANIM_KNIFE_WEAPON_KNIFE_2 = 206,
+    ANIM_KNIFE_KNIFE_PART = 207,
+    ANIM_KNIFE_WEAPON_KNIFEIDLE = 208,
+    ANIM_KNIFE_WEAPON_KNIFE_3 = 209,
+};
+
+// GroupName : baseball | Group ID: 10 | BlockName: baseball | Total Animations: 5
+enum ebaseballAnimGroup
+{
+    ANIM_BASEBALL_WEAPON_BAT_H = 205,
+    ANIM_BASEBALL_WEAPON_BAT_V = 206,
+    ANIM_BASEBALL_BAT_PART = 207,
+    ANIM_BASEBALL_WEAPON_BAT_H_1 = 208,
+    ANIM_BASEBALL_WEAPON_GOLFCLUB = 209,
+};
+
+// GroupName : golfclub | Group ID: 11 | BlockName: baseball | Total Animations: 5
+enum egolfclubAnimGroup
+{
+    ANIM_GOLFCLUB_WEAPON_BAT_H = 205,
+    ANIM_GOLFCLUB_WEAPON_GOLFCLUB = 206,
+    ANIM_GOLFCLUB_BAT_PART = 207,
+    ANIM_GOLFCLUB_WEAPON_BAT_H_1 = 208,
+    ANIM_GOLFCLUB_WEAPON_BAT_V = 209,
+};
+
+// GroupName : chainsaw | Group ID: 12 | BlockName: chainsaw | Total Animations: 3
+enum echainsawAnimGroup
+{
+    ANIM_CHAINSAW_WEAPON_CSAW = 205,
+    ANIM_CHAINSAW_WEAPON_CSAWLO = 206,
+    ANIM_CHAINSAW_CSAW_PART = 207,
+};
+
+// GroupName : python | Group ID: 13 | BlockName: python | Total Animations: 4
+enum epythonAnimGroup
+{
+    ANIM_PYTHON_PYTHON_FIRE = 205,
+    ANIM_PYTHON_PYTHON_CROUCHFIRE = 206,
+    ANIM_PYTHON_PYTHON_RELOAD = 207,
+    ANIM_PYTHON_PYTHON_CROUCHRELOAD = 208,
+};
+
+// GroupName : colt45 | Group ID: 14 | BlockName: colt45 | Total Animations: 5
+enum ecolt45AnimGroup
+{
+    ANIM_COLT45_COLT45_FIRE = 205,
+    ANIM_COLT45_COLT45_CROUCHFIRE = 206,
+    ANIM_COLT45_COLT45_RELOAD = 207,
+    ANIM_COLT45_COLT45_CROUCHRELOAD = 208,
+    ANIM_COLT45_COLT45_COP = 209,
+};
+
+// GroupName : shotgun | Group ID: 15 | BlockName: shotgun | Total Animations: 2
+enum eshotgunAnimGroup
+{
+    ANIM_SHOTGUN_SHOTGUN_FIRE = 205,
+    ANIM_SHOTGUN_SHOTGUN_CROUCHFIRE = 206,
+};
+
+// GroupName : buddy | Group ID: 16 | BlockName: buddy | Total Animations: 2
+enum ebuddyAnimGroup
+{
+    ANIM_BUDDY_BUDDY_FIRE = 205,
+    ANIM_BUDDY_BUDDY_CROUCHFIRE = 206,
+};
+
+// GroupName : tec | Group ID: 17 | BlockName: tec | Total Animations: 4
+enum etecAnimGroup
+{
+    ANIM_TEC_TEC_FIRE = 205,
+    ANIM_TEC_TEC_CROUCHFIRE = 206,
+    ANIM_TEC_TEC_RELOAD = 207,
+    ANIM_TEC_TEC_CROUCHRELOAD = 208,
+};
+
+// GroupName : uzi | Group ID: 18 | BlockName: uzi | Total Animations: 4
+enum euziAnimGroup
+{
+    ANIM_UZI_UZI_FIRE = 205,
+    ANIM_UZI_UZI_CROUCHFIRE = 206,
+    ANIM_UZI_UZI_RELOAD = 207,
+    ANIM_UZI_UZI_CROUCHRELOAD = 208,
+};
+
+// GroupName : rifle | Group ID: 19 | BlockName: rifle | Total Animations: 4
+enum erifleAnimGroup
+{
+    ANIM_RIFLE_RIFLE_FIRE = 205,
+    ANIM_RIFLE_RIFLE_CROUCHFIRE = 206,
+    ANIM_RIFLE_RIFLE_LOAD = 207,
+    ANIM_RIFLE_RIFLE_CROUCHLOAD = 208,
+};
+
+// GroupName : m60 | Group ID: 20 | BlockName: m60 | Total Animations: 3
+enum em60AnimGroup
+{
+    ANIM_M60_M60_FIRE = 205,
+    ANIM_M60_M60_FIRE_1 = 206,
+    ANIM_M60_M60_RELOAD = 207,
+};
+
+// GroupName : sniper | Group ID: 21 | BlockName: sniper | Total Animations: 1
+enum esniperAnimGroup
+{
+    ANIM_SNIPER_WEAPON_SNIPER = 205,
+};
+
+// GroupName : grenade | Group ID: 22 | BlockName: grenade | Total Animations: 3
+enum egrenadeAnimGroup
+{
+    ANIM_GRENADE_WEAPON_THROW = 205,
+    ANIM_GRENADE_WEAPON_THROWU = 206,
+    ANIM_GRENADE_WEAPON_START_THROW = 207,
+};
+
+// GroupName : flame | Group ID: 23 | BlockName: flame | Total Animations: 1
+enum eflameAnimGroup
+{
+    ANIM_FLAME_FLAME_FIRE = 205,
+};
+
+// GroupName : medic | Group ID: 24 | BlockName: medic | Total Animations: 1
+enum emedicAnimGroup
+{
+    ANIM_MEDIC_CPR = 214,
+};
+
+// GroupName : sunbathe | Group ID: 25 | BlockName: sunbathe | Total Animations: 1
+enum esunbatheAnimGroup
+{
+    ANIM_SUNBATHE_BATHER = 210,
+};
+
+// GroupName : playidles | Group ID: 26 | BlockName: playidles | Total Animations: 4
+enum eplayidlesAnimGroup
+{
+    ANIM_PLAYIDLES_STRETCH = 215,
+    ANIM_PLAYIDLES_TIME = 216,
+    ANIM_PLAYIDLES_SHLDR = 217,
+    ANIM_PLAYIDLES_STRLEG = 218,
+};
+
+// GroupName : riot | Group ID: 27 | BlockName: riot | Total Animations: 7
+enum eriotAnimGroup
+{
+    ANIM_RIOT_RIOT_ANGRY = 219,
+    ANIM_RIOT_RIOT_ANGRY_B = 220,
+    ANIM_RIOT_RIOT_CHANT = 221,
+    ANIM_RIOT_RIOT_PUNCHES = 222,
+    ANIM_RIOT_RIOT_SHOUT = 223,
+    ANIM_RIOT_RIOT_CHALLENGE = 224,
+    ANIM_RIOT_RIOT_FUKU = 225,
+};
+
+// GroupName : strip | Group ID: 28 | BlockName: strip | Total Animations: 7
+enum estripAnimGroup
+{
+    ANIM_STRIP_STRIP_A = 226,
+    ANIM_STRIP_STRIP_B = 227,
+    ANIM_STRIP_STRIP_C = 228,
+    ANIM_STRIP_STRIP_D = 229,
+    ANIM_STRIP_STRIP_E = 230,
+    ANIM_STRIP_STRIP_F = 231,
+    ANIM_STRIP_STRIP_G = 232,
+};
+
+// GroupName : lance | Group ID: 29 | BlockName: lance | Total Animations: 1
+enum elanceAnimGroup
+{
+    ANIM_LANCE_LANCE = 210,
+};
+
+// GroupName : player | Group ID: 30 | BlockName: ped | Total Animations: 5
+enum eplayerAnimGroup
+{
+    ANIM_PLAYER_WALK_PLAYER = 0,
+    ANIM_PLAYER_RUN_PLAYER = 1,
+    ANIM_PLAYER_SPRINT_CIVI = 2,
+    ANIM_PLAYER_IDLE_STANCE = 3,
+    ANIM_PLAYER_WALK_START = 4,
+};
+
+// GroupName : playerrocket | Group ID: 31 | BlockName: ped | Total Animations: 5
+enum eplayerrocketAnimGroup
+{
+    ANIM_PLAYERROCKET_WALK_ROCKET = 0,
+    ANIM_PLAYERROCKET_RUN_ROCKET = 1,
+    ANIM_PLAYERROCKET_RUN_ROCKET_1 = 2,
+    ANIM_PLAYERROCKET_IDLE_ROCKET = 3,
+    ANIM_PLAYERROCKET_WALK_START_ROCKET = 4,
+};
+
+// GroupName : player1armed | Group ID: 32 | BlockName: ped | Total Animations: 5
+enum eplayer1armedAnimGroup
+{
+    ANIM_PLAYER1ARMED_WALK_PLAYER = 0,
+    ANIM_PLAYER1ARMED_RUN_1ARMED = 1,
+    ANIM_PLAYER1ARMED_SPRINT_CIVI = 2,
+    ANIM_PLAYER1ARMED_IDLE_STANCE = 3,
+    ANIM_PLAYER1ARMED_WALK_START = 4,
+};
+
+// GroupName : player2armed | Group ID: 33 | BlockName: ped | Total Animations: 5
+enum eplayer2armedAnimGroup
+{
+    ANIM_PLAYER2ARMED_WALK_ARMED = 0,
+    ANIM_PLAYER2ARMED_RUN_ARMED = 1,
+    ANIM_PLAYER2ARMED_RUN_ARMED_1 = 2,
+    ANIM_PLAYER2ARMED_IDLE_ARMED = 3,
+    ANIM_PLAYER2ARMED_WALK_START_ARMED = 4,
+};
+
+// GroupName : playerBBBat | Group ID: 34 | BlockName: ped | Total Animations: 5
+enum eplayerBBBatAnimGroup
+{
+    ANIM_PLAYERBBBAT_WALK_PLAYER = 0,
+    ANIM_PLAYERBBBAT_RUN_PLAYER = 1,
+    ANIM_PLAYERBBBAT_RUN_PLAYER_1 = 2,
+    ANIM_PLAYERBBBAT_IDLE_STANCE = 3,
+    ANIM_PLAYERBBBAT_WALK_START = 4,
+};
+
+// GroupName : playercsaw | Group ID: 35 | BlockName: ped | Total Animations: 5
+enum eplayercsawAnimGroup
+{
+    ANIM_PLAYERCSAW_WALK_CSAW = 0,
+    ANIM_PLAYERCSAW_RUN_CSAW = 1,
+    ANIM_PLAYERCSAW_RUN_CSAW_1 = 2,
+    ANIM_PLAYERCSAW_IDLE_CSAW = 3,
+    ANIM_PLAYERCSAW_WALK_START_CSAW = 4,
+};
+
+// GroupName : shuffle | Group ID: 36 | BlockName: ped | Total Animations: 4
+enum eshuffleAnimGroup
+{
+    ANIM_SHUFFLE_WALK_SHUFFLE = 0,
+    ANIM_SHUFFLE_RUN_CIVI = 1,
+    ANIM_SHUFFLE_SPRINT_CIVI = 2,
+    ANIM_SHUFFLE_IDLE_STANCE = 3,
+};
+
+// GroupName : oldman | Group ID: 37 | BlockName: ped | Total Animations: 4
+enum eoldmanAnimGroup
+{
+    ANIM_OLDMAN_WALK_OLD = 0,
+    ANIM_OLDMAN_RUN_CIVI = 1,
+    ANIM_OLDMAN_SPRINT_CIVI = 2,
+    ANIM_OLDMAN_IDLE_STANCE = 3,
+};
+
+// GroupName : gang1 | Group ID: 38 | BlockName: ped | Total Animations: 4
+enum egang1AnimGroup
+{
+    ANIM_GANG1_WALK_GANG1 = 0,
+    ANIM_GANG1_RUN_GANG1 = 1,
+    ANIM_GANG1_SPRINT_CIVI = 2,
+    ANIM_GANG1_IDLE_STANCE = 3,
+};
+
+// GroupName : gang2 | Group ID: 39 | BlockName: ped | Total Animations: 4
+enum egang2AnimGroup
+{
+    ANIM_GANG2_WALK_GANG2 = 0,
+    ANIM_GANG2_RUN_GANG1 = 1,
+    ANIM_GANG2_SPRINT_CIVI = 2,
+    ANIM_GANG2_IDLE_STANCE = 3,
+};
+
+// GroupName : fatman | Group ID: 40 | BlockName: ped | Total Animations: 4
+enum efatmanAnimGroup
+{
+    ANIM_FATMAN_WALK_FAT = 0,
+    ANIM_FATMAN_RUN_CIVI = 1,
+    ANIM_FATMAN_WOMAN_RUNPANIC = 2,
+    ANIM_FATMAN_IDLE_STANCE = 3,
+};
+
+// GroupName : oldfatman | Group ID: 41 | BlockName: ped | Total Animations: 4
+enum eoldfatmanAnimGroup
+{
+    ANIM_OLDFATMAN_WALK_FATOLD = 0,
+    ANIM_OLDFATMAN_RUN_FATOLD = 1,
+    ANIM_OLDFATMAN_WOMAN_RUNPANIC = 2,
+    ANIM_OLDFATMAN_IDLE_STANCE = 3,
+};
+
+// GroupName : jogger | Group ID: 42 | BlockName: ped | Total Animations: 4
+enum ejoggerAnimGroup
+{
+    ANIM_JOGGER_JOG_MALEA = 0,
+    ANIM_JOGGER_RUN_CIVI = 1,
+    ANIM_JOGGER_SPRINT_CIVI = 2,
+    ANIM_JOGGER_IDLE_STANCE = 3,
+};
+
+// GroupName : woman | Group ID: 43 | BlockName: ped | Total Animations: 4
+enum ewomanAnimGroup
+{
+    ANIM_WOMAN_WOMAN_WALKNORM = 0,
+    ANIM_WOMAN_WOMAN_RUN = 1,
+    ANIM_WOMAN_WOMAN_RUNPANIC = 2,
+    ANIM_WOMAN_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : shopping | Group ID: 44 | BlockName: ped | Total Animations: 4
+enum eshoppingAnimGroup
+{
+    ANIM_SHOPPING_WOMAN_WALKSHOP = 0,
+    ANIM_SHOPPING_WOMAN_RUN = 1,
+    ANIM_SHOPPING_WOMAN_RUN_1 = 2,
+    ANIM_SHOPPING_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : busywoman | Group ID: 45 | BlockName: ped | Total Animations: 4
+enum ebusywomanAnimGroup
+{
+    ANIM_BUSYWOMAN_WOMAN_WALKBUSY = 0,
+    ANIM_BUSYWOMAN_WOMAN_RUN = 1,
+    ANIM_BUSYWOMAN_WOMAN_RUNPANIC = 2,
+    ANIM_BUSYWOMAN_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : sexywoman | Group ID: 46 | BlockName: ped | Total Animations: 4
+enum esexywomanAnimGroup
+{
+    ANIM_SEXYWOMAN_WOMAN_WALKSEXY = 0,
+    ANIM_SEXYWOMAN_WOMAN_RUN = 1,
+    ANIM_SEXYWOMAN_WOMAN_RUNPANIC = 2,
+    ANIM_SEXYWOMAN_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : fatwoman | Group ID: 47 | BlockName: ped | Total Animations: 4
+enum efatwomanAnimGroup
+{
+    ANIM_FATWOMAN_WALK_FAT = 0,
+    ANIM_FATWOMAN_WOMAN_RUN = 1,
+    ANIM_FATWOMAN_WOMAN_RUNPANIC = 2,
+    ANIM_FATWOMAN_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : oldwoman | Group ID: 48 | BlockName: ped | Total Animations: 4
+enum eoldwomanAnimGroup
+{
+    ANIM_OLDWOMAN_WOMAN_WALKOLD = 0,
+    ANIM_OLDWOMAN_WOMAN_RUN = 1,
+    ANIM_OLDWOMAN_WOMAN_RUNPANIC = 2,
+    ANIM_OLDWOMAN_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : jogwoman | Group ID: 49 | BlockName: ped | Total Animations: 4
+enum ejogwomanAnimGroup
+{
+    ANIM_JOGWOMAN_JOG_MALEB = 0,
+    ANIM_JOGWOMAN_WOMAN_RUN = 1,
+    ANIM_JOGWOMAN_WOMAN_RUNPANIC = 2,
+    ANIM_JOGWOMAN_WOMAN_IDLESTANCE = 3,
+};
+
+// GroupName : panicchunky | Group ID: 50 | BlockName: ped | Total Animations: 4
+enum epanicchunkyAnimGroup
+{
+    ANIM_PANICCHUNKY_RUN_FATOLD = 0,
+    ANIM_PANICCHUNKY_WOMAN_RUNPANIC = 1,
+    ANIM_PANICCHUNKY_WOMAN_RUNPANIC_1 = 2,
+    ANIM_PANICCHUNKY_IDLE_STANCE = 3,
+};
+
+// GroupName : skate | Group ID: 51 | BlockName: skate | Total Animations: 4
+enum eskateAnimGroup
+{
+    ANIM_SKATE_SKATE_RUN = 0,
+    ANIM_SKATE_SKATE_SPRINT = 1,
+    ANIM_SKATE_SKATE_SPRINT_1 = 2,
+    ANIM_SKATE_SKATE_IDLE = 3,
+};
+
+// GroupName : playerback | Group ID: 52 | BlockName: ped | Total Animations: 5
+enum eplayerbackAnimGroup
+{
+    ANIM_PLAYERBACK_WALK_BACK = 0,
+    ANIM_PLAYERBACK_RUN_BACK = 1,
+    ANIM_PLAYERBACK_RUN_BACK_1 = 2,
+    ANIM_PLAYERBACK_IDLE_STANCE = 3,
+    ANIM_PLAYERBACK_WALK_START_BACK = 4,
+};
+
+// GroupName : playerleft | Group ID: 53 | BlockName: ped | Total Animations: 5
+enum eplayerleftAnimGroup
+{
+    ANIM_PLAYERLEFT_WALK_LEFT = 0,
+    ANIM_PLAYERLEFT_RUN_LEFT = 1,
+    ANIM_PLAYERLEFT_RUN_LEFT_1 = 2,
+    ANIM_PLAYERLEFT_IDLE_STANCE = 3,
+    ANIM_PLAYERLEFT_WALK_START_LEFT = 4,
+};
+
+// GroupName : playerright | Group ID: 54 | BlockName: ped | Total Animations: 5
+enum eplayerrightAnimGroup
+{
+    ANIM_PLAYERRIGHT_WALK_RIGHT = 0,
+    ANIM_PLAYERRIGHT_RUN_RIGHT = 1,
+    ANIM_PLAYERRIGHT_RUN_RIGHT_1 = 2,
+    ANIM_PLAYERRIGHT_IDLE_STANCE = 3,
+    ANIM_PLAYERRIGHT_WALK_START_RIGHT = 4,
+};
+
+// GroupName : rocketback | Group ID: 55 | BlockName: ped | Total Animations: 5
+enum erocketbackAnimGroup
+{
+    ANIM_ROCKETBACK_WALK_ROCKET_BACK = 0,
+    ANIM_ROCKETBACK_RUN_ROCKET_BACK = 1,
+    ANIM_ROCKETBACK_RUN_ROCKET_BACK_1 = 2,
+    ANIM_ROCKETBACK_IDLE_ROCKET = 3,
+    ANIM_ROCKETBACK_WALKST_ROCKET_BACK = 4,
+};
+
+// GroupName : rocketleft | Group ID: 56 | BlockName: ped | Total Animations: 5
+enum erocketleftAnimGroup
+{
+    ANIM_ROCKETLEFT_WALK_ROCKET_LEFT = 0,
+    ANIM_ROCKETLEFT_RUN_ROCKET_LEFT = 1,
+    ANIM_ROCKETLEFT_RUN_ROCKET_LEFT_1 = 2,
+    ANIM_ROCKETLEFT_IDLE_ROCKET = 3,
+    ANIM_ROCKETLEFT_WALKST_ROCKET_LEFT = 4,
+};
+
+// GroupName : rocketright | Group ID: 57 | BlockName: ped | Total Animations: 5
+enum erocketrightAnimGroup
+{
+    ANIM_ROCKETRIGHT_WALK_ROCKET_RIGHT = 0,
+    ANIM_ROCKETRIGHT_RUN_ROCKET_RIGHT = 1,
+    ANIM_ROCKETRIGHT_RUN_ROCKET_RIGHT_1 = 2,
+    ANIM_ROCKETRIGHT_IDLE_ROCKET = 3,
+    ANIM_ROCKETRIGHT_WALKST_ROCKET_RIGHT = 4,
+};
+
+// GroupName : csawback | Group ID: 58 | BlockName: ped | Total Animations: 5
+enum ecsawbackAnimGroup
+{
+    ANIM_CSAWBACK_WALK_CSAW_BACK = 0,
+    ANIM_CSAWBACK_RUN_CSAW_BACK = 1,
+    ANIM_CSAWBACK_RUN_CSAW_BACK_1 = 2,
+    ANIM_CSAWBACK_IDLE_CSAW = 3,
+    ANIM_CSAWBACK_WALKST_CSAW_BACK = 4,
+};
+
+// GroupName : csawleft | Group ID: 59 | BlockName: ped | Total Animations: 5
+enum ecsawleftAnimGroup
+{
+    ANIM_CSAWLEFT_WALK_CSAW_LEFT = 0,
+    ANIM_CSAWLEFT_RUN_CSAW_LEFT = 1,
+    ANIM_CSAWLEFT_RUN_CSAW_LEFT_1 = 2,
+    ANIM_CSAWLEFT_IDLE_CSAW = 3,
+    ANIM_CSAWLEFT_WALKST_CSAW_LEFT = 4,
+};
+
+// GroupName : csawright | Group ID: 60 | BlockName: ped | Total Animations: 5
+enum ecsawrightAnimGroup
+{
+    ANIM_CSAWRIGHT_WALK_CSAW_RIGHT = 0,
+    ANIM_CSAWRIGHT_RUN_CSAW_RIGHT = 1,
+    ANIM_CSAWRIGHT_RUN_CSAW_RIGHT_1 = 2,
+    ANIM_CSAWRIGHT_IDLE_CSAW = 3,
+    ANIM_CSAWRIGHT_WALKST_CSAW_RIGHT = 4,
+};
