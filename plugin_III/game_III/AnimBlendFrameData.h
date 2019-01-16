@@ -18,10 +18,7 @@ struct PLUGIN_API IFrame {
 VALIDATE_SIZE(IFrame, 0x1C);
 
 struct PLUGIN_API AnimBlendFrameData {
-    unsigned char m_nFlags;
-private:
-    char _pad1[3];
-public:
+    unsigned int m_nFlags;
     CVector m_vecOffset;
     IFrame *m_pIFrame;
     unsigned int m_nNodeId;
