@@ -10,10 +10,10 @@ Do not delete this comment block. Respect others' work!
 #include "CClumpModelInfo.h"
 
 class CMloModelInfo : public CClumpModelInfo {
-    char _pad34[4];
+    int _pad34;
 public:
-    unsigned int dword38;
-    unsigned int dword3C;
+    unsigned int m_nIndex;
+    unsigned int m_nCount;
 
     //funcs
     CMloModelInfo();
@@ -24,7 +24,7 @@ VALIDATE_SIZE(CMloModelInfo, 0x40);
 
 struct MloModelStore {
     unsigned int m_nCount;
-    CMloModelInfo m_sObject;
+    CMloModelInfo m_sObject[1];
 
     ~MloModelStore();
 };
