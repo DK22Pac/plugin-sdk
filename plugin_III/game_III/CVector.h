@@ -24,6 +24,10 @@ public:
         x = src.x; y = src.y; z = src.z;
     }
 
+    inline CVector(RwV3d const &right) {
+        FromRwV3d(right);
+    }
+
     inline void Cross(CVector &a, CVector &b) {
         this->x = b.z * a.y - a.z * b.y;
         this->y = a.z * b.x - a.x * b.z;
@@ -82,7 +86,7 @@ public:
         return{ x, y, z };
     }
 
-    inline void FromRwV3d(RwV3d &rwvec) {
+    inline void FromRwV3d(RwV3d const &rwvec) {
         x = rwvec.x; y = rwvec.y; z = rwvec.z;
     }
 

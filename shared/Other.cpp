@@ -7,6 +7,11 @@
 #include "Other.h"
 #include <Windows.h>
 
+unsigned int plugin::FormattingUtils::currentBuf = 0;
+char plugin::FormattingUtils::buf[plugin::FormattingUtils::BUF_SIZE][4096];
+unsigned int plugin::FormattingUtils::currentBufW = 0;
+wchar_t plugin::FormattingUtils::bufW[plugin::FormattingUtils::BUF_SIZE][4096];
+
 unsigned int plugin::Random(unsigned int min, unsigned int max) {
     return min + (rand() % (max - min + 1));
 }
@@ -25,4 +30,20 @@ std::wstring plugin::AtoW(std::string const &str) {
 
 std::string plugin::WtoA(std::wstring const &str) {
     return std::string(str.begin(), str.end());
+}
+
+char *plugin::FormattingUtils::GetBuf() {
+    char *result = buf[currentBuf];
+    currentBuf += 1;
+    if (currentBuf >= BUF_SIZE)
+        currentBuf = 0;
+    return result;
+}
+
+wchar_t *plugin::FormattingUtils::GetBufW() {
+    wchar_t *result = bufW[currentBufW];
+    currentBufW += 1;
+    if (currentBufW >= BUF_SIZE)
+        currentBufW = 0;
+    return result;
 }

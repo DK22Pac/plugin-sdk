@@ -8,13 +8,6 @@
 
 CPathFind &ThePaths = **(CPathFind **)(0x40CA27);
 
-CVector CPathNode::GetNodeCoors()
-{
-	CVector result;
-	((void (__thiscall *)(CPathNode *, CVector *))0x420A10)(this, &result);
-	return result;
-}
-
 void CPathFind::DoPathSearch(unsigned char pathType, CVector origin, CNodeAddress originAddr, 
 		CVector target, CNodeAddress *pResultNodes, short *pNodesCount, int maxNodesToFind, float *pDistance, 
 		float maxSearchDistance, CNodeAddress *targetAddr, float maxUnkLimit, bool oneSideOnly, 

@@ -10,104 +10,14 @@
 #include "CompressedVector.h"
 #include "CVector.h"
 #include "CNodeAddress.h"
+#include "CForbiddenArea.h"
+#include "CCarPathLinkAddress.h"
+#include "CPathIntersectionInfo.h"
+#include "CCarPathLink.h"
+#include "CPathNode.h"
 
 #define NUM_PATH_MAP_AREAS 64
 #define NUM_PATH_INTERIOR_AREAS 8
-
-class PLUGIN_API CForbiddenArea
-{
-public:
-	float x1, x2, y1, y2, z1, z2;
-	bool bEnable;
-	unsigned char type;
-private:
-	char _padding[2];
-public:
-};
-
-VALIDATE_SIZE(CForbiddenArea, 0x1C);
-
-
-class PLUGIN_API CCarPathLinkAddress
-{
-public:
-    short m_wCarPathLinkId : 10;
-    short m_wAreaId : 6;
-};
-
-VALIDATE_SIZE(CCarPathLinkAddress, 0x2);
-
-
-class PLUGIN_API CPathIntersectionInfo
-{
-public:
-    unsigned char m_bRoadCross : 1;
-    unsigned char m_bPedTrafficLight : 1;
-};
-
-VALIDATE_SIZE(CPathIntersectionInfo, 0x1);
-
-
-class PLUGIN_API CCarPathLink
-{
-public:
-    struct {
-        short x;
-        short y;
-    } m_posn;
-    CNodeAddress m_address;
-    char m_nDirX;
-    char m_nDirY;
-    char m_nPathNodeWidth;
-
-    unsigned short m_nNumLeftLanes : 3;
-    unsigned short m_nNumRightLanes : 3;
-    unsigned short m_bTrafficLightDirection : 1; // 1 if the navi node has the same direction as the traffic light and 0 if the navi node points somewhere else
-    unsigned short unk1 : 1;
-
-    unsigned short m_nTrafficLightState : 2; // 1 - North-South, 2 - West-East cycle
-    unsigned short m_bTrainCrossing : 1;
-};
-
-VALIDATE_SIZE(CCarPathLink, 0xE);
-
-
-class PLUGIN_API CPathNode
-{
-public:
-    void *ptr;
-	void *ptr2;
-    CompressedVector m_posn;
-    unsigned short m_wSearchList; // search list id
-    short  m_wBaseLinkId;
-    short  m_wAreaId;
-    short  m_wNodeId;
-    unsigned char m_nPathWidth;
-    unsigned char m_nFloodFill;
-
-    unsigned int m_nNumLinks : 4;
-    unsigned int m_nTrafficLevel : 2;
-    unsigned int m_bRoadBlocks : 1;
-    unsigned int m_bWaterNode : 1;
-
-    unsigned int m_bEmergencyVehiclesOnly : 1;
-    unsigned int unk1 : 1;   // not used in paths data files
-    unsigned int m_bDontWander : 1;
-    unsigned int unk2 : 1;   // not used in paths data files
-    unsigned int m_bNotHighway : 1;
-    unsigned int m_bHighway : 1;
-    unsigned int unk3 : 1;	 // not used in paths data files
-    unsigned int unk4 : 1;	 // not used in paths data files
-
-    unsigned int m_nSpawnProbability : 4;
-    unsigned int m_nBehaviourType : 4; // 1 - roadblock
-                                       // 2 - parking node
-
-	CVector GetNodeCoors();
-};
-
-VALIDATE_SIZE(CPathNode, 0x1C);
-
 
 class PLUGIN_API CPathFind
 {

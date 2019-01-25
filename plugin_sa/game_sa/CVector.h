@@ -15,6 +15,14 @@ public:
     CVector();
     CVector(float X, float Y, float Z);
 
+    inline CVector(CVector const& src) {
+        x = src.x; y = src.y; z = src.z;
+    }
+
+    inline CVector(RwV3d const &right) {
+        FromRwV3d(right);
+    }
+
     // Returns length of vector
     float Magnitude();
 
@@ -54,7 +62,7 @@ public:
         return{ x, y, z };
     }
 
-    inline void FromRwV3d(RwV3d &rwvec) {
+    inline void FromRwV3d(RwV3d const &rwvec) {
         x = rwvec.x; y = rwvec.y; z = rwvec.z;
     }
 };
