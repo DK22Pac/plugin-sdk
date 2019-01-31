@@ -17,7 +17,7 @@ public:
     static void AddPoliceCarOccupants(CVehicle* vehicle);
     static void CarHasReasonToStop(CVehicle* vehicle);
     static char FindPoliceCarMissionForWantedLevel();
-    static float FindPoliceCarSpeedForWantedLevel(CVehicle* vehicle);
+    static int FindPoliceCarSpeedForWantedLevel(CVehicle* vehicle);
     static float FindSwitchDistanceClose(CVehicle* vehicle);
     static float FindSwitchDistanceFar(CVehicle* vehicle);
     static void GetCarToGoToCoors(CVehicle* vehicle, CVector* coors);

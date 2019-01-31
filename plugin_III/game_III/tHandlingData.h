@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 #include "cTransmission.h"
-#include "eVehicleFlags.h"
+#include "eVehicleHandlingModelFlags.h"
 
 enum PLUGIN_API eVehicleLightsSize : unsigned char {
     LIGHTS_LONG,
@@ -21,19 +21,19 @@ enum PLUGIN_API eVehicleLightsSize : unsigned char {
 struct PLUGIN_API tHandlingData {
     int m_dwVehicleId;
     float m_fMass; // 1.0 to 50000.0
-    float field_8; 
+    float m_fInvMass;
     float m_fTurnMass; 
-    RwV3d m_vDimensions; // 0.0 > x > 20.0
-    RwV3d m_vCentreOfMass; // -10.0 > x > 10.0
-    int m_nPercentSubmerged; // 10 to 120
+    CVector m_vDimensions; // 0.0 > x > 20.0
+    CVector m_vCentreOfMass; // -10.0 > x > 10.0
+    unsigned char m_nPercentSubmerged; // 10 to 120
+    // char _pad29[3];
     float m_fBuoyancyConstant; 
     float m_fTractionMultiplier; // 0.5 to 2.0
     cTransmission m_transmissionData; 
+    float m_fBrakeDeceleration; // 0.1 to 10.0
     float m_fBrakeBias; // 0.0 > x > 1.0
     bool m_bABS; 
-    char field_9D; 
-    char field_9E; 
-    char field_9F; 
+    // char _pad9D[3]; 
     float m_fSteeringLock; // 10.0 to 40.0
     float m_fTractionLoss; // 0.0 > x > 1.0
     float m_fTractionBias; // 0.0 > x > 1.0
@@ -45,7 +45,7 @@ struct PLUGIN_API tHandlingData {
     float m_fSuspensionBiasBetweenFrontAndRear; 
     float m_fCollisionDamageMultiplier; // 0.2 to 5.0
     union {
-        eVehicleFlags m_nVehicleFlags;
+        eVehicleHandlingModelFlags m_nModelFlags;
         struct {
             unsigned int m_b1gBoost : 1;
             unsigned int m_b2gBoost : 1;
@@ -69,7 +69,7 @@ struct PLUGIN_API tHandlingData {
     unsigned int m_nMonetaryValue; // 1 to 100000
     eVehicleLightsSize m_nFrontLights;
     eVehicleLightsSize m_nRearLights;
-    short field_D6;
+    //char _padD6[2];
 };
 
 VALIDATE_SIZE(tHandlingData, 0xD8);

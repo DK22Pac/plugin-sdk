@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -67,5 +67,14 @@ enum eVehicleModel : unsigned int {
     MODEL_ESCAPE, 
     MODEL_BORGNINE, 
     MODEL_TOYZ, 
-    MODEL_GHOST 
+    MODEL_GHOST,
+    MODEL_ID_151,
+    MODEL_ID_152,
+    MODEL_ID_153,
+    MODEL_ID_154,
+    MODEL_ID_155,
+    MODEL_ID_156,
+    MODEL_ID_157,
+    MODEL_ID_158,
+    MODEL_ID_159
 };

@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-enum PLUGIN_API eVehicleFlags : unsigned int {
+enum PLUGIN_API eVehicleHandlingModelFlags : unsigned int {
     VEHICLE_FLAGS_1G_BOOST = 0x1,
     VEHICLE_FLAGS_2G_BOOST = 0x2,
     VEHICLE_FLAGS_REV_BONNET = 0x4,
