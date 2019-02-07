@@ -9,7 +9,7 @@
 RwTexture **gpCoronaTexture = (RwTexture **)0x695538;
 
 bool& CCoronas::SunBlockedByClouds = *(bool *)0xA10B25;
-bool& CCoronas::bChangeBrightnessImmediately = *(bool *)0x975380;
+int& CCoronas::bChangeBrightnessImmediately = *(int *)0x975380;
 CRegisteredCorona *CCoronas::aCoronas = (CRegisteredCorona *)0x815128;
 int& CCoronas::LastCamLook = *(int *)0x709230;
 float& CCoronas::LightsMult = *(float *)0x69567C;

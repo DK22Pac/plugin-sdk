@@ -14,7 +14,7 @@
 
 /*
 Shadow rectangle:
-Front
+        Front
 +---------+---------+
 |         |         |
 |         |         |

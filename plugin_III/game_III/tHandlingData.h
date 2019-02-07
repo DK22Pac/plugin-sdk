@@ -10,6 +10,7 @@
 #include "CVector.h"
 #include "cTransmission.h"
 #include "eVehicleHandlingModelFlags.h"
+#include "eHandlingIndex.h"
 
 enum PLUGIN_API eVehicleLightsSize : unsigned char {
     LIGHTS_LONG,
@@ -19,7 +20,7 @@ enum PLUGIN_API eVehicleLightsSize : unsigned char {
 };
 
 struct PLUGIN_API tHandlingData {
-    int m_dwVehicleId;
+    eHandlingIndex m_nHandlingId;
     float m_fMass; // 1.0 to 50000.0
     float m_fInvMass;
     float m_fTurnMass; 

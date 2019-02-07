@@ -9,7 +9,7 @@ Do not delete this comment block. Respect others' work!
 RwTexture **gpCoronaTexture = (RwTexture **)0x5FAF44;
 
 bool& CCoronas::SunBlockedByClouds = *(bool *)0x95CD73;
-bool& CCoronas::bChangeBrightnessImmediately = *(bool *)0x8E2C30;
+int& CCoronas::bChangeBrightnessImmediately = *(int *)0x8E2C30;
 CRegisteredCorona *CCoronas::aCoronas = (CRegisteredCorona *)0x72E518;
 int& CCoronas::LastCamLook = *(int *)0x62F238;
 float& CCoronas::LightsMult = *(float *)0x5FB088;
@@ -25,14 +25,14 @@ void CCoronas::Init() {
     plugin::Call<0x4F9F90>();
 }
 
-// Converted from cdecl void CCoronas::RegisterCorona(uint id, uchar red, uchar green, uchar blue, uchar alpha, CVector const& posn, float radius, float farClip, RwTexture *, uchar, uchar, uchar, uchar, float) 0x4FA0E0
-void CCoronas::RegisterCorona(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, CVector const& posn, float radius, float farClip, RwTexture* arg8, unsigned char arg9, unsigned char arg10, unsigned char arg11, unsigned char arg12, float arg13) {
-    plugin::Call<0x4FA0E0, unsigned int, unsigned char, unsigned char, unsigned char, unsigned char, CVector const&, float, float, RwTexture*, unsigned char, unsigned char, unsigned char, unsigned char, float>(id, red, green, blue, alpha, posn, radius, farClip, arg8, arg9, arg10, arg11, arg12, arg13);
+// Converted from cdecl void CCoronas::RegisterCorona(uint id, uchar red, uchar green, uchar blue, uchar alpha, CVector const& posn, float radius, float farClip, RwTexture *texture, uchar flareType, uchar enableReflection, uchar checkObstacles, uchar, float normalAngle) 0x4FA0E0
+void CCoronas::RegisterCorona(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, CVector const& posn, float radius, float farClip, RwTexture* texture, unsigned char flareType, unsigned char enableReflection, unsigned char checkObstacles, unsigned char arg12, float normalAngle) {
+    plugin::Call<0x4FA0E0, unsigned int, unsigned char, unsigned char, unsigned char, unsigned char, CVector const&, float, float, RwTexture*, unsigned char, unsigned char, unsigned char, unsigned char, float>(id, red, green, blue, alpha, posn, radius, farClip, texture, flareType, enableReflection, checkObstacles, arg12, normalAngle);
 }
 
-// Converted from cdecl void CCoronas::RegisterCorona(uint id, uchar red, uchar green, uchar blue, uchar alpha, CVector const& posn, float radius, float farClip, uchar, uchar, uchar, uchar, uchar, float) 0x4FA080
-void CCoronas::RegisterCorona(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, CVector const& posn, float radius, float farClip, unsigned char arg8, unsigned char arg9, unsigned char arg10, unsigned char arg11, unsigned char arg12, float arg13) {
-    plugin::Call<0x4FA080, unsigned int, unsigned char, unsigned char, unsigned char, unsigned char, CVector const&, float, float, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, float>(id, red, green, blue, alpha, posn, radius, farClip, arg8, arg9, arg10, arg11, arg12, arg13);
+// Converted from cdecl void CCoronas::RegisterCorona(uint id, uchar red, uchar green, uchar blue, uchar alpha, CVector const& posn, float radius, float farClip, uchar coronaType, uchar flareType, uchar enableReflection, uchar checkObstacles, uchar, float normalAngle) 0x4FA080
+void CCoronas::RegisterCorona(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, CVector const& posn, float radius, float farClip, unsigned char coronaType, unsigned char flareType, unsigned char enableReflection, unsigned char checkObstacles, unsigned char arg12, float normalAngle) {
+    plugin::Call<0x4FA080, unsigned int, unsigned char, unsigned char, unsigned char, unsigned char, CVector const&, float, float, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, float>(id, red, green, blue, alpha, posn, radius, farClip, coronaType, flareType, enableReflection, checkObstacles, arg12, normalAngle);
 }
 
 // Converted from cdecl void CCoronas::Render(void) 0x4F8FB0

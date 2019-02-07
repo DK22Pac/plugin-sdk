@@ -10,20 +10,19 @@
 #include "CClumpModelInfo.h"
 #include "CVector.h"
 #include "CRGBA.h"
+#include "eHandlingIndex.h"
 
 class CVehicleModelInfo : public CClumpModelInfo {
 public:
     char           m_nLastPrimaryColor;
     char           m_nLastSecondaryColor;
     char           m_szGameName[32];
-private:
-    char _pad56[2];
-public:
+    // char _pad56[2];
     unsigned int   m_nVehicleType;
     int            m_nWheelModelIndex;
     float          m_fWheelScale;
     unsigned int   m_nNumDoors;
-    int            m_nHandlingId;
+    eHandlingIndex m_nHandlingId;
     unsigned int   m_nVehicleClass;
     unsigned int   m_nLvl;
     CVector        m_avDummyPos[10];

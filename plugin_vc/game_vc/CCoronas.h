@@ -14,7 +14,7 @@ public:
     // are there any obstacles between sun and camera
     static bool& SunBlockedByClouds;
     // change coronas brightness immediately
-    static bool& bChangeBrightnessImmediately;
+    static int& bChangeBrightnessImmediately;
     static class CRegisteredCorona *aCoronas;
     static int& LastCamLook;
     // coronas intensity multiplier
