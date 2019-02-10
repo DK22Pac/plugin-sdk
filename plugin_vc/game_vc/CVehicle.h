@@ -120,7 +120,7 @@ public:
         unsigned char b02 : 1;
         unsigned char b03 : 1;
         unsigned char bIsLocked : 1; // Is this guy locked by the script (cannot be removed)
-        unsigned char bIsEngineOn : 1; // For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
+        unsigned char bEngineOn : 1; // For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
         unsigned char bIsHandbrakeOn : 1;
         unsigned char bLightsOn : 1; // Are the lights switched on ?
         unsigned char b08 : 1;
