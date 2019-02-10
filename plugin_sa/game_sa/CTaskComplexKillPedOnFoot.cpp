@@ -6,8 +6,9 @@
 */
 #include "CTaskComplexKillPedOnFoot.h"
 
-CTaskComplexKillPedOnFoot::CTaskComplexKillPedOnFoot() : CTaskComplex(plugin::dummy), 
+CTaskComplexKillPedOnFoot::CTaskComplexKillPedOnFoot(CPed *target, int time, int specFlags, int delay, int chance, char a7) : CTaskComplex(plugin::dummy),
                                                          m_taskTimer(plugin::dummy)
 {
-	((void (__thiscall *)(CTaskComplexKillPedOnFoot *))0x620E30)(this);
+	((void (__thiscall *)(CTaskComplexKillPedOnFoot *, CPed *, int, int, int, int, char))0x620E30)
+        (this, target, time, specFlags, delay, chance, a7);
 }
