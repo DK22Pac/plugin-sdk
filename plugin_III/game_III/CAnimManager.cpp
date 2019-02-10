@@ -20,6 +20,11 @@ CAnimBlock *CAnimManager::GetAnimationBlock(const char *name)
     return plugin::CallAndReturn<CAnimBlock*, 0x4034A0, char const*>(name);
 }
 
+CAnimBlendAssociation *CAnimManager::GetAnimAssociation(int AssocGroupId, int AnimationId)
+{
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4035E0, int, int>(AssocGroupId, AnimationId);
+}
+
 CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int AssocGroupId, int AnimationId, float clumpAssocBlendData)
 {
     return plugin::CallAndReturn<CAnimBlendAssociation*, 0x403710, RpClump*, int, int, float>(clump, AssocGroupId, AnimationId, clumpAssocBlendData);
