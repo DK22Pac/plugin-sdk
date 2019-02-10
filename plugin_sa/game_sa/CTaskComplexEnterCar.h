@@ -13,10 +13,10 @@ Do not delete this comment block. Respect others' work!
 
 enum eTargetDoor
 {
-    DOOR_FRONT_LEFT = 0,
-    DOOR_FRONT_RIGHT = 8,
-    DOOR_REAR_RIGHT = 9,
-    DOOR_REAR_LEFT = 11
+    TARGET_DOOR_FRONT_LEFT = 0,
+    TARGET_DOOR_FRONT_RIGHT = 8,
+    TARGET_DOOR_REAR_RIGHT = 9,
+    TARGET_DOOR_REAR_LEFT = 11
 };
 
 class PLUGIN_API CTaskComplexEnterCar : public CTaskComplex {
