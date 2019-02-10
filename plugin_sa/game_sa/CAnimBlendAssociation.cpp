@@ -26,6 +26,11 @@ int dtor_gaddr(CAnimBlendAssociation) = GLOBAL_ADDRESS_BY_VERSION(0x4CECF0, 0, 0
 int del_dtor_addr(CAnimBlendAssociation) = ADDRESS_BY_VERSION(0x4CEFA0, 0, 0, 0, 0, 0);
 int del_dtor_gaddr(CAnimBlendAssociation) = GLOBAL_ADDRESS_BY_VERSION(0x4CEFA0, 0, 0, 0, 0, 0);
 
+CAnimBlendAssociation::~CAnimBlendAssociation()
+{
+    plugin::CallVirtualMethod<0, CAnimBlendAssociation *>(this, 1);
+}
+
 int addrof(CAnimBlendAssociation::AllocateAnimBlendNodeArray) = ADDRESS_BY_VERSION(0x4CE9F0, 0, 0, 0, 0, 0);
 int gaddrof(CAnimBlendAssociation::AllocateAnimBlendNodeArray) = GLOBAL_ADDRESS_BY_VERSION(0x4CE9F0, 0, 0, 0, 0, 0);
 

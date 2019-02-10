@@ -8,7 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 // Converted from void CAnimBlendAssociation::~CAnimBlendAssociation() 0x0
 CAnimBlendAssociation::~CAnimBlendAssociation() {
-    plugin::CallVirtualMethod<0, CAnimBlendAssociation *>(this);
+    plugin::CallVirtualMethod<0, CAnimBlendAssociation *>(this, 1);
 }
 
 // Converted from thiscall void CAnimBlendAssociation::AllocateAnimBlendNodeArray(int) 0x4016A0 
