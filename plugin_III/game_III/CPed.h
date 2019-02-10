@@ -15,6 +15,7 @@
 #include "CPedStats.h"
 #include "CWeapon.h"
 
+enum eObjective;
 
 enum PLUGIN_API eMoveState {
     PEDMOVE_NONE,
@@ -70,7 +71,7 @@ public:
         unsigned char b29 : 1;
         unsigned char b30 : 1;
         unsigned char b31 : 1;
-        unsigned char b32 : 1;
+        unsigned char bHasObjectiveCompleted : 1;
 
         unsigned char b33 : 1;
         unsigned char b34 : 1;
@@ -272,6 +273,18 @@ public:
     void RestorePreviousState();
     void ClearPointGunAt();
     char ClearLookFlag();
+    void GiveWeapon(eWeaponType weaponType, unsigned int ammo);
+    void SetCurrentWeapon(int slot);
+    void SetObjective(eObjective objective);
+    void SetObjective(eObjective objective, CVector  const& arg1);
+    void SetObjective(eObjective objective, CVector arg1, float arg2);
+    void SetObjective(eObjective objective, short arg1, short arg2);
+    void SetObjective(eObjective objective, void* arg1);
+    void SetObjectiveTimer(unsigned int time);
+
+    void operator delete(void* data);
+    void* operator new(unsigned int size);
+    void* operator new(unsigned int size, int arg1);
 };
 
 VALIDATE_SIZE(CPed, 0x53C);

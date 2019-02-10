@@ -55,3 +55,48 @@ void CPed::ClearPointGunAt() {
 char CPed::ClearLookFlag() {
     return plugin::CallMethodAndReturn<char, 0x4C64F0, CPed *>(this);
 }
+
+void CPed::GiveWeapon(eWeaponType weaponType, unsigned int ammo)
+{
+    ((void(__thiscall *)(CPed*, eWeaponType, unsigned int))0x4CF9B0)(this, weaponType, ammo);
+}
+
+void CPed::SetCurrentWeapon(int slot) {
+    plugin::CallMethod<0x4CFA60, CPed *, int>(this, slot);
+}
+
+void CPed::SetObjective(eObjective objective) {
+    plugin::CallMethod<0x4D82C0, CPed *, eObjective>(this, objective);
+}
+
+void CPed::SetObjective(eObjective objective, CVector const& arg1) {
+    plugin::CallMethod<0x4D8A90, CPed *, eObjective, CVector>(this, objective, arg1);
+}
+
+void CPed::SetObjective(eObjective objective, CVector arg1, float arg2) {
+    plugin::CallMethod<0x4D8770, CPed *, eObjective, CVector, float>(this, objective, arg1, arg2);
+}
+
+void CPed::SetObjective(eObjective objective, short arg1, short arg2) {
+    plugin::CallMethod<0x4D89A0, CPed *, eObjective, short, short>(this, objective, arg1, arg2);
+}
+
+void CPed::SetObjective(eObjective objective, void* arg1) {
+    plugin::CallMethod<0x4D83E0, CPed *, eObjective, void*>(this, objective, arg1);
+}
+
+void CPed::SetObjectiveTimer(unsigned int time) {
+    plugin::CallMethod<0x4D81E0, CPed *, unsigned int>(this, time);
+}
+
+void CPed::operator delete(void* data) {
+    plugin::Call<0x4C5250, void*>(data);
+}
+
+void* CPed::operator new(unsigned int size) {
+    return plugin::CallAndReturn<void*, 0x4C5220, unsigned int>(size);
+}
+
+void* CPed::operator new(unsigned int size, int arg1) {
+    return plugin::CallAndReturn<void*, 0x4C5230, unsigned int, int>(size, arg1);
+}
