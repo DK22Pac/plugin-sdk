@@ -10,8 +10,8 @@ Do not delete this comment block. Respect others' work!
 #include "CClumpModelInfo.h"
 
 class CMloModelInfo : public CClumpModelInfo {
-    int _pad34;
 public:
+    float field_34;
     unsigned int m_nIndex;
     unsigned int m_nCount;
 

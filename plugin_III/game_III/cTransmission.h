@@ -25,8 +25,17 @@ public:
     float           m_fMaxBackwardsVelocity;
     float           m_fCurrentVelocity;
     
+    //variables
+    static tTransmissionGear** pGearRatio;
+    static tTransmissionGear** pGearRatio0;
+    static tTransmissionGear** pGearRatio1;
+    static tTransmissionGear** CurrentGear;
+    static float& fAcceleration;
+    static float& fVelocity;
+    static float& fCheat;
+    
     //funcs
-    float CalculateDriveAcceleration(float const& gasPedal, unsigned char& currrentGear, float& arg2, float const& arg3, bool arg4);
+    float CalculateDriveAcceleration(float const& gasPedal, unsigned char& currrentGear, float& pSpeed, float const& pCurrentSpeed, bool bCheat);
     void CalculateGearForSimpleCar(float velocity, unsigned char& currrentGear);
     void InitGearRatios();
     cTransmission();
