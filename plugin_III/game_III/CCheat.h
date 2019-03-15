@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -18,7 +18,7 @@ public:
     static void ChangePlayerCheat();
     static void MayhemCheat();
     static void EverybodyAttacksPlayerCheat();
-    static bool WeaponsForAllCheat();
+    static void WeaponsForAllCheat();
     static void FastTimeCheat();
     static void SlowTimeCheat();
     static void MoneyCheat();
@@ -29,9 +29,9 @@ public:
     static void CloudyWeatherCheat();
     static void RainyWeatherCheat();
     static void FoggyWeatherCheat();
-    static bool FastWeatherCheat();
-    static bool OnlyRenderWheelsCheat();
-    static bool ChittyChittyBangBangCheat();
+    static void FastWeatherCheat();
+    static void OnlyRenderWheelsCheat();
+    static void ChittyChittyBangBangCheat();
     static void StrongGripCheat();
-    static bool NastyLimbsCheat();
+    static void NastyLimbsCheat();
 };

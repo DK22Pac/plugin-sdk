@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CCheat.h"
 
@@ -41,9 +41,9 @@ void CCheat::EverybodyAttacksPlayerCheat() {
     plugin::Call<0x491270>();
 }
 
-// Converted from cdecl bool CCheat::WeaponsForAllCheat(void) 0x491370 
-bool CCheat::WeaponsForAllCheat() {
-    return plugin::CallAndReturn<bool, 0x491370>();
+// Converted from cdecl void CCheat::WeaponsForAllCheat(void) 0x491370 
+void CCheat::WeaponsForAllCheat() {
+    plugin::Call<0x491370>();
 }
 
 // Converted from cdecl void CCheat::FastTimeCheat(void) 0x4913A0 
@@ -96,19 +96,19 @@ void CCheat::FoggyWeatherCheat() {
     plugin::Call<0x4915B0>();
 }
 
-// Converted from cdecl bool CCheat::FastWeatherCheat(void) 0x4915E0 
-bool CCheat::FastWeatherCheat() {
-    return plugin::CallAndReturn<bool, 0x4915E0>();
+// Converted from cdecl void CCheat::FastWeatherCheat(void) 0x4915E0 
+void CCheat::FastWeatherCheat() {
+    plugin::Call<0x4915E0>();
 }
 
-// Converted from cdecl bool CCheat::OnlyRenderWheelsCheat(void) 0x491610 
-bool CCheat::OnlyRenderWheelsCheat() {
-    return plugin::CallAndReturn<bool, 0x491610>();
+// Converted from cdecl void CCheat::OnlyRenderWheelsCheat(void) 0x491610 
+void CCheat::OnlyRenderWheelsCheat() {
+    plugin::Call<0x491610>();
 }
 
-// Converted from cdecl bool CCheat::ChittyChittyBangBangCheat(void) 0x491640 
-bool CCheat::ChittyChittyBangBangCheat() {
-    return plugin::CallAndReturn<bool, 0x491640>();
+// Converted from cdecl void CCheat::ChittyChittyBangBangCheat(void) 0x491640 
+void CCheat::ChittyChittyBangBangCheat() {
+    plugin::Call<0x491640>();
 }
 
 // Converted from cdecl void CCheat::StrongGripCheat(void) 0x491670 
@@ -116,7 +116,7 @@ void CCheat::StrongGripCheat() {
     plugin::Call<0x491670>();
 }
 
-// Converted from bool void CCheat::NastyLimbsCheat(void) 0x4916A0 
-bool CCheat::NastyLimbsCheat() {
-    return plugin::CallAndReturn<bool, 0x4916A0>();
+// Converted from cdecl void CCheat::NastyLimbsCheat(void) 0x4916A0 
+void CCheat::NastyLimbsCheat() {
+    plugin::Call<0x4916A0>();
 }
