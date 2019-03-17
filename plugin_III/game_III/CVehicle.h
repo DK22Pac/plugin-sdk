@@ -176,6 +176,11 @@ public:
     static bool& bWheelsOnlyCheat;
     static bool& bAllDodosCheat;
     static bool& bCheat3;
+    static bool& bCheat4;                                                                                                                         
+    static bool& bCheat5; 
+    static bool& bAlreadySkidding;
+    static bool& bBraking;
+    static bool& bDriving;
 
     //vtable
 
@@ -184,9 +189,9 @@ public:
     void GetComponentWorldPosition(int componentId, CVector& posnOut);
     // component index in m_apModelNodes array
     bool IsComponentPresent(int componentId);
-    void SetComponentRotation(int componentId, CVector arg1);
+    void SetComponentRotation(int componentId, CVector rotation);
     void OpenDoor(int componentId, eDoors door, float doorOpenRatio);
-    void ProcessOpenDoor(unsigned int arg0, unsigned int arg1, float arg2);
+    void ProcessOpenDoor(unsigned int nodeIndex, unsigned int arg1, float angle);
     bool IsDoorReady(eDoors door);
     bool IsDoorFullyOpen(eDoors door);
     bool IsDoorClosed(eDoors door);
@@ -196,7 +201,7 @@ public:
     void BlowUpCar(CEntity* damager);
     bool SetUpWheelColModel(CColModel* wheelCol);
     void BurstTyre(unsigned char tyreComponentId);
-    bool IsRoomForPedToLeaveCar(unsigned int arg0, CVector* arg1);
+    bool IsRoomForPedToLeaveCar(unsigned int door, CVector* point);
     float GetHeightAboveRoad();
     void PlayCarHorn();
 
@@ -206,7 +211,7 @@ public:
     bool AddPassenger(CPed* passenger, unsigned char seatNumber);
     bool CanBeDeleted();
     bool CanPedEnterCar();
-    bool CanPedExitCar(bool arg0);
+    bool CanPedExitCar();
     bool CanPedOpenLocks(CPed const* ped);
     bool CarHasRoof();
     void ChangeLawEnforcerState(unsigned char state);
@@ -222,7 +227,7 @@ public:
     void ProcessCarAlarm();
     void ProcessDelayedExplosion();
     void ProcessWheel(CVector& arg0, CVector& arg1, CVector& arg2, CVector& arg3, int arg4, float arg5, float arg6, float arg7, char arg8, float* arg9, tWheelState* arg10, unsigned short arg11);
-    float ProcessWheelRotation(tWheelState arg0, CVector const& arg1, CVector const& arg2, float arg3);
+    float ProcessWheelRotation(tWheelState wheelState, CVector const& arg1, CVector const& arg2, float arg3);
     void RemoveDriver();
     void RemovePassenger(CPed* passenger);
     void SetDriver(CPed* driver);

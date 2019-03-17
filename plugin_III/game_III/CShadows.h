@@ -11,6 +11,7 @@
 #include "CVector.h"
 #include "CVector2D.h"
 #include "CPtrList.h"
+#include "CAutomobile.h"
 
 /*
 Shadow rectangle:
@@ -151,5 +152,43 @@ public:
     static CPermanentShadow *aPermanentShadows; // [default: 48]
 
     // static functions
-
+    static void RenderIndicatorShadow(unsigned int id, unsigned char shadowType, RwTexture* texture, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity);
+    static void Init();
+    static void Shutdown();
+    static void AddPermanentShadow(unsigned char type, RwTexture* texture, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, unsigned int time, float upDistance);
+    static void StoreStaticShadow(unsigned int id, unsigned char type, RwTexture* texture, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, float scale, float drawDistance, bool temporaryShadow, float upDistance);
+    static void StoreShadowToBeRendered(unsigned char shadowTextureType, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue);
+    static void StoreShadowToBeRendered(unsigned char type, RwTexture* texture, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, bool drawOnWater, float scale);
+    static void StoreShadowForCar(CAutomobile* car);
+    static void StoreCarLightShadow(CVehicle* vehicle, int id, RwTexture* texture, CVector* posn, float frontX, float frontY, float sideX, float sideY, unsigned char red, unsigned char green, unsigned char blue, float maxViewAngle);
+    static void StoreShadowForPed(CPed* ped, float displacementX, float displacementY, float frontX, float frontY, float sideX, float sideY);
+    static void StoreShadowForPedObject(CEntity* entity, float displacementX, float displacementY, float frontX, float frontY, float sideX, float sideY);
+    static void StoreShadowForTree(CEntity* entity);
+    static void StoreShadowForPole(CEntity* entity, float offsetX, float offsetY, float offsetZ, float poleHeight, float poleWidth, unsigned int localId);
+    static void SetRenderModeForShadowType(unsigned char shadowType);
+    static void RenderStoredShadows();
+    static void RenderStaticShadows();
+    static void GeneratePolysForStaticShadow(short staticShadowIndex);
+    static void CastShadowSectorList(CPtrList& ptrList, float conrerAX, float cornerAY, float cornerBX, float cornerBY, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, float scale, CPolyBunch** ppPolyBunch);
+    static void CastShadowEntity(CEntity* entity, float conrerAX, float cornerAY, float cornerBX, float cornerBY, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, float scale, CPolyBunch** ppPolyBunch);
+    static void UpdateStaticShadows();
+    static void UpdatePermanentShadows();
+    static void CalcPedShadowValues(CVector sunPosn, float* displacementX, float* displacementY, float* frontX, float* frontY, float* sideX, float* sideY);
+    static void RenderExtraPlayerShadows();
+    static void TidyUpShadows();
 };
+
+extern RwTexture*& gpShadowCarTex;
+extern RwTexture*& gpShadowExplosionTex;
+extern RwTexture*& gpShadowHeadLightsTex;
+extern RwTexture*& gpShadowHeliTex;
+extern RwTexture*& gpShadowPedTex;
+extern RwTexture*& gpOutline1Tex;
+extern RwTexture*& gpOutline2Tex;
+extern RwTexture*& gpOutline3Tex;
+extern RwTexture*& gpBloodPoolTex;
+extern RwTexture*& gpReflectionTex;
+extern RwTexture*& gpGoalMarkerTex;
+extern RwTexture*& gpWalkDontTex;
+extern RwTexture*& gpCrackedGlassTex;
+extern RwTexture*& gpPostShadowTex;

@@ -10,6 +10,11 @@ bool& CVehicle::m_bDisableMouseSteering = *(bool *)0x60252C;
 bool& CVehicle::bWheelsOnlyCheat = *(bool *)0x95CD78;
 bool& CVehicle::bAllDodosCheat = *(bool *)0x95CD75;
 bool& CVehicle::bCheat3 = *(bool *)0x95CD66;
+bool& CVehicle::bCheat4 = *(bool *)0x95CD65;
+bool& CVehicle::bCheat5 = *(bool *)0x95CD64;
+bool& CVehicle::bAlreadySkidding = *(bool *)0x64D062;
+bool& CVehicle::bBraking = *(bool *)0x64D060;
+bool& CVehicle::bDriving = *(bool *)0x64D061;
 
 float &fBurstTyreMod = *(float *)0x602538;
 float &fBurstSpeedMax = *(float *)0x60253C;
@@ -29,9 +34,9 @@ bool CVehicle::IsComponentPresent(int componentId) {
     return plugin::CallVirtualMethodAndReturn<bool, 20, CVehicle *, int>(this, componentId);
 }
 
-// Converted from void CVehicle::SetComponentRotation(int componentId, CVector) 0x542620
-void CVehicle::SetComponentRotation(int componentId, CVector arg1) {
-    plugin::CallVirtualMethod<21, CVehicle *, int, CVector>(this, componentId, arg1);
+// Converted from void CVehicle::SetComponentRotation(int componentId, CVector rotation) 0x542620
+void CVehicle::SetComponentRotation(int componentId, CVector rotation) {
+    plugin::CallVirtualMethod<21, CVehicle *, int, CVector>(this, componentId, rotation);
 }
 
 // Converted from void CVehicle::OpenDoor(int componentId, eDoors door, float doorOpenRatio) 0x542630
@@ -39,9 +44,9 @@ void CVehicle::OpenDoor(int componentId, eDoors door, float doorOpenRatio) {
     plugin::CallVirtualMethod<22, CVehicle *, int, eDoors, float>(this, componentId, door, doorOpenRatio);
 }
 
-// Converted from void CVehicle::ProcessOpenDoor(uint, uint, float) 0x4DEAE0
-void CVehicle::ProcessOpenDoor(unsigned int arg0, unsigned int arg1, float arg2) {
-    plugin::CallVirtualMethod<23, CVehicle *, unsigned int, unsigned int, float>(this, arg0, arg1, arg2);
+// Converted from void CVehicle::ProcessOpenDoor(uint nodeIndex, uint, float angle) 0x4DEAE0
+void CVehicle::ProcessOpenDoor(unsigned int nodeIndex, unsigned int arg1, float angle) {
+    plugin::CallVirtualMethod<23, CVehicle *, unsigned int, unsigned int, float>(this, nodeIndex, arg1, angle);
 }
 
 // Converted from bool CVehicle::IsDoorReady(eDoors door) 0x4E03E0
@@ -84,9 +89,9 @@ void CVehicle::BurstTyre(unsigned char tyreComponentId) {
     plugin::CallVirtualMethod<31, CVehicle *, unsigned char>(this, tyreComponentId);
 }
 
-// Converted from bool CVehicle::IsRoomForPedToLeaveCar(uint, CVector *) 0x4C7330
-bool CVehicle::IsRoomForPedToLeaveCar(unsigned int arg0, CVector* arg1) {
-    return plugin::CallVirtualMethodAndReturn<bool, 32, CVehicle *, unsigned int, CVector*>(this, arg0, arg1);
+// Converted from bool CVehicle::IsRoomForPedToLeaveCar(uint door, CVector * point) 0x4C7330
+bool CVehicle::IsRoomForPedToLeaveCar(unsigned int door, CVector* point) {
+    return plugin::CallVirtualMethodAndReturn<bool, 32, CVehicle *, unsigned int, CVector*>(this, door, point);
 }
 
 // Converted from float CVehicle::GetHeightAboveRoad(void) 0x417E60
@@ -119,9 +124,9 @@ bool CVehicle::CanPedEnterCar() {
     return plugin::CallMethodAndReturn<bool, 0x5522F0, CVehicle *>(this);
 }
 
-// Converted from thiscall bool CVehicle::CanPedExitCar(bool) 0x5523C0
-bool CVehicle::CanPedExitCar(bool arg0) {
-    return plugin::CallMethodAndReturn<bool, 0x5523C0, CVehicle *, bool>(this, arg0);
+// Converted from thiscall bool CVehicle::CanPedExitCar(void) 0x5523C0
+bool CVehicle::CanPedExitCar() {
+    return plugin::CallMethodAndReturn<bool, 0x5523C0, CVehicle *>(this);
 }
 
 // Converted from thiscall bool CVehicle::CanPedOpenLocks(CPed const*ped) 0x5522A0
@@ -199,9 +204,9 @@ void CVehicle::ProcessWheel(CVector& arg0, CVector& arg1, CVector& arg2, CVector
     plugin::CallMethod<0x5512E0, CVehicle *, CVector&, CVector&, CVector&, CVector&, int, float, float, float, char, float*, tWheelState*, unsigned short>(this, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
 }
 
-// Converted from thiscall float CVehicle::ProcessWheelRotation(tWheelState, CVector const&, CVector const&, float) 0x551280
-float CVehicle::ProcessWheelRotation(tWheelState arg0, CVector const& arg1, CVector const& arg2, float arg3) {
-    return plugin::CallMethodAndReturn<float, 0x551280, CVehicle *, tWheelState, CVector const&, CVector const&, float>(this, arg0, arg1, arg2, arg3);
+// Converted from thiscall float CVehicle::ProcessWheelRotation(tWheelState wheelState, CVector const&, CVector const&, float) 0x551280
+float CVehicle::ProcessWheelRotation(tWheelState wheelState, CVector const& arg1, CVector const& arg2, float arg3) {
+    return plugin::CallMethodAndReturn<float, 0x551280, CVehicle *, tWheelState, CVector const&, CVector const&, float>(this, wheelState, arg1, arg2, arg3);
 }
 
 // Converted from thiscall void CVehicle::RemoveDriver(void) 0x5520A0
