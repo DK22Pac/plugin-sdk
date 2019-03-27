@@ -10,10 +10,10 @@
 #include "CTask.h"
 
 class PLUGIN_API CTaskComplex : public CTask {
-    CTaskComplex() = delete;
 protected:
     CTaskComplex(plugin::dummy_func_t a) : CTask(a) {}
 public:
+    CTaskComplex();
 	CTask *m_pSubTask;
 
 	// vtable

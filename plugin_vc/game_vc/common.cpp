@@ -149,7 +149,62 @@ RpAtomic* GetCurrentAtomicObjectCB(RwObject* object, void* data)
     return ((RpAtomic* (__cdecl *)(RwObject*, void*))0x59F1E0)(object, data);
 }
 
-CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId)
-{
+CAnimBlendClumpData* RpAnimBlendAllocateData(RpClump* clump) {
+    return plugin::CallAndReturn<CAnimBlendClumpData*, 0x407520, RpClump*>(clump);
+}
+
+void RpAnimBlendClumpFillFrameArray(RpClump* clump, AnimBlendFrameData** frameData) {
+    plugin::Call<0x407AC0, RpClump*, AnimBlendFrameData**>(clump, frameData);
+}
+
+CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId) {
     return plugin::CallAndReturn<CAnimBlendAssociation*, 0x407780, RpClump*, unsigned int>(clump, animId);
+}
+
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x402E20, RpClump*>(clump);
+}
+
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump, unsigned int flags) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4075F0, RpClump*, unsigned int>(clump, flags);
+}
+
+CAnimBlendAssociation* RpAnimBlendClumpGetMainAssociation(RpClump* clump, int n) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x407660, RpClump*, int>(clump, n);
+}
+
+CAnimBlendAssociation* RpAnimBlendClumpGetMainPartialAssociation(RpClump* clump, int n) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x407620, RpClump*, int>(clump, n);
+}
+
+void RpAnimBlendClumpInit(RpClump* clump) {
+    plugin::Call<0x407890, RpClump*>(clump);
+}
+
+bool RpAnimBlendClumpIsInitialized(RpClump* clump) {
+    return plugin::CallAndReturn<bool, 0x407870, RpClump*>(clump);
+}
+
+void RpAnimBlendClumpRemoveAllAssociations(RpClump* clump) {
+    plugin::Call<0x407800, RpClump*>(clump);
+}
+
+void RpAnimBlendClumpRemoveAssociations(RpClump* clump, unsigned int flags) {
+    plugin::Call<0x4077B0, RpClump*, unsigned int>(clump, flags);
+}
+
+void RpAnimBlendClumpSetBlendDeltas(RpClump* clump, unsigned int flags, float delta) {
+    plugin::Call<0x407830, RpClump*, unsigned int, float>(clump, flags, delta);
+}
+
+void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen) {
+    plugin::Call<0x404690, RpClump*, float, bool>(clump, step, onScreen);
+}
+
+CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4075D0, CAnimBlendAssociation*>(association);
+}
+
+bool RpAnimBlendPluginAttach() {
+    return plugin::CallAndReturn<bool, 0x4074D0>();
 }

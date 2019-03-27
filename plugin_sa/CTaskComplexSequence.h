@@ -7,14 +7,13 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CVector.h"
+#include "CTaskComplex.h"
 
-class PLUGIN_API AnimBlendFrameData {
+class CTaskComplexSequence : public CTaskComplex {
+protected:
+    CTaskComplexSequence(plugin::dummy_func_t a) : CTaskComplex(a) {}
 public:
-    unsigned int   m_nFlags;
-    CVector        m_vecOffset;
-    class IFrame  *m_pIFrame;
-    unsigned int   m_nNodeId;
+    CTaskComplexSequence();
+    ~CTaskComplexSequence();
+    bool AddTask(CTask *pTask);
 };
-
-VALIDATE_SIZE(AnimBlendFrameData, 0x18);

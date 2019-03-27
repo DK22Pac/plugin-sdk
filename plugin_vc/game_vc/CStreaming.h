@@ -15,5 +15,6 @@ public:
 
     static void RequestModel(int modelIndex, int flags);
     static void LoadAllRequestedModels(bool onlyQuickRequests);
+    static void RequestSpecialChar(int slot, char const *Name, int streamingFlags);
     static void SetModelIsDeletable(int modelIndex);
 };

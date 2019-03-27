@@ -11,8 +11,10 @@
 #include "CPed.h"
 #include "CVehicle.h"
 #include "CTrain.h"
+#include "CAnimBlendClumpData.h"
 
 class CAnimBlendAssociation;
+class CAnimBlendHierarchy;
 
 float FindPlayerHeading();
 CVector& FindPlayerCentreOfWorld_NoSniperShift();
@@ -46,4 +48,18 @@ void SetLightsWithTimeOfDayColour(RpWorld* world);
 
 RpAtomic* GetCurrentAtomicObjectCB(RwObject* object, void* data);
 
+CAnimBlendClumpData* RpAnimBlendAllocateData(RpClump* clump);
+void RpAnimBlendClumpFillFrameArray(RpClump* clump, AnimBlendFrameData** frameData);
 CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId);
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump);
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump, unsigned int flags);
+CAnimBlendAssociation* RpAnimBlendClumpGetMainAssociation(RpClump* clump, int n);
+CAnimBlendAssociation* RpAnimBlendClumpGetMainPartialAssociation(RpClump* clump, int n);
+void RpAnimBlendClumpInit(RpClump* clump);
+bool RpAnimBlendClumpIsInitialized(RpClump* clump);
+void RpAnimBlendClumpRemoveAllAssociations(RpClump* clump);
+void RpAnimBlendClumpRemoveAssociations(RpClump* clump, unsigned int flags);
+void RpAnimBlendClumpSetBlendDeltas(RpClump* clump, unsigned int flags, float delta);
+void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen);
+CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association);
+bool RpAnimBlendPluginAttach();

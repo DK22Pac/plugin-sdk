@@ -34,15 +34,27 @@ enum eAnimationFlags
     ANIMATION_PLAYER_LR = 0x1000
 };
 
-class PLUGIN_API CAnimBlendAssociation : public AnimAssociationData {
-    PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(CAnimBlendAssociation)
-
+class PLUGIN_API CAnimBlendAssociation {
 public:
+    void *vtable;
+    RwLLLink m_link;
+    unsigned short m_nNumBlendNodes;
+    unsigned short m_nAnimGroup;
+    CAnimBlendNode *m_pNodeArray;
+    CAnimBlendHierarchy *m_pHierarchy;
+    float m_fBlendAmount;
+    float m_fBlendDelta;
+    float m_fCurrentTime;
+    float m_fSpeed;
+    float fTimeStep;
+    short m_nAnimId;
+    unsigned short m_nFlags;
     eAnimBlendCallbackType m_nCallbackType;
     void(*m_pCallbackFunc)(CAnimBlendAssociation *, void *);
     void *m_pCallbackData;
 
     // vtable function #0 (destructor)
+    ~CAnimBlendAssociation();
 };
 
 VTABLE_DESC(CAnimBlendAssociation, 0x68308C, 1);

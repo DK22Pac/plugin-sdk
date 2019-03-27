@@ -28,17 +28,17 @@ public:
         unsigned char bUsesCollision : 1;
         unsigned char bCollisionProcessed : 1;
         unsigned char bIsStatic : 1;
-        unsigned char b04 : 1;
-        unsigned char b05 : 1;
-        unsigned char b06 : 1;
-        unsigned char bIsInSafePosition : 1;
         unsigned char bHasContacted : 1;
+        unsigned char bPedPhysics : 1;
+        unsigned char bIsStuck : 1;
+        unsigned char bIsInSafePosition : 1;
+        unsigned char bUseCollisionRecords : 1;
 
-        unsigned char b09 : 1;
+        unsigned char bWasPostponed : 1;
         unsigned char bExplosionProof : 1;
         unsigned char bIsVisible : 1;
-        unsigned char b12 : 1;
-        unsigned char b13 : 1;
+        unsigned char bHasCollided : 1;
+        unsigned char bRenderScorched : 1;
         unsigned char bFlashing : 1;
         unsigned char bIsBIGBuilding : 1;
         unsigned char bRenderDamaged : 1;
@@ -52,7 +52,7 @@ public:
         unsigned char b23 : 1;
         unsigned char b24 : 1;
 
-        unsigned char b25 : 1;
+        unsigned char bRemoveFromWorld : 1;
         unsigned char bHasHitWall : 2;
         unsigned char bImBeingRendered : 1;
         unsigned char b28 : 1;
@@ -61,7 +61,7 @@ public:
         unsigned char b31 : 1;
         unsigned char b32 : 1;
 
-        unsigned char b33 : 1;
+        unsigned char bDistanceFade : 1;
         unsigned char b34 : 2;
     } m_nFlags;
 private:

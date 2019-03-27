@@ -76,7 +76,7 @@ public:
         unsigned char bIsPedDieAnimPlaying : 1;
         unsigned char b30 : 1;
         unsigned char b31 : 1;
-        unsigned char b32 : 1;
+        unsigned char bHasObjectiveCompleted : 1;
 
         unsigned char bKindaStayInSamePlace : 1;
         unsigned char bBeingChasedByPolice : 1;

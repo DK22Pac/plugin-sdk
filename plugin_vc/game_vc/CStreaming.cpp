@@ -16,6 +16,11 @@ void CStreaming::LoadAllRequestedModels(bool onlyQuickRequests) {
     plugin::Call<0x40B5F0, bool>(onlyQuickRequests);
 }
 
+void CStreaming::RequestSpecialChar(int slot, char const *Name, int streamingFlags)
+{
+    plugin::Call<0x409A30, int, char const*, int>(slot, Name, streamingFlags);
+}
+
 void CStreaming::SetModelIsDeletable(int modelIndex) {
     plugin::Call<0x40AEA0, int>(modelIndex);
 }

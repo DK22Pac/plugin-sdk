@@ -6,6 +6,11 @@
 */
 #include "CTaskComplex.h"
 
+CTaskComplex::CTaskComplex() : CTask(plugin::dummy)
+{
+    plugin::CallMethod<0x61A3B0, CTaskComplex *>(this);
+}
+
 void CTaskComplex::SetSubTask(CTask *subTask)
 {
 	((void (__thiscall *)(CTaskComplex *, CTask *))plugin::GetVMT(this, 7))(this, subTask);

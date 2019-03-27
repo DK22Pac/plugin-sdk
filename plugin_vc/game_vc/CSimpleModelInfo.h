@@ -10,6 +10,7 @@
 #include "CBaseModelInfo.h"
 
 class CSimpleModelInfo : public CBaseModelInfo {
+public:
     RpAtomic         *m_apAtomics[2];
     union {
         CSimpleModelInfo *m_pLodModelInfo;

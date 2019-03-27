@@ -13,6 +13,8 @@
 #include "CTrain.h"
 #include "CAnimBlendClumpData.h"
 
+class CAnimBlendAssociation;
+
 // returns player angle in radians
 float FindPlayerHeading();
 // gets player coords with skipping sniper shift
@@ -50,10 +52,23 @@ void DestroyDebugFont();
 void FlushObrsPrintfs();
 void DefinedState();
 CAnimBlendClumpData* RpAnimBlendAllocateData(RpClump* clump);
-bool RpAnimBlendPluginAttach();
 AnimBlendFrameData* RpAnimBlendClumpFindFrame(RpClump* clump, char const* name);
+CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId);
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump);
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump, unsigned int flags);
+CAnimBlendAssociation* RpAnimBlendClumpGetMainAssociation(RpClump* clump, CAnimBlendAssociation** pAssociation, float* blendAmount);
+CAnimBlendAssociation* RpAnimBlendClumpGetMainAssociation(RpClump* clump, int n);
+CAnimBlendAssociation* RpAnimBlendClumpGetMainPartialAssociation(RpClump* clump);
+CAnimBlendAssociation* RpAnimBlendClumpGetMainPartialAssociation(RpClump* clump, int n);
 void RpAnimBlendClumpInit(RpClump* clump);
 bool RpAnimBlendClumpIsInitialized(RpClump* clump);
+void RpAnimBlendClumpRemoveAllAssociations(RpClump* clump);
+void RpAnimBlendClumpRemoveAssociations(RpClump* clump, unsigned int flags);
+void RpAnimBlendClumpSetBlendDeltas(RpClump* clump, unsigned int flags, float delta);
+void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen);
+CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association);
+CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association, unsigned int flags);
+bool RpAnimBlendPluginAttach();
 RpClump* AnimBlendClumpDestroy(RpClump* clump);
 void SetAmbientColours(RwRGBAReal* colours);
 void SetAmbientColoursForPedsCarsAndObjects();

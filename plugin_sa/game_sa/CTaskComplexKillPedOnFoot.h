@@ -25,7 +25,7 @@ public:
     signed int     m_nTime;
     CTaskTimer     m_taskTimer;
 
-    CTaskComplexKillPedOnFoot();
+    CTaskComplexKillPedOnFoot(CPed *target, int time, int specFlags, int delay, int chance, char a7);
 };
 
 VALIDATE_SIZE(CTaskComplexKillPedOnFoot, 0x38);

@@ -9,38 +9,60 @@
 #include "PluginBase.h"
 #include "CPathFind.h"
 #include "CPathNode.h"
+#include "eCarMission.h"
+
+enum eCarTempAction : char
+{
+    TEMPACT_NONE = 0,
+    TEMPACT_WAIT = 1,
+    TEMPACT_REVERSE = 2,
+    TEMPACT_HANDBRAKETURNLEFT = 3,
+    TEMPACT_HANDBRAKETURNRIGHT = 4,
+    TEMPACT_HANDBRAKESTRAIGHT = 5,
+    TEMPACT_TURNLEFT = 6,
+    TEMPACT_TURNRIGHT = 7,
+    TEMPACT_GOFORWARD = 8,
+    TEMPACT_SWERVELEFT = 9,
+    TEMPACT_SWERVERIGHT = 0xA
+};
+
+enum eCarDrivingStyle : char
+{
+    DRIVINGSTYLE_STOP_FOR_CARS,
+    DRIVINGSTYLE_SLOW_DOWN_FOR_CARS,
+    DRIVINGSTYLE_AVOID_CARS,
+    DRIVINGSTYLE_PLOUGH_THROUGH,
+    DRIVINGSTYLE_STOP_FOR_CARS_IGNORE_LIGHTS
+};
 
 class CAutoPilot {
 public:
-    CNodeAddress         m_currentAddress;
-    CNodeAddress         m_startingRouteNode;
-    CNodeAddress field_8;
-    int field_C;
-    unsigned int         m_nSpeedScaleFactor;
-    CCarPathLinkAddress  m_nCurrentPathNodeInfo;
-    CCarPathLinkAddress  m_nNextPathNodeInfo;
-    CCarPathLinkAddress  m_nPreviousPathNodeInfo;
-    char field_1A[2];
-    int         field_1C;
-    unsigned int         m_dwTimeToStartMission;
-    unsigned int m_dwTimeSwitchedToRealPhysics;
-private:
-    char pad_0;
-public:
-    unsigned char _smthcurr;
-    unsigned char _smthNext;
-    char m_nCuurentLane;
+    CNodeAddress  m_currentAddress;
+    CNodeAddress m_startingRouteNode;
+    CNodeAddress m_PreviousRouteNode;
+    unsigned int m_nTotalSpeedScaleFactor;
+    unsigned int m_nSpeedScaleFactor;
+    unsigned int m_nCurrentPathNodeInfo;
+    unsigned int m_nNextPathNodeInfo;
+    unsigned int m_nPreviousPathNodeInfo;
+    unsigned int m_nTimeToStartMission;
+    unsigned int m_nTimeSwitchedToRealPhysics;
+    char m_nPreviousDirection;
+    char m_nCurrentDirecton;
+    char m_nNextDirection;
+    char m_nCurrentLane;
     char m_nNextLane;
-    char m_nDrivingStyle;
-    char m_nCarMission; 
-    char m_nTempAction;
-    unsigned int m_dwTempActionTime;
+    eCarDrivingStyle m_nDrivingStyle;
+    eCarMission m_nCarMission;
+    eCarTempAction m_nAnimationId;
+    unsigned int m_nAnimationTime;
     float m_fMaxTrafficSpeed;
     unsigned char m_nCruiseSpeed;
+
     char unknown[11];
     CVector m_vecDestinationCoors;
     CNodeAddress m_aPathFindNodesInfo[8];
-    short m_wPathFindNodesCount;
+    short m_nPathFindNodesCount;
 private:
     char _pad[2];
 };

@@ -69,7 +69,7 @@ public:
     //funcs
 
     CObject(CDummyObject* dummyObject);
-    CObject(int arg0, bool arg1);
+    CObject(int modelId, bool arg1);
     CObject();
     bool CanBeDeleted();
     static void DeleteAllMissionObjects();
