@@ -20,3 +20,18 @@ void CPedModelInfo::AnimatePedColModelSkinnedWorld(RpClump* clump) {
 void CPedModelInfo::CreateHitColModelSkinned(RpClump* clump) {
     plugin::CallMethod<0x566300, CPedModelInfo *, RpClump*>(this, clump);
 }
+
+// Converted from thiscall void CPedModelInfo::CPedModelInfo(void) 0x560120
+CPedModelInfo::CPedModelInfo() {
+    plugin::CallMethod<0x560120, CPedModelInfo *>(this);
+}
+
+// Converted from thiscall void CPedModelInfo::~CPedModelInfo() 0x5600E0
+CPedModelInfo::~CPedModelInfo() {
+    plugin::CallMethod<0x5600E0, CPedModelInfo *>(this);
+}
+
+// Converted from thiscall void CStore<CPedModelInfo,130>::~CStore() 0x5600C0 
+PedModelStore::~PedModelStore() {
+    plugin::CallMethod<0x5600C0, PedModelStore *>(this);
+}

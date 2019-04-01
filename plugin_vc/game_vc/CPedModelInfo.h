@@ -11,21 +11,27 @@ Do not delete this comment block. Respect others' work!
 
 class CPedModelInfo : public CClumpModelInfo {
 public:
-    int m_nAnigGroupId;
-    int m_nPedType;
-    int m_nPedStatType;
+    unsigned int m_nAnigGroupId;
+    unsigned int m_nPedType;
+    unsigned int m_nPedStatType;
     unsigned int m_nCarsCanDriveMask;
     CColModel *m_pHitColModel;
     char m_anPreferredRadioStations[2];
-private:
-    char _pad46[2];
-public:
+    //char _pad46[2];
 
     //funcs
-
+    CPedModelInfo();
+    ~CPedModelInfo();
     void AnimatePedColModelSkinned(RpClump* clump);
     void AnimatePedColModelSkinnedWorld(RpClump* clump);
     void CreateHitColModelSkinned(RpClump* clump);
 };
 
 VALIDATE_SIZE(CPedModelInfo, 0x48);
+
+struct PedModelStore {
+    unsigned int m_nCount;
+    CPedModelInfo m_sObject[130];
+
+    ~PedModelStore();
+};
