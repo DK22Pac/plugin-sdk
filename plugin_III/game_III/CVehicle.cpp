@@ -18,6 +18,39 @@ bool& CVehicle::bDriving = *(bool *)0x64D061;
 
 float &fBurstTyreMod = *(float *)0x602538;
 float &fBurstSpeedMax = *(float *)0x60253C;
+float &fSpeedResistanceY  = *(float *)0x6025A4;
+float &fSpeedResistanceZ  = *(float *)0x6025A8;
+float &fThrustVar         = *(float *)0x6025AC;
+float &fRotorFallOff      = *(float *)0x6025B0;
+float &fStabiliseVar      = *(float *)0x6025B4;
+float &fPitchVar          = *(float *)0x6025B8;
+float &fRollVar           = *(float *)0x6025BC;
+float &fYawVar            = *(float *)0x6025C0;
+float &fPitchBrake        = *(float *)0x6025C4;
+float &fRollBrake         = *(float *)0x6025C8;
+float &fSpinSpeedRes      = *(float *)0x6025CC;
+float &fRCAeroThrust      = *(float *)0x6025D0;
+float &fRCPropFallOff     = *(float *)0x6025D4;
+float &fRCYawMult         = *(float *)0x6025D8;
+float &fRCRudderMult      = *(float *)0x6025DC;
+float &fRCSideSlipMult    = *(float *)0x6025E0;
+float &fRCRollMult        = *(float *)0x6025E4;
+float &fRCRollStabilise   = *(float *)0x6025E8;
+float &fRCPitchMult       = *(float *)0x6025EC;
+float &fRCTailMult        = *(float *)0x6025F0;
+float &fRCFormLiftMult    = *(float *)0x6025F4;
+float &fRCAttackLiftMult  = *(float *)0x6025F8;
+float &fSeaThrust         = *(float *)0x6025FC;
+float &fSeaPropFallOff    = *(float *)0x602600;
+float &fSeaYawMult        = *(float *)0x602604;
+float &fSeaRudderMult     = *(float *)0x602608;
+float &fSeaSideSlipMult   = *(float *)0x60260C;
+float &fSeaRollMult       = *(float *)0x602610;
+float &fSeaRollStabilise  = *(float *)0x602614;
+float &fSeaPitchMult      = *(float *)0x602618;
+float &fSeaTailMult       = *(float *)0x60261C;
+float &fSeaFormLiftMult   = *(float *)0x602620;
+float &fSeaAttackLiftMult = *(float *)0x602624;
 
 // Converted from void CVehicle::ProcessControlInputs(uchar playerNum) 0x54B150
 void CVehicle::ProcessControlInputs(unsigned char playerNum) {

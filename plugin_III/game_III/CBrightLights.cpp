@@ -6,6 +6,24 @@
 */
 #include "CBrightLights.h"
 
+float &TrafficLightsSide            = *(float *)0x5FEEE0;
+float &TrafficLightsUp              = *(float *)0x5FEEF8;
+unsigned short &TrafficLightIndices = *(unsigned short *)0x5FEF10;
+float &LongCarHeadLightsSide        = *(float *)0x5FEF28;
+float &LongCarHeadLightsFront       = *(float *)0x5FEF48;
+float &LongCarHeadLightsUp          = *(float *)0x5FEF68;
+float &SmallCarHeadLightsSide       = *(float *)0x5FEF88;
+float &SmallCarHeadLightsFront      = *(float *)0x5FEFA8;
+float &SmallCarHeadLightsUp         = *(float *)0x5FEFC8;
+float &BigCarHeadLightsSide         = *(float *)0x5FEFE8;
+float &BigCarHeadLightsFront        = *(float *)0x5FF008;
+float &BigCarHeadLightsUp           = *(float *)0x5FF028;
+float &TallCarHeadLightsSide        = *(float *)0x5FF048;
+float &TallCarHeadLightsFront       = *(float *)0x5FF068;
+float &TallCarHeadLightsUp          = *(float *)0x5FF088;
+unsigned short &CubeIndices         = *(unsigned short *)0x5FF0A8;
+float &SirenLightsSide              = *(float *)0x5FF0F0;
+float &SirenLightsUp                = *(float *)0x5FF108;
 unsigned int MAX_NUM_BRIGHTLIGHTS = 32;
 
 CBrightLight *CBrightLights::aBrightLights = (CBrightLight *)0x733A68;

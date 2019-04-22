@@ -27,14 +27,15 @@ public:
     static CBoat **apFrameWakeGeneratingBoats; // static CBoat *apFrameWakeGeneratingBoats[4]
     static float &WAKE_LIFETIME; // 400.0
     static float &MIN_WAKE_INTERVAL; // 1.0
-    
+    static float &MAX_WAKE_LENGTH; // 50.0
+
     // functions
     void AddWakePoint(CVector posn);
     void ApplyWaterResistance();
     CBoat(int modelIndex, unsigned char createdBy);
     static void FillBoatList();
-    static bool IsSectorAffectedByWake(CVector2D arg0, float arg1, CBoat** arg2);
-    static float IsVertexAffectedByWake(CVector arg0, CBoat* arg1);
+    static bool IsSectorAffectedByWake(CVector2D point, float wakeLength, CBoat** boat);
+    static float IsVertexAffectedByWake(CVector point, CBoat* boat);
     void PruneWakeTrail();
     void SetupModelNodes();
 };
