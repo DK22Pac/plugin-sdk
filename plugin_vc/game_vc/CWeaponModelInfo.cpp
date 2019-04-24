@@ -20,3 +20,8 @@ void CWeaponModelInfo::Init() {
 int CWeaponModelInfo::SetWeaponInfo(int weaponType) {
     return plugin::CallMethodAndReturn<int, 0x629C30, CWeaponModelInfo *, int>(this, weaponType);
 }
+
+// Converted from thiscall void CStore<CWeaponModelInfo,37>::~CStore() 0x5601E0 
+WeaponModelStore::~WeaponModelStore() {
+    plugin::CallMethod<0x5601E0, WeaponModelStore *>(this);
+}

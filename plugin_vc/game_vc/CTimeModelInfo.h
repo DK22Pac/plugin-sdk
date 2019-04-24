@@ -18,3 +18,10 @@ public:
 };
 
 VALIDATE_SIZE(CTimeModelInfo, 0x50);
+
+struct TimeModelStore {
+    unsigned int m_nCount;
+    CTimeModelInfo m_sObject[385];
+
+    ~TimeModelStore();
+};

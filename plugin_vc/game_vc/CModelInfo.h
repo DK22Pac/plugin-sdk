@@ -16,7 +16,13 @@
 class CModelInfo {
 public:
     // variables
-    static CBaseModelInfo **ms_modelInfoPtrs; // CModelInfo::ms_modelInfoPtrs[6500];
+    static CBaseModelInfo **ms_modelInfoPtrs;       // [6500];
+    static ClumpModelStore* ms_clumpModelStore;     // [5]
+    static PedModelStore* ms_pedModelStore;         // [130]
+    static SimpleModelStore* ms_simpleModelStore;   // [3885]
+    static TimeModelStore* ms_timeModelStore;       // [385]
+    static VehicleModelStore* ms_vehicleModelStore; // [110]
+    static WeaponModelStore* ms_weaponModelStore;   // [37]
 
     //funcs
     static CClumpModelInfo* AddClumpModel(int index);

@@ -10,3 +10,8 @@ Do not delete this comment block. Respect others' work!
 void CTimeModelInfo::FindOtherTimeModel() {
     plugin::CallMethod<0x56F330, CTimeModelInfo *>(this);
 }
+
+// Converted from thiscall void CStore<CTimeModelInfo,385>::~CStore() 0x560240 
+TimeModelStore::~TimeModelStore() {
+    plugin::CallMethod<0x560240, TimeModelStore *>(this);
+}

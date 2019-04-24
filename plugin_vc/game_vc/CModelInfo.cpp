@@ -7,6 +7,12 @@ Do not delete this comment block. Respect others' work!
 #include "CModelInfo.h"
 
 CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo**)0x92D4C8;
+ClumpModelStore *CModelInfo::ms_clumpModelStore = (ClumpModelStore*)0x752988;
+PedModelStore *CModelInfo::ms_pedModelStore = (PedModelStore*)0x75CA70;
+SimpleModelStore *CModelInfo::ms_simpleModelStore = (SimpleModelStore*)0x709EAC;
+TimeModelStore *CModelInfo::ms_timeModelStore = (TimeModelStore*)0x74A6B0;
+VehicleModelStore *CModelInfo::ms_vehicleModelStore = (VehicleModelStore*)0x752A88;
+WeaponModelStore *CModelInfo::ms_weaponModelStore = (WeaponModelStore*)0x751F10;
 
 // Converted from cdecl CClumpModelInfo* CModelInfo::AddClumpModel(int index) 0x55F640
 CClumpModelInfo* CModelInfo::AddClumpModel(int index) {

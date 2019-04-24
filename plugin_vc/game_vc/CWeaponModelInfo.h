@@ -22,3 +22,10 @@ public:
 };
 
 VALIDATE_SIZE(CWeaponModelInfo, 0x48);
+
+struct WeaponModelStore {
+    unsigned int m_nCount;
+    CWeaponModelInfo m_sObject[37];
+
+    ~WeaponModelStore();
+};

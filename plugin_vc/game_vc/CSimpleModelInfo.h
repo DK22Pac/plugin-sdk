@@ -52,3 +52,10 @@ public:
 };
 
 VALIDATE_SIZE(CSimpleModelInfo, 0x44);
+
+struct SimpleModelStore {
+    unsigned int m_nCount;
+    CSimpleModelInfo m_sObject[3885];
+
+    ~SimpleModelStore();
+};

@@ -45,3 +45,8 @@ void CSimpleModelInfo::SetLodDistances(float* distances) {
 void CSimpleModelInfo::SetupBigBuilding(int minLineIndex, int maxLineIndex) {
     plugin::CallMethod<0x56F420, CSimpleModelInfo *, int, int>(this, minLineIndex, maxLineIndex);
 }
+
+// Converted from thiscall void CStore<CSimpleModelInfo,3885>::~CStore() 0x5602A0 
+SimpleModelStore::~SimpleModelStore() {
+    plugin::CallMethod<0x5602A0, SimpleModelStore *>(this);
+}
