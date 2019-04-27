@@ -3,9 +3,18 @@ newoption {
    description = "Plugin-SDK directory (optional)"
 }
 
+newoption {
+   trigger     = "winxp",
+   description = "Windows XP support (optional)"
+}
+
 sdkdir = _OPTIONS["pluginsdkdir"]
 if sdkdir == nil then
     sdkdir = os.getenv("PLUGIN_SDK_DIR")
+end
+winxp = _OPTIONS["winxp"]
+if winxp == nil then
+    winxp = false
 end
 mingw = _ACTION == "codeblocks"
 msbuild = not mingw
@@ -83,12 +92,23 @@ function setToolset()
     if _ACTION == "codeblocks" then
         toolset "gcc"
         buildoptions "-std=gnu++17"
-    elseif _ACTION == "vs2017" then
-        toolset "v141_xp"
+    elseif _ACTION == "vs2019" or _ACTION == "vs2017" or _ACTION == "vs2015" then
+        if winxp then
+            if _ACTION == "vs2015" then
+                toolset "v140_xp"
+            else
+                toolset "v141_xp"
+            end
+            if _ACTION ~= "vs2019" then
+                systemversion "7.0"
+            end
+        else
+            if _ACTION == "vs2017" then
+                systemversion "latest"
+            end
+        end
         buildoptions "/std:c++latest"
-    elseif _ACTION == "vs2015" then
-        toolset "v140_xp"
-        buildoptions "/std:c++latest"
+        
     end
 end
 
@@ -97,13 +117,17 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     language "C++"
     architecture "x32"
     characterset "MBCS"
-    flags "StaticRuntime"
+    staticruntime "On"
     
     local projectPath = (sdkdir .. "\\" .. projectName)
     
     if msbuild then
-        defines { "_USING_V110_SDK71_", "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
-        buildoptions { "/Zc:threadSafeInit-", "/sdl-" }
+        if winxp then
+            defines "_USING_V110_SDK71_"
+            buildoptions { "/Zc:threadSafeInit-" }
+        end
+        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
+        buildoptions { "/sdl-" }
         disablewarnings "4073"
     end
     if mingw then
@@ -315,10 +339,13 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
         l2 = "\\\"\""
     end
     if msbuild then
-        aryDefines[counter] = "_USING_V110_SDK71_"
-        aryDefines[counter + 1] = "_CRT_SECURE_NO_WARNINGS"
-        aryDefines[counter + 2] = "_CRT_NON_CONFORMING_SWPRINTFS"
-        counter = counter + 3
+        if winxp then
+            aryDefines[counter] = "_USING_V110_SDK71_"
+            counter = counter + 1
+        end
+        aryDefines[counter] = "_CRT_SECURE_NO_WARNINGS"
+        aryDefines[counter + 1] = "_CRT_NON_CONFORMING_SWPRINTFS"
+        counter = counter + 2
     end
     aryDefines[counter] = game
     aryDefines[counter + 1] = projectDefinition("GTAGAME_NAME", gameName, l1, l2)
@@ -478,9 +505,13 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     language "C++"
     architecture "x32"
     characterset ("MBCS")
-    flags { "StaticRuntime", "NoImportLib" }
+    staticruntime "On"
+    flags { "NoImportLib" }
     if msbuild then
-        buildoptions { "/Zc:threadSafeInit-", "/sdl-" }
+        if winxp then
+            buildoptions { "/Zc:threadSafeInit-" }
+        end
+        buildoptions { "/sdl-" }
         linkoptions "/LTCG" 
     end
     if mingw then
