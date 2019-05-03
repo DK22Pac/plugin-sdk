@@ -388,5 +388,23 @@ void Shader::DrawRect(float left, float top, float right, float bottom) {
     GetD3DDevice()->SetViewport(&oldViewport);
 }
 
+void plugin::Shader::SetMeshTexture(RxD3D9InstanceData* mesh, unsigned int idx) {
+	if (mesh && mesh->material && mesh->material->texture)
+		RwD3D9SetTexture(mesh->material->texture, idx);
+	else
+		RwD3D9SetTexture(0, idx);
+}
+
+void plugin::Shader::SetMaterialTexture(RpMaterial* material, unsigned int idx) {
+	if (material && material->texture)
+		RwD3D9SetTexture(material->texture, idx);
+	else
+		RwD3D9SetTexture(0, idx);
+}
+
+void plugin::Shader::SetTexture(RwTexture* texture, unsigned int idx) {
+	RwD3D9SetTexture(texture, idx);
+}
+
 #endif
 #endif

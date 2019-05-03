@@ -19,18 +19,14 @@
 
 namespace plugin {
     class Shader : public DynamicResource {
-        IDirect3DPixelShader9 *pixelShader;
-        IDirect3DVertexShader9 *vertexShader;
-#ifdef _MSC_VER
-        union {
-#endif
-            std::string filename;
-#ifdef _MSC_VER
-            std::wstring filename_w;
-        };
-        bool isWidePath;
-#endif
-        bool bDebugCompilation;
+        IDirect3DPixelShader9 *pixelShader = nullptr;
+        IDirect3DVertexShader9 *vertexShader = nullptr;
+		std::string filename;
+	#ifdef _MSC_VER
+		std::wstring filename_w;
+        bool isWidePath = false;
+	#endif
+        bool bDebugCompilation = false;
         std::string name;
 
     public:
@@ -71,6 +67,9 @@ namespace plugin {
         bool SaveToBinary(std::string const &Filename);
         static void GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *view, D3DMATRIX *proj, D3DMATRIX *wvp);
         static void DrawRect(float left, float top, float right, float bottom);
+		void SetMeshTexture(RxD3D9InstanceData* mesh, unsigned int idx);
+		void SetMaterialTexture(RpMaterial* material, unsigned int idx);
+		void SetTexture(RwTexture* texture, unsigned int idx);
 
         Shader(Shader const &) = delete;
         Shader &operator=(Shader const &) = delete;

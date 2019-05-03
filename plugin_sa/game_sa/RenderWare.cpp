@@ -3496,3 +3496,39 @@ void _rwObjectHasFrameSetFrame(void *object, RwFrame *frame) {
 void _rwObjectHasFrameReleaseFrame(void *object) {
     plugin::Call<0x804F40, void *>(object);
 }
+
+RpAtomic *_rpD3D9SkinVertexShaderMatrixUpdate(RwMatrix *matrices, RpAtomic *atomic, RpSkin *skin) {
+	return plugin::CallAndReturn<RpAtomic *, 0x7C78A0, RwMatrix *, RpAtomic *, RpSkin *>(matrices, atomic, skin);
+}
+
+void _rwD3D9SetStreams(RxD3D9VertexStream *streams, RwBool useOffsets) {
+	plugin::Call<0x7FA090, RxD3D9VertexStream *, RwBool>(streams, useOffsets);
+}
+
+RwBool _rwD3D9RenderStateVertexAlphaEnable(RwBool enable) {
+	return plugin::CallAndReturn<RwBool, 0x7FE0A0, RwBool>(enable);
+}
+
+RwBool _rwD3D9RenderStateIsVertexAlphaEnable() {
+	return plugin::CallAndReturn<RwBool, 0x7FE190>();
+}
+
+RwBool _rwD3D9CheckValidCameraTextureFormat(D3DFORMAT format) {
+	return plugin::CallAndReturn<RwBool, 0x4CBE20, D3DFORMAT>(format);
+}
+
+void _rwD3D9SetVertexDeclaration(void *vertexDeclaration) {
+	plugin::Call<0x7F9F70, void *>(vertexDeclaration);
+}
+
+void _rwD3D9SetIndices(void *indices) {
+	plugin::Call<0x7FA1C0, void *>(indices);
+}
+
+void _rwD3D9DrawPrimitive(RwUInt32 primitiveType, RwUInt32 startIndex, RwUInt32 primitiveCount) {
+	plugin::Call<0x7FA360, RwUInt32, RwUInt32, RwUInt32>(primitiveType, startIndex, primitiveCount);
+}
+
+RwBool _rwStreamReadChunkHeader(RwStream *stream, RwUInt32 *pType, RwUInt32 *pLength, RwUInt32 *pVersion, RwUInt32 *pBuild) {
+    return plugin::CallAndReturn<RwBool, 0x7ED0F0, RwStream *, RwUInt32 *, RwUInt32 *, RwUInt32 *, RwUInt32 *>(stream, pType, pLength, pVersion, pBuild);
+}

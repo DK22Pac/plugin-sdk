@@ -939,6 +939,16 @@ void _rpMaterialSetDefaultSurfaceProperties(RwSurfaceProperties *surfProps);
 void _rwObjectHasFrameSetFrame(void *object, RwFrame *frame);
 void _rwObjectHasFrameReleaseFrame(void *object);
 
+RpAtomic *_rpD3D9SkinVertexShaderMatrixUpdate(RwMatrix *matrices, RpAtomic *atomic, RpSkin *skin); // 0x7C78A0
+void _rwD3D9SetStreams(RxD3D9VertexStream* streams, RwBool useOffsets); // 0x7FA090
+RwBool _rwD3D9RenderStateVertexAlphaEnable(RwBool enable); // 0x7FE0A0
+RwBool _rwD3D9RenderStateIsVertexAlphaEnable(); // 0x7FE190
+RwBool _rwD3D9CheckValidCameraTextureFormat(D3DFORMAT format); // 0x4CBE20
+void _rwD3D9SetVertexDeclaration(void *vertexDeclaration); // 0x7F9F70
+void _rwD3D9SetIndices(void *indices); // 0x7FA1C0
+void _rwD3D9DrawPrimitive(RwUInt32 primitiveType, RwUInt32 startIndex, RwUInt32 primitiveCount); // 0x7FA360
+
+RwBool _rwStreamReadChunkHeader(RwStream *stream, RwUInt32 *pType, RwUInt32 *pLength, RwUInt32 *pVersion, RwUInt32 *pBuild); // 0x7ED0F0
 
 #define RwRenderStateGetMacro(_state, _value)   \
     (RWSRCGLOBAL(dOpenDevice).fpRenderStateGet(_state, _value))
