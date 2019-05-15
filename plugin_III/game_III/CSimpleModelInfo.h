@@ -17,12 +17,6 @@ public:
     unsigned char  m_nVisibility; // 0 - invisible, 255 - fully visible
     unsigned short m_nFlags;
 
-    //vtable
-    void DeleteRwObject();
-    void CreateInstance();
-    void CreateInstance(RwMatrixTag* m);
-    void GetRwObject();
-
     //funcs
     CSimpleModelInfo();
     void FindRelatedModel();

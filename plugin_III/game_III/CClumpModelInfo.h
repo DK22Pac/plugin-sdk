@@ -21,11 +21,6 @@ public:
     RpClump *m_pClump;
     
     //vtable
-
-    void DeleteRwObject();
-    void CreateInstance();
-    void CreateInstance(RwMatrixTag* arg0);
-    void GetRwObject();
     void SetClump(RpClump* clump);
 
     //funcs
