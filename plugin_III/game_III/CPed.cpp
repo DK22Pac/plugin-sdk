@@ -89,6 +89,10 @@ void CPed::SetObjectiveTimer(unsigned int time) {
     plugin::CallMethod<0x4D81E0, CPed *, unsigned int>(this, time);
 }
 
+void CPed::WarpPedIntoCar(CVehicle* vehicle) {
+    plugin::CallMethod<0x4D7D20, CPed *, CVehicle*>(this, vehicle);
+}
+
 void CPed::operator delete(void* data) {
     plugin::Call<0x4C5250, void*>(data);
 }
