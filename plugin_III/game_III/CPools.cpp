@@ -14,8 +14,7 @@ CPool<CVehicle, CAutomobile> *&CPools::ms_pVehiclePool = *(CPool<CVehicle, CAuto
 CPool<CPed, CPlayerPed> *&CPools::ms_pPedPool = *(CPool<CPed, CPlayerPed> **)0x8F2C60; 
 CPool<CObject, CCutsceneHead> *&CPools::ms_pObjectPool = *(CPool<CObject, CCutsceneHead> **)0x880E28;
 CPool<CDummy, CDummyObject>  *&CPools::ms_pDummyPool = *(CPool<CDummy, CDummyObject> **)0x8F2C18;
-
-// CPools::ms_pAudioScriptObjectPool 0x8F1B6C; 
+CPool<cAudioScriptObject>  *&CPools::ms_pAudioScriptObjectPool = *(CPool<cAudioScriptObject> **)0x8F1B6C;
 
 // Converted from cdecl void CPools::Initialise(void) 0x4A1770
 void CPools::Initialise() {
