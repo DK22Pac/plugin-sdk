@@ -6,7 +6,7 @@
 */
 #include "CGangs.h"
 
-CGangs *CGangs::Gang = (CGangs*)0x6EDF78;
+CGangInfo *CGangs::Gang = (CGangInfo*)0x6EDF78;
 
 // Converted from cdecl void CGangs::Initialise(void) 0x4C3FB0 
 void CGangs::Initialise() {

@@ -15,7 +15,7 @@
 
 class CGangs {
 public:
-    static CGangs *Gang; // CGangs::Gang[9];
+    static CGangInfo *Gang; // CGangs::Gang[9];
 
     static void Initialise();
     static void SetGangVehicleModel(eGangType gangType, eVehicleModel modelIndex);
