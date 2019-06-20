@@ -33,7 +33,7 @@ char CCarAI::FindPoliceCarMissionForWantedLevel() {
 
 // Converted from cdecl int CCarAI::FindPoliceCarSpeedForWantedLevel(CVehicle *vehicle) 0x415EB0
 int CCarAI::FindPoliceCarSpeedForWantedLevel(CVehicle* vehicle) {
-    return plugin::CallAndReturn<float, 0x415EB0, CVehicle*>(vehicle);
+    return plugin::CallAndReturn<int, 0x415EB0, CVehicle*>(vehicle);
 }
 
 // Converted from cdecl float CCarAI::FindSwitchDistanceClose(CVehicle *vehicle) 0x413E20
