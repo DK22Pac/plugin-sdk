@@ -20,6 +20,7 @@ class CStuckCarCheck;
 
 class CTheScripts {
 public:
+    static tScriptVariable *ScriptParams; // [32]
     static unsigned char *ScriptSpace; // static unsigned char ScriptSpace[MAX_SCRIPT_SPACE_SIZE]
     static unsigned int &BaseBriefIdForContact;
     static unsigned short &CommandsExecuted;

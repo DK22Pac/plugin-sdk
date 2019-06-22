@@ -29,27 +29,21 @@ public:
 	CColModel m_ColModel;
 	CVehicle *m_pVehicleEx; //never really given a value
 	char m_aszPlayerName[70];
-private:
-	char _pad0[2];
-public:
+	//char _pad0[2];
 	int m_nMoney;
 	int m_nDisplayMoney;
 	int m_nCollectablesCollected;
 	int m_nCollectablesTotal;
 	int field_B0;
-	int m_snTaxiTimer;
+    unsigned int m_nTaxiTimer;
 	bool m_bTaxiTimerScore;
-private:
-	char _pad1[3];
-public:
-	int m_snHookerTimer;
-	int m_snHookerMoneyTimer;
+	//char _pad1[3];
+	int m_nHookerTimer;
+	int m_nHookerMoneyTimer;
 	int m_nHookerTime;
 	CPed *m_pHooker;
 	unsigned char m_nPlayerState;
-private:
-	char _pad2[3];
-public:
+	//char _pad2[3];
     unsigned int m_nDeathFadeTimer;
 	bool m_bFadeAfterRemoteVehicleExplosion;
 	char field_D5;
@@ -61,9 +55,9 @@ public:
 	int field_E4;
 	int field_E8;
 	int field_EC;
-    unsigned int m_dwVehicleTimeOnTwoWheels;
+    unsigned int m_nVehicleTimeOnTwoWheels;
     float m_fVehicleDistanceOnTwoWheels;
-	unsigned int m_dwVehicleTimeInAir;
+	unsigned int m_nVehicleTimeInAir;
 	int field_FC;
 	float field_100;
 	int field_104;
@@ -76,9 +70,7 @@ public:
 	int field_120;
 	float field_124;
 	short m_nCarDensityForCurrentZone;
-private:
-	char _pad3[2];
-public:
+	//char _pad3[2];
     float m_fRoadDensityAroundPlayer;
 	int m_nTimeOfLastCarExplosionCaused;
 	int m_nExplosionMultiplier;
@@ -93,11 +85,9 @@ public:
 	bool m_bFreeHealthCare;
 	bool m_bCanDoDriveBy;
 	unsigned char m_nBustedAudioStatus;
-private:
-	char _pad4;
-public:
+	//char _pad4;
 	short m_nLastBustMessageNumber;
-	char m_aszSkinName[32];
+	char m_szSkinName[32];
 	RwTexture *m_pSkinTexture;
 	
 	void Clear();

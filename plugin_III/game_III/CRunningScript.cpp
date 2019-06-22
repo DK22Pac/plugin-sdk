@@ -17,6 +17,16 @@ char CRunningScript::ProcessOneCommand() {
     return plugin::CallMethodAndReturn<char, 0x439500, CRunningScript *>(this);
 }
 
+// Converted from thiscall void CRunningScript::CollectParameters(uint *,short count) 0x4382E0
+void CRunningScript::CollectParameters(int* arg0, short count) {
+    plugin::CallMethod<0x4382E0, CRunningScript *, int*, short>(this, arg0, count);
+}
+
+// Converted from thiscall void CRunningScript::UpdateCompareFlag(uchar flag) 0x44FD90
+void CRunningScript::UpdateCompareFlag(unsigned char flag) {
+    plugin::CallMethod<0x44FD90, CRunningScript *, unsigned char>(this, flag);
+}
+
 unsigned char *CRunningScript::GetScriptSpaceBase() {
     return CTheScripts::ScriptSpace;
 }

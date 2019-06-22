@@ -57,6 +57,8 @@ public:
 
     void Init();
     char ProcessOneCommand();
+    void CollectParameters(int* arg0, short count);
+    void UpdateCompareFlag(unsigned char flag);
 
     static unsigned char *GetScriptSpaceBase();
 };
