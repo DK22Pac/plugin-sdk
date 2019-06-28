@@ -6,6 +6,8 @@
 */
 #include "CTheScripts.h"
 
+tScriptVariable *CTheScripts::ScriptParams = (tScriptVariable *)0x7D7438;
+
 PLUGIN_SOURCE_FILE
 
 tIntroText(&CTheScripts::IntroTextLines)[48] = *reinterpret_cast<tIntroText(*)[48]>(GLOBAL_ADDRESS_BY_VERSION(0x7F0EA0, 0x7F0EA8, 0x7EFEA8));

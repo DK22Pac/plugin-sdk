@@ -13,8 +13,8 @@ public:
 
     cAudioManager();
     ~cAudioManager();
-    bool UsesSiren(unsigned int index);
-    bool UsesSirenSwitching(unsigned int index);
+    bool UsesSiren(unsigned int index); // see eVehicleIndex
+    bool UsesSirenSwitching(unsigned int index); // see eVehicleIndex
 };
 
 //VALIDATE_SIZE(cAudioManager, 0x4B14);
