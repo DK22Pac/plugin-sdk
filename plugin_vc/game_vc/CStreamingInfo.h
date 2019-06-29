@@ -9,10 +9,10 @@
 #include "PluginBase.h"
 
 enum eStreamingFlags {
-    GAME_REQUEST = 0x1, // do not stream this model
-    MISSION_REQUEST = 0x2, // same, but also marked as 'mission' model
-    PRIORITY_REQUEST = 0x8,
-    NOT_VISIBLE = 0x10 // not visible after loading?
+    GAME_REQUIRED = 0x2,
+    MISSION_REQUIRED = 0x4,
+    KEEP_IN_MEMORY = 0x8,
+    PRIORITY_REQUEST = 0x10
 };
 
 enum eStreamingLoadState {

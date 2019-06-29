@@ -17,4 +17,5 @@ public:
     static void LoadAllRequestedModels(bool onlyQuickRequests);
     static void RequestSpecialChar(int slot, char const *Name, int streamingFlags);
     static void SetModelIsDeletable(int modelIndex);
+    static void SetModelTxdIsDeletable(int modelIndex);
 };

@@ -12,6 +12,7 @@
 #include "CWeaponModelInfo.h"
 #include "CTimeModelInfo.h"
 #include "CPedModelInfo.h"
+#include "CVehicle.h"
 
 class CModelInfo {
 public:
@@ -42,5 +43,28 @@ public:
 
     static inline CBaseModelInfo *GetModelInfo(int index) {
         return ms_modelInfoPtrs[index];
+    }
+
+    static inline bool IsHeliModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_HELI);
+    }
+
+    static inline bool IsPlaneModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_PLANE);
+    }
+
+    // return -1 if model is not a vehicle model otherwise returns vehicle model type
+    // 0 - car, 1 - boat, 2 - train, 3 - heli, 4 - plane, 5 - bike 
+    static inline int IsVehicleModelType(int index) {
+        int result;
+        if (index < 6500 && ms_modelInfoPtrs[index]) {
+            if (ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE)
+                result = reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType;
+            else
+                result = -1;
+        }
+        else
+            result = -1;
+        return result;
     }
 };

@@ -24,3 +24,7 @@ void CStreaming::RequestSpecialChar(int slot, char const *Name, int streamingFla
 void CStreaming::SetModelIsDeletable(int modelIndex) {
     plugin::Call<0x40AEA0, int>(modelIndex);
 }
+
+void CStreaming::SetModelTxdIsDeletable(int modelIndex) {
+    plugin::Call<0x40ADF0, int>(modelIndex);
+}

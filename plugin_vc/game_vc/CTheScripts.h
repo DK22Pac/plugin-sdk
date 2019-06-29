@@ -63,6 +63,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void UndoBuildingSwaps();
     SUPPORTED_10EN_11EN_STEAM static void UndoEntityInvisibilitySettings();
     SUPPORTED_10EN_11EN_STEAM static void UpdateObjectIndices();
+
+    static void ClearSpaceForMissionEntity(CVector const& position, CEntity* entity);
 };
 
 #include "meta/meta.CTheScripts.h"
