@@ -126,7 +126,7 @@ public:
         unsigned char b23 : 1;
         unsigned char b24 : 1;
 
-        unsigned char b25 : 1;
+        unsigned char bOccupantsHaveBeenGenerated : 1;
         unsigned char b26 : 1;
         unsigned char b27 : 1;
         unsigned char b28 : 1;

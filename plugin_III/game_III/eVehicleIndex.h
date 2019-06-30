@@ -41,7 +41,7 @@ enum eVehicleIndex : unsigned int {
     VEHICLE_BUS = 31,
     VEHICLE_RHINO = 32,
     VEHICLE_BARRACKS = 33,
-    VEHICLE_TRAIN = 34,
+    VEHICLE_TRAINS = 34,
     VEHICLE_CHOPPER = 35,
     VEHICLE_DODO = 36,
     VEHICLE_COACH = 37,
