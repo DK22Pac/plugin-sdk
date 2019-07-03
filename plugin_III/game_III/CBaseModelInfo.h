@@ -66,12 +66,14 @@ private:
 public:
 
     // vtable
-
     virtual ~CBaseModelInfo() {}
     void Shutdown();
+    void DeleteRwObject();
+    RwObject* CreateInstance();
+    RwObject* CreateInstance(RwMatrixTag* tranform);
+    RwObject* GetRwObject();
 
     //funcs
-
     void Add2dEffect(C2dEffect* effect);
     void AddRef();
     void AddTexDictionaryRef();

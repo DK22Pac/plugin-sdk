@@ -39,6 +39,8 @@ VALIDATE_SIZE(tIntroText, 0xF4);
 
 class PLUGIN_API CTheScripts {
 public:
+    static tScriptVariable *ScriptParams; // [32]
+
     SUPPORTED_10EN_11EN_STEAM static tIntroText(&IntroTextLines)[48]; // static tIntroText IntroTextLines[48]
     SUPPORTED_10EN_11EN_STEAM static unsigned char(&ScriptSpace)[260512]; // static unsigned char ScriptSpace[260512]
     SUPPORTED_10EN_11EN_STEAM static short &NumberOfIntroTextLinesThisFrame;
@@ -61,6 +63,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void UndoBuildingSwaps();
     SUPPORTED_10EN_11EN_STEAM static void UndoEntityInvisibilitySettings();
     SUPPORTED_10EN_11EN_STEAM static void UpdateObjectIndices();
+
+    static void ClearSpaceForMissionEntity(CVector const& position, CEntity* entity);
 };
 
 #include "meta/meta.CTheScripts.h"

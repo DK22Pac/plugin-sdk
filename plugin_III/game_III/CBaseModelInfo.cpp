@@ -11,6 +11,26 @@ void CBaseModelInfo::Shutdown() {
     plugin::CallVirtualMethod<1, CBaseModelInfo *>(this);
 }
 
+// Converted from void CBaseModelInfo::DeleteRwObject(void) 0x0
+void CBaseModelInfo::DeleteRwObject() {
+    plugin::CallVirtualMethod<2, CBaseModelInfo *>(this);
+}
+
+// Converted from RwObject* CBaseModelInfo::CreateInstance(void) 0x0
+RwObject* CBaseModelInfo::CreateInstance() {
+    return plugin::CallVirtualMethodAndReturn<RwObject*, 3, CBaseModelInfo *>(this);
+}
+
+// Converted from RwObject* CBaseModelInfo::CreateInstance(RwMatrixTag *tranform) 0x0
+RwObject* CBaseModelInfo::CreateInstance(RwMatrixTag* tranform) {
+    return plugin::CallVirtualMethodAndReturn<RwObject*, 4, CBaseModelInfo *, RwMatrixTag*>(this, tranform);
+}
+
+// Converted from RwObject* CBaseModelInfo::GetRwObject(void) 0x0
+RwObject* CBaseModelInfo::GetRwObject() {
+    return plugin::CallVirtualMethodAndReturn<RwObject*, 5, CBaseModelInfo *>(this);
+}
+
 // Converted from thiscall void CBaseModelInfo::Add2dEffect(C2dEffect *effect) 0x4F6B20
 void CBaseModelInfo::Add2dEffect(C2dEffect* effect) {
     plugin::CallMethod<0x4F6B20, CBaseModelInfo *, C2dEffect*>(this, effect);

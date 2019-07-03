@@ -18,6 +18,7 @@ Do not delete this comment block. Respect others' work!
 #include "CClumpModelInfo.h"
 #include "eLevelName.h"
 #include "CInstance.h"
+#include "CVehicle.h"
 
 class CModelInfo {
 public:
@@ -55,19 +56,19 @@ public:
     }
 
     static inline bool IsCarModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 0);
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_AUTOMOBILE);
     }
 
     static inline bool IsTrainModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 2);
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_TRAIN);
     }
 
     static inline bool IsHeliModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 3);
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_HELI);
     }
 
     static inline bool IsPlaneModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == 5 && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == 4);
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_PLANE);
     }
 
     // return -1 if model is not a vehicle model otherwise returns vehicle model type
@@ -75,7 +76,7 @@ public:
     static inline int IsVehicleModelType(int index) {
         int result;
         if (index < 5500 && ms_modelInfoPtrs[index]) {
-            if (ms_modelInfoPtrs[index]->m_nType == 5)
+            if (ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE)
                 result = reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType;
             else
                 result = -1;

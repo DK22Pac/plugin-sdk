@@ -67,7 +67,7 @@ public:
     int field_47C;
     char field_480;
     char gap_481[3];
-    char field_484;
+    unsigned char m_nDamageFlags;
     char gap_485[1];
     short field_486;
     int field_488;

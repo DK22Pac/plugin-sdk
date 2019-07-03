@@ -20,6 +20,8 @@
 #undef GetObject
 #endif
 
+class cAudioScriptObject;
+
 class CPools {
 public:
     static CPool<CBuilding>                *&ms_pBuildingPool;
@@ -28,8 +30,9 @@ public:
     static CPool<CEntryInfoNode>           *&ms_pEntryInfoNodePool;
     static CPool<CVehicle, CAutomobile>    *&ms_pVehiclePool;
     static CPool<CPed, CPlayerPed>         *&ms_pPedPool;
-    static CPool<CObject, CCutsceneHead> *&ms_pObjectPool;
+    static CPool<CObject, CCutsceneHead>   *&ms_pObjectPool;
     static CPool<CDummy, CDummyObject>     *&ms_pDummyPool;
+    static CPool<cAudioScriptObject>       *&ms_pAudioScriptObjectPool;
 
     static void Initialise();
     static void ShutDown();

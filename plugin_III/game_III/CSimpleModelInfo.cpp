@@ -6,26 +6,6 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CSimpleModelInfo.h"
 
-// Converted from void CSimpleModelInfo::DeleteRwObject(void) 0x5179B0
-void CSimpleModelInfo::DeleteRwObject() {
-    plugin::CallVirtualMethod<2, CSimpleModelInfo *>(this);
-}
-
-// Converted from void CSimpleModelInfo::CreateInstance(void) 0x517B60
-void CSimpleModelInfo::CreateInstance() {
-    plugin::CallVirtualMethod<3, CSimpleModelInfo *>(this);
-}
-
-// Converted from void CSimpleModelInfo::CreateInstance(RwMatrixTag *m) 0x517AC0
-void CSimpleModelInfo::CreateInstance(RwMatrixTag* m) {
-    plugin::CallVirtualMethod<4, CSimpleModelInfo *, RwMatrixTag*>(this, m);
-}
-
-// Converted from void CSimpleModelInfo::GetRwObject(void) 0x4A9BA0
-void CSimpleModelInfo::GetRwObject() {
-    plugin::CallVirtualMethod<5, CSimpleModelInfo *>(this);
-}
-
 // Converted from thiscall void CSimpleModelInfo::CSimpleModelInfo(void) 0x50C150 
 CSimpleModelInfo::CSimpleModelInfo() {
     plugin::CallMethod<0x50C150, CSimpleModelInfo *>(this);

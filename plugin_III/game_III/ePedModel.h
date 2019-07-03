@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum ePedModel : unsigned int {
+enum ePedModel : unsigned char {
     MODEL_NULL = 0,
     MODEL_COP,
     MODEL_SWAT,

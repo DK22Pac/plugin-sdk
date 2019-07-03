@@ -130,6 +130,20 @@ public:
         return m_placement.pos;
     }
 
+    inline void SetPosition(float x, float y, float z) {
+        this->m_placement.pos.x = x;
+        this->m_placement.pos.y = y;
+        this->m_placement.pos.z = z;
+    }
+
+    inline void SetPosition(CVector &pos) {
+        this->m_placement.pos = pos;
+    }
+
+    inline CVector TransformFromObjectSpace(CVector const& offset) {
+        return this->m_placement * offset;
+    }
+
     CEntity() = delete;
     CEntity(const CEntity &) = delete;
     CEntity &operator=(const CEntity &) = delete;

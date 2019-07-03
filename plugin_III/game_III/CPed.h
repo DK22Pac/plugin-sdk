@@ -281,6 +281,9 @@ public:
     void SetObjective(eObjective objective, short arg1, short arg2);
     void SetObjective(eObjective objective, void* arg1);
     void SetObjectiveTimer(unsigned int time);
+    void WarpPedIntoCar(CVehicle* vehicle);
+    void RemoveWeaponModel(int modelIndex);
+    void StopNonPartialAnims();
 
     void operator delete(void* data);
     void* operator new(unsigned int size);

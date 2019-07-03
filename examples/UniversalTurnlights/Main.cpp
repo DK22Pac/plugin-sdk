@@ -39,8 +39,7 @@ public:
         Events::vehicleRenderEvent.before += [](CVehicle *vehicle) {
             if ((vehicle->m_nVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_nVehicleSubClass == VEHICLE_BIKE) &&
                 (vehicle->GetVehicleAppearance() == VEHICLE_APPEARANCE_AUTOMOBILE || vehicle->GetVehicleAppearance() == VEHICLE_APPEARANCE_BIKE) &&
-                vehicle->m_nModelIndex != MODEL_BMX && vehicle->m_nModelIndex != MODEL_BIKE && vehicle->m_nModelIndex != MODEL_MTBIKE &&
-                !vehicle->m_pAttachedTo)
+				vehicle->m_nFlags.bEngineOn && vehicle->m_fHealth > 0 && !vehicle->m_nFlags.bIsDrowning && !vehicle->m_pAttachedTo )
             {
                 eLightsStatus &lightsStatus = turnlightsData.Get(vehicle).lightsStatus;
                 if (vehicle->m_pDriver) {

@@ -6,26 +6,6 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CClumpModelInfo.h"
 
-// Converted from void CClumpModelInfo::DeleteRwObject(void) 0x4F8800
-void CClumpModelInfo::DeleteRwObject() {
-    plugin::CallVirtualMethod<2, CClumpModelInfo *>(this);
-}
-
-// Converted from void CClumpModelInfo::CreateInstance(void) 0x4F8920
-void CClumpModelInfo::CreateInstance() {
-    plugin::CallVirtualMethod<3, CClumpModelInfo *>(this);
-}
-
-// Converted from void CClumpModelInfo::CreateInstance(RwMatrixTag *) 0x4F88A0
-void CClumpModelInfo::CreateInstance(RwMatrixTag* arg0) {
-    plugin::CallVirtualMethod<4, CClumpModelInfo *, RwMatrixTag*>(this, arg0);
-}
-
-// Converted from void CClumpModelInfo::GetRwObject(void) 0x50C1C0
-void CClumpModelInfo::GetRwObject() {
-    plugin::CallVirtualMethod<5, CClumpModelInfo *>(this);
-}
-
 // Converted from void CClumpModelInfo::SetClump(RpClump *clump) 0x4F8830
 void CClumpModelInfo::SetClump(RpClump* clump) {
     plugin::CallVirtualMethod<6, CClumpModelInfo *, RpClump*>(this, clump);

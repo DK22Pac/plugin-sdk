@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -12,6 +12,7 @@ Do not delete this comment block. Respect others' work!
 #include "CColLine.h"
 #include "CColTriangle.h"
 #include "CColTrianglePlane.h"
+#include "CLink.h"
 
 class CColModel {
 public:
@@ -23,9 +24,7 @@ public:
     unsigned short m_nNumOfTriangles;
     unsigned int m_nColLevel;
     unsigned char m_nFlags;
-private:
-    char _pad3D[3];
-public:
+    //char _pad3D[3];
     CColSphere *m_pSpheres;
     CColLine *m_pLines;
     CColBox *m_pBoxes;
@@ -35,13 +34,13 @@ public:
     
     CColModel();
     void CalculateTrianglePlanes();
-    int GetLinkPtr();
-    int GetTrianglePoint(CVector& arg0, int arg1);
+    CLink<CColModel*> *GetLinkPtr();
+    void GetTrianglePoint(CVector& outVec, int vertId);
     void RemoveCollisionVolumes();
     void RemoveTrianglePlanes();
-    void operator=(CColModel const& arg0);
+    void operator=(CColModel const& right);
     ~CColModel();
-    //void SetLinkPtr(CLink<CColModel* >);
+    void SetLinkPtr(CLink<CColModel*> *link);
 };
 
 VALIDATE_SIZE(CColModel, 0x58);

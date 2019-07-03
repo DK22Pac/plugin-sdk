@@ -89,6 +89,10 @@ void CPed::SetObjectiveTimer(unsigned int time) {
     plugin::CallMethod<0x4D81E0, CPed *, unsigned int>(this, time);
 }
 
+void CPed::WarpPedIntoCar(CVehicle* vehicle) {
+    plugin::CallMethod<0x4D7D20, CPed *, CVehicle*>(this, vehicle);
+}
+
 void CPed::operator delete(void* data) {
     plugin::Call<0x4C5250, void*>(data);
 }
@@ -99,4 +103,14 @@ void* CPed::operator new(unsigned int size) {
 
 void* CPed::operator new(unsigned int size, int arg1) {
     return plugin::CallAndReturn<void*, 0x4C5230, unsigned int, int>(size, arg1);
+}
+
+// Converted from thiscall void CPed::RemoveWeaponModel(int modelIndex) 0x4CF980
+void CPed::RemoveWeaponModel(int modelIndex) {
+    plugin::CallMethod<0x4CF980, CPed *, int>(this, modelIndex);
+}
+
+// Converted from thiscall void CPed::StopNonPartialAnims(void) 0x4C5D50 
+void CPed::StopNonPartialAnims() {
+    plugin::CallMethod<0x4C5D50, CPed *>(this);
 }
