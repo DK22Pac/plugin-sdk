@@ -3513,8 +3513,8 @@ RwBool _rwD3D9RenderStateIsVertexAlphaEnable() {
 	return plugin::CallAndReturn<RwBool, 0x7FE190>();
 }
 
-RwBool _rwD3D9CheckValidCameraTextureFormat(D3DFORMAT format) {
-	return plugin::CallAndReturn<RwBool, 0x4CBE20, D3DFORMAT>(format);
+RwBool _rwD3D9CheckValidCameraTextureFormat(RwUInt32 format) {
+	return plugin::CallAndReturn<RwBool, 0x4CBE20, RwUInt32>(format);
 }
 
 void _rwD3D9SetVertexDeclaration(void *vertexDeclaration) {
