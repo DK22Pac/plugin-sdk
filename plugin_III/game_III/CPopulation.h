@@ -7,69 +7,70 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CDummyObject.h"
+#include "CObject.h"
 #include "CPed.h"
 #include "ePedType.h"
+#include "CVector.h"
+#include "eCopType.h"
+#include "CVehicle.h"
 #include "eLevelName.h"
-#include "CDummyObject.h"
+#include "CColPoint.h"
 
-class CPopulation {
+class PLUGIN_API CPopulation {
 public:
-    // static variables
-    static unsigned int &MaxNumberOfPedsInUse; // 25
-    static float &PedDensityMultiplier; // 1.0
-    static CVector *RegenerationFront;
-    static CVector *RegenerationPoint_a;
-    static CVector *RegenerationPoint_b;
-    static CColPoint *aTempColPoints; // [32]
-    static bool &bZoneChangeHasHappened;
-    static int &m_AllRandomPedsThisType;
-    static unsigned char &m_CountDownToPedsAtStart;
-    static bool &ms_bGivePedsWeapons;
-    static unsigned int &ms_nNumCivFemale;
-    static unsigned int &ms_nNumCivMale;
-    static unsigned int &ms_nNumCop;
-    static unsigned int &ms_nNumDummy;
-    static unsigned int &ms_nNumEmergency;
-    static unsigned int &ms_nNumGang1;
-    static unsigned int &ms_nNumGang2;
-    static unsigned int &ms_nNumGang3;
-    static unsigned int &ms_nNumGang4;
-    static unsigned int &ms_nNumGang5;
-    static unsigned int &ms_nNumGang6;
-    static unsigned int &ms_nNumGang7;
-    static unsigned int &ms_nNumGang8;
-    static unsigned int &ms_nNumGang9;
-    static unsigned int &ms_nTotalCivPeds;
-    static unsigned int &ms_nTotalGangPeds;
-    static unsigned int &ms_nTotalMissionPeds;
-    static unsigned int &ms_nTotalPeds;
-    // static int m_PedGroups[31][8]
-    static int(*ms_pPedGroups)[8];
-    static bool &bTempColPoints;
+    SUPPORTED_10EN_11EN_STEAM static float &PedDensityMultiplier;
+    SUPPORTED_10EN_11EN_STEAM static int &m_AllRandomPedsThisType;
+    SUPPORTED_10EN_11EN_STEAM static int &MaxNumberOfPedsInUse;
+    SUPPORTED_10EN_11EN_STEAM static CColPoint(&aTempColPoints)[32]; // static CColPoint aTempColPoints[32]
+    SUPPORTED_10EN_11EN_STEAM static int(&ms_pPedGroups)[31][8]; // static int ms_pPedGroups[31][8]
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nTotalGangPeds;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumCop;
+    SUPPORTED_10EN_11EN_STEAM static CVector &RegenerationPoint_b;
+    SUPPORTED_10EN_11EN_STEAM static CVector &RegenerationPoint_a;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumDummy;
+    SUPPORTED_10EN_11EN_STEAM static CVector &RegenerationFront;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang8;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang9;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang2;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang3;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang1;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang6;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang7;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang4;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumGang5;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumCivMale;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nTotalCivPeds;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumCivFemale;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nTotalMissionPeds;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumEmergency;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nTotalPeds;
+    SUPPORTED_10EN_11EN_STEAM static bool &ms_bGivePedsWeapons;
 
-    // static functions
-    static void Initialise();
-    static void LoadPedGroups();
-    static void Update();
-    static void GeneratePedsAtStartOfGame();
-    static void ManagePopulation();
-    static void ConvertAllObjectsToDummyObjects();
-    static void ConvertToRealObject(CDummyObject* dummyObject);
-    static void ConvertToDummyObject(CObject* object);
-    static bool TestRoomForDummyObject(CObject* object);
-    static bool TestSafeForRealObject(CDummyObject* dummyObject);
-    static void AddToPopulation(float arg0, float arg1, float arg2, float arg3);
-    static CPed* AddPed(ePedType pedType, unsigned int modelIndex, CVector const& posn);
-    static void RemovePed(CPed* ped);
-    static int ChoosePolicePedOccupation();
-    static int ChooseCivilianOccupation(int pedgrp);
-    static int ChooseGangOccupation(int gangType);
-    static CPed* AddPedInCar(CVehicle* vehicle);
-    static void UpdatePedCount(ePedType pedType, unsigned char updateState);
-    static void MoveCarsAndPedsOutOfAbandonedZones();
-    static void FindCollisionZoneForCoors(CVector* point, int* zone, eLevelName* levelName);
-    static bool IsPointInSafeZone(CVector* point);
-    static void FindClosestZoneForCoors(CVector* point, int* zone, eLevelName levelName, eLevelName _levelName);
-    static void DealWithZoneChange(eLevelName levelName, eLevelName _levelName, bool arg2);
-    static float PedCreationDistMultiplier();
+    SUPPORTED_10EN_11EN_STEAM static CPed *AddPed(ePedType pedType, unsigned int modelIndex, CVector *posn);
+    SUPPORTED_10EN_11EN_STEAM static CPed *AddPedInCar(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void AddToPopulation(float z1, float x2, float y2, float z2);
+    SUPPORTED_10EN_11EN_STEAM static int ChooseCivilianOccupation(int index);
+    SUPPORTED_10EN_11EN_STEAM static int ChooseGangOccupation(int gangType);
+    SUPPORTED_10EN_11EN_STEAM static eCopType ChoosePolicePedOccupation();
+    SUPPORTED_10EN_11EN_STEAM static void ConvertAllObjectsToDummyObjects();
+    SUPPORTED_10EN_11EN_STEAM static void ConvertToDummyObject(CObject *object);
+    SUPPORTED_10EN_11EN_STEAM static void ConvertToRealObject(CDummyObject *dummyObject);
+    SUPPORTED_10EN_11EN_STEAM static void DealWithZoneChange(eLevelName levelName, eLevelName levelName, bool a3);
+    SUPPORTED_10EN_11EN_STEAM static void FindClosestZoneForCoors(CVector *point, int *a2, eLevelName levelName, eLevelName _levelName);
+    SUPPORTED_10EN_11EN_STEAM static void FindCollisionZoneForCoors(CVector *point, int *a2, eLevelName *levelName);
+    SUPPORTED_10EN_11EN_STEAM static void GeneratePedsAtStartOfGame();
+    SUPPORTED_10EN_11EN_STEAM static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static bool IsPointInSafeZone(CVector *point);
+    SUPPORTED_10EN_11EN_STEAM static void LoadPedGroups();
+    SUPPORTED_10EN_11EN_STEAM static void ManagePopulation();
+    SUPPORTED_10EN_11EN_STEAM static void MoveCarsAndPedsOutOfAbandonedZones();
+    SUPPORTED_10EN_11EN_STEAM static float PedCreationDistMultiplier();
+    SUPPORTED_10EN_11EN_STEAM static void RemovePed(CPed *ped);
+    SUPPORTED_10EN_11EN_STEAM static bool TestRoomForDummyObject(CObject *object);
+    SUPPORTED_10EN_11EN_STEAM static bool TestSafeForRealObject(CDummyObject *dummyObject);
+    SUPPORTED_10EN_11EN_STEAM static void Update();
+    SUPPORTED_10EN_11EN_STEAM static void UpdatePedCount(ePedType pedType, unsigned char updateState);
 };
+
+#include "meta/meta.CPopulation.h"
