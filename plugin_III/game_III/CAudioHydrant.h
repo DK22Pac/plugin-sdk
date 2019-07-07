@@ -7,17 +7,19 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CParticleObject.h"
 
-class CParticleObject;
+class PLUGIN_API CAudioHydrant {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CAudioHydrant)
 
-class CAudioHydrant {
 public:
     int m_nAudioEntity;
     CParticleObject *m_pObject;
 
-    CAudioHydrant();
-    static bool Add(CParticleObject* object);
-    static void Remove(CParticleObject* object);
+    SUPPORTED_10EN_11EN_STEAM static void Add(CParticleObject *object);
+    SUPPORTED_10EN_11EN_STEAM static void Remove(CParticleObject *object);
 };
 
 VALIDATE_SIZE(CAudioHydrant, 0x8);
+
+#include "meta/meta.CAudioHydrant.h"

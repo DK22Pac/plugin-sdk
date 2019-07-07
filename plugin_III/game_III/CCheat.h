@@ -8,30 +8,28 @@
 
 #include "PluginBase.h"
 
-class CCheat {
-public:
-    //funcs
-    static void WeaponCheat();
-    static void HealthCheat();
-    static void TankCheat();
-    static void BlowUpCarsCheat();
-    static void ChangePlayerCheat();
-    static void MayhemCheat();
-    static void EverybodyAttacksPlayerCheat();
-    static void WeaponsForAllCheat();
-    static void FastTimeCheat();
-    static void SlowTimeCheat();
-    static void MoneyCheat();
-    static void ArmourCheat();
-    static void WantedLevelUpCheat();
-    static void WantedLevelDownCheat();
-    static void SunnyWeatherCheat();
-    static void CloudyWeatherCheat();
-    static void RainyWeatherCheat();
-    static void FoggyWeatherCheat();
-    static void FastWeatherCheat();
-    static void OnlyRenderWheelsCheat();
-    static void ChittyChittyBangBangCheat();
-    static void StrongGripCheat();
-    static void NastyLimbsCheat();
-};
+SUPPORTED_10EN_11EN_STEAM void WeaponCheat();
+SUPPORTED_10EN_11EN_STEAM void HealthCheat();
+SUPPORTED_10EN_11EN_STEAM void TankCheat();
+SUPPORTED_10EN_11EN_STEAM void BlowUpCarsCheat();
+SUPPORTED_10EN_11EN_STEAM void ChangePlayerCheat();
+SUPPORTED_10EN_11EN_STEAM void MayhemCheat();
+SUPPORTED_10EN_11EN_STEAM void EverybodyAttacksPlayerCheat();
+SUPPORTED_10EN_11EN_STEAM void WeaponsForAllCheat();
+SUPPORTED_10EN_11EN_STEAM void FastTimeCheat();
+SUPPORTED_10EN_11EN_STEAM void SlowTimeCheat();
+SUPPORTED_10EN_11EN_STEAM void MoneyCheat();
+SUPPORTED_10EN_11EN_STEAM void ArmourCheat();
+SUPPORTED_10EN_11EN_STEAM void WantedLevelUpCheat();
+SUPPORTED_10EN_11EN_STEAM void WantedLevelDownCheat();
+SUPPORTED_10EN_11EN_STEAM void SunnyWeatherCheat();
+SUPPORTED_10EN_11EN_STEAM void CloudyWeatherCheat();
+SUPPORTED_10EN_11EN_STEAM void RainyWeatherCheat();
+SUPPORTED_10EN_11EN_STEAM void FoggyWeatherCheat();
+SUPPORTED_10EN_11EN_STEAM void FastWeatherCheat();
+SUPPORTED_10EN_11EN_STEAM void OnlyRenderWheelsCheat();
+SUPPORTED_10EN_11EN_STEAM void ChittyChittyBangBangCheat();
+SUPPORTED_10EN_11EN_STEAM void StrongGripCheat();
+SUPPORTED_10EN_11EN_STEAM void NastyLimbsCheat();
+
+#include "meta/meta.CCheat.h"

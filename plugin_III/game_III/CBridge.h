@@ -10,24 +10,24 @@
 #include "CBuilding.h"
 #include "eBridgeState.h"
 
-class CBridge {
+class PLUGIN_API CBridge {
 public:
-    // static variables
-    static float &DefaultZLiftPart;
-    static float &DefaultZLiftRoad;
-    static float &DefaultZLiftWeight;
-    static float &OldLift;
-    static eBridgeState &OldState;
-    static eBridgeState &State;
-    static unsigned int &TimeOfBridgeBecomingOperational;
-    static  CBuilding **pLiftPart;
-    static  CBuilding **pLiftRoad;
-    static  CBuilding **pWeight;
+    SUPPORTED_10EN_11EN_STEAM static CBuilding *&pWeight;
+    SUPPORTED_10EN_11EN_STEAM static CBuilding *&pLiftRoad;
+    SUPPORTED_10EN_11EN_STEAM static CBuilding *&pLiftPart;
+    SUPPORTED_10EN_11EN_STEAM static float &DefaultZLiftWeight;
+    SUPPORTED_10EN_11EN_STEAM static eBridgeState &State;
+    SUPPORTED_10EN_11EN_STEAM static eBridgeState &OldState;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &TimeOfBridgeBecomingOperational;
+    SUPPORTED_10EN_11EN_STEAM static float &OldLift;
+    SUPPORTED_10EN_11EN_STEAM static float &DefaultZLiftRoad;
+    SUPPORTED_10EN_11EN_STEAM static float &DefaultZLiftPart;
 
-    // static functions
-    static void Init();
-    static void Update();
-    static bool ShouldLightsBeFlashing();
-    static void FindBridgeEntities();
-    static bool ThisIsABridgeObjectMovingUp(unsigned int modelIndex);
+    SUPPORTED_10EN_11EN_STEAM static void FindBridgeEntities();
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static bool ShouldLightsBeFlashing();
+    SUPPORTED_10EN_11EN_STEAM static bool ThisIsABridgeObjectMovingUp(unsigned int modelIndex);
+    SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+
+#include "meta/meta.CBridge.h"

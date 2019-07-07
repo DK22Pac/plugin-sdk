@@ -6,77 +6,109 @@
 */
 #include "CCarAI.h"
 
-// Converted from cdecl void CCarAI::AddAmbulanceOccupants(CVehicle *vehicle) 0x415CE0
-void CCarAI::AddAmbulanceOccupants(CVehicle* vehicle) {
-    plugin::Call<0x415CE0, CVehicle*>(vehicle);
+PLUGIN_SOURCE_FILE
+
+int addrof(CCarAI::AddAmbulanceOccupants) = ADDRESS_BY_VERSION(0x415CE0, 0x415CE0, 0x415CE0);
+int gaddrof(CCarAI::AddAmbulanceOccupants) = GLOBAL_ADDRESS_BY_VERSION(0x415CE0, 0x415CE0, 0x415CE0);
+
+void CCarAI::AddAmbulanceOccupants(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::AddAmbulanceOccupants), vehicle);
 }
 
-// Converted from cdecl void CCarAI::AddFiretruckOccupants(CVehicle *vehicle) 0x415D00
-void CCarAI::AddFiretruckOccupants(CVehicle* vehicle) {
-    plugin::Call<0x415D00, CVehicle*>(vehicle);
+int addrof(CCarAI::AddFiretruckOccupants) = ADDRESS_BY_VERSION(0x415D00, 0x415D00, 0x415D00);
+int gaddrof(CCarAI::AddFiretruckOccupants) = GLOBAL_ADDRESS_BY_VERSION(0x415D00, 0x415D00, 0x415D00);
+
+void CCarAI::AddFiretruckOccupants(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::AddFiretruckOccupants), vehicle);
 }
 
-// Converted from cdecl void CCarAI::AddPoliceCarOccupants(CVehicle *vehicle) 0x415C60
-void CCarAI::AddPoliceCarOccupants(CVehicle* vehicle) {
-    plugin::Call<0x415C60, CVehicle*>(vehicle);
+int addrof(CCarAI::AddPoliceCarOccupants) = ADDRESS_BY_VERSION(0x415C60, 0x415C60, 0x415C60);
+int gaddrof(CCarAI::AddPoliceCarOccupants) = GLOBAL_ADDRESS_BY_VERSION(0x415C60, 0x415C60, 0x415C60);
+
+void CCarAI::AddPoliceCarOccupants(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::AddPoliceCarOccupants), vehicle);
 }
 
-// Converted from cdecl void CCarAI::CarHasReasonToStop(CVehicle *vehicle) 0x415B00
-void CCarAI::CarHasReasonToStop(CVehicle* vehicle) {
-    plugin::Call<0x415B00, CVehicle*>(vehicle);
+int addrof(CCarAI::CarHasReasonToStop) = ADDRESS_BY_VERSION(0x415B00, 0x415B00, 0x415B00);
+int gaddrof(CCarAI::CarHasReasonToStop) = GLOBAL_ADDRESS_BY_VERSION(0x415B00, 0x415B00, 0x415B00);
+
+void CCarAI::CarHasReasonToStop(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::CarHasReasonToStop), vehicle);
 }
 
-// Converted from cdecl char CCarAI::FindPoliceCarMissionForWantedLevel(void) 0x415E30 
-char CCarAI::FindPoliceCarMissionForWantedLevel() {
-    return plugin::CallAndReturn<char, 0x415E30>();
+int addrof(CCarAI::FindPoliceCarMissionForWantedLevel) = ADDRESS_BY_VERSION(0x415E30, 0x415E30, 0x415E30);
+int gaddrof(CCarAI::FindPoliceCarMissionForWantedLevel) = GLOBAL_ADDRESS_BY_VERSION(0x415E30, 0x415E30, 0x415E30);
+
+eCarMission CCarAI::FindPoliceCarMissionForWantedLevel() {
+    return plugin::CallAndReturnDynGlobal<eCarMission>(gaddrof(CCarAI::FindPoliceCarMissionForWantedLevel));
 }
 
-// Converted from cdecl int CCarAI::FindPoliceCarSpeedForWantedLevel(CVehicle *vehicle) 0x415EB0
-int CCarAI::FindPoliceCarSpeedForWantedLevel(CVehicle* vehicle) {
-    return plugin::CallAndReturn<int, 0x415EB0, CVehicle*>(vehicle);
+int addrof(CCarAI::FindPoliceCarSpeedForWantedLevel) = ADDRESS_BY_VERSION(0x415EB0, 0x415EB0, 0x415EB0);
+int gaddrof(CCarAI::FindPoliceCarSpeedForWantedLevel) = GLOBAL_ADDRESS_BY_VERSION(0x415EB0, 0x415EB0, 0x415EB0);
+
+int CCarAI::FindPoliceCarSpeedForWantedLevel(CVehicle *vehicle) {
+    return plugin::CallAndReturnDynGlobal<int, CVehicle *>(gaddrof(CCarAI::FindPoliceCarSpeedForWantedLevel), vehicle);
 }
 
-// Converted from cdecl float CCarAI::FindSwitchDistanceClose(CVehicle *vehicle) 0x413E20
-float CCarAI::FindSwitchDistanceClose(CVehicle* vehicle) {
-    return plugin::CallAndReturn<float, 0x413E20, CVehicle*>(vehicle);
+int addrof(CCarAI::FindSwitchDistanceClose) = ADDRESS_BY_VERSION(0x413E20, 0x413E20, 0x413E20);
+int gaddrof(CCarAI::FindSwitchDistanceClose) = GLOBAL_ADDRESS_BY_VERSION(0x413E20, 0x413E20, 0x413E20);
+
+float CCarAI::FindSwitchDistanceClose() {
+    return plugin::CallAndReturnDynGlobal<float>(gaddrof(CCarAI::FindSwitchDistanceClose));
 }
 
-// Converted from cdecl float CCarAI::FindSwitchDistanceFar(CVehicle *vehicle) 0x413E30
-float CCarAI::FindSwitchDistanceFar(CVehicle* vehicle) {
-    return plugin::CallAndReturn<float, 0x413E30, CVehicle*>(vehicle);
+int addrof(CCarAI::FindSwitchDistanceFar) = ADDRESS_BY_VERSION(0x413E30, 0x413E30, 0x413E30);
+int gaddrof(CCarAI::FindSwitchDistanceFar) = GLOBAL_ADDRESS_BY_VERSION(0x413E30, 0x413E30, 0x413E30);
+
+float CCarAI::FindSwitchDistanceFar(CVehicle *vehicle) {
+    return plugin::CallAndReturnDynGlobal<float, CVehicle *>(gaddrof(CCarAI::FindSwitchDistanceFar), vehicle);
 }
 
-// Converted from cdecl void CCarAI::GetCarToGoToCoors(CVehicle *vehicle,CVector *coors) 0x415B10 
-void CCarAI::GetCarToGoToCoors(CVehicle* vehicle, CVector* coors) {
-    plugin::Call<0x415B10, CVehicle*, CVector*>(vehicle, coors);
+int addrof(CCarAI::GetCarToGoToCoors) = ADDRESS_BY_VERSION(0x415B10, 0x415B10, 0x415B10);
+int gaddrof(CCarAI::GetCarToGoToCoors) = GLOBAL_ADDRESS_BY_VERSION(0x415B10, 0x415B10, 0x415B10);
+
+void CCarAI::GetCarToGoToCoors(CVehicle *vehicle, CVector *coors) {
+    plugin::CallDynGlobal<CVehicle *, CVector *>(gaddrof(CCarAI::GetCarToGoToCoors), vehicle, coors);
 }
 
-// Converted from cdecl void CCarAI::MakeWayForCarWithSiren(CVehicle *vehicle) 0x416280
-void CCarAI::MakeWayForCarWithSiren(CVehicle* vehicle) {
-    plugin::Call<0x416280, CVehicle*>(vehicle);
+int addrof(CCarAI::MakeWayForCarWithSiren) = ADDRESS_BY_VERSION(0x416280, 0x416280, 0x416280);
+int gaddrof(CCarAI::MakeWayForCarWithSiren) = GLOBAL_ADDRESS_BY_VERSION(0x416280, 0x416280, 0x416280);
+
+void CCarAI::MakeWayForCarWithSiren(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::MakeWayForCarWithSiren), vehicle);
 }
 
-// Converted from cdecl void CCarAI::MellowOutChaseSpeed(CVehicle *vehicle) 0x416050
-void CCarAI::MellowOutChaseSpeed(CVehicle* vehicle) {
-    plugin::Call<0x416050, CVehicle*>(vehicle);
+int addrof(CCarAI::MellowOutChaseSpeed) = ADDRESS_BY_VERSION(0x416050, 0x416050, 0x416050);
+int gaddrof(CCarAI::MellowOutChaseSpeed) = GLOBAL_ADDRESS_BY_VERSION(0x416050, 0x416050, 0x416050);
+
+void CCarAI::MellowOutChaseSpeed(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::MellowOutChaseSpeed), vehicle);
 }
 
-// Converted from cdecl void CCarAI::TellCarToBlockOtherCar(CVehicle *vehicle,CVehicle *blockVehicle) 0x415DE0
-void CCarAI::TellCarToBlockOtherCar(CVehicle* vehicle, CVehicle* blockVehicle) {
-    plugin::Call<0x415DE0, CVehicle*, CVehicle*>(vehicle, blockVehicle);
+int addrof(CCarAI::TellCarToBlockOtherCar) = ADDRESS_BY_VERSION(0x415DE0, 0x415DE0, 0x415DE0);
+int gaddrof(CCarAI::TellCarToBlockOtherCar) = GLOBAL_ADDRESS_BY_VERSION(0x415DE0, 0x415DE0, 0x415DE0);
+
+void CCarAI::TellCarToBlockOtherCar(CVehicle *vehicle, CVehicle *blockVehicle) {
+    plugin::CallDynGlobal<CVehicle *, CVehicle *>(gaddrof(CCarAI::TellCarToBlockOtherCar), vehicle, blockVehicle);
 }
 
-// Converted from cdecl void CCarAI::TellCarToRamOtherCar(CVehicle *vehicle,CVehicle *ramVehicle) 0x415D90
-void CCarAI::TellCarToRamOtherCar(CVehicle* vehicle, CVehicle* ramVehicle) {
-    plugin::Call<0x415D90, CVehicle*, CVehicle*>(vehicle, ramVehicle);
+int addrof(CCarAI::TellCarToRamOtherCar) = ADDRESS_BY_VERSION(0x415D90, 0x415D90, 0x415D90);
+int gaddrof(CCarAI::TellCarToRamOtherCar) = GLOBAL_ADDRESS_BY_VERSION(0x415D90, 0x415D90, 0x415D90);
+
+void CCarAI::TellCarToRamOtherCar(CVehicle *vehicle, CVehicle *ramVehicle) {
+    plugin::CallDynGlobal<CVehicle *, CVehicle *>(gaddrof(CCarAI::TellCarToRamOtherCar), vehicle, ramVehicle);
 }
 
-// Converted from cdecl void CCarAI::TellOccupantsToLeaveCar(CVehicle *vehicle) 0x415D20
-void CCarAI::TellOccupantsToLeaveCar(CVehicle* vehicle) {
-    plugin::Call<0x415D20, CVehicle*>(vehicle);
+int addrof(CCarAI::TellOccupantsToLeaveCar) = ADDRESS_BY_VERSION(0x415D20, 0x415D20, 0x415D20);
+int gaddrof(CCarAI::TellOccupantsToLeaveCar) = GLOBAL_ADDRESS_BY_VERSION(0x415D20, 0x415D20, 0x415D20);
+
+void CCarAI::TellOccupantsToLeaveCar(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::TellOccupantsToLeaveCar), vehicle);
 }
 
-// Converted from cdecl void CCarAI::UpdateCarAI(CVehicle *vehicle) 0x413E50
-void CCarAI::UpdateCarAI(CVehicle* vehicle) {
-    plugin::Call<0x413E50, CVehicle*>(vehicle);
+int addrof(CCarAI::UpdateCarAI) = ADDRESS_BY_VERSION(0x413E50, 0x413E50, 0x413E50);
+int gaddrof(CCarAI::UpdateCarAI) = GLOBAL_ADDRESS_BY_VERSION(0x413E50, 0x413E50, 0x413E50);
+
+void CCarAI::UpdateCarAI(CVehicle *vehicle) {
+    plugin::CallDynGlobal<CVehicle *>(gaddrof(CCarAI::UpdateCarAI), vehicle);
 }

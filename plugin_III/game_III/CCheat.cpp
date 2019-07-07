@@ -6,117 +6,165 @@
 */
 #include "CCheat.h"
 
-// Converted from cdecl void CCheat::WeaponCheat(void) 0x490D90 
-void CCheat::WeaponCheat() {
-    plugin::Call<0x490D90>();
+PLUGIN_SOURCE_FILE
+
+int addrof(WeaponCheat) = ADDRESS_BY_VERSION(0x490D90, 0x490E50, 0x490DE0);
+int gaddrof(WeaponCheat) = GLOBAL_ADDRESS_BY_VERSION(0x490D90, 0x490E50, 0x490DE0);
+
+void WeaponCheat() {
+    plugin::CallDynGlobal(gaddrof(WeaponCheat));
 }
 
-// Converted from cdecl void CCheat::HealthCheat(void) 0x490E70 
-void CCheat::HealthCheat() {
-    plugin::Call<0x490E70>();
+int addrof(HealthCheat) = ADDRESS_BY_VERSION(0x490E70, 0x490F30, 0x490EC0);
+int gaddrof(HealthCheat) = GLOBAL_ADDRESS_BY_VERSION(0x490E70, 0x490F30, 0x490EC0);
+
+void HealthCheat() {
+    plugin::CallDynGlobal(gaddrof(HealthCheat));
 }
 
-// Converted from cdecl void CCheat::TankCheat(void) 0x490EE0 
-void CCheat::TankCheat() {
-    plugin::Call<0x490EE0>();
+int addrof(TankCheat) = ADDRESS_BY_VERSION(0x490EE0, 0x490FA0, 0x490F30);
+int gaddrof(TankCheat) = GLOBAL_ADDRESS_BY_VERSION(0x490EE0, 0x490FA0, 0x490F30);
+
+void TankCheat() {
+    plugin::CallDynGlobal(gaddrof(TankCheat));
 }
 
-// Converted from cdecl void CCheat::BlowUpCarsCheat(void) 0x491040 
-void CCheat::BlowUpCarsCheat() {
-    plugin::Call<0x491040>();
+int addrof(BlowUpCarsCheat) = ADDRESS_BY_VERSION(0x491040, 0x491100, 0x491090);
+int gaddrof(BlowUpCarsCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491040, 0x491100, 0x491090);
+
+void BlowUpCarsCheat() {
+    plugin::CallDynGlobal(gaddrof(BlowUpCarsCheat));
 }
 
-// Converted from cdecl void CCheat::ChangePlayerCheat(void) 0x4910B0 
-void CCheat::ChangePlayerCheat() {
-    plugin::Call<0x4910B0>();
+int addrof(ChangePlayerCheat) = ADDRESS_BY_VERSION(0x4910B0, 0x491170, 0x491100);
+int gaddrof(ChangePlayerCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4910B0, 0x491170, 0x491100);
+
+void ChangePlayerCheat() {
+    plugin::CallDynGlobal(gaddrof(ChangePlayerCheat));
 }
 
-// Converted from cdecl void CCheat::MayhemCheat(void) 0x4911C0 
-void CCheat::MayhemCheat() {
-    plugin::Call<0x4911C0>();
+int addrof(MayhemCheat) = ADDRESS_BY_VERSION(0x4911C0, 0x491280, 0x491210);
+int gaddrof(MayhemCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4911C0, 0x491280, 0x491210);
+
+void MayhemCheat() {
+    plugin::CallDynGlobal(gaddrof(MayhemCheat));
 }
 
-// Converted from cdecl void CCheat::EverybodyAttacksPlayerCheat(void) 0x491270 
-void CCheat::EverybodyAttacksPlayerCheat() {
-    plugin::Call<0x491270>();
+int addrof(EverybodyAttacksPlayerCheat) = ADDRESS_BY_VERSION(0x491270, 0x491330, 0x4912C0);
+int gaddrof(EverybodyAttacksPlayerCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491270, 0x491330, 0x4912C0);
+
+void EverybodyAttacksPlayerCheat() {
+    plugin::CallDynGlobal(gaddrof(EverybodyAttacksPlayerCheat));
 }
 
-// Converted from cdecl void CCheat::WeaponsForAllCheat(void) 0x491370 
-void CCheat::WeaponsForAllCheat() {
-    plugin::Call<0x491370>();
+int addrof(WeaponsForAllCheat) = ADDRESS_BY_VERSION(0x491370, 0x491430, 0x4913C0);
+int gaddrof(WeaponsForAllCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491370, 0x491430, 0x4913C0);
+
+void WeaponsForAllCheat() {
+    plugin::CallDynGlobal(gaddrof(WeaponsForAllCheat));
 }
 
-// Converted from cdecl void CCheat::FastTimeCheat(void) 0x4913A0 
-void CCheat::FastTimeCheat() {
-    plugin::Call<0x4913A0>();
+int addrof(FastTimeCheat) = ADDRESS_BY_VERSION(0x4913A0, 0x491460, 0x4913F0);
+int gaddrof(FastTimeCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4913A0, 0x491460, 0x4913F0);
+
+void FastTimeCheat() {
+    plugin::CallDynGlobal(gaddrof(FastTimeCheat));
 }
 
-// Converted from cdecl void CCheat::SlowTimeCheat(void) 0x4913F0 
-void CCheat::SlowTimeCheat() {
-    plugin::Call<0x4913F0>();
+int addrof(SlowTimeCheat) = ADDRESS_BY_VERSION(0x4913F0, 0x4914B0, 0x491440);
+int gaddrof(SlowTimeCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4913F0, 0x4914B0, 0x491440);
+
+void SlowTimeCheat() {
+    plugin::CallDynGlobal(gaddrof(SlowTimeCheat));
 }
 
-// Converted from cdecl void CCheat::MoneyCheat(void) 0x491430 
-void CCheat::MoneyCheat() {
-    plugin::Call<0x491430>();
+int addrof(MoneyCheat) = ADDRESS_BY_VERSION(0x491430, 0x4914F0, 0x491480);
+int gaddrof(MoneyCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491430, 0x4914F0, 0x491480);
+
+void MoneyCheat() {
+    plugin::CallDynGlobal(gaddrof(MoneyCheat));
 }
 
-// Converted from cdecl void CCheat::ArmourCheat(void) 0x491460 
-void CCheat::ArmourCheat() {
-    plugin::Call<0x491460>();
+int addrof(ArmourCheat) = ADDRESS_BY_VERSION(0x491460, 0x491520, 0x4914B0);
+int gaddrof(ArmourCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491460, 0x491520, 0x4914B0);
+
+void ArmourCheat() {
+    plugin::CallDynGlobal(gaddrof(ArmourCheat));
 }
 
-// Converted from cdecl void CCheat::WantedLevelUpCheat(void) 0x491490 
-void CCheat::WantedLevelUpCheat() {
-    plugin::Call<0x491490>();
+int addrof(WantedLevelUpCheat) = ADDRESS_BY_VERSION(0x491490, 0x491550, 0x4914E0);
+int gaddrof(WantedLevelUpCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491490, 0x491550, 0x4914E0);
+
+void WantedLevelUpCheat() {
+    plugin::CallDynGlobal(gaddrof(WantedLevelUpCheat));
 }
 
-// Converted from cdecl void CCheat::WantedLevelDownCheat(void) 0x4914F0 
-void CCheat::WantedLevelDownCheat() {
-    plugin::Call<0x4914F0>();
+int addrof(WantedLevelDownCheat) = ADDRESS_BY_VERSION(0x4914F0, 0x4915B0, 0x491540);
+int gaddrof(WantedLevelDownCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4914F0, 0x4915B0, 0x491540);
+
+void WantedLevelDownCheat() {
+    plugin::CallDynGlobal(gaddrof(WantedLevelDownCheat));
 }
 
-// Converted from cdecl void CCheat::SunnyWeatherCheat(void) 0x491520 
-void CCheat::SunnyWeatherCheat() {
-    plugin::Call<0x491520>();
+int addrof(SunnyWeatherCheat) = ADDRESS_BY_VERSION(0x491520, 0x4915E0, 0x491570);
+int gaddrof(SunnyWeatherCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491520, 0x4915E0, 0x491570);
+
+void SunnyWeatherCheat() {
+    plugin::CallDynGlobal(gaddrof(SunnyWeatherCheat));
 }
 
-// Converted from cdecl void CCheat::CloudyWeatherCheat(void) 0x491550 
-void CCheat::CloudyWeatherCheat() {
-    plugin::Call<0x491550>();
+int addrof(CloudyWeatherCheat) = ADDRESS_BY_VERSION(0x491550, 0x491610, 0x4915A0);
+int gaddrof(CloudyWeatherCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491550, 0x491610, 0x4915A0);
+
+void CloudyWeatherCheat() {
+    plugin::CallDynGlobal(gaddrof(CloudyWeatherCheat));
 }
 
-// Converted from cdecl void CCheat::RainyWeatherCheat(void) 0x491580 
-void CCheat::RainyWeatherCheat() {
-    plugin::Call<0x491580>();
+int addrof(RainyWeatherCheat) = ADDRESS_BY_VERSION(0x491580, 0x491640, 0x4915D0);
+int gaddrof(RainyWeatherCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491580, 0x491640, 0x4915D0);
+
+void RainyWeatherCheat() {
+    plugin::CallDynGlobal(gaddrof(RainyWeatherCheat));
 }
 
-// Converted from cdecl void CCheat::FoggyWeatherCheat(void) 0x4915B0 
-void CCheat::FoggyWeatherCheat() {
-    plugin::Call<0x4915B0>();
+int addrof(FoggyWeatherCheat) = ADDRESS_BY_VERSION(0x4915B0, 0x491670, 0x491600);
+int gaddrof(FoggyWeatherCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4915B0, 0x491670, 0x491600);
+
+void FoggyWeatherCheat() {
+    plugin::CallDynGlobal(gaddrof(FoggyWeatherCheat));
 }
 
-// Converted from cdecl void CCheat::FastWeatherCheat(void) 0x4915E0 
-void CCheat::FastWeatherCheat() {
-    plugin::Call<0x4915E0>();
+int addrof(FastWeatherCheat) = ADDRESS_BY_VERSION(0x4915E0, 0x4916A0, 0x491630);
+int gaddrof(FastWeatherCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4915E0, 0x4916A0, 0x491630);
+
+void FastWeatherCheat() {
+    plugin::CallDynGlobal(gaddrof(FastWeatherCheat));
 }
 
-// Converted from cdecl void CCheat::OnlyRenderWheelsCheat(void) 0x491610 
-void CCheat::OnlyRenderWheelsCheat() {
-    plugin::Call<0x491610>();
+int addrof(OnlyRenderWheelsCheat) = ADDRESS_BY_VERSION(0x491610, 0x4916D0, 0x491660);
+int gaddrof(OnlyRenderWheelsCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491610, 0x4916D0, 0x491660);
+
+void OnlyRenderWheelsCheat() {
+    plugin::CallDynGlobal(gaddrof(OnlyRenderWheelsCheat));
 }
 
-// Converted from cdecl void CCheat::ChittyChittyBangBangCheat(void) 0x491640 
-void CCheat::ChittyChittyBangBangCheat() {
-    plugin::Call<0x491640>();
+int addrof(ChittyChittyBangBangCheat) = ADDRESS_BY_VERSION(0x491640, 0x491700, 0x491690);
+int gaddrof(ChittyChittyBangBangCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491640, 0x491700, 0x491690);
+
+void ChittyChittyBangBangCheat() {
+    plugin::CallDynGlobal(gaddrof(ChittyChittyBangBangCheat));
 }
 
-// Converted from cdecl void CCheat::StrongGripCheat(void) 0x491670 
-void CCheat::StrongGripCheat() {
-    plugin::Call<0x491670>();
+int addrof(StrongGripCheat) = ADDRESS_BY_VERSION(0x491670, 0x491730, 0x4916C0);
+int gaddrof(StrongGripCheat) = GLOBAL_ADDRESS_BY_VERSION(0x491670, 0x491730, 0x4916C0);
+
+void StrongGripCheat() {
+    plugin::CallDynGlobal(gaddrof(StrongGripCheat));
 }
 
-// Converted from cdecl void CCheat::NastyLimbsCheat(void) 0x4916A0 
-void CCheat::NastyLimbsCheat() {
-    plugin::Call<0x4916A0>();
+int addrof(NastyLimbsCheat) = ADDRESS_BY_VERSION(0x4916A0, 0x491760, 0x4916F0);
+int gaddrof(NastyLimbsCheat) = GLOBAL_ADDRESS_BY_VERSION(0x4916A0, 0x491760, 0x4916F0);
+
+void NastyLimbsCheat() {
+    plugin::CallDynGlobal(gaddrof(NastyLimbsCheat));
 }

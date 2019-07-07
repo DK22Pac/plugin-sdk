@@ -6,37 +6,47 @@
 */
 #include "CBulletInfo.h"
 
-CBulletInfo *aBulletInfos = (CBulletInfo *)0x64D0D8;
-bool &bPlayerSniperBullet = *(bool *)0x95CD81;
-CVector *PlayerSniperBulletStart = (CVector *)0x9414BC;
-CVector *PlayerSniperBulletEnd = (CVector *)0x9430C8;
+PLUGIN_SOURCE_FILE
 
-// Converted from cdecl bool CBulletInfo::AddBullet(CEntity *creator, eWeaponType weaponType, CVector position, CVector velocity) 0x558470
-bool CBulletInfo::AddBullet(CEntity* creator, eWeaponType weaponType, CVector position, CVector velocity) {
-    return plugin::CallAndReturn<bool, 0x558470, CEntity*, eWeaponType, CVector, CVector>(creator, weaponType, position, velocity);
+PLUGIN_VARIABLE CBulletInfo(&CBulletInfo::aBulletInfos)[100] = *reinterpret_cast<CBulletInfo(*)[100]>(GLOBAL_ADDRESS_BY_VERSION(0x64D0D8, 0x64D0D8, 0x65D0E0));
+PLUGIN_VARIABLE CVector &PlayerSniperBulletStart = *reinterpret_cast<CVector *>(GLOBAL_ADDRESS_BY_VERSION(0x9414BC, 0x941674, 0x9517B4));
+PLUGIN_VARIABLE CVector &PlayerSniperBulletEnd = *reinterpret_cast<CVector *>(GLOBAL_ADDRESS_BY_VERSION(0x9430C8, 0x943280, 0x9533C0));
+PLUGIN_VARIABLE bool &bPlayerSniperBullet = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CD81, 0x95CF39, 0x96D079));
+
+int ctor_addr(CBulletInfo) = ADDRESS_BY_VERSION(0x559020, 0x559150, 0x559100);
+int ctor_gaddr(CBulletInfo) = GLOBAL_ADDRESS_BY_VERSION(0x559020, 0x559150, 0x559100);
+
+int addrof(CBulletInfo::AddBullet) = ADDRESS_BY_VERSION(0x558470, 0x5585A0, 0x558550);
+int gaddrof(CBulletInfo::AddBullet) = GLOBAL_ADDRESS_BY_VERSION(0x558470, 0x5585A0, 0x558550);
+
+void CBulletInfo::AddBullet(CEntity *creator, eWeaponType weaponType, CVector position, CVector velocity) {
+    plugin::CallDynGlobal<CEntity *, eWeaponType, CVector, CVector>(gaddrof(CBulletInfo::AddBullet), creator, weaponType, position, velocity);
 }
 
-// Converted from thiscall void CBulletInfo::CBulletInfo(void) 0x559020 
-CBulletInfo::CBulletInfo() {
-    plugin::CallMethod<0x559020, CBulletInfo *>(this);
-}
+int addrof(CBulletInfo::Initialise) = ADDRESS_BY_VERSION(0x558220, 0x558350, 0x558300);
+int gaddrof(CBulletInfo::Initialise) = GLOBAL_ADDRESS_BY_VERSION(0x558220, 0x558350, 0x558300);
 
-// Converted from cdecl void CBulletInfo::Initialise(void) 0x558220 
 void CBulletInfo::Initialise() {
-    plugin::Call<0x558220>();
+    plugin::CallDynGlobal(gaddrof(CBulletInfo::Initialise));
 }
 
-// Converted from cdecl void CBulletInfo::Shutdown(void) 0x558450 
+int addrof(CBulletInfo::Shutdown) = ADDRESS_BY_VERSION(0x558450, 0x558580, 0x558530);
+int gaddrof(CBulletInfo::Shutdown) = GLOBAL_ADDRESS_BY_VERSION(0x558450, 0x558580, 0x558530);
+
 void CBulletInfo::Shutdown() {
-    plugin::Call<0x558450>();
+    plugin::CallDynGlobal(gaddrof(CBulletInfo::Shutdown));
 }
 
-// Converted from cdecl bool CBulletInfo::TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2) 0x558D40 
+int addrof(CBulletInfo::TestForSniperBullet) = ADDRESS_BY_VERSION(0x558D40, 0x558E70, 0x558E20);
+int gaddrof(CBulletInfo::TestForSniperBullet) = GLOBAL_ADDRESS_BY_VERSION(0x558D40, 0x558E70, 0x558E20);
+
 bool CBulletInfo::TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2) {
-    return plugin::CallAndReturn<bool, 0x558D40, float, float, float, float, float, float>(x1, y1, z1, x2, y2, z2);
+    return plugin::CallAndReturnDynGlobal<bool, float, float, float, float, float, float>(gaddrof(CBulletInfo::TestForSniperBullet), x1, y1, z1, x2, y2, z2);
 }
 
-// Converted from cdecl void CBulletInfo::Update(void) 0x558550 
+int addrof(CBulletInfo::Update) = ADDRESS_BY_VERSION(0x558550, 0x558680, 0x558630);
+int gaddrof(CBulletInfo::Update) = GLOBAL_ADDRESS_BY_VERSION(0x558550, 0x558680, 0x558630);
+
 void CBulletInfo::Update() {
-    plugin::Call<0x558550>();
+    plugin::CallDynGlobal(gaddrof(CBulletInfo::Update));
 }

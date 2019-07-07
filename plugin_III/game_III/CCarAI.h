@@ -8,23 +8,26 @@
 
 #include "PluginBase.h"
 #include "CVehicle.h"
+#include "CVector.h"
+#include "eCarMission.h"
 
-class CCarAI {
+class PLUGIN_API CCarAI {
 public:
-    // static functions
-    static void AddAmbulanceOccupants(CVehicle* vehicle);
-    static void AddFiretruckOccupants(CVehicle* vehicle);
-    static void AddPoliceCarOccupants(CVehicle* vehicle);
-    static void CarHasReasonToStop(CVehicle* vehicle);
-    static char FindPoliceCarMissionForWantedLevel();
-    static int FindPoliceCarSpeedForWantedLevel(CVehicle* vehicle);
-    static float FindSwitchDistanceClose(CVehicle* vehicle);
-    static float FindSwitchDistanceFar(CVehicle* vehicle);
-    static void GetCarToGoToCoors(CVehicle* vehicle, CVector* coors);
-    static void MakeWayForCarWithSiren(CVehicle* vehicle);
-    static void MellowOutChaseSpeed(CVehicle* vehicle);
-    static void TellCarToBlockOtherCar(CVehicle* vehicle, CVehicle* blockVehicle);
-    static void TellCarToRamOtherCar(CVehicle* vehicle, CVehicle* ramVehicle);
-    static void TellOccupantsToLeaveCar(CVehicle* vehicle);
-    static void UpdateCarAI(CVehicle* vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void AddAmbulanceOccupants(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void AddFiretruckOccupants(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void AddPoliceCarOccupants(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void CarHasReasonToStop(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static eCarMission FindPoliceCarMissionForWantedLevel();
+    SUPPORTED_10EN_11EN_STEAM static int FindPoliceCarSpeedForWantedLevel(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static float FindSwitchDistanceClose();
+    SUPPORTED_10EN_11EN_STEAM static float FindSwitchDistanceFar(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void GetCarToGoToCoors(CVehicle *vehicle, CVector *coors);
+    SUPPORTED_10EN_11EN_STEAM static void MakeWayForCarWithSiren(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void MellowOutChaseSpeed(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void TellCarToBlockOtherCar(CVehicle *vehicle, CVehicle *blockVehicle);
+    SUPPORTED_10EN_11EN_STEAM static void TellCarToRamOtherCar(CVehicle *vehicle, CVehicle *ramVehicle);
+    SUPPORTED_10EN_11EN_STEAM static void TellOccupantsToLeaveCar(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM static void UpdateCarAI(CVehicle *vehicle);
 };
+
+#include "meta/meta.CCarAI.h"
