@@ -4,9 +4,9 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CColPoint.h"
+#include "CBrightLight.h"
 
 PLUGIN_SOURCE_FILE
 
-int ctor_addr(CColPoint) = ADDRESS_BY_VERSION(0x454310, 0x454310, 0x454310);
-int ctor_gaddr(CColPoint) = GLOBAL_ADDRESS_BY_VERSION(0x454310, 0x454310, 0x454310);
+int ctor_addr(CBrightLight) = ADDRESS_BY_VERSION(0x51C340, 0x51C570, 0x51C500);
+int ctor_gaddr(CBrightLight) = GLOBAL_ADDRESS_BY_VERSION(0x51C340, 0x51C570, 0x51C500);

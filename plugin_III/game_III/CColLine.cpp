@@ -1,17 +1,22 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CColLine.h"
 
-// Converted from thiscall void CColLine::CColLine(CVector const& start, CVector const& end) 0x40B320
-CColLine::CColLine(CVector const& start, CVector const& end) {
-    plugin::CallMethod<0x40B320, CColLine *, CVector const&, CVector const&>(this, start, end);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CColLine::Set(CVector const& start, CVector const& end) 0x40B350
-void CColLine::Set(CVector const& start, CVector const& end) {
-    plugin::CallMethod<0x40B350, CColLine *, CVector const&, CVector const&>(this, start, end);
+int ctor_addr(CColLine) = ADDRESS_BY_VERSION(0x411510, 0x411510, 0x411510);
+int ctor_gaddr(CColLine) = GLOBAL_ADDRESS_BY_VERSION(0x411510, 0x411510, 0x411510);
+
+int ctor_addr_o(CColLine, void(CVector *, CVector *)) = ADDRESS_BY_VERSION(0x40B320, 0x40B320, 0x40B320);
+int ctor_gaddr_o(CColLine, void(CVector *, CVector *)) = GLOBAL_ADDRESS_BY_VERSION(0x40B320, 0x40B320, 0x40B320);
+
+int addrof(CColLine::Set) = ADDRESS_BY_VERSION(0x40B350, 0x40B350, 0x40B350);
+int gaddrof(CColLine::Set) = GLOBAL_ADDRESS_BY_VERSION(0x40B350, 0x40B350, 0x40B350);
+
+void CColLine::Set(CVector &start, CVector &end) {
+    plugin::CallMethodDynGlobal<CColLine *, CVector &, CVector &>(gaddrof(CColLine::Set), this, start, end);
 }
