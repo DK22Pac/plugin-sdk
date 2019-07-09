@@ -8,18 +8,18 @@
 
 #include "PluginBase.h"
 
-class CDraw {
+class PLUGIN_API CDraw {
 public:
-    // static variables
-    static float &ms_fFOV; // default 45.0
-    static float &ms_fLODDistance;
-    static float &ms_fFarClipZ;
-    static float &ms_fNearClipZ;
-    static unsigned char &FadeRed;
-    static unsigned char &FadeGreen;
-    static unsigned char &FadeBlue;
-    static unsigned char &FadeValue;
+    SUPPORTED_10EN_11EN_STEAM static float &ms_fFOV;
+    SUPPORTED_10EN_11EN_STEAM static float &ms_fNearClipZ;
+    SUPPORTED_10EN_11EN_STEAM static float &ms_fLODDistance;
+    SUPPORTED_10EN_11EN_STEAM static float &ms_fFarClipZ;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &FadeBlue;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &FadeValue;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &FadeGreen;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &FadeRed;
 
-    // static functions
-    static void SetFOV(float fovValue);
+    SUPPORTED_10EN_11EN_STEAM static void SetFOV(float fovValue);
 };
+
+#include "meta/meta.CDraw.h"

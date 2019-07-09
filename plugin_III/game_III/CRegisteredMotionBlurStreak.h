@@ -7,27 +7,26 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CVector.h"
 #include "CRGBA.h"
+#include "CVector.h"
 
-class CRegisteredMotionBlurStreak {
+class PLUGIN_API CRegisteredMotionBlurStreak {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CRegisteredMotionBlurStreak)
+
 public:
-    int     m_nId;
-    CRGBA   m_color;
+    int m_nId;
+    CRGBA m_color;
     CVector m_avecLeftPoints[3];
     CVector m_avecRightPoints[3];
-    bool    m_bExists;
+    bool m_bExists;
     char field_51;
     char field_52;
     char field_53;
 
-    //funcs
-    void Update();
-    void Render();
-    CRegisteredMotionBlurStreak();
-
+    SUPPORTED_10EN_11EN_STEAM void Render();
+    SUPPORTED_10EN_11EN_STEAM void Update();
 };
 
 VALIDATE_SIZE(CRegisteredMotionBlurStreak, 0x54);
 
-extern RxObjSpace3DVertex *StreakVertices;
+#include "meta/meta.CRegisteredMotionBlurStreak.h"

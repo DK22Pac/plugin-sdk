@@ -6,26 +6,34 @@
 */
 #include "CMotionBlurStreaks.h"
 
-unsigned int MAX_NUM_MOTIONBLUR_STREAKS = 4;
+PLUGIN_SOURCE_FILE
 
-CRegisteredMotionBlurStreak *CMotionBlurStreaks::aStreaks = (CRegisteredMotionBlurStreak *)0x880A00;
+PLUGIN_VARIABLE CRegisteredMotionBlurStreak(&CMotionBlurStreaks::aStreaks)[4] = *reinterpret_cast<CRegisteredMotionBlurStreak(*)[4]>(GLOBAL_ADDRESS_BY_VERSION(0x880A00, 0x8809B0, 0x890AF0));
 
-// Converted from cdecl void CMotionBlurStreaks::Init(void) 0x519330 
+int addrof(CMotionBlurStreaks::Init) = ADDRESS_BY_VERSION(0x519330, 0x519560, 0x5194F0);
+int gaddrof(CMotionBlurStreaks::Init) = GLOBAL_ADDRESS_BY_VERSION(0x519330, 0x519560, 0x5194F0);
+
 void CMotionBlurStreaks::Init() {
-    plugin::Call<0x519330>();
+    plugin::CallDynGlobal(gaddrof(CMotionBlurStreaks::Init));
 }
 
-// Converted from cdecl void CMotionBlurStreaks::RegisterStreak(uint id, uchar red, uchar green, uchar blue, CVector leftPoint, CVector rightPoint) 0x519460
+int addrof(CMotionBlurStreaks::RegisterStreak) = ADDRESS_BY_VERSION(0x519460, 0x519690, 0x519620);
+int gaddrof(CMotionBlurStreaks::RegisterStreak) = GLOBAL_ADDRESS_BY_VERSION(0x519460, 0x519690, 0x519620);
+
 void CMotionBlurStreaks::RegisterStreak(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, CVector leftPoint, CVector rightPoint) {
-    plugin::Call<0x519460, unsigned int, unsigned char, unsigned char, unsigned char, CVector, CVector>(id, red, green, blue, leftPoint, rightPoint);
+    plugin::CallDynGlobal<unsigned int, unsigned char, unsigned char, unsigned char, CVector, CVector>(gaddrof(CMotionBlurStreaks::RegisterStreak), id, red, green, blue, leftPoint, rightPoint);
 }
 
-// Converted from cdecl void CMotionBlurStreaks::Render(void) 0x519390 
+int addrof(CMotionBlurStreaks::Render) = ADDRESS_BY_VERSION(0x519390, 0x5195C0, 0x519550);
+int gaddrof(CMotionBlurStreaks::Render) = GLOBAL_ADDRESS_BY_VERSION(0x519390, 0x5195C0, 0x519550);
+
 void CMotionBlurStreaks::Render() {
-    plugin::Call<0x519390>();
+    plugin::CallDynGlobal(gaddrof(CMotionBlurStreaks::Render));
 }
 
-// Converted from cdecl void CMotionBlurStreaks::Update(void) 0x519360 
+int addrof(CMotionBlurStreaks::Update) = ADDRESS_BY_VERSION(0x519360, 0x519590, 0x519520);
+int gaddrof(CMotionBlurStreaks::Update) = GLOBAL_ADDRESS_BY_VERSION(0x519360, 0x519590, 0x519520);
+
 void CMotionBlurStreaks::Update() {
-    plugin::Call<0x519360>();
+    plugin::CallDynGlobal(gaddrof(CMotionBlurStreaks::Update));
 }

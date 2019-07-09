@@ -6,19 +6,21 @@
 */
 #include "CRegisteredMotionBlurStreak.h"
 
-RxObjSpace3DVertex *StreakVertices = (RxObjSpace3DVertex *)0x649974;
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CRegisteredMotionBlurStreak::Update(void) 0x519580 
-void CRegisteredMotionBlurStreak::Update() {
-    plugin::CallMethod<0x519580, CRegisteredMotionBlurStreak *>(this);
-}
+int ctor_addr(CRegisteredMotionBlurStreak) = ADDRESS_BY_VERSION(0x51C350, 0x51C580, 0x51C510);
+int ctor_gaddr(CRegisteredMotionBlurStreak) = GLOBAL_ADDRESS_BY_VERSION(0x51C350, 0x51C580, 0x51C510);
 
-// Converted from thiscall void CRegisteredMotionBlurStreak::Render(void) 0x519600 
+int addrof(CRegisteredMotionBlurStreak::Render) = ADDRESS_BY_VERSION(0x519600, 0x519830, 0x5197C0);
+int gaddrof(CRegisteredMotionBlurStreak::Render) = GLOBAL_ADDRESS_BY_VERSION(0x519600, 0x519830, 0x5197C0);
+
 void CRegisteredMotionBlurStreak::Render() {
-    plugin::CallMethod<0x519600, CRegisteredMotionBlurStreak *>(this);
+    plugin::CallMethodDynGlobal<CRegisteredMotionBlurStreak *>(gaddrof(CRegisteredMotionBlurStreak::Render), this);
 }
 
-// Converted from thiscall void CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak(void) 0x51C350
-CRegisteredMotionBlurStreak::CRegisteredMotionBlurStreak() {
-    plugin::CallMethod<0x51C350, CRegisteredMotionBlurStreak *>(this);
+int addrof(CRegisteredMotionBlurStreak::Update) = ADDRESS_BY_VERSION(0x519580, 0x5197B0, 0x519740);
+int gaddrof(CRegisteredMotionBlurStreak::Update) = GLOBAL_ADDRESS_BY_VERSION(0x519580, 0x5197B0, 0x519740);
+
+void CRegisteredMotionBlurStreak::Update() {
+    plugin::CallMethodDynGlobal<CRegisteredMotionBlurStreak *>(gaddrof(CRegisteredMotionBlurStreak::Update), this);
 }
