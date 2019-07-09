@@ -6,12 +6,18 @@
 */
 #include "CColTrianglePlane.h"
 
-// Converted from thiscall void CColTrianglePlane::Set(CompressedVector const*,CColTriangle &) 0x411EA0 
-void CColTrianglePlane::Set(CompressedVector const* arg0, CColTriangle& arg1) {
-    plugin::CallMethod<0x411EA0, CColTrianglePlane *, CompressedVector const*, CColTriangle&>(this, arg0, arg1);
+PLUGIN_SOURCE_FILE
+
+int addrof(CColTrianglePlane::GetNormal) = ADDRESS_BY_VERSION(0x412140, 0x412140, 0x412140);
+int gaddrof(CColTrianglePlane::GetNormal) = GLOBAL_ADDRESS_BY_VERSION(0x412140, 0x412140, 0x412140);
+
+void CColTrianglePlane::GetNormal(CVector &point) {
+    plugin::CallMethodDynGlobal<CColTrianglePlane *, CVector &>(gaddrof(CColTrianglePlane::GetNormal), this, point);
 }
 
-// Converted from thiscall void CColTrianglePlane::GetNormal(CVector &) 0x412140 
-void CColTrianglePlane::GetNormal(CVector& arg0) {
-    plugin::CallMethod<0x412140, CColTrianglePlane *, CVector&>(this, arg0);
+int addrof(CColTrianglePlane::Set) = ADDRESS_BY_VERSION(0x411EA0, 0x411EA0, 0x411EA0);
+int gaddrof(CColTrianglePlane::Set) = GLOBAL_ADDRESS_BY_VERSION(0x411EA0, 0x411EA0, 0x411EA0);
+
+void CColTrianglePlane::Set(CompressedVector const *verts, CColTriangle &tri) {
+    plugin::CallMethodDynGlobal<CColTrianglePlane *, CompressedVector const *, CColTriangle &>(gaddrof(CColTrianglePlane::Set), this, verts, tri);
 }

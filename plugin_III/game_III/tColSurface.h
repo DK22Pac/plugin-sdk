@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-struct tColSurface {
+struct PLUGIN_API tColSurface {
     unsigned char material;
     unsigned char flag;
     unsigned char lighting;

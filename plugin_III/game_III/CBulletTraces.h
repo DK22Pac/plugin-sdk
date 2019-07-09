@@ -8,28 +8,16 @@
 
 #include "PluginBase.h"
 #include "CVector.h"
+#include "CBulletTrace.h"
 
-
-class CBulletTrace {
+class PLUGIN_API CBulletTraces {
 public:
-    CVector m_vecOrigin;
-    CVector m_vecTarget;
-    bool m_bExist;
-    char m_nTimeCounter;
-    char m_nIntensity;
+    SUPPORTED_10EN_11EN_STEAM static CBulletTrace(&aTraces)[16]; // static CBulletTrace aTraces[16]
 
-    CBulletTrace();
-    void Update();
+    SUPPORTED_10EN_11EN_STEAM static void AddTrace(CVector *origin, CVector *target);
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static void Render();
+    SUPPORTED_10EN_11EN_STEAM static void Update();
 };
 
-VALIDATE_SIZE(CBulletTrace, 0x1C);
-
-class CBulletTraces {
-public:
-    static CBulletTrace *aTraces; // [16]
-
-    static void Update();
-    static void Render();
-    static void Init();
-    static void AddTrace(CVector* origin, CVector* target);
-};
+#include "meta/meta.CBulletTraces.h"

@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-class CSphere {
+class PLUGIN_API CSphere {
 public:
     CVector m_vecCenter;
     float   m_fRadius;

@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-class CBox {
+class PLUGIN_API CBox {
 public:
     CVector m_vecMin;
     CVector m_vecMax;

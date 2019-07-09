@@ -1,24 +1,25 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
 #include "PluginBase.h"
-#include "CVector.h"
 #include "CompressedVector.h"
 
-class CColTriangle {
+class PLUGIN_API CColTriangle {
 public:
-    unsigned short m_nVertA; // vertex index in vertices array
-    unsigned short m_nVertB; // vertex index in vertices array
-    unsigned short m_nVertC; // vertex index in vertices array
+    unsigned short m_nVertA; //!< "vertex index in vertices array"
+    unsigned short m_nVertB;
+    unsigned short m_nVertC;
     unsigned char m_nMaterial;
     unsigned char m_nLight;
 
-    void Set(CompressedVector const* arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5);
+    SUPPORTED_10EN_11EN_STEAM void Set(CompressedVector const *verts, int vertA, int vertB, int vertC, unsigned char material, unsigned char flag);
 };
 
 VALIDATE_SIZE(CColTriangle, 0x8);
+
+#include "meta/meta.CColTriangle.h"

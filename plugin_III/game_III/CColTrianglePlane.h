@@ -11,7 +11,7 @@
 #include "CompressedVector.h"
 #include "CColTriangle.h"
 
-class CColTrianglePlane {
+class PLUGIN_API CColTrianglePlane {
 public:
     CVector m_vecNormal;
     float m_fDistance;
@@ -20,8 +20,10 @@ private:
     char _pad11[3];
 public:
 
-    void Set(CompressedVector const* arg0, CColTriangle& arg1);
-    void GetNormal(CVector& arg0);
+    SUPPORTED_10EN_11EN_STEAM void GetNormal(CVector &point);
+    SUPPORTED_10EN_11EN_STEAM void Set(CompressedVector const *verts, CColTriangle &tri);
 };
 
 VALIDATE_SIZE(CColTrianglePlane, 0x14);
+
+#include "meta/meta.CColTrianglePlane.h"

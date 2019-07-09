@@ -6,34 +6,34 @@
 */
 #include "CBulletTraces.h"
 
-CBulletTrace *CBulletTraces::aTraces = (CBulletTrace *)0x72B1B8;
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CBulletTrace::Update(void) 0x519270 
-void CBulletTrace::Update() {
-    plugin::CallMethod<0x519270, CBulletTrace *>(this);
+PLUGIN_VARIABLE CBulletTrace(&CBulletTraces::aTraces)[16] = *reinterpret_cast<CBulletTrace(*)[16]>(GLOBAL_ADDRESS_BY_VERSION(0x72B1B8, 0x72B1B8, 0x73B2F8));
+
+int addrof(CBulletTraces::AddTrace) = ADDRESS_BY_VERSION(0x518E90, 0x5190C0, 0x519050);
+int gaddrof(CBulletTraces::AddTrace) = GLOBAL_ADDRESS_BY_VERSION(0x518E90, 0x5190C0, 0x519050);
+
+void CBulletTraces::AddTrace(CVector *origin, CVector *target) {
+    plugin::CallDynGlobal<CVector *, CVector *>(gaddrof(CBulletTraces::AddTrace), origin, target);
 }
 
-// Converted from thiscall void CBulletTrace::CBulletTrace(void) 0x51C390
-CBulletTrace::CBulletTrace() {
-    plugin::CallMethod<0x51C390, CBulletTrace *>(this);
-}
+int addrof(CBulletTraces::Init) = ADDRESS_BY_VERSION(0x518DE0, 0x519010, 0x518FA0);
+int gaddrof(CBulletTraces::Init) = GLOBAL_ADDRESS_BY_VERSION(0x518DE0, 0x519010, 0x518FA0);
 
-// Converted from cdecl void CBulletTraces::Update(void) 0x519240 
-void CBulletTraces::Update() {
-    plugin::Call<0x519240>();
-}
-
-// Converted from cdecl void CBulletTraces::Render(void) 0x518F20 
-void CBulletTraces::Render() {
-    plugin::Call<0x518F20>();
-}
-
-// Converted from cdecl void CBulletTraces::Init(void) 0x518DE0 
 void CBulletTraces::Init() {
-    plugin::Call<0x518DE0>();
+    plugin::CallDynGlobal(gaddrof(CBulletTraces::Init));
 }
 
-// Converted from cdecl void CBulletTraces::AddTrace(CVector *origin, CVector *target) 0x518E90
-void CBulletTraces::AddTrace(CVector* origin, CVector* target) {
-    plugin::Call<0x518E90, CVector*, CVector*>(origin, target);
+int addrof(CBulletTraces::Render) = ADDRESS_BY_VERSION(0x518F20, 0x519150, 0x5190E0);
+int gaddrof(CBulletTraces::Render) = GLOBAL_ADDRESS_BY_VERSION(0x518F20, 0x519150, 0x5190E0);
+
+void CBulletTraces::Render() {
+    plugin::CallDynGlobal(gaddrof(CBulletTraces::Render));
+}
+
+int addrof(CBulletTraces::Update) = ADDRESS_BY_VERSION(0x519240, 0x519470, 0x519400);
+int gaddrof(CBulletTraces::Update) = GLOBAL_ADDRESS_BY_VERSION(0x519240, 0x519470, 0x519400);
+
+void CBulletTraces::Update() {
+    plugin::CallDynGlobal(gaddrof(CBulletTraces::Update));
 }

@@ -6,7 +6,7 @@
 */
 #pragma once
 
-enum eVehicleModel : unsigned int {
+enum PLUGIN_API eVehicleModel : unsigned int {
     MODEL_LANDSTAL = 90, 
     MODEL_IDAHO, 
     MODEL_STINGER, 
