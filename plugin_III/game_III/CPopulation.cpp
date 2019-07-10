@@ -35,6 +35,8 @@ PLUGIN_VARIABLE unsigned int &CPopulation::ms_nTotalMissionPeds = *reinterpret_c
 PLUGIN_VARIABLE unsigned int &CPopulation::ms_nNumEmergency = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x94071C, 0x9408D4, 0x950A14));
 PLUGIN_VARIABLE unsigned int &CPopulation::ms_nTotalPeds = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x95CB50, 0x95CD08, 0x96CE48));
 PLUGIN_VARIABLE bool &CPopulation::ms_bGivePedsWeapons = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CCF6, 0x95CEAE, 0x96CFEE));
+PLUGIN_VARIABLE char &CPopulation::m_CountDownToPedsAtStart = *reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0x95CD4F, 0x95CF07, 0x96D047));
+PLUGIN_VARIABLE bool &CPopulation::bZoneChangeHasHappened = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CD79, 0x95CF31, 0x96D071));
 
 int addrof(CPopulation::AddPed) = ADDRESS_BY_VERSION(0x4F5280, 0x4F5330, 0x4F52C0);
 int gaddrof(CPopulation::AddPed) = GLOBAL_ADDRESS_BY_VERSION(0x4F5280, 0x4F5330, 0x4F52C0);
@@ -102,8 +104,8 @@ void CPopulation::ConvertToRealObject(CDummyObject *dummyObject) {
 int addrof(CPopulation::DealWithZoneChange) = ADDRESS_BY_VERSION(0x4F6200, 0x4F62B0, 0x4F6240);
 int gaddrof(CPopulation::DealWithZoneChange) = GLOBAL_ADDRESS_BY_VERSION(0x4F6200, 0x4F62B0, 0x4F6240);
 
-void CPopulation::DealWithZoneChange(eLevelName levelName, eLevelName levelName, bool a3) {
-    plugin::CallDynGlobal<eLevelName, eLevelName, bool>(gaddrof(CPopulation::DealWithZoneChange), levelName, levelName, a3);
+void CPopulation::DealWithZoneChange(eLevelName levelName, eLevelName levelNameTwo, bool a3) {
+    plugin::CallDynGlobal<eLevelName, eLevelName, bool>(gaddrof(CPopulation::DealWithZoneChange), levelName, levelNameTwo, a3);
 }
 
 int addrof(CPopulation::FindClosestZoneForCoors) = ADDRESS_BY_VERSION(0x4F6150, 0x4F6200, 0x4F6190);

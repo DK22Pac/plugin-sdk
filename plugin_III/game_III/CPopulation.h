@@ -46,6 +46,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nNumEmergency;
     SUPPORTED_10EN_11EN_STEAM static unsigned int &ms_nTotalPeds;
     SUPPORTED_10EN_11EN_STEAM static bool &ms_bGivePedsWeapons;
+    SUPPORTED_10EN_11EN_STEAM static char &m_CountDownToPedsAtStart;
+    SUPPORTED_10EN_11EN_STEAM static bool &bZoneChangeHasHappened;
 
     SUPPORTED_10EN_11EN_STEAM static CPed *AddPed(ePedType pedType, unsigned int modelIndex, CVector *posn);
     SUPPORTED_10EN_11EN_STEAM static CPed *AddPedInCar(CVehicle *vehicle);
@@ -56,7 +58,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ConvertAllObjectsToDummyObjects();
     SUPPORTED_10EN_11EN_STEAM static void ConvertToDummyObject(CObject *object);
     SUPPORTED_10EN_11EN_STEAM static void ConvertToRealObject(CDummyObject *dummyObject);
-    SUPPORTED_10EN_11EN_STEAM static void DealWithZoneChange(eLevelName levelName, eLevelName levelName, bool a3);
+    SUPPORTED_10EN_11EN_STEAM static void DealWithZoneChange(eLevelName levelName, eLevelName levelNameTwo, bool a3);
     SUPPORTED_10EN_11EN_STEAM static void FindClosestZoneForCoors(CVector *point, int *a2, eLevelName levelName, eLevelName _levelName);
     SUPPORTED_10EN_11EN_STEAM static void FindCollisionZoneForCoors(CVector *point, int *a2, eLevelName *levelName);
     SUPPORTED_10EN_11EN_STEAM static void GeneratePedsAtStartOfGame();

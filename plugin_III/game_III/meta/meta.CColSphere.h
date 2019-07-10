@@ -8,21 +8,6 @@
 
 namespace plugin {
 
-CTOR_META_BEGIN(CColSphere)
-static int address;
-static int global_address;
-static const int id = 0x411520;
-static const bool is_virtual = false;
-static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x411520, 0x411520, 0x411520>;
-// total references count: 10en (12), 11en (0), steam (0)
-using refs_t = RefList<0x410C12,100,2,0,1, 0x413682,100,2,0,1, 0x41369A,100,2,0,1, 0x4136B2,100,2,0,1, 0x4136CA,100,2,0,1, 0x4136E2,100,2,0,1, 0x4136FA,100,2,0,1, 0x413712,100,2,0,1, 0x41372A,100,2,0,1, 0x413742,100,2,0,1, 0x41375A,100,2,0,1, 0x413772,100,2,0,1>;
-using def_t = CColSphere *(CColSphere *);
-static const int cb_priority = PRIORITY_BEFORE; 
-using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CColSphere *>, 0>;
-META_END
-
 META_BEGIN(CColSphere::Set)
 static int address;
 static int global_address;
@@ -37,29 +22,5 @@ static const int cb_priority = PRIORITY_BEFORE;
 using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CColSphere *,float,CVector &,unsigned char,unsigned char>, 0,1,2,3,4>;
 META_END
-
-template<>
-struct stack_object<CColSphere> : stack_object_no_default<CColSphere> {
-    SUPPORTED_10EN_11EN_STEAM stack_object() {
-        plugin::CallMethodDynGlobal<CColSphere *>(ctor_gaddr(CColSphere), reinterpret_cast<CColSphere *>(objBuff));
-    }
-};
-
-template <>
-SUPPORTED_10EN_11EN_STEAM inline CColSphere *operator_new<CColSphere>() {
-    void *objData = operator new(sizeof(CColSphere)); 
-    CColSphere *obj = reinterpret_cast<CColSphere *>(objData);
-    plugin::CallMethodDynGlobal<CColSphere *>(ctor_gaddr(CColSphere), obj);
-    return obj;
-}
-template <>
-SUPPORTED_10EN_11EN_STEAM inline CColSphere *operator_new_array<CColSphere>(unsigned int objCount) {
-    void *objData = operator new(sizeof(CColSphere) * objCount + 4); 
-    *reinterpret_cast<unsigned int *>(objData) = objCount;
-    CColSphere *objArray = reinterpret_cast<CColSphere *>(reinterpret_cast<unsigned int>(objData) + 4);
-    for (unsigned int i = 0; i < objCount; i++)
-        plugin::CallMethodDynGlobal<CColSphere *>(ctor_gaddr(CColSphere), &objArray[i]);
-    return objArray;
-}
 
 }

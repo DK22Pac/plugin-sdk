@@ -12,8 +12,6 @@
 #include "CVector.h"
 
 class PLUGIN_API CColSphere : public CSphere {
-    PLUGIN_NO_DEFAULT_CONSTRUCTION(CColSphere)
-
 public:
     tColSurface m_surface;
 

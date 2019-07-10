@@ -7,7 +7,8 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CParticleObject.h"
+//#include "CParticleObject.h"
+class CParticleObject;
 
 class PLUGIN_API CAudioHydrant {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CAudioHydrant)
