@@ -85,4 +85,6 @@ public:
     static tMusicTrackHistory *m_nMusicTrackIndexHistory;
 };
 
+extern CAERadioTrackManager &AERadioTrackManager;
+
 VALIDATE_SIZE(CAERadioTrackManager, 0x370);

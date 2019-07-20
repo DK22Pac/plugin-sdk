@@ -14,6 +14,12 @@
 #define MAX_FONT_SPRITES 2
 #define MAX_FONT_BUTTON_SPRITES 15
 
+struct PLUGIN_API tFontData {
+	char m_propValues[208];
+	char m_spaceValue;
+	char m_unpropValue;
+};
+
 enum PLUGIN_API eFontAlignment : unsigned char {
     ALIGN_CENTER,
     ALIGN_LEFT,
@@ -122,3 +128,5 @@ public:
     static void PrintString(float x, float y, char *text);
     static void PrintStringFromBottom(float x, float y, char *text);
 };
+
+extern tFontData *gFontData;

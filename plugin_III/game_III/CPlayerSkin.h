@@ -9,6 +9,15 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "RenderWare.h"
 
+class PLUGIN_API CPlayerSkinData {
+public:
+	int m_nId;
+	char m_aName[256];
+	char m_aCurrentSkinName[256];
+	char m_aDateInfo[256];
+	CPlayerSkinData *field_304;
+};
+
 class CPlayerSkin {
 public:
     // static variables

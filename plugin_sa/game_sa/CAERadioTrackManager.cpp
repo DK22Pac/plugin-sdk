@@ -6,6 +6,8 @@
 */
 #include "CAERadioTrackManager.h"
 
+CAERadioTrackManager &AERadioTrackManager = *(CAERadioTrackManager*)0x8CB6F8;
+
 bool CAERadioTrackManager::IsVehicleRadioActive()
 {
 	return ((bool (__thiscall *)(CAERadioTrackManager *))0x4E9800)(this);
