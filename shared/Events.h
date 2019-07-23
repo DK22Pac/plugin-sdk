@@ -21,6 +21,10 @@ extern CdeclEvent    <AddressList<0x53E293, H_CALL>, PRIORITY_AFTER,  ArgPickNon
 // When HUD is drawing
 extern CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          drawHudEvent;
 
+extern CdeclEvent    <AddressList<0x53E550, H_CALL, 
+                                  0x53E83C, H_CALL,
+                                  0x53EBA2, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          drawAfterFadeEvent;
+
 // When radar is drawing
 extern CdeclEvent    <AddressList<0x58FC53, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          drawRadarEvent;
 

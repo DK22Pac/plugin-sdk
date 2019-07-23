@@ -168,6 +168,8 @@ extern unsigned int MAX_RADAR_TRACES;
 
 class CRadar {
 public:
+    static float &m_fRadarOrientation;
+
     // 2990.0 by default
     static float &m_radarRange;
     // static unsigned short MapLegendList[175];
