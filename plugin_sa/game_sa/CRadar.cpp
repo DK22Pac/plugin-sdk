@@ -12,6 +12,7 @@ unsigned int MAX_AIRSTRIP_INFOS = 4;
 unsigned int MAX_RADAR_WIDTH_TILES = 12;
 unsigned int MAX_RADAR_HEIHGT_TILES = 12;
 
+float &CRadar::m_fRadarOrientation = *(float *)0xBA8310;
 float &CRadar::m_radarRange = *(float *)0xBA8314;
 unsigned short *CRadar::MapLegendList = (unsigned short *)0xBA8318;
 unsigned short &CRadar::MapLegendCounter = *(unsigned short *)0xBA86B8;

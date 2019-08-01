@@ -12,6 +12,11 @@ using namespace plugin::Events;
 #ifdef GTASA
 CdeclEvent    <AddressList<0x53E293, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::drawingEvent;
 CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::drawHudEvent;
+
+CdeclEvent    <AddressList<0x53E550, H_CALL,
+                           0x53E83C, H_CALL,
+                           0x53EBA2, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::drawAfterFadeEvent;
+
 CdeclEvent    <AddressList<0x58FC53, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::drawRadarEvent;
 CdeclEvent    <AddressList<0x58AA2D, H_JUMP, 
                            0x575B44, H_CALL>, PRIORITY_AFTER,  ArgPickNone,            void()>          plugin::Events::drawBlipsEvent;
