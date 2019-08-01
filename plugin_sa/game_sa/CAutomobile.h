@@ -86,7 +86,7 @@ public:
     float m_fMoveDirection;
     int field_8B4[6];
     int field_8C8[6];
-    int m_dwBurnTimer;
+    float m_fBurningTimer; // starts when vehicle health is lower than 250.0, car blows up when it hits 5000.0
     CEntity *m_pWheelCollisionEntity[4];
     CVector m_vWheelCollisionPos[4];
     char field_924;
