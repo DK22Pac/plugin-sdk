@@ -94,7 +94,7 @@ public:
     // creates an object (CObject) for pickup. objectPoolSlotIndex - object to replace; use -1 to create a new object
     void GiveUsAPickUpObject(CObject** pObject, int objectPoolSlotIndex);
     // updates the pickup. Returns TRUE if pickup was removed/disabled
-    void Update(CPlayerPed* playerPed, CVehicle* vehicle, int playerId);
+    bool Update(CPlayerPed* playerPed, CVehicle* vehicle, int playerId);
     // checks if pickup collides with line (origin;target), removes pickup and creates an explosion. Used in previous GTA games for mine pickup
     void ProcessGunShot(CVector* origin, CVector* target);
 

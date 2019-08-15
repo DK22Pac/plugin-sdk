@@ -74,8 +74,8 @@ void CPickup::GiveUsAPickUpObject(CObject** pObject, int objectPoolSlotIndex) {
 }
 
 // Converted from thiscall void CPickup::Update(CPlayerPed *playerPed,CVehicle *vehicle,int playerId) 0x457410
-void CPickup::Update(CPlayerPed* playerPed, CVehicle* vehicle, int playerId) {
-    plugin::CallMethod<0x457410, CPickup *, CPlayerPed*, CVehicle*, int>(this, playerPed, vehicle, playerId);
+bool CPickup::Update(CPlayerPed* playerPed, CVehicle* vehicle, int playerId) {
+    return plugin::CallMethodAndReturn<bool,0x457410, CPickup *, CPlayerPed*, CVehicle*, int>(this, playerPed, vehicle, playerId);
 }
 
 // Converted from thiscall void CPickup::ProcessGunShot(CVector *origin,CVector *target) 0x4588B0
