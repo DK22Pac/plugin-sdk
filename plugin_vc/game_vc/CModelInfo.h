@@ -45,6 +45,10 @@ public:
         return ms_modelInfoPtrs[index];
     }
 
+    static inline bool IsPedModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_PED);
+    }
+
     static inline bool IsHeliModel(int index) {
         return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_HELI);
     }
