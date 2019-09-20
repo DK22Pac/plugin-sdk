@@ -205,7 +205,7 @@ public:
     char field_23E;
     unsigned int m_bHornEnabled;
     char field_244;
-    unsigned char m_bSirenOrAlarm;
+    unsigned char m_nSirenOrAlarm;
     unsigned char m_nSirenExtra;
     char field_247;
     CStoredCollPoly m_frontCollPoly; // poly which is under front part of car

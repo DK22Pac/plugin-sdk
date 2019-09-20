@@ -130,6 +130,15 @@ public:
         return m_placement.pos;
     }
 
+    inline float GetHeading() {
+        float angle = atan2f(-m_placement.up.x, m_placement.up.y) * 57.295776f;
+        if (angle < 0.0f)
+            angle += 360.0f;
+        if (angle > 360.0f)
+            angle -= 360.0f;
+        return angle;
+    }
+
     inline void SetPosition(float x, float y, float z) {
         this->m_placement.pos.x = x;
         this->m_placement.pos.y = y;
