@@ -27,7 +27,7 @@ public:
     char field_602;
     char field_603; // padding?
     float fAbseilPos; //current abseil position (on the rope)
-    unsigned int nCopType; //type of the cop, 0-4 (3 - descending from rope)
+    unsigned int m_copType; //type of the cop, 0-4 (3 - descending from rope)
     bool bThrowsSpikeTrap; //if this is set, the cop will throw a spike trap as soon as it can
 private:
     char _pad1[3]; // 1549-1552

@@ -278,9 +278,9 @@ public:
     int m_dwAtchStoredWep;
     int m_dwStoredGiveWep;
     int m_dwStoredGiveAmmo;
-    unsigned char m_nWepSlot;
+    unsigned char m_nActiveWeaponSlot;
     unsigned char m_nWepSkills;
-    unsigned char m_nWepAccuracy;
+    unsigned char m_nWeaponAccuracy;
     unsigned char m_nBodyPart;
     CEntity *m_pPointGunAt;
     CVector m_vecHitLastPos;
