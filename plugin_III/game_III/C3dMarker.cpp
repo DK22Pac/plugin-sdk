@@ -11,6 +11,9 @@ PLUGIN_SOURCE_FILE
 int ctor_addr(C3dMarker) = ADDRESS_BY_VERSION(0x51C320, 0x51C550, 0);
 int ctor_gaddr(C3dMarker) = GLOBAL_ADDRESS_BY_VERSION(0x51C320, 0x51C550, 0);
 
+int dtor_addr(C3dMarker) = ADDRESS_BY_VERSION(0x51C310, 0x51C540, 0);
+int dtor_gaddr(C3dMarker) = GLOBAL_ADDRESS_BY_VERSION(0x51C310, 0x51C540, 0);
+
 int addrof(C3dMarker::AddMarker) = ADDRESS_BY_VERSION(0x51B070, 0x51B2A0, 0);
 int gaddrof(C3dMarker::AddMarker) = GLOBAL_ADDRESS_BY_VERSION(0x51B070, 0x51B2A0, 0);
 

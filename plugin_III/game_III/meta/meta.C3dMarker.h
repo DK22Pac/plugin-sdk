@@ -53,6 +53,21 @@ using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<C3dMarker *>, 0>;
 META_END
 
+DTOR_META_BEGIN(C3dMarker)
+static int address;
+static int global_address;
+static const int id = 0x51C310;
+static const bool is_virtual = false;
+static const int vtable_index = -1;
+using mv_addresses_t = MvAddresses<0x51C310, 0x51C540, 0>;
+// total references count: 10en (2), 11en (2), steam (0)
+using refs_t = RefList<0x51C295,100,2,0,1, 0x51C2F5,100,2,0,1, 0x51C4C5,110,2,0,1, 0x51C525,110,2,0,1>;
+using def_t = void(C3dMarker *);
+static const int cb_priority = PRIORITY_BEFORE; 
+using calling_convention_t = CallingConventions::Thiscall;
+using args_t = ArgPick<ArgTypes<C3dMarker *>, 0>;
+META_END
+
 CTOR_META_BEGIN(C3dMarker)
 static int address;
 static int global_address;
@@ -88,6 +103,9 @@ struct stack_object<C3dMarker> : stack_object_no_default<C3dMarker> {
     SUPPORTED_10EN_11EN stack_object() {
         plugin::CallMethodDynGlobal<C3dMarker *>(ctor_gaddr(C3dMarker), reinterpret_cast<C3dMarker *>(objBuff));
     }
+    SUPPORTED_10EN_11EN ~stack_object() {
+        plugin::CallMethodDynGlobal<C3dMarker *>(dtor_gaddr(C3dMarker), reinterpret_cast<C3dMarker *>(objBuff));
+    }
 };
 
 template <>
@@ -105,6 +123,21 @@ SUPPORTED_10EN_11EN inline C3dMarker *operator_new_array<C3dMarker>(unsigned int
     for (unsigned int i = 0; i < objCount; i++)
         plugin::CallMethodDynGlobal<C3dMarker *>(ctor_gaddr(C3dMarker), &objArray[i]);
     return objArray;
+}
+template <>
+SUPPORTED_10EN_11EN inline void operator_delete<C3dMarker>(C3dMarker *obj) {
+    if (obj == nullptr) return;
+    plugin::CallMethodDynGlobal<C3dMarker *>(dtor_gaddr(C3dMarker), obj);
+    operator delete(obj);
+}
+template <>
+SUPPORTED_10EN_11EN inline void operator_delete_array<C3dMarker>(C3dMarker *objArray) {
+    if (objArray == nullptr) return;
+    void *objData = reinterpret_cast<void *>(reinterpret_cast<char *>(objArray) - 4);
+    unsigned int arraySize = *reinterpret_cast<unsigned int *>(objData);
+    for (unsigned int i = 0; i < arraySize; i++)
+        plugin::CallMethodDynGlobal<C3dMarker *>(dtor_gaddr(C3dMarker), &objArray[i]);
+    operator delete(objData);
 }
 
 }
