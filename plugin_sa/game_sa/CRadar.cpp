@@ -10,7 +10,7 @@ unsigned int MAX_RADAR_SPRITES = 64;
 unsigned int MAX_RADAR_TRACES = 175;
 unsigned int MAX_AIRSTRIP_INFOS = 4;
 unsigned int MAX_RADAR_WIDTH_TILES = 12;
-unsigned int MAX_RADAR_HEIHGT_TILES = 12;
+unsigned int MAX_RADAR_HEIGHT_TILES = 12;
 
 float &CRadar::m_fRadarOrientation = *(float *)0xBA8310;
 float &CRadar::m_radarRange = *(float *)0xBA8314;
