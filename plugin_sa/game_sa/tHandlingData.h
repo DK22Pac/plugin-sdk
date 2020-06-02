@@ -114,6 +114,7 @@ struct PLUGIN_API tHandlingData {
             unsigned int m_bUseMaxspLimit : 1;
             unsigned int m_bLowRider : 1;
             unsigned int m_bStreetRacer : 1;
+            unsigned int m_bUnused1 : 1;
             unsigned int m_bSwingingChassis : 1;
         };
     };

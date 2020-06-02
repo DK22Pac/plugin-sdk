@@ -140,6 +140,7 @@ public:
             unsigned int bUseMaxspLimit : 1;
             unsigned int bLowRider : 1;
             unsigned int bStreetRacer : 1;
+            unsigned int bUnused1 : 1;
             unsigned int bSwingingChassis : 1;
         } m_nHandlingFlags;
     };
