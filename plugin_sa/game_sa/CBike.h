@@ -70,7 +70,7 @@ public:
     bool           m_bPedRightHandFixed;
     char field_7B6[2];
     int field_7B8;
-    int field_7BC;
+    float m_fBurningTimer; // starts when vehicle health is lower than 250.0, bike blows up when it hits 5000.0
     CEntity       *m_apWheelCollisionEntity[4];
     CVector        m_avTouchPointsLocalSpace[4];
     CEntity       *m_pDamager;
