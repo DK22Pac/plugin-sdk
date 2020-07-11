@@ -519,8 +519,8 @@ RwFastRealToUInt32Inline(RwReal x)
 {
     RwUInt32 res;
 
-    __asm FLD DWord Ptr[x];
-    __asm FISTP DWord Ptr[res];
+    __asm fld dword ptr[x];
+    __asm fistp dword ptr[res];
     
     return(res);
 }
