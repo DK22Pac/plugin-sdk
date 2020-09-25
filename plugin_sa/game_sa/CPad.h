@@ -240,7 +240,8 @@ public:
     bool GroupControlForwardJustDown();
     bool GroupControlBackJustDown();
     void Clear(bool enablePlayerControls, bool resetPhase);
-    void UpdatePads();
+    static void UpdatePads();
+    static void ClearMouseHistory();
 };
 
 VALIDATE_SIZE(CPad, 0x134);
