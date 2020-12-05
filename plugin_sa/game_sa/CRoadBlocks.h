@@ -31,12 +31,12 @@ public:
 	SUPPORTED_10US static unsigned int &roadbloxFlags;
 	SUPPORTED_10US static unsigned int &roadbloxDatSize;
 
-	SUPPORTED_10US_11US static void CRoadBlocks::RegisterScriptRoadBlock(CVector *cornerA, CVector *cornerB, byte type);
-	SUPPORTED_10US_11US static void CRoadBlocks::ClearScriptRoadBlocks();
-	SUPPORTED_10US static void CRoadBlocks::Init();
-	SUPPORTED_10US_11US static void CRoadBlocks::GenerateRoadBlockCopsForCar(CVehicle *car, int pedsPositionsType, byte type);
-	SUPPORTED_10US_11US static void CRoadBlocks::CreateRoadBlockBetween2Points(CVector *a, CVector *b, byte type);
-	SUPPORTED_10US_11US static void CRoadBlocks::GenerateRoadBlocks();
+	SUPPORTED_10US_11US static void RegisterScriptRoadBlock(CVector *cornerA, CVector *cornerB, byte type);
+	SUPPORTED_10US_11US static void ClearScriptRoadBlocks();
+	SUPPORTED_10US static void Init();
+	SUPPORTED_10US_11US static void GenerateRoadBlockCopsForCar(CVehicle *car, int pedsPositionsType, byte type);
+	SUPPORTED_10US_11US static void CreateRoadBlockBetween2Points(CVector *a, CVector *b, byte type);
+	SUPPORTED_10US_11US static void GenerateRoadBlocks();
 };
 
 #include "meta/meta.CRoadBlocks.h"
