@@ -4,7 +4,6 @@
 		<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
 		<object class="wxFlexGridSizer">
 			<cols>1</cols>
-			<rows>2</rows>
 			<object class="sizeritem">
 				<object class="wxStaticText" name="sttBasicSetup">
 					<label>Basic setup</label>
