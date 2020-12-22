@@ -6,6 +6,8 @@
 */
 #pragma once
 
+#include <string.h>
+
 namespace StringUtils {
 
 template<size_t S>
