@@ -97,7 +97,7 @@ public:
                 if (automobile) { // если авто создано ; if car was created
                     m_nLastSpawnedTime = CTimer::m_snTimeInMilliseconds; // записываем новое время спавна ; store new spawning time
                     if (automobile->m_pRwClump) { // если создан графический обьект (RpClump) ; if graphical object was created (RpClump)
-                        RwFrame *component = CClumpModelInfo::GetFrameFromName(automobile->m_pRwClump, "bonnet_dummy"); // находим компонент в иерархии ; find component in hierarchy
+                        RwFrame *component = CClumpModelInfo::GetFrameFromName(automobile->m_pRwClump, (char*)"bonnet_dummy"); // находим компонент в иерархии ; find component in hierarchy
                         if (component) // если компонент есть в иерархии ; if component found
                             component->modelling.pos.z += 1.0f; // двигаем компонент вверх ; move component up
 

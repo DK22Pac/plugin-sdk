@@ -16,7 +16,7 @@ public:
 
         Events::initRwEvent += [] {
             // Load txd and texture
-            m_txd = CFileLoader::LoadTexDictionary(GAME_PATH("models\\speedometer.txd"));
+            m_txd = CFileLoader::LoadTexDictionary(GAME_PATH((char*)"models\\speedometer.txd"));
             m_speedometerTex = GetFirstTexture(m_txd);
 
             // Prepare sin/cos table
@@ -88,7 +88,7 @@ public:
                     gearNum = 9;
                 Numbers::DrawDigit_FontGear(gearNum, SCREEN_COORD_RIGHT(64.0f + 290.0f / 2.0f + 14.0f),
                     SCREEN_COORD_BOTTOM(40.0f + 290.0f / 2.0f + 18.0f), SCREEN_COORD(28.0f), SCREEN_COORD(36.0f),
-                    color.red, color.green, color.blue);
+                    color.r, color.g, color.b);
 
                 // Speed (km/h)
                 Numbers::DrawNumber_FontSpeed(static_cast<unsigned int>(speed * 175.0f),

@@ -93,13 +93,13 @@ public:
 
 		switch (m_currentState) { // Для наглядности выведем поточный статус на экран
 		case STATE_OPENING:
-			CMessages::AddMessageJumpQ("state: opening", 100, 0, false);
+			CMessages::AddMessageJumpQ((char*)"state: opening", 100, 0, false);
 			break;
 		case STATE_CLOSING:
-			CMessages::AddMessageJumpQ("state: closing", 100, 0, false);
+			CMessages::AddMessageJumpQ((char*)"state: closing", 100, 0, false);
 			break;
 		case STATE_WAITING:
-			CMessages::AddMessageJumpQ("state: waiting", 100, 0, false);
+			CMessages::AddMessageJumpQ((char*)"state: waiting", 100, 0, false);
 			break;
 		}
 	}

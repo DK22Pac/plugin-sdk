@@ -55,11 +55,14 @@ void DrawNitrousIndicator() {
             CFont::SetCentreSize(SCREEN_WIDTH);
             CFont::PrintString(SCREEN_COORD_LEFT(FNC_DRAW_VHUD_NITROUS_TEXT_POS_X),
                 SCREEN_COORD_BOTTOM(FNC_DRAW_VHUD_NITROUS_TEXT_POS_Y), text);
+            CRGBA color = HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT);
+            CRGBA borderColor(0, 0, 0, 150);
+            CRGBA backgroundColor = HudColour.GetRGB(HUD_COLOUR_BLUELIGHT, 100);
             DrawProgressBar(SCREEN_COORD_LEFT(FNC_DRAW_VHUD_NITROUS_BAR_POS_X),
                 SCREEN_COORD_BOTTOM(FNC_DRAW_VHUD_NITROUS_BAR_POS_Y),
                 SCREEN_COORD(FNC_DRAW_VHUD_NITROUS_BAR_WIDTH), SCREEN_COORD(FNC_DRAW_VHUD_NITROUS_BAR_HEIGHT),
-                0, SCREEN_COORD(FNC_DRAW_VHUD_NITROUS_BAR_BORDER), HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT), 
-                CRGBA(0, 0, 0, 150), true, HudColour.GetRGB(HUD_COLOUR_BLUELIGHT, 100), progress, 1);
+                0, SCREEN_COORD(FNC_DRAW_VHUD_NITROUS_BAR_BORDER), color, 
+                borderColor, true, backgroundColor, progress, 1);
         }
         else if (FNC_DRAW_WIDESCREEN_PARAMETERS) {
             CFont::SetDropShadowPosition(1);
@@ -69,11 +72,14 @@ void DrawNitrousIndicator() {
             CFont::SetCentreSize(SCREEN_WIDTH);
             CFont::PrintString(SCREEN_COORD_LEFT(FNC_DRAW_WIDE_NITROUS_TEXT_POS_X),
                 SCREEN_COORD_BOTTOM(FNC_DRAW_WIDE_NITROUS_TEXT_POS_Y), text);
+            CRGBA color = HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT);
+            CRGBA borderColor(0, 0, 0, 200);
+            CRGBA backgroundColor(255, 255, 255, 20);
             DrawProgressBar(SCREEN_COORD_LEFT(FNC_DRAW_WIDE_NITROUS_BAR_POS_X),
                 SCREEN_COORD_BOTTOM(FNC_DRAW_WIDE_NITROUS_BAR_POS_Y),
                 SCREEN_COORD(FNC_DRAW_WIDE_NITROUS_BAR_WIDTH), SCREEN_COORD(FNC_DRAW_WIDE_NITROUS_BAR_HEIGHT),
                 SCREEN_COORD(FNC_DRAW_WIDE_NITROUS_BAR_BORDER), SCREEN_COORD(FNC_DRAW_WIDE_NITROUS_BAR_BORDER),
-                HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT), CRGBA(0, 0, 0, 200), true, CRGBA(255, 255, 255, 20),
+                color, borderColor, true, backgroundColor,
                 progress, 0);
         }
         else {
@@ -84,13 +90,16 @@ void DrawNitrousIndicator() {
             CFont::SetCentreSize(SCREEN_WIDTH * 0.0015625f * 640.0f);
             CFont::PrintString(SCREEN_WIDTH * 0.0015625f * FNC_DRAW_NITROUS_TEXT_POS_X,
                 SCREEN_HEIGHT - SCREEN_HEIGHT * 0.002232143f * FNC_DRAW_NITROUS_TEXT_POS_Y, text);
+            CRGBA color = HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT);
+            CRGBA borderColor(0, 0, 0, 255);
+            CRGBA backgroundColor(255, 255, 255, 20);
             DrawProgressBar(SCREEN_WIDTH * 0.0015625f * FNC_DRAW_NITROUS_BAR_POS_X,
                 SCREEN_HEIGHT - SCREEN_HEIGHT * 0.002232143f * FNC_DRAW_NITROUS_BAR_POS_Y,
                 SCREEN_WIDTH * 0.0015625f * FNC_DRAW_NITROUS_BAR_WIDTH,
                 SCREEN_HEIGHT * 0.002232143f * FNC_DRAW_NITROUS_BAR_HEIGHT,
                 SCREEN_WIDTH * 0.0015625f * FNC_DRAW_NITROUS_BAR_BORDER,
                 SCREEN_WIDTH * 0.0015625f * FNC_DRAW_NITROUS_BAR_BORDER,
-                HudColour.GetRGBA(HUD_COLOUR_BLUELIGHT), CRGBA(0, 0, 0, 255), true, CRGBA(255, 255, 255, 20),
+                color, borderColor, true, backgroundColor,
                 progress, 0);
         }
         CFont::SetDropShadowPosition(0);
