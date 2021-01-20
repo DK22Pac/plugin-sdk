@@ -293,7 +293,11 @@ void CPad::Clear(bool enablePlayerControls, bool resetPhase) {
     plugin::CallMethod<0x541A70, CPad *, bool, bool>(this, enablePlayerControls, resetPhase);
 }
 
-// Converted from thiscall void CPad::UpdatePads(void) 0x541DD0
+// Converted from cdecl void CPad::UpdatePads(void) 0x541DD0
 void CPad::UpdatePads() {
-    plugin::CallMethod<0x541DD0, CPad *>(this);
+    plugin::Call<0x541DD0>();
+}
+
+void CPad::ClearMouseHistory() {
+    plugin::Call<0x541BD0>();
 }
