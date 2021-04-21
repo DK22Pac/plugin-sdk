@@ -8,9 +8,9 @@
 
 #include "PluginBase.h"
 
-enum PLUGIN_API eLevelName : unsigned int {
-    GENERIC = 0,
-    PORTLAND = 1,
-    STAUNTON_ISLAND = 2,
-    SHORESIDE_VALE = 3
+enum PLUGIN_API eZoneType : unsigned int {
+    ZONE_DEFAULT = 0,
+    ZONE_NAVIG = 1,
+    ZONE_INFO = 2,
+    ZONE_MAPZONE = 3
 };

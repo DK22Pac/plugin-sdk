@@ -7,28 +7,26 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CVector.h"
+#include "eZoneType.h"
 #include "eLevelName.h"
-
-enum PLUGIN_API eZoneType {
-
-};
 
 class PLUGIN_API CZone {
 public:
-    char name[8];
-    char text[8];
-    short x1;
-    short y1;
-    short z1;
-    short x2;
-    short y2;
-    short z2;
-    short _zoneExtraIndexInfo;
-    char type;
-    char townNumber;
+    char m_aName[8];
+    CVector m_vecMin;
+    CVector m_vecMax;
+    eZoneType m_eZoneType;
+    eLevelName m_eLevel;
+    short m_nZoneDay;
+    short m_nZoneNight;
+    CZone *m_pChild;
+    CZone *m_pParent;
+    CZone *m_pNext;
 
-    // Returns pointer to GXT name string.
-    const wchar_t* GetTranslatedName();
+    SUPPORTED_10EN_11EN_STEAM wchar_t *GetTranslatedName();
 };
 
-VALIDATE_SIZE(CZone, 0x20);
+VALIDATE_SIZE(CZone, 0x38);
+
+#include "meta/meta.CZone.h"
