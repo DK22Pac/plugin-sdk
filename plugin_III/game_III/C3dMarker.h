@@ -32,12 +32,12 @@ public:
     float m_fBrightness;
     float m_fCameraRange;
 
-    SUPPORTED_10EN_11EN void AddMarker(unsigned int nId, unsigned short nType, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned short nPulsePeriod, float fPulseFraction, short nRotateRate);
-    SUPPORTED_10EN_11EN void DeleteMarkerObject();
-    SUPPORTED_10EN_11EN void Render();
+    SUPPORTED_10EN_11EN_STEAM void AddMarker(unsigned int nId, unsigned short nType, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned short nPulsePeriod, float fPulseFraction, short nRotateRate);
+    SUPPORTED_10EN_11EN_STEAM void DeleteMarkerObject();
+    SUPPORTED_10EN_11EN_STEAM void Render();
 };
 
-SUPPORTED_10EN_11EN RpAtomic *MarkerAtomicCB(RpAtomic *atomic, void *data);
+SUPPORTED_10EN_11EN_STEAM RpAtomic *MarkerAtomicCB(RpAtomic *atomic, void *data);
 
 VALIDATE_SIZE(C3dMarker, 0x78);
 

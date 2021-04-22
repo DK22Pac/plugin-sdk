@@ -13,15 +13,15 @@
 
 class PLUGIN_API C3dMarkers {
 public:
-    SUPPORTED_10EN_11EN static C3dMarker(&m_aMarkerArray)[32]; // static C3dMarker m_aMarkerArray[32]
-    SUPPORTED_10EN_11EN static RpClump *(&m_pRpClumpArray)[5]; // static RpClump *m_pRpClumpArray[5]
-    SUPPORTED_10EN_11EN static unsigned int &NumActiveMarkers;
+    SUPPORTED_10EN_11EN_STEAM static C3dMarker(&m_aMarkerArray)[32]; // static C3dMarker m_aMarkerArray[32]
+    SUPPORTED_10EN_11EN_STEAM static RpClump *(&m_pRpClumpArray)[5]; // static RpClump *m_pRpClumpArray[5]
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &NumActiveMarkers;
 
-    SUPPORTED_10EN_11EN static void Init();
-    SUPPORTED_10EN_11EN static void PlaceMarker(unsigned int nId, unsigned short nType, CVector &point, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned short nPulsePeriod, float fPulseFraction, short nRotateRate);
-    SUPPORTED_10EN_11EN static void PlaceMarkerSet(unsigned int nId, unsigned short nType, CVector &point, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned short nPulsePeriod, float fPulseFraction, short nRotateRate);
-    SUPPORTED_10EN_11EN static void Render();
-    SUPPORTED_10EN_11EN static void Shutdown();
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static void PlaceMarker(unsigned int nId, unsigned short nType, CVector &point, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned short nPulsePeriod, float fPulseFraction, short nRotateRate);
+    SUPPORTED_10EN_11EN_STEAM static void PlaceMarkerSet(unsigned int nId, unsigned short nType, CVector &point, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned short nPulsePeriod, float fPulseFraction, short nRotateRate);
+    SUPPORTED_10EN_11EN_STEAM static void Render();
+    SUPPORTED_10EN_11EN_STEAM static void Shutdown();
 };
 
 #include "meta/meta.C3dMarkers.h"

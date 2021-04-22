@@ -15,8 +15,8 @@ static const int id = 0x4BC330;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4BC330, 0x4BC420, 0x4BC3B0>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x4BC7AF,100,0,0x4BC5B0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x4BC7AF,100,0,0x4BC5B0,1, 0x4BC89F,110,0,0x4BC6A0,1, 0x4BC82F,120,0,0x4BC630,1>;
 using def_t = void(CParticleObject *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -30,8 +30,8 @@ static const int id = 0x4BC390;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4BC390, 0x4BC480, 0x4BC410>;
-// total references count: 10en (3), 11en (0), steam (0)
-using refs_t = RefList<0x4BCADA,100,0,0x4BCA80,1, 0x4BF977,100,0,0x4BCA80,2, 0x4BFA22,100,0,0x4BF9F0,1>;
+// total references count: 10en (3), 11en (3), steam (3)
+using refs_t = RefList<0x4BCADA,100,0,0x4BCA80,1, 0x4BF977,100,0,0x4BCA80,2, 0x4BFA22,100,0,0x4BF9F0,1, 0x4BCBCA,110,0,0x4BCB70,1, 0x4BFA67,110,0,0x4BCB70,2, 0x4BFB12,110,0,0x4BFAE0,1, 0x4BCB5A,120,0,0x4BCB00,1, 0x4BF9F7,120,0,0x4BCB00,2, 0x4BFAA2,120,0,0x4BFA70,1>;
 using def_t = void(CParticleObject *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -45,8 +45,8 @@ static const int id = 0x4BFE00;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4BFE00, 0x4BFEF0, 0x4BFE80>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x4BFDE9,100,2,0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x4BFDE9,100,2,0,1, 0x4BFED9,110,2,0,1, 0x4BFE69,120,2,0,1>;
 using def_t = CAudioHydrant *(CAudioHydrant *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
