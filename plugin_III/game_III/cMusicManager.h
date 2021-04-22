@@ -9,83 +9,92 @@
 #include "PluginBase.h"
 #include "CVehicle.h"
 
-struct tMP3Sample {
+struct PLUGIN_API tMP3Sample {
     unsigned int m_nLength;
     unsigned int m_nPosition;
     unsigned int m_nLastPosCheckTimer;
 };
 
-VALIDATE_SIZE(tMP3Sample, 0xC);
+class PLUGIN_API cMusicManager {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(cMusicManager)
 
-class cMusicManager {
 public:
     bool m_bIsInitialised;
-    bool field_1;
+    bool m_bDisabled;
     unsigned char m_nMusicMode;
     unsigned char m_nCurrentStreamedSound;
     unsigned char m_nPreviousStreamedSound;
-    bool field_5;
-    unsigned char field_6;
-    bool field_7;
+    bool m_bFrontendTrackFinished;
+    bool m_bPlayInFrontend;
+    bool m_bSetNextStation;
     unsigned char m_nAnnouncement;
     bool m_bPreviousPlayerInCar;
     bool m_bPlayerInCar;
     bool m_bAnnouncementInProgress;
     tMP3Sample m_asMP3Samples[196];
-    char field_2364;
-    char field_2365;
-    char field_2366;
-    char field_2367;
-    unsigned int field_2368;
-    unsigned int field_2372;
-    unsigned int field_2376;
-    bool field_2380;
-    bool field_2381;
-    bool field_2382;
+    bool m_bResetTimers;
+private:
+    char _pad93D[3];
+public:
+    unsigned int m_nResetTime;
+    unsigned int m_nLastTrackServiceTime;
+    unsigned int m_nTimer;
+    bool m_bDoTrackService;
+    bool m_bIgnoreTimeDelay;
+    bool m_bDontServiceAmbienceTrack;
     bool m_bRadioSetByScript;
     unsigned char m_nRadioStation;
-    char field_2385;
-    char field_2386;
-    char field_2387;
+private:
+    char _pad951[3];
+public:
     int m_nRadioPosition;
-    char m_nRadioInCar;
-    char field_2393;
-    char field_2394;
-    char field_2395;
-        
+    unsigned char m_nRadioInCar;
+private:
+    char _pad959[3];
+public:
 
-    ~cMusicManager();
-    cMusicManager();
-    bool UsesPoliceRadio(CVehicle* vehicle);
-    void Terminate();
-    void StopFrontEndTrack();
-    void StopCutSceneMusic();
-    void SetRadioInCar(unsigned int radioStation);
-    void SetRadioChannelByScript(unsigned char station, int position);
-    void ServiceTrack();
-    void ServiceGameMode();
-    void ServiceFrontEndMode();
-    bool ServiceAnnouncement();
-    void ServiceAmbience();
-    void Service();
-    void ResetTimers(unsigned int time);
-    void ResetMusicAfterReload();
-    void PreloadCutSceneMusic(unsigned char sound);
-    bool PlayerInCar();
-    void PlayPreloadedCutSceneMusic();
-    void PlayFrontEndTrack(unsigned char sound, unsigned char arg1);
-    void PlayAnnouncement(unsigned char announcement);
-    void Initialise();
-    unsigned int GetTrackStartPos(unsigned char station);
-    unsigned char GetRadioInCar();
-    unsigned char GetNextCarTuning();
-    unsigned char GetCarTuning();
-    void DisplayRadioStationName();
-    void ComputeAmbienceVol(unsigned char arg0, unsigned char& arg1);
-    bool ChangeRadioChannel();
-    void ChangeMusicMode(unsigned char arg0);
+    SUPPORTED_10EN_11EN_STEAM static char &nFramesSinceCutsceneEnded;
+    SUPPORTED_10EN_11EN_STEAM static float &fVol;
+    SUPPORTED_10EN_11EN_STEAM static char &cCheck;
+    SUPPORTED_10EN_11EN_STEAM static wchar_t *&pCurrentStation;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &cDisplay;
+
+    SUPPORTED_10EN_11EN_STEAM void ChangeMusicMode(unsigned char mode);
+    SUPPORTED_10EN_11EN_STEAM bool ChangeRadioChannel();
+    SUPPORTED_10EN_11EN_STEAM void ComputeAmbienceVol(unsigned char reset, unsigned char &outVolume);
+    SUPPORTED_10EN_11EN_STEAM void DisplayRadioStationName();
+    SUPPORTED_10EN_11EN_STEAM unsigned char GetCarTuning();
+    SUPPORTED_10EN_11EN_STEAM unsigned char GetNextCarTuning();
+    SUPPORTED_10EN_11EN_STEAM unsigned char GetRadioInCar();
+    SUPPORTED_10EN_11EN_STEAM unsigned int GetTrackStartPos(unsigned char track);
+    SUPPORTED_10EN_11EN_STEAM void Initialise();
+    SUPPORTED_10EN_11EN_STEAM void PlayAnnouncement(unsigned char announcement);
+    SUPPORTED_10EN_11EN_STEAM void PlayFrontEndTrack(unsigned char track, unsigned char bPlayInFrontend);
+    SUPPORTED_10EN_11EN_STEAM void PlayPreloadedCutSceneMusic();
+    SUPPORTED_10EN_11EN_STEAM bool PlayerInCar();
+    SUPPORTED_10EN_11EN_STEAM void PreloadCutSceneMusic(unsigned char sound);
+    SUPPORTED_10EN_11EN_STEAM void ResetMusicAfterReload();
+    SUPPORTED_10EN_11EN_STEAM void ResetTimers(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void Service();
+    SUPPORTED_10EN_11EN_STEAM void ServiceAmbience();
+    SUPPORTED_10EN_11EN_STEAM bool ServiceAnnouncement();
+    SUPPORTED_10EN_11EN_STEAM void ServiceFrontEndMode();
+    SUPPORTED_10EN_11EN_STEAM void ServiceGameMode();
+    SUPPORTED_10EN_11EN_STEAM void ServiceTrack();
+    SUPPORTED_10EN_11EN_STEAM void SetRadioChannelByScript(unsigned char station, int position);
+    SUPPORTED_10EN_11EN_STEAM void SetRadioInCar(unsigned int radioStation);
+    SUPPORTED_10EN_11EN_STEAM void StopCutSceneMusic();
+    SUPPORTED_10EN_11EN_STEAM void StopFrontEndTrack();
+    SUPPORTED_10EN_11EN_STEAM void Terminate();
+    SUPPORTED_10EN_11EN_STEAM bool UsesPoliceRadio(CVehicle *vehicle);
 };
 
+SUPPORTED_10EN_11EN_STEAM extern bool &bHasStarted;
+SUPPORTED_10EN_11EN_STEAM extern int &gNumRetunePresses;
+SUPPORTED_10EN_11EN_STEAM extern int &gRetuneCounter;
+SUPPORTED_10EN_11EN_STEAM extern bool &bRadioOff;
+
+VALIDATE_SIZE(tMP3Sample, 0xC);
 VALIDATE_SIZE(cMusicManager, 0x95C);
 
-extern cMusicManager &gMusicManager;
+#include "meta/meta.cMusicManager.h"
