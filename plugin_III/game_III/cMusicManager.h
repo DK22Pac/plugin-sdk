@@ -93,6 +93,7 @@ SUPPORTED_10EN_11EN_STEAM extern bool &bHasStarted;
 SUPPORTED_10EN_11EN_STEAM extern int &gNumRetunePresses;
 SUPPORTED_10EN_11EN_STEAM extern int &gRetuneCounter;
 SUPPORTED_10EN_11EN_STEAM extern bool &bRadioOff;
+SUPPORTED_10EN_11EN_STEAM extern cMusicManager &gMusicManager;
 
 VALIDATE_SIZE(tMP3Sample, 0xC);
 VALIDATE_SIZE(cMusicManager, 0x95C);

@@ -17,6 +17,7 @@ PLUGIN_VARIABLE bool &bHasStarted = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_
 PLUGIN_VARIABLE int &gNumRetunePresses = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x650B80, 0x650B80, 0x660B88));
 PLUGIN_VARIABLE int &gRetuneCounter = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x650B84, 0x650B84, 0x660B8C));
 PLUGIN_VARIABLE bool &bRadioOff = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x650B89, 0x650B89, 0x660B91));
+PLUGIN_VARIABLE cMusicManager &gMusicManager = *reinterpret_cast<cMusicManager *>(GLOBAL_ADDRESS_BY_VERSION(0x8F3964, 0x8F3A18, 0x903B58));
 
 int ctor_addr(cMusicManager) = ADDRESS_BY_VERSION(0x57CEE0, 0x57D230, 0x57D130);
 int ctor_gaddr(cMusicManager) = GLOBAL_ADDRESS_BY_VERSION(0x57CEE0, 0x57D230, 0x57D130);
