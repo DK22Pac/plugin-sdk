@@ -24,10 +24,3 @@ public:
 };
 
 VALIDATE_SIZE(CInstance, 0x50);
-
-struct MloInstanceStore {
-    unsigned int m_nCount;
-    CInstance m_sObject[1];
-
-    ~MloInstanceStore();
-};

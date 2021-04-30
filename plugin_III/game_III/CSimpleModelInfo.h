@@ -8,33 +8,53 @@
 
 #include "PluginBase.h"
 #include "CBaseModelInfo.h"
+#include "RenderWare.h"
 
-class CSimpleModelInfo : public CBaseModelInfo {
+class PLUGIN_API CSimpleModelInfo : public CBaseModelInfo {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CSimpleModelInfo)
+
 public:
-    RpAtomic      *m_apAtomics[3];
-    float          m_afLodDistances[3];
-    unsigned char  m_nNumAtomics;
-    unsigned char  m_nVisibility; // 0 - invisible, 255 - fully visible
-    unsigned short m_nFlags;
+    RpAtomic *m_apAtomics[3]; //!< m_apAtomics[2] is often a pointer to the non-LOD modelinfo
+    float m_afLodDistances[3]; //!< m_afLodDistances[2] holds the near distance for LODs
+    unsigned char m_nNumAtomics;
+    unsigned char m_nVisibility; //!< 0 - invisible, 255 - fully visible
+    struct {
+        unsigned short nFirstDamaged : 2; //!< 0 no damage model, 1 and 2 are damage models, 2 is damage model
+        unsigned short bNormalCull : 1;
+        unsigned short bIsDamaged : 1;
+        unsigned short bIsBigBuilding : 1;
+        unsigned short bNoFade : 1;
+        unsigned short bDrawLast : 1;
+        unsigned short bAdditive : 1;
 
-    //funcs
-    CSimpleModelInfo();
-    void FindRelatedModel();
-    RpAtomic* GetAtomicFromDistance(float distance);
-    float GetLargestLodDistance();
-    float GetNearDistance();
-    void IncreaseAlpha();
-    void Init();
-    void SetAtomic(int number, RpAtomic* atomic);
-    void SetLodDistances(float* distance);
-    void SetupBigBuilding();
+        unsigned short bIsSubway : 1;
+        unsigned short bIgnoreLight : 1;
+        unsigned short bNoZwrite : 1;
+        unsigned short : 5;
+    } m_nSimpleModelFlags;
+
+    // virtual function #0 (destructor)
+
+
+    // virtual function #1 (not overriden)
+
+    SUPPORTED_10EN_11EN_STEAM void DeleteRwObject();
+    SUPPORTED_10EN_11EN_STEAM RwObject *CreateInstance();
+    SUPPORTED_10EN_11EN_STEAM RwObject *CreateInstance(RwMatrix *matrix);
+    SUPPORTED_10EN_11EN_STEAM RwObject *GetRwObject();
+
+    SUPPORTED_10EN_11EN_STEAM void FindRelatedModel();
+    SUPPORTED_10EN_11EN_STEAM RpAtomic *GetAtomicFromDistance(float distance);
+    SUPPORTED_10EN_11EN_STEAM float GetLargestLodDistance();
+    SUPPORTED_10EN_11EN_STEAM float GetNearDistance();
+    SUPPORTED_10EN_11EN_STEAM void IncreaseAlpha();
+    SUPPORTED_10EN_11EN_STEAM void Init();
+    SUPPORTED_10EN_11EN_STEAM void SetAtomic(int number, RpAtomic *atomic);
+    SUPPORTED_10EN_11EN_STEAM void SetLodDistances(float *distance);
+    SUPPORTED_10EN_11EN_STEAM void SetupBigBuilding();
 };
 
+VTABLE_DESC(CSimpleModelInfo, 0x5FDF98, 6);
 VALIDATE_SIZE(CSimpleModelInfo, 0x4C);
 
-struct SimpleModelStore {
-    unsigned int m_nCount;
-    CSimpleModelInfo m_sObject[5000];
-
-    ~SimpleModelStore();
-};
+#include "meta/meta.CSimpleModelInfo.h"

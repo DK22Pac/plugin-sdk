@@ -1,32 +1,48 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CPedModelInfo.h"
 
-// Converted from thiscall void CPedModelInfo::CPedModelInfo(void) 0x50BFA0
-CPedModelInfo::CPedModelInfo() {
-    plugin::CallMethod<0x50BFA0, CPedModelInfo *>(this);
+PLUGIN_SOURCE_FILE
+
+PLUGIN_VARIABLE RwObjectNameIdAssocation *(&CPedModelInfo::m_pPedIds)[12] = *reinterpret_cast<RwObjectNameIdAssocation *(*)[12]>(GLOBAL_ADDRESS_BY_VERSION(0x5FE7A4, 0x5FE58C, 0x60B584));
+
+int ctor_addr(CPedModelInfo) = ADDRESS_BY_VERSION(0x50BFA0, 0x50C090, 0x50C020);
+int ctor_gaddr(CPedModelInfo) = GLOBAL_ADDRESS_BY_VERSION(0x50BFA0, 0x50C090, 0x50C020);
+
+int dtor_addr(CPedModelInfo) = ADDRESS_BY_VERSION(0x50BF60, 0x50C050, 0x50BFE0);
+int dtor_gaddr(CPedModelInfo) = GLOBAL_ADDRESS_BY_VERSION(0x50BF60, 0x50C050, 0x50BFE0);
+
+int del_dtor_addr(CPedModelInfo) = ADDRESS_BY_VERSION(0x50C2B0, 0x50C3A0, 0x50C330);
+int del_dtor_gaddr(CPedModelInfo) = GLOBAL_ADDRESS_BY_VERSION(0x50C2B0, 0x50C3A0, 0x50C330);
+
+int addrof(CPedModelInfo::DeleteRwObject) = ADDRESS_BY_VERSION(0x510280, 0x510470, 0x510400);
+int gaddrof(CPedModelInfo::DeleteRwObject) = GLOBAL_ADDRESS_BY_VERSION(0x510280, 0x510470, 0x510400);
+
+void CPedModelInfo::DeleteRwObject() {
+    plugin::CallVirtualMethod<2, CPedModelInfo *>(this);
 }
 
-// Converted from thiscall void CPedModelInfo::CreateHitColModel(void) 0x5104D0
+int addrof(CPedModelInfo::SetClump) = ADDRESS_BY_VERSION(0x510210, 0x510400, 0x510390);
+int gaddrof(CPedModelInfo::SetClump) = GLOBAL_ADDRESS_BY_VERSION(0x510210, 0x510400, 0x510390);
+
+void CPedModelInfo::SetClump(RpClump *clump) {
+    plugin::CallVirtualMethod<6, CPedModelInfo *, RpClump *>(this, clump);
+}
+
+int addrof(CPedModelInfo::CreateHitColModel) = ADDRESS_BY_VERSION(0x5104D0, 0x5106C0, 0x510650);
+int gaddrof(CPedModelInfo::CreateHitColModel) = GLOBAL_ADDRESS_BY_VERSION(0x5104D0, 0x5106C0, 0x510650);
+
 void CPedModelInfo::CreateHitColModel() {
-    plugin::CallMethod<0x5104D0, CPedModelInfo *>(this);
+    plugin::CallMethodDynGlobal<CPedModelInfo *>(gaddrof(CPedModelInfo::CreateHitColModel), this);
 }
 
-// Converted from thiscall void CPedModelInfo::SetLowDetailClump(RpClump *clump) 0x510390
-void CPedModelInfo::SetLowDetailClump(RpClump* clump) {
-    plugin::CallMethod<0x510390, CPedModelInfo *, RpClump*>(this, clump);
-}
+int addrof(CPedModelInfo::SetLowDetailClump) = ADDRESS_BY_VERSION(0x510390, 0x510580, 0x510510);
+int gaddrof(CPedModelInfo::SetLowDetailClump) = GLOBAL_ADDRESS_BY_VERSION(0x510390, 0x510580, 0x510510);
 
-// Converted from thiscall void CPedModelInfo::~CPedModelInfo() 0x50BF60
-CPedModelInfo::~CPedModelInfo() {
-    plugin::CallMethod<0x50BF60, CPedModelInfo *>(this);
-}
-
-// Converted from thiscall void CStore<CPedModelInfo,90>::~CStore() 0x50BF40 
-PedModelStore::~PedModelStore() {
-    plugin::CallMethod<0x50BF40, PedModelStore *>(this);
+void CPedModelInfo::SetLowDetailClump(RpClump *clump) {
+    plugin::CallMethodDynGlobal<CPedModelInfo *, RpClump *>(gaddrof(CPedModelInfo::SetLowDetailClump), this, clump);
 }

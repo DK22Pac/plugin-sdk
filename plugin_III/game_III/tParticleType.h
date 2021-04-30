@@ -6,7 +6,9 @@
 */
 #pragma once
 
-enum tParticleType {
+#include "PluginBase.h"
+
+enum PLUGIN_API tParticleType {
     PARTICLE_SPARK = 0,
     PARTICLE_SPARK_SMALL = 1,
     PARTICLE_WHEEL_DIRT = 2,

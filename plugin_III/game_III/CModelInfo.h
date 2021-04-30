@@ -1,57 +1,56 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
 #include "PluginBase.h"
 #include "CBaseModelInfo.h"
 #include "CSimpleModelInfo.h"
-#include "CVehicleModelInfo.h"
 #include "CMloModelInfo.h"
 #include "CTimeModelInfo.h"
-#include "CPedModelInfo.h"
-#include "CXtraCompsModelInfo.h"
-#include "C2deffectsModelInfo.h"
 #include "CClumpModelInfo.h"
-#include "eLevelName.h"
+#include "CVehicleModelInfo.h"
+#include "CPedModelInfo.h"
+#include "CStore.h"
 #include "CInstance.h"
+#include "C2dEffect.h"
+#include "eLevelName.h"
+#include "CXtraCompsModelInfo.h"
 #include "CVehicle.h"
 
-class CModelInfo {
+class PLUGIN_API CModelInfo {
 public:
-    // variables
-    static CBaseModelInfo **ms_modelInfoPtrs;
-    static XtraCompsModelStore* ms_xtraCompsModelStore; // [2]
-    static MloInstanceStore* ms_mloInstanceStore;       // [1]
-    static EffectStore* ms_2dEffectStore;               // [2000]
-    static ClumpModelStore* ms_clumpModelStore;         // [5]
-    static MloModelStore* ms_mloModelStore;             // [1]
-    static PedModelStore* ms_pedModelStore;             // [90]
-    static SimpleModelStore* ms_simpleModelStore;       // [5000]
-    static TimeModelStore* ms_timeModelStore;           // [30]
-    static VehicleModelStore* ms_vehicleModelStore;     // [120]
+    SUPPORTED_10EN_11EN_STEAM static CStore<CClumpModelInfo, 5> &ms_clumpModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CBaseModelInfo *(&ms_modelInfoPtrs)[5500]; // static CBaseModelInfo *ms_modelInfoPtrs[5500]
+    SUPPORTED_10EN_11EN_STEAM static CStore<CSimpleModelInfo, 5000> &ms_simpleModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1> &ms_mloInstanceStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CVehicleModelInfo, 120> &ms_vehicleModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CMloModelInfo, 1> &ms_mloModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CXtraCompsModelInfo, 2> &ms_xtraCompsModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CTimeModelInfo, 30> &ms_timeModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CPedModelInfo, 90> &ms_pedModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<C2dEffect, 2000> &ms_2dEffectStore;
 
-    //funcs
-    static CClumpModelInfo* AddClumpModel(int index);
-    static CMloModelInfo* AddMloModel(int index);
-    static CPedModelInfo* AddPedModel(int index);
-    static CSimpleModelInfo* AddSimpleModel(int index);
-    static CTimeModelInfo* AddTimeModel(int index);
-    static CVehicleModelInfo* AddVehicleModel(int index);
-    static void ConstructMloClumps();
-    static EffectStore* Get2dEffectStore();
-    static MloInstanceStore* GetMloInstanceStore();
-    static CBaseModelInfo* GetModelInfo(char const* name, int* index);
-    static void Initialise();
-    static bool IsBoatModel(int index);
-    static void ReInit2dEffects();
-    static void RemoveColModelsFromOtherLevels(eLevelName levelName);
-    static void ShutDown();
+    SUPPORTED_10EN_11EN_STEAM static CClumpModelInfo *AddClumpModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static CMloModelInfo *AddMloModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static CPedModelInfo *AddPedModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static CSimpleModelInfo *AddSimpleModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static CTimeModelInfo *AddTimeModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static CVehicleModelInfo *AddVehicleModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static void ConstructMloClumps();
+    SUPPORTED_10EN_11EN_STEAM static CStore<C2dEffect, 2000> *Get2dEffectStore();
+    SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1> *GetMloInstanceStore();
+    SUPPORTED_10EN_11EN_STEAM static CBaseModelInfo *GetModelInfo(char const *name, int *index);
+    SUPPORTED_10EN_11EN_STEAM static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static bool IsBoatModel(int index);
+    SUPPORTED_10EN_11EN_STEAM static void ReInit2dEffects();
+    SUPPORTED_10EN_11EN_STEAM static void RemoveColModelsFromOtherLevels(eLevelName level);
+    SUPPORTED_10EN_11EN_STEAM static void ShutDown();
 
-    static inline CBaseModelInfo *GetModelInfo(int index) {
+    static inline CBaseModelInfo *GetModelsInfo(int index) {
         return ms_modelInfoPtrs[index];
     }
 
@@ -90,3 +89,5 @@ public:
         return result;
     }
 };
+
+#include "meta/meta.CModelInfo.h"

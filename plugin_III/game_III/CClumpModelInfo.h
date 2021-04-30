@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -11,30 +11,38 @@ Do not delete this comment block. Respect others' work!
 #include "RenderWare.h"
 #include "RwObjectNameIdAssocation.h"
 
-struct FrameSearchData {
+class PLUGIN_API FrameSearchData {
+public:
     char const *name;
     RwFrame *result;
 };
 
-class CClumpModelInfo : public CBaseModelInfo {
+class PLUGIN_API CClumpModelInfo : public CBaseModelInfo {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CClumpModelInfo)
+
 public:
     RpClump *m_pClump;
-    
-    //vtable
-    void SetClump(RpClump* clump);
 
-    //funcs
-    CClumpModelInfo(plugin::dummy_func_t) {}
+    // virtual function #0 (destructor)
 
-    CClumpModelInfo();
-    static void FillFrameArray(RpClump* clump, RwFrame** frames);
-    static void FillFrameArrayCB(RwFrame* frame, void* searchData);
-    static RwFrame* FindFrameFromIdCB(RwFrame* frame, void* searchData);
-    static RwFrame* FindFrameFromNameCB(RwFrame* frame, void* searchData);
-    static RwFrame* FindFrameFromNameWithoutIdCB(RwFrame* frame, void* searchData);
-    static RwFrame* GetFrameFromId(RpClump* clump, int id);
-    static void SetAtomicRendererCB(RpAtomic* atomic, void* renderFunc);
-    void SetFrameIds(RwObjectNameIdAssocation* data);
+
+    // virtual function #1 (not overriden)
+
+    SUPPORTED_10EN_11EN_STEAM void DeleteRwObject();
+    SUPPORTED_10EN_11EN_STEAM RwObject *CreateInstance();
+    SUPPORTED_10EN_11EN_STEAM RwObject *CreateInstance(RwMatrix *matrix);
+    SUPPORTED_10EN_11EN_STEAM RwObject *GetRwObject();
+    SUPPORTED_10EN_11EN_STEAM void SetClump(RpClump *clump);
+
+    SUPPORTED_10EN_11EN_STEAM void SetFrameIds(RwObjectNameIdAssocation *id);
+
+    SUPPORTED_10EN_11EN_STEAM static void FillFrameArray(RpClump *clump, RwFrame **frames);
+    SUPPORTED_10EN_11EN_STEAM static RwFrame *FillFrameArrayCB(RwFrame *frame, void *data);
+    SUPPORTED_10EN_11EN_STEAM static RwFrame *FindFrameFromIdCB(RwFrame *frame, void *data);
+    SUPPORTED_10EN_11EN_STEAM static RwFrame *FindFrameFromNameCB(RwFrame *frame, void *data);
+    SUPPORTED_10EN_11EN_STEAM static RwFrame *FindFrameFromNameWithoutIdCB(RwFrame *frame, void *data);
+    SUPPORTED_10EN_11EN_STEAM static RwFrame *GetFrameFromId(RpClump *clump, int id);
+    SUPPORTED_10EN_11EN_STEAM static RpAtomic *SetAtomicRendererCB(RpAtomic *atomic, void *data);
 
     static inline RwFrame *GetFrameFromName(RpClump *clump, char const *name) {
         FrameSearchData searchData;
@@ -43,17 +51,10 @@ public:
         RwFrameForAllChildren(reinterpret_cast<RwFrame *>(clump->object.parent), FindFrameFromNameCB, &searchData);
         return searchData.result;
     }
-
-protected:
-    CClumpModelInfo(const CClumpModelInfo &) {};
-    CClumpModelInfo &operator=(const CClumpModelInfo &) { return *this; };
 };
 
+VALIDATE_SIZE(FrameSearchData, 0x8);
+VTABLE_DESC(CClumpModelInfo, 0x5FE020, 7);
 VALIDATE_SIZE(CClumpModelInfo, 0x34);
 
-struct ClumpModelStore {
-    unsigned int m_nCount;
-    CClumpModelInfo m_sObject[5];
-
-    ~ClumpModelStore();
-};
+#include "meta/meta.CClumpModelInfo.h"

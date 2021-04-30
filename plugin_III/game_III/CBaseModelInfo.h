@@ -7,36 +7,10 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "RenderWare.h"
+#include "CColModel.h"
+#include "C2dEffect.h"
 
-/*
-     GTA 3 model classes
-
-     CBaseModelInfo       // base, abstract class
-     |
-     |
-     +---CSimpleModelInfo       // (static) map object
-     |      |
-     |      |
-     |      +---CTimeModelInfo         // map time object (night objects)
-     |
-     |
-     +---CClumpModelInfo        // (dynamic) object with hierarchy
-            |
-            |
-            +---CVehicleModelInfo      // vehicle
-            |
-            |
-            +---CPedModelInfo          // ped
-            |
-            |
-            +---CMloModelInfo          // 'sta' section
-            |
-            |
-            +---CXtraCompsModelInfo    // ped parts?
-*/
-
-enum ModelInfoType {
+enum PLUGIN_API ModelInfoType : unsigned char {
     MODEL_INFO_SIMPLE = 1,
     MODEL_INFO_MLO = 2,
     MODEL_INFO_TIME = 3,
@@ -46,49 +20,63 @@ enum ModelInfoType {
     MODEL_INFO_XTRACOMPS = 7
 };
 
-class C2dEffect;
-class CColModel;
+//! CBaseModelInfo       // base, abstract class
+//!      |
+//!      |
+//!      +---CSimpleModelInfo       // (static) map object
+//!      |      |
+//!      |      |
+//!      |      +---CTimeModelInfo         // map time object (night objects)
+//!      |
+//!      |
+//!      +---CClumpModelInfo        // (dynamic) object with hierarchy
+//!             |
+//!             |
+//!             +---CVehicleModelInfo      // vehicle
+//!             |
+//!             |
+//!             +---CPedModelInfo          // ped
+//!             |
+//!             |
+//!             +---CMloModelInfo          // 'sta' section
+//!             |
+//!             |
+//!             +---CXtraCompsModelInfo    // ped parts?
+//!             |
+//!             |
+//!             +---C2deffectsModelInfo
+//! 
+class PLUGIN_API CBaseModelInfo {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(CBaseModelInfo)
 
-// originally an abstract class
-class CBaseModelInfo {
 public:
-    char           m_szName[24];
-    CColModel     *m_pColModel;
-    C2dEffect     *m_p2dEffect;
-    short          m_nObjectDataIndex;
+    char m_szName[24];
+    CColModel *m_pColModel;
+    C2dEffect *m_p2dEffect;
+    short m_nObjectDataIndex;
     unsigned short m_nRefCount;
-    short          m_nTxdIndex;
-    unsigned char  m_nType; // see ModelInfoType
-    unsigned char  m_nNum2dEffects;
-    bool           m_bDoWeOwnTheColModel;
-private:
-    char _pad2D[3];
-public:
+    short m_nTxdIndex;
+    ModelInfoType m_nType;
+    unsigned char m_nNum2dEffects;
+    bool m_bDoWeOwnTheColModel;
 
-    // vtable
-    virtual ~CBaseModelInfo() {}
-    void Shutdown();
-    void DeleteRwObject();
-    RwObject* CreateInstance();
-    RwObject* CreateInstance(RwMatrixTag* tranform);
-    RwObject* GetRwObject();
+    // virtual function #0 (destructor)
 
-    //funcs
-    void Add2dEffect(C2dEffect* effect);
-    void AddRef();
-    void AddTexDictionaryRef();
-    void ClearTexDictionary();
-    void DeleteCollisionModel();
-    C2dEffect* Get2dEffect(int effectNumber);
-    void Init2dEffects();
-    void RemoveRef();
-    void RemoveTexDictionaryRef();
-    void SetTexDictionary(char const* txdName);
+    SUPPORTED_10EN_11EN_STEAM void Shutdown();
 
-protected:
-    CBaseModelInfo() {};
-    CBaseModelInfo(const CBaseModelInfo &) {};
-    CBaseModelInfo &operator=(const CBaseModelInfo &) { return *this; };
+    SUPPORTED_10EN_11EN_STEAM void Add2dEffect(C2dEffect *effect);
+    SUPPORTED_10EN_11EN_STEAM void AddRef();
+    SUPPORTED_10EN_11EN_STEAM void AddTexDictionaryRef();
+    SUPPORTED_10EN_11EN_STEAM void ClearTexDictionary();
+    SUPPORTED_10EN_11EN_STEAM void DeleteCollisionModel();
+    SUPPORTED_10EN_11EN_STEAM C2dEffect *Get2dEffect(int effectNumber);
+    SUPPORTED_10EN_11EN_STEAM void Init2dEffects();
+    SUPPORTED_10EN_11EN_STEAM void RemoveRef();
+    SUPPORTED_10EN_11EN_STEAM void RemoveTexDictionaryRef();
+    SUPPORTED_10EN_11EN_STEAM void SetTexDictionary(char const *txdName);
 };
 
+VTABLE_DESC(CBaseModelInfo, 0x5FAB58, 2);
 VALIDATE_SIZE(CBaseModelInfo, 0x30);
+
+#include "meta/meta.CBaseModelInfo.h"

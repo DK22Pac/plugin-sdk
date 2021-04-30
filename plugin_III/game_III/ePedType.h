@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-enum PLUGIN_API ePedType : int {
+enum PLUGIN_API ePedType : unsigned int {
     PEDTYPE_PLAYER1 = 0,
     PEDTYPE_PLAYER2 = 1,
     PEDTYPE_PLAYER3 = 2,
@@ -25,11 +25,12 @@ enum PLUGIN_API ePedType : int {
     PEDTYPE_GANG7 = 13,
     PEDTYPE_GANG8 = 14,
     PEDTYPE_GANG9 = 15,
-    PEDTYPE_MEDIC = 16,
-    PEDTYPE_FIRE = 17,
+    PEDTYPE_EMERGENCY = 16,
+    PEDTYPE_FIREMAN = 17,
     PEDTYPE_CRIMINAL = 18,
-    PEDTYPE_BUM = 19,
+    PEDTYPE_UNUSED1 = 19,
     PEDTYPE_PROSTITUTE = 20,
     PEDTYPE_SPECIAL = 21,
-    PEDTYPE_DUMMY = 22
+    PEDTYPE_DUMMY = 22,
+    PEDTYPE_UNUSED2 = 23
 };
