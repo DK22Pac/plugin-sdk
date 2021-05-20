@@ -156,7 +156,7 @@ public:
     int m_nWaitState;
     int m_nWaitTimer;
     CPathNode *m_apPathNodesStates[8];
-    CPathNode m_aPathNodeStates[10];
+    CVector2D m_aPathNodeStates[10];
     unsigned short m_nPathNodes;
     short m_nCurPathNode;
     char m_nPathState;

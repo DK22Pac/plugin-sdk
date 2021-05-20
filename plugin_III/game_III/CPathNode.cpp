@@ -5,3 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CPathNode.h"
+
+// Converted from thiscall void CPathNode::CPathNode(void) 0x42E670
+CPathNode::CPathNode() {
+    plugin::CallMethod<0x42E670, CPathNode *>(this);
+}

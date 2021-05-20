@@ -11,8 +11,7 @@
 #include "RenderWare.h"
 #include "RwObjectNameIdAssocation.h"
 
-class PLUGIN_API FrameSearchData {
-public:
+struct PLUGIN_API FrameSearchData {
     char const *name;
     RwFrame *result;
 };
