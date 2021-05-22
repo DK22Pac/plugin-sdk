@@ -16,11 +16,8 @@ public:
     CVector m_vecOrigin;
     CVector m_vecTarget;
     bool m_bExist;
-    char m_nTimeCounter;
-    char m_nIntensity;
-private:
-    char _pad1B;
-public:
+    unsigned char m_nTimeCounter;
+    unsigned char m_nIntensity;
 
     SUPPORTED_10EN_11EN_STEAM void Update();
 };

@@ -15,8 +15,8 @@ static const int id = 0x519580;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x519580, 0x5197B0, 0x519740>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x51937B,100,0,0x519360,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x51937B,100,0,0x519360,1, 0x5195AB,110,0,0x519590,1, 0x51953B,120,0,0x519520,1>;
 using def_t = void(CRegisteredMotionBlurStreak *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -30,8 +30,8 @@ static const int id = 0x519600;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x519600, 0x519830, 0x5197C0>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x51941B,100,0,0x519390,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x51941B,100,0,0x519390,1, 0x51964B,110,0,0x5195C0,1, 0x5195DB,120,0,0x519550,1>;
 using def_t = void(CRegisteredMotionBlurStreak *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -45,8 +45,8 @@ static const int id = 0x51C350;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x51C350, 0x51C580, 0x51C510>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x51C24F,100,2,0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x51C24F,100,2,0,1, 0x51C47F,110,2,0,1, 0x51C40F,120,2,0,1>;
 using def_t = CRegisteredMotionBlurStreak *(CRegisteredMotionBlurStreak *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;

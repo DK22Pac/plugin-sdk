@@ -20,10 +20,10 @@ public:
     bool m_bTimerProcessed;
     bool m_bCounterProcessed;
 
-    SUPPORTED_10EN_11EN void Process();
-    SUPPORTED_10EN_11EN bool ProcessForDisplay();
-    SUPPORTED_10EN_11EN void ProcessForDisplayClock();
-    SUPPORTED_10EN_11EN void ProcessForDisplayCounter();
+    SUPPORTED_10EN_11EN_STEAM void Process();
+    SUPPORTED_10EN_11EN_STEAM bool ProcessForDisplay();
+    SUPPORTED_10EN_11EN_STEAM void ProcessForDisplayClock();
+    SUPPORTED_10EN_11EN_STEAM void ProcessForDisplayCounter();
 };
 
 VALIDATE_SIZE(COnscreenTimerEntry, 0x74);

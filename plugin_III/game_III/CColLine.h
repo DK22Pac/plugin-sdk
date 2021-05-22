@@ -18,7 +18,7 @@ public:
     CVector m_vecEnd;
     int field_1C;
 
-    SUPPORTED_10EN_11EN_STEAM void Set(CVector &start, CVector &end);
+    SUPPORTED_10EN_11EN_STEAM void Set(CVector const &start, CVector const &end);
 };
 
 VALIDATE_SIZE(CColLine, 0x20);

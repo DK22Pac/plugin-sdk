@@ -18,10 +18,7 @@ public:
     CRGBA m_color;
     CVector m_avecLeftPoints[3];
     CVector m_avecRightPoints[3];
-    bool m_bExists;
-    char field_51;
-    char field_52;
-    char field_53;
+    bool m_bExists[3];
 
     SUPPORTED_10EN_11EN_STEAM void Render();
     SUPPORTED_10EN_11EN_STEAM void Update();

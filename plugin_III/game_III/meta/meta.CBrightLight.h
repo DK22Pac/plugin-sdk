@@ -15,8 +15,8 @@ static const int id = 0x51C340;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x51C340, 0x51C570, 0x51C500>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x51C267,100,2,0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x51C267,100,2,0,1, 0x51C497,110,2,0,1, 0x51C427,120,2,0,1>;
 using def_t = CBrightLight *(CBrightLight *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;

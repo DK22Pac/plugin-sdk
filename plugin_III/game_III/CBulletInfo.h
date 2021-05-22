@@ -16,25 +16,19 @@ class PLUGIN_API CBulletInfo {
 
 public:
     eWeaponType m_nWeaponType;
-    CEntity *m_pCreator;
-    float m_fDestroyTime;
-    bool m_bExists;
-private:
-    char _padD[3];
-public:
+    CEntity *m_pSource;
+    float m_fTimer; //!< big mistake
+    bool m_bExist;
     CVector m_vecPosition;
-    CVector m_vecVelocity;
+    CVector m_vecSpeed;
     short m_nDamage;
-private:
-    char _pad2A[2];
-public:
 
     SUPPORTED_10EN_11EN_STEAM static CBulletInfo(&aBulletInfos)[100]; // static CBulletInfo aBulletInfos[100]
 
-    SUPPORTED_10EN_11EN_STEAM static void AddBullet(CEntity *creator, eWeaponType weaponType, CVector position, CVector velocity);
+    SUPPORTED_10EN_11EN_STEAM static void AddBullet(CEntity *pSource, eWeaponType type, CVector pos, CVector speed);
     SUPPORTED_10EN_11EN_STEAM static void Initialise();
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
-    SUPPORTED_10EN_11EN_STEAM static bool TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2);
+    SUPPORTED_10EN_11EN_STEAM static bool TestForSniperBullet(float x1, float x2, float y1, float y2, float z1, float z2);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
 

@@ -37,12 +37,13 @@ PLUGIN_VARIABLE unsigned int &CPopulation::ms_nTotalPeds = *reinterpret_cast<uns
 PLUGIN_VARIABLE bool &CPopulation::ms_bGivePedsWeapons = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CCF6, 0x95CEAE, 0x96CFEE));
 PLUGIN_VARIABLE char &CPopulation::m_CountDownToPedsAtStart = *reinterpret_cast<char *>(GLOBAL_ADDRESS_BY_VERSION(0x95CD4F, 0x95CF07, 0x96D047));
 PLUGIN_VARIABLE bool &CPopulation::bZoneChangeHasHappened = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CD79, 0x95CF31, 0x96D071));
+PLUGIN_VARIABLE RegenerationPoint(&aSafeZones)[8] = *reinterpret_cast<RegenerationPoint(*)[8]>(GLOBAL_ADDRESS_BY_VERSION(0x5FA578, 0x5FA360, 0x607358));
 
 int addrof(CPopulation::AddPed) = ADDRESS_BY_VERSION(0x4F5280, 0x4F5330, 0x4F52C0);
 int gaddrof(CPopulation::AddPed) = GLOBAL_ADDRESS_BY_VERSION(0x4F5280, 0x4F5330, 0x4F52C0);
 
-CPed *CPopulation::AddPed(ePedType pedType, unsigned int modelIndex, CVector *posn) {
-    return plugin::CallAndReturnDynGlobal<CPed *, ePedType, unsigned int, CVector *>(gaddrof(CPopulation::AddPed), pedType, modelIndex, posn);
+CPed *CPopulation::AddPed(ePedType pedType, unsigned int modelIndexOrCopType, CVector const &coors) {
+    return plugin::CallAndReturnDynGlobal<CPed *, ePedType, unsigned int, CVector const &>(gaddrof(CPopulation::AddPed), pedType, modelIndexOrCopType, coors);
 }
 
 int addrof(CPopulation::AddPedInCar) = ADDRESS_BY_VERSION(0x4F5800, 0x4F58B0, 0x4F5840);
@@ -55,22 +56,22 @@ CPed *CPopulation::AddPedInCar(CVehicle *vehicle) {
 int addrof(CPopulation::AddToPopulation) = ADDRESS_BY_VERSION(0x4F4A00, 0x4F4AB0, 0x4F4A40);
 int gaddrof(CPopulation::AddToPopulation) = GLOBAL_ADDRESS_BY_VERSION(0x4F4A00, 0x4F4AB0, 0x4F4A40);
 
-void CPopulation::AddToPopulation(float z1, float x2, float y2, float z2) {
-    plugin::CallDynGlobal<float, float, float, float>(gaddrof(CPopulation::AddToPopulation), z1, x2, y2, z2);
+void CPopulation::AddToPopulation(float minDist, float maxDist, float minDistOffScreen, float maxDistOffScreen) {
+    plugin::CallDynGlobal<float, float, float, float>(gaddrof(CPopulation::AddToPopulation), minDist, maxDist, minDistOffScreen, maxDistOffScreen);
 }
 
 int addrof(CPopulation::ChooseCivilianOccupation) = ADDRESS_BY_VERSION(0x4F5720, 0x4F57D0, 0x4F5760);
 int gaddrof(CPopulation::ChooseCivilianOccupation) = GLOBAL_ADDRESS_BY_VERSION(0x4F5720, 0x4F57D0, 0x4F5760);
 
-int CPopulation::ChooseCivilianOccupation(int index) {
-    return plugin::CallAndReturnDynGlobal<int, int>(gaddrof(CPopulation::ChooseCivilianOccupation), index);
+int CPopulation::ChooseCivilianOccupation(int group) {
+    return plugin::CallAndReturnDynGlobal<int, int>(gaddrof(CPopulation::ChooseCivilianOccupation), group);
 }
 
 int addrof(CPopulation::ChooseGangOccupation) = ADDRESS_BY_VERSION(0x4F5780, 0x4F5830, 0x4F57C0);
 int gaddrof(CPopulation::ChooseGangOccupation) = GLOBAL_ADDRESS_BY_VERSION(0x4F5780, 0x4F5830, 0x4F57C0);
 
-int CPopulation::ChooseGangOccupation(int gangType) {
-    return plugin::CallAndReturnDynGlobal<int, int>(gaddrof(CPopulation::ChooseGangOccupation), gangType);
+int CPopulation::ChooseGangOccupation(int gangId) {
+    return plugin::CallAndReturnDynGlobal<int, int>(gaddrof(CPopulation::ChooseGangOccupation), gangId);
 }
 
 int addrof(CPopulation::ChoosePolicePedOccupation) = ADDRESS_BY_VERSION(0x4F5710, 0x4F57C0, 0x4F5750);
@@ -97,29 +98,29 @@ void CPopulation::ConvertToDummyObject(CObject *object) {
 int addrof(CPopulation::ConvertToRealObject) = ADDRESS_BY_VERSION(0x4F4470, 0x4F4520, 0x4F44B0);
 int gaddrof(CPopulation::ConvertToRealObject) = GLOBAL_ADDRESS_BY_VERSION(0x4F4470, 0x4F4520, 0x4F44B0);
 
-void CPopulation::ConvertToRealObject(CDummyObject *dummyObject) {
-    plugin::CallDynGlobal<CDummyObject *>(gaddrof(CPopulation::ConvertToRealObject), dummyObject);
+void CPopulation::ConvertToRealObject(CDummyObject *dummy) {
+    plugin::CallDynGlobal<CDummyObject *>(gaddrof(CPopulation::ConvertToRealObject), dummy);
 }
 
 int addrof(CPopulation::DealWithZoneChange) = ADDRESS_BY_VERSION(0x4F6200, 0x4F62B0, 0x4F6240);
 int gaddrof(CPopulation::DealWithZoneChange) = GLOBAL_ADDRESS_BY_VERSION(0x4F6200, 0x4F62B0, 0x4F6240);
 
-void CPopulation::DealWithZoneChange(eLevelName levelName, eLevelName levelNameTwo, bool a3) {
-    plugin::CallDynGlobal<eLevelName, eLevelName, bool>(gaddrof(CPopulation::DealWithZoneChange), levelName, levelNameTwo, a3);
+void CPopulation::DealWithZoneChange(eLevelName oldLevel, eLevelName newLevel, bool forceIndustrialZone) {
+    plugin::CallDynGlobal<eLevelName, eLevelName, bool>(gaddrof(CPopulation::DealWithZoneChange), oldLevel, newLevel, forceIndustrialZone);
 }
 
 int addrof(CPopulation::FindClosestZoneForCoors) = ADDRESS_BY_VERSION(0x4F6150, 0x4F6200, 0x4F6190);
 int gaddrof(CPopulation::FindClosestZoneForCoors) = GLOBAL_ADDRESS_BY_VERSION(0x4F6150, 0x4F6200, 0x4F6190);
 
-void CPopulation::FindClosestZoneForCoors(CVector *point, int *a2, eLevelName levelName, eLevelName _levelName) {
-    plugin::CallDynGlobal<CVector *, int *, eLevelName, eLevelName>(gaddrof(CPopulation::FindClosestZoneForCoors), point, a2, levelName, _levelName);
+void CPopulation::FindClosestZoneForCoors(CVector *coors, int *safeZoneOut, eLevelName level1, eLevelName level2) {
+    plugin::CallDynGlobal<CVector *, int *, eLevelName, eLevelName>(gaddrof(CPopulation::FindClosestZoneForCoors), coors, safeZoneOut, level1, level2);
 }
 
 int addrof(CPopulation::FindCollisionZoneForCoors) = ADDRESS_BY_VERSION(0x4F6010, 0x4F60C0, 0x4F6050);
 int gaddrof(CPopulation::FindCollisionZoneForCoors) = GLOBAL_ADDRESS_BY_VERSION(0x4F6010, 0x4F60C0, 0x4F6050);
 
-void CPopulation::FindCollisionZoneForCoors(CVector *point, int *a2, eLevelName *levelName) {
-    plugin::CallDynGlobal<CVector *, int *, eLevelName *>(gaddrof(CPopulation::FindCollisionZoneForCoors), point, a2, levelName);
+void CPopulation::FindCollisionZoneForCoors(CVector *coors, int *safeZoneOut, eLevelName *levelOut) {
+    plugin::CallDynGlobal<CVector *, int *, eLevelName *>(gaddrof(CPopulation::FindCollisionZoneForCoors), coors, safeZoneOut, levelOut);
 }
 
 int addrof(CPopulation::GeneratePedsAtStartOfGame) = ADDRESS_BY_VERSION(0x4F3AD0, 0x4F3B80, 0x4F3B10);
@@ -139,8 +140,8 @@ void CPopulation::Initialise() {
 int addrof(CPopulation::IsPointInSafeZone) = ADDRESS_BY_VERSION(0x4F60C0, 0x4F6170, 0x4F6100);
 int gaddrof(CPopulation::IsPointInSafeZone) = GLOBAL_ADDRESS_BY_VERSION(0x4F60C0, 0x4F6170, 0x4F6100);
 
-bool CPopulation::IsPointInSafeZone(CVector *point) {
-    return plugin::CallAndReturnDynGlobal<bool, CVector *>(gaddrof(CPopulation::IsPointInSafeZone), point);
+bool CPopulation::IsPointInSafeZone(CVector *coors) {
+    return plugin::CallAndReturnDynGlobal<bool, CVector *>(gaddrof(CPopulation::IsPointInSafeZone), coors);
 }
 
 int addrof(CPopulation::LoadPedGroups) = ADDRESS_BY_VERSION(0x4F3870, 0x4F3920, 0x4F38B0);
@@ -188,8 +189,8 @@ bool CPopulation::TestRoomForDummyObject(CObject *object) {
 int addrof(CPopulation::TestSafeForRealObject) = ADDRESS_BY_VERSION(0x4F4700, 0x4F47B0, 0x4F4740);
 int gaddrof(CPopulation::TestSafeForRealObject) = GLOBAL_ADDRESS_BY_VERSION(0x4F4700, 0x4F47B0, 0x4F4740);
 
-bool CPopulation::TestSafeForRealObject(CDummyObject *dummyObject) {
-    return plugin::CallAndReturnDynGlobal<bool, CDummyObject *>(gaddrof(CPopulation::TestSafeForRealObject), dummyObject);
+bool CPopulation::TestSafeForRealObject(CDummyObject *dummy) {
+    return plugin::CallAndReturnDynGlobal<bool, CDummyObject *>(gaddrof(CPopulation::TestSafeForRealObject), dummy);
 }
 
 int addrof(CPopulation::Update) = ADDRESS_BY_VERSION(0x4F39A0, 0x4F3A50, 0x4F39E0);
@@ -202,6 +203,6 @@ void CPopulation::Update() {
 int addrof(CPopulation::UpdatePedCount) = ADDRESS_BY_VERSION(0x4F5A60, 0x4F5B10, 0x4F5AA0);
 int gaddrof(CPopulation::UpdatePedCount) = GLOBAL_ADDRESS_BY_VERSION(0x4F5A60, 0x4F5B10, 0x4F5AA0);
 
-void CPopulation::UpdatePedCount(ePedType pedType, unsigned char updateState) {
-    plugin::CallDynGlobal<ePedType, unsigned char>(gaddrof(CPopulation::UpdatePedCount), pedType, updateState);
+void CPopulation::UpdatePedCount(ePedType pedType, bool decrease) {
+    plugin::CallDynGlobal<ePedType, bool>(gaddrof(CPopulation::UpdatePedCount), pedType, decrease);
 }

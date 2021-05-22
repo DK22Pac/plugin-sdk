@@ -9,14 +9,14 @@
 #include "PluginBase.h"
 
 enum PLUGIN_API ePhoneState : unsigned int {
-    PHONE_INACTIVE = 0,
-    PHONE_1 = 0x1,
-    PHONE_2 = 0x2,
-    PHONE_NO_MESSAGE = 0x3,
-    PHONE_MESSAGE_ONCE = 0x4,
-    PHONE_MESSAGE_REPEAT = 0x5,
-    PHONE_6 = 0x6,
-    PHONE_MESSAGE_SHOWN_ONCE = 0x7,
-    PHONE_MESSAGE_IS_SHOWN = 0x8,
-    PHONE_9 = 0x9
+    PHONE_FREE = 0,
+    PHONE_REPORTING_CRIME = 1, //!< CCivilianPed::ProcessControl sets it but unused
+    PHONE_2 = 2,
+    PHONE_MESSAGE_REMOVED = 3,
+    PHONE_ONETIME_MESSAGE_SET = 4,
+    PHONE_REPEATED_MESSAGE_SET = 5,
+    PHONE_REPEATED_MESSAGE_SHOWN_ONCE = 6,
+    PHONE_ONETIME_MESSAGE_STARTED = 7,
+    PHONE_REPEATED_MESSAGE_STARTED = 8,
+    PHONE_9 = 9 //!< just rings, picking being handled via script. most of the time game uses this
 };

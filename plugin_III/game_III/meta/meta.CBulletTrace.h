@@ -15,8 +15,8 @@ static const int id = 0x519270;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x519270, 0x5194A0, 0x519430>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x51925B,100,0,0x519240,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x51925B,100,0,0x519240,1, 0x51948B,110,0,0x519470,1, 0x51941B,120,0,0x519400,1>;
 using def_t = void(CBulletTrace *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -30,8 +30,8 @@ static const int id = 0x51C390;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x51C390, 0x51C5C0, 0x51C550>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x51C237,100,2,0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x51C237,100,2,0,1, 0x51C467,110,2,0,1, 0x51C3F7,120,2,0,1>;
 using def_t = CBulletTrace *(CBulletTrace *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;

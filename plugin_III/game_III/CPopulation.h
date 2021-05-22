@@ -7,14 +7,14 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "eLevelName.h"
+#include "CVector.h"
 #include "CDummyObject.h"
 #include "CObject.h"
 #include "CPed.h"
 #include "ePedType.h"
-#include "CVector.h"
 #include "eCopType.h"
 #include "CVehicle.h"
-#include "eLevelName.h"
 #include "CColPoint.h"
 
 class PLUGIN_API CPopulation {
@@ -49,30 +49,50 @@ public:
     SUPPORTED_10EN_11EN_STEAM static char &m_CountDownToPedsAtStart;
     SUPPORTED_10EN_11EN_STEAM static bool &bZoneChangeHasHappened;
 
-    SUPPORTED_10EN_11EN_STEAM static CPed *AddPed(ePedType pedType, unsigned int modelIndex, CVector *posn);
+    SUPPORTED_10EN_11EN_STEAM static CPed *AddPed(ePedType pedType, unsigned int modelIndexOrCopType, CVector const &coors);
     SUPPORTED_10EN_11EN_STEAM static CPed *AddPedInCar(CVehicle *vehicle);
-    SUPPORTED_10EN_11EN_STEAM static void AddToPopulation(float z1, float x2, float y2, float z2);
-    SUPPORTED_10EN_11EN_STEAM static int ChooseCivilianOccupation(int index);
-    SUPPORTED_10EN_11EN_STEAM static int ChooseGangOccupation(int gangType);
+    SUPPORTED_10EN_11EN_STEAM static void AddToPopulation(float minDist, float maxDist, float minDistOffScreen, float maxDistOffScreen);
+    SUPPORTED_10EN_11EN_STEAM static int ChooseCivilianOccupation(int group);
+    SUPPORTED_10EN_11EN_STEAM static int ChooseGangOccupation(int gangId);
     SUPPORTED_10EN_11EN_STEAM static eCopType ChoosePolicePedOccupation();
     SUPPORTED_10EN_11EN_STEAM static void ConvertAllObjectsToDummyObjects();
     SUPPORTED_10EN_11EN_STEAM static void ConvertToDummyObject(CObject *object);
-    SUPPORTED_10EN_11EN_STEAM static void ConvertToRealObject(CDummyObject *dummyObject);
-    SUPPORTED_10EN_11EN_STEAM static void DealWithZoneChange(eLevelName levelName, eLevelName levelNameTwo, bool a3);
-    SUPPORTED_10EN_11EN_STEAM static void FindClosestZoneForCoors(CVector *point, int *a2, eLevelName levelName, eLevelName _levelName);
-    SUPPORTED_10EN_11EN_STEAM static void FindCollisionZoneForCoors(CVector *point, int *a2, eLevelName *levelName);
+    SUPPORTED_10EN_11EN_STEAM static void ConvertToRealObject(CDummyObject *dummy);
+    SUPPORTED_10EN_11EN_STEAM static void DealWithZoneChange(eLevelName oldLevel, eLevelName newLevel, bool forceIndustrialZone);
+    SUPPORTED_10EN_11EN_STEAM static void FindClosestZoneForCoors(CVector *coors, int *safeZoneOut, eLevelName level1, eLevelName level2);
+    SUPPORTED_10EN_11EN_STEAM static void FindCollisionZoneForCoors(CVector *coors, int *safeZoneOut, eLevelName *levelOut);
     SUPPORTED_10EN_11EN_STEAM static void GeneratePedsAtStartOfGame();
     SUPPORTED_10EN_11EN_STEAM static void Initialise();
-    SUPPORTED_10EN_11EN_STEAM static bool IsPointInSafeZone(CVector *point);
+    SUPPORTED_10EN_11EN_STEAM static bool IsPointInSafeZone(CVector *coors);
     SUPPORTED_10EN_11EN_STEAM static void LoadPedGroups();
     SUPPORTED_10EN_11EN_STEAM static void ManagePopulation();
     SUPPORTED_10EN_11EN_STEAM static void MoveCarsAndPedsOutOfAbandonedZones();
     SUPPORTED_10EN_11EN_STEAM static float PedCreationDistMultiplier();
     SUPPORTED_10EN_11EN_STEAM static void RemovePed(CPed *ped);
     SUPPORTED_10EN_11EN_STEAM static bool TestRoomForDummyObject(CObject *object);
-    SUPPORTED_10EN_11EN_STEAM static bool TestSafeForRealObject(CDummyObject *dummyObject);
+    SUPPORTED_10EN_11EN_STEAM static bool TestSafeForRealObject(CDummyObject *dummy);
     SUPPORTED_10EN_11EN_STEAM static void Update();
-    SUPPORTED_10EN_11EN_STEAM static void UpdatePedCount(ePedType pedType, unsigned char updateState);
+    SUPPORTED_10EN_11EN_STEAM static void UpdatePedCount(ePedType pedType, bool decrease);
 };
+
+//! Don't know the original name
+struct PLUGIN_API RegenerationPoint {
+    eLevelName srcLevel; //!< this and below one may need to be exchanged
+    eLevelName destLevel;
+    float x1;
+    float x2;
+    float y1;
+    float y2;
+    float z1;
+    float z2;
+    CVector m_vecDestPosA;
+    CVector m_vecDestPosB;
+    CVector m_vecSrcPosA;
+    CVector m_vecSrcPosB;
+};
+
+SUPPORTED_10EN_11EN_STEAM extern RegenerationPoint(&aSafeZones)[8]; // RegenerationPoint aSafeZones[8]
+
+VALIDATE_SIZE(RegenerationPoint, 0x50);
 
 #include "meta/meta.CPopulation.h"

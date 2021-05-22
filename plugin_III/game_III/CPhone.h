@@ -17,13 +17,10 @@ class PLUGIN_API CPhone {
 public:
     CVector m_vecPos;
     wchar_t *m_pMessages[6];
-    int m_nStartTimer;
-    CBuilding *m_pEntity;
+    unsigned int m_nStartTimer;
+    CBuilding *m_pEntity; //!< stored as building pool index in save files
     ePhoneState m_nState;
-    char m_bPlayerIsClose;
-private:
-    char _pad31[3];
-public:
+    bool m_bVisibleToCam;
 };
 
 VALIDATE_SIZE(CPhone, 0x34);

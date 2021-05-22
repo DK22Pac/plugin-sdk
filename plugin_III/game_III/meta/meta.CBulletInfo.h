@@ -15,8 +15,8 @@ static const int id = 0x558220;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x558220, 0x558350, 0x558300>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x55C2E4,100,0,0x55C2D0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x55C2E4,100,0,0x55C2D0,1, 0x55C414,110,0,0x55C400,1, 0x55C3C4,120,0,0x55C3B0,1>;
 using def_t = void();
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -30,8 +30,8 @@ static const int id = 0x558450;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x558450, 0x558580, 0x558530>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x55C304,100,0,0x55C2F0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x55C304,100,0,0x55C2F0,1, 0x55C434,110,0,0x55C420,1, 0x55C3E4,120,0,0x55C3D0,1>;
 using def_t = void();
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -45,8 +45,8 @@ static const int id = 0x558470;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x558470, 0x5585A0, 0x558550>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x562107,100,0,0x561FE0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x562107,100,0,0x561FE0,1, 0x562237,110,0,0x562110,1, 0x5621E7,120,0,0x5620C0,1>;
 using def_t = void(CEntity *, eWeaponType, CVector, CVector);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -60,8 +60,8 @@ static const int id = 0x558550;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x558550, 0x558680, 0x558630>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x55C31F,100,0,0x55C310,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x55C31F,100,0,0x55C310,1, 0x55C44F,110,0,0x55C440,1, 0x55C3FF,120,0,0x55C3F0,1>;
 using def_t = void();
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -75,8 +75,8 @@ static const int id = 0x558D40;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x558D40, 0x558E70, 0x558E20>;
-// total references count: 10en (2), 11en (0), steam (0)
-using refs_t = RefList<0x44C974,100,0,0x448240,1, 0x4519B5,100,0,0x4518A0,1>;
+// total references count: 10en (2), 11en (2), steam (2)
+using refs_t = RefList<0x44C974,100,0,0x448240,1, 0x4519B5,100,0,0x4518A0,1, 0x44C974,110,0,0x448240,1, 0x4519B5,110,0,0x4518A0,1, 0x44C974,120,0,0x448240,1, 0x4519B5,120,0,0x4518A0,1>;
 using def_t = bool(float, float, float, float, float, float);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
@@ -90,8 +90,8 @@ static const int id = 0x559020;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x559020, 0x559150, 0x559100>;
-// total references count: 10en (1), 11en (0), steam (0)
-using refs_t = RefList<0x559007,100,2,0,1>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x559007,100,2,0,1, 0x559137,110,2,0,1, 0x5590E7,120,2,0,1>;
 using def_t = CBulletInfo *(CBulletInfo *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;

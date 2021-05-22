@@ -14,9 +14,9 @@ static int global_address;
 static const int id = 0x429220;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x429220, 0x429220, 0>;
-// total references count: 10en (1), 11en (1), steam (0)
-using refs_t = RefList<0x4AD66F,100,0,0x4AD660,1, 0x4AD75F,110,0,0x4AD750,1>;
+using mv_addresses_t = MvAddresses<0x429220, 0x429220, 0x429220>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x4AD66F,100,0,0x4AD660,1, 0x4AD75F,110,0,0x4AD750,1, 0x4AD6EF,120,0,0x4AD6E0,1>;
 using def_t = void(COnscreenTimer *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -29,9 +29,9 @@ static int global_address;
 static const int id = 0x4292E0;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x4292E0, 0x4292E0, 0>;
-// total references count: 10en (1), 11en (1), steam (0)
-using refs_t = RefList<0x48E42A,100,0,0x48E0E0,1, 0x48E4EA,110,0,0x48E1A0,1>;
+using mv_addresses_t = MvAddresses<0x4292E0, 0x4292E0, 0x4292E0>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x48E42A,100,0,0x48E0E0,1, 0x48E4EA,110,0,0x48E1A0,1, 0x48E47A,120,0,0x48E130,1>;
 using def_t = void(COnscreenTimer *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -44,9 +44,9 @@ static int global_address;
 static const int id = 0x429320;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x429320, 0x429320, 0>;
-// total references count: 10en (1), 11en (1), steam (0)
-using refs_t = RefList<0x4AD69F,100,0,0x4AD690,1, 0x4AD78F,110,0,0x4AD780,1>;
+using mv_addresses_t = MvAddresses<0x429320, 0x429320, 0x429320>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x4AD69F,100,0,0x4AD690,1, 0x4AD78F,110,0,0x4AD780,1, 0x4AD71F,120,0,0x4AD710,1>;
 using def_t = void(COnscreenTimer *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -59,9 +59,9 @@ static int global_address;
 static const int id = 0x429350;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x429350, 0x429350, 0>;
-// total references count: 10en (2), 11en (2), steam (0)
-using refs_t = RefList<0x43F1A7,100,0,0x43ED30,1, 0x44EC65,100,0,0x44CB80,1, 0x43F1A7,110,0,0x43ED30,1, 0x44EC65,110,0,0x44CB80,1>;
+using mv_addresses_t = MvAddresses<0x429350, 0x429350, 0x429350>;
+// total references count: 10en (2), 11en (2), steam (2)
+using refs_t = RefList<0x43F1A7,100,0,0x43ED30,1, 0x44EC65,100,0,0x44CB80,1, 0x43F1A7,110,0,0x43ED30,1, 0x44EC65,110,0,0x44CB80,1, 0x43F1A7,120,0,0x43ED30,1, 0x44EC65,120,0,0x44CB80,1>;
 using def_t = void(COnscreenTimer *, unsigned int, char *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -74,9 +74,9 @@ static int global_address;
 static const int id = 0x4293B0;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x4293B0, 0x4293B0, 0>;
-// total references count: 10en (2), 11en (2), steam (0)
-using refs_t = RefList<0x43F230,100,0,0x43ED30,1, 0x44ED04,100,0,0x44CB80,1, 0x43F230,110,0,0x43ED30,1, 0x44ED04,110,0,0x44CB80,1>;
+using mv_addresses_t = MvAddresses<0x4293B0, 0x4293B0, 0x4293B0>;
+// total references count: 10en (2), 11en (2), steam (2)
+using refs_t = RefList<0x43F230,100,0,0x43ED30,1, 0x44ED04,100,0,0x44CB80,1, 0x43F230,110,0,0x43ED30,1, 0x44ED04,110,0,0x44CB80,1, 0x43F230,120,0,0x43ED30,1, 0x44ED04,120,0,0x44CB80,1>;
 using def_t = void(COnscreenTimer *, unsigned int, unsigned short, char *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -89,9 +89,9 @@ static int global_address;
 static const int id = 0x429410;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x429410, 0x429410, 0>;
-// total references count: 10en (1), 11en (1), steam (0)
-using refs_t = RefList<0x43F1E0,100,0,0x43ED30,1, 0x43F1E0,110,0,0x43ED30,1>;
+using mv_addresses_t = MvAddresses<0x429410, 0x429410, 0x429410>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x43F1E0,100,0,0x43ED30,1, 0x43F1E0,110,0,0x43ED30,1, 0x43F1E0,120,0,0x43ED30,1>;
 using def_t = void(COnscreenTimer *, unsigned int);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
@@ -104,9 +104,9 @@ static int global_address;
 static const int id = 0x429450;
 static const bool is_virtual = false;
 static const int vtable_index = -1;
-using mv_addresses_t = MvAddresses<0x429450, 0x429450, 0>;
-// total references count: 10en (1), 11en (1), steam (0)
-using refs_t = RefList<0x43F269,100,0,0x43ED30,1, 0x43F269,110,0,0x43ED30,1>;
+using mv_addresses_t = MvAddresses<0x429450, 0x429450, 0x429450>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x43F269,100,0,0x43ED30,1, 0x43F269,110,0,0x43ED30,1, 0x43F269,120,0,0x43ED30,1>;
 using def_t = void(COnscreenTimer *, unsigned int);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
