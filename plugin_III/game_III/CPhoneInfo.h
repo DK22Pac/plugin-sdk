@@ -18,7 +18,7 @@ class PLUGIN_API CPhoneInfo {
 public:
     int m_nMax;
     int m_nScriptPhonesMax;
-    CPhone m_aPhones[54];
+    CPhone m_aPhones[50];
 
     SUPPORTED_10EN_11EN_STEAM int FindNearestFreePhone(CVector *point);
     SUPPORTED_10EN_11EN_STEAM int GrabPhone(float x, float y);
@@ -44,6 +44,6 @@ SUPPORTED_10EN_11EN_STEAM extern CPhoneInfo &gPhoneInfo;
 SUPPORTED_10EN_11EN_STEAM void PhonePickUpCB(CAnimBlendAssociation *association, void *data);
 SUPPORTED_10EN_11EN_STEAM void PhonePutDownCB(CAnimBlendAssociation *association, void *data);
 
-VALIDATE_SIZE(CPhoneInfo, 0xB00);
+VALIDATE_SIZE(CPhoneInfo, 0xA30);
 
 #include "meta/meta.CPhoneInfo.h"
