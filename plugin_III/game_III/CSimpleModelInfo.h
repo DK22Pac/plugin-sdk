@@ -30,7 +30,6 @@ public:
         unsigned short bIsSubway : 1;
         unsigned short bIgnoreLight : 1;
         unsigned short bNoZwrite : 1;
-        unsigned short : 5;
     } m_nSimpleModelFlags;
 
     // virtual function #0 (destructor)

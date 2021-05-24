@@ -1,43 +1,50 @@
 /*
-    Plugin-SDK (Grand Theft Auto 3) header file
+    Plugin-SDK (Grand Theft Auto 3) source file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #include "CTheCarGenerators.h"
 
-CCarGenerator *CTheCarGenerators::CarGeneratorArray = (CCarGenerator*)0x87CB18;
-int &CTheCarGenerators::NumOfCarGenerators = *(int*)0x8E2C1C;
-int &CTheCarGenerators::CurrentActiveCount = *(int*)0x8F2C5C;
-unsigned char &CTheCarGenerators::ProcessCounter = *(unsigned char*)0x95CDAF;
-char &CTheCarGenerators::GenerateEvenIfPlayerIsCloseCounter = *(char*)0x95CDC6;
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CTheCarGenerators::CTheCarGenerators(void) 0x543350
-CTheCarGenerators::CTheCarGenerators() {
-    plugin::CallMethod<0x543350, CTheCarGenerators *>(this);
+PLUGIN_VARIABLE CCarGenerator(&CTheCarGenerators::CarGeneratorArray)[160] = *reinterpret_cast<CCarGenerator(*)[160]>(GLOBAL_ADDRESS_BY_VERSION(0x87CB18, 0x87CAC8, 0x88CC08));
+PLUGIN_VARIABLE unsigned int &CTheCarGenerators::NumOfCarGenerators = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8E2C1C, 0x8E2CD0, 0x8F2E10));
+PLUGIN_VARIABLE unsigned int &CTheCarGenerators::CurrentActiveCount = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x8F2C5C, 0x8F2D10, 0x902E50));
+PLUGIN_VARIABLE unsigned char &CTheCarGenerators::ProcessCounter = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0x95CDAF, 0x95CF67, 0x96D0A7));
+PLUGIN_VARIABLE unsigned char &CTheCarGenerators::GenerateEvenIfPlayerIsCloseCounter = *reinterpret_cast<unsigned char *>(GLOBAL_ADDRESS_BY_VERSION(0x95CDC6, 0x95CF7E, 0x96D0BE));
+
+int addrof(CTheCarGenerators::CreateCarGenerator) = ADDRESS_BY_VERSION(0x542FC0, 0x543200, 0x5431B0);
+int gaddrof(CTheCarGenerators::CreateCarGenerator) = GLOBAL_ADDRESS_BY_VERSION(0x542FC0, 0x543200, 0x5431B0);
+
+int CTheCarGenerators::CreateCarGenerator(float x, float y, float z, float angle, int modelId, short colorPrim, short colorSec, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay) {
+    return plugin::CallAndReturnDynGlobal<int, float, float, float, float, int, short, short, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short>(gaddrof(CTheCarGenerators::CreateCarGenerator), x, y, z, angle, modelId, colorPrim, colorSec, forceSpawn, alarm, doorLock, minDelay, maxDelay);
 }
 
-// Converted from cdecl unsigned int CTheCarGenerators::CreateCarGenerator(float x,float y,float z,float angle,int modelId,short primaryColor,short secondaryColor,uchar forceSpawn,uchar alarm,uchar doorLock,ushort minDelay,ushort maxDelay) 0x542FC0
-unsigned int CTheCarGenerators::CreateCarGenerator(float x, float y, float z, float angle, int modelId, short primaryColor, short secondaryColor, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay) {
-    return plugin::CallAndReturn<unsigned int, 0x542FC0, float, float, float, float, int, short, short, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short>(x, y, z, angle, modelId, primaryColor, secondaryColor, forceSpawn, alarm, doorLock, minDelay, maxDelay);
-}
+int addrof(CTheCarGenerators::Init) = ADDRESS_BY_VERSION(0x543020, 0x543260, 0x543210);
+int gaddrof(CTheCarGenerators::Init) = GLOBAL_ADDRESS_BY_VERSION(0x543020, 0x543260, 0x543210);
 
-// Converted from cdecl void CTheCarGenerators::Init(void) 0x543020 
 void CTheCarGenerators::Init() {
-    plugin::Call<0x543020>();
+    plugin::CallDynGlobal(gaddrof(CTheCarGenerators::Init));
 }
 
-// Converted from cdecl void CTheCarGenerators::LoadAllCarGenerators(uchar *bufferPointer,uint structSize) 0x5431E0
-void CTheCarGenerators::LoadAllCarGenerators(unsigned char* bufferPointer, unsigned int structSize) {
-    plugin::Call<0x5431E0, unsigned char*, unsigned int>(bufferPointer, structSize);
+int addrof(CTheCarGenerators::LoadAllCarGenerators) = ADDRESS_BY_VERSION(0x5431E0, 0x543420, 0x5433D0);
+int gaddrof(CTheCarGenerators::LoadAllCarGenerators) = GLOBAL_ADDRESS_BY_VERSION(0x5431E0, 0x543420, 0x5433D0);
+
+void CTheCarGenerators::LoadAllCarGenerators(unsigned char *buffer, unsigned int size) {
+    plugin::CallDynGlobal<unsigned char *, unsigned int>(gaddrof(CTheCarGenerators::LoadAllCarGenerators), buffer, size);
 }
 
-// Converted from cdecl void CTheCarGenerators::Process(void) 0x542F40 
+int addrof(CTheCarGenerators::Process) = ADDRESS_BY_VERSION(0x542F40, 0x543180, 0x543130);
+int gaddrof(CTheCarGenerators::Process) = GLOBAL_ADDRESS_BY_VERSION(0x542F40, 0x543180, 0x543130);
+
 void CTheCarGenerators::Process() {
-    plugin::Call<0x542F40>();
+    plugin::CallDynGlobal(gaddrof(CTheCarGenerators::Process));
 }
 
-// Converted from cdecl void CTheCarGenerators::SaveAllCarGenerators(uchar *bufferPointer,uint *structSize) 0x543050
-void CTheCarGenerators::SaveAllCarGenerators(unsigned char* bufferPointer, unsigned int* structSize) {
-    plugin::Call<0x543050, unsigned char*, unsigned int*>(bufferPointer, structSize);
+int addrof(CTheCarGenerators::SaveAllCarGenerators) = ADDRESS_BY_VERSION(0x543050, 0x543290, 0x543240);
+int gaddrof(CTheCarGenerators::SaveAllCarGenerators) = GLOBAL_ADDRESS_BY_VERSION(0x543050, 0x543290, 0x543240);
+
+void CTheCarGenerators::SaveAllCarGenerators(unsigned char *buffer, unsigned int *size) {
+    plugin::CallDynGlobal<unsigned char *, unsigned int *>(gaddrof(CTheCarGenerators::SaveAllCarGenerators), buffer, size);
 }

@@ -9,44 +9,20 @@
 #include "PluginBase.h"
 #include "CCarGenerator.h"
 
-class CTheCarGenerators {
+class PLUGIN_API CTheCarGenerators {
 public:
-    char field_0;
-    char field_1;
-    char field_2;
-    char field_3;
-    short field_4;
-    char field_6;
-    char field_7;
-    short field_8;
-    char field_A;
-    char field_B;
-    short m_nNumOfCarGenerators;
-    char field_E;
-    char field_F;
-    short m_nCurrentActiveCount;
-    char field_12;
-    char field_13;
-    char m_nProcessCounter;
-    char m_nGenerateEvenIfPlayerIsCloseCounter;
-    short field_16;
-    unsigned int m_nSizeCarGeneratorArray;
-    CCarGenerator m_aCarGeneratorArray[160];
-    
-    //variables
-    static CCarGenerator *CarGeneratorArray; // [160]
-    static int &NumOfCarGenerators;
-    static int &CurrentActiveCount; 
-    static unsigned char &ProcessCounter;
-    static char &GenerateEvenIfPlayerIsCloseCounter;
+    SUPPORTED_10EN_11EN_STEAM static CCarGenerator(&CarGeneratorArray)[160]; // static CCarGenerator CarGeneratorArray[160]
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &NumOfCarGenerators;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &CurrentActiveCount;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &ProcessCounter;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &GenerateEvenIfPlayerIsCloseCounter;
 
-    //funcs
-    CTheCarGenerators();
-    static unsigned int CreateCarGenerator(float x, float y, float z, float angle, int modelId, short primaryColor, short secondaryColor, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay);
-    static void Init();
-    static void LoadAllCarGenerators(unsigned char* bufferPointer, unsigned int structSize);
-    static void Process();                          
-    static void SaveAllCarGenerators(unsigned char* bufferPointer, unsigned int* structSize);
+    //! return index of CarGenerator in CTheCarGenerators::CarGeneratorArray
+    SUPPORTED_10EN_11EN_STEAM static int CreateCarGenerator(float x, float y, float z, float angle, int modelId, short colorPrim, short colorSec, unsigned char forceSpawn, unsigned char alarm, unsigned char doorLock, unsigned short minDelay, unsigned short maxDelay);
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static void LoadAllCarGenerators(unsigned char *buffer, unsigned int size);
+    SUPPORTED_10EN_11EN_STEAM static void Process();
+    SUPPORTED_10EN_11EN_STEAM static void SaveAllCarGenerators(unsigned char *buffer, unsigned int *size);
 };
 
-VALIDATE_SIZE(CTheCarGenerators, 0x2D1C);
+#include "meta/meta.CTheCarGenerators.h"

@@ -8,6 +8,7 @@
 
 #include "PluginBase.h"
 #include "CGarage.h"
+class CAutomobile;
 
 class CGarages {
 public:
