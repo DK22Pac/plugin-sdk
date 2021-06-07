@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-enum PLUGIN_API ePedState {
+enum PLUGIN_API ePedState : unsigned int {
     PEDSTATE_NONE = 0,
     PEDSTATE_IDLE = 1,
     PEDSTATE_LOOK_ENTITY = 2,

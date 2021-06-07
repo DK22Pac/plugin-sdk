@@ -8,91 +8,136 @@
 
 #include "PluginBase.h"
 #include "CEntity.h"
-#include "CSector.h"
+#include "CTreadable.h"
+#include "CVector.h"
 #include "CEntryInfoList.h"
+#include "CRect.h"
 #include "CColPoint.h"
+#include "CPtrList.h"
+#include "CSector.h"
 
-class CPhysical : public CEntity {
+class PLUGIN_API CPhysical : public CEntity {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CPhysical)
+
 public:
-    void           *m_nAudioEntityId;
+    int m_nAudioEntityId;
     float field_68;
-    int field_6C;
-    int field_70;
-    int             m_nLastTimeCollided;
-    CVector         m_vecMoveSpeed;
-    CVector         m_vecTurnSpeed;
-    CVector         m_vecFrictionMoveForce;
-    CVector         m_vecFrictionTurnForce;
-    CVector         m_vecForce;
-    CVector         m_vecTorque;
-    float           m_fMass;
-    float           m_fTurnMass;
-    float           m_fVelocityFrequency;
-    float           m_fAirResistance;
-    float           m_fElasticity;
-    float           m_fBuoyancy;
-    CVector         m_vecCentreOfMass;
-    CEntryInfoList  m_collisionList;
-    CPtrNode       *m_pMovingListNode;
+    CTreadable *m_pLastCarNodeTreadable;
+    CTreadable *m_pLastPedNodeTreadable;
+    unsigned int m_nLastTimeCollided;
+    CVector m_vecMoveSpeed; //!< velocity
+    CVector m_vecTurnSpeed; //!< angular velocity
+    CVector m_vecFrictionMoveForce;
+    CVector m_vecFrictionTurnForce;
+    CVector m_vecMoveSpeedAvg;
+    CVector m_vecTurnSpeedAvg;
+    float m_fMass;
+    float m_fTurnMass; //!< moment of inertia
+    float m_fForceMultiplier;
+    float m_fAirResistance;
+    float m_fElasticity;
+    float m_fBuoyancy;
+    CVector m_vecCentreOfMass;
+    CEntryInfoList m_entryInfoList;
+    CPtrNode *m_pMovingListNode;
     char field_EC;
-    char field_ED;
-    unsigned char   m_nNumCollisionRecords;
-    char field_EF;
-    CEntity        *m_apCollisionRecords[6];
-    float           m_fTotSpeed;
-    float           m_fCollisionPower;
-    CPhysical      *m_pPhysColliding;
-    CVector         m_vecCollisionPower;
-    short           m_nComponentCol;
-    unsigned char   m_nMoveFlags;
-    unsigned char   m_nLastCollType;
-    unsigned char   m_nZoneLevel;
-private:
-    char _pad125[3];
-public:
+    unsigned char m_nStaticFrames;
+    unsigned char m_nNumCollisionRecords;
+    bool m_bIsVehicleBeingShifted;
+    CEntity *m_apCollisionRecords[6];
+    float m_fDistanceTravelled;
+    float m_fDamageImpulse;
+    CEntity *m_pDamageEntity;
+    CVector m_vecDamageNormal;
+    short m_nDamagePieceType;
+    struct {
+        unsigned char bIsHeavy : 1;
+        unsigned char bAffectedByGravity : 1;
+        unsigned char bInfiniteMass : 1;
+        unsigned char bIsInWater : 1;
+        unsigned char bPhy_flag4 : 1;
+        unsigned char bPhy_flag5 : 1;
+        unsigned char bHitByTrain : 1;
+        unsigned char bSkipLineCol : 1;
+    } m_nPhysicalFlags;
+    unsigned char m_nSurfaceTouched;
+    char m_nZoneLevel;
+    
+    // virtual function #0 (destructor)
 
-protected:
-    CPhysical(plugin::dummy_func_t) : CEntity(plugin::dummy) {}
-public:
+    SUPPORTED_10EN_11EN_STEAM void Add();
+    SUPPORTED_10EN_11EN_STEAM void Remove();
 
-    //vtable
+    // virtual function #3 (not overriden)
 
-    void ProcessEntityCollision(CEntity* entity, CColPoint* colPoint);
 
-    //funcs
+    // virtual function #4 (not overriden)
 
-    void AddCollisionRecord(CEntity* entity);
-    void AddCollisionRecord_Treadable(CEntity* entity);
-    void AddToMovingList();
-    void ApplyAirResistance();
-    bool ApplyCollision(CPhysical* phys, CColPoint& colPoint, float& arg2, float& arg3);
-    bool ApplyCollisionAlt(CEntity* entity, CColPoint& colPoint, float& arg2, CVector& arg3, CVector& arg4);
-    bool ApplyFriction(CPhysical* phys, float arg1, CColPoint& colPoint);
-    bool ApplyFriction(float arg0, CColPoint& colPoint);
-    void ApplyFriction();
-    void ApplyFrictionMoveForce(float x, float y, float z);
-    void ApplyFrictionTurnForce(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5);
-    void ApplyGravity();
-    void ApplyMoveForce(float x, float y, float z);
-    void ApplyMoveSpeed();
-    void ApplySpringCollisionAlt(float arg0, CVector& arg1, CVector& arg2, float arg3, float arg4, CVector& arg5);
-    void ApplySpringDampening(float arg0, CVector& arg1, CVector& arg2, CVector& arg3);
-    void ApplyTurnForce(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5);
-    void ApplyTurnSpeed();
-    bool CheckCollision();
-    bool CheckCollision_SimpleCar();
-    bool GetHasCollidedWith(CEntity* entity);
-    static void PlacePhysicalRelativeToOtherPhysical(CPhysical* phys1, CPhysical* phys2, CVector offset);
-    bool ProcessCollisionSectorList(CPtrList* ptrList);
-    bool ProcessCollisionSectorList_SimpleCar(CSector* sector);
-    bool ProcessShiftSectorList(CPtrList* ptrList);
-    void RemoveAndAdd();
-    void RemoveFromMovingList();
-    void RemoveRefsToEntity(CEntity* entity);
 
-    CPhysical() = delete;
-    CPhysical(const CPhysical &) = delete;
-    CPhysical &operator=(const CPhysical &) = delete;
+    // virtual function #5 (not overriden)
+
+
+    // virtual function #6 (not overriden)
+
+    SUPPORTED_10EN_11EN_STEAM CRect *GetBoundRect();
+    SUPPORTED_10EN_11EN_STEAM void ProcessControl();
+    SUPPORTED_10EN_11EN_STEAM void ProcessCollision();
+    SUPPORTED_10EN_11EN_STEAM void ProcessShift();
+
+    // virtual function #11 (not overriden)
+
+
+    // virtual function #12 (not overriden)
+
+
+    // virtual function #13 (not overriden)
+
+
+    // virtual function #14 (not overriden)
+
+
+    // virtual function #15 (not overriden)
+
+
+    // virtual function #16 (not overriden)
+
+    SUPPORTED_10EN_11EN_STEAM void ProcessEntityCollision(CEntity *entity, CColPoint *colPoint);
+
+    SUPPORTED_10EN_11EN_STEAM void AddCollisionRecord(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM void AddCollisionRecord_Treadable(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM void AddToMovingList();
+    SUPPORTED_10EN_11EN_STEAM void ApplyAirResistance();
+    SUPPORTED_10EN_11EN_STEAM bool ApplyCollision(CPhysical *physical, CColPoint &colPoint, float *impulseA, float *impulseB);
+    SUPPORTED_10EN_11EN_STEAM bool ApplyCollisionAlt(CEntity *entity, CColPoint &colPoint, float *impulse, CVector &moveSpeed, CVector &turnSpeed);
+    SUPPORTED_10EN_11EN_STEAM void ApplyFriction();
+    SUPPORTED_10EN_11EN_STEAM bool ApplyFriction(float adhesiveLimit, CColPoint &colPoint);
+    SUPPORTED_10EN_11EN_STEAM bool ApplyFriction(CPhysical *physical, float adhesiveLimit, CColPoint &colPoint);
+    SUPPORTED_10EN_11EN_STEAM void ApplyFrictionMoveForce(float jx, float jy, float jz);
+    SUPPORTED_10EN_11EN_STEAM void ApplyFrictionTurnForce(float jx, float jy, float jz, float rx, float ry, float rz);
+    SUPPORTED_10EN_11EN_STEAM void ApplyGravity();
+    //! Force actually means Impulse here
+    SUPPORTED_10EN_11EN_STEAM void ApplyMoveForce(float jx, float jy, float jz);
+    SUPPORTED_10EN_11EN_STEAM void ApplyMoveSpeed();
+    //! springRatio: 1.0 fully extended, 0.0 fully compressed
+    SUPPORTED_10EN_11EN_STEAM bool ApplySpringCollisionAlt(float springConst, CVector &springDir, CVector &point, float springRatio, float bias);
+    SUPPORTED_10EN_11EN_STEAM bool ApplySpringDampening(float damping, CVector &springDir, CVector &point, CVector &speed);
+    //! j(x,y,z) is direction of force, p(x,y,z) is point relative to model center where force is applied
+    SUPPORTED_10EN_11EN_STEAM void ApplyTurnForce(float jx, float jy, float jz, float px, float py, float pz);
+    SUPPORTED_10EN_11EN_STEAM void ApplyTurnSpeed();
+    SUPPORTED_10EN_11EN_STEAM bool CheckCollision();
+    SUPPORTED_10EN_11EN_STEAM bool CheckCollision_SimpleCar();
+    SUPPORTED_10EN_11EN_STEAM bool GetHasCollidedWith(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM bool ProcessCollisionSectorList(CPtrList *list);
+    SUPPORTED_10EN_11EN_STEAM bool ProcessCollisionSectorList_SimpleCar(CSector *sector);
+    SUPPORTED_10EN_11EN_STEAM bool ProcessShiftSectorList(CPtrList *list);
+    SUPPORTED_10EN_11EN_STEAM void RemoveAndAdd();
+    SUPPORTED_10EN_11EN_STEAM void RemoveFromMovingList();
+    SUPPORTED_10EN_11EN_STEAM void RemoveRefsToEntity(CEntity *entity);
+
+    SUPPORTED_10EN_11EN_STEAM static void PlacePhysicalRelativeToOtherPhysical(CPhysical *other, CPhysical *physical, CVector localPos);
 };
 
+VTABLE_DESC(CPhysical, 0x5F69D0, 18);
 VALIDATE_SIZE(CPhysical, 0x128);
+
+#include "meta/meta.CPhysical.h"

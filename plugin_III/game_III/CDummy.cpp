@@ -6,17 +6,33 @@
 */
 #include "CDummy.h"
 
-// Converted from thiscall void CDummy::CDummy(void) 0x4737E0
-CDummy::CDummy() : CEntity(plugin::dummy) {
-    plugin::CallMethod<0x4737E0, CDummy *>(this);
+PLUGIN_SOURCE_FILE
+
+int ctor_addr(CDummy) = ADDRESS_BY_VERSION(0x4737E0, 0x4737E0, 0x4737E0);
+int ctor_gaddr(CDummy) = GLOBAL_ADDRESS_BY_VERSION(0x4737E0, 0x4737E0, 0x4737E0);
+
+int dtor_addr(CDummy) = ADDRESS_BY_VERSION(0x473810, 0x473810, 0x473810);
+int dtor_gaddr(CDummy) = GLOBAL_ADDRESS_BY_VERSION(0x473810, 0x473810, 0x473810);
+
+int op_new_addr(CDummy) = ADDRESS_BY_VERSION(0x473830, 0x473830, 0x473830);
+int op_new_gaddr(CDummy) = GLOBAL_ADDRESS_BY_VERSION(0x473830, 0x473830, 0x473830);
+
+int op_delete_addr(CDummy) = ADDRESS_BY_VERSION(0x473840, 0x473840, 0x473840);
+int op_delete_gaddr(CDummy) = GLOBAL_ADDRESS_BY_VERSION(0x473840, 0x473840, 0x473840);
+
+int del_dtor_addr(CDummy) = ADDRESS_BY_VERSION(0x473B50, 0x473B50, 0x473B50);
+int del_dtor_gaddr(CDummy) = GLOBAL_ADDRESS_BY_VERSION(0x473B50, 0x473B50, 0x473B50);
+
+int addrof(CDummy::Add) = ADDRESS_BY_VERSION(0x473860, 0x473860, 0x473860);
+int gaddrof(CDummy::Add) = GLOBAL_ADDRESS_BY_VERSION(0x473860, 0x473860, 0x473860);
+
+void CDummy::Add() {
+    plugin::CallVirtualMethod<1, CDummy *>(this);
 }
 
-// Converted from cdecl void* CDummy::operator new(uint size) 0x473830
-void* CDummy::operator new(unsigned int size) {
-    return plugin::CallAndReturn<void*, 0x473830, unsigned int>(size);
-}
+int addrof(CDummy::Remove) = ADDRESS_BY_VERSION(0x473AD0, 0x473AD0, 0x473AD0);
+int gaddrof(CDummy::Remove) = GLOBAL_ADDRESS_BY_VERSION(0x473AD0, 0x473AD0, 0x473AD0);
 
-// Converted from cdecl void CDummy::operator delete(void *data) 0x473840
-void CDummy::operator delete(void* data) {
-    plugin::Call<0x473840, void*>(data);
+void CDummy::Remove() {
+    plugin::CallVirtualMethod<2, CDummy *>(this);
 }

@@ -10,10 +10,11 @@
 #include "LimbOrientation.h"
 #include "AnimBlendFrameData.h"
 #include "eBodyParts.h"
+class CPed;
 
 class CPedIK {
 public:
-    class CPed *m_pPed;
+    CPed *m_pPed;
     LimbOrientation m_sHead;
     LimbOrientation m_sTorso;
     LimbOrientation m_sUpperArm;

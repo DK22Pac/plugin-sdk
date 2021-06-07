@@ -1,26 +1,27 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
 #include "PluginBase.h"
 #include "CPlaceable.h"
 
-class CInstance : public CPlaceable {
-protected:
-    CInstance(plugin::dummy_func_t) : CPlaceable(plugin::dummy) {}
+class PLUGIN_API CInstance : public CPlaceable {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CInstance)
+
 public:
     unsigned int m_nModelIndex;
 
-    //funcs
-    CInstance();
-    void Shutdown();
-    
-    CInstance(const CInstance &) = delete;
-    CInstance &operator=(const CInstance &) = delete;
+    // virtual function #0 (destructor)
+
+
+    SUPPORTED_10EN_11EN_STEAM void Shutdown();
 };
 
+VTABLE_DESC(CInstance, 0x5FE068, 1);
 VALIDATE_SIZE(CInstance, 0x50);
+
+#include "meta/meta.CInstance.h"

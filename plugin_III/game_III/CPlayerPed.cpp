@@ -1,182 +1,270 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CPlayerPed.h"
 
-// Converted from thiscall void CPlayerPed::AnnoyPlayerPed(bool) 0x4F3700 
-void CPlayerPed::AnnoyPlayerPed(bool arg0) {
-    plugin::CallMethod<0x4F3700, CPlayerPed *, bool>(this, arg0);
+PLUGIN_SOURCE_FILE
+
+int ctor_addr(CPlayerPed) = ADDRESS_BY_VERSION(0x4EF7E0, 0x4EF890, 0x4EF820);
+int ctor_gaddr(CPlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4EF7E0, 0x4EF890, 0x4EF820);
+
+int dtor_addr(CPlayerPed) = ADDRESS_BY_VERSION(0x4EFB30, 0x4EFBE0, 0x4EFB70);
+int dtor_gaddr(CPlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4EFB30, 0x4EFBE0, 0x4EFB70);
+
+int del_dtor_addr(CPlayerPed) = ADDRESS_BY_VERSION(0x456920, 0x456920, 0x456920);
+int del_dtor_gaddr(CPlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x456920, 0x456920, 0x456920);
+
+int addrof(CPlayerPed::ProcessControl) = ADDRESS_BY_VERSION(0x4EFD90, 0x4EFE40, 0x4EFDD0);
+int gaddrof(CPlayerPed::ProcessControl) = GLOBAL_ADDRESS_BY_VERSION(0x4EFD90, 0x4EFE40, 0x4EFDD0);
+
+void CPlayerPed::ProcessControl() {
+    plugin::CallVirtualMethod<8, CPlayerPed *>(this);
 }
 
-// Converted from thiscall void CPlayerPed::CPlayerPed(void) 0x4EF7E0 
-CPlayerPed::CPlayerPed() : CPed(plugin::dummy) {
-    plugin::CallMethod<0x4EF7E0, CPlayerPed *>(this);
+int addrof(CPlayerPed::SetMoveAnim) = ADDRESS_BY_VERSION(0x4F3760, 0x4F3810, 0x4F37A0);
+int gaddrof(CPlayerPed::SetMoveAnim) = GLOBAL_ADDRESS_BY_VERSION(0x4F3760, 0x4F3810, 0x4F37A0);
+
+void CPlayerPed::SetMoveAnim() {
+    plugin::CallVirtualMethod<18, CPlayerPed *>(this);
 }
 
-// Converted from thiscall void CPlayerPed::ClearAdrenaline(void) 0x4F3730 
+int addrof(CPlayerPed::AnnoyPlayerPed) = ADDRESS_BY_VERSION(0x4F3700, 0x4F37B0, 0x4F3740);
+int gaddrof(CPlayerPed::AnnoyPlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4F3700, 0x4F37B0, 0x4F3740);
+
+void CPlayerPed::AnnoyPlayerPed(bool annoyedByPassingEntity) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, bool>(gaddrof(CPlayerPed::AnnoyPlayerPed), this, annoyedByPassingEntity);
+}
+
+int addrof(CPlayerPed::ClearAdrenaline) = ADDRESS_BY_VERSION(0x4F3730, 0x4F37E0, 0x4F3770);
+int gaddrof(CPlayerPed::ClearAdrenaline) = GLOBAL_ADDRESS_BY_VERSION(0x4F3730, 0x4F37E0, 0x4F3770);
+
 void CPlayerPed::ClearAdrenaline() {
-    plugin::CallMethod<0x4F3730, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::ClearAdrenaline), this);
 }
 
-// Converted from thiscall void CPlayerPed::ClearWeaponTarget(void) 0x4F28A0 
+int addrof(CPlayerPed::ClearWeaponTarget) = ADDRESS_BY_VERSION(0x4F28A0, 0x4F2950, 0x4F28E0);
+int gaddrof(CPlayerPed::ClearWeaponTarget) = GLOBAL_ADDRESS_BY_VERSION(0x4F28A0, 0x4F2950, 0x4F28E0);
+
 void CPlayerPed::ClearWeaponTarget() {
-    plugin::CallMethod<0x4F28A0, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::ClearWeaponTarget), this);
 }
 
-// Converted from cdecl void CPlayerPed::DeactivatePlayerPed(int playerId) 0x4EFC00
-void CPlayerPed::DeactivatePlayerPed(int playerId) {
-    plugin::Call<0x4EFC00, int>(playerId);
-}
+int addrof(CPlayerPed::DoStuffToGoOnFire) = ADDRESS_BY_VERSION(0x4F36E0, 0x4F3790, 0x4F3720);
+int gaddrof(CPlayerPed::DoStuffToGoOnFire) = GLOBAL_ADDRESS_BY_VERSION(0x4F36E0, 0x4F3790, 0x4F3720);
 
-// Converted from thiscall void CPlayerPed::DoStuffToGoOnFire(void) 0x4F36E0 
 void CPlayerPed::DoStuffToGoOnFire() {
-    plugin::CallMethod<0x4F36E0, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::DoStuffToGoOnFire), this);
 }
 
-// Converted from thiscall bool CPlayerPed::DoWeaponSmoothSpray(void) 0x4F1380 
+int addrof(CPlayerPed::DoWeaponSmoothSpray) = ADDRESS_BY_VERSION(0x4F1380, 0x4F1430, 0x4F13C0);
+int gaddrof(CPlayerPed::DoWeaponSmoothSpray) = GLOBAL_ADDRESS_BY_VERSION(0x4F1380, 0x4F1430, 0x4F13C0);
+
 bool CPlayerPed::DoWeaponSmoothSpray() {
-    return plugin::CallMethodAndReturn<bool, 0x4F1380, CPlayerPed *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPlayerPed *>(gaddrof(CPlayerPed::DoWeaponSmoothSpray), this);
 }
 
-// Converted from thiscall bool CPlayerPed::DoesTargetHaveToBeBroken(CVector,CWeapon *weapon) 0x4F3350
-bool CPlayerPed::DoesTargetHaveToBeBroken(CVector arg0, CWeapon* weapon) {
-    return plugin::CallMethodAndReturn<bool, 0x4F3350, CPlayerPed *, CVector, CWeapon*>(this, arg0, weapon);
+int addrof(CPlayerPed::DoesTargetHaveToBeBroken) = ADDRESS_BY_VERSION(0x4F3350, 0x4F3400, 0x4F3390);
+int gaddrof(CPlayerPed::DoesTargetHaveToBeBroken) = GLOBAL_ADDRESS_BY_VERSION(0x4F3350, 0x4F3400, 0x4F3390);
+
+bool CPlayerPed::DoesTargetHaveToBeBroken(CVector target, CWeapon *weapon) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPlayerPed *, CVector, CWeapon *>(gaddrof(CPlayerPed::DoesTargetHaveToBeBroken), this, target, weapon);
 }
 
-// Converted from thiscall void CPlayerPed::EvaluateNeighbouringTarget(CEntity *target,CEntity **outTarget,float *outTargetPriority,float maxDistance,float,bool) 0x4F2FA0
-void CPlayerPed::EvaluateNeighbouringTarget(CEntity* target, CEntity** outTarget, float* outTargetPriority, float maxDistance, float arg4, bool arg5) {
-    plugin::CallMethod<0x4F2FA0, CPlayerPed *, CEntity*, CEntity**, float*, float, float, bool>(this, target, outTarget, outTargetPriority, maxDistance, arg4, arg5);
+int addrof(CPlayerPed::EvaluateNeighbouringTarget) = ADDRESS_BY_VERSION(0x4F2FA0, 0x4F3050, 0x4F2FE0);
+int gaddrof(CPlayerPed::EvaluateNeighbouringTarget) = GLOBAL_ADDRESS_BY_VERSION(0x4F2FA0, 0x4F3050, 0x4F2FE0);
+
+void CPlayerPed::EvaluateNeighbouringTarget(CEntity *candidate, CEntity **targetPtr, float *lastCloseness, float distLimit, float angleOffset, bool lookToLeft) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CEntity *, CEntity **, float *, float, float, bool>(gaddrof(CPlayerPed::EvaluateNeighbouringTarget), this, candidate, targetPtr, lastCloseness, distLimit, angleOffset, lookToLeft);
 }
 
-// Converted from thiscall void CPlayerPed::EvaluateTarget(CEntity *target, CEntity **outTarget, float *outTargetPriority, float maxDistance,float,bool) 0x4F2B60
-void CPlayerPed::EvaluateTarget(CEntity* target, CEntity** outTarget, float* outTargetPriority, float maxDistance, float arg4, bool arg5) {
-    plugin::CallMethod<0x4F2B60, CPlayerPed *, CEntity*, CEntity**, float*, float, float, bool>(this, target, outTarget, outTargetPriority, maxDistance, arg4, arg5);
+int addrof(CPlayerPed::EvaluateTarget) = ADDRESS_BY_VERSION(0x4F2B60, 0x4F2C10, 0x4F2BA0);
+int gaddrof(CPlayerPed::EvaluateTarget) = GLOBAL_ADDRESS_BY_VERSION(0x4F2B60, 0x4F2C10, 0x4F2BA0);
+
+void CPlayerPed::EvaluateTarget(CEntity *candidate, CEntity **targetPtr, float *lastCloseness, float distLimit, float angleOffset, bool priority) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CEntity *, CEntity **, float *, float, float, bool>(gaddrof(CPlayerPed::EvaluateTarget), this, candidate, targetPtr, lastCloseness, distLimit, angleOffset, priority);
 }
 
-// Converted from thiscall bool CPlayerPed::FindNextWeaponLockOnTarget(CEntity *target,bool) 0x4F2D50
-bool CPlayerPed::FindNextWeaponLockOnTarget(CEntity* target, bool arg1) {
-    return plugin::CallMethodAndReturn<bool, 0x4F2D50, CPlayerPed *, CEntity*, bool>(this, target, arg1);
+int addrof(CPlayerPed::FindNextWeaponLockOnTarget) = ADDRESS_BY_VERSION(0x4F2D50, 0x4F2E00, 0x4F2D90);
+int gaddrof(CPlayerPed::FindNextWeaponLockOnTarget) = GLOBAL_ADDRESS_BY_VERSION(0x4F2D50, 0x4F2E00, 0x4F2D90);
+
+bool CPlayerPed::FindNextWeaponLockOnTarget(CEntity *previousTarget, bool lookToLeft) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPlayerPed *, CEntity *, bool>(gaddrof(CPlayerPed::FindNextWeaponLockOnTarget), this, previousTarget, lookToLeft);
 }
 
-// Converted from thiscall bool CPlayerPed::FindWeaponLockOnTarget(void) 0x4F28D0 
+int addrof(CPlayerPed::FindWeaponLockOnTarget) = ADDRESS_BY_VERSION(0x4F28D0, 0x4F2980, 0x4F2910);
+int gaddrof(CPlayerPed::FindWeaponLockOnTarget) = GLOBAL_ADDRESS_BY_VERSION(0x4F28D0, 0x4F2980, 0x4F2910);
+
 bool CPlayerPed::FindWeaponLockOnTarget() {
-    return plugin::CallMethodAndReturn<bool, 0x4F28D0, CPlayerPed *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPlayerPed *>(gaddrof(CPlayerPed::FindWeaponLockOnTarget), this);
 }
 
-// Converted from thiscall CPlayerInfo* CPlayerPed::GetPlayerInfoForThisPlayerPed(void) 0x4F36C0
-CPlayerInfo* CPlayerPed::GetPlayerInfoForThisPlayerPed() {
-    return plugin::CallMethodAndReturn<CPlayerInfo*, 0x4F36C0, CPlayerPed *>(this);
+int addrof(CPlayerPed::GetPlayerInfoForThisPlayerPed) = ADDRESS_BY_VERSION(0x4F36C0, 0x4F3770, 0x4F3700);
+int gaddrof(CPlayerPed::GetPlayerInfoForThisPlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4F36C0, 0x4F3770, 0x4F3700);
+
+CPlayerInfo *CPlayerPed::GetPlayerInfoForThisPlayerPed() {
+    return plugin::CallMethodAndReturnDynGlobal<CPlayerInfo *, CPlayerPed *>(gaddrof(CPlayerPed::GetPlayerInfoForThisPlayerPed), this);
 }
 
-// Converted from thiscall bool CPlayerPed::IsThisPedAttackingPlayer(CPed *ped) 0x4F2D00 
-bool CPlayerPed::IsThisPedAttackingPlayer(CPed* ped) {
-    return plugin::CallMethodAndReturn<bool, 0x4F2D00, CPlayerPed *, CPed*>(this, ped);
+int addrof(CPlayerPed::IsThisPedAttackingPlayer) = ADDRESS_BY_VERSION(0x4F2D00, 0x4F2DB0, 0x4F2D40);
+int gaddrof(CPlayerPed::IsThisPedAttackingPlayer) = GLOBAL_ADDRESS_BY_VERSION(0x4F2D00, 0x4F2DB0, 0x4F2D40);
+
+bool CPlayerPed::IsThisPedAttackingPlayer(CPed *ped) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPlayerPed *, CPed *>(gaddrof(CPlayerPed::IsThisPedAttackingPlayer), this, ped);
 }
 
-// Converted from thiscall void CPlayerPed::KeepAreaAroundPlayerClear(void) 0x4F3460 
+int addrof(CPlayerPed::KeepAreaAroundPlayerClear) = ADDRESS_BY_VERSION(0x4F3460, 0x4F3510, 0x4F34A0);
+int gaddrof(CPlayerPed::KeepAreaAroundPlayerClear) = GLOBAL_ADDRESS_BY_VERSION(0x4F3460, 0x4F3510, 0x4F34A0);
+
 void CPlayerPed::KeepAreaAroundPlayerClear() {
-    plugin::CallMethod<0x4F3460, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::KeepAreaAroundPlayerClear), this);
 }
 
-// Converted from thiscall void CPlayerPed::MakeChangesForNewWeapon(signed char weaponSlot) 0x4F2560
-void CPlayerPed::MakeChangesForNewWeapon(signed char weaponSlot) {
-    plugin::CallMethod<0x4F2560, CPlayerPed *, signed>(this, weaponSlot);
+int addrof(CPlayerPed::MakeChangesForNewWeapon) = ADDRESS_BY_VERSION(0x4F2560, 0x4F2610, 0x4F25A0);
+int gaddrof(CPlayerPed::MakeChangesForNewWeapon) = GLOBAL_ADDRESS_BY_VERSION(0x4F2560, 0x4F2610, 0x4F25A0);
+
+void CPlayerPed::MakeChangesForNewWeapon(char weaponType) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, char>(gaddrof(CPlayerPed::MakeChangesForNewWeapon), this, weaponType);
 }
 
-// Converted from thiscall void CPlayerPed::MakeObjectTargettable(int) 0x4F32B0 
-void CPlayerPed::MakeObjectTargettable(int arg0) {
-    plugin::CallMethod<0x4F32B0, CPlayerPed *, int>(this, arg0);
+int addrof(CPlayerPed::MakeObjectTargettable) = ADDRESS_BY_VERSION(0x4F32B0, 0x4F3360, 0x4F32F0);
+int gaddrof(CPlayerPed::MakeObjectTargettable) = GLOBAL_ADDRESS_BY_VERSION(0x4F32B0, 0x4F3360, 0x4F32F0);
+
+void CPlayerPed::MakeObjectTargettable(int handle) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, int>(gaddrof(CPlayerPed::MakeObjectTargettable), this, handle);
 }
 
-// Converted from thiscall void CPlayerPed::PlayerControl1stPersonRunAround(CPad *pad) 0x4F1970 
-void CPlayerPed::PlayerControl1stPersonRunAround(CPad* pad) {
-    plugin::CallMethod<0x4F1970, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::PlayerControl1stPersonRunAround) = ADDRESS_BY_VERSION(0x4F1970, 0x4F1A20, 0x4F19B0);
+int gaddrof(CPlayerPed::PlayerControl1stPersonRunAround) = GLOBAL_ADDRESS_BY_VERSION(0x4F1970, 0x4F1A20, 0x4F19B0);
+
+void CPlayerPed::PlayerControl1stPersonRunAround(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::PlayerControl1stPersonRunAround), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::PlayerControlFighter(CPad *pad) 0x4F1810 
-void CPlayerPed::PlayerControlFighter(CPad* pad) {
-    plugin::CallMethod<0x4F1810, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::PlayerControlFighter) = ADDRESS_BY_VERSION(0x4F1810, 0x4F18C0, 0x4F1850);
+int gaddrof(CPlayerPed::PlayerControlFighter) = GLOBAL_ADDRESS_BY_VERSION(0x4F1810, 0x4F18C0, 0x4F1850);
+
+void CPlayerPed::PlayerControlFighter(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::PlayerControlFighter), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::PlayerControlM16(CPad *pad) 0x4F1DF0 
-void CPlayerPed::PlayerControlM16(CPad* pad) {
-    plugin::CallMethod<0x4F1DF0, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::PlayerControlM16) = ADDRESS_BY_VERSION(0x4F1DF0, 0x4F1EA0, 0x4F1E30);
+int gaddrof(CPlayerPed::PlayerControlM16) = GLOBAL_ADDRESS_BY_VERSION(0x4F1DF0, 0x4F1EA0, 0x4F1E30);
+
+void CPlayerPed::PlayerControlM16(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::PlayerControlM16), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::PlayerControlSniper(CPad *pad) 0x4F1CF0 
-void CPlayerPed::PlayerControlSniper(CPad* pad) {
-    plugin::CallMethod<0x4F1CF0, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::PlayerControlSniper) = ADDRESS_BY_VERSION(0x4F1CF0, 0x4F1DA0, 0x4F1D30);
+int gaddrof(CPlayerPed::PlayerControlSniper) = GLOBAL_ADDRESS_BY_VERSION(0x4F1CF0, 0x4F1DA0, 0x4F1D30);
+
+void CPlayerPed::PlayerControlSniper(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::PlayerControlSniper), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::PlayerControlZelda(CPad *pad) 0x4F13C0 
-void CPlayerPed::PlayerControlZelda(CPad* pad) {
-    plugin::CallMethod<0x4F13C0, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::PlayerControlZelda) = ADDRESS_BY_VERSION(0x4F13C0, 0x4F1470, 0x4F1400);
+int gaddrof(CPlayerPed::PlayerControlZelda) = GLOBAL_ADDRESS_BY_VERSION(0x4F13C0, 0x4F1470, 0x4F1400);
+
+void CPlayerPed::PlayerControlZelda(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::PlayerControlZelda), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::ProcessAnimGroups(void) 0x4F2640 
+int addrof(CPlayerPed::ProcessAnimGroups) = ADDRESS_BY_VERSION(0x4F2640, 0x4F26F0, 0x4F2680);
+int gaddrof(CPlayerPed::ProcessAnimGroups) = GLOBAL_ADDRESS_BY_VERSION(0x4F2640, 0x4F26F0, 0x4F2680);
+
 void CPlayerPed::ProcessAnimGroups() {
-    plugin::CallMethod<0x4F2640, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::ProcessAnimGroups), this);
 }
 
-// Converted from thiscall void CPlayerPed::ProcessPlayerWeapon(CPad *pad) 0x4F1EF0 
-void CPlayerPed::ProcessPlayerWeapon(CPad* pad) {
-    plugin::CallMethod<0x4F1EF0, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::ProcessPlayerWeapon) = ADDRESS_BY_VERSION(0x4F1EF0, 0x4F1FA0, 0x4F1F30);
+int gaddrof(CPlayerPed::ProcessPlayerWeapon) = GLOBAL_ADDRESS_BY_VERSION(0x4F1EF0, 0x4F1FA0, 0x4F1F30);
+
+void CPlayerPed::ProcessPlayerWeapon(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::ProcessPlayerWeapon), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::ProcessWeaponSwitch(CPad *pad) 0x4F2310 
-void CPlayerPed::ProcessWeaponSwitch(CPad* pad) {
-    plugin::CallMethod<0x4F2310, CPlayerPed *, CPad*>(this, pad);
+int addrof(CPlayerPed::ProcessWeaponSwitch) = ADDRESS_BY_VERSION(0x4F2310, 0x4F23C0, 0x4F2350);
+int gaddrof(CPlayerPed::ProcessWeaponSwitch) = GLOBAL_ADDRESS_BY_VERSION(0x4F2310, 0x4F23C0, 0x4F2350);
+
+void CPlayerPed::ProcessWeaponSwitch(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::ProcessWeaponSwitch), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::ReApplyMoveAnims(void) 0x4F07C0 
+int addrof(CPlayerPed::ReApplyMoveAnims) = ADDRESS_BY_VERSION(0x4F07C0, 0x4F0870, 0x4F0800);
+int gaddrof(CPlayerPed::ReApplyMoveAnims) = GLOBAL_ADDRESS_BY_VERSION(0x4F07C0, 0x4F0870, 0x4F0800);
+
 void CPlayerPed::ReApplyMoveAnims() {
-    plugin::CallMethod<0x4F07C0, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::ReApplyMoveAnims), this);
 }
 
-// Converted from cdecl void CPlayerPed::ReactivatePlayerPed(int playerId) 0x4EFC20
-void CPlayerPed::ReactivatePlayerPed(int playerId) {
-    plugin::Call<0x4EFC20, int>(playerId);
+int addrof(CPlayerPed::RestoreSprintEnergy) = ADDRESS_BY_VERSION(0x4F1340, 0x4F13F0, 0x4F1380);
+int gaddrof(CPlayerPed::RestoreSprintEnergy) = GLOBAL_ADDRESS_BY_VERSION(0x4F1340, 0x4F13F0, 0x4F1380);
+
+void CPlayerPed::RestoreSprintEnergy(float restoreSpeed) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, float>(gaddrof(CPlayerPed::RestoreSprintEnergy), this, restoreSpeed);
 }
 
-// Converted from thiscall void CPlayerPed::RestoreSprintEnergy(float) 0x4F1340 
-void CPlayerPed::RestoreSprintEnergy(float arg0) {
-    plugin::CallMethod<0x4F1340, CPlayerPed *, float>(this, arg0);
+int addrof(CPlayerPed::RunningLand) = ADDRESS_BY_VERSION(0x4F31D0, 0x4F3280, 0x4F3210);
+int gaddrof(CPlayerPed::RunningLand) = GLOBAL_ADDRESS_BY_VERSION(0x4F31D0, 0x4F3280, 0x4F3210);
+
+void CPlayerPed::RunningLand(CPad *pad) {
+    plugin::CallMethodDynGlobal<CPlayerPed *, CPad *>(gaddrof(CPlayerPed::RunningLand), this, pad);
 }
 
-// Converted from thiscall void CPlayerPed::RunningLand(CPad *pad) 0x4F31D0 
-void CPlayerPed::RunningLand(CPad* pad) {
-    plugin::CallMethod<0x4F31D0, CPlayerPed *, CPad*>(this, pad);
-}
+int addrof(CPlayerPed::SetInitialState) = ADDRESS_BY_VERSION(0x4EFC40, 0x4EFCF0, 0x4EFC80);
+int gaddrof(CPlayerPed::SetInitialState) = GLOBAL_ADDRESS_BY_VERSION(0x4EFC40, 0x4EFCF0, 0x4EFC80);
 
-// Converted from thiscall void CPlayerPed::SetInitialState(void) 0x4EFC40 
 void CPlayerPed::SetInitialState() {
-    plugin::CallMethod<0x4EFC40, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::SetInitialState), this);
 }
 
-// Converted from thiscall void CPlayerPed::SetRealMoveAnim(void) 0x4F0880 
+int addrof(CPlayerPed::SetRealMoveAnim) = ADDRESS_BY_VERSION(0x4F0880, 0x4F0930, 0x4F08C0);
+int gaddrof(CPlayerPed::SetRealMoveAnim) = GLOBAL_ADDRESS_BY_VERSION(0x4F0880, 0x4F0930, 0x4F08C0);
+
 void CPlayerPed::SetRealMoveAnim() {
-    plugin::CallMethod<0x4F0880, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::SetRealMoveAnim), this);
 }
 
-// Converted from thiscall void CPlayerPed::SetWantedLevel(int level) 0x4F3190
+int addrof(CPlayerPed::SetWantedLevel) = ADDRESS_BY_VERSION(0x4F3190, 0x4F3240, 0x4F31D0);
+int gaddrof(CPlayerPed::SetWantedLevel) = GLOBAL_ADDRESS_BY_VERSION(0x4F3190, 0x4F3240, 0x4F31D0);
+
 void CPlayerPed::SetWantedLevel(int level) {
-    plugin::CallMethod<0x4F3190, CPlayerPed *, int>(this, level);
+    plugin::CallMethodDynGlobal<CPlayerPed *, int>(gaddrof(CPlayerPed::SetWantedLevel), this, level);
 }
 
-// Converted from thiscall void CPlayerPed::SetWantedLevelNoDrop(int level) 0x4F31B0
+int addrof(CPlayerPed::SetWantedLevelNoDrop) = ADDRESS_BY_VERSION(0x4F31B0, 0x4F3260, 0x4F31F0);
+int gaddrof(CPlayerPed::SetWantedLevelNoDrop) = GLOBAL_ADDRESS_BY_VERSION(0x4F31B0, 0x4F3260, 0x4F31F0);
+
 void CPlayerPed::SetWantedLevelNoDrop(int level) {
-    plugin::CallMethod<0x4F31B0, CPlayerPed *, int>(this, level);
+    plugin::CallMethodDynGlobal<CPlayerPed *, int>(gaddrof(CPlayerPed::SetWantedLevelNoDrop), this, level);
 }
 
-// Converted from cdecl void CPlayerPed::SetupPlayerPed(int playerId) 0x4EFB60
-void CPlayerPed::SetupPlayerPed(int playerId) {
-    plugin::Call<0x4EFB60, int>(playerId);
-}
+int addrof(CPlayerPed::UseSprintEnergy) = ADDRESS_BY_VERSION(0x4F12A0, 0x4F1350, 0x4F12E0);
+int gaddrof(CPlayerPed::UseSprintEnergy) = GLOBAL_ADDRESS_BY_VERSION(0x4F12A0, 0x4F1350, 0x4F12E0);
 
-// Converted from thiscall void CPlayerPed::UseSprintEnergy(void) 0x4F12A0 
 void CPlayerPed::UseSprintEnergy() {
-    plugin::CallMethod<0x4F12A0, CPlayerPed *>(this);
+    plugin::CallMethodDynGlobal<CPlayerPed *>(gaddrof(CPlayerPed::UseSprintEnergy), this);
+}
+
+int addrof(CPlayerPed::DeactivatePlayerPed) = ADDRESS_BY_VERSION(0x4EFC00, 0x4EFCB0, 0x4EFC40);
+int gaddrof(CPlayerPed::DeactivatePlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4EFC00, 0x4EFCB0, 0x4EFC40);
+
+void CPlayerPed::DeactivatePlayerPed(int playerId) {
+    plugin::CallDynGlobal<int>(gaddrof(CPlayerPed::DeactivatePlayerPed), playerId);
+}
+
+int addrof(CPlayerPed::ReactivatePlayerPed) = ADDRESS_BY_VERSION(0x4EFC20, 0x4EFCD0, 0x4EFC60);
+int gaddrof(CPlayerPed::ReactivatePlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4EFC20, 0x4EFCD0, 0x4EFC60);
+
+void CPlayerPed::ReactivatePlayerPed(int playerId) {
+    plugin::CallDynGlobal<int>(gaddrof(CPlayerPed::ReactivatePlayerPed), playerId);
+}
+
+int addrof(CPlayerPed::SetupPlayerPed) = ADDRESS_BY_VERSION(0x4EFB60, 0x4EFC10, 0x4EFBA0);
+int gaddrof(CPlayerPed::SetupPlayerPed) = GLOBAL_ADDRESS_BY_VERSION(0x4EFB60, 0x4EFC10, 0x4EFBA0);
+
+void CPlayerPed::SetupPlayerPed(int playerId) {
+    plugin::CallDynGlobal<int>(gaddrof(CPlayerPed::SetupPlayerPed), playerId);
 }

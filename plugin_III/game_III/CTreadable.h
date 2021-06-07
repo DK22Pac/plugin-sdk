@@ -9,16 +9,67 @@
 #include "PluginBase.h"
 #include "CBuilding.h"
 
-class CTreadable : public CBuilding {
+class PLUGIN_API CTreadable : public CBuilding {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CTreadable)
+
 public:
-    //funcs
+    short m_aNodeIndicesCarNodes[12];
+    short m_aNodeIndicesPedNodes[12];
 
-    CTreadable();
-    static void operator delete(void* data);
-    static void* operator new(unsigned int size);
+    // virtual function #0 (destructor)
 
-    CTreadable(const CTreadable &) = delete;
-    CTreadable &operator=(const CTreadable &) = delete;
+
+    // virtual function #1 (not overriden)
+
+
+    // virtual function #2 (not overriden)
+
+
+    // virtual function #3 (not overriden)
+
+
+    // virtual function #4 (not overriden)
+
+
+    // virtual function #5 (not overriden)
+
+
+    // virtual function #6 (not overriden)
+
+
+    // virtual function #7 (not overriden)
+
+
+    // virtual function #8 (not overriden)
+
+
+    // virtual function #9 (not overriden)
+
+
+    // virtual function #10 (not overriden)
+
+
+    // virtual function #11 (not overriden)
+
+
+    // virtual function #12 (not overriden)
+
+
+    // virtual function #13 (not overriden)
+
+
+    // virtual function #14 (not overriden)
+
+
+    // virtual function #15 (not overriden)
+
+
+    // virtual function #16 (not overriden)
+
+    SUPPORTED_10EN_11EN_STEAM bool GetIsATreadable();
 };
 
-VALIDATE_SIZE(CTreadable, 0x64);
+VTABLE_DESC(CTreadable, 0x5EBFB4, 18);
+VALIDATE_SIZE(CTreadable, 0x94);
+
+#include "meta/meta.CTreadable.h"

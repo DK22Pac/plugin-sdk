@@ -1,91 +1,183 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CPlane.h"
 
-// Converted from thiscall void CPlane::CPlane(int modelIndex, uchar createdBy) 0x54B170
-CPlane::CPlane(int modelIndex, unsigned char createdBy) : CVehicle(plugin::dummy) {
-    plugin::CallMethod<0x54B170, CPlane *, int, unsigned char>(this, modelIndex, createdBy);
+PLUGIN_SOURCE_FILE
+
+PLUGIN_VARIABLE float &TotalDurationOfFlightPath = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFB8, 0x64CFB8, 0x65CFC0));
+PLUGIN_VARIABLE float &TotalLengthOfFlightPath2 = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFBC, 0x64CFBC, 0x65CFC4));
+PLUGIN_VARIABLE float &TotalDurationOfFlightPath2 = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFC0, 0x64CFC0, 0x65CFC8));
+PLUGIN_VARIABLE float(&PlanePath2Position)[3] = *reinterpret_cast<float(*)[3]>(GLOBAL_ADDRESS_BY_VERSION(0x64CFC4, 0x64CFC4, 0x65CFCC));
+PLUGIN_VARIABLE float &TotalLengthOfFlightPath3 = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFD0, 0x64CFD0, 0x65CFD8));
+PLUGIN_VARIABLE float &TotalDurationOfFlightPath3 = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFD4, 0x64CFD4, 0x65CFDC));
+PLUGIN_VARIABLE float &PlanePath3Position = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFD8, 0x64CFD8, 0x65CFE0));
+PLUGIN_VARIABLE float &TotalLengthOfFlightPath4 = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFDC, 0x64CFDC, 0x65CFE4));
+PLUGIN_VARIABLE float &TotalDurationOfFlightPath4 = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFE0, 0x64CFE0, 0x65CFE8));
+PLUGIN_VARIABLE float &PlanePath4Position = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFE4, 0x64CFE4, 0x65CFEC));
+PLUGIN_VARIABLE int &CesnaMissionStatus = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFE8, 0x64CFE8, 0x65CFF0));
+PLUGIN_VARIABLE int &CesnaMissionStartTime = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFEC, 0x64CFEC, 0x65CFF4));
+PLUGIN_VARIABLE int &DropOffCesnaMissionStatus = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFF0, 0x64CFF0, 0x65CFF8));
+PLUGIN_VARIABLE int &DropOffCesnaMissionStartTime = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x64CFF4, 0x64CFF4, 0x65CFFC));
+PLUGIN_VARIABLE CPlaneInterpolationLine(&aPlaneLineBits)[6] = *reinterpret_cast<CPlaneInterpolationLine(*)[6]>(GLOBAL_ADDRESS_BY_VERSION(0x734168, 0x734168, 0x7442A8));
+PLUGIN_VARIABLE CPlaneNode *&pPath4Nodes = *reinterpret_cast<CPlaneNode **>(GLOBAL_ADDRESS_BY_VERSION(0x885AD8, 0x885A88, 0x895BC8));
+PLUGIN_VARIABLE CPlaneNode *&pPath3Nodes = *reinterpret_cast<CPlaneNode **>(GLOBAL_ADDRESS_BY_VERSION(0x885B78, 0x885B28, 0x895C68));
+PLUGIN_VARIABLE CPlaneNode *&pPath2Nodes = *reinterpret_cast<CPlaneNode **>(GLOBAL_ADDRESS_BY_VERSION(0x885B8C, 0x885B3C, 0x895C7C));
+PLUGIN_VARIABLE float &TakeOffPoint = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8E28A4, 0x8E2854, 0x8F2994));
+PLUGIN_VARIABLE CPlane *&pDropOffCesna = *reinterpret_cast<CPlane **>(GLOBAL_ADDRESS_BY_VERSION(0x8E2A38, 0x8E29E8, 0x8F2B28));
+PLUGIN_VARIABLE float(&PlanePath2Speed)[3] = *reinterpret_cast<float(*)[3]>(GLOBAL_ADDRESS_BY_VERSION(0x8F1A54, 0x8F1B08, 0x901C48));
+PLUGIN_VARIABLE float &PlanePath3Speed = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F1A94, 0x8F1B48, 0x901C88));
+PLUGIN_VARIABLE float &PlanePath4Speed = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F1AFC, 0x8F1BB0, 0x901CF0));
+PLUGIN_VARIABLE CPlaneNode *&pPathNodes = *reinterpret_cast<CPlaneNode **>(GLOBAL_ADDRESS_BY_VERSION(0x8F1B68, 0x8F1C1C, 0x901D5C));
+PLUGIN_VARIABLE int &NumPathNodes = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8F2BE4, 0x8F2C98, 0x902DD8));
+PLUGIN_VARIABLE float &TotalLengthOfFlightPath = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F2C6C, 0x8F2D20, 0x902E60));
+PLUGIN_VARIABLE float &LandingPoint = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F2C7C, 0x8F2D30, 0x902E70));
+PLUGIN_VARIABLE CPlane *&pDrugRunCesna = *reinterpret_cast<CPlane **>(GLOBAL_ADDRESS_BY_VERSION(0x8F5F80, 0x8F6034, 0x906174));
+PLUGIN_VARIABLE float(&OldPlanePathPosition)[3] = *reinterpret_cast<float(*)[3]>(GLOBAL_ADDRESS_BY_VERSION(0x8F5FBC, 0x8F6070, 0x9061B0));
+PLUGIN_VARIABLE float(&PlanePathPosition)[3] = *reinterpret_cast<float(*)[3]>(GLOBAL_ADDRESS_BY_VERSION(0x8F5FC8, 0x8F607C, 0x9061BC));
+PLUGIN_VARIABLE int &NumPath4Nodes = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x9412C8, 0x941480, 0x9515C0));
+PLUGIN_VARIABLE int &NumPath2Nodes = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x941498, 0x941650, 0x951790));
+PLUGIN_VARIABLE int &NumPath3Nodes = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x9414D8, 0x941690, 0x9517D0));
+PLUGIN_VARIABLE float(&PlanePathSpeed)[3] = *reinterpret_cast<float(*)[3]>(GLOBAL_ADDRESS_BY_VERSION(0x941538, 0x9416F0, 0x951830));
+
+int ctor_addr_o(CPlane, void(int, unsigned char)) = ADDRESS_BY_VERSION(0x54B170, 0x54B2F0, 0x54B2A0);
+int ctor_gaddr_o(CPlane, void(int, unsigned char)) = GLOBAL_ADDRESS_BY_VERSION(0x54B170, 0x54B2F0, 0x54B2A0);
+
+int dtor_addr(CPlane) = ADDRESS_BY_VERSION(0x54B270, 0x54B3F0, 0x54B3A0);
+int dtor_gaddr(CPlane) = GLOBAL_ADDRESS_BY_VERSION(0x54B270, 0x54B3F0, 0x54B3A0);
+
+int del_dtor_addr(CPlane) = ADDRESS_BY_VERSION(0x54E100, 0x54E240, 0x54E1F0);
+int del_dtor_gaddr(CPlane) = GLOBAL_ADDRESS_BY_VERSION(0x54E100, 0x54E240, 0x54E1F0);
+
+int addrof(CPlane::SetModelIndex) = ADDRESS_BY_VERSION(0x54B290, 0x54B410, 0x54B3C0);
+int gaddrof(CPlane::SetModelIndex) = GLOBAL_ADDRESS_BY_VERSION(0x54B290, 0x54B410, 0x54B3C0);
+
+void CPlane::SetModelIndex(unsigned int modelIndex) {
+    plugin::CallVirtualMethod<3, CPlane *, unsigned int>(this, modelIndex);
 }
 
-// Converted from cdecl void CPlane::CreateDropOffCesna(void) 0x54E160 
+int addrof(CPlane::DeleteRwObject) = ADDRESS_BY_VERSION(0x54B2A0, 0x54B420, 0x54B3D0);
+int gaddrof(CPlane::DeleteRwObject) = GLOBAL_ADDRESS_BY_VERSION(0x54B2A0, 0x54B420, 0x54B3D0);
+
+void CPlane::DeleteRwObject() {
+    plugin::CallVirtualMethod<6, CPlane *>(this);
+}
+
+int addrof(CPlane::ProcessControl) = ADDRESS_BY_VERSION(0x54C1D0, 0x54C350, 0x54C300);
+int gaddrof(CPlane::ProcessControl) = GLOBAL_ADDRESS_BY_VERSION(0x54C1D0, 0x54C350, 0x54C300);
+
+void CPlane::ProcessControl() {
+    plugin::CallVirtualMethod<8, CPlane *>(this);
+}
+
+int addrof(CPlane::PreRender) = ADDRESS_BY_VERSION(0x54B2F0, 0x54B470, 0x54B420);
+int gaddrof(CPlane::PreRender) = GLOBAL_ADDRESS_BY_VERSION(0x54B2F0, 0x54B470, 0x54B420);
+
+void CPlane::PreRender() {
+    plugin::CallVirtualMethod<12, CPlane *>(this);
+}
+
+int addrof(CPlane::Render) = ADDRESS_BY_VERSION(0x54B810, 0x54B990, 0x54B940);
+int gaddrof(CPlane::Render) = GLOBAL_ADDRESS_BY_VERSION(0x54B810, 0x54B990, 0x54B940);
+
+void CPlane::Render() {
+    plugin::CallVirtualMethod<13, CPlane *>(this);
+}
+
+int addrof(CPlane::FlagToDestroyWhenNextProcessed) = ADDRESS_BY_VERSION(0x54DFC0, 0x54E140, 0x54E0F0);
+int gaddrof(CPlane::FlagToDestroyWhenNextProcessed) = GLOBAL_ADDRESS_BY_VERSION(0x54DFC0, 0x54E140, 0x54E0F0);
+
+void CPlane::FlagToDestroyWhenNextProcessed() {
+    plugin::CallVirtualMethod<16, CPlane *>(this);
+}
+
+int addrof(CPlane::CreateDropOffCesna) = ADDRESS_BY_VERSION(0x54E160, 0x54E2A0, 0x54E250);
+int gaddrof(CPlane::CreateDropOffCesna) = GLOBAL_ADDRESS_BY_VERSION(0x54E160, 0x54E2A0, 0x54E250);
+
 void CPlane::CreateDropOffCesna() {
-    plugin::Call<0x54E160>();
+    plugin::CallDynGlobal(gaddrof(CPlane::CreateDropOffCesna));
 }
 
-// Converted from cdecl void CPlane::FindDropOffCesnaCoordinates(void) 0x54E260 
-void CPlane::FindDropOffCesnaCoordinates() {
-    plugin::Call<0x54E260>();
+int addrof(CPlane::FindDropOffCesnaCoordinates) = ADDRESS_BY_VERSION(0x54E260, 0x54E3A0, 0x54E350);
+int gaddrof(CPlane::FindDropOffCesnaCoordinates) = GLOBAL_ADDRESS_BY_VERSION(0x54E260, 0x54E3A0, 0x54E350);
+
+CVector CPlane::FindDropOffCesnaCoordinates() {
+    CVector ret_coors;
+    plugin::CallDynGlobal<CVector *>(gaddrof(CPlane::FindDropOffCesnaCoordinates), &ret_coors);
+    return ret_coors;
 }
 
-// Converted from cdecl void CPlane::FindDrugPlaneCoordinates(void) 0x54E280 
-void CPlane::FindDrugPlaneCoordinates() {
-    plugin::Call<0x54E280>();
+int addrof(CPlane::FindDrugPlaneCoordinates) = ADDRESS_BY_VERSION(0x54E280, 0x54E3C0, 0x54E370);
+int gaddrof(CPlane::FindDrugPlaneCoordinates) = GLOBAL_ADDRESS_BY_VERSION(0x54E280, 0x54E3C0, 0x54E370);
+
+CVector CPlane::FindDrugPlaneCoordinates() {
+    CVector ret_coors;
+    plugin::CallDynGlobal<CVector *>(gaddrof(CPlane::FindDrugPlaneCoordinates), &ret_coors);
+    return ret_coors;
 }
 
-// Converted from cdecl bool CPlane::HasCesnaBeenDestroyed(void) 0x54E150 
+int addrof(CPlane::HasCesnaBeenDestroyed) = ADDRESS_BY_VERSION(0x54E150, 0x54E290, 0x54E240);
+int gaddrof(CPlane::HasCesnaBeenDestroyed) = GLOBAL_ADDRESS_BY_VERSION(0x54E150, 0x54E290, 0x54E240);
+
 bool CPlane::HasCesnaBeenDestroyed() {
-    return plugin::CallAndReturn<bool, 0x54E150>();
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CPlane::HasCesnaBeenDestroyed));
 }
 
-// Converted from cdecl bool CPlane::HasCesnaLanded(void) 0x54E140 
+int addrof(CPlane::HasCesnaLanded) = ADDRESS_BY_VERSION(0x54E140, 0x54E280, 0x54E230);
+int gaddrof(CPlane::HasCesnaLanded) = GLOBAL_ADDRESS_BY_VERSION(0x54E140, 0x54E280, 0x54E230);
+
 bool CPlane::HasCesnaLanded() {
-    return plugin::CallAndReturn<bool, 0x54E140>();
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CPlane::HasCesnaLanded));
 }
 
-// Converted from cdecl bool CPlane::HasDropOffCesnaBeenShotDown(void) 0x54E250 
+int addrof(CPlane::HasDropOffCesnaBeenShotDown) = ADDRESS_BY_VERSION(0x54E250, 0x54E390, 0x54E340);
+int gaddrof(CPlane::HasDropOffCesnaBeenShotDown) = GLOBAL_ADDRESS_BY_VERSION(0x54E250, 0x54E390, 0x54E340);
+
 bool CPlane::HasDropOffCesnaBeenShotDown() {
-    return plugin::CallAndReturn<bool, 0x54E250>();
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CPlane::HasDropOffCesnaBeenShotDown));
 }
 
-// Converted from cdecl void CPlane::InitPlanes(void) 0x54B820 
+int addrof(CPlane::InitPlanes) = ADDRESS_BY_VERSION(0x54B820, 0x54B9A0, 0x54B950);
+int gaddrof(CPlane::InitPlanes) = GLOBAL_ADDRESS_BY_VERSION(0x54B820, 0x54B9A0, 0x54B950);
+
 void CPlane::InitPlanes() {
-    plugin::Call<0x54B820>();
+    plugin::CallDynGlobal(gaddrof(CPlane::InitPlanes));
 }
 
-// Converted from cdecl void CPlane::LoadPath(char const*,int &,float &,bool) 0x54BD50 
-void CPlane::LoadPath(char const* arg0, int& arg1, float& arg2, bool arg3) {
-    plugin::Call<0x54BD50, char const*, int&, float&, bool>(arg0, arg1, arg2, arg3);
+int addrof(CPlane::LoadPath) = ADDRESS_BY_VERSION(0x54BD50, 0x54BED0, 0x54BE80);
+int gaddrof(CPlane::LoadPath) = GLOBAL_ADDRESS_BY_VERSION(0x54BD50, 0x54BED0, 0x54BE80);
+
+CPlaneNode *CPlane::LoadPath(char const *filename, int *numNodes, float *totalLength, bool loop) {
+    return plugin::CallAndReturnDynGlobal<CPlaneNode *, char const *, int *, float *, bool>(gaddrof(CPlane::LoadPath), filename, numNodes, totalLength, loop);
 }
 
-// Converted from cdecl void CPlane::Shutdown(void) 0x54BCD0 
+int addrof(CPlane::Shutdown) = ADDRESS_BY_VERSION(0x54BCD0, 0x54BE50, 0x54BE00);
+int gaddrof(CPlane::Shutdown) = GLOBAL_ADDRESS_BY_VERSION(0x54BCD0, 0x54BE50, 0x54BE00);
+
 void CPlane::Shutdown() {
-    plugin::Call<0x54BCD0>();
+    plugin::CallDynGlobal(gaddrof(CPlane::Shutdown));
 }
 
-// Converted from cdecl bool CPlane::TestRocketCollision(CVector *) 0x54DE90 
-bool CPlane::TestRocketCollision(CVector* arg0) {
-    return plugin::CallAndReturn<bool, 0x54DE90, CVector*>(arg0);
+int addrof(CPlane::TestRocketCollision) = ADDRESS_BY_VERSION(0x54DE90, 0x54E010, 0x54DFC0);
+int gaddrof(CPlane::TestRocketCollision) = GLOBAL_ADDRESS_BY_VERSION(0x54DE90, 0x54E010, 0x54DFC0);
+
+bool CPlane::TestRocketCollision(CVector *coors) {
+    return plugin::CallAndReturnDynGlobal<bool, CVector *>(gaddrof(CPlane::TestRocketCollision), coors);
 }
 
-// Converted from cdecl void CPlane::UpdatePlanes(void) 0x54BEC0 
+int addrof(CPlane::UpdatePlanes) = ADDRESS_BY_VERSION(0x54BEC0, 0x54C040, 0x54BFF0);
+int gaddrof(CPlane::UpdatePlanes) = GLOBAL_ADDRESS_BY_VERSION(0x54BEC0, 0x54C040, 0x54BFF0);
+
 void CPlane::UpdatePlanes() {
-    plugin::Call<0x54BEC0>();
+    plugin::CallDynGlobal(gaddrof(CPlane::UpdatePlanes));
 }
 
-// Converted from cdecl void CreateIncomingCesna(void) 0x54E000
+int addrof(CreateIncomingCesna) = ADDRESS_BY_VERSION(0x54E000, 0x54E150, 0x54E100);
+int gaddrof(CreateIncomingCesna) = GLOBAL_ADDRESS_BY_VERSION(0x54E000, 0x54E150, 0x54E100);
+
 void CreateIncomingCesna() {
-    plugin::Call<0x54E000>();
+    plugin::CallDynGlobal(gaddrof(CreateIncomingCesna));
 }
-
-unsigned int *CesnaMissionStatus = (unsigned int *)0x64CFE8;
-unsigned int *CesnaMissionStartTime = (unsigned int *)0x64CFEC;
-unsigned int *DropOffCesnaMissionStatus = (unsigned int *)0x64CFF0;
-unsigned int *DropOffCesnaMissionStartTime = (unsigned int *)0x64CFF4;
-CPlane **pDropOffCesna = (CPlane **)0x8E2A38;
-CPlane **pDrugRunCesna = (CPlane **)0x8F5F80;
-unsigned int *NumPathNodes = (unsigned int *)0x8F2BE4;
-unsigned int *NumPath2Nodes = (unsigned int *)0x941498;
-unsigned int *NumPath3Nodes = (unsigned int *)0x9414D8;
-unsigned int *NumPath4Nodes = (unsigned int *)0x9412C8;
-float *TotalLengthOfFlightPath = (float *)0x8F2C6C;
-float *TotalLengthOfFlightPath2 = (float *)0x64CFBC;
-float *TotalLengthOfFlightPath3 = (float *)0x64CFD0;
-float *TotalLengthOfFlightPath4 = (float *)0x64CFDC;
-CPathNode **pPathNodes = (CPathNode **)0x8F1B68;
-CPathNode **pPath2Nodes = (CPathNode **)0x885B8C;
-CPathNode **pPath3Nodes = (CPathNode **)0x885B78;
-CPathNode **pPath4Nodes = (CPathNode **)0x885AD8;

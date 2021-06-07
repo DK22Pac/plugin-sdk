@@ -9,16 +9,22 @@
 #include "PluginBase.h"
 #include "CMatrix.h"
 
-class CPlaceable {
-public:
-	CMatrix m_matrix;
-    CPlaceable(plugin::dummy_func_t) : m_matrix(plugin::dummy) {}
-    CPlaceable();
-    bool IsWithinArea(float x1, float y1, float z1, float x2, float y2, float z2);
-    bool IsWithinArea(float x1, float y1, float x2, float y2);
-    void SetHeading(float heading);
+class PLUGIN_API CPlaceable {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(CPlaceable)
 
-    inline float GetHeading() {
+public:
+    CMatrix m_matrix;
+
+    // virtual function #0 (destructor)
+
+
+    SUPPORTED_10EN_11EN_STEAM CVector *GetPosition();
+    SUPPORTED_10EN_11EN_STEAM bool IsWithinArea(float x1, float y1, float x2, float y2);
+    SUPPORTED_10EN_11EN_STEAM bool IsWithinArea(float x1, float y1, float z1, float x2, float y2, float z2);
+    SUPPORTED_10EN_11EN_STEAM void SetHeading(float angle);
+    SUPPORTED_10EN_11EN_STEAM void SetPosition(float x, float y, float z);
+	
+	inline float GetHeading() {
         float angle = atan2f(-m_matrix.up.x, m_matrix.up.y) * 57.295776f;
         if (angle < 0.0f)
             angle += 360.0f;
@@ -27,13 +33,7 @@ public:
         return angle;
     }
 
-    inline void SetPosition(float x, float y, float z) {
-        this->m_matrix.pos.x = x;
-        this->m_matrix.pos.y = y;
-        this->m_matrix.pos.z = z;
-    }
-
-    inline void SetPosition(CVector &pos) {
+    inline void SetPos(CVector &pos) {
         this->m_matrix.pos = pos;
     }
 
@@ -52,12 +52,10 @@ public:
         y = acosf(cosy);
         float cosz = this->m_matrix.up.y / cosx;
         z = acosf(cosz);
-
     }
-
-   // CPlaceable virtual table: destructor only
-
-    virtual ~CPlaceable();
 };
 
+VTABLE_DESC(CPlaceable, 0x5F6A28, 1);
 VALIDATE_SIZE(CPlaceable, 0x4C);
+
+#include "meta/meta.CPlaceable.h"

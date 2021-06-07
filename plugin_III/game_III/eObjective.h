@@ -6,7 +6,7 @@
 */
 #pragma once
 
-enum eObjective {
+enum eObjective  : unsigned int {
     OBJECTIVE_NONE = 0,
     OBJECTIVE_IDLE = 1,
     OBJECTIVE_FLEE_TILL_SAFE = 2,

@@ -6,6 +6,6 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eWaitState {
+enum eWaitState : unsigned int {
 	
 };

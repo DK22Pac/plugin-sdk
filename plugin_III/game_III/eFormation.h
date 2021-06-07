@@ -6,7 +6,7 @@ Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
-enum eFormation {
+enum eFormation : unsigned int {
 	FORMATION_NONE = 0,
 	FORMATION_BEHIND = 1,
 	FORMATION_BACKLEFT = 2,

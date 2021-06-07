@@ -243,7 +243,11 @@ SUPPORTED_10EN_11EN_STEAM inline void operator_delete<CBaseModelInfo>(CBaseModel
 template <>
 SUPPORTED_10EN_11EN_STEAM inline void operator_delete_array<CBaseModelInfo>(CBaseModelInfo *objArray) {
     if (objArray == nullptr) return;
-    plugin::CallVirtualMethod<0, CBaseModelInfo *>(objArray);
+    void *objData = reinterpret_cast<void *>(reinterpret_cast<char *>(objArray) - 4);
+    unsigned int arraySize = *reinterpret_cast<unsigned int *>(objData);
+    for (unsigned int i = 0; i < arraySize; i++)
+        plugin::CallVirtualMethod<0, CBaseModelInfo *>(&objArray[i]);
+    operator delete(objData);
 }
 
 }

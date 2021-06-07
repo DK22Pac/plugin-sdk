@@ -6,17 +6,26 @@
 */
 #include "CTreadable.h"
 
-// Converted from thiscall void CTreadable::CTreadable(void) 0x4059F0
-CTreadable::CTreadable() : CBuilding(plugin::dummy) {
-    plugin::CallMethod<0x4059F0, CTreadable *>(this);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from cdecl void CTreadable::operator delete(void *data) 0x405A40
-void CTreadable::operator delete(void* data) {
-    plugin::Call<0x405A40, void*>(data);
-}
+int ctor_addr(CTreadable) = ADDRESS_BY_VERSION(0x4059F0, 0x4059F0, 0x4059F0);
+int ctor_gaddr(CTreadable) = GLOBAL_ADDRESS_BY_VERSION(0x4059F0, 0x4059F0, 0x4059F0);
 
-// Converted from cdecl void* CTreadable::operator new(uint size) 0x405A30
-void* CTreadable::operator new(unsigned int size) {
-    return plugin::CallAndReturn<void*, 0x405A30, unsigned int>(size);
+int dtor_addr(CTreadable) = ADDRESS_BY_VERSION(0x405A10, 0x405A10, 0x405A10);
+int dtor_gaddr(CTreadable) = GLOBAL_ADDRESS_BY_VERSION(0x405A10, 0x405A10, 0x405A10);
+
+int op_new_addr(CTreadable) = ADDRESS_BY_VERSION(0x405A30, 0x405A30, 0x405A30);
+int op_new_gaddr(CTreadable) = GLOBAL_ADDRESS_BY_VERSION(0x405A30, 0x405A30, 0x405A30);
+
+int op_delete_addr(CTreadable) = ADDRESS_BY_VERSION(0x405A40, 0x405A40, 0x405A40);
+int op_delete_gaddr(CTreadable) = GLOBAL_ADDRESS_BY_VERSION(0x405A40, 0x405A40, 0x405A40);
+
+int del_dtor_addr(CTreadable) = ADDRESS_BY_VERSION(0x405A60, 0x405A60, 0x405A60);
+int del_dtor_gaddr(CTreadable) = GLOBAL_ADDRESS_BY_VERSION(0x405A60, 0x405A60, 0x405A60);
+
+int addrof(CTreadable::GetIsATreadable) = ADDRESS_BY_VERSION(0x405AA0, 0x405AA0, 0x405AA0);
+int gaddrof(CTreadable::GetIsATreadable) = GLOBAL_ADDRESS_BY_VERSION(0x405AA0, 0x405AA0, 0x405AA0);
+
+bool CTreadable::GetIsATreadable() {
+    return plugin::CallVirtualMethodAndReturn<bool, 17, CTreadable *>(this);
 }

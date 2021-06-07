@@ -6,27 +6,33 @@
 */
 #include "CBuilding.h"
 
-// Converted from CTreadable* CBuilding::GetIsATreadable(void) 0x0
-CTreadable* CBuilding::GetIsATreadable() {
-    return plugin::CallVirtualMethodAndReturn<CTreadable*, 17, CBuilding *>(this);
+PLUGIN_SOURCE_FILE
+
+int ctor_addr(CBuilding) = ADDRESS_BY_VERSION(0x4057D0, 0x4057D0, 0x4057D0);
+int ctor_gaddr(CBuilding) = GLOBAL_ADDRESS_BY_VERSION(0x4057D0, 0x4057D0, 0x4057D0);
+
+int dtor_addr(CBuilding) = ADDRESS_BY_VERSION(0x405800, 0x405800, 0x405800);
+int dtor_gaddr(CBuilding) = GLOBAL_ADDRESS_BY_VERSION(0x405800, 0x405800, 0x405800);
+
+int op_new_addr(CBuilding) = ADDRESS_BY_VERSION(0x405820, 0x405820, 0x405820);
+int op_new_gaddr(CBuilding) = GLOBAL_ADDRESS_BY_VERSION(0x405820, 0x405820, 0x405820);
+
+int op_delete_addr_o(CBuilding, void (CBuilding *)) = ADDRESS_BY_VERSION(0x405830, 0x405830, 0x405830);
+int op_delete_gaddr_o(CBuilding, void (CBuilding *)) = GLOBAL_ADDRESS_BY_VERSION(0x405830, 0x405830, 0x405830);
+
+int del_dtor_addr(CBuilding) = ADDRESS_BY_VERSION(0x4058B0, 0x4058B0, 0x4058B0);
+int del_dtor_gaddr(CBuilding) = GLOBAL_ADDRESS_BY_VERSION(0x4058B0, 0x4058B0, 0x4058B0);
+
+int addrof(CBuilding::GetIsATreadable) = ADDRESS_BY_VERSION(0x4058F0, 0x4058F0, 0x4058F0);
+int gaddrof(CBuilding::GetIsATreadable) = GLOBAL_ADDRESS_BY_VERSION(0x4058F0, 0x4058F0, 0x4058F0);
+
+bool CBuilding::GetIsATreadable() {
+    return plugin::CallVirtualMethodAndReturn<bool, 17, CBuilding *>(this);
 }
 
-// Converted from thiscall void CBuilding::CBuilding(void) 0x4057D0
-CBuilding::CBuilding() : CEntity(plugin::dummy) {
-    plugin::CallMethod<0x4057D0, CBuilding *>(this);
-}
+int addrof(CBuilding::ReplaceWithNewModel) = ADDRESS_BY_VERSION(0x405850, 0x405850, 0x405850);
+int gaddrof(CBuilding::ReplaceWithNewModel) = GLOBAL_ADDRESS_BY_VERSION(0x405850, 0x405850, 0x405850);
 
-// Converted from thiscall void CBuilding::ReplaceWithNewModel(int modelIndex) 0x405850
 void CBuilding::ReplaceWithNewModel(int modelIndex) {
-    plugin::CallMethod<0x405850, CBuilding *, int>(this, modelIndex);
-}
-
-// Converted from cdecl void* CBuilding::operator new(uint size) 0x405820
-void* CBuilding::operator new(unsigned int size) {
-    return plugin::CallAndReturn<void*, 0x405820, unsigned int>(size);
-}
-
-// Converted from cdecl void CBuilding::operator delete(void *data) 0x405830
-void CBuilding::operator delete(void* data) {
-    plugin::Call<0x405830, void*>(data);
+    plugin::CallMethodDynGlobal<CBuilding *, int>(gaddrof(CBuilding::ReplaceWithNewModel), this, modelIndex);
 }

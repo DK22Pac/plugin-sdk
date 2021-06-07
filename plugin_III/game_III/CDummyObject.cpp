@@ -6,12 +6,16 @@
 */
 #include "CDummyObject.h"
 
-// Converted from thiscall void CDummyObject::CDummyObject(CObject *object) 0x4BAB10
-CDummyObject::CDummyObject(CObject* object) : CDummy(plugin::dummy) {
-    ((void(__thiscall *)(CDummyObject*, CObject*))0x4BAB10)(this, object);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CDummyObject::CDummyObject(void) 0x4BAAF0
-CDummyObject::CDummyObject() : CDummy(plugin::dummy) {
-    ((void(__thiscall *)(CDummyObject*))0x4BAAF0)(this);
-}
+int ctor_addr(CDummyObject) = ADDRESS_BY_VERSION(0x4BAAF0, 0x4BABE0, 0x4BAB70);
+int ctor_gaddr(CDummyObject) = GLOBAL_ADDRESS_BY_VERSION(0x4BAAF0, 0x4BABE0, 0x4BAB70);
+
+int ctor_addr_o(CDummyObject, void(CObject *)) = ADDRESS_BY_VERSION(0x4BAB10, 0x4BAC00, 0x4BAB90);
+int ctor_gaddr_o(CDummyObject, void(CObject *)) = GLOBAL_ADDRESS_BY_VERSION(0x4BAB10, 0x4BAC00, 0x4BAB90);
+
+int dtor_addr(CDummyObject) = ADDRESS_BY_VERSION(0x4BAB70, 0x4BAC60, 0x4BABF0);
+int dtor_gaddr(CDummyObject) = GLOBAL_ADDRESS_BY_VERSION(0x4BAB70, 0x4BAC60, 0x4BABF0);
+
+int del_dtor_addr(CDummyObject) = ADDRESS_BY_VERSION(0x4BAB90, 0x4BAC80, 0x4BAC10);
+int del_dtor_gaddr(CDummyObject) = GLOBAL_ADDRESS_BY_VERSION(0x4BAB90, 0x4BAC80, 0x4BAC10);

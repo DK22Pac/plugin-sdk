@@ -1,168 +1,225 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CWeapon.h"
 
-// Converted from thiscall void CWeapon::AddGunshell(CEntity *pFiringEntity,CVector const&posn,CVector2D const&direction,float size) 0x55F770
-void CWeapon::AddGunshell(CEntity* pFiringEntity, CVector const& posn, CVector2D const& direction, float size) {
-    plugin::CallMethod<0x55F770, CWeapon *, CEntity*, CVector const&, CVector2D const&, float>(this, pFiringEntity, posn, direction, size);
+PLUGIN_SOURCE_FILE
+
+int ctor_addr(CWeapon) = ADDRESS_BY_VERSION(0x4C50B0, 0x4C5150, 0x4C50E0);
+int ctor_gaddr(CWeapon) = GLOBAL_ADDRESS_BY_VERSION(0x4C50B0, 0x4C5150, 0x4C50E0);
+
+int dtor_addr(CWeapon) = ADDRESS_BY_VERSION(0x4C50A0, 0x4C5140, 0x4C50D0);
+int dtor_gaddr(CWeapon) = GLOBAL_ADDRESS_BY_VERSION(0x4C50A0, 0x4C5140, 0x4C50D0);
+
+int addrof(CWeapon::AddGunshell) = ADDRESS_BY_VERSION(0x55F770, 0x55F8A0, 0x55F850);
+int gaddrof(CWeapon::AddGunshell) = GLOBAL_ADDRESS_BY_VERSION(0x55F770, 0x55F8A0, 0x55F850);
+
+void CWeapon::AddGunshell(CEntity *shooter, CVector const &source, CVector2D const &direction, float size) {
+    plugin::CallMethodDynGlobal<CWeapon *, CEntity *, CVector const &, CVector2D const &, float>(gaddrof(CWeapon::AddGunshell), this, shooter, source, direction, size);
 }
 
-// Converted from cdecl void CWeapon::BlowUpExplosiveThings(CEntity *thing) 0x564A60
-void CWeapon::BlowUpExplosiveThings(CEntity* thing) {
-    plugin::Call<0x564A60, CEntity*>(thing);
+int addrof(CWeapon::DoBulletImpact) = ADDRESS_BY_VERSION(0x55F950, 0x55FA80, 0x55FA30);
+int gaddrof(CWeapon::DoBulletImpact) = GLOBAL_ADDRESS_BY_VERSION(0x55F950, 0x55FA80, 0x55FA30);
+
+void CWeapon::DoBulletImpact(CEntity *shooter, CEntity *victim, CVector *source, CVector *target, CColPoint *colPoint, CVector2D ahead) {
+    plugin::CallMethodDynGlobal<CWeapon *, CEntity *, CEntity *, CVector *, CVector *, CColPoint *, CVector2D>(gaddrof(CWeapon::DoBulletImpact), this, shooter, victim, source, target, colPoint, ahead);
 }
 
-// Converted from thiscall void CWeapon::CWeapon(void) 0x4C50B0
-CWeapon::CWeapon() {
-    plugin::CallMethod<0x4C50B0, CWeapon *>(this);
+int addrof(CWeapon::Fire) = ADDRESS_BY_VERSION(0x55C380, 0x55C4B0, 0x55C460);
+int gaddrof(CWeapon::Fire) = GLOBAL_ADDRESS_BY_VERSION(0x55C380, 0x55C4B0, 0x55C460);
+
+bool CWeapon::Fire(CEntity *shooter, CVector *fireSource) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector *>(gaddrof(CWeapon::Fire), this, shooter, fireSource);
 }
 
-// Converted from thiscall void CWeapon::DoBulletImpact(CEntity *pFiringEntity,CEntity *pCollideEntity,CVector *start,CVector *end,CColPoint *colPoint,CVector2D ahead) 0x55F950
-void CWeapon::DoBulletImpact(CEntity* pFiringEntity, CEntity* pCollideEntity, CVector* start, CVector* end, CColPoint* colPoint, CVector2D ahead) {
-    plugin::CallMethod<0x55F950, CWeapon *, CEntity*, CEntity*, CVector*, CVector*, CColPoint*, CVector2D>(this, pFiringEntity, pCollideEntity, start, end, colPoint, ahead);
+int addrof(CWeapon::FireAreaEffect) = ADDRESS_BY_VERSION(0x561E00, 0x561F30, 0x561EE0);
+int gaddrof(CWeapon::FireAreaEffect) = GLOBAL_ADDRESS_BY_VERSION(0x561E00, 0x561F30, 0x561EE0);
+
+bool CWeapon::FireAreaEffect(CEntity *shooter, CVector *fireSource) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector *>(gaddrof(CWeapon::FireAreaEffect), this, shooter, fireSource);
 }
 
-// Converted from cdecl void CWeapon::DoDoomAiming(CEntity *pFiringEntity,CVector *start,CVector *end) 0x562EB0
-void CWeapon::DoDoomAiming(CEntity* pFiringEntity, CVector* start, CVector* end) {
-    plugin::Call<0x562EB0, CEntity*, CVector*, CVector*>(pFiringEntity, start, end);
+int addrof(CWeapon::FireFromCar) = ADDRESS_BY_VERSION(0x55C940, 0x55CA70, 0x55CA20);
+int gaddrof(CWeapon::FireFromCar) = GLOBAL_ADDRESS_BY_VERSION(0x55C940, 0x55CA70, 0x55CA20);
+
+bool CWeapon::FireFromCar(CAutomobile *shooter, bool left) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CAutomobile *, bool>(gaddrof(CWeapon::FireFromCar), this, shooter, left);
 }
 
-// Converted from cdecl void CWeapon::DoDriveByAutoAiming(CEntity *pFiringEntity,CVector *start,CVector *end) 0x563660
-void CWeapon::DoDriveByAutoAiming(CEntity* pFiringEntity, CVector* start, CVector* end) {
-    plugin::Call<0x563660, CEntity*, CVector*, CVector*>(pFiringEntity, start, end);
+int addrof(CWeapon::FireInstantHit) = ADDRESS_BY_VERSION(0x55D2E0, 0x55D410, 0x55D3C0);
+int gaddrof(CWeapon::FireInstantHit) = GLOBAL_ADDRESS_BY_VERSION(0x55D2E0, 0x55D410, 0x55D3C0);
+
+bool CWeapon::FireInstantHit(CEntity *shooter, CVector *fireSource) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector *>(gaddrof(CWeapon::FireInstantHit), this, shooter, fireSource);
 }
 
-// Converted from cdecl void CWeapon::DoTankDoomAiming(CEntity *pFiringEntity1,CEntity *pFiringEntity2,CVector *start,CVector *end) 0x563200
-void CWeapon::DoTankDoomAiming(CEntity* pFiringEntity1, CEntity* pFiringEntity2, CVector* start, CVector* end) {
-    plugin::Call<0x563200, CEntity*, CEntity*, CVector*, CVector*>(pFiringEntity1, pFiringEntity2, start, end);
+int addrof(CWeapon::FireInstantHitFromCar) = ADDRESS_BY_VERSION(0x5624D0, 0x562600, 0x5625B0);
+int gaddrof(CWeapon::FireInstantHitFromCar) = GLOBAL_ADDRESS_BY_VERSION(0x5624D0, 0x562600, 0x5625B0);
+
+bool CWeapon::FireInstantHitFromCar(CAutomobile *shooter, bool left) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CAutomobile *, bool>(gaddrof(CWeapon::FireInstantHitFromCar), this, shooter, left);
 }
 
-// Converted from thiscall bool CWeapon::Fire(CEntity *pFiringEntity,CVector *posn) 0x55C380
-bool CWeapon::Fire(CEntity* pFiringEntity, CVector* posn) {
-    return plugin::CallMethodAndReturn<bool, 0x55C380, CWeapon *, CEntity*, CVector*>(this, pFiringEntity, posn);
+int addrof(CWeapon::FireM16_1stPerson) = ADDRESS_BY_VERSION(0x562180, 0x5622B0, 0x562260);
+int gaddrof(CWeapon::FireM16_1stPerson) = GLOBAL_ADDRESS_BY_VERSION(0x562180, 0x5622B0, 0x562260);
+
+bool CWeapon::FireM16_1stPerson(CEntity *shooter) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *>(gaddrof(CWeapon::FireM16_1stPerson), this, shooter);
 }
 
-// Converted from thiscall bool CWeapon::FireAreaEffect(CEntity *pFiringEntity,CVector *posn) 0x561E00
-bool CWeapon::FireAreaEffect(CEntity* pFiringEntity, CVector* posn) {
-    return plugin::CallMethodAndReturn<bool, 0x561E00, CWeapon *, CEntity*, CVector*>(this, pFiringEntity, posn);
+int addrof(CWeapon::FireMelee) = ADDRESS_BY_VERSION(0x55CA20, 0x55CB50, 0x55CB00);
+int gaddrof(CWeapon::FireMelee) = GLOBAL_ADDRESS_BY_VERSION(0x55CA20, 0x55CB50, 0x55CB00);
+
+bool CWeapon::FireMelee(CEntity *shooter, CVector &fireSource) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector &>(gaddrof(CWeapon::FireMelee), this, shooter, fireSource);
 }
 
-// Converted from thiscall bool CWeapon::FireFromCar(CAutomobile *car,bool look) 0x55C940
-bool CWeapon::FireFromCar(CAutomobile* car, bool look) {
-    return plugin::CallMethodAndReturn<bool, 0x55C940, CWeapon *, CAutomobile*, bool>(this, car, look);
+int addrof(CWeapon::FireProjectile) = ADDRESS_BY_VERSION(0x561900, 0x561A30, 0x5619E0);
+int gaddrof(CWeapon::FireProjectile) = GLOBAL_ADDRESS_BY_VERSION(0x561900, 0x561A30, 0x5619E0);
+
+bool CWeapon::FireProjectile(CEntity *shooter, CVector *fireSource, float power) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector *, float>(gaddrof(CWeapon::FireProjectile), this, shooter, fireSource, power);
 }
 
-// Converted from thiscall bool CWeapon::FireInstantHit(CEntity *pFiringEntity,CVector *posn) 0x55D2E0
-bool CWeapon::FireInstantHit(CEntity* pFiringEntity, CVector* posn) {
-    return plugin::CallMethodAndReturn<bool, 0x55D2E0, CWeapon *, CEntity*, CVector*>(this, pFiringEntity, posn);
+int addrof(CWeapon::FireShotgun) = ADDRESS_BY_VERSION(0x560620, 0x560750, 0x560700);
+int gaddrof(CWeapon::FireShotgun) = GLOBAL_ADDRESS_BY_VERSION(0x560620, 0x560750, 0x560700);
+
+bool CWeapon::FireShotgun(CEntity *shooter, CVector *fireSource) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector *>(gaddrof(CWeapon::FireShotgun), this, shooter, fireSource);
 }
 
-// Converted from thiscall bool CWeapon::FireInstantHitFromCar(CAutomobile *car,bool look) 0x5624D0
-bool CWeapon::FireInstantHitFromCar(CAutomobile* car, bool look) {
-    return plugin::CallMethodAndReturn<bool, 0x5624D0, CWeapon *, CAutomobile*, bool>(this, car, look);
+int addrof(CWeapon::FireSniper) = ADDRESS_BY_VERSION(0x561FE0, 0x562110, 0x5620C0);
+int gaddrof(CWeapon::FireSniper) = GLOBAL_ADDRESS_BY_VERSION(0x561FE0, 0x562110, 0x5620C0);
+
+bool CWeapon::FireSniper(CEntity *shooter) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *>(gaddrof(CWeapon::FireSniper), this, shooter);
 }
 
-// Converted from thiscall bool CWeapon::FireM16_1stPerson(CEntity *pFiringEntity) 0x562180
-bool CWeapon::FireM16_1stPerson(CEntity* pFiringEntity) {
-    return plugin::CallMethodAndReturn<bool, 0x562180, CWeapon *, CEntity*>(this, pFiringEntity);
-}
+int addrof(CWeapon::HasWeaponAmmoToBeUsed) = ADDRESS_BY_VERSION(0x564B80, 0x564CB0, 0x564C60);
+int gaddrof(CWeapon::HasWeaponAmmoToBeUsed) = GLOBAL_ADDRESS_BY_VERSION(0x564B80, 0x564CB0, 0x564C60);
 
-// Converted from thiscall bool CWeapon::FireMelee(CEntity *pFiringEntity,CVector &posn) 0x55CA20
-bool CWeapon::FireMelee(CEntity* pFiringEntity, CVector& posn) {
-    return plugin::CallMethodAndReturn<bool, 0x55CA20, CWeapon *, CEntity*, CVector&>(this, pFiringEntity, posn);
-}
-
-// Converted from thiscall bool CWeapon::FireProjectile(CEntity *pFiringEntity,CVector *posn,float force) 0x561900
-bool CWeapon::FireProjectile(CEntity* pFiringEntity, CVector* posn, float force) {
-    return plugin::CallMethodAndReturn<bool, 0x561900, CWeapon *, CEntity*, CVector*, float>(this, pFiringEntity, posn, force);
-}
-
-// Converted from thiscall bool CWeapon::FireShotgun(CEntity *pFiringEntity,CVector *posn) 0x560620
-bool CWeapon::FireShotgun(CEntity* pFiringEntity, CVector* posn) {
-    return plugin::CallMethodAndReturn<bool, 0x560620, CWeapon *, CEntity*, CVector*>(this, pFiringEntity, posn);
-}
-
-// Converted from thiscall bool CWeapon::FireSniper(CEntity *pFiringEntity) 0x561FE0
-bool CWeapon::FireSniper(CEntity* pFiringEntity) {
-    return plugin::CallMethodAndReturn<bool, 0x561FE0, CWeapon *, CEntity*>(this, pFiringEntity);
-}
-
-// Converted from cdecl void CWeapon::GenerateFlameThrowerParticles(CVector origin,CVector target) 0x561C70
-void CWeapon::GenerateFlameThrowerParticles(CVector origin, CVector target) {
-    plugin::Call<0x561C70, CVector, CVector>(origin, target);
-}
-
-// Converted from thiscall bool CWeapon::HasWeaponAmmoToBeUsed(void) 0x564B80
 bool CWeapon::HasWeaponAmmoToBeUsed() {
-    return plugin::CallMethodAndReturn<bool, 0x564B80, CWeapon *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *>(gaddrof(CWeapon::HasWeaponAmmoToBeUsed), this);
 }
 
-// Converted from thiscall bool CWeapon::HitsGround(CEntity *ped,CVector *posn,CEntity *entity) 0x564890
-bool CWeapon::HitsGround(CEntity* ped, CVector* posn, CEntity* entity) {
-    return plugin::CallMethodAndReturn<bool, 0x564890, CWeapon *, CEntity*, CVector*, CEntity*>(this, ped, posn, entity);
+int addrof(CWeapon::HitsGround) = ADDRESS_BY_VERSION(0x564890, 0x5649C0, 0x564970);
+int gaddrof(CWeapon::HitsGround) = GLOBAL_ADDRESS_BY_VERSION(0x564890, 0x5649C0, 0x564970);
+
+bool CWeapon::HitsGround(CEntity *holder, CVector *fireSource, CEntity *aimingTo) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *, CEntity *, CVector *, CEntity *>(gaddrof(CWeapon::HitsGround), this, holder, fireSource, aimingTo);
 }
 
-// Converted from thiscall void CWeapon::Initialise(eWeaponType weaponType,int totalAmmo) 0x55C330
-void CWeapon::Initialise(eWeaponType weaponType, int totalAmmo) {
-    plugin::CallMethod<0x55C330, CWeapon *, eWeaponType, int>(this, weaponType, totalAmmo);
+int addrof(CWeapon::Initialise) = ADDRESS_BY_VERSION(0x55C330, 0x55C460, 0x55C410);
+int gaddrof(CWeapon::Initialise) = GLOBAL_ADDRESS_BY_VERSION(0x55C330, 0x55C460, 0x55C410);
+
+void CWeapon::Initialise(eWeaponType type, int ammo) {
+    plugin::CallMethodDynGlobal<CWeapon *, eWeaponType, int>(gaddrof(CWeapon::Initialise), this, type, ammo);
 }
 
-// Converted from cdecl void CWeapon::InitialiseWeapons(void) 0x55C2D0
-void CWeapon::InitialiseWeapons() {
-    plugin::Call<0x55C2D0>();
-}
+int addrof(CWeapon::IsType2Handed) = ADDRESS_BY_VERSION(0x563FD0, 0x564100, 0x5640B0);
+int gaddrof(CWeapon::IsType2Handed) = GLOBAL_ADDRESS_BY_VERSION(0x563FD0, 0x564100, 0x5640B0);
 
-// Converted from thiscall bool CWeapon::IsType2Handed(void) 0x563FD0
 bool CWeapon::IsType2Handed() {
-    return plugin::CallMethodAndReturn<bool, 0x563FD0, CWeapon *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *>(gaddrof(CWeapon::IsType2Handed), this);
 }
 
-// Converted from thiscall bool CWeapon::IsTypeMelee(void) 0x563FB0 
+int addrof(CWeapon::IsTypeMelee) = ADDRESS_BY_VERSION(0x563FB0, 0x5640E0, 0x564090);
+int gaddrof(CWeapon::IsTypeMelee) = GLOBAL_ADDRESS_BY_VERSION(0x563FB0, 0x5640E0, 0x564090);
+
 bool CWeapon::IsTypeMelee() {
-    return plugin::CallMethodAndReturn<bool, 0x563FB0, CWeapon *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CWeapon *>(gaddrof(CWeapon::IsTypeMelee), this);
 }
 
-// Converted from cdecl void CWeapon::MakePedsJumpAtShot(CPhysical *pFiringEntity,CVector *start,CVector *end) 0x564680
-void CWeapon::MakePedsJumpAtShot(CPhysical* pFiringEntity, CVector* start, CVector* end) {
-    plugin::Call<0x564680, CPhysical*, CVector*, CVector*>(pFiringEntity, start, end);
-}
+int addrof(CWeapon::Reload) = ADDRESS_BY_VERSION(0x5639D0, 0x563B00, 0x563AB0);
+int gaddrof(CWeapon::Reload) = GLOBAL_ADDRESS_BY_VERSION(0x5639D0, 0x563B00, 0x563AB0);
 
-// Converted from cdecl bool CWeapon::ProcessLineOfSight(CVector const&origin,CVector const&target,CColPoint &outColPoint,CEntity *&outEntity,eWeaponType weaponType,CEntity *entity,bool buildings,bool vehicles,bool peds,bool objects,bool dummies,bool doSeeThroughCheck,bool doCameraIgnoreCheck) 0x564C00
-bool CWeapon::ProcessLineOfSight(CVector const& origin, CVector const& target, CColPoint& outColPoint, CEntity*& outEntity, eWeaponType weaponType, CEntity* entity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck, bool doCameraIgnoreCheck) {
-    return plugin::CallAndReturn<bool, 0x564C00, CVector const&, CVector const&, CColPoint&, CEntity*&, eWeaponType, CEntity*, bool, bool, bool, bool, bool, bool, bool>(origin, target, outColPoint, outEntity, weaponType, entity, buildings, vehicles, peds, objects, dummies, doSeeThroughCheck, doCameraIgnoreCheck);
-}
-
-// Converted from thiscall void CWeapon::Reload(void) 0x5639D0
 void CWeapon::Reload() {
-    plugin::CallMethod<0x5639D0, CWeapon *>(this);
+    plugin::CallMethodDynGlobal<CWeapon *>(gaddrof(CWeapon::Reload), this);
 }
 
-// Converted from cdecl void CWeapon::ShutdownWeapons(void) 0x55C2F0
+int addrof(CWeapon::Update) = ADDRESS_BY_VERSION(0x563A10, 0x563B40, 0x563AF0);
+int gaddrof(CWeapon::Update) = GLOBAL_ADDRESS_BY_VERSION(0x563A10, 0x563B40, 0x563AF0);
+
+void CWeapon::Update(int audioEntity) {
+    plugin::CallMethodDynGlobal<CWeapon *, int>(gaddrof(CWeapon::Update), this, audioEntity);
+}
+
+int addrof(CWeapon::BlowUpExplosiveThings) = ADDRESS_BY_VERSION(0x564A60, 0x564B90, 0x564B40);
+int gaddrof(CWeapon::BlowUpExplosiveThings) = GLOBAL_ADDRESS_BY_VERSION(0x564A60, 0x564B90, 0x564B40);
+
+void CWeapon::BlowUpExplosiveThings(CEntity *thing) {
+    plugin::CallDynGlobal<CEntity *>(gaddrof(CWeapon::BlowUpExplosiveThings), thing);
+}
+
+int addrof(CWeapon::DoDoomAiming) = ADDRESS_BY_VERSION(0x562EB0, 0x562FE0, 0x562F90);
+int gaddrof(CWeapon::DoDoomAiming) = GLOBAL_ADDRESS_BY_VERSION(0x562EB0, 0x562FE0, 0x562F90);
+
+void CWeapon::DoDoomAiming(CEntity *shooter, CVector *source, CVector *target) {
+    plugin::CallDynGlobal<CEntity *, CVector *, CVector *>(gaddrof(CWeapon::DoDoomAiming), shooter, source, target);
+}
+
+int addrof(CWeapon::DoDriveByAutoAiming) = ADDRESS_BY_VERSION(0x563660, 0x563790, 0x563740);
+int gaddrof(CWeapon::DoDriveByAutoAiming) = GLOBAL_ADDRESS_BY_VERSION(0x563660, 0x563790, 0x563740);
+
+void CWeapon::DoDriveByAutoAiming(CEntity *shooter, CVector *source, CVector *target) {
+    plugin::CallDynGlobal<CEntity *, CVector *, CVector *>(gaddrof(CWeapon::DoDriveByAutoAiming), shooter, source, target);
+}
+
+int addrof(CWeapon::DoTankDoomAiming) = ADDRESS_BY_VERSION(0x563200, 0x563330, 0x5632E0);
+int gaddrof(CWeapon::DoTankDoomAiming) = GLOBAL_ADDRESS_BY_VERSION(0x563200, 0x563330, 0x5632E0);
+
+void CWeapon::DoTankDoomAiming(CEntity *shooter, CEntity *driver, CVector *source, CVector *target) {
+    plugin::CallDynGlobal<CEntity *, CEntity *, CVector *, CVector *>(gaddrof(CWeapon::DoTankDoomAiming), shooter, driver, source, target);
+}
+
+int addrof(CWeapon::GenerateFlameThrowerParticles) = ADDRESS_BY_VERSION(0x561C70, 0x561DA0, 0x561D50);
+int gaddrof(CWeapon::GenerateFlameThrowerParticles) = GLOBAL_ADDRESS_BY_VERSION(0x561C70, 0x561DA0, 0x561D50);
+
+void CWeapon::GenerateFlameThrowerParticles(CVector pos, CVector dir) {
+    plugin::CallDynGlobal<CVector, CVector>(gaddrof(CWeapon::GenerateFlameThrowerParticles), pos, dir);
+}
+
+int addrof(CWeapon::InitialiseWeapons) = ADDRESS_BY_VERSION(0x55C2D0, 0x55C400, 0x55C3B0);
+int gaddrof(CWeapon::InitialiseWeapons) = GLOBAL_ADDRESS_BY_VERSION(0x55C2D0, 0x55C400, 0x55C3B0);
+
+void CWeapon::InitialiseWeapons() {
+    plugin::CallDynGlobal(gaddrof(CWeapon::InitialiseWeapons));
+}
+
+int addrof(CWeapon::MakePedsJumpAtShot) = ADDRESS_BY_VERSION(0x564680, 0x5647B0, 0x564760);
+int gaddrof(CWeapon::MakePedsJumpAtShot) = GLOBAL_ADDRESS_BY_VERSION(0x564680, 0x5647B0, 0x564760);
+
+void CWeapon::MakePedsJumpAtShot(CPhysical *shooter, CVector *source, CVector *target) {
+    plugin::CallDynGlobal<CPhysical *, CVector *, CVector *>(gaddrof(CWeapon::MakePedsJumpAtShot), shooter, source, target);
+}
+
+int addrof(CWeapon::ProcessLineOfSight) = ADDRESS_BY_VERSION(0x564C00, 0x564D30, 0x564CE0);
+int gaddrof(CWeapon::ProcessLineOfSight) = GLOBAL_ADDRESS_BY_VERSION(0x564C00, 0x564D30, 0x564CE0);
+
+bool CWeapon::ProcessLineOfSight(CVector const &origin, CVector const &target, CColPoint &point, CEntity **outEntity, eWeaponType type, CEntity *entity, bool buildings, bool vehicles, bool peds, bool objects, bool dummies, bool doSeeThroughCheck, bool doCameraIgnoreCheck) {
+    return plugin::CallAndReturnDynGlobal<bool, CVector const &, CVector const &, CColPoint &, CEntity **, eWeaponType, CEntity *, bool, bool, bool, bool, bool, bool, bool>(gaddrof(CWeapon::ProcessLineOfSight), origin, target, point, outEntity, type, entity, buildings, vehicles, peds, objects, dummies, doSeeThroughCheck, doCameraIgnoreCheck);
+}
+
+int addrof(CWeapon::ShutdownWeapons) = ADDRESS_BY_VERSION(0x55C2F0, 0x55C420, 0x55C3D0);
+int gaddrof(CWeapon::ShutdownWeapons) = GLOBAL_ADDRESS_BY_VERSION(0x55C2F0, 0x55C420, 0x55C3D0);
+
 void CWeapon::ShutdownWeapons() {
-    plugin::Call<0x55C2F0>();
+    plugin::CallDynGlobal(gaddrof(CWeapon::ShutdownWeapons));
 }
 
-// Converted from thiscall void CWeapon::Update(int audioEntityId) 0x563A10
-void CWeapon::Update(int audioEntityId) {
-    plugin::CallMethod<0x563A10, CWeapon *, int>(this, audioEntityId);
-}
+int addrof(CWeapon::UpdateWeapons) = ADDRESS_BY_VERSION(0x55C310, 0x55C440, 0x55C3F0);
+int gaddrof(CWeapon::UpdateWeapons) = GLOBAL_ADDRESS_BY_VERSION(0x55C310, 0x55C440, 0x55C3F0);
 
-// Converted from cdecl void CWeapon::UpdateWeapons(void) 0x55C310 
 void CWeapon::UpdateWeapons() {
-    plugin::Call<0x55C310>();
+    plugin::CallDynGlobal(gaddrof(CWeapon::UpdateWeapons));
 }
 
-// Converted from thiscall void CWeapon::~CWeapon() 0x4C50A0
-CWeapon::~CWeapon() {
-    plugin::CallMethod<0x4C50A0, CWeapon *>(this);
-}
+int addrof(FireOneInstantHitRound) = ADDRESS_BY_VERSION(0x563B00, 0x563C30, 0x563BE0);
+int gaddrof(FireOneInstantHitRound) = GLOBAL_ADDRESS_BY_VERSION(0x563B00, 0x563C30, 0x563BE0);
 
-// Converted from cdecl void FireOneInstantHitRound(CVector *start,CVector *end,int damage) 0x563B00
-void FireOneInstantHitRound(CVector* start, CVector* end, int damage) {
-    plugin::Call<0x563B00, CVector*, CVector*, int>(start, end, damage);
+void FireOneInstantHitRound(CVector *source, CVector *target, int damage) {
+    plugin::CallDynGlobal<CVector *, CVector *, int>(gaddrof(FireOneInstantHitRound), source, target, damage);
 }
-
