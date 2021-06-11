@@ -6,27 +6,31 @@
 */
 #include "CFire.h"
 
-// Converted from thiscall void CFire::CFire(void) 0x479220 
-CFire::CFire() {
-    plugin::CallMethod<0x479220, CFire *>(this);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CFire::Extinguish(void) 0x479D40 
+int ctor_addr(CFire) = ADDRESS_BY_VERSION(0x479220, 0x479220, 0x479220);
+int ctor_gaddr(CFire) = GLOBAL_ADDRESS_BY_VERSION(0x479220, 0x479220, 0x479220);
+
+int dtor_addr(CFire) = ADDRESS_BY_VERSION(0x479280, 0x479280, 0x479280);
+int dtor_gaddr(CFire) = GLOBAL_ADDRESS_BY_VERSION(0x479280, 0x479280, 0x479280);
+
+int addrof(CFire::Extinguish) = ADDRESS_BY_VERSION(0x479D40, 0x479D40, 0x479D40);
+int gaddrof(CFire::Extinguish) = GLOBAL_ADDRESS_BY_VERSION(0x479D40, 0x479D40, 0x479D40);
+
 void CFire::Extinguish() {
-    plugin::CallMethod<0x479D40, CFire *>(this);
+    plugin::CallMethodDynGlobal<CFire *>(gaddrof(CFire::Extinguish), this);
 }
 
-// Converted from thiscall void CFire::ProcessFire(void) 0x4798D0 
+int addrof(CFire::ProcessFire) = ADDRESS_BY_VERSION(0x4798D0, 0x4798D0, 0x4798D0);
+int gaddrof(CFire::ProcessFire) = GLOBAL_ADDRESS_BY_VERSION(0x4798D0, 0x4798D0, 0x4798D0);
+
 void CFire::ProcessFire() {
-    plugin::CallMethod<0x4798D0, CFire *>(this);
+    plugin::CallMethodDynGlobal<CFire *>(gaddrof(CFire::ProcessFire), this);
 }
 
-// Converted from thiscall void CFire::ReportThisFire(void) 0x4798B0 
+int addrof(CFire::ReportThisFire) = ADDRESS_BY_VERSION(0x4798B0, 0x4798B0, 0x4798B0);
+int gaddrof(CFire::ReportThisFire) = GLOBAL_ADDRESS_BY_VERSION(0x4798B0, 0x4798B0, 0x4798B0);
+
 void CFire::ReportThisFire() {
-    plugin::CallMethod<0x4798B0, CFire *>(this);
-}
-
-// Converted from thiscall void CFire::~CFire(void) 0x479280 
-CFire::~CFire() {
-    plugin::CallMethod<0x479280, CFire *>(this);
+    plugin::CallMethodDynGlobal<CFire *>(gaddrof(CFire::ReportThisFire), this);
 }

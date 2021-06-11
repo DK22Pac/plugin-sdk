@@ -6,32 +6,42 @@
 */
 #include "CTrainDoor.h"
 
-// Converted from thiscall void CTrainDoor::CTrainDoor(void) 0x54E430 
-CTrainDoor::CTrainDoor() {
-    plugin::CallMethod<0x54E430, CTrainDoor *>(this);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall bool CTrainDoor::IsClosed(void) 0x5460F0 
+int ctor_addr(CTrainDoor) = ADDRESS_BY_VERSION(0x54E430, 0x54E570, 0x54E520);
+int ctor_gaddr(CTrainDoor) = GLOBAL_ADDRESS_BY_VERSION(0x54E430, 0x54E570, 0x54E520);
+
+int addrof(CTrainDoor::IsClosed) = ADDRESS_BY_VERSION(0x5460F0, 0x5462F0, 0x5462A0);
+int gaddrof(CTrainDoor::IsClosed) = GLOBAL_ADDRESS_BY_VERSION(0x5460F0, 0x5462F0, 0x5462A0);
+
 bool CTrainDoor::IsClosed() {
-    return plugin::CallMethodAndReturn<bool, 0x5460F0, CTrainDoor *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CTrainDoor *>(gaddrof(CTrainDoor::IsClosed), this);
 }
 
-// Converted from thiscall bool CTrainDoor::IsFullyOpen(void) 0x546120 
+int addrof(CTrainDoor::IsFullyOpen) = ADDRESS_BY_VERSION(0x546120, 0x546320, 0x5462D0);
+int gaddrof(CTrainDoor::IsFullyOpen) = GLOBAL_ADDRESS_BY_VERSION(0x546120, 0x546320, 0x5462D0);
+
 bool CTrainDoor::IsFullyOpen() {
-    return plugin::CallMethodAndReturn<bool, 0x546120, CTrainDoor *>(this);
+    return plugin::CallMethodAndReturnDynGlobal<bool, CTrainDoor *>(gaddrof(CTrainDoor::IsFullyOpen), this);
 }
 
-// Converted from thiscall void CTrainDoor::Open(float angle) 0x546200
+int addrof(CTrainDoor::Open) = ADDRESS_BY_VERSION(0x546200, 0x546400, 0x5463B0);
+int gaddrof(CTrainDoor::Open) = GLOBAL_ADDRESS_BY_VERSION(0x546200, 0x546400, 0x5463B0);
+
 void CTrainDoor::Open(float angle) {
-    plugin::CallMethod<0x546200, CTrainDoor *, float>(this, angle);
+    plugin::CallMethodDynGlobal<CTrainDoor *, float>(gaddrof(CTrainDoor::Open), this, angle);
 }
 
-// Converted from thiscall void CTrainDoor::RetTranslationWhenClosed(void) 0x546180 
-void CTrainDoor::RetTranslationWhenClosed() {
-    plugin::CallMethod<0x546180, CTrainDoor *>(this);
+int addrof(CTrainDoor::RetTranslationWhenClosed) = ADDRESS_BY_VERSION(0x546180, 0x546380, 0x546330);
+int gaddrof(CTrainDoor::RetTranslationWhenClosed) = GLOBAL_ADDRESS_BY_VERSION(0x546180, 0x546380, 0x546330);
+
+float CTrainDoor::RetTranslationWhenClosed() {
+    return plugin::CallMethodAndReturnDynGlobal<float, CTrainDoor *>(gaddrof(CTrainDoor::RetTranslationWhenClosed), this);
 }
 
-// Converted from thiscall void CTrainDoor::RetTranslationWhenOpen(void) 0x5461C0 
-void CTrainDoor::RetTranslationWhenOpen() {
-    plugin::CallMethod<0x5461C0, CTrainDoor *>(this);
+int addrof(CTrainDoor::RetTranslationWhenOpen) = ADDRESS_BY_VERSION(0x5461C0, 0x5463C0, 0x546370);
+int gaddrof(CTrainDoor::RetTranslationWhenOpen) = GLOBAL_ADDRESS_BY_VERSION(0x5461C0, 0x5463C0, 0x546370);
+
+float CTrainDoor::RetTranslationWhenOpen() {
+    return plugin::CallMethodAndReturnDynGlobal<float, CTrainDoor *>(gaddrof(CTrainDoor::RetTranslationWhenOpen), this);
 }

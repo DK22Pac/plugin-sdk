@@ -9,13 +9,18 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-struct CTrainCamNode {
-    CVector m_vecPos;
-    CVector m_vecTarget;
-    CVector m_vecInfBound;
-    CVector m_vecSupBound;
-    float field_48;
-    float m_fNearPlane;
+class PLUGIN_API CTrainCamNode {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CTrainCamNode)
+
+public:
+    CVector m_vecCamPosition;
+    CVector m_vecPointToLookAt;
+    CVector m_vecMinPointInRange;
+    CVector m_vecMaxPointInRange;
+    float m_fDesiredFOV;
+    float m_fNearClip;
 };
 
 VALIDATE_SIZE(CTrainCamNode, 0x38);
+
+#include "meta/meta.CTrainCamNode.h"

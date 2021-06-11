@@ -9,13 +9,10 @@
 #include "PluginBase.h"
 #include "CPhysical.h"
 #include "CStoredCollPoly.h"
-#include "eObjective.h"
-#include "eFormation.h"
+#include "AnimBlendFrameData.h"
 #include "AssocGroupId.h"
 #include "CAnimBlendAssociation.h"
 #include "CPedIK.h"
-#include "ePedState.h"
-#include "eWaitState.h"
 #include "CPathNode.h"
 #include "eCrimeType.h"
 #include "CAccident.h"
@@ -23,10 +20,222 @@
 #include "CPedStats.h"
 #include "CRange2D.h"
 #include "CWeapon.h"
+#include "ePedStats.h"
+#include "CColPoint.h"
+#include "eEventType.h"
 class CFire;
 class CVehicle;
 
-enum PLUGIN_API eMoveState : unsigned int {
+enum PLUGIN_API AnimationId : unsigned int {
+    ANIM_STD_WALK = 0,
+    ANIM_STD_RUN = 1,
+    ANIM_STD_RUNFAST = 2,
+    ANIM_STD_IDLE = 3,
+    ANIM_STD_STARTWALK = 4,
+    ANIM_STD_RUNSTOP1 = 5,
+    ANIM_STD_RUNSTOP2 = 6,
+    ANIM_STD_IDLE_CAM = 7,
+    ANIM_STD_IDLE_HBHB = 8,
+    ANIM_STD_IDLE_TIRED = 9,
+    ANIM_STD_IDLE_BIGGUN = 10,
+    ANIM_STD_CHAT = 11,
+    ANIM_STD_HAILTAXI = 12,
+    ANIM_STD_KO_FRONT = 13,
+    ANIM_STD_KO_LEFT = 14,
+    ANIM_STD_KO_BACK = 15,
+    ANIM_STD_KO_RIGHT = 16,
+    ANIM_STD_KO_SHOT_FACE = 17,
+    ANIM_STD_KO_SHOT_STOMACH = 18,
+    ANIM_STD_KO_SHOT_ARM_L = 19,
+    ANIM_STD_KO_SHOT_ARM_R = 20,
+    ANIM_STD_KO_SHOT_LEG_L = 21,
+    ANIM_STD_KO_SHOT_LEG_R = 22,
+    ANIM_STD_SPINFORWARD_LEFT = 23,
+    ANIM_STD_SPINFORWARD_RIGHT = 24,
+    ANIM_STD_HIGHIMPACT_FRONT = 25,
+    ANIM_STD_HIGHIMPACT_LEFT = 26,
+    ANIM_STD_HIGHIMPACT_BACK = 27,
+    ANIM_STD_HIGHIMPACT_RIGHT = 28,
+    ANIM_STD_HITBYGUN_FRONT = 29,
+    ANIM_STD_HITBYGUN_LEFT = 30,
+    ANIM_STD_HITBYGUN_BACK = 31,
+    ANIM_STD_HITBYGUN_RIGHT = 32,
+    ANIM_STD_HIT_FRONT = 33,
+    ANIM_STD_HIT_LEFT = 34,
+    ANIM_STD_HIT_BACK = 35,
+    ANIM_STD_HIT_RIGHT = 36,
+    ANIM_STD_HIT_FLOOR = 37,
+    ANIM_STD_HIT_BODYBLOW = 38,
+    ANIM_STD_HIT_CHEST = 39,
+    ANIM_STD_HIT_HEAD = 40,
+    ANIM_STD_HIT_WALK = 41,
+    ANIM_STD_HIT_WALL = 42,
+    ANIM_STD_HIT_FLOOR_FRONT = 43,
+    ANIM_STD_HIT_BEHIND = 44,
+    ANIM_STD_PUNCH = 45,
+    ANIM_STD_KICKGROUND = 46,
+    ANIM_STD_WEAPON_BAT_H = 47,
+    ANIM_STD_WEAPON_BAT_V = 48,
+    ANIM_STD_WEAPON_HGUN_BODY = 49,
+    ANIM_STD_WEAPON_AK_BODY = 50,
+    ANIM_STD_WEAPON_PUMP = 51,
+    ANIM_STD_WEAPON_SNIPER = 52,
+    ANIM_STD_WEAPON_THROW = 53,
+    ANIM_STD_THROW_UNDER = 54,
+    ANIM_STD_START_THROW = 55,
+    ANIM_STD_DETONATE = 56,
+    ANIM_STD_HGUN_RELOAD = 57,
+    ANIM_STD_AK_RELOAD = 58,
+    ANIM_FPS_PUNCH = 59,
+    ANIM_FPS_BAT = 60,
+    ANIM_FPS_UZI = 61,
+    ANIM_FPS_PUMP = 62,
+    ANIM_FPS_AK = 63,
+    ANIM_FPS_M16 = 64,
+    ANIM_FPS_ROCKET = 65,
+    ANIM_STD_FIGHT_IDLE = 66,
+    ANIM_STD_FIGHT_2IDLE = 67,
+    ANIM_STD_FIGHT_SHUFFLE_F = 68,
+    ANIM_STD_FIGHT_BODYBLOW = 69,
+    ANIM_STD_FIGHT_HEAD = 70,
+    ANIM_STD_FIGHT_KICK = 71,
+    ANIM_STD_FIGHT_KNEE = 72,
+    ANIM_STD_FIGHT_LHOOK = 73,
+    ANIM_STD_FIGHT_PUNCH = 74,
+    ANIM_STD_FIGHT_ROUNDHOUSE = 75,
+    ANIM_STD_FIGHT_LONGKICK = 76,
+    ANIM_STD_PARTIAL_PUNCH = 77,
+    ANIM_STD_JACKEDCAR_RHS = 78,
+    ANIM_STD_JACKEDCAR_LO_RHS = 79,
+    ANIM_STD_JACKEDCAR_LHS = 80,
+    ANIM_STD_JACKEDCAR_LO_LHS = 81,
+    ANIM_STD_QUICKJACK = 82,
+    ANIM_STD_QUICKJACKED = 83,
+    ANIM_STD_CAR_ALIGN_DOOR_LHS = 84,
+    ANIM_STD_CAR_ALIGNHI_DOOR_LHS = 85,
+    ANIM_STD_CAR_OPEN_DOOR_LHS = 86,
+    ANIM_STD_CARDOOR_LOCKED_LHS = 87,
+    ANIM_STD_CAR_PULL_OUT_PED_LHS = 88,
+    ANIM_STD_CAR_PULL_OUT_PED_LO_LHS = 89,
+    ANIM_STD_CAR_GET_IN_LHS = 90,
+    ANIM_STD_CAR_GET_IN_LO_LHS = 91,
+    ANIM_STD_CAR_CLOSE_DOOR_LHS = 92,
+    ANIM_STD_CAR_CLOSE_DOOR_LO_LHS = 93,
+    ANIM_STD_CAR_CLOSE_DOOR_ROLLING_LHS = 94,
+    ANIM_STD_CAR_CLOSE_DOOR_ROLLING_LO_LHS = 95,
+    ANIM_STD_GETOUT_LHS = 96,
+    ANIM_STD_GETOUT_LO_LHS = 97,
+    ANIM_STD_CAR_CLOSE_LHS = 98,
+    ANIM_STD_CAR_ALIGN_DOOR_RHS = 99,
+    ANIM_STD_CAR_ALIGNHI_DOOR_RHS = 100,
+    ANIM_STD_CAR_OPEN_DOOR_RHS = 101,
+    ANIM_STD_CARDOOR_LOCKED_RHS = 102,
+    ANIM_STD_CAR_PULL_OUT_PED_RHS = 103,
+    ANIM_STD_CAR_PULL_OUT_PED_LO_RHS = 104,
+    ANIM_STD_CAR_GET_IN_RHS = 105,
+    ANIM_STD_CAR_GET_IN_LO_RHS = 106,
+    ANIM_STD_CAR_CLOSE_DOOR_RHS = 107,
+    ANIM_STD_CAR_CLOSE_DOOR_LO_RHS = 108,
+    ANIM_STD_CAR_SHUFFLE_RHS = 109,
+    ANIM_STD_CAR_SHUFFLE_LO_RHS = 110,
+    ANIM_STD_CAR_SIT = 111,
+    ANIM_STD_CAR_SIT_LO = 112,
+    ANIM_STD_CAR_SIT_P = 113,
+    ANIM_STD_CAR_SIT_P_LO = 114,
+    ANIM_STD_CAR_DRIVE_LEFT = 115,
+    ANIM_STD_CAR_DRIVE_RIGHT = 116,
+    ANIM_STD_CAR_DRIVE_LEFT_LO = 117,
+    ANIM_STD_CAR_DRIVE_RIGHT_LO = 118,
+    ANIM_STD_CAR_DRIVEBY_LEFT = 119,
+    ANIM_STD_CAR_DRIVEBY_RIGHT = 120,
+    ANIM_STD_CAR_LOOKBEHIND = 121,
+    ANIM_STD_BOAT_DRIVE = 122,
+    ANIM_STD_GETOUT_RHS = 123,
+    ANIM_STD_GETOUT_LO_RHS = 124,
+    ANIM_STD_CAR_CLOSE_RHS = 125,
+    ANIM_STD_CAR_HOOKERTALK = 126,
+    ANIM_STD_COACH_OPEN_LHS = 127,
+    ANIM_STD_COACH_OPEN_RHS = 128,
+    ANIM_STD_COACH_GET_IN_LHS = 129,
+    ANIM_STD_COACH_GET_IN_RHS = 130,
+    ANIM_STD_COACH_GET_OUT_LHS = 131,
+    ANIM_STD_TRAIN_GETIN = 132,
+    ANIM_STD_TRAIN_GETOUT = 133,
+    ANIM_STD_CRAWLOUT_LHS = 134,
+    ANIM_STD_CRAWLOUT_RHS = 135,
+    ANIM_STD_VAN_OPEN_DOOR_REAR_LHS = 136,
+    ANIM_STD_VAN_GET_IN_REAR_LHS = 137,
+    ANIM_STD_VAN_CLOSE_DOOR_REAR_LHS = 138,
+    ANIM_STD_VAN_GET_OUT_REAR_LHS = 139,
+    ANIM_STD_VAN_OPEN_DOOR_REAR_RHS = 140,
+    ANIM_STD_VAN_GET_IN_REAR_RHS = 141,
+    ANIM_STD_VAN_CLOSE_DOOR_REAR_RHS = 142,
+    ANIM_STD_VAN_GET_OUT_REAR_RHS = 143,
+    ANIM_STD_GET_UP = 144,
+    ANIM_STD_GET_UP_LEFT = 145,
+    ANIM_STD_GET_UP_RIGHT = 146,
+    ANIM_STD_GET_UP_FRONT = 147,
+    ANIM_STD_JUMP_LAUNCH = 148,
+    ANIM_STD_JUMP_GLIDE = 149,
+    ANIM_STD_JUMP_LAND = 150,
+    ANIM_STD_FALL = 151,
+    ANIM_STD_FALL_GLIDE = 152,
+    ANIM_STD_FALL_LAND = 153,
+    ANIM_STD_FALL_COLLAPSE = 154,
+    ANIM_STD_EVADE_STEP = 155,
+    ANIM_STD_EVADE_DIVE = 156,
+    ANIM_STD_XPRESS_SCRATCH = 157,
+    ANIM_STD_ROADCROSS = 158,
+    ANIM_STD_TURN180 = 159,
+    ANIM_STD_ARREST = 160,
+    ANIM_STD_DROWN = 161,
+    ANIM_MEDIC_CPR = 162,
+    ANIM_STD_DUCK_DOWN = 163,
+    ANIM_STD_DUCK_LOW = 164,
+    ANIM_STD_RBLOCK_SHOOT = 165,
+    ANIM_STD_THROW_UNDER2 = 166,
+    ANIM_STD_HANDSUP = 167,
+    ANIM_STD_HANDSCOWER = 168,
+    ANIM_STD_PARTIAL_FUCKU = 169,
+    ANIM_STD_PHONE_IN = 170,
+    ANIM_STD_PHONE_OUT = 171,
+    ANIM_STD_PHONE_TALK = 172,
+    ANIM_STD_NUM = 173
+};
+
+enum PLUGIN_API eCharCreatedBy {
+    RANDOM_CHAR = 1,
+    MISSION_CHAR = 2
+};
+
+enum PLUGIN_API eFightMoveHitLevel : unsigned char {
+    HITLEVEL_NULL = 0,
+    HITLEVEL_GROUND = 1,
+    HITLEVEL_LOW = 2,
+    HITLEVEL_MEDIUM = 3,
+    HITLEVEL_HIGH = 4
+};
+
+enum PLUGIN_API eFightState : char {
+    FIGHTSTATE_MOVE_FINISHED = -2,
+	FIGHTSTATE_JUST_ATTACKED,
+	FIGHTSTATE_NO_MOVE,
+	FIGHTSTATE_1
+};
+
+enum PLUGIN_API eFormation : unsigned int {
+    FORMATION_UNDEFINED = 0,
+    FORMATION_REAR = 1,
+    FORMATION_REAR_LEFT = 2,
+    FORMATION_REAR_RIGHT = 3,
+    FORMATION_FRONT_LEFT = 4,
+    FORMATION_FRONT_RIGHT = 5,
+    FORMATION_LEFT = 6,
+    FORMATION_RIGHT = 7,
+    FORMATION_FRONT = 8
+};
+
+enum PLUGIN_API eMoveState {
     PEDMOVE_NONE = 0,
     PEDMOVE_STILL = 1,
     PEDMOVE_WALK = 2,
@@ -34,10 +243,201 @@ enum PLUGIN_API eMoveState : unsigned int {
     PEDMOVE_SPRINT = 4
 };
 
+enum PLUGIN_API eObjective : unsigned int {
+    OBJECTIVE_NONE = 0,
+    OBJECTIVE_WAIT_ON_FOOT = 1,
+    OBJECTIVE_FLEE_ON_FOOT_TILL_SAFE = 2,
+    OBJECTIVE_GUARD_SPOT = 3,
+    OBJECTIVE_GUARD_AREA = 4,
+    OBJECTIVE_WAIT_IN_CAR = 5,
+    OBJECTIVE_WAIT_IN_CAR_THEN_GET_OUT = 6,
+    OBJECTIVE_KILL_CHAR_ON_FOOT = 7,
+    OBJECTIVE_KILL_CHAR_ANY_MEANS = 8,
+    OBJECTIVE_FLEE_CHAR_ON_FOOT_TILL_SAFE = 9,
+    OBJECTIVE_FLEE_CHAR_ON_FOOT_ALWAYS = 10,
+    OBJECTIVE_GOTO_CHAR_ON_FOOT = 11,
+    OBJECTIVE_FOLLOW_CHAR_IN_FORMATION = 12,
+    OBJECTIVE_LEAVE_CAR = 13,
+    OBJECTIVE_ENTER_CAR_AS_PASSENGER = 14,
+    OBJECTIVE_ENTER_CAR_AS_DRIVER = 15,
+    OBJECTIVE_FOLLOW_CAR_IN_CAR = 16,
+    OBJECTIVE_FIRE_AT_OBJECT_FROM_VEHICLE = 17,
+    OBJECTIVE_DESTROY_OBJECT = 18,
+    OBJECTIVE_DESTROY_CAR = 19,
+    OBJECTIVE_GOTO_AREA_ANY_MEANS = 20,
+    OBJECTIVE_GOTO_AREA_ON_FOOT = 21,
+    OBJECTIVE_RUN_TO_AREA = 22,
+    OBJECTIVE_GOTO_AREA_IN_CAR = 23,
+    OBJECTIVE_FOLLOW_CAR_ON_FOOT_WITH_OFFSET = 24,
+    OBJECTIVE_GUARD_ATTACK = 25,
+    OBJECTIVE_SET_LEADER = 26,
+    OBJECTIVE_FOLLOW_ROUTE = 27,
+    OBJECTIVE_SOLICIT_VEHICLE = 28,
+    OBJECTIVE_HAIL_TAXI = 29,
+    OBJECTIVE_CATCH_TRAIN = 30,
+    OBJECTIVE_BUY_ICE_CREAM = 31,
+    OBJECTIVE_STEAL_ANY_CAR = 32,
+    OBJECTIVE_MUG_CHAR = 33,
+    OBJECTIVE_FLEE_CAR = 34,
+    OBJECTIVE_LEAVE_CAR_AND_DIE = 35
+};
+
+enum PLUGIN_API ePedFightMoves {
+    FIGHTMOVE_NULL = 0,
+    FIGHTMOVE_STDPUNCH = 1,
+    FIGHTMOVE_IDLE = 2,
+    FIGHTMOVE_SHUFFLE_F = 3,
+    FIGHTMOVE_KNEE = 4,
+    FIGHTMOVE_HEADBUTT = 5,
+    FIGHTMOVE_PUNCHJAB = 6,
+    FIGHTMOVE_PUNCHHOOK = 7,
+    FIGHTMOVE_KICK = 8,
+    FIGHTMOVE_LONGKICK = 9,
+    FIGHTMOVE_ROUNDHOUSE = 10,
+    FIGHTMOVE_BODYBLOW = 11,
+    FIGHTMOVE_GROUNDKICK = 12,
+    FIGHTMOVE_HITFRONT = 13,
+    FIGHTMOVE_HITBACK = 14,
+    FIGHTMOVE_HITRIGHT = 15,
+    FIGHTMOVE_HITLEFT = 16,
+    FIGHTMOVE_HITBODY = 17,
+    FIGHTMOVE_HITCHEST = 18,
+    FIGHTMOVE_HITHEAD = 19,
+    FIGHTMOVE_HITBIGSTEP = 20,
+    FIGHTMOVE_HITONFLOOR = 21,
+    FIGHTMOVE_HITBEHIND = 22,
+    FIGHTMOVE_IDLE2NORM = 23,
+    NUM_FIGHTMOVES = 24
+};
+
+enum PLUGIN_API ePedLineUpPhase {
+    LINE_UP_TO_CAR_START = 0,
+    LINE_UP_TO_CAR_END = 1,
+    LINE_UP_TO_CAR_2 = 2
+};
+
+enum PLUGIN_API ePedOnGroundState {
+    NO_PED = 0,
+    PED_IN_FRONT_OF_ATTACKER = 1,
+    PED_ON_THE_FLOOR = 2,
+    PED_DEAD_ON_THE_FLOOR = 3
+};
+
+enum PLUGIN_API ePedPieceTypes : unsigned int {
+    PEDPIECE_TORSO = 0,
+    PEDPIECE_MID = 1,
+    PEDPIECE_LEFTARM = 2,
+    PEDPIECE_RIGHTARM = 3,
+    PEDPIECE_LEFTLEG = 4,
+    PEDPIECE_RIGHTLEG = 5,
+    PEDPIECE_HEAD = 6
+};
+
 enum PLUGIN_API ePedRouteType : unsigned short {
     PEDROUTE_STOP_WHEN_DONE = 1,
     PEDROUTE_GO_BACKWARD_WHEN_DONE = 2,
     PEDROUTE_GO_TO_START_WHEN_DONE = 3
+};
+
+enum PLUGIN_API ePedState : unsigned int {
+    PEDSTATE_NONE = 0,
+    PEDSTATE_IDLE = 1,
+    PEDSTATE_LOOK_ENTITY = 2,
+    PEDSTATE_LOOK_HEADING = 3,
+    PEDSTATE_WANDER_RANGE = 4,
+    PEDSTATE_WANDER_PATH = 5,
+    PEDSTATE_SEEK_POSITION = 6,
+    PEDSTATE_SEEK_ENTITY = 7,
+    PEDSTATE_FLEE_POSITION = 8,
+    PEDSTATE_FLEE_ENTITY = 9,
+    PEDSTATE_PURSUE = 10,
+    PEDSTATE_FOLLOW_PATH = 11,
+    PEDSTATE_SNIPER_MODE = 12,
+    PEDSTATE_ROCKET_MODE = 13,
+    PEDSTATE_DUMMY = 14,
+    PEDSTATE_PAUSE = 15,
+    PEDSTATE_ATTACK = 16,
+    PEDSTATE_FIGHT = 17,
+    PEDSTATE_FACE_PHONE = 18,
+    PEDSTATE_MAKE_PHONECALL = 19,
+    PEDSTATE_CHAT = 20,
+    PEDSTATE_MUG = 21,
+    PEDSTATE_AIMGUN = 22,
+    PEDSTATE_AI_CONTROL = 23,
+    PEDSTATE_SEEK_CAR = 24,
+    PEDSTATE_SEEK_IN_BOAT = 25,
+    PEDSTATE_FOLLOW_ROUTE = 26,
+    PEDSTATE_CPR = 27,
+    PEDSTATE_SOLICIT = 28,
+    PEDSTATE_BUY_ICECREAM = 29,
+    PEDSTATE_INVESTIGATE = 30,
+    PEDSTATE_STEP_AWAY = 31,
+    PEDSTATE_ON_FIRE = 32,
+    PEDSTATE_HANG_OUT = 33,
+    PEDSTATE_STATES_NO_AI = 34,
+    PEDSTATE_JUMP = 35,
+    PEDSTATE_FALL = 36,
+    PEDSTATE_GETUP = 37,
+    PEDSTATE_STAGGER = 38,
+    PEDSTATE_DIVE_AWAY = 39,
+    PEDSTATE_CAN_SHOOT = 40,
+    PEDSTATE_ENTER_TRAIN = 41,
+    PEDSTATE_EXIT_TRAIN = 42,
+    PEDSTATE_ARREST_PLAYER = 43,
+    PEDSTATE_DRIVING = 44,
+    PEDSTATE_PASSENGER = 45,
+    PEDSTATE_TAXI_PASSENGER = 46,
+    PEDSTATE_OPEN_DOOR = 47,
+    PEDSTATE_DIE = 48,
+    PEDSTATE_DEAD = 49,
+    PEDSTATE_CARJACK = 50,
+    PEDSTATE_DRAG_FROM_CAR = 51,
+    PEDSTATE_ENTER_CAR = 52,
+    PEDSTATE_STEAL_CAR = 53,
+    PEDSTATE_EXIT_CAR = 54,
+    PEDSTATE_HANDS_UP = 55,
+    PEDSTATE_ARRESTED = 56
+};
+
+enum PLUGIN_API ePointBlankNecessity {
+    NO_POINT_BLANK_PED = 0,
+    POINT_BLANK_FOR_WANTED_PED = 1,
+    POINT_BLANK_FOR_SOMEONE_ELSE = 2
+};
+
+enum PLUGIN_API eWaitState : unsigned int {
+    WAITSTATE_FALSE = 0,
+    WAITSTATE_TRAFFIC_LIGHTS = 1,
+    WAITSTATE_CROSS_ROAD = 2,
+    WAITSTATE_CROSS_ROAD_LOOK = 3,
+    WAITSTATE_LOOK_PED = 4,
+    WAITSTATE_LOOK_SHOP = 5,
+    WAITSTATE_LOOK_ACCIDENT = 6,
+    WAITSTATE_FACEOFF_GANG = 7,
+    WAITSTATE_DOUBLEBACK = 8,
+    WAITSTATE_HITWALL = 9,
+    WAITSTATE_TURN180 = 10,
+    WAITSTATE_SURPRISE = 11,
+    WAITSTATE_STUCK = 12,
+    WAITSTATE_LOOK_ABOUT = 13,
+    WAITSTATE_PLAYANIM_DUCK = 14,
+    WAITSTATE_PLAYANIM_COWER = 15,
+    WAITSTATE_PLAYANIM_TAXI = 16,
+    WAITSTATE_PLAYANIM_HANDSUP = 17,
+    WAITSTATE_PLAYANIM_HANDSCOWER = 18,
+    WAITSTATE_PLAYANIM_CHAT = 19,
+    WAITSTATE_FINISH_FLEE = 20
+};
+
+struct PLUGIN_API FightMove {
+    AnimationId m_nAnimId;
+    float m_fStartFireTime;
+    float m_fEndFireTime;
+    float m_fComboFollowTime;
+    float m_fStrikeRadius;
+    unsigned char m_nHitLevel; //!< eFightMoveHitLevel
+    unsigned char m_nDamage;
+    unsigned char m_nFlags;
 };
 
 class PLUGIN_API CPed : public CPhysical {
@@ -244,6 +644,11 @@ public:
     CVector m_vecSeekPosEx; //!< used for OBJECTIVE_GUARD_SPOT
     float m_fDistanceToCountSeekDoneEx; //!< used for OBJECTIVE_GUARD_SPOT
 
+    SUPPORTED_10EN_11EN_STEAM static CVector2D &ms_vec2DFleePosition;
+    SUPPORTED_10EN_11EN_STEAM static bool &bNastyLimbsCheat;
+    SUPPORTED_10EN_11EN_STEAM static bool &bPedCheat3;
+    SUPPORTED_10EN_11EN_STEAM static bool &bPedCheat2;
+
     // virtual function #0 (destructor)
 
 
@@ -265,42 +670,298 @@ public:
 
     // virtual function #7 (not overriden)
 
-
-    // virtual function #8 (not overriden)
-
+    SUPPORTED_10EN_11EN_STEAM void ProcessControl();
 
     // virtual function #9 (not overriden)
 
 
     // virtual function #10 (not overriden)
 
-
-    // virtual function #11 (not overriden)
-
-
-    // virtual function #12 (not overriden)
-
-
-    // virtual function #13 (not overriden)
-
+    SUPPORTED_10EN_11EN_STEAM void Teleport(CVector pos);
+    SUPPORTED_10EN_11EN_STEAM void PreRender();
+    SUPPORTED_10EN_11EN_STEAM void Render();
     SUPPORTED_10EN_11EN_STEAM bool SetupLighting();
     SUPPORTED_10EN_11EN_STEAM void RemoveLighting(bool resetWorldColors);
-
-    // virtual function #16 (not overriden)
-
-
-    // virtual function #17 (not overriden)
-
+    SUPPORTED_10EN_11EN_STEAM void FlagToDestroyWhenNextProcessed();
+    SUPPORTED_10EN_11EN_STEAM void ProcessEntityCollision(CEntity *entity, CColPoint *colPoint);
     SUPPORTED_10EN_11EN_STEAM void SetMoveAnim();
+
+    SUPPORTED_10EN_11EN_STEAM void AddWeaponModel(int modelIndex);
+    SUPPORTED_10EN_11EN_STEAM void AimGun();
+    SUPPORTED_10EN_11EN_STEAM void ApplyHeadShot(eWeaponType type, CVector pos, unsigned char evenOnPlayer);
+    SUPPORTED_10EN_11EN_STEAM void Attack();
+    SUPPORTED_10EN_11EN_STEAM void Avoid();
+    SUPPORTED_10EN_11EN_STEAM void BeingDraggedFromCar();
+    SUPPORTED_10EN_11EN_STEAM void BuildPedLists();
+    SUPPORTED_10EN_11EN_STEAM void CalculateNewOrientation();
+    SUPPORTED_10EN_11EN_STEAM void CalculateNewVelocity();
+    SUPPORTED_10EN_11EN_STEAM bool CanBeDeleted();
+    SUPPORTED_10EN_11EN_STEAM bool CanPedDriveOff();
+    SUPPORTED_10EN_11EN_STEAM bool CanPedJumpThis();
+    SUPPORTED_10EN_11EN_STEAM bool CanPedReturnToState();
+    SUPPORTED_10EN_11EN_STEAM bool CanSeeEntity(CEntity *entity, float threshold);
+    SUPPORTED_10EN_11EN_STEAM bool CanSetPedState();
+    SUPPORTED_10EN_11EN_STEAM bool CanStrafeOrMouseControl();
+    SUPPORTED_10EN_11EN_STEAM void Chat();
+    SUPPORTED_10EN_11EN_STEAM void CheckAroundForPossibleCollisions();
+    SUPPORTED_10EN_11EN_STEAM CPed *CheckForDeadPeds();
+    SUPPORTED_10EN_11EN_STEAM bool CheckForExplosions(CVector2D &area);
+    SUPPORTED_10EN_11EN_STEAM CPed *CheckForGunShots();
+    SUPPORTED_10EN_11EN_STEAM unsigned char CheckForPointBlankPeds(CPed *pedToVerify);
+    SUPPORTED_10EN_11EN_STEAM bool CheckIfInTheAir();
+    SUPPORTED_10EN_11EN_STEAM void ClearAimFlag();
+    SUPPORTED_10EN_11EN_STEAM void ClearAll();
+    SUPPORTED_10EN_11EN_STEAM void ClearAttack();
+    SUPPORTED_10EN_11EN_STEAM void ClearAttackByRemovingAnim();
+    SUPPORTED_10EN_11EN_STEAM void ClearChat();
+    SUPPORTED_10EN_11EN_STEAM void ClearDuck();
+    SUPPORTED_10EN_11EN_STEAM void ClearFall();
+    SUPPORTED_10EN_11EN_STEAM void ClearFlee();
+    SUPPORTED_10EN_11EN_STEAM void ClearInvestigateEvent();
+    SUPPORTED_10EN_11EN_STEAM void ClearLeader();
+    SUPPORTED_10EN_11EN_STEAM void ClearLook();
+    SUPPORTED_10EN_11EN_STEAM void ClearLookFlag();
+    SUPPORTED_10EN_11EN_STEAM void ClearObjective();
+    SUPPORTED_10EN_11EN_STEAM void ClearPause();
+    SUPPORTED_10EN_11EN_STEAM void ClearPointGunAt();
+    SUPPORTED_10EN_11EN_STEAM void ClearSeek();
+    SUPPORTED_10EN_11EN_STEAM void ClearWeapons();
+    SUPPORTED_10EN_11EN_STEAM void CollideWithPed(CPed *collideWith);
+    SUPPORTED_10EN_11EN_STEAM void CreateDeadPedMoney();
+    SUPPORTED_10EN_11EN_STEAM void CreateDeadPedWeaponPickups();
+    //! This is a perfectly empty function.
+    SUPPORTED_10EN_11EN_STEAM void Die();
+    SUPPORTED_10EN_11EN_STEAM unsigned char DoesLOSBulletHitPed(CColPoint &colPoint);
+    SUPPORTED_10EN_11EN_STEAM void Duck();
+    SUPPORTED_10EN_11EN_STEAM bool DuckAndCover();
+    SUPPORTED_10EN_11EN_STEAM void EndFight(unsigned char endType);
+    SUPPORTED_10EN_11EN_STEAM void EnterCar();
+    SUPPORTED_10EN_11EN_STEAM void EnterTrain();
+    SUPPORTED_10EN_11EN_STEAM void ExitCar();
+    SUPPORTED_10EN_11EN_STEAM void ExitTrain();
+    SUPPORTED_10EN_11EN_STEAM bool FacePhone();
+    SUPPORTED_10EN_11EN_STEAM void Fall();
+    SUPPORTED_10EN_11EN_STEAM void Fight();
+    SUPPORTED_10EN_11EN_STEAM void FightStrike(CVector &touchedNodePos);
+    SUPPORTED_10EN_11EN_STEAM bool FindBestCoordsFromNodes(CVector unused, CVector *bestCoords);
+    SUPPORTED_10EN_11EN_STEAM void Flee();
+    SUPPORTED_10EN_11EN_STEAM void FollowPath();
+    SUPPORTED_10EN_11EN_STEAM void ForceStoredObjective(eObjective objective);
+    SUPPORTED_10EN_11EN_STEAM CVector *GetFormationPosition();
+    //! Actually GetLocalDirectionTo(Turn/Look)
+    //! 0-forward, 1-left, 2-backward, 3-right
+    SUPPORTED_10EN_11EN_STEAM int GetLocalDirection(CVector2D const &posOffset);
+    SUPPORTED_10EN_11EN_STEAM void GetNearestDoor(CVehicle *vehicle, CVector &posToOpen);
+    SUPPORTED_10EN_11EN_STEAM bool GetNearestPassengerDoor(CVehicle *vehicle, CVector &posToOpen);
+    SUPPORTED_10EN_11EN_STEAM bool GetNearestTrainDoor(CVehicle *vehicle, CVector &doorPos);
+    SUPPORTED_10EN_11EN_STEAM void GetNearestTrainPedPosition(CVehicle *vehicle, CVector &enterPos);
+    SUPPORTED_10EN_11EN_STEAM short GetNextPointOnRoute();
+    SUPPORTED_10EN_11EN_STEAM unsigned char GetPedRadioCategory(unsigned int modelIndex);
+    SUPPORTED_10EN_11EN_STEAM int GetWeaponSlot(eWeaponType type);
+    SUPPORTED_10EN_11EN_STEAM unsigned int GiveWeapon(eWeaponType type, unsigned int ammo);
+    SUPPORTED_10EN_11EN_STEAM void GoToNearestDoor(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM void GrantAmmo(eWeaponType type, unsigned int ammo);
+    SUPPORTED_10EN_11EN_STEAM bool HaveReachedNextPointOnRoute(float distToCountReached);
+    SUPPORTED_10EN_11EN_STEAM void Idle();
+    SUPPORTED_10EN_11EN_STEAM void InTheAir();
+    SUPPORTED_10EN_11EN_STEAM bool InflictDamage(CEntity *damagedBy, eWeaponType type, float damage, ePedPieceTypes pedPiece, unsigned char direction);
+    SUPPORTED_10EN_11EN_STEAM void InformMyGangOfAttack(CEntity *attacker);
+    SUPPORTED_10EN_11EN_STEAM void InvestigateEvent();
+    SUPPORTED_10EN_11EN_STEAM bool IsGangMember();
+    SUPPORTED_10EN_11EN_STEAM bool IsPedHeadAbovePos(float zOffset);
+    SUPPORTED_10EN_11EN_STEAM bool IsPedInControl();
+    SUPPORTED_10EN_11EN_STEAM bool IsPedShootable();
+    SUPPORTED_10EN_11EN_STEAM bool IsPlayer();
+    SUPPORTED_10EN_11EN_STEAM bool IsPointerValid();
+    SUPPORTED_10EN_11EN_STEAM bool IsRoomToBeCarJacked();
+    SUPPORTED_10EN_11EN_STEAM bool IsTemporaryObjective(eObjective objective);
+    SUPPORTED_10EN_11EN_STEAM void KillPedWithCar(CVehicle *vehicle, float impulse);
+    SUPPORTED_10EN_11EN_STEAM void LineUpPedWithCar(unsigned int phase);
+    SUPPORTED_10EN_11EN_STEAM void LineUpPedWithTrain();
+    //! This is a perfectly empty function.
+    SUPPORTED_10EN_11EN_STEAM void Look();
+    SUPPORTED_10EN_11EN_STEAM bool LookForInterestingNodes();
+    SUPPORTED_10EN_11EN_STEAM void LookForSexyCars();
+    SUPPORTED_10EN_11EN_STEAM void LookForSexyPeds();
+    SUPPORTED_10EN_11EN_STEAM bool MakePhonecall();
+    SUPPORTED_10EN_11EN_STEAM void MoveHeadToLook();
+    SUPPORTED_10EN_11EN_STEAM void Mug();
+    SUPPORTED_10EN_11EN_STEAM bool OurPedCanSeeThisOne(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM void Pause();
+    SUPPORTED_10EN_11EN_STEAM bool PlacePedOnDryLand();
+    SUPPORTED_10EN_11EN_STEAM void PlayFootSteps();
+    SUPPORTED_10EN_11EN_STEAM void PlayHitSound(CPed *hitTo);
+    SUPPORTED_10EN_11EN_STEAM void PointGunAt();
+    SUPPORTED_10EN_11EN_STEAM bool PositionPedOutOfCollision();
+    SUPPORTED_10EN_11EN_STEAM bool PossiblyFindBetterPosToSeekCar(CVector *pos, CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM void ProcessBuoyancy();
+    SUPPORTED_10EN_11EN_STEAM void ProcessObjective();
+    SUPPORTED_10EN_11EN_STEAM void QuitEnteringCar();
+    SUPPORTED_10EN_11EN_STEAM void ReactToAttack(CEntity *attacker);
+    SUPPORTED_10EN_11EN_STEAM void ReactToPointGun(CEntity *entWithGun);
+    SUPPORTED_10EN_11EN_STEAM void RegisterThreatWithGangPeds(CEntity *attacker);
+    SUPPORTED_10EN_11EN_STEAM void RemoveBodyPart(int nodeId, char direction);
+    SUPPORTED_10EN_11EN_STEAM void RemoveInCarAnims();
+    SUPPORTED_10EN_11EN_STEAM void RemoveWeaponModel(int modelIndex);
+    SUPPORTED_10EN_11EN_STEAM void RestartNonPartialAnims();
+    SUPPORTED_10EN_11EN_STEAM void RestoreGunPosition();
+    SUPPORTED_10EN_11EN_STEAM void RestoreHeadPosition();
+    SUPPORTED_10EN_11EN_STEAM void RestoreHeadingRate();
+    SUPPORTED_10EN_11EN_STEAM void RestorePreviousObjective();
+    SUPPORTED_10EN_11EN_STEAM void RestorePreviousState();
+    SUPPORTED_10EN_11EN_STEAM bool RunToReportCrime(eCrimeType type);
+    SUPPORTED_10EN_11EN_STEAM void Say(unsigned short audio);
+    SUPPORTED_10EN_11EN_STEAM void ScanForInterestingStuff();
+    SUPPORTED_10EN_11EN_STEAM unsigned int ScanForThreats();
+    SUPPORTED_10EN_11EN_STEAM bool Seek();
+    SUPPORTED_10EN_11EN_STEAM void SeekBoatPosition();
+    SUPPORTED_10EN_11EN_STEAM void SeekCar();
+    SUPPORTED_10EN_11EN_STEAM bool SeekFollowingPath(CVector *unused);
+    //! Only used while deciding which gun ped should switch to, if no ammo left.
+    SUPPORTED_10EN_11EN_STEAM bool SelectGunIfArmed();
+    SUPPORTED_10EN_11EN_STEAM void ServiceTalking();
+    SUPPORTED_10EN_11EN_STEAM bool ServiceTalkingWhenDead();
+    SUPPORTED_10EN_11EN_STEAM void SetAimFlag(float direction);
+    SUPPORTED_10EN_11EN_STEAM void SetAimFlag(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM void SetAmmo(eWeaponType type, unsigned int ammo);
+    SUPPORTED_10EN_11EN_STEAM void SetAttack(CEntity *victim);
+    SUPPORTED_10EN_11EN_STEAM void SetAttackTimer(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetBeingDraggedFromCar(CVehicle *vehicle, unsigned int doorNode, bool quickJack);
+    SUPPORTED_10EN_11EN_STEAM void SetBuyIceCream();
+    SUPPORTED_10EN_11EN_STEAM void SetCarJack(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM void SetCarJack_AllClear(CVehicle *vehicle, unsigned int doorNode, unsigned int doorFlag);
+    SUPPORTED_10EN_11EN_STEAM void SetChat(CEntity *chatWith, unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetCurrentWeapon(int type);
+    SUPPORTED_10EN_11EN_STEAM void SetDead();
+    SUPPORTED_10EN_11EN_STEAM void SetDie(AnimationId animId, float delta, float speed);
+    SUPPORTED_10EN_11EN_STEAM void SetDirectionToWalkAroundObject(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM void SetDuck(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetEnterCar(CVehicle *vehicle, unsigned int unused);
+    SUPPORTED_10EN_11EN_STEAM void SetEnterCar_AllClear(CVehicle *vehicle, unsigned int doorNode, unsigned int doorFlag);
+    SUPPORTED_10EN_11EN_STEAM void SetEnterTrain(CVehicle *train, unsigned int unused);
+    SUPPORTED_10EN_11EN_STEAM void SetEvasiveDive(CPhysical *reason, unsigned char onlyRandomJump);
+    SUPPORTED_10EN_11EN_STEAM void SetEvasiveStep(CPhysical *reason, unsigned char animType);
+    SUPPORTED_10EN_11EN_STEAM void SetExitCar(CVehicle *vehicle, unsigned int doorNode);
+    SUPPORTED_10EN_11EN_STEAM void SetExitTrain(CVehicle *train);
+    SUPPORTED_10EN_11EN_STEAM void SetFall(int extraTime, AnimationId animId, unsigned char evenIfNotInControl);
+    SUPPORTED_10EN_11EN_STEAM void SetFlee(CVector2D const &from, int time);
+    SUPPORTED_10EN_11EN_STEAM void SetFlee(CEntity *fleeFrom, int time);
+    SUPPORTED_10EN_11EN_STEAM bool SetFollowPath(CVector dest);
+    SUPPORTED_10EN_11EN_STEAM void SetFollowRoute(short currentPoint, short routeType);
+    SUPPORTED_10EN_11EN_STEAM void SetFormation(eFormation formation);
+    SUPPORTED_10EN_11EN_STEAM void SetGetUp();
+    SUPPORTED_10EN_11EN_STEAM void SetIdle();
+    SUPPORTED_10EN_11EN_STEAM void SetInTheAir();
+    SUPPORTED_10EN_11EN_STEAM void SetInvestigateEvent(eEventType type, CVector2D pos, float distanceToCountDone, unsigned short time, float angle);
+    SUPPORTED_10EN_11EN_STEAM void SetJump();
+    SUPPORTED_10EN_11EN_STEAM void SetLanding();
+    SUPPORTED_10EN_11EN_STEAM void SetLeader(CPed *leader);
+    SUPPORTED_10EN_11EN_STEAM void SetLookFlag(float direction, bool keepTryingToLook);
+    SUPPORTED_10EN_11EN_STEAM void SetLookFlag(CEntity *target, bool keepTryingToLook);
+    SUPPORTED_10EN_11EN_STEAM void SetLookTimer(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetMoveState(eMoveState state);
+    SUPPORTED_10EN_11EN_STEAM void SetObjective(eObjective objective);
+    SUPPORTED_10EN_11EN_STEAM void SetObjective(eObjective objective, void *entity);
+    SUPPORTED_10EN_11EN_STEAM void SetObjective(eObjective objective, CVector dest, float safeDist);
+    SUPPORTED_10EN_11EN_STEAM void SetObjective(eObjective objective, short routePoint, short routeType);
+    SUPPORTED_10EN_11EN_STEAM void SetObjective(eObjective objective, CVector dest);
+    SUPPORTED_10EN_11EN_STEAM void SetObjectiveTimer(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetPedPositionInCar();
+    SUPPORTED_10EN_11EN_STEAM void SetPedPositionInTrain();
+    SUPPORTED_10EN_11EN_STEAM void SetPedStats(ePedStats stat);
+    SUPPORTED_10EN_11EN_STEAM void SetPointGunAt(CEntity *entity);
+    SUPPORTED_10EN_11EN_STEAM void SetRadioStation();
+    SUPPORTED_10EN_11EN_STEAM void SetSeek(CVector pos, float distanceToCountDone);
+    SUPPORTED_10EN_11EN_STEAM void SetSeek(CEntity *seeking, float distanceToCountDone);
+    SUPPORTED_10EN_11EN_STEAM void SetSeekBoatPosition(CVehicle *boat);
+    SUPPORTED_10EN_11EN_STEAM void SetSeekCar(CVehicle *vehicle, unsigned int doorNode);
+    SUPPORTED_10EN_11EN_STEAM void SetShootTimer(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetSolicit(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM void SetStoredObjective();
+    SUPPORTED_10EN_11EN_STEAM void SetStoredState();
+    SUPPORTED_10EN_11EN_STEAM void SetWaitState(eWaitState state, void *time);
+    SUPPORTED_10EN_11EN_STEAM bool SetWanderPath(char pathStateDest);
+    SUPPORTED_10EN_11EN_STEAM void Solicit();
+    //! Some kind of binary sort
+    SUPPORTED_10EN_11EN_STEAM void SortPeds(CPed **list, int min, int max);
+    SUPPORTED_10EN_11EN_STEAM void SpawnFlyingComponent(int nodeId, char direction);
+    SUPPORTED_10EN_11EN_STEAM void StartFightAttack(unsigned char buttonPressure);
+    SUPPORTED_10EN_11EN_STEAM void StartFightDefend(unsigned char direction, unsigned char hitLevel, unsigned char strength);
+    SUPPORTED_10EN_11EN_STEAM void StopNonPartialAnims();
+    SUPPORTED_10EN_11EN_STEAM bool TurnBody();
+    SUPPORTED_10EN_11EN_STEAM void UpdateFromLeader();
+    SUPPORTED_10EN_11EN_STEAM void UpdatePosition();
+    SUPPORTED_10EN_11EN_STEAM bool UseGroundColModel();
+    SUPPORTED_10EN_11EN_STEAM void Wait();
+    SUPPORTED_10EN_11EN_STEAM void WanderPath();
+    SUPPORTED_10EN_11EN_STEAM void WanderRange();
+    SUPPORTED_10EN_11EN_STEAM void WarpPedIntoCar(CVehicle *vehicle);
+    SUPPORTED_10EN_11EN_STEAM bool WarpPedToNearEntityOffScreen(CEntity *warpTo);
+    SUPPORTED_10EN_11EN_STEAM bool WarpPedToNearLeaderOffScreen();
+    SUPPORTED_10EN_11EN_STEAM bool WillChat(CPed *stranger);
+    SUPPORTED_10EN_11EN_STEAM float WorkOutHeadingForMovingFirstPerson(float offset);
+
+    SUPPORTED_10EN_11EN_STEAM static void FinishDieAnimCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void FinishFightMoveCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void FinishHitHeadCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void FinishJumpCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void FinishLaunchCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void FinishedAttackCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void FinishedWaitCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static CVector GetLocalPositionToOpenCarDoor(CVehicle *vehicle, unsigned int doorNode, float offset);
+    SUPPORTED_10EN_11EN_STEAM static CVector GetPositionToOpenCarDoor(CVehicle *vehicle, unsigned int doorNode);
+    SUPPORTED_10EN_11EN_STEAM static CVector GetPositionToOpenCarDoor_(CVehicle *vehicle, unsigned int doorNode, float offset);
+    SUPPORTED_10EN_11EN_STEAM static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static void LoadFightData();
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimAlignCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimDoorCloseCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimDoorCloseRollingCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimDoorOpenCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimGetInCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimPullPedOutCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedAnimStepOutCarCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedEvadeCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedGetupCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedLandCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetDraggedOutCarCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetDraggedOutCarPositionCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetInCarCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetInTrainCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetOutCarCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetOutTrainCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedSetQuickDraggedOutCarPositionCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void PedStaggerCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void RestoreHeadingRateCB(CAnimBlendAssociation *association, void *data);
+    SUPPORTED_10EN_11EN_STEAM static void SetAnimOffsetForEnterOrExitVehicle();
+    SUPPORTED_10EN_11EN_STEAM static void Stagger();
 };
 
+SUPPORTED_10EN_11EN_STEAM extern FightMove(&tFightMoves)[24]; // FightMove tFightMoves[24]
+SUPPORTED_10EN_11EN_STEAM extern CVector &vecVehicleSeatPosOffset;
+SUPPORTED_10EN_11EN_STEAM extern CColPoint(&aTempPedColPts)[32]; // CColPoint aTempPedColPts[32]
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedCarDoorAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedCarDoorLoAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedVanRearDoorAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedTrainDoorAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedDraggedOutCarAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedQuickDraggedOutCarAnimOffset;
+SUPPORTED_10EN_11EN_STEAM extern CPed *(&gapTempPedList)[50]; // CPed *gapTempPedList[50]
+SUPPORTED_10EN_11EN_STEAM extern RpClump *&pNastyClump;
+SUPPORTED_10EN_11EN_STEAM extern unsigned short &nPlayerInComboMove;
+SUPPORTED_10EN_11EN_STEAM extern unsigned short &gnNumTempPedList;
 
+SUPPORTED_10EN_11EN_STEAM void FinishFuckUCB(CAnimBlendAssociation *anim, void *data);
+SUPPORTED_10EN_11EN_STEAM void particleProduceFootSplash(CPed *ped, CVector const &pos, float size, int times);
+SUPPORTED_10EN_11EN_STEAM void particleProduceFootDust(CPed *ped, CVector const &pos, float size, int times);
+SUPPORTED_10EN_11EN_STEAM RwObject *RemoveAllModelCB(RwObject *object, void *data);
+SUPPORTED_10EN_11EN_STEAM void AddYardieDoorSmoke(CVehicle *vehicle, unsigned int doorNode);
+SUPPORTED_10EN_11EN_STEAM int CheckForPedsOnGroundToAttack(CPed *attacker, CPed **pedOnGround);
+SUPPORTED_10EN_11EN_STEAM RwObject *SetPedAtomicVisibilityCB(RwObject *object, void *data);
+SUPPORTED_10EN_11EN_STEAM RwFrame *RecurseFrameChildrenVisibilityCB(RwFrame *frame, void *data);
+SUPPORTED_10EN_11EN_STEAM RwObject *CloneAtomicToFrameCB(RwObject *object, void *data);
+SUPPORTED_10EN_11EN_STEAM RwFrame *RecurseFrameChildrenToCloneCB(RwFrame *frame, void *data);
+
+VALIDATE_SIZE(FightMove, 0x18);
 VTABLE_DESC(CPed, 0x5F8C2C, 19);
 VALIDATE_SIZE(CPed, 0x53C);
 
