@@ -8,8 +8,6 @@
 
 #include "PluginBase.h"
 #include "CFire.h"
-#include "CVector.h"
-#include "CEntity.h"
 
 class PLUGIN_API CFireManager {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CFireManager)

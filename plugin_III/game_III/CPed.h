@@ -938,7 +938,7 @@ public:
 
 SUPPORTED_10EN_11EN_STEAM extern FightMove(&tFightMoves)[24]; // FightMove tFightMoves[24]
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecVehicleSeatPosOffset;
-SUPPORTED_10EN_11EN_STEAM extern CColPoint(&aTempPedColPts)[32]; // CColPoint aTempPedColPts[32]
+SUPPORTED_10EN_11EN_STEAM extern CColPoint(&aTempPedColPts_)[32]; // CColPoint aTempPedColPts[32]
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedCarDoorAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedCarDoorLoAnimOffset;
 SUPPORTED_10EN_11EN_STEAM extern CVector &vecPedVanRearDoorAnimOffset;

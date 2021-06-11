@@ -7,7 +7,6 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CVector.h"
 #include "CEntity.h"
 
 class PLUGIN_API CFire {
