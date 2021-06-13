@@ -7,21 +7,19 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "eGangType.h"
-#include "eVehicleModel.h"
-#include "eWeaponType.h"
-#include "ePedModel.h"
 #include "CGangInfo.h"
 
-class CGangs {
+class PLUGIN_API CGangs {
 public:
-    static CGangInfo *Gang; // CGangs::Gang[9];
+    SUPPORTED_10EN_11EN_STEAM static CGangInfo(&Gang)[9]; // static CGangInfo Gang[9]
 
-    static void Initialise();
-    static void SetGangVehicleModel(eGangType gangType, eVehicleModel modelIndex);
-    static void SetGangWeapons(eGangType gangType, eWeaponType weaponOne, eWeaponType weaponTwo);
-    static void SetGangPedModelOverride(eGangType gangType, ePedModel modelIndex);
-    static ePedModel GetGangPedModelOverride(eGangType gangType);
-    static void SaveAllGangData(unsigned char* bufferPointer, unsigned int* structSize);
-    static void LoadAllGangData(unsigned char* bufferPointer, unsigned int structSize);
+    SUPPORTED_10EN_11EN_STEAM static char GetGangPedModelOverride(short gang);
+    SUPPORTED_10EN_11EN_STEAM static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static void LoadAllGangData(unsigned char *buf, unsigned int size);
+    SUPPORTED_10EN_11EN_STEAM static void SaveAllGangData(unsigned char *buf, unsigned int *size);
+    SUPPORTED_10EN_11EN_STEAM static void SetGangPedModelOverride(short gang, char ovrd);
+    SUPPORTED_10EN_11EN_STEAM static void SetGangVehicleModel(short gang, int model);
+    SUPPORTED_10EN_11EN_STEAM static void SetGangWeapons(short gang, int weaponOne, int weaponTwo);
 };
+
+#include "meta/meta.CGangs.h"

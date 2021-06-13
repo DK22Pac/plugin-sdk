@@ -1,17 +1,25 @@
 /*
-    Plugin-SDK (Grand Theft Auto) header file
+    Plugin-SDK (Grand Theft Auto 3) source file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #include "CObjectData.h"
 
-// Converted from cdecl void CObjectData::Initialise(char *filename) 0x4BC0E0
-void CObjectData::Initialise(char* filename) {
-    plugin::Call<0x4BC0E0, char*>(filename);
+PLUGIN_SOURCE_FILE
+
+PLUGIN_VARIABLE CObjectInfo(&CObjectData::ms_aObjectInfo)[168] = *reinterpret_cast<CObjectInfo(*)[168]>(GLOBAL_ADDRESS_BY_VERSION(0x6F4708, 0x6F4708, 0x704848));
+
+int addrof(CObjectData::Initialise) = ADDRESS_BY_VERSION(0x4BC0E0, 0x4BC1D0, 0x4BC160);
+int gaddrof(CObjectData::Initialise) = GLOBAL_ADDRESS_BY_VERSION(0x4BC0E0, 0x4BC1D0, 0x4BC160);
+
+void CObjectData::Initialise(char const *fileName) {
+    plugin::CallDynGlobal<char const *>(gaddrof(CObjectData::Initialise), fileName);
 }
 
-// Converted from cdecl void CObjectData::SetObjectData(int modelIndex,CObject &object) 0x4BC270
-void CObjectData::SetObjectData(int modelIndex, CObject& object) {
-    plugin::Call<0x4BC270, int, CObject&>(modelIndex, object);
+int addrof(CObjectData::SetObjectData) = ADDRESS_BY_VERSION(0x4BC270, 0x4BC360, 0x4BC2F0);
+int gaddrof(CObjectData::SetObjectData) = GLOBAL_ADDRESS_BY_VERSION(0x4BC270, 0x4BC360, 0x4BC2F0);
+
+void CObjectData::SetObjectData(int modelIndex, CObject &object) {
+    plugin::CallDynGlobal<int, CObject &>(gaddrof(CObjectData::SetObjectData), modelIndex, object);
 }

@@ -6,12 +6,10 @@
 */
 #include "CGangInfo.h"
 
-// Converted from thiscall void CGangInfo::CGangInfo(void) 0x4C3F80
-CGangInfo::CGangInfo() {
-    plugin::CallMethod<0x4C3F80, CGangInfo *>(this);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CGangInfo::~CGangInfo() 0x4C3FA0
-CGangInfo::~CGangInfo() {
-    plugin::CallMethod<0x4C3FA0, CGangInfo *>(this);
-}
+int ctor_addr(CGangInfo) = ADDRESS_BY_VERSION(0x4C3F80, 0x4C4020, 0x4C3FB0);
+int ctor_gaddr(CGangInfo) = GLOBAL_ADDRESS_BY_VERSION(0x4C3F80, 0x4C4020, 0x4C3FB0);
+
+int dtor_addr(CGangInfo) = ADDRESS_BY_VERSION(0x4C3FA0, 0x4C4040, 0x4C3FD0);
+int dtor_gaddr(CGangInfo) = GLOBAL_ADDRESS_BY_VERSION(0x4C3FA0, 0x4C4040, 0x4C3FD0);

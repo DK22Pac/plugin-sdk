@@ -7,21 +7,17 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "eWeaponType.h"
-#include "eVehicleModel.h"
-#include "ePedModel.h"
 
-class CGangInfo {
+class PLUGIN_API CGangInfo {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CGangInfo)
+
 public:
-    eVehicleModel m_nVehicleModel;
-    ePedModel m_nPedModel;
-    char byte5;
-    short word6;
-    eWeaponType m_nWeaponOne;
-    eWeaponType m_nWeaponTwo;
-
-    CGangInfo();
-    ~CGangInfo();
+    int m_nVehicleModel; //!< eVehicleModel
+    char m_nPedModelOverride;
+    int m_nWeaponOne; //!< eWeaponType
+    int m_nWeaponTwo; //!< eWeaponType
 };
 
 VALIDATE_SIZE(CGangInfo, 0x10);
+
+#include "meta/meta.CGangInfo.h"

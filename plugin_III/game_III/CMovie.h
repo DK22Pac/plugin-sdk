@@ -9,17 +9,19 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-class CMovie {
-public:
-    int m_nCurrentMovieCommand;
-    CVector m_vecCurrentPosition;
-    CVector m_vecGotoPosition;
-    short m_nActor;
-    short m_nActor2;
-    short m_nVehicle;
-    short m_nModelId;
+class PLUGIN_API CMovie {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CMovie)
 
-    CMovie();
+public:
+    int m_nCommandId;
+    CVector m_vecCurrentPosition;
+    CVector m_vecCamera;
+    short m_nActorId;
+    short m_nActor2Id;
+    short m_nVehicleId;
+    short m_nModelIndex;
 };
 
 VALIDATE_SIZE(CMovie, 0x24);
+
+#include "meta/meta.CMovie.h"
