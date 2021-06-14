@@ -23,7 +23,6 @@ public:
         unsigned char bDeadEnd : 1;
         unsigned char bDisabled : 1;
         unsigned char bBetweenLevels : 1;
-        unsigned char : 3;
     } m_nFlags;
     char m_nGroup;
 

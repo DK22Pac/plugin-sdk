@@ -7,42 +7,71 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "LimbOrientation.h"
 #include "AnimBlendFrameData.h"
-#include "eBodyParts.h"
 class CPed;
 
-class CPedIK {
+enum PLUGIN_API eLimbMoveStatus : unsigned int {
+    ANGLES_SET_TO_MAX = 0, //!< because given angles were unreachable
+    ONE_ANGLE_COULDNT_BE_SET_EXACTLY = 1, //!< because it can't be reached in a jiffy
+    ANGLES_SET_EXACTLY = 2
+};
+
+struct PLUGIN_API LimbOrientation {
+    float m_fYaw;
+    float m_fPitch;
+};
+
+struct PLUGIN_API LimbMovementInfo {
+    float maxYaw;
+    float minYaw;
+    float yawD;
+    float maxPitch;
+    float minPitch;
+    float pitchD;
+};
+
+class PLUGIN_API CPedIK {
 public:
     CPed *m_pPed;
     LimbOrientation m_sHead;
     LimbOrientation m_sTorso;
     LimbOrientation m_sUpperArm;
     LimbOrientation m_sLowerArm;
-    unsigned int m_flags;
+    struct {
+        unsigned int bGunPointedSuccessfully : 1;
+        unsigned int bLookaroundHeadOnly : 1;
+        unsigned int bAimsWithArm : 1;
+    } m_nFlags;
 
-    // variables
-    static LimbMovementInfo *ms_headInfo;
-    static LimbMovementInfo *ms_headRestoreInfo;
-    static LimbMovementInfo *ms_torsoInfo;
-    static LimbMovementInfo *ms_upperArmInfo;
-    static LimbMovementInfo *ms_lowerArmInfo;
+    SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_headInfo;
+    SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_headRestoreInfo;
+    SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_torsoInfo;
+    SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_upperArmInfo;
+    SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_lowerArmInfo;
 
-    // functions
-    void Init(CPed* ped);
-    static RwMatrixTag* GetWorldMatrix(RwFrame* frame, RwMatrixTag* matrix);
-    void GetComponentPosition(RwV3d& posnOut, eBodyParts component);
-    void ExtractYawAndPitchWorld(RwMatrixTag* matrix, float& x, float& y);
-    void ExtractYawAndPitchLocal(RwMatrixTag* matrix, float& x, float& y);
-    unsigned int MoveLimb(LimbOrientation& orient, float x, float y, LimbMovementInfo& info);
-    bool LookAtPosition(CVector const& posn);
-    bool LookInDirection(float x, float y);
-    bool RestoreLookAt();
-    bool PointGunAtPosition(CVector const& posn);
-    bool PointGunInDirection(float x, float y);
-    bool PointGunInDirectionUsingArm(float x, float y);
-    bool RestoreGunPosn();
-    void RotateTorso(AnimBlendFrameData* frameData, LimbOrientation& orient, bool flag);
+    SUPPORTED_10EN_11EN_STEAM void ExtractYawAndPitchLocal(RwMatrix *matrix, float *yaw, float *pitch);
+    SUPPORTED_10EN_11EN_STEAM void ExtractYawAndPitchWorld(RwMatrix *matrix, float *yaw, float *pitch);
+    SUPPORTED_10EN_11EN_STEAM void GetComponentPosition(RwV3d &pos, unsigned int node);
+    SUPPORTED_10EN_11EN_STEAM void Init(CPed *ped);
+    SUPPORTED_10EN_11EN_STEAM bool LookAtPosition(CVector const &pos);
+    SUPPORTED_10EN_11EN_STEAM bool LookInDirection(float targetYaw, float targetPitch);
+    SUPPORTED_10EN_11EN_STEAM unsigned int MoveLimb(LimbOrientation &limb, float targetYaw, float targetPitch, LimbMovementInfo &moveInfo);
+    SUPPORTED_10EN_11EN_STEAM bool PointGunAtPosition(CVector const &pos);
+    SUPPORTED_10EN_11EN_STEAM bool PointGunInDirection(float targetYaw, float targetPitch);
+    SUPPORTED_10EN_11EN_STEAM bool PointGunInDirectionUsingArm(float targetYaw, float targetPitch);
+    SUPPORTED_10EN_11EN_STEAM bool RestoreGunPosn();
+    SUPPORTED_10EN_11EN_STEAM bool RestoreLookAt();
+    SUPPORTED_10EN_11EN_STEAM void RotateTorso(AnimBlendFrameData *frameData, LimbOrientation &limb, bool changeRoll);
+
+    SUPPORTED_10EN_11EN_STEAM static RwMatrix *GetWorldMatrix(RwFrame *frame, RwMatrix *matrix);
 };
 
+SUPPORTED_10EN_11EN_STEAM extern RwV3d &ZaxisIK;
+SUPPORTED_10EN_11EN_STEAM extern RwV3d &YaxisIK;
+SUPPORTED_10EN_11EN_STEAM extern RwV3d &XaxisIK;
+
+VALIDATE_SIZE(LimbOrientation, 0x8);
+VALIDATE_SIZE(LimbMovementInfo, 0x18);
 VALIDATE_SIZE(CPedIK, 0x28);
+
+#include "meta/meta.CPedIK.h"

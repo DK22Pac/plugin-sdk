@@ -1,58 +1,53 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
 #include "PluginBase.h"
+#include "RenderWare.h"
 #include "CVector.h"
 
-class CRegisteredCorona {
+class PLUGIN_API CRegisteredCorona {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CRegisteredCorona)
+
 public:
-    int m_nUniqueID;
-    int field_4;
+    unsigned int m_nUniqueID;
+    unsigned int m_nLastLOScheck;
     RwTexture *m_pTexture;
-    RwRGBA m_Color;
-    char m_nFadeState;
-    char _pad1[3];
-    CVector m_vPosn;
+    unsigned char m_nRed;
+    unsigned char m_nGreen;
+    unsigned char m_nBlue;
+    unsigned char m_nAlpha; //!< alpha when fully visible
+    unsigned char m_nFadeAlpha; //!< actual value used for rendering, faded
+    CVector m_vecPos;
     float m_fSize;
-    float normalAngle;
-    char m_bRegisteredThisFrame;
-    char _pad2[3];
-    float farClip;
-    char flare;
-    char reflection;
-    char flags1;
-    char field_33;
-    float field_34;
-    float field_38;
-    float field_3C;
-    char field_40[12];
-    float field_4C;
-    float field_50;
-    float field_54;
-    char field_58[15];
-    char field_67;
-    char field_68;
-    char field_69;
-    char field_6A[3];
-    char field_6D;
-    char field_6E;
-    char field_6F;
-    char field_70[3];
-    char field_73;
-    char field_74;
-    char field_75;
-    char field_76[3];
-    char field_79;
-    char field_7A[6];
-    
-    //funcs
-    void Update();
-    CRegisteredCorona();
+    float m_fSomeAngle;
+    bool m_bRegisteredThisFrame;
+    float m_fDrawDist;
+    char m_nFlareType;
+    char m_nReflection;
+    struct {
+        unsigned char bLOScheck : 1;
+        unsigned char bOffScreen : 1;
+        unsigned char bFirstUpdate : 1;
+        unsigned char bDrawStreak : 1;
+        unsigned char bSightClear : 1;
+    } m_nFlags;
+    bool m_bRenderReflection;
+    float m_fHeightAboveRoad;
+    float m_afPrevX[6];
+    float m_afPrevY[6];
+    unsigned char m_anPrevRed[6];
+    unsigned char m_anPrevGreen[6];
+    unsigned char m_anPrevBlue[6];
+    bool m_abHasValue[6];
+
+    SUPPORTED_10EN_11EN_STEAM void Update();
 };
 
 VALIDATE_SIZE(CRegisteredCorona, 0x80);
+
+#include "meta/meta.CRegisteredCorona.h"
