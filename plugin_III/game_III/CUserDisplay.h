@@ -7,21 +7,20 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "COnscreenTimer.h"
 #include "CPager.h"
-#include "CCurrentVehicle.h"
 #include "CPlaceName.h"
+#include "CCurrentVehicle.h"
 
-class COnscreenTimer;
-
-class CUserDisplay {
+class PLUGIN_API CUserDisplay {
 public:
-    //variables
-    static CPager &Pager;
-    static CCurrentVehicle &CurrentVehicle;
-    static CPlaceName &PlaceName;
-    static COnscreenTimer &OnscnTimer;
+    SUPPORTED_10EN_11EN_STEAM static COnscreenTimer &OnscnTimer;
+    SUPPORTED_10EN_11EN_STEAM static CPager &Pager;
+    SUPPORTED_10EN_11EN_STEAM static CPlaceName &PlaceName;
+    SUPPORTED_10EN_11EN_STEAM static CCurrentVehicle &CurrentVehicle;
 
-    //funcs
-    static void Init();
-    static void Process();
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static void Process();
 };
+
+#include "meta/meta.CUserDisplay.h"
