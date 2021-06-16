@@ -9,15 +9,20 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
-class RenderBuffer {
+class PLUGIN_API RenderBuffer {
 public:
-    // variables
-    static int &IndicesToBeStored;
-    static int &VerticesToBeStored;
+    SUPPORTED_10EN_11EN_STEAM static int &IndicesToBeStored;
+    SUPPORTED_10EN_11EN_STEAM static int &VerticesToBeStored;
 
-    // functions
-    static void ClearRenderBuffer();
-    static void StartStoring(int indices, int vertices, unsigned short** index, RxObjSpace3DVertex** vert);
-    static void StopStoring();
-    static void RenderStuffInBuffer();
+    SUPPORTED_10EN_11EN_STEAM static void ClearRenderBuffer();
+    SUPPORTED_10EN_11EN_STEAM static void RenderStuffInBuffer();
+    SUPPORTED_10EN_11EN_STEAM static void StartStoring(int numIndices, int numVertices, RwImVertexIndex **indexStart, RwIm3DVertex **vertexStart);
+    SUPPORTED_10EN_11EN_STEAM static void StopStoring();
 };
+
+SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&TempBufferRenderIndexList)[1024]; // RwImVertexIndex TempBufferRenderIndexList[1024]
+SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&TempBufferRenderVertices)[256]; // RwIm3DVertex TempBufferRenderVertices[256]
+SUPPORTED_10EN_11EN_STEAM extern int &TempBufferIndicesStored;
+SUPPORTED_10EN_11EN_STEAM extern int &TempBufferVerticesStored;
+
+#include "meta/meta.RenderBuffer.h"

@@ -6,56 +6,34 @@
 */
 #include "CWaterCannons.h"
 
-RxObjSpace3DVertex *WaterCannonVertices = (RxObjSpace3DVertex *)0x64C530;
-unsigned short &WaterCannonIndexList = *(unsigned short *)0x64C518;
-CWaterCannon *CWaterCannons::aCannons = (CWaterCannon *)0x8F2CA8;
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CWaterCannon::CWaterCannon(void) 0x522B60 
-CWaterCannon::CWaterCannon() {
-    plugin::CallMethod<0x522B60, CWaterCannon *>(this);
-}
+PLUGIN_VARIABLE CWaterCannon(&CWaterCannons::aCannons)[3] = *reinterpret_cast<CWaterCannon(*)[3]>(GLOBAL_ADDRESS_BY_VERSION(0x8F2CA8, 0x8F2D5C, 0x902E9C));
 
-// Converted from thiscall void CWaterCannon::Init(void) 0x521A30
-void CWaterCannon::Init() {
-    plugin::CallMethod<0x521A30, CWaterCannon *>(this);
-}
+int addrof(CWaterCannons::Init) = ADDRESS_BY_VERSION(0x522440, 0x522680, 0x522610);
+int gaddrof(CWaterCannons::Init) = GLOBAL_ADDRESS_BY_VERSION(0x522440, 0x522680, 0x522610);
 
-// Converted from thiscall void CWaterCannon::PushPeds(void) 0x5220B0
-void CWaterCannon::PushPeds() {
-    plugin::CallMethod<0x5220B0, CWaterCannon *>(this);
-}
-
-// Converted from thiscall void CWaterCannon::Render(void) 0x521D30
-void CWaterCannon::Render() {
-    plugin::CallMethod<0x521D30, CWaterCannon *>(this);
-}
-
-// Converted from thiscall void CWaterCannon::Update_NewInput(CVector *posn,CVector *moveSpeed) 0x521CC0
-void CWaterCannon::Update_NewInput(CVector* posn, CVector* moveSpeed) {
-    plugin::CallMethod<0x521CC0, CWaterCannon *, CVector*, CVector*>(this, posn, moveSpeed);
-}
-
-// Converted from thiscall void CWaterCannon::Update_OncePerFrame(short index) 0x521B80
-void CWaterCannon::Update_OncePerFrame(short index) {
-    plugin::CallMethod<0x521B80, CWaterCannon *, short>(this, index);
-}
-
-// Converted from cdecl void CWaterCannons::Init(void) 0x522440 
 void CWaterCannons::Init() {
-    plugin::Call<0x522440>();
+    plugin::CallDynGlobal(gaddrof(CWaterCannons::Init));
 }
 
-// Converted from cdecl void CWaterCannons::Render(void) 0x522550
+int addrof(CWaterCannons::Render) = ADDRESS_BY_VERSION(0x522550, 0x522790, 0x522720);
+int gaddrof(CWaterCannons::Render) = GLOBAL_ADDRESS_BY_VERSION(0x522550, 0x522790, 0x522720);
+
 void CWaterCannons::Render() {
-    plugin::Call<0x522550>();
+    plugin::CallDynGlobal(gaddrof(CWaterCannons::Render));
 }
 
-// Converted from cdecl void CWaterCannons::Update(void) 0x522510
+int addrof(CWaterCannons::Update) = ADDRESS_BY_VERSION(0x522510, 0x522750, 0x5226E0);
+int gaddrof(CWaterCannons::Update) = GLOBAL_ADDRESS_BY_VERSION(0x522510, 0x522750, 0x5226E0);
+
 void CWaterCannons::Update() {
-    plugin::Call<0x522510>();
+    plugin::CallDynGlobal(gaddrof(CWaterCannons::Update));
 }
 
-// Converted from cdecl void CWaterCannons::UpdateOne(uint pCar,CVector *posn,CVector *moveSpeed) 0x522470
-void CWaterCannons::UpdateOne(unsigned int pCar, CVector* posn, CVector* moveSpeed) {
-    plugin::Call<0x522470, unsigned int, CVector*, CVector*>(pCar, posn, moveSpeed);
+int addrof(CWaterCannons::UpdateOne) = ADDRESS_BY_VERSION(0x522470, 0x5226B0, 0x522640);
+int gaddrof(CWaterCannons::UpdateOne) = GLOBAL_ADDRESS_BY_VERSION(0x522470, 0x5226B0, 0x522640);
+
+void CWaterCannons::UpdateOne(unsigned int id, CVector *pos, CVector *dir) {
+    plugin::CallDynGlobal<unsigned int, CVector *, CVector *>(gaddrof(CWaterCannons::UpdateOne), id, pos, dir);
 }
