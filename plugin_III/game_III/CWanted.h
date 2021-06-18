@@ -8,9 +8,12 @@
 
 #include "PluginBase.h"
 #include "eCrimeType.h"
+#include "CVector.h"
 #include "CCopPed.h"
 
-class CCrimeBeingQd {
+class PLUGIN_API CCrimeBeingQd {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CCrimeBeingQd)
+
 public:
     eCrimeType m_nCrimeType;
     unsigned int m_nCrimeId;
@@ -18,18 +21,15 @@ public:
     CVector m_vecPosn;
     bool m_bAlreadyReported;
     bool m_bPoliceDontReallyCare;
-    //char _pad1A[2];
 
-    //funcs
-    CCrimeBeingQd();
-    CCrimeBeingQd* operator=(CCrimeBeingQd const& crime);
+    SUPPORTED_10EN_11EN_STEAM void operator=(CCrimeBeingQd const &right);
 };
 
-VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
+class PLUGIN_API CWanted {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CWanted)
 
-class CWanted {
 public:
-    unsigned int m_nChaosLevel;
+    int m_nChaosLevel;
     unsigned int m_nLastTimeWantedDecreased;
     unsigned int m_LastTimeWantedLevelChanged;
     float m_fMultiplier;
@@ -38,42 +38,39 @@ public:
     unsigned char m_nMaxCopCarsInPursuit;
     unsigned char m_nCopsBeatingSuspect;
     unsigned short m_nChanceOnRoadBlock;
-    struct {
-        unsigned char m_bPoliceBackOff : 1;
-        unsigned char m_bPoliceBackOffGarage : 1;
-        unsigned char m_bSwatRequired : 1;
-        unsigned char m_bFbiRequired : 1;
-        unsigned char m_bArmyRequired : 1;
-    } m_nWantedFlags;
-    //char _pad17[1];
-    unsigned int m_nWantedLevel;
+    unsigned char m_nWantedFlags;
+    int m_nWantedLevel;
     CCrimeBeingQd m_aCrimesBeingQd[16];
     CCopPed *m_apCopsInPursuit[10];
 
-    //variables
-    static unsigned int &nMaximumWantedLevel; // 6400
-    static unsigned int &MaximumWantedLevel;  // 6
+    //! 6
+    SUPPORTED_10EN_11EN_STEAM static int &MaximumWantedLevel;
+    //! 6400
+    SUPPORTED_10EN_11EN_STEAM static int &nMaximumWantedLevel;
 
-    //funcs
-    void Initialise();
-    void Reset();
-    void Update();
-    void UpdateWantedLevel();
-    void RegisterCrime(eCrimeType crimeType, CVector const& posn, unsigned int crimeId, bool bPoliceDontReallyCare);
-    void RegisterCrime_Immediately(eCrimeType crimeType, CVector const& posn, unsigned int crimeId, bool bPoliceDontReallyCare);
-    void SetWantedLevel(int level);
-    void SetWantedLevelNoDrop(int level);
-    static void SetMaximumWantedLevel(int level);
-    bool AreSwatRequired();
-    bool AreFbiRequired();
-    bool AreArmyRequired();
-    int NumOfHelisRequired();
-    void ResetPolicePursuit();
-    static void WorkOutPolicePresence(CVector posn, float radius);
-    void ClearQdCrimes();
-    bool AddCrimeToQ(eCrimeType crimeType, int crimeId, CVector const& posn, bool bAlreadyReported, bool bPoliceDontReallyCare);
-    void UpdateCrimesQ();
-    void ReportCrimeNow(eCrimeType crimeType, CVector const& posn, bool bPoliceDontReallyCare);
+    SUPPORTED_10EN_11EN_STEAM bool AddCrimeToQ(eCrimeType crimeType, int crimeId, CVector const &pos, bool bAlreadyReported, bool bPoliceDontReallyCare);
+    SUPPORTED_10EN_11EN_STEAM bool AreArmyRequired();
+    SUPPORTED_10EN_11EN_STEAM bool AreFbiRequired();
+    SUPPORTED_10EN_11EN_STEAM bool AreSwatRequired();
+    SUPPORTED_10EN_11EN_STEAM void ClearQdCrimes();
+    SUPPORTED_10EN_11EN_STEAM void Initialise();
+    SUPPORTED_10EN_11EN_STEAM int NumOfHelisRequired();
+    SUPPORTED_10EN_11EN_STEAM void RegisterCrime(eCrimeType crimeType, CVector const &pos, unsigned int crimeId, bool bPoliceDontReallyCare);
+    SUPPORTED_10EN_11EN_STEAM void RegisterCrime_Immediately(eCrimeType crimeType, CVector const &pos, unsigned int crimeId, bool bPoliceDontReallyCare);
+    SUPPORTED_10EN_11EN_STEAM void ReportCrimeNow(eCrimeType crimeType, CVector const &pos, bool bPoliceDontReallyCare);
+    SUPPORTED_10EN_11EN_STEAM void Reset();
+    SUPPORTED_10EN_11EN_STEAM void ResetPolicePursuit();
+    SUPPORTED_10EN_11EN_STEAM void SetWantedLevel(int level);
+    SUPPORTED_10EN_11EN_STEAM void SetWantedLevelNoDrop(int level);
+    SUPPORTED_10EN_11EN_STEAM void Update();
+    SUPPORTED_10EN_11EN_STEAM void UpdateCrimesQ();
+    SUPPORTED_10EN_11EN_STEAM void UpdateWantedLevel();
+
+    SUPPORTED_10EN_11EN_STEAM static void SetMaximumWantedLevel(int level);
+    SUPPORTED_10EN_11EN_STEAM static int WorkOutPolicePresence(CVector pos, float radius);
 };
 
+VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
 VALIDATE_SIZE(CWanted, 0x204);
+
+#include "meta/meta.CWanted.h"

@@ -9,13 +9,12 @@
 #include "PluginBase.h"
 #include "CBox.h"
 #include "tColSurface.h"
-#include "CVector.h"
 
 class PLUGIN_API CColBox : public CBox {
 public:
     tColSurface m_surface;
 
-    SUPPORTED_10EN_11EN_STEAM void operator=(CColBox &right);
+    SUPPORTED_10EN_11EN_STEAM void operator=(CColBox const &right);
 
     SUPPORTED_10EN_11EN_STEAM void Set(CVector &min, CVector &max, unsigned char material, unsigned char flag);
 };

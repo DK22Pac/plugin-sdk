@@ -1,22 +1,16 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CMouseControllerState.h"
 
-// Converted from thiscall void CMouseControllerState::CMouseControllerState(void) 0x491B80 
-CMouseControllerState::CMouseControllerState() {
-    plugin::CallMethod<0x491B80, CMouseControllerState *>(this);
-}
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CMouseControllerState::Clear(void) 0x491BB0 
+int addrof(CMouseControllerState::Clear) = ADDRESS_BY_VERSION(0x491BB0, 0x491C70, 0x491C00);
+int gaddrof(CMouseControllerState::Clear) = GLOBAL_ADDRESS_BY_VERSION(0x491BB0, 0x491C70, 0x491C00);
+
 void CMouseControllerState::Clear() {
-    plugin::CallMethod<0x491BB0, CMouseControllerState *>(this);
-}
-
-// Converted from thiscall int CMousePointerStateHelper::GetMouseSetUp(void) 0x491BD0 
-int CMousePointerStateHelper::GetMouseSetUp() {
-    return plugin::CallMethodAndReturn<int, 0x491BD0, CMousePointerStateHelper *>(this);
+    plugin::CallMethodDynGlobal<CMouseControllerState *>(gaddrof(CMouseControllerState::Clear), this);
 }

@@ -6,7 +6,7 @@
 */
 #include "CPathNode.h"
 
-// Converted from thiscall void CPathNode::CPathNode(void) 0x42E670
-CPathNode::CPathNode() {
-    plugin::CallMethod<0x42E670, CPathNode *>(this);
-}
+PLUGIN_SOURCE_FILE
+
+int ctor_addr(CPathNode) = ADDRESS_BY_VERSION(0x42E670, 0x42E670, 0x42E670);
+int ctor_gaddr(CPathNode) = GLOBAL_ADDRESS_BY_VERSION(0x42E670, 0x42E670, 0x42E670);

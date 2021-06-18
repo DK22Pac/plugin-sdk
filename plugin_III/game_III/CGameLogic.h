@@ -9,13 +9,15 @@
 #include "PluginBase.h"
 #include "CPlayerPed.h"
 
-class CGameLogic {
+class PLUGIN_API CGameLogic {
 public:
-    static unsigned char &ActivePlayers;
+    SUPPORTED_10EN_11EN_STEAM static unsigned char &ActivePlayers;
 
-    static void InitAtStartOfGame();
-    static void Update();
-    static void SortOutStreamingAndMemory(CVector const& point);
-    static void RestorePlayerStuffDuringResurrection(CPlayerPed* player, CVector posn, float angle);
-    static void PassTime(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM static void InitAtStartOfGame();
+    SUPPORTED_10EN_11EN_STEAM static void PassTime(unsigned int time);
+    SUPPORTED_10EN_11EN_STEAM static void RestorePlayerStuffDuringResurrection(CPlayerPed *player, CVector pos, float angle);
+    SUPPORTED_10EN_11EN_STEAM static void SortOutStreamingAndMemory(CVector const &pos);
+    SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+
+#include "meta/meta.CGameLogic.h"

@@ -11,8 +11,8 @@ PLUGIN_SOURCE_FILE
 int addrof(CColBox::operator=) = ADDRESS_BY_VERSION(0x40B2E0, 0x40B2E0, 0x40B2E0);
 int gaddrof(CColBox::operator=) = GLOBAL_ADDRESS_BY_VERSION(0x40B2E0, 0x40B2E0, 0x40B2E0);
 
-void CColBox::operator=(CColBox &right) {
-    plugin::CallMethodDynGlobal<CColBox *, CColBox &>(gaddrof(CColBox::operator=), this, right);
+void CColBox::operator=(CColBox const &right) {
+    plugin::CallMethodDynGlobal<CColBox *, CColBox const &>(gaddrof(CColBox::operator=), this, right);
 }
 
 int addrof(CColBox::Set) = ADDRESS_BY_VERSION(0x40B2A0, 0x40B2A0, 0x40B2A0);

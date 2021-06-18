@@ -13,13 +13,7 @@ public:
     bool m_bBlockade;
     unsigned char nodeIdX;
     unsigned char nodeIdY;
-private:
-    char _pad3;
-public:
     short id;
-private:
-    short _pad6;
-public:
     CPedPathNode *prev;
     CPedPathNode *next;
 };

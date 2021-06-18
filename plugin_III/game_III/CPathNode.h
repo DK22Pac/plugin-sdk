@@ -9,7 +9,9 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
-class CPathNode {
+class PLUGIN_API CPathNode {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CPathNode)
+
 public:
     CVector m_vecPos;
     CPathNode *m_pPrev;
@@ -25,8 +27,8 @@ public:
         unsigned char bBetweenLevels : 1;
     } m_nFlags;
     char m_nGroup;
-
-    CPathNode();
 };
 
 VALIDATE_SIZE(CPathNode, 0x20);
+
+#include "meta/meta.CPathNode.h"

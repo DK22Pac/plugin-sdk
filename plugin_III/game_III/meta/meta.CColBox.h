@@ -32,10 +32,10 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x40B2E0, 0x40B2E0, 0x40B2E0>;
 // total references count: 10en (3), 11en (3), steam (3)
 using refs_t = RefList<0x411746,100,0,0x411710,1, 0x411932,100,0,0x411710,2, 0x53BFB4,100,0,0x53BF70,1, 0x411746,110,0,0x411710,1, 0x411932,110,0,0x411710,2, 0x53C1F4,110,0,0x53C1B0,1, 0x411746,120,0,0x411710,1, 0x411932,120,0,0x411710,2, 0x53C1A4,120,0,0x53C160,1>;
-using def_t = void(CColBox *, CColBox &);
+using def_t = void(CColBox *, CColBox const &);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CColBox *,CColBox &>, 0,1>;
+using args_t = ArgPick<ArgTypes<CColBox *,CColBox const &>, 0,1>;
 META_END
 
 }

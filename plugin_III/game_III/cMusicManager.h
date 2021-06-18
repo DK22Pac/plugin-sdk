@@ -33,9 +33,6 @@ public:
     bool m_bAnnouncementInProgress;
     tMP3Sample m_asMP3Samples[196];
     bool m_bResetTimers;
-private:
-    char _pad93D[3];
-public:
     unsigned int m_nResetTime;
     unsigned int m_nLastTrackServiceTime;
     unsigned int m_nTimer;
@@ -44,14 +41,9 @@ public:
     bool m_bDontServiceAmbienceTrack;
     bool m_bRadioSetByScript;
     unsigned char m_nRadioStation;
-private:
-    char _pad951[3];
-public:
     int m_nRadioPosition;
     unsigned char m_nRadioInCar;
-private:
-    char _pad959[3];
-public:
+
 
     SUPPORTED_10EN_11EN_STEAM static char &nFramesSinceCutsceneEnded;
     SUPPORTED_10EN_11EN_STEAM static float &fVol;
