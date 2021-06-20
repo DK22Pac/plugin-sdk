@@ -168,6 +168,8 @@ extern unsigned int MAX_RADAR_TRACES;
 
 class CRadar {
 public:
+    static float &cachedCos;
+    static float &cachedSin;
     static float &m_fRadarOrientation;
 
     // 2990.0 by default

@@ -10,8 +10,8 @@
 CMouseControllerState & CPad::PCTempMouseControllerState = *(CMouseControllerState *)0xB73404;
 CMouseControllerState & CPad::NewMouseControllerState = *(CMouseControllerState *)0xB73418;
 CMouseControllerState & CPad::OldMouseControllerState = *(CMouseControllerState *)0xB7342C;
-
-
+CKeyboardState &CPad::NewKeyState = *(CKeyboardState *)0xB73190;
+CKeyboardState &CPad::OldKeyState = *(CKeyboardState *)0xB72F20;
 
 CPad::CPad()
 {
