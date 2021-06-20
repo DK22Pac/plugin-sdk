@@ -20,6 +20,8 @@ public:
     float X;
     float Y;
 
+    SUPPORTED_10EN_11EN_STEAM CMouseControllerState();
+
     SUPPORTED_10EN_11EN_STEAM void Clear();
 };
 

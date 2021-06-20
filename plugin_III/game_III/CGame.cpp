@@ -21,8 +21,8 @@ int &gameTxdSlot = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x628D88, 
 int addrof(CGame::DrasticTidyUpMemory) = ADDRESS_BY_VERSION(0x48CA10, 0x48CB10, 0x48CAA0);
 int gaddrof(CGame::DrasticTidyUpMemory) = GLOBAL_ADDRESS_BY_VERSION(0x48CA10, 0x48CB10, 0x48CAA0);
 
-void CGame::DrasticTidyUpMemory(bool a1) {
-    plugin::CallDynGlobal<bool>(gaddrof(CGame::DrasticTidyUpMemory), a1);
+void CGame::DrasticTidyUpMemory(bool flushDraw) {
+    plugin::CallDynGlobal<bool>(gaddrof(CGame::DrasticTidyUpMemory), flushDraw);
 }
 
 int addrof(CGame::FinalShutdown) = ADDRESS_BY_VERSION(0x48BEC0, 0x48BFB0, 0x48BF40);
@@ -112,8 +112,8 @@ void CGame::ShutdownRenderWare() {
 int addrof(CGame::TidyUpMemory) = ADDRESS_BY_VERSION(0x48CA20, 0x48CB20, 0x48CAB0);
 int gaddrof(CGame::TidyUpMemory) = GLOBAL_ADDRESS_BY_VERSION(0x48CA20, 0x48CB20, 0x48CAB0);
 
-void CGame::TidyUpMemory(bool a1, bool clearD3Dmem) {
-    plugin::CallDynGlobal<bool, bool>(gaddrof(CGame::TidyUpMemory), a1, clearD3Dmem);
+void CGame::TidyUpMemory(bool moveTextures, bool flushDraw) {
+    plugin::CallDynGlobal<bool, bool>(gaddrof(CGame::TidyUpMemory), moveTextures, flushDraw);
 }
 
 int addrof(ValidateVersion) = ADDRESS_BY_VERSION(0x48BAD0, 0x48BBC0, 0x48BB50);

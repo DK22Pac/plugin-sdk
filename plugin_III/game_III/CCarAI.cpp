@@ -67,8 +67,8 @@ float CCarAI::FindSwitchDistanceFar(CVehicle *vehicle) {
 int addrof(CCarAI::GetCarToGoToCoors) = ADDRESS_BY_VERSION(0x415B10, 0x415B10, 0x415B10);
 int gaddrof(CCarAI::GetCarToGoToCoors) = GLOBAL_ADDRESS_BY_VERSION(0x415B10, 0x415B10, 0x415B10);
 
-void CCarAI::GetCarToGoToCoors(CVehicle *vehicle, CVector *coors) {
-    plugin::CallDynGlobal<CVehicle *, CVector *>(gaddrof(CCarAI::GetCarToGoToCoors), vehicle, coors);
+float CCarAI::GetCarToGoToCoors(CVehicle *vehicle, CVector *coors) {
+    return plugin::CallAndReturnDynGlobal<float, CVehicle *, CVector *>(gaddrof(CCarAI::GetCarToGoToCoors), vehicle, coors);
 }
 
 int addrof(CCarAI::MakeWayForCarWithSiren) = ADDRESS_BY_VERSION(0x416280, 0x416280, 0x416280);

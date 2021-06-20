@@ -8,7 +8,6 @@
 
 #include "PluginBase.h"
 #include "CVehicle.h"
-#include "CVector.h"
 #include "eCarMission.h"
 
 class PLUGIN_API CCarAI {
@@ -21,7 +20,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static int FindPoliceCarSpeedForWantedLevel(CVehicle *vehicle);
     SUPPORTED_10EN_11EN_STEAM static float FindSwitchDistanceClose();
     SUPPORTED_10EN_11EN_STEAM static float FindSwitchDistanceFar(CVehicle *vehicle);
-    SUPPORTED_10EN_11EN_STEAM static void GetCarToGoToCoors(CVehicle *vehicle, CVector *coors);
+    SUPPORTED_10EN_11EN_STEAM static float GetCarToGoToCoors(CVehicle *vehicle, CVector *coors);
     SUPPORTED_10EN_11EN_STEAM static void MakeWayForCarWithSiren(CVehicle *vehicle);
     SUPPORTED_10EN_11EN_STEAM static void MellowOutChaseSpeed(CVehicle *vehicle);
     SUPPORTED_10EN_11EN_STEAM static void TellCarToBlockOtherCar(CVehicle *vehicle, CVehicle *blockVehicle);

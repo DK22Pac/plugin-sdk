@@ -6,30 +6,38 @@
 */
 #include "CShotInfo.h"
 
-float *CShotInfo::ms_afRandTable = (float *)0x6E9878;
-CShotInfo *aShotInfo = (CShotInfo *)0x64F0D0;
+PLUGIN_SOURCE_FILE
 
-// Converted from cdecl bool CShotInfo::AddShot(CEntity *creator,eWeaponType weaponType,CVector origin,CVector target) 0x55BD70
-bool CShotInfo::AddShot(CEntity* creator, eWeaponType weaponType, CVector origin, CVector target) {
-    return plugin::CallAndReturn<bool, 0x55BD70, CEntity*, eWeaponType, CVector, CVector>(creator, weaponType, origin, target);
+PLUGIN_VARIABLE float(&CShotInfo::ms_afRandTable)[20] = *reinterpret_cast<float(*)[20]>(GLOBAL_ADDRESS_BY_VERSION(0x6E9878, 0x6E9878, 0x6F99B8));
+PLUGIN_VARIABLE CShotInfo(&gaShotInfo)[100] = *reinterpret_cast<CShotInfo(*)[100]>(GLOBAL_ADDRESS_BY_VERSION(0x64F0D0, 0x64F0D0, 0x65F0D8));
+
+int ctor_addr(CShotInfo) = ADDRESS_BY_VERSION(0x55C2C0, 0x55C3F0, 0x55C3A0);
+int ctor_gaddr(CShotInfo) = GLOBAL_ADDRESS_BY_VERSION(0x55C2C0, 0x55C3F0, 0x55C3A0);
+
+int addrof(CShotInfo::AddShot) = ADDRESS_BY_VERSION(0x55BD70, 0x55BEA0, 0x55BE50);
+int gaddrof(CShotInfo::AddShot) = GLOBAL_ADDRESS_BY_VERSION(0x55BD70, 0x55BEA0, 0x55BE50);
+
+bool CShotInfo::AddShot(CEntity *sourceEntity, eWeaponType weaponType, CVector startPos, CVector endPos) {
+    return plugin::CallAndReturnDynGlobal<bool, CEntity *, eWeaponType, CVector, CVector>(gaddrof(CShotInfo::AddShot), sourceEntity, weaponType, startPos, endPos);
 }
 
-// Converted from thiscall void CShotInfo::CShotInfo(void) 0x55C2C0
-CShotInfo::CShotInfo() {
-    plugin::CallMethod<0x55C2C0, CShotInfo *>(this);
-}
+int addrof(CShotInfo::Initialise) = ADDRESS_BY_VERSION(0x55BC60, 0x55BD90, 0x55BD40);
+int gaddrof(CShotInfo::Initialise) = GLOBAL_ADDRESS_BY_VERSION(0x55BC60, 0x55BD90, 0x55BD40);
 
-// Converted from cdecl void CShotInfo::Initialise(void) 0x55BC60
 void CShotInfo::Initialise() {
-    plugin::Call<0x55BC60>();
+    plugin::CallDynGlobal(gaddrof(CShotInfo::Initialise));
 }
 
-// Converted from cdecl void CShotInfo::Shutdown(void) 0x55BD50
+int addrof(CShotInfo::Shutdown) = ADDRESS_BY_VERSION(0x55BD50, 0x55BE80, 0x55BE30);
+int gaddrof(CShotInfo::Shutdown) = GLOBAL_ADDRESS_BY_VERSION(0x55BD50, 0x55BE80, 0x55BE30);
+
 void CShotInfo::Shutdown() {
-    plugin::Call<0x55BD50>();
+    plugin::CallDynGlobal(gaddrof(CShotInfo::Shutdown));
 }
 
-// Converted from cdecl void CShotInfo::Update(void) 0x55BFF0
+int addrof(CShotInfo::Update) = ADDRESS_BY_VERSION(0x55BFF0, 0x55C120, 0x55C0D0);
+int gaddrof(CShotInfo::Update) = GLOBAL_ADDRESS_BY_VERSION(0x55BFF0, 0x55C120, 0x55C0D0);
+
 void CShotInfo::Update() {
-    plugin::Call<0x55BFF0>();
+    plugin::CallDynGlobal(gaddrof(CShotInfo::Update));
 }

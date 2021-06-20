@@ -8,6 +8,21 @@
 
 namespace plugin {
 
+CTOR_META_BEGIN(CMouseControllerState)
+static int address;
+static int global_address;
+static const int id = 0x491B80;
+static const bool is_virtual = false;
+static const int vtable_index = -1;
+using mv_addresses_t = MvAddresses<0x491B80, 0x491C40, 0x491BD0>;
+// total references count: 10en (4), 11en (4), steam (4)
+using refs_t = RefList<0x491BE0,100,0,0x491BD0,1, 0x494E55,100,0,0x494E50,1, 0x494E5F,100,0,0x494E50,2, 0x494E69,100,0,0x494E50,3, 0x491CA0,110,0,0x491C90,1, 0x494F15,110,0,0x494F10,1, 0x494F1F,110,0,0x494F10,2, 0x494F29,110,0,0x494F10,3, 0x491C30,120,0,0x491C20,1, 0x494EA5,120,0,0x494EA0,1, 0x494EAF,120,0,0x494EA0,2, 0x494EB9,120,0,0x494EA0,3>;
+using def_t = CMouseControllerState *(CMouseControllerState *);
+static const int cb_priority = PRIORITY_BEFORE; 
+using calling_convention_t = CallingConventions::Thiscall;
+using args_t = ArgPick<ArgTypes<CMouseControllerState *>, 0>;
+META_END
+
 META_BEGIN(CMouseControllerState::Clear)
 static int address;
 static int global_address;

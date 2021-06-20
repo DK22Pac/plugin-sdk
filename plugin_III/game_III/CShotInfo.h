@@ -10,27 +10,29 @@
 #include "eWeaponType.h"
 #include "CEntity.h"
 
+class PLUGIN_API CShotInfo {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CShotInfo)
 
-class CShotInfo {
 public:
     eWeaponType weaponType;
-    CVector m_vecOrigin;
-    CVector m_vecTargetOffset;
-    float m_fRange;
-    CEntity *m_pCreator;
-    int m_nDestroyTime;
+    CVector m_vecStartPos;
+    CVector m_vecAreaAffected;
+    float m_fRadius;
+    CEntity *m_pSourceEntity;
+    float m_fTimeOut;
     bool m_bExist;
     bool m_bExecuted;
 
-    static float *ms_afRandTable; // [20]
+    SUPPORTED_10EN_11EN_STEAM static float(&ms_afRandTable)[20]; // static float ms_afRandTable[20]
 
-    static bool AddShot(CEntity* creator, eWeaponType weaponType, CVector origin, CVector target);
-    CShotInfo();
-    static void Initialise();
-    static void Shutdown();
-    static void Update();
+    SUPPORTED_10EN_11EN_STEAM static bool AddShot(CEntity *sourceEntity, eWeaponType weaponType, CVector startPos, CVector endPos);
+    SUPPORTED_10EN_11EN_STEAM static void Initialise();
+    SUPPORTED_10EN_11EN_STEAM static void Shutdown();
+    SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+
+SUPPORTED_10EN_11EN_STEAM extern CShotInfo(&gaShotInfo)[100]; // CShotInfo gaShotInfo[100]
 
 VALIDATE_SIZE(CShotInfo, 0x2C);
 
-extern CShotInfo *aShotInfo; // [100]
+#include "meta/meta.CShotInfo.h"

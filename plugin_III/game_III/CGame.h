@@ -21,7 +21,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool &noProstitutes;
 
     //! dummy function
-    SUPPORTED_10EN_11EN_STEAM static void DrasticTidyUpMemory(bool a1);
+    SUPPORTED_10EN_11EN_STEAM static void DrasticTidyUpMemory(bool flushDraw);
     SUPPORTED_10EN_11EN_STEAM static void FinalShutdown();
     SUPPORTED_10EN_11EN_STEAM static bool Initialise(char const *datFile);
     SUPPORTED_10EN_11EN_STEAM static bool InitialiseOnceAfterRW();
@@ -35,7 +35,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void ShutdownRenderWare();
     //! dummy function
-    SUPPORTED_10EN_11EN_STEAM static void TidyUpMemory(bool a1, bool clearD3Dmem);
+    SUPPORTED_10EN_11EN_STEAM static void TidyUpMemory(bool moveTextures, bool flushDraw);
 };
 
 SUPPORTED_10EN_11EN_STEAM extern int &gameTxdSlot;

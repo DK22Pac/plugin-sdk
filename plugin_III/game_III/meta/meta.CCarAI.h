@@ -77,7 +77,7 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x415B10, 0x415B10, 0x415B10>;
 // total references count: 10en (1), 11en (1), steam (1)
 using refs_t = RefList<0x4DA5ED,100,0,0x4D94E0,1, 0x4DA68D,110,0,0x4D9580,1, 0x4DA61D,120,0,0x4D9510,1>;
-using def_t = void(CVehicle *, CVector *);
+using def_t = float(CVehicle *, CVector *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
 using args_t = ArgPick<ArgTypes<CVehicle *,CVector *>, 0,1>;
