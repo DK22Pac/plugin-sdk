@@ -180,7 +180,8 @@ public:
     static CMouseControllerState &PCTempMouseControllerState;
     static CMouseControllerState &NewMouseControllerState;
     static CMouseControllerState &OldMouseControllerState;
-    
+    static CKeyboardState &NewKeyState;
+    static CKeyboardState& OldKeyState;
     // Functions list : Not finished
 
     CPad();
