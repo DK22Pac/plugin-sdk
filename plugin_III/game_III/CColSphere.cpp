@@ -8,6 +8,13 @@
 
 PLUGIN_SOURCE_FILE
 
+int ctor_addr(CColSphere) = ADDRESS_BY_VERSION(0x411520, 0x411520, 0x411520);
+int ctor_gaddr(CColSphere) = GLOBAL_ADDRESS_BY_VERSION(0x411520, 0x411520, 0x411520);
+
+CColSphere::CColSphere() {
+    plugin::CallMethodDynGlobal<CColSphere *>(ctor_gaddr(CColSphere), this);
+}
+
 int addrof(CColSphere::Set) = ADDRESS_BY_VERSION(0x411E40, 0x411E40, 0x411E40);
 int gaddrof(CColSphere::Set) = GLOBAL_ADDRESS_BY_VERSION(0x411E40, 0x411E40, 0x411E40);
 

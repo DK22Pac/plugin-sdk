@@ -9,11 +9,12 @@
 #include "PluginBase.h"
 #include "CSphere.h"
 #include "tColSurface.h"
-#include "CVector.h"
 
 class PLUGIN_API CColSphere : public CSphere {
 public:
     tColSurface m_surface;
+
+    SUPPORTED_10EN_11EN_STEAM CColSphere();
 
     SUPPORTED_10EN_11EN_STEAM void Set(float radius, CVector &center, unsigned char material, unsigned char flag);
 };
