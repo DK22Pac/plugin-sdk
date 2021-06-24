@@ -267,7 +267,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM CPed *SetUpDriver();
     SUPPORTED_10EN_11EN_STEAM CPed *SetupPassenger(int number);
     SUPPORTED_10EN_11EN_STEAM bool ShufflePassengersToMakeSpace();
-    SUPPORTED_10EN_11EN_STEAM bool UsesSiren(int vehicleModel);
+    SUPPORTED_10EN_11EN_STEAM bool UsesSiren(unsigned int vehicleModel);
 };
 
 //! 0.1f

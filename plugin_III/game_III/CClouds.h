@@ -7,27 +7,29 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CRGBA.h"
 #include "RenderWare.h"
 
-class CClouds {
+class PLUGIN_API CClouds {
 public:
-    // static variables
-    static RwRGBA *ms_colourTop;
-    static RwRGBA *ms_colourBottom;
-    static float &CloudRotation;
-    static float &IndividualRotation;
-    static float &ms_cameraRoll;
-    static float &ms_horizonZ;
+    SUPPORTED_10EN_11EN_STEAM static float &ms_cameraRoll;
+    SUPPORTED_10EN_11EN_STEAM static CRGBA &ms_colourBottom;
+    SUPPORTED_10EN_11EN_STEAM static float &ms_horizonZ;
+    SUPPORTED_10EN_11EN_STEAM static float &CloudRotation;
+    SUPPORTED_10EN_11EN_STEAM static CRGBA &ms_colourTop;
+    SUPPORTED_10EN_11EN_STEAM static unsigned int &IndividualRotation;
 
-    // static functions
-    static void Init();
-    static void Render();
-    static void RenderBackground(short redTop, short greenTop, short blueTop, short redBottom, short greenBottom, short blueBottom, short alpha);
-    static void RenderHorizon();
-    static void Shutdown();
-    static void Update();
+    SUPPORTED_10EN_11EN_STEAM static void Init();
+    SUPPORTED_10EN_11EN_STEAM static void Render();
+    SUPPORTED_10EN_11EN_STEAM static void RenderBackground(short redTop, short greenTop, short blueTop, short redBottom, short greenBottom, short blueBottom, short alpha);
+    SUPPORTED_10EN_11EN_STEAM static void RenderHorizon();
+    SUPPORTED_10EN_11EN_STEAM static void Shutdown();
+    SUPPORTED_10EN_11EN_STEAM static void Update();
 };
 
-extern RwTexture*& gpCloudTex;	// RwTexture* gpCloudTex[5] = {cloud1, cloud2, cloud3, cloudhilit, cloudmasked};
+//! RwTexture* gpCloudTex[5] = {cloud1, cloud2, cloud3, cloudhilit, cloudmasked};
+SUPPORTED_10EN_11EN_STEAM extern RwTexture *(&gpCloudTex)[5]; // RwTexture *gpCloudTex[5]
 
-bool UseDarkBackground();
+SUPPORTED_10EN_11EN_STEAM bool UseDarkBackground();
+
+#include "meta/meta.CClouds.h"

@@ -602,10 +602,10 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x552200, 0x552340, 0x5522F0>;
 // total references count: 10en (6), 11en (6), steam (6)
 using refs_t = RefList<0x413FB0,100,0,0x413E50,1, 0x41454B,100,0,0x413E50,2, 0x414FE4,100,0,0x413E50,3, 0x437580,100,0,0x436FA0,1, 0x534085,100,0,0x531470,1, 0x53480A,100,0,0x531470,2, 0x413FB0,110,0,0x413E50,1, 0x41454B,110,0,0x413E50,2, 0x414FE4,110,0,0x413E50,3, 0x437580,110,0,0x436FA0,1, 0x5342C5,110,0,0x5316B0,1, 0x534A4A,110,0,0x5316B0,2, 0x413FB0,120,0,0x413E50,1, 0x41454B,120,0,0x413E50,2, 0x414FE4,120,0,0x413E50,3, 0x437580,120,0,0x436FA0,1, 0x534255,120,0,0x531640,1, 0x5349DA,120,0,0x531640,2>;
-using def_t = bool(CVehicle *, int);
+using def_t = bool(CVehicle *, unsigned int);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CVehicle *,int>, 0,1>;
+using args_t = ArgPick<ArgTypes<CVehicle *, unsigned int>, 0,1>;
 META_END
 
 META_BEGIN(CVehicle::IsUpsideDown)

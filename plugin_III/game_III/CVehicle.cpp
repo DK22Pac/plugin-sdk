@@ -413,8 +413,8 @@ bool CVehicle::ShufflePassengersToMakeSpace() {
 int addrof(CVehicle::UsesSiren) = ADDRESS_BY_VERSION(0x552200, 0x552340, 0x5522F0);
 int gaddrof(CVehicle::UsesSiren) = GLOBAL_ADDRESS_BY_VERSION(0x552200, 0x552340, 0x5522F0);
 
-bool CVehicle::UsesSiren(int vehicleModel) {
-    return plugin::CallMethodAndReturnDynGlobal<bool, CVehicle *, int>(gaddrof(CVehicle::UsesSiren), this, vehicleModel);
+bool CVehicle::UsesSiren(unsigned int vehicleModel) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CVehicle *, unsigned int>(gaddrof(CVehicle::UsesSiren), this, vehicleModel);
 }
 
 int addrof(DestroyVehicleAndDriverAndPassengers) = ADDRESS_BY_VERSION(0x552760, 0x5528A0, 0x552850);
