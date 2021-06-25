@@ -8,6 +8,9 @@
 
 PLUGIN_SOURCE_FILE
 
+PLUGIN_VARIABLE RwImVertexIndex(&StreakIndexList)[12] = *reinterpret_cast<RwImVertexIndex(*)[12]>(GLOBAL_ADDRESS_BY_VERSION(0x64995C, 0x64995C, 0x65995C));
+PLUGIN_VARIABLE RwIm3DVertex(&StreakVertices)[4] = *reinterpret_cast<RwIm3DVertex(*)[4]>(GLOBAL_ADDRESS_BY_VERSION(0x649974, 0x649974, 0x659974));
+
 int ctor_addr(CRegisteredMotionBlurStreak) = ADDRESS_BY_VERSION(0x51C350, 0x51C580, 0x51C510);
 int ctor_gaddr(CRegisteredMotionBlurStreak) = GLOBAL_ADDRESS_BY_VERSION(0x51C350, 0x51C580, 0x51C510);
 
