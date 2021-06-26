@@ -143,7 +143,7 @@ public:
     } m_nVehicleFlags;
     char m_numPedsUseItAsCover;
     unsigned char m_nAmmoInClip; //!< Used to make the guns on boat do a reload (20 by default)
-    char m_nPacManPickupsCarried;
+    unsigned char m_nPacManPickupsCarried;
     unsigned char m_nRoadblockType;
     short m_nRoadblockNode;
     float m_fHealth; //!< 1000.0f = full health. 250.0f = fire. 0 -> explode
