@@ -8,6 +8,21 @@
 
 namespace plugin {
 
+CTOR_META_BEGIN(CColSphere)
+static int address;
+static int global_address;
+static const int id = 0x411520;
+static const bool is_virtual = false;
+static const int vtable_index = -1;
+using mv_addresses_t = MvAddresses<0x411520, 0x411520, 0x411520>;
+// total references count: 10en (12), 11en (12), steam (12)
+using refs_t = RefList<0x410C12,100,2,0,1, 0x413682,100,2,0,1, 0x41369A,100,2,0,1, 0x4136B2,100,2,0,1, 0x4136CA,100,2,0,1, 0x4136E2,100,2,0,1, 0x4136FA,100,2,0,1, 0x413712,100,2,0,1, 0x41372A,100,2,0,1, 0x413742,100,2,0,1, 0x41375A,100,2,0,1, 0x413772,100,2,0,1, 0x410C12,110,2,0,1, 0x413682,110,2,0,1, 0x41369A,110,2,0,1, 0x4136B2,110,2,0,1, 0x4136CA,110,2,0,1, 0x4136E2,110,2,0,1, 0x4136FA,110,2,0,1, 0x413712,110,2,0,1, 0x41372A,110,2,0,1, 0x413742,110,2,0,1, 0x41375A,110,2,0,1, 0x413772,110,2,0,1, 0x410C12,120,2,0,1, 0x413682,120,2,0,1, 0x41369A,120,2,0,1, 0x4136B2,120,2,0,1, 0x4136CA,120,2,0,1, 0x4136E2,120,2,0,1, 0x4136FA,120,2,0,1, 0x413712,120,2,0,1, 0x41372A,120,2,0,1, 0x413742,120,2,0,1, 0x41375A,120,2,0,1, 0x413772,120,2,0,1>;
+using def_t = CColSphere *(CColSphere *);
+static const int cb_priority = PRIORITY_BEFORE; 
+using calling_convention_t = CallingConventions::Thiscall;
+using args_t = ArgPick<ArgTypes<CColSphere *>, 0>;
+META_END
+
 META_BEGIN(CColSphere::Set)
 static int address;
 static int global_address;

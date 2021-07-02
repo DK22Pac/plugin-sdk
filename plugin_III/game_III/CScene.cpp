@@ -6,4 +6,6 @@
 */
 #include "CScene.h"
 
-CScene &Scene = *(CScene *)0x726768;
+PLUGIN_SOURCE_FILE
+
+PLUGIN_VARIABLE CScene &Scene = *reinterpret_cast<CScene *>(GLOBAL_ADDRESS_BY_VERSION(0x726768, 0x726768, 0x7368A8));

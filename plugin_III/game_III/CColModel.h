@@ -7,40 +7,43 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CColBox.h"
 #include "CColSphere.h"
+#include "CColBox.h"
 #include "CColLine.h"
-#include "CColTriangle.h"
 #include "CColTrianglePlane.h"
 #include "CLink.h"
 
-class CColModel {
+class PLUGIN_API CColModel {
 public:
     CColSphere m_boundSphere;
     CColBox m_boundBox;
-    unsigned short m_nNumOfSpheres;
-    unsigned short m_nNumOfLines;
-    unsigned short m_nNumOfBoxes;
-    unsigned short m_nNumOfTriangles;
-    unsigned int m_nColLevel;
-    unsigned char m_nFlags;
-    //char _pad3D[3];
+    short m_nNumOfSpheres;
+    short m_nNumOfLines;
+    short m_nNumOfBoxes;
+    short m_nNumOfTriangles;
+    int m_nColLevel;
+    bool m_bOwnsCollisionVolumes;
     CColSphere *m_pSpheres;
     CColLine *m_pLines;
     CColBox *m_pBoxes;
-    CVector *m_pVertices;
+    CompressedVector *m_pVertices;
     CColTriangle *m_pTriangles;
     CColTrianglePlane *m_pTrianglePlanes;
-    
-    CColModel();
-    void CalculateTrianglePlanes();
-    CLink<CColModel*> *GetLinkPtr();
-    void GetTrianglePoint(CVector& outVec, int vertId);
-    void RemoveCollisionVolumes();
-    void RemoveTrianglePlanes();
-    void operator=(CColModel const& right);
-    ~CColModel();
-    void SetLinkPtr(CLink<CColModel*> *link);
+
+    SUPPORTED_10EN_11EN_STEAM CColModel();
+
+    SUPPORTED_10EN_11EN_STEAM ~CColModel();
+
+    SUPPORTED_10EN_11EN_STEAM void operator=(CColModel const &right);
+
+    SUPPORTED_10EN_11EN_STEAM void CalculateTrianglePlanes();
+    SUPPORTED_10EN_11EN_STEAM CLink<CColModel *> *GetLinkPtr();
+    SUPPORTED_10EN_11EN_STEAM void GetTrianglePoint(CVector &outVec, int vertId);
+    SUPPORTED_10EN_11EN_STEAM void RemoveCollisionVolumes();
+    SUPPORTED_10EN_11EN_STEAM void RemoveTrianglePlanes();
+    SUPPORTED_10EN_11EN_STEAM void SetLinkPtr(CLink<CColModel *> *link);
 };
 
 VALIDATE_SIZE(CColModel, 0x58);
+
+#include "meta/meta.CColModel.h"

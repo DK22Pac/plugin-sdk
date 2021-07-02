@@ -9,10 +9,12 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
-class CScene {
+class PLUGIN_API CScene {
 public:
     RpWorld *m_pWorld;
     RwCamera *m_pCamera;
 };
 
-extern CScene &Scene;
+SUPPORTED_10EN_11EN_STEAM extern CScene &Scene;
+
+VALIDATE_SIZE(CScene, 0x8);

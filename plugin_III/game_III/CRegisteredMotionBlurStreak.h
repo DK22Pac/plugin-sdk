@@ -9,6 +9,7 @@
 #include "PluginBase.h"
 #include "CRGBA.h"
 #include "CVector.h"
+#include "RenderWare.h"
 
 class PLUGIN_API CRegisteredMotionBlurStreak {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CRegisteredMotionBlurStreak)
@@ -23,6 +24,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Render();
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+
+SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&StreakIndexList)[12]; // RwImVertexIndex StreakIndexList[12]
+SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&StreakVertices)[4]; // RwIm3DVertex StreakVertices[4]
 
 VALIDATE_SIZE(CRegisteredMotionBlurStreak, 0x54);
 

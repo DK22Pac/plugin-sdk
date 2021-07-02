@@ -6,46 +6,61 @@
 */
 #include "CClouds.h"
 
-RwRGBA *CClouds::ms_colourTop = (RwRGBA*)0x94143C;
-RwRGBA *CClouds::ms_colourBottom = (RwRGBA*)0x8F2C38;
-float &CClouds::CloudRotation = *(float*)0x8F5F40;
-float &CClouds::IndividualRotation = *(float*)0x943078;
-float &CClouds::ms_cameraRoll = *(float *)0x8F29CC;
-float &CClouds::ms_horizonZ = *(float *)0x8F31C0;
+PLUGIN_SOURCE_FILE
 
-RwTexture*& gpCloudTex = *(RwTexture**)0x9411C0;
+PLUGIN_VARIABLE float &CClouds::ms_cameraRoll = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F29CC, 0x8F2A80, 0x902BC0));
+PLUGIN_VARIABLE CRGBA &CClouds::ms_colourBottom = *reinterpret_cast<CRGBA *>(GLOBAL_ADDRESS_BY_VERSION(0x8F2C38, 0x8F2CEC, 0x902E2C));
+PLUGIN_VARIABLE float &CClouds::ms_horizonZ = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F31C0, 0x8F3274, 0x9033B4));
+PLUGIN_VARIABLE float &CClouds::CloudRotation = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8F5F40, 0x8F5FF4, 0x906134));
+PLUGIN_VARIABLE CRGBA &CClouds::ms_colourTop = *reinterpret_cast<CRGBA *>(GLOBAL_ADDRESS_BY_VERSION(0x94143C, 0x9415F4, 0x951734));
+PLUGIN_VARIABLE unsigned int &CClouds::IndividualRotation = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0x943078, 0x943230, 0x953370));
+PLUGIN_VARIABLE RwTexture *(&gpCloudTex)[5] = *reinterpret_cast<RwTexture *(*)[5]>(GLOBAL_ADDRESS_BY_VERSION(0x9411C0, 0x941378, 0x9514B8));
 
-// Converted from cdecl void CClouds::Init(void) 0x4F6C10 
+int addrof(CClouds::Init) = ADDRESS_BY_VERSION(0x4F6C10, 0x4F6CC0, 0x4F6C50);
+int gaddrof(CClouds::Init) = GLOBAL_ADDRESS_BY_VERSION(0x4F6C10, 0x4F6CC0, 0x4F6C50);
+
 void CClouds::Init() {
-    plugin::Call<0x4F6C10>();
+    plugin::CallDynGlobal(gaddrof(CClouds::Init));
 }
 
-// Converted from cdecl void CClouds::Render(void) 0x4F6D90 
+int addrof(CClouds::Render) = ADDRESS_BY_VERSION(0x4F6D90, 0x4F6E70, 0x4F6E00);
+int gaddrof(CClouds::Render) = GLOBAL_ADDRESS_BY_VERSION(0x4F6D90, 0x4F6E70, 0x4F6E00);
+
 void CClouds::Render() {
-    plugin::Call<0x4F6D90>();
+    plugin::CallDynGlobal(gaddrof(CClouds::Render));
 }
 
-// Converted from cdecl void CClouds::RenderBackground(short redTop,short greenTop,short blueTop,short redBottom,short greenBottom,short blueBottom,short alpha) 0x4F7F00
+int addrof(CClouds::RenderBackground) = ADDRESS_BY_VERSION(0x4F7F00, 0x4F7FE0, 0x4F7F70);
+int gaddrof(CClouds::RenderBackground) = GLOBAL_ADDRESS_BY_VERSION(0x4F7F00, 0x4F7FE0, 0x4F7F70);
+
 void CClouds::RenderBackground(short redTop, short greenTop, short blueTop, short redBottom, short greenBottom, short blueBottom, short alpha) {
-    plugin::Call<0x4F7F00, short, short, short, short, short, short, short>(redTop, greenTop, blueTop, redBottom, greenBottom, blueBottom, alpha);
+    plugin::CallDynGlobal<short, short, short, short, short, short, short>(gaddrof(CClouds::RenderBackground), redTop, greenTop, blueTop, redBottom, greenBottom, blueBottom, alpha);
 }
 
-// Converted from cdecl void CClouds::RenderHorizon(void) 0x4F85F0 
+int addrof(CClouds::RenderHorizon) = ADDRESS_BY_VERSION(0x4F85F0, 0x4F86D0, 0x4F8660);
+int gaddrof(CClouds::RenderHorizon) = GLOBAL_ADDRESS_BY_VERSION(0x4F85F0, 0x4F86D0, 0x4F8660);
+
 void CClouds::RenderHorizon() {
-    plugin::Call<0x4F85F0>();
+    plugin::CallDynGlobal(gaddrof(CClouds::RenderHorizon));
 }
 
-// Converted from cdecl void CClouds::Shutdown(void) 0x4F6CA0 
+int addrof(CClouds::Shutdown) = ADDRESS_BY_VERSION(0x4F6CA0, 0x4F6D50, 0x4F6CE0);
+int gaddrof(CClouds::Shutdown) = GLOBAL_ADDRESS_BY_VERSION(0x4F6CA0, 0x4F6D50, 0x4F6CE0);
+
 void CClouds::Shutdown() {
-    plugin::Call<0x4F6CA0>();
+    plugin::CallDynGlobal(gaddrof(CClouds::Shutdown));
 }
 
-// Converted from cdecl void CClouds::Update(void) 0x4F6CE0 
+int addrof(CClouds::Update) = ADDRESS_BY_VERSION(0x4F6CE0, 0x4F6DC0, 0x4F6D50);
+int gaddrof(CClouds::Update) = GLOBAL_ADDRESS_BY_VERSION(0x4F6CE0, 0x4F6DC0, 0x4F6D50);
+
 void CClouds::Update() {
-    plugin::Call<0x4F6CE0>();
+    plugin::CallDynGlobal(gaddrof(CClouds::Update));
 }
 
-// Converted from cdecl bool UseDarkBackground(void) 0x4F7ED0 
+int addrof(UseDarkBackground) = ADDRESS_BY_VERSION(0x4F7ED0, 0x4F7FB0, 0x4F7F40);
+int gaddrof(UseDarkBackground) = GLOBAL_ADDRESS_BY_VERSION(0x4F7ED0, 0x4F7FB0, 0x4F7F40);
+
 bool UseDarkBackground() {
-    return plugin::CallAndReturn<bool, 0x4F7ED0>();
+    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(UseDarkBackground));
 }

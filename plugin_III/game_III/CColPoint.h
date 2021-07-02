@@ -10,18 +10,22 @@
 #include "CVector.h"
 
 class PLUGIN_API CColPoint {
+    PLUGIN_NO_DEFAULT_CONSTRUCTION(CColPoint)
+
 public:
     CVector m_vecPoint;
-    float field_C;
+    float m_fPointOffsetZ;
     CVector m_vecNormal;
-    float field_1C;
+    float m_fNormalOffsetZ;
     unsigned char m_nSurfaceTypeA;
     unsigned char m_nPieceTypeA;
     unsigned char m_nSurfaceTypeB;
     unsigned char m_nPieceTypeB;
     float m_fCollisionRadius;
-	
-	CColPoint& operator=(CColPoint const& right);
+
+    void operator=(CColPoint const &right);
 };
 
 VALIDATE_SIZE(CColPoint, 0x28);
+
+#include "meta/meta.CColPoint.h"

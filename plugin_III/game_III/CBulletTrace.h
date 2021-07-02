@@ -8,6 +8,7 @@
 
 #include "PluginBase.h"
 #include "CVector.h"
+#include "RenderWare.h"
 
 class PLUGIN_API CBulletTrace {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CBulletTrace)
@@ -21,6 +22,9 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+
+SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&TraceIndexList)[12]; // RwImVertexIndex TraceIndexList[12]
+SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&TraceVertices)[6]; // RwIm3DVertex TraceVertices[6]
 
 VALIDATE_SIZE(CBulletTrace, 0x1C);
 
