@@ -27,7 +27,7 @@ public:
 	static void SortOutStreamingAndMemory(CVector *translation, float angle);
 	static void PassTime(unsigned int time);
 	static void ClearSkip(char a1);
-	static void SkipCanBeActivated();
+	static bool SkipCanBeActivated();
 	static int  IsPointWithinLineArea(RwV3d* areas, signed int sizeofareas, float x, float y);
 	static void SetPlayerWantedLevelForForbiddenTerritories(char townNumber);
 	static long double CalcDistanceToForbiddenTrainCrossing(float x1, float y1, float z1, float x2, float y2, float z2, char a7, CVector* a8);

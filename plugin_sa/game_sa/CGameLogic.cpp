@@ -48,8 +48,8 @@ void CGameLogic::ClearSkip(char a1) {
 }
 
 //Converted from bool __cdecl CGameLogic::SkipCanBeActivated() 0x4415C0
-void CGameLogic::SkipCanBeActivated() {
-	plugin::Call<0x4415C0>();
+bool CGameLogic::SkipCanBeActivated() {
+	return plugin::CallAndReturn<bool, 0x4415C0>();
 }
 
 //Converted from int __cdecl CGameLogic::IsPointWithinLineArea(int a1, signed int a2, float a3, float a4) 0x4416E0
