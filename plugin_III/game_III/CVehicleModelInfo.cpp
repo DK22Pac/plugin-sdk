@@ -14,6 +14,8 @@ PLUGIN_VARIABLE RwTexture *(&CVehicleModelInfo::ms_colourTextureTable)[256] = *r
 PLUGIN_VARIABLE CRGBA(&CVehicleModelInfo::ms_vehicleColourTable)[256] = *reinterpret_cast<CRGBA(*)[256]>(GLOBAL_ADDRESS_BY_VERSION(0x86BA88, 0x86BA38, 0x87BB78));
 PLUGIN_VARIABLE RwTexture *(&CVehicleModelInfo::ms_pEnvironmentMaps)[1] = *reinterpret_cast<RwTexture *(*)[1]>(GLOBAL_ADDRESS_BY_VERSION(0x8F1A30, 0x8F1AE4, 0x901C24));
 PLUGIN_VARIABLE char(&CVehicleModelInfo::ms_compsUsed)[2] = *reinterpret_cast<char(*)[2]>(GLOBAL_ADDRESS_BY_VERSION(0x95CCB2, 0x95CE6A, 0x96CFAA));
+PLUGIN_VARIABLE RwTexture *&gpWhiteTexture = *reinterpret_cast<RwTexture **>(GLOBAL_ADDRESS_BY_VERSION(0x64C4F8, 0x64C4F8, 0x65C4F8));
+PLUGIN_VARIABLE RwFrame *&pMatFxIdentityFrame = *reinterpret_cast<RwFrame **>(GLOBAL_ADDRESS_BY_VERSION(0x64C510, 0x64C510, 0x65C510));
 
 int ctor_addr(CVehicleModelInfo) = ADDRESS_BY_VERSION(0x51FB10, 0x51FD40, 0x51FCD0);
 int ctor_gaddr(CVehicleModelInfo) = GLOBAL_ADDRESS_BY_VERSION(0x51FB10, 0x51FD40, 0x51FCD0);
@@ -276,6 +278,13 @@ void CVehicleModelInfo::ShutdownEnvironmentMaps() {
     plugin::CallDynGlobal(gaddrof(CVehicleModelInfo::ShutdownEnvironmentMaps));
 }
 
+int addrof(GetOkAndDamagedAtomicCB) = ADDRESS_BY_VERSION(0x520380, 0x5205B0, 0x520540);
+int gaddrof(GetOkAndDamagedAtomicCB) = GLOBAL_ADDRESS_BY_VERSION(0x520380, 0x5205B0, 0x520540);
+
+RwObject *GetOkAndDamagedAtomicCB(RwObject *object, void *data) {
+    return plugin::CallAndReturnDynGlobal<RwObject *, RwObject *, void *>(gaddrof(GetOkAndDamagedAtomicCB), object, data);
+}
+
 int addrof(IsValidCompRule) = ADDRESS_BY_VERSION(0x520880, 0x520AB0, 0x520A40);
 int gaddrof(IsValidCompRule) = GLOBAL_ADDRESS_BY_VERSION(0x520880, 0x520AB0, 0x520A40);
 
@@ -302,4 +311,11 @@ int gaddrof(ChooseComponent) = GLOBAL_ADDRESS_BY_VERSION(0x5209C0, 0x520BF0, 0x5
 
 int ChooseComponent(int rule, int compRulesBits) {
     return plugin::CallAndReturnDynGlobal<int, int, int>(gaddrof(ChooseComponent), rule, compRulesBits);
+}
+
+int addrof(CreateCarColourTexture) = ADDRESS_BY_VERSION(0x521160, 0x521390, 0x521320);
+int gaddrof(CreateCarColourTexture) = GLOBAL_ADDRESS_BY_VERSION(0x521160, 0x521390, 0x521320);
+
+RwTexture *CreateCarColourTexture(unsigned char red, unsigned char green, unsigned char blue) {
+    return plugin::CallAndReturnDynGlobal<RwTexture *, unsigned char, unsigned char, unsigned char>(gaddrof(CreateCarColourTexture), red, green, blue);
 }

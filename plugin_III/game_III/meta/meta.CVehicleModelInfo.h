@@ -593,6 +593,21 @@ using calling_convention_t = CallingConventions::Cdecl;
 using args_t = ArgPick<ArgTypes<int>, 0>;
 META_END
 
+META_BEGIN(GetOkAndDamagedAtomicCB)
+static int address;
+static int global_address;
+static const int id = 0x520380;
+static const bool is_virtual = false;
+static const int vtable_index = -1;
+using mv_addresses_t = MvAddresses<0x520380, 0x5205B0, 0x520540>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x52072C,100,2,0,1, 0x52095C,110,2,0,1, 0x5208EC,120,2,0,1>;
+using def_t = RwObject *(RwObject *, void *);
+static const int cb_priority = PRIORITY_BEFORE; 
+using calling_convention_t = CallingConventions::Cdecl;
+using args_t = ArgPick<ArgTypes<RwObject *,void *>, 0,1>;
+META_END
+
 META_BEGIN(IsValidCompRule)
 static int address;
 static int global_address;
@@ -651,6 +666,21 @@ using def_t = int(int, int);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Cdecl;
 using args_t = ArgPick<ArgTypes<int,int>, 0,1>;
+META_END
+
+META_BEGIN(CreateCarColourTexture)
+static int address;
+static int global_address;
+static const int id = 0x521160;
+static const bool is_virtual = false;
+static const int vtable_index = -1;
+using mv_addresses_t = MvAddresses<0x521160, 0x521390, 0x521320>;
+// total references count: 10en (1), 11en (1), steam (1)
+using refs_t = RefList<0x52154D,100,0,0x521260,1, 0x52177D,110,0,0x521490,1, 0x52170D,120,0,0x521420,1>;
+using def_t = RwTexture *(unsigned char, unsigned char, unsigned char);
+static const int cb_priority = PRIORITY_BEFORE; 
+using calling_convention_t = CallingConventions::Cdecl;
+using args_t = ArgPick<ArgTypes<unsigned char,unsigned char,unsigned char>, 0,1,2>;
 META_END
 
 }

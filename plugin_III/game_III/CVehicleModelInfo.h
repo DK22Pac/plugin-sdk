@@ -130,10 +130,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ShutdownEnvironmentMaps();
 };
 
+SUPPORTED_10EN_11EN_STEAM extern RwTexture *&gpWhiteTexture;
+SUPPORTED_10EN_11EN_STEAM extern RwFrame *&pMatFxIdentityFrame;
+
+SUPPORTED_10EN_11EN_STEAM RwObject *GetOkAndDamagedAtomicCB(RwObject *object, void *data);
 SUPPORTED_10EN_11EN_STEAM bool IsValidCompRule(int rule);
 SUPPORTED_10EN_11EN_STEAM int GetListOfComponentsNotUsedByRules(unsigned int compRulesBits, int numExtras, int *variationsList);
 SUPPORTED_10EN_11EN_STEAM int CountCompsInRule(int compRulesBits);
 SUPPORTED_10EN_11EN_STEAM int ChooseComponent(int rule, int compRulesBits);
+SUPPORTED_10EN_11EN_STEAM RwTexture *CreateCarColourTexture(unsigned char red, unsigned char green, unsigned char blue);
 
 VTABLE_DESC(CVehicleModelInfo, 0x5FDFD8, 7);
 VALIDATE_SIZE(CVehicleModelInfo, 0x1F8);
