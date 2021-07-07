@@ -351,9 +351,10 @@ RwBool RwD3D9EnableLight(RwInt32 index, RwBool enable); // 0x7FA860
 RwBool RwD3D9IndexBufferCreate(RwUInt32 numIndices, void* indexBuffer); // 0x4C9970
 RwBool RwD3D9CreateVertexDeclaration(const void* elements, void* vertexdeclaration); // 0x7FAA30
 void RwD3D9DeleteVertexDeclaration(void); // 0x7FAC10
-void RwD3D9DeleteVertexShader(void); // 0x7FAC90
+RwBool RwD3D9CreateVertexShader(const RwUInt32* function, void* shader); // 0x7FAC60
+void RwD3D9DeleteVertexShader(void *shader); // 0x7FAC90
 RwBool RwD3D9CreatePixelShader(const RwUInt32* function, void* shader); // 0x7FACC0
-void RwD3D9DeletePixelShader(void); // 0x7FACF0
+void RwD3D9DeletePixelShader(void *shader); // 0x7FACF0
 const void* RwD3D9GetCaps(void); // 0x7FAD20
 RwBool RwD3D9CameraIsSphereFullyInsideFrustum(const void* camera, const void* sphere); // 0x7FAD30
 RwBool RwD3D9CameraIsBBoxFullyInsideFrustum(const void* camera, const void* boundingBox); // 0x7FAD90
@@ -450,7 +451,7 @@ RwCameraChunkInfo* RwCameraChunkInfoRead(RwStream* stream, RwCameraChunkInfo* ca
 /* rpworld.h */
 
 void _rwD3D9VSSetActiveWorldMatrix(const RwMatrix* worldMatrix); // 0x764650
-void _rwD3D9VSGetComposedTransformMatrix(void); // 0x7646E0
+void _rwD3D9VSGetComposedTransformMatrix(_D3DMATRIX *m_out); // 0x7646E0
 void _rwD3D9VSGetWorldViewTransposedMatrix(void); // 0x764730
 void _rwD3D9VSGetWorldViewMatrix(void); // 0x764760
 void _rwD3D9VSGetInverseWorldMatrix(void); // 0x7647B0

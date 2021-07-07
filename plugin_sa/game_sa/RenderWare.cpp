@@ -1269,16 +1269,20 @@ void RwD3D9DeleteVertexDeclaration(void) {
     ((void(__cdecl *)(void))0x7FAC10)();
 }
 
-void RwD3D9DeleteVertexShader(void) {
-    ((void(__cdecl *)(void))0x7FAC90)();
+RwBool RwD3D9CreateVertexShader(const RwUInt32* function, void* shader) {
+  return ((RwBool(__cdecl*)(const RwUInt32*, void*))0x7FAC60)(function, shader);
+}
+
+void RwD3D9DeleteVertexShader(void *shader) {
+    ((void(__cdecl *)(void *))0x7FAC90)(shader);
 }
 
 RwBool RwD3D9CreatePixelShader(const RwUInt32* function, void* shader) {
     return ((RwBool(__cdecl *)(const RwUInt32*, void*))0x7FACC0)(function, shader);
 }
 
-void RwD3D9DeletePixelShader(void) {
-    ((void(__cdecl *)(void))0x7FACF0)();
+void RwD3D9DeletePixelShader(void *shader) {
+    ((void(__cdecl *)(void *shader))0x7FACF0)(shader);
 }
 
 const void* RwD3D9GetCaps(void) {
@@ -1655,8 +1659,8 @@ void _rwD3D9VSSetActiveWorldMatrix(const RwMatrix* worldMatrix) {
     ((void(__cdecl *)(const RwMatrix*))0x764650)(worldMatrix);
 }
 
-void _rwD3D9VSGetComposedTransformMatrix(void) {
-    ((void(__cdecl *)(void))0x7646E0)();
+void _rwD3D9VSGetComposedTransformMatrix(_D3DMATRIX *m_out) {
+    ((void(__cdecl *)(_D3DMATRIX *))0x7646E0)(m_out);
 }
 
 void _rwD3D9VSGetWorldViewTransposedMatrix(void) {
