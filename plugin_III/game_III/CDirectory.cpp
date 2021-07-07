@@ -6,32 +6,38 @@
 */
 #include "CDirectory.h"
 
-// Converted from thiscall void CDirectory::CDirectory(int capacity) 0x4735C0
-CDirectory::CDirectory(int capacity) {
-    plugin::CallMethod<0x4735C0, CDirectory *, int>(this, capacity);
+PLUGIN_SOURCE_FILE
+
+int ctor_addr_o(CDirectory, void(int)) = ADDRESS_BY_VERSION(0x4735C0, 0x4735C0, 0x4735C0);
+int ctor_gaddr_o(CDirectory, void(int)) = GLOBAL_ADDRESS_BY_VERSION(0x4735C0, 0x4735C0, 0x4735C0);
+
+int dtor_addr(CDirectory) = ADDRESS_BY_VERSION(0x4735F0, 0x4735F0, 0x4735F0);
+int dtor_gaddr(CDirectory) = GLOBAL_ADDRESS_BY_VERSION(0x4735F0, 0x4735F0, 0x4735F0);
+
+int addrof(CDirectory::AddItem) = ADDRESS_BY_VERSION(0x473600, 0x473600, 0x473600);
+int gaddrof(CDirectory::AddItem) = GLOBAL_ADDRESS_BY_VERSION(0x473600, 0x473600, 0x473600);
+
+void CDirectory::AddItem(CDirectory::DirectoryInfo const &entry) {
+    plugin::CallMethodDynGlobal<CDirectory *, CDirectory::DirectoryInfo const &>(gaddrof(CDirectory::AddItem), this, entry);
 }
 
-// Converted from thiscall void CDirectory::~CDirectory() 0x4735F0
-CDirectory::~CDirectory() {
-    plugin::CallMethod<0x4735F0, CDirectory *>(this);
+int addrof(CDirectory::FindItem) = ADDRESS_BY_VERSION(0x4736E0, 0x4736E0, 0x4736E0);
+int gaddrof(CDirectory::FindItem) = GLOBAL_ADDRESS_BY_VERSION(0x4736E0, 0x4736E0, 0x4736E0);
+
+bool CDirectory::FindItem(char const *name, unsigned int &outOffset, unsigned int &outSize) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CDirectory *, char const *, unsigned int &, unsigned int &>(gaddrof(CDirectory::FindItem), this, name, outOffset, outSize);
 }
 
-// Converted from thiscall void CDirectory::AddItem(DirectoryInfo const&entry) 0x473600
-void CDirectory::AddItem(DirectoryInfo const& entry) {
-    plugin::CallMethod<0x473600, CDirectory *, DirectoryInfo const&>(this, entry);
+int addrof(CDirectory::ReadDirFile) = ADDRESS_BY_VERSION(0x473630, 0x473630, 0x473630);
+int gaddrof(CDirectory::ReadDirFile) = GLOBAL_ADDRESS_BY_VERSION(0x473630, 0x473630, 0x473630);
+
+void CDirectory::ReadDirFile(char const *fileName) {
+    plugin::CallMethodDynGlobal<CDirectory *, char const *>(gaddrof(CDirectory::ReadDirFile), this, fileName);
 }
 
-// Converted from thiscall void CDirectory::ReadDirFile(char const*filename) 0x473630
-void CDirectory::ReadDirFile(char const* filename) {
-    plugin::CallMethod<0x473630, CDirectory *, char const*>(this, filename);
-}
+int addrof(CDirectory::WriteDirFile) = ADDRESS_BY_VERSION(0x473690, 0x473690, 0x473690);
+int gaddrof(CDirectory::WriteDirFile) = GLOBAL_ADDRESS_BY_VERSION(0x473690, 0x473690, 0x473690);
 
-// Converted from thiscall bool CDirectory::WriteDirFile(char const*filename) 0x473690
-bool CDirectory::WriteDirFile(char const* filename) {
-    return plugin::CallMethodAndReturn<bool, 0x473690, CDirectory *, char const*>(this, filename);
-}
-
-// Converted from thiscall DirectoryInfo* CDirectory::FindItem(char const*name,uint &outOffset,uint &outSize) 0x4736E0
-CDirectory::DirectoryInfo* CDirectory::FindItem(char const* name, unsigned int& outOffset, unsigned int& outSize) {
-    return plugin::CallMethodAndReturn<DirectoryInfo*, 0x4736E0, CDirectory *, char const*, unsigned int&, unsigned int&>(this, name, outOffset, outSize);
+bool CDirectory::WriteDirFile(char const *fileName) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CDirectory *, char const *>(gaddrof(CDirectory::WriteDirFile), this, fileName);
 }
