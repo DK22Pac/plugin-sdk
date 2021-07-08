@@ -11,6 +11,7 @@
 #include "CAnimationStyleDescriptor.h"
 #include "CAnimBlendAssocGroup.h"
 #include "CLinkList.h"
+#include "CAnimBlock.h"
 
 class PLUGIN_API CAnimManager {
 public:

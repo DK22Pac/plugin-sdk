@@ -8,6 +8,7 @@
 
 #include "PluginBase.h"
 #include "AnimBlendFrameData.h"
+#include "CVector.h"
 class CPed;
 
 enum PLUGIN_API eLimbMoveStatus : unsigned int {

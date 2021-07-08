@@ -7,21 +7,19 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CVector.h"
 #include "RenderWare.h"
 
-struct PLUGIN_API IFrame {
-    RtQuat m_qOrientation;
-    RwV3d m_vecTranslation;
+enum PLUGIN_API eFrameDataFlag : unsigned char {
+    IGNORE_ROTATION = 0x2,
+    IGNORE_TRANSLATION = 0x4,
+    VELOCITY_EXTRACTION = 0x8,
+    VELOCITY_EXTRACTION_3D = 0x10
 };
-
-VALIDATE_SIZE(IFrame, 0x1C);
 
 struct PLUGIN_API AnimBlendFrameData {
-    unsigned int m_nFlags;
-    CVector m_vecOffset;
-    IFrame *m_pIFrame;
-    unsigned int m_nNodeId;
+    unsigned char m_nFlags;
+    RwV3d m_vecResetPos;
+    RwFrame *m_pFrame;
 };
 
-VALIDATE_SIZE(AnimBlendFrameData, 0x18);
+VALIDATE_SIZE(AnimBlendFrameData, 0x14);
