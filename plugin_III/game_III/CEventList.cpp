@@ -6,50 +6,66 @@
 */
 #include "CEventList.h"
 
-int &CEventList::ms_nFirstFreeSlotIndex = *(int *)0x8F31CC;
-CEvent *gaEvent = (CEvent *)0x6EF830;
+PLUGIN_SOURCE_FILE
 
-// Converted from thiscall void CEvent::CEvent(void) 0x761C0
-CEvent::CEvent() {
-    plugin::CallMethod<0x761C0, CEvent *>(this);
+PLUGIN_VARIABLE int &CEventList::ms_nFirstFreeSlotIndex = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x8F31CC, 0x8F3280, 0x9033C0));
+PLUGIN_VARIABLE CEvent(&gaEvent)[64] = *reinterpret_cast<CEvent(*)[64]>(GLOBAL_ADDRESS_BY_VERSION(0x6EF830, 0x6EF830, 0x6FF970));
+
+int addrof(CEventList::ClearEvent) = ADDRESS_BY_VERSION(0x475F70, 0x475F70, 0x475F70);
+int gaddrof(CEventList::ClearEvent) = GLOBAL_ADDRESS_BY_VERSION(0x475F70, 0x475F70, 0x475F70);
+
+void CEventList::ClearEvent(int event) {
+    plugin::CallDynGlobal<int>(gaddrof(CEventList::ClearEvent), event);
 }
 
-// Converted from cdecl void CEventList::ClearEvent(int index) 0x75F70 
-void CEventList::ClearEvent(int index) {
-    plugin::Call<0x75F70, int>(index);
+int addrof(CEventList::FindClosestEvent) = ADDRESS_BY_VERSION(0x475F90, 0x475F90, 0x475F90);
+int gaddrof(CEventList::FindClosestEvent) = GLOBAL_ADDRESS_BY_VERSION(0x475F90, 0x475F90, 0x475F90);
+
+bool CEventList::FindClosestEvent(eEventType type, CVector pos, int *event) {
+    return plugin::CallAndReturnDynGlobal<bool, eEventType, CVector, int *>(gaddrof(CEventList::FindClosestEvent), type, pos, event);
 }
 
-// Converted from cdecl bool CEventList::FindClosestEvent(eEventType type,CVector posn,int *index) 0x75F90 
-bool CEventList::FindClosestEvent(eEventType type, CVector posn, int* index) {
-    return plugin::CallAndReturn<bool, 0x75F90, eEventType, CVector, int*>(type, posn, index);
+int addrof(CEventList::GetEvent) = ADDRESS_BY_VERSION(0x475F40, 0x475F40, 0x475F40);
+int gaddrof(CEventList::GetEvent) = GLOBAL_ADDRESS_BY_VERSION(0x475F40, 0x475F40, 0x475F40);
+
+bool CEventList::GetEvent(eEventType type, int *event) {
+    return plugin::CallAndReturnDynGlobal<bool, eEventType, int *>(gaddrof(CEventList::GetEvent), type, event);
 }
 
-// Converted from cdecl bool CEventList::GetEvent(eEventType type,int *index) 0x75F40
-bool CEventList::GetEvent(eEventType type, int* index) {
-    return plugin::CallAndReturn<bool, 0x75F40, eEventType, int*>(type, index);
-}
+int addrof(CEventList::Initialise) = ADDRESS_BY_VERSION(0x475B60, 0x475B60, 0x475B60);
+int gaddrof(CEventList::Initialise) = GLOBAL_ADDRESS_BY_VERSION(0x475B60, 0x475B60, 0x475B60);
 
-// Converted from cdecl void CEventList::Initialise(void) 0x75B60
 void CEventList::Initialise() {
-    plugin::Call<0x75B60>();
+    plugin::CallDynGlobal(gaddrof(CEventList::Initialise));
 }
 
-// Converted from cdecl void CEventList::RegisterEvent(eEventType type,CVector posn,int time) 0x75E10
-void CEventList::RegisterEvent(eEventType type, CVector posn, int time) {
-    plugin::Call<0x75E10, eEventType, CVector, int>(type, posn, time);
+int addrof_o(CEventList::RegisterEvent, void (*)(eEventType, eEventEntity, CEntity *, CPed *, int)) = ADDRESS_BY_VERSION(0x475C50, 0x475C50, 0x475C50);
+int gaddrof_o(CEventList::RegisterEvent, void (*)(eEventType, eEventEntity, CEntity *, CPed *, int)) = GLOBAL_ADDRESS_BY_VERSION(0x475C50, 0x475C50, 0x475C50);
+
+void CEventList::RegisterEvent(eEventType type, eEventEntity entityType, CEntity *entity, CPed *criminal, int time) {
+    plugin::CallDynGlobal<eEventType, eEventEntity, CEntity *, CPed *, int>(gaddrof_o(CEventList::RegisterEvent, void (*)(eEventType, eEventEntity, CEntity *, CPed *, int)), type, entityType, entity, criminal, time);
 }
 
-// Converted from cdecl void CEventList::RegisterEvent(eEventType type,eEventEntity entityType,CEntity *entity,CPed *ped,int time) 0x75C50
-void CEventList::RegisterEvent(eEventType type, eEventEntity entityType, CEntity* entity, CPed* ped, int time) {
-    plugin::Call<0x75C50, eEventType, eEventEntity, CEntity*, CPed*, int>(type, entityType, entity, ped, time);
+int addrof_o(CEventList::RegisterEvent, void (*)(eEventType, CVector, int)) = ADDRESS_BY_VERSION(0x475E10, 0x475E10, 0x475E10);
+int gaddrof_o(CEventList::RegisterEvent, void (*)(eEventType, CVector, int)) = GLOBAL_ADDRESS_BY_VERSION(0x475E10, 0x475E10, 0x475E10);
+
+void CEventList::RegisterEvent(eEventType type, CVector pos, int time) {
+    plugin::CallDynGlobal<eEventType, CVector, int>(gaddrof_o(CEventList::RegisterEvent, void (*)(eEventType, CVector, int)), type, pos, time);
 }
 
-// Converted from cdecl void CEventList::ReportCrimeForEvent(eEventType type,int crimeId,bool bPoliceDontReallyCare) 0x76070
+int addrof(CEventList::ReportCrimeForEvent) = ADDRESS_BY_VERSION(0x476070, 0x476070, 0x476070);
+int gaddrof(CEventList::ReportCrimeForEvent) = GLOBAL_ADDRESS_BY_VERSION(0x476070, 0x476070, 0x476070);
+
 void CEventList::ReportCrimeForEvent(eEventType type, int crimeId, bool bPoliceDontReallyCare) {
-    plugin::Call<0x76070, eEventType, int, bool>(type, crimeId, bPoliceDontReallyCare);
+    plugin::CallDynGlobal<eEventType, int, bool>(gaddrof(CEventList::ReportCrimeForEvent), type, crimeId, bPoliceDontReallyCare);
 }
 
-// Converted from cdecl void CEventList::Update(void) 0x75BE0
+int addrof(CEventList::Update) = ADDRESS_BY_VERSION(0x475BE0, 0x475BE0, 0x475BE0);
+int gaddrof(CEventList::Update) = GLOBAL_ADDRESS_BY_VERSION(0x475BE0, 0x475BE0, 0x475BE0);
+
 void CEventList::Update() {
-    plugin::Call<0x75BE0>();
+    plugin::CallDynGlobal(gaddrof(CEventList::Update));
 }
+
+int ctor_addr(CEvent) = ADDRESS_BY_VERSION(0x4761C0, 0x4761C0, 0x4761C0);
+int ctor_gaddr(CEvent) = GLOBAL_ADDRESS_BY_VERSION(0x4761C0, 0x4761C0, 0x4761C0);

@@ -249,7 +249,3 @@ int UnicodeStrlen(wchar_t const* str) {
     return plugin::CallAndReturn<int, 0x500A20, wchar_t const*>(str);
 }
 
-// Converted from cdecl char* UnicodeToAscii(wchar_t *str_unicode) 0x52C2F0
-char* UnicodeToAscii(wchar_t* str_unicode) {
-    return plugin::CallAndReturn<char*, 0x52C2F0, wchar_t*>(str_unicode);
-}

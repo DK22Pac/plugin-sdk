@@ -87,5 +87,4 @@ public:
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);
 int UnicodeStrlen(wchar_t const* str);
-char* UnicodeToAscii(wchar_t* str_unicode);
 extern char *aStr;

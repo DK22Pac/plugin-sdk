@@ -6,9 +6,11 @@
 */
 #pragma once
 
-enum eEventEntity : unsigned int {
+#include "PluginBase.h"
+
+enum PLUGIN_API eEventEntity : unsigned int {
     EVENT_ENTITY_NONE = 0,
-    EVENT_ENTITY_PED,
-    EVENT_ENTITY_VEHICLE,
-    EVENT_ENTITY_OBJECT
+    EVENT_ENTITY_PED = 1,
+    EVENT_ENTITY_VEHICLE = 2,
+    EVENT_ENTITY_OBJECT = 3
 };

@@ -6,8 +6,10 @@
 */
 #pragma once
 
-enum eEventStatus : unsigned int {
+#include "PluginBase.h"
+
+enum PLUGIN_API eEventStatus : unsigned int {
     EVENT_STATUS_UNATTENDED = 0,
-    EVENT_STATUS_INVESTIGATED,
-    EVENT_STATUS_CLEARED
+    EVENT_STATUS_INVESTIGATED = 1,
+    EVENT_STATUS_CLEARED = 2
 };
