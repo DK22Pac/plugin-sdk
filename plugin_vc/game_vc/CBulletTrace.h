@@ -16,10 +16,12 @@ public:
     CVector m_vecOrigin;
     CVector m_vecTarget;
     bool m_bExist;
-    unsigned char m_nTimeCounter;
-    unsigned char m_nIntensity;
+    unsigned int m_nCreationTime;
+    unsigned int m_nLifeTime;
+    float m_fRadius;
+    unsigned char m_nTransparency;
 };
 
-VALIDATE_SIZE(CBulletTrace, 0x1C);
+VALIDATE_SIZE(CBulletTrace, 0x2C);
 
 #include "meta/meta.CBulletTrace.h"
