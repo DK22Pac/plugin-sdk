@@ -8,5 +8,5 @@
 
 PLUGIN_SOURCE_FILE
 
-int ctor_addr(CBulletTrace) = ADDRESS_BY_VERSION(0x575190, 0x5751B0, 0);
-int ctor_gaddr(CBulletTrace) = GLOBAL_ADDRESS_BY_VERSION(0x575190, 0x5751B0, 0);
+int ctor_addr(CBulletTrace) = ADDRESS_BY_VERSION(0x575190, 0x5751B0, 0x575080);
+int ctor_gaddr(CBulletTrace) = GLOBAL_ADDRESS_BY_VERSION(0x575190, 0x5751B0, 0x575080);
