@@ -12,6 +12,7 @@
 #include "CAETwinLoopSoundEntity.h"
 #include "CAEScriptAudioEntity.h"
 #include "CAECollisionAudioEntity.h"
+#include "CAEVehicleAudioEntity.h"
 
 class PLUGIN_API CAudioEngine {
 public:
@@ -36,11 +37,25 @@ public:
     CAEDoorAudioEntity m_doorAudio;
 
 public:
+    void Initialise();
+    void Restart();
+    void Shutdown();
     void SetEffectsMasterVolume(char volume);
     void SetMusicMasterVolume(char volume);
-    void SetBassEnhanceOnOff(float eq);
+    void SetBassEnhanceOnOff(bool on);
     void SetRadioAutoRetuneOnOff(bool on);
     void RetuneRadio(char stationId);
+    CReference* ReportFrontendAudioEvent(int id, float volume, float speed);
+    void Service();
+    void ServiceLoadingTune(float fade);
+    void StopRadio(tVehicleAudioSettings* settings, bool arg);
+    bool IsRadioRetuneInProgress();
+    bool IsLoadingTuneActive();
+    bool IsRadioOn();
+    bool IsAmbienceTrackActive();
+    bool StartLoadingTune();
+    char GetCurrentRadioStationID();
+    bool IsVehicleRadioActive();
 };
 
 VALIDATE_SIZE(CAudioEngine, 0x1FD8);

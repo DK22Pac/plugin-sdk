@@ -7,6 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CAEVehicleAudioEntity.h"
 
 struct PLUGIN_API tMusicTrackHistory {
     char m_indices[20];
@@ -78,8 +79,11 @@ public:
     char field_36C;
     char field_36D[3];
 
+public:
     bool IsVehicleRadioActive();
     char *GetRadioStationName(signed char id);
+    void StartRadio(int stationId, float bass, int arg, char unused);
+    void StopRadio(tVehicleAudioSettings* settings, char arg);
 
     // 11 structures
     static tMusicTrackHistory *m_nMusicTrackIndexHistory;
