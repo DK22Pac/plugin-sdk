@@ -916,6 +916,9 @@ RpMaterial* RpMatFXMaterialSetUVTransformMatrices(RpMaterial* material, RwMatrix
 const RpMaterial* RpMatFXMaterialGetUVTransformMatrices(const RpMaterial* material, RwMatrix* baseTransform, RwMatrix* dualTransform); // 0x812A50
 RxPipeline* RpMatFXGetD3D9Pipeline(RpMatFXD3D9Pipeline d3d9Pipeline); // 0x8162F0
 
+/* skeleton.h */
+RsEventStatus RsEventHandler(RsEvent e, void* param);
+
 /* rpanisot.h */
 
 RwInt8 RpAnisotGetMaxSupportedMaxAnisotropy(void); // 0x748F20

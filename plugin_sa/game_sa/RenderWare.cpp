@@ -3445,6 +3445,12 @@ RxPipeline* RpMatFXGetD3D9Pipeline(RpMatFXD3D9Pipeline d3d9Pipeline) {
     return ((RxPipeline*(__cdecl *)(RpMatFXD3D9Pipeline))0x8162F0)(d3d9Pipeline);
 }
 
+/* skeleton.h */
+
+RsEventStatus RsEventHandler(RsEvent e, void* param) {
+    return plugin::CallAndReturn<RsEventStatus, 0x619B60, RsEvent, void*>(e, param);
+}
+
 /* rpanisot.h */
 
 RwInt8 RpAnisotGetMaxSupportedMaxAnisotropy(void) {
