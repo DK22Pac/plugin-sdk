@@ -57,7 +57,7 @@ public:
     SUPPORTED_10US static CEntryExit *&ms_spawnPoint;
 
     SUPPORTED_10US void GenerateAmbientPeds(CVector const &position);
-    SUPPORTED_10US CEntryExit *GetEntryExitToDisplayNameOf();
+    SUPPORTED_10US char *GetEntryExitToDisplayNameOf();
     SUPPORTED_10US void GetPositionRelativeToOutsideWorld(CVector &positionInOut);
     SUPPORTED_10US bool IsInArea(CVector const &position);
     SUPPORTED_10US void RequestAmbientPeds();

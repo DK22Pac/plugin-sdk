@@ -25,8 +25,8 @@ void CEntryExit::GenerateAmbientPeds(CVector const &position) {
 int addrof(CEntryExit::GetEntryExitToDisplayNameOf) = ADDRESS_BY_VERSION(0x43E650, 0, 0, 0, 0, 0);
 int gaddrof(CEntryExit::GetEntryExitToDisplayNameOf) = GLOBAL_ADDRESS_BY_VERSION(0x43E650, 0, 0, 0, 0, 0);
 
-CEntryExit *CEntryExit::GetEntryExitToDisplayNameOf() {
-    return plugin::CallMethodAndReturnDynGlobal<CEntryExit *, CEntryExit *>(gaddrof(CEntryExit::GetEntryExitToDisplayNameOf), this);
+char *CEntryExit::GetEntryExitToDisplayNameOf() {
+    return plugin::CallMethodAndReturnDynGlobal<char *, CEntryExit *>(gaddrof(CEntryExit::GetEntryExitToDisplayNameOf), this);
 }
 
 int addrof(CEntryExit::GetPositionRelativeToOutsideWorld) = ADDRESS_BY_VERSION(0x43EA00, 0, 0, 0, 0, 0);
