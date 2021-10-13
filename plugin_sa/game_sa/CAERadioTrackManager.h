@@ -9,74 +9,84 @@
 #include "PluginBase.h"
 #include "CAEVehicleAudioEntity.h"
 
+struct PLUGIN_API tRadioSettings {
+    int m_djIndex[4];
+    int field_10;
+    int trackId;
+    int field_18;
+    int trackPlayTime;
+    int trackLength;
+    char field_24;
+    char m_nCurrentRadioStation;
+    char m_nBassSet;
+    char _pad;
+    float m_fBassGain;
+    char currRadioBC_[4];
+    char field_30;
+    char field_31;
+    char m_musicTrackIndices[10];
+};
+
+VALIDATE_SIZE(tRadioSettings, 0x3C);
+
+struct PLUGIN_API tRadioStationData {
+    int field_0;
+    int field_4;
+    int field_8;
+    int m_nTimeRetuneStopped;
+    int lastPlayingTime;
+    int trackPlayTime;
+    int field_18;
+    int field_1C;
+    int field_20;
+    char field_24;
+    char field_25;
+    char field_26;
+    char lastGameClockDays;
+    int lastGameClockHours;
+};
+
+VALIDATE_SIZE(tRadioStationData, 0x2C);
+
 struct PLUGIN_API tMusicTrackHistory {
     char m_indices[20];
 };
 
 class PLUGIN_API CAERadioTrackManager {
 public:
-    char field_0;
-    char field_1;
-    char field_2;
-    char field_3;
-    char field_4;
-    char field_5;
-    char field_6;
-    bool          m_bRadioAutoSelect;
+    unsigned char field_0;
+    unsigned char field_1;
+    unsigned char field_2;
+    unsigned char field_3;
+    unsigned char field_4;
+    unsigned char field_5;
+    bool m_bRetuneJustStarted;
+    bool m_bRadioAutoSelect;
     char field_8[14];
     unsigned char m_nMonthDay;
     unsigned char m_nClockHours;
-    int           m_anPlayerStats[14];
-    int field_50;
-    unsigned int  m_nTimeToDisplayRadioName;
+    int m_anPlayerStats[14];
+    unsigned int m_nTimeRadioStationRetuned;
+    unsigned int m_nTimeToDisplayRadioName;
     int field_58;
     int field_5C;
     int field_60;
     int field_64;
     int field_68;
-    int           m_nStationsListed;
-    int           m_nStationsListDown;
-    int field_74;
-    int field_78;
-    int field_7C;
-    int field_80;
-    int field_84;
-    char field_88;
-    char field_89[19];
-    int field_9C;
-    int field_A0;
-    int field_A4;
-    int field_A8;
-    char field_AC;
-    char          m_nCurrentRadioStation;
-    char field_AE;
-    char field_AF[10];
-    char field_B9;
-    char field_BA;
-    char field_BB[5];
-    char field_C0;
-    char field_C1;
-    char field_C2[2];
-    char field_C4;
-    char field_C5[25];
-    char field_DE[10];
-    char field_E8;
-    char          m_nRadioStationState;
-    bool          m_bStereoActive;
-    char field_EB;
-    int field_EC;
-    char field_F0;
-    char field_F1;
-    char field_F2;
-    char field_F3[5];
-    char field_F8;
-    char field_F9[15];
-    char field_108;
-    char field_109[3];
-    int field_10C[143];
+    int m_nStationsListed;
+    int m_nStationsListDown;
+    unsigned long field_74;
+    unsigned long field_78;
+    unsigned long field_7C;
+    unsigned long field_80;
+    unsigned long field_84;
+    tRadioSettings m_TempSettings;
+    tRadioSettings m_Settings;
+    tRadioStationData m_RadioStationsData[13];
+    unsigned char gap33C[12];
     char field_348[32];
-    int field_368;
-    char field_36C;
+    unsigned long field_368;
+    unsigned char field_36C;
     char field_36D[3];
 
 public:
