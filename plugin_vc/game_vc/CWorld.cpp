@@ -18,8 +18,7 @@ bool &CWorld::bDoingCarCollisions = *(bool *)0x9B6E58;
 short &CWorld::ms_nCurrentScanCode = *(short *)0xA1098E;
 bool &CWorld::bIncludeDeadPeds = *(bool *)0xA10AEE;
 bool &CWorld::bProcessCutsceneOnly = *(bool *)0xA10B1C;
-// Converted from CEntity* CWorld::pIgnoreEntity 0xA10B29
-CEntity*& CWorld::pIgnoreEntity = *(CEntity**)0xA10B29;
+CEntity*& CWorld::pIgnoreEntity = *(CEntity**)0x9B6E58;
 bool &CWorld::bIncludeBikers = *(bool *)0xA10B48;
 bool &CWorld::bNoMoreCollisionTorque = *(bool *)0xA10B49;
 bool &CWorld::bForceProcessControl = *(bool *)0xA10B4A;
