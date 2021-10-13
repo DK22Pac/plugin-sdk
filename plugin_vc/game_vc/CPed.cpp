@@ -32,7 +32,7 @@ void CPed::AnswerMobile() {
 }
 
 // Converted from thiscall CEntity* CPed::AttachPedToEntity(CEntity *entity,float offsetX,float offsetY,float offsetZ,ushort position,float angle,eWeaponType weaponType) 0x4EF490
-CEntity* CPed::AttachPedToEntity(CEntity* entity, CVector offset, unsigned short position, float angle, eWeaponType weaponType) {
+CEntity* CPed::AttachPedToEntity(CEntity* entity, float offsetX, float offsetY, float offsetZ, unsigned short position, float angle, eWeaponType weaponType) {
     return plugin::CallMethodAndReturn<CEntity*, 0x4EF490, CPed *, CEntity*, float, float, float, unsigned short, float, eWeaponType>(this, entity, offsetX, offsetY, offsetZ, position, angle, weaponType);
 }
 
