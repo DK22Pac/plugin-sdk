@@ -17,6 +17,7 @@ int &CWeather::LightningFlashLastChange = *(int*)0x975350;
 int &CWeather::LightningStart = *(int*)0x9B5F84;
 int &CWeather::SoundHandle = *(int*)0x699EDC;
 int &CWeather::StreamAfterRainTimer = *(int*)0x699EE0;
+float &CWeather::Rain = *(float*)0x975340;
 
 // Converted from cdecl void CWeather::AddRain(void) 0x57C900
 void CWeather::AddRain() {

@@ -29,3 +29,8 @@ CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int AssocGro
 {
     return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405640, RpClump*, int, int, float>(clump, AssocGroupId, AnimationId, clumpAssocBlendData);
 }
+
+void CAnimManager::LoadAnimFile(RwStream* stream, bool compress, char const(*string)[32]) 
+{
+	plugin::Call<0x404A50, RwStream*, bool, char const(*)[32]>(stream, compress, string);
+}

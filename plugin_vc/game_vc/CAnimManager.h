@@ -21,7 +21,7 @@ public:
 	static void AddAnimBlockRef(int index);
 	static void RemoveAnimBlock(int index);
 	static void RemoveLastAnimFile(void);
-	static void LoadAnimFile(RwStream *stream, bool a2, const char (*a3)[32]);
+	static void LoadAnimFile(RwStream *stream, bool compress, char const(*string)[32]);
 	static int RegisterAnimBlock(const char *name);
 	static void CreateAnimAssocGroups(void);
 	static void LoadAnimFiles(void);

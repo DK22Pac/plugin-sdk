@@ -208,3 +208,7 @@ CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* asso
 bool RpAnimBlendPluginAttach() {
     return plugin::CallAndReturn<bool, 0x4074D0>();
 }
+
+RpHAnimHierarchy* GetAnimHierarchyFromSkinClump(RpClump* clump) {
+    return ((RpHAnimHierarchy* (__cdecl *)(RpClump*))0x57F250)(clump);
+}
