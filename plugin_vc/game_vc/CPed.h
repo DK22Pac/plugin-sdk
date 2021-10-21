@@ -354,7 +354,7 @@ public:
     void AddWeaponModel(int modelIndex);
     char AimGun();
     void AnswerMobile();
-    CEntity* AttachPedToEntity(CEntity* entity, CVector offset, unsigned short position, float angle, eWeaponType weaponType);
+    CEntity* AttachPedToEntity(CEntity* entity, float offsetX, float offsetY, float offsetZ, unsigned short position, float angle, eWeaponType weaponType);
     unsigned int Attack();
     void Avoid();
     int BeingDraggedFromCar();

@@ -56,6 +56,7 @@ public:
     bool StartLoadingTune();
     char GetCurrentRadioStationID();
     bool IsVehicleRadioActive();
+    void InitialisePostLoading();
 };
 
 VALIDATE_SIZE(CAudioEngine, 0x1FD8);

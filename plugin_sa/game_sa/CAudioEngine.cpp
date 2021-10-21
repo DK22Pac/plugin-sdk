@@ -84,3 +84,7 @@ char CAudioEngine::GetCurrentRadioStationID() {
 bool CAudioEngine::IsVehicleRadioActive() {
     return plugin::CallMethodAndReturn<bool, 0x507050, CAudioEngine*>(this);
 }
+
+void CAudioEngine::InitialisePostLoading() {
+    plugin::CallMethod<0x5078F0, CAudioEngine*>(this);
+}
