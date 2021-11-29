@@ -102,7 +102,10 @@ enum PLUGIN_API e_ControllerAction {
 };
 
 enum PLUGIN_API eControllerType {
-    // 4 types
+    CONTROLLER_KEYBOARD1 = 0,
+    CONTROLLER_KEYBOARD2 = 1,
+    CONTROLLER_MOUSE = 2,
+    CONTROLLER_PAD = 3,
 };
 
 class PLUGIN_API CControllerKey {
@@ -136,6 +139,7 @@ public:
     bool LoadSettings(int file);
     bool GetIsKeyboardKeyDown(RsKeyCodes key);
     bool GetIsKeyboardKeyJustDown(RsKeyCodes key);
+    void ResetSettingOrder(e_ControllerAction action);
 };
 
 VALIDATE_SIZE(CControllerConfigManager, 0x12E4);
