@@ -157,14 +157,14 @@ struct RsMouseStatus
 
 enum RsKeyCodes
 {
-	rsMOUSELEFTBUTTON = 1,
-    rsMOUSMIDDLEBUTTON = 2,
+    rsMOUSELEFTBUTTON = 1,
+    rsMOUSEMIDDLEBUTTON = 2,
     rsMOUSERIGHTBUTTON = 3,
     rsMOUSEWHEELUPBUTTON = 4,
     rsMOUSEWHEELDOWNBUTTON = 5,
     rsMOUSEX1BUTTON = 6,
     rsMOUSEX2BUTTON = 7,
-	rsSPACE = 32,
+    rsSPACE = 32,
     rsESC = 1000,
     rsF1 = 1001,
     rsF2 = 1002,
