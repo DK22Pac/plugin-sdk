@@ -7,3 +7,5 @@
 #include "CGarages.h"
 
 char *CGarages::MessageIDString = (char *)0x96C014;
+int& CGarages::MessageNumberInString = *(int*)0x96C010;
+int& CGarages::MessageNumberInString2 = *(int*)0x96C00C;
