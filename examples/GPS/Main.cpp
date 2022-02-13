@@ -72,7 +72,7 @@ public:
                         CVector nodePosn = ThePaths.GetPathNode(resultNodes[i])->GetNodeCoors();
                         CVector2D tmpPoint;
                         CRadar::TransformRealWorldPointToRadarSpace(tmpPoint, CVector2D(nodePosn.x, nodePosn.y));
-                        if (!FrontEndMenuManager.drawRadarOrMap)
+                        if (!FrontEndMenuManager.m_bDrawRadarOrMap)
                             CRadar::TransformRadarPointToScreenSpace(nodePoints[i], tmpPoint);
                         else {
                             CRadar::LimitRadarPoint(tmpPoint);
@@ -83,7 +83,7 @@ public:
                         }
                     }
 
-                    if (!FrontEndMenuManager.drawRadarOrMap 
+                    if (!FrontEndMenuManager.m_bDrawRadarOrMap
                         && reinterpret_cast<D3DCAPS9 const*>(RwD3D9GetCaps())->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
                     {
                         RECT rect;
@@ -105,7 +105,7 @@ public:
                         CVector2D point[4], shift[2];
                         CVector2D dir = nodePoints[i + 1] - nodePoints[i];
                         float angle = atan2(dir.y, dir.x);
-                        if (!FrontEndMenuManager.drawRadarOrMap) {
+                        if (!FrontEndMenuManager.m_bDrawRadarOrMap) {
                             shift[0].x = cosf(angle - 1.5707963f) * GPS_LINE_WIDTH;
                             shift[0].y = sinf(angle - 1.5707963f) * GPS_LINE_WIDTH;
                             shift[1].x = cosf(angle + 1.5707963f) * GPS_LINE_WIDTH;
@@ -132,7 +132,7 @@ public:
                 
                     RwIm2DRenderPrimitive(rwPRIMTYPETRISTRIP, lineVerts, 4 * (nodesCount - 1));
 
-                    if (!FrontEndMenuManager.drawRadarOrMap
+                    if (!FrontEndMenuManager.m_bDrawRadarOrMap
                         && reinterpret_cast<D3DCAPS9 const*>(RwD3D9GetCaps())->RasterCaps & D3DPRASTERCAPS_SCISSORTEST)
                     {
                         GetD3DDevice()->SetRenderState(D3DRS_SCISSORTESTENABLE, FALSE);
