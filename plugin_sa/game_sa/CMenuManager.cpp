@@ -21,6 +21,7 @@ char** frontend4TexNames = (char**)0x8CDFE0;
 
 bool& bBriefHistoryAllowedToUpdate = *(bool*)0x8CDFF9;
 
+CMenuPage* MenuPages = (CMenuPage*)0x8CE008;
 
 CMenuManager::CMenuManager() {
     plugin::CallMethod<0x574350, CMenuManager*>(this);
@@ -130,8 +131,8 @@ void CMenuManager::Initialise() {
     plugin::CallMethod<0x5744D0, CMenuManager*>(this);
 }
 
-char CMenuManager::InitialiseChangedLanguageSettings(char a2) {
-    return plugin::CallMethodAndReturn<char, 0x573260, CMenuManager*>(this);
+void CMenuManager::InitialiseChangedLanguageSettings(bool reInitControls) {
+    plugin::CallMethod<0x573260, CMenuManager*>(this, reInitControls);
 }
 
 int CMenuManager::JumpToGenericMessageScreen(char screen, char* header, char* action) {

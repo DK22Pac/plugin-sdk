@@ -371,7 +371,7 @@ public:
     unsigned char GetNumberOfMenuOptions();
     bool HasLanguageChanged();
     void Initialise();
-    char InitialiseChangedLanguageSettings(char a2);
+    void InitialiseChangedLanguageSettings(bool reInitControls);
     int JumpToGenericMessageScreen(char screen, char* header, char* action);
     void LoadAllTextures();
     void LoadSettings();
@@ -409,3 +409,10 @@ public:
 VALIDATE_SIZE(CMenuManager, 0x1B78);
 
 extern CMenuManager &FrontEndMenuManager;
+
+extern char** frontend1TexNames;
+extern char** frontend2TexNames;
+extern char** frontend3TexNames;
+extern char** frontend4TexNames;
+extern bool& bBriefHistoryAllowedToUpdate;
+extern CMenuPage* MenuPages;
