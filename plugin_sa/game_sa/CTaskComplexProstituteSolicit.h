@@ -31,7 +31,7 @@ public:
         unsigned short b07 : 1;
         unsigned short b08 : 1;
         unsigned short bMoveCameraDown : 1;
-        unsigned short b10 : 1;
+        unsigned short bShouldProstituteBeQuiet : 1;
         unsigned short bPlayerHasAcceptedSexProposition : 1;
         unsigned short bVehicleShifted : 1;
         unsigned short bSecludedPlaceMessageShown : 1;
