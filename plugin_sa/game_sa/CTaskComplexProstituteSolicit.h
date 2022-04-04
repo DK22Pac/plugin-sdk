@@ -28,8 +28,8 @@ public:
         unsigned short bPedsCanPotentiallySeeThis : 1;
         unsigned short bPedsCanSeeThis : 1;
         unsigned short bCopsCanSeeThis : 1;
-        unsigned short b07 : 1;
-        unsigned short b08 : 1;
+        unsigned short bUnused07 : 1;
+        unsigned short bUnused08 : 1;
         unsigned short bMoveCameraDown : 1;
         unsigned short bShouldProstituteBeQuiet : 1;
         unsigned short bPlayerHasAcceptedSexProposition : 1;
