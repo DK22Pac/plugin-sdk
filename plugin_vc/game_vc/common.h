@@ -45,6 +45,7 @@ void WorldReplaceNormalLightsWithScorched(RpWorld* world, float intensity);
 RpWorld* LightsDestroy(RpWorld* world);
 RpWorld* LightsCreate(RpWorld* world);
 void SetLightsWithTimeOfDayColour(RpWorld* world);
+RpHAnimHierarchy *GetAnimHierarchyFromSkinClump(RpClump *clump);
 
 RpAtomic* GetCurrentAtomicObjectCB(RwObject* object, void* data);
 

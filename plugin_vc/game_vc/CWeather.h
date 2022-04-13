@@ -21,7 +21,8 @@ public:
     static int &LightningStart;
     static int &SoundHandle;
     static int &StreamAfterRainTimer;
-
+    static float &Rain;
+    
     //funcs
     static void AddRain();
     static void AddSplashesDuringHurricane();

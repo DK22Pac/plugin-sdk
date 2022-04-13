@@ -47,9 +47,9 @@ public:
     float field_4;
     char field_8;
     char field_9;
-    char m_nHudMode;
+    char m_PrefsShowHud;
     char field_B;
-    int field_C;
+    int m_nRadarMode;
     char field_10;
     char field_11;
     char field_12;
