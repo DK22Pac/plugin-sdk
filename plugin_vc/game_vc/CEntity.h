@@ -12,6 +12,17 @@
 #include "RenderWare.h"
 #include "CColModel.h"
 
+enum PLUGIN_API eEntityType {
+    ENTITY_TYPE_NOTHING = 0,
+    ENTITY_TYPE_BUILDING = 1,
+    ENTITY_TYPE_VEHICLE = 2,
+    ENTITY_TYPE_PED = 3,
+    ENTITY_TYPE_OBJECT = 4,
+    ENTITY_TYPE_DUMMY = 5,
+    ENTITY_TYPE_NOTINPOOLS = 6,
+    ENTITY_TYPE_7 = 7
+};
+
 class CEntity {
 public:
     CPlaceable m_placement;

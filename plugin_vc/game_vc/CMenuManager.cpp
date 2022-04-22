@@ -6,9 +6,9 @@
 */
 #include "CMenuManager.h"
 
-CMenuManager &FrontendMenuManager = *(CMenuManager *)0x869630;
+CMenuManager &FrontEndMenuManager = *(CMenuManager *)0x869630;
 unsigned int MAX_MENU_PAGES = 35;
-tMenuPage *gMenuPages = (tMenuPage *)0x6D8B70;
+CMenuScreen *gMenuPages = (CMenuScreen*)0x6D8B70;
 
 void CMenuManager::MessageScreen(const char* pText, bool bFullscreen) {
     plugin::CallMethod<0x498943, CMenuManager*, const char*, bool>(this, pText, bFullscreen);

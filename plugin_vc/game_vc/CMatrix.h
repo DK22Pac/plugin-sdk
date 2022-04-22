@@ -32,7 +32,7 @@ public:
 
     CMatrix(plugin::dummy_func_t) {}
 
-    void CopyToRwMatrix(RwMatrixTag* rwMatrix);
+    void CopyToRwMatrix(RwMatrix* rwMatrix);
     void Reorthogonalise();
     void Rotate(float x, float y, float z);
     void RotateZ(float angle);
@@ -56,10 +56,10 @@ public:
     void UpdateRW();
     void Update();
     void Detach();
-    void AttachRW(RwMatrixTag* rwMatrix, bool deleteOnDetach);
-    void Attach(RwMatrixTag* rwMatrix, bool deleteOnDetach);
+    void AttachRW(RwMatrix* rwMatrix, bool deleteOnDetach);
+    void Attach(RwMatrix* rwMatrix, bool deleteOnDetach);
     ~CMatrix();
-    CMatrix(RwMatrixTag* rwMatrix, bool deleteOnDetach);
+    CMatrix(RwMatrix* rwMatrix, bool deleteOnDetach);
     CMatrix(CMatrix const& src);
 };
 

@@ -42,7 +42,7 @@ public:
     unsigned char m_nFadeDrunkenness;
     unsigned char m_nDrunkCountdown; //countdown in frames when the drunk effect ends
     bool m_bAdrenaline; 
-    bool m_bFreeAiming;
+    bool m_bHasLockOnTarget;
     bool m_bDrunkVisualsWearOff;
     bool m_checkPlayerFlag;
 private:

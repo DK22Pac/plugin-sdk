@@ -5,6 +5,9 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#ifdef _DEBUG
+#define _HAS_ITERATOR_DEBUGGING 0 
+#endif
 
 #include "PluginBase.h"
 #include <vector>

@@ -28,8 +28,8 @@ class CVehicle;
 
 class CWeapon {
 public:
-    eWeaponType m_nType;
-    eWeaponState m_nState;
+    eWeaponType m_eWeaponType;
+    eWeaponState m_eWeaponState;
     unsigned int m_nAmmoInClip;
     unsigned int m_nTotalAmmo;
     unsigned int m_nNextShotTime;

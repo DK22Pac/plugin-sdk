@@ -16,29 +16,116 @@ enum eMenuPageAlignment {
     MENU_ALIGN_RIGHT
 };
 
-struct tMenuProp {
-    unsigned short m_nAction;
-    char m_szTitle[8];
-    unsigned char m_nType;
-    unsigned char m_nTargetPage;
-    short m_nX;
-    short m_nY;
-    unsigned char m_nAlign; // see eMenuPageAlignment
-private:
-    char _pad11;
-public:
+enum eMenuScreen {
+    MENUPAGE_NONE = -1,
+    MENUPAGE_STATS = 0,
+    MENUPAGE_NEW_GAME = 1,
+    MENUPAGE_BRIEFS = 2,
+    MENUPAGE_SOUND_SETTINGS = 3,
+    MENUPAGE_DISPLAY_SETTINGS = 4,
+    MENUPAGE_LANGUAGE_SETTINGS = 5,
+    MENUPAGE_MAP = 6,
+    MENUPAGE_NEW_GAME_RELOAD = 7,
+    MENUPAGE_CHOOSE_LOAD_SLOT = 8,
+    MENUPAGE_CHOOSE_DELETE_SLOT = 9,
+    MENUPAGE_LOAD_SLOT_CONFIRM = 10,
+    MENUPAGE_DELETE_SLOT_CONFIRM = 11,
+    MENUPAGE_LOADING_IN_PROGRESS = 12,
+    MENUPAGE_DELETING_IN_PROGRESS = 13,
+    MENUPAGE_DELETE_SUCCESSFUL = 14,
+    MENUPAGE_CHOOSE_SAVE_SLOT = 15,
+    MENUPAGE_SAVE_OVERWRITE_CONFIRM = 16,
+    MENUPAGE_SAVING_IN_PROGRESS = 17,
+    MENUPAGE_SAVE_SUCCESSFUL = 18,
+    MENUPAGE_SAVE_CUSTOM_WARNING = 19,
+    MENUPAGE_SAVE_CHEAT_WARNING = 20,
+    MENUPAGE_SKIN_SELECT = 21,
+    MENUPAGE_SAVE_UNUSED = 22,
+    MENUPAGE_SAVE_FAILED = 23,
+    MENUPAGE_SAVE_FAILED_2 = 24,
+    MENUPAGE_LOAD_FAILED = 25,
+    MENUPAGE_CONTROLLER_PC = 26,
+    MENUPAGE_OPTIONS = 27,
+    MENUPAGE_EXIT = 28,
+    MENUPAGE_START_MENU = 29,
+    MENUPAGE_KEYBOARD_CONTROLS = 30,
+    MENUPAGE_MOUSE_CONTROLS = 31,
+    MENUPAGE_PAUSE_MENU = 32,
+    MENUPAGE_34 = 33,
 };
 
-VALIDATE_SIZE(tMenuProp, 0x12);
+enum eMenuAction {
+    MENUACTION_NOTHING,
+    MENUACTION_LABEL,
+    MENUACTION_YES,
+    MENUACTION_NO,
+    MENUACTION_CHANGEMENU,
+    MENUACTION_INVERTPADY,
+    MENUACTION_CTRLDISPLAY,
+    MENUACTION_FRAMESYNC,
+    MENUACTION_FRAMELIMIT,
+    MENUACTION_TRAILS,
+    MENUACTION_SUBTITLES,
+    MENUACTION_WIDESCREEN,
+    MENUACTION_BRIGHTNESS,
+    MENUACTION_MUSICVOLUME,
+    MENUACTION_SFXVOLUME,
+    MENUACTION_RADIO,
+    MENUACTION_LANG_ENG,
+    MENUACTION_LANG_FRE,
+    MENUACTION_LANG_GER,
+    MENUACTION_LANG_ITA,
+    MENUACTION_LANG_SPA,
+    MENUACTION_POPULATESLOTS_CHANGEMENU,
+    MENUACTION_CHECKSAVE,
+    MENUACTION_NEWGAME,
+    MENUACTION_RESUME_FROM_SAVEZONE,
+    MENUACTION_RELOADIDE,
+    MENUACTION_SETDBGFLAG,
+    MENUACTION_LOADRADIO,
+    MENUACTION_SAVEGAME,
+    MENUACTION_29,
+    MENUACTION_30,
+    MENUACTION_LEGEND,
+    MENUACTION_RADARMODE,
+    MENUACTION_HUD,
+    MENUACTION_GOBACK,
+    MENUACTION_REDEFCTRL,
+    MENUACTION_GETKEY,
+    MENUACTION_SHOWHEADBOB,
+    MENUACTION_38,
+    MENUACTION_INVVERT,
+    MENUACTION_CANCELGAME,
+    MENUACTION_RESUME,
+    MENUACTION_DONTCANCEL,
+    MENUACTION_SCREENRES,
+    MENUACTION_AUDIOHW,
+    MENUACTION_SPEAKERCONF,
+    MENUACTION_PLAYERSETUP,
+    MENUACTION_RESTOREDEF,
+    MENUACTION_CTRLMETHOD,
+    MENUACTION_DYNAMICACOUSTIC,
+    MENUACTION_MOUSESTEER,
+    MENUACTION_DRAWDIST,
+    MENUACTION_MOUSESENS,
+    MENUACTION_MP3VOLUMEBOOST
+};
 
-struct tMenuPage {
-    char m_szTitle[8];
+struct PLUGIN_API CMenuScreen {
+    char m_ScreenName[8];
     unsigned char m_nPreviousPage;
-    unsigned char m_nStartPage;
-    tMenuProp m_aProps[12];
-};
+    unsigned char m_nParentEntry;
 
-VALIDATE_SIZE(tMenuPage, 0xE2);
+    struct CMenuEntry {
+        unsigned short m_Action;
+        char m_EntryName[8];
+        unsigned char m_nSaveSlot;
+        unsigned char m_nTargetMenu;
+        unsigned short m_nX;
+        unsigned short m_nY;
+        unsigned short m_nAlign;
+    } m_aEntries[12];
+};
 
 class CMenuManager {
 public:
@@ -88,7 +175,7 @@ public:
     char field_58[1];
     char field_59;
     char field_5A;
-    char field_5B;
+    char m_ControlMethod;
     char field_5C[8];
     int field_64;
     int field_68;
@@ -132,6 +219,6 @@ public:
 
 VALIDATE_SIZE(CMenuManager, 0x684);
 
-extern CMenuManager &FrontendMenuManager;
+extern CMenuManager &FrontEndMenuManager;
 extern unsigned int MAX_MENU_PAGES; // default 35
-extern tMenuPage *gMenuPages; // tMenuPage gMenuPages[MAX_MENU_PAGES]
+extern CMenuScreen *gMenuPages; // tMenuPage gMenuPages[MAX_MENU_PAGES]

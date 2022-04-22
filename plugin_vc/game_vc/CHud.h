@@ -12,6 +12,62 @@
 #include "RenderWare.h"
 #include "StringUtils.h"
 
+enum eItems {
+    ITEM_NONE = -1,
+    ITEM_ARMOUR = 3,
+    ITEM_HEALTH = 4,
+    ITEM_RADAR = 8
+};
+
+enum eHudSprites {
+    HUD_FIST,
+    HUD_BRASS,
+    HUD_SCREW,
+    HUD_GOLF,
+    HUD_NIGHTSTICK,
+    HUD_KNIFE,
+    HUD_BAT,
+    HUD_HAMMER,
+    HUD_CLEAVER,
+    HUD_MACHETE,
+    HUD_SWORD,
+    HUD_CHAINSAW,
+    HUD_GRENADE,
+    HUD_DETONATOR_GRENADE,
+    HUD_TEARGAS,
+    HUD_MOLOTOV,
+    HUD_MISSILE ,
+    HUD_COLT45,
+    HUD_PYTHON,
+    HUD_SHOTGUN,
+    HUD_SPAS12,
+    HUD_STUBBYSHOTGUN,
+    HUD_TEC9,
+    HUD_UZI,
+    HUD_SILENCEDINGRAM,
+    HUD_MP5,
+    HUD_M4,
+    HUD_RUGER,
+    HUD_SNIPERRIFLE,
+    HUD_LASERSCOPE,
+    HUD_ROCKETLAUNCHER,
+    HUD_FLAMETHROWER,
+    HUD_M60,
+    HUD_MINIGUN,
+    HUD_BOMB,
+    HUD_HELICANNON,
+    HUD_CAMERA,
+    HUD_SITEROCKET = 41,
+    HUD_RADARDISC = 50,
+    HUD_SITESNIPER = 63,
+    HUD_SITEM16,
+    HUD_SITELASER,
+    HUD_LASERDOT,
+    HUD_VIEWFINDER,
+    HUD_BLEEDER,
+    NUM_HUD_SPRITES,
+};
+
 class PLUGIN_API CHud {
 public:
     SUPPORTED_10EN_11EN_STEAM static wchar_t(&m_HelpMessageToPrint)[256]; // static wchar_t m_HelpMessageToPrint[256]

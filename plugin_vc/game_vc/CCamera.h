@@ -64,7 +64,7 @@ public:
 	bool    m_bFailedCullZoneTestPreviously;
 	bool    m_FadeTargetIsSplashScreen;	//used as hack for fading 
 	bool    WorldViewerBeingUsed;	// To indicate if the world viewer is being used.                                      
-	unsigned char   ActiveCam;				 // Which one at the moment (0 or 1)
+	unsigned char   m_nActiveCam;				 // Which one at the moment (0 or 1)
 											// Their is a fudge at the end when the renderware matrix will receive either
 											// the active camera or the worldviewer camera
 	unsigned int    m_uiCamShakeStart;          // When did the camera shake start.
@@ -129,7 +129,7 @@ public:
 	float   m_ScreenReductionPercentage;
 	float   m_ScreenReductionSpeed;
 	float   m_AlphaForPlayerAnim1rstPerson;
-	float   Orientation;            // The orientation of the camera. Used for peds walking.
+	float   m_fOrientation;            // The orientation of the camera. Used for peds walking.
 	float   PedZoomIndicator;
 	float   PlayerExhaustion;       // How tired is player (inaccurate sniping) 0.0f-1.0f
 									// The following things are used by the sound code to
@@ -149,7 +149,7 @@ public:
 	float   m_fWideScreenReductionAmount;	//0 for not reduced 1 for fully reduced (Variable for Les)
 	float   m_fStartingFOVForInterPol;
 
-	CCam Cams[3];                // The actual cameras (usually only one of the two is active)
+	CCam m_asCams[3];                // The actual cameras (usually only one of the two is active)
 								 // And to complicate this we have a third camera, this camera is 
 								 // used for debugging when we want to have a look at the world.
 								 // We can't change the camera mode because other objects depend on their
@@ -218,14 +218,21 @@ public:
 	float   m_fScriptPercentageInterToCatchUp;
 	unsigned int  m_fScriptTimeForInterPolation;
 
-	short   m_iFadingDirection;
-	int     m_iModeObbeCamIsInForCar;
-	short   m_iModeToGoTo;
-	short   m_iMusicFadingDirection;
-	short   m_iTypeOfSwitch;
+	short   m_nFadingDirection;
+	int     m_nModeObbeCamIsInForCar;
+	short   m_nModeToGoTo;
+	short   m_nMusicFadingDirection;
+	short   m_nTypeOfSwitch;
 
 	unsigned int  m_uiFadeTimeStarted;
 	unsigned int  m_uiFadeTimeStartedMusic;
+
+	static char& m_nFadeColorsSet;
+	static bool& m_bUseMouse3rdPerson;
+	static float& m_fMouseAccelVertical;
+	static float& m_fMouseAccelHorzntal;
+	static float& m_f3rdPersonCHairMultX;
+	static float& m_f3rdPersonCHairMultY;
 
 	void AvoidTheGeometry(CVector const& Vector1, CVector const& Vector2, CVector& Vector3, float arg4);
 	void CalculateDerivedValues();

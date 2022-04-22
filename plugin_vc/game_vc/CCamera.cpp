@@ -6,6 +6,12 @@
 */
 #include "CCamera.h"
 
+char& CCamera::m_nFadeColorsSet = *reinterpret_cast<char*>(0x6FAD6C);
+bool& CCamera::m_bUseMouse3rdPerson = *reinterpret_cast<bool*>(0xA10B4C);
+float& CCamera::m_f3rdPersonCHairMultX = *reinterpret_cast<float*>(0xA0D91C);
+float& CCamera::m_f3rdPersonCHairMultY = *reinterpret_cast<float*>(0xA0D924);
+float& CCamera::m_fMouseAccelVertical = *reinterpret_cast<float*>(0xA0D964);
+float& CCamera::m_fMouseAccelHorzntal = *reinterpret_cast<float*>(0x94DBD0);
 CCamera &TheCamera = *(CCamera *)0x7E4688;
 
 // Converted from thiscall void CCamera::AvoidTheGeometry(CVector const& Vector1,CVector const& Vector2 ,CVector& Vector3,float arg4)	0x473AA4 

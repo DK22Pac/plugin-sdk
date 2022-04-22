@@ -24,6 +24,53 @@
 #include "ePedType.h"
 #include "ePedAction.h"
 
+enum PLUGIN_API ePedState : unsigned int {
+    PEDSTATE_NONE = 0,
+    PEDSTATE_IDLE = 1,
+    PEDSTATE_LOOK_ENTITY = 2,
+    PEDSTATE_LOOK_HEADING = 3,
+    PEDSTATE_WANDER_RANGE = 4,
+    PEDSTATE_WANDER_PATH = 5,
+    PEDSTATE_SEEK_POSITION = 6,
+    PEDSTATE_SEEK_ENTITY = 7,
+    PEDSTATE_FLEE_POSITION = 8,
+    PEDSTATE_FLEE_ENTITY = 9,
+    PEDSTATE_PURSUE = 10,
+    PEDSTATE_FOLLOW_PATH = 11,
+    PEDSTATE_SNIPER_MODE = 12,
+    PEDSTATE_ROCKET_MODE = 13,
+    PEDSTATE_DUMMY = 14,
+    PEDSTATE_PAUSE = 15,
+    PEDSTATE_ATTACK = 16,
+    PEDSTATE_FIGHT = 17,
+    PEDSTATE_FACE_PHONE = 18,
+    PEDSTATE_MAKE_PHONECALL = 19,
+    PEDSTATE_CHAT = 20,
+    PEDSTATE_MUG = 21,
+    PEDSTATE_AIMGUN = 22,
+    PEDSTATE_AI_CONTROL = 23,
+    PEDSTATE_SEEK_CAR = 24,
+    PEDSTATE_SEEK_BOAT = 25,
+    PEDSTATE_FOLLOW_ROUTE = 26,
+    PEDSTATE_CPR = 27,
+    PEDSTATE_SOLICIT = 28,
+    PEDSTATE_BUY_ICECREAM = 29,
+    PEDSTATE_INVESTIGATE = 30,
+    PEDSTATE_STEP_AWAY = 31,
+    PEDSTATE_ON_FIRE = 32,
+    PEDSTATE_HANG_OUT = 33,
+    PEDSTATE_JUMP = 41,
+    PEDSTATE_FALL = 42,
+    PEDSTATE_GETUP = 43,
+    PEDSTATE_JUMP_FROM_VEHICLE = 44,
+    PEDSTATE_DRIVING = 50,
+    PEDSTATE_DEAD = 54,
+    PEDSTATE_WASTED = 55,
+    PEDSTATE_CAR_JACK = 56,
+    PEDSTATE_ENTER_CAR = 58,
+    PEDSTATE_EXIT_CAR = 60
+};
+
 enum PLUGIN_API eMoveState {
     PEDMOVE_NONE,
     PEDMOVE_STILL,
@@ -170,42 +217,42 @@ public:
 private:
     char _pad161[3];
 public:
-    eObjective m_dwObjective;
-    eObjective m_dwPrevObjective;
+    eObjective m_nObjective;
+    eObjective m_nPrevObjective;
     CEntity *m_pObjectiveEntity;
     CVehicle *m_pObjectiveVehicle;
     CVector m_vecObjective;
     float m_fObjectiveAngle;
     CPed *m_pGangLeader;
-    int m_dwPedFormation;
-    unsigned int m_dwFearFlags;
+    int m_nPedFormation;
+    unsigned int m_nFearFlags;
     CEntity *m_pThreatEntity;
     CVector2D m_EventOrThreatPos;
-    unsigned int m_dwEventType;
+    unsigned int m_nEventType;
     CEntity *m_pEventEntity;
     float m_fAngleToEvent;
     void *m_apFrames[18];
     RpAtomic *m_pCurWeaponAtomic;
-    int m_dwAnimGroupId;
+    int m_nAnimGroupId;
     void *m_pVehicleAnim;
     CVector2D m_vecAnimMoveDelta;
     CVector m_vecOffsetSeek;
     CPedIK m_pedIK;
     CVector2D m_ActionPos;
-    int m_dwActionTimer;
-    ePedAction m_dwAction;
-    ePedAction m_dwLastAction;
-    eMoveState m_dwMoveState;
-    eMoveState m_dwStoredMoveState;
-    eMoveState m_dwPrevActionState;
-    int m_dwWaitState;
-    int m_dwWaitTimer;
+    int m_nActionTimer;
+    ePedState m_ePedState;
+    ePedState m_eLastPedState;
+    eMoveState m_eMoveState;
+    eMoveState m_eStoredMoveState;
+    eMoveState m_ePrevActionState;
+    int m_nWaitState;
+    int m_nWaitTimer;
     CPathNode *m_apPathNodesStates[8];
     unsigned short m_wPathNodes;
     short m_wCurPathNode;
     CEntity *m_pPathRelEntity;
     CEntity *m_pNextNodeEntity;
-    int m_dwPathNodeTimer;
+    int m_nPathNodeTimer;
     CPathNode m_aPathNodeStates[8];
     CPathNode *m_pCurNodeState;
     char m_nPathState;
@@ -216,10 +263,10 @@ public:
     CPathNode *m_pLastPathNode;
     CVector m_vecPathNextNode;
     float m_fPathNextNodeDir;
-    unsigned int m_dwPathNodeType;
+    unsigned int m_nPathNodeType;
     float m_fHealth;
     float m_fArmour;
-    int m_dwShadowUpdateTimer;
+    int m_nShadowUpdateTimer;
     short wRouteLastPoint;
     unsigned short wRoutePoints;
     short wRoutePos;
@@ -249,43 +296,43 @@ public:
     float m_fSeatPrecisionY;
     CVehicle *m_pFromVehicle;
     void *m_pSeat;
-    unsigned int m_dwSeatType; //specify seat type, is -1 when not sitting
+    unsigned int m_nSeatType; //specify seat type, is -1 when not sitting
     bool m_bHasPhone;
 private:
     char _pad3C5;
 public:
     short m_wPhoneId;
-    int m_dwLookingForPhone;
-    int m_dwPhoneTalkTimer;
+    int m_nLookingForPhone;
+    int m_nPhoneTalkTimer;
     void *m_pLastAccident;
-    ePedType m_dwPedType;
+    ePedType m_nPedType;
     CPedStats *m_pPedStats;
     float m_fFleeFromPosX;
     float m_fFleeFromPosY;
     CEntity *m_pFleeFrom;
-    int m_dwFleeTimer;
+    int m_nFleeTimer;
     CEntity *m_pThreatEx;
     CEntity *m_pLastThreatAt;
-    int m_dwLastThreatTimer;
+    int m_nLastThreatTimer;
     CVehicle *m_pVehicleColliding;
     unsigned char m_nStateUnused;
 private:
     char _pad3FD[3];
 public:
-    int m_dwTimerUnused;
+    int m_nTimerUnused;
     void *m_pTargetUnused;
     CWeapon m_aWeapons[10];
-    int m_dwAtchStoredWep;
-    int m_dwStoredGiveWep;
-    int m_dwStoredGiveAmmo;
-    unsigned char m_nActiveWeaponSlot;
+    int m_nAtchStoredWep;
+    int m_nStoredGiveWep;
+    int m_nStoredGiveAmmo;
+    unsigned char m_nCurrentWeapon;
     unsigned char m_nWepSkills;
     unsigned char m_nWeaponAccuracy;
     unsigned char m_nBodyPart;
     CEntity *m_pPointGunAt;
     CVector m_vecHitLastPos;
-    int m_dwHitCounter;
-    int m_dwLastHitState; //state after a hit, 2 - just received a hit, 24 - recovered after a hit, 8 - just hit someone, this is not always accurate though  
+    int m_nHitCounter;
+    int m_nLastHitState; //state after a hit, 2 - just received a hit, 24 - recovered after a hit, 8 - just hit someone, this is not always accurate though  
     unsigned char m_nFightFlags1; //FF - looking behind while hitting or getting hit, 00 - normal mode (not sure exactly)
     unsigned char m_nFightFlags2; //flag 01 - you are hitting, flags FE - normal position (?)
     unsigned char m_nFightFlags3; 
@@ -293,20 +340,20 @@ public:
     CFire *m_pPedFire;
     void *m_pPedFight;
     float m_fLookDirection;
-    int m_dwWepModelID;
-    int m_dwLeaveCarTimer;
-    int m_dwGetUpTimer;
-    int m_dwLookTimer;
-    int m_dwStandardTimer;
-    int m_dwAttackTimer;
-    int m_dwLastHitTime;
-    int m_dwHitRecoverTimer;
-    int m_dwObjectiveTimer;
-    int m_dwDuckTimer;
-    int m_dwDuckAndCoverTimer;
-    int m_dwBloodyTimer;
-    int m_dwShotTime;
-    int m_dwShotTimeAdd;
+    int m_nWepModelID;
+    int m_nLeaveCarTimer;
+    int m_nGetUpTimer;
+    int m_nLookTimer;
+    int m_nStandardTimer;
+    int m_nAttackTimer;
+    int m_nLastHitTime;
+    int m_nHitRecoverTimer;
+    int m_nObjectiveTimer;
+    int m_nDuckTimer;
+    int m_nDuckAndCoverTimer;
+    int m_nBloodyTimer;
+    int m_nShotTime;
+    int m_nShotTimeAdd;
     unsigned char m_nPanicCounter;
     unsigned char m_nDeadBleeding;
     unsigned char m_nBodyPartBleeding;
@@ -328,21 +375,21 @@ private:
     char _pad5B2[2];
 public:
     float m_fAttachRot;
-    unsigned int m_dwAttachWepAmmo;
-    unsigned int m_dwThreatFlags;
-    int m_dwThreatCheck;
-    int m_dwLastThreatCheck;
-    unsigned int m_dwSayType;
-    int m_dwSayTimer;
-    int m_dwTalkTimerLast;
-    int m_dwTalkTimer;
+    unsigned int m_nAttachWepAmmo;
+    unsigned int m_nThreatFlags;
+    int m_nThreatCheck;
+    int m_nLastThreatCheck;
+    unsigned int m_nSayType;
+    int m_nSayTimer;
+    int m_nTalkTimerLast;
+    int m_nTalkTimer;
     short m_wTalkTypeLast;
     unsigned short m_wTalkType;
     bool m_bCanPedTalk;
 private:
     char _pad5DD[3];
 public:
-    int m_dwPedLastComment;
+    int m_nPedLastComment;
     CVector m_vecSeekPosEx;
     float m_fSeekExAngle;
 

@@ -19,8 +19,8 @@ public:
     CControllerState PCTempJoyState;
     CControllerState PCTempMouseState;
     short wordD2;
-    short m_nMode;
-    short m_nShakeDur;
+    short Mode;
+    short ShakeDur;
     char ShakeFreq;
     char byteD9;
     char byteDA;
@@ -28,7 +28,7 @@ public:
     char byteDC;
     char byteDD;
     char byteDE;
-    bool m_bDisablePlayerControls;
+    char DisablePlayerControls;
     char byteE0;
     char gapE1[15];
     int dwordF0;
