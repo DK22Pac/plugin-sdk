@@ -29,3 +29,12 @@ CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int AssocGro
 {
     return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405640, RpClump*, int, int, float>(clump, AssocGroupId, AnimationId, clumpAssocBlendData);
 }
+
+CAnimBlendAssociation* CAnimManager::GetAnimAssociation(int AssocGroupId, const char* name) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405940, int, const char*>(AssocGroupId, name);
+
+}
+
+CAnimBlendAssociation* CAnimManager::GetAnimAssociation(int AssocGroupId, int AnimationId) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405960, int, int>(AssocGroupId, AnimationId);
+}

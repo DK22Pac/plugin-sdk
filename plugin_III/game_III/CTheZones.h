@@ -14,6 +14,7 @@
 class PLUGIN_API CTheZones {
 public:
     static CZone* FindSmallestZonePosition(CVector const& pos);
+    static CZone* FindSmallestZonePositionType(CVector const& pos, int type);
     static CZoneInfo* GetZoneInfo(CVector const& pos, bool day);
 
 };

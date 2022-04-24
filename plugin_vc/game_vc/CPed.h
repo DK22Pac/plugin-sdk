@@ -237,7 +237,7 @@ public:
     void *m_pVehicleAnim;
     CVector2D m_vecAnimMoveDelta;
     CVector m_vecOffsetSeek;
-    CPedIK m_pedIK;
+    CPedIK m_PedIK;
     CVector2D m_ActionPos;
     int m_nActionTimer;
     ePedState m_ePedState;

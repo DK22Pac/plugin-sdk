@@ -10,54 +10,59 @@
 #include "RenderWare.h"
 
 // Return flags from MoveLimb() function
-enum MoveLimbResult
-{
+enum MoveLimbResult {
     CANT_REACH_TARGET,
     HAVENT_REACHED_TARGET,
     REACHED_TARGET
 };
 
-struct LimbOrientation
-{
+struct LimbOrientation {
 public:
     float m_fYaw;
     float m_fPitch;
 };
+
 VALIDATE_SIZE(LimbOrientation, 0x8);
 
-struct LimbMovementInfo
-{
-    float maxYaw, minYaw;
+struct LimbMovementInfo {
+    float maxYaw;
+    float minYaw;
     float yawD;
-    float maxPitch, minPitch;
+    float maxPitch;
+    float minPitch;
     float pitchD;
 };
+
 VALIDATE_SIZE(LimbMovementInfo, 0x18);
 
 class CPed;
 
 class CPedIK {
 public:
-    CPed * m_pPed;
-    LimbOrientation m_aLimbOrien[2];
-    float m_fSlopePitch;
-    float m_fSlopePitchLimitMult;
-    float m_fSlopeRoll;
-    float m_fBodyRoll;
+    CPed* m_pPed;
+    LimbOrientation m_sHead;
+    LimbOrientation m_sTorso;
+    LimbOrientation m_sUpperArm;
+    LimbOrientation m_sLowerArm;
 
-    union
-    {
+    union {
         unsigned int m_nFlags;
-        struct
-        {
-            unsigned int bGunReachedTarget : 1;
-            unsigned int bTorsoUsed : 1;
-            unsigned int bUseArm : 1;
+        struct {
+            unsigned int bGunPointedSuccessfully : 1;
+            unsigned int bLookaroundHeadOnly : 1;
+            unsigned int bAimsWithArm : 1;
             unsigned int bSlopePitch : 1;
         };
     };
 
-    static MoveLimbResult MoveLimb(LimbOrientation& TorsoOrien, float yaw, float pitch, LimbMovementInfo &LimbMoveInfo);
+    static LimbMovementInfo& ms_headInfo;
+    static LimbMovementInfo& ms_headRestoreInfo;
+    static LimbMovementInfo& ms_torsoInfo;
+    static LimbMovementInfo& ms_upperArmInfo;
+    static LimbMovementInfo& ms_lowerArmInfo;
+
+public:
+    MoveLimbResult MoveLimb(LimbOrientation& limb, float yaw, float pitch, LimbMovementInfo &moveInfo);
     void GetComponentPosition(RwV3d *returnedPos, unsigned int boneIndex);
 };
 
