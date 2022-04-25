@@ -63,7 +63,8 @@ public:
 
 public:
     MoveLimbResult MoveLimb(LimbOrientation& limb, float yaw, float pitch, LimbMovementInfo &moveInfo);
-    void GetComponentPosition(RwV3d *returnedPos, unsigned int boneIndex);
+    void GetComponentPosition(RwV3d& returnedPos, unsigned int boneIndex);
+    void ExtractYawAndPitchWorld(RwMatrix* matrix, float* yaw, float* pitch);
 };
 
 VALIDATE_SIZE(CPedIK, 0x28);

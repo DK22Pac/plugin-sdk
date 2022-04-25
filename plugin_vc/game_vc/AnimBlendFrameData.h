@@ -11,10 +11,10 @@
 
 class PLUGIN_API AnimBlendFrameData {
 public:
-    unsigned int   m_nFlags;
-    CVector        m_vecOffset;
-    class IFrame  *m_pIFrame;
-    unsigned int   m_nNodeId;
+    unsigned int m_nFlags;
+    CVector m_vecOffset;
+    RwFrame* m_pFrame;
+    unsigned int m_nNodeId;
 };
 
 VALIDATE_SIZE(AnimBlendFrameData, 0x18);

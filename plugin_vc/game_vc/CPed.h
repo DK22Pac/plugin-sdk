@@ -23,6 +23,7 @@
 #include "CFire.h"
 #include "ePedType.h"
 #include "ePedAction.h"
+#include "AnimBlendFrameData.h"
 
 enum PLUGIN_API ePedState : unsigned int {
     PEDSTATE_NONE = 0,
@@ -231,7 +232,7 @@ public:
     unsigned int m_nEventType;
     CEntity *m_pEventEntity;
     float m_fAngleToEvent;
-    void *m_apFrames[18];
+    AnimBlendFrameData* m_apFrames[18];
     RpAtomic *m_pCurWeaponAtomic;
     int m_nAnimGroupId;
     void *m_pVehicleAnim;
