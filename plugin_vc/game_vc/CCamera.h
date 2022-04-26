@@ -130,15 +130,15 @@ public:
 	float   m_ScreenReductionSpeed;
 	float   m_AlphaForPlayerAnim1rstPerson;
 	float   m_fOrientation;            // The orientation of the camera. Used for peds walking.
-	float   PedZoomIndicator;
-	float   PlayerExhaustion;       // How tired is player (inaccurate sniping) 0.0f-1.0f
+	float   m_fPedZoomIndicator;
+	float   m_fPlayerExhaustion;       // How tired is player (inaccurate sniping) 0.0f-1.0f
 									// The following things are used by the sound code to
 									// play reverb depending on the surroundings. From a point
 									// in front of the camera the disance is measured to the
 									// nearest obstacle (building)
-	float   SoundDistUp;			//, SoundDistLeft, SoundDistRight;     // These ones are buffered and should be used by the audio
-	float   SoundDistUpAsRead;		//, SoundDistLeftAsRead, SoundDistRightAsRead;
-	float   SoundDistUpAsReadOld;	 //, SoundDistLeftAsReadOld, SoundDistRightAsReadOld;
+	float   m_fSoundDistUp;			//, SoundDistLeft, SoundDistRight;     // These ones are buffered and should be used by the audio
+	float   m_fSoundDistUpAsRead;		//, SoundDistLeftAsRead, SoundDistRightAsRead;
+	float   m_fSoundDistUpAsReadOld;	 //, SoundDistLeftAsReadOld, SoundDistRightAsReadOld;
 									 // Very rough distance to the nearest water for the sound to use
 								  // Front vector X&Y normalised to 1. Used by loads of stuff.
 
