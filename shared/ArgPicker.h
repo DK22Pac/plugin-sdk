@@ -56,4 +56,7 @@ using ArgPick2N = ArgPick<ArgTypes<Type1, Type2>, N1, N2>;
 template<typename Type1, size_t N1, typename Type2, size_t N2, typename Type3, size_t N3>
 using ArgPick3N = ArgPick<ArgTypes<Type1, Type2, Type3>, N1, N2, N3>;
 
+template<typename Type1, size_t N1, typename Type2, size_t N2, typename Type3, size_t N3, typename Type4, size_t N4>
+using ArgPick4N = ArgPick<ArgTypes<Type1, Type2, Type3, Type4>, N1, N2, N3, N4>;
+
 }
