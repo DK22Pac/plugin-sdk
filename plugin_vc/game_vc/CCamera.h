@@ -22,7 +22,7 @@ public:
 	bool    m_bCamDirectlyBehind;
 	bool    m_bCamDirectlyInFront;
 	bool    m_bCameraJustRestored;
-	bool    m_bcutsceneFinished;
+	bool    m_bCutsceneFinished;
 	bool    m_bCullZoneChecksOn;
 	bool    m_bFirstPersonBeingUsed; // To indicate if the m_bFirstPersonBeingUsed viewer is being used.
 	bool    m_bJustJumpedOutOf1stPersonBecauseOfTarget;
@@ -55,52 +55,52 @@ public:
 	bool    m_bItsOkToLookJustAtThePlayer;	 //Used when interpolating
 	bool    m_bWantsToSwitchWidescreenOff;
 	bool    m_WideScreenOn;
-	bool    m_1rstPersonRunCloseToAWall;
+	bool    m_b1stPersonRunCloseToAWall;
 	bool    m_bHeadBob;
 	bool    m_bVehicleSuspenHigh;
 	bool    m_bEnable1rstPersonCamCntrlsScript;
 
 	bool    m_bAllow1rstPersonWeaponsCamera;
 	bool    m_bFailedCullZoneTestPreviously;
-	bool    m_FadeTargetIsSplashScreen;	//used as hack for fading 
-	bool    WorldViewerBeingUsed;	// To indicate if the world viewer is being used.                                      
+	bool    m_bFadeTargetIsSplashScreen;	//used as hack for fading 
+	bool    m_bWorldViewerBeingUsed;	// To indicate if the world viewer is being used.                                      
 	unsigned char   m_nActiveCam;				 // Which one at the moment (0 or 1)
 											// Their is a fudge at the end when the renderware matrix will receive either
 											// the active camera or the worldviewer camera
-	unsigned int    m_uiCamShakeStart;          // When did the camera shake start.
-	unsigned int    m_uiFirstPersonCamLastInputTime;
-	unsigned int    m_uiLongestTimeInMill;
-	unsigned int    m_uiNumberOfTrainCamNodes;
+	unsigned int    m_nCamShakeStart;          // When did the camera shake start.
+	unsigned int    m_nFirstPersonCamLastInputTime;
+	unsigned int    m_nLongestTimeInMill;
+	unsigned int    m_nNumberOfTrainCamNodes;
 
-	unsigned char     m_uiTransitionJUSTStarted;  // This is the first frame of a transition.
-	unsigned char     m_uiTransitionState;        // 0:one mode 1:transition
-	unsigned int    m_uiTimeLastChange;
-	unsigned int    m_uiTimeWeLeftIdle_StillNoInput;
-	unsigned int    m_uiTimeWeEnteredIdle;
-	unsigned int    m_uiTimeTransitionStart;    // When was the transition started ?
-	unsigned int    m_uiTransitionDuration;     // How long does the transition take ?
-	unsigned int    m_uiTransitionDurationTargetCoors;
-	int     m_BlurBlue;
-	int     m_BlurGreen;
-	int     m_BlurRed;
-	int     m_BlurType;
-	int     m_iWorkOutSpeedThisNumFrames; 
-	int     m_iNumFramesSoFar;				//counter
-	int     m_iCurrentTrainCamNode;			//variable indicating which camera node we are at for the train
-	int     m_motionBlur;					//to indicate that we are fading
+	unsigned char     m_nTransitionJUSTStarted;  // This is the first frame of a transition.
+	unsigned char     m_nTransitionState;        // 0:one mode 1:transition
+	unsigned int    m_nTimeLastChange;
+	unsigned int    m_nTimeWeLeftIdle_StillNoInput;
+	unsigned int    m_nTimeWeEnteredIdle;
+	unsigned int    m_nTimeTransitionStart;    // When was the transition started ?
+	unsigned int    m_nTransitionDuration;     // How long does the transition take ?
+	unsigned int    m_nTransitionDurationTargetCoors;
+	int     m_nBlurBlue;
+	int     m_nBlurGreen;
+	int     m_nBlurRed;
+	int     m_nBlurType;
+	int     m_nWorkOutSpeedThisNumFrames; 
+	int     m_nNumFramesSoFar;				//counter
+	int     m_nCurrentTrainCamNode;			//variable indicating which camera node we are at for the train
+	int     m_nMotionBlur;					//to indicate that we are fading
 
-	int     m_imotionBlurAddAlpha;
-	int     m_iCheckCullZoneThisNumFrames;
-	int     m_iZoneCullFrameNumWereAt;
-	int     WhoIsInControlOfTheCamera;		//to discern between obbe and scripts
-	float   CamFrontXNorm, CamFrontYNorm;
-	float   CarZoomIndicator;
-	float   CarZoomValue;
-	float   CarZoomValueSmooth;
-	float   DistanceToWater;
-	float   FOVDuringInter;
-	float   LODDistMultiplier;				 // This takes into account the FOV and the standard LOD multiplier Smaller aperture->bigger LOD multipliers.
-	float   GenerationDistMultiplier;		// This takes into account the FOV but noy the standard LOD multiplier
+	int     m_nMotionBlurAddAlpha;
+	int     m_nCheckCullZoneThisNumFrames;
+	int     m_nZoneCullFrameNumWereAt;
+	int     m_nWhoIsInControlOfTheCamera;		//to discern between obbe and scripts
+	float   m_fCamFrontXNorm, m_fCamFrontYNorm;
+	float   m_fCarZoomIndicator;
+	float   m_fCarZoomValue;
+	float   m_fCarZoomValueSmooth;
+	float   m_fDistanceToWater;
+	float   m_fFOVDuringInter;
+	float   m_fLODDistMultiplier;				 // This takes into account the FOV and the standard LOD multiplier Smaller aperture->bigger LOD multipliers.
+	float   m_fGenerationDistMultiplier;		// This takes into account the FOV but noy the standard LOD multiplier
 
 	float   m_fAlphaSpeedAtStartInter;
 	float   m_fAlphaWhenInterPol;
@@ -114,10 +114,10 @@ public:
 	float   m_fStartingAlphaForInterPol;
 	float   m_PedOrientForBehindOrInFront;
 
-	float   m_CameraAverageSpeed;		//this is an average depending on how many frames we work it out
-	float   m_CameraSpeedSoFar;		 //this is a running total
+	float   m_fCameraAverageSpeed;		//this is an average depending on how many frames we work it out
+	float   m_fCameraSpeedSoFar;		 //this is a running total
 	float   m_fCamShakeForce;			 // How severe is the camera shake.
-	float m_fCarZoomValueScript;
+	float	m_fCarZoomValueScript;
 	float   m_fFovForTrain;
 	float   m_fFOV_Wide_Screen;
 	float   m_fNearClipScript;
@@ -126,9 +126,9 @@ public:
 	float   m_fPedZoomValueSmooth;
 	float   m_fPedZoomValueScript;
 	float   m_fPositionAlongSpline;				//Variable used to indicate how far along the spline we are 0-1 for started to completed respectively
-	float   m_ScreenReductionPercentage;
-	float   m_ScreenReductionSpeed;
-	float   m_AlphaForPlayerAnim1rstPerson;
+	float   m_fScreenReductionPercentage;
+	float   m_fScreenReductionSpeed;
+	float   m_fAlphaForPlayerAnim1rstPerson;
 	float   m_fOrientation;            // The orientation of the camera. Used for peds walking.
 	float   m_fPedZoomIndicator;
 	float   m_fPlayerExhaustion;       // How tired is player (inaccurate sniping) 0.0f-1.0f
@@ -161,11 +161,11 @@ public:
 	// The higher priority player camera mode. This one is used
 	// for the sniper mode and rocket launcher mode.
 	// This one overwrites the m_PlayerMode above.
-	tQueuedMode PlayerWeaponMode;
-	CVector m_PreviousCameraPosition;		//needed to work out speed
-	CVector m_RealPreviousCameraPosition;	// This cane be used by stuff outside the camera code. The one above is the same as the current coordinates outwidth the camera code.
+	tQueuedMode m_PlayerWeaponMode;
+	CVector m_vecPreviousCameraPosition;		//needed to work out speed
+	CVector m_vecRealPreviousCameraPosition;	// This cane be used by stuff outside the camera code. The one above is the same as the current coordinates outwidth the camera code.
 											 // an active camera for range finding etc
-	CVector m_cvecAimingTargetCoors;        // Coors to look at with Gordons aiming thing
+	CVector m_vecAimingTargetCoors;        // Coors to look at with Gordons aiming thing
 											// The player camera that is waiting to be used
 											// This camera can replace the default camera where this is
 											// needed (in tricky situations like tunnels for instance)
@@ -174,31 +174,31 @@ public:
 	CVector m_vecFixedModeUpOffSet;
 	CVector m_vecCutSceneOffset;
 
-	CVector m_cvecStartingSourceForInterPol;
-	CVector m_cvecStartingTargetForInterPol;
-	CVector m_cvecStartingUpForInterPol;
-	CVector m_cvecSourceSpeedAtStartInter;
-	CVector m_cvecTargetSpeedAtStartInter;
-	CVector m_cvecUpSpeedAtStartInter;
+	CVector m_vecStartingSourceForInterPol;
+	CVector m_vecStartingTargetForInterPol;
+	CVector m_vecStartingUpForInterPol;
+	CVector m_vecSourceSpeedAtStartInter;
+	CVector m_vecTargetSpeedAtStartInter;
+	CVector m_vecUpSpeedAtStartInter;
 	CVector m_vecSourceWhenInterPol;
 	CVector m_vecTargetWhenInterPol;
 	CVector m_vecUpWhenInterPol;
 	CVector m_vecClearGeometryVec;
 	CVector m_vecGameCamPos;
 
-	CVector SourceDuringInter, TargetDuringInter, UpDuringInter;
+	CVector m_vecSourceDuringInter, m_vecTargetDuringInter, m_vecUpDuringInter;
 	// RenderWare camera pointer
 	RwCamera* m_pRwCamera;
 						   
-	CEntity *pTargetEntity;
-	tCamPathSplines m_arrPathArray[MAX_NUM_OF_SPLINETYPES]; //These only get created when the script calls the load splines function
-	CMatrix m_cameraMatrix;
+	CEntity *m_pTargetEntity;
+	tCamPathSplines m_ArrPathArray[MAX_NUM_OF_SPLINETYPES]; //These only get created when the script calls the load splines function
+	CMatrix m_CameraMatrix;
 	bool    m_bGarageFixedCamPositionSet;
 	bool    m_vecDoingSpecialInterPolation;
 	bool    m_bScriptParametersSetForInterPol;
 	bool    m_bFading;	//to indicate that we are fading 
 	bool    m_bMusicFading;
-	CMatrix m_viewMatrix;
+	CMatrix m_ViewMatrix;
 	CVector m_vecFrustumNormals[4];
 	CVector m_vecOldSourceForInter;
 	CVector m_vecOldFrontForInter;
@@ -224,8 +224,8 @@ public:
 	short   m_nMusicFadingDirection;
 	short   m_nTypeOfSwitch;
 
-	unsigned int  m_uiFadeTimeStarted;
-	unsigned int  m_uiFadeTimeStartedMusic;
+	unsigned int  m_nFadeTimeStarted;
+	unsigned int  m_nFadeTimeStartedMusic;
 
 	static char& m_nFadeColorsSet;
 	static bool& m_bUseMouse3rdPerson;

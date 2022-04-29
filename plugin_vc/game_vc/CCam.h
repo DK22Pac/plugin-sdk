@@ -10,6 +10,57 @@
 #include "CPed.h"
 #include "CAutomobile.h"
 
+enum eCamMode {
+	MODE_NONE = 0,
+	MODE_TOP_DOWN,
+	MODE_GTA_CLASSIC,
+	MODE_BEHIND_CAR,
+	MODE_FOLLOW_PED,
+	MODE_AIMING,
+	MODE_DEBUG,
+	MODE_SNIPER,
+	MODE_ROCKET_LAUNCHER,
+	MODE_MODEL_VIEW,
+	MODE_BILL,
+	MODE_SYPHON,
+	MODE_CIRCLE,
+	MODE_CHEESY_ZOOM,
+	MODE_WHEEL_CAM,
+	MODE_FIXED,
+	MODE_1ST_PERSON,
+	MODE_FLYBY,
+	MODE_CAM_ON_A_STRING,
+	MODE_REACTION,
+	MODE_FOLLOW_PED_WITH_BIND,
+	MODE_CHRIS,
+	MODE_BEHIND_BOAT,
+	MODE_PLAYER_FALLEN_WATER,
+	MODE_CAM_ON_TRAIN_ROOF,
+	MODE_CAM_RUNNING_SIDE_TRAIN,
+	MODE_BLOOD_ON_THE_TRACKS,
+	MODE_IM_THE_PASSENGER_WOOWOO,
+	MODE_SYPHON_CRIM_IN_FRONT,
+	MODE_PED_DEAD_BABY,
+	MODE_PILLOWS_PAPS,
+	MODE_LOOK_AT_CARS,
+	MODE_ARREST_CAM_ONE,
+	MODE_ARREST_CAM_TWO,
+	MODE_M16_1ST_PERSON,
+	MODE_SPECIAL_FIXED_FOR_SYPHON,
+	MODE_FIGHT_CAM,
+	MODE_TOP_DOWN_PED,
+	MODE_LIGHT_HOUSE,
+	MODE_SNIPER_RUNABOUT,
+	MODE_ROCKET_LAUNCHER_RUNABOUT,
+	MODE_1ST_PERSON_RUNABOUT,
+	MODE_M16_1ST_PERSON_RUNABOUT,
+	MODE_FIGHT_CAM_RUNABOUT,
+	MODE_EDITOR,
+	MODE_HELI_CANNON_1ST_PERSON,
+	MODE_CAMERA,
+};
+
+
 #define NUMBER_OF_VECTORS_FOR_AVERAGE (2)
 
 class CCam {
@@ -28,13 +79,13 @@ public:
 	bool m_bRotating;
 
 	short m_nCamMode; // CameraMode
-	unsigned int m_uiFinishTime; // 52
+	unsigned int m_nFinishTime; // 52
 
-	int m_iDoCollisionChecksOnFrameNum; 
-	int m_iDoCollisionCheckEveryNumOfFrames;
-	int m_iFrameNumWereAt;  // 64
-	int m_iRunningVectorArrayPos;
-	int m_iRunningVectorCounter;
+	int m_nDoCollisionChecksOnFrameNum; 
+	int m_nDoCollisionCheckEveryNumOfFrames;
+	int m_nFrameNumWereAt;  // 64
+	int m_nRunningVectorArrayPos;
+	int m_nRunningVectorCounter;
 	int DirectionWasLooking;
 
 	float m_fMaxRoleAngle; //=DEGTORAD(5.0f);    
