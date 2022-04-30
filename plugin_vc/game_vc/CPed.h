@@ -157,7 +157,7 @@ public:
         unsigned char b58 : 1;
         unsigned char b59 : 1;
         unsigned char bClearObjective : 1;
-        unsigned char b61 : 1;
+        unsigned char bTryingToReachDryLand : 1;
         unsigned char b62 : 1;
         unsigned char b63 : 1;
         unsigned char b64 : 1;

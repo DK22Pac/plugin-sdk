@@ -65,7 +65,7 @@ public:
 
         unsigned char bEntUFlag25 : 1;
         unsigned char bImBeingRendered : 1;
-        unsigned char bEntUFlag27 : 1;
+        unsigned char bIsTouchingWater : 1;
         unsigned char bEntUFlag28 : 1;
         unsigned char bEntUFlag29 : 1;
         unsigned char bEntUFlag30 : 1;
