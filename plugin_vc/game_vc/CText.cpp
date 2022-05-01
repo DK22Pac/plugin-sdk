@@ -4,9 +4,10 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CZone.h"
+#include "CText.h"
 
-// Returns pointer to GXT name string.
-wchar_t* CZone::GetTranslatedName() {
-    return plugin::CallMethodAndReturn<wchar_t*, 0x4DE4B0, CZone*>(this);
+CText& TheText = *(CText*)0x94B220;
+
+wchar_t* CText::Get(char const* key) {
+    return plugin::CallMethodAndReturn<wchar_t*, 0x584F30, CText*, char const*>(this, key);
 }

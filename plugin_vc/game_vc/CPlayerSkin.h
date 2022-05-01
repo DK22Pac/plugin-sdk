@@ -7,6 +7,14 @@ Do not delete this comment block. Respect others' work!
 #pragma once
 #include "PluginBase.h"
 
+struct PLUGIN_API CPlayerSkinData {
+    int m_nSkinId;
+    char m_aSkinNameDisplayed[256];
+    char m_aSkinNameOriginal[256];
+    char m_aDateInfo[256];
+    CPlayerSkinData* m_pNextSkin;
+};
+
 class CPlayerSkin {
 public:
 
