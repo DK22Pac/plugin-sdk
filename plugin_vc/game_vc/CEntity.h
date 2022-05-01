@@ -50,7 +50,7 @@ public:
         unsigned char bIsVisible : 1;
         unsigned char bHasCollided : 1;
         unsigned char bRenderScorched : 1;
-        unsigned char bEntUFlag14 : 1;
+        unsigned char bHasBlip : 1;
         unsigned char bUseLevelSectors : 1;
         unsigned char bIsBigBuilding : 1;
 
