@@ -142,9 +142,9 @@ VALIDATE_SIZE(airstrip_info, 0x10);
 
 
 struct tRadarTrace {
-    unsigned int   m_dwColour; // see eBlipColour
-    unsigned int   m_dwEntityHandle;
-    CVector        m_vPosition;
+    unsigned int   m_nColour; // see eBlipColour
+    unsigned int   m_nEntityHandle;
+    CVector        m_vecPos;
     unsigned short m_nCounter;
     float          m_fSphereRadius;
     unsigned short m_nBlipSize;

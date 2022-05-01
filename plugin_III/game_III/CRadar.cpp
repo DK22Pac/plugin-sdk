@@ -9,7 +9,7 @@
 PLUGIN_SOURCE_FILE
 
 PLUGIN_VARIABLE CVector2D &CRadar::vec2DRadarOrigin = *reinterpret_cast<CVector2D *>(GLOBAL_ADDRESS_BY_VERSION(0x6299B8, 0x6299B8, 0x6399B8));
-PLUGIN_VARIABLE CBlip(&CRadar::ms_RadarTrace)[32] = *reinterpret_cast<CBlip(*)[32]>(GLOBAL_ADDRESS_BY_VERSION(0x6ED5E0, 0x6ED5E0, 0x6FD720));
+PLUGIN_VARIABLE tRadarTrace(&CRadar::ms_RadarTrace)[32] = *reinterpret_cast<tRadarTrace(*)[32]>(GLOBAL_ADDRESS_BY_VERSION(0x6ED5E0, 0x6ED5E0, 0x6FD720));
 PLUGIN_VARIABLE CSprite2d &CRadar::CatSprite = *reinterpret_cast<CSprite2d *>(GLOBAL_ADDRESS_BY_VERSION(0x885B24, 0x885AD4, 0x895C14));
 PLUGIN_VARIABLE CSprite2d &CRadar::TonySprite = *reinterpret_cast<CSprite2d *>(GLOBAL_ADDRESS_BY_VERSION(0x885B58, 0x885B08, 0x895C48));
 PLUGIN_VARIABLE float &CRadar::m_radarRange = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0x8E281C, 0x8E27CC, 0x8F290C));
@@ -301,8 +301,8 @@ void CRadar::TransformRealWorldToTexCoordSpace(CVector2D &out, CVector2D const &
     plugin::CallDynGlobal<CVector2D &, CVector2D const &, int, int>(gaddrof(CRadar::TransformRealWorldToTexCoordSpace), out, in, x, y);
 }
 
-int ctor_addr(CBlip) = ADDRESS_BY_VERSION(0x4A7260, 0x4A7350, 0x4A72E0);
-int ctor_gaddr(CBlip) = GLOBAL_ADDRESS_BY_VERSION(0x4A7260, 0x4A7350, 0x4A72E0);
+int ctor_addr(tRadarTrace) = ADDRESS_BY_VERSION(0x4A7260, 0x4A7350, 0x4A72E0);
+int ctor_gaddr(tRadarTrace) = GLOBAL_ADDRESS_BY_VERSION(0x4A7260, 0x4A7350, 0x4A72E0);
 
 int addrof(ClipRadarTileCoords) = ADDRESS_BY_VERSION(0x4A6020, 0x4A6110, 0x4A60A0);
 int gaddrof(ClipRadarTileCoords) = GLOBAL_ADDRESS_BY_VERSION(0x4A6020, 0x4A6110, 0x4A60A0);

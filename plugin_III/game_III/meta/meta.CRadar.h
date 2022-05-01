@@ -578,7 +578,7 @@ using calling_convention_t = CallingConventions::Cdecl;
 using args_t = ArgPick<ArgTypes<unsigned char *,unsigned int>, 0,1>;
 META_END
 
-CTOR_META_BEGIN(CBlip)
+CTOR_META_BEGIN(tRadarTrace)
 static int address;
 static int global_address;
 static const int id = 0x4A7260;
@@ -587,10 +587,10 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4A7260, 0x4A7350, 0x4A72E0>;
 // total references count: 10en (1), 11en (1), steam (1)
 using refs_t = RefList<0x4A7007,100,2,0,1, 0x4A70F7,110,2,0,1, 0x4A7087,120,2,0,1>;
-using def_t = CBlip *(CBlip *);
+using def_t = tRadarTrace *(tRadarTrace*);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CBlip *>, 0>;
+using args_t = ArgPick<ArgTypes<tRadarTrace*>, 0>;
 META_END
 
 META_BEGIN(ClipRadarTileCoords)
@@ -684,26 +684,26 @@ using args_t = ArgPick<ArgTypes<CVector2D &,CVector2D const &,CVector2D const &>
 META_END
 
 template<>
-struct stack_object<CBlip> : stack_object_no_default<CBlip> {
+struct stack_object<tRadarTrace> : stack_object_no_default<tRadarTrace> {
     SUPPORTED_10EN_11EN_STEAM stack_object() {
-        plugin::CallMethodDynGlobal<CBlip *>(ctor_gaddr(CBlip), reinterpret_cast<CBlip *>(objBuff));
+        plugin::CallMethodDynGlobal<tRadarTrace*>(ctor_gaddr(tRadarTrace), reinterpret_cast<tRadarTrace *>(objBuff));
     }
 };
 
 template <>
-SUPPORTED_10EN_11EN_STEAM inline CBlip *operator_new<CBlip>() {
-    void *objData = operator new(sizeof(CBlip)); 
-    CBlip *obj = reinterpret_cast<CBlip *>(objData);
-    plugin::CallMethodDynGlobal<CBlip *>(ctor_gaddr(CBlip), obj);
+SUPPORTED_10EN_11EN_STEAM inline tRadarTrace*operator_new<tRadarTrace>() {
+    void *objData = operator new(sizeof(tRadarTrace)); 
+    tRadarTrace *obj = reinterpret_cast<tRadarTrace *>(objData);
+    plugin::CallMethodDynGlobal<tRadarTrace *>(ctor_gaddr(tRadarTrace), obj);
     return obj;
 }
 template <>
-SUPPORTED_10EN_11EN_STEAM inline CBlip *operator_new_array<CBlip>(unsigned int objCount) {
-    void *objData = operator new(sizeof(CBlip) * objCount + 4); 
+SUPPORTED_10EN_11EN_STEAM inline tRadarTrace *operator_new_array<tRadarTrace>(unsigned int objCount) {
+    void *objData = operator new(sizeof(tRadarTrace) * objCount + 4); 
     *reinterpret_cast<unsigned int *>(objData) = objCount;
-    CBlip *objArray = reinterpret_cast<CBlip *>(reinterpret_cast<unsigned int>(objData) + 4);
+    tRadarTrace *objArray = reinterpret_cast<tRadarTrace *>(reinterpret_cast<unsigned int>(objData) + 4);
     for (unsigned int i = 0; i < objCount; i++)
-        plugin::CallMethodDynGlobal<CBlip *>(ctor_gaddr(CBlip), &objArray[i]);
+        plugin::CallMethodDynGlobal<tRadarTrace *>(ctor_gaddr(tRadarTrace), &objArray[i]);
     return objArray;
 }
 
