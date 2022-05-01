@@ -10,15 +10,15 @@
 
 class PLUGIN_API CMouseControllerState {
 public:
-    bool LMB;
-    bool RMB;
-    bool MMB;
-    bool WHEELUP;
-    bool WHEELDN;
-    bool MXB1;
-    bool MXB2;
-    float X;
-    float Y;
+    bool lmb;
+    bool rmb;
+    bool mmb;
+    bool wheelUp;
+    bool wheelDown;
+    bool bmx;
+    bool bmx2;
+    float x;
+    float y;
 
     SUPPORTED_10EN_11EN_STEAM CMouseControllerState();
 
