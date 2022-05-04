@@ -57,9 +57,9 @@ public:
     unsigned char bmx1;
     unsigned char bmx2;
     char __align;
-    float Z;
-    float X;
-    float Y;
+    float z;
+    float x;
+    float y;
 };
 
 VALIDATE_SIZE(CMouseControllerState, 0x14);

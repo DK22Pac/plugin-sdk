@@ -25,15 +25,15 @@ enum PLUGIN_API eBombState {
     BOMB_IGNITION_ACTIVATED = 5
 };
 
-enum PLUGIN_API eCarLock : unsigned int {
-    CARLOCK_NOT_USED = 0,
-    CARLOCK_UNLOCKED = 1,
-    CARLOCK_LOCKED = 2,
-    CARLOCK_LOCKOUT_PLAYER_ONLY = 3,
-    CARLOCK_LOCKED_PLAYER_INSIDE = 4,
-    CARLOCK_COP_CAR = 5,
-    CARLOCK_FORCE_SHUT_DOORS = 6,
-    CARLOCK_SKIP_SHUT_DOORS = 7
+enum PLUGIN_API eDoorLock : unsigned int {
+    DOORLOCK_NOT_USED = 0,
+    DOORLOCK_UNLOCKED = 1,
+    DOORLOCK_LOCKED = 2,
+    DOORLOCK_LOCKOUT_PLAYER_ONLY = 3,
+    DOORLOCK_LOCKED_PLAYER_INSIDE = 4,
+    DOORLOCK_COP_CAR = 5,
+    DOORLOCK_FORCE_SHUT_DOORS = 6,
+    DOORLOCK_SKIP_SHUT_DOORS = 7
 };
 
 enum PLUGIN_API eDoors : unsigned char {
@@ -99,7 +99,7 @@ public:
     char m_nNumGettingIn;
     char m_nGettingInFlags;
     char m_nGettingOutFlags;
-    unsigned char m_nNumMaxPassengers;
+    unsigned char m_nMaxPassengers;
     float field_1D0[4];
     CEntity *m_pCurGroundEntity;
     CFire *m_pCarFire;
@@ -156,7 +156,7 @@ public:
     CEntity *m_pBlowUpEntity;
     float m_fMapObjectHeightAhead; //!< front Z?
     float m_fMapObjectHeightBehind; //!< rear Z?
-    unsigned int m_nDoorLock; //!< see enum eCarLock
+    eDoorLock m_nDoorLock; 
     char m_nLastWeaponDamage; //!< see eWeaponType, -1 if no damage
     unsigned char m_nRadioStation;
     unsigned char m_nRainAudioCounter;

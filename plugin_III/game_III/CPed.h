@@ -608,8 +608,8 @@ public:
     eWeaponType m_eStoredWeapon;
     unsigned char m_nCurrentWeapon; //!< see eWeaponType
     unsigned char m_nMaxWeaponTypeAllowed; //!< see eWeaponType
-    unsigned char m_nWepSkills;
-    unsigned char m_nWepAccuracy;
+    unsigned char m_nWeaponSkill;
+    unsigned char m_nWeaponAccuracy;
     CEntity *m_pPointGunAt;
     CVector m_vecHitLastPos;
     unsigned int m_nCurFightMove;

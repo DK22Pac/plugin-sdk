@@ -25,15 +25,15 @@ enum eCarWeapon {
 
 };
 
-enum eCarLock {
-    CARLOCK_NOT_USED,
-    CARLOCK_UNLOCKED,
-    CARLOCK_LOCKED,
-    CARLOCK_LOCKOUT_PLAYER_ONLY,
-    CARLOCK_LOCKED_PLAYER_INSIDE,
-    CARLOCK_COP_CAR,
-    CARLOCK_FORCE_SHUT_DOORS,
-    CARLOCK_SKIP_SHUT_DOORS
+enum eDoorLock : unsigned int {
+    DOORLOCK_NOT_USED,
+    DOORLOCK_UNLOCKED,
+    DOORLOCK_LOCKED,
+    DOORLOCK_LOCKOUT_PLAYER_ONLY,
+    DOORLOCK_LOCKED_PLAYER_INSIDE,
+    DOORLOCK_COP_CAR,
+    DOORLOCK_FORCE_SHUT_DOORS,
+    DOORLOCK_SKIP_SHUT_DOORS
 };
 
 enum eVehicleType {
@@ -196,7 +196,7 @@ public:
     int field_224;
     int field_228;
     int field_22C;
-    unsigned int m_nLockStatus;
+    eDoorLock m_nDoorLock;
     unsigned char m_nLastWeaponDamage;
     char __f0231[3];
     CEntity *pLastDamEntity;

@@ -244,7 +244,7 @@ public:
     eWeaponType         m_nSavedWeapon; // when we need to hide ped weapon, we save it temporary here
     eWeaponType         m_nDelayedWeapon; // 'delayed' weapon is like an additional weapon, f.e., simple cop has a nitestick as current and pistol as delayed weapons
     unsigned int        m_nDelayedWeaponAmmo;
-    unsigned char       m_nActiveWeaponSlot;
+    unsigned char       m_nCurrentWeapon;
     unsigned char       m_nWeaponShootingRate;
     unsigned char       m_nWeaponAccuracy;
     CObject            *m_pTargetedObject;

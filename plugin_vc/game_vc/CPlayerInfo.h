@@ -76,7 +76,7 @@ public:
 	int m_nExplosionMultiplier;
 	int field_138;
 	float field_13C;
-	bool m_bNeverGetsTired;
+	bool m_bInfiniteSprint;
 	bool m_bFastReload;
 	bool m_bFireProof;
 	unsigned char m_nMaxHealth;
