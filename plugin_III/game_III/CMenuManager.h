@@ -316,30 +316,30 @@ public:
 
 public:
 	static int &OS_Language;
-	static char &m_PrefsUseVibration;
-	static char &m_DisplayControllerOnFoot;
-	static char &m_PrefsUseWideScreen;
-	static char &m_PrefsRadioStation;
-	static char &m_PrefsVsync;
-	static char &m_PrefsVsyncDisp;
-	static char &m_PrefsFrameLimiter;
-	static char &m_PrefsShowSubtitles;
-	static char &m_PrefsSpeakers;
-	static char &m_ControlMethod;
-	static char &m_PrefsDMA;
-	static char &m_PrefsLanguage;
+	static char &m_nPrefsUseVibration;
+	static char &m_nDisplayControllerOnFoot;
+	static char &m_nPrefsUseWideScreen;
+	static char &m_nPrefsRadioStation;
+	static char &m_nPrefsVsync;
+	static char &m_nPrefsVsyncDisp;
+	static char &m_nPrefsFrameLimiter;
+	static char &m_nPrefsShowSubtitles;
+	static char &m_nPrefsSpeakers;
+	static char &m_nControlMethod;
+	static char &m_nPrefsDMA;
+	static char &m_nPrefsLanguage;
 	static char &m_bDisableMouseSteering;
-	static int &m_PrefsBrightness;
-	static float &m_PrefsLOD;
+	static int &m_nPrefsBrightness;
+	static float &m_fPrefsLOD;
 	static char &m_bFrontEnd_ReloadObrTxtGxt;
-	static int &m_PrefsMusicVolume;
-	static int &m_PrefsSfxVolume;
-	static char *m_PrefsSkinFile;
-	static int &m_KeyPressedCode;
+	static int &m_nPrefsMusicVolume;
+	static int &m_nPrefsSfxVolume;
+	static char *m_nPrefsSkinFile;
+	static int &m_nKeyPressedCode;
 
 	static bool &m_bStartUpFrontEndRequested;
 	static bool &m_bShutDownFrontEndRequested;
-	static bool &m_PrefsAllowNastyGame;
+	static bool &m_bPrefsAllowNastyGame;
 
 public:
 	void BuildStatLine(char *text, float *stat, bool aFloat, float* stat2);
