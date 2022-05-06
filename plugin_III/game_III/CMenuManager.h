@@ -306,10 +306,10 @@ public:
 	int m_nMouseOldPosX;
 	int m_nMouseOldPosY;
 	int m_nHoverOption;
-	int m_nCurrentMenuScreen;
+	int m_nCurrentMenuPage;
 	int m_nCurrentMenuEntry;
 	int m_nPreviousMenuEntry;
-	int m_nPreviousMenuScreen;
+	int m_nPreviousMenuPage;
 	int field_558;
 	int m_nCurrentSaveSlot;
 	int m_nScreenChangeDelayTimer;

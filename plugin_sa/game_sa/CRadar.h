@@ -32,8 +32,8 @@ enum eBlipType {
 
 enum eBlipDisplay {
     BLIP_DISPLAY_NEITHER,    // 0
-    BLIP_DISPLAY_MARKERONLY, // 1
-    BLIP_DISPLAY_BLIPONLY,   // 2
+    BLIP_DISPLAY_MARKER_ONLY, // 1
+    BLIP_DISPLAY_BLIP_ONLY,   // 2
     BLIP_DISPLAY_BOTH        // 3
 };
 
@@ -114,8 +114,9 @@ enum eRadarSprite {
     RADAR_SPRITE_GANGY,         // 60
     RADAR_SPRITE_GANGN,         // 61
     RADAR_SPRITE_GANGG,         // 62
-    RADAR_SPRITE_SPRAY/*,       // 63
+    RADAR_SPRITE_SPRAY,/*,       // 63
     RADAR_SPRITE_TORENO*/       // 64
+    RADAR_SPRITE_COUNT,
 };
 
 enum eRadarTraceHeight {
@@ -149,15 +150,15 @@ struct tRadarTrace {
     float          m_fSphereRadius;
     unsigned short m_nBlipSize;
     class CEntryExit *m_pEntryExit;
-    unsigned char  m_nBlipSprite; // see eRadarSprite
+    unsigned char  m_nRadarSprite; // see eRadarSprite
     unsigned char  m_bBright : 1; // It makes use of bright colors. Always set.
-    unsigned char  m_bTrackingBlip : 1; // It is available.
+    unsigned char  m_bInUse : 1; // It is available.
     unsigned char  m_bShortRange : 1; // It doesn't show permanently on the radar.
     unsigned char  m_bFriendly : 1; // It is affected by BLIP_COLOUR_THREAT.   
     unsigned char  m_bBlipRemain : 1; // It has the priority over the entity (it will still appear after the entity's deletion).
     unsigned char  m_bBlipFade : 1; // Possibly a leftover. Always unset (unused).
     unsigned char  m_nCoordBlipAppearance : 2; // see eBlipAppearance
-    unsigned char  m_nBlipDisplayFlag : 2; // see eBlipDisplay
+    unsigned char  m_nBlipDisplay : 2; // see eBlipDisplay
     unsigned char  m_nBlipType : 4; // see eBlipType
 };
 

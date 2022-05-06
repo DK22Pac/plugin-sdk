@@ -227,8 +227,8 @@ public:
     int m_bSpritesLoaded;
     int m_nRadioIconsLeftPosition;
     int m_nScrollRadioOffset;
-    int m_nCurrentMenuScreen;
-    int m_nPreviousMenuScreen;
+    int m_nCurrentMenuPage;
+    int m_nPreviousMenuPage;
     int m_nCurrentSaveSlot;
     int field_BC;
     int m_nMenuFadeAlpha;
