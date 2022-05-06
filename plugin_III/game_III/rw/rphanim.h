@@ -224,17 +224,30 @@ struct RpHAnimHierarchy
 {
     RwInt32             flags;          /**< Flags for the hierarchy  */
     RwInt32             numNodes;      /**< Number of nodes in the hierarchy  */
-
+    RtAnimAnimation*pCurrentAnim;  /**< Current animation applied to hierarchy  */
+    RwReal              currentTime;    /**< Current animation time  */
+    void               *pNextFrame;     /**< Next animation keyframe to be played  */
+    void* pAnimCallBack;  /**< Animation callback function pointer  */
+    void               *pAnimCallBackData;  /**< Animation callback function user data  */
+    RwReal              animCallBackTime;   /**< Trigger time for callback function  */
+    void* pAnimLoopCallBack; /**< Animation loop callback function pointer  */
+    void               *pAnimLoopCallBackData; /**< Animation loop callback function data  */
     RwMatrix           *pMatrixArray;   /**< Pointer to node matrices*/
     void               *pMatrixArrayUnaligned; /**< Pointer to memory used for node matrices
                                                 * from which the aligned pMatrixArray is allocated */
     RpHAnimNodeInfo    *pNodeInfo;     /**< Array of node information (push/pop flags etc) */
     RwFrame            *parentFrame;    /**< Pointer to the Root RwFrame of the hierarchy this
                                            * RpHAnimHierarchy represents */
+    RwInt32             maxKeyFrameSize;    /**< Maximum size of keyframes usable on this hierarhcy
+                                               * (set at creation time) */
+    RwInt32             currentKeyFrameSize; /**< Size of keyframes in the current animation */
+    void* keyFrameToMatrixCB;    /**< Internal use */
+    void* keyFrameBlendCB;       /**< Internal use */
+    void* keyFrameInterpolateCB; /**< Internal use */
+    void* keyFrameAddCB;         /**< Internal use */
     RpHAnimHierarchy   *parentHierarchy;                       /**< Internal use */
+    RwInt32             offsetInParent;                        /**< Internal use */
     RwInt32             rootParentOffset;                      /**< Internal use */
-
-    RtAnimInterpolator   *currentAnim;                    /**< Internal use */
 };
 
 /**
