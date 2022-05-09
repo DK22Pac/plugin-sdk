@@ -156,7 +156,7 @@ public:
     CEntity *m_pBlowUpEntity;
     float m_fMapObjectHeightAhead; //!< front Z?
     float m_fMapObjectHeightBehind; //!< rear Z?
-    eDoorLock m_nDoorLock; 
+    eDoorLock m_eDoorLock; 
     char m_nLastWeaponDamage; //!< see eWeaponType, -1 if no damage
     unsigned char m_nRadioStation;
     unsigned char m_nRainAudioCounter;

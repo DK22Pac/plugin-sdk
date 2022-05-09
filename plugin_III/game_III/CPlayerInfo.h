@@ -60,8 +60,8 @@ public:
     int field_110;
     bool m_bInfiniteSprint;
     bool m_bFastReload;
-    bool m_bGetOutOfJailFree;                   // Player doesn't lose money/weapons next time arrested
-    bool m_bFreeHealthCare;                     // Player doesn't lose money nexed time patched up at hospital
+    bool m_bGetOutOfJailFree;                       // Player doesn't lose money/weapons next time arrested
+    bool m_bGetOutOfHospitalFree;                   // Player doesn't lose money next time patched up at hospital
     char m_szSkinName[32];
     RwTexture *m_pSkinTexture;
 

@@ -278,7 +278,7 @@ public:
     float  m_fVehicleRearGroundZ;  // or CWorld::ProcessVerticalLine
     char field_4EC; // initialised, but not used?
     char field_4ED[11]; // possibly non-used data?
-    eDoorLock m_nDoorLock; 
+    eDoorLock m_eDoorLock; 
     unsigned int m_nProjectileWeaponFiringTime; // manual-aimed projectiles for hunter, lock-on projectile for hydra
     unsigned int m_nAdditionalProjectileWeaponFiringTime; // manual-aimed projectiles for hydra
     unsigned int m_nTimeForMinigunFiring; // minigun on hunter

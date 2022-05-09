@@ -134,7 +134,7 @@ struct RsGlobalType
     RwInt32 maximumHeight;
     RwInt32 screenWidth;
     RwInt32 screenHeight;
-    RwInt32 frameLimit;
+    RwInt32 maxFPS;
     RwBool  quit;
 
     psGlobalType   *ps; /* platform specific data */

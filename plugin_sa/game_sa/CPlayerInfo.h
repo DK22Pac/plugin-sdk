@@ -85,7 +85,7 @@ public:
     unsigned char m_nMaxHealth;
     unsigned char m_nMaxArmour;
     bool m_bGetOutOfJailFree;               // Player doesn't lose money/weapons next time arrested
-    bool m_bFreeHealthCare;                 // Player doesn't lose money nexed time patched up at hospital
+    bool m_bGetOutOfHospitalFree;           // Player doesn't lose money next time patched up at hospital
     bool m_bCanDoDriveBy;
     unsigned char m_nBustedAudioStatus;
 private:

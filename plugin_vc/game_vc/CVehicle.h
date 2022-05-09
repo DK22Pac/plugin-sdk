@@ -196,7 +196,7 @@ public:
     int field_224;
     int field_228;
     int field_22C;
-    eDoorLock m_nDoorLock;
+    eDoorLock m_eDoorLock;
     unsigned char m_nLastWeaponDamage;
     char __f0231[3];
     CEntity *pLastDamEntity;
