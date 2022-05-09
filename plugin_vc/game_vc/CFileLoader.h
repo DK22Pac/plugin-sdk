@@ -27,4 +27,6 @@ public:
         }
         return RwTexDictionaryCreate();
     }
+
+    static RpClump* LoadAtomicFile2Return(const char* file);
 };

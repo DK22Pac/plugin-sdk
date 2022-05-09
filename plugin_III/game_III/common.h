@@ -62,3 +62,5 @@ void WorldReplaceNormalLightsWithScorched(RpWorld* world, float intensity);
 RpWorld* LightsDestroy(RpWorld* world);
 RpWorld* LightsCreate(RpWorld* world);
 void SetLightsWithTimeOfDayColour(RpWorld* world);
+
+CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId);

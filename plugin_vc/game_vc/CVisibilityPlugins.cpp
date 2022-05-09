@@ -4,8 +4,8 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CFileLoader.h"
+#include "CVisibilityPlugins.h"
 
-RpClump* CFileLoader::LoadAtomicFile2Return(const char* file) {
-    return plugin::CallAndReturn<RpClump*, 0x48D7C0, const char*>(file);
+void CVisibilityPlugins::SetAtomicRenderCallback(RpAtomic* atomic, RpAtomicCallBackRender cb) {
+    plugin::Call<0x581940>(atomic, cb);
 }
