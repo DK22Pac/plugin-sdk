@@ -28,7 +28,7 @@ class CColModel;
 
 class PLUGIN_API CWeapon {
 public:
-    eWeaponType m_nType;
+    eWeaponType m_eWeaponType;
     eWeaponState m_nState;
 	unsigned int m_nAmmoInClip;
 	unsigned int m_nTotalAmmo;

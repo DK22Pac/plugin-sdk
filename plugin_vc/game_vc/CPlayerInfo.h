@@ -76,13 +76,13 @@ public:
 	int m_nExplosionMultiplier;
 	int field_138;
 	float field_13C;
-	bool m_bNeverGetsTired;
+	bool m_bInfiniteSprint;
 	bool m_bFastReload;
 	bool m_bFireProof;
 	unsigned char m_nMaxHealth;
 	unsigned char m_nMaxArmour;
-	bool m_bGetOutOfJailFree;
-	bool m_bFreeHealthCare;
+	bool m_bGetOutOfJailFree;							// Player doesn't lose money/weapons next time arrested
+	bool m_bGetOutOfHospitalFree;                     	// Player doesn't lose money next time patched up at hospital
 	bool m_bCanDoDriveBy;
 	unsigned char m_nBustedAudioStatus;
 	//char _pad4;

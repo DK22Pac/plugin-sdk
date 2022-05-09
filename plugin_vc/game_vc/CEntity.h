@@ -88,7 +88,7 @@ public:
     short m_nRandomSeed;
     short m_nModelIndex;
     char m_nLevel;
-    unsigned char m_nInterior;
+    unsigned char m_nAreaCode;
     class CReference *m_pFirstRef;
 
 protected:
