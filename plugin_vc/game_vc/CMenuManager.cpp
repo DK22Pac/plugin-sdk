@@ -23,3 +23,11 @@ bool CMenuManager::CheckHover(int x1, int x2, int y1, int y2) {
     bool y = m_nMousePosY > y1 && m_nMousePosY < y2;
     return x && y;
 }
+
+void CMenuManager::DisplayHelperText(const char* text) {
+    plugin::CallMethod<0x48F429, CMenuManager*>(this, text);
+}
+
+void CMenuManager::SwitchToNewScreen(int screen) {
+    plugin::CallMethod<0x4983EF, CMenuManager*, int>(this, screen);
+}

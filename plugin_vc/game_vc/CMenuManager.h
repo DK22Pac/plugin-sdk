@@ -284,6 +284,8 @@ public:
     void MessageScreen(const char* pText, bool bFullscreen);
     int FadeIn(int alpha);
     bool CheckHover(int x1, int x2, int y1, int y2);
+    void DisplayHelperText(const char* text);
+    void SwitchToNewScreen(int screen);
 };
 
 
