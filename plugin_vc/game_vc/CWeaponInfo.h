@@ -9,7 +9,7 @@ Do not delete this comment block. Respect others' work!
 #include "eWeaponType.h"
 #include "eWeaponFire.h"
 #include "CVector.h"
-#include "AssocGroupId.h"
+#include "eAnimations.h"
 
 class CWeaponInfo {
 public:
@@ -24,7 +24,7 @@ public:
     float m_fLifespan;
     float m_fSpread;
 	CVector m_vecFireOffset;
-    AssocGroupId m_eAnimToPlay;
+    int m_nAnimToPlay;
     float m_fAnimLoopStart;
     float m_fAnimLoopEnd;
     float m_fAnimFrameFire;

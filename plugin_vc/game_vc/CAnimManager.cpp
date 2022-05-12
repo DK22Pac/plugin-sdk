@@ -23,18 +23,18 @@ CAnimBlock *CAnimManager::GetAnimationBlock(const char *name) {
     return plugin::CallAndReturn<CAnimBlock*, 0x405A50, char const*>(name);
 }
 
-CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, AssocGroupId assocGroupId, int animationId, float clumpAssocBlendData) {
-    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405640, RpClump*, AssocGroupId, int, float>(clump, assocGroupId, animationId, clumpAssocBlendData);
+CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int assocGroupId, int animationId, float clumpAssocBlendData) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405640, RpClump*, int, int, float>(clump, assocGroupId, animationId, clumpAssocBlendData);
 }
 
-CAnimBlendAssociation* CAnimManager::AddAnimation(RpClump * clump, AssocGroupId assocGroupId, int animationId) {
-    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4058B0, RpClump*, AssocGroupId, int>(clump, assocGroupId, animationId);
+CAnimBlendAssociation* CAnimManager::AddAnimation(RpClump * clump, int assocGroupId, int animationId) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4058B0, RpClump*, int, int>(clump, assocGroupId, animationId);
 }
 
-CAnimBlendAssociation* CAnimManager::GetAnimAssociation(AssocGroupId assocGroupId, const char* name) {
-    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405940, AssocGroupId, const char*>(assocGroupId, name);
+CAnimBlendAssociation* CAnimManager::GetAnimAssociation(int assocGroupId, const char* name) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405940, int, const char*>(assocGroupId, name);
 }
 
-CAnimBlendAssociation* CAnimManager::GetAnimAssociation(AssocGroupId assocGroupId, int animationId) {
-    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405960, AssocGroupId, int>(assocGroupId, animationId);
+CAnimBlendAssociation* CAnimManager::GetAnimAssociation(int assocGroupId, int animationId) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405960, int, int>(assocGroupId, animationId);
 }

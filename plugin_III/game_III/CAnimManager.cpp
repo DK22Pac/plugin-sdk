@@ -19,50 +19,50 @@ PLUGIN_VARIABLE CLinkList<CAnimBlendHierarchy *> &CAnimManager::ms_animCache = *
 int addrof(CAnimManager::AddAnimation) = ADDRESS_BY_VERSION(0x403620, 0x403620, 0x403620);
 int gaddrof(CAnimManager::AddAnimation) = GLOBAL_ADDRESS_BY_VERSION(0x403620, 0x403620, 0x403620);
 
-CAnimBlendAssociation *CAnimManager::AddAnimation(RpClump *clump, AssocGroupId groupId, AnimationId animId) {
-    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, RpClump *, AssocGroupId, AnimationId>(gaddrof(CAnimManager::AddAnimation), clump, groupId, animId);
+CAnimBlendAssociation *CAnimManager::AddAnimation(RpClump *clump, int groupId, int animId) {
+    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, RpClump *, int, int>(gaddrof(CAnimManager::AddAnimation), clump, groupId, animId);
 }
 
 int addrof(CAnimManager::AddAnimationAndSync) = ADDRESS_BY_VERSION(0x4036A0, 0x4036A0, 0x4036A0);
 int gaddrof(CAnimManager::AddAnimationAndSync) = GLOBAL_ADDRESS_BY_VERSION(0x4036A0, 0x4036A0, 0x4036A0);
 
-CAnimBlendAssociation *CAnimManager::AddAnimationAndSync(RpClump *clump, CAnimBlendAssociation *association, AssocGroupId groupId, AnimationId animId) {
-    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, RpClump *, CAnimBlendAssociation *, AssocGroupId, AnimationId>(gaddrof(CAnimManager::AddAnimationAndSync), clump, association, groupId, animId);
+CAnimBlendAssociation *CAnimManager::AddAnimationAndSync(RpClump *clump, CAnimBlendAssociation *association, int groupId, int animId) {
+    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, RpClump *, CAnimBlendAssociation *, int, int>(gaddrof(CAnimManager::AddAnimationAndSync), clump, association, groupId, animId);
 }
 
 int addrof(CAnimManager::BlendAnimation) = ADDRESS_BY_VERSION(0x403710, 0x403710, 0x403710);
 int gaddrof(CAnimManager::BlendAnimation) = GLOBAL_ADDRESS_BY_VERSION(0x403710, 0x403710, 0x403710);
 
-CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, AssocGroupId groupId, AnimationId animId, float delta) {
-    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, RpClump *, AssocGroupId, AnimationId, float>(gaddrof(CAnimManager::BlendAnimation), clump, groupId, animId, delta);
+CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int groupId, int animId, float delta) {
+    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, RpClump *, int, int, float>(gaddrof(CAnimManager::BlendAnimation), clump, groupId, animId, delta);
 }
 
 int addrof(CAnimManager::CreateAnimAssociation) = ADDRESS_BY_VERSION(0x4035C0, 0x4035C0, 0x4035C0);
 int gaddrof(CAnimManager::CreateAnimAssociation) = GLOBAL_ADDRESS_BY_VERSION(0x4035C0, 0x4035C0, 0x4035C0);
 
-CAnimBlendAssociation *CAnimManager::CreateAnimAssociation(AssocGroupId groupId, AnimationId animId) {
-    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, AssocGroupId, AnimationId>(gaddrof(CAnimManager::CreateAnimAssociation), groupId, animId);
+CAnimBlendAssociation *CAnimManager::CreateAnimAssociation(int groupId, int animId) {
+    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, int, int>(gaddrof(CAnimManager::CreateAnimAssociation), groupId, animId);
 }
 
-int addrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(AssocGroupId, AnimationId)) = ADDRESS_BY_VERSION(0x4035E0, 0x4035E0, 0x4035E0);
-int gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(AssocGroupId, AnimationId)) = GLOBAL_ADDRESS_BY_VERSION(0x4035E0, 0x4035E0, 0x4035E0);
+int addrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(int, int)) = ADDRESS_BY_VERSION(0x4035E0, 0x4035E0, 0x4035E0);
+int gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(int, int)) = GLOBAL_ADDRESS_BY_VERSION(0x4035E0, 0x4035E0, 0x4035E0);
 
-CAnimBlendAssociation *CAnimManager::GetAnimAssociation(AssocGroupId groupId, AnimationId animId) {
-    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, AssocGroupId, AnimationId>(gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(AssocGroupId, AnimationId)), groupId, animId);
+CAnimBlendAssociation *CAnimManager::GetAnimAssociation(int groupId, int animId) {
+    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, int, int>(gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(int, int)), groupId, animId);
 }
 
-int addrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(AssocGroupId, char const *)) = ADDRESS_BY_VERSION(0x403600, 0x403600, 0x403600);
-int gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(AssocGroupId, char const *)) = GLOBAL_ADDRESS_BY_VERSION(0x403600, 0x403600, 0x403600);
+int addrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(int, char const *)) = ADDRESS_BY_VERSION(0x403600, 0x403600, 0x403600);
+int gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(int, char const *)) = GLOBAL_ADDRESS_BY_VERSION(0x403600, 0x403600, 0x403600);
 
-CAnimBlendAssociation *CAnimManager::GetAnimAssociation(AssocGroupId groupId, char const *name) {
-    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, AssocGroupId, char const *>(gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(AssocGroupId, char const *)), groupId, name);
+CAnimBlendAssociation *CAnimManager::GetAnimAssociation(int groupId, char const *name) {
+    return plugin::CallAndReturnDynGlobal<CAnimBlendAssociation *, int, char const *>(gaddrof_o(CAnimManager::GetAnimAssociation, CAnimBlendAssociation *(*)(int, char const *)), groupId, name);
 }
 
 int addrof(CAnimManager::GetAnimGroupName) = ADDRESS_BY_VERSION(0x4035B0, 0x4035B0, 0x4035B0);
 int gaddrof(CAnimManager::GetAnimGroupName) = GLOBAL_ADDRESS_BY_VERSION(0x4035B0, 0x4035B0, 0x4035B0);
 
-char const *CAnimManager::GetAnimGroupName(AssocGroupId groupId) {
-    return plugin::CallAndReturnDynGlobal<char const *, AssocGroupId>(gaddrof(CAnimManager::GetAnimGroupName), groupId);
+char const *CAnimManager::GetAnimGroupName(int groupId) {
+    return plugin::CallAndReturnDynGlobal<char const *, int>(gaddrof(CAnimManager::GetAnimGroupName), groupId);
 }
 
 int addrof(CAnimManager::GetAnimation) = ADDRESS_BY_VERSION(0x4034F0, 0x4034F0, 0x4034F0);

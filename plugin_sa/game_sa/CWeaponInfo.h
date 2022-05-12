@@ -11,6 +11,7 @@
 #include "eWeaponType.h"
 #include "eWeaponFire.h"
 #include "CVector.h"
+#include "eAnimations.h"
 
 #define MAX_WEAPON_INFOS 80
 #define MAX_WEAPON_NAMES 50
@@ -56,7 +57,7 @@ public:
         unsigned int bRandSpeed : 1;
         unsigned int bExpands : 1;
     }              m_nFlags;
-	unsigned int   m_dwAnimGroup; // instead of storing pointers directly to anims, use anim association groups
+	unsigned int   m_nAnimToPlay; // instead of storing pointers directly to anims, use anim association groups
 	unsigned short m_nAmmoClip; // ammo in one clip
 	unsigned short m_nDamage; // damage inflicted per hit
 	CVector        m_vecFireOffset; // offset from weapon origin to projectile starting point

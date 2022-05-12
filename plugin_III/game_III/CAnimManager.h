@@ -23,13 +23,13 @@ public:
     SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssocGroup *&ms_aAnimAssocGroups;
     SUPPORTED_10EN_11EN_STEAM static CLinkList<CAnimBlendHierarchy *> &ms_animCache;
 
-    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *AddAnimation(RpClump *clump, AssocGroupId groupId, AnimationId animId);
-    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *AddAnimationAndSync(RpClump *clump, CAnimBlendAssociation *association, AssocGroupId groupId, AnimationId animId);
-    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *BlendAnimation(RpClump *clump, AssocGroupId groupId, AnimationId animId, float delta);
-    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *CreateAnimAssociation(AssocGroupId groupId, AnimationId animId);
-    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *GetAnimAssociation(AssocGroupId groupId, AnimationId animId);
-    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *GetAnimAssociation(AssocGroupId groupId, char const *name);
-    SUPPORTED_10EN_11EN_STEAM static char const *GetAnimGroupName(AssocGroupId groupId);
+    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *AddAnimation(RpClump *clump, int groupId, int animId);
+    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *AddAnimationAndSync(RpClump *clump, CAnimBlendAssociation *association, int groupId, int animId);
+    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *BlendAnimation(RpClump *clump, int groupId, int animId, float delta);
+    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *CreateAnimAssociation(int groupId, int animId);
+    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *GetAnimAssociation(int groupId, int animId);
+    SUPPORTED_10EN_11EN_STEAM static CAnimBlendAssociation *GetAnimAssociation(int groupId, char const *name);
+    SUPPORTED_10EN_11EN_STEAM static char const *GetAnimGroupName(int groupId);
     SUPPORTED_10EN_11EN_STEAM static CAnimBlendHierarchy *GetAnimation(char const *name, CAnimBlock *animBlock);
     SUPPORTED_10EN_11EN_STEAM static CAnimBlock *GetAnimationBlock(char const *name);
     SUPPORTED_10EN_11EN_STEAM static void Initialise();
