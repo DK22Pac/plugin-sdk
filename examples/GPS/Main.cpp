@@ -36,10 +36,10 @@ public:
         Events::gameProcessEvent += []() {
             if (FrontEndMenuManager.m_nTargetBlipIndex
                 && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nCounter == HIWORD(FrontEndMenuManager.m_nTargetBlipIndex)
-                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nBlipDisplayFlag
+                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nBlipDisplay
                 && FindPlayerPed()
                 && DistanceBetweenPoints(CVector2D(FindPlayerCoors(0)), 
-                    CVector2D(CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_vPosition)) < MAX_TARGET_DISTANCE)
+                    CVector2D(CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_vecPos)) < MAX_TARGET_DISTANCE)
             {
                 CRadar::ClearBlip(FrontEndMenuManager.m_nTargetBlipIndex);
                 FrontEndMenuManager.m_nTargetBlipIndex = 0;
@@ -57,9 +57,9 @@ public:
                 && playa->m_pVehicle->m_nVehicleSubClass != VEHICLE_BMX
                 && FrontEndMenuManager.m_nTargetBlipIndex
                 && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nCounter == HIWORD(FrontEndMenuManager.m_nTargetBlipIndex)
-                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nBlipDisplayFlag)
+                && CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_nBlipDisplay)
             {
-                CVector destPosn = CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_vPosition;
+                CVector destPosn = CRadar::ms_RadarTrace[LOWORD(FrontEndMenuManager.m_nTargetBlipIndex)].m_vecPos;
                 destPosn.z = CWorld::FindGroundZForCoord(destPosn.x, destPosn.y);
                 
                 short nodesCount = 0;
