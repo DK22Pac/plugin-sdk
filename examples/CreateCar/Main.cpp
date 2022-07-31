@@ -74,7 +74,7 @@ public:
                 vehicle->SetPosn(position);
                 vehicle->SetOrientation(0.0f, 0.0f, orientation);
                 vehicle->m_nStatus = 4;
-                vehicle->m_nDoorLock = CARLOCK_UNLOCKED;
+                vehicle->m_eDoorLock = DOORLOCK_UNLOCKED;
                 CWorld::Add(vehicle);
                 CTheScripts::ClearSpaceForMissionEntity(position, vehicle); // удаляем другие обьекты, которые находятся в этих координатах
                 if (vehicle->m_nVehicleClass == VEHICLE_BIKE)
