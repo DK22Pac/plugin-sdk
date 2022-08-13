@@ -73,6 +73,10 @@ bool CAudioEngine::IsAmbienceTrackActive() {
     return plugin::CallMethodAndReturn<bool, 0x507210, CAudioEngine*>(this);
 }
 
+bool CAudioEngine::IsAmbienceRadioActive() {
+    return plugin::CallMethodAndReturn<bool, 0x507280, CAudioEngine*>(this);
+}
+
 bool CAudioEngine::StartLoadingTune() {
     return plugin::CallMethodAndReturn<bool, 0x507410, CAudioEngine*>(this);
 }

@@ -53,6 +53,7 @@ public:
     bool IsLoadingTuneActive();
     bool IsRadioOn();
     bool IsAmbienceTrackActive();
+    bool IsAmbienceRadioActive();
     bool StartLoadingTune();
     char GetCurrentRadioStationID();
     bool IsVehicleRadioActive();
