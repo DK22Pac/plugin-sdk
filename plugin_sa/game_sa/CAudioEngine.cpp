@@ -88,3 +88,19 @@ bool CAudioEngine::IsVehicleRadioActive() {
 void CAudioEngine::InitialisePostLoading() {
     plugin::CallMethod<0x5078F0, CAudioEngine*>(this);
 }
+
+bool CAudioEngine::IsAmbienceRadioActive() {
+    return plugin::CallMethodAndReturn<bool, 0x507280, CAudioEngine*>(this);
+}
+
+char* CAudioEngine::GetRadioStationName(char stationId) {
+    return plugin::CallMethodAndReturn<char*, 0x507000, CAudioEngine*>(this);
+}
+
+void CAudioEngine::GetRadioStationNameKey(char stationId, char* outStr) {
+    plugin::CallMethod<0x507010, CAudioEngine*>(this);
+}
+
+bool CAudioEngine::HasRadioRetuneJustStarted() {
+    return plugin::CallMethodAndReturn<bool, 0x506FE0, CAudioEngine*>(this);
+}
