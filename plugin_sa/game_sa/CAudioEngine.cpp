@@ -94,11 +94,11 @@ bool CAudioEngine::IsAmbienceRadioActive() {
 }
 
 char* CAudioEngine::GetRadioStationName(char stationId) {
-    return plugin::CallMethodAndReturn<char*, 0x507000, CAudioEngine*>(this);
+    return plugin::CallMethodAndReturn<char*, 0x507000, CAudioEngine*, char>(this, stationId);
 }
 
 void CAudioEngine::GetRadioStationNameKey(char stationId, char* outStr) {
-    plugin::CallMethod<0x507010, CAudioEngine*>(this);
+    plugin::CallMethod<0x507010, CAudioEngine*, char, char*>(this, stationId, outStr);
 }
 
 bool CAudioEngine::HasRadioRetuneJustStarted() {
