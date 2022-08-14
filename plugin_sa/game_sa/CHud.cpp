@@ -70,7 +70,7 @@ int &OddJob2Timer = *(int *)0xBAA3A0;
 float *BigMessageAlpha = (float *)0xBAA3A4;
 float *BigMessageInUse = (float *)0xBAA3C0;
 float *BigMessageX = (float *)0xBAA3DC;
-char *LastBigMessage = (char *)0xBAABC0;
+char *LastBigMessage = (char *)0xBAA940;
 unsigned short &OddJob2On = *(unsigned short *)0xBAB1E0;
 float &PagerXOffset = *(float *)0x8D0938;
 
