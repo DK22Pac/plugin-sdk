@@ -50,11 +50,11 @@ public:
 	char field_D6;
 	char field_D7;
 	unsigned int m_nLastTimeArrested;
-	int field_DC;
-	int field_E0;
-	int field_E4;
-	int field_E8;
-	int field_EC;
+	unsigned int m_nLastTimeEnergyLost;
+	unsigned int m_nLastTimeArmourLost;
+	unsigned int m_nLastTimeBigGunFired;
+	unsigned int m_nTimesUpsideDownInARow;
+	unsigned int m_nTimesStuckInARow;
     unsigned int m_nVehicleTimeOnTwoWheels;
     float m_fVehicleDistanceOnTwoWheels;
 	unsigned int m_nVehicleTimeInAir;
