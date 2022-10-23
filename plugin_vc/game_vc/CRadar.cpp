@@ -240,11 +240,11 @@ void CRadar::Shutdown() {
 }
 
 void CRadar::StreamRadarSections(int x, int y) {
-    plugin::Call<0x4C1960, int, int>(x, y);
+    plugin::Call<0x4C2870, int, int>(x, y);
 }
 
 void CRadar::StreamRadarSections(CVector const& pos) {
-    plugin::Call<0x4C2870, CVector const&>(pos);
+    plugin::Call<0x4C1960, CVector const&>(pos);
 }
 
 void CRadar::TransformRadarPointToRealWorldSpace(CVector2D& out, CVector2D const& in) {
