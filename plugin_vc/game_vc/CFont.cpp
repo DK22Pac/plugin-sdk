@@ -7,6 +7,8 @@
 #include "CFont.h"
 
 CFontDetails &CFont::Details = *(CFontDetails *)0x97F820;
+CFontRenderState &CFont::RenderState = *(CFontRenderState*)0x94B8F8;
+CSprite2d(&CFont::Sprite)[3] = *reinterpret_cast<CSprite2d(*)[3]>(0xA108B4);
 
 // Converted from cdecl short CFont::character_code(uchar character) 0x54FE50
 short CFont::character_code(unsigned char character) {

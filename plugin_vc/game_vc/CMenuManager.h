@@ -222,7 +222,7 @@ public:
     int* pControlEdit;
     bool m_bOnlySaveMenu;
     char field_7D[3];
-    int field_80;
+    int m_nMenuFadeAlpha2;
     CSprite2d m_apMenuSprites[26];
     int m_bSpritesLoaded;
     int m_nRadioIconsLeftPosition;

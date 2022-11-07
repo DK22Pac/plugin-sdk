@@ -10,11 +10,43 @@
 #include "CRGBA.h"
 #include "CRect.h"
 #include "CFontDetails.h"
+#include "CSprite2d.h"
+
+struct tFontTable {
+    unsigned short prop[208];
+    unsigned short space;
+    unsigned short unprop;
+};
+
+struct tFontSize {
+    tFontTable fonts[3];
+    unsigned short ftable[338];
+};
+
+class CFontRenderState {
+public:
+    DWORD anonymous_0;
+    float fTextPosX;
+    float fTextPosY;
+    float fTextSizeX;
+    float fTextSizeY;
+    CRGBA color;
+    float fExtraSpace;
+    float fSlant;
+    float fSlantRefPointX;
+    float fSlantRefPointY;
+    char bIsShadow;
+    char bFontHalfTexture;
+    char bProp;
+    char anonymous_14;
+    short FontStyle;
+};
 
 class CFont {
 public:
-	
     static CFontDetails &Details;
+    static CFontRenderState &RenderState;
+    static CSprite2d(&Sprite)[3];
 
     static short character_code(unsigned char character);
     static int FindNewCharacter(short character);

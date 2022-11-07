@@ -33,7 +33,7 @@ public:
 	float m_fCentreSize;
 	float m_fRightJustifyWrap;
 	short m_FontStyle;
-	bool m_bFindNewChar;
+	bool m_bFontHalfTexture;
 	char _unk[5];
 	short m_nShadowPos;
 	CRGBA m_FontDropColor;
