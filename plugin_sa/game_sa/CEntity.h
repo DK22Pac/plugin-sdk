@@ -101,6 +101,7 @@ public:
     
     // funcs
     void UpdateRwFrame();
+    void UpdateRwMatrix();
     void UpdateRpHAnim();
     bool HasPreRenderEffects();
     bool DoesNotCollideWithFlyers();

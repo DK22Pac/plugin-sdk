@@ -45,6 +45,11 @@ CReference* CAudioEngine::ReportFrontendAudioEvent(int id, float volume, float s
     return plugin::CallMethodAndReturn<CReference*, 0x506EA0, CAudioEngine*, int, float, float>(this, id, volume, speed);
 }
 
+
+void CAudioEngine::ReportMissionAudioEvent(eAudioEvents audioEvent, CVector const* coords) {
+    plugin::CallMethod<0x507340, CAudioEngine*, eAudioEvents,CVector const*>(this,audioEvent,coords);
+}
+
 void CAudioEngine::Service() {
     plugin::CallMethod<0x507750, CAudioEngine*>(this);
 }

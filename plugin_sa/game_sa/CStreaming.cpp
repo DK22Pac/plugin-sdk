@@ -640,8 +640,8 @@ void CStreaming::RequestSpecialChar(int slot, char const *Name, int streamingFla
 int addrof(CStreaming::RequestSpecialModel) = ADDRESS_BY_VERSION(0x409D10, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::RequestSpecialModel) = GLOBAL_ADDRESS_BY_VERSION(0x409D10, 0, 0, 0, 0, 0);
 
-void CStreaming::RequestSpecialModel(int slot, char *name, int StreamingFlags) {
-    plugin::CallDynGlobal<int, char *, int>(gaddrof(CStreaming::RequestSpecialModel), slot, name, StreamingFlags);
+void CStreaming::RequestSpecialModel(int slot, char const*name, int StreamingFlags) {
+    plugin::CallDynGlobal<int, char const *, int>(gaddrof(CStreaming::RequestSpecialModel), slot, name, StreamingFlags);
 }
 
 int addrof(CStreaming::RequestTxdModel) = ADDRESS_BY_VERSION(0x407100, 0, 0, 0, 0, 0);

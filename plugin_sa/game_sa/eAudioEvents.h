@@ -7,7 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 
-enum PLUGIN_API eAudioEvents
+enum PLUGIN_API eAudioEvents : uint16_t
 {
     AE_FRONTEND_START = 0x0,
     AE_FRONTEND_SELECT = 0x1,
