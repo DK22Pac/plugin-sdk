@@ -13,11 +13,10 @@ class PLUGIN_API CVector2D
 public:
     float x, y;
     
-    inline CVector2D() {
-
+    CVector2D() : x{}, y{} {
     }
 
-    inline CVector2D(float X, float Y) {
+    CVector2D(float X, float Y) {
         x = X;
         y = Y;
     }
@@ -29,36 +28,36 @@ public:
 
 	void operator=(const CVector2D& right);
 
-    inline CVector2D(CVector2D const& src) {
+    CVector2D(CVector2D const& src) {
         x = src.x; y = src.y;
     }
 
-    inline void Sum(CVector2D &a, CVector2D &b) {
+    void Sum(CVector2D &a, CVector2D &b) {
         this->x = a.x + b.x;
         this->y = a.y + b.y;
     }
 
-    inline void Difference(CVector2D &a, CVector2D &b) {
+    void Difference(CVector2D &a, CVector2D &b) {
         this->x = a.x - b.x;
         this->y = a.y - b.y;
     }
 
-    inline void operator+=(const CVector2D& right) {
+    void operator+=(const CVector2D& right) {
         this->x += right.x;
         this->y += right.y;
     }
 
-    inline void operator-=(const CVector2D& right) {
+    void operator-=(const CVector2D& right) {
         this->x -= right.x;
         this->y -= right.y;
     }
 
-    inline void operator *= (float multiplier) {
+    void operator *= (float multiplier) {
         this->x *= multiplier;
         this->y *= multiplier;
     }
 
-    inline void operator /= (float divisor) {
+    void operator /= (float divisor) {
         this->x /= divisor;
         this->y /= divisor;
     }
