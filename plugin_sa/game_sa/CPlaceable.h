@@ -8,6 +8,8 @@
 #include "PluginBase.h"
 #include "CSimpleTransform.h"
 #include "CMatrixLink.h"
+#include "CVector.h"
+#include "CVector2D.h"
 
 class PLUGIN_API CPlaceable {
 protected:
@@ -41,9 +43,12 @@ public:
     void AllocateMatrix();
     void SetMatrix(CMatrix  const& matrix);
     
-    inline CVector &GetPosition() {
-        return m_matrix ? m_matrix->pos : m_placement.m_vPosn;
-    }
+    inline CVector& GetRight() const { return m_matrix->GetRight(); }
+    inline CVector& GetForward() const { return m_matrix->GetForward(); }
+    inline CVector& GetUp() const { return m_matrix->GetUp(); }
+    inline const CVector& GetPosition() const { return m_matrix ? m_matrix->GetPosition() : m_placement.m_vPosn; }
+    inline CVector& GetPosition() { return m_matrix ? m_matrix->GetPosition() : m_placement.m_vPosn; }
+    inline CVector2D GetPosition2D() { return { GetPosition() }; }
 };
 
 VALIDATE_SIZE(CPlaceable, 0x18);

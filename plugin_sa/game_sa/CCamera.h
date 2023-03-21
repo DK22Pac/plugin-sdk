@@ -388,8 +388,8 @@ public:
     SUPPORTED_10US int InitialiseScriptableComponents();
     SUPPORTED_10US bool IsExtraEntityToIgnore(CEntity *entity);
     SUPPORTED_10US bool IsItTimeForNewcam(int CamSequence, int StartTime);
-    SUPPORTED_10US bool IsSphereVisible(CVector const *origin, float radius, RwMatrixTag *transformMatrix);
-    SUPPORTED_10US bool IsSphereVisible(CVector const *origin, float radius);
+    SUPPORTED_10US bool IsSphereVisible(CVector const &origin, float radius, RwMatrixTag *transformMatrix);
+    SUPPORTED_10US bool IsSphereVisible(CVector const &origin, float radius);
     SUPPORTED_10US void LerpFOV(float zoomInFactor, float zoomOutFactor, float timelimit, bool bEase);
     SUPPORTED_10US void LoadPathSplines(int pFile);
     SUPPORTED_10US void Process();

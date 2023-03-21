@@ -38,6 +38,7 @@ public:
     static void RedirectShortJump(int address, void* dest = nullptr, bool vp = true);
     static void PutRetn(int address, unsigned short BytesToPop = 0, bool vp = true);
     static void PutRetn0(int address, unsigned short BytesToPop = 0, bool vp = true);
+    static void PutRetn1(int address, unsigned short BytesToPop = 0, bool vp = true);
 
     template <typename T>
     static void Set(int address, T value, bool vp = true) {

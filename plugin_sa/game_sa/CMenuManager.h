@@ -195,8 +195,8 @@ public:
     char field_5A;
     bool m_bMapOverview;
     bool m_bMenuActive;
-    bool m_bDoGameReload;
-    char field_5E;
+    bool m_bStartGameLoading;
+    char m_bFirstTime;
     bool m_bIsSaveDone;
     bool m_bLoadingData;
     char field_61[3];

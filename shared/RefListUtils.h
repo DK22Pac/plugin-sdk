@@ -55,6 +55,9 @@ struct RefListUtils<RefList<Values...>> {
                     result += "GAME_STEAM";
                 else if (gameid == GAME_STEAM_LV)
                     result += "GAME_STEAM_LV";
+#elif GTA2
+                if (gameid == GAME_9600EN)
+                    result += "GAME_9600EN";
 #else
                 if (gameid == GAME_10EN)
                     result += "GAME_10EN";

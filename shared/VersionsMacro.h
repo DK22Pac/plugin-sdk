@@ -4167,6 +4167,8 @@
 #define SUPPORTED_10EU_11US_11EU_SR2_SR2LV  [[deprecated("not all .exe versions are supported:\n    usage for 1.0 US exe is not supported")]]
 #define SUPPORTED_10US_10EU_11US_11EU_SR2_SR2LV 
 #endif
+#elif GTA2
+#define SUPPORTED_9600EN 
 #else
 #if !defined(PLUGIN_SGV_10EN) && !defined(PLUGIN_SGV_11EN) && !defined(PLUGIN_SGV_STEAM)
 #define SUPPORTED_10EN 

@@ -8,6 +8,8 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <iostream>
+#include <array>
 #include "Base.h"
 #include "VersionsMacro.h"
 #include "GameVersion.h"
@@ -146,9 +148,19 @@ void Call(Args... args) {
     reinterpret_cast<void(__cdecl *)(Args...)>(address)(args...);
 }
 
+template <unsigned int address, typename... Args>
+void CallStd(Args... args) {
+    reinterpret_cast<void(__stdcall*)(Args...)>(address)(args...);
+}
+
 template <typename Ret, unsigned int address, typename... Args>
 Ret CallAndReturn(Args... args) {
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
+}
+
+template <typename Ret, unsigned int address, typename... Args>
+Ret CallStdAndReturn(Args... args) {
+    return reinterpret_cast<Ret(__stdcall*)(Args...)>(address)(args...);
 }
 
 template <unsigned int address, typename C, typename... Args>
@@ -372,3 +384,5 @@ template<> struct vtable_meta<className> {\
 #define GLOBAL_ADDRESS_BY_VERSION(a,b,c) (plugin::GetGlobalAddress(plugin::by_version_dyn(a,b,c)))
 #define ADDRESS_BY_VERSION(a,b,c) (plugin::by_version_dyn(a,b,c))
 #endif
+
+#define LAMBDA(Ret, Conv, Func, ...) (Ret(Conv*)(__VA_ARGS__))Func

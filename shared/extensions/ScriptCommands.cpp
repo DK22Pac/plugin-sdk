@@ -4,6 +4,8 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+
+#ifndef GTA2
 #include "ScriptCommands.h"
 #include "Error.h"
 #include "CPools.h"
@@ -224,3 +226,5 @@ void scripting::ScriptCode::operator<<(CObject **p) {
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
     ++varIndexCounter;
 }
+
+#endif

@@ -37,6 +37,10 @@ inline std::string GetSupportedGameVersionsString(std::string const &sep) {
     #ifdef PLUGIN_SGV_SR2LV
         versions.push_back(GetGameVersionName(GAME_STEAM_LV));
     #endif
+#elif GTA2
+#ifdef PLUGIN_SGV_96EN
+    versions.push_back(GetGameVersionName(GAME_9600EN));
+#endif
 #else
     #ifdef PLUGIN_SGV_10EN
         versions.push_back(GetGameVersionName(GAME_10EN));

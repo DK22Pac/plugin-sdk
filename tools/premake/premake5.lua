@@ -151,6 +151,8 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines { "GTAVC", "PLUGIN_SGV_10EN" }
         elseif projectName == "plugin_iii" then
             defines { "GTA3", "PLUGIN_SGV_10EN" }
+		elseif projectName == "plugin_ii" then
+            defines { "GTA2", "PLUGIN_SGV_96EN" }
         end
     end
     
@@ -201,11 +203,13 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             "$(PLUGIN_SDK_DIR)\\shared",
             "$(PLUGIN_SDK_DIR)\\shared\\game"
         }
-        files {
+		
+		files {
             (projectPath .. "\\**.h"),
             (projectPath .. "\\**.cpp"),
             (sdkdir .. "\\shared\\**.h"),
-            (sdkdir .. "\\shared\\**.cpp")
+            (sdkdir .. "\\shared\\**.cpp"),
+			(sdkdir .. "\\shared\\**.rc")
         }
         
         vpaths {
@@ -373,8 +377,11 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
     elseif game == "GTAVC" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
         counter = counter + 1
-    else
+    elseif game == "GTA3" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
+        counter = counter + 1
+    elseif game == "GTA2" then
+        aryDefines[counter] = "PLUGIN_SGV_114EN"
         counter = counter + 1
     end
     if additionalDefines ~= "" then
@@ -499,6 +506,10 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         supportedGames[gameCounter] = "GTA3"
         gameCounter = gameCounter + 1
     end
+	if game2 == true then
+        supportedGames[gameCounter] = "GTA2"
+        gameCounter = gameCounter + 1
+    end
     platforms (supportedGames)
     project (projectName)
     location (projDir)
@@ -557,7 +568,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
            syslibdirs { "$(LibraryPath)", "$(DIRECTX9_SDK_DIR)\\Lib\\x86" }
         end
     end
-
+	
     if gameSa == true then
         filter "platforms:GTASA"
             includedirs (getExamplePluginIncludeFolders("plugin_sa", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", false, additionalIncludeDirs, d3dSupport))
@@ -594,6 +605,18 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".III_d")
     end
+	if game2 == true then
+        filter "platforms:GTA2"
+            includedirs (getExamplePluginIncludeFolders("plugin_ii", "game_ii", projectType, "$(CLEO_SDK_II_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport))
+            libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_II_DIR)", d3dSupport, additionalLibraryDirs, d3dSupport))
+            defines (getExamplePluginDefines(projectName, "GTA2", projectType, laSupport, d3dSupport, additionalDefinitions, "2", "2", "2", "Claude", "Anywhere City"))
+        filter { "Release", "platforms:GTA2" }
+            links (getExamplePluginLibraries("plugin_ii", projectType, "II.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+            targetname (projectName .. ".II")
+        filter { "zDebug", "platforms:GTA2" }
+            links (getExamplePluginLibraries("plugin_ii", projectType, "II.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
+            targetname (projectName .. ".II_d")
+    end
     filter {}
 
     files {
@@ -615,6 +638,7 @@ else
     cleanProjectsDirectory(sdkdir .. "\\plugin_sa")
     cleanProjectsDirectory(sdkdir .. "\\plugin_vc")
     cleanProjectsDirectory(sdkdir .. "\\plugin_iii")
+	cleanProjectsDirectory(sdkdir .. "\\plugin_ii")
     os.remove(sdkdir .. "\\plugin.sln")
     os.remove(sdkdir .. "\\plugin.suo")
     os.remove(sdkdir .. "\\plugin.sdf")
@@ -633,7 +657,8 @@ else
             pluginSdkStaticLibProject("plugin_sa", sdkdir, "plugin", true, "game_sa")
             pluginSdkStaticLibProject("plugin_vc", sdkdir, "plugin_vc", true, "game_vc")
             pluginSdkStaticLibProject("plugin_iii", sdkdir, "plugin_iii", true, "game_III")
-        
+			pluginSdkStaticLibProject("plugin_ii", sdkdir, "plugin_ii", true, "game_II")
+
         local f = io.open(sdkdir .. "\\examples\\examples.csv", "rb")
         if f then
             f:close()

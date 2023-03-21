@@ -26,6 +26,7 @@ public:
 
 	// Returns length of vector
 	float Magnitude();
+    float MagnitudeSqr() const { return x * x + y * y; }
 
 	void operator=(const CVector2D& right);
 

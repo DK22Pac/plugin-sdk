@@ -361,3 +361,17 @@ CdeclEvent <AddressListMulti<0x48E8D2, GAME_10EN, H_CALL,
                              0x48E992, GAME_11EN, H_CALL,
                              0x48E922, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, bool()> plugin::Events::attachRwPluginsEvent;
 #endif
+#ifdef GTA2
+ThiscallEvent <AddressList<0x458607, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> plugin::Events::menuDrawingEvent;
+ThiscallEvent <AddressList<0x458600, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> plugin::Events::drawMenuBackgroundEvent;
+ThiscallEvent <AddressList<0x45A61F, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(CHud*)> plugin::Events::drawHudEvent;
+StdcallEvent <AddressList<0x4CA504, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::drawHudEvent2;
+ThiscallEvent <AddressList<0x45A600, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(int*)> plugin::Events::renderGameEvent;
+ThiscallEvent <AddressList<0x45C3E9, H_CALL, 0x45C3F2, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(void*)> plugin::Events::gameProcessEvent;
+StdcallEvent <AddressList<0x4D142E, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::initEngineEvent;
+StdcallEvent <AddressList<0x4D1778, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::shutdownEngineEvent;
+StdcallEvent <AddressList<0x4D0D2C, H_CALL, 0x4D0B01, H_CALL, 0x4CC6B7, H_CALL, 0x4CB733, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::d3dResetEvent;
+StdcallEvent <AddressList<0x4D0B39, H_CALL, 0x4D0BF2, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::d3dLostEvent;
+StdcallEvent <AddressList<0x45C2DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::processScriptEvent;
+ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CPlayerPed*, 0>, void(CPlayerPed*)> plugin::Events::processPlayerPedEvent;
+#endif

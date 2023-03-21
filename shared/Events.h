@@ -11,6 +11,8 @@ class CPed;
 class CVehicle;
 class CObject;
 class CMenuManager;
+class CHud;
+class CPlayerPed;
 
 namespace plugin {
 namespace Events {
@@ -413,6 +415,20 @@ extern ThiscallEvent <AddressListMulti<0x47AB12, GAME_10EN, H_CALL,
 extern CdeclEvent <AddressListMulti<0x48E8D2, GAME_10EN, H_CALL,
                                     0x48E992, GAME_11EN, H_CALL,
                                     0x48E922, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, bool()> attachRwPluginsEvent;
+#endif
+#ifdef GTA2
+extern ThiscallEvent <AddressList<0x458607, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> menuDrawingEvent;
+extern ThiscallEvent <AddressList<0x458600, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> drawMenuBackgroundEvent;
+extern ThiscallEvent <AddressList<0x45A61F, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(CHud*)> drawHudEvent;
+extern StdcallEvent <AddressList<0x4CA504, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawHudEvent2;
+extern ThiscallEvent <AddressList<0x45A600, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(int*)> renderGameEvent;
+extern ThiscallEvent <AddressList<0x45C3E9, H_CALL, 0x45C3F2, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(void*)> gameProcessEvent;
+extern StdcallEvent <AddressList<0x4D142E, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> initEngineEvent;
+extern StdcallEvent <AddressList<0x4D1778, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> shutdownEngineEvent;
+extern StdcallEvent <AddressList<0x4D0D2C, H_CALL, 0x4D0B01, H_CALL, 0x4CC6B7, H_CALL, 0x4CB733, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> d3dResetEvent;
+extern StdcallEvent <AddressList<0x4D0B39, H_CALL, 0x4D0BF2, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> d3dLostEvent;
+extern StdcallEvent <AddressList<0x45C2DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> processScriptEvent;
+extern ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CPlayerPed*, 0>, void(CPlayerPed*)> processPlayerPedEvent;
 #endif
 }
 }

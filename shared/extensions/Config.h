@@ -11,7 +11,9 @@
 #include <fstream>
 #include <sstream>
 #include "CVector.h"
+#ifndef GTA2
 #include "CVector2D.h"
+#endif
 #include "CRect.h"
 #include "CRGBA.h"
 

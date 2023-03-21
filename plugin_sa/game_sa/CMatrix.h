@@ -65,6 +65,18 @@ public:
 	void operator=(CMatrix const& right);
 	void operator+=(CMatrix const& right);
 	void operator*=(CMatrix const& right);
+
+	CVector& GetRight() { return right; }
+	const CVector& GetRight() const { return right; }
+
+	CVector& GetForward() { return up; }
+	const CVector& GetForward() const { return up; }
+
+	CVector& GetUp() { return at; }
+	const CVector& GetUp() const { return at; }
+
+	CVector& GetPosition() { return pos; }
+	const CVector& GetPosition() const { return pos; }
 };
 
 VALIDATE_SIZE(CMatrix, 0x48);

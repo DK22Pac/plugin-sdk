@@ -92,8 +92,8 @@ CBaseModelInfo* CModelInfo::GetModelInfoFromHashKey(unsigned int arg0, int* inde
 	return ((CBaseModelInfo* (__cdecl *)(unsigned int, int*))0x4C59B0)(arg0, index);
 }
 
-// Converted from stdcall CBaseModelInfo* CModelInfo::GetModelInfouint16_t(char *name,ushort *int16index) 0x4C59F0
-CBaseModelInfo* CModelInfo::GetModelInfouint16_t(char* name, unsigned short* int16index)
+// Converted from stdcall CBaseModelInfo* CModelInfo::GetModelInfoUInt16(char *name,ushort *int16index) 0x4C59F0
+CBaseModelInfo* CModelInfo::GetModelInfoUInt16(char* name, unsigned short* int16index)
 {
 	return ((CBaseModelInfo* (__cdecl *)(char*, unsigned short*))0x4C59F0)(name, int16index);
 }
@@ -105,9 +105,9 @@ CBaseModelInfo* CModelInfo::GetModelInfo(char* name, int minIndex, int maxInedx)
 }
 
 // Converted from stdcall void* CModelInfo::Get2dEffectStore(void) 0x4C5A60
-void* CModelInfo::Get2dEffectStore()
+int* CModelInfo::Get2dEffectStore()
 {
-	return ((void* (__cdecl *)())0x4C5A60)();
+	return ((int* (__cdecl *)())0x4C5A60)();
 }
 
 // Converted from stdcall bool CModelInfo::IsBoatModel(int index) 0x4C5A70

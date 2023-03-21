@@ -172,3 +172,8 @@ void AsciiToGxtChar(char const *src, char *dst);
  * Writes given raster to PNG file using RtPNGImageWrite
  */
 void WriteRaster(RwRaster * pRaster, char const * pszPath);
+
+bool DoRWStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bottomRed, short bottomGreen, short bottomBlue, short alpha);
+void DoRWStuffEndOfFrame();
+void RsCameraShowRaster(RwCamera* camera);
+

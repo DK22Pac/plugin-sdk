@@ -5,6 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
+#ifndef GTA2
 #include "CRunningScript.h"
 #include "scripting/ScriptCommandNames.h"
 #include <vector>
@@ -143,3 +145,5 @@ bool Command(ArgTypes... arguments) {
 }
 
 };
+
+#endif

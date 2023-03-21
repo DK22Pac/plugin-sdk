@@ -13,6 +13,13 @@ enum DRAW_FADE_STATE {
 
 };
 
+enum eItems {
+    ITEM_NONE = -1,
+    ITEM_ARMOUR = 3,
+    ITEM_HEALTH = 4,
+    ITEM_RADAR = 8
+};
+
 enum eHudSprites {
     HUDSPRITE_FIST,
     HUDSPRITE_SITEM16,

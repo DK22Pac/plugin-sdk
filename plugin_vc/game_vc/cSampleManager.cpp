@@ -6,7 +6,7 @@
 */
 #include "cSampleManager.h"
 
-cSampleManager SampleManager = *(cSampleManager*)0x983B90;
+cSampleManager& SampleManager = *(cSampleManager*)0x983B90;
 
 bool cSampleManager::IsMP3RadioChannelAvailable() {
 	return plugin::CallAndReturn<bool, 0x5D80E0>();

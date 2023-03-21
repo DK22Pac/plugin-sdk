@@ -150,7 +150,7 @@ bool CPad::ExitVehicleJustDown() {
 
 // Converted from thiscall uchar CPad::GetMeleeAttack(void) 0x540340
 unsigned char CPad::GetMeleeAttack() {
-    return plugin::CallMethodAndReturn<unsigned char, 0x540340, CPad *>(this);
+    return plugin::CallMethodAndReturn<unsigned char, 0x540340, CPad *>(this, 0);
 }
 
 // Converted from thiscall uchar CPad::MeleeAttackJustDown(void) 0x540390

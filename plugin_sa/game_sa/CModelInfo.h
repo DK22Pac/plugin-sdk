@@ -11,6 +11,9 @@
 #include "CVehicleModelInfo.h"
 #include "CWeaponModelInfo.h"
 #include "CTimeModelInfo.h"
+#include "CDamageAtomicModelInfo.h"
+#include "C2dEffect.h"
+#include "CStore.h"
 
 class PLUGIN_API CModelInfo
 {
@@ -23,7 +26,7 @@ public:
 	static void ReInit2dEffects();
 	static void ShutDown();
 	static CAtomicModelInfo* AddAtomicModel(int index);
-	static class CDamageAtomicModelInfo* AddDamageAtomicModel(int index);
+	static CDamageAtomicModelInfo* AddDamageAtomicModel(int index);
 	static class CLodAtomicModelInfo* AddLodAtomicModel(int index);
 	static CTimeModelInfo* AddTimeModel(int index);
 	static class CLodTimeModelInfo* AddLodTimeModel(int index);
@@ -34,10 +37,10 @@ public:
 	static void Initialise();
 	static CBaseModelInfo* GetModelInfo(char* name, int* index);
 	static CBaseModelInfo* GetModelInfoFromHashKey(unsigned int arg0, int* index);
-	static CBaseModelInfo* GetModelInfouint16_t(char* name, unsigned short* int16index);
+	static CBaseModelInfo* GetModelInfoUInt16(char* name, unsigned short* int16index);
 	// get model in range (search for model only in range (min;max))
 	static CBaseModelInfo* GetModelInfo(char* name, int minIndex, int maxInedx);
-	static void* Get2dEffectStore();
+	static int* Get2dEffectStore();
 	static bool IsBoatModel(int index);
 	static bool IsCarModel(int index);
 	static bool IsTrainModel(int index);

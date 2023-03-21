@@ -17,3 +17,9 @@ int _NOINLINE_ plugin::GetBaseAddress() {
 int _NOINLINE_ plugin::GetGlobalAddress(int address) {
     return GetBaseAddress() - 0x400000 + address;
 }
+
+const int _NOINLINE_ plugin::GetExternalAddress(const char* processName, int shift, int address) {
+    static int addr = reinterpret_cast<int>(GetModuleHandleA(processName));
+    return (GetBaseAddress() - 0x400000) + (addr - shift + address);
+}
+ 

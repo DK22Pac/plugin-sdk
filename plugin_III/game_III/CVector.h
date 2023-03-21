@@ -38,6 +38,10 @@ public:
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
     }
 
+    inline float Magnitude2D() {
+        return sqrtf(this->x * this->x + this->y * this->y);
+    }
+
     inline void Sum(CVector &a, CVector &b) {
         this->x = a.x + b.x;
         this->y = a.y + b.y;

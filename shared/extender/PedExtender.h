@@ -6,6 +6,7 @@
 */
 #pragma once
 
+#ifndef GTA2
 #include "CPools.h"
 #include "Extender.h"
 #include "Events.h"
@@ -64,3 +65,4 @@ namespace plugin {
         }
     };
 }
+#endif

@@ -111,10 +111,19 @@ void plugin::patch::PutRetn(int address, unsigned short BytesToPop, bool vp) {
     injector::MakeRET(GetGlobalAddress(address), BytesToPop, vp);
 }
 
-void plugin::patch::PutRetn0(int address,unsigned short BytesToPop, bool vp) {
+void plugin::patch::PutRetn0(int address, unsigned short BytesToPop, bool vp) {
 
     int GlobalAddress = GetGlobalAddress(address);
     injector::WriteMemory(GlobalAddress, 0x33, vp); // xor eax, eax
     injector::WriteMemory(GlobalAddress + 1, 0xC0, vp);
     injector::MakeRET(GlobalAddress + 2, BytesToPop, vp);
 }
+
+void plugin::patch::PutRetn1(int address, unsigned short BytesToPop, bool vp) {
+
+    int GlobalAddress = GetGlobalAddress(address);
+    injector::WriteMemory(GlobalAddress, 0xB1, vp); // xor eax, eax
+    injector::WriteMemory(GlobalAddress + 1, 0x01, vp);
+    injector::MakeRET(GlobalAddress + 2, BytesToPop, vp);
+}
+

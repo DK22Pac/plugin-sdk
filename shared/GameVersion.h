@@ -17,6 +17,8 @@
 #define GAME_SR2LV 3210
 #define GAME_STEAM GAME_SR2
 #define GAME_STEAM_LV GAME_SR2LV
+#elif GTA2
+#define GAME_9600EN 9600
 #else
 #define GAME_10EN 100
 #define GAME_11EN 110
@@ -63,6 +65,10 @@ inline char const *GetGameVersionName(int gameVersionId) {
     case GAME_STEAM:
         return "GTA 3 Steam";
 #endif
+#ifdef GTA2
+    case GAME_9600EN:
+        return "GTA2 9.6.0.0";
+#endif
     }
     return "Unknown";
 }
@@ -106,6 +112,10 @@ inline bool IsGameVersionSteam() {
 // Checks if launched game version Steam R2-LV ('German version')
 inline bool IsGameVersionSteamLV() {
     return GetGameVersion() == GAME_STEAM_LV;
+}
+#elif GTA2
+inline bool IsGameVersion9600en() {
+    return GetGameVersion() == GAME_9600EN;
 }
 #else
 // Checks if launched game version is 1.0 EN
@@ -161,6 +171,13 @@ inline bool IsSupportedGameVersion(int gameVersionId) {
       #endif
     case GAME_STEAM_LV:
       #ifdef PLUGIN_SGV_SR2LV
+        return true;
+      #else
+        return false;
+      #endif
+#elif GTA2
+    case GAME_9600EN:
+      #ifdef PLUGIN_SGV_96EN
         return true;
       #else
         return false;
@@ -278,6 +295,7 @@ template <int A_10US, int A_10EU, int A_Steam>
 int by_version() {
     return by_v_dyn(A_10US, A_10EU, A_Steam);
 }
+#elif GTA2
 #else
 int by_v_dyn(int A_10EN, int A_11EN, int A_Steam);
 int by_version_dyn(int A_10EN, int A_11EN, int A_Steam);

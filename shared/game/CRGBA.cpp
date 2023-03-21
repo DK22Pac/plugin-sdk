@@ -5,7 +5,9 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CRGBA.h"
+#ifndef GTA2
 #include "RenderWare.h"
+#endif
 
 CRGBA::CRGBA(unsigned char red, unsigned char green, unsigned char blue) {
     Set(red, green, blue, 255);
@@ -23,9 +25,11 @@ CRGBA::CRGBA(unsigned int intValue) {
     Set(intValue);
 }
 
+#ifndef GTA2
 CRGBA::CRGBA(RwRGBA const &rhs) {
     Set(rhs);
 }
+#endif
 
 CRGBA::CRGBA() {}
 
@@ -55,9 +59,11 @@ void CRGBA::Set(CRGBA const &rhs, unsigned char alpha) {
     Set(rhs.r, rhs.g, rhs.b, alpha);
 }
 
+#ifndef GTA2
 void CRGBA::Set(RwRGBA const &rwcolor) {
     Set(rwcolor.red, rwcolor.green, rwcolor.blue, rwcolor.alpha);
 }
+#endif
 
 unsigned int CRGBA::ToInt() const {
     return a | (b << 8) | (g << 16) | (r << 24);
@@ -67,6 +73,8 @@ unsigned int CRGBA::ToIntARGB() const {
     return b | (g << 8) | (r << 16) | (a << 24);
 }
 
+
+#ifndef GTA2
 RwRGBA CRGBA::ToRwRGBA() const {
     return { r, g, b, a };
 }
@@ -74,6 +82,7 @@ RwRGBA CRGBA::ToRwRGBA() const {
 void CRGBA::FromRwRGBA(RwRGBA const &rwcolor) {
     Set(rwcolor);
 }
+#endif
 
 void CRGBA::FromARGB(unsigned int intValue) {
     a = (intValue >> 24) & 0xFF;

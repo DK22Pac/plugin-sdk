@@ -12,4 +12,6 @@ int GetBaseAddress();
 
 int GetGlobalAddress(int address);
 
+const int GetExternalAddress(const char* processName, int shift, int address);
+
 }

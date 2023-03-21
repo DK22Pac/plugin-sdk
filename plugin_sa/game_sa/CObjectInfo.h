@@ -25,7 +25,7 @@ public:
 	unsigned char  m_bCausesExplosion;
 	unsigned char  m_nFxType;
 	CVector        m_vFxOffset;
-    FxSystem_c    *m_pFxSystem;
+	FxSystemBP_c*  m_pFxSystem;
 	float          m_fSmashMultiplier;
 	CVector        m_vecBreakVelocity;
 	float          m_fBreakVelocityRand;

@@ -37,4 +37,4 @@ public:
 
 };
 
-extern cSampleManager SampleManager;
+extern cSampleManager& SampleManager;

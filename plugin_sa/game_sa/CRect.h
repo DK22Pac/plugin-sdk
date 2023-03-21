@@ -38,6 +38,20 @@ public:
 	void SetFromCenter(float x, float y, float size);
 	void GetCenter(float *x, float *y);
 	void StretchToPoint(float x, float y);
+
+	void Grow(float l, float r, float t, float b) {
+		left -= l;
+		top -= t;
+		right += r;
+		bottom += b;
+	}
+
+	void Translate(float x, float y) {
+		left += x;
+		right += x;
+		bottom += y;
+		top += y;
+	}
 };
 
 VALIDATE_SIZE(CRect, 0x10);

@@ -8,7 +8,7 @@
 
 namespace plugin {
 
-META_BEGIN_OVERLOADED(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float, RwMatrixTag *))
+META_BEGIN_OVERLOADED(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float, RwMatrixTag *))
     static int address;
     static int global_address;
     static const int id = 0x420C40;
@@ -49,7 +49,7 @@ META_BEGIN_OVERLOADED(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const 
     using args_t = ArgPick<ArgTypes<CCamera *,CVector const *,float,RwMatrixTag *>, 0,1,2,3>;
 META_END
 
-META_BEGIN_OVERLOADED(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float))
+META_BEGIN_OVERLOADED(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float))
     static int address;
     static int global_address;
     static const int id = 0x420D40;

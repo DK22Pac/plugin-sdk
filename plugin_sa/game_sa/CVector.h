@@ -29,6 +29,9 @@ public:
     // Returns length of 2d vector
     float Magnitude2D();
 
+    float MagnitudeSqr2D() const { return x * x + y * y; }
+
+
     // Normalises a vector
     void Normalise();
 
@@ -64,6 +67,10 @@ public:
 
     inline void FromRwV3d(RwV3d const &rwvec) {
         x = rwvec.x; y = rwvec.y; z = rwvec.z;
+    }
+
+    inline float Heading() {
+        return atan2f(-x, y);
     }
 };
 

@@ -155,7 +155,6 @@ class PLUGIN_API CTheScripts
 {
 public:
     SUPPORTED_10US static bool &DbgFlag;
-    SUPPORTED_10US static tScriptParam *ScriptParams; // static tScriptParam ScriptParams[10]
     SUPPORTED_10US static tScriptSwitchCase *SwitchJumpTable; // static tScriptSwitchCase SwitchJumpTable[75]
     SUPPORTED_10US static unsigned short &NumberOfEntriesInSwitchTable;
     SUPPORTED_10US static void *&SwitchDefaultAddress;
@@ -318,3 +317,5 @@ public:
 };
 
 #include "meta/meta.CTheScripts.h"
+
+SUPPORTED_10US extern int* ScriptParams; // 32

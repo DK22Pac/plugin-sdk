@@ -8,13 +8,24 @@
 #include <string>
 #include <Windows.h>
 
-namespace plugin {
+#ifndef GTA2
+#include "CTimer.h"
+#include "CVector2D.h"
+#endif
 
+#include "CVector.h"
+
+namespace plugin {
+    void InitRandom();
     unsigned int Random(unsigned int min, unsigned int max);
+    float Random(float min, float max);
+
     bool KeyPressed(unsigned int keyCode);
     bool IsPluginInstalled(const TCHAR *pluginName);
     std::wstring AtoW(std::string const &str);
     std::string WtoA(std::wstring const &str);
+
+    bool LoadTGAFromFile(const char* path, unsigned short* width, unsigned short* height, unsigned char** pixels);
 
     class FormattingUtils {
         static const unsigned int BUF_SIZE = 10;
@@ -53,4 +64,56 @@ namespace plugin {
     std::wstring Format(const std::wstring &format, ArgTypes... args) {
         return FormatStatic(format, FormattingUtils::Arg(args)...);
     }
+
+    template<typename T>
+    static T DegToRad(T x) {
+        return (x * M_PI / (T)180);
+    }
+
+    template<typename T>
+    static T RadToDeg(T x) {
+        return (x * (T)180 / M_PI);
+    }
+
+    template<typename T, typename T2, typename T3>
+    static T Clamp(T v, T2 low, T3 high) {
+        return ((v) < (low) ? (low) : (v) > (high) ? (high) : (v));
+    }
+
+    static float InterpF(float a, float b, float f) {
+        return (a + (f) * (b - a));
+    }
+
+    static CVector2D InterpV2D(CVector2D a, CVector2D b, float f) {
+        return CVector2D((a.x + (f) * (b.x - a.x)),  (a.y + (f) * (b.y - a.y)));
+    }
+
+    static float GetTimeStepFix() {
+#ifdef GTA2
+        return 1.0f / (50.0f / 30.0f);
+#else
+        return CTimer::ms_fTimeStep / (50.0f / 30.0f);
+#endif
+    }
+
+    static float IsNearlyEqualF(float a, float b, float t) {
+        return (abs(a - b) <= t) ? true : false;
+    }
+
+    static bool FileExists(const char* name) {
+        struct stat buffer;
+        return (stat(name, &buffer) == 0);
+    }
 }
+
+#ifdef UNICODE
+#define _LoadTGAFromFile plugin::LoadTGAFromFileW
+#else
+#define _LoadTGAFromFile plugin::LoadTGAFromFile
+#endif
+
+#define DEGTORAD(x) plugin::DegToRad(x)
+#define RADTODEG(x) plugin::RadToDeg(x)
+
+#define CLAMP(v, low, high) plugin::Clamp(v, low, high)
+#define INTERPF(a, b, f) plugin::InterpF(a, b, f)

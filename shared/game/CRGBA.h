@@ -8,7 +8,9 @@
 
 #include "PluginBase.h"
 
+#ifndef GTA2
 struct RwRGBA;
+#endif
 
 class CRGBA {
 public:
@@ -21,7 +23,10 @@ public:
     CRGBA(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha);
     CRGBA(CRGBA const &rhs);
     CRGBA(unsigned int intValue);
+
+#ifndef GTA2
     CRGBA(RwRGBA const &rhs);
+#endif
     CRGBA();
 
     void Set(unsigned char red, unsigned char green, unsigned char blue);
@@ -29,14 +34,20 @@ public:
     void Set(unsigned int intValue);
     void Set(CRGBA const &rhs);
     void Set(CRGBA const &rhs, unsigned char alpha);
+
+#ifndef GTA2
     void Set(RwRGBA const &rwcolor);
+#endif
 
     CRGBA ToRGB() const;
     unsigned int ToInt() const;
     unsigned int ToIntARGB() const;
+
+#ifndef GTA2
     RwRGBA ToRwRGBA() const;
 
     void FromRwRGBA(RwRGBA const &rwcolor);
+#endif
     void FromARGB(unsigned int intValue);
 
     void Invert();

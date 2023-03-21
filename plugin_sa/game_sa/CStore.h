@@ -11,9 +11,16 @@ template <typename ObjectType, unsigned int Capacity>
 class CStore {
 public:
     unsigned int count;
-    ObjectType   objects[Capacity];
+    ObjectType objects[Capacity];
 
     CStore() {
         count = 0;
+    }
+
+    ObjectType* Alloc() {
+        if (count <= Capacity) 
+            return &objects[count++];
+
+        return nullptr;
     }
 };

@@ -5,7 +5,9 @@
     Do not delete this comment block. Respect others' work!
 */
 
+#ifndef GTA2
 #include "FontPrint.h"
+
 #include "CFont.h"
 #include "Other.h"
 #include "CSprite.h"
@@ -224,3 +226,5 @@ bool plugin::gamefont::PrintAt3d(CVector const &posn, std::vector<std::string> c
     }
     return false;
 }
+
+#endif

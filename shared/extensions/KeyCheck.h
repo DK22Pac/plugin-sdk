@@ -6,7 +6,9 @@
 */
 #pragma once
 
+#ifndef GTA2
 #include "CTimer.h"
+#endif
 
 class KeyCheck {
     static unsigned char currStates[256];
@@ -17,5 +19,8 @@ public:
     static bool Check(unsigned int key);
     static bool CheckJustDown(unsigned int key);
     static bool CheckJustUp(unsigned int key);
+
+#ifndef GTA2
     static bool CheckWithDelay(unsigned int key, unsigned int time);
+#endif
 };
