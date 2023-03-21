@@ -119,6 +119,12 @@ void CEntity::UpdateRwFrame()
 	((void (__thiscall *)(CEntity*))0x532B00)(this);
 }
 
+// Converted from thiscall void CEntity::UpdateRwMatrix(void) 0x446F90
+void CEntity::UpdateRwMatrix()
+{
+	((void(__thiscall*)(CEntity*))0x446F90)(this);
+}
+
 // Converted from thiscall void CEntity::UpdateRpHAnim(void) 0x532B20
 void CEntity::UpdateRpHAnim()
 {

@@ -194,7 +194,7 @@ public:
     //! unused
     SUPPORTED_10US static void RequestPlayerSection(int modelIndex, char const *string, int streamingFlags);
     SUPPORTED_10US static void RequestSpecialChar(int slot, char const *Name, int streamingFlags);
-    SUPPORTED_10US static void RequestSpecialModel(int slot, char *name, int StreamingFlags);
+    SUPPORTED_10US static void RequestSpecialModel(int slot, char const*name, int StreamingFlags);
     SUPPORTED_10US static void RequestTxdModel(int TxdModelID, int Streamingflags);
     SUPPORTED_10US static void RequestVehicleUpgrade(int modelIndex, int StreamingFlags);
     SUPPORTED_10US static void RetryLoadFile(int streamNum);
