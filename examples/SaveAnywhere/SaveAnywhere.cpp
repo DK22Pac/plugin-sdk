@@ -16,6 +16,9 @@ public:
         static int keyPressTime = 0;
         // F5 Keycode -> 0x74
         static int F5_KEY = 0x74;
+        Events::initScriptsEvent += [] {
+            keyPressTime = 0;
+        };
         // Initialise your plugin here
         Events::processScriptsEvent += []
         {
