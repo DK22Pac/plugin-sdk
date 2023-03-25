@@ -49,7 +49,7 @@ public:
                         {
                             if (wantedLevel < 1)
                             {
-                                if (playerState != ePedState::PEDSTATE_FALL && playerState != ePedState::PEDSTATE_JUMP)
+                                if (playerState != ePedState::PEDSTATE_FALL && playerState != ePedState::PEDSTATE_JUMP && !isDrowning)
                                 {
                                     CHud::SetHelpMessage("Quick Save", true, false);
                                     Command<Commands::ACTIVATE_SAVE_MENU>();
