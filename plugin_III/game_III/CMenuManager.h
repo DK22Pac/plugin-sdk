@@ -174,7 +174,7 @@ enum eMenuAction {
 	MENUACTION_PARSEHEAP,
 	MENUACTION_SHOWCULL,
 	MENUACTION_MEMCARDSAVECONFIRM,
-	MENUACTION_UPDATEMEMCARDSAVE,
+	MENUACTION_RESUME_FROM_SAVEZONE,
 	MENUACTION_UNK50,
 	MENUACTION_DEBUGSTREAM,
 	MENUACTION_MPMAP_LIBERTY,
@@ -267,7 +267,8 @@ public:
 	bool m_bStartGameLoading;
 	bool m_bFirstTime;
 	bool m_bGameNotLoaded;
-	CVector2D m_vecMousePos;
+	int m_nMousePosX;
+	int m_nMousePosY;
 	int m_nMouseTempPosX;
 	int m_nMouseTempPosY;
 	bool m_bShowMouse;
@@ -389,3 +390,4 @@ public:
 VALIDATE_SIZE(CMenuManager, 0x564);
 
 extern CMenuManager &FrontEndMenuManager;
+extern CMenuScreen* aScreens;

@@ -56,13 +56,20 @@ int const& CPed::GetPositionZ(int* z) {
 }
 
 CEncodedVector CPed::GetPosition() {
-    int v = 0;
-    return CEncodedVector(GetPositionX(&v), GetPositionY(&v), GetPositionZ(&v));
+    int x, y, z = 0;
+    GetPositionX(&x);
+    GetPositionY(&y); 
+    GetPositionZ(&z);
+
+    return { x, y, z };
 }
 
 CEncodedVector2D CPed::GetPosition2D() {
-    int v = 0;
-    return CEncodedVector2D(GetPositionX(&v), GetPositionY(&v));
+    int x, y = 0;
+    GetPositionX(&x);
+    GetPositionY(&y);
+
+    return { x, y };
 }
 
 short const& CPed::GetRotation(short* r) {

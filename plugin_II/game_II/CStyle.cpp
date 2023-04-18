@@ -31,6 +31,14 @@ short CStyle::GetBaseIndex(int base, short texture) {
     return plugin::CallMethodAndReturn<short, 0x4BF2A0, CStyle*, int, short>(this, base, texture);
 }
 
+int* CStyle::GetTileArray(unsigned short id) {
+    return plugin::CallMethodAndReturn<int*, 0x4C2EB0, CStyle*, unsigned short>(this, id);
+}
+
+unsigned short CStyle::GetPhysPalette(unsigned short id) {
+    return plugin::CallMethodAndReturn<short, 0x4BF530, CStyle*, unsigned short>(this, id);
+}
+
 void CStyle::SetFontStyles(int fonts) {
     plugin::CallStd<0x4BFCC0, int>(fonts);
 }

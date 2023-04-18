@@ -736,9 +736,9 @@ HRESULT D3DTextr_Restore( TCHAR* strName, LPDIRECT3DDEVICE3 pd3dDevice, LPDIRECT
 
     HRESULT result = D3D_OK;
     if ( ptcTexture->hbmBitmap )
-        result = RestoreFromBitmap(ptcTexture, pd3dDevice);
+        result = RestoreFromBitmap( ptcTexture, pd3dDevice );
     else
-        result= LoadTexture(strName, pd3dDevice, ptcTexture);
+        result = LoadTexture( strName, pd3dDevice, ptcTexture );
 
     if (ptcTexture != NULL)
         pTexture = ptcTexture->ptexTexture;

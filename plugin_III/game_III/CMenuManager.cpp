@@ -31,6 +31,7 @@ int &CMenuManager::m_nPrefsMusicVolume = *(int*)0x5F2E4C;
 int &CMenuManager::m_nPrefsSfxVolume = *(int*)0x5F2E48;
 char *CMenuManager::m_nPrefsSkinFile = (char*)0x5F2E74;
 int &CMenuManager::m_nKeyPressedCode = *(int*)0x5F2E70;
+CMenuScreen* aScreens = (CMenuScreen*)0x611930;
 
 void CMenuManager::BuildStatLine(char *text, float *stat, bool aFloat, float* stat2) {
 	plugin::CallMethod<0x483870, CMenuManager *, char *, float *, bool, float*>(this, text, stat, aFloat, stat2);

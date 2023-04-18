@@ -158,6 +158,9 @@ public:
     void Load(const char* path);
     void Unload();
     short GetBaseIndex(int base, short texture);
+    int* GetTileArray(unsigned short id);
+    unsigned short GetPhysPalette(unsigned short id);
+
     static void SetFontStyles(int fonts);
 
 };

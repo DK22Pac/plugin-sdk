@@ -12,8 +12,6 @@
 #include "CRGBA.h"
 
 class PLUGIN_API CSprite2d {
-    PLUGIN_NO_DEFAULT_CONSTRUCTION(CSprite2d)
-
 public:
     RwTexture *m_pTexture;
 
