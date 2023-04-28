@@ -153,7 +153,7 @@ void CMenuManager::ProcessOnOffMenuOptions() {
 	plugin::CallMethod<0x48AE60, CMenuManager *>(this);
 }
 
-void CMenuManager::RequestFrontEndShutdown() {
+void CMenuManager::RequestFrontEndShutDown() {
 	plugin::Call<0x488750>();
 }
 

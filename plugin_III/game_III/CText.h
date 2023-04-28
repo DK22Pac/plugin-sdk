@@ -38,9 +38,9 @@ class PLUGIN_API CText {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CText)
 
 public:
-    CKeyArray m_sKeyArray;
-    CData m_sData;
-    char m_nEncoding;
+    CKeyArray keyArray;
+    CData data;
+    char encoding;
 
     SUPPORTED_10EN_11EN_STEAM wchar_t *Get(char const *key);
     SUPPORTED_10EN_11EN_STEAM wchar_t GetUpperCase(wchar_t c);

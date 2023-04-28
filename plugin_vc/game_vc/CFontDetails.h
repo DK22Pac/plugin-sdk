@@ -36,7 +36,7 @@ public:
 	bool m_bFontHalfTexture;
 	char _unk[5];
 	short m_nShadowPos;
-	CRGBA m_FontDropColor;
+	CRGBA m_DropColor;
 	char field_46;
 	char field_47;
 	int field_48;

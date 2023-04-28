@@ -96,8 +96,8 @@ namespace plugin {
 #endif
     }
 
-    static float IsNearlyEqualF(float a, float b, float t) {
-        return (abs(a - b) <= t) ? true : false;
+    static bool IsNearlyEqualF(float a, float b, float t) {
+        return (fabs(a - b) <= t);
     }
 
     static bool FileExists(const char* name) {

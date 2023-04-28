@@ -16,6 +16,9 @@ public:
     void PlayOneShot(int audioEntity, unsigned short shot, float volume);
     void SetRadioInCar(unsigned int radio);
     void PlayFrontEndTrack(unsigned int track, char flag);
+    void StopFrontEndTrack();
+    bool IsMP3RadioChannelAvailable();
+
 };
 
 extern cDMAudio& DMAudio;

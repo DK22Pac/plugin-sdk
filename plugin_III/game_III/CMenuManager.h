@@ -9,6 +9,10 @@
 #include "CSprite2d.h"
 #include "CPlayerSkin.h"
 
+enum {
+	NUM_ENTRIES = 18
+};
+
 enum eFrontendSprites {
 	FE2_MAINPANEL_UL,
 	FE2_MAINPANEL_UR,
@@ -69,7 +73,7 @@ enum eMenuScreen {
 	MENUPAGE_BRIEFS = 3,
 	MENUPAGE_CONTROLLER_SETTINGS = 4,
 	MENUPAGE_SOUND_SETTINGS = 5,
-	MENUPAGE_GRAPHICS_SETTINGS = 6,
+	MENUPAGE_DISPLAY_SETTINGS = 6,
 	MENUPAGE_LANGUAGE_SETTINGS = 7,
 	MENUPAGE_CHOOSE_LOAD_SLOT = 8,
 	MENUPAGE_CHOOSE_DELETE_SLOT = 9,
@@ -122,6 +126,7 @@ enum eMenuScreen {
 	MENUPAGE_MOUSE_CONTROLS = 56,
 	MENUPAGE_57 = 57,
 	MENUPAGE_58 = 58,
+	NUM_MENU_PAGES
 };
 
 enum eMenuAction {
@@ -249,7 +254,7 @@ struct PLUGIN_API CMenuScreen {
 		char m_EntryName[8];
 		int m_nSaveSlot;
 		int m_nTargetMenu;
-	} m_aEntries[18];
+	} m_aEntries[NUM_ENTRIES];
 };
 
 class PLUGIN_API CMenuManager {
@@ -373,7 +378,7 @@ public:
 	void Process();
 	void ProcessButtonPresses();
 	void ProcessOnOffMenuOptions();
-	static void RequestFrontEndShutdown();
+	static void RequestFrontEndShutDown();
 	static void RequestFrontEndStartUp();
 	void ResetHelperText();
 	void SaveLoadFileError_SetUpErrorScreen();

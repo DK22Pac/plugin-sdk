@@ -10,6 +10,10 @@
 #include "CVector2D.h"
 #include "CSprite2d.h"
 
+enum {
+    NUM_ENTRIES = 12
+};
+
 // Menu entries action to perform
 enum eMenuActions {   // There's many actions @0x57702E and @0x57CD88
     MENU_ACTION_NA = 0,
@@ -145,7 +149,7 @@ struct PLUGIN_API CMenuPage {
     char m_szTitleName[8];
     char m_nPrevMenu;
     char m_nStartingButton;
-    CMenuPageButton m_aButtons[12];
+    CMenuPageButton m_aButtons[NUM_ENTRIES];
 };
 
 VALIDATE_SIZE(CMenuPage, 0xE2);
