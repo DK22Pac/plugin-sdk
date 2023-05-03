@@ -50,6 +50,7 @@ public:
     void ReportMissionAudioEvent(eAudioEvents audioEvent, CVector const* coords);
     void Service();
     void ServiceLoadingTune(float fade);
+    void StartRadio(int radioStation, char arg);
     void StopRadio(tVehicleAudioSettings* settings, bool arg);
     bool IsRadioRetuneInProgress();
     bool IsLoadingTuneActive();

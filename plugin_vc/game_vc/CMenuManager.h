@@ -159,14 +159,14 @@ public:
 
 struct PLUGIN_API CMenuScreen {
     char m_ScreenName[8];
-    unsigned char m_nPreviousPage;
-    unsigned char m_nParentEntry;
+    char m_nPreviousPage;
+    char m_nParentEntry;
 
     struct CMenuEntry {
-        unsigned short m_Action;
+        unsigned short m_nAction;
         char m_EntryName[8];
         unsigned char m_nSaveSlot;
-        unsigned char m_nTargetMenu;
+        char m_nTargetMenu;
         unsigned short m_nX;
         unsigned short m_nY;
         unsigned short m_nAlign;
@@ -193,16 +193,16 @@ public:
     bool m_bPrefsShowSubtitles;
     bool m_bPrefsShowLegends;
     bool m_bPrefsUseWideScreen;
-    char m_bPrefsVsync;
-    char m_bPrefsVsyncDisp;
+    bool m_bPrefsVsync;
+    bool m_bPrefsVsyncDisp;
     bool m_bPrefsFrameLimiter;
-    char m_bPrefsAudio3DProviderIndex;
-    char m_bPrefsSpeakers;
-    char m_bPrefsDMA;
+    char m_nPrefsAudio3DProviderIndex;
+    char m_nPrefsSpeakers;
+    bool m_bPrefsDMA;
     char m_nPrefsSfxVolume;
     char m_nPrefsMusicVolume;
     char m_nPrefsRadioStation;
-    char m_bPrefsStereoMono;
+    bool m_bPrefsStereoMono;
     char field_2D[3];
     int m_nCurrentMenuEntry;
     bool m_bQuitGameNoCD;
@@ -218,15 +218,15 @@ public:
     float m_fMapZoom;
     float m_fMapBaseX;
     float m_fMapBaseY;
-    int m_nLanguage;
+    int OS_Language;
     int m_nPrefsLanguage;
     int field_54;
     bool m_bLanguageLoaded;
     bool m_bPrefsAllowNastyGame;
     char m_nPrefsMP3BoostVolume;
     char m_nControlMethod;
-    int m_nAppliedResolution;
-    int m_nResolution;
+    int m_nPrefsVideoMode;
+    int m_nDisplayVideoMode;
     int m_nMouseTempPosX;
     int m_nMouseTempPosY;
     bool m_bGameNotLoaded;

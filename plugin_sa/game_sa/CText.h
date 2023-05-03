@@ -85,7 +85,7 @@ public:
 	CText__TDat tdatMain;
 	CText__TKey tkeyMission;
 	CText__TDat tdatMission;
-	char field_20;
+	char encoding;
 	char haveTabl;
 	char cderrorInitialized;
 	char missionTableLoaded;
@@ -100,7 +100,7 @@ public:
 	~CText();
 
 	// Returns text pointer by GXT key
-	char *__thiscall Get(char *key);
+	char *__thiscall Get(const char *key);
 
 	// Reads MPACK tag
 	static void __stdcall readTag(char *buf, FILE *file, int *pFileOffset, bool dontRead);

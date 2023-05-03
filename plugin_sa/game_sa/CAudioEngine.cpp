@@ -58,6 +58,10 @@ void CAudioEngine::ServiceLoadingTune(float fade) {
     plugin::CallMethod<0x5078A0, CAudioEngine*, float>(this, fade);
 }
 
+void CAudioEngine::StartRadio(int radioStation, char arg) {
+    plugin::CallMethod<0x507DC0, CAudioEngine*, int, char>(this, radioStation, arg);
+}
+
 void CAudioEngine::StopRadio(tVehicleAudioSettings* settings, bool arg) {
     plugin::CallMethod<0x506F70, CAudioEngine*, tVehicleAudioSettings*, bool>(this, settings, arg);
 }

@@ -250,7 +250,7 @@ struct PLUGIN_API CMenuScreen {
 	int m_nParentEntry[2];
 
 	struct PLUGIN_API CMenuEntry {
-		int m_Action;
+		int m_nAction;
 		char m_EntryName[8];
 		int m_nSaveSlot;
 		int m_nTargetMenu;
@@ -259,17 +259,17 @@ struct PLUGIN_API CMenuScreen {
 
 class PLUGIN_API CMenuManager {
 public:
-	int m_nResolution;
-	int m_nAppliedResolution;
-	char m_nAudioHardware;
+	int m_nPrefsVideoMode;
+	int m_nDisplayVideoMode;
+	char m_nPrefsAudio3DProviderIndex;
 	bool m_bKeyChangeNotProcessed;
 	char m_aSkinName[256];
 	int m_nHelperTextMsgId;
 	bool m_bLanguageLoaded;
 	bool m_bMenuActive;
-	char field_112;
-	char field_113;
-	bool m_bStartGameLoading;
+	char m_bMenuStateChanged;
+	char m_bWaitingForNewKeyBind;
+	bool m_bWantToRestart;
 	bool m_bFirstTime;
 	bool m_bGameNotLoaded;
 	int m_nMousePosX;
@@ -279,8 +279,8 @@ public:
 	bool m_bShowMouse;
 	CPlayerSkinData m_sSkin;
 	CPlayerSkinData *m_pSelectedSkin;
-	int field_438;
-	float field_43C;
+	int m_nFirstVisibleRowOnList;
+	float m_nScrollbarTopMargin;
 	int m_nCurrentExSize;
 	int m_nSkinsTotal;
 	char _unk0[4];
@@ -289,7 +289,7 @@ public:
 	bool m_bQuitGameNoCD;
 	char field_452;
 	bool m_bSaveMenuActive;
-	bool m_bLoadingSavedGame;
+	bool m_bWantToLoad;
 	char field_455;
 	char field_456;
 	bool m_bSpritesLoaded;
@@ -302,7 +302,7 @@ public:
 	char field_522;
 	char field_523;
 	char field_524;
-	int m_CurrentControlAction;
+	int m_nCurrentControlAction;
 	char _unk1[4];
 	int field_530;
 	char field_534;
@@ -322,22 +322,22 @@ public:
 
 public:
 	static int &OS_Language;
-	static char &m_nPrefsUseVibration;
-	static char &m_nDisplayControllerOnFoot;
-	static char &m_nPrefsUseWideScreen;
+	static bool &m_bPrefsUseVibration;
+	static bool &m_bDisplayControllerOnFoot;
+	static bool &m_bPrefsUseWideScreen;
 	static char &m_nPrefsRadioStation;
-	static char &m_nPrefsVsync;
-	static char &m_nPrefsVsyncDisp;
-	static char &m_nPrefsFrameLimiter;
-	static char &m_nPrefsShowSubtitles;
+	static bool &m_bPrefsVsync;
+	static bool &m_bPrefsVsyncDisp;
+	static bool &m_bPrefsFrameLimiter;
+	static bool &m_bPrefsShowSubtitles;
 	static char &m_nPrefsSpeakers;
 	static char &m_nControlMethod;
-	static char &m_nPrefsDMA;
+	static bool &m_bPrefsDMA;
 	static char &m_nPrefsLanguage;
-	static char &m_bDisableMouseSteering;
+	static bool &m_bDisableMouseSteering;
 	static int &m_nPrefsBrightness;
 	static float &m_fPrefsLOD;
-	static char &m_bFrontEnd_ReloadObrTxtGxt;
+	static bool &m_bFrontEnd_ReloadObrTxtGxt;
 	static int &m_nPrefsMusicVolume;
 	static int &m_nPrefsSfxVolume;
 	static char *m_nPrefsSkinFile;

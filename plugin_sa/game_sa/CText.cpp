@@ -94,7 +94,7 @@ CText::~CText()
 }
 
 // Returns text pointer by GXT key
-char *__thiscall CText::Get(char *key)
+char *__thiscall CText::Get(const char *key)
 {
 	return ( (char *(__thiscall*)(CText*, const char *key)) FUNC_CText__Get )(this, key);
 }

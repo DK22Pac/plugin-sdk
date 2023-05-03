@@ -324,7 +324,7 @@ public:
     SUPPORTED_10US static float &m_f3rdPersonCHairMultY;
     SUPPORTED_10US static float &m_f3rdPersonCHairMultX;
     SUPPORTED_10US static float &m_fMouseAccelVertical;
-    SUPPORTED_10US static float &m_fMouseAccelHorzntl;
+    SUPPORTED_10US static float &m_fMouseAccelHorzntal;
     SUPPORTED_10US static bool &m_bUseMouse3rdPerson;
     /* virtual functions */
 

@@ -21,7 +21,7 @@ char** frontend4TexNames = (char**)0x8CDFE0;
 
 bool& bBriefHistoryAllowedToUpdate = *(bool*)0x8CDFF9;
 
-CMenuPage* MenuPages = (CMenuPage*)0x8CE008;
+CMenuScreen* aScreens = (CMenuScreen*)0x8CE008;
 
 CMenuManager::CMenuManager() {
     plugin::CallMethod<0x574350, CMenuManager*>(this);
@@ -60,7 +60,7 @@ bool CMenuManager::CheckFrontEndUpInput() {
 }
 
 bool CMenuManager::CheckHover(float x1, float x2, float y1, float y2) {
-    return plugin::CallMethodAndReturn<char, 0x57C4F0, CMenuManager*>(this, x1, x2, y1, y2);
+    return plugin::CallMethodAndReturn<bool, 0x57C4F0, CMenuManager*>(this, x1, x2, y1, y2);
 }
 
 bool CMenuManager::CheckMissionPackValidMenu() {
@@ -261,4 +261,12 @@ void CMenuManager::UnloadTextures() {
 
 void CMenuManager::UserInput() {
     plugin::CallMethod<0x57FD70, CMenuManager*>(this);
+}
+
+void CMenuManager::RequestFrontEndShutDown() {
+    m_bShutDownFrontEndRequested = true;
+}
+
+void CMenuManager::RequestFrontEndStartUp() {
+    m_bStartUpFrontEndRequested = true;
 }

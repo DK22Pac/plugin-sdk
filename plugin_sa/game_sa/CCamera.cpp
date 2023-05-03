@@ -11,7 +11,7 @@ PLUGIN_SOURCE_FILE
 float &CCamera::m_f3rdPersonCHairMultY = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC10, 0, 0, 0, 0, 0));
 float &CCamera::m_f3rdPersonCHairMultX = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC14, 0, 0, 0, 0, 0));
 float &CCamera::m_fMouseAccelVertical = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC18, 0, 0, 0, 0, 0));
-float &CCamera::m_fMouseAccelHorzntl = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC1C, 0, 0, 0, 0, 0));
+float &CCamera::m_fMouseAccelHorzntal = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC1C, 0, 0, 0, 0, 0));
 bool &CCamera::m_bUseMouse3rdPerson = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC2E, 0, 0, 0, 0, 0));
 CCamera &TheCamera = *reinterpret_cast<CCamera *>(GLOBAL_ADDRESS_BY_VERSION(0xB6F028, 0, 0, 0, 0, 0));
 
