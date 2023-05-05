@@ -291,8 +291,8 @@ public:
     char m_nPlayerNumber;
     bool m_bReinitLanguageSettings;
     int field_EC;
-    int* m_pPressedKey;
-    char field_F4;
+    int* pControlEdit;
+    bool m_bOnlySaveMenu;
     char field_F5[3];
     CSprite2d m_aMenuSprites[MENUSPRITE_TEXTURE_COUNT];
     bool m_bTexturesLoaded;

@@ -287,7 +287,7 @@ public:
 	int m_nCurrentExOption;
 	bool m_bSkinsFound;
 	bool m_bQuitGameNoCD;
-	char field_452;
+	bool m_bRenderGameInMenu;
 	bool m_bSaveMenuActive;
 	bool m_bWantToLoad;
 	char field_455;
