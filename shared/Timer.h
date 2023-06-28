@@ -19,7 +19,14 @@ namespace plugin {
         ~Timer();
 
     public:
-        static float GetTimeInMilliseconds();
-        static float GetTimeInSeconds();
+        template<typename T = int32_t>
+        static T GetTimeInMilliseconds() {
+            return static_cast<T>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - startTime).count());
+        }
+
+        template<typename T = int32_t>
+        static T GetTimeInSeconds() {
+            return GetTimeInMilliseconds<T>() / 1000;
+        }
     };
 };
