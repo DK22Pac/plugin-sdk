@@ -12,6 +12,8 @@
 #include "tLight.h"
 #include "tVertex.h"
 #include "tImage.h"
+
+#define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
 
 struct tPalData {

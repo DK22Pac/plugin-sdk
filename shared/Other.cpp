@@ -7,6 +7,7 @@
 #include "Other.h"
 #include <Windows.h>
 #include <fstream>
+#include <ctime>
 
 unsigned int plugin::FormattingUtils::currentBuf = 0;
 char plugin::FormattingUtils::buf[plugin::FormattingUtils::BUF_SIZE][4096];
@@ -14,7 +15,7 @@ unsigned int plugin::FormattingUtils::currentBufW = 0;
 wchar_t plugin::FormattingUtils::bufW[plugin::FormattingUtils::BUF_SIZE][4096];
 
 void plugin::InitRandom() {
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
 }
 
 unsigned int plugin::Random(unsigned int min, unsigned int max) {
@@ -106,7 +107,7 @@ bool plugin::LoadTGAFromFile(const char* path, unsigned short* width, unsigned s
 
     f.close();
     int j = 0;
-    for (unsigned int i = 0; i < imageSize; i += colorMode) {
+    for (int i = 0; i < imageSize; i += colorMode) {
         unsigned char r;
         unsigned char g;
         unsigned char b;

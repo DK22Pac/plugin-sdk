@@ -126,7 +126,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines "_USING_V110_SDK71_"
             buildoptions { "/Zc:threadSafeInit-" }
         end
-        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS" }
+        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES" }
         buildoptions { "/sdl-" }
         disablewarnings "4073"
     end
