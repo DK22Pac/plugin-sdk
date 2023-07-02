@@ -1,4 +1,10 @@
-﻿#include "plugin.h"
+﻿/*
+    Plugin-SDK (Grand Theft Auto) SHARED source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
+#include "plugin.h"
 #include "TextLoader.h"
 #include <locale>
 #include <codecvt>
@@ -6,6 +12,8 @@
 #include <fstream>
 
 #include "CText.h"
+
+#pragma warning(disable : 4996)
 
 std::map<char_t, char_t> table = {
 #if defined(GTASA) || defined(GTAVC)
@@ -62,7 +70,6 @@ std::map<char_t, char_t> table = {
     { 0xFA, 0xAA },
     { 0xFB, 0xAB },
     { 0xFC, 0xAC },
-};
 #else
 // https://github.com/Sergeanur/GXT-compiler/blob/main/tables/iii_table.txt
     { 0xA1, 0xB0 },
@@ -115,8 +122,8 @@ std::map<char_t, char_t> table = {
     { 0xFA, 0xAA },
     { 0xFB, 0xAB },
     { 0xFC, 0xAC },
-};
 #endif
+};
 
 void ApplyTable(string_t& str) {
     bool tag = false;
@@ -147,22 +154,24 @@ bool TextLoader::Load(const std::string& fileName) {
     string_t currentValue;
 
     while (std::getline(file, line)) {
-        if (line.size() > 2 && line.front() == '[' && line.back() == ']') {
+        if (line.size() > 2 && line.front() != '/' && line.front() != '#' && line.front() != ';') {
+            if (line.front() == '[' && line.back() == ']') {
 #ifdef GTASA
-            currentKey = line.substr(1, line.size() - 2);
+                currentKey = line.substr(1, line.size() - 2);
 #else
-            std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-            currentKey = converter.to_bytes(line.substr(1, line.size() - 2));
+                std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+                currentKey = converter.to_bytes(line.substr(1, line.size() - 2));
 #endif
-            currentValue = {};
-        }
-        else {
-            currentValue = line;
-        }
+                currentValue = {};
+            }
+            else {
+                currentValue = line;
+            }
 
-        if (!currentKey.empty() && !currentValue.empty()) {
-            ApplyTable(currentValue);
-            stringMap[currentKey] = currentValue;
+            if (!currentKey.empty() && !currentValue.empty()) {
+                ApplyTable(currentValue);
+                stringMap[currentKey] = currentValue;
+            }
         }
     }
 
