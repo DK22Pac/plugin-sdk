@@ -42,4 +42,8 @@ SUPPORTED_10EN_11EN_STEAM extern int &gameTxdSlot;
 
 SUPPORTED_10EN_11EN_STEAM void ValidateVersion();
 
+extern bool DoRwStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bottomRed, short bottomGreen, short bottomBlue, short alpha);
+extern void DoRwStuffEndOfFrame();
+extern class CSprite2d* LoadSplash(const char* name);
+
 #include "meta/meta.CGame.h"

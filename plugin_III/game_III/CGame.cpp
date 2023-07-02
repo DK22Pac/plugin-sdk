@@ -122,3 +122,15 @@ int gaddrof(ValidateVersion) = GLOBAL_ADDRESS_BY_VERSION(0x48BAD0, 0x48BBC0, 0x4
 void ValidateVersion() {
     plugin::CallDynGlobal(gaddrof(ValidateVersion));
 }
+
+bool DoRwStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bottomRed, short bottomGreen, short bottomBlue, short alpha) {
+    return plugin::CallAndReturn<bool, 0x48CF10>(topRed, topGreen, topBlue, bottomRed, bottomGreen, bottomBlue, alpha);
+}
+
+void DoRwStuffEndOfFrame() {
+    plugin::Call<0x48D440>();
+}
+
+CSprite2d* LoadSplash(const char* name) {
+    return plugin::CallAndReturn<CSprite2d*, 0x48D550>(name);
+}
