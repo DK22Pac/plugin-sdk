@@ -268,7 +268,7 @@ public:
     bool m_bPrefsInvertPadX2;
     bool m_bPrefsInvertPadY2;
     bool m_bPrefsSwapPadAxis1;
-    bool m_bSwapPadAxis2;
+    bool m_bPrefsSwapPadAxis2;
     bool m_bInVehicleControlsScreen;
     bool m_bShowMouse;
     char field_B9[3];
