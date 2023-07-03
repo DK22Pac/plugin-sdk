@@ -154,8 +154,8 @@ bool TextLoader::Load(const std::string& fileName) {
     string_t currentValue;
 
     while (std::getline(file, line)) {
-        if (line.size() > 2 && line.front() != '/' && line.front() != '#' && line.front() != ';') {
-            if (line.front() == '[' && line.back() == ']') {
+        if (line.size() > 0 && line.front() != '/' && line.front() != '#' && line.front() != ';') {
+            if (line.size() > 2 && line.front() == '[' && line.back() == ']') {
 #ifdef GTASA
                 currentKey = line.substr(1, line.size() - 2);
 #else
