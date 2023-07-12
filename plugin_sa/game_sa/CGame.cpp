@@ -218,3 +218,11 @@ int gaddrof(DoHaspChecks) = GLOBAL_ADDRESS_BY_VERSION(0x5BA150, 0, 0, 0, 0, 0);
 bool DoHaspChecks() {
     return plugin::CallAndReturnDynGlobal<bool>(gaddrof(DoHaspChecks));
 }
+
+bool DoRwStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bottomRed, short bottomGreen, short bottomBlue, short alpha) {
+    return plugin::CallAndReturn<bool, 0x53D690>(topRed, topGreen, topBlue, bottomRed, bottomGreen, bottomBlue, alpha);
+}
+
+void DoRwStuffEndOfFrame() {
+    plugin::Call<0x53D840>();
+}

@@ -22,11 +22,3 @@ Timer::Timer() {
 Timer::~Timer() {
 
 }
-
-float Timer::GetTimeInMilliseconds() {
-    return static_cast<float>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - startTime).count());
-}
-
-float Timer::GetTimeInSeconds() {
-    return GetTimeInMilliseconds() / 1000.0f;
-}

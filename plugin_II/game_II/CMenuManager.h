@@ -7,7 +7,7 @@
 
 #pragma once
 #include "PluginBase.h"
-#include <dinput.h>
+#include "GBH.h"
 #include "CAudioManager.h"
 
 enum eMenuScreens {
