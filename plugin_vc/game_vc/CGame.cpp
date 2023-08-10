@@ -19,6 +19,7 @@ PLUGIN_VARIABLE bool &CGame::frenchGame = *reinterpret_cast<bool *>(GLOBAL_ADDRE
 PLUGIN_VARIABLE bool &CGame::noProstitutes = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xA10B99, 0xA10BA2, 0xA0FBA3));
 PLUGIN_VARIABLE int &splashTxdId = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x68E494, 0x68E494, 0x68D49C));
 PLUGIN_VARIABLE bool &g_SlowMode = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xA10B5E, 0xA10B67, 0xA0FB68));
+int &gGameState = *reinterpret_cast<int*>(0x9B5F08);
 
 int addrof(CGame::CanSeeOutSideFromCurrArea) = ADDRESS_BY_VERSION(0x4A4390, 0x4A43B0, 0x4A4250);
 int gaddrof(CGame::CanSeeOutSideFromCurrArea) = GLOBAL_ADDRESS_BY_VERSION(0x4A4390, 0x4A43B0, 0x4A4250);

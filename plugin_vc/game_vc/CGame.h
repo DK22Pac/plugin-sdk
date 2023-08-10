@@ -42,6 +42,7 @@ public:
 
 SUPPORTED_10EN_11EN_STEAM extern int &splashTxdId;
 SUPPORTED_10EN_11EN_STEAM extern bool &g_SlowMode;
+extern int &gGameState;
 
 SUPPORTED_10EN_11EN_STEAM void ValidateVersion();
 SUPPORTED_10EN_11EN_STEAM RsEventStatus AppEventHandler(RsEvent event, void *param);

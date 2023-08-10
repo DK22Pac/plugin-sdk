@@ -35,7 +35,7 @@ class CVector2D {
 public:
     float x, y;
 
-    public:
+public:
     CVector2D();
     CVector2D(float X, float Y);
     CVector2D(CVector2D const& src);

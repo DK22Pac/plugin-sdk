@@ -17,6 +17,7 @@ bool &CGame::playingIntro = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(
 bool &CGame::frenchGame = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CDCB, 0x95CF83, 0x96D0C3));
 bool &CGame::noProstitutes = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x95CDCF, 0x95CF87, 0x96D0C7));
 int &gameTxdSlot = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x628D88, 0x628D88, 0x638D88));
+int &gGameState = *reinterpret_cast<int*>(0x8F5838);
 
 int addrof(CGame::DrasticTidyUpMemory) = ADDRESS_BY_VERSION(0x48CA10, 0x48CB10, 0x48CAA0);
 int gaddrof(CGame::DrasticTidyUpMemory) = GLOBAL_ADDRESS_BY_VERSION(0x48CA10, 0x48CB10, 0x48CAA0);
