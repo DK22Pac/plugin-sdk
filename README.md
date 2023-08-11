@@ -4,8 +4,6 @@
 
 # Plugin-SDK
 
-Plugin-SDK is a development kit for creating plugins for GTA San Andreas, GTA Vice City, and GTA 3.
-
 ## Table of Contents
 
 - [English](#english)
