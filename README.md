@@ -9,9 +9,6 @@
 - [English](#english)
 - [Русский](#русский)
 - [Español](#español)
-- [How to Use Plugin-SDK](#how-to-use-plugin-sdk)
-- [Connect with Developers](#connect-with-developers)
-- [Contributors](#contributors)
 
 ## English
 
