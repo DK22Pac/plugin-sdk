@@ -1,39 +1,66 @@
-<p align="center"><img src="http://i.imgur.com/xFXWiU9.png"></p>
+<p align="center">
+  <img src="http://i.imgur.com/xFXWiU9.png" alt="Plugin-SDK Logo">
+</p>
+
+# Plugin-SDK
+
+Plugin-SDK is a development kit for creating plugins for GTA San Andreas, GTA Vice City, and GTA 3.
+
+## Table of Contents
+
+- [English](#english)
+- [Русский](#русский)
+- [Español](#español)
+- [How to Use Plugin-SDK](#how-to-use-plugin-sdk)
+- [Connect with Developers](#connect-with-developers)
+- [Contributors](#contributors)
 
 ## English
-Plugin-SDK is a "dev-kit" for creating plugins for GTA San Andreas, GTA Vice City, and GTA 3.
 
-### How to use Plugin-SDK?
-1. Install the development environment (IDE) (Detailed guide: [**Installing the development environment (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Installing-development-environment-(IDE)))
-2. Clone Plugin-SDK to your computer and set it up (Detailed guide: [**Setting up Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk))
-3. Create your first plugin! (Detailed guide: [**Creating a new plugin in Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creating-a-new-plugin-in-plugin-sdk))
+Plugin-SDK is a versatile "dev-kit" designed for crafting plugins compatible with GTA San Andreas, GTA Vice City, and GTA 3.
 
-### Connect with other developers
-- [Discord server](https://discord.gg/X4H7ztF)
+### How to Use Plugin-SDK?
+
+1. Install the Integrated Development Environment (IDE). Refer to the detailed guide: [**Installing the IDE**](https://github.com/DK22Pac/plugin-sdk/wiki/Installing-development-environment-(IDE)).
+2. Clone the Plugin-SDK repository to your computer and set it up. Follow the comprehensive guide: [**Setting up Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk).
+3. Create your inaugural plugin by following the instructions outlined in: [**Creating a new plugin in Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creating-a-new-plugin-in-plugin-sdk).
+
+### Connect with Developers
+
+- Join our [Discord server](https://discord.gg/X4H7ztF) to engage with other developers, share insights, and seek assistance.
 
 ## Русский
-Plugin-SDK - это своего рода "dev-kit" для создания плагинов для GTA San Andreas, GTA Vice City и GTA 3.
+
+Plugin-SDK - это "dev-kit", предназначенный для создания плагинов совместимых с GTA San Andreas, GTA Vice City и GTA 3.
 
 ### Как использовать Plugin-SDK?
-1. Установите среду разработки (IDE) (Подробная инструкция: [**Установка среды разработки (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Установка-среды-разработки-(IDE)))
-2. Клонируйте Plugin-SDK на свой компьютер и настройте его (Подробная инструкция: [**Настройка Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Настройка-plugin-sdk))
-3. Создайте свой первый плагин! (Подробная инструкция: [**Создание нового плагина в Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Создание-нового-плагина-в-plugin-sdk))
+
+1. Установите среду разработки (IDE). Детальная инструкция: [**Установка среды разработки (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Установка-среды-разработки-(IDE)).
+2. Клонируйте репозиторий Plugin-SDK на свой компьютер и настройте его. Подробная инструкция: [**Настройка Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Настройка-plugin-sdk).
+3. Создайте свой первый плагин, следуя инструкциям: [**Создание нового плагина в Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Создание-нового-плагина-в-plugin-sdk).
 
 ### Свяжитесь с другими разработчиками
-- [Сервер Discord](https://discord.gg/X4H7ztF)
+
+- Присоединяйтесь к [серверу Discord](https://discord.gg/X4H7ztF), чтобы общаться с другими разработчиками, делиться опытом и получать помощь.
 
 ## Español
-Plugin-SDK es una especie de "kit de desarrollo" para crear complementos para GTA San Andreas, GTA Vice City y GTA 3.
+
+Plugin-SDK es una completa "herramienta de desarrollo" diseñada para crear complementos compatibles con GTA San Andreas, GTA Vice City y GTA 3.
 
 ### ¿Cómo usar Plugin-SDK?
-1. Instala el entorno de desarrollo (IDE) (Guía detallada: [**Instalación del entorno de desarrollo (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Instalación-del-entorno-de-desarrollo-(IDE)))
-2. Clona Plugin-SDK en tu computadora y configúralo (Guía detallada: [**Configuración de Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Configuración-plugin-sdk))
-3. ¡Crea tu primer complemento! (Guía detallada: [**Creación de un nuevo complemento en Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creación-de-un-nuevo-complemento-en-plugin-sdk))
+
+1. Instala el Entorno de Desarrollo Integrado (IDE). Consulta la guía detallada: [**Instalación del IDE**](https://github.com/DK22Pac/plugin-sdk/wiki/Instalación-del-entorno-de-desarrollo-(IDE)).
+2. Clona el repositorio Plugin-SDK en tu computadora y configúralo. Sigue la guía completa: [**Configuración de Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Configuración-plugin-sdk).
+3. Crea tu primer complemento siguiendo las instrucciones en: [**Creación de un nuevo complemento en Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creación-de-un-nuevo-complemento-en-plugin-sdk).
 
 ### Conecta con otros desarrolladores
-- [Servidor de Discord](https://discord.gg/X4H7ztF)
 
-## Contributors | Авторы | Colaboradores:
+- Únete a nuestro [servidor de Discord](https://discord.gg/X4H7ztF) para interactuar con otros desarrolladores, compartir conocimientos y buscar ayuda.
+
+## Contributors | Авторы | Colaboradores
+
+This project has been contributed to by various developers, including:
+
 - Crspy (new versions)
 - DK22Pac (old and new versions)
 - fastman92 (old versions)
