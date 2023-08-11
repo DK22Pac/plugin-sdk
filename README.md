@@ -30,9 +30,9 @@ Plugin-SDK - это "dev-kit", предназначенный для созда�
 
 ### Как использовать Plugin-SDK?
 
-1. Установите среду разработки (IDE). Детальная инструкция: [**Установка среды разработки (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Установка-среды-разработки-(IDE)).
-2. Клонируйте репозиторий Plugin-SDK на свой компьютер и настройте его. Подробная инструкция: [**Настройка Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Настройка-plugin-sdk).
-3. Создайте свой первый плагин, следуя инструкциям: [**Создание нового плагина в Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Создание-нового-плагина-в-plugin-sdk).
+1. Установите среду разработки (IDE). Детальная инструкция: [**Установка среды разработки (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Installing-development-environment-(IDE)).
+2. Клонируйте репозиторий Plugin-SDK на свой компьютер и настройте его. Подробная инструкция: [**Настройка Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk).
+3. Создайте свой первый плагин, следуя инструкциям: [**Создание нового плагина в Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creating-a-new-plugin-in-plugin-sdk).
 
 ### Свяжитесь с другими разработчиками
 
@@ -44,9 +44,9 @@ Plugin-SDK es una completa "herramienta de desarrollo" diseñada para crear comp
 
 ### ¿Cómo usar Plugin-SDK?
 
-1. Instala el Entorno de Desarrollo Integrado (IDE). Consulta la guía detallada: [**Instalación del IDE**](https://github.com/DK22Pac/plugin-sdk/wiki/Instalación-del-entorno-de-desarrollo-(IDE)).
-2. Clona el repositorio Plugin-SDK en tu computadora y configúralo. Sigue la guía completa: [**Configuración de Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Configuración-plugin-sdk).
-3. Crea tu primer complemento siguiendo las instrucciones en: [**Creación de un nuevo complemento en Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creación-de-un-nuevo-complemento-en-plugin-sdk).
+1. Instala el Entorno de Desarrollo Integrado (IDE). Consulta la guía detallada: [**Instalación del IDE**](https://github.com/DK22Pac/plugin-sdk/wiki/Installing-development-environment-(IDE)).
+2. Clona el repositorio Plugin-SDK en tu computadora y configúralo. Sigue la guía completa: [**Configuración de Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk).
+3. Crea tu primer complemento siguiendo las instrucciones en: [**Creación de un nuevo complemento en Plugin-SDK**](https://github.com/DK22Pac/plugin-sdk/wiki/Creating-a-new-plugin-in-plugin-sdk).
 
 ### Conecta con otros desarrolladores
 
