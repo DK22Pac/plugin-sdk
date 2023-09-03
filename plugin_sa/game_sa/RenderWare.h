@@ -27,7 +27,10 @@ extern RsGlobalType &RsGlobal;
 
 extern RwPluginRegistry &geometryTKList;
 
-struct IDirect3DDevice9 *GetD3DDevice();
+template<typename T>
+T *GetD3DDevice() {
+    return *reinterpret_cast<T **>(0x7897A8);
+}
 
 #ifndef D3DMATRIX_DEFINED
 struct _D3DMATRIX;

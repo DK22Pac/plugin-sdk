@@ -60,6 +60,8 @@ public:
     char GetCurrentRadioStationID();
     bool IsVehicleRadioActive();
     void InitialisePostLoading();
+    void SetMusicFaderScalingFactor(float value);
+    void SetEffectsFaderScalingFactor(float value);
 };
 
 VALIDATE_SIZE(CAudioEngine, 0x1FD8);

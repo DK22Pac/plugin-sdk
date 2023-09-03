@@ -13,10 +13,6 @@ RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
 
 RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
 
-IDirect3DDevice9 *GetD3DDevice() {
-    return *reinterpret_cast<IDirect3DDevice9 **>(0xC97C28);
-}
-
 _D3DMATRIX *GetD3DViewTransform() {
     return reinterpret_cast<_D3DMATRIX *>(0xC9BC80);
 }

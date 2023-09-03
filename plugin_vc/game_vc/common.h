@@ -12,6 +12,7 @@
 #include "CVehicle.h"
 #include "CTrain.h"
 #include "CAnimBlendClumpData.h"
+#include "CPlayerPed.h"
 
 class CAnimBlendAssociation;
 class CAnimBlendHierarchy;
@@ -63,3 +64,4 @@ void RpAnimBlendClumpSetBlendDeltas(RpClump* clump, unsigned int flags, float de
 void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen);
 CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association);
 bool RpAnimBlendPluginAttach();
+void DefinedState();

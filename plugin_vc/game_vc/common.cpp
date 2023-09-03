@@ -208,3 +208,7 @@ CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* asso
 bool RpAnimBlendPluginAttach() {
     return plugin::CallAndReturn<bool, 0x4074D0>();
 }
+
+void DefinedState() {
+    plugin::Call<0x57F9C0>();
+}
