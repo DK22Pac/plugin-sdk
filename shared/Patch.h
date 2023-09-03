@@ -9,6 +9,7 @@
 
 #include "../injector/injector.hpp"
 #include "DynAddress.h"
+#include <vector>
 
 namespace plugin {
 
@@ -72,6 +73,18 @@ public:
 
     static void ReplaceFunction(int address, void *func, bool vp = true);
     static void ReplaceFunctionCall(int address, void *func, bool vp = true);
+
+    static void RedirectJump(std::vector<int> const& addresses, void* func, bool vp = true) {
+        for (auto& address : addresses) {
+            RedirectJump(address, func, vp);
+        }
+    }
+
+    static void RedirectCall(std::vector<int> const& addresses, void* func, bool vp = true) {
+        for (auto& address : addresses) {
+            RedirectCall(address, func, vp);
+        }
+    }
 };
 
 }

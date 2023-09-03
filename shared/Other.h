@@ -6,6 +6,9 @@
 */
 #pragma once
 #include <string>
+#include <locale>
+#include <codecvt>
+
 #include <Windows.h>
 
 #ifndef GTA2
@@ -63,6 +66,18 @@ namespace plugin {
     template<typename ...ArgTypes>
     std::wstring Format(const std::wstring &format, ArgTypes... args) {
         return FormatStatic(format, FormattingUtils::Arg(args)...);
+    }
+
+    static std::wstring ToWString(std::string const& str) {
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+        std::wstring wstr = converter.from_bytes(str);
+        return wstr;
+    }
+
+    static std::string ToString(std::wstring const& wstr) {
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+        std::string str = converter.to_bytes(wstr);
+        return str;
     }
 
     template<typename T>
