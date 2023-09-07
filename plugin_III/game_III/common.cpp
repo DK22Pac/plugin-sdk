@@ -185,7 +185,3 @@ void FlushObrsPrintfs() {
 void DefinedState() {
     plugin::Call<0x526330>();
 }
-
-CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, unsigned int animId) {
-    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4055C0>(clump, animId);
-}
