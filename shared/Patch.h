@@ -74,6 +74,31 @@ public:
     static void ReplaceFunction(int address, void *func, bool vp = true);
     static void ReplaceFunctionCall(int address, void *func, bool vp = true);
 
+    static void SetPointer(std::vector<int> const& addresses, void* value, bool vp = true) {
+        for (auto& address : addresses) {
+            SetPointer(address, value, vp);
+        }
+    }
+
+    template <typename T>
+    static void Set(std::vector<int> const& addresses, T value, bool vp = true) {
+        for (auto& address : addresses) {
+            Set(address, value, vp);
+        }
+    }
+
+    static void SetInt(std::vector<int> const& addresses, int value, bool vp = true) {
+        for (auto& address : addresses) {
+            SetInt(address, value, vp);
+        }
+    }
+
+    static void SetFloat(std::vector<int> const& addresses, float value, bool vp = true) {
+        for (auto& address : addresses) {
+            SetFloat(address, value, vp);
+        }
+    }
+
     static void RedirectJump(std::vector<int> const& addresses, void* func, bool vp = true) {
         for (auto& address : addresses) {
             RedirectJump(address, func, vp);
