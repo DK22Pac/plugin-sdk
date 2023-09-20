@@ -39,6 +39,7 @@ public:
 };
 
 SUPPORTED_10EN_11EN_STEAM extern int &gameTxdSlot;
+extern int &gGameState;
 
 SUPPORTED_10EN_11EN_STEAM void ValidateVersion();
 

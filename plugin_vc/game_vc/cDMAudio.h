@@ -18,6 +18,10 @@ public:
     void PlayFrontEndTrack(unsigned int track, char flag);
     void StopFrontEndTrack();
     bool IsMP3RadioChannelAvailable();
+    void SetEffectsFadeVol(unsigned char volume);
+    void SetMusicFadeVol(unsigned char volume);
+    void SetEffectsMasterVolume(unsigned char volume);
+    void SetMusicMasterVolume(unsigned char volume);
 
 };
 

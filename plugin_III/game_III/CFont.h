@@ -18,11 +18,13 @@ public:
     static CFontDetails &Details;
     static CSprite2d *Sprite; 
     static short &NewLine;
+    static short** Size;
 
     // funcs
 
     static void DrawFonts();
     // get next ' ' character in a string
+    static float GetCharacterSize(const wchar_t c);
     static wchar_t* GetNextSpace(const wchar_t* str);
     static int GetNumberLines(float x, float y, const wchar_t* text);
     static float GetStringWidth(const wchar_t* str, bool sentence);

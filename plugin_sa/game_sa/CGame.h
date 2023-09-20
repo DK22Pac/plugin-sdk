@@ -48,6 +48,7 @@ public:
 };
 
 SUPPORTED_10US extern int &gameTxdSlot;
+extern int &gGameState;
 
 SUPPORTED_10US bool MoveMem(void **pMem);
 SUPPORTED_10US bool MoveColModelMemory(CColModel &colModel, bool a2);

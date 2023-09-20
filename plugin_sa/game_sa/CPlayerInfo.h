@@ -102,7 +102,10 @@ private:
 public:
     unsigned int m_nRequireParachuteTimer;
 
+public:
     CPlayerInfo();
+    void MakePlayerSafe(bool safe, float radius);
+
 };
 
 VALIDATE_SIZE(CPlayerInfo, 0x190);

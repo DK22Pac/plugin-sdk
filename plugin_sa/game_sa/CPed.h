@@ -217,7 +217,7 @@ public:
     short field_50A;
     CPedIK              m_pedIK;
     int field_52C;
-    ePedState           m_nPedState; // see ePedState
+    ePedState           m_ePedState; // see ePedState
     int                 m_nMoveState;
     int field_538;
     int field_53C;

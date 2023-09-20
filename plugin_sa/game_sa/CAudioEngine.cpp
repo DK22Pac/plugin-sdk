@@ -97,3 +97,11 @@ bool CAudioEngine::IsVehicleRadioActive() {
 void CAudioEngine::InitialisePostLoading() {
     plugin::CallMethod<0x5078F0, CAudioEngine*>(this);
 }
+
+void CAudioEngine::SetMusicFaderScalingFactor(float value) {
+    plugin::CallMethod<0x506E40, CAudioEngine*, float>(this, value);
+}
+
+void CAudioEngine::SetEffectsFaderScalingFactor(float value) {
+    plugin::CallMethod<0x506E50, CAudioEngine*, float>(this, value);
+}

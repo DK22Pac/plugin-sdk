@@ -54,7 +54,7 @@ public:
 	bool    m_bWaitForInterpolToFinish;
 	bool    m_bItsOkToLookJustAtThePlayer;	 //Used when interpolating
 	bool    m_bWantsToSwitchWidescreenOff;
-	bool    m_WideScreenOn;
+	bool    m_bWideScreenOn;
 	bool    m_b1stPersonRunCloseToAWall;
 	bool    m_bHeadBob;
 	bool    m_bVehicleSuspenHigh;

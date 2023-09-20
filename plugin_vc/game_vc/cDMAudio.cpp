@@ -43,3 +43,19 @@ void cDMAudio::StopFrontEndTrack() {
 bool cDMAudio::IsMP3RadioChannelAvailable() {
    return plugin::CallMethodAndReturn<bool, 0x5F9BB0, cDMAudio*>(this);
 }
+
+void cDMAudio::SetEffectsFadeVol(unsigned char volume) {
+    plugin::CallMethod<0x5F9CC0, cDMAudio*, unsigned char>(this, volume);
+}
+
+void cDMAudio::SetMusicFadeVol(unsigned char volume) {
+    plugin::CallMethod<0x5F9C90, cDMAudio*, unsigned char>(this, volume);
+}
+
+void cDMAudio::SetEffectsMasterVolume(unsigned char volume) {
+    plugin::CallMethod<0x5F9D50, cDMAudio*, unsigned char>(this, volume);
+}
+
+void cDMAudio::SetMusicMasterVolume(unsigned char volume) {
+    plugin::CallMethod<0x5F9D20, cDMAudio*, unsigned char>(this, volume);
+}

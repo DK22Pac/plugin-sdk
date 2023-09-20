@@ -10,3 +10,7 @@ CPlayerInfo::CPlayerInfo()
 {
     plugin::CallMethod<0x571920, CPlayerInfo*>(this);
 }
+
+void CPlayerInfo::MakePlayerSafe(bool safe, float radius) {
+    plugin::CallMethod<0x56E870, CPlayerInfo*, bool, float>(this, safe, radius);
+}

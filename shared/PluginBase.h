@@ -115,6 +115,11 @@ void operator_delete_array(ClassType *data) {
     delete[] data;
 }
 
+template <class Type, size_t n>
+size_t array_size(Type(&)[n]) { 
+    return n; 
+}
+
 // helpers for event creating
 
 template<typename Meta>

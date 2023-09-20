@@ -221,6 +221,7 @@ CdeclEvent <AddressListMulti<0x49E3D9, GAME_10EN, H_CALL,
                              0x49E298, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::menuDrawingEvent;
 #endif
 #ifdef GTA3
+CdeclEvent <AddressList<0x48C7BE, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::restartGameEvent;
 CdeclEvent <AddressListMulti<0x48E126, GAME_10EN, H_CALL,
                              0x48E1E6, GAME_11EN, H_CALL,
                              0x48E176, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::drawingEvent;
