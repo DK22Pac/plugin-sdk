@@ -41,6 +41,8 @@ inline std::string GetSupportedGameVersionsString(std::string const &sep) {
 #ifdef PLUGIN_SGV_96EN
     versions.push_back(GetGameVersionName(GAME_9600EN));
 #endif
+#elif GTAIV
+    versions.push_back(GetGameVersionName(GAME_CE));
 #else
     #ifdef PLUGIN_SGV_10EN
         versions.push_back(GetGameVersionName(GAME_10EN));

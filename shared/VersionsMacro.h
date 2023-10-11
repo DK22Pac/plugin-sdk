@@ -4169,6 +4169,8 @@
 #endif
 #elif GTA2
 #define SUPPORTED_9600EN 
+#elif GTAIV
+#define SUPPORTED_CE
 #else
 #if !defined(PLUGIN_SGV_10EN) && !defined(PLUGIN_SGV_11EN) && !defined(PLUGIN_SGV_STEAM)
 #define SUPPORTED_10EN 

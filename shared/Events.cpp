@@ -376,3 +376,34 @@ StdcallEvent <AddressList<0x4D0B39, H_CALL, 0x4D0BF2, H_CALL>, PRIORITY_AFTER, A
 StdcallEvent <AddressList<0x45C2DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::processScriptEvent;
 ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CPlayerPed*, 0>, void(CPlayerPed*)> plugin::Events::processPlayerPedEvent;
 #endif
+#ifdef GTAIV
+CdeclEvent <AddressList<0xB1E6F5, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::initGameEvent;
+CdeclEvent <AddressList<0x5C2695, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::gameProcessEvent;
+CdeclEvent <AddressList<0x5A9107, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::drawMenuEvent;
+CdeclEvent <AddressList<0xB01893, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::drawingEvent;
+CdeclEvent <AddressList<0x8FEA20, H_CALL>, PRIORITY_AFTER, ArgPickNone, int32_t(int32_t)> plugin::Events::drawHudEvent;
+CdeclEvent <AddressList<0xE4DFEC, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::drawRadarEvent;
+CdeclEvent <AddressList<0x59D3FD, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::initEngineEvent;
+CdeclEvent <AddressList<0x401621, H_CALL>, PRIORITY_BEFORE, ArgPickNone, uint32_t()> plugin::Events::shutdownEngineEvent;
+ThiscallEvent <AddressList<0xC34A85, H_CALL>, PRIORITY_BEFORE, ArgPickN<CAutomobile*, 0>, void(CAutomobile*)> plugin::Events::automobileProcessEvent;
+ThiscallEvent <AddressList<0x9E304D, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>, void(CPed*)> plugin::Events::pedRenderEvent;
+ThiscallEvent <AddressList<0xA3DAB0, H_CALL, 0xA3DB13, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>, void(CVehicle*, int32_t, int32_t, int32_t, int32_t)> plugin::Events::vehicleRenderEvent;
+#endif
+
+template<>
+void plugin::InitPatterns<CallingConventions>() {
+#ifdef GTAIV
+    plugin::Events::initGameEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? E8 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 8B 0D ? ? ? ? E8", 0));
+    plugin::Events::gameProcessEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 8B 0D ? ? ? ? 6A 00 E8 ? ? ? ? 8B 0D", 0));
+    plugin::Events::drawMenuEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 80 3D ? ? ? ? ? 74 23 A1 ? ? ? ? 83 F8 22", 0));
+    plugin::Events::drawingEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? E8 ? ? ? ? 83 3D ? ? ? ? ? 74 6B", 0));
+    plugin::Events::drawHudEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 83 C4 04 83 F8 FD", 0));
+    plugin::Events::drawRadarEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? E8 ? ? ? ? 6A 00 6A 14", 0));
+    plugin::Events::initEngineEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 6A 00 E8 ? ? ? ? 83 C4 04 C7 06", 0));
+    plugin::Events::shutdownEngineEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 8B 8C 24", 0));
+    plugin::Events::automobileProcessEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 8B 46 28 C1 E8 0A 83 E0 1F 75 2A", 0));
+    plugin::Events::pedRenderEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 50 8B CE E8 ? ? ? ? 50 E8", 0));
+    plugin::Events::vehicleRenderEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 6A 00 6A 0C 8B D8 E8 ? ? ? ? 83 C4 08 85 C0 74 36", 0));
+    plugin::Events::vehicleRenderEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 8B D8 85 DB 0F 84 ? ? ? ? 80 BF", 0));
+#endif
+}

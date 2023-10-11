@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "ScriptCommands.h"
 #include "Error.h"
 #include "CPools.h"

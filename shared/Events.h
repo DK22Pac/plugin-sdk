@@ -431,5 +431,20 @@ extern StdcallEvent <AddressList<0x4D0B39, H_CALL, 0x4D0BF2, H_CALL>, PRIORITY_A
 extern StdcallEvent <AddressList<0x45C2DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> processScriptEvent;
 extern ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CPlayerPed*, 0>, void(CPlayerPed*)> processPlayerPedEvent;
 #endif
+#ifdef GTAIV
+class CBaseDC;
+class CAutomobile;
+extern CdeclEvent <AddressList<0xB1E6F5, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> initGameEvent;
+extern CdeclEvent <AddressList<0x5C2695, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> gameProcessEvent;
+extern CdeclEvent <AddressList<0x5A9107, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> drawMenuEvent;
+extern CdeclEvent <AddressList<0xB01893, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> drawingEvent;
+extern CdeclEvent <AddressList<0x8FEA20, H_CALL>, PRIORITY_AFTER, ArgPickNone, int32_t(int32_t)> drawHudEvent;
+extern CdeclEvent <AddressList<0xE4DFEC, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawRadarEvent;
+extern CdeclEvent <AddressList<0x59D3FD, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> initEngineEvent;
+extern CdeclEvent <AddressList<0x401621, H_CALL>, PRIORITY_BEFORE, ArgPickNone, uint32_t()> shutdownEngineEvent;
+extern ThiscallEvent <AddressList<0xC34A85, H_CALL>, PRIORITY_BEFORE, ArgPickN<CAutomobile*, 0>, void(CAutomobile*)> automobileProcessEvent;
+extern ThiscallEvent <AddressList<0x9E304D, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>, void(CPed*)> pedRenderEvent;
+extern ThiscallEvent <AddressList<0xA3DAB0, H_CALL, 0xA3DB13, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>, void(CVehicle*, int32_t, int32_t, int32_t, int32_t)> vehicleRenderEvent;
+#endif
 }
 }

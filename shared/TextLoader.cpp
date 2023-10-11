@@ -11,12 +11,43 @@
 #include <iostream>
 #include <fstream>
 
+
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CText.h"
 
 #pragma warning(disable : 4996)
 
 std::map<char_t, char_t> table = {
-#if defined(GTASA) || defined(GTAVC)
+#if defined(GTAIV)
+// https://github.com/Sergeanur/GXT-compiler/blob/main/tables/iv_table.txt
+    { 0x152, 0x8C },
+    { 0x153, 0x9C },
+    { 0x160, 0x8A },
+    { 0x161, 0x9A },
+    { 0x178, 0x9F },
+    { 0x17D, 0x8E },
+    { 0x17E, 0x9E },
+    { 0x192, 0x83 },
+    { 0x2C6, 0x88 },
+    { 0x2DC, 0x98 },
+    { 0x2013, 0x96 },
+    { 0x2014, 0x97 },
+    { 0x2018, 0x91 },
+    { 0x2019, 0x92 },
+    { 0x201A, 0x82 },
+    { 0x201C, 0x93 },
+    { 0x201D, 0x94 },
+    { 0x201E, 0x84 },
+    { 0x2020, 0x86 },
+    { 0x2021, 0x87 },
+    { 0x2022, 0x95 },
+    { 0x2026, 0x85 },
+    { 0x2030, 0x89 },
+    { 0x2039, 0x8B },
+    { 0x203A, 0x9B },
+    { 0x20AC, 0x80 },
+    { 0x2122, 0x99 },
+#elif defined(GTASA) || defined(GTAVC)
 // https://github.com/Sergeanur/GXT-compiler/blob/main/tables/vc_sa_table.txt
     { 0x3C, 0x5B },
     { 0x3E, 0x5D },
@@ -70,7 +101,7 @@ std::map<char_t, char_t> table = {
     { 0xFA, 0xAA },
     { 0xFB, 0xAB },
     { 0xFC, 0xAC },
-#else
+#elif GTA3
 // https://github.com/Sergeanur/GXT-compiler/blob/main/tables/iii_table.txt
     { 0xA1, 0xB0 },
     { 0xB4, 0xB1 },
@@ -197,3 +228,5 @@ const char_t* TextLoader::Get(const char* key) {
 void TextLoader::Clear() {
     stringMap.clear();
 }
+
+#endif

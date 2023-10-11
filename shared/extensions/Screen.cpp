@@ -8,8 +8,10 @@
 
 #ifdef GTA2
 #include "GBH.h"
-#else
+#elif RW
 #include "RenderWare.h"
+#elif RAGE
+#include "Rage.h"
 #endif
 
 #define PLUGIN_SCREEN_RESOLUTION_DEFAULT 1080.0f
@@ -93,16 +95,20 @@ float plugin::screen::GetBaseResolution() {
 float plugin::screen::GetScreenHeight() {
 #ifdef GTA2
     return static_cast<float>(window_height);
-#else
+#elif RW
     return static_cast<float>(RsGlobal.maximumHeight);
+#elif RAGE
+    return static_cast<float>(rage::screenHeight);
 #endif
 }
 
 float plugin::screen::GetScreenWidth() {
 #ifdef GTA2
     return static_cast<float>(window_width);
-#else
+#elif RW
     return static_cast<float>(RsGlobal.maximumWidth);
+#elif RAGE
+    return static_cast<float>(rage::screenWidth);
 #endif
 }
 

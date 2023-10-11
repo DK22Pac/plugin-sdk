@@ -22,7 +22,7 @@ public:
     CompressedVector2D(CompressedVector2D const &rhs);
     CompressedVector2D(CompressedVector const &rhs);
 
-#ifndef GTA2
+#ifdef RW
     CompressedVector2D(CVector2D const &rhs);
     CompressedVector2D(RwV2d const &rhs);
 #endif
@@ -31,7 +31,7 @@ public:
     void Set(CompressedVector2D const &rhs);
     void Set(CompressedVector const &rhs);
 
-#ifndef GTA2
+#ifdef RW
     void Set(CVector2D const &rhs);
     void Set(RwV2d const &rhs);
 
@@ -41,7 +41,7 @@ public:
 
     CompressedVector To3D() const;
 
-#ifndef GTA2
+#ifdef RW
     void Uncompress(CVector2D &out) const;
 #endif
 

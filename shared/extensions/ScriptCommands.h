@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CRunningScript.h"
 #include "scripting/ScriptCommandNames.h"
 #include <vector>

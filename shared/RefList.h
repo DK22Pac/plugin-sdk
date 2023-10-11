@@ -105,6 +105,11 @@ template<int... RefValues, int Addr, int HookType, int... Values>
 struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType, Values...> {
     using type = typename MakeRefListFromAddressList<RefList<RefValues..., Addr, 9600, HookType, 0, 0>, Values...>::type;
 };
+#elif GTAIV
+template<int... RefValues, int Addr, int HookType, int... Values>
+struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType, Values...> {
+    using type = typename MakeRefListFromAddressList<RefList<RefValues..., Addr, 'CE', HookType, 0, 0>, Values...>::type;
+};
 #else
 template<int... RefValues, int Addr, int HookType, int... Values>
 struct MakeRefListFromAddressList<RefList<RefValues...>, Addr, HookType, Values...> {

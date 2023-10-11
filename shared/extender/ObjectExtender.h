@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CPools.h"
 #include "Extender.h"
 #include "Events.h"

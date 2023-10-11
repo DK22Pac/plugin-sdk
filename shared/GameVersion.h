@@ -19,6 +19,8 @@
 #define GAME_STEAM_LV GAME_SR2LV
 #elif GTA2
 #define GAME_9600EN 9600
+#elif GTAIV
+#define GAME_CE 'CE'
 #else
 #define GAME_10EN 100
 #define GAME_11EN 110
@@ -69,6 +71,10 @@ inline char const *GetGameVersionName(int gameVersionId) {
     case GAME_9600EN:
         return "GTA2 9.6.0.0";
 #endif
+#ifdef GTAIV
+    case GAME_CE:
+        return "GTAIV CE";
+#endif
     }
     return "Unknown";
 }
@@ -118,6 +124,7 @@ inline bool IsGameVersion9600en() {
     return GetGameVersion() == GAME_9600EN;
 }
 #else
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 // Checks if launched game version is 1.0 EN
 inline bool IsGameVersion10en() {
     return GetGameVersion() == GAME_10EN;
@@ -132,6 +139,7 @@ inline bool IsGameVersion11en() {
 inline bool IsGameVersionSteam() {
     return GetGameVersion() == GAME_STEAM;
 }
+#endif
 #endif
 
 // Checks if game version is supported by this plugin
@@ -182,7 +190,16 @@ inline bool IsSupportedGameVersion(int gameVersionId) {
       #else
         return false;
       #endif
+#elif GTAIV
+    case GAME_CE:
+#ifdef PLUGIN_SGV_CE
+        return true;
 #else
+        return false;
+#endif
+        break;
+#else
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
     case GAME_10EN:
       #ifdef PLUGIN_SGV_10EN
         return true;
@@ -201,6 +218,7 @@ inline bool IsSupportedGameVersion(int gameVersionId) {
       #else
         return false;
       #endif
+#endif
 #endif
     }
     return false;
