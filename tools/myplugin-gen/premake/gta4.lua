@@ -1,7 +1,7 @@
 include "project"
 include "myplugin"
 
-targetname(projectName .. "IV.asi")
+targetname(projectName .. "IV")
 
 defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
 

@@ -2,7 +2,7 @@
 Setlocal EnableDelayedExpansion
 
 :start
-echo Plugin-SDK MyPlugin Generator for Visual Studio 2022
+echo Plugin-SDK MyPlugin Generator for Visual Studio
 echo Type a game name to start or type HELP for more information
 
 :input_game

@@ -1,7 +1,7 @@
 include "project"
 include "myplugin"
 	
-targetname(projectName .. "SA.asi")
+targetname(projectName .. "SA")
 	
 defines { "GTASA", "PLUGIN_SGV_10US", "RW" }
 
