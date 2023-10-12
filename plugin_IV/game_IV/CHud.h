@@ -128,5 +128,5 @@ public:
     static CHudComponent* Components;
 
 public:
-    static bool WantsToDrawHud();
+
 };

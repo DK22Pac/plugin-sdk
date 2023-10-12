@@ -10,7 +10,5 @@
 
 class CSetCurrentViewportToNULL : public CBaseDC {
 public:
-    CSetCurrentViewportToNULL() : CBaseDC() {}
 
-    virtual ~CSetCurrentViewportToNULL() {}
 };
