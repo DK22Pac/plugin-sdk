@@ -15,9 +15,9 @@ debugcommand "$(GTA_SA_DIR)/gta-sa.exe"
 postbuildcommands("copy /y \"$(TargetPath)\" \"$(GTA_SA_DIR)\\scripts\\" .. projectName .. "SA.asi\"")
 
 filter "configurations:Release"
-	links { "plugin_sa" }
+	links { "plugin" }
 	
 filter "configurations:Debug"
-	links { "plugin_sa_d" }
+	links { "plugin_d" }
 		
 filter { }
