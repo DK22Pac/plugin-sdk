@@ -426,7 +426,7 @@ public:
     uint32_t m_bIkFlags_24 : 1;
     uint32_t m_bIkFlags_25 : 1;
     uint32_t m_bIkFlags_26 : 1;
-    uint32_t m_bIsShootng : 1;
+    uint32_t m_bIsShooting : 1;
     uint32_t m_bIkFlags_28 : 1;
     uint32_t m_bIkFlags_29 : 1;
     uint32_t m_bIkFlags_30 : 1;
@@ -489,7 +489,7 @@ public:
 
 public:
     bool CanSeePed(CPed* ped, bool spotted);
-    void ClearLastDamageEntity(CEntity* e);
+    void SetLastDamageEntity(CEntity* e);
     void SetDuck(bool on, int32_t time);
     void SetMoney(int32_t money);
     void SetArmour(float armour);

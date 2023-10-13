@@ -11,9 +11,9 @@ bool CPed::CanSeePed(CPed* ped, bool spotted) {
     return plugin::CallMethodAndReturnDyn<bool>(CPed__CanSeePedAddr, this, ped, spotted);
 }
 
-static uint32_t CPed__ClearLastDamageEntityAddr;
-void CPed::ClearLastDamageEntity(CEntity* e) {
-    plugin::CallMethodDyn(CPed__ClearLastDamageEntityAddr, this, e);
+static uint32_t CPed__SetLastDamageEntityAddr;
+void CPed::SetLastDamageEntity(CEntity* e) {
+    plugin::CallMethodDyn(CPed__SetLastDamageEntityAddr, this, e);
 }
 
 static uint32_t CPed__SetDuckAddr;
@@ -49,7 +49,7 @@ bool CPed::IsPedDead(CPed* ped) {
 template<>
 void plugin::InitPatterns<CPed>() {
     CPed__CanSeePedAddr = plugin::GetPattern("55 8B EC 83 E4 F0 81 EC ? ? ? ? 56 8B 75 08 57 8B 56 20", 0);
-    CPed__ClearLastDamageEntityAddr = plugin::GetPattern("53 8B D9 83 7B 38 00", 0);
+    CPed__SetLastDamageEntityAddr = plugin::GetPattern("53 8B D9 83 7B 38 00", 0);
     CPed__SetDuckAddr = plugin::GetPattern("56 8B F1 F6 86 ? ? ? ? ? 0F 85", 0);
     CPed__SetMoneyAddr = plugin::GetPattern("8B 44 24 04 89 81 ? ? ? ? C2 04 00 CC CC CC 8A 44 24 04 88 81 ? ? ? ? C2 04 00 CC CC CC 8A 44 24 04", 0);
     CPed__SetArmourAddr = plugin::GetPattern("F3 0F 10 44 24 ? F3 0F 11 81 ? ? ? ? C2 04 00 CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC 56 57 8B 7C 24 0C 8B F1 C7 86", 0);

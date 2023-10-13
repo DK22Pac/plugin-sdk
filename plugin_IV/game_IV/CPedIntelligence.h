@@ -24,6 +24,7 @@ public:
 
     bool IsSwimming();
     bool IsClimbing();
+    void ClearTasks(bool arg1);
 };
 
 VALIDATE_SIZE(CPedIntelligence, 0x2F0);

@@ -6,21 +6,9 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "eTasks.h"
+#include "CTaskComplex.h"
 
-enum eAbortPriority {
-    ABORT_PRIORITY_LEISURE = 0,
-    ABORT_PRIORITY_URGENT,
-    ABORT_PRIORITY_IMMEDIATE
-};
-
-class CTask {
+class CTaskComplexGun : CTaskComplex {
 public:
-    CTask* m_pParentTask;
-
-public:
-    virtual ~CTask() {}
 
 };
-
-VALIDATE_SIZE(CTask, 0x8);

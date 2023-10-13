@@ -10,6 +10,7 @@
 
 class CPed;
 
+
 class CTaskManager {
 public:
     CTask* m_aPrimaryTasks[5];
