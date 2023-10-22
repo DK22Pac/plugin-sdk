@@ -9,6 +9,7 @@
 #include "RenderWare.h"
 #endif
 
+#ifndef RAGE
 CRGBA::CRGBA(unsigned char red, unsigned char green, unsigned char blue) {
     Set(red, green, blue, 255);
 }
@@ -113,3 +114,4 @@ CRGBA &CRGBA::operator=(CRGBA const &rhs) {
 CRGBA CRGBA::ToRGB() const {
     return CRGBA(r, g, b, 255);
 }
+#endif

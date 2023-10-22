@@ -23,6 +23,10 @@ public:
         Delete();
     }
 
+    explicit operator bool() const {
+        return this && m_pTexture;
+    }
+
     static void Pop();
     static void Draw(rage::Vector2 const& leftBottom, rage::Vector2 const& leftTop, rage::Vector2 const& rightBottom, rage::Vector2 const& rightTop, rage::Color32 const& col);
     static void Draw(rage::Vector4 const& rect, float z, rage::Vector4 const& uv, rage::Color32 const& color, int subShader = 0);

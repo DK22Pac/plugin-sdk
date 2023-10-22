@@ -67,7 +67,7 @@ void BassAudio::BassUpdate() {
 #elif RW
                 void* wnd = RsGlobal.ps->window;
 #elif RAGE
-                void* wnd = rage::hWnd;
+                void* wnd = rage::GetHWnd();
 #endif
 
                 if (!IsIconic((HWND)wnd) && !obj->settings.mute()) {

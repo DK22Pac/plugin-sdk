@@ -61,8 +61,8 @@ void CFont::SetScale(float w, float h) {
 }
 
 static uint32_t CFont__SetWrapXAddr;
-void CFont::SetWrapX(float wrapX, float offset) {
-    plugin::CallDyn(CFont__SetWrapXAddr, wrapX, offset);
+void CFont::SetWrapX(float x, float w) {
+    plugin::CallDyn(CFont__SetWrapXAddr, x, w);
 }
 
 static uint32_t CFont__SetDropShadowPositionAddr;

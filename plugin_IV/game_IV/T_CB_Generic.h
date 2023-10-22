@@ -8,9 +8,7 @@
 #include "PluginBase.h"
 #include "Rage.h"
 #include "CBaseDC.h"
-#include <functional>
 
-class T_CB_Generic;
 
 class T_CB_Generic_NoArgs : public CBaseDC {
 public:
@@ -21,6 +19,8 @@ public:
 
     virtual void DrawCommand() override;
 };
+
+using T_CB_Generic = T_CB_Generic_NoArgs;
 
 template<typename T>
 class T_CB_Generic_1Arg : public CBaseDC {

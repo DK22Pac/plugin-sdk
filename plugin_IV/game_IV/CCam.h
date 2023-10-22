@@ -53,20 +53,62 @@ enum eCamMode {
 	CAM_SECTOR = 41,
 };
 
+class CCamera;
+
 class CCam {
 public:
-	uint8_t field_1[12];
-	rage::Matrix34 m_Matrix;
-	uint8_t pad2[0x10];
+	uint8_t field_4[12];
+	rage::Matrix44 m_mMatrix;
+	uint8_t field_100[16];
 	float m_fFOV;
-	float m_fNearZ;
-	float m_fFarZ;
-	float m_fNearDOF;
-	float m_fFarDOF;
-	uint8_t pad3[0xCC];
+	float m_fNearClip;
+	float m_fFarClip;
+	uint8_t field_168[168];
+	CCamera* m_pTheCamera;
+	CCam* m_pNext;
+	uint8_t field_278[32];
+
+	// Cam Flags 1
+	uint8_t m_bCamFlags1_1 : 1;
+	uint8_t m_bCamFlags1_2 : 1;
+	uint8_t m_bCamFlags1_3 : 1;
+	uint8_t m_bCamFlags1_4 : 1;
+
+	uint8_t m_bField_290;
+	uint8_t m_bField_291;
+	uint8_t m_bField_292;
+	uint8_t m_bField_293;
+	uint8_t field_300[131];
+
+	// Cam Flags 2
+	uint8_t m_bCamFlags2_1 : 1;
+	uint8_t m_bCamFlags2_2 : 1;
+	uint8_t m_bReset : 1;
+	uint8_t m_bDisableControls : 1;
+
+	uint32_t field_338;
+	uint32_t field_342;
+	uint32_t field_448;
 
 public:
-    virtual ~CCam() {}
+    virtual ~CCam() { plugin::CallVirtualMethod<0>(this, 0); }
+	virtual void Update() { plugin::CallVirtualMethod<1>(this); }
+	virtual void m2() { plugin::CallVirtualMethod<2>(this); }
+	virtual void m3() { plugin::CallVirtualMethod<3>(this); }
+	virtual void m4() { plugin::CallVirtualMethod<4>(this); }
+	virtual void m5() { plugin::CallVirtualMethod<5>(this); }
+	virtual void m6() { plugin::CallVirtualMethod<6>(this); }
+	virtual void m7() { plugin::CallVirtualMethod<7>(this); }
+	virtual void m8() { plugin::CallVirtualMethod<8>(this); }
+	virtual void m9() { plugin::CallVirtualMethod<9>(this); }
+	virtual eCamMode GetCurrentCamMode() { return plugin::CallVirtualMethodAndReturn<eCamMode, 10>(this); }
+
+public:
+	void SetAsCurrent();
+	CCam* GetCamMode(eCamMode mode, int32_t arg2);
+
+
 };
 
-VALIDATE_SIZE(CCam, 0x140);
+VALIDATE_SIZE(CCam, 0x1D4);
+

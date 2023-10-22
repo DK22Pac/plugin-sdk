@@ -12,6 +12,10 @@
 struct RwRGBA;
 #endif
 
+#ifdef RAGE
+#include "Rage.h"
+using CRGBA = rage::Color32;
+#else
 class CRGBA {
 public:
     unsigned char r;
@@ -56,3 +60,4 @@ public:
     bool operator==(CRGBA const &rhs) const;
     CRGBA &operator=(CRGBA const &rhs);
 };
+#endif

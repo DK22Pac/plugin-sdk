@@ -15,7 +15,7 @@ public:
     uint32_t m_nCurrentWeaponSlot;
     uint8_t field_1[8];
     CSimpleTransform m_Transform;
-    rage::Matrix34* m_pMatrix;
+    rage::Matrix44* m_pMatrix;
 
     // Entity Flags 1
     uint32_t m_bHasCollision : 1;
@@ -110,17 +110,23 @@ public:
     uint32_t field_6C;
 
 public:
-    rage::Vector3& GetRight() { return m_pMatrix->right; }
-    const  rage::Vector3& GetRight() const { return m_pMatrix->right; }
+    rage::Vector4& GetRight() { return m_pMatrix->right; }
+    const rage::Vector4& GetRight() const { return m_pMatrix->right; }
 
-    rage::Vector3& GetForward() { return m_pMatrix->up; }
-    const  rage::Vector3& GetForward() const { return m_pMatrix->up; }
+    rage::Vector4& GetForward() { return m_pMatrix->up; }
+    const rage::Vector4& GetForward() const { return m_pMatrix->up; }
 
-    rage::Vector3& GetUp() { return m_pMatrix->at; }
-    const  rage::Vector3& GetUp() const { return m_pMatrix->at; }
+    rage::Vector4& GetUp() { return m_pMatrix->at; }
+    const rage::Vector4& GetUp() const { return m_pMatrix->at; }
 
-    rage::Vector3& GetPosition() { return m_pMatrix->pos; }
-    const  rage::Vector3& GetPosition() const { return m_pMatrix->pos; }
+    rage::Vector4& GetPosition() { return m_pMatrix->pos; }
+    const rage::Vector4& GetPosition() const { return m_pMatrix->pos; }
+
+public:
+    void Teleport(rage::Matrix34 const& mat);
+    void SetPosition(rage::Vector4 const& pos);
+    void SetHeading(float heading);
+    void Freeze(bool on, bool arg2);
 };
 
 VALIDATE_SIZE(CEntity, 0x70);

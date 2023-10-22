@@ -8,27 +8,34 @@
 #include "PluginBase.h"
 #include <d3d9.h>
 
-namespace rage {
-    class rs;
 
+namespace rage {
+    enum rageRenderState {
+       RENDERSTATE_LIGHTINGMODE = 1,
+       RENDERSTATE_CULLMODE = 0,
+       RENDERSTATE_DEPTHWRITE = 6,
+       RENDERSTATE_DEPTHBIAS = 11,
+    };
+
+    class rs;
     extern int32_t& screenWidth;
     extern int32_t& screenHeight;
-    extern void* hWnd;
-
+    extern HWND GetHWnd();
     extern IDirect3DDevice9* GetD3DDevice();
+    extern uint32_t GetHashKey(const char* str, uint32_t arg2);
 
     class sysMemAllocator {
     public:
-        virtual ~sysMemAllocator() = 0;
+        virtual ~sysMemAllocator() { plugin::CallVirtualMethod<0>(this, 0); }
 
-        virtual void m_4() = 0;
-        virtual void* allocate(size_t size, size_t align, int subAllocator) = 0;
-        virtual void free(void* pointer) = 0;
+        virtual void m_1() { plugin::CallVirtualMethod<1>(this); }
+        virtual void* allocate(size_t size, size_t align, int subAllocator) { plugin::CallVirtualMethod<2>(this, size, align, subAllocator); }
+        virtual void free(void* pointer) { plugin::CallVirtualMethod<3>(this, pointer); }
     };
 
     class sysUseAllocator {
     public:
-
+        uint32_t* ptr;
     };
 
     class pgStreamableBase : public sysUseAllocator {
@@ -36,18 +43,37 @@ namespace rage {
 
     };
 
-    template<typename T, bool physical = false>
+    template<typename T>
     class pgPtr : pgStreamableBase {
-    public:
+    private:
 
+    public:
+        T* Get() { return (T*)ptr; }
     };
 
     template<typename T>
     class sysArray {
-    public:
-        pgPtr<T> data;
+    private:
+        pgPtr<T>* data;
         int16_t count;
         int16_t size;
+
+    public:
+        pgPtr<T> operator[](uint32_t index) {
+            return data[index];
+        }
+
+        pgPtr<T> At(uint32_t index) {
+            return data[index];
+        }
+
+        int16_t Size() {
+            return size;
+        }
+
+        int16_t Count() {
+            return count;
+        }
     };
 
     class crmtObserver {
@@ -73,6 +99,30 @@ namespace rage {
         int8_t field_20;
         int8_t field_21[3];
     };
+
+    class grcVertexBuffer {
+    public:
+        float x;
+        float y;
+        float z;
+        float u;
+        float v;
+        float clip;
+        int32_t color;
+        float min;
+        float max;
+    };
+
+    class grcTexturePC;
+    class Color32;
+
+    extern grcVertexBuffer* vertexBuffer;
+    extern void ResetViewport(bool force);
+    extern int SetRenderState(uint32_t state, uint32_t value);
+    extern void SetTexture(grcTexturePC* tex);
+    extern void Begin(int32_t x, int32_t y);
+    extern void SetVertex(float x, float y, float z, float u, float v, float clip, Color32 const& col, float min, float max);
+    extern void End();
 
     class Color32 {
     public:
@@ -133,6 +183,9 @@ namespace rage {
             return *this;
         }
     };
+
+    class Vector3;
+    class Vector4;
 
     class Vector2 {
     public:
@@ -286,6 +339,7 @@ namespace rage {
     public:
         Vector4() = default;
         Vector4(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+        Vector4(const Vector3& other) : x(other.x), y(other.y), z(other.z), w(0.0f) {}
 
         Vector4 operator+(const Vector4& other) const {
             return Vector4(x + other.x, y + other.y, z + other.z, w + other.w);
@@ -374,16 +428,19 @@ namespace rage {
     class Matrix34 {
     public:
         Vector3 right;
-        int pad_C;
         Vector3 up;
-        int pad_1C;
         Vector3 at;
-        int pad_2C;
         Vector3 pos;
-        int pad_3C;
 
     public:
         Matrix34() = default;
+
+        void Copy(const Matrix34& other) {
+            right = other.right;
+            up = other.up;
+            at = other.at;
+            pos = other.pos;
+        }
 
         Matrix34 operator+(const Matrix34& other) const {
             Matrix34 result = {};
@@ -447,6 +504,13 @@ namespace rage {
 
     public:
         Matrix44() = default;
+
+        void Copy(const Matrix44& other) {
+            right = other.right;
+            up = other.up;
+            at = other.at;
+            pos = other.pos;
+        }
 
         Matrix44 operator+(const Matrix44& other) const {
             Matrix44 result = {};
@@ -518,17 +582,24 @@ namespace rage {
         pgPtr<BlockMap> blockMap;
     };
 
+    VALIDATE_SIZE(pgBase, 0x8);
+
     template <typename T>
     class pgDictionary : public pgBase {
     public:
-        pgPtr<pgBase> parent;
+        pgDictionary<T>* parentDict;
         uint32_t count;
-        sysArray<uint32_t> hash;
+        sysArray<uint32_t> hashes;
         sysArray<T> data;
+
+    public:
+        T* Get(int32_t hash);
     };
 
+    VALIDATE_SIZE(pgDictionary<void>, 0x20);
+
     class grcTexture : pgBase {
-    protected:
+    public:
         int8_t field_8;
         int8_t depth;
         int16_t field_A;
@@ -545,6 +616,7 @@ namespace rage {
 
     public:
         grcTexture() = delete;
+        virtual ~grcTexture() { plugin::CallVirtualMethod<0>(this, 1); }
     };
 
     VALIDATE_SIZE(grcTexture, 0x28);
@@ -576,15 +648,51 @@ namespace rage {
         virtual ~grcTextureFactory() {}
     };
 
-    class grcTextureFactoryPC : public grcTextureFactory {
-    public:
-        grcTexturePC* TextureRead(uint32_t hash);
-
-    public:
-        virtual ~grcTextureFactoryPC() override {}
+    struct grcTextureDef {
+        uint32_t field_1;
+        uint32_t field_2;
+        uint32_t field_3;
+        uint32_t field_4;
+        uint32_t field_5;
     };
 
-    extern grcTextureFactoryPC& TextureFactoryPC;
+    class grcTextureFactoryPC : public grcTextureFactory {
+    public:
+        char field_1;
+        uint8_t field_3[3];
+        int32_t field_8;
+        int32_t field_C;
+        int32_t field_10;
+        int32_t field_14;
+        int32_t field_18;
+        int32_t field_1C;
+        int32_t field_20;
+        int32_t field_24;
+        int32_t renderTargets[4];
+        int32_t field_38;
+        int32_t field_3C;
+        int32_t field_40;
+        int32_t field_44;
+        int32_t depthStencilSurface;
+        int32_t field_4C;
+        int32_t field_50;
+        int32_t field_54;
+        int32_t field_58;
+        int32_t field_5C;
+        int32_t field_60;
+        int32_t field_64;
+        int32_t field_68;
+        int32_t field_6C;
+
+    public:
+        grcTextureFactoryPC();
+
+        grcTexturePC* CreateTexture(uint16_t width, uint16_t height, uint32_t format, uint32_t arg4, uint32_t arg5) {
+            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 0>(width, height, format, arg4, arg5);
+        }
+    };
+
+    extern grcTextureFactoryPC* textureFactoryPC;
 
     class atReferenceCounter : datBase {
 

@@ -23,15 +23,12 @@ public:
 public:
     void Append();
 
-    virtual ~CBaseDC();
-    virtual void DrawCommand() {}
-    virtual int32_t GetSize() {
-        return sizeof(CBaseDC); 
-    }
-
-    virtual void m_4() {}
-    virtual void m_5() {}
-    virtual void m_6() {}
+    virtual ~CBaseDC() { plugin::CallVirtualMethod<0, CBaseDC*, uint8_t>(this, 0); }
+    virtual void DrawCommand() { plugin::CallVirtualMethod<1>(this); }
+    virtual int32_t GetSize() { return plugin::CallVirtualMethodAndReturn<int32_t, 2>(this); }
+    virtual void m_3() { plugin::CallVirtualMethod<3>(this); }
+    virtual void m_4() { plugin::CallVirtualMethod<4>(this); }
+    virtual void m_5() { plugin::CallVirtualMethod<5>(this); }
 };
 
 VALIDATE_SIZE(CBaseDC, 0x8);

@@ -6,15 +6,8 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CPool.h"
+#include "CCam.h"
 
-class CObject;
-class CTask;
-class CPed;
+class CCamFollowPed : public CCam {
 
-class CPools {
-public:
-    static CPool<CObject, CObject>*& ms_pObjectsPool;
-    static CPool<CTask, char[128]>*& ms_pTaskPool;
-    static CPool<CPed, CPed>*& ms_pPedPool;
 };

@@ -54,6 +54,10 @@
 #include "CTaskComplexAimAndThrowProjectile.h"
 #include "audRadioAudioEntity.h"
 #include "CRadioHud.h"
+#include "CEntity.h"
+#include "CCamScriptInstruction.h"
+#include "CCam.h"
+#include "CCamGame.h"
 #endif
 
 using namespace plugin;
@@ -108,6 +112,10 @@ void plugin::InitEverything() {
     plugin::InitPatterns<CTaskComplexAimAndThrowProjectile>();
     plugin::InitPatterns<audRadioAudioEntity>();
     plugin::InitPatterns<CRadioHud>();
+    plugin::InitPatterns<CEntity>();
+    plugin::InitPatterns<CCamScriptInstruction>();
+    plugin::InitPatterns<CCam>();
+    plugin::InitPatterns<CCamGame>();
 
 #endif
 }

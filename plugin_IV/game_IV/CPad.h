@@ -81,6 +81,7 @@ public:
     static float& MousePosY;
     static int32_t* NewMouseControllerState;
     static int32_t* OldMouseControllerState;
+    static int32_t& CurrentPad;
 
 public:
     void StartShake(uint32_t shakeDuration, int32_t shakeFrequency, uint32_t shakeDuration1, int32_t shakeFrequency1, int32_t shakeTime, bool force);
@@ -96,6 +97,8 @@ public:
     static bool IsMouseButtonPressed(int32_t buttonId);
 
     static float* GetMousePos(float* x, float* y);
+
+    static void StopPadsShaking();
 };
 
 VALIDATE_SIZE(CPad, 0xBC);

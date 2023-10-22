@@ -65,7 +65,7 @@ public:
     static void SetDropColor(rage::Color32 const& col);
     static void SetEdge(float size);
     static void SetScale(float w, float h);
-    static void SetWrapX(float wrapX, float offset);
+    static void SetWrapX(float x, float w);
     static void SetDropShadowPosition(float value);
     static void SetProportional(bool on);
     static void DrawFonts();
