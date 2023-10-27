@@ -96,6 +96,8 @@ public:
     static bool IsMouseButtonJustPressed(int32_t buttonId);
     static bool IsMouseButtonPressed(int32_t buttonId);
 
+    static void GetMouseWheel(int32_t* wheel);
+
     static float* GetMousePos(float* x, float* y);
 
     static void StopPadsShaking();

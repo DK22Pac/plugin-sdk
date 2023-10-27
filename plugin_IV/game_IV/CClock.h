@@ -13,5 +13,7 @@ public:
     static int32_t& ms_nGameClockMonth;
     static int32_t& ms_nGameClockHours;
     static int32_t& ms_nGameClockMinutes;
+    static int32_t& ms_nGameClockSeconds;
+
     static int32_t& ms_nGameClockDayOfWeek;
 };

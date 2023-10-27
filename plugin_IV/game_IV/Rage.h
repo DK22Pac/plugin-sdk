@@ -512,6 +512,13 @@ namespace rage {
             pos = other.pos;
         }
 
+        void Copy(const Matrix44* other) {
+            right = other->right;
+            up = other->up;
+            at = other->at;
+            pos = other->pos;
+        }
+
         Matrix44 operator+(const Matrix44& other) const {
             Matrix44 result = {};
             result.right = right + other.right;

@@ -9,5 +9,6 @@
 #include "CCam.h"
 
 class CCamFollowPed : public CCam {
-
+    uint8_t field_28[92];
+    float m_fFOV;
 };

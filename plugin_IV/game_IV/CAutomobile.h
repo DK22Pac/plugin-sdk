@@ -8,7 +8,9 @@
 #include "PluginBase.h"
 #include "CVehicle.h"
 
-class CAutomobile : CVehicle {
+class CAutomobile : public CVehicle {
 public:
+    CAutomobile(uint8_t createdBy);
 
 };
+

@@ -7,6 +7,8 @@
 #pragma once
 #include "PluginBase.h"
 #include "CPhysical.h"
+#include "audVehicleAudioEntity.h"
+#include "CPools.h"
 
 class CPed;
 
@@ -30,9 +32,17 @@ enum eVehicleType {
     VEHICLETYPE_PLANE = 0x5,
 };
 
+enum eVehicleCreatedBy {
+    RANDOM_VEHICLE = 0x1,
+    MISSION_VEHICLE = 0x2,
+    PARKED_VEHICLE = 0x3,
+    PERMANENT_VEHICLE = 0x4,
+};
+
 class CVehicle : public CPhysical {
 public:
-    uint8_t field_1[157];
+    audVehicleAudioEntity* m_pVehicleAudioEntity;
+    uint8_t field_1[150];
     uint8_t m_nColor1;
     uint8_t m_nColor2;
     uint8_t m_nColor3;
@@ -112,12 +122,31 @@ public:
 
     uint8_t field_1000[48];
     CPed* m_pDriver;
-    uint8_t field_2[912];
+    CPed* m_pPassengers[8];
+    uint8_t field_912[252];
+    int8_t m_nMaxPassengers;
+    uint8_t field_1100[71];
+    uint8_t m_nCreatedBy;
+    uint8_t field_1200[558];
     uint8_t m_nVehicleWeapon;
-    uint8_t field_22[24];
+    uint8_t field_2000[28];
     uint32_t m_nVehicleType;
-    uint32_t m_nPlane;
-    uint8_t field_1304[3528];
+    uint8_t field_3304[3448];
+
+public:
+    CVehicle(uint8_t owner);
+    virtual ~CVehicle() { plugin::CallVirtualMethod<0>(this, 0); }
+
+    static void* operator new(size_t size) {
+        return CPools::ms_pVehiclePool->New();
+    }
+
+    static void operator delete(void* ptr) {
+        CPools::ms_pVehiclePool->Delete(ptr);
+    }
+
+public:
+    void SetPosition(rage::Vector3 const& pos, bool arg2, bool arg3);
 };
 
-VALIDATE_SIZE(CVehicle, 0x20D0);
+VALIDATE_SIZE(CVehicle, 0x2080);

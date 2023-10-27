@@ -58,6 +58,18 @@
 #include "CCamScriptInstruction.h"
 #include "CCam.h"
 #include "CCamGame.h"
+#include "CCheat.h"
+#include "CSimpleTransform.h"
+#include "CStreaming.h"
+#include "CFileType.h"
+#include "CVehicleFactoryNY.h"
+#include "CVehicle.h"
+#include "CBike.h"
+#include "CBoat.h"
+#include "CPlane.h"
+#include "CTrain.h"
+#include "CHeli.h"
+#include "CPool.h"
 #endif
 
 using namespace plugin;
@@ -116,6 +128,20 @@ void plugin::InitEverything() {
     plugin::InitPatterns<CCamScriptInstruction>();
     plugin::InitPatterns<CCam>();
     plugin::InitPatterns<CCamGame>();
+    plugin::InitPatterns<CCheat>();
+    plugin::InitPatterns<CSimpleTransform>();
+    plugin::InitPatterns<CStreaming>();
+    plugin::InitPatterns<CFileTypeMgr>();
+    plugin::InitPatterns<CVehicleFactoryNY>();
+    plugin::InitPatterns<CAutomobile>();
+    plugin::InitPatterns<CVehicle>();
+    plugin::InitPatterns<CBike>();
+    plugin::InitPatterns<CBoat>();
+    plugin::InitPatterns<CPlane>();
+    plugin::InitPatterns<CTrain>();
+    plugin::InitPatterns<CHeli>();
+    plugin::InitPatterns<CPool>();
+
 
 #endif
 }

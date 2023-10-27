@@ -6,15 +6,9 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "Rage.h"
+#include "CVehicle.h"
 
-class CSimpleTransform {
+class CVehicleFactory {
 public:
-    rage::Vector3 m_vPosn;
-    float m_fHeading;
 
-public:
-    void UpdateMatrix(rage::Matrix44* matrix);
 };
-
-VALIDATE_SIZE(CSimpleTransform, 0x10);

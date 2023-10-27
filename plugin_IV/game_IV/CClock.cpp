@@ -19,6 +19,9 @@ int32_t& CClock::ms_nGameClockHours = *(int32_t*)CClock__ms_nGameClockHours;
 static int32_t* CClock__ms_nGameClockMinutes;
 int32_t& CClock::ms_nGameClockMinutes = *(int32_t*)CClock__ms_nGameClockMinutes;
 
+static int32_t* CClock__ms_nGameClockSeconds;
+int32_t& CClock::ms_nGameClockSeconds = *(int32_t*)CClock__ms_nGameClockSeconds;
+
 static int32_t* CClock__ms_nGameClockDayOfWeek;
 int32_t& CClock::ms_nGameClockDayOfWeek = *(int32_t*)CClock__ms_nGameClockDayOfWeek;
 
@@ -28,5 +31,6 @@ void plugin::InitPatterns<CClock>() {
     CClock__ms_nGameClockMonthAddr = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? 8B 46 2C A3", 1));
     CClock__ms_nGameClockHours = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? 8B 46 34 A3 ? ? ? ? 8B 46 38 A3 ? ? ? ? 0F B6 46 3C", 1));
     CClock__ms_nGameClockMinutes = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? 8B 46 38 A3 ? ? ? ? 0F B6 46 3C", 1));
+    CClock__ms_nGameClockSeconds = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? A1 ? ? ? ? A3 ? ? ? ? C3 CC 8B 0D", 1));
     CClock__ms_nGameClockDayOfWeek = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? 0F B6 46 3C", 1));
 }

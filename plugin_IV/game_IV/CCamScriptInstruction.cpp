@@ -40,6 +40,19 @@ void CCamScriptInstruction_CamProcess::Process() {
     plugin::CallMethodDyn(CCamScriptInstruction_CamProcess__ProcessAddr, this);
 }
 
+static uint32_t CCamScriptInstruction_DestroyAllCams__ProcessAddr;
+void CCamScriptInstruction_DestroyAllCams::Process() {
+    plugin::CallMethodDyn(CCamScriptInstruction_DestroyAllCams__ProcessAddr, this);
+}
+
+
+static uint32_t CCamScriptInstruction_SetPosTargetEntity__ProcessAddr;
+void CCamScriptInstruction_SetPosTargetEntity::Process() {
+    plugin::CallMethodDyn(CCamScriptInstruction_SetPosTargetEntity__ProcessAddr, this);
+}
+
+
+
 template<>
 void plugin::InitPatterns<CCamScriptInstruction>() {
     CamScriptAddr = (CCamScriptInstruction*)plugin::patch::GetPointer(plugin::GetPattern("B9 ? ? ? ? E8 ? ? ? ? 84 C0 75 10 6A 01", 1));
@@ -52,4 +65,6 @@ void plugin::InitPatterns<CCamScriptInstruction>() {
     CCamScriptInstruction_SetCamInFrontPed__ProcessAddr = plugin::GetPattern("56 6A 00 6A 01 B9", 0);
     CCamScriptInstruction_EnableDebugCam__ProcessAddr = plugin::GetPattern("56 57 8B 3D ? ? ? ? 6A 00 6A 27", 0);
     CCamScriptInstruction_CamProcess__ProcessAddr = plugin::GetPattern("FF 71 08 B9 ? ? ? ? E8 ? ? ? ? 85 C0 74 07 8B C8 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 6A 01", 0);
+    CCamScriptInstruction_DestroyAllCams__ProcessAddr = plugin::GetPattern("6A 01 B9 ? ? ? ? E8 ? ? ? ? 8B C8 E8 ? ? ? ? C3", 0);
+    CCamScriptInstruction_SetPosTargetEntity__ProcessAddr = plugin::GetPattern("56 8B F1 B9 ? ? ? ? FF 76 08 E8 ? ? ? ? 85 C0 74 0A", 0);
 }

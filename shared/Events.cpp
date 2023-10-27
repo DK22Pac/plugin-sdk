@@ -378,7 +378,7 @@ ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CPlayerPe
 #endif
 #ifdef GTAIV
 CdeclEvent <AddressList<0xB1E6F5, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::initGameEvent;
-CdeclEvent <AddressList<0x5C2695, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::gameProcessEvent;
+CdeclEvent <AddressList<0x5C2B7A, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> plugin::Events::gameProcessEvent;
 CdeclEvent <AddressList<0x5A9107, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::drawMenuEvent;
 CdeclEvent <AddressList<0xB01893, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> plugin::Events::drawingEvent;
 CdeclEvent <AddressList<0x8FEA20, H_CALL>, PRIORITY_AFTER, ArgPickNone, int32_t(int32_t)> plugin::Events::drawHudEvent;
@@ -394,7 +394,7 @@ template<>
 void plugin::InitPatterns<CallingConventions>() {
 #ifdef GTAIV
     plugin::Events::initGameEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? E8 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 8B 0D ? ? ? ? E8", 0));
-    plugin::Events::gameProcessEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 8B 0D ? ? ? ? 6A 00 E8 ? ? ? ? 8B 0D", 0));
+    plugin::Events::gameProcessEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 80 3D ? ? ? ? ? 74 09 C6 05", 0));
     plugin::Events::drawMenuEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 80 3D ? ? ? ? ? 74 23 A1 ? ? ? ? 83 F8 22", 0));
     plugin::Events::drawingEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? E8 ? ? ? ? 83 3D ? ? ? ? ? 74 6B", 0));
     plugin::Events::drawHudEvent.SetRefAddr(plugin::GetPattern("E8 ? ? ? ? 83 C4 04 83 F8 FD", 0));

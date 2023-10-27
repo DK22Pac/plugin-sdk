@@ -435,7 +435,7 @@ extern ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CP
 class CBaseDC;
 class CAutomobile;
 extern CdeclEvent <AddressList<0xB1E6F5, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> initGameEvent;
-extern CdeclEvent <AddressList<0x5C2695, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> gameProcessEvent;
+extern CdeclEvent <AddressList<0x5C2B7A, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> gameProcessEvent;
 extern CdeclEvent <AddressList<0x5A9107, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> drawMenuEvent;
 extern CdeclEvent <AddressList<0xB01893, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> drawingEvent;
 extern CdeclEvent <AddressList<0x8FEA20, H_CALL>, PRIORITY_AFTER, ArgPickNone, int32_t(int32_t)> drawHudEvent;

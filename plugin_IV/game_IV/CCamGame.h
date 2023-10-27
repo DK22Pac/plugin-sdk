@@ -9,9 +9,14 @@
 
 class CCamGame : public CCam {
 public:
+    uint8_t field_2[30];
 
 public:
-    virtual ~CCamGame() {}
-    virtual void Update() override;
+    virtual ~CCamGame() { plugin::CallVirtualMethod<0>(this, 0); };
+    virtual int8_t m1() { return plugin::CallVirtualMethodAndReturn<int8_t, 1>(this); };
+    virtual void m2() { plugin::CallVirtualMethod<2>(this); };
+    virtual void m3() { plugin::CallVirtualMethod<3>(this); };
+    virtual int8_t m4() { return plugin::CallVirtualMethodAndReturn<int8_t, 4>(this); };
+
 };
 

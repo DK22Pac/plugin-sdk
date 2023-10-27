@@ -11,10 +11,16 @@
 class CObject;
 class CTask;
 class CPed;
+class CCam;
+class CAutomobile;
+class CVehicle;
 
 class CPools {
 public:
-    static CPool<CObject, CObject>*& ms_pObjectsPool;
-    static CPool<CTask, char[128]>*& ms_pTaskPool;
-    static CPool<CPed, CPed>*& ms_pPedPool;
+    static CPool*& ms_pObjectsPool;
+    static CPool*& ms_pTaskPool;
+    static CPool*& ms_pPedPool;
+    static CPool*& ms_pCamPool;
+    static CPool*& ms_pVehiclePool;
+
 };

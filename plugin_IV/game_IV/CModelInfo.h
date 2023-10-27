@@ -46,5 +46,7 @@ public:
     static CBaseModelInfo** ms_modelInfoPtrs;
 
 public:
-    static CBaseModelInfo* GetModelByHash(int32_t hash, int32_t* indexOut);
+    static CBaseModelInfo* GetModelByHash(int32_t hash, uint32_t* indexOut);
 };
+
+extern CModelInfo* ModelInfo;

@@ -126,6 +126,7 @@ class CHud {
 public:
     static CSprite2d* Sprites;
     static CHudComponent* Components;
+    static bool& HideAllComponents;
 
 public:
 

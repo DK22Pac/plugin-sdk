@@ -7,14 +7,11 @@
 #pragma once
 #include "PluginBase.h"
 #include "Rage.h"
+#include "audGtaAudioEntity.h"
 
-class CSimpleTransform {
+class audVehicleAudioEntity : audGtaAudioEntity {
 public:
-    rage::Vector3 m_vPosn;
-    float m_fHeading;
+    uint8_t field_2886[2886];
 
-public:
-    void UpdateMatrix(rage::Matrix44* matrix);
 };
 
-VALIDATE_SIZE(CSimpleTransform, 0x10);

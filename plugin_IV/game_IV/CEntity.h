@@ -123,10 +123,12 @@ public:
     const rage::Vector4& GetPosition() const { return m_pMatrix->pos; }
 
 public:
-    void Teleport(rage::Matrix34 const& mat);
+    void Teleport(rage::Matrix44 const& mat);
     void SetPosition(rage::Vector4 const& pos);
     void SetHeading(float heading);
     void Freeze(bool on, bool arg2);
+    void AllocateMatrix();
+    void CleanUpOldReference(void* object);
 };
 
 VALIDATE_SIZE(CEntity, 0x70);

@@ -8,6 +8,9 @@
 #include "PluginBase.h"
 #include "Rage.h"
 
+class CEntity;
+class CPed;
+
 enum eCamMode {
 	CAM_SKELETON = 0,
 	CAM_FOLLOW_PED = 1,
@@ -72,7 +75,7 @@ public:
 	uint8_t m_bCamFlags1_1 : 1;
 	uint8_t m_bCamFlags1_2 : 1;
 	uint8_t m_bCamFlags1_3 : 1;
-	uint8_t m_bCamFlags1_4 : 1;
+	uint8_t m_bActive : 1;
 
 	uint8_t m_bField_290;
 	uint8_t m_bField_291;
@@ -82,13 +85,15 @@ public:
 
 	// Cam Flags 2
 	uint8_t m_bCamFlags2_1 : 1;
-	uint8_t m_bCamFlags2_2 : 1;
+	uint8_t m_bTelescopeCam : 1;
 	uint8_t m_bReset : 1;
 	uint8_t m_bDisableControls : 1;
 
 	uint32_t field_338;
 	uint32_t field_342;
 	uint32_t field_448;
+
+	uint8_t field_500[810];
 
 public:
     virtual ~CCam() { plugin::CallVirtualMethod<0>(this, 0); }
@@ -106,9 +111,12 @@ public:
 public:
 	void SetAsCurrent();
 	CCam* GetCamMode(eCamMode mode, int32_t arg2);
-
-
+	CCam* CreateCamMode(eCamMode mode, int32_t arg2);
+	void SetTargetEntity(CPed* ped);
+	void Activate();
+	void ResetStats();
+	CCam* SetCamMode(eCamMode mode, int32_t arg2);
 };
 
-VALIDATE_SIZE(CCam, 0x1D4);
+VALIDATE_SIZE(CCam, 0x500);
 

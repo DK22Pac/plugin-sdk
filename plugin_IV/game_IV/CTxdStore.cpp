@@ -7,8 +7,8 @@
 #include "CTxdStore.h"
 #include "Patch.h"
 
-static CPool<TxdDef, TxdDef>** CTxdStore__ms_pTxdPoolAddr;
-CPool<TxdDef, TxdDef>*& CTxdStore::ms_pTxdPool = *(CPool<TxdDef> **)CTxdStore__ms_pTxdPoolAddr;
+static CPool** CTxdStore__ms_pTxdPoolAddr;
+CPool*& CTxdStore::ms_pTxdPool = *(CPool **)CTxdStore__ms_pTxdPoolAddr;
 
 static void* CTxdStore__ms_pStoredTxdAddr;
 rage::pgDictionary<rage::grcTexturePC>* CTxdStore::ms_pStoredTxd = (rage::pgDictionary<rage::grcTexturePC>*)CTxdStore__ms_pStoredTxdAddr;
@@ -60,7 +60,7 @@ void CTxdStore::RemoveTxdSlot(int32_t slot) {
 
 template<>
 void plugin::InitPatterns<CTxdStore>() {
-    CTxdStore__ms_pTxdPoolAddr = (CPool<TxdDef, TxdDef>**)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? C3 C7 05 ? ? ? ? ? ? ? ? C3 56", 1));
+    CTxdStore__ms_pTxdPoolAddr = (CPool**)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? C3 C7 05 ? ? ? ? ? ? ? ? C3 56", 1));
     CTxdStore__ms_pStoredTxdAddr = (rage::pgDictionary<rage::grcTexturePC>*)plugin::patch::GetPointer(plugin::GetPattern("8B 3D ? ? ? ? 85 FF 74 21", 2));
 
     CTxdStore__AddTxdSlotAddr = plugin::GetPattern("8B 0D ? ? ? ? 56 E8 ? ? ? ? FF 74 24 08 8B F0 C7 06 ? ? ? ? C7 46 ? ? ? ? ? E8 ? ? ? ? 8B 0D", 0);

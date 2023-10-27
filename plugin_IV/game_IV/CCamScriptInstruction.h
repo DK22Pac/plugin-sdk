@@ -41,11 +41,11 @@ class CCamScriptInstruction_SetCamInFrontPed : public CCamScriptInstruction {
 public:
     CPed* m_pPed;
 
+public:
     CCamScriptInstruction_SetCamInFrontPed(CPed* ped) : CCamScriptInstruction() {
         m_pPed = ped;
     }
 
-public:
     void Process() override;
 };
 
@@ -65,8 +65,33 @@ class CCamScriptInstruction_CamProcess : public CCamScriptInstruction {
 public:
     CCam* m_pCam;
 
+public:
     CCamScriptInstruction_CamProcess(CCam* cam) : CCamScriptInstruction() {
         m_pCam = cam;
+    }
+
+    void Process() override;
+};
+
+class CCamScriptInstruction_DestroyAllCams : public CCamScriptInstruction {
+public:
+    CCamScriptInstruction_DestroyAllCams() : CCamScriptInstruction() {
+
+    }
+
+public:
+    void Process() override;
+};
+
+class CCamScriptInstruction_SetPosTargetEntity : public CCamScriptInstruction {
+public:
+    int32_t m_nCamIndex;
+    CPed* m_pPed;
+
+public:
+    CCamScriptInstruction_SetPosTargetEntity(int32_t cam, CPed* ped) : CCamScriptInstruction() {
+        m_nCamIndex = cam;
+        m_pPed = ped;
     }
 
 public:
