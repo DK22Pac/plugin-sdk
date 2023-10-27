@@ -100,7 +100,7 @@ public:
 	virtual void Update() { plugin::CallVirtualMethod<1>(this); }
 	virtual void m2() { plugin::CallVirtualMethod<2>(this); }
 	virtual void m3() { plugin::CallVirtualMethod<3>(this); }
-	virtual void m4() { plugin::CallVirtualMethod<4>(this); }
+	virtual int8_t m4() { return plugin::CallVirtualMethodAndReturn<int8_t, 4>(this); }
 	virtual void m5() { plugin::CallVirtualMethod<5>(this); }
 	virtual void m6() { plugin::CallVirtualMethod<6>(this); }
 	virtual void m7() { plugin::CallVirtualMethod<7>(this); }
