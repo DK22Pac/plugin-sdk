@@ -23,6 +23,4 @@
 #include "comp/PluginsCompatibility.h"
 #include "common_sdk.h"
 
-namespace plugin {
-    extern void InitEverything();
-}
+#include "plugin.cpp"

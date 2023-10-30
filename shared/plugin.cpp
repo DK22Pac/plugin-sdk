@@ -5,7 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#include "plugin.h"
+#ifndef INIT_PLUGIN
+#define INIT_PLUGIN
+#include "PluginBase.h"
+#include "EventList.h"
 
 #ifdef GTAIV
 #include "common.h"
@@ -72,11 +75,9 @@
 #include "CPool.h"
 #endif
 
-using namespace plugin;
-
-void plugin::InitEverything() {
+static void InitEverything() {
 #ifdef GTAIV
-    plugin::InitPatterns<CallingConventions>();
+    plugin::InitPatterns<plugin::CallingConventions>();
     plugin::InitPatterns<CClock>();
     plugin::InitPatterns<CTimer>();
     plugin::InitPatterns<common>();
@@ -141,7 +142,16 @@ void plugin::InitEverything() {
     plugin::InitPatterns<CTrain>();
     plugin::InitPatterns<CHeli>();
     plugin::InitPatterns<CPool>();
-
-
 #endif
 }
+
+class InitPluginSDK {
+public:
+    InitPluginSDK() {
+        InitEverything();
+    }
+};
+
+static InitPluginSDK initpsdk;
+#endif
+
