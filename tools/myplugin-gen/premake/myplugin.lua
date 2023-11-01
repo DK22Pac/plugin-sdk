@@ -12,7 +12,6 @@ using namespace plugin;
 class ]] .. projectName .. [[ {
 public:
     ]] .. projectName ..[[() {
-        plugin::InitEverything();
 		
 	};
 } ]] .. projectName .. [[Plugin;
