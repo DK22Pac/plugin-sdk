@@ -12,7 +12,7 @@ Plugin-SDK is a some kind of "dev-kit" for creating plugins for GTA2, GTA3, GTA:
 - [Discord server](https://discord.gg/X4H7ztF)
 
 ## Русский
-Plugin-SDK - это что-то вроде "dev-kit"-а для создания плагинов для GTA2, GTA3, GTA: Vice City, GTA: San Andreas and GTA:IV.
+Plugin-SDK - это что-то вроде "dev-kit"-а для создания плагинов для GTA2, GTA3, GTA: Vice City, GTA: San Andreas и GTA:IV.
 
 ### Как использовать plugin-sdk?
 1. Установите среду разработки (Подробнее: [**Установка среды разрабоки**](https://github.com/DK22Pac/plugin-sdk/wiki/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%81%D1%80%D0%B5%D0%B4%D1%8B-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D0%BA%D0%B8))
