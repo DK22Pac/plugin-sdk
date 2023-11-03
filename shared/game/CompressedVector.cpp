@@ -8,7 +8,7 @@
 #include "CompressedVector.h"
 #include "CompressedVector2D.h"
 
-#ifndef GTA2
+#ifdef RW
 #include "RenderWare.h"
 #include "CVector.h"
 #endif
@@ -29,7 +29,7 @@ CompressedVector::CompressedVector(CompressedVector2D const & rhs) {
     Set(rhs);
 }
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 CompressedVector::CompressedVector(CVector const & rhs) {
     Set(rhs);
 }
@@ -57,7 +57,7 @@ void CompressedVector::Set(CompressedVector2D const & rhs) {
     z = 0;
 }
 
-#ifndef GTA2
+#ifdef RW
 void CompressedVector::Set(CVector const & rhs) {
     x = static_cast<short>(rhs.x * 8.0f);
     y = static_cast<short>(rhs.y * 8.0f);
@@ -87,7 +87,7 @@ CompressedVector2D CompressedVector::To2D() const {
     return CompressedVector2D(x, y);
 }
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 void CompressedVector::Uncompress(CVector &out) const {
     out = Uncompressed();
 }

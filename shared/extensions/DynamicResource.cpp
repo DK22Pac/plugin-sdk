@@ -9,6 +9,8 @@
 
 using namespace plugin;
 
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+
 std::vector<DynamicResource*> DynamicResource::resourcesList;
 bool DynamicResource::resourceSystemInitialized = false;
 
@@ -32,3 +34,4 @@ void DynamicResource::ReleaseAllDynamicResources() {
 void DynamicResource::RecreateAllDynamicResources() {
     for (auto res : resourcesList) { res->Load(); }
 }
+#endif

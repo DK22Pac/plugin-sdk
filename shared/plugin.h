@@ -5,7 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "Events.h"
 #include "GameVersionMessage.h"
@@ -23,3 +22,5 @@
 #include "extensions/FontPrint.h"
 #include "comp/PluginsCompatibility.h"
 #include "common_sdk.h"
+
+#include "plugin.cpp"

@@ -7,6 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 
+#if defined(GTA2) || defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 namespace plugin {
     struct BassChunk {
         unsigned long chunk;
@@ -50,3 +51,4 @@ namespace plugin {
         static void BassRemoveObject(BassAudioObject* obj);
     };
 }
+#endif

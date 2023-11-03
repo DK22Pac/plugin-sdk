@@ -6,7 +6,7 @@
 */
 #include "common_sdk.h"
 
-#ifdef GTA2
+#ifdef GBH
 void plugin::SetRenderState(unsigned int state, unsigned int value) {
     RenderStateSet(state, reinterpret_cast<void*>(value));
 }
@@ -21,7 +21,7 @@ unsigned int plugin::GetRenderState(unsigned int state) {
     return outValue;
 }
 
-#else
+#elif RW
 RwFrame *plugin::GetObjectParent(RwObject *obj) {
     return reinterpret_cast<RwFrame *>(rwObjectGetParent(obj));
 }

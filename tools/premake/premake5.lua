@@ -108,7 +108,6 @@ function setToolset()
             end
         end
         buildoptions "/std:c++latest"
-        
     end
 end
 
@@ -118,7 +117,8 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     architecture "x32"
     characterset "MBCS"
     staticruntime "On"
-    
+	cppdialect "C++17"
+	
     local projectPath = (sdkdir .. "\\" .. projectName)
     
     if msbuild then
@@ -126,7 +126,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines "_USING_V110_SDK71_"
             buildoptions { "/Zc:threadSafeInit-" }
         end
-        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES" }
+        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
         buildoptions { "/sdl-" }
         disablewarnings "4073"
     end
@@ -146,13 +146,15 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     --TODO: add all game versions when it will be possible
     if isPluginProject == true then
         if projectName == "plugin_sa" then
-            defines { "GTASA", "PLUGIN_SGV_10US" }
+            defines { "GTASA", "PLUGIN_SGV_10US", "RW" }
         elseif projectName == "plugin_vc" then
-            defines { "GTAVC", "PLUGIN_SGV_10EN" }
+            defines { "GTAVC", "PLUGIN_SGV_10EN", "RW" }
         elseif projectName == "plugin_iii" then
-            defines { "GTA3", "PLUGIN_SGV_10EN" }
+            defines { "GTA3", "PLUGIN_SGV_10EN", "RW" }
 		elseif projectName == "plugin_ii" then
-            defines { "GTA2", "PLUGIN_SGV_96EN" }
+            defines { "GTA2", "PLUGIN_SGV_96EN", "GBH" }
+		elseif projectName == "plugin_iv" then
+            defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
         end
     end
     
@@ -209,12 +211,14 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             (projectPath .. "\\**.cpp"),
             (sdkdir .. "\\shared\\**.h"),
             (sdkdir .. "\\shared\\**.cpp"),
-			(sdkdir .. "\\shared\\**.rc")
+			(sdkdir .. "\\shared\\**.rc"),
+			(sdkdir .. "\\hooking\\**.cpp"),
+			(sdkdir .. "\\hooking\\**.h")
         }
         
         vpaths {
             ["shared/*"] = (projectFile(sdkdir, "shared\\**.*")),
-            
+
             [(gameName .. "/Animation")] = { (gameFile(projectPath, gameName, "Anim*.*")),
                                              (gameFile(projectPath, gameName, "CAnim*.*")) },
                                              
@@ -381,7 +385,10 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
         aryDefines[counter] = "PLUGIN_SGV_10EN"
         counter = counter + 1
     elseif game == "GTA2" then
-        aryDefines[counter] = "PLUGIN_SGV_114EN"
+        aryDefines[counter] = "PLUGIN_SGV_96EN"
+        counter = counter + 1
+	elseif game == "GTAIV" then
+        aryDefines[counter] = "PLUGIN_SGV_CE"
         counter = counter + 1
     end
     if additionalDefines ~= "" then
@@ -510,6 +517,10 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         supportedGames[gameCounter] = "GTA2"
         gameCounter = gameCounter + 1
     end
+	if gameIv == true then
+        supportedGames[gameCounter] = "GTAIV"
+        gameCounter = gameCounter + 1
+    end
     platforms (supportedGames)
     project (projectName)
     location (projDir)
@@ -617,6 +628,18 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             links (getExamplePluginLibraries("plugin_ii", projectType, "II.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".II_d")
     end
+	if gameIv == true then
+        filter "platforms:GTAIV"
+            includedirs (getExamplePluginIncludeFolders("plugin_iv", "game_iv", projectType, "$(CLEO_SDK_IV_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport))
+            libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_IV_DIR)", d3dSupport, additionalLibraryDirs, d3dSupport))
+            defines (getExamplePluginDefines(projectName, "GTAIV", projectType, laSupport, d3dSupport, additionalDefinitions, "4", "4", "4", "Niko", "Liberty City"))
+        filter { "Release", "platforms:GTAIV" }
+            links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+            targetname (projectName .. ".IV")
+        filter { "zDebug", "platforms:GTAIV" }
+            links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
+            targetname (projectName .. ".IV_d")
+    end
     filter {}
 
     files {
@@ -639,6 +662,7 @@ else
     cleanProjectsDirectory(sdkdir .. "\\plugin_vc")
     cleanProjectsDirectory(sdkdir .. "\\plugin_iii")
 	cleanProjectsDirectory(sdkdir .. "\\plugin_ii")
+	cleanProjectsDirectory(sdkdir .. "\\plugin_iv")
     os.remove(sdkdir .. "\\plugin.sln")
     os.remove(sdkdir .. "\\plugin.suo")
     os.remove(sdkdir .. "\\plugin.sdf")
@@ -658,6 +682,7 @@ else
             pluginSdkStaticLibProject("plugin_vc", sdkdir, "plugin_vc", true, "game_vc")
             pluginSdkStaticLibProject("plugin_iii", sdkdir, "plugin_iii", true, "game_III")
 			pluginSdkStaticLibProject("plugin_ii", sdkdir, "plugin_ii", true, "game_II")
+			pluginSdkStaticLibProject("plugin_iv", sdkdir, "plugin_iv", true, "game_IV")
 
         local f = io.open(sdkdir .. "\\examples\\examples.csv", "rb")
         if f then

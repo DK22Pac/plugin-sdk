@@ -10,9 +10,11 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CVector.h"
-#ifndef GTA2
 #include "CVector2D.h"
+#elif defined(GTAIV) || defined(GTA2)
+#include "CVector.h"
 #endif
 #include "CRect.h"
 #include "CRGBA.h"

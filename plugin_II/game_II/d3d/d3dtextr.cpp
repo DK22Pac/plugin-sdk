@@ -31,7 +31,7 @@ inline BOOL FileExists( TCHAR* n )
 
 static TextureContainer* g_ptcTextureList = NULL;     // Textures list
 static TCHAR  g_strTexturePath[512] = TEXT("MEDIA\\"); // Path for files
-static TCHAR* g_strRegValueName     = TEXT("DX6SDK Samples Path");
+static TCHAR* g_strRegValueName     = (TCHAR*)TEXT("DX6SDK Samples Path");
 
 
 
@@ -509,7 +509,7 @@ LPDIRECT3DTEXTURE2 D3DTextr_GetTexture( TCHAR* strName )
 VOID D3DTextr_SetTexturePath( TCHAR* strTexturePath )
 {
     if( NULL==strTexturePath )
-        strTexturePath = TEXT("");
+        strTexturePath = (TCHAR*)TEXT("");
     _tcscpy( g_strTexturePath, strTexturePath );
 }
 

@@ -17,7 +17,7 @@ namespace plugin {
     void GetRenderState(unsigned int state, unsigned int& outValue);
     unsigned int GetRenderState(unsigned int state);
 }
-#else
+#elif RW
 #include "RenderWare.h"
 
 namespace plugin {

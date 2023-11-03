@@ -49,6 +49,9 @@ unsigned int _NOINLINE_ detect_game_id() {
     if (plugin::patch::GetUInt(0x401000) == 0x5D22D4A1)
         return GAME_9600EN; 
 #endif
+#ifdef GTAIV
+        return GAME_CE;
+#endif
     return GAME_UNKNOWN;
 }
 
@@ -185,6 +188,7 @@ int plugin::by_version_dyn(int A_10US, int A_10EU, int A_Steam) {
     return by_v_dyn(A_10US, A_10EU, A_Steam);
 }
 #elif GTA2
+#elif GTAIV
 #else
 int plugin::by_v_dyn(int A_10EN, int A_11EN, int A_Steam) {
     switch (GetGameVersion()) {

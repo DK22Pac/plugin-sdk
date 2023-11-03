@@ -28,7 +28,7 @@ bool KeyCheck::CheckJustUp(unsigned int key) {
     return key < 256 && !(currStates[key] & 0x80) && (prevStates[key] & 0x80);
 }
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 bool KeyCheck::CheckWithDelay(unsigned int key, unsigned int time) {
     if (key < 256 && (currStates[key] & 0x80)) {
         if (!(prevStates[key] & 0x80) || CTimer::m_snTimeInMilliseconds > static_cast<int>((timeDelayPressed[key] + time))) {

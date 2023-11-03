@@ -6,13 +6,17 @@
 */
 #include "plugin.h"
 #include "Audio.h"
-#ifdef GTA2
+#ifdef GBH
 #include "GBH.h"
-#else
+#elif RW
 #include "RenderWare.h"
+#elif RAGE
+#include "Rage.h"
 #endif
 #include "bass/bass.h"
 
+
+#if defined(GTA2) || defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #pragma comment(lib, "bass.lib")
 
 using namespace plugin;
@@ -28,9 +32,9 @@ void BassAudio::BassSetEvents() {
             BassUpdate();
         };
 
-#ifdef GTA2
+#if defined(GBH) || defined(RAGE)
         plugin::Events::shutdownEngineEvent += [&] {
-#else
+#elif RW
         plugin::Events::shutdownRwEvent += [&] {
 #endif
             BassShutdown();
@@ -60,11 +64,13 @@ void BassAudio::BassUpdate() {
             for (DWORD i = 0; i < count; i++) {
 #ifdef GTA2
                 void* wnd = GetHWnd();
-#else
+#elif RW
                 void* wnd = RsGlobal.ps->window;
+#elif RAGE
+                void* wnd = rage::GetHWnd();
 #endif
 
-                if ((wnd && GetForegroundWindow() == wnd) && !obj->settings.mute()) {
+                if (!IsIconic((HWND)wnd) && !obj->settings.mute()) {
                     BASS_ChannelSetAttribute(channels[i], BASS_ATTRIB_VOL, chu.volume * obj->settings.masterVolume());
                 }
                 else
@@ -175,3 +181,4 @@ void BassAudioObject::StopAllChunks() {
         delete[] channels;
     }
 }
+#endif

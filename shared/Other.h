@@ -11,12 +11,16 @@
 
 #include <Windows.h>
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CTimer.h"
-#include "CVector2D.h"
 #endif
 
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+#include "CVector2D.h"
 #include "CVector.h"
+#elif defined(GTAIV) || defined(GTA2)
+#include "CVector.h"
+#endif
 
 namespace plugin {
     void InitRandom();
@@ -104,10 +108,10 @@ namespace plugin {
     }
 
     static float GetTimeStepFix() {
-#ifdef GTA2
-        return 1.0f / (50.0f / 30.0f);
-#else
+#ifdef RW
         return CTimer::ms_fTimeStep / (50.0f / 30.0f);
+#else
+        return 1.0f / (50.0f / 30.0f);
 #endif
     }
 

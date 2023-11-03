@@ -9,7 +9,11 @@
 #include <string>
 #include <vector>
 #include "CRGBA.h"
+#ifdef RW
 #include "CVector.h"
+#elif RAGE
+#include "CVector.h"
+#endif
 #include "Screen.h"
 
 #ifdef GTA3
