@@ -6,7 +6,6 @@
 */
 #pragma once
 
-#if 1
 #ifdef GTASA
 #include <Windows.h>
 #include "dxsdk/d3dx9.h"
@@ -106,5 +105,4 @@ namespace plugin {
     };
 }
 
-#endif
 #endif

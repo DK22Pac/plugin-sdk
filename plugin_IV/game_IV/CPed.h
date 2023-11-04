@@ -300,8 +300,8 @@ public:
     // Ped Flags 4
     uint32_t m_bPedFlags4_1 : 1;
     uint32_t m_bPedFlags4_2 : 1;
+    uint32_t m_bPedFlags4_3 : 1;
     uint32_t m_bInVehicle : 1;
-    uint32_t m_bPedFlags4_4 : 1;
     uint32_t m_bPedFlags4_5 : 1;
     uint32_t m_bPedFlags4_6 : 1;
     uint32_t m_bPedFlags4_7 : 1;

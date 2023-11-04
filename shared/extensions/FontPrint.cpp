@@ -12,6 +12,7 @@
 #include "Other.h"
 
 #ifdef RAGE
+#include "CCamera.h"
 #include "CSprite2d.h"
 #else
 #include "CSprite.h"
@@ -32,7 +33,11 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     CFont::SetFontStyle(style);
     CFont::SetScale(w * SCALEW, h * SCALEH);
     CFont::SetColor(color);
+#ifdef GTAIV
+    CFont::SetAlphaFade(255);
+#else
     CFont::SetAlphaFade(255.0f);
+#endif
     CFont::SetSlant(0.0f);
     CFont::SetDropColor(dropColor);
     switch (alignment) {
@@ -46,7 +51,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     #endif
 
 #ifdef GTAIV
-        CFont::SetWrapx(ScreenInteger(x - lineSize / 2), ScreenInteger(lineSize / 2));
+        CFont::SetWrapx((x - lineSize / 2), (lineSize / 2));
 #else
         CFont::SetCentreSize(ScreenInteger(lineSize));
 #endif
@@ -61,7 +66,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     #endif
 
 #ifdef GTAIV
-        CFont::SetWrapx(ScreenInteger(x), ScreenInteger(lineSize / 2));
+        CFont::SetWrapx((x), (lineSize));
 #else
         CFont::SetWrapx(ScreenInteger(x + lineSize));
 #endif
@@ -76,7 +81,7 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     #endif
 
 #ifdef GTAIV
-        CFont::SetWrapx(ScreenInteger(x), ScreenInteger(x - lineSize));
+        CFont::SetWrapx((x), (x - lineSize));
 #else
         CFont::SetRightJustifyWrap(ScreenInteger(x - lineSize));
 #endif
@@ -99,7 +104,11 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     CFont::SetBackGroundOnlyTextOff();
     CFont::SetDropShadowPosition(dropPosition);
 #endif
+#ifdef GTAIV
+    CFont::PrintString((x), (y), const_cast<char*>(line.c_str()));
+#else
     CFont::PrintString(ScreenInteger(x), ScreenInteger(y), const_cast<char *>(line.c_str()));
+#endif
 }
 
 void plugin::gamefont::Print(const std::string &line, float x, float y, unsigned char style, float w, float h,
@@ -165,8 +174,6 @@ void plugin::gamefont::Print(ScreenSide screenSide, Alignment alignment,
             dropPosition, dropColor, shadow, lineSize, proportional, justify);
     }
 }
-
-#include "CCamera.h"
 
 bool Get3dTo2d(CVector const &posn, CVector &out) {
 

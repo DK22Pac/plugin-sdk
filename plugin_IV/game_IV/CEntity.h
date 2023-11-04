@@ -128,8 +128,8 @@ public:
     void CleanUpOldReference(void* object);
 
 public:
-    void Teleport(rage::Matrix44* mat, int32_t dontUpdatePhysicsMatrix, bool clearTasks) { plugin::CallVirtualMethod<1>(this, mat, dontUpdatePhysicsMatrix, clearTasks); }
-    void Teleport(rage::Vector4* pos, int32_t dontUpdatePhysicsMatrix, bool clearTasks) { plugin::CallVirtualMethod<2>(this, pos, dontUpdatePhysicsMatrix, clearTasks); }
+    void Teleport(rage::Matrix44* mat, int32_t dontUpdatePhysicsMatrix, bool immediately) { plugin::CallVirtualMethod<1>(this, mat, dontUpdatePhysicsMatrix, immediately); }
+    void Teleport(rage::Vector4* pos, int32_t dontUpdatePhysicsMatrix, bool immediately) { plugin::CallVirtualMethod<2>(this, pos, dontUpdatePhysicsMatrix, immediately); }
 };
 
 VALIDATE_SIZE(CEntity, 0x70);

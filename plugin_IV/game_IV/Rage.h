@@ -725,7 +725,7 @@ namespace rage {
         }
     };
 
-    Vector3 operator*(const Matrix44& mat, const Vector3& vec) {
+    static inline Vector3 operator*(const Matrix44& mat, const Vector3& vec) {
         return Vector3(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
                        mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
                        mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
