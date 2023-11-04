@@ -37,6 +37,9 @@ int32_t& CMenuManager::m_PrefsUseVibration = *(int32_t*)CMenuManager__m_PrefsUse
 static bool* CMenuManager__m_MenuActive;
 bool& CMenuManager::m_MenuActive = *(bool*)CMenuManager__m_MenuActive;
 
+static int32_t* CMenuManager__m_nWaypointIndexAddr;
+int32_t& CMenuManager::m_nWaypointIndex = *(int32_t*)CMenuManager__m_nWaypointIndexAddr;
+
 template<>
 void plugin::InitPatterns<CMenuManager>() {
     CMenuManager__Frontend360SpritesAddr = (CSprite2d*)plugin::patch::GetPointer(plugin::GetPattern("BE ? ? ? ? 8B CE E8 ? ? ? ? 83 C6 04 81 FE ? ? ? ? 7C EE E8 ? ? ? ? 83 FF FF 74 47", 1));
@@ -52,5 +55,5 @@ void plugin::InitPatterns<CMenuManager>() {
     CMenuManager__m_PrefsUseVibration = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? A3 ? ? ? ? C7 05", 2));
 
     CMenuManager__m_MenuActive = (bool*)plugin::patch::GetPointer(plugin::GetPattern("C6 05 ? ? ? ? ? C6 05 ? ? ? ? ? C6 05 ? ? ? ? ? 5E C3 CC CC CC CC CC CC CC CC CC CC", 2));
-
+    CMenuManager__m_nWaypointIndexAddr = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? F3 0F 11 05 ? ? ? ? 8B 01", 2));
 }

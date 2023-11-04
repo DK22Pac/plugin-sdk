@@ -123,12 +123,13 @@ public:
     const rage::Vector4& GetPosition() const { return m_pMatrix->pos; }
 
 public:
-    void Teleport(rage::Matrix44 const& mat);
-    void SetPosition(rage::Vector4 const& pos);
-    void SetHeading(float heading);
     void Freeze(bool on, bool arg2);
     void AllocateMatrix();
     void CleanUpOldReference(void* object);
+
+public:
+    void Teleport(rage::Matrix44* mat, int32_t dontUpdatePhysicsMatrix, bool clearTasks) { plugin::CallVirtualMethod<1>(this, mat, dontUpdatePhysicsMatrix, clearTasks); }
+    void Teleport(rage::Vector4* pos, int32_t dontUpdatePhysicsMatrix, bool clearTasks) { plugin::CallVirtualMethod<2>(this, pos, dontUpdatePhysicsMatrix, clearTasks); }
 };
 
 VALIDATE_SIZE(CEntity, 0x70);

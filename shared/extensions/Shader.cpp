@@ -7,7 +7,7 @@
 #include "Shader.h"
 #include "plugin.h"
 
-#ifdef _DX9_SDK_INSTALLED
+#if 1
 #ifdef GTASA
 
 #define PLUGIN_SDK_SHADER_MODULE_VERSION 0x00000001

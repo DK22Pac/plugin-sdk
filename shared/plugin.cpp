@@ -73,6 +73,7 @@
 #include "CTrain.h"
 #include "CHeli.h"
 #include "CPool.h"
+#include "CCamIdle.h"
 #endif
 
 static void InitEverything() {
@@ -142,6 +143,8 @@ static void InitEverything() {
     plugin::InitPatterns<CTrain>();
     plugin::InitPatterns<CHeli>();
     plugin::InitPatterns<CPool>();
+    plugin::InitPatterns<CCamIdle>();
+
 #endif
 }
 

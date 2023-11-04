@@ -59,13 +59,13 @@ public:
     static float GetStringWidth(const wchar_t* str, bool spaces);
     static void PrintString(float x, float y, const wchar_t* str, int32_t arg1 = -1, int32_t arg2 = -1);
     static void PrintStringFromBottom(float x, float y, const wchar_t* str, int32_t arg1 = -1, int32_t arg2 = -1);
-    static void SetAlignment(int32_t align);
+    static void SetOrientation(int32_t align);
     static void SetFontStyle(int32_t style);
     static void SetColor(rage::Color32 const& col);
     static void SetDropColor(rage::Color32 const& col);
     static void SetEdge(float size);
     static void SetScale(float w, float h);
-    static void SetWrapX(float x, float w);
+    static void SetWrapx(float x, float w);
     static void SetDropShadowPosition(float value);
     static void SetProportional(bool on);
     static void DrawFonts();
@@ -75,4 +75,8 @@ public:
     static void SetBackgroundColor(rage::Color32 const& col);
     static void GetTextRect(rage::Vector4* rect, float x, float y, const wchar_t* str);
     static void SetLineHeight(float y);
+    static void SetSlant(float slant) {}
+    static void SetJustify(float justify) {}
+
+    static void PrintString(float x, float y, const char* text);
 };

@@ -22,6 +22,7 @@ public:
     CCamFollowPed* m_pCamFollowPed;
 
 public:
+    static bool& m_bCameraControlsDisabled;
     static float& m_fMouseAccel;
 
 public:

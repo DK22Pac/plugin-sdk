@@ -20,6 +20,7 @@ public:
 
 public:
     float FindAspectRatio(bool wide);
+    void SetWidescreenBorders(bool on, int32_t delay);
 };
 
 extern CViewport& TheViewport;

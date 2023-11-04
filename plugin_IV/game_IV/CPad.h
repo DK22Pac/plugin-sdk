@@ -99,6 +99,7 @@ public:
     static void GetMouseWheel(int32_t* wheel);
 
     static float* GetMousePos(float* x, float* y);
+    static void GetMouseInput(int32_t* x, int32_t* y);
 
     static void StopPadsShaking();
 };

@@ -5,12 +5,17 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "FontPrint.h"
 
 #include "CFont.h"
 #include "Other.h"
+
+#ifdef RAGE
+#include "CSprite2d.h"
+#else
 #include "CSprite.h"
+#endif
 
 #define SCALEW 0.8f
 #define SCALEH 1.6f
@@ -32,37 +37,52 @@ void plugin::gamefont::PrintUnscaled(const std::string &line, float x, float y, 
     CFont::SetDropColor(dropColor);
     switch (alignment) {
     case AlignCenter:
-    #ifdef GTASA
+    #if defined(GTASA) || defined(GTAIV)
         CFont::SetOrientation(ALIGN_CENTER);
     #else
         CFont::SetRightJustifyOff();
         CFont::SetJustifyOff();
         CFont::SetCentreOn();
     #endif
+
+#ifdef GTAIV
+        CFont::SetWrapx(ScreenInteger(x - lineSize / 2), ScreenInteger(lineSize / 2));
+#else
         CFont::SetCentreSize(ScreenInteger(lineSize));
+#endif
         break;
     case AlignLeft:
-    #ifdef GTASA
+#if defined(GTASA) || defined(GTAIV)
         CFont::SetOrientation(ALIGN_LEFT);
     #else
         CFont::SetCentreOff();
         CFont::SetRightJustifyOff();
         CFont::SetJustifyOn();
     #endif
+
+#ifdef GTAIV
+        CFont::SetWrapx(ScreenInteger(x), ScreenInteger(lineSize / 2));
+#else
         CFont::SetWrapx(ScreenInteger(x + lineSize));
+#endif
         break;
     case AlignRight:
-    #ifdef GTASA
+#if defined(GTASA) || defined(GTAIV)
         CFont::SetOrientation(ALIGN_RIGHT);
     #else
         CFont::SetCentreOff();
         CFont::SetJustifyOff();
         CFont::SetRightJustifyOn();
     #endif
+
+#ifdef GTAIV
+        CFont::SetWrapx(ScreenInteger(x), ScreenInteger(x - lineSize));
+#else
         CFont::SetRightJustifyWrap(ScreenInteger(x - lineSize));
+#endif
         break;
     }
-#ifdef GTASA
+#if defined(GTASA) || defined(GTAIV)
     CFont::SetProportional(proportional);
     CFont::SetBackground(false, false);
     CFont::SetJustify(justify);
@@ -146,15 +166,39 @@ void plugin::gamefont::Print(ScreenSide screenSide, Alignment alignment,
     }
 }
 
+#include "CCamera.h"
+
 bool Get3dTo2d(CVector const &posn, CVector &out) {
-    RwV3d rwvec; float outw, outh;
-    bool result = 
-#ifdef GTASA
-    CSprite::CalcScreenCoors(posn.ToRwV3d(), &rwvec, &outw, &outh, false, false);
+
+    bool result = false;
+
+#ifdef GTAIV
+    CVector viewvec = TheCamera.m_pCamGame->m_mMatrix * posn;
+    out = viewvec;
+    if (out.z <= TheCamera.m_pCamGame->m_fNearClip + 1.0f) return false;
+    float recip = 1.0f / out.z;
+    out.x *= SCREEN_WIDTH * recip;
+    out.y *= SCREEN_HEIGHT * recip;
+    const float fov = TheCamera.m_pCamGame->m_fFOV;
+
+    out.x = (fov * recip * SCREEN_HEIGHT);
+    out.y = fov * recip * SCREEN_HEIGHT;
+    out.z = 0.0f;
 #else
-    CSprite::CalcScreenCoors(posn.ToRwV3d(), &rwvec, &outw, &outh, false);
+    RwV3d rwvec;
+    float outw, outh;
+    result = CSprite::CalcScreenCoors(posn.ToRwV3d(),
+                                      &rwvec,
+                                      &outw,
+                                      &outh,
+                                      false
+#ifdef GTASA
+                                      , false
 #endif
+    );
+
     out.FromRwV3d(rwvec);
+#endif
     return result;
 }
 

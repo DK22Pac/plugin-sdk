@@ -81,6 +81,11 @@ float* CPad::GetMousePos(float* x, float* y) {
     return plugin::CallAndReturnDyn<float*>(CPad__GetMousePosAddr, x, y);
 }
 
+static uint32_t CPad__GetMouseInputAddr;
+void CPad::GetMouseInput(int32_t* x, int32_t* y) {
+    return plugin::CallDyn(CPad__GetMouseInputAddr, x, y);
+}
+
 static uint32_t CPad__StopPadsShakingAddr;
 void CPad::StopPadsShaking() {
     plugin::CallDyn(CPad__StopPadsShakingAddr);
@@ -111,4 +116,6 @@ void plugin::InitPatterns<CPad>() {
     CPad__IsMouseButtonPressedAddr = plugin::GetPattern("8B 4C 24 04 A1 ? ? ? ? 49", 0);   
     CPad__GetMouseWheelAddr = plugin::GetPattern("6A 01 E8 ? ? ? ? 8A 88 ? ? ? ? 32 88 ? ? ? ? 83 C4 04 80 F9 7F 76 0B", 0);
     CPad__GetMousePosAddr = plugin::GetPattern("66 0F 6E 05 ? ? ? ? F3 0F 10 0D ? ? ? ? 0F 5B C0 0F 57 D2 F3 0F 59 05 ? ? ? ? 0F 2F D0 76 05", 0);
+    CPad__GetMouseInputAddr = plugin::GetPattern("56 8B 74 24 0C 57 8B 7C 24 0C C7 07 ? ? ? ? C7 06 ? ? ? ? 83 3D", 0);
+    CPad__StopPadsShakingAddr = plugin::GetPattern("56 BE ? ? ? ? 6A 01 8B CE E8 ? ? ? ? 81 C6", 0);
 }

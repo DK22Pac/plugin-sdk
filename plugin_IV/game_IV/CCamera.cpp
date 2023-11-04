@@ -10,6 +10,9 @@
 static CCamera* TheCameraAddr;
 CCamera& TheCamera = *(CCamera*)TheCameraAddr;
 
+static bool* CCamera__m_bCameraControlsDisabled;
+bool& CCamera::m_bCameraControlsDisabled = *(bool*)CCamera__m_bCameraControlsDisabled;
+
 static float* CCamera__m_fMouseAccel;
 float& CCamera::m_fMouseAccel = *(float*)CCamera__m_fMouseAccel;
 
@@ -22,6 +25,7 @@ template<>
 void plugin::InitPatterns<CCamera>() {
     TheCameraAddr = (CCamera*)plugin::patch::GetPointer(plugin::GetPattern("B9 ? ? ? ? E8 ? ? ? ? 8B 10 8B C8 A3", 1));
 
+    CCamera__m_bCameraControlsDisabled = (bool*)plugin::patch::GetPointer(plugin::GetPattern("A2 ? ? ? ? C3 CC CC CC CC CC CC CC 80 79 08 00", 1));
     CCamera__m_fMouseAccel = (float*)plugin::patch::GetPointer(plugin::GetPattern("C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? A3 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05", 2));
 
     CCamera__CreateCamModeAddr = plugin::GetPattern("53 8B D9 56 33 F6 83 3B 3C", 0);

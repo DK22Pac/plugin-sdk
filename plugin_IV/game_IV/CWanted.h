@@ -18,7 +18,16 @@ public:
     int32_t field_72;
     uint8_t m_nShockingEvents;
     uint8_t field_73;
-    uint8_t m_nFlashStars;
+
+    uint8_t m_bIgnoredByPolice : 1;
+    uint8_t m_nWantedFlags1_2 : 1;
+    uint8_t m_bIgnoredByEveryone : 1;
+    uint8_t m_bIgnoredByLowPriorityEvents : 1;
+    uint8_t m_nWantedFlags1_5 : 1;
+    uint8_t m_nWantedFlags1_6 : 1;
+    uint8_t m_nWantedFlags1_7 : 1;
+    uint8_t m_nWantedFlags1_8 : 1;
+
     uint8_t m_nFlags;
     uint8_t field_76[14];
     uint32_t m_nFlashingAfterOffence;

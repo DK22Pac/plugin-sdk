@@ -34,5 +34,6 @@ public:
     static int32_t& m_PrefsLanguage;
     static int32_t& m_PrefsUseVibration;
     static bool& m_MenuActive;
+    static int32_t& m_nWaypointIndex;
 
 };

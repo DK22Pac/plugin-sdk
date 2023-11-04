@@ -6,10 +6,10 @@
 */
 #pragma once
 
-#ifdef _DX9_SDK_INSTALLED
+#if 1
 #ifdef GTASA
 #include <Windows.h>
-#include "d3dx9.h"
+#include "dxsdk/d3dx9.h"
 #include <stdio.h>
 #include <vector>
 #include <fstream>

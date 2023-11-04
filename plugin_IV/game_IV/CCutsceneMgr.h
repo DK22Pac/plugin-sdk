@@ -9,5 +9,8 @@
 
 class CCutsceneMgr {
 public:
+    static int32_t& ms_running;
+
+public:
     static bool IsRunning();
 };
