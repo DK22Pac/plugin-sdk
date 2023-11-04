@@ -81,11 +81,11 @@ namespace plugin {
                 char *newData = new char[newSize];
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
-                GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
                 delete[] newData;
             }
             else
-                GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
             return true;
         }
 
@@ -96,11 +96,11 @@ namespace plugin {
                 char *newData = new char[newSize];
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
-                GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
                 delete[] newData;
             }
             else
-                GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);
             return true;
         }
     };
