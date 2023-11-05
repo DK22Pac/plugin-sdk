@@ -497,6 +497,7 @@ public:
     void RemoveHelmet(bool arg1);
 
 public:
+    static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);
     static bool IsPedDead(CPed* ped);
 };
 

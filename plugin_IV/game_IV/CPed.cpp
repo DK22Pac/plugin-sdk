@@ -31,14 +31,19 @@ void CPed::SetArmour(float armour) {
     plugin::CallMethodDyn(CPed__SetArmourAddr, this, armour);
 }
 
-static uint32_t CPed__WarpIntoVehicle;
+static uint32_t CPed__WarpIntoVehicleAddr;
 void CPed::WarpIntoVehicle(CVehicle* veh, bool arg1) {
-    plugin::CallMethodDyn(CPed__WarpIntoVehicle, this, veh, arg1);
+    plugin::CallMethodDyn(CPed__WarpIntoVehicleAddr, this, veh, arg1);
 }
 
-static uint32_t CPed__RemoveHelmet;
+static uint32_t CPed__RemoveHelmetAddr;
 void CPed::RemoveHelmet(bool arg1) {
-    plugin::CallMethodDyn(CPed__RemoveHelmet, this, arg1);
+    plugin::CallMethodDyn(CPed__RemoveHelmetAddr, this, arg1);
+}
+
+static uint32_t CPed__GetVehiclePedWouldEnterAddr;
+CVehicle* CPed::GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2) {
+    return plugin::CallAndReturnDyn<CVehicle*>(CPed__GetVehiclePedWouldEnterAddr, ped, pos, arg2);
 }
 
 static uint32_t CPed__IsPedDeadAddr;
@@ -53,7 +58,8 @@ void plugin::InitPatterns<CPed>() {
     CPed__SetDuckAddr = plugin::GetPattern("56 8B F1 F6 86 ? ? ? ? ? 0F 85", 0);
     CPed__SetMoneyAddr = plugin::GetPattern("8B 44 24 04 89 81 ? ? ? ? C2 04 00 CC CC CC 8A 44 24 04 88 81 ? ? ? ? C2 04 00 CC CC CC 8A 44 24 04", 0);
     CPed__SetArmourAddr = plugin::GetPattern("F3 0F 10 44 24 ? F3 0F 11 81 ? ? ? ? C2 04 00 CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC 56 57 8B 7C 24 0C 8B F1 C7 86", 0);
-    CPed__WarpIntoVehicle = plugin::GetPattern("8B 54 24 04 85 D2 74 21", 0);
-    CPed__RemoveHelmet = plugin::GetPattern("56 8B F1 E8 ? ? ? ? 84 C0 74 4E", 0);
+    CPed__WarpIntoVehicleAddr = plugin::GetPattern("8B 54 24 04 85 D2 74 21", 0);
+    CPed__RemoveHelmetAddr = plugin::GetPattern("56 8B F1 E8 ? ? ? ? 84 C0 74 4E", 0);
+    CPed__GetVehiclePedWouldEnterAddr = plugin::GetPattern("55 8B EC 83 E4 F0 83 EC 78 56 8B 75 08 57 F7 86", 0);
     CPed__IsPedDeadAddr = plugin::GetPattern("8B 44 24 04 80 B8 ? ? ? ? ? 74 10 8B 88 ? ? ? ? 83 F9 01 74 0E 83 F9 02 74 09 83 B8 ? ? ? ? ? 75 03", 0);
 }
