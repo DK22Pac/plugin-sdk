@@ -74,6 +74,7 @@
 #include "CHeli.h"
 #include "CPool.h"
 #include "CCamIdle.h"
+#include "CControllerConfigManager.h"
 #endif
 
 static void InitEverything() {
@@ -144,6 +145,7 @@ static void InitEverything() {
     plugin::InitPatterns<CHeli>();
     plugin::InitPatterns<CPool>();
     plugin::InitPatterns<CCamIdle>();
+    plugin::InitPatterns<CControllerConfigManager>();
 
 #endif
 }
