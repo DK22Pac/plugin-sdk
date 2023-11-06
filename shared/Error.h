@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include <Windows.h>
+#include <windows.h>
 #include <cstdio>
 #include <string>
 #include "extensions\Paths.h"

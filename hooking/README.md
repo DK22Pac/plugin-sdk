@@ -4,7 +4,7 @@ Sample:
 
 ```cpp
 #include "stdafx.h"
-#include <Windows.h>
+#include <windows.h>
 #include "Hooking.Patterns.h"
 
 int main()

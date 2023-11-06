@@ -7,7 +7,7 @@
 #pragma once
 
 #ifdef GTASA
-#include <Windows.h>
+#include <windows.h>
 #include "dxsdk/d3dx9.h"
 #include <stdio.h>
 #include <vector>
