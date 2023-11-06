@@ -29,8 +29,4 @@ public:
     {
         return GetRandomNumber() < RAND_MAX / 2;
     }
-    static float GetRandomNumberInRange(float low, float high) // Generates a random float within the specified range (low, high)
-    {
-        return low + (high - low) * (GetRandomNumber() / float(RAND_MAX + 1));
-    }
 };
