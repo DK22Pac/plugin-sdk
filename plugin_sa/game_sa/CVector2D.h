@@ -44,6 +44,42 @@ public:
         this->y = a.y - b.y;
     }
 
+    inline float
+        DotProduct2D(const CVector2D& v1, const CVector2D& v2)
+    {
+        return v1.x * v2.x + v1.y * v2.y;
+    }
+
+    inline float
+        CrossProduct2D(const CVector2D& v1, const CVector2D& v2)
+    {
+        return v1.x * v2.y - v1.y * v2.x;
+    }
+
+    inline float
+        Distance2D(const CVector2D& v, float x, float y)
+    {
+        return sqrt((v.x - x) * (v.x - x) + (v.y - y) * (v.y - y));
+    }
+
+    inline float
+        DistanceSqr2D(const CVector2D& v, float x, float y)
+    {
+        return (v.x - x) * (v.x - x) + (v.y - y) * (v.y - y);
+    }
+
+    inline void
+        NormalizeXY(float& x, float& y)
+    {
+        float l = sqrt(x * x + y * y);
+        if (l != 0.0f) {
+            x /= l;
+            y /= l;
+        }
+        else
+            x = 1.0f;
+    }
+
     inline void operator+=(const CVector2D& right) {
         this->x += right.x;
         this->y += right.y;
@@ -67,42 +103,6 @@ public:
 
 inline CVector2D operator-(const CVector2D& vecOne, const CVector2D& vecTwo) {
     return CVector2D(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y);
-}
-
-inline float
-DotProduct2D(const CVector2D& v1, const CVector2D& v2)
-{
-    return v1.x * v2.x + v1.y * v2.y;
-}
-
-inline float
-CrossProduct2D(const CVector2D& v1, const CVector2D& v2)
-{
-    return v1.x * v2.y - v1.y * v2.x;
-}
-
-inline float
-Distance2D(const CVector2D& v, float x, float y)
-{
-    return sqrt((v.x - x) * (v.x - x) + (v.y - y) * (v.y - y));
-}
-
-inline float
-DistanceSqr2D(const CVector2D& v, float x, float y)
-{
-    return (v.x - x) * (v.x - x) + (v.y - y) * (v.y - y);
-}
-
-inline void
-NormalizeXY(float& x, float& y)
-{
-    float l = sqrt(x * x + y * y);
-    if (l != 0.0f) {
-        x /= l;
-        y /= l;
-    }
-    else
-        x = 1.0f;
 }
 
 inline float DistanceBetweenPoints(const CVector2D &pointOne, const CVector2D &pointTwo) {

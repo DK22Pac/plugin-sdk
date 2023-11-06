@@ -13,12 +13,6 @@ class PLUGIN_API CGeneral {
 public:
     static float LimitAngle(float angle);
     static float LimitRadianAngle(float angle);
-	static uint16_t GetRandomNumber(void)// Generates a random integer within the range (0, RAND_MAX)
-		{ return rand() & RAND_MAX; } 
-	static bool GetRandomTrueFalse(void) // Generates a random true or false value
-		{ return GetRandomNumber() < RAND_MAX / 2; }
-	static float GetRandomNumberInRange(float low, float high) // Generates a random float within the specified range (low, high)
-		{ return low + (high - low)*(GetRandomNumber()/float(RAND_MAX + 1)); }
     static float GetRadianAngleBetweenPoints(float x1, float y1, float x2, float y2);
     static float GetATanOfXY(float x, float y);
     static unsigned char GetNodeHeadingFromVector(float x, float y);
@@ -26,5 +20,17 @@ public:
     static float GetAngleBetweenPoints(float x1, float y1, float x2, float y2);
     static unsigned int GetRandomNumberInRange(int min, int max); // returns random int in range [min;max)
     static float GetRandomNumberInRange(float min, float max); // returns random float in range [min;max)
-    static void CamShakeNoPos(CCamera *camera, float strength);
+    static void CamShakeNoPos(CCamera* camera, float strength);
+    static uint16_t GetRandomNumber(void)// Generates a random integer within the range (0, RAND_MAX)
+    {
+        return rand() & RAND_MAX;
+    }
+    static bool GetRandomTrueFalse(void) // Generates a random true or false value
+    {
+        return GetRandomNumber() < RAND_MAX / 2;
+    }
+    static float GetRandomNumberInRange(float low, float high) // Generates a random float within the specified range (low, high)
+    {
+        return low + (high - low) * (GetRandomNumber() / float(RAND_MAX + 1));
+    }
 };
