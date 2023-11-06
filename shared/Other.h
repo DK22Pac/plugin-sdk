@@ -9,7 +9,7 @@
 #include <locale>
 #include <codecvt>
 
-#include <Windows.h>
+#include <windows.h>
 
 #if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CTimer.h"

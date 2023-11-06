@@ -6,7 +6,7 @@
 */
 
 #include "DynAddress.h"
-#include <Windows.h>
+#include <windows.h>
 #include "Base.h"
 #include "../hooking/Hooking.Patterns.h"
 #include "../injector/hooking.hpp"

@@ -24,7 +24,7 @@
  *
  */
 #include "rwcore.h"
-#include <Windows.h>
+#include <windows.h>
 
 /* Default arena size depending on platform. */
 

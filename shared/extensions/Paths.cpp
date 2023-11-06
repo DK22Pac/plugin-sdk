@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Paths.h"
-#include <Windows.h>
+#include <windows.h>
 #include "Error.h"
 
 #define MAX_VALUE(a,b) (((a) > (b)) ? (a) : (b))
