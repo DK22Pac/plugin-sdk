@@ -4,7 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CTaskSimpleJetPack.h"
+#include "CTaskSimpleJetpack.h"
 
 float &CTaskSimpleJetPack::THRUST_NOMINAL         = *(float *)0x8D2F38; // 0.8
 float &CTaskSimpleJetPack::THRUST_FULL            = *(float *)0x8D2F3C; // 0.6
