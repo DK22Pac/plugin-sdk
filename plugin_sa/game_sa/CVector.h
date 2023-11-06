@@ -40,6 +40,10 @@ public:
 
     // Performs cross calculation
     void Cross(const CVector& left, const CVector &right);
+    
+	// This function calculates the cross product of two CVector objects
+    // v1 and v2, and returns a new CVector representing the result
+    CVector CrossProduct(const CVector &v1, const CVector &v2);
 
     // Adds left + right and stores result
     void Sum(const CVector& left, const CVector &right);

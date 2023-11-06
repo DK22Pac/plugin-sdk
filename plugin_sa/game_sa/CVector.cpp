@@ -45,6 +45,14 @@ void CVector::Cross(const CVector& left, const CVector &right)
 	((void (__thiscall*)(CVector*, const CVector& left, const CVector &right)) 0x70F890)(this, left, right);
 }
 
+// This function calculates the cross product of two CVector objects,
+// v1 and v2, and returns a new CVector representing the result
+CVector
+CrossProduct(const CVector &v1, const CVector &v2)
+{
+	return CVector(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
+}
+
 // Adds left + right and stores result
 void CVector::Sum(const CVector& left, const CVector &right)
 {
