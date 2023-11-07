@@ -516,6 +516,7 @@ RwInt16 _rpMeshGetNextSerialNumber(void); // 0x7590E0
 RpBuildMesh* _rpBuildMeshCreate(RwUInt32 bufferSize); // 0x758A90
 RwBool _rpBuildMeshDestroy(RpBuildMesh* mesh); // 0x758B80
 RwBool _rpMeshDestroy(RpMeshHeader* mesh); // 0x758BC0
+RwTexture* RwTextureRead(const char* name, const char* mask); // 0x07F3AC0
 RpBuildMesh* _rpBuildMeshAddTriangle(RpBuildMesh* mesh, RpMaterial* material, RwInt32 vert1, RwInt32 vert2, RwInt32 vert3, RwUInt16 matIndex, RwUInt16 textureIndex, RwUInt16 rasterIndex, RwUInt16 pipelineIndex); // 0x758C00
 RpMeshHeader* _rpMeshHeaderForAllMeshes(RpMeshHeader* meshHeader, RpMeshCallBack fpCallBack, void* pData); // 0x758D30
 RwStream* _rpMeshWrite(const RpMeshHeader* meshHeader, const void* object, RwStream* stream, const RpMaterialList* matList); // 0x758D70

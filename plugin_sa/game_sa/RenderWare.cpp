@@ -67,6 +67,10 @@ RwStream* _rwStreamInitialize(RwStream* stream, RwBool rwOwned, RwStreamType typ
     return ((RwStream*(__cdecl *)(RwStream*, RwBool, RwStreamType, RwStreamAccessType, const void*))0x7EC810)(stream, rwOwned, type, accessType, pData);
 }
 
+RwTexture* RwTextureRead(const char* name, const char* mask) {
+    return plugin::CallAndReturn<RwTexture*, 0x07F3AC0>(name, mask);
+}
+
 RwStream* RwStreamOpen(RwStreamType type, RwStreamAccessType accessType, const void* pData) {
     return ((RwStream*(__cdecl *)(RwStreamType, RwStreamAccessType, const void*))0x7ECEF0)(type, accessType, pData);
 }
