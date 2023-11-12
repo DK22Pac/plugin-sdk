@@ -14,3 +14,7 @@ int& CWaterLevel::m_nNumWaterZonePolys = *(int*)0xC215F0;
 std::array<CWaterVertex, 1021>& CWaterLevel::m_aVertices = *(std::array<CWaterVertex, 1021>*)0xC22910;
 int& DETAILEDWATERDIST = *(int*)0x8D37D0; // Default: 48
 
+bool CWaterLevel::GetWaterLevelNoWaves(float x, float y, float z, float* pOutWaterLevel, float* fUnkn1, float* fUnkn2) {
+	return plugin::CallAndReturn<bool, 0x6E8580, float, float, float, float*, float*, float*>(x, y, z, pOutWaterLevel, fUnkn1, fUnkn2);
+}
+
