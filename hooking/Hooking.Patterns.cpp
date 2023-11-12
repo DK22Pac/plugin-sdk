@@ -60,45 +60,71 @@ static auto& getHints()
 }
 #endif
 
-static void TransformPattern(std::string_view pattern, std::basic_string<uint8_t>& data, std::basic_string<uint8_t>& mask)
+static void TransformPattern(std::string_view pattern, std::basic_string<uint8_t>& data, std::basic_string<uint8_t>& mask) 
 {
-	uint8_t tempDigit = 0;
-	bool tempFlag = false;
+	data.reserve(pattern.size() / 2);
+	mask.reserve(pattern.size() / 2);
 
-	auto tol = [] (char ch) -> uint8_t
+	static constexpr uint8_t hexLookup[] = 
 	{
-		if (ch >= 'A' && ch <= 'F') return uint8_t(ch - 'A' + 10);
-		if (ch >= 'a' && ch <= 'f') return uint8_t(ch - 'a' + 10);
-		return uint8_t(ch - '0');
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 0-15
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 16-31
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 32-47
+		// 0-9
+		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 255, 255, 255, 255, 255, 255, // 48-63
+		// A-F
+		255, 10, 11, 12, 13, 14, 15, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 64-79
+		// G-Z
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 80-95
+		// a-f
+		255, 10, 11, 12, 13, 14, 15, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 96-111
+		// g-z
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 112-127
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 128-143
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 144-159
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 160-175
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 176-191
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 192-207
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 208-223
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, // 224-239
+		255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255  // 240-255
 	};
 
-	for (auto ch : pattern)
+	bool upperNibble = true;
+	uint8_t tempDigit = 0;
+
+	for (auto it = pattern.begin(); it != pattern.end(); ++it) 
 	{
+		char ch = *it;
+
 		if (ch == ' ')
 		{
 			continue;
 		}
-		else if (ch == '?')
+		else if (ch == '?') 
 		{
 			data.push_back(0);
 			mask.push_back(0);
 		}
-		else if ((ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'F') || (ch >= 'a' && ch <= 'f'))
+		else
 		{
-			uint8_t thisDigit = tol(ch);
+			uint8_t thisDigit = hexLookup[static_cast<uint8_t>(ch)];
 
-			if (!tempFlag)
+			if (thisDigit != 255) 
 			{
-				tempDigit = thisDigit << 4;
-				tempFlag = true;
-			}
-			else
-			{
-				tempDigit |= thisDigit;
-				tempFlag = false;
+				if (upperNibble) 
+				{
+					tempDigit = thisDigit << 4;
+					upperNibble = false;
+				}
+				else 
+				{
+					tempDigit |= thisDigit;
+					upperNibble = true;
 
-				data.push_back(tempDigit);
-				mask.push_back(0xFF);
+					data.push_back(tempDigit);
+					mask.push_back(0xFF);
+				}
 			}
 		}
 	}
