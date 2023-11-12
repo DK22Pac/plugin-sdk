@@ -90,19 +90,33 @@ public:
 	uint8_t m_bField_291;
 	uint8_t m_bField_292;
 	uint8_t m_bField_293;
-	uint8_t field_294[119];
-	float m_fHintFOV;
-	uint8_t field_300[8];
+	uint8_t field_294[31];
+	rage::Vector4 m_vRot;
+	uint8_t field_295[28];
 
 	// Cam Flags 2
 	uint8_t m_bCamFlags2_1 : 1;
-	uint8_t m_bTelescopeCam : 1;
-	uint8_t m_bReset : 1;
-	uint8_t m_bDisableControls : 1;
+	uint8_t m_bCamFlags2_2 : 1;
+	uint8_t m_bCamFlags2_3 : 1;
+	uint8_t m_bCamFlags2_4 : 1;
 	uint8_t m_bCamFlags2_5 : 1;
 	uint8_t m_bCamFlags2_6 : 1;
 	uint8_t m_bCamFlags2_7 : 1;
 	uint8_t m_bCamFlags2_8 : 1;
+
+	uint8_t field_298[43];
+	float m_fHintFOV;
+	uint8_t field_300[8];
+
+	// Cam Flags 3
+	uint8_t m_bCamFlags3_1 : 1;
+	uint8_t m_bTelescopeCam : 1;
+	uint8_t m_bReset : 1;
+	uint8_t m_bDisableControls : 1;
+	uint8_t m_bCamFlags3_5 : 1;
+	uint8_t m_bCamFlags3_6 : 1;
+	uint8_t m_bCamFlags3_7 : 1;
+	uint8_t m_bCamFlags3_8 : 1;
 
 	uint32_t field_338;
 	uint32_t field_342;
@@ -133,4 +147,3 @@ public:
 };
 
 VALIDATE_SIZE(CCam, 0x500);
-

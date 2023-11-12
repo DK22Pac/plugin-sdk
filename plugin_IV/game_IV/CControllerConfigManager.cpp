@@ -7,10 +7,4 @@
 #include "CControllerConfigManager.h"
 #include "Patch.h"
 
-static void* ControlsManagerAddr;
-CControllerConfigManager* ControlsManager = (CControllerConfigManager*)ControlsManagerAddr; // [4]
-
-template<>
-void plugin::InitPatterns<CControllerConfigManager>() {
-    ControlsManagerAddr = plugin::patch::GetPointer(plugin::GetPattern("B8 ? ? ? ? C3 B8 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC", 1));
-}
+CControllerConfigManager* ControlsManager = gpatternt(CControllerConfigManager, "B8 ? ? ? ? C3 B8 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC", 1); // [4]

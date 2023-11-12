@@ -70,6 +70,11 @@ public:
     void SetInitialVelocity(rage::Vector3 const& vel);
     void RemoveFromMovingList();
 
+public:
+    void GetVelocity(rage::Vector3* velocity) {
+        plugin::CallVirtualMethod<59>(this, velocity);
+    }
+
 };
 #pragma pack(pop)
 

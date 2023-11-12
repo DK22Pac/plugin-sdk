@@ -22,5 +22,3 @@
 #include "extensions/FontPrint.h"
 #include "comp/PluginsCompatibility.h"
 #include "common_sdk.h"
-
-#include "plugin.cpp"

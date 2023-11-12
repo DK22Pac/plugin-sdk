@@ -5,8 +5,3 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CAmmoData.h"
-
-template<>
-void plugin::InitPatterns<CAmmoData>() {
-
-}

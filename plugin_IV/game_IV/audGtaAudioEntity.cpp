@@ -5,8 +5,3 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "audGtaAudioEntity.h"
-
-template<>
-void plugin::InitPatterns<audGtaAudioEntity>() {
-
-}

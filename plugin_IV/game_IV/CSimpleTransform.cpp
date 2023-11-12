@@ -6,12 +6,7 @@
 */
 #include "CSimpleTransform.h"
 
-static uint32_t CSimpleTransform__UpdateMatrixAddr;
 void CSimpleTransform::UpdateMatrix(rage::Matrix44* matrix) {
-    plugin::CallMethodDyn(CSimpleTransform__UpdateMatrixAddr, this, matrix);
+    plugin::CallMethodDyn(gpattern("56 8B F1 57 8B 7C 24 0C F3 0F 10 46"), this, matrix);
 }
 
-template<>
-void plugin::InitPatterns<CSimpleTransform>() {
-    CSimpleTransform__UpdateMatrixAddr = plugin::GetPattern("56 8B F1 57 8B 7C 24 0C F3 0F 10 46", 0);
-}

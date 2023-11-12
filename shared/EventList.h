@@ -16,6 +16,8 @@
 #include <algorithm>
 #include <tuple>
 #include <functional>
+#include <string_view>
+#include "Pattern.h"
 
 namespace plugin {
 
@@ -226,7 +228,10 @@ public:
         EventAfter& operator-=(FnPtrType fn) { return Remove(fn); }
     } after;
 
-    BaseEvent(const char* prefix, std::function<void()> func) : before(*this), after(*this) {}
+    BaseEvent(std::vector<std::string_view> const& bytes) : before(*this), after(*this) {
+        for (auto& it : bytes)
+            SetRefAddr(plugin::pattern::Get(it, 0));
+    }
 
     BaseEvent() : before(*this), after(*this) {}
     BaseEvent(CallbackType const &cb) : before(*this), after(*this) { Add(cb); }

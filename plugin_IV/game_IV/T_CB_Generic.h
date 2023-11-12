@@ -34,7 +34,7 @@ public:
         this->arg = a;
     }
 
-    void DrawCommand() {
+    void DrawCommand() override {
         this->cb(this->arg);
     }
 

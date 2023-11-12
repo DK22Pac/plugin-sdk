@@ -6,7 +6,3 @@
 */
 #include "CTaskSimpleFireGun.h"
 
-template<>
-void plugin::InitPatterns<CTaskSimpleFireGun>() {
-
-}

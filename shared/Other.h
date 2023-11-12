@@ -26,6 +26,9 @@ namespace plugin {
     void InitRandom();
     unsigned int Random(unsigned int min, unsigned int max);
     float Random(float min, float max);
+    static uint32_t Random() {
+        return rand() & RAND_MAX;
+    }
 
     bool KeyPressed(unsigned int keyCode);
     bool IsPluginInstalled(const TCHAR *pluginName);

@@ -368,6 +368,14 @@ namespace rage {
             return Vector4(x * scalar, y * scalar, z * scalar, w * scalar);
         }
 
+        Vector4 operator+(float scalar) const {
+            return Vector4(x + scalar, y + scalar, z + scalar, w + scalar);
+        }
+
+        Vector4 operator-(float scalar) const {
+            return Vector4(x - scalar, y - scalar, z - scalar, w - scalar);
+        }
+
         friend Vector4 operator*(float scalar, const Vector4& vec) {
             Vector4 result;
 
@@ -945,5 +953,22 @@ namespace rage {
         void Set(uint16_t index, T* ptr) {
             data[index] = ptr;
         }
+    };
+
+    class phCollider {
+    public:
+        uint8_t field_100[268];
+        rage::Vector3 m_vVelocity;
+        
+    public:
+        virtual ~phCollider() {}
+    };
+
+    struct phConstrainedCollider {
+    public:
+        rage::phCollider parent;
+
+    public:
+
     };
 }

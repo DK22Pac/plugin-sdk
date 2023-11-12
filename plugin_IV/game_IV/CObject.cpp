@@ -6,7 +6,3 @@
 */
 #include "CObject.h"
 
-template<>
-void plugin::InitPatterns<CObject>() {
-
-}
