@@ -24,7 +24,7 @@ public:
                     snprintf(message, 256, "Position: %.2f %.2f %.2f Angle: %.2f Model: %d (%s)",
                         posn.x, posn.y, posn.z, angle, vehicle->m_nModelIndex,
                         reinterpret_cast<CVehicleModelInfo *>(
-                            CModelInfo::GetModelInfo(vehicle->m_nModelIndex))->m_szGameName);
+                            CModelInfo::ms_modelInfoPtrs[vehicle->m_nModelIndex])->m_szGameName);
 
                     #ifdef GTASA
                     CMessages::AddMessageJumpQ(message, 150, 0, false);
