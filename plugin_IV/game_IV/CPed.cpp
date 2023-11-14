@@ -34,6 +34,10 @@ void CPed::RemoveHelmet(bool arg1) {
     plugin::CallMethodDyn(gpattern("56 8B F1 E8 ? ? ? ? 84 C0 74 4E"), this, arg1);
 }
 
+bool CPed::CanStartMission() {
+    return plugin::CallMethodAndReturnDyn<bool>(gpattern("56 8B F1 E8 ? ? ? ? 84 C0 75 0D 8B CE E8 ? ? ? ? 84 C0 75 02 5E C3 B0 01 5E C3 CC CC CC F3 0F 10 44 24"), this);
+}
+
 CVehicle* CPed::GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2) {
     return plugin::CallAndReturnDyn<CVehicle*>(gpattern("55 8B EC 83 E4 F0 83 EC 78 56 8B 75 08 57 F7 86"), ped, &pos, arg2);
 }

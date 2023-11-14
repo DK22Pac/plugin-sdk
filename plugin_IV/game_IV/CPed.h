@@ -454,7 +454,10 @@ public:
     uint32_t m_nPedType;
     uint8_t field_338[10];
     uint8_t m_bHasBeenArrested;
-    uint8_t field_352[18];
+    uint32_t field_350;
+    int32_t m_nPedState;
+    int32_t m_nLastDamageBone;
+    uint8_t field_360[6];
     float m_fMaxHealth;
     uint8_t field_370[6];
     void* m_pPedMoveBlendOnFoot;
@@ -495,6 +498,7 @@ public:
     void SetArmour(float armour);
     void WarpIntoVehicle(CVehicle* veh, bool arg1);
     void RemoveHelmet(bool arg1);
+    bool CanStartMission();
 
 public:
     static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);
