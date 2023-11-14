@@ -6,10 +6,11 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "Rage.h"
+#include "audGtaAudioEntity.h"
 
-class audGtaAudioEntity : public rage::audEntity {
+class audAmbientAudioEntity : public audGtaAudioEntity {
 public:
 
 };
 
+extern audAmbientAudioEntity& AmbientAudioEntity;
