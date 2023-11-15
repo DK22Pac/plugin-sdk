@@ -364,38 +364,16 @@ public:
     uint32_t m_bPedFlags5_31 : 1;
 
     // Ped Flags 6
-    uint32_t m_bPedFlags6_1 : 1;
-    uint32_t m_bPedFlags6_2 : 1;
-    uint32_t m_bPedFlags6_3 : 1;
-    uint32_t m_bPedFlags6_4 : 1;
-    uint32_t m_bPedFlags6_5 : 1;
-    uint32_t m_bKilledByHeadshot : 1;
-    uint32_t m_bSteerAroundPeds : 1;
-    uint32_t m_bSteerAroundObject : 1;
-    uint32_t m_bPedFlags6_9 : 1;
-    uint32_t m_bPedFlags6_10 : 1;
-    uint32_t m_bPedFlags6_11 : 1;
-    uint32_t m_bPedFlags6_12 : 1;
-    uint32_t m_bPedFlags6_13 : 1;
-    uint32_t m_bPedFlags6_14 : 1;
-    uint32_t m_bPedFlags6_15 : 1;
-    uint32_t m_bPedFlags6_16 : 1;
-    uint32_t m_bPedFlags6_17 : 1;
-    uint32_t m_bPedFlags6_18 : 1;
-    uint32_t m_bPedFlags6_19 : 1;
-    uint32_t m_bPedFlags6_20 : 1;
-    uint32_t m_bPedFlags6_21 : 1;
-    uint32_t m_bPedFlags6_22 : 1;
-    uint32_t m_bPedFlags6_23 : 1;
-    uint32_t m_bPedFlags6_24 : 1;
-    uint32_t m_bPedFlags6_25 : 1;
-    uint32_t m_bPedFlags6_26 : 1;
-    uint32_t m_bPedFlags6_27 : 1;
-    uint32_t m_bPedFlags6_28 : 1;
-    uint32_t m_bPedFlags6_29 : 1;
-    uint32_t m_bPedFlags6_30 : 1;
-    uint32_t m_bPedFlags6_31 : 1;
+    uint8_t m_bPedFlags6_1 : 1;
+    uint8_t m_bPedFlags6_2 : 1;
+    uint8_t m_bPedFlags6_3 : 1;
+    uint8_t m_bPedFlags6_4 : 1;
+    uint8_t m_bPedFlags6_5 : 1;
+    uint8_t m_bKilledByHeadshot : 1;
+    uint8_t m_bSteerAroundPeds : 1;
+    uint8_t m_bSteerAroundObject : 1;
 
+    uint8_t field_77[3];
     float m_fClimbAnimRate;
     uint8_t field_32[32];
 
