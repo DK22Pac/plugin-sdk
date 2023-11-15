@@ -13,7 +13,6 @@ public:
     void ReportFrontendAudioEvent(const char* name);
     void StartLoadingTune();
     void StopLoadingTune(bool arg1);
-    bool ReportGenericAudioEvent(uint32_t hash, CAudAttr*, int32_t, int32_t, int32_t, int32_t);
     void TriggerMissionCompleteAudioEvent(int32_t index);
 };
 

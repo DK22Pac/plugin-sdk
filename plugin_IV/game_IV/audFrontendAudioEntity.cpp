@@ -20,10 +20,6 @@ void audFrontendAudioEntity::StopLoadingTune(bool arg1) {
     plugin::CallMethodDyn(gpattern("83 EC 48 53 56 8B F1 E8"), this, arg1);
 }
 
-bool audFrontendAudioEntity::ReportGenericAudioEvent(uint32_t hash, CAudAttr* attr, int32_t arg3, int32_t arg4, int32_t arg5, int32_t arg6) {
-    return plugin::CallMethodAndReturnDyn<bool>(gpattern("83 EC 48 53 56 8B F1 57"), this, hash, attr, arg3, arg4, arg5, arg6);
-}
-
 void audFrontendAudioEntity::TriggerMissionCompleteAudioEvent(int32_t index) {
     plugin::CallMethodDyn(gpattern("83 EC 44 A1 ? ? ? ? 33 C4 89 44 24 40 56 8B F1"), this, index);
 }
