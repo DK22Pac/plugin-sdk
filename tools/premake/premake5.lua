@@ -1,3 +1,4 @@
+require "codeblocks"
 newoption {
    trigger     = "pluginsdkdir",
    description = "Plugin-SDK directory (optional)"
