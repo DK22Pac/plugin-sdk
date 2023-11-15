@@ -18,5 +18,4 @@ public:
 };
 
 
-extern CVehicleFactoryNY** VehicleFactory;
-extern CVehicleFactoryNY* GetVehicleFactory();
+extern CVehicleFactoryNY*& VehicleFactory;

@@ -6,8 +6,4 @@
 */
 #include "CVehicleFactoryNY.h"
 
-CVehicleFactoryNY** VehicleFactory = gpatternt(CVehicleFactoryNY*, "8B 0D ? ? ? ? 6A 00 8B 01 8D 54 24 34 8B 40 04", 2);
-
-CVehicleFactoryNY* GetVehicleFactory() {
-    return *VehicleFactory;
-}
+CVehicleFactoryNY*& VehicleFactory = *gpatternt(CVehicleFactoryNY*, "8B 0D ? ? ? ? 6A 00 8B 01 8D 54 24 34 8B 40 04", 2);
