@@ -14,6 +14,10 @@ int32_t CTheScripts::GetScriptHash(int32_t index) {
     return plugin::CallAndReturnDyn<int32_t>(gpattern("8B 0D ? ? ? ? 8B 54 24 04 8B 41 04 F6 04 02 80 74 08 33 C0 8B 00"), index);
 }
 
-void CTheScripts::StartScript(int32_t scriptHash, int32_t arg2, int32_t arg3, int32_t arg4) {
-    plugin::CallDyn(gpattern("53 55 8B 6C 24 0C 56 85 ED"), scriptHash, arg2, arg3, arg4);
+int32_t CTheScripts::StartScript(int32_t scriptHash, int32_t arg2, int32_t arg3, int32_t arg4) {
+    return plugin::CallAndReturnDyn<int32_t>(gpattern("53 55 8B 6C 24 0C 56 85 ED"), scriptHash, arg2, arg3, arg4);
+}
+
+int32_t CTheScripts::StartScript(const char* scriptName, int32_t arg2, int32_t arg3, int32_t arg4) {
+    return plugin::CallAndReturnDyn<int32_t>(gpattern("56 8B 74 24 08 85 F6 74 12 8B C6"), scriptName, arg2, arg3, arg4);
 }
