@@ -7,7 +7,7 @@
 #include "CTxdStore.h"
 #include "Patch.h"
 
-CPool* CTxdStore::ms_pTxdPool = gpatternt(CPool, "A3 ? ? ? ? C3 C7 05 ? ? ? ? ? ? ? ? C3 56", 1);
+CPool*& CTxdStore::ms_pTxdPool = *gpatternt(CPool*, "A3 ? ? ? ? C3 C7 05 ? ? ? ? ? ? ? ? C3 56", 1);
 rage::pgDictionary<rage::grcTexturePC>* CTxdStore::ms_pStoredTxd = gpatternt(rage::pgDictionary<rage::grcTexturePC>, "8B 3D ? ? ? ? 85 FF 74 21", 2);
 
 int32_t CTxdStore::AddTxdSlot(const char* name) {

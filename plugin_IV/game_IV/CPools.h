@@ -17,10 +17,10 @@ class CVehicle;
 
 class CPools {
 public:
-    static CPool* ms_pObjectsPool;
-    static CPool* ms_pTaskPool;
-    static CPool* ms_pPedPool;
-    static CPool* ms_pCamPool;
-    static CPool* ms_pVehiclePool;
+    static CPool*& ms_pObjectsPool;
+    static CPool*& ms_pTaskPool;
+    static CPool*& ms_pPedPool;
+    static CPool*& ms_pCamPool;
+    static CPool*& ms_pVehiclePool;
 
 };

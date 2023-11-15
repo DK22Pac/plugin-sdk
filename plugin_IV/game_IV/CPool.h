@@ -36,6 +36,12 @@ public:
 
     void* New();
     void Delete(void* object);
-    void* GetAt();
-    int32_t GetIndex();
+    void* GetAt(int32_t handle);
+    int32_t GetIndex(void* object);
+
+public:
+    template<typename T>
+    T* GetAt(int32_t handle) {
+        return dynamic_cast<T*>(GetAt(handle));
+    }
 };

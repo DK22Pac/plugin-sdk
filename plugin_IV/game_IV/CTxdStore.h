@@ -18,7 +18,7 @@ struct TxdDef {
 
 class CTxdStore {
 public:
-    static CPool* ms_pTxdPool;
+    static CPool*& ms_pTxdPool;
     static rage::pgDictionary<rage::grcTexturePC>* ms_pStoredTxd;
 
 public:
