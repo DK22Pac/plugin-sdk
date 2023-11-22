@@ -16,11 +16,11 @@ void CSprite2d::Delete() {
     plugin::CallMethodDyn<CSprite2d*>(gpattern("83 EC 08 56 8B F1 68 ? ? ? ? 8D 4C 24 08 E8 ? ? ? ? 8B 0E"), this);
 }
 
-void CSprite2d::Push() {
+void CSprite2d::SetRenderState() {
     plugin::CallMethodDyn(gpattern("56 8B F1 8B 0D ? ? ? ? FF 36"), this);
 }
 
-void CSprite2d::Pop() {
+void CSprite2d::ClearRenderState() {
     plugin::CallDyn(gpattern("FF 35 ? ? ? ? 8B 0D ? ? ? ? FF 35 ? ? ? ? E8 ? ? ? ? FF 35 ? ? ? ? 8B 0D"));
 }
 

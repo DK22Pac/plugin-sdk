@@ -13,22 +13,22 @@ namespace rage {
     class grcTexture : pgBase {
     public:
         int8_t field_8;
-        int8_t depth;
+        int8_t field_9;
         int16_t field_A;
         int32_t field_C;
         int32_t field_10;
         char* textureName;
-        class IDirect3DTexture9* texture;
-        int16_t width;
-        int16_t height;
-        int32_t pixelFormat;
-        int16_t stride;
-        int8_t textureType;
-        int8_t levels;
+        void* m_pDirect3DTexture9;
+        int16_t m_Width;
+        int16_t m_Height;
+        int32_t m_Format;
+        int16_t m_nMipStride;
+        int8_t m_ImageType;
+        int8_t m_nMipCount;
 
     public:
         grcTexture() = delete;
-        virtual ~grcTexture() { plugin::CallVirtualMethod<0>(this, 1); }
+        virtual ~grcTexture() { plugin::CallVirtualMethod<0>(this, 0); }
     };
 
     VALIDATE_SIZE(grcTexture, 0x28);
@@ -48,9 +48,10 @@ namespace rage {
     public:
         grcTexturePC() = default;
 
-        int32_t getWidth() { return this->width; }
-        int32_t getHeight() { return this->height; }
-        const char* getName() { return this->textureName; }
+        int32_t GetWidth() { return plugin::CallVirtualMethodAndReturn<int32_t, 8>(this); }
+        int32_t GetHeight() { return plugin::CallVirtualMethodAndReturn<int32_t, 9>(this); }
+        int32_t GetMipMapCount() { return plugin::CallVirtualMethodAndReturn<int32_t, 11>(this); }
+
     };
 
     VALIDATE_SIZE(grcTexturePC, 0x50);

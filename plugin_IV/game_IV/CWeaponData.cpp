@@ -21,3 +21,7 @@ void CWeaponData::SetCurrentWeapon(int32_t arg1, int32_t slot, bool arg3, CPed* 
 int32_t CWeaponData::GetAmountOfAmmunition(int32_t weaponSlot) {
     return plugin::CallMethodAndReturnDyn<int32_t, CWeaponData*>(gpattern("53 56 57 8B D9 E8 ? ? ? ? 8B 74 24 10 8B F8"), this, weaponSlot);
 }
+
+void CWeaponData::GiveWeapon(eWeaponType weaponType, int32_t ammo, int8_t setAsCurrent, int8_t arg4, int8_t arg5) {
+    plugin::CallMethodDyn(gpattern("53 55 56 8B F1 8B 4C 24 10 57 51"), this, weaponType, ammo, setAsCurrent, arg4, arg5);
+}

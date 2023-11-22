@@ -6,10 +6,16 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CVehicle.h"
 
-class CVehicleFactory {
-public:
-    virtual ~CVehicleFactory() { plugin::CallVirtualMethod<0>(this, 0); }
+namespace rage {
+    template<typename T>
+    class pgRef {
+    public:
+        T* ptr;
 
-};
+    public:
+        T* operator->() {
+            return this->ptr;
+        }
+    };
+}

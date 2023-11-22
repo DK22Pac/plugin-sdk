@@ -10,7 +10,7 @@ CDrawRadarCircleDC::CDrawRadarCircleDC(rage::Vector2 const& pos, rage::Vector2 c
     plugin::CallMethodDyn(gpattern("8B D1 8B 4C 24 04 8B 42 04 C7 02 ? ? ? ? 33 05 ? ? ? ? 25 ? ? ? ? 31 42 04 FF 05 ? ? ? ? C7 02 ? ? ? ? C7 42 ? ? ? ? ? 8B 01 89 42 08 8B 41 04 8B 4C 24 08 89 42 0C 8B 01 89 42 10 8B 41 04 89 42 14 8B 44 24 0C 89 42 18 8B C2 C2 0C 00 CC CC CC CC CC CC CC CC CC CC 8B D1"), this, &pos, &scale, col);
 }
 
-void CDrawRadarCircleDC::DrawCommand() {
+void CDrawRadarCircleDC::Execute() {
     plugin::CallMethodDyn(gpattern("51 8D 41 18"), this);
 }
 

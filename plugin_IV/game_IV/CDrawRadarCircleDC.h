@@ -19,7 +19,7 @@ public:
 public:
     CDrawRadarCircleDC(rage::Vector2 const& pos, rage::Vector2 const& scale, rage::Color32 const& col);
 
-    virtual void DrawCommand() override;
+    virtual void Execute() override;
     virtual int32_t GetSize() override;
 };
 

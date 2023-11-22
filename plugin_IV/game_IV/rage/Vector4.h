@@ -11,15 +11,13 @@
 namespace rage {
     class Vector4 {
     public:
-        union { float x, left; };
-        union { float y, top; };
-        union { float z, right; };
-        union { float w, bottom; };
+        float x, y, z, w;
 
     public:
         Vector4() = default;
         Vector4(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
         Vector4(const Vector3& other) : x(other.x), y(other.y), z(other.z), w(0.0f) {}
+
         operator Vector3() const {
             return Vector3(x, y, z);
         }

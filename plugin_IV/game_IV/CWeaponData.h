@@ -50,6 +50,7 @@ public:
     CAmmoData* CWeaponData::GetAmmoDataExtraCheck();
     void SetCurrentWeapon(int32_t arg1, int32_t slot, bool arg3, CPed* ped);
     int32_t GetAmountOfAmmunition(int32_t weaponSlot);
+    void GiveWeapon(eWeaponType weaponType, int32_t ammo, int8_t setAsCurrent, int8_t arg4, int8_t arg5);
 };
 
 VALIDATE_SIZE(CWeaponData, 0x100);

@@ -14,3 +14,15 @@ void CPhysical::RemoveFromMovingList() {
     plugin::CallMethodDyn(gpattern("56 8B F1 8B 56 74"), this);
 }
 
+void CPhysical::ApplyMoveForce(rage::Vector3 const& vel) {
+    plugin::CallMethodDyn(gpattern("56 8B F1 8B 46 38 85 C0 74 38 0F B7 50 08 A1 ? ? ? ? 8B 40 70 8B 44 D0 04 24 03 3C 01 75 05 E8 ? ? ? ? 8B CE E8 ? ? ? ? 85 C0 74 12 8B CE E8 ? ? ? ? 8B 10 5E 8B C8 FF A2 88 00 00 00"), this, &vel);
+}
+
+void CPhysical::ApplyForce(rage::Vector3 const& dir, rage::Vector3 const& vel, int32_t flag) {
+    plugin::CallMethodDyn(gpattern("55 8B EC 83 E4 F0 83 EC 1C 56 8B F1 8B 46 38 85 C0 0F 84 ? ? ? ? 0F B7 50 08 A1 ? ? ? ? 8B 40 70 8B 44 D0 04 24 03 3C 01 75 05 E8 ? ? ? ? 8B CE E8 ? ? ? ? 85 C0 74 5E"), this, &dir, &vel, flag);
+}
+
+rage::phConstrainedCollider* CPhysical::GetCollider() {
+    return plugin::CallMethodAndReturnDyn<rage::phConstrainedCollider*>(gpattern("8B 41 38 85 C0 74 38 0F B7 40 08 B9 ? ? ? ? 66 3B C1 74 2A 8B C8 A1"), this);
+}
+

@@ -477,6 +477,7 @@ public:
     void WarpIntoVehicle(CVehicle* veh, bool arg1);
     void RemoveHelmet(bool arg1);
     bool CanStartMission();
+    void SetRelationship(int32_t level, int32_t group);
 
 public:
     static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);

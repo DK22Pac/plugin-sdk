@@ -111,7 +111,7 @@ namespace plugin {
     }
 
     static float GetTimeStepFix() {
-#ifdef RW
+#if defined(RW) || defined(RAGE)
         return CTimer::ms_fTimeStep / (50.0f / 30.0f);
 #else
         return 1.0f / (50.0f / 30.0f);

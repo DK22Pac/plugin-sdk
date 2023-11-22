@@ -8,4 +8,4 @@
 #include "PluginBase.h"
 #include "Rage.h"
 
-using CRect = rage::Vector4;
+using CRect = rage::fwRect;

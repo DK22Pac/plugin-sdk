@@ -9,7 +9,6 @@
 #include "Rage.h"
 #include "CBaseDC.h"
 
-
 class T_CB_Generic_NoArgs : public CBaseDC {
 public:
     void (*cb)();
@@ -17,7 +16,7 @@ public:
 public:
     T_CB_Generic_NoArgs(void (*c)());
 
-    virtual void DrawCommand() override;
+    virtual void Execute() override;
 };
 
 using T_CB_Generic = T_CB_Generic_NoArgs;
@@ -34,7 +33,7 @@ public:
         this->arg = a;
     }
 
-    void DrawCommand() override {
+    void Execute() override {
         this->cb(this->arg);
     }
 
@@ -57,7 +56,7 @@ public:
         this->arg2 = a2;
     }
 
-    void DrawCommand() override {
+    void Execute() override {
         this->cb(this->arg1, this->arg2);
     }
 
@@ -82,7 +81,7 @@ public:
         this->arg3 = a3;
     }
 
-    void DrawCommand() override {
+    void Execute() override {
         this->cb(this->arg1, this->arg2, this->arg3);
     }
 
@@ -109,7 +108,7 @@ public:
         this->arg4 = a4;
     }
 
-    void DrawCommand() override {
+    void Execute() override {
         this->cb(this->arg1, this->arg2, this->arg3, this->arg4);
     }
 
@@ -138,7 +137,7 @@ public:
         this->arg5 = a5;
     }
 
-    void DrawCommand() override {
+    void Execute() override {
         this->cb(this->arg1, this->arg2, this->arg3, this->arg4, this->arg5);
     }
 
@@ -169,7 +168,7 @@ public:
         this->arg6 = a6;
     }
 
-    void DrawCommand() override {
+    void Execute() override {
         this->cb(this->arg1, this->arg2, this->arg3, this->arg4, this->arg5, this->arg6);
     }
 

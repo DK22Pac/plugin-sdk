@@ -6,16 +6,9 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CBaseDC.h"
-#include "Rage.h"
+#include "CPed.h"
 
-class CDrawRectDC : public CBaseDC {
+class CPedFactory {
 public:
-    rage::Vector4 m_rect;
-    rage::Color32 m_col;
-
-public:
-    CDrawRectDC(rage::Vector4 const& rect, rage::Color32 const& col);
+    virtual ~CPedFactory() { plugin::CallVirtualMethod<0>(this, 0); }
 };
-
-VALIDATE_SIZE(CDrawRectDC, 0x1C);

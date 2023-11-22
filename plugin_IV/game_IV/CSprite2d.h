@@ -10,12 +10,12 @@
 
 class CSprite2d {
 public:
-    rage::grcTexturePC* m_pTexture;
+    rage::pgRef<rage::grcTexturePC> m_pTexture;
 
 public:
     void SetTexture(const char* name);
     void Delete();
-    void Push();
+    void SetRenderState();
 
 public:
     CSprite2d() = default;
@@ -23,11 +23,7 @@ public:
         Delete();
     }
 
-    explicit operator bool() const {
-        return this && m_pTexture;
-    }
-
-    static void Pop();
+    static void ClearRenderState();
     static void Draw(rage::Vector2 const& leftBottom, rage::Vector2 const& leftTop, rage::Vector2 const& rightBottom, rage::Vector2 const& rightTop, rage::Color32 const& col);
     static void Draw(rage::Vector4 const& rect, float z, rage::Vector4 const& uv, rage::Color32 const& color, int subShader = 0);
     static void Draw(rage::Vector4 const& rect, rage::Color32 const& color);

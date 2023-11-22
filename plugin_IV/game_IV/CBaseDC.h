@@ -11,20 +11,20 @@
 
 class CBaseDC {
 public:
-    static int32_t& TotalDrawCommands;
+    static int32_t& m_currCommandIdx;
 
 public:
     uint32_t field_1;
 
 public:
     void* operator new(std::size_t size);
-    static void Append(CBaseDC* dc);
+    static void InitStatic(CBaseDC* dc);
 
 public:
-    void Append();
+    void Init();
 
     virtual ~CBaseDC() { plugin::CallVirtualMethod<0, CBaseDC*, uint8_t>(this, 0); }
-    virtual void DrawCommand() { plugin::CallVirtualMethod<1>(this); }
+    virtual void Execute() { plugin::CallVirtualMethod<1>(this); }
     virtual int32_t GetSize() { return plugin::CallVirtualMethodAndReturn<int32_t, 2>(this); }
     virtual void m_3() { plugin::CallVirtualMethod<3>(this); }
     virtual void m_4() { plugin::CallVirtualMethod<4>(this); }
