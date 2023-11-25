@@ -108,7 +108,7 @@ public:
     static bool HasCutsceneFinished();
     static void HideRequestedObjects();
     static void Initialise();
-    static void IsCutsceneSkipButtonBeingPressed();
+    static bool IsCutsceneSkipButtonBeingPressed();
     static void LoadAnimationUncompressed(char const* animName);
     static void LoadCutsceneData(char const* cutsceneName);
     static void LoadCutsceneData_loading();

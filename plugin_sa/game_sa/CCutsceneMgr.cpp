@@ -130,7 +130,7 @@ void CCutsceneMgr::Initialise() {
 }
 
 // Converted from cdecl void CCutsceneMgr::IsCutsceneSkipButtonBeingPressed(void) 0x4D5D10
-void CCutsceneMgr::IsCutsceneSkipButtonBeingPressed() {
+bool CCutsceneMgr::IsCutsceneSkipButtonBeingPressed() {
     plugin::Call<0x4D5D10>();
 }
 
