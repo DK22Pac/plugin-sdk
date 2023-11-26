@@ -8,6 +8,7 @@
 #include <string>
 #include <locale>
 #include <codecvt>
+#include <sys/stat.h>
 
 #include <windows.h>
 
