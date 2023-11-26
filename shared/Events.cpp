@@ -389,7 +389,9 @@ namespace plugin {
 #ifdef GTAIV
         static CdeclEvent <AddressList<0x5C12AD, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(const char*)> initGameEvent({ "E8 ? ? ? ? 83 C4 04 E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8" });
         static CdeclEvent <AddressList<0x5C2B7A, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> gameProcessEvent({ "E8 ? ? ? ? 80 3D ? ? ? ? ? 74 09 C6 05" });
-        static CdeclEvent <AddressList<0x5A9107, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> drawMenuEvent({ "E8 ? ? ? ? 80 3D ? ? ? ? ? 74 23 A1 ? ? ? ? 83 F8 22" });
+        static CdeclEvent <AddressList<0x5E15BD, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t(uint32_t*)> drawMenuEvent({ "E8 ? ? ? ? 6A 00 6A 0C E8 ? ? ? ? 83 C4 0C 85 C0 74 30" });
+        static CdeclEvent <AddressList<0x5A6FC1, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> menuProcessEvent({ "E8 ? ? ? ? 80 3D ? ? ? ? ? 74 28 E8 ? ? ? ? 84 C0" });
+
         static CdeclEvent <AddressList<0xB01893, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> drawingEvent({ "E8 ? ? ? ? E8 ? ? ? ? 83 3D ? ? ? ? ? 74 6B" });
         static CdeclEvent <AddressList<0x8FEA20, H_CALL>, PRIORITY_AFTER, ArgPickNone, int32_t(int32_t)> drawHudEvent({ "E8 ? ? ? ? 83 C4 04 83 F8 FD" });
         static CdeclEvent <AddressList<0xE4DFEC, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawRadarEvent({ "E8 ? ? ? ? E8 ? ? ? ? 6A 00 6A 14" });

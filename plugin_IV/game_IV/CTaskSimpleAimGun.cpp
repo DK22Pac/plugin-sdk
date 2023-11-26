@@ -6,7 +6,6 @@
 */
 #include "CTaskSimpleAimGun.h"
 
-CEntity* CTaskSimpleAimGun::GetAt(bool arg1, bool arg2) {
-    return plugin::CallMethodAndReturnDyn<CEntity*, CTaskSimpleAimGun*>(gpattern("8B 54 24 04 85 D2 74 05"), this, arg1, arg2);
+CEntity* CTaskSimpleAimGun::GetAt(void* out, bool arg2) {
+    return plugin::CallMethodAndReturnDyn<CEntity*, CTaskSimpleAimGun*>(gpattern("8B 54 24 04 85 D2 74 05"), this, out, arg2);
 }
-

@@ -207,8 +207,8 @@ enum eControllerType {
 struct CControllerAction {
 public:
 	uint8_t field_1[2];
-	uint8_t m_nNewState;
-	uint8_t m_nOldState;
+	int8_t m_nNewState;
+	int8_t m_nOldState;
 	uint32_t m_nIndex;
 	int32_t* field_9;
 
@@ -222,14 +222,18 @@ VALIDATE_SIZE(CControllerAction, 0x10);
 
 class CControllerConfigManager {
 public:
-	uint8_t field_1[9880];
-	CControllerAction m_actions[187];
-	uint8_t field_9881[2084];
-	int32_t timeInMilliseconds;
-	int8_t field_9886[20];
+	static int32_t& m_UsingMouse;
 
 public:
+	uint8_t field_9880[9880];
+	CControllerAction m_actions[187];
+	uint8_t field_2084[70];
+	uint8_t field_2086[2013];
+	int32_t timeInMilliseconds;
+	int8_t field_16000[20];
 
+public:
+	void Clear(int32_t arg1);
 };
 
 VALIDATE_SIZE(CControllerConfigManager, 0x3A84);

@@ -19,8 +19,6 @@ public:
     virtual void Execute() override;
 };
 
-using T_CB_Generic = T_CB_Generic_NoArgs;
-
 template<typename T>
 class T_CB_Generic_1Arg : public CBaseDC {
 public:

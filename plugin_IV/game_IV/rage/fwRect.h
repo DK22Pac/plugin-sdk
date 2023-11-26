@@ -14,8 +14,9 @@ namespace rage {
         float top;
         float right;
         float bottom;
+
     public:
-        fwRect() = default;
+        fwRect() : left(1000000.0f), top(-1000000.0f), right(-1000000.0f), bottom(1000000.0f) {}
         fwRect(float left, float top, float right, float bottom) : left(left), top(top), right(right), bottom(bottom) {}
     };
 }

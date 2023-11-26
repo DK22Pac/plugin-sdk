@@ -25,4 +25,3 @@ void CPhysical::ApplyForce(rage::Vector3 const& dir, rage::Vector3 const& vel, i
 rage::phConstrainedCollider* CPhysical::GetCollider() {
     return plugin::CallMethodAndReturnDyn<rage::phConstrainedCollider*>(gpattern("8B 41 38 85 C0 74 38 0F B7 40 08 B9 ? ? ? ? 66 3B C1 74 2A 8B C8 A1"), this);
 }
-

@@ -21,6 +21,6 @@ public:
     uint8_t field_256[194];
 
 public:
-    CEntity* GetAt(bool arg1, bool arg2);
+    CEntity* GetAt(void* out, bool arg2);
 };
 

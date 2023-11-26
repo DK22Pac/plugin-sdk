@@ -21,8 +21,8 @@ public:
 
 class CPedFactoryNY : CPedFactory {
 public:
-    CPed* CreatePed(CControlledByInfo const* factoryData, int32_t modelIndex, rage::Matrix44* matrix, bool arg4, bool arg5) {
-        return plugin::CallVirtualMethodAndReturn<CPed*, 5>(this, factoryData, modelIndex, matrix, arg4, arg5);
+    CPed* CreatePed(CControlledByInfo const* info, int32_t modelIndex, rage::Matrix44* matrix, bool arg4, bool arg5) {
+        return plugin::CallVirtualMethodAndReturn<CPed*, 5>(this, info, modelIndex, matrix, arg4, arg5);
     }
 };
 

@@ -28,11 +28,11 @@ void CSprite2d::Draw(rage::Vector2 const& leftBottom, rage::Vector2 const& leftT
     plugin::CallDyn(gpattern("56 6A 04 6A 04 E8 ? ? ? ? 8B 74 24 20"), &leftBottom, &leftTop, &rightBottom, &rightTop, &color);
 }
 
-void CSprite2d::Draw(rage::Vector4 const& rect, float z, rage::Vector4 const& uv, rage::Color32 const& color, int subShader) {
+void CSprite2d::Draw(rage::fwRect const& rect, float z, rage::fwRect const& uv, rage::Color32 const& color, int subShader) {
     plugin::CallDyn(gpattern("56 6A 00 6A 00 E8 ? ? ? ? 6A 00 E8 ? ? ? ? 8B 0D ? ? ? ? 83 C4 0C FF 35 ? ? ? ? 6A 00 6A 02 E8 ? ? ? ? FF 74 24 30"), rect, z, uv, &color, subShader);
 }
 
-void CSprite2d::Draw(rage::Vector4 const& rect, rage::Color32 const& color) {
+void CSprite2d::Draw(rage::fwRect const& rect, rage::Color32 const& color) {
     plugin::CallDyn(gpattern("8B 44 24 04 6A 00 FF 74 24 0C"), &rect, &color);
 }
 
@@ -44,15 +44,15 @@ void CSprite2d::Draw(rage::Vector3 const& pos1, rage::Vector3 const& pos2, rage:
     plugin::CallDyn(gpattern("56 6A 04 6A 05"), &pos1, &pos2, &pos3, &pos4, &color);
 }
 
-void CSprite2d::Draw(rage::Vector4 const& rect, rage::Vector4 const& uv, rage::Color32 const& color) {
+void CSprite2d::Draw(rage::fwRect const& rect, rage::fwRect const& uv, rage::Color32 const& color) {
     plugin::CallDyn(gpattern("8B 44 24 08 6A 00 FF 74 24 10"), &rect, &uv, &color);
 }
 
-void CSprite2d::DrawRect(rage::Vector4 const& rect, rage::Color32 const& col) {
+void CSprite2d::DrawRect(rage::fwRect const& rect, rage::Color32 const& col) {
     plugin::CallDyn(gpattern("6A 00 E8 ? ? ? ? 8B 44 24 08 83 C4 04"), &rect, &col);
 }
 
-void CSprite2d::DrawRect(rage::Vector4 const& rect, float z, rage::Color32 const& col) {
+void CSprite2d::DrawRect(rage::fwRect const& rect, float z, rage::Color32 const& col) {
     plugin::CallDyn(gpattern("56 6A 00 6A 00 E8 ? ? ? ? 6A 00 E8 ? ? ? ? 8B 0D ? ? ? ? 83 C4 0C FF 35 ? ? ? ? 6A 00 6A 02 E8 ? ? ? ? 8B 0D"), rect, z, &col);
 }
 

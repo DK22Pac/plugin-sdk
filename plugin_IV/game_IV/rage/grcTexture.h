@@ -17,7 +17,7 @@ namespace rage {
         int16_t field_A;
         int32_t field_C;
         int32_t field_10;
-        char* textureName;
+        char* m_Name;
         void* m_pDirect3DTexture9;
         int16_t m_Width;
         int16_t m_Height;

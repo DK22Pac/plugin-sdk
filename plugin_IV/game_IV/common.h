@@ -11,13 +11,13 @@
 
 class common;
 
-enum eGameEpisode : uint32_t {
+enum eGameEpisode : int32_t {
     EPISODE_IV,
     EPISODE_TLAD,
     EPISODE_TBOGT,
 };
 
-extern eGameEpisode& gGameEpisode;
+extern int32_t& gGameEpisode;
 
 extern CPlayerPed* FindPlayerPed(int32_t id);
 extern CVehicle* FindPlayerVehicle(int32_t id);

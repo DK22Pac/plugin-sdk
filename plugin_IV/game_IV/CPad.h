@@ -33,26 +33,26 @@ enum eGamePadButtons {
 
 class CControllerState {
 public:
-    uint32_t LeftStickX;
-    uint32_t LeftStickY;
-    uint32_t RightStickX;
-    uint32_t RightStickY;
-    uint32_t LeftShoulder1;
-    uint32_t LeftShoulder2;
-    uint32_t ShockButtonL;
-    uint32_t RightShoulder1;
-    uint32_t RightShoulder2;
-    uint32_t ShockButtonR;
-    uint32_t ButtonSquare;
-    uint32_t ButtonTriangle;
-    uint32_t ButtonCross;
-    uint32_t ButtonCircle;
-    uint32_t DPadUp;
-    uint32_t DPadDown;
-    uint32_t DPadLeft;
-    uint32_t DPadRight;
-    uint32_t Start;
-    uint32_t Select;
+    int32_t LeftStickX;
+    int32_t LeftStickY;
+    int32_t RightStickX;
+    int32_t RightStickY;
+    int32_t LeftShoulder1;
+    int32_t LeftShoulder2;
+    int32_t ShockButtonL;
+    int32_t RightShoulder1;
+    int32_t RightShoulder2;
+    int32_t ShockButtonR;
+    int32_t ButtonSquare;
+    int32_t ButtonTriangle;
+    int32_t ButtonCross;
+    int32_t ButtonCircle;
+    int32_t DPadUp;
+    int32_t DPadDown;
+    int32_t DPadLeft;
+    int32_t DPadRight;
+    int32_t Start;
+    int32_t Select;
 
 public:
     void Clear();
