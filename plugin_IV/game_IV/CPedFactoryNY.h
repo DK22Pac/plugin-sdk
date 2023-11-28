@@ -20,10 +20,17 @@ public:
 };
 
 class CPedFactoryNY : CPedFactory {
+private:
+    static CPedFactoryNY*& ms_pInstance;
+
 public:
     CPed* CreatePed(CControlledByInfo const* info, int32_t modelIndex, rage::Matrix44* matrix, bool arg4, bool arg5) {
         return plugin::CallVirtualMethodAndReturn<CPed*, 5>(this, info, modelIndex, matrix, arg4, arg5);
     }
+
+public:
+    static CPedFactoryNY* GetInstance() {
+        return ms_pInstance;
+    }
 };
 
-extern CPedFactoryNY*& PedFactory;

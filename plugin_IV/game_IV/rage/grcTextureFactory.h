@@ -23,6 +23,9 @@ namespace rage {
     };
 
     class grcTextureFactoryPC : public grcTextureFactory {
+    private:
+        static grcTextureFactoryPC*& ms_pInstance;
+
     public:
         uint8_t field_1;
         uint8_t field_3[3];
@@ -56,7 +59,10 @@ namespace rage {
         grcTexturePC* CreateTexture(uint16_t width, uint16_t height, uint32_t format, uint32_t arg4, uint32_t arg5) {
             return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 0>(width, height, format, arg4, arg5);
         }
-    };
 
-    extern grcTextureFactoryPC* textureFactoryPC;
+    public:
+        static grcTextureFactoryPC* GetInstance() {
+            return ms_pInstance;
+        }
+    };
 }

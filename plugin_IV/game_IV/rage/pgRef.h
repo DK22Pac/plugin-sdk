@@ -10,11 +10,22 @@
 namespace rage {
     template<typename T>
     class pgRef {
-    public:
+    private:
         T* ptr;
 
     public:
-        T* operator->() {
+        pgRef() : ptr(nullptr) {}
+
+        pgRef& operator=(T* other) {
+            this->ptr = other;
+            return *this;
+        }
+
+        explicit operator bool() const {
+            return this->ptr != nullptr;
+        }
+
+        const T* Get() {
             return this->ptr;
         }
     };

@@ -14,6 +14,7 @@
 #include "rage/grcDrawMode.h"
 #include "rage/grcTexture.h"
 #include "rage/grcTextureFactory.h"
+#include "rage/CPostFX.h"
 
 // Math
 #include "rage/Math.h"
@@ -29,6 +30,7 @@
 // Misc
 #include "rage/pgRef.h"
 #include "rage/pgDictionary.h"
+#include "rage/atArray.h"
 
 // Physics
 #include "rage/phConstrainedCollider.h"

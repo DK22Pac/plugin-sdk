@@ -4,6 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CVehicleFactoryNY.h"
+#include "CPostFX.h"
 
-CVehicleFactoryNY*& CVehicleFactoryNY::ms_pInstance = *gpatternt(CVehicleFactoryNY*, "8B 0D ? ? ? ? 6A 00 8B 01 8D 54 24 34 8B 40 04", 2);
+rage::CPostFX*& rage::CPostFX::ms_pInstance = *gpatternt(rage::CPostFX*, "A3 ? ? ? ? C3 C7 05 ? ? ? ? ? ? ? ? C3 CC CC CC CC CC CC CC 83 EC 20", 1);
+
