@@ -5,6 +5,10 @@
  * regarding licensing.
  */
 
+#ifndef _MSC_VER
+#warning  SEH exceptions are supported only with MSVC
+#endif
+
 #include "Hooking.Patterns.h"
 
 #define WIN32_LEAN_AND_MEAN
@@ -254,8 +258,10 @@ void basic_pattern_impl::EnsureMatches(uint32_t maxCount)
 		}
 	}
 
+	#ifdef _MSC_VER
 	__try
 	{
+	#endif
 		for (uintptr_t i = executable.begin(), end = executable.end() - maskSize; i <= end;)
 		{
 			uint8_t* ptr = reinterpret_cast<uint8_t*>(i);
@@ -275,10 +281,12 @@ void basic_pattern_impl::EnsureMatches(uint32_t maxCount)
 			}
 			else i += std::max(ptrdiff_t(1), j - Last[ptr[j]]);
 		}
+	#ifdef _MSC_VER
 	}
 	__except ((GetExceptionCode() == EXCEPTION_ACCESS_VIOLATION) ? EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH)
 	{
 	}
+	#endif
 
 	m_matched = true;
 }
