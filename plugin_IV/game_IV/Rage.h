@@ -30,7 +30,6 @@
 // Misc
 #include "rage/pgRef.h"
 #include "rage/pgDictionary.h"
-#include "rage/atArray.h"
 
 // Physics
 #include "rage/phConstrainedCollider.h"
