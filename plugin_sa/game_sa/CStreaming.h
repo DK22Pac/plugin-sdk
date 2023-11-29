@@ -134,6 +134,7 @@ public:
     //! return modelIndex
     SUPPORTED_10US static int GetNextFileOnCd(int pos, bool bNotPriority);
     SUPPORTED_10US static bool HasSpecialCharLoaded(int slot);
+    SUPPORTED_10US static bool HasModelLoaded(int32_t id) { return ms_aInfoForModel[id].m_nLoadState == LOADSTATE_LOADED; }
     SUPPORTED_10US static bool HasVehicleUpgradeLoaded(int ModelIndex);
     //! does nothing (NOP)
     SUPPORTED_10US static void IHaveUsedStreamingMemory();
