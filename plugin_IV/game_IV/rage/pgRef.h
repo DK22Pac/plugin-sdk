@@ -25,7 +25,7 @@ namespace rage {
             return this->ptr != nullptr;
         }
 
-        const T* Get() {
+        T* Get() const {
             return this->ptr;
         }
     };
