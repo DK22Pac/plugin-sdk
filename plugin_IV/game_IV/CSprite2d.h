@@ -19,9 +19,6 @@ public:
 
 public:
     CSprite2d() = default;
-    ~CSprite2d() {
-        Delete();
-    }
 
     static void ClearRenderState();
     static void Draw(rage::Vector2 const& leftBottom, rage::Vector2 const& leftTop, rage::Vector2 const& rightBottom, rage::Vector2 const& rightTop, rage::Color32 const& col);
