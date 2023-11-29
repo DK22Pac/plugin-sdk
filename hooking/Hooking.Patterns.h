@@ -11,6 +11,7 @@
 #include <vector>
 #include <string_view>
 #include <string>
+#include <cstdint>
 
 #if defined(_CPPUNWIND) && !defined(PATTERNS_SUPPRESS_EXCEPTIONS)
 #define PATTERNS_ENABLE_EXCEPTIONS
