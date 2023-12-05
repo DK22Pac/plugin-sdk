@@ -6,9 +6,13 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "Rage.h"
+#include "audWaveSlot.h"
 
-class CRadioHud {
-public:
+namespace rage {
+    class audSound {
+    public:
 
-};
+    public:
+        void PrepareAndPlay(audWaveSlot* slot, bool allowLoad, int32_t timeLimit);
+    };
+}

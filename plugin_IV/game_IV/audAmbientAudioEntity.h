@@ -13,4 +13,4 @@ public:
 
 };
 
-extern audAmbientAudioEntity& AmbientAudioEntity;
+extern audAmbientAudioEntity& g_AmbientAudioEntity;

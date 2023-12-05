@@ -6,11 +6,10 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "Rage.h"
 
-class audEngine {
+class audNorthAudioEngine {
 public:
-    void RequestNewSound(int32_t time);
-};
+    static rage::audController*& ms_AudioController;
 
-extern audEngine** AudioEngine;
-extern int32_t& AudioEngineTimeInMilliseconds;
+};

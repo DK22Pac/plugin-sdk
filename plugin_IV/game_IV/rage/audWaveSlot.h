@@ -6,9 +6,12 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "Rage.h"
 
-class CRadioHud {
-public:
+namespace rage {
+    class audWaveSlot {
+    public:
 
-};
+    public:
+        static audWaveSlot* FindWaveSlot(const char* name);
+    };
+}

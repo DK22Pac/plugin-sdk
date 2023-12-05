@@ -48,7 +48,9 @@ public:
     uint8_t m_nColor2;
     uint8_t m_nColor3;
     uint8_t m_nColor4;
-    uint8_t field_156[2842];
+    uint8_t field_146[2701];
+    uint8_t m_ForcePlayerStation;
+    uint8_t field_156[140];
     tHandlingData* m_pHandlingData;
     uint32_t m_nHandlingFlags;
     uint8_t field_157[67];

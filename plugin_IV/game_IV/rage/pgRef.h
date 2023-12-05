@@ -6,15 +6,17 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "grcTexture.h"
 
 namespace rage {
     template<typename T>
     class pgRef {
-    private:
+    public:
         T* ptr;
 
     public:
         pgRef() : ptr(nullptr) {}
+        pgRef(T* p) : ptr(p) {}
 
         pgRef& operator=(T* other) {
             this->ptr = other;
@@ -25,8 +27,9 @@ namespace rage {
             return this->ptr != nullptr;
         }
 
-        T* Get() const {
+        T* Get() {
             return this->ptr;
         }
     };
 }
+

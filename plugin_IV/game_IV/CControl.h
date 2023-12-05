@@ -6,6 +6,7 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "Rage.h"
 
 enum eControllerAction {
 	INPUT_NEXT_CAMERA,
@@ -207,8 +208,8 @@ enum eControllerType {
 struct CControllerAction {
 public:
 	uint8_t field_1[2];
-	int8_t m_nNewState;
-	int8_t m_nOldState;
+	uint8_t m_nNewState;
+	uint8_t m_nOldState;
 	uint32_t m_nIndex;
 	int32_t* field_9;
 
@@ -219,13 +220,12 @@ public:
 
 VALIDATE_SIZE(CControllerAction, 0x10);
 
-
-class CControllerConfigManager {
+class CControl : rage::datBase {
 public:
 	static int32_t& m_UsingMouse;
 
 public:
-	uint8_t field_9880[9880];
+	uint8_t field_9880[9876];
 	CControllerAction m_actions[187];
 	uint8_t field_2084[70];
 	uint8_t field_2086[2013];
@@ -236,7 +236,7 @@ public:
 	void Clear(int32_t arg1);
 };
 
-VALIDATE_SIZE(CControllerConfigManager, 0x3A84);
+VALIDATE_SIZE(CControl, 0x3A84);
 
-extern CControllerConfigManager* ControlsManager;
+extern CControl* ControlsManager;
 

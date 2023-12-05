@@ -6,7 +6,7 @@
 */
 #include "audFrontendAudioEntity.h"
 
-audFrontendAudioEntity& FrontendAudioEntity = *gpatternt(audFrontendAudioEntity, "B9 ? ? ? ? E8 ? ? ? ? 8D 44 24 38", 1);
+audFrontendAudioEntity& g_FrontendAudioEntity = *gpatternt(audFrontendAudioEntity, "B9 ? ? ? ? E8 ? ? ? ? 8D 44 24 38", 1);
 
 void audFrontendAudioEntity::ReportFrontendAudioEvent(const char* name) {
     plugin::CallMethodDyn(gpattern("83 EC 48 56 8B F1 8D 4C 24 04 E8 ? ? ? ? 80 4C 24"), this, name);
@@ -23,4 +23,3 @@ void audFrontendAudioEntity::StopLoadingTune(bool arg1) {
 void audFrontendAudioEntity::TriggerMissionCompleteAudioEvent(int32_t index) {
     plugin::CallMethodDyn(gpattern("83 EC 44 A1 ? ? ? ? 33 C4 89 44 24 40 56 8B F1"), this, index);
 }
-

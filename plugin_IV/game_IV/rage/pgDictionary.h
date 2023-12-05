@@ -13,14 +13,14 @@ namespace rage {
     template <typename T>
     class pgDictionary : public pgBase {
     public:
-        pgDictionary<T>* parentDict;
-        uint32_t count;
-        sysArray<uint32_t> hashes;
-        sysArray<T> data;
+        pgDictionary<T>* m_Parent;
+        int32_t m_RefCount;
+        sysArray<uint32_t> m_Codes;
+        sysArray<T> m_Entries;
 
     public:
         T* Get(int32_t hash);
     };
 
-    VALIDATE_SIZE(pgDictionary<void>, 0x20);
+    VALIDATE_SIZE(pgDictionary<int32_t>, 0x20);
 }

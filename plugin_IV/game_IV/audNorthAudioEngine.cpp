@@ -4,6 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "audWeaponAudioEvent.h"
+#include "audNorthAudioEngine.h"
 
-audWeaponAudioEntity& g_WeaponAudioEntity = *gpatternt(audWeaponAudioEntity, "B9 ? ? ? ? 6A 00 50 56 8D 84 24", 1);
+rage::audController*& audNorthAudioEngine::ms_AudioController = *gpatternt(rage::audController*, "C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 6A 01 E8 ? ? ? ? 6A 01", 2);
+

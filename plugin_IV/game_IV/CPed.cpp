@@ -42,6 +42,10 @@ void CPed::SetRelationship(int32_t level, int32_t group) {
     plugin::CallMethodDyn(gpattern("83 EC 10 A1 ? ? ? ? 33 C4 89 44 24 0C 56 8B F1 8B 4C 24 1C 8B C1 C1 F8 05 8D 54 24 04 83 E1 1F 8D 14 82 B8 ? ? ? ? D3 E0 83 EC 0C 8B CC FF 74 24 24 C7 44 24 ? ? ? ? ? C7 44 24 ? ? ? ? ? C7 44 24 ? ? ? ? ? 09 02 F3 0F 7E 44 24 ? 8B 44 24 1C 66 0F D6 01 89 41 08 8D 8E ? ? ? ? E8 ? ? ? ? 8B 4C 24 10 5E 33 CC E8 ? ? ? ? 83 C4 10 C2 08 00 CC CC CC CC 8B 01"), this, level, group);
 }
 
+CControl* CPed::GetControlFromPlayer() {
+    return plugin::CallMethodAndReturnDyn<CControl*>(gpattern("80 B9 ? ? ? ? ? 75 0D 80 B9 ? ? ? ? ? 0F 85 ? ? ? ? 33 C0"), this);
+}
+
 CVehicle* CPed::GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2) {
     return plugin::CallAndReturnDyn<CVehicle*>(gpattern("55 8B EC 83 E4 F0 83 EC 78 56 8B 75 08 57 F7 86"), ped, &pos, arg2);
 }

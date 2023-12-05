@@ -23,7 +23,6 @@ public:
 
 public:
     static bool& m_bCameraControlsDisabled;
-    static float& m_fMouseAccel;
 
 public:
     CCam* CreateCamMode(eCamMode mode, CCam* arg2, CCam* arg3);

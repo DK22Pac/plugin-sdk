@@ -131,7 +131,7 @@ enum eKeyCodes : uint32_t {
     KEY_APPS = 0xDD,    // Applications key (Windows 2000/XP)
 };
 
-class CKeyboardMgr {
+class CKeyboard {
 public:
     uint8_t field_1;
     uint8_t m_nCurrentIndex;
@@ -147,8 +147,8 @@ public:
 public:
     bool GetAsciiJustPressed(uint32_t code, int32_t* out);
     bool GetAsciiPressed(uint32_t code, int32_t* out);
-    bool IsKeyJustPressed(eKeyCodes key, int32_t index, const char* str);
-    bool IsKeyPressed(eKeyCodes key, int32_t index, const char* str);
+    bool GetKeyJustDown(eKeyCodes key, int32_t index, const char* str);
+    bool GetKeyDown(eKeyCodes key, int32_t index, const char* str);
 };
 
-VALIDATE_SIZE(CKeyboardMgr, 0x8);
+VALIDATE_SIZE(CKeyboard, 0x8);

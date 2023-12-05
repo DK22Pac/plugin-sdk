@@ -6,6 +6,8 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "audSound.h"
+#include "audSoundInitParams.h"
 
 namespace rage {
     class audEntity {
@@ -15,5 +17,8 @@ namespace rage {
 
     public:
         virtual ~audEntity() {}
+
+    public:
+        void CreateSound_LocalReference(const char* name, rage::audSound* sound, audSoundInitParams* initParams, int32_t arg4, int32_t arg5, int32_t arg6);
     };
 }

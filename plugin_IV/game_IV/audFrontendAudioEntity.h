@@ -6,7 +6,6 @@
 */
 #pragma once
 #include "audGtaAudioEntity.h"
-#include "audEngine.h"
 
 class audFrontendAudioEntity : public audGtaAudioEntity {
 public:
@@ -16,4 +15,4 @@ public:
     void TriggerMissionCompleteAudioEvent(int32_t index);
 };
 
-extern audFrontendAudioEntity& FrontendAudioEntity;
+extern audFrontendAudioEntity& g_FrontendAudioEntity;

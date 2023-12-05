@@ -8,6 +8,8 @@
 #include "PluginBase.h"
 
 // Audio
+#include "rage/audController.h"
+#include "rage/audSoundInitParams.h"
 #include "rage/audEntity.h"
 
 // Render

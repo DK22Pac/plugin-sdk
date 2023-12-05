@@ -55,6 +55,12 @@ namespace rage {
             return *this;
         }
 
+        Vector2& operator*=(float scalar) {
+            x *= scalar;
+            y *= scalar;
+            return *this;
+        }
+
         bool operator==(const Vector2& other) const {
             return x == other.x && y == other.y;
         }

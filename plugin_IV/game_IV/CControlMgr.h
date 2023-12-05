@@ -6,9 +6,12 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "Rage.h"
+#include "CKeyboard.h"
 
-class CRadioHud {
+class CControlMgr {
+public:
+    static CKeyboard& m_keyboard;
+
 public:
 
 };

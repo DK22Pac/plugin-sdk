@@ -6,4 +6,4 @@
 */
 #include "audAmbientAudioEntity.h"
 
-audAmbientAudioEntity& AmbientAudioEntity = *gpatternt(audAmbientAudioEntity, "B9 ? ? ? ? FF 70 04 E8 ? ? ? ? 5F 5E 8B E5 5D C2 0C 00", 1);
+audAmbientAudioEntity& g_AmbientAudioEntity = *gpatternt(audAmbientAudioEntity, "B9 ? ? ? ? FF 70 04 E8 ? ? ? ? 5F 5E 8B E5 5D C2 0C 00", 1);

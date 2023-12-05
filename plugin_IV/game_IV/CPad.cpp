@@ -5,11 +5,9 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CPad.h"
-#include "Patch.h"
 
 CPad* Pads = gpatternt(CPad, "BE ? ? ? ? BF ? ? ? ? 8D 64 24 00 8B CE E8 ? ? ? ? 81 C6 ? ? ? ? 4F 79 F0 5F 5E C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 83 EC 10", 1); // [4]
 
-CKeyboardMgr& CPad::KeyboardMgr = *gpatternt(CKeyboardMgr, "BE ? ? ? ? BF ? ? ? ? 8D 64 24 00 81 EE ? ? ? ? 8B CE E8 ? ? ? ? 4F 79 F0 5F 5E C3 CC CC CC CC CC CC CC CC CC CC CC CC CC B9 ? ? ? ? E8 ? ? ? ? B9", 1);
 float& MousePosX = *gpatternt(float, "89 0D ? ? ? ? 8B 4C 24 08", 2);
 float& MousePosY = *gpatternt(float, "89 0D ? ? ? ? C3 CC CC CC CC CC 53", 2);
 int32_t* CPad::NewMouseControllerState = gpatternt(int32_t, "C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C3 8B 0D", 2);

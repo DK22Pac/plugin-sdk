@@ -8,13 +8,14 @@
 #include "PluginBase.h"
 #include "Vector3.h"
 #include "pgBase.h"
+#include "pgRef.h"
 
 namespace rage {
     class grcTexture : pgBase {
     public:
         int8_t field_8;
         int8_t field_9;
-        int16_t field_A;
+        int16_t m_RefCount;
         int32_t field_C;
         int32_t field_10;
         char* m_Name;
@@ -29,6 +30,19 @@ namespace rage {
     public:
         grcTexture() = delete;
         virtual ~grcTexture() { plugin::CallVirtualMethod<0>(this, 0); }
+
+    public:
+        void Release() {
+            int16_t count = m_RefCount;
+            if (count) {
+                int16_t result = count - 1;
+                int8_t v5 = field_8;
+                m_RefCount = result;
+                bool flag = v5 == 2 || v5 == 4;
+                if (!result && flag)
+                    this->~grcTexture();
+            }
+        }
     };
 
     VALIDATE_SIZE(grcTexture, 0x28);
@@ -48,10 +62,11 @@ namespace rage {
     public:
         grcTexturePC() = default;
 
+
+
         int32_t GetWidth() { return plugin::CallVirtualMethodAndReturn<int32_t, 8>(this); }
         int32_t GetHeight() { return plugin::CallVirtualMethodAndReturn<int32_t, 9>(this); }
         int32_t GetMipMapCount() { return plugin::CallVirtualMethodAndReturn<int32_t, 11>(this); }
-
     };
 
     VALIDATE_SIZE(grcTexturePC, 0x50);

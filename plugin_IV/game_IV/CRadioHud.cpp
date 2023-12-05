@@ -6,5 +6,4 @@
 */
 #include "CRadioHud.h"
 
-int32_t& CRadioHud::ms_nState = *gpatternt(int32_t, "C7 05 ? ? ? ? ? ? ? ? 8A C8", 2);
 

@@ -14,6 +14,7 @@
 #include "CObject.h" 
 #include "CAmmoData.h"
 #include "CWeaponData.h"
+#include "CControl.h"
 
 enum ePedState {
     PEDSTATE_DIE = 1,
@@ -478,6 +479,7 @@ public:
     void RemoveHelmet(bool arg1);
     bool CanStartMission();
     void SetRelationship(int32_t level, int32_t group);
+    CControl* GetControlFromPlayer();
 
 public:
     static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);

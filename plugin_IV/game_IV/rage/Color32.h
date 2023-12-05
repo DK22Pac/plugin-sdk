@@ -17,6 +17,10 @@ namespace rage {
             : r(red), g(green), b(blue), a(alpha) {
         }
 
+        Color32(int32_t red, int32_t green, int32_t blue, int32_t alpha = 255)
+            : r(static_cast<uint8_t>(red)), g(static_cast<uint8_t>(green)), b(static_cast<uint8_t>(blue)), a(static_cast<uint8_t>(alpha)) {
+        }
+
         uint32_t GetARGB() const {
             uint32_t argb = (static_cast<int>(a) << 24) |
                 (static_cast<int>(r) << 16) |

@@ -8,7 +8,7 @@
 #include "Patch.h"
 
 CPool<TxdDef>*& CTxdStore::ms_pTxdPool = *gpatternt(CPool<TxdDef>*, "A3 ? ? ? ? C3 C7 05 ? ? ? ? ? ? ? ? C3 56", 1);
-rage::pgDictionary<rage::grcTexture>* CTxdStore::ms_pStoredTxd = gpatternt(rage::pgDictionary<rage::grcTexture>, "8B 3D ? ? ? ? 85 FF 74 21", 2);
+rage::pgDictionary<rage::pgRef<rage::grcTexturePC>>*& CTxdStore::ms_pStoredTxd = *gpatternt(rage::pgDictionary<rage::pgRef<rage::grcTexturePC>>*, "8B 3D ? ? ? ? 85 FF 74 21", 2);
 
 int32_t CTxdStore::AddTxdSlot(const char* name) {
     return plugin::CallAndReturnDyn<int32_t>(gpattern("8B 0D ? ? ? ? 56 E8 ? ? ? ? FF 74 24 08 8B F0 C7 06 ? ? ? ? C7 46 ? ? ? ? ? E8 ? ? ? ? 8B 0D"), name);

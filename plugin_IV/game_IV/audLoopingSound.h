@@ -6,9 +6,12 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "Rage.h"
 
-class CRadioHud {
+class audLoopingSound {
+public:
+
+
 public:
 
 };
+

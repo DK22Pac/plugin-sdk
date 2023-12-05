@@ -373,6 +373,7 @@ public:
     static CSprite2d& ControllerSprite;
     static CSprite2d* MapSprites; // [4]
 
+    static int32_t& m_PrefsMouseAccel;
     static int32_t& m_PrefsAspectRatio;
     static int32_t& m_PrefsLanguage;
     static int32_t& m_PrefsUseVibration;
