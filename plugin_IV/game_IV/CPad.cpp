@@ -7,11 +7,6 @@
 #include "CPad.h"
 
 CPad* Pads = gpatternt(CPad, "BE ? ? ? ? BF ? ? ? ? 8D 64 24 00 8B CE E8 ? ? ? ? 81 C6 ? ? ? ? 4F 79 F0 5F 5E C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 83 EC 10", 1); // [4]
-
-float& MousePosX = *gpatternt(float, "89 0D ? ? ? ? 8B 4C 24 08", 2);
-float& MousePosY = *gpatternt(float, "89 0D ? ? ? ? C3 CC CC CC CC CC 53", 2);
-int32_t* CPad::NewMouseControllerState = gpatternt(int32_t, "C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C3 8B 0D", 2);
-int32_t* CPad::OldMouseControllerState = gpatternt(int32_t, "C7 05 ? ? ? ? ? ? ? ? C3 8B 0D", 2);
 int32_t& CPad::CurrentPad = *gpatternt(int32_t, "8B 35 ? ? ? ? 39 35 ? ? ? ? 74 41", 2);
 
 void CControllerState::Clear() {

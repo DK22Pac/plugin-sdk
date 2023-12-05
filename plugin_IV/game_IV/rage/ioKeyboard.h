@@ -6,14 +6,13 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CKeyboard.h"
-#include "CControl.h"
+#include "Rage.h"
 
-class CControlMgr {
-public:
-    static CKeyboard& m_keyboard;
-    static CControl* m_controls;
-
-public:
-
-};
+namespace rage {
+    class ioKeyboard {
+    public:
+        static uint8_t** sm_keys;
+        static uint8_t* sm_CurrentState;
+        static int32_t& sm_Active;
+    };
+}

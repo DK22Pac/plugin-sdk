@@ -5,9 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CControl.h"
-#include "Patch.h"
-
-CControl* ControlsManager = gpatternt(CControl, "B8 ? ? ? ? C3 B8 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC", 1); // [4]
 
 int32_t& CControl::m_UsingMouse = *gpatternt(int32_t, "C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? BE ? ? ? ? 8D 49 00", 2);
 

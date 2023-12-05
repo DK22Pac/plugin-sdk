@@ -23,7 +23,7 @@ public:
     uint32_t m_PlayerVehicleRadioState;
     uint32_t m_MobilePhoneRadioState;
     uint32_t field_27;
-    int32_t field_28;
+    int32_t m_nIndex;
     uint32_t field_29;
     int32_t field_30;
     uint8_t field_31;
@@ -43,7 +43,7 @@ public:
     void PauseRadio();
     void UnpauseRadio();
 
-    int32_t GetAudibleMusicTracKTextId();
+    int32_t GetAudibleMusicTrackTextId();
 
 public:
     static void RetuneRadioUpDown(int8_t up);

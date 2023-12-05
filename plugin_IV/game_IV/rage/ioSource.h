@@ -6,14 +6,15 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CKeyboard.h"
-#include "CControl.h"
 
-class CControlMgr {
-public:
-    static CKeyboard& m_keyboard;
-    static CControl* m_controls;
+namespace rage {
+    class ioSource {
+    public:
+        uint8_t field_1;
+        uint8_t m_DeviceIndex;
+        uint8_t field_3;
+        uint8_t field_4;
+    };
 
-public:
-
-};
+    VALIDATE_SIZE(ioSource, 0x4);
+}

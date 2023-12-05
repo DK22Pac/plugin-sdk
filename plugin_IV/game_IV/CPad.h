@@ -75,10 +75,6 @@ public:
     uint8_t field_8;
 
 public:
-    static float& MousePosX;
-    static float& MousePosY;
-    static int32_t* NewMouseControllerState;
-    static int32_t* OldMouseControllerState;
     static int32_t& CurrentPad;
 
 public:

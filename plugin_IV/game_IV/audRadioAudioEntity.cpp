@@ -30,7 +30,7 @@ void audRadioAudioEntity::UnpauseRadio() {
     plugin::CallMethodDyn(gpattern("83 3D ? ? ? ? ? 74 25 A1"), this);
 }
 
-int32_t audRadioAudioEntity::GetAudibleMusicTracKTextId() {
+int32_t audRadioAudioEntity::GetAudibleMusicTrackTextId() {
     return plugin::CallMethodAndReturnDyn<int32_t>(gpattern("83 EC 08 56 6A 00"), this);
 }
 

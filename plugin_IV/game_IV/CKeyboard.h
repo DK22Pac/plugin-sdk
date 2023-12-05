@@ -140,11 +140,6 @@ public:
     uint32_t field_5;
 
 public:
-    static uint8_t* OldKeyState;
-    static uint8_t* NewKeyState;
-    static uint8_t* TempKeyState;
-
-public:
     bool GetAsciiJustPressed(uint32_t code, int32_t* out);
     bool GetAsciiPressed(uint32_t code, int32_t* out);
     bool GetKeyJustDown(eKeyCodes key, int32_t index, const char* str);

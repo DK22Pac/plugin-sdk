@@ -32,6 +32,8 @@
 // Misc
 #include "rage/pgRef.h"
 #include "rage/pgDictionary.h"
+#include "rage/ioValue.h"
+#include "rage/ioMapper.h"
 
 // Physics
 #include "rage/phConstrainedCollider.h"

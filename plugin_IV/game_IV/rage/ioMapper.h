@@ -6,14 +6,14 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CKeyboard.h"
-#include "CControl.h"
 
-class CControlMgr {
-public:
-    static CKeyboard& m_keyboard;
-    static CControl* m_controls;
+namespace rage {
+    class ioMapper {
+    public:
+        int m_Count;
+        int m_PadIndex;
+        uint8_t field_3[1968];
+    };
 
-public:
-
-};
+    VALIDATE_SIZE(ioMapper, 0x7B8);
+}
