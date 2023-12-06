@@ -6,6 +6,10 @@
 */
 #include "SpriteLoader.h"
 
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+#include "CFileLoader.h"
+#endif
+
 #if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CTxdStore.h"
 
@@ -101,6 +105,6 @@ namespace plugin {
             return s->second;
         return nullptr;
     }
-#endif
 
 }
+#endif

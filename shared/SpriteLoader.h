@@ -38,6 +38,5 @@ namespace plugin {
         CSprite2d* GetSprite(std::string const& name);
         texClass* GetTex(std::string const& name);
     };
-#endif
-
 }
+#endif

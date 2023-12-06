@@ -11,8 +11,6 @@
 #include <iostream>
 #include <fstream>
 
-
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CText.h"
 
 #pragma warning(disable : 4996)
@@ -229,7 +227,5 @@ namespace plugin {
     void TextLoader::Clear() {
         stringMap.clear();
     }
-
-#endif
 
 }
