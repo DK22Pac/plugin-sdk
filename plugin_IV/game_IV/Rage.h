@@ -34,6 +34,8 @@
 #include "rage/pgDictionary.h"
 #include "rage/ioValue.h"
 #include "rage/ioMapper.h"
+#include "rage/ioMouse.h"
+#include "rage/ioKeyboard.h"
 
 // Physics
 #include "rage/phConstrainedCollider.h"
