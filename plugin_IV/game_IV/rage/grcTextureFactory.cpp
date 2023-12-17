@@ -6,7 +6,7 @@
 */
 #include "grcTextureFactory.h"
 
-rage::grcTextureFactoryPC*& rage::grcTextureFactoryPC::ms_pInstance = *gpatternt(rage::grcTextureFactoryPC*, "A3 ? ? ? ? E8 ? ? ? ? 83 EC 0C", 1);
+rage::grcTextureFactoryPC*& rage::grcTextureFactoryPC::sm_Instance = *gpatternt(rage::grcTextureFactoryPC*, "A3 ? ? ? ? E8 ? ? ? ? 83 EC 0C", 1);
 
 rage::grcTextureFactoryPC::grcTextureFactoryPC() {
     plugin::CallMethodDyn(gpattern("A1 ? ? ? ? 81 EC ? ? ? ? 40"), this);

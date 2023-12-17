@@ -9,7 +9,7 @@
 
 class audFrontendAudioEntity : public audGtaAudioEntity {
 public:
-    void ReportFrontendAudioEvent(const char* name);
+    void PlaySound(const char* name);
     void StartLoadingTune();
     void StopLoadingTune(bool arg1);
     void TriggerMissionCompleteAudioEvent(int32_t index);

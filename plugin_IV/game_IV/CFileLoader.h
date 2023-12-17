@@ -5,12 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-#include "PluginBase.h"
 
-namespace rage {
-    class grcDevice {
-    public:
-        static int32_t& m_CurrentWidth;
-        static int32_t& m_CurrentHeight;
-    };
-}
+class CFileLoader {
+public:
+
+public:
+
+};

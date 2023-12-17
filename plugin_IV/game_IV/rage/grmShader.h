@@ -8,9 +8,8 @@
 #include "PluginBase.h"
 
 namespace rage {
-    class grcDevice {
+    class grmShader {
     public:
-        static int32_t& m_CurrentWidth;
-        static int32_t& m_CurrentHeight;
+
     };
 }

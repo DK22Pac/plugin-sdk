@@ -18,5 +18,19 @@ namespace rage {
     public:
         fwRect() : left(1000000.0f), top(-1000000.0f), right(-1000000.0f), bottom(1000000.0f) {}
         fwRect(float left, float top, float right, float bottom) : left(left), top(top), right(right), bottom(bottom) {}
+        
+        void Grow(float x, float y) {
+            this->left -= x;
+            this->top -= y;
+            this->right += x;
+            this->bottom += y;
+        }
+
+        void Translate(float x, float y) {
+            this->left += x;
+            this->top += y;
+            this->right += x;
+            this->bottom += y;
+        }
     };
 }

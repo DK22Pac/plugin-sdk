@@ -8,9 +8,12 @@
 #include "PluginBase.h"
 
 namespace rage {
-    class grcDevice {
+    enum grcEffectVar__ : int32_t {
+        grcevNONE = 0x0,
+    };
+
+    class grcEffect {
     public:
-        static int32_t& m_CurrentWidth;
-        static int32_t& m_CurrentHeight;
+        uint8_t field_1[1080];
     };
 }

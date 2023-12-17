@@ -6,20 +6,24 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "grcDrawMode.h"
 
 namespace rage {
-    class grcVertexBuffer {
-    public:
+    struct VTX {
         float x;
         float y;
         float z;
-        float u;
-        float v;
-        float clip;
-        int32_t color;
-        float min;
-        float max;
+        float nx;
+        float ny;
+        float nz;
+        uint32_t c;
+        float s;
+        float t;
     };
 
-    extern grcVertexBuffer* vertexBuffer;
+    class grcVertexBuffer {
+    public:
+
+    };
+
 }

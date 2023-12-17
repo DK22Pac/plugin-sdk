@@ -6,11 +6,16 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "Rage.h"
+#include "CSprite2d.h"
 
 class CCutsceneMgr {
 public:
     static int32_t& ms_running;
+    static rage::sysArray<CSprite2d>& ms_sprites;
 
 public:
     static bool IsRunning();
+    static void LoadSprites();
+    static void UnloadSprites();
 };

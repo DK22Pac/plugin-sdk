@@ -6,8 +6,9 @@
 */
 #include "Rage.h"
 
-int32_t& rage::screenWidth = *gpatternt(int32_t, "8B 0D ? ? ? ? 0F 44 0D ? ? ? ? 83 3D", 2);
-int32_t& rage::screenHeight = *gpatternt(int32_t, "8B 35 ? ? ? ? 0F 44 35 ? ? ? ? FF D7 39 05 ? ? ? ? 8B 0D ? ? ? ? 0F 44 0D ? ? ? ? 83 3D", 2);
+rage::VTX* s_Current = gpatternt(rage::VTX, "A3 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? 5E C3 83 3D", 1);
+rage::grcDrawMode& s_DrawMode = *gpatternt(rage::grcDrawMode, "89 35 ? ? ? ? A3 ? ? ? ? C7 05", 2);
+int32_t& s_Count = *gpatternt(int32_t, "89 3D ? ? ? ? 5F 89 35 ? ? ? ? A3", 2);
 
 uint32_t rage::atStringHash(const char* str, uint32_t initValue) {
     return plugin::CallAndReturnDyn<uint32_t>(gpattern("8B 54 24 08 53 56 8B 74 24 0C 80 3E 22"), str, initValue);
@@ -27,4 +28,8 @@ void rage::grcVertex(float x, float y, float z, float nx, float ny, float nz, ra
 
 void rage::grcEnd() {
     plugin::CallDyn(gpattern("83 3D ? ? ? ? ? 74 0F E8 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C3"));
+}
+
+void rage::grcWorldIdentity() {
+    plugin::CallDyn(gpattern("51 8B 0D ? ? ? ? 68 ? ? ? ? E8 ? ? ? ? 59"));
 }

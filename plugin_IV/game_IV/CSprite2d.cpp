@@ -8,6 +8,8 @@
 #include "CDrawRectDC.h"
 #include "CDrawSpriteDC.h"
 
+rage::grmShader*& CSprite2d::m_imShader = *gpatternt(rage::grmShader*, "A3 ? ? ? ? 8B 01 6A 00 68 ? ? ? ? FF 50 0C 8B 3D", 1);
+
 void CSprite2d::SetTexture(const char* name) {
     plugin::CallMethodDyn<CSprite2d*>(gpattern("83 EC 08 57 8B F9 68"), this, name);
 }

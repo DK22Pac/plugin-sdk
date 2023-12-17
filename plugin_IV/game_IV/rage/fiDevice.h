@@ -6,11 +6,11 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "fiStream.h"
 
 namespace rage {
-    class grcDevice {
+    class fiDevice {
     public:
-        static int32_t& m_CurrentWidth;
-        static int32_t& m_CurrentHeight;
+        rage::fiDevice* GetDevice(char* filename, char readOnly);
     };
 }

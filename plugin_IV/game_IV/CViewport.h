@@ -15,7 +15,7 @@ public:
     uint16_t field_4;
     uint16_t field_5;
     uint16_t field_6;
-    uint8_t field_1107[1096];
+    uint8_t field_1107[1095];
     bool m_bWidescreen;
 
 public:

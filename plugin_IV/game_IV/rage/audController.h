@@ -23,4 +23,6 @@ namespace rage {
     };
 
     VALIDATE_SIZE(audController, 0x3234);
+
+    extern audController*& g_Controller;
 }

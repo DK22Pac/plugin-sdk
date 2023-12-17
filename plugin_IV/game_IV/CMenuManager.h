@@ -347,6 +347,17 @@ enum eFrontend360Sprites {
     FE360_SPRITE_GRADIENT
 };
 
+enum eLanguages {
+    LANGUAGE_ENGLISH,
+    LANGUAGE_FRENCH,
+    LANGUAGE_GERMAN,
+    LANGUAGE_ITALIAN,
+    LANGUAGE_SPANISH,
+    LANGUAGE_RUSSIAN,
+    LANGUAGE_JAPANESE,
+    NUM_LANGUAGES
+};
+
 struct CMenuEntry {
     eMenuOpt m_nAction;
     char m_EntryName[16];

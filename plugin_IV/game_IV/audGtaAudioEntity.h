@@ -15,7 +15,7 @@ public:
     uint8_t field_1[32];
     CVehicle* m_PlayerVehicle;
     uint8_t field_3[36];
-    uint32_t* m_LoadingScreenScene;
+    rage::audSound* m_LoadingTune;
 
 public:
     void ReportSoundEvent(const char* name, rage::audSoundInitParams* params, int32_t arg3, int32_t arg4, int32_t arg5);

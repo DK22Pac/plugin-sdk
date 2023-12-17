@@ -17,6 +17,8 @@
 #include "rage/grcTexture.h"
 #include "rage/grcTextureFactory.h"
 #include "rage/CPostFX.h"
+#include "rage/grcVertexBuffer.h"
+#include "rage/grmShader.h"
 
 // Math
 #include "rage/Math.h"
@@ -36,6 +38,8 @@
 #include "rage/ioMapper.h"
 #include "rage/ioMouse.h"
 #include "rage/ioKeyboard.h"
+#include "rage/grcDevice.h"
+#include "rage/grcWindow.h"
 
 // Physics
 #include "rage/phConstrainedCollider.h"
@@ -51,12 +55,15 @@ T GetHWnd() {
 }
 
 namespace rage {
-    extern int32_t& screenWidth;
-    extern int32_t& screenHeight;
     extern uint32_t atStringHash(const char* str, uint32_t initValue = 0);
 
     extern void grcBindTexture(const rage::grcTexture* tex);
     extern void grcBegin(grcDrawMode dm, int32_t count);
     extern void grcVertex(float x, float y, float z, float nx, float ny, float nz, Color32 const& c, float s, float t);
     extern void grcEnd();
+    extern void grcWorldIdentity();
 }
+
+extern rage::VTX* s_Current;
+extern rage::grcDrawMode& s_DrawMode;
+extern int32_t& s_Count;

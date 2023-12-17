@@ -8,7 +8,7 @@
 
 audFrontendAudioEntity& g_FrontendAudioEntity = *gpatternt(audFrontendAudioEntity, "B9 ? ? ? ? E8 ? ? ? ? 8D 44 24 38", 1);
 
-void audFrontendAudioEntity::ReportFrontendAudioEvent(const char* name) {
+void audFrontendAudioEntity::PlaySound(const char* name) {
     plugin::CallMethodDyn(gpattern("83 EC 48 56 8B F1 8D 4C 24 04 E8 ? ? ? ? 80 4C 24"), this, name);
 }
 

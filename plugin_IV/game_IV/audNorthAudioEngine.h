@@ -10,6 +10,5 @@
 
 class audNorthAudioEngine {
 public:
-    static rage::audController*& ms_AudioController;
 
 };

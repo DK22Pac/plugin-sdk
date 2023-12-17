@@ -7,6 +7,8 @@
 #pragma once
 #include "PluginBase.h"
 #include "grcTexture.h"
+#include "grcImage.h"
+#include "grcRenderTarget.h"
 
 namespace rage {
     class grcTextureFactory {
@@ -14,17 +16,9 @@ namespace rage {
         virtual ~grcTextureFactory() {}
     };
 
-    struct grcTextureDef {
-        uint32_t field_1;
-        uint32_t field_2;
-        uint32_t field_3;
-        uint32_t field_4;
-        uint32_t field_5;
-    };
-
     class grcTextureFactoryPC : public grcTextureFactory {
     private:
-        static grcTextureFactoryPC*& ms_pInstance;
+        static grcTextureFactoryPC*& sm_Instance;
 
     public:
         uint8_t field_1;
@@ -56,13 +50,21 @@ namespace rage {
     public:
         grcTextureFactoryPC();
 
-        grcTexturePC* CreateTexture(uint16_t width, uint16_t height, uint32_t format, uint32_t arg4, uint32_t arg5) {
-            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 0>(width, height, format, arg4, arg5);
+        grcTexturePC* Create(uint16_t width, uint16_t height, uint32_t format, uint32_t arg4, uint32_t arg5) {
+            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 1>(this, width, height, format, arg4, arg5);
+        }
+
+        grcTexturePC* Create(const char* name, grcImage* image) {
+            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 2>(this, name, image);
+        }
+
+        grcRenderTarget* GetBackBuffer() {
+            return plugin::CallVirtualMethodAndReturn<grcRenderTarget*, 5>(this);
         }
 
     public:
         static grcTextureFactoryPC* GetInstance() {
-            return ms_pInstance;
+            return sm_Instance;
         }
     };
 }

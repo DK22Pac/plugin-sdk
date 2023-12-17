@@ -40,7 +40,7 @@ namespace rage {
                 m_RefCount = result;
                 bool flag = v5 == 2 || v5 == 4;
                 if (!result && flag)
-                    this->~grcTexture();
+                    delete this;
             }
         }
     };
@@ -61,8 +61,6 @@ namespace rage {
 
     public:
         grcTexturePC() = default;
-
-
 
         int32_t GetWidth() { return plugin::CallVirtualMethodAndReturn<int32_t, 8>(this); }
         int32_t GetHeight() { return plugin::CallVirtualMethodAndReturn<int32_t, 9>(this); }

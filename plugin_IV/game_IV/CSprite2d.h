@@ -13,6 +13,9 @@ public:
     rage::pgRef<rage::grcTexturePC> m_pTexture;
 
 public:
+    static rage::grmShader*& m_imShader;
+
+public:
     void SetTexture(const char* name);
     void Delete();
     void SetRenderState();
