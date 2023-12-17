@@ -24,7 +24,8 @@ namespace plugin {
         }
 
         int32_t slot = CTxdStore::FindTxdSlot(slotName.c_str());
-        CTxdStore::RemoveTxdSlot(slot);
+        if (slot != -1)
+            CTxdStore::RemoveTxdSlot(slot);
 #elif RW
         if (texDictionary) {
             RwTexDictionaryDestroy(texDictionary);
