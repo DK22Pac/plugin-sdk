@@ -10,6 +10,7 @@
 
 namespace rage {
     class grcViewport {
+    public:
         uint8_t field_640[640];
         grcWindow m_Window;
         grcWindow m_UnclippedWindow;
@@ -29,5 +30,8 @@ namespace rage {
         bool m_IsPerspective;
         struct sysIpcCurrentThreadId__* m_Owner;
         bool m_InvertZInProjectionMatrix;
+
+    public:
+        static void SetCurrent(const grcViewport* viewport, bool regenDevice);
     };
 }
