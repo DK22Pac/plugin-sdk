@@ -27,6 +27,8 @@ namespace rage {
         void FullPath(char* dest, int maxLen, const char* base, const char* ext, int pathIndex);
         void AddExtension(char* dest, int maxLen, const char* base, const char* ext);
         fiStream* Create(const char* base, const char* ext, bool probeOnly);
+        void PushFolder(const char* folder);
+        void PopFolder();
     };
 
     VALIDATE_SIZE(fiAssetManager, 0x1810);

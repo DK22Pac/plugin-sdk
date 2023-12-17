@@ -23,3 +23,11 @@ void rage::fiAssetManager::AddExtension(char* dest, int maxLen, const char* base
 rage::fiStream* rage::fiAssetManager::Create(const char* base, const char* ext, bool probeOnly) {
     return plugin::CallMethodAndReturnDyn<rage::fiStream*>(gpattern("81 EC ? ? ? ? 8D 04 24 56 FF B1"), this, base, ext, probeOnly);
 }
+
+void rage::fiAssetManager::PushFolder(const char* folder) {
+    plugin::CallMethodDyn(gpattern("81 EC ? ? ? ? 56 57 8B BC 24"), this, folder);
+}
+
+void rage::fiAssetManager::PopFolder() {
+    plugin::CallMethodDyn(gpattern("FF 89 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 81 EC"), this);
+}
