@@ -31,3 +31,11 @@ void rage::fiAssetManager::PushFolder(const char* folder) {
 void rage::fiAssetManager::PopFolder() {
     plugin::CallMethodDyn(gpattern("FF 89 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 81 EC"), this);
 }
+
+bool rage::fiAssetManager::Exists(const char* base, const char* ext) {
+    return plugin::CallMethodAndReturnDyn<bool>(gpattern("81 EC ? ? ? ? 8D 04 24 FF B4 24 ? ? ? ? FF B4 24"), this, base, ext);
+}
+
+uint8_t rage::fiAssetManager::FullReadPath(char* dest, int maxLen, const char* base, const char* ext) {
+    return plugin::CallMethodAndReturnDyn<uint8_t>(gpattern("83 EC 08 53 8B 5C 24 18 55 56"), this, dest, maxLen, base, ext);
+}
