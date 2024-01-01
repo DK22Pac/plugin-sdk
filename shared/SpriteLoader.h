@@ -34,7 +34,7 @@ namespace plugin {
     public:
         SpriteLoader() = default;
         void Clear();
-        void LoadAllSpritesFromTxd(std::string const& path);
+        bool LoadAllSpritesFromTxd(std::string const& path);
         CSprite2d* GetSprite(std::string const& name);
         texClass* GetTex(std::string const& name);
     };

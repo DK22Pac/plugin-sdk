@@ -35,19 +35,33 @@ namespace plugin {
         spritesMap = {};
         spriteBuf = {};
         buf = 0;
+        slotName = {};
     }
 
-    void SpriteLoader::LoadAllSpritesFromTxd(std::string const& path) {
+    bool SpriteLoader::LoadAllSpritesFromTxd(std::string const& path) {
+        if (!spritesMap.empty())
+            return false;
+
 #ifdef RAGE
         if (slotName.empty()) {
-            char n[32];
+make_slot:
+            char n[64];
             sprintf(n, "psdkslot_%d", NumSlots);
             NumSlots++;
+
+            int32_t slot = CTxdStore::FindTxdSlot(n);
+            if (slot != -1)
+                goto make_slot;
+
             slotName = n;
         }
 
         int32_t slot = CTxdStore::AddTxdSlot(slotName.c_str());
-        CTxdStore::LoadTxd(slot, path.c_str());
+        if (!CTxdStore::LoadTxd(slot, path.c_str())) {
+            CTxdStore::RemoveTxdSlot(slot);
+            return false;
+        }
+    
         CTxdStore::AddRef(slot);
         CTxdStore::PushCurrentTxd();
         CTxdStore::SetCurrentTxd(slot);
@@ -73,18 +87,22 @@ namespace plugin {
         if (!texDictionary) {
             auto dict = CFileLoader::LoadTexDictionary(path.c_str());
 
-            if (dict) {
-                RwTexDictionaryForAllTextures(dict, [](RwTexture* tex, void* data) {
-                    auto map = (std::unordered_map<std::string, RwTexture*>*)data;
+            if (!dict)
+                return false;
 
-                    map->insert({ tex->name, tex });
-                    return tex;
+            RwTexDictionaryForAllTextures(dict, [](RwTexture* tex, void* data) {
+                auto map = (std::unordered_map<std::string, RwTexture*>*)data;
+
+                map->insert({ tex->name, tex });
+                return tex;
                 }, &spritesMap);
 
-                texDictionary = dict;
-            }
+            texDictionary = dict;
         }
+
 #endif
+
+        return true;
     }
 
     CSprite2d* SpriteLoader::GetSprite(std::string const& name) {
