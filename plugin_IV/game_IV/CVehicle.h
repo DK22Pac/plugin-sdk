@@ -148,7 +148,7 @@ public:
     }
 
     static void operator delete(void* ptr) {
-        CPools::ms_pVehiclePool->Delete((CVehicle*)ptr);
+        CPools::ms_pVehiclePool->Delete(ptr);
     }
 
 public:

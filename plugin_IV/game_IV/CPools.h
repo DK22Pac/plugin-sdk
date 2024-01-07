@@ -23,4 +23,8 @@ public:
     static CPool<CCam>*& ms_pCamPool;
     static CPool<CVehicle>*& ms_pVehiclePool;
 
+public:
+    static int32_t GetPedRef(CPed* ped);
+    static int32_t GetVehicleRef(CVehicle* veh);
+    static int32_t GetObjectRef(CObject* obj);
 };

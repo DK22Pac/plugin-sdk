@@ -31,6 +31,10 @@
 #include "rage/Color32.h"
 #include "rage/fwRect.h"
 
+// Script
+#include "rage/scrThread.h"
+#include "rage/scrProgram.h"
+
 // Misc
 #include "rage/pgRef.h"
 #include "rage/pgDictionary.h"
@@ -40,6 +44,9 @@
 #include "rage/ioKeyboard.h"
 #include "rage/grcDevice.h"
 #include "rage/grcWindow.h"
+
+// Pool
+#include "rage/fwPool.h"
 
 // Physics
 #include "rage/phConstrainedCollider.h"
