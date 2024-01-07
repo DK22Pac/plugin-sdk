@@ -42,7 +42,6 @@ struct ChunkHeader {
 	int size;
 };
 
-
 class CText {
 public:
 	CKeyArray keyArray;
@@ -61,3 +60,5 @@ public:
 };
 
 extern CText& TheText;
+
+extern char* UnicodeToAscii(wchar_t* src);

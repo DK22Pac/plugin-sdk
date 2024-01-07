@@ -164,9 +164,9 @@ void CFont::RenderFontBuffer()
 	((void (__cdecl *)())0x719840)();
 }
 
-float CFont::GetStringWidth(const char *string, bool unk1, bool unk2)
+float CFont::GetStringWidth(const char *string, bool spaces, bool scriptValues)
 {
-	return ((float (__cdecl *)(const char *, bool, bool))0x71A0E0)(string, unk1, unk2);
+	return ((float (__cdecl *)(const char *, bool, bool))0x71A0E0)(string, spaces, scriptValues);
 }
 
 void CFont::DrawFonts()
