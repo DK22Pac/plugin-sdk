@@ -6,12 +6,6 @@
 */
 #include "CPlayerData.h"
 
-static uint32_t CPlayerInfo__GetWantedLevelAddr;
 int32_t CPlayerData::GetWantedLevel() {
-    return plugin::CallMethodAndReturnDyn<int32_t>(CPlayerInfo__GetWantedLevelAddr, this);
-}
-
-template<>
-void plugin::InitPatterns<CPlayerData>() {
-    CPlayerInfo__GetWantedLevelAddr = plugin::GetPattern("8B 81 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 83 B9", 0);
+    return plugin::CallMethodAndReturnDyn<int32_t>(gpattern("8B 81 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 83 B9"), this);
 }

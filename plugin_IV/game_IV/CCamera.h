@@ -22,7 +22,7 @@ public:
     CCamFollowPed* m_pCamFollowPed;
 
 public:
-    static float& m_fMouseAccel;
+    static bool& m_bCameraControlsDisabled;
 
 public:
     CCam* CreateCamMode(eCamMode mode, CCam* arg2, CCam* arg3);

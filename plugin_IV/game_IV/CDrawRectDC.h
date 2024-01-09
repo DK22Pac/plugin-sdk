@@ -11,8 +11,8 @@
 
 class CDrawRectDC : public CBaseDC {
 public:
-    rage::Vector4 m_Rect;
-    rage::Color32 m_Color;
+    rage::Vector4 m_rect;
+    rage::Color32 m_col;
 
 public:
     CDrawRectDC(rage::Vector4 const& rect, rage::Color32 const& col);

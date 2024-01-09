@@ -6,31 +6,22 @@
 */
 #include "CWeaponData.h"
 
-static uint32_t CWeaponData__GetAmmoDataAddr;
 CAmmoData* CWeaponData::GetAmmoData() {
-    return plugin::CallMethodAndReturnDyn<CAmmoData*, CWeaponData*>(CWeaponData__GetAmmoDataAddr, this);
+    return plugin::CallMethodAndReturnDyn<CAmmoData*, CWeaponData*>(gpattern("8B 41 14 85 C0 74 07"), this);
 }
 
-static uint32_t CWeaponData__GetAmmoDataExtraCheckAddr;
 CAmmoData* CWeaponData::GetAmmoDataExtraCheck() {
-    return plugin::CallMethodAndReturnDyn<CAmmoData*, CWeaponData*>(CWeaponData__GetAmmoDataExtraCheckAddr, this);
+    return plugin::CallMethodAndReturnDyn<CAmmoData*, CWeaponData*>(gpattern("8B C1 56 8B 70 14"), this);
 }
 
-static uint32_t CWeaponData__SetCurrentWeaponAddr;
 void CWeaponData::SetCurrentWeapon(int32_t arg1, int32_t slot, bool arg3, CPed* ped) {
-    plugin::CallMethodDyn(CWeaponData__SetCurrentWeaponAddr, this, arg1, slot, arg3, ped);
+    plugin::CallMethodDyn(gpattern("83 EC 28 A1 ? ? ? ? 33 C4 89 44 24 24 53 8B 5C 24 30 55"), this, arg1, slot, arg3, ped);
 }
 
-static uint32_t CWeaponData__GetAmountOfAmmunitionAddr;
 int32_t CWeaponData::GetAmountOfAmmunition(int32_t weaponSlot) {
-    return plugin::CallMethodAndReturnDyn<int32_t, CWeaponData*>(CWeaponData__GetAmountOfAmmunitionAddr, this, weaponSlot);
+    return plugin::CallMethodAndReturnDyn<int32_t, CWeaponData*>(gpattern("53 56 57 8B D9 E8 ? ? ? ? 8B 74 24 10 8B F8"), this, weaponSlot);
 }
 
-template<>
-void plugin::InitPatterns<CWeaponData>() {
-    CWeaponData__GetAmmoDataAddr = plugin::GetPattern("8B 41 14 85 C0 74 07", 0);
-    CWeaponData__GetAmmoDataExtraCheckAddr = plugin::GetPattern("8B C1 56 8B 70 14", 0);
-
-    CWeaponData__SetCurrentWeaponAddr = plugin::GetPattern("83 EC 28 A1 ? ? ? ? 33 C4 89 44 24 24 53 8B 5C 24 30 55", 0);
-    CWeaponData__GetAmountOfAmmunitionAddr = plugin::GetPattern("53 56 57 8B D9 E8 ? ? ? ? 8B 74 24 10 8B F8", 0);
+void CWeaponData::GiveWeapon(eWeaponType weaponType, int32_t ammo, int8_t setAsCurrent, int8_t arg4, int8_t arg5) {
+    plugin::CallMethodDyn(gpattern("53 55 56 8B F1 8B 4C 24 10 57 51"), this, weaponType, ammo, setAsCurrent, arg4, arg5);
 }

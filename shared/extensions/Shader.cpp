@@ -7,7 +7,6 @@
 #include "Shader.h"
 #include "plugin.h"
 
-#ifdef _DX9_SDK_INSTALLED
 #ifdef GTASA
 
 #define PLUGIN_SDK_SHADER_MODULE_VERSION 0x00000001
@@ -406,5 +405,4 @@ void plugin::Shader::SetTexture(RwTexture* texture, unsigned int idx) {
 	RwD3D9SetTexture(texture, idx);
 }
 
-#endif
 #endif

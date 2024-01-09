@@ -69,7 +69,24 @@ public:
 public:
     void SetInitialVelocity(rage::Vector3 const& vel);
     void RemoveFromMovingList();
+    void ApplyMoveForce(rage::Vector3 const& vel);
+    void ApplyForce(rage::Vector3 const& dir, rage::Vector3 const& vel, int32_t flag);
+    rage::phConstrainedCollider* GetCollider();
 
+public:
+    void Update(uint8_t arg1) {
+        plugin::CallVirtualMethod<45>(this, arg1);
+    }
+
+    void GetVelocity(rage::Vector3* velocity) {
+        plugin::CallVirtualMethod<59>(this, velocity);
+    }
+
+    rage::Vector3 GetVelocity() {
+        rage::Vector3 vel;
+        GetVelocity(&vel);
+        return vel;
+    }
 };
 #pragma pack(pop)
 

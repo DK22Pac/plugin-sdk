@@ -37,7 +37,7 @@ public:
 public:
     static int32_t& IndexOfType_WDR;
     static int32_t& IndexOfType_WPL;
-
+    static int32_t& IndexOfType_SCO;
 
 public:
     static CFileTypeMgr* GetManager();

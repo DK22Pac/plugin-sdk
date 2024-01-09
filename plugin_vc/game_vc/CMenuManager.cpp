@@ -45,7 +45,7 @@ void CMenuManager::SwitchMenuOnAndOff() {
 }
 
 void CMenuManager::CheckSliderMovement(char value) {
-    plugin::CallMethod<0x4982D3, CMenuManager*>(this);
+    plugin::CallMethod<0x4982D3, CMenuManager*>(this, value);
 }
 
 void CMenuManager::Draw(int unk) {
@@ -58,4 +58,12 @@ void CMenuManager::UserInput() {
 
 void CMenuManager::PrintMap() {
     plugin::CallMethod<0x49A5B7, CMenuManager*>(this);
+}
+
+void CMenuManager::SaveSettings() {
+    plugin::CallMethod<0x490230, CMenuManager*>(this);
+}
+
+void CMenuManager::LoadSettings() {
+    plugin::CallMethod<0x48FE76, CMenuManager*>(this);
 }

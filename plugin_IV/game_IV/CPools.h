@@ -17,10 +17,14 @@ class CVehicle;
 
 class CPools {
 public:
-    static CPool*& ms_pObjectsPool;
-    static CPool*& ms_pTaskPool;
-    static CPool*& ms_pPedPool;
-    static CPool*& ms_pCamPool;
-    static CPool*& ms_pVehiclePool;
+    static CPool<CObject>*& ms_pObjectsPool;
+    static CPool<CTask>*& ms_pTaskPool;
+    static CPool<CPed>*& ms_pPedPool;
+    static CPool<CCam>*& ms_pCamPool;
+    static CPool<CVehicle>*& ms_pVehiclePool;
 
+public:
+    static int32_t GetPedRef(CPed* ped);
+    static int32_t GetVehicleRef(CVehicle* veh);
+    static int32_t GetObjectRef(CObject* obj);
 };

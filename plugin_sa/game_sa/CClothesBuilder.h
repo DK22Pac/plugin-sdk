@@ -7,7 +7,7 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "renderware.h"  // important
+#include "RenderWare.h"  // important
 #include "CPedClothesDesc.h"
 
 

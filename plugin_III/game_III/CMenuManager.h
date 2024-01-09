@@ -285,7 +285,7 @@ public:
 	int m_nSkinsTotal;
 	char _unk0[4];
 	int m_nCurrentExOption;
-	bool m_bSkinsFound;
+	bool m_bSkinsEnumerated;
 	bool m_bQuitGameNoCD;
 	bool m_bRenderGameInMenu;
 	bool m_bSaveMenuActive;

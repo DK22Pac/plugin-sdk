@@ -98,7 +98,7 @@ float plugin::screen::GetScreenHeight() {
 #elif RW
     return static_cast<float>(RsGlobal.maximumHeight);
 #elif RAGE
-    return static_cast<float>(rage::screenHeight);
+    return static_cast<float>(rage::grcDevice::m_CurrentHeight);
 #endif
 }
 
@@ -108,7 +108,7 @@ float plugin::screen::GetScreenWidth() {
 #elif RW
     return static_cast<float>(RsGlobal.maximumWidth);
 #elif RAGE
-    return static_cast<float>(rage::screenWidth);
+    return static_cast<float>(rage::grcDevice::m_CurrentWidth);
 #endif
 }
 

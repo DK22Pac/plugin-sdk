@@ -10,5 +10,6 @@
 
 class CVehicleFactory {
 public:
+    virtual ~CVehicleFactory() { plugin::CallVirtualMethod<0>(this, 0); }
 
 };

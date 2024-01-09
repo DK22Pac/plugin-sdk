@@ -13,6 +13,7 @@
 #include "Base.h"
 #include "VersionsMacro.h"
 #include "GameVersion.h"
+#include "Pattern.h"
 #include "EventList.h" // TODO: decide if we need it here
 #include "DynAddress.h"
 

@@ -7,6 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 #include "CModelInfo.h"
+#include "CFileType.h"
 
 enum eStreamingFlags {
     GAME_REQUIRED = 0x2,
@@ -24,4 +25,6 @@ public:
     static void RequestModel(int32_t model, int32_t fileTypeId, int32_t flags);
     static void ScriptRequestModel(int32_t hash, uint32_t* unused);
     static bool ScriptHasModelLoaded(int32_t hash);
+    static void RequestScript(int32_t hash, int32_t flags);
+    static void SetIsModelDeletable(int32_t model, int32_t fileTypeId);
 };

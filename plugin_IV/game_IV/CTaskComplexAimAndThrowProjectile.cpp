@@ -6,12 +6,7 @@
 */
 #include "CTaskComplexAimAndThrowProjectile.h"
 
-static uint32_t CTaskComplexAimAndThrowProjectile__GetAtAddr;
 CPed* CTaskComplexAimAndThrowProjectile::GetAt() {
-    return plugin::CallMethodAndReturnDyn<CPed*, CTaskComplexAimAndThrowProjectile*>(CTaskComplexAimAndThrowProjectile__GetAtAddr, this);
+    return plugin::CallMethodAndReturnDyn<CPed*, CTaskComplexAimAndThrowProjectile*>(gpattern("8B 41 14 C3 CC CC CC CC CC CC CC CC CC CC CC CC"), this);
 }
 
-template<>
-void plugin::InitPatterns<CTaskComplexAimAndThrowProjectile>() {
-    CTaskComplexAimAndThrowProjectile__GetAtAddr = plugin::GetPattern("8B 41 14 C3 CC CC CC CC CC CC CC CC CC CC CC CC", 0);
-}

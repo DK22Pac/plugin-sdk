@@ -14,10 +14,13 @@
 #include "CObject.h" 
 #include "CAmmoData.h"
 #include "CWeaponData.h"
+#include "CControl.h"
 
-enum ePedState {
-    PEDSTATE_DIE = 1,
-    PEDSTATE_DEAD = 2,
+enum eDeathState : int32_t {
+    DeathState_Alive = 0x0,
+    DeathState_Dying = 0x1,
+    DeathState_Dead = 0x2,
+    DeathState_Max = 0x3,
 };
 
 enum eRagdollState {
@@ -300,7 +303,7 @@ public:
     // Ped Flags 4
     uint32_t m_bPedFlags4_1 : 1;
     uint32_t m_bPedFlags4_2 : 1;
-    uint32_t m_bInVehicle : 1;
+    uint32_t m_bNotInVehicle : 1;
     uint32_t m_bPedFlags4_4 : 1;
     uint32_t m_bPedFlags4_5 : 1;
     uint32_t m_bPedFlags4_6 : 1;
@@ -364,38 +367,16 @@ public:
     uint32_t m_bPedFlags5_31 : 1;
 
     // Ped Flags 6
-    uint32_t m_bPedFlags6_1 : 1;
-    uint32_t m_bPedFlags6_2 : 1;
-    uint32_t m_bPedFlags6_3 : 1;
-    uint32_t m_bPedFlags6_4 : 1;
-    uint32_t m_bPedFlags6_5 : 1;
-    uint32_t m_bKilledByHeadshot : 1;
-    uint32_t m_bSteerAroundPeds : 1;
-    uint32_t m_bSteerAroundObject : 1;
-    uint32_t m_bPedFlags6_9 : 1;
-    uint32_t m_bPedFlags6_10 : 1;
-    uint32_t m_bPedFlags6_11 : 1;
-    uint32_t m_bPedFlags6_12 : 1;
-    uint32_t m_bPedFlags6_13 : 1;
-    uint32_t m_bPedFlags6_14 : 1;
-    uint32_t m_bPedFlags6_15 : 1;
-    uint32_t m_bPedFlags6_16 : 1;
-    uint32_t m_bPedFlags6_17 : 1;
-    uint32_t m_bPedFlags6_18 : 1;
-    uint32_t m_bPedFlags6_19 : 1;
-    uint32_t m_bPedFlags6_20 : 1;
-    uint32_t m_bPedFlags6_21 : 1;
-    uint32_t m_bPedFlags6_22 : 1;
-    uint32_t m_bPedFlags6_23 : 1;
-    uint32_t m_bPedFlags6_24 : 1;
-    uint32_t m_bPedFlags6_25 : 1;
-    uint32_t m_bPedFlags6_26 : 1;
-    uint32_t m_bPedFlags6_27 : 1;
-    uint32_t m_bPedFlags6_28 : 1;
-    uint32_t m_bPedFlags6_29 : 1;
-    uint32_t m_bPedFlags6_30 : 1;
-    uint32_t m_bPedFlags6_31 : 1;
+    uint8_t m_bPedFlags6_1 : 1;
+    uint8_t m_bPedFlags6_2 : 1;
+    uint8_t m_bPedFlags6_3 : 1;
+    uint8_t m_bPedFlags6_4 : 1;
+    uint8_t m_bPedFlags6_5 : 1;
+    uint8_t m_bKilledByHeadshot : 1;
+    uint8_t m_bSteerAroundPeds : 1;
+    uint8_t m_bSteerAroundObject : 1;
 
+    uint8_t field_77[3];
     float m_fClimbAnimRate;
     uint8_t field_32[32];
 
@@ -454,7 +435,10 @@ public:
     uint32_t m_nPedType;
     uint8_t field_338[10];
     uint8_t m_bHasBeenArrested;
-    uint8_t field_352[18];
+    uint32_t field_350;
+    eDeathState m_nDeathState;
+    int32_t m_nLastDamageBone;
+    uint8_t field_360[6];
     float m_fMaxHealth;
     uint8_t field_370[6];
     void* m_pPedMoveBlendOnFoot;
@@ -495,8 +479,12 @@ public:
     void SetArmour(float armour);
     void WarpIntoVehicle(CVehicle* veh, bool arg1);
     void RemoveHelmet(bool arg1);
+    bool CanStartMission();
+    void SetRelationship(int32_t level, int32_t group);
+    CControl* GetControlFromPlayer();
 
 public:
+    static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);
     static bool IsPedDead(CPed* ped);
 };
 

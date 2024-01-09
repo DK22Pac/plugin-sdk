@@ -12,8 +12,9 @@ class CTimer {
 public:
     static float& ms_fTimeStep;
     static float& ms_fTimeScale;
-
+    static uint32_t& m_snPreviousTimeInMillisecondsPauseMode;
     static uint32_t& m_snTimeInMillisecondsPauseMode;
+    static uint32_t& m_snPreviousTimeInMilliseconds;
     static uint32_t& m_snTimeInMilliseconds;
     static bool& m_CodePause;
     static bool& m_UserPause;
@@ -22,6 +23,9 @@ public:
 public:
     static float GetTimeScale() { return ms_fTimeScale; }
     static float GetTimeStep() { return ms_fTimeStep; } 
+
+    static uint32_t GetPreviousTimeInMillisecondsPauseMode() { return m_snPreviousTimeInMillisecondsPauseMode; }
+    static uint32_t GetPreviousTimeInMilliseconds() { return m_snPreviousTimeInMilliseconds; }
 
     static uint32_t GetTimeInMillisecondsPauseMode() { return m_snTimeInMillisecondsPauseMode; }
     static uint32_t GetTimeInMilliseconds() { return m_snTimeInMilliseconds; }

@@ -5,32 +5,47 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "audRadioAudioEntity.h"
-#include "Patch.h"
 
-audRadioAudioEntity* RadioAudioEntityAddr;
-audRadioAudioEntity& RadioAudioEntity = *(audRadioAudioEntity*)RadioAudioEntityAddr;
+audRadioAudioEntity& g_RadioAudioEntity = *gpatternt(audRadioAudioEntity, "B9 ? ? ? ? E9 ? ? ? ? CC CC B9 ? ? ? ? E9 ? ? ? ? CC CC CC CC CC CC B9 ? ? ? ? E8", 1);
 
-static uint32_t audRadioAudioEntity__UnpauseRadioAddr;
+bool& audRadioAudioEntity::ms_IsMobilePhoneRadioActive = *gpatternt(bool, "C6 05 ? ? ? ? ? 8B 46 28 5F", 2);
+
+void audRadioAudioEntity::RetuneToStation(const char* stationName) {
+    plugin::CallMethodDyn(gpattern("8B 44 24 04 56 8B F1 BA"), this, stationName);
+}
+
+void audRadioAudioEntity::RetuneToStation(uint32_t hashName) {
+    plugin::CallMethodDyn(gpattern("56 FF 74 24 08 8B F1 E8 ? ? ? ? 83 C4 04 85 C0"), this, hashName);
+}
+
+void audRadioAudioEntity::RetuneToStationIndex(int32_t index) {
+    plugin::CallMethodDyn(gpattern("8B 44 24 04 89 81 ? ? ? ? C2 04 00 CC CC CC 0F B6 0D"), this, index);
+}
+
+void audRadioAudioEntity::PauseRadio() {
+    plugin::CallMethodDyn(gpattern("C6 05 ? ? ? ? ? C3 CC CC CC CC CC CC CC CC 83 EC 0C"), this);
+}
+
 void audRadioAudioEntity::UnpauseRadio() {
-    plugin::CallMethodDyn<audRadioAudioEntity*>(audRadioAudioEntity__UnpauseRadioAddr, this);
+    plugin::CallMethodDyn(gpattern("83 3D ? ? ? ? ? 74 25 A1"), this);
 }
 
-static uint32_t audRadioAudioEntity__SetRadioStationIndexAddr;
-void audRadioAudioEntity::SetRadioStationIndex(int32_t index) {
-    plugin::CallMethodDyn<audRadioAudioEntity*>(audRadioAudioEntity__SetRadioStationIndexAddr, this, index);
+int32_t audRadioAudioEntity::GetAudibleMusicTrackTextId() {
+    return plugin::CallMethodAndReturnDyn<int32_t>(gpattern("83 EC 08 56 6A 00"), this);
 }
 
-static uint32_t audRadioAudioEntity__SetRadioStationAddr;
-void audRadioAudioEntity::SetRadioStation(const char* name) {
-    plugin::CallMethodDyn<audRadioAudioEntity*>(audRadioAudioEntity__SetRadioStationAddr, this, name);
+void audRadioAudioEntity::RetuneRadioUpDown(int8_t up) {
+    plugin::CallDyn(gpattern("83 EC 24 E8"), up);
 }
 
-template<>
-void plugin::InitPatterns<audRadioAudioEntity>() {
-    RadioAudioEntityAddr = (audRadioAudioEntity*)plugin::patch::GetPointer(plugin::GetPattern("B9 ? ? ? ? E9 ? ? ? ? CC CC B9 ? ? ? ? E9 ? ? ? ? CC CC CC CC CC CC B9 ? ? ? ? E8", 1));
+void audRadioAudioEntity::TurnOff(int16_t arg1) {
+    plugin::CallDyn(gpattern("83 EC 10 80 7C 24"), arg1);
+}
 
-    audRadioAudioEntity__UnpauseRadioAddr = plugin::GetPattern("83 3D ? ? ? ? ? 74 25 A1", 0);
-    audRadioAudioEntity__SetRadioStationIndexAddr = plugin::GetPattern("8B 44 24 04 89 81 ? ? ? ? C2 04 00 CC CC CC 0F B6 0D", 0);
-    audRadioAudioEntity__SetRadioStationAddr = plugin::GetPattern("8B 44 24 04 56 8B F1 BA", 0);
+void audRadioAudioEntity::TurnOn(int16_t arg1) {
+    plugin::CallDyn(gpattern("83 EC 08 80 7C 24 ? ? 0F 84"), arg1);
+}
 
+bool audRadioAudioEntity::CanRetune() {
+    return plugin::CallAndReturnDyn<bool>(gpattern("B9 ? ? ? ? E8 ? ? ? ? 84 C0 75 0D 6A 01"));
 }

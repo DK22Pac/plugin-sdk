@@ -10,5 +10,3 @@
 
 using CVector = rage::Vector3;
 using CVector2D = rage::Vector2;
-using CVector3D = rage::Vector3;
-using CVector4D = rage::Vector4;

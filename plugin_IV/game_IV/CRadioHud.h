@@ -10,6 +10,5 @@
 
 class CRadioHud {
 public:
-    static int32_t& ms_nState;
 
 };

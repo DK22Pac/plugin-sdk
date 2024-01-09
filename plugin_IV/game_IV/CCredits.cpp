@@ -7,14 +7,6 @@
 #include "CCredits.h"
 #include "Patch.h"
 
-static bool* CCredits__bCreditsGoingAddr;
-bool& CCredits::bCreditsGoing = *(bool*)CCredits__bCreditsGoingAddr;
+bool& CCredits::bCreditsGoing = *gpatternt(bool, "C6 05 ? ? ? ? ? A3 ? ? ? ? C7 05", 2);
+uint32_t& CCredits::CreditsStartTime = *gpatternt(uint32_t, "A3 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C6 05", 1);
 
-static uint32_t* CCredits__CreditsStartTime;
-uint32_t& CCredits::CreditsStartTime = *(uint32_t*)CCredits__CreditsStartTime;
-
-template<>
-void plugin::InitPatterns<CCredits>() {
-    CCredits__bCreditsGoingAddr = (bool*)plugin::patch::GetPointer(plugin::GetPattern("C6 05 ? ? ? ? ? A3 ? ? ? ? C7 05", 2));
-    CCredits__CreditsStartTime = (uint32_t*)plugin::patch::GetPointer(plugin::GetPattern("A3 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? C6 05", 1));
-}

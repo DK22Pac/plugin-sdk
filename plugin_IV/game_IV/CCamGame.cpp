@@ -6,7 +6,3 @@
 */
 #include "CCamGame.h"
 
-template<>
-void plugin::InitPatterns<CCamGame>() {
-
-}

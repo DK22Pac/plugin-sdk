@@ -27,6 +27,7 @@ public:
     static int32_t& ForcedWeatherType;
     static float& InterpolationValue;
     static int32_t& WeatherTypeInList;
-    static float &Rain;
+    static float& Rain;
+    static float& Wind;
 
 };

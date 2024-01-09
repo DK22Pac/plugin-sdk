@@ -9,6 +9,7 @@
 #include "CPhysical.h"
 #include "audVehicleAudioEntity.h"
 #include "CPools.h"
+#include "cHandlingDataMgr.h"
 
 class CPed;
 
@@ -47,9 +48,14 @@ public:
     uint8_t m_nColor2;
     uint8_t m_nColor3;
     uint8_t m_nColor4;
-    uint8_t field_156[2915];
+    uint8_t field_146[2701];
+    uint8_t m_ForcePlayerStation;
+    uint8_t field_156[140];
+    tHandlingData* m_pHandlingData;
+    uint32_t m_nHandlingFlags;
+    uint8_t field_157[67];
     void* m_pVehicleFrag;
-    void* m_pHandling;
+    void* field_192;
 
     // Veh Flags 1
     uint32_t m_bSmoothCompresn : 1;
@@ -147,6 +153,11 @@ public:
 
 public:
     void SetPosition(rage::Vector3 const& pos, bool arg2, bool arg3);
+    void FlyingControl(int32_t flyingModel, float leftRightSkid, float steeringUpDown, float steeringLeftRight, float accelerationBreakStatus, float arg6, float arg7);
+
+public:
+    void Fix() { plugin::CallVirtualMethod<101>(this); }
+    void SetHealth(float health, int32_t arg2) { plugin::CallVirtualMethod<61>(this, health, arg2); }
 };
 
 VALIDATE_SIZE(CVehicle, 0x2080);

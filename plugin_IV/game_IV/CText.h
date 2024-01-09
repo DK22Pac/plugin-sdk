@@ -11,7 +11,7 @@
 class CText {
 public:
     const wchar_t* Get(const char* key);
-
+    const wchar_t* Get(uint32_t hash, const char* key);
 };
 
 extern CText& TheText;

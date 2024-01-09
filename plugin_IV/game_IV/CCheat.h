@@ -47,10 +47,10 @@ enum eCheatFuncs {
 
 class CCheat {
 public:
-    static void (**&m_aCheatFunctions)();
-    static int32_t*& m_aCheatHashKeys;
-    static wchar_t*& m_CheatString;
-    static bool*& m_aCheatsActive;
+    static void (**m_aCheatFunctions)();
+    static int32_t* m_aCheatHashKeys;
+    static wchar_t* m_CheatString;
+    static bool* m_aCheatsActive;
     static bool& m_bHasPlayerCheated;
 
 public:

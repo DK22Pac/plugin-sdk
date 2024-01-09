@@ -5,31 +5,17 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CBaseDC.h"
-#include "Patch.h"
 
-static int32_t* CBaseDC__TotalDrawCommandsAddr;
-int32_t& CBaseDC::TotalDrawCommands = *(int32_t*)CBaseDC__TotalDrawCommandsAddr;
+int32_t& CBaseDC::m_currCommandIdx = *gpatternt(int32_t, "89 15 ? ? ? ? C7 01 ? ? ? ? 8B C1", 2);
 
-static uint32_t CBaseDC__operator_newAddr;
 void* CBaseDC::operator new(std::size_t size) {
-    return plugin::CallAndReturnDyn<void*>(CBaseDC__operator_newAddr, size, 0);
+    return plugin::CallAndReturnDyn<void*>(gpattern("53 56 57 8B 7C 24 10 FF 74 24 14"), size, 0);
 }
 
-static uint32_t CBaseDC__AppendAddr;
-void CBaseDC::Append(CBaseDC* dc) {
-    plugin::CallDyn<CBaseDC*>(CBaseDC__AppendAddr, dc);
+void CBaseDC::InitStatic(CBaseDC* dc) {
+    plugin::CallDyn<CBaseDC*>(gpattern("56 57 8B 7C 24 0C 8B CF 8B 07 FF 50 08"), dc);
 }
 
-static uint32_t CBaseDC__Append_1Addr;
-void CBaseDC::Append() {
-    plugin::CallMethodDyn<CBaseDC*>(CBaseDC__Append_1Addr, this);
-}
-
-template<>
-void plugin::InitPatterns<CBaseDC>() {
-    CBaseDC__TotalDrawCommandsAddr = (int32_t*)plugin::patch::GetPointer(plugin::GetPattern("89 15 ? ? ? ? C7 01 ? ? ? ? 8B C1", 2));
-
-    CBaseDC__operator_newAddr = plugin::GetPattern("53 56 57 8B 7C 24 10 FF 74 24 14", 0);
-    CBaseDC__AppendAddr = plugin::GetPattern("56 57 8B 7C 24 0C 8B CF 8B 07 FF 50 08", 0);
-    CBaseDC__Append_1Addr = plugin::GetPattern("56 57 8B F9 8B 07 FF 50 08 25", 0);
+void CBaseDC::Init() {
+    plugin::CallMethodDyn<CBaseDC*>(gpattern("56 57 8B F9 8B 07 FF 50 08 25"), this);
 }

@@ -6,7 +6,3 @@
 */
 #include "CSetCurrentViewportToNULL.h"
 
-template<>
-void plugin::InitPatterns<CSetCurrentViewportToNULL>() {
-
-}

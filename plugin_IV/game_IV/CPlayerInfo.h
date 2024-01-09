@@ -124,8 +124,8 @@ public:
     uint8_t m_bFastReload;
     uint8_t m_bFireProof;
     uint8_t m_bSomeFlag3;
-    uint16_t m_nMaxHealth;
-    uint16_t m_nMaxArmour;
+    uint16_t MaxHealth;
+    uint16_t MaxArmour;
     uint8_t m_bFlag1;
     uint8_t m_bFlag2;
     uint8_t m_bCanDoDriveBy;

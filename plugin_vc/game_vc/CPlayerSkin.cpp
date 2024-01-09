@@ -1,10 +1,12 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CPlayerSkin.h"
+
+RpClump*& gpPlayerClump = *reinterpret_cast<RpClump**>(0x786D50);
 
 int &CPlayerSkin::m_txdSlot = *(int *)0x978608;
 

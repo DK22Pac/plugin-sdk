@@ -6,12 +6,7 @@
 */
 #include "CGrcState_SetLightingMode.h"
 
-static uint32_t CGrcState_SetLightingMode__CGrcState_SetLightingMode;
 CGrcState_SetLightingMode::CGrcState_SetLightingMode(int32_t mode) {
-    plugin::CallMethodDyn<CGrcState_SetLightingMode*>(CGrcState_SetLightingMode__CGrcState_SetLightingMode, this, mode);
+    plugin::CallMethodDyn<CGrcState_SetLightingMode*>(gpattern("8B 41 04 C7 01 ? ? ? ? 33 05 ? ? ? ? 25 ? ? ? ? 31 41 04 8B 44 24 04 FF 05 ? ? ? ? 89 41 08 C7 01 ? ? ? ? 8B C1 C2 04 00 CC 8B D1"), this, mode);
 }
 
-template<>
-void plugin::InitPatterns<CGrcState_SetLightingMode>() {
-    CGrcState_SetLightingMode__CGrcState_SetLightingMode = plugin::GetPattern("8B 41 04 C7 01 ? ? ? ? 33 05 ? ? ? ? 25 ? ? ? ? 31 41 04 8B 44 24 04 FF 05 ? ? ? ? 89 41 08 C7 01 ? ? ? ? 8B C1 C2 04 00 CC 8B D1", 0);
-}

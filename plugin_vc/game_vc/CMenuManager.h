@@ -283,7 +283,7 @@ public:
     bool field_158;
     bool field_159;
     char m_nCurrExLayer;
-    char m_PrefsSkinFile[256];
+    char m_nPrefsSkinFile[256];
     char m_aSkinName[256];
     char field_35B;
     int m_nHelperTextMsgId;
@@ -309,6 +309,8 @@ public:
     void Draw(int unk);
     void UserInput();
     void PrintMap();
+    void LoadSettings();
+    void SaveSettings();
 };
 
 

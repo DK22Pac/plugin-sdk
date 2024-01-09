@@ -10,7 +10,7 @@
 #include "CPool.h"
 
 struct TxdDef {
-    rage::pgDictionary<rage::grcTexturePC>* dict;
+    rage::pgDictionary<rage::pgRef<rage::grcTexturePC>>* dict;
     int32_t refName;
     uint32_t name;
     int32_t pad;
@@ -18,8 +18,8 @@ struct TxdDef {
 
 class CTxdStore {
 public:
-    static CPool*& ms_pTxdPool;
-    static rage::pgDictionary<rage::grcTexturePC>* ms_pStoredTxd;
+    static CPool<TxdDef>*& ms_pTxdPool;
+    static rage::pgDictionary<rage::pgRef<rage::grcTexturePC>>*& ms_pStoredTxd;
 
 public:
     static int32_t AddTxdSlot(const char* name);

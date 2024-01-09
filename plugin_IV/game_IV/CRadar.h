@@ -201,5 +201,6 @@ public:
 
 public:
 	static bool IsRenderPhaseTime();
+	static int32_t GetActualBlipArrayIndex(int32_t blipIndex);
 };
 

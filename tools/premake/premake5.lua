@@ -1,3 +1,4 @@
+require "codeblocks"
 newoption {
    trigger     = "pluginsdkdir",
    description = "Plugin-SDK directory (optional)"
@@ -62,11 +63,7 @@ function projectDefinition(name, value, l1, l2)
 end
 
 function directX9Installed()
-    local dx = os.getenv("DIRECTX9_SDK_DIR")
-    if dx ~= nil and dx ~= "" then
-        return true
-    end
-    return false
+	return true
 end
 
 function splitString(line, sep)
@@ -136,9 +133,9 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     
     if isPluginProject == true and directX9Installed() == true then
         if msbuild then
-            sysincludedirs { "$(IncludePath)", "$(DIRECTX9_SDK_DIR)\\Include" }
+            sysincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
         else
-            includedirs "$(DIRECTX9_SDK_DIR)\\Include"
+            includedirs "$(PLUGIN_SDK_DIR)\\shared\\dxsdk"
         end
         defines "_DX9_SDK_INSTALLED"
     end
@@ -402,7 +399,7 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
     local aryDirs = {}
     if usesD3d9 then
         if mingw then
-            aryDirs[counter] = "$(DIRECTX9_SDK_DIR)\\Include";
+            aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\dxsdk";
             counter = counter + 1
         end
     end
@@ -421,7 +418,7 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
         counter = counter + 1
     end
     if usesRwD3d9 then
-        aryDirs[counter] = "$(RWD3D9_DIR)\\source"
+        aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\rwd3d9"
         counter = counter + 1
     end
     if additionalDirs ~= "" then
@@ -435,7 +432,7 @@ function getExamplePluginLibraryFolders(projectType, cleoDir, usesRwD3d9, additi
     local aryDirs = {}
     if usesD3d9 then
         if mingw then
-            aryDirs[counter] = "$(DIRECTX9_SDK_DIR)\\Lib\\x86"
+            aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\dxsdk"
             counter = counter + 1
         end
     end
@@ -453,7 +450,7 @@ function getExamplePluginLibraryFolders(projectType, cleoDir, usesRwD3d9, additi
         counter = counter + 1
     end
     if usesRwD3d9 then
-        aryDirs[counter] = "$(RWD3D9_DIR)\\libs"
+        aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\rwd3d9"
         counter = counter + 1
     end
     if additionalDirs ~= "" then
@@ -529,12 +526,14 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     characterset ("MBCS")
     staticruntime "On"
     flags { "NoImportLib" }
+	cppdialect "C++17"
+	defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
+
     if msbuild then
         if winxp then
             buildoptions { "/Zc:threadSafeInit-" }
         end
         buildoptions { "/sdl-" }
-        linkoptions "/LTCG" 
     end
     if mingw then
         buildoptions "-fpermissive"
@@ -575,8 +574,8 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
 
     if d3dSupport == true then
         if msbuild then
-           sysincludedirs { "$(IncludePath)", "$(DIRECTX9_SDK_DIR)\\Include" }
-           syslibdirs { "$(LibraryPath)", "$(DIRECTX9_SDK_DIR)\\Lib\\x86" }
+           sysincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
+           syslibdirs { "$(LibraryPath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
         end
     end
 	

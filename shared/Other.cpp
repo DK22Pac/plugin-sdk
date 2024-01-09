@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Other.h"
-#include <Windows.h>
+#include <windows.h>
 #include <fstream>
 #include <ctime>
 

@@ -9,7 +9,7 @@
 #include "Rage.h"
 #include "audGtaAudioEntity.h"
 
-class audVehicleAudioEntity : audGtaAudioEntity {
+class audVehicleAudioEntity : public audGtaAudioEntity {
 public:
     uint8_t field_2886[2886];
 
