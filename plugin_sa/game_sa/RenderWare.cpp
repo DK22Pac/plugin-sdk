@@ -981,6 +981,10 @@ RwBool RwTextureDestroy(RwTexture* texture) {
     return ((RwBool(__cdecl *)(RwTexture*))0x7F3820)(texture);
 }
 
+RwTexture* RwTextureRead(const char* name, const char* mask) {
+    return plugin::CallAndReturn<RwTexture*, 0x07F3AC0>(name, mask);
+}
+
 RwTexture* RwTextureSetRaster(RwTexture* texture, RwRaster* raster) {
     return ((RwTexture*(__cdecl *)(RwTexture*, RwRaster*))0x7F35D0)(texture, raster);
 }
