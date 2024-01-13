@@ -33,9 +33,9 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
 
-    - name: Set PLUGIN_SDK_DIR
-      run: $env:PLUGIN_SDK_DIR="${{github.workspace}}"
-
+    - name: Set GitHub PLUGIN_SDK_DIR
+      run: echo "PLUGIN_SDK_DIR=${{github.workspace}}" | Out-File -FilePath $env:GITHUB_ENV
+      
     - name: Generate PluginSDK for vs2022
       run: tools/premake/premake5.exe vs2022 --file="tools/premake/premake5.lua"
 
@@ -48,5 +48,5 @@ jobs:
     - name: Package build output as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{env.GITHUB_SHA}}
-        path: ${{env.GITHUB_WORKSPACE}}
+        name: ${{github.sha}}
+        path: ${{github.workspace}}
