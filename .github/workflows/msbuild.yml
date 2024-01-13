@@ -34,7 +34,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1
 
     - name: Set PLUGIN_SDK_DIR
-      run: $env:PLUGIN_SDK_DIR="${{env.GITHUB_WORKSPACE}}"
+      run: $env:PLUGIN_SDK_DIR="${{github.workspace}}"
 
     - name: Generate PluginSDK for vs2022
       run: tools/premake/premake5.exe vs2022 --file="tools/premake/premake5.lua"
