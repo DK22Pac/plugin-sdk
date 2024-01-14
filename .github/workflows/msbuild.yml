@@ -26,16 +26,9 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
-    permissions:
-      contents: write
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Create tag
-      run: |
-        git tag $(git rev-parse --short HEAD)
-        git push origin --tags
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
@@ -76,7 +69,6 @@ jobs:
         run: zip -r release.zip ${{steps.artifact.outputs.download-path}}
       
       - name: Create release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ${{github.workspace}}/release.zip
-          tag_name: "$(git rev-parse --short HEAD)"
+        run: |
+          gh release create $(git rev-parse --short HEAD) --generate-notes
+          gh release upload $(git rev-parse --short HEAD) ${{github.workspace}}/release.zip
