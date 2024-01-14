@@ -74,5 +74,5 @@ jobs:
           commit: ${{github.sha}}
           tag: latest
           generateReleaseNotes: true
-          artifacts: ${{github.workflow}}/release.zip
+          artifacts: ${{github.workspace}}/release.zip
           artifactContentType: application/zip
