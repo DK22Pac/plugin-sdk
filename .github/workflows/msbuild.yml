@@ -67,6 +67,5 @@ jobs:
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          tag: latest
           commit: main
           artifacts: ${{steps.artifact.outputs.download-path}}
