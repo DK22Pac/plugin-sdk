@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: gh sync
+      - run: gh repo sync
