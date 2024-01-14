@@ -32,10 +32,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    #- name: Create tag
-    #  run: |
-    #    git tag $(git rev-parse --short HEAD)
-    #    git push origin --tags
+    - name: Create tag
+      run: |
+        git tag $(git rev-parse --short HEAD)
+        git push origin --tags
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
@@ -79,3 +79,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ${{github.workspace}}/release.zip
+          tag_name: $(git rev-parse --short HEAD)
