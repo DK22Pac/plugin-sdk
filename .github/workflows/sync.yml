@@ -13,3 +13,5 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: gh repo sync
+        env:
+          GH_TOKEN: ${{ github.token }}
