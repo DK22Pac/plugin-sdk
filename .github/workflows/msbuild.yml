@@ -65,8 +65,8 @@ jobs:
           merge-multiple: true
 
       - name: Acrhive artifact
-        working-directory: ${{github.workspace}}
-        run: zip release.zip ${{steps.artifact.outputs.download-path}}/
+        working-directory: ${{steps.artifact.outputs.download-path}}
+        run: zip -r ${{github.workspace}}/release.zip .
       
       - name: Create release
         env:
