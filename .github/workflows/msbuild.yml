@@ -64,7 +64,9 @@ jobs:
         with:
           merge-multiple: true
 
-      - run: ls ${{steps.artifact.outputs.download-path}}
+      - name: Acrhive artifact
+        working-directory: ${{github.workflow}}
+        run: zip -r release.zip ${{steps.artifact.outputs.download-path}}
       
       - name: Create release
         uses: ncipollo/release-action@v1
@@ -72,5 +74,5 @@ jobs:
           commit: ${{github.sha}}
           tag: latest
           generateReleaseNotes: true
-          artifacts: ${{steps.artifact.outputs.download-path}}/*.*
+          artifacts: ${{github.workflow}}/release.zip
           artifactContentType: application/zip
