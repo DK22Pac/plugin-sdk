@@ -70,5 +70,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           commit: ${{github.sha}}
-          tag: ${{github.ref}}
+          tag: $(git rev-parse --short "${{github.sha}}")
           artifacts: ${{steps.artifact.outputs.download-path}}/*.*
