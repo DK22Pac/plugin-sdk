@@ -65,7 +65,7 @@ jobs:
           merge-multiple: true
 
       - name: Create release
-        uses: ncipollo/release-action@latest
+        uses: ncipollo/release-action@v1
         with:
           tag: latest
           commit: main
