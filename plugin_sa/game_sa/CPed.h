@@ -45,7 +45,7 @@ enum eFightingStyle
     STYLE_BOXING,
     STYLE_KUNG_FU,
     STYLE_KNEE_HEAD,
-    STYLE_MELLE,
+    STYLE_MELEE,
     STYLE_KNIFE,
     STYLE_BAT,
     STYLE_KATANA_CANE,
