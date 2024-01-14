@@ -61,18 +61,9 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: Create release
-        id: release
-        uses: actions/create-release@v1
+        uses: marvinpinto/action-automatic-releases@latest
         with:
-          tag_name: ${{github.run_id}}
-          release_name: ${{github.sha}}
-          token: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Upload release
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{steps.release.outputs.upload_url}}
-          asset_path: ${{github.sha}}.zip
-          asset_name: build.zip
-          asset_content_type: application/zip
-      
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: ${{github.sha}}
+          title: ${{github.sha}}
+          files: "${{github.sha}}.zip"
