@@ -40,7 +40,7 @@ jobs:
       run: tools/premake/premake5.exe vs2022 --file="tools/premake/premake5.lua"
 
     - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
+      working-directory: ${{github.workspace}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
@@ -50,3 +50,27 @@ jobs:
       with:
         name: ${{github.sha}}
         path: ${{github.workspace}}
+
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        id: artifact
+        uses: actions/download-artifact@v4
+
+      - name: Create release
+        id: release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{github.run_id}}
+          release_name: ${{github.sha}}
+
+      - name: Upload release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{steps.release.outputs.upload_url}}
+          asset_path: ${{github.sha}}.zip
+          asset_name: build.zip
+          asset_content_type: application/zip
+      
