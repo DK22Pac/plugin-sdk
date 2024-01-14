@@ -30,6 +30,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Create tag
+      run: |
+        git tag $(git rev-parse --short HEAD)
+        git push origin --tags
+
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1
 
@@ -72,7 +77,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           commit: ${{github.sha}}
-          tag: latest
+          tag: $(git describe --tags --abbrev=0)
+          allowUpdates: true
           generateReleaseNotes: true
           artifacts: ${{github.workspace}}/release.zip
           artifactContentType: application/zip
