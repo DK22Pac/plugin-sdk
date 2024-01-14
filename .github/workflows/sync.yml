@@ -1,3 +1,5 @@
+name: Sync 
+
 on:
   schedule:
     - cron: 0 0 * * * 
