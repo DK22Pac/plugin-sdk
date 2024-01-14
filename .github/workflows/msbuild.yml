@@ -68,5 +68,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           commit: ${{github.sha}}
-          tag: ${{github.sha}}
+          tag: latest
           artifacts: ${{steps.artifact.outputs.download-path}}
