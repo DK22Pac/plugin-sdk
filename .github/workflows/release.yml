@@ -1,0 +1,37 @@
+name: Upload Release
+
+
+on:
+  workflow_run:
+    workflows: [MSBuild]
+    types:
+      - completed
+
+jobs:
+  upload-release:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Download artifact
+        id: artifact
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{context.payload.workflow_run.id}}
+
+      - name: Create release
+        id: release
+        uses: actions/create-release@v1
+        with:
+          tage_name: ${{context.payload.workflow_run.head_commit.timestamp}}
+          release_name: ${{context.payload.workflow_run.head_commit.message}}
+
+      - name: Upload release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{steps.release.outputs.upload_url}}
+          asset_path: ${{steps.artifact.outputs.download-path}}/*.zip
+          asset_name: build.zip
+          asset_content_type: application/zip
+      
+    
