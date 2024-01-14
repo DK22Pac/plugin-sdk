@@ -64,9 +64,11 @@ jobs:
         with:
           merge-multiple: true
 
+      - run: ls ${{steps.artifact.outputs.download-path}}
+      
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
           commit: ${{github.sha}}
-          tag: latest
-          artifacts: ${{steps.artifact.outputs.download-path}}
+          tag: ${{github.ref}}
+          artifacts: ${{steps.artifact.outputs.download-path}}/*.*
