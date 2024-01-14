@@ -21,6 +21,9 @@ namespace plugin {
     namespace Events {
 #ifdef GTASA
         static CdeclEvent    <AddressList<0x53E293, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent;
+		static CdeclEvent    <AddressList<0x726AD0, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> RenderSpecialFxEvent;
+		static ThiscallEvent <AddressList<0x53E175, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> RenderEffectsEvent;
+		static CdeclEvent    <AddressList<0x717150, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> movingThingsEvent;
         static CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawHudEvent;
 
         static CdeclEvent    <AddressList<0x53E550, H_CALL,
