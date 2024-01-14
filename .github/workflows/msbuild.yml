@@ -59,11 +59,15 @@ jobs:
       - name: Download artifact
         id: artifact
         uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+
+      
 
       - name: Create release
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          automatic_release_tag: ${{github.sha}}
+          automatic_release_tag: latest
           title: ${{github.sha}}
-          files: "${{github.sha}}.zip"
+          files: ${{steps.artifact.outputs.download-path}}
