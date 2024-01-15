@@ -133,11 +133,11 @@ namespace plugin {
             _usePrecision = false;
             _writeOnly = writeOnly;
 
-            std::string str = PLUGIN_FILENAME;
+            std::string str = (char *)PLUGIN_FILENAME;
             std::size_t dotPosition = str.find_last_of('.');
             if (dotPosition != std::string::npos) {
                 std::string res = str.substr(0, dotPosition) + ".ini";
-                open(PLUGIN_PATH((char*)res.c_str()));
+                open(PLUGIN_PATH((wchar_t *)res.c_str()));
             }
         }
 
