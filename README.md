@@ -1,3 +1,6 @@
+# This fork contains automatically prebuilt lib files for Visual Studio 2022 in its Releases with some tweaks/fixes included. You are free to use these as you may.
+
+
 <p align="center"><img src="http://i.imgur.com/xFXWiU9.png"></p>
 
 ## English
