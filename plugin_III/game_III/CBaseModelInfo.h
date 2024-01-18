@@ -63,6 +63,8 @@ public:
     // virtual function #0 (destructor)
 
     SUPPORTED_10EN_11EN_STEAM void Shutdown();
+    void DeleteRwObject();
+    RwObject* CreateInstance();
 
     SUPPORTED_10EN_11EN_STEAM void Add2dEffect(C2dEffect *effect);
     SUPPORTED_10EN_11EN_STEAM void AddRef();

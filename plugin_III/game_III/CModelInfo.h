@@ -50,7 +50,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void RemoveColModelsFromOtherLevels(eLevelName level);
     SUPPORTED_10EN_11EN_STEAM static void ShutDown();
 
-    static inline CBaseModelInfo *GetModelsInfo(int index) {
+    static inline CBaseModelInfo *GetModelInfo(int index) {
         return ms_modelInfoPtrs[index];
     }
 

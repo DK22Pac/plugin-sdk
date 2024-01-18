@@ -16,6 +16,7 @@ namespace plugin {
     class pattern {
     private:
         static inline std::unique_ptr<std::unordered_map<std::string_view, uint32_t>> patternMap;
+        static inline std::unique_ptr<std::unordered_map<std::string_view, uint32_t>> modulePatternMap;
 
     public:
         static inline uint32_t Get(std::string_view const& bytes, int32_t offset = 0) {
@@ -36,9 +37,32 @@ namespace plugin {
             return a + offset;
         }
 
+        static inline uint32_t GetExternal(void* module, std::string_view const& bytes, int32_t offset = 0) {
+            if (!modulePatternMap)
+                modulePatternMap = std::make_unique<std::unordered_map<std::string_view, uint32_t>>();
+
+            uint32_t a = 0x0;
+            auto it = modulePatternMap->find(bytes);
+            if (it != modulePatternMap->end()) {
+                a = it->second;
+                goto return_addr;
+            }
+            a = (uint32_t)hook::module_pattern(module, bytes).get_first(0);
+            modulePatternMap->emplace(bytes, a);
+return_addr:
+            a -= GetBaseAddress();
+            a += 0x400000;
+            return a + offset;
+        }
+
         template<typename T = void*>
         static inline auto Read(std::string_view const& bytes, int32_t offset = 0) {
             return injector::ReadMemory<T>(GetGlobalAddress(Get(bytes, offset)), true);
+        }
+
+        template<typename T = void*>
+        static inline auto ReadExternal(void* module, std::string_view const& bytes, int32_t offset = 0) {
+            return injector::ReadMemory<T>(GetGlobalAddress(GetExternal(module, bytes, offset)), true);
         }
     };
 }
