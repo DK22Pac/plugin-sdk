@@ -12,13 +12,24 @@
 #include "CFontDetails.h"
 #include "CSprite2d.h"
 
+struct tFontTable {
+    unsigned short prop[191];
+    unsigned short space;
+    unsigned short unprop;
+};
+
+struct tFontSize {
+    tFontTable fonts[3];
+    unsigned short ftable[338];
+};
+
 class CFont {
 public:
     // variables
     static CFontDetails &Details;
     static CSprite2d *Sprite; 
     static short &NewLine;
-    static short** Size;
+    static tFontSize& Size;
 
     // funcs
 
