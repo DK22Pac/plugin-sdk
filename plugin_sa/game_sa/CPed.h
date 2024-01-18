@@ -45,9 +45,15 @@ enum eFightingStyle
     STYLE_BOXING,
     STYLE_KUNG_FU,
     STYLE_KNEE_HEAD,
-    // various melee weapon styles
-    STYLE_GRAB_KICK = 15,
-    STYLE_ELBOWS = 16,
+    STYLE_MELEE,
+    STYLE_KNIFE,
+    STYLE_BAT,
+    STYLE_KATANA_CANE,
+    STYLE_CHAINSAW,
+    STYLE_DILDO,
+    STYLE_FLOWER,
+    STYLE_GRAB_KICK,
+    STYLE_ELBOWS
 };
 
 class CObject;
