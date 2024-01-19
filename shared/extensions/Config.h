@@ -10,12 +10,15 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CVector.h"
-#ifndef GTA2
 #include "CVector2D.h"
+#elif defined(GTAIV) || defined(GTA2)
+#include "CVector.h"
 #endif
 #include "CRect.h"
 #include "CRGBA.h"
+#include "Paths.h"
 
 namespace plugin {
 
@@ -87,6 +90,7 @@ namespace plugin {
 
         config_param_line(std::string paramName);
         config_param_line(std::string paramName, std::string value, bool useQuotes);
+        config_param_line(std::string paramName, std::string value, bool useQuotes, std::string paramComment);
     };
 
     class config_file {
@@ -99,6 +103,8 @@ namespace plugin {
         bool _useEqualitySign;
         bool _useAlignment;
         bool _dataRead;
+        bool _usePrecision;
+        bool _writeOnly;
 
         config_parameter _emptyParameter;
 
@@ -109,8 +115,32 @@ namespace plugin {
         bool pathEmpty();
         void prepareData();
         void writeData();
+
+        config_file &operator<<(std::string comment) {
+            paramLines.emplace_back("", "", false, comment);
+            return *this;
+        }
     public:
         config_file();
+
+        config_file(bool usePluginName, bool writeOnly) {
+#ifdef _MSC_VER
+            _bWidePath = false;
+#endif
+            _dataRead = false;
+            _useAlignment = true;
+            _useEqualitySign = false;
+            _usePrecision = false;
+            _writeOnly = writeOnly;
+
+            std::string str = PLUGIN_FILENAME;
+            std::size_t dotPosition = str.find_last_of('.');
+            if (dotPosition != std::string::npos) {
+                std::string res = str.substr(0, dotPosition) + ".ini";
+                open(PLUGIN_PATH((char*)res.c_str()));
+            }
+        }
+
         void open(std::string fileName);
         void open(std::string fileName, bool readOnly, bool equalitySign, bool alignment);
         config_file(std::string fileName);
@@ -123,5 +153,7 @@ namespace plugin {
         config_parameter &operator[](std::string name);
         void setUseEqualitySign(bool enable);
         void setUseAlignment(bool enable);
+        void setUsePrecision(bool enable);
+        void setWriteOnly(bool enable);
     };
 }

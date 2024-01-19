@@ -5,10 +5,11 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CRGBA.h"
-#ifndef GTA2
+#ifdef RW
 #include "RenderWare.h"
 #endif
 
+#ifndef RAGE
 CRGBA::CRGBA(unsigned char red, unsigned char green, unsigned char blue) {
     Set(red, green, blue, 255);
 }
@@ -25,7 +26,7 @@ CRGBA::CRGBA(unsigned int intValue) {
     Set(intValue);
 }
 
-#ifndef GTA2
+#ifdef RW
 CRGBA::CRGBA(RwRGBA const &rhs) {
     Set(rhs);
 }
@@ -59,7 +60,7 @@ void CRGBA::Set(CRGBA const &rhs, unsigned char alpha) {
     Set(rhs.r, rhs.g, rhs.b, alpha);
 }
 
-#ifndef GTA2
+#ifdef RW
 void CRGBA::Set(RwRGBA const &rwcolor) {
     Set(rwcolor.red, rwcolor.green, rwcolor.blue, rwcolor.alpha);
 }
@@ -74,7 +75,7 @@ unsigned int CRGBA::ToIntARGB() const {
 }
 
 
-#ifndef GTA2
+#ifdef RW
 RwRGBA CRGBA::ToRwRGBA() const {
     return { r, g, b, a };
 }
@@ -113,3 +114,4 @@ CRGBA &CRGBA::operator=(CRGBA const &rhs) {
 CRGBA CRGBA::ToRGB() const {
     return CRGBA(r, g, b, 255);
 }
+#endif

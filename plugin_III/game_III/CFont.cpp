@@ -11,7 +11,7 @@
 CFontDetails &CFont::Details = *(CFontDetails *)0x8F317C;
 CSprite2d *CFont::Sprite = (CSprite2d *)0x95CC04;
 short &CFont::NewLine = *(short *)0x95CC94;
-short** CFont::Size = (short**)0x5FD120; // [3][193]
+tFontSize& CFont::Size = *(tFontSize*)0x5FD120; // [3][193]
 
 char *aStr = (char *)0x64C624;
 

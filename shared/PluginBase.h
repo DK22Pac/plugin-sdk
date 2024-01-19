@@ -13,6 +13,7 @@
 #include "Base.h"
 #include "VersionsMacro.h"
 #include "GameVersion.h"
+#include "Pattern.h"
 #include "EventList.h" // TODO: decide if we need it here
 #include "DynAddress.h"
 
@@ -159,13 +160,13 @@ void CallStd(Args... args) {
 }
 
 template <typename Ret, unsigned int address, typename... Args>
-Ret CallAndReturn(Args... args) {
-    return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
+Ret CallStdAndReturn(Args... args) {
+    return reinterpret_cast<Ret(__stdcall*)(Args...)>(address)(args...);
 }
 
 template <typename Ret, unsigned int address, typename... Args>
-Ret CallStdAndReturn(Args... args) {
-    return reinterpret_cast<Ret(__stdcall*)(Args...)>(address)(args...);
+Ret CallAndReturn(Args... args) {
+    return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
 }
 
 template <unsigned int address, typename C, typename... Args>
@@ -196,6 +197,16 @@ void CallDyn(unsigned int address, Args... args) {
 template <typename Ret, typename... Args>
 Ret CallAndReturnDyn(unsigned int address, Args... args) {
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
+}
+
+template <typename... Args>
+void CallStdDyn(unsigned int address, Args... args) {
+    reinterpret_cast<void(__stdcall*)(Args...)>(GetGlobalAddress(address))(args...);
+}
+
+template <typename Ret, typename... Args>
+Ret CallStdAndReturnDyn(unsigned int address, Args... args) {
+    return reinterpret_cast<Ret(__stdcall*)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
 template <typename C, typename... Args>

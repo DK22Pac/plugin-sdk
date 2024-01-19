@@ -1,3 +1,4 @@
+require "codeblocks"
 newoption {
    trigger     = "pluginsdkdir",
    description = "Plugin-SDK directory (optional)"
@@ -62,11 +63,7 @@ function projectDefinition(name, value, l1, l2)
 end
 
 function directX9Installed()
-    local dx = os.getenv("DIRECTX9_SDK_DIR")
-    if dx ~= nil and dx ~= "" then
-        return true
-    end
-    return false
+	return true
 end
 
 function splitString(line, sep)
@@ -108,7 +105,6 @@ function setToolset()
             end
         end
         buildoptions "/std:c++latest"
-        
     end
 end
 
@@ -118,7 +114,8 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     architecture "x32"
     characterset "MBCS"
     staticruntime "On"
-    
+	cppdialect "C++17"
+	
     local projectPath = (sdkdir .. "\\" .. projectName)
     
     if msbuild then
@@ -126,7 +123,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines "_USING_V110_SDK71_"
             buildoptions { "/Zc:threadSafeInit-" }
         end
-        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES" }
+        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
         buildoptions { "/sdl-" }
         disablewarnings "4073"
     end
@@ -136,9 +133,9 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     
     if isPluginProject == true and directX9Installed() == true then
         if msbuild then
-            sysincludedirs { "$(IncludePath)", "$(DIRECTX9_SDK_DIR)\\Include" }
+            sysincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
         else
-            includedirs "$(DIRECTX9_SDK_DIR)\\Include"
+            includedirs "$(PLUGIN_SDK_DIR)\\shared\\dxsdk"
         end
         defines "_DX9_SDK_INSTALLED"
     end
@@ -146,13 +143,15 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     --TODO: add all game versions when it will be possible
     if isPluginProject == true then
         if projectName == "plugin_sa" then
-            defines { "GTASA", "PLUGIN_SGV_10US" }
+            defines { "GTASA", "PLUGIN_SGV_10US", "RW" }
         elseif projectName == "plugin_vc" then
-            defines { "GTAVC", "PLUGIN_SGV_10EN" }
+            defines { "GTAVC", "PLUGIN_SGV_10EN", "RW" }
         elseif projectName == "plugin_iii" then
-            defines { "GTA3", "PLUGIN_SGV_10EN" }
+            defines { "GTA3", "PLUGIN_SGV_10EN", "RW" }
 		elseif projectName == "plugin_ii" then
-            defines { "GTA2", "PLUGIN_SGV_96EN" }
+            defines { "GTA2", "PLUGIN_SGV_96EN", "GBH" }
+		elseif projectName == "plugin_iv" then
+            defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
         end
     end
     
@@ -209,12 +208,14 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             (projectPath .. "\\**.cpp"),
             (sdkdir .. "\\shared\\**.h"),
             (sdkdir .. "\\shared\\**.cpp"),
-			(sdkdir .. "\\shared\\**.rc")
+			(sdkdir .. "\\shared\\**.rc"),
+			(sdkdir .. "\\hooking\\**.cpp"),
+			(sdkdir .. "\\hooking\\**.h")
         }
         
         vpaths {
             ["shared/*"] = (projectFile(sdkdir, "shared\\**.*")),
-            
+
             [(gameName .. "/Animation")] = { (gameFile(projectPath, gameName, "Anim*.*")),
                                              (gameFile(projectPath, gameName, "CAnim*.*")) },
                                              
@@ -381,7 +382,10 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
         aryDefines[counter] = "PLUGIN_SGV_10EN"
         counter = counter + 1
     elseif game == "GTA2" then
-        aryDefines[counter] = "PLUGIN_SGV_114EN"
+        aryDefines[counter] = "PLUGIN_SGV_96EN"
+        counter = counter + 1
+	elseif game == "GTAIV" then
+        aryDefines[counter] = "PLUGIN_SGV_CE"
         counter = counter + 1
     end
     if additionalDefines ~= "" then
@@ -395,7 +399,7 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
     local aryDirs = {}
     if usesD3d9 then
         if mingw then
-            aryDirs[counter] = "$(DIRECTX9_SDK_DIR)\\Include";
+            aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\dxsdk";
             counter = counter + 1
         end
     end
@@ -414,7 +418,7 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
         counter = counter + 1
     end
     if usesRwD3d9 then
-        aryDirs[counter] = "$(RWD3D9_DIR)\\source"
+        aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\rwd3d9"
         counter = counter + 1
     end
     if additionalDirs ~= "" then
@@ -428,7 +432,7 @@ function getExamplePluginLibraryFolders(projectType, cleoDir, usesRwD3d9, additi
     local aryDirs = {}
     if usesD3d9 then
         if mingw then
-            aryDirs[counter] = "$(DIRECTX9_SDK_DIR)\\Lib\\x86"
+            aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\dxsdk"
             counter = counter + 1
         end
     end
@@ -446,7 +450,7 @@ function getExamplePluginLibraryFolders(projectType, cleoDir, usesRwD3d9, additi
         counter = counter + 1
     end
     if usesRwD3d9 then
-        aryDirs[counter] = "$(RWD3D9_DIR)\\libs"
+        aryDirs[counter] = "$(PLUGIN_SDK_DIR)\\shared\\rwd3d9"
         counter = counter + 1
     end
     if additionalDirs ~= "" then
@@ -510,6 +514,10 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         supportedGames[gameCounter] = "GTA2"
         gameCounter = gameCounter + 1
     end
+	if gameIv == true then
+        supportedGames[gameCounter] = "GTAIV"
+        gameCounter = gameCounter + 1
+    end
     platforms (supportedGames)
     project (projectName)
     location (projDir)
@@ -518,12 +526,14 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     characterset ("MBCS")
     staticruntime "On"
     flags { "NoImportLib" }
+	cppdialect "C++17"
+	defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
+
     if msbuild then
         if winxp then
             buildoptions { "/Zc:threadSafeInit-" }
         end
         buildoptions { "/sdl-" }
-        linkoptions "/LTCG" 
     end
     if mingw then
         buildoptions "-fpermissive"
@@ -564,8 +574,8 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
 
     if d3dSupport == true then
         if msbuild then
-           sysincludedirs { "$(IncludePath)", "$(DIRECTX9_SDK_DIR)\\Include" }
-           syslibdirs { "$(LibraryPath)", "$(DIRECTX9_SDK_DIR)\\Lib\\x86" }
+           sysincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
+           syslibdirs { "$(LibraryPath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
         end
     end
 	
@@ -617,6 +627,18 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             links (getExamplePluginLibraries("plugin_ii", projectType, "II.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".II_d")
     end
+	if gameIv == true then
+        filter "platforms:GTAIV"
+            includedirs (getExamplePluginIncludeFolders("plugin_iv", "game_iv", projectType, "$(CLEO_SDK_IV_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport))
+            libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_IV_DIR)", d3dSupport, additionalLibraryDirs, d3dSupport))
+            defines (getExamplePluginDefines(projectName, "GTAIV", projectType, laSupport, d3dSupport, additionalDefinitions, "4", "4", "4", "Niko", "Liberty City"))
+        filter { "Release", "platforms:GTAIV" }
+            links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+            targetname (projectName .. ".IV")
+        filter { "zDebug", "platforms:GTAIV" }
+            links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
+            targetname (projectName .. ".IV_d")
+    end
     filter {}
 
     files {
@@ -639,6 +661,7 @@ else
     cleanProjectsDirectory(sdkdir .. "\\plugin_vc")
     cleanProjectsDirectory(sdkdir .. "\\plugin_iii")
 	cleanProjectsDirectory(sdkdir .. "\\plugin_ii")
+	cleanProjectsDirectory(sdkdir .. "\\plugin_iv")
     os.remove(sdkdir .. "\\plugin.sln")
     os.remove(sdkdir .. "\\plugin.suo")
     os.remove(sdkdir .. "\\plugin.sdf")
@@ -658,6 +681,7 @@ else
             pluginSdkStaticLibProject("plugin_vc", sdkdir, "plugin_vc", true, "game_vc")
             pluginSdkStaticLibProject("plugin_iii", sdkdir, "plugin_iii", true, "game_III")
 			pluginSdkStaticLibProject("plugin_ii", sdkdir, "plugin_ii", true, "game_II")
+			pluginSdkStaticLibProject("plugin_iv", sdkdir, "plugin_iv", true, "game_IV")
 
         local f = io.open(sdkdir .. "\\examples\\examples.csv", "rb")
         if f then

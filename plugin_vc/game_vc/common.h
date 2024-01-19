@@ -61,7 +61,7 @@ bool RpAnimBlendClumpIsInitialized(RpClump* clump);
 void RpAnimBlendClumpRemoveAllAssociations(RpClump* clump);
 void RpAnimBlendClumpRemoveAssociations(RpClump* clump, unsigned int flags);
 void RpAnimBlendClumpSetBlendDeltas(RpClump* clump, unsigned int flags, float delta);
-void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen);
+void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen = false);
 CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association);
 bool RpAnimBlendPluginAttach();
 void DefinedState();

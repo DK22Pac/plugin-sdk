@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Config.h"
+#include <iomanip>
 
 using namespace plugin;
 
@@ -225,6 +226,15 @@ config_param_line::config_param_line(std::string paramName, std::string value, b
     commentOffset = 0;
 }
 
+config_param_line::config_param_line(std::string paramName, std::string value, bool useQuotes, std::string paramComment) {
+    _value = value;
+    _notInitialised = false;
+    _quotes = useQuotes;
+    name = paramName;
+    comment = paramComment;
+    commentOffset = 0;
+}
+
 bool config_file::pathEmpty() {
 #ifdef _MSC_VER
     if (_bWidePath)
@@ -266,7 +276,7 @@ void config_file::prepareData() {
 
             for (unsigned int i = 0; i < line.size(); i++) {
                 if (scanBeforeName) {
-                    if (line[i] == '#' || line[i] == ';') {
+                    if (line[i] == '#' || line[i] == ';' || line[i] == '[') {
                         isCommentLine = true;
                         break;
                     }
@@ -281,7 +291,7 @@ void config_file::prepareData() {
                     }
                 }
                 else if (scanName) {
-                    if (line[i] == '#' || line[i] == ';') {
+                    if (line[i] == '#' || line[i] == ';' || line[i] == '[') {
                         commentOffset = i;
                         comment = line.substr(i);
                         break;
@@ -336,10 +346,7 @@ void config_file::prepareData() {
                     value.clear();
             }
 
-            paramLines.emplace_back(name, value, usesQuotes);
-            config_param_line &param = paramLines.back();
-            param.comment = comment;
-            param.commentOffset = commentOffset;
+            paramLines.emplace_back(name, value, usesQuotes, comment);
 
             //printf("%s \"%s\"\n", param.name.c_str(), param._value.c_str());
 
@@ -368,8 +375,12 @@ void config_file::writeData() {
                     maxStrLen = strSz;
             }
         }
-        unsigned int numCommentsLeft = comments.size();
+
         for (config_param_line &param : paramLines) {
+            if (!param.isEmpty() && !param.comment.empty()) {
+                out << param.comment << '\n';
+            }
+            
             if (!param.isEmpty() && !param.name.empty()) {
                 out << param.name;
                 unsigned int numSpaces = maxStrLen - param.name.size() + 1;
@@ -377,10 +388,27 @@ void config_file::writeData() {
                     out << ' ';
                 if (_useEqualitySign)
                     out << "= ";
-                out << param._value;
+
+                if (_usePrecision) {
+                    auto removeTrailingZeros = [](const std::string& str) {
+                        size_t dotPos = str.find('.');
+                        if (dotPos != std::string::npos) {
+                            size_t nonZeroPos = str.find_last_not_of('0');
+                            if (nonZeroPos != std::string::npos && nonZeroPos > dotPos) {
+                                return str.substr(0, nonZeroPos + 1) + "f";
+                            }
+                        }
+                        return str;
+                    };
+
+                    out << std::fixed << std::setprecision(6) << removeTrailingZeros(param._value);
+                }
+                else
+                    out << param._value;
                 out << '\n';
             }
         }
+        out.close();
     }
 }
 
@@ -391,6 +419,8 @@ config_file::config_file() {
     _dataRead = false;
     _useAlignment = true;
     _useEqualitySign = false;
+    _usePrecision = false;
+    _writeOnly = false;
 }
 
 void config_file::open(std::string fileName) {
@@ -398,7 +428,8 @@ void config_file::open(std::string fileName) {
 #ifdef _MSC_VER
     _bWidePath = false;
 #endif
-    prepareData();
+    if (!_writeOnly)
+        prepareData();
 }
 
 void config_file::open(std::string fileName, bool readOnly, bool equalitySign, bool alignment) {
@@ -406,13 +437,17 @@ void config_file::open(std::string fileName, bool readOnly, bool equalitySign, b
 #ifdef _MSC_VER
     _bWidePath = false;
 #endif
-    prepareData();
+
+    if (!_writeOnly)
+        prepareData();
 }
 
 config_file::config_file(std::string fileName) {
     _dataRead = false;
     _useAlignment = true;
     _useEqualitySign = false;
+    _usePrecision = false;
+    _writeOnly = false;
     open(fileName);
 }
 
@@ -420,13 +455,20 @@ config_file::config_file(std::string fileName) {
 void config_file::open(std::wstring fileName) {
     _widePath = fileName;
     _bWidePath = true;
-    prepareData();
+
+    if (!_writeOnly)
+        prepareData();
 }
 
 void config_file::open(std::wstring fileName, bool readOnly, bool equalitySign, bool alignment) {
     _widePath = fileName;
     _bWidePath = true;
-    prepareData();
+    _useAlignment = alignment;
+    _useEqualitySign = equalitySign;
+    _writeOnly = !readOnly;
+
+    if (!_writeOnly)
+        prepareData();
 }
 
 config_file::config_file(std::wstring fileName) {
@@ -438,8 +480,7 @@ config_file::config_file(std::wstring fileName) {
 #endif
 
 void config_file::save() {
-    if (_dataRead)
-        writeData();
+    writeData();
 }
 
 config_parameter &config_file::operator[](std::string name) {
@@ -457,4 +498,12 @@ void config_file::setUseEqualitySign(bool enable) {
 
 void config_file::setUseAlignment(bool enable) {
     _useAlignment = enable;
+}
+
+void config_file::setUsePrecision(bool enable) {
+    _usePrecision = enable;
+}
+
+void config_file::setWriteOnly(bool enable) {
+    _writeOnly = enable;
 }

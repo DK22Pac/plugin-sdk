@@ -118,7 +118,7 @@ public:
     static void InitPerFrame();
     // draw text we have in buffer
     static void RenderFontBuffer();
-    static float GetStringWidth(const char *string, bool unk1, bool unk2);
+    static float GetStringWidth(const char *string, bool spaces, bool scriptValues = false);
     // same as RenderFontBuffer()
     static void DrawFonts();
     static short ProcessCurrentString(bool print, float x, float y, const char *text);

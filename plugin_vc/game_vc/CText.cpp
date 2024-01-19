@@ -11,3 +11,7 @@ CText& TheText = *(CText*)0x94B220;
 wchar_t* CText::Get(char const* key) {
     return plugin::CallMethodAndReturn<wchar_t*, 0x584F30, CText*, char const*>(this, key);
 }
+
+char* UnicodeToAscii(wchar_t* src) {
+    return plugin::CallAndReturn<char*, 0x585840, wchar_t*>(src);
+}

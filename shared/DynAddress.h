@@ -5,6 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#include <vector>
+#include <functional>
 
 namespace plugin {
 

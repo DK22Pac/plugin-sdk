@@ -6,7 +6,7 @@
 */
 
 #pragma once
-
+#include "../injector/assembly.hpp"
 #include "../injector/injector.hpp"
 #include "DynAddress.h"
 #include <vector>
@@ -109,6 +109,27 @@ public:
         for (auto& address : addresses) {
             RedirectCall(address, func, vp);
         }
+    }
+
+    static void Nop(std::vector<int> const& addresses, size_t size, bool vp = true) {
+        for (auto& address : addresses) {
+            Nop(address, size, vp);
+        }
+    }
+
+    using RegPack = injector::reg_pack;
+
+    static inline std::unordered_map<uint32_t, void(*)(RegPack&)> staticHookMap;
+    static inline int32_t staticHookIndices = 0;
+
+    static void StaticHook(uint32_t start, uint32_t end, void (*func)(RegPack&)) {
+        staticHookMap[staticHookIndices++] = func;
+        struct staticHook {
+            int32_t id = staticHookIndices - 1;
+            void operator()(injector::reg_pack& regs) {
+                staticHookMap[id](regs);
+            }
+        }; injector::MakeInline<staticHook>(start, end);
     }
 };
 

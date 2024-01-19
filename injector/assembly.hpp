@@ -26,14 +26,16 @@
 #pragma once
 
 // This header is very restrict about compiler and architecture
-#ifndef _MSC_VER    // MSVC is much more flexible when we're talking about inline assembly
-#error  Cannot use this header in another compiler other than MSVC
+#ifndef _MSC_VER
+#warning  This header is tested only with MSVC
 #endif
-#ifndef _M_IX86
+#if ! (defined (_M_IX86) || defined (_X86_))
 #error  Supported only in x86
 #endif
 
 //
+#include <utility>
+#include <memory>
 #include "injector.hpp"
 
 namespace injector
@@ -97,6 +99,7 @@ namespace injector
         template<class W>   // where W is of type wrapper
         inline void __declspec(naked) make_reg_pack_and_call()
         {
+            #ifdef _MSC_VER    // MSVC is much more flexible when we're talking about inline assembly
             _asm
             {
                 // Construct the reg_pack structure on the stack
@@ -117,6 +120,31 @@ namespace injector
                 // Back to normal flow
                 ret
             }
+            #else // MINGW needs -masm=intel
+            asm
+            (
+                // Construct the reg_pack structure on the stack
+                "pushad\n"              // Pushes general purposes registers to reg_pack
+                "add DWORD PTR [esp+12], 4\n"     // Add 4 to reg_pack::esp 'cuz of our return pointer, let it be as before this func is called
+                "pushfd\n"              // Pushes EFLAGS to reg_pack
+
+                // Call wrapper sending reg_pack as parameter
+                "push esp\n"
+            );
+            // https://stackoverflow.com/questions/3467180/direct-c-function-call-using-gccs-inline-assembly
+            asm("call %P0" : : "i"(W::call));  // FIXME: missing clobbers
+            asm (
+                "add esp, 4\n"
+
+                // Destructs the reg_pack from the stack
+                "sub DWORD PTR [esp+12+4], 4\n"   // Fix reg_pack::esp before popping it (doesn't make a difference though) (+4 because eflags)
+                "popfd\n"               // Warning: Do not use any instruction that changes EFLAGS after this (-> sub affects EF!! <-)
+                "popad\n"
+
+                // Back to normal flow
+                "ret\n"
+            );
+            #endif
         }
     };
 

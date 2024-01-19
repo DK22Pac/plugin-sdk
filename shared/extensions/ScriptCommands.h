@@ -6,11 +6,15 @@
 */
 #pragma once
 
-#ifndef GTA2
-#include "CRunningScript.h"
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
+
 #include "scripting/ScriptCommandNames.h"
 #include <vector>
 #include <string.h>
+
+#ifndef RAGE
+#include "CRunningScript.h"
+#endif
 
 class CPed;
 class CVehicle;
@@ -21,7 +25,7 @@ namespace plugin {
 class scripting {
 
 public:
-
+#ifndef RAGE
 enum ScriptCommandEndParameter {
     END_PARAMETER
 };
@@ -58,6 +62,7 @@ public:
     void AddParameterDescription(unsigned char paramType);
     void AddBytes(unsigned char *bytes, unsigned int count);
     unsigned char *GetData();
+
     void SaveResultVariables(CRunningScript *script);
     void operator<<(char n);
     void operator<<(unsigned char n);
@@ -96,11 +101,28 @@ public:
 
     void Pack() {}
 };
+#endif
 
 public:
 
+#ifdef RAGE
+template<typename Ret, typename... ArgTypes>
+static Ret CallCommandById(unsigned int commandId, ArgTypes... arguments) {
+#else
 template<typename... ArgTypes>
 static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
+#endif
+#ifdef RAGE
+    rage::scrThread::InfoWithBuf info;
+    (info.Fill(arguments), ...);
+
+    auto fun = rage::scr_resolver(commandId);
+    fun(&info);
+
+    if constexpr (!std::is_void_v<Ret>)
+        return *reinterpret_cast<Ret*>(info.ResultPtr);
+
+#else
     // create our 'script' object
     static CRunningScript script;
     memset(&script, 0, sizeof(CRunningScript));
@@ -125,15 +147,34 @@ static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
     script.ProcessOneCommand();
     code.SaveResultVariables(&script);
     return script.m_bCondResult ? true : false;
+#endif
 }
 
+#ifdef RAGE
+template<typename Ret, typename... ArgTypes>
+static Ret CallCommandById(plugin::Commands commandId, ArgTypes... arguments) {
+    return CallCommandById<Ret>(static_cast<unsigned int>(commandId), arguments...);
+}
+#else
 template<typename... ArgTypes>
 static bool CallCommandById(plugin::Commands commandId, ArgTypes... arguments) {
     return CallCommandById(static_cast<unsigned int>(commandId) - 0x10000, arguments...);
 }
+#endif
 
 };
 
+#ifdef RAGE
+template <typename Ret, plugin::Commands CommandId, typename... ArgTypes>
+Ret Command(ArgTypes... arguments) {
+    return scripting::CallCommandById<Ret>(static_cast<unsigned int>(CommandId), arguments...);
+}
+
+template <typename Ret, int CommandId, typename... ArgTypes>
+Ret Command(ArgTypes... arguments) {
+    return scripting::CallCommandById<Ret>(CommandId, arguments...);
+}
+#else
 template <plugin::Commands CommandId, typename... ArgTypes>
 bool Command(ArgTypes... arguments) {
     return scripting::CallCommandById(static_cast<unsigned int>(CommandId) - 0x10000, arguments...);
@@ -143,6 +184,7 @@ template <int CommandId, typename... ArgTypes>
 bool Command(ArgTypes... arguments) {
     return scripting::CallCommandById(CommandId, arguments...);
 }
+#endif
 
 };
 

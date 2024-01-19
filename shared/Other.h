@@ -8,20 +8,28 @@
 #include <string>
 #include <locale>
 #include <codecvt>
+#include <sys/stat.h>
 
-#include <Windows.h>
+#include <windows.h>
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CTimer.h"
-#include "CVector2D.h"
 #endif
 
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+#include "CVector2D.h"
 #include "CVector.h"
+#elif defined(GTAIV) || defined(GTA2)
+#include "CVector.h"
+#endif
 
 namespace plugin {
     void InitRandom();
     unsigned int Random(unsigned int min, unsigned int max);
     float Random(float min, float max);
+    static uint32_t Random() {
+        return rand() & RAND_MAX;
+    }
 
     bool KeyPressed(unsigned int keyCode);
     bool IsPluginInstalled(const TCHAR *pluginName);
@@ -80,6 +88,50 @@ namespace plugin {
         return str;
     }
 
+    static std::wstring ToUpper(std::wstring const& str, int32_t offset) {
+        std::wstring result = str;
+        int32_t i = 0;
+        for (auto& c : result) {
+            if (i > offset - 1)
+                c = std::toupper(c);
+            i++;
+        }
+        return result;
+    }
+
+    static std::wstring ToLower(std::wstring const& str, int32_t offset) {
+        std::wstring result = str;
+        int32_t i = 0;
+        for (auto& c : result) {
+            if (i > offset - 1)
+                c = std::tolower(c);
+            i++;
+        }
+        return result;
+    }
+
+    static std::string ToUpper(std::string const& str, int32_t offset) {
+        std::string result = str;
+        int32_t i = 0;
+        for (auto& c : result) {
+            if (i > offset - 1)
+                c = std::toupper(c);
+            i++;
+        }
+        return result;
+    }
+
+    static std::string ToLower(std::string const& str, int32_t offset) {
+        std::string result = str;
+        int32_t i = 0;
+        for (auto& c : result) {
+            if (i > offset - 1)
+                c = std::tolower(c);
+            i++;
+        }
+        return result;
+    }
+
     template<typename T>
     static T DegToRad(T x) {
         return (x * M_PI / (T)180);
@@ -104,10 +156,10 @@ namespace plugin {
     }
 
     static float GetTimeStepFix() {
-#ifdef GTA2
-        return 1.0f / (50.0f / 30.0f);
-#else
+#if defined(RW) || defined(RAGE)
         return CTimer::ms_fTimeStep / (50.0f / 30.0f);
+#else
+        return 1.0f / (50.0f / 30.0f);
 #endif
     }
 
@@ -119,6 +171,25 @@ namespace plugin {
         struct stat buffer;
         return (stat(name, &buffer) == 0);
     }
+
+    struct CaseInsensitiveUnorderedMap {
+        struct Comp {
+            bool operator() (const std::string& lhs, const std::string& rhs) const {
+                return _stricmp(lhs.c_str(), rhs.c_str()) == 0;
+            }
+        };
+
+        struct Hash {
+            std::size_t operator() (std::string str) const {
+                for (std::size_t index = 0; index < str.size(); ++index) {
+                    auto ch = static_cast<unsigned char>(str[index]);
+                    str[index] = static_cast<unsigned char>(std::tolower(ch));
+                }
+                return std::hash<std::string>{}(str);
+            }
+        };
+
+    };
 }
 
 #ifdef UNICODE

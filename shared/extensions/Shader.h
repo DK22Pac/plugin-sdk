@@ -6,10 +6,9 @@
 */
 #pragma once
 
-#ifdef _DX9_SDK_INSTALLED
 #ifdef GTASA
-#include <Windows.h>
-#include "d3dx9.h"
+#include <windows.h>
+#include "dxsdk/d3dx9.h"
 #include <stdio.h>
 #include <vector>
 #include <fstream>
@@ -81,11 +80,11 @@ namespace plugin {
                 char *newData = new char[newSize];
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
-                GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
                 delete[] newData;
             }
             else
-                GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
             return true;
         }
 
@@ -96,15 +95,14 @@ namespace plugin {
                 char *newData = new char[newSize];
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
-                GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
                 delete[] newData;
             }
             else
-                GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);
+                GetD3DDevice<IDirect3DDevice9>()->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);
             return true;
         }
     };
 }
 
-#endif
 #endif

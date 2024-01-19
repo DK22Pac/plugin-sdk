@@ -6,12 +6,18 @@
 */
 #pragma once
 #include "../injector/hooking.hpp"
+#include "../injector/injector.hpp"
+#include "../injector/utility.hpp"
+
 #include "ArgPicker.h"
 #include "RefList.h"
 #include "GameVersion.h"
 #include <vector>
 #include <algorithm>
 #include <tuple>
+#include <functional>
+#include <string_view>
+#include "Pattern.h"
 
 namespace plugin {
 
@@ -45,6 +51,9 @@ public:
     using FnPtrType = typename SelectedArgPicker::FnPtrType;
     using HookInfo = std::pair<CallbackType, unsigned int>;
     using HookList = std::list<HookInfo>;
+
+    std::vector<injector::memory_pointer_tr> refAddr = {};
+    uint32_t refAddrPos = 0;
 
     void Add(HookList &hooks, CallbackType const &cb, unsigned int id) {
         bool can_add = true;
@@ -111,6 +120,7 @@ private:
 
     void Patch() {
         if (bPatched == false) {
+            refAddrPos = 0;
             bPatched = true;
             PatchAll(RList());
         }
@@ -125,8 +135,9 @@ private:
             // and void* has the size of the x86/x64 (and most arches) register types, so let's use that.
             using hook_type = Injector<std::conditional_t<RefType == H_CALL, injector::scoped_call,
                 std::conditional_t<RefType == H_JUMP, injector::scoped_jmp, injector::scoped_callback>>,
-                RefAddr, void*(Args...)>;
-            injector::make_static_hook<hook_type>([this](typename hook_type::func_type func, Args... args) {
+                RefAddr, void* (Args...)>;
+
+            injector::make_static_hook_dyn<hook_type>([this](typename hook_type::func_type func, Args... args) {
                 auto arg_tie = std::forward_as_tuple(std::forward<Args>(args)...);
                 std::for_each(hooksBefore.begin(), hooksBefore.end(), [&](HookInfo& hook) {
                     SelectedArgPicker()(hook.first, arg_tie);
@@ -136,7 +147,8 @@ private:
                     SelectedArgPicker()(hook.first, arg_tie);
                 });
                 return ret;
-            });
+            }, refAddr.size() > 0 ? refAddr.at(refAddrPos++).as_int() : 0);
+
         }
         PatchAll(RefList<MoreHooks...>());
     }
@@ -147,11 +159,12 @@ class BaseEvent;
 
 template<template<class, uintptr_t, class> class Injector, class RList, int Priority, class ArgPicker, class Ret, class... Args>
 class BaseEvent<Injector, RList, Priority, ArgPicker, Ret(Args...)> {
-protected:
+private:
     BaseEventI<Injector, RList, ArgPicker, Ret(Args...)> &GetInstance() {
         static BaseEventI<Injector, RList, ArgPicker, Ret(Args...)> instance;
         return instance;
     }
+
 public:
     using SelectedArgPicker = std::conditional_t<std::is_same<ArgPicker, DefaultArgs>::value,
         DefaultArgPicker<Args...>, ArgPicker>;
@@ -214,6 +227,11 @@ public:
         EventAfter& operator+=(CallbackType const &cb) { return Add(cb); }
         EventAfter& operator-=(FnPtrType fn) { return Remove(fn); }
     } after;
+
+    BaseEvent(std::vector<std::string_view> const& bytes) : before(*this), after(*this) {
+        for (auto& it : bytes)
+            SetRefAddr(plugin::pattern::Get(it, 0));
+    }
 
     BaseEvent() : before(*this), after(*this) {}
     BaseEvent(CallbackType const &cb) : before(*this), after(*this) { Add(cb); }
@@ -295,6 +313,10 @@ public:
     BaseEvent& RemoveAfterById(unsigned int id) {
         GetInstance().RemoveAfterById(id);
         return *this;
+    }
+
+    void SetRefAddr(injector::memory_pointer_tr at) {
+        GetInstance().refAddr.push_back(at);
     }
 
     BaseEvent& operator+=(CallbackType const &cb) { return Add(cb); }

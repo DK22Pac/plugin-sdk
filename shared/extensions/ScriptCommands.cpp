@@ -5,7 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "ScriptCommands.h"
 #include "Error.h"
 #include "CPools.h"
@@ -58,6 +58,7 @@ void scripting::ScriptCode::AddBytes(unsigned char *bytes, unsigned int count) {
 
 unsigned char *scripting::ScriptCode::GetData() { return data; };
 
+#ifndef RAGE
 void scripting::ScriptCode::SaveResultVariables(CRunningScript *script) {
     for (auto &varToSet : varsToSet) {
         if (varToSet.varType == SCRIPT_RESULT_VAR_NUMBER) {
@@ -88,6 +89,7 @@ void scripting::ScriptCode::SaveResultVariables(CRunningScript *script) {
         }
     }
 }
+#endif
 
 void scripting::ScriptCode::operator<<(char n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
 void scripting::ScriptCode::operator<<(unsigned char n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }

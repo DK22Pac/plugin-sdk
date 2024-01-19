@@ -82,11 +82,11 @@ CStore<CInstance, 1> *CModelInfo::GetMloInstanceStore() {
     return plugin::CallAndReturnDynGlobal<CStore<CInstance, 1> *>(gaddrof(CModelInfo::GetMloInstanceStore));
 }
 
-int addrof(CModelInfo::GetModelInfo) = ADDRESS_BY_VERSION(0x50B860, 0x50B950, 0x50B8E0);
-int gaddrof(CModelInfo::GetModelInfo) = GLOBAL_ADDRESS_BY_VERSION(0x50B860, 0x50B950, 0x50B8E0);
+int addrof_o(CModelInfo::GetModelInfo, CBaseModelInfo* (char const*, int*)) = ADDRESS_BY_VERSION(0x50B860, 0x50B950, 0x50B8E0);
+int gaddrof_o(CModelInfo::GetModelInfo, CBaseModelInfo* (char const*, int*)) = GLOBAL_ADDRESS_BY_VERSION(0x50B860, 0x50B950, 0x50B8E0);
 
 CBaseModelInfo *CModelInfo::GetModelInfo(char const *name, int *index) {
-    return plugin::CallAndReturnDynGlobal<CBaseModelInfo *, char const *, int *>(gaddrof(CModelInfo::GetModelInfo), name, index);
+    return plugin::CallAndReturnDynGlobal<CBaseModelInfo *, char const *, int *>(gaddrof_o(CModelInfo::GetModelInfo, CBaseModelInfo * (char const*, int*)), name, index);
 }
 
 int addrof(CModelInfo::Initialise) = ADDRESS_BY_VERSION(0x50B310, 0x50B3F0, 0x50B380);
