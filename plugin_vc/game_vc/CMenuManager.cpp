@@ -45,6 +45,10 @@ void CMenuManager::SwitchMenuOnAndOff() {
 }
 
 void CMenuManager::CheckSliderMovement(char value) {
+    plugin::CallMethod<0x498A1B, CMenuManager*>(this, value);
+}
+
+void CMenuManager::ChangeRadioStation(char value) {
     plugin::CallMethod<0x4982D3, CMenuManager*>(this, value);
 }
 

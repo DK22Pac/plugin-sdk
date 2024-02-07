@@ -29,12 +29,15 @@ namespace plugin {
                 a = it->second;
                 goto return_addr;
             }
-            a = (uint32_t)hook::pattern(bytes).get_first(0);
+            {
+                auto& p = hook::pattern(bytes);
+                a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
+            }
             patternMap->emplace(bytes, a);
         return_addr:
             a -= GetBaseAddress();
             a += 0x400000;
-            return a + offset;
+            return a ? a + offset : 0x0;
         }
 
         static inline uint32_t GetExternal(void* module, std::string_view const& bytes, int32_t offset = 0) {
@@ -47,22 +50,27 @@ namespace plugin {
                 a = it->second;
                 goto return_addr;
             }
-            a = (uint32_t)hook::module_pattern(module, bytes).get_first(0);
+            {
+                auto& p = hook::module_pattern(module, bytes);
+                a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
+            }
             modulePatternMap->emplace(bytes, a);
 return_addr:
             a -= GetBaseAddress();
             a += 0x400000;
-            return a + offset;
+            return a ? a + offset : 0x0;
         }
 
         template<typename T = void*>
         static inline auto Read(std::string_view const& bytes, int32_t offset = 0) {
-            return injector::ReadMemory<T>(GetGlobalAddress(Get(bytes, offset)), true);
+            uint32_t const& a = Get(bytes, offset);
+            return a ? injector::ReadMemory<T>(GetGlobalAddress(), true) : 0x0;
         }
 
         template<typename T = void*>
         static inline auto ReadExternal(void* module, std::string_view const& bytes, int32_t offset = 0) {
-            return injector::ReadMemory<T>(GetGlobalAddress(GetExternal(module, bytes, offset)), true);
+            uint32_t const& a = GetExternal(module, bytes, offset);  
+            return a ? injector::ReadMemory<T>(GetGlobalAddress(a), true) : 0x0;
         }
     };
 }
