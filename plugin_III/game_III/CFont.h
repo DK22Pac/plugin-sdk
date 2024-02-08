@@ -23,6 +23,20 @@ struct tFontSize {
     unsigned short ftable[338];
 };
 
+enum eFontAlignment : unsigned char {
+    ALIGN_CENTER,
+    ALIGN_LEFT,
+    ALIGN_RIGHT
+};
+
+enum eFontStyle : unsigned char {
+    FONT_BANK,
+    FONT_PAGER,
+    FONT_HEADING,
+
+    FONT_SUBTITLES = FONT_BANK,
+};
+
 class CFont {
 public:
     // variables
@@ -96,6 +110,22 @@ public:
     static void PrintChar(float x, float y, char character);
     static void PrintString(float x, float y, const char* text);
     static void PrintString(float x, float y, const char* start, const char* end, float arg4);
+
+    static inline void SetOrientation(eFontAlignment alignment) {
+        if (alignment == ALIGN_CENTER)
+            SetCentreOn();
+        else if (alignment == ALIGN_LEFT)
+            SetJustifyOn();
+        else if (alignment == ALIGN_RIGHT)
+            SetRightJustifyOn();
+    }
+
+    static inline void SetProportional(bool on) {
+        if (on)
+            SetPropOn();
+        else
+            SetPropOff();
+    }
 };
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);

@@ -131,6 +131,11 @@ public:
             }
         }; injector::MakeInline<staticHook>(start, end);
     }
+
+    template <typename T>
+    static void StaticHook(uint32_t start, uint32_t end) {
+        injector::MakeInline<T>(start, end);
+    }
 };
 
 }

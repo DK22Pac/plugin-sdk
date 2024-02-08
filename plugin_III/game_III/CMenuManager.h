@@ -123,7 +123,7 @@ enum eMenuScreen {
 	MENUPAGE_CHOOSE_MODE = 53,
 	MENUPAGE_SKIN_SELECT = 54,
 	MENUPAGE_KEYBOARD_CONTROLS = 55,
-	MENUPAGE_MOUSE_CONTROLS = 56,
+	MENUPAGE_MOUSE_SETTINGS = 56,
 	MENUPAGE_57 = 57,
 	MENUPAGE_58 = 58,
 	NUM_MENU_PAGES
@@ -246,8 +246,10 @@ enum eMenuAction {
 struct PLUGIN_API CMenuScreen {
 	char m_ScreenName[8];
 	int unk;
-	int m_nPreviousPage[2];
-	int m_nParentEntry[2];
+	int m_nPreviousPage;
+	int m_nPreviousGamePage;
+	int m_nParentEntry;
+	int m_nParentGameEntry;
 
 	struct PLUGIN_API CMenuEntry {
 		int m_nAction;

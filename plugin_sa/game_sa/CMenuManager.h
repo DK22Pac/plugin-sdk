@@ -231,7 +231,7 @@ public:
     char m_nPrefsMusicVolume;
     bool m_bPrefsRadioEq;
     char m_nPrefsRadioStation;
-    char field_53;
+    char m_bRecheckNumPhotos;
     int m_nCurrentMenuEntry;
     bool m_bQuitGameNoCD;
     bool m_bDrawRadarOrMap;
@@ -278,7 +278,7 @@ public:
     bool m_bPrefsTracksAutoScan;
     short field_C6;
     int m_nPrefsAntiAliasing;
-    int m_nAntiAliasingLevel;
+    int m_nPrefsAntiAliasingDisp;
     char m_nController;
     char field_D1[3];
     int m_nPrefsVideoMode;
@@ -294,23 +294,17 @@ public:
     int* pControlEdit;
     bool m_bOnlySaveMenu;
     char field_F5[3];
-    CSprite2d m_aMenuSprites[MENUSPRITE_TEXTURE_COUNT];
+    CSprite2d FrontEndSprites[MENUSPRITE_TEXTURE_COUNT];
     bool m_bTexturesLoaded;
     char m_nCurrentMenuPage;
     char m_nPreviousMenuPage;
-    char m_nSelectedSaveGame;
-    char m_nSelectedMissionPack;
-    char field_161;
-    char m_szMpackName[8];
-    char field_16A[6486];
-    int field_1AC0;
-    int field_1AC4;
-    int field_1AC8;
-    int field_1ACC;
-    int field_1AD0;
-    int field_1AD4;
-    int field_1AD8;
-    short field_1ADC;
+    char m_nCurrentSelectedMissionPack;
+    struct MissionPackStruct {
+        uint8_t id;
+        char name[260];
+    };
+
+    MissionPackStruct m_nSelectedMissionPack[25];
     bool m_bChangeVideoMode;
     char field_1ADF;
     int field_1AE0;

@@ -23,6 +23,20 @@ struct tFontSize {
     unsigned short ftable[338];
 };
 
+enum eFontAlignment : unsigned char {
+    ALIGN_CENTER,
+    ALIGN_LEFT,
+    ALIGN_RIGHT
+};
+
+enum eFontStyle : unsigned char {
+    FONT_BANK,
+    FONT_STANDARD,
+    FONT_HEADING,
+
+    FONT_SUBTITLES = FONT_STANDARD,
+};
+
 class CFontRenderState {
 public:
     DWORD anonymous_0;
@@ -91,6 +105,22 @@ public:
     static void Initialise();
 
     static void PrintString(float x, float y, const char* text);
+
+    static inline void SetOrientation(eFontAlignment alignment) {
+        if (alignment == ALIGN_CENTER)
+            SetCentreOn();
+        else if (alignment == ALIGN_LEFT)
+            SetJustifyOn();
+        else if (alignment == ALIGN_RIGHT)
+            SetRightJustifyOn();
+    }
+
+    static inline void SetProportional(bool on) {
+        if (on)
+            SetPropOn();
+        else
+            SetPropOff();
+    }
 };
 
 void UnicodeMakeUpperCase(wchar_t* str_out, wchar_t const* str_in);

@@ -53,7 +53,7 @@ enum eMenuScreen {
     MENUPAGE_EXIT = 28,
     MENUPAGE_START_MENU = 29,
     MENUPAGE_KEYBOARD_CONTROLS = 30,
-    MENUPAGE_MOUSE_CONTROLS = 31,
+    MENUPAGE_MOUSE_SETTINGS = 31,
     MENUPAGE_PAUSE_MENU = 32,
     MENUPAGE_34 = 33,
     NUM_MENU_PAGES,
@@ -306,6 +306,7 @@ public:
     void RequestFrontEndShutDown();
     void SwitchMenuOnAndOff();
     void CheckSliderMovement(char value);
+    void ChangeRadioStation(char value);
     void Draw(int unk);
     void UserInput();
     void PrintMap();

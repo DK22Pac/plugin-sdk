@@ -188,7 +188,7 @@ public:
     void UpdateMouse();
     void ReconcileTwoControllersInput(CControllerState const& controllerA, CControllerState const& controllerB);
     void SetDrunkInputDelay(int delay);
-    void StartShake(short time, unsigned char frequency, unsigned int arg2);
+    void StartShake(short time, unsigned char frequency, unsigned int arg2 = 0);
     void StartShake_Distance(short time, unsigned char frequency, float x, float y, float z);
     void StartShake_Train(float x, float y);
     // dummy function

@@ -117,9 +117,17 @@ namespace plugin {
         void writeData();
 
         config_file &operator<<(std::string comment) {
-            paramLines.emplace_back("", "", false, comment);
+            if (paramLines.empty())
+                paramLines.emplace_back("", "", false, comment);
+            else
+                paramLines.back().comment.append(comment);
             return *this;
         }
+
+        std::string endl() {
+            return "\n";
+        }
+
     public:
         config_file();
 
