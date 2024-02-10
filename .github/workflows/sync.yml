@@ -16,5 +16,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: gh repo sync juicermv/plugin-sdk --force --source dk22pac/plugin-sdk
+      - run: gh repo sync juicermv/plugin-sdk --force --source dk22pac/plugin-sdk --branch fixes
         
