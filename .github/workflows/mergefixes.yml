@@ -1,0 +1,26 @@
+name: Merge Fixes
+
+on:
+  push:
+    branches: ['fixes']
+
+env:
+  GH_TOKEN: ${{ github.token }}
+
+permissions:
+  contents: write
+
+jobs:
+  merge-fixes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+    
+      - name: Merge fixes into main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: fixes
+          target_branch: main
+          github_token: ${{ github.token }}
