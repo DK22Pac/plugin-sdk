@@ -6,8 +6,8 @@
 name: MSBuild
 
 on:
-  push:
-  pull_request:
+  - push
+  - pull_request
 
 env:
   # Path to the solution file relative to the root of the project.
@@ -29,7 +29,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1
+      uses: microsoft/setup-msbuild@v2
 
     - name: Set GitHub PLUGIN_SDK_DIR
       run: echo "PLUGIN_SDK_DIR=${{github.workspace}}" | Out-File -FilePath $env:GITHUB_ENV
