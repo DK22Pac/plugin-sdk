@@ -64,7 +64,7 @@ return_addr:
         template<typename T = void*>
         static inline auto Read(std::string_view const& bytes, int32_t offset = 0) {
             uint32_t const& a = Get(bytes, offset);
-            return a ? injector::ReadMemory<T>(GetGlobalAddress(), true) : 0x0;
+            return a ? injector::ReadMemory<T>(GetGlobalAddress(a), true) : 0x0;
         }
 
         template<typename T = void*>
