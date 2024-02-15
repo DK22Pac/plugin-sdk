@@ -10,7 +10,9 @@ on:
     branches: 
       - 'master'
     paths-ignore:
-     - '**.yml'
+      - '**.yml'
+      
+  workflow_dispatch:
 
 env:
   # Path to the solution file relative to the root of the project.
