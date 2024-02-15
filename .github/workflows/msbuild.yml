@@ -69,7 +69,7 @@ jobs:
         with:
           merge-multiple: true
 
-      - name: Acrhive artifact
+      - name: Archive artifact
         working-directory: ${{steps.artifact.outputs.download-path}}
         run: zip -r ${{github.workspace}}/release.zip .
       
