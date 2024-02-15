@@ -24,4 +24,5 @@ jobs:
           type: now
           from_branch: fixes
           target_branch: master
+          message: Merge fixes branch
           github_token: ${{ github.token }}
