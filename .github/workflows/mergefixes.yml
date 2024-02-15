@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Merge fixes into main
+      - name: Merge fixes into master
         uses: devmasx/merge-branch@master
         with:
           type: now
           from_branch: fixes
-          target_branch: main
+          target_branch: master
           github_token: ${{ github.token }}
