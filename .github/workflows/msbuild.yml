@@ -9,8 +9,6 @@ on:
   push:
     branches: 
       - 'master'
-    paths-ignore:
-      - '**.yml'
     paths:
       - '**.c'
       - '**.cpp'
