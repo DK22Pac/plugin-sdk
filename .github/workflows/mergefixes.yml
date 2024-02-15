@@ -18,10 +18,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-    
       - name: Merge fixes into main
-        uses: devmasx/merge-branch@v1
+        uses: devmasx/merge-branch@master
         with:
           type: now
           from_branch: fixes
