@@ -11,6 +11,10 @@ on:
       - 'master'
     paths-ignore:
       - '**.yml'
+    paths:
+      - '**.c'
+      - '**.cpp'
+      - '**.h'
       
   workflow_dispatch:
 
