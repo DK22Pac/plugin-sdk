@@ -36,7 +36,11 @@ namespace plugin {
     std::wstring AtoW(std::string const &str);
     std::string WtoA(std::wstring const &str);
 
-    bool LoadTGAFromFile(const char* path, unsigned short* width, unsigned short* height, unsigned char** pixels);
+    bool CreateImageFromFile(std::string const& path, class Image*& img);
+
+#if _HAS_CXX17
+    std::vector<std::string> GetAllFilesInFolder(std::string const& path, std::string const& ext);
+#endif
 
     class FormattingUtils {
         static const unsigned int BUF_SIZE = 10;
@@ -188,15 +192,8 @@ namespace plugin {
                 return std::hash<std::string>{}(str);
             }
         };
-
     };
 }
-
-#ifdef UNICODE
-#define _LoadTGAFromFile plugin::LoadTGAFromFileW
-#else
-#define _LoadTGAFromFile plugin::LoadTGAFromFile
-#endif
 
 #define DEGTORAD(x) plugin::DegToRad(x)
 #define RADTODEG(x) plugin::RadToDeg(x)

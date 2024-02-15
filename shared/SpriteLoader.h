@@ -7,6 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 #include "Other.h"
+#include "Image.h"
 
 #if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CSprite2d.h"
@@ -19,6 +20,8 @@ namespace plugin {
     using texClass = rage::grcTexturePC;
 #elif RW
     using texClass = RwTexture;
+#else 
+    using texClass = void;
 #endif
 
     class SpriteLoader {
@@ -30,11 +33,15 @@ namespace plugin {
         std::array<CSprite2d, 64> spriteBuf;
         uint32_t buf;
         std::string slotName;
+        bool istxd;
 
     public:
         SpriteLoader() = default;
         void Clear();
         bool LoadAllSpritesFromTxd(std::string const& path);
+#ifdef RW
+        bool LoadAllSpritesFromFolder(std::string const& path);
+#endif
         CSprite2d* GetSprite(std::string const& name);
         texClass* GetTex(std::string const& name);
     };

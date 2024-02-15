@@ -9,6 +9,15 @@
 #include <fstream>
 #include <ctime>
 
+#if _HAS_CXX17
+#include <filesystem>
+#endif
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "..\stb\stb_image.h"
+
+#include "Image.h"
+
 unsigned int plugin::FormattingUtils::currentBuf = 0;
 char plugin::FormattingUtils::buf[plugin::FormattingUtils::BUF_SIZE][4096];
 unsigned int plugin::FormattingUtils::currentBufW = 0;
@@ -66,110 +75,39 @@ wchar_t *plugin::FormattingUtils::GetBufW() {
     return result;
 }
 
-bool plugin::LoadTGAFromFile(const char* path, unsigned short* width, unsigned short* height, unsigned char** pixels) {
-    std::ifstream f;
+bool plugin::CreateImageFromFile(std::string const& path, plugin::Image*& img) {
+    int32_t w, h, c;
+    uint8_t* p = stbi_load(path.c_str(), &w, &h, &c, 4);
 
-    f.open(path, std::ios::in | std::ios::binary);
+    if (p) {
+        if (!img)
+            img = new plugin::Image();
 
-    if (!f.is_open()) {
-        printf("Texture can't be found");
-        return false;
+        img->width = w;
+        img->height = h;
+        img->channels = c;
+        img->pixels = p;
+
+        return true;
     }
 
-    int i = 0;
-    f.read(reinterpret_cast<char*>(&i), sizeof(unsigned char));
-    f.read(reinterpret_cast<char*>(&i), sizeof(unsigned char));
-    f.read(reinterpret_cast<char*>(&i), sizeof(unsigned char));
-    f.read(reinterpret_cast<char*>(&i), sizeof(short));
-    f.read(reinterpret_cast<char*>(&i), sizeof(short));
-    f.read(reinterpret_cast<char*>(&i), sizeof(unsigned char));
-    f.read(reinterpret_cast<char*>(&i), sizeof(short));
-    f.read(reinterpret_cast<char*>(&i), sizeof(short));
-
-    short imageWidth;
-    f.read(reinterpret_cast<char*>(&imageWidth), sizeof(short));
-
-    short imageHeight;
-    f.read(reinterpret_cast<char*>(&imageHeight), sizeof(short));
-
-    unsigned char imageBitCount;
-    f.read(reinterpret_cast<char*>(&imageBitCount), sizeof(unsigned char));
-
-    f.read(reinterpret_cast<char*>(&i), sizeof(unsigned char));
-
-    int colorMode = 4;
-    int realColorMode = imageBitCount / 8;
-    int imageSize = imageWidth * imageHeight * colorMode;
-
-    unsigned char* imageData = new unsigned char[imageSize];
-    unsigned char* buff = new unsigned char[imageSize];
-    f.read(reinterpret_cast<char*>(imageData), imageSize);
-
-    f.close();
-    int j = 0;
-    for (int i = 0; i < imageSize; i += colorMode) {
-        unsigned char r;
-        unsigned char g;
-        unsigned char b;
-
-        switch (imageBitCount) {
-        case 16:
-            r = (imageData[j + 1] >> 2) & 0x1F;
-            g = ((imageData[j + 1] << 3) & 0x1C) | ((imageData[j] >> 5) & 0x07);
-            b = (imageData[j] & 0x1F);
-
-            r = (r << 3) | (r >> 2);
-            g = (g << 3) | (g >> 2);
-            b = (b << 3) | (b >> 2);
-
-            buff[i] = b;
-            buff[i + 1] = g;
-            buff[i + 2] = r;
-            buff[i + 3] = 255;
-            break;
-        default:
-            r = imageData[i + 2];
-            g = imageData[i + 1];
-            b = imageData[i];
-
-            buff[i] = b;
-            buff[i + 1] = g;
-            buff[i + 2] = r;
-
-            if (realColorMode < 4)
-                buff[i + 3] = 255;
-            break;
-        }
-        j += realColorMode;
-    }
-    imageData = buff;
-
-
-    // Flip
-    size_t bytesPerRow = (size_t)imageWidth * (colorMode * sizeof(unsigned char));
-    unsigned char temp[2048];
-    unsigned char* bytes = imageData;
-
-    for (int i = 0; i < (imageHeight >> 1); i++) {
-        unsigned char* row0 = bytes + i * bytesPerRow;
-        unsigned char* row1 = bytes + (imageHeight - i - 1) * bytesPerRow;
-
-        size_t bytesLeft = bytesPerRow;
-        while (bytesLeft) {
-            size_t bytes_copy = (bytesLeft < sizeof(temp)) ? bytesLeft : sizeof(temp);
-            memcpy(temp, row0, bytes_copy);
-            memcpy(row0, row1, bytes_copy);
-            memcpy(row1, temp, bytes_copy);
-            row0 += bytes_copy;
-            row1 += bytes_copy;
-            bytesLeft -= bytes_copy;
-        }
-    }
-
-
-    *width = imageWidth;
-    *height = imageHeight;
-    *pixels = imageData;
-
-    return true;
+    return false;
 }
+
+#if _HAS_CXX17
+std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, std::string const& ext) {
+    std::vector<std::string> files = {};
+    try {
+        for (auto& it : std::filesystem::directory_iterator(path)) {
+            if (it.path().extension() == ext) {
+                files.push_back(it.path().filename().string());
+            }
+        }
+    }
+    catch (const std::exception& ex) {
+        std::cerr << "Error: " << ex.what() << std::endl;
+    }
+
+    return files;
+}
+#endif
