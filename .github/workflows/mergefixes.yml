@@ -2,7 +2,10 @@ name: Merge Fixes
 
 on:
   push:
-    branches: ['fixes']
+    branches: 
+      - 'fixes'
+  
+  workflow_dispatch:
 
 env:
   GH_TOKEN: ${{ github.token }}
