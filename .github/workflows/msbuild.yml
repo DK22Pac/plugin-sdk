@@ -77,5 +77,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create $(git rev-parse --short HEAD) --generate-notes
-          gh release upload $(git rev-parse --short HEAD) ${{github.workspace}}/release.zip
+          gh release create "$(git rev-parse --short HEAD)-$(date +%s)" --generate-notes
+          gh release upload "$(git rev-parse --short HEAD)-$(date +%s)" ${{github.workspace}}/release.zip
