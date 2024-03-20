@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   merge-fixes:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Merge fixes into master
