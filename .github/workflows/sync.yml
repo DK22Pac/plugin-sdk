@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - run: gh repo sync juicermv/plugin-sdk --force --source dk22pac/plugin-sdk --branch fixes
