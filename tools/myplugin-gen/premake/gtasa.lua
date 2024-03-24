@@ -11,7 +11,7 @@ includedirs {
 }
 
 debugdir "$(GTA_SA_DIR)"
-debugcommand "$(GTA_SA_DIR)/gta-sa.exe"
+debugcommand "$(GTA_SA_DIR)/gta_sa.exe"
 postbuildcommands("copy /y \"$(TargetPath)\" \"$(GTA_SA_DIR)\\scripts\\" .. projectName .. "SA.asi\"")
 
 filter "configurations:Release"
