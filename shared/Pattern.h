@@ -51,7 +51,7 @@ namespace plugin {
                 goto return_addr;
             }
             {
-                auto& p = hook::module_pattern(module, bytes);
+                auto p = hook::module_pattern(module, bytes);
                 a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
             }
             modulePatternMap->emplace(bytes, a);
