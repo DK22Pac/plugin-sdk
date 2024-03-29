@@ -171,7 +171,7 @@ make_slot:
 #endif
 
     CSprite2d* SpriteLoader::GetSprite(std::string const& name) {
-        auto& s = spritesMap.find(name);
+        const auto& s = spritesMap.find(name);
         if (s != spritesMap.end()) {
             if (buf > spriteBuf.size() - 1)
                 buf = 0;
