@@ -9,7 +9,7 @@
 #include <locale>
 #include <codecvt>
 #include <sys/stat.h>
-
+#include <ctype.h>
 #include <windows.h>
 
 #if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
@@ -97,7 +97,7 @@ namespace plugin {
         int32_t i = 0;
         for (auto& c : result) {
             if (i > offset - 1)
-                c = std::toupper(c);
+                c = toupper(c);
             i++;
         }
         return result;
@@ -108,7 +108,7 @@ namespace plugin {
         int32_t i = 0;
         for (auto& c : result) {
             if (i > offset - 1)
-                c = std::tolower(c);
+                c = tolower(c);
             i++;
         }
         return result;
@@ -119,7 +119,7 @@ namespace plugin {
         int32_t i = 0;
         for (auto& c : result) {
             if (i > offset - 1)
-                c = std::toupper(c);
+                c = toupper(c);
             i++;
         }
         return result;
@@ -130,7 +130,7 @@ namespace plugin {
         int32_t i = 0;
         for (auto& c : result) {
             if (i > offset - 1)
-                c = std::tolower(c);
+                c = tolower(c);
             i++;
         }
         return result;
@@ -187,7 +187,7 @@ namespace plugin {
             std::size_t operator() (std::string str) const {
                 for (std::size_t index = 0; index < str.size(); ++index) {
                     auto ch = static_cast<unsigned char>(str[index]);
-                    str[index] = static_cast<unsigned char>(std::tolower(ch));
+                    str[index] = static_cast<unsigned char>(tolower(ch));
                 }
                 return std::hash<std::string>{}(str);
             }

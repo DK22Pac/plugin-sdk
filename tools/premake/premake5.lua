@@ -104,7 +104,6 @@ function setToolset()
                 systemversion "latest"
             end
         end
-        buildoptions "/std:c++latest"
     end
 end
 
