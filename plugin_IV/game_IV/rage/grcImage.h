@@ -29,7 +29,7 @@ namespace rage {
             FORMAT_MASK = 0x1FFFFFFF,
         };
 
-        typedef CTextureDecodeRequestDesc::Type rage::grcImage::Format;
+        typedef CTextureDecodeRequestDesc::Type Format;
 
     private:
         uint16_t m_Width;
