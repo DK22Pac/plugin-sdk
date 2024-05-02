@@ -70,7 +70,7 @@ jobs:
               run: zip -9 -Zb -r ${{github.workspace}}/release.zip .
 
             - name: Create release
-              run: gh release create "$(git rev-parse --short HEAD)-$(date +%s)" --generate-notes
+              run: gh release create $(git rev-parse --short HEAD)-$(date +%s) --generate-notes
 
             - name: Upload artifact to release
-              run: gh release upload "$(git rev-parse --short HEAD)-$(date +%s)" ${{github.workspace}}/release.zip
+              run: gh release upload $(git rev-parse --short HEAD)-$(date +%s) ${{github.workspace}}/release.zip
