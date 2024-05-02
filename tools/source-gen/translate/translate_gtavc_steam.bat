@@ -1,1 +1,0 @@
-address_translator %GTA_DATABASES% gtavc steam
