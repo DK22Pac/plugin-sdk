@@ -1,1 +1,0 @@
-address_translator %GTA_DATABASES% gtavc 11en
