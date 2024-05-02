@@ -52,7 +52,7 @@ jobs:
                   path: ${{github.workspace}}
 
     release:
-        runs-on: self-hosted
+        runs-on: ubuntu
         needs: build
         permissions:
             contents: write
