@@ -49,7 +49,7 @@ plugin_sa.include_paths = AddTables(Get3DGameDirs("sa"), shared_paths)
 
 plugin_sa.library_paths = shared_paths
 
-plugin_sa.msvc_resource_files = plugin_rc
+plugin_sa.resource_files = plugin_rc
 
 plugin_sa.files = AddTables(
     workspace:walk_dir("hooking", false, {"cpp"}), 
@@ -59,8 +59,8 @@ plugin_sa.files = AddTables(
     )
 )
 
-plugin_sa.msvc_arch = "x86"
-plugin_sa.msvc_static_library = true
+plugin_sa.arch = "x86"
+plugin_sa.static_library = true
 
 plugin_sa.compiler_flags = {
     "/std:c++17",
@@ -98,7 +98,7 @@ plugin_3.include_paths = AddTables(Get3DGameDirs("iii"), shared_paths)
 
 plugin_3.library_paths = shared_paths
 
-plugin_3.msvc_resource_files = plugin_rc
+plugin_3.resource_files = plugin_rc
 
 plugin_3.files = AddTables(
     workspace:walk_dir("hooking", false, {"cpp"}), 
@@ -108,8 +108,8 @@ plugin_3.files = AddTables(
     )
 )
 
-plugin_3.msvc_arch = "x86"
-plugin_3.msvc_static_library = true
+plugin_3.arch = "x86"
+plugin_3.static_library = true
 
 plugin_3.compiler_flags = {
     "/std:c++17",
@@ -147,7 +147,7 @@ plugin_vc.include_paths = AddTables(Get3DGameDirs("vc"), shared_paths)
 
 plugin_vc.library_paths = shared_paths
 
-plugin_vc.msvc_resource_files = plugin_rc
+plugin_vc.resource_files = plugin_rc
 
 plugin_vc.files = AddTables(
     workspace:walk_dir("hooking", false, {"cpp"}), 
@@ -157,8 +157,8 @@ plugin_vc.files = AddTables(
     )
 )
 
-plugin_vc.msvc_arch = "x86"
-plugin_vc.msvc_static_library = true
+plugin_vc.arch = "x86"
+plugin_vc.static_library = true
 
 plugin_vc.compiler_flags = {
     "/std:c++17",
