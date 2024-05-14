@@ -33,7 +33,8 @@ static const dummy_func_t dummy; // Dummy func tag object
 
 // meta template for functions
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
-template<auto Func>
+//template<auto Func>
+template<typename FuncType, FuncType Func>
 struct meta;
 #elif (defined(_MSC_VER))
 template<typename FuncType, FuncType Func>
@@ -117,8 +118,8 @@ void operator_delete_array(ClassType *data) {
 }
 
 template <class Type, size_t n>
-size_t array_size(Type(&)[n]) { 
-    return n; 
+size_t array_size(Type(&)[n]) {
+    return n;
 }
 
 // helpers for event creating
@@ -144,7 +145,7 @@ inline void** GetVMT(const void* self) {
     return *(void***)(self);
 }
 
-// Gets the virtual method from @self in the table index @index 
+// Gets the virtual method from @self in the table index @index
 inline void* GetVMT(const void* self, size_t index) {
     return GetVMT(self)[index];
 }
@@ -243,10 +244,16 @@ Ret CallMethodAndReturnDynGlobal(unsigned int address, C _this, Args... args) {
 
 // meta access
 #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
+/*
 #define metaof(func) plugin::meta<&func >
 #define metaof_o(func, decl) plugin::meta<static_cast<decl>(&func)>
 #define META_BEGIN(func) template<> struct meta<&func > {
 #define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<static_cast<decl>(&func)> {
+*/
+#define metaof(func) plugin::meta<decltype(&func), (&func)>
+#define metaof_o(func, decl) plugin::meta<decl, (&func)>
+#define META_BEGIN(func) template<> struct meta<decltype(&func), (&func)> {
+#define META_BEGIN_OVERLOADED(func, decl) template<> struct meta<decl, (&func)> {
 #elif (defined(_MSC_VER))
 #define metaof(func) plugin::meta<decltype(&func), (&func)>
 #define metaof_o(func, decl) plugin::meta<decl, (&func)>

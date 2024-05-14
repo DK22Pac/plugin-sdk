@@ -30,7 +30,7 @@ namespace plugin {
                 goto return_addr;
             }
             {
-                auto& p = hook::pattern(bytes);
+                const auto& p = hook::pattern(bytes);
                 a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
             }
             patternMap->emplace(bytes, a);
@@ -51,7 +51,7 @@ namespace plugin {
                 goto return_addr;
             }
             {
-                auto& p = hook::module_pattern(module, bytes);
+                const auto& p = hook::module_pattern(module, bytes);
                 a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
             }
             modulePatternMap->emplace(bytes, a);
@@ -69,7 +69,7 @@ return_addr:
 
         template<typename T = void*>
         static inline auto ReadExternal(void* module, std::string_view const& bytes, int32_t offset = 0) {
-            uint32_t const& a = GetExternal(module, bytes, offset);  
+            uint32_t const& a = GetExternal(module, bytes, offset);
             return a ? injector::ReadMemory<T>(GetGlobalAddress(a), true) : 0x0;
         }
     };
