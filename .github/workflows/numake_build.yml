@@ -6,74 +6,83 @@
 name: Build using numake
 
 on:
-    push:
-        branches:
-            - 'master'
-        paths:
-            - '**.c'
-            - '**.cpp'
-            - '**.h'
-            - 'project.lua'
+  push:
+    branches:
+      - "master"
+    paths:
+      - "**.c"
+      - "**.cpp"
+      - "**.h"
+      - "project.lua"
 
-    workflow_dispatch:
+  workflow_dispatch:
 
 env:
-    # Path to the solution file relative to the root of the project.
-    SOLUTION_FILE_PATH: plugin.sln
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: plugin.sln
 
-    # Configuration type to build.
-    # You can convert this to a build matrix if you need coverage of multiple configuration types.
-    # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-    BUILD_CONFIGURATION: Release
-    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
-    build:
-        runs-on: windows-latest
+  build:
+    runs-on: windows-latest
 
-        steps:
-            - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Add MSBuild to PATH
-              uses: microsoft/setup-msbuild@v2
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
 
-            - name: Download numake
-              run: gh release download indev -R juicermv/numake -p '*.exe' --dir "${{runner.temp}}"
+      - name: Download numake
+        run: gh release download indev -R juicermv/numake -p '*.exe' --dir "${{runner.temp}}"
 
-            - name: Build using numake
-              working-directory: ${{github.workspace}}
-              run: ."${{runner.temp}}/numake.exe" build * -w ${{github.workspace}}
+      - name: Build using numake
+        working-directory: ${{github.workspace}}
+        run: ."${{runner.temp}}/numake.exe" build * -w ${{github.workspace}}
 
-            - run: cp .numake/out .
+      - run: cp .numake/out .
 
-            - name: Package build output as artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: ${{github.sha}}
-                  path: ${{github.workspace}}
+      - name: Package build output as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{github.sha}}
+          path: ${{github.workspace}}
 
-    release:
-        runs-on: ubuntu-latest
-        needs: build
-        permissions:
-            contents: write
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: write
 
-        steps:
-            - name: Download artifact
-              id: artifact
-              uses: actions/download-artifact@v4
-              with:
-                  merge-multiple: true
+    steps:
+      - name: Download artifact
+        id: artifact
+        uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
 
-            - name: Archive artifact
-              working-directory: ${{steps.artifact.outputs.download-path}}
-              run: zip -9 -Zb -r ${{github.workspace}}/release.zip .
+      - name: Download numake
+        run: gh release download indev -R juicermv/numake -p 'numake' --dir "${{runner.temp}}"
 
-            - name: Create release
-              run: gh release create "$(git rev-parse --short HEAD)_$(date +%H-%M)" --generate-notes
+      - name: Build using numake
+        working-directory: ${{github.workspace}}
+        run: ."${{runner.temp}}/numake" build * -w ${{github.workspace}}
 
-            - name: Upload artifact to release
-              run: gh release upload "$(git rev-parse --short HEAD)_$(date +%H-%M)" ${{github.workspace}}/release.zip
+      - run: cp .numake/out .
+
+      - name: Archive artifact
+        working-directory: ${{steps.artifact.outputs.download-path}}
+        run: zip -9 -Zb -r ${{github.workspace}}/release.zip .
+
+      - name: Create release
+        run: gh release create "$(git rev-parse --short HEAD)_$(date +%H-%M)" --generate-notes
+
+      - name: Upload artifact to release
+        run: gh release upload "$(git rev-parse --short HEAD)_$(date +%H-%M)" ${{github.workspace}}/release.zip
