@@ -27,7 +27,7 @@ permissions:
 
 jobs:
   build_and_release:
-    runs-on: self-hosted
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
 
@@ -42,7 +42,7 @@ jobs:
       - name: Build using numake
         run: ${{runner.temp}}/numake build all -w ${{github.workspace}}
 
-      - run: cp .numake/out .
+      - run: cp -r .numake/out .
 
       - name: Archive build
         working-directory: ${{github.workspace}}
