@@ -45,7 +45,7 @@ if workspace.platform == "windows" then
         "RW"
     }
 
-    plugin_sa.include_paths = AddTables(shared_paths, Get3DGameDirs("sa"))
+    plugin_sa.include_paths = AddTables(Get3DGameDirs("sa"), shared_paths)
 
     plugin_sa.library_paths = shared_paths
 
@@ -94,7 +94,7 @@ if workspace.platform == "windows" then
         "RW"
     }
 
-    plugin_3.include_paths = AddTables(shared_paths, Get3DGameDirs("III"))
+    plugin_3.include_paths = AddTables(Get3DGameDirs("iii"), shared_paths)
 
     plugin_3.library_paths = shared_paths
 
@@ -142,7 +142,7 @@ if workspace.platform == "windows" then
         "RW"
     }
 
-    plugin_vc.include_paths = AddTables(shared_paths, Get3DGameDirs("vc"))
+    plugin_vc.include_paths = AddTables(Get3DGameDirs("vc"), shared_paths)
 
     plugin_vc.library_paths = shared_paths
 
@@ -195,7 +195,7 @@ else
         "RW"
     }
 
-    plugin_sa.include_paths = AddTables(shared_paths, Get3DGameDirs("sa"))
+    plugin_sa.include_paths = AddTables(Get3DGameDirs("sa"), shared_paths)
 
     plugin_sa.library_paths = shared_paths
 
@@ -238,7 +238,7 @@ else
         "RW"
     }
 
-    plugin_3.include_paths = AddTables(shared_paths, Get3DGameDirs("III"))
+    plugin_3.include_paths = AddTables(Get3DGameDirs("III"), shared_paths)
 
     plugin_3.library_paths = shared_paths
 
@@ -281,7 +281,7 @@ else
         "RW"
     }
 
-    plugin_vc.include_paths = AddTables(shared_paths, Get3DGameDirs("vc"))
+    plugin_vc.include_paths = AddTables(Get3DGameDirs("vc"), shared_paths)
 
     plugin_vc.library_paths = shared_paths
 
