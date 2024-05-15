@@ -9,11 +9,6 @@ on:
   push:
     branches:
       - "master"
-    paths:
-      - "**.c"
-      - "**.cpp"
-      - "**.h"
-      - "project.lua"
 
   workflow_dispatch:
 
@@ -45,7 +40,7 @@ jobs:
           chmod a+x ${{runner.temp}}/numake
 
       - name: Build using numake
-        run: ${{runner.temp}}/numake build * -w ${{github.workspace}}
+        run: ${{runner.temp}}/numake build all -w ${{github.workspace}}
 
       - run: cp .numake/out .
 
