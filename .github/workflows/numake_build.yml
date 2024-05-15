@@ -44,10 +44,13 @@ jobs:
         run: gh release download indev -R juicermv/numake -p '*.exe' --dir "${{runner.temp}}"
 
       - name: Build using numake
+        id: numake
         working-directory: ${{github.workspace}}
         run: |
           ."${{runner.temp}}/numake.exe" build * > output.txt
-          echo ::set-output name=errors::`cat output.txt`
+          echo ::set-output name=out::`cat output.txt`
+        
+      - run: echo ${{ steps.numake.outputs.out }}
 
       - run: cp .numake/out .
 
@@ -71,10 +74,12 @@ jobs:
           merge-multiple: true
 
       - name: Download numake
-        run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}/download"
+        run: |
+          gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
+          chmod a+x ${{runner.temp}}/numake
 
       - name: Build using numake
-        run: ${{runner.temp}}/download/numake build * -w ${{steps.artifact.outputs.download-path}}
+        run: ${{runner.temp}}/numake build * -w ${{steps.artifact.outputs.download-path}}
 
       - run: cp .numake/out .
 
