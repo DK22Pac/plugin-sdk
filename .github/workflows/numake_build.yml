@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: "sudo apt-get install g++-mingw-w64-i686"
+      - run: "sudo apt-get install g++-mingw-w64-i686 binutils-mingw-w64-i686"
 
       - name: Download numake
         run: |
