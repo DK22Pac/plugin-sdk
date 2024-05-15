@@ -44,7 +44,8 @@ jobs:
         run: gh release download indev -R juicermv/numake -p '*.exe' --dir "${{runner.temp}}"
 
       - name: Build using numake
-        run: ."${{runner.temp}}/numake.exe" build * -w ${{github.workspace}}
+        working-directory: ${{github.workspace}}
+        run: ."${{runner.temp}}/numake.exe" build *
 
       - run: cp .numake/out .
 
@@ -71,7 +72,7 @@ jobs:
         run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
 
       - name: Build using numake
-        run: ${{runner.temp}}/numake build * -w ${{steps.artifact.outputs.download-path}}
+        run: sudo ${{runner.temp}}/numake build * -w ${{steps.artifact.outputs.download-path}}
 
       - run: cp .numake/out .
 
