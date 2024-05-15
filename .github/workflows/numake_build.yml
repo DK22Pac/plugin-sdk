@@ -46,11 +46,7 @@ jobs:
       - name: Build using numake
         id: numake
         working-directory: ${{github.workspace}}
-        run: |
-          ."${{runner.temp}}/numake.exe" build * > output.txt
-          echo ::set-output name=out::`cat output.txt`
-        
-      - run: echo ${{ steps.numake.outputs.out }}
+        run: ."${{runner.temp}}/numake.exe" build *
 
       - run: cp .numake/out .
 
