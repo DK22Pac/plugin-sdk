@@ -248,7 +248,7 @@ else
         workspace:walk_dir("hooking", false, { "cpp" }),
         AddTables(
             workspace:walk_dir("shared", true, { "cpp" }),
-            workspace:walk_dir("plugin_iii", true, { "cpp" })
+            workspace:walk_dir("plugin_III", true, { "cpp" })
         )
     )
 
