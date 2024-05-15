@@ -31,43 +31,13 @@ permissions:
   contents: read
 
 jobs:
-  build:
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v2
-
-      - name: Download numake
-        run: gh release download indev -R juicermv/numake -p '*.exe' --dir "${{runner.temp}}"
-
-      - name: Build using numake
-        id: numake
-        working-directory: ${{github.workspace}}
-        run: ."${{runner.temp}}/numake.exe" build all
-
-      - run: cp .numake/out .
-
-      - name: Package build output as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{github.sha}}
-          path: ${{github.workspace}}
-
-  release:
-    runs-on: ubuntu-latest
-    needs: build
+  build_and_release:
+    runs-on: self-hosted
     permissions:
       contents: write
 
     steps:
-      - name: Download artifact
-        id: artifact
-        uses: actions/download-artifact@v4
-        with:
-          merge-multiple: true
+      - uses: actions/checkout@v4
 
       - name: Download numake
         run: |
@@ -75,16 +45,16 @@ jobs:
           chmod a+x ${{runner.temp}}/numake
 
       - name: Build using numake
-        run: ${{runner.temp}}/numake build * -w ${{steps.artifact.outputs.download-path}}
+        run: ${{runner.temp}}/numake build * -w ${{github.workspace}}
 
       - run: cp .numake/out .
 
-      - name: Archive artifact
-        working-directory: ${{steps.artifact.outputs.download-path}}
+      - name: Archive build
+        working-directory: ${{github.workspace}}
         run: zip -9 -Zb -r ${{github.workspace}}/release.zip .
 
       - name: Create release
         run: gh release create "$(git rev-parse --short HEAD)_$(date +%H-%M)" --generate-notes
 
-      - name: Upload artifact to release
+      - name: Upload build to release
         run: gh release upload "$(git rev-parse --short HEAD)_$(date +%H-%M)" ${{github.workspace}}/release.zip
