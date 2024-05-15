@@ -46,7 +46,7 @@ jobs:
       - name: Build using numake
         id: numake
         working-directory: ${{github.workspace}}
-        run: ."${{runner.temp}}/numake.exe" build *
+        run: ."${{runner.temp}}/numake.exe" build all
 
       - run: cp .numake/out .
 
