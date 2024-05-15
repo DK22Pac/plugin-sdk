@@ -71,7 +71,7 @@ jobs:
         run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
 
       - name: Build using numake
-        run: ."${{runner.temp}}/numake" build * -w ${{steps.artifact.outputs.download-path}}
+        run: ${{runner.temp}}/numake build * -w ${{steps.artifact.outputs.download-path}}
 
       - run: cp .numake/out .
 
