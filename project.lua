@@ -49,15 +49,16 @@ local msvc_flags_linker = {
 
 local mingw_flags_compiler = {
     "-std=c++17",
-    "-O3",
-    "-static",
+    "-O2",
+    "-shared",
+    "-static-libstdc++",
     "-fpermissive",
     "-flto",
     "-msse",
     "-msse2",
     "-msse3",
-    "-mdll",
     "-fcommon",
+    "-mhard-float",
     "-ffunction-sections",
     "-fdata-sections"
 }
