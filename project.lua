@@ -31,107 +31,81 @@ function Get3DGameDirs(game)
     }
 end
 
+local msvc_flags_compiler = {
+    "/std:c++17",
+    "/Ox",
+    "/W3",
+    "/sdl-",
+    "/GF",
+    "/Gy",
+    "/Oi",
+    "/MT",
+}
+
+local msvc_flags_linker= {
+    "/SUBSYSTEM:WINDOWS",
+    "/LTCG",
+}
+
+local mingw_flags_compiler = {
+    "-std=c++17",
+    "-O3",
+    "-m32",
+    "-static",
+    "-static-libstdc++",
+    "-fpermissive",
+    "-flto"
+}
+
+local mingw_flags_linker = {
+    "-subsystem", "windows",
+}
+
 local plugin_sa
 local plugin_3
 local plugin_vc
 
-if workspace.platform == "windows" then
+if workspace.platform == "windows" and workspace.arguments["mingw"] ~= "true" then
     ---! GTASA !---
     plugin_sa = workspace:create_msvc_target("plugin_sa")
     plugin_sa.arch = "x86"
-    plugin_sa.compiler_flags = {
-        "/std:c++17",
-        "/Ox",
-        "/W3",
-        "/sdl-",
-        "/GF",
-        "/Gy",
-        "/Oi",
-        "/MT",
-    }
-    plugin_sa.linker_flags = {
-        "/SUBSYSTEM:WINDOWS",
-        "/LTCG",
-
-    }
+    plugin_sa.compiler_flags = msvc_flags_compiler
+    plugin_sa.linker_flags = msvc_flags_linker
     plugin_sa.output = "plugin.lib"
 
     ---! GTA3 !---
     plugin_3 = workspace:create_msvc_target("plugin_3")
     plugin_3.arch = "x86"
-    plugin_3.compiler_flags = {
-        "/std:c++17",
-        "/Ox",
-        "/W3",
-        "/sdl-",
-        "/GF",
-        "/Gy",
-        "/Oi",
-        "/MT",
-    }
-    plugin_3.linker_flags = {
-        "/SUBSYSTEM:WINDOWS",
-        "/LTCG",
-    }
+    plugin_3.compiler_flags = msvc_flags_compiler
+    plugin_3.linker_flags = msvc_flags_linker
     plugin_3.output = "plugin_iii.lib"
 
     ---! VICE CITY !---
     plugin_vc = workspace:create_msvc_target("plugin_vc")
     plugin_vc.arch = "x86"
-    plugin_vc.compiler_flags = {
-        "/std:c++17",
-        "/Ox",
-        "/W3",
-        "/sdl-",
-        "/GF",
-        "/Gy",
-        "/Oi",
-        "/MT",
-    }
-    plugin_vc.linker_flags = {
-        "/SUBSYSTEM:WINDOWS",
-        "/LTCG",
-    }
-
+    plugin_vc.compiler_flags = msvc_flags_compiler
+    plugin_vc.linker_flags = msvc_flags_linker
     plugin_vc.output = "plugin_vc.lib"
 else
     ---! GTASA !---
     plugin_sa = workspace:create_mingw_target("plugin_sa")
     plugin_sa.arch = "i686"
-    plugin_sa.compiler_flags = {
-        "-std=c++17",
-        "-Ofast",
-        "-fpermissive"
-    }
-    plugin_sa.linker_flags = {
-        "-subsystem", "windows",
-    }
+    plugin_sa.compiler_flags = mingw_flags_compiler
+    plugin_sa.linker_flags = mingw_flags_linker
     plugin_sa.output = "libplugin.a"
 
     ---! GTA3 !---
     plugin_3 = workspace:create_mingw_target("plugin_3")
     plugin_3.arch = "i686"
-    plugin_3.compiler_flags = {
-        "-std=c++17",
-        "-Ofast",
-        "-fpermissive"
-    }
-    plugin_3.linker_flags = {
-        "-subsystem", "windows",
-    }
+    plugin_3.compiler_flags = mingw_flags_compiler
+    plugin_3.linker_flags = mingw_flags_linker
     plugin_3.output = "libplugin_iii.a"
 
     ---! VICE CITY !---
     plugin_vc = workspace:create_mingw_target("plugin_vc")
     plugin_vc.arch = "i686"
-    plugin_vc.compiler_flags = {
-        "-std=c++17",
-        "-Ofast",
-        "-fpermissive"
-    }
-    plugin_vc.linker_flags = {
-        "--subsystem", "windows",
-    }
+    plugin_vc.compiler_flags = mingw_flags_compiler
+    plugin_vc.linker_flags = mingw_flags_linker
     plugin_vc.output = "libplugin_vc.a"
 end
 
