@@ -39,21 +39,18 @@ jobs:
 
   build-msvc:
     runs-on: windows-latest
-    permissions:
-      contents: write
+    needs: generate-release-name
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Download numake
-        run: |
-          gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
-          chmod a+x ${{runner.temp}}/numake
+        run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
 
       - name: Build using numake
         run: ${{runner.temp}}/numake.exe build all -w ${{github.workspace}}
 
-      - run: mv -R .numake/out lib
+      - run: mv .numake/out lib
         shell: powershell
 
       - run: rm -R -Force .numake
@@ -67,8 +64,7 @@ jobs:
 
   build-mingw:
     runs-on: ubuntu-24.04
-    permissions:
-      contents: write
+    needs: generate-release-name
 
     steps:
       - uses: actions/checkout@v4
@@ -83,7 +79,7 @@ jobs:
       - name: Build using numake
         run: ${{runner.temp}}/numake build all -w ${{github.workspace}}
 
-      - run: mv -r .numake/out lib
+      - run: mv .numake/out lib
 
       - run: rm -rf .numake
 
@@ -95,6 +91,8 @@ jobs:
 
   create-release:
     runs-on: self-hosted
+    permissions:
+      contents: write
     needs:
       - generate-release-name
       - build-mingw
@@ -108,7 +106,7 @@ jobs:
 
       - name: Archive MinGW build
         working-directory: ${{github.workspace}}
-        run: zip -9 -Zb -r ${{github.workspace}}/mingw.zip mingw/*
+        run: zip -9 -Zb -r ${{github.workspace}}/mingw.zip mingw
 
       - uses: actions/download-artifact@v4
         with:
@@ -117,7 +115,7 @@ jobs:
 
       - name: Archive MSVC build
         working-directory: ${{github.workspace}}
-        run: zip -9 -Zb -r ${{github.workspace}}/msvc.zip msvc/*
+        run: zip -9 -Zb -r ${{github.workspace}}/msvc.zip msvc
 
       - name: Create release
         run: gh release create ${{needs.generate-release-name.outputs.name}} --generate-notes
