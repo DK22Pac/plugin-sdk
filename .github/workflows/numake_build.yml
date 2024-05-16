@@ -46,9 +46,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download numake
-        run: |
-          gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
-          chmod a+x ${{runner.temp}}/numake
+        run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
 
       - name: Build using numake
         run: ${{runner.temp}}/numake.exe build all -w ${{github.workspace}}
