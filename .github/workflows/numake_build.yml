@@ -105,8 +105,8 @@ jobs:
           path: mingw
 
       - name: Archive MinGW build
-        working-directory: ${{github.workspace}}
-        run: zip -9 -Zb -r ${{github.workspace}}/mingw.zip mingw/*
+        working-directory: ${{github.workspace}}/mingw
+        run: zip -9 -Zb -r ${{github.workspace}}/mingw.zip .
 
       - uses: actions/download-artifact@v4
         with:
@@ -114,8 +114,8 @@ jobs:
           path: msvc
 
       - name: Archive MSVC build
-        working-directory: ${{github.workspace}}
-        run: zip -9 -Zb -r ${{github.workspace}}/msvc.zip msvc/*
+        working-directory: ${{github.workspace}}/msvc
+        run: zip -9 -Zb -r ${{github.workspace}}/msvc.zip .
 
       - name: Create release
         run: gh release create ${{needs.generate-release-name.outputs.name}} --generate-notes
