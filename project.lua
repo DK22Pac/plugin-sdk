@@ -42,7 +42,7 @@ local msvc_flags_compiler = {
     "/MT",
 }
 
-local msvc_flags_linker= {
+local msvc_flags_linker = {
     "/SUBSYSTEM:WINDOWS",
     "/LTCG",
 }
@@ -50,11 +50,14 @@ local msvc_flags_linker= {
 local mingw_flags_compiler = {
     "-std=c++17",
     "-O3",
-    "-m32",
     "-static",
     "-static-libstdc++",
     "-fpermissive",
-    "-flto"
+    "-flto",
+    "-msse",
+    "-msse2",
+    "-msse3",
+    "-mdll"
 }
 
 local mingw_flags_linker = {
