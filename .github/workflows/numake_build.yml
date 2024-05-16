@@ -6,122 +6,124 @@
 name: Build using numake
 
 on:
-  push:
-    branches:
-      - "master"
+    push:
+        branches:
+            - 'master'
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 env:
-  # Path to the solution file relative to the root of the project.
-  SOLUTION_FILE_PATH: plugin.sln
+    # Path to the solution file relative to the root of the project.
+    SOLUTION_FILE_PATH: plugin.sln
 
-  # Configuration type to build.
-  # You can convert this to a build matrix if you need coverage of multiple configuration types.
-  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-  BUILD_CONFIGURATION: Release
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # Configuration type to build.
+    # You can convert this to a build matrix if you need coverage of multiple configuration types.
+    # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    BUILD_CONFIGURATION: Release
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  generate-release-name:
-    runs-on: self-hosted
-    outputs:
-      name: ${{steps.generate.outputs.name}}
+    generate-release-name:
+        runs-on: self-hosted
+        outputs:
+            name: ${{steps.generate.outputs.name}}
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - id: generate
-        run: echo "name=$(git rev-parse --short HEAD)_$(date +%H-%M)" >> "$GITHUB_OUTPUT"
+            - id: generate
+              run: echo "name=$(git rev-parse --short HEAD)_$(date +%H-%M)" >> "$GITHUB_OUTPUT"
 
-  build-msvc:
-    runs-on: windows-latest
-    permissions:
-      contents: write
+    build-msvc:
+        runs-on: windows-latest
+        needs: generate-release-name
+        permissions:
+            contents: write
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Download numake
-        run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
+            - name: Download numake
+              run: gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
 
-      - name: Build using numake
-        run: ${{runner.temp}}/numake.exe build all -w ${{github.workspace}}
+            - name: Build using numake
+              run: ${{runner.temp}}/numake.exe build all -w ${{github.workspace}}
 
-      - run: mv -R .numake/out lib
-        shell: powershell
+            - run: mv .numake/out lib
+              shell: powershell
 
-      - run: rm -R -Force .numake
-        shell: powershell
+            - run: rm -R -Force .numake
+              shell: powershell
 
-      - uses: actions/upload-artifact@v4
-        with:
-          path: .
-          name: msvc
-          compression-level: 9
+            - uses: actions/upload-artifact@v4
+              with:
+                  path: .
+                  name: msvc
+                  compression-level: 9
 
-  build-mingw:
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
+    build-mingw:
+        runs-on: ubuntu-24.04
+        needs: generate-release-name
+        permissions:
+            contents: write
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - run: "sudo apt-get install g++-mingw-w64-i686 binutils-mingw-w64-i686"
+            - run: 'sudo apt-get install g++-mingw-w64-i686 binutils-mingw-w64-i686'
 
-      - name: Download numake
-        run: |
-          gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
-          chmod a+x ${{runner.temp}}/numake
+            - name: Download numake
+              run: |
+                  gh release download indev -R juicermv/numake --dir "${{runner.temp}}"
+                  chmod a+x ${{runner.temp}}/numake
 
-      - name: Build using numake
-        run: ${{runner.temp}}/numake build all -w ${{github.workspace}}
+            - name: Build using numake
+              run: ${{runner.temp}}/numake build all -w ${{github.workspace}}
 
-      - run: mv -r .numake/out lib
+            - run: mv .numake/out lib
 
-      - run: rm -rf .numake
+            - run: rm -rf .numake
 
-      - uses: actions/upload-artifact@v4
-        with:
-          path: .
-          name: mingw
-          compression-level: 9
+            - uses: actions/upload-artifact@v4
+              with:
+                  path: .
+                  name: mingw
+                  compression-level: 9
 
-  create-release:
-    runs-on: self-hosted
-    needs:
-      - generate-release-name
-      - build-mingw
-      - build-msvc
+    create-release:
+        runs-on: self-hosted
+        needs:
+            - generate-release-name
+            - build-mingw
+            - build-msvc
 
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: mingw
-          path: mingw
+        steps:
+            - uses: actions/download-artifact@v4
+              with:
+                  name: mingw
+                  path: mingw
 
-      - name: Archive MinGW build
-        working-directory: ${{github.workspace}}
-        run: zip -9 -Zb -r ${{github.workspace}}/mingw.zip mingw
+            - name: Archive MinGW build
+              working-directory: ${{github.workspace}}
+              run: zip -9 -Zb -r ${{github.workspace}}/mingw.zip mingw
 
-      - uses: actions/download-artifact@v4
-        with:
-          name: msvc
-          path: msvc
+            - uses: actions/download-artifact@v4
+              with:
+                  name: msvc
+                  path: msvc
 
-      - name: Archive MSVC build
-        working-directory: ${{github.workspace}}
-        run: zip -9 -Zb -r ${{github.workspace}}/msvc.zip msvc
+            - name: Archive MSVC build
+              working-directory: ${{github.workspace}}
+              run: zip -9 -Zb -r ${{github.workspace}}/msvc.zip msvc
 
-      - name: Create release
-        run: gh release create ${{needs.generate-release-name.outputs.name}} --generate-notes
+            - name: Create release
+              run: gh release create ${{needs.generate-release-name.outputs.name}} --generate-notes
 
-      - name: Upload MSVC build to release
-        run: gh release upload ${{needs.generate-release-name.outputs.name}} ${{github.workspace}}/msvc.zip
+            - name: Upload MSVC build to release
+              run: gh release upload ${{needs.generate-release-name.outputs.name}} ${{github.workspace}}/msvc.zip
 
-      - name: Upload MinGW build to release
-        run: gh release upload ${{needs.generate-release-name.outputs.name}} ${{github.workspace}}/mingw.zip
+            - name: Upload MinGW build to release
+              run: gh release upload ${{needs.generate-release-name.outputs.name}} ${{github.workspace}}/mingw.zip

@@ -30,7 +30,12 @@ namespace plugin {
                 goto return_addr;
             }
             {
-                const auto& p = hook::pattern(bytes);
+                #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
+                    const auto& p = hook::pattern(bytes);
+                #elif (defined(_MSC_VER))
+                    auto& p = hook::pattern(bytes);
+                #endif
+
                 a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
             }
             patternMap->emplace(bytes, a);
@@ -51,7 +56,12 @@ namespace plugin {
                 goto return_addr;
             }
             {
-                const auto& p = hook::module_pattern(module, bytes);
+                #if (defined(__GNUC__) || defined(__GNUG__) || defined(__clang__))
+                    const auto& p = hook::module_pattern(module, bytes);
+                #elif (defined(_MSC_VER))
+                    auto& p = hook::module_pattern(module, bytes);
+                #endif
+                
                 a = p.empty() ? 0x0 : (uint32_t)p.get_first(0);
             }
             modulePatternMap->emplace(bytes, a);
