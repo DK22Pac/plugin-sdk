@@ -40,8 +40,6 @@ jobs:
     build-msvc:
         runs-on: windows-latest
         needs: generate-release-name
-        permissions:
-            contents: write
 
         steps:
             - uses: actions/checkout@v4
@@ -67,8 +65,6 @@ jobs:
     build-mingw:
         runs-on: ubuntu-24.04
         needs: generate-release-name
-        permissions:
-            contents: write
 
         steps:
             - uses: actions/checkout@v4
@@ -95,6 +91,8 @@ jobs:
 
     create-release:
         runs-on: self-hosted
+        permissions:
+            contents: write
         needs:
             - generate-release-name
             - build-mingw
