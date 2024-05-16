@@ -94,7 +94,7 @@ if workspace.platform == "windows" then
         "RW"
     }
 
-    plugin_3.include_paths = AddTables(Get3DGameDirs("iii"), shared_paths)
+    plugin_3.include_paths = AddTables(Get3DGameDirs("III"), shared_paths)
 
     plugin_3.library_paths = shared_paths
 
