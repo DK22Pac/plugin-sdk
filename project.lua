@@ -51,18 +51,20 @@ local mingw_flags_compiler = {
     "-std=c++17",
     "-O3",
     "-static",
-    "-static-libstdc++",
     "-fpermissive",
     "-flto",
     "-msse",
     "-msse2",
     "-msse3",
     "-mdll",
-    "-fcommon"
+    "-fcommon",
+    "-ffunction-sections",
+    "-fdata-sections"
 }
 
 local mingw_flags_linker = {
-    "-subsystem", "windows",
+    "--subsystem,windows",
+    "--gc-sections"
 }
 
 local plugin_sa
