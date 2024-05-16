@@ -57,7 +57,8 @@ local mingw_flags_compiler = {
     "-msse",
     "-msse2",
     "-msse3",
-    "-mdll"
+    "-mdll",
+    "-fcommon"
 }
 
 local mingw_flags_linker = {
