@@ -98,7 +98,6 @@ else
     ---! GTASA !---
     plugin_sa = workspace:create_mingw_target("plugin_sa")
     plugin_sa.arch = "i686"
-    plugin_sa.static_library = true
     plugin_sa.compiler_flags = {
         "-std=c++17",
         "-Ofast",
