@@ -724,6 +724,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool WarpPedToNearLeaderOffScreen();
     SUPPORTED_10EN_11EN_STEAM bool WillChat(CPed *stranger);
     SUPPORTED_10EN_11EN_STEAM float WorkOutHeadingForMovingFirstPerson(float offset);
+    bool IsPedDoingDriveByShooting();
 
     SUPPORTED_10EN_11EN_STEAM static void FinishDieAnimCB(CAnimBlendAssociation *association, void *data);
     SUPPORTED_10EN_11EN_STEAM static void FinishFightMoveCB(CAnimBlendAssociation *association, void *data);

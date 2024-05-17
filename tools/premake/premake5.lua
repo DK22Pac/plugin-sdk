@@ -111,10 +111,15 @@ end
 function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject, gameName)
     project (projectName)
     language "C++"
-    architecture "x32"
+
+	if projectName:sub(-#"_unreal") == "_unreal" then
+		architecture "x64"
+		defines "_WIN64"
+	else
+		architecture "x32"
+	end
     characterset "MBCS"
-    staticruntime "On"
-	cppdialect "C++17"
+    staticruntime "On"	
 	
     local projectPath = (sdkdir .. "\\" .. projectName)
     
@@ -122,8 +127,11 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         if winxp then
             defines "_USING_V110_SDK71_"
             buildoptions { "/Zc:threadSafeInit-" }
+			cppdialect "C++17"
+		else	
+			cppdialect "C++latest"
         end
-        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
+        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
         buildoptions { "/sdl-" }
         disablewarnings "4073"
     end
@@ -152,6 +160,13 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines { "GTA2", "PLUGIN_SGV_96EN", "GBH" }
 		elseif projectName == "plugin_iv" then
             defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
+			
+		elseif projectName == "plugin_sa_unreal" then
+            defines { "GTASA_UNREAL", "PLUGIN_UNREAL", "UNREAL" }
+		elseif projectName == "plugin_vc_unreal" then
+            defines { "GTAVC_UNREAL", "PLUGIN_UNREAL", "UNREAL" }
+		elseif projectName == "plugin_iii_unreal" then
+            defines { "GTA3_UNREAL", "PLUGIN_UNREAL", "UNREAL" }	
         end
     end
     
@@ -210,8 +225,16 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             (sdkdir .. "\\shared\\**.cpp"),
 			(sdkdir .. "\\shared\\**.rc"),
 			(sdkdir .. "\\hooking\\**.cpp"),
-			(sdkdir .. "\\hooking\\**.h")
+			(sdkdir .. "\\hooking\\**.h"),
+			(sdkdir .. "\\injector\\**.hpp"),
+			(sdkdir .. "\\safetyhook\\**.cpp"),
+			(sdkdir .. "\\safetyhook\\**.hpp"),
+			(sdkdir .. "\\safetyhook\\**.c"),
         }
+		
+		includedirs {
+			(sdkdir .. "\\safetyhook"),
+		}
         
         vpaths {
             ["shared/*"] = (projectFile(sdkdir, "shared\\**.*")),
@@ -526,8 +549,8 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     characterset ("MBCS")
     staticruntime "On"
     flags { "NoImportLib" }
-	cppdialect "C++17"
-	defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_USE_MATH_DEFINES", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
+	cppdialect "C++latest"
+	defines { "_CRT_SECURE_NO_WARNINGS" }
 
     if msbuild then
         if winxp then
@@ -662,6 +685,11 @@ else
     cleanProjectsDirectory(sdkdir .. "\\plugin_iii")
 	cleanProjectsDirectory(sdkdir .. "\\plugin_ii")
 	cleanProjectsDirectory(sdkdir .. "\\plugin_iv")
+	
+	cleanProjectsDirectory(sdkdir .. "\\plugin_sa_unreal")
+	cleanProjectsDirectory(sdkdir .. "\\plugin_vc_unreal")
+	cleanProjectsDirectory(sdkdir .. "\\plugin_iii_unreal")
+
     os.remove(sdkdir .. "\\plugin.sln")
     os.remove(sdkdir .. "\\plugin.suo")
     os.remove(sdkdir .. "\\plugin.sdf")
@@ -682,6 +710,10 @@ else
             pluginSdkStaticLibProject("plugin_iii", sdkdir, "plugin_iii", true, "game_III")
 			pluginSdkStaticLibProject("plugin_ii", sdkdir, "plugin_ii", true, "game_II")
 			pluginSdkStaticLibProject("plugin_iv", sdkdir, "plugin_iv", true, "game_IV")
+			
+			pluginSdkStaticLibProject("plugin_sa_unreal", sdkdir, "plugin_unreal", true, "game_sa_unreal")
+			pluginSdkStaticLibProject("plugin_vc_unreal", sdkdir, "plugin_vc_unreal", true, "game_vc_unreal")
+			pluginSdkStaticLibProject("plugin_iii_unreal", sdkdir, "plugin_iii_unreal", true, "game_iii_unreal")
 
         local f = io.open(sdkdir .. "\\examples\\examples.csv", "rb")
         if f then

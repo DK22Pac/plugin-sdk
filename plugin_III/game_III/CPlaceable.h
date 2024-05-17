@@ -53,6 +53,19 @@ public:
         float cosz = this->m_matrix.up.y / cosx;
         z = acosf(cosz);
     }
+
+    CVector& GetRight() {
+        return m_matrix.GetRight();
+    }
+    CVector& GetForward() {
+        return m_matrix.GetForward();
+    }
+    CVector& GetUp() {
+        return m_matrix.GetUp();
+    }
+    CMatrix& GetMatrix() {
+        return m_matrix;
+    }
 };
 
 VTABLE_DESC(CPlaceable, 0x5F6A28, 1);

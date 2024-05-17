@@ -128,7 +128,7 @@ private:
 
     void PatchAll(RefList<>) {}
 
-    template<int RefAddr, int GameVersion, int RefType, int RefObjectId, int RefIndexInObject, int... MoreHooks>
+    template<uintptr_t RefAddr, uintptr_t GameVersion, uintptr_t RefType, uintptr_t RefObjectId, uintptr_t RefIndexInObject, uintptr_t... MoreHooks>
     void PatchAll(RefList<RefAddr, GameVersion, RefType, RefObjectId, RefIndexInObject, MoreHooks...>) {
         if (GameVersion == GetGameVersion()) {
             // Using void* instead of Ret as the return value because we need to capture the return value and return that,
@@ -154,10 +154,10 @@ private:
     }
 };
 
-template<template<class, uintptr_t, class> class Injector, class RList /* RefList<...> */, int Priority, class ArgPicker, class Prototype>
+template<template<class, uintptr_t, class> class Injector, class RList /* RefList<...> */, uintptr_t Priority, class ArgPicker, class Prototype>
 class BaseEvent;
 
-template<template<class, uintptr_t, class> class Injector, class RList, int Priority, class ArgPicker, class Ret, class... Args>
+template<template<class, uintptr_t, class> class Injector, class RList, uintptr_t Priority, class ArgPicker, class Ret, class... Args>
 class BaseEvent<Injector, RList, Priority, ArgPicker, Ret(Args...)> {
 private:
     BaseEventI<Injector, RList, ArgPicker, Ret(Args...)> &GetInstance() {
@@ -229,8 +229,9 @@ public:
     } after;
 
     BaseEvent(std::vector<std::string_view> const& bytes) : before(*this), after(*this) {
-        for (auto& it : bytes)
+        for (auto& it : bytes) {
             SetRefAddr(plugin::pattern::Get(it, 0));
+        }
     }
 
     BaseEvent() : before(*this), after(*this) {}
@@ -323,13 +324,17 @@ public:
     BaseEvent& operator-=(FnPtrType fn) { return Remove(fn); }
 };
 
-template<class RList, int Priority, class ArgPicker, class Prototype>
+template<class RList, uintptr_t Priority, class ArgPicker, class Prototype>
 using CdeclEvent = BaseEvent<injector::function_hooker, RList, Priority, ArgPicker, Prototype>;
 
-template<class RList, int Priority, class ArgPicker, class Prototype>
+template<class RList, uintptr_t Priority, class ArgPicker, class Prototype>
 using StdcallEvent = BaseEvent<injector::function_hooker_stdcall, RList, Priority, ArgPicker, Prototype>;
 
-template<class RList, int Priority, class ArgPicker, class Prototype>
+template<class RList, uintptr_t Priority, class ArgPicker, class Prototype>
 using ThiscallEvent = BaseEvent<injector::function_hooker_thiscall, RList, Priority, ArgPicker, Prototype>;
+
+template<class RList, uintptr_t Priority, class ArgPicker, class Prototype>
+using FastcallEvent = BaseEvent<injector::function_hooker_fastcall, RList, Priority, ArgPicker, Prototype>;
+
 
 }

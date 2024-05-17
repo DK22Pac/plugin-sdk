@@ -16,7 +16,7 @@ namespace rage {
     class fiAssetManager {
     public:
         char m_Paths[4][512];
-        rage::fiAssetManager::Entry m_Entries[8];
+        Entry m_Entries[8];
         int32_t m_SP;
         uint32_t m_PathCount;
         int32_t m_WritePath;

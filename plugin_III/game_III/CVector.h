@@ -34,12 +34,28 @@ public:
         this->z = a.x * b.y - b.x * a.y;
     }
 
+    inline float Heading() const {
+        return std::atan2(-x, y);
+    }
+
     inline float Magnitude() {
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
     }
 
+    inline float MagnitudeSqr() const {
+        return x * x + y * y + z * z;
+    }
+
     inline float Magnitude2D() {
         return sqrtf(this->x * this->x + this->y * this->y);
+    }
+
+    inline float MagnitudeSqr2D() const {
+        return x * x + y * y;
+    }
+
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
     }
 
     inline void Sum(CVector &a, CVector &b) {
@@ -84,7 +100,21 @@ public:
         this->z /= divisor;
     }
 
-    float Normalise();
+    const bool operator!=(CVector const& right) const {
+        return x != right.x || y != right.y || z != right.z;
+    }
+
+    void Normalise() {
+        float sq = MagnitudeSqr();
+        if (sq > 0.0f) {
+            float invsqrt = 1.0f / std::sqrt(sq);
+            x *= invsqrt;
+            y *= invsqrt;
+            z *= invsqrt;
+        }
+        else
+            x = 1.0f;
+    }
 
     inline RwV3d ToRwV3d() const {
         return{ x, y, z };
@@ -97,6 +127,11 @@ public:
     inline void Set(float X, float Y, float Z) {
         x = X; y = Y; z = Z;
     }
+
+    bool IsZero() const {
+        return x == 0.0f && y == 0.0f && z == 0.0f;
+    }
+
 };
 
 inline CVector operator-(const CVector& vecOne, const CVector& vecTwo) {
@@ -118,4 +153,8 @@ inline CVector operator*(float multiplier, const CVector& vec) {
 inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline CVector operator/(const CVector& left, float right) {
+    return CVector(left.x / right, left.y / right, left.z / right);
 }

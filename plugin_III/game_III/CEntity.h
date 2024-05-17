@@ -36,7 +36,7 @@ public:
     };
 
     unsigned char m_nType : 3;
-    unsigned char m_nState : 5;
+    unsigned char m_nStatus : 5;
 	
     struct {
         unsigned char bUsesCollision : 1; //!< does entity use collision

@@ -26,23 +26,22 @@ enum PLUGIN_API eBombState {
 };
 
 enum PLUGIN_API eDoorLock : unsigned int {
-    DOORLOCK_NOT_USED = 0,
-    DOORLOCK_UNLOCKED = 1,
-    DOORLOCK_LOCKED = 2,
-    DOORLOCK_LOCKOUT_PLAYER_ONLY = 3,
-    DOORLOCK_LOCKED_PLAYER_INSIDE = 4,
-    DOORLOCK_COP_CAR = 5,
-    DOORLOCK_FORCE_SHUT_DOORS = 6,
-    DOORLOCK_SKIP_SHUT_DOORS = 7
+    CARLOCK_NOT_USED,
+    CARLOCK_UNLOCKED,
+    CARLOCK_LOCKED,
+    CARLOCK_LOCKOUT_PLAYER_ONLY,
+    CARLOCK_LOCKED_PLAYER_INSIDE,
+    CARLOCK_LOCKED_INITIALLY,
+    CARLOCK_FORCE_SHUT_DOORS
 };
 
 enum PLUGIN_API eDoors : unsigned char {
     DOOR_BONNET = 0,
-    DOOR_BOOT = 1,
-    DOOR_LEFT_FRONT = 2,
-    DOOR_RIGHT_FRONT = 3,
-    DOOR_LEFT_REAR = 4,
-    DOOR_RIGHT_REAR = 5
+    DOOR_BOOT,
+    DOOR_FRONT_LEFT,
+    DOOR_FRONT_RIGHT,
+    DOOR_REAR_LEFT,
+    DOOR_REAR_RIGHT
 };
 
 enum PLUGIN_API eFlightModel {
@@ -105,7 +104,7 @@ public:
     CFire *m_pCarFire;
     float m_fSteerAngle;
     float m_fGasPedal;
-    float m_fBreakPedal;
+    float m_fBrakePedal;
     unsigned char m_nCreatedBy; //!< see eVehicleCreatedBy
     struct {
         unsigned char bIsLawEnforcer : 1; //!< Is this guy chasing the player at the moment
@@ -167,7 +166,7 @@ public:
     char m_nCcomedyControlState;
     CStoredCollPoly m_frontCollPoly; //!< poly which is under front part of car
     CStoredCollPoly m_rearCollPoly; //!< poly which is under rear part of car
-    float m_fSteerRatio;
+    float m_fSteerInput;
     unsigned int m_nVehicleClass; //!< see enum eVehicleType
 
     SUPPORTED_10EN_11EN_STEAM static bool &m_bDisableMouseSteering;

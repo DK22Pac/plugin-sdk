@@ -10,7 +10,8 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || \
+defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
 #include "CVector.h"
 #include "CVector2D.h"
 #elif defined(GTAIV) || defined(GTA2)
@@ -26,7 +27,7 @@ namespace plugin {
         friend class config_parameter;
     protected:
         static bool config_extract_one_value(std::string const &strinput, bool &value);
-        static int config_extract_values_array(std::string const &strinput, std::vector<bool> &arr);
+        static size_t config_extract_values_array(std::string const &strinput, std::vector<bool> &arr);
 
         template <typename T> static bool config_extract_one_value(std::istringstream &iss, T &value) {
             iss >> value;
@@ -38,12 +39,12 @@ namespace plugin {
             return config_extract_one_value(iss, value);
         }
 
-        template <typename T> static int config_extract_values_array(std::string const &strinput, std::vector<T> &arr) {
+        template <typename T> static unsigned int config_extract_values_array(std::string const &strinput, std::vector<T> &arr) {
             std::istringstream iss(strinput);
             T val;
             while (config_extract_one_value(iss, val))
                 arr.push_back(val);
-            return arr.size();
+            return (unsigned int)arr.size();
         }
     };
 

@@ -5,13 +5,14 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#ifndef UNREAL
 #include "PluginBase.h"
 #include <string>
 #include <unordered_map>
 #include <map>
 
 namespace plugin {
-#ifdef GTASA
+#if defined(GTASA)
     using char_t = char;
     using string_t = std::string;
     using ifstream_t = std::ifstream;
@@ -38,3 +39,4 @@ namespace plugin {
     extern std::map<char_t, char_t> table;
 
 }
+#endif

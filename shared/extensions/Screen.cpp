@@ -8,9 +8,9 @@
 
 #ifdef GTA2
 #include "GBH.h"
-#elif RW
+#elif defined(RW) || defined(UNREAL)
 #include "RenderWare.h"
-#elif RAGE
+#elif defined(RAGE)
 #include "Rage.h"
 #endif
 
@@ -95,20 +95,24 @@ float plugin::screen::GetBaseResolution() {
 float plugin::screen::GetScreenHeight() {
 #ifdef GTA2
     return static_cast<float>(window_height);
-#elif RW
+#elif defined(RW) || defined(UNREAL)
     return static_cast<float>(RsGlobal.maximumHeight);
-#elif RAGE
+#elif defined(RAGE)
     return static_cast<float>(rage::grcDevice::m_CurrentHeight);
+#else
+    return 0.0f;
 #endif
 }
 
 float plugin::screen::GetScreenWidth() {
 #ifdef GTA2
     return static_cast<float>(window_width);
-#elif RW
+#elif defined(RW) || defined(UNREAL)
     return static_cast<float>(RsGlobal.maximumWidth);
 #elif RAGE
     return static_cast<float>(rage::grcDevice::m_CurrentWidth);
+#else 
+    return 0.0f;
 #endif
 }
 

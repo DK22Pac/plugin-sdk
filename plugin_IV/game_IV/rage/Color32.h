@@ -36,18 +36,18 @@ namespace rage {
         }
 
         Color32& operator+=(const Color32& other) {
-            r = static_cast<uint8_t>(min(static_cast<uint16_t>(r) + other.r, static_cast<uint16_t>(255)));
-            g = static_cast<uint8_t>(min(static_cast<uint16_t>(g) + other.g, static_cast<uint16_t>(255)));
-            b = static_cast<uint8_t>(min(static_cast<uint16_t>(b) + other.b, static_cast<uint16_t>(255)));
-            a = static_cast<uint8_t>(min(static_cast<uint16_t>(a) + other.a, static_cast<uint16_t>(255)));
+            r = static_cast<uint8_t>(std::min(static_cast<uint32_t>(r) + other.r, static_cast<uint32_t>(255)));
+            g = static_cast<uint8_t>(std::min(static_cast<uint32_t>(g) + other.g, static_cast<uint32_t>(255)));
+            b = static_cast<uint8_t>(std::min(static_cast<uint32_t>(b) + other.b, static_cast<uint32_t>(255)));
+            a = static_cast<uint8_t>(std::min(static_cast<uint32_t>(a) + other.a, static_cast<uint32_t>(255)));
             return *this;
         }
 
         Color32& operator-=(const Color32& other) {
-            r = static_cast<uint8_t>(max(static_cast<int>(r) - other.r, 0));
-            g = static_cast<uint8_t>(max(static_cast<int>(g) - other.g, 0));
-            b = static_cast<uint8_t>(max(static_cast<int>(b) - other.b, 0));
-            a = static_cast<uint8_t>(max(static_cast<int>(a) - other.a, 0));
+            r = static_cast<uint8_t>(std::max(static_cast<int32_t>(r) - other.r, 0));
+            g = static_cast<uint8_t>(std::max(static_cast<int32_t>(g) - other.g, 0));
+            b = static_cast<uint8_t>(std::max(static_cast<int32_t>(b) - other.b, 0));
+            a = static_cast<uint8_t>(std::max(static_cast<int32_t>(a) - other.a, 0));
             return *this;
         }
 

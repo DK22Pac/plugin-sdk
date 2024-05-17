@@ -29,26 +29,26 @@ namespace rage {
             FORMAT_MASK = 0x1FFFFFFF,
         };
 
-        typedef CTextureDecodeRequestDesc::Type rage::grcImage::Format;
+        typedef CTextureDecodeRequestDesc::Type Format;
 
     private:
         uint16_t m_Width;
         uint16_t m_Height;
-        rage::grcImage::Format m_Format;
-        rage::grcImage::ImageType m_Type;
+        Format m_Format;
+        ImageType m_Type;
         uint16_t m_Stride;
         uint8_t m_Depth;
         uint8_t m_StrideHi;
         uint8_t *m_Bits;
-        rage::Color32 *m_Lut;
-        rage::grcImage *m_Next;
-        rage::grcImage *m_NextLayer;
+        Color32 *m_Lut;
+        grcImage *m_Next;
+        grcImage *m_NextLayer;
         int32_t m_RefCount;
         int32_t pad0;
         int32_t pad1;
         int32_t pad2;
-        rage::Vector3 m_ColorExp;
-        rage::Vector3 m_ColorOfs;
+        Vector3 m_ColorExp;
+        Vector3 m_ColorOfs;
 
     public:
         ~grcImage();

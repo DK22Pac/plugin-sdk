@@ -8,6 +8,7 @@
 
 #include "PluginBase.h"
 #include <math.h>
+#include "CVector.h"
 
 class CVector2D {
 public:
@@ -22,6 +23,10 @@ public:
     }
 
     inline CVector2D(CVector2D const& src) {
+        x = src.x; y = src.y;
+    }
+
+    inline CVector2D(CVector const& src) {
         x = src.x; y = src.y;
     }
 

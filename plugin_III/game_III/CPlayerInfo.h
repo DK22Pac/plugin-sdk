@@ -34,9 +34,9 @@ public:
     unsigned int m_nTaxiTimer;
     bool m_bTaxiTimerScore;
     //char _padC5[3];
-    int m_nHookerTimer;
-    int m_nHookerMoneyTimer;
-    int m_nHookerTime;
+    int m_nNextSexFrequencyUpdateTime;
+    int m_nNextSexMoneyUpdateTime;
+    int m_nSexFrequency;
     CPed* m_pHooker;
     ePlayerState m_nPlayerState;
     //char _padD9[3];

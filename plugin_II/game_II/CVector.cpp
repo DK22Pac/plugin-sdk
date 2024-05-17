@@ -63,7 +63,6 @@ void CVector2D::Difference(CVector2D& a, CVector2D& b) {
 
 void CVector2D::Normalise() {
     float sq = MagnitudeSqr();
-    // assert(sq != 0.0f);	// just be safe here
     float invsqrt = 1.0f / sqrt(sq);
     x *= invsqrt;
     y *= invsqrt;

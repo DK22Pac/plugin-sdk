@@ -26,6 +26,35 @@ public:
 
 public:
     CCam* CreateCamMode(eCamMode mode, CCam* arg2, CCam* arg3);
+
+public:
+    rage::Vector4& GetRight() {
+        return m_pCamFinal->m_pMatrix->right;
+    }
+    const rage::Vector4& GetRight() const {
+        return m_pCamFinal->m_pMatrix->right;
+    }
+
+    rage::Vector4& GetForward() {
+        return m_pCamFinal->m_pMatrix->up;
+    }
+    const rage::Vector4& GetForward() const {
+        return m_pCamFinal->m_pMatrix->up;
+    }
+
+    rage::Vector4& GetUp() {
+        return m_pCamFinal->m_pMatrix->at;
+    }
+    const rage::Vector4& GetUp() const {
+        return m_pCamFinal->m_pMatrix->at;
+    }
+
+    rage::Vector4& GetPosition() {
+        return m_pCamFinal->m_pMatrix->pos;
+    }
+    const rage::Vector4& GetPosition() const {
+        return m_pCamFinal->m_pMatrix->pos;
+    }
 };
 
 extern CCamera& TheCamera;

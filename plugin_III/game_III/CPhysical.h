@@ -119,7 +119,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ApplyMoveForce(float jx, float jy, float jz);
     SUPPORTED_10EN_11EN_STEAM void ApplyMoveSpeed();
     //! springRatio: 1.0 fully extended, 0.0 fully compressed
-    SUPPORTED_10EN_11EN_STEAM bool ApplySpringCollisionAlt(float springConst, CVector &springDir, CVector &point, float springRatio, float bias);
+    SUPPORTED_10EN_11EN_STEAM bool ApplySpringCollision(float springConst, CVector &springDir, CVector &point, float springRatio, float bias);
     SUPPORTED_10EN_11EN_STEAM bool ApplySpringDampening(float damping, CVector &springDir, CVector &point, CVector &speed);
     //! j(x,y,z) is direction of force, p(x,y,z) is point relative to model center where force is applied
     SUPPORTED_10EN_11EN_STEAM void ApplyTurnForce(float jx, float jy, float jz, float px, float py, float pz);

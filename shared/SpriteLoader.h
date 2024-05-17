@@ -25,25 +25,41 @@ namespace plugin {
 #endif
 
     class SpriteLoader {
-    public:
+    private:
 #ifdef RW
         RwTexDictionary* texDictionary;
 #endif
         std::unordered_map<std::string, texClass*, CaseInsensitiveUnorderedMap::Hash, CaseInsensitiveUnorderedMap::Comp> spritesMap;
-        std::array<CSprite2d, 64> spriteBuf;
-        uint32_t buf;
+        std::unordered_map<uint32_t, texClass*> spritesMapIndex;
+
         std::string slotName;
         bool istxd;
+        bool mipMap;
+        std::string extension;
 
     public:
-        SpriteLoader() = default;
+        inline SpriteLoader() {
+#ifdef RW
+            texDictionary = nullptr;
+#endif
+            spritesMap = {};
+            spritesMapIndex = {};
+            slotName = {};
+            istxd = false;
+            mipMap = false;
+            extension = "png";
+        }
         void Clear();
         bool LoadAllSpritesFromTxd(std::string const& path);
 #ifdef RW
+        RwTexture* LoadSpriteFromFolder(std::string const& file);
         bool LoadAllSpritesFromFolder(std::string const& path);
 #endif
-        CSprite2d* GetSprite(std::string const& name);
+        CSprite2d GetSprite(std::string const& name);
+        CSprite2d GetSprite(uint32_t id);
         texClass* GetTex(std::string const& name);
+        void SetMipMapOn(bool on);
+        void SetExtension(std::string ext);
     };
 }
 #endif

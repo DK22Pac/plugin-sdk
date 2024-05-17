@@ -21,6 +21,8 @@
 #define GAME_9600EN 9600
 #elif GTAIV
 #define GAME_CE 'CE'
+#elif defined(GTASA_UNREAL) || defined(GTAVC_UNREAL) || defined(GTA3_UNREAL)
+#define GAME_UNREAL 'UE'
 #else
 #define GAME_10EN 100
 #define GAME_11EN 110
@@ -74,6 +76,18 @@ inline char const *GetGameVersionName(int gameVersionId) {
 #ifdef GTAIV
     case GAME_CE:
         return "GTAIV CE";
+#endif
+#ifdef GTASA_UNREAL
+    case GAME_UNREAL:
+        return "GTA SA The Definitive Edition";
+#endif
+#ifdef GTAVC_UNREAL
+    case GAME_UNREAL:
+        return "GTA VC The Definitive Edition";
+#endif
+#ifdef GTA3_UNREAL
+    case GAME_UNREAL:
+        return "GTA 3 The Definitive Edition";
 #endif
     }
     return "Unknown";
@@ -197,7 +211,13 @@ inline bool IsSupportedGameVersion(int gameVersionId) {
 #else
         return false;
 #endif
-        break;
+#elif defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
+    case GAME_UNREAL:
+#ifdef PLUGIN_UNREAL
+        return true;
+#else
+        return false;
+#endif
 #else
 #if defined(GTA3) || defined(GTAVC) || defined(GTASA)
     case GAME_10EN:

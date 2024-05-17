@@ -183,11 +183,11 @@ void CMatrix::SetTranslate(CVector *pos) {
     plugin::CallMethodDynGlobal<CMatrix *, CVector *>(gaddrof_o(CMatrix::SetTranslate, void (CMatrix::*)(CVector *)), this, pos);
 }
 
-int addrof(CMatrix::SetTranslateOnly) = ADDRESS_BY_VERSION(0x4CBA70, 0x4CBB10, 0x4CBAA0);
-int gaddrof(CMatrix::SetTranslateOnly) = GLOBAL_ADDRESS_BY_VERSION(0x4CBA70, 0x4CBB10, 0x4CBAA0);
+int addrof(CMatrix::Translate) = ADDRESS_BY_VERSION(0x4CBA70, 0x4CBB10, 0x4CBAA0);
+int gaddrof(CMatrix::Translate) = GLOBAL_ADDRESS_BY_VERSION(0x4CBA70, 0x4CBB10, 0x4CBAA0);
 
-void CMatrix::SetTranslateOnly(float x, float y, float z) {
-    plugin::CallMethodDynGlobal<CMatrix *, float, float, float>(gaddrof(CMatrix::SetTranslateOnly), this, x, y, z);
+void CMatrix::Translate(float x, float y, float z) {
+    plugin::CallMethodDynGlobal<CMatrix *, float, float, float>(gaddrof(CMatrix::Translate), this, x, y, z);
 }
 
 int addrof(CMatrix::SetUnity) = ADDRESS_BY_VERSION(0x4B9010, 0x4B9100, 0x4B9090);

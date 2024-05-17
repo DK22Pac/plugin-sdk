@@ -602,7 +602,7 @@ static const int vtable_index = 17;
 using mv_addresses_t = MvAddresses<0x53B270, 0x53B4B0, 0x53B460>;
 // total references count: 10en (1), 11en (1), steam (1)
 using refs_t = RefList<0x600C60,100,2,0x600C1C,1, 0x600A04,110,2,0x600A04,1, 0x60D9FC,120,2,0x60D9FC,1>;
-using def_t = void(CAutomobile *, CEntity *, CColPoint *);
+using def_t = int(CAutomobile *, CEntity *, CColPoint *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CAutomobile *,CEntity *,CColPoint *>, 0,1,2>;

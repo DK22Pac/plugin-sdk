@@ -31,6 +31,20 @@ VALIDATE_SIZE(CPointLight, 0x2C);
 
 class CPointLights {
 public:
+    enum {
+        LIGHT_POINT,
+        LIGHT_DIRECTIONAL,
+        LIGHT_DARKEN,
+        LIGHT_FOGONLY_ALWAYS,
+        LIGHT_FOGONLY,
+    };
+    enum {
+        FOG_NONE,
+        FOG_NORMAL,
+        FOG_ALWAYS
+    };
+
+public:
     // static variables
 
     // num of registered lights in frame

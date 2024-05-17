@@ -18,7 +18,7 @@ enum eScriptParameterType {
     SCRIPTPARAM_STATIC_FLOAT,
 };
 
-union tScriptVariable {
+union tScriptParam {
     unsigned int uParam;
     int iParam;
     float fParam;
@@ -26,7 +26,7 @@ union tScriptVariable {
     char *szParam;
 };
 
-VALIDATE_SIZE(tScriptVariable, 0x4);
+VALIDATE_SIZE(tScriptParam, 0x4);
 
 class PLUGIN_API CRunningScript {
 public:
@@ -39,7 +39,7 @@ public:
 private:
     char _pad2E[2];
 public:
-    tScriptVariable m_aLocalVars[16];
+    tScriptParam    m_aLocalVars[16];
     int             m_anTimers[2];
     bool            m_bIsActive;
     bool            m_bCondResult;

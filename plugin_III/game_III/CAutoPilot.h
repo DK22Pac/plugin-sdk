@@ -61,7 +61,13 @@ public:
     unsigned int m_nAnimationTime;
     float m_fMaxTrafficSpeed;
     unsigned char m_nCruiseSpeed;
-    unsigned char m_nCarCtrlFlags;
+
+    uint8_t m_bSlowedDownBecauseOfCars : 1;
+    uint8_t m_bSlowedDownBecauseOfPeds : 1;
+    uint8_t m_bStayInCurrentLevel : 1;
+    uint8_t m_bStayInFastLane : 1;
+    uint8_t m_bIgnorePathfinding : 1;
+
     char pad1[2];
     CVector m_vecDestinationCoors;
     CNodeAddress m_aPathFindNodesInfo[8];

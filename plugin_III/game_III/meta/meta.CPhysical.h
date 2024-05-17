@@ -413,7 +413,7 @@ using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CPhysical *,CEntity *,CColPoint &,float *,CVector &,CVector &>, 0,1,2,3,4,5>;
 META_END
 
-META_BEGIN(CPhysical::ApplySpringCollisionAlt)
+META_BEGIN(CPhysical::ApplySpringCollision)
 static int address;
 static int global_address;
 static const int id = 0x499890;
@@ -527,7 +527,7 @@ static const int vtable_index = 17;
 using mv_addresses_t = MvAddresses<0x49F790, 0x49F880, 0x49F810>;
 // total references count: 10en (10), 11en (10), steam (10)
 using refs_t = RefList<0x5F6A14,100,2,0x5F69D0,1, 0x5F7C4C,100,2,0x5F7C08,1, 0x5F7CC4,100,2,0x5F7C80,1, 0x5F7E18,100,2,0x5F7DD4,1, 0x5F808C,100,2,0x5F8048,1, 0x600EE8,100,2,0x600EA4,1, 0x601EF4,100,2,0x601EB0,1, 0x602220,100,2,0x6021DC,1, 0x602460,100,2,0x60241C,1, 0x6028EC,100,2,0x6028A8,1, 0x5F67B8,110,2,0x5F67B8,1, 0x5F79F0,110,2,0x5F79F0,1, 0x5F7A68,110,2,0x5F7A68,1, 0x5F7BBC,110,2,0x5F7BBC,1, 0x5F7E30,110,2,0x5F7E30,1, 0x600C8C,110,2,0x600C8C,1, 0x601980,110,2,0x601980,1, 0x601BA4,110,2,0x601BA4,1, 0x601DE4,110,2,0x601DE4,1, 0x602278,110,2,0x602278,1, 0x6037B0,120,2,0x6037B0,1, 0x6049E8,120,2,0x6049E8,1, 0x604A60,120,2,0x604A60,1, 0x604BB4,120,2,0x604BB4,1, 0x604E28,120,2,0x604E28,1, 0x60DC84,120,2,0x60DC84,1, 0x60E978,120,2,0x60E978,1, 0x60EB9C,120,2,0x60EB9C,1, 0x60EDDC,120,2,0x60EDDC,1, 0x60F270,120,2,0x60F270,1>;
-using def_t = void(CPhysical *, CEntity *, CColPoint *);
+using def_t = int(CPhysical *, CEntity *, CColPoint *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CPhysical *,CEntity *,CColPoint *>, 0,1,2>;

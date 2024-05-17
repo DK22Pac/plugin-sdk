@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV) || defined(GTASA_UNREAL)
 
 #include "scripting/ScriptCommandNames.h"
 #include <vector>
@@ -122,11 +122,11 @@ static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
     if constexpr (!std::is_void_v<Ret>)
         return *reinterpret_cast<Ret*>(info.ResultPtr);
 
-#else
+#elif defined(RW) || (UNREAL)
     // create our 'script' object
     static CRunningScript script;
     memset(&script, 0, sizeof(CRunningScript));
-#ifdef GTASA
+#if defined(GTASA) || defined(GTASA_UNREAL)
     script.Init();
 #else
     script.m_bWastedBustedCheck = true;
@@ -139,7 +139,7 @@ static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
     ScriptCode code(commandId);
     // for all arguments: add them to script code
     code.Pack(arguments...);
-#ifdef GTASA
+#if defined(GTASA) || defined(GTASA_UNREAL)
     script.m_pBaseIP = script.m_pCurrentIP = code.GetData();
 #else
     script.m_nIp = reinterpret_cast<int>(code.GetData()) - reinterpret_cast<int>(CRunningScript::GetScriptSpaceBase());

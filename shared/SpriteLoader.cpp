@@ -15,6 +15,7 @@
 
 namespace plugin {
     static int32_t NumSlots = 0;
+    static int32_t Index = 0;
 
     void SpriteLoader::Clear() {
         if (istxd) {
@@ -43,10 +44,13 @@ namespace plugin {
 #endif
         }
         spritesMap = {};
-        spriteBuf = {};
-        buf = 0;
+        spritesMapIndex = {};
         slotName = {};
         istxd = false;
+        NumSlots = 0;
+        Index = 0;
+        mipMap = false;
+        extension = "png";
     }
 
     bool SpriteLoader::LoadAllSpritesFromTxd(std::string const& path) {
@@ -120,48 +124,58 @@ make_slot:
 
 
 #ifdef RW
-    bool SpriteLoader::LoadAllSpritesFromFolder(std::string const& path) {
-        if (!spritesMap.empty())
-            return false;
+    RwTexture* SpriteLoader::LoadSpriteFromFolder(std::string const& file) {
+        Image* img = nullptr;
+        if (CreateImageFromFile(file, img)) {
+            uint32_t w = img->width;
+            uint32_t h = img->height;
+            uint8_t* p = img->pixels;
 
-        auto files = GetAllFilesInFolder(path, ".png");
-        for (auto& file : files) {
-            Image* img = nullptr;
-            if (CreateImageFromFile(path + "\\" + file, img)) {
-                uint32_t w = img->width;
-                uint32_t h = img->height;
-                uint8_t* p = img->pixels;
+            RwRaster* raster = RwRasterCreate(w, h, 0, rwRASTERTYPETEXTURE | rwRASTERFORMAT8888 | (mipMap ? rwRASTERFORMATMIPMAP | rwRASTERFORMATAUTOMIPMAP : 0));
+            RwUInt32* pixels = (RwUInt32*)RwRasterLock(raster, 0, rwRASTERLOCKWRITE);
 
-                RwRaster* raster = RwRasterCreate(w, h, 0, rwRASTERTYPETEXTURE | rwRASTERFORMAT8888);
-                RwUInt32* pixels = (RwUInt32*)RwRasterLock(raster, 0, rwRASTERLOCKWRITE);
+            for (uint32_t i = 0; i < w * h * 4; i += 4) {
+                uint8_t r = p[i + 2];
+                uint8_t g = p[i + 1];
+                uint8_t b = p[i];
 
-                for (uint32_t i = 0; i < w * h * 4; i += 4) {
-                    uint8_t r = p[i + 2];
-                    uint8_t g = p[i + 1];
-                    uint8_t b = p[i];
-
-                    p[i + 2] = b;
-                    p[i + 1] = g;
-                    p[i] = r;
-                }
-
-                memcpy(pixels, p, w * h * 4);
-                RwRasterUnlock(raster);
-                auto tex = RwTextureCreate(raster);
-                RwTextureSetFilterMode(tex, rwFILTERLINEAR);
-                img->Release();
-
-                std::string fileNoExt = file;
-                size_t pos = fileNoExt.find_last_of('.');
-
-                if (pos != std::string::npos) {
-                    if (fileNoExt.substr(pos) == ".png") {
-                        fileNoExt.erase(pos);
-                    }
-                }
-
-                spritesMap.insert({ fileNoExt, tex });
+                p[i + 2] = b;
+                p[i + 1] = g;
+                p[i] = r;
             }
+
+            memcpy(pixels, p, w * h * 4);
+            RwRasterUnlock(raster);
+
+            auto tex = RwTextureCreate(raster);
+            std::string fileNoExt = RemovePath(file);
+            fileNoExt = RemoveExtension(fileNoExt);
+
+            if (mipMap)
+                RwTextureSetFilterMode(tex, rwFILTERMIPLINEAR);
+            else
+                RwTextureSetFilterMode(tex, rwFILTERLINEAR);
+
+            RwTextureSetMipmapping(mipMap);
+            RwTextureSetAutoMipmapping(mipMap);
+            memset(tex->name, 0, 32);
+            fileNoExt.copy(tex->name, 32);
+
+            spritesMap.insert({ fileNoExt, tex });
+            spritesMapIndex.insert({ Index++, tex });
+
+            img->Release();
+
+            return tex;
+        }
+
+        return nullptr;
+    }
+
+    bool SpriteLoader::LoadAllSpritesFromFolder(std::string const& path) {
+        auto files = GetAllFilesInFolder(path, "." + extension);
+        for (auto& file : files) {
+            LoadSpriteFromFolder(path + "\\" + file);
         }
 
         istxd = false;
@@ -170,19 +184,23 @@ make_slot:
     }
 #endif
 
-    CSprite2d* SpriteLoader::GetSprite(std::string const& name) {
-        auto& s = spritesMap.find(name);
-        if (s != spritesMap.end()) {
-            if (buf > spriteBuf.size() - 1)
-                buf = 0;
+    CSprite2d SpriteLoader::GetSprite(std::string const& name) {
+        CSprite2d sprite;
+        auto s = spritesMap.find(name);
+        if (s != spritesMap.end())
+            sprite.m_pTexture = s->second;
+        
+        return sprite;
+    }
 
-            spriteBuf[buf].m_pTexture = s->second;
-            return &spriteBuf[buf++];
-        }
-        return nullptr;
+    CSprite2d SpriteLoader::GetSprite(uint32_t id) {
+        CSprite2d sprite;
 
-        //static CSprite2d dummy;
-        //return &dummy;
+        auto s = spritesMapIndex.find(id);
+        if (s != spritesMapIndex.end())
+            sprite.m_pTexture = s->second;
+
+        return sprite;
     }
 
     texClass* SpriteLoader::GetTex(std::string const& name) {
@@ -192,5 +210,12 @@ make_slot:
         return nullptr;
     }
 
+    void SpriteLoader::SetMipMapOn(bool on) {
+        mipMap = on;
+    }
+
+    void SpriteLoader::SetExtension(std::string ext) {
+        extension = ext;
+    }
 }
 #endif

@@ -4,6 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+#ifndef UNREAL
 #include "plugin.h"
 #include "TextLoader.h"
 #include <locale>
@@ -186,7 +187,7 @@ namespace plugin {
         while (std::getline(file, line)) {
             if (line.size() > 0 && line.front() != '/' && line.front() != '#') {
                 if (line.size() > 2 && line.front() == '[' && line.back() == ']') {
-#ifdef GTASA
+#if defined(GTASA)
                     currentKey = line.substr(1, line.size() - 2);
 #else
                     std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
@@ -229,3 +230,4 @@ namespace plugin {
     }
 
 }
+#endif

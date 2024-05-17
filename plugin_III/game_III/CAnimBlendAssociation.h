@@ -83,7 +83,9 @@ public:
 
     inline float GetBlendAmount(float weight) { return IsPartial() ? this->m_fBlendAmount : this->m_fBlendAmount * weight; }
     inline void SetRun(void) { this->m_nFlags |= ASSOC_RUNNING; }
-    inline float GetTimeLeft() { return this->m_pAnimBlendHierarchy->m_fTotalLength - m_fCurrentTime; }
+    inline float GetTimeLeft() { return this->m_pAnimBlendHierarchy->m_fTotalLength - this->m_fCurrentTime; }
+    inline float GetProgress() { return this->m_fCurrentTime / this->m_pAnimBlendHierarchy->m_fTotalLength; }
+
 };
 
 VTABLE_DESC(CAnimBlendAssociation, 0x5EA02C, 1);

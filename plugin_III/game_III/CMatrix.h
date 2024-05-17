@@ -23,6 +23,32 @@ public:
     RwMatrix *m_pAttachMatrix;
     bool m_bOwnsAttachedMatrix; //!< do we need to delete attaching matrix at detaching
 
+    CVector& GetPosition() {
+        return pos;
+    }
+    CVector& GetRight() {
+        return right;
+    }
+    CVector& GetForward() {
+        return up;
+    }
+    CVector& GetUp() {
+        return at;
+    }
+
+    const CVector& GetPosition() const {
+        return pos;
+    }
+    const CVector& GetRight() const {
+        return right;
+    }
+    const CVector& GetForward() const {
+        return up;
+    }
+    const CVector& GetUp() const {
+        return at;
+    }
+
     SUPPORTED_10EN_11EN_STEAM CMatrix();
 
     SUPPORTED_10EN_11EN_STEAM CMatrix(RwMatrix *rwMatrix, bool deleteOnDetach);
@@ -53,7 +79,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetScale(float factor);
     SUPPORTED_10EN_11EN_STEAM void SetTranslate(float x, float y, float z);
     SUPPORTED_10EN_11EN_STEAM void SetTranslate(CVector *pos);
-    SUPPORTED_10EN_11EN_STEAM void SetTranslateOnly(float x, float y, float z);
+    SUPPORTED_10EN_11EN_STEAM void Translate(float x, float y, float z);
     SUPPORTED_10EN_11EN_STEAM void SetUnity();
     SUPPORTED_10EN_11EN_STEAM void Update();
     SUPPORTED_10EN_11EN_STEAM void UpdateRW();
@@ -62,7 +88,8 @@ public:
 VALIDATE_SIZE(CMatrix, 0x48);
 
 inline CVector operator*(const CMatrix &mat, const CVector &vec) {
-    return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
+    return CVector(
+        mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
         mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
         mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
 };
@@ -81,6 +108,23 @@ inline CMatrix operator*(const CMatrix &m1, const CMatrix &m2) {
     out.pos.x = m1.right.x * m2.pos.x + m1.up.x * m2.pos.y + m1.at.x * m2.pos.z + m1.pos.x;
     out.pos.y = m1.right.y * m2.pos.x + m1.up.y * m2.pos.y + m1.at.y * m2.pos.z + m1.pos.y;
     out.pos.z = m1.right.z * m2.pos.x + m1.up.z * m2.pos.y + m1.at.z * m2.pos.z + m1.pos.z;
+    return out;
+};
+
+inline CMatrix PreMultiply(const CMatrix& m1, const CVector& vec) {
+    CMatrix out;
+    out.right.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z;
+    out.right.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z;
+    out.right.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z;
+    out.up.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z;
+    out.up.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z;
+    out.up.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z;
+    out.at.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z;
+    out.at.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z;
+    out.at.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z;
+    out.pos.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z + m1.pos.x;
+    out.pos.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z + m1.pos.y;
+    out.pos.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z + m1.pos.z;
     return out;
 };
 

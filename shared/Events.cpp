@@ -20,6 +20,8 @@ class CAutomobile;
 namespace plugin {
     namespace Events {
 #ifdef GTASA
+        static CdeclEvent <AddressList<0x53C6DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
+
         static CdeclEvent    <AddressList<0x53E293, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent;
         static CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawHudEvent;
 
@@ -82,6 +84,8 @@ namespace plugin {
         static CdeclEvent    <AddressList<0x53ECA1, H_CALL>, PRIORITY_AFTER, ArgPickNone, bool()>          attachRwPluginsEvent;
 #endif
 #ifdef GTAVC
+        static CdeclEvent <AddressList<0x4A46F1, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
+
         static CdeclEvent <AddressListMulti<0x4A61D6, GAME_10EN, H_CALL,
             0x4A61F6, GAME_11EN, H_CALL,
             0x4A60A6, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent;
@@ -350,6 +354,7 @@ namespace plugin {
         static CdeclEvent <AddressListMulti<0x48E49B, GAME_10EN, H_CALL,
             0x48E55B, GAME_11EN, H_CALL,
             0x48E4EB, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> gameProcessEvent;
+        static CdeclEvent <AddressList<0x57A2A3, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> serviceSoundEvent;
         static CdeclEvent <AddressListMulti<0x582E6C, GAME_10EN, H_CALL,
             0x5831AC, GAME_11EN, H_CALL,
             0x58309C, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> initGameEvent;
@@ -402,6 +407,16 @@ namespace plugin {
         static ThiscallEvent <AddressList<0x9ED835, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>, uint32_t(CPed*)> pedProcessEvent({ "E8 ? ? ? ? 8B 8E ? ? ? ? 56 81 C1 ? ? ? ? E8 ? ? ? ? F7 86" });
 
         static ThiscallEvent <AddressList<0xA3DAB0, H_CALL, 0xA3DB13, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>, void(CVehicle*, int32_t, int32_t, int32_t, int32_t)> vehicleRenderEvent({ "E8 ? ? ? ? 6A 00 6A 0C 8B D8 E8 ? ? ? ? 83 C4 08 85 C0 74 36", "E8 ? ? ? ? 8B D8 85 DB 0F 84 ? ? ? ? 80 BF" });
+#endif
+#ifdef GTASA_UNREAL
+        static CdeclEvent <AddressList<0x1410A2F58, H_JUMP>, PRIORITY_AFTER, ArgPickNone, void()> initRwEvent({ "E9 ? ? ? ? 32 C0 48 83 C4 28 C3 CC CC CC CC CC CC CC CC CC CC CC CC" });
+        static CdeclEvent <AddressList<0x1410ACE9F, H_CALL, 0x1411F6BBB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> shutdownRwEvent({ "E8 ? ? ? ? B8 ? ? ? ? 48 83 C4 40 5B C3 E8", "E8 ? ? ? ? C6 05 ? ? ? ? ? E8 ? ? ? ? 45 33 C0" });
+        static CdeclEvent <AddressList<0x1410ACA9F, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent({ "E8 ? ? ? ? 4C 89 25 ? ? ? ? E8" });
+        static CdeclEvent <AddressList<0x1410ABF1D, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawHudEvent({ "E8 ? ? ? ? E8 ? ? ? ? 80 3D ? ? ? ? ? 48 8D 2D" });
+
+        static CdeclEvent <AddressList<0x1410AC35E, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> gameProcessEvent({ "E8 ? ? ? ? E8 ? ? ? ? 4C 39 25" });
+        static CdeclEvent <AddressList<0x1410A2914, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> processScriptsEvent({ "E8 ? ? ? ? 80 3D ? ? ? ? ? 4C 8B A4 24" });
+
 #endif
 #endif
     }

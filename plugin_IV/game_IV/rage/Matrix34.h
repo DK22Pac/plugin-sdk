@@ -17,6 +17,33 @@ namespace rage {
         Vector3 pos;
 
     public:
+        Vector3& GetPosition() {
+            return pos;
+        }
+        Vector3& GetRight() {
+            return right;
+        }
+        Vector3& GetForward() {
+            return up;
+        }
+        Vector3& GetUp() {
+            return at;
+        }
+
+        const Vector3& GetPosition() const {
+            return pos;
+        }
+        const Vector3& GetRight() const {
+            return right;
+        }
+        const Vector3& GetForward() const {
+            return up;
+        }
+        const Vector3& GetUp() const {
+            return at;
+        }
+
+    public:
         Matrix34() = default;
 
         void Copy(const Matrix34& other) {

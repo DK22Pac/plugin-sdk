@@ -61,6 +61,32 @@ public:
     ~CMatrix();
     CMatrix(RwMatrix* rwMatrix, bool deleteOnDetach);
     CMatrix(CMatrix const& src);
+
+    CVector& GetPosition() {
+        return pos;
+    }
+    CVector& GetRight() {
+        return right;
+    }
+    CVector& GetForward() {
+        return up;
+    }
+    CVector& GetUp() {
+        return at;
+    }
+
+    const CVector& GetPosition() const {
+        return pos;
+    }
+    const CVector& GetRight() const {
+        return right;
+    }
+    const CVector& GetForward() const {
+        return up;
+    }
+    const CVector& GetUp() const {
+        return at;
+    }
 };
 
 VALIDATE_SIZE(CMatrix, 0x48);

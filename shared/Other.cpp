@@ -5,7 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Other.h"
-#include <windows.h>
 #include <fstream>
 #include <ctime>
 
@@ -22,18 +21,6 @@ unsigned int plugin::FormattingUtils::currentBuf = 0;
 char plugin::FormattingUtils::buf[plugin::FormattingUtils::BUF_SIZE][4096];
 unsigned int plugin::FormattingUtils::currentBufW = 0;
 wchar_t plugin::FormattingUtils::bufW[plugin::FormattingUtils::BUF_SIZE][4096];
-
-void plugin::InitRandom() {
-    srand(static_cast<unsigned int>(time(NULL)));
-}
-
-unsigned int plugin::Random(unsigned int min, unsigned int max) {
-    return min + (rand() % (max - min + 1));
-}
-
-float plugin::Random(float min, float max) {
-    return min + (max - min) * (rand() / float(RAND_MAX + 1));
-}
 
 bool plugin::KeyPressed(unsigned int keyCode) {
     return (GetKeyState(keyCode) & 0x8000) != 0;

@@ -357,7 +357,7 @@ namespace injector
 
                 // Functor for the original call
                 func_type original = [&manager](Args... args) -> Ret {
-                    return manager.original(args...);
+                      return manager.original(args...);
                 };
 
                 if(manager.assoc.size() == 1)
@@ -721,7 +721,7 @@ namespace injector
 
 
     template<class T, class F> inline
-        T make_function_hook_dyn(F functor, uint32_t addr)
+        T make_function_hook_dyn(F functor, uintptr_t addr)
     {
         T a;
         if (addr)
@@ -731,7 +731,7 @@ namespace injector
     }
 
     template<class T, class F> inline
-        T& make_static_hook_dyn(F functor, uint32_t addr)
+        T& make_static_hook_dyn(F functor, uintptr_t addr)
     {
         return add_static_hook(make_function_hook_dyn<T>(std::move(functor), addr));
     }

@@ -20,7 +20,7 @@ bool config_helper::config_extract_one_value(std::string const &strinput, bool &
     return false;
 }
 
-int config_helper::config_extract_values_array(std::string const &strinput, std::vector<bool> &arr) {
+size_t config_helper::config_extract_values_array(std::string const &strinput, std::vector<bool> &arr) {
     std::istringstream iss(strinput);
     std::string strval;
     while (config_extract_one_value(iss, strval)) {
@@ -105,7 +105,7 @@ std::vector<bool> config_parameter::asBoolArray() {
 CRect config_parameter::asRect(CRect defaultVal) {
     std::vector<float> valArr = asFloatArray();
     CRect rect = defaultVal;
-    unsigned int arrSize = valArr.size();
+    auto arrSize = valArr.size();
     if (arrSize > 0) {
         rect.left = valArr[0];
         if (arrSize > 1) {
@@ -125,7 +125,7 @@ CRect config_parameter::asRect() { return asRect(CRect(0.0f, 0.0f, 0.0f, 0.0f));
 CVector2D config_parameter::asVec2d(CVector2D defaultVal) {
     std::vector<float> valArr = asFloatArray();
     CVector2D vec = defaultVal;
-    unsigned int arrSize = valArr.size();
+    auto arrSize = valArr.size();
     if (arrSize > 0) {
         vec.x = valArr[0];
         if (arrSize > 1)
@@ -139,7 +139,7 @@ CVector2D config_parameter::asVec2d() { return asVec2d(CVector2D(0.0f, 0.0f)); }
 CVector config_parameter::asVec3d(CVector defaultVal) {
     std::vector<float> valArr = asFloatArray();
     CVector vec = defaultVal;
-    unsigned int arrSize = valArr.size();
+    auto arrSize = valArr.size();
     if (arrSize > 0) {
         vec.x = valArr[0];
         if (arrSize > 1) {
@@ -156,7 +156,7 @@ CVector config_parameter::asVec3d() { return asVec3d(CVector(0.0f, 0.0f, 0.0f));
 CRGBA config_parameter::asRGBA(CRGBA defaultVal) {
     std::vector<int> valArr = asIntArray();
     CRGBA rgba = defaultVal;
-    unsigned int arrSize = valArr.size();
+    auto arrSize = valArr.size();
     if (arrSize > 0) {
         rgba.r = valArr[0];
         if (arrSize > 1) {
@@ -370,7 +370,7 @@ void config_file::writeData() {
         unsigned int maxStrLen = 0;
         for (config_param_line &param : paramLines) {
             if (!param.isEmpty() && !param.name.empty()) {
-                unsigned int strSz = param.name.size();
+                auto strSz = (unsigned int)param.name.size();
                 if (strSz > maxStrLen)
                     maxStrLen = strSz;
             }
@@ -383,7 +383,7 @@ void config_file::writeData() {
             
             if (!param.isEmpty() && !param.name.empty()) {
                 out << param.name;
-                unsigned int numSpaces = maxStrLen - param.name.size() + 1;
+                unsigned int numSpaces = maxStrLen - (unsigned int)param.name.size() + 1;
                 for (unsigned int i = 0; i < numSpaces; i++)
                     out << ' ';
                 if (_useEqualitySign)

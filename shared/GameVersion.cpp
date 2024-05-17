@@ -52,6 +52,9 @@ unsigned int _NOINLINE_ detect_game_id() {
 #ifdef GTAIV
         return GAME_CE;
 #endif
+#if defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
+        return GAME_UNREAL;
+#endif
     return GAME_UNKNOWN;
 }
 
@@ -189,6 +192,7 @@ int plugin::by_version_dyn(int A_10US, int A_10EU, int A_Steam) {
 }
 #elif GTA2
 #elif GTAIV
+#elif defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
 #else
 int plugin::by_v_dyn(int A_10EN, int A_11EN, int A_Steam) {
     switch (GetGameVersion()) {

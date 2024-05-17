@@ -190,10 +190,11 @@ struct _RwInt128
 static __inline RwInt32
 int32fromreal(RwReal x)
 {
+#if defined(_X86_)
     RwInt16 savemode;
     RwInt16 workmode;
     RwInt32 res;
-    
+
     _asm
     {
         fnstcw    savemode      ; get fpu mode
@@ -207,14 +208,17 @@ int32fromreal(RwReal x)
         fistp     dword ptr[res]; store the rwint32eger result 
         fldcw     savemode      ; restore fpu mode
     }
-
     return res;
+
+#else
+    return 0;
+#endif
 }
 #define RwInt32FromRealMacro(x) int32fromreal(x)
 
 #endif /* (!defined(RWINT32FROMFLOAT)) */
 
-#if (!defined(NOASM) && !defined(__GNUC__) && !defined(__clang__))
+#if (!defined(NOASM) && !defined(__GNUC__) && !defined(__clang__) && defined(_X86_))
 static __inline RwUInt32 
 RwFastRealToUInt32Inline(RwReal x)
 {

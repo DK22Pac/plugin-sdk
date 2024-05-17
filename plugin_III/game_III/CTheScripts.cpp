@@ -8,7 +8,7 @@
 
 unsigned int MAX_SCRIPT_SPACE_SIZE = 163840;
 
-tScriptVariable *CTheScripts::ScriptParams = (tScriptVariable *)0x6ED460;
+tScriptParam*CTheScripts::ScriptParams = (tScriptParam*)0x6ED460;
 unsigned char *CTheScripts::ScriptSpace = (unsigned char *)0x74B248;
 unsigned int &CTheScripts::BaseBriefIdForContact = *(unsigned int *)0x880200;
 unsigned short &CTheScripts::CommandsExecuted = *(unsigned short *)0x95CCA6;

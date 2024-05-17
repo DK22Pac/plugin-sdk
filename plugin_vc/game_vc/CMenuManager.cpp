@@ -15,7 +15,7 @@ void CMenuManager::MessageScreen(const char* pText, bool bFullscreen) {
 }
 
 int CMenuManager::FadeIn(int alpha) {
-    return min(m_nMenuFadeAlpha, alpha);
+    return std::min(m_nMenuFadeAlpha, alpha);
 }
 
 bool CMenuManager::CheckHover(int x1, int x2, int y1, int y2) {

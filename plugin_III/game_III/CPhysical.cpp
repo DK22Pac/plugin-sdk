@@ -164,11 +164,11 @@ void CPhysical::ApplyMoveSpeed() {
     plugin::CallMethodDynGlobal<CPhysical *>(gaddrof(CPhysical::ApplyMoveSpeed), this);
 }
 
-int addrof(CPhysical::ApplySpringCollisionAlt) = ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
-int gaddrof(CPhysical::ApplySpringCollisionAlt) = GLOBAL_ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
+int addrof(CPhysical::ApplySpringCollision) = ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
+int gaddrof(CPhysical::ApplySpringCollision) = GLOBAL_ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
 
-bool CPhysical::ApplySpringCollisionAlt(float springConst, CVector &springDir, CVector &point, float springRatio, float bias) {
-    return plugin::CallMethodAndReturnDynGlobal<bool, CPhysical *, float, CVector &, CVector &, float, float>(gaddrof(CPhysical::ApplySpringCollisionAlt), this, springConst, springDir, point, springRatio, bias);
+bool CPhysical::ApplySpringCollision(float springConst, CVector &springDir, CVector &point, float springRatio, float bias) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPhysical *, float, CVector &, CVector &, float, float>(gaddrof(CPhysical::ApplySpringCollision), this, springConst, springDir, point, springRatio, bias);
 }
 
 int addrof(CPhysical::ApplySpringDampening) = ADDRESS_BY_VERSION(0x499990, 0x499A80, 0x499A10);

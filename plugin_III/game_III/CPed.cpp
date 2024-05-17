@@ -1570,6 +1570,10 @@ float CPed::WorkOutHeadingForMovingFirstPerson(float offset) {
     return plugin::CallMethodAndReturnDynGlobal<float, CPed *, float>(gaddrof(CPed::WorkOutHeadingForMovingFirstPerson), this, offset);
 }
 
+bool CPed::IsPedDoingDriveByShooting() {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPed*>(0x564BB0, this);
+}
+
 int addrof(CPed::FinishDieAnimCB) = ADDRESS_BY_VERSION(0x4D3950, 0x4D39F0, 0x4D3980);
 int gaddrof(CPed::FinishDieAnimCB) = GLOBAL_ADDRESS_BY_VERSION(0x4D3950, 0x4D39F0, 0x4D3980);
 

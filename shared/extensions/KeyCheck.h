@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CTimer.h"
 #endif
 
@@ -20,7 +20,7 @@ public:
     static bool CheckJustDown(unsigned int key);
     static bool CheckJustUp(unsigned int key);
 
-#ifndef GTA2
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
     static bool CheckWithDelay(unsigned int key, unsigned int time);
 #endif
 };

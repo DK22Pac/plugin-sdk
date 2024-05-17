@@ -677,7 +677,7 @@ static const int vtable_index = 17;
 using mv_addresses_t = MvAddresses<0x4CBB30, 0x4CBBD0, 0x4CBB60>;
 // total references count: 10en (5), 11en (5), steam (5)
 using refs_t = RefList<0x5F81E0,100,2,0x5F819C,1, 0x5F82E8,100,2,0x5F82A4,1, 0x5F83B8,100,2,0x5F8374,1, 0x5F8C70,100,2,0x5F8C2C,1, 0x5FA544,100,2,0x5FA500,1, 0x5F7F84,110,2,0x5F7F84,1, 0x5F808C,110,2,0x5F808C,1, 0x5F815C,110,2,0x5F815C,1, 0x5F8A14,110,2,0x5F8A14,1, 0x5FA2E8,110,2,0x5FA2E8,1, 0x604F7C,120,2,0x604F7C,1, 0x605084,120,2,0x605084,1, 0x605154,120,2,0x605154,1, 0x605A0C,120,2,0x605A0C,1, 0x6072E0,120,2,0x6072E0,1>;
-using def_t = void(CPed *, CEntity *, CColPoint *);
+using def_t = int(CPed *, CEntity *, CColPoint *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CPed *,CEntity *,CColPoint *>, 0,1,2>;

@@ -17,3 +17,7 @@ CZone* CTheZones::FindSmallestZonePositionType(CVector const& pos, int type) {
 CZoneInfo* CTheZones::GetZoneInfo(CVector const& pos, bool day) {
     return plugin::CallAndReturn<CZoneInfo*, 0x4B6A10, CVector const&, char>(pos, day);
 }
+
+void CTheZones::GetZoneInfoForTimeOfDay(const CVector* pos, CZoneInfo* info) {
+    plugin::Call<0x4B69B0, const CVector*, CZoneInfo*>(pos, info);
+}

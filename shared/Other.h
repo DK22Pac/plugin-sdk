@@ -9,14 +9,15 @@
 #include <locale>
 #include <codecvt>
 #include <sys/stat.h>
-
-#include <windows.h>
+#include <random>
+#include <limits>
 
 #if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "CTimer.h"
 #endif
 
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || \
+defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
 #include "CVector2D.h"
 #include "CVector.h"
 #elif defined(GTAIV) || defined(GTA2)
@@ -24,11 +25,26 @@
 #endif
 
 namespace plugin {
-    void InitRandom();
-    unsigned int Random(unsigned int min, unsigned int max);
-    float Random(float min, float max);
-    static uint32_t Random() {
-        return rand() & RAND_MAX;
+    template<typename T = int32_t>
+    static T RandomNumberInRange(T min, T max) {
+        static_assert(std::is_arithmetic<T>::value, "Type T must be numeric");
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        if constexpr (std::is_integral<T>::value) {
+            std::uniform_int_distribution<T> dis(min, max);
+            return dis(gen);
+        }
+        else {
+            std::uniform_real_distribution<T> dis(min, max);
+            return dis(gen);
+        }
+    }
+
+    template<typename T = int32_t>
+    static T Random() {
+        return RandomNumberInRange<T>(0, 999);
     }
 
     bool KeyPressed(unsigned int keyCode);
@@ -136,14 +152,36 @@ namespace plugin {
         return result;
     }
 
+    static std::string RemoveExtension(std::string const& str) {
+        std::string fileNoExt = str;
+        size_t pos = fileNoExt.find_last_of('.');
+
+        if (pos != std::string::npos) {
+            fileNoExt.erase(pos);
+        }
+
+        return fileNoExt;
+    }
+
+    static std::string RemovePath(std::string const& str) {
+        size_t pos = str.find_last_of("\\/");
+
+        if (pos != std::string::npos) {
+            return str.substr(pos + 1);
+        }
+        else {
+            return str;
+        }
+    }
+
     template<typename T>
     static T DegToRad(T x) {
-        return (x * M_PI / (T)180);
+        return (x * PI / (T)180);
     }
 
     template<typename T>
     static T RadToDeg(T x) {
-        return (x * (T)180 / M_PI);
+        return (x * (T)180 / PI);
     }
 
     template<typename T, typename T2, typename T3>
