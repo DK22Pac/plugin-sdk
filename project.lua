@@ -53,7 +53,6 @@ local mingw_flags_compiler = {
     "-shared",
     "-static-libstdc++",
     "-fpermissive",
-    "-flto",
     "-msse",
     "-msse2",
     "-msse3",
