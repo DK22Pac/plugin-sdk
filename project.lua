@@ -50,12 +50,8 @@ local msvc_flags_linker = {
 local mingw_flags_compiler = {
     "-std=c++17",
     "-O2",
-    "-shared",
-    "-static-libstdc++",
+    "-static",
     "-fpermissive",
-    "-msse",
-    "-msse2",
-    "-msse3",
     "-fcommon",
     "-mhard-float",
     "-ffunction-sections",
