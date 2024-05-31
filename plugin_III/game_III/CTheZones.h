@@ -17,4 +17,5 @@ public:
     static CZone* FindSmallestZonePositionType(CVector const& pos, int type);
     static CZoneInfo* GetZoneInfo(CVector const& pos, bool day);
     static void GetZoneInfoForTimeOfDay(const CVector* pos, CZoneInfo* info);
+    static int32_t GetLevelFromPosition(CVector const& pos);
 };

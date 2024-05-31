@@ -101,7 +101,7 @@ public:
 
     // virtual function #16 (not overriden)
 
-    SUPPORTED_10EN_11EN_STEAM void ProcessEntityCollision(CEntity *entity, CColPoint *colPoint);
+    SUPPORTED_10EN_11EN_STEAM int ProcessEntityCollision(CEntity *entity, CColPoint *colPoint);
 
     SUPPORTED_10EN_11EN_STEAM void AddCollisionRecord(CEntity *entity);
     SUPPORTED_10EN_11EN_STEAM void AddCollisionRecord_Treadable(CEntity *entity);

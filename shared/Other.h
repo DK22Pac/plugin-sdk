@@ -96,15 +96,15 @@ namespace plugin {
         return FormatStatic(format, FormattingUtils::Arg(args)...);
     }
 
-    static std::wstring ToWString(std::string const& str) {
-        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-        std::wstring wstr = converter.from_bytes(str);
+    static std::wstring ToWString(const std::string& str) {
+        std::wstring wstr(str.size(), L'\0');
+        std::mbstowcs(&wstr[0], str.c_str(), str.size());
         return wstr;
     }
 
-    static std::string ToString(std::wstring const& wstr) {
-        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-        std::string str = converter.to_bytes(wstr);
+    static std::string ToString(const std::wstring& wstr) {
+        std::string str(wstr.size() * MB_CUR_MAX, '\0');
+        std::wcstombs(&str[0], wstr.c_str(), str.size());
         return str;
     }
 

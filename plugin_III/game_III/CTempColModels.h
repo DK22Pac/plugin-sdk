@@ -5,19 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
-#include "CVector.h"
+#include "CColModel.h"
 
-class PLUGIN_API CBox {
+class CTempColModels {
 public:
-    CVector m_vecMin;
-    CVector m_vecMax;
-
-public:
-    CVector GetSize() {
-        return m_vecMax - m_vecMin;
-    }
+    static CColModel& ms_colModelPedGroundHit;
 };
-
-VALIDATE_SIZE(CBox, 0x18);

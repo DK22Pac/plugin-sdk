@@ -74,6 +74,10 @@ public:
         return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_PLANE);
     }
 
+    static inline bool IsBikeModel(int index) {
+        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo*>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_BIKE);
+    }
+
     // return -1 if model is not a vehicle model otherwise returns vehicle model type
     // 0 - car, 1 - boat, 2 - train, 3 - heli, 4 - plane
     static inline int IsVehicleModelType(int index) {

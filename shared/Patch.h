@@ -142,3 +142,10 @@ public:
 };
 
 }
+
+#define _override(index, classname, func) \
+do {\
+	void** vtable = *reinterpret_cast<void***>(this); \
+    auto _func = &classname::func; \
+    vtable[index] = *reinterpret_cast<void**>(&_func); \
+} while(0)

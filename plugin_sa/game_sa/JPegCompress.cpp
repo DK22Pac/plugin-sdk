@@ -7,12 +7,12 @@
 // EU-1.00 @ 0x005D0820
 void JPegCompressScreenToFile(RwCamera * pCamera, char const * pszPath) {
 	assert(pszPath && pszPath[0]);
-	assert(pCamera == Scene.m_pRwCamera && "Required due to dirty Rockstar implementation");
+	assert(pCamera == Scene.m_pCamera && "Required due to dirty Rockstar implementation");
 	plugin::Call<0x005D0820>(pCamera, pszPath);
 }
 
 void JPegCompressScreenToFile(char const * pszPath) {
-	JPegCompressScreenToFile(Scene.m_pRwCamera, pszPath);
+	JPegCompressScreenToFile(Scene.m_pCamera, pszPath);
 }
 
 // NOTE: pCamera parameter is not used, game's full screen will be saved in any way
@@ -20,12 +20,12 @@ void JPegCompressScreenToFile(char const * pszPath) {
 // EU-1.00 @ 0x005D0820
 void JPegCompressScreenToBuffer(RwCamera * pCamera, char ** pBuffer, unsigned int * pSize) {
 	assert(pBuffer && *pBuffer && pSize);
-	assert(pCamera == Scene.m_pRwCamera && "Required due to dirty Rockstar implementation");
+	assert(pCamera == Scene.m_pCamera && "Required due to dirty Rockstar implementation");
 	plugin::Call<0x005D0740>(pCamera, pBuffer, pSize);
 }
 
 void JPegCompressScreenToBuffer(char ** pBuffer, unsigned int * pSize) {
-	JPegCompressScreenToBuffer(Scene.m_pRwCamera, pBuffer, pSize);
+	JPegCompressScreenToBuffer(Scene.m_pCamera, pBuffer, pSize);
 }
 
 // NOTE: CMenuManager::m_pJPegBuffer usage is hardcoded by Rockstar, you can't use any other pointer

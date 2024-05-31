@@ -22,6 +22,7 @@ kind "SharedLib"
 language "C++"
 targetextension ".asi"
 characterset ("MBCS")
+cppdialect "C++latest"
 
 targetdir(projectPath .. "output/asi/")
 objdir(projectPath .. "output/obj/")

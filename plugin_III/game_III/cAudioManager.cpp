@@ -10,6 +10,8 @@ cAudioManager &AudioManager = *(cAudioManager *)0x880FC0;
 
 tVehicleSampleData* aVehicleSettings = (tVehicleSampleData*)0x606204;
 
+const uint32_t* gOneShotCol = (const uint32_t*)0x604BD0;
+
 // Converted from thiscall void cAudioManager::cAudioManager(void) 0x579AB0 
 cAudioManager::cAudioManager() {
     plugin::CallMethod<0x579AB0, cAudioManager *>(this);
@@ -100,4 +102,12 @@ void cAudioManager::TranslateEntity(CVector* in, CVector* out) {
 
 int32_t cAudioManager::ComputePan(float dist, CVector* vec) {
     return plugin::CallMethodAndReturn<int32_t, 0x57AD20>(this, dist, vec);
+}
+
+void cAudioManager::SetUpOneShotCollisionSound(cAudioCollision* col) {
+    plugin::CallMethod<0x5689D0>(this, col);
+}
+
+float cAudioManager::GetCollisionOneShotRatio(uint32_t a, float b) {
+    return plugin::CallMethodAndReturn<float, 0x569060>(this, a, b);
 }

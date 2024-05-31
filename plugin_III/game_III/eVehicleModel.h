@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#include "PluginBase.h"
 
 enum PLUGIN_API eVehicleModel : unsigned int {
     MODEL_LANDSTAL = 90, 

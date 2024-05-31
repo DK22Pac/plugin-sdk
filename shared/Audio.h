@@ -86,9 +86,22 @@ namespace plugin {
             }
         };
 
+        struct BassListener {
+            BASS_3DVECTOR forward;
+            BASS_3DVECTOR up;
+            BASS_3DVECTOR pos;
+
+            BassListener() {
+                forward = { 0.0f, 0.0f, 0.0f };
+                up = { 0.0f, 0.0f, 0.0f };
+                pos = { 0.0f, 0.0f, 0.0f };
+            }
+        };
+
         std::array<BassStream, numChannels> streams;
         std::vector<BassSample> samples;
         std::vector<BassQueue> queue;
+        BassListener listener;
 
     public:
         struct {
@@ -108,6 +121,7 @@ namespace plugin {
             streams = {};
             samples = {};
             queue = {};
+            listener = {};
 
             settings.mute = [] { return false; };
             settings.masterVolume = [] { return 127; };
@@ -141,14 +155,15 @@ namespace plugin {
         void SetChannel3D(uint32_t channel, bool on);
         void SetChannelEntityIndex(uint32_t channel, uint32_t entityIndex);
         uint32_t GetSampleBaseFrequency(uint32_t sample);
-        void AddSampleToQueue(uint32_t entityIndex, uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay = 8);
-        void AddSampleToQueue(BassQueue const& queue);        
+        void AddSampleToQueue(uint32_t entityIndex, uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay = 8, bool is3d = true);
+        void AddSampleToQueue(BassQueue const& queue);     
         bool InitialiseChannel(uint32_t channel, uint32_t sample);
         void StartChannel(uint32_t channel);
         void StopChannel(uint32_t channel);
         void ResetChannel(uint32_t channel);
         uint32_t GetSampleLoopStartOffset(uint32_t sample);
         int32_t GetSampleLoopEndOffset(uint32_t sample);
+        void SetChannel2DPositions(uint32_t channel);
 
         void Process();
 
@@ -156,6 +171,7 @@ namespace plugin {
 
         uint32_t FindAvailableChannel();
         void SetChannelReverbFlag(uint32_t channel, bool reverb);
+        void StopAllChannels();
     };
 }
 #endif

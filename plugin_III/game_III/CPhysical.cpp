@@ -62,8 +62,8 @@ void CPhysical::ProcessShift() {
 int addrof(CPhysical::ProcessEntityCollision) = ADDRESS_BY_VERSION(0x49F790, 0x49F880, 0x49F810);
 int gaddrof(CPhysical::ProcessEntityCollision) = GLOBAL_ADDRESS_BY_VERSION(0x49F790, 0x49F880, 0x49F810);
 
-void CPhysical::ProcessEntityCollision(CEntity *entity, CColPoint *colPoint) {
-    plugin::CallVirtualMethod<17, CPhysical *, CEntity *, CColPoint *>(this, entity, colPoint);
+int CPhysical::ProcessEntityCollision(CEntity *entity, CColPoint *colPoint) {
+    return plugin::CallVirtualMethodAndReturn<int, 17, CPhysical *, CEntity *, CColPoint *>(this, entity, colPoint);
 }
 
 int addrof(CPhysical::AddCollisionRecord) = ADDRESS_BY_VERSION(0x497180, 0x497240, 0x4971D0);

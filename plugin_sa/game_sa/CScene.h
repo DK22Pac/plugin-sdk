@@ -12,8 +12,8 @@
 class PLUGIN_API CScene
 {
 public:
-	RpWorld *m_pRpWorld;
-	RwCamera *m_pRwCamera;
+	RpWorld *m_pWorld;
+	RwCamera *m_pCamera;
 };
 
 VALIDATE_SIZE(CScene, 0x8);

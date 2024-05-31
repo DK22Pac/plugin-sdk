@@ -21,3 +21,7 @@ CZoneInfo* CTheZones::GetZoneInfo(CVector const& pos, bool day) {
 void CTheZones::GetZoneInfoForTimeOfDay(const CVector* pos, CZoneInfo* info) {
     plugin::Call<0x4B69B0, const CVector*, CZoneInfo*>(pos, info);
 }
+
+int32_t CTheZones::GetLevelFromPosition(CVector const& pos) {
+    return plugin::CallAndReturn<int32_t, 0x4B6910, CVector const&>(pos);
+}

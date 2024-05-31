@@ -51,6 +51,10 @@ float CGeneral::GetRandomNumberInRange(float min, float max) {
     return ((float(__cdecl *)(float, float))0x41BD90)(min, max);
 }
 
+uint32_t CGeneral::GetRandomNumber() {
+    return plugin::CallAndReturn<uint32_t, 0x821B1E>();
+}
+
 void CGeneral::CamShakeNoPos(CCamera *camera, float strength)
 {
     ((void(__cdecl *)(CCamera*, float))0x50A970)(camera, strength);

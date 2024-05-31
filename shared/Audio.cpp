@@ -25,7 +25,7 @@
 namespace plugin {
     void BassSampleManager::LoadSample(std::string const& file, uint32_t loopStart, int32_t loopEnd) {
         BassSample s;
-        s.sample = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 3, 0);;
+        s.sample = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 3, 0);
         s.loopStart = loopStart;
         s.loopEnd = loopEnd;
         samples.push_back(s);
@@ -49,7 +49,7 @@ namespace plugin {
         if (channel == 0)
             return;
 
-        BASS_ChannelSet3DAttributes(streams[channel].stream, BASS_3DMODE_NORMAL, min, max, -1, -1, -1);
+        BASS_ChannelSet3DAttributes(streams[channel].stream, BASS_3DMODE_NORMAL, min, max, 360, 360, 0.0f);
         BASS_Apply3D();
     }
 
@@ -59,7 +59,13 @@ namespace plugin {
 
         BASS_3DVECTOR pos = { x, y, z };
         BASS_ChannelSet3DPosition(streams[channel].stream, &pos, NULL, NULL);
+        BASS_Set3DFactors(1.0f, 1.0f, 1.0f);
         BASS_Apply3D();
+    }
+
+    void BassSampleManager::SetChannel2DPositions(uint32_t channel) {
+        SetChannel3DDistances(channel, 10.0f, 1000.0f);
+        SetChannel3DPosition(channel, listener.pos.x, listener.pos.y, listener.pos.z);
     }
 
     void BassSampleManager::SetChannelEmittingVolume(uint32_t channel, int32_t value) {
@@ -108,18 +114,14 @@ namespace plugin {
     void BassSampleManager::SetChannelLoopPoints(uint32_t channel, uint32_t loopStart, int32_t loopEnd) {
         if (channel == 0)
             return;
-        
+
         double loopStartSeconds = (double)loopStart / GetSampleBaseFrequency(streams[channel].sampleId);
         QWORD loopStartBytes = BASS_ChannelSeconds2Bytes(streams[channel].stream, loopStartSeconds);
-        if (!BASS_ChannelSetPosition(streams[channel].stream, 0, BASS_POS_BYTE | BASS_POS_LOOP)) {
-        }
-        
-        if (loopEnd != -1) {
-            double loopEndSeconds = (double)loopEnd / GetSampleBaseFrequency(streams[channel].sampleId);
-            QWORD loopEndBytes = BASS_ChannelSeconds2Bytes(streams[channel].stream, loopEndSeconds);
-            if (!BASS_ChannelSetPosition(streams[channel].stream, loopEndBytes, BASS_POS_BYTE | BASS_POS_END)) {
-            }
-        }
+        double loopEndSeconds = (double)loopEnd / GetSampleBaseFrequency(streams[channel].sampleId);
+        QWORD loopEndBytes = BASS_ChannelSeconds2Bytes(streams[channel].stream, loopEndSeconds);
+        BASS_ChannelSetSync(streams[channel].stream, BASS_SYNC_POS | BASS_SYNC_MIXTIME, loopEndBytes, [](HSYNC handle, DWORD channel, DWORD data, void* user) {
+            BASS_ChannelSetPosition(channel, *(QWORD*)user, BASS_POS_BYTE);
+        }, &loopStartBytes);
     }
 
     uint32_t BassSampleManager::GetSampleLength(uint32_t sample) {
@@ -151,7 +153,7 @@ namespace plugin {
         return static_cast<uint32_t>(info.freq);
     }
 
-    void BassSampleManager::AddSampleToQueue(uint32_t entityIndex, uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay) {
+    void BassSampleManager::AddSampleToQueue(uint32_t entityIndex, uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay, bool is3d) {
         if (vol > 127)
             vol = 127;
 
@@ -175,7 +177,7 @@ namespace plugin {
         }
 
         q.played = false;
-        q.is3d = true;
+        q.is3d = is3d;
 
         queue.push_back(q);
     }
@@ -202,7 +204,11 @@ namespace plugin {
 
         //BASS_ChannelRemoveFX(streams[channel].fx.reverb, BASS_FX_DX8_REVERB);
         BASS_StreamFree(streams[channel].stream);
-        streams[channel].stream = BASS_StreamCreate(sampleInfo.freq, sampleInfo.chans, sampleInfo.flags, STREAMPROC_PUSH, nullptr);
+        DWORD flags = sampleInfo.flags;
+        if (sampleInfo.chans == 1)
+            flags |= BASS_SAMPLE_3D;
+
+        streams[channel].stream = BASS_StreamCreate(sampleInfo.freq, sampleInfo.chans, flags, STREAMPROC_PUSH, nullptr);
         streams[channel].channelId = channel;
         streams[channel].sampleId = sample;
 
@@ -260,7 +266,9 @@ namespace plugin {
         BASS_3DVECTOR* front = (BASS_3DVECTOR*)&TheCamera.GetForward();
         BASS_3DVECTOR* up = (BASS_3DVECTOR*)&TheCamera.GetUp();
         BASS_Set3DPosition(position, nullptr, front, up);
-        BASS_Apply3D();
+        listener.pos = *position;
+        listener.forward = *front;
+        listener.up = *up;
 #endif
 
         for (auto& it : streams) {
@@ -294,29 +302,27 @@ namespace plugin {
                 continue;
             }
 
-            auto q = std::find_if(queue.begin(), queue.end(), [&](const BassQueue& item) {
-                return item.entityIndex == it.entityIndex && item.sample == it.sampleId;
-            });
+            if (BASS_ChannelFlags(it.stream, 0, 0) & BASS_SAMPLE_LOOP) {
+                uint32_t currentPos = GetChannelPosition(it.channelId);
+                uint32_t sampleStartOffset = GetSampleLoopStartOffset(it.sampleId);
+                int32_t sampleEndOffset = GetSampleLoopEndOffset(it.sampleId);
 
-            uint32_t currentPos = GetChannelPosition(it.channelId);
-            uint32_t sampleStartOffset = GetSampleLoopStartOffset(it.sampleId);
-            int32_t sampleEndOffset = GetSampleLoopEndOffset(it.sampleId);
+                float frequency;
+                BASS_ChannelGetAttribute(it.stream, BASS_ATTRIB_FREQ, &frequency);
+                uint32_t endPos = GetSampleLength(it.sampleId);
 
-            float frequency;
-            BASS_ChannelGetAttribute(it.stream, BASS_ATTRIB_FREQ, &frequency);
-            uint32_t endPos = GetSampleLength(it.sampleId);
+                if (sampleEndOffset != -1)
+                    endPos = sampleEndOffset;
 
-            if (sampleEndOffset != -1)
-                endPos = sampleEndOffset;
+                auto m = static_cast<uint32_t>(0.10f * frequency);
+                endPos -= m;
 
-            auto m = static_cast<uint32_t>(0.11f * frequency);
-            endPos -= m;
+                if (endPos < currentPos)
+                    endPos = currentPos;
 
-            if (endPos < currentPos)
-                endPos = currentPos;
-
-            if (currentPos >= endPos) {
-                SetChannelPosition(it.channelId, sampleStartOffset);
+                if (currentPos >= endPos) {
+                    SetChannelPosition(it.channelId, sampleStartOffset);
+                }
             }
         }
 
@@ -358,11 +364,14 @@ namespace plugin {
 
                     SetChannelFramesToPlay(channel, it->framesToPlay);
 
+                    SetChannel3D(channel, it->is3d);
                     if (it->is3d) {
                         SetChannelReverbFlag(channel, it->reverb);
                         SetChannel3DPosition(channel, it->pos.x, it->pos.y, it->pos.z);
-                        SetChannel3DDistances(channel, 12.5f, 5000.0f);
-                        SetChannel3D(channel, it->is3d);
+                        SetChannel3DDistances(channel, 10.0f, 1000.0f);
+                    }
+                    else {
+                        SetChannel2DPositions(channel);
                     }
 
                     StartChannel(channel);
@@ -398,6 +407,11 @@ namespace plugin {
        //}
        //else
        //    BASS_ChannelRemoveFX(streams[channel].fx.reverb, BASS_FX_DX8_REVERB);
+    }
+
+    void BassSampleManager::StopAllChannels() {
+        for (uint32_t i = 0; i < numChannels; i++)
+            StopChannel(i);
     }
 }
 #endif
