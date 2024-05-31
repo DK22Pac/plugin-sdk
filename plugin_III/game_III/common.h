@@ -48,6 +48,9 @@ void DestroyDebugFont();
 // dummy function                                                            
 void FlushObrsPrintfs();
 void DefinedState();
+CAnimBlendAssociation* RpAnimBlendClumpGetAssociation(RpClump* clump, uint32_t id);
+CAnimBlendAssociation* RpAnimBlendClumpGetFirstAssociation(RpClump* clump, uint32_t mask);
+CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* assoc);
 void SetAmbientColours(RwRGBAReal* colours);
 void SetAmbientColoursForPedsCarsAndObjects();
 void SetAmbientColours();
