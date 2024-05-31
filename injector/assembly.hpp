@@ -79,6 +79,22 @@ namespace injector
         return MakeInline<Caps>(lazy_pointer<at>::get(), lazy_pointer<end>::get());
     }
 
+    template<class FuncT>
+    void MakeInline(memory_pointer_tr at, memory_pointer_tr end, FuncT func) {
+        static std::unique_ptr<FuncT> static_func;
+        static_func.reset(new FuncT(std::move(func)));
+
+        // Encapsulates the call to static_func
+        struct Caps {
+            void operator()(reg_pack& regs) {
+                (*static_func)(regs);
+            }
+        };
+
+        // Does the actual MakeInline
+        return MakeInline<Caps>(at, end);
+    }
+
     /*
      *  MakeInline
      *      Same as above, but (end) is calculated by the length of a call instruction
