@@ -125,7 +125,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ReInitialise();
     SUPPORTED_10EN_11EN_STEAM static void ResetWastedText();
     SUPPORTED_10EN_11EN_STEAM static void SetBigMessage(wchar_t const *message, unsigned short style);
-    SUPPORTED_10EN_11EN_STEAM static void SetHelpMessage(wchar_t const *message, bool quickMessage, bool permanent);
+    SUPPORTED_10EN_11EN_STEAM static void SetHelpMessage(wchar_t const *message, bool quickMessage, bool permanent = false);
     SUPPORTED_10EN_11EN_STEAM static void SetMessage(wchar_t const *message);
     //! dummy function
     SUPPORTED_10EN_11EN_STEAM static void SetPagerMessage(wchar_t const *message);

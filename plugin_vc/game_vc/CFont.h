@@ -121,6 +121,13 @@ public:
         else
             SetPropOff();
     }
+
+    static inline void SetBackground(bool on) {
+        if (on)
+            SetBackgroundOn();
+        else
+            SetBackgroundOff();
+    }
 };
 
 void UnicodeMakeUpperCase(wchar_t* str_out, wchar_t const* str_in);

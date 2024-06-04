@@ -126,6 +126,13 @@ public:
         else
             SetPropOff();
     }
+
+    static inline void SetBackground(bool on) {
+        if (on)
+            SetBackgroundOn();
+        else
+            SetBackgroundOff();
+    }
 };
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);

@@ -27,7 +27,9 @@ namespace plugin {
         std::unordered_map<std::string, string_t> stringMap;
 
     public:
-        TextLoader() {}
+        TextLoader() {
+            stringMap = {};
+        }
 
         bool Load(const std::string& fileName);
         const char_t* Get(const char* key);
