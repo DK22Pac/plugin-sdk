@@ -28,5 +28,36 @@ public:
         return RwTexDictionaryCreate();
     }
 
+    // save txd to file
+    static inline void SaveTexDictionary(const RwTexDictionary* dict, char const* filename) {
+        RwStream* stream = RwStreamOpen(rwSTREAMFILENAME, rwSTREAMWRITE, filename);
+        if (stream) {
+            RwTexDictionaryStreamWrite(dict, stream);
+            RwStreamClose(stream, NULL);
+        }
+    }
+
+    static RwTexture* MoveTextureCB(RwTexture* texture, void* data) {
+        RwTexDictionaryAddTexture((RwTexDictionary*)data, texture);
+        return texture;
+    }
+    
+    static inline void AddTexDictionaries(RwTexDictionary* dst, RwTexDictionary* src) {
+        RwTexDictionaryForAllTextures(src, MoveTextureCB, dst);
+    }
+
     static RpClump* LoadAtomicFile2Return(const char* file);
+
+    static RpAtomic* FindRelatedModelInfoCB(RpAtomic* atomic, void* data);
+
+    static void LoadLevel(const char* filename);
+
+    static void LoadCollisionFile(const char* filename, unsigned char colId);
+
+    static void LoadClumpFile(const char* filename);
+
+    static void LoadObjectTypes(const char* filename);
+
+    static void LoadScene(const char* filename);
+
 };
