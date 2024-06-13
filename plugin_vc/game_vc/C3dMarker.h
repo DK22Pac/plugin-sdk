@@ -9,15 +9,16 @@
 #include "PluginBase.h"
 #include "CMatrix.h"
 #include "CRGBA.h"
+#include "RenderWare.h"
 
 class PLUGIN_API C3dMarker {
 public:
-    CMatrix m_mMat;
-    int m_pAtomic; //!<  rawtype:RpAtomic*
-    int m_pMaterial; //!<  rawtype:RpMaterial*
+    CMatrix m_Matrix;
+    RpAtomic* m_pAtomic; //!<  rawtype:RpAtomic*
+    RpMaterial* m_pMaterial; //!<  rawtype:RpMaterial*
     unsigned short m_nType;
     bool m_bIsUsed;
-    bool m_bMustBeRenderedThisFrame;
+    bool m_bIsActive;
     unsigned int m_nIdentifier;
     CRGBA m_colour;
     unsigned short m_nPulsePeriod;
@@ -31,6 +32,19 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void AddMarker(unsigned int nId, unsigned short nType, float fSize, unsigned char bRed, unsigned char bGreen, unsigned char bBlue, unsigned char bAlpha, unsigned int nPulsePeriod, float fPulseFraction, unsigned short nRotateRate);
     SUPPORTED_10EN_11EN_STEAM void Render();
+
+    inline void DeleteMarkerObject() {
+        m_nIdentifier = 0;
+        m_nStartTime = 0;
+        m_bIsUsed = false;
+        m_bIsActive = false;
+        m_nType = 257;
+        
+        RwFrame* frame = RpAtomicGetFrame(m_pAtomic);
+        RpAtomicDestroy(m_pAtomic);
+        RwFrameDestroy(frame);
+        m_pAtomic = nullptr;
+    }
 };
 
 VALIDATE_SIZE(C3dMarker, 0x78);

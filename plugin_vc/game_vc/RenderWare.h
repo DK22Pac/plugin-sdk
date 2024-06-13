@@ -351,6 +351,7 @@ RwInt32 RpAtomicRegisterPluginStream(RwUInt32 pluginID, RwPluginDataChunkReadCal
 RwInt32 RpAtomicSetStreamAlwaysCallBack(RwUInt32 pluginID, RwPluginDataChunkAlwaysCallBack alwaysCB); // 0x642360
 RwInt32 RpAtomicSetStreamRightsCallBack(RwUInt32 pluginID, RwPluginDataChunkRightsCallBack rightsCB); // 0x642380
 RwInt32 RpAtomicGetPluginOffset(RwUInt32 pluginID); // 0x6423A0
+inline RwFrame* RpAtomicGetFrame(const RpAtomic* atomic) { return (RwFrame*)atomic->object.object.parent; }; // game inline
 RpWorldSector* _rpSectorDefaultRenderCallBack(RpWorldSector* sector); // 0x654750
 RpWorld* RpWorldUnlock(RpWorld* world); // 0x6547A0
 RwBool RpWorldPluginAttach(void); // 0x655070
