@@ -10,8 +10,15 @@ includedirs {
 	"$(PLUGIN_SDK_DIR)\\plugin_SA\\game_SA\\",
 }
 
+local sa_dir = os.getenv("GTA_SA_DIR")
+
+if os.isfile(sa_dir .. "/gta-sa.exe") then
+	debugcommand "$(GTA_SA_DIR)/gta-sa.exe"
+else
+	debugcommand "$(GTA_SA_DIR)/gta_sa.exe"
+end
+
 debugdir "$(GTA_SA_DIR)"
-debugcommand "$(GTA_SA_DIR)/gta-sa.exe"
 postbuildcommands("copy /y \"$(TargetPath)\" \"$(GTA_SA_DIR)\\scripts\\" .. projectName .. "SA.asi\"")
 
 filter "configurations:Release"
