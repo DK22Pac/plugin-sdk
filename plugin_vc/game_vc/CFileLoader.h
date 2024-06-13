@@ -7,6 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CColModel.h"
 #include "RenderWare.h"
 
 class PLUGIN_API CFileLoader {
@@ -50,14 +51,41 @@ public:
 
     static RpAtomic* FindRelatedModelInfoCB(RpAtomic* atomic, void* data);
 
+    static RpAtomic* SetRelatedModelInfoCB(RpAtomic* atomic, void* data);
+
     static void LoadLevel(const char* filename);
 
     static void LoadCollisionFile(const char* filename, unsigned char colId);
 
+    static bool LoadCollisionFile(unsigned char* buf, unsigned int size, unsigned char colId);
+
+    static bool LoadCollisionFileFirstTime(unsigned char* buf, unsigned int size, unsigned char colId);
+
+    static bool LoadAtomicFile(RwStream* stream, unsigned int id);
+
     static void LoadClumpFile(const char* filename);
+
+    static bool LoadClumpFile(RwStream* stream, unsigned int id);
+
+    static bool StartLoadClumpFile(RwStream* stream, unsigned int id);
+
+    static bool FinishLoadClumpFile(RwStream* stream, unsigned int id);
 
     static void LoadObjectTypes(const char* filename);
 
     static void LoadScene(const char* filename);
 
+    static int LoadObject(const char* line);
+
+    static int LoadTimeObject(const char* line);
+
+    static void LoadVehicleObject(const char* line);
+
+    static void LoadPedObject(const char* line);
+
+    static void Load2dEffect(const char* line);
+
+    static void LoadObjectInstance(const char* line);
+
+    static void LoadCollisionModel(unsigned char* buf, CColModel& model, char* modelname);
 };
