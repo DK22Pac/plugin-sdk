@@ -79,6 +79,7 @@ public:
     static void UpdateMoneyPerDay(int pickupHandle, unsigned short money);
     // returns weapon type (see eWeaponType)
     static int WeaponForModel(int modelId);
+    static char HandleByModel(int unk, unsigned int amount, short modelId, int playerId);
 };
 
 extern int &CollectPickupBuffer;
