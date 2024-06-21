@@ -212,3 +212,7 @@ int CPickups::WeaponForModel(int modelId) {
 void ModifyStringLabelForControlSetting(char* stringLabel) {
     plugin::Call<0x454B70, char*>(stringLabel);
 }
+
+char CPickups::HandleByModel(int unk, unsigned int amount, short modelId, int playerId) {
+    return plugin::CallAndReturn<char, 0x4564F6, int, unsigned int, short, int>(unk, amount, modelId, playerId);
+}
