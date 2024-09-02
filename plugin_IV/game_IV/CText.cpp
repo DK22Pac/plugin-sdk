@@ -9,11 +9,11 @@
 CText& TheText = *gpatternt(CText, "B9 ? ? ? ? E8 ? ? ? ? B0 01 C3 C7 05", 1);
 
 const wchar_t* CText::Get(const char* key) {
-    return plugin::CallMethodAndReturnDyn<const wchar_t*, CText*, const char*>(gpattern("83 EC 44 A1 ? ? ? ? 33 C4 89 44 24 40 8B 44 24 48 56 8B F1"), this, key);
+    return plugin::CallMethodAndReturnDyn<const wchar_t*, CText*, const char*>(injector::GetBranchDestination(gpattern("E8 ? ? ? ? 50 68 ? ? ? ? 8D 84 24 ? ? ? ? 68 ? ? ? ? 50 E8 ? ? ? ? 83 C4 18")).as_int(), this, key);
 }
 
 const wchar_t* CText::Get(uint32_t hash, const char* key) {
-    return plugin::CallMethodAndReturnDyn<const wchar_t*>(gpattern("83 EC 48 A1 ? ? ? ? 33 C4 89 44 24 44 53 55"), this, hash, key);
+    return plugin::CallMethodAndReturnDyn<const wchar_t*>(injector::GetBranchDestination(gpattern("E8 ? ? ? ? 8B 4C 24 44 5E 33 CC E8 ? ? ? ? 83 C4 44 C2 04 00")).as_int(), this, hash, key);
 }
 
 void AsciiToUnicode(const char* src, wchar_t* dst) {
