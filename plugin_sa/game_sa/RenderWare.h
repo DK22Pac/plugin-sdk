@@ -283,6 +283,7 @@ RwTexDictionary* RwTexDictionaryCreate(void); // 0x7F3600
 RwBool RwTexDictionaryDestroy(RwTexDictionary* dict); // 0x7F36A0
 RwTexture* RwTextureCreate(RwRaster* raster); // 0x7F37C0
 RwBool RwTextureDestroy(RwTexture* texture); // 0x7F3820
+RwTexture* RwTextureRead(const char* name, const char* mask); // 0x07F3AC0
 RwTexture* RwTextureSetRaster(RwTexture* texture, RwRaster* raster); // 0x7F35D0
 RwTexture* RwTexDictionaryAddTexture(RwTexDictionary* dict, RwTexture* texture); // 0x7F3980
 RwTexture* RwTexDictionaryRemoveTexture(RwTexture* texture); // 0x7F39C0
