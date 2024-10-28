@@ -15,7 +15,9 @@ protected:
 public:
     unsigned int m_nType; // 0 - jump , 1 - climb
     bool bUnkFlag;
-
+private:
+	char _pad[3];
+public:
     // 0 - jump , 1 - climb
     CTaskComplexJump(unsigned int jumpType); 
 };
