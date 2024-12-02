@@ -27,12 +27,12 @@ class CBmx : public CBike {
 protected:
     CBmx(plugin::dummy_func_t) : CBike(plugin::dummy) {}
 public:
-    float field_814;
+    float m_fBunnyHopCharge;
     float field_818;
-    float field_81C;
+    float m_fSprintLeanAngle;
     float field_820;
-    float field_824;
-    float field_828;
+    float m_fPedalAngleL;
+    float m_fPedalAngleR;
     float m_fDistanceBetweenWheels;
     float m_fWheelsBalance;
     unsigned char field_834;

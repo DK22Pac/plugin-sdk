@@ -22,9 +22,15 @@ class PLUGIN_API C3dMarkers {
 public:
     SUPPORTED_10EN_11EN_STEAM static C3dMarker *m_aMarkerArray; // static C3dMarker m_aMarkerArray[32]
     static RpClump** m_pRpClumpArray;
+    static int& NumActiveMarkers;
 
 public:
-    static void PlaceMarkerSet(unsigned int id, unsigned short type, CVector& pos, float size, unsigned char r, unsigned char g, unsigned char b, unsigned char a, unsigned short pulsePeriod, float pulseFraction, short rotateRate);
+    static void Init();
 
+    static void Render();
+
+    static C3dMarker* PlaceMarker(unsigned int id, unsigned short type, CVector& pos, float size, unsigned char r, unsigned char g, unsigned char b, unsigned char a, unsigned short pulsePeriod, float pulseFraction, short rotateRate);
+    
+    static void PlaceMarkerSet(unsigned int id, unsigned short type, CVector& pos, float size, unsigned char r, unsigned char g, unsigned char b, unsigned char a, unsigned short pulsePeriod, float pulseFraction, short rotateRate);
 };
 
