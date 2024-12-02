@@ -34,8 +34,10 @@ void CPhysical::Remove() {
 int addrof(CPhysical::GetBoundRect) = ADDRESS_BY_VERSION(0x495150, 0x495210, 0x4951A0);
 int gaddrof(CPhysical::GetBoundRect) = GLOBAL_ADDRESS_BY_VERSION(0x495150, 0x495210, 0x4951A0);
 
-CRect *CPhysical::GetBoundRect() {
-    return plugin::CallVirtualMethodAndReturn<CRect *, 7, CPhysical *>(this);
+CRect CPhysical::GetBoundRect() {
+    CRect out;
+    plugin::CallVirtualMethodAndReturn<CRect *, 7, CPhysical *>(this, &out);
+    return out;
 }
 
 int addrof(CPhysical::ProcessControl) = ADDRESS_BY_VERSION(0x495F10, 0x495FD0, 0x495F60);
@@ -150,11 +152,11 @@ void CPhysical::ApplyGravity() {
     plugin::CallMethodDynGlobal<CPhysical *>(gaddrof(CPhysical::ApplyGravity), this);
 }
 
-int addrof(CPhysical::ApplyMoveForce) = ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
-int gaddrof(CPhysical::ApplyMoveForce) = GLOBAL_ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
+int addrof_o(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float)) = ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
+int gaddrof_o(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float)) = GLOBAL_ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
 
 void CPhysical::ApplyMoveForce(float jx, float jy, float jz) {
-    plugin::CallMethodDynGlobal<CPhysical *, float, float, float>(gaddrof(CPhysical::ApplyMoveForce), this, jx, jy, jz);
+    plugin::CallMethodDynGlobal<CPhysical *, float, float, float>(gaddrof_o(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float)), this, jx, jy, jz);
 }
 
 int addrof(CPhysical::ApplyMoveSpeed) = ADDRESS_BY_VERSION(0x495B10, 0x495BD0, 0x495B60);

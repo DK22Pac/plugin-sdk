@@ -131,7 +131,12 @@ make_slot:
             uint32_t h = img->height;
             uint8_t* p = img->pixels;
 
-            RwRaster* raster = RwRasterCreate(w, h, 0, rwRASTERTYPETEXTURE | rwRASTERFORMAT8888 | (mipMap ? rwRASTERFORMATMIPMAP | rwRASTERFORMATAUTOMIPMAP : 0));
+            int32_t flags = rwRASTERTYPETEXTURE | rwRASTERFORMAT8888;
+
+            if (mipMap)
+                flags |= rwRASTERFORMATMIPMAP | rwRASTERFORMATAUTOMIPMAP;
+
+            RwRaster* raster = RwRasterCreate(w, h, 0, flags);
             RwUInt32* pixels = (RwUInt32*)RwRasterLock(raster, 0, rwRASTERLOCKWRITE);
 
             for (uint32_t i = 0; i < w * h * 4; i += 4) {

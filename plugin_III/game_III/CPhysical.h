@@ -79,7 +79,7 @@ public:
 
     // virtual function #6 (not overriden)
 
-    SUPPORTED_10EN_11EN_STEAM CRect *GetBoundRect();
+    SUPPORTED_10EN_11EN_STEAM CRect GetBoundRect();
     SUPPORTED_10EN_11EN_STEAM void ProcessControl();
     SUPPORTED_10EN_11EN_STEAM void ProcessCollision();
     SUPPORTED_10EN_11EN_STEAM void ProcessShift();
@@ -117,6 +117,10 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ApplyGravity();
     //! Force actually means Impulse here
     SUPPORTED_10EN_11EN_STEAM void ApplyMoveForce(float jx, float jy, float jz);
+    SUPPORTED_10EN_11EN_STEAM void ApplyMoveForce(CVector const& j) {
+        ApplyMoveForce(j.x, j.y, j.z);
+    }
+
     SUPPORTED_10EN_11EN_STEAM void ApplyMoveSpeed();
     //! springRatio: 1.0 fully extended, 0.0 fully compressed
     SUPPORTED_10EN_11EN_STEAM bool ApplySpringCollision(float springConst, CVector &springDir, CVector &point, float springRatio, float bias);

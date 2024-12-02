@@ -95,7 +95,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetModelIndexNoCreate(unsigned int modelIndex);
     SUPPORTED_10EN_11EN_STEAM void CreateRwObject();
     SUPPORTED_10EN_11EN_STEAM void DeleteRwObject();
-    SUPPORTED_10EN_11EN_STEAM CRect *GetBoundRect();
+    SUPPORTED_10EN_11EN_STEAM CRect GetBoundRect();
     SUPPORTED_10EN_11EN_STEAM void ProcessControl();
     SUPPORTED_10EN_11EN_STEAM void ProcessCollision();
     SUPPORTED_10EN_11EN_STEAM void ProcessShift();

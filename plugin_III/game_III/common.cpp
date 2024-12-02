@@ -6,6 +6,11 @@
 */
 #include "common.h"
 
+wchar_t* gUString = (wchar_t*)0x74B018;
+wchar_t* gUString2 = (wchar_t*)0x6EDD70;
+char* gString = (char*)0x711B40;
+char* gString2 = (char*)0x878A40;
+
 // Converted from cdecl float FindPlayerHeading(void) 0x4A1220;
 float FindPlayerHeading() {
     return plugin::CallAndReturn<float, 0x4A1220>();

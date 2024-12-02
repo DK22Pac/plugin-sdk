@@ -7,6 +7,7 @@
 #include "CTheScripts.h"
 
 tScriptParam*CTheScripts::ScriptParams = (tScriptParam*)0x7D7438;
+CRunningScript*& CTheScripts::pActiveScripts = *(CRunningScript**)0x975338;
 
 void CTheScripts::ClearSpaceForMissionEntity(CVector const& position, CEntity* entity) {
     plugin::Call<0x45F180, CVector const&, CEntity*>(position, entity);

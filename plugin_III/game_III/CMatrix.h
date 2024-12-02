@@ -83,6 +83,49 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetUnity();
     SUPPORTED_10EN_11EN_STEAM void Update();
     SUPPORTED_10EN_11EN_STEAM void UpdateRW();
+
+    inline void RotateY(float y) {
+        float c = std::cos(y);
+        float s = std::sin(y);
+
+        float rx = this->right.x;
+        float rz = this->right.z;
+        float ux = this->up.x;
+        float uz = this->up.z;
+        float ax = this->at.x;
+        float az = this->at.z;
+        float px = this->pos.x;
+        float pz = this->pos.z;
+
+        this->right.x = c * rx + s * rz;
+        this->right.z = c * rz - s * rx;
+        this->up.x = c * ux + s * uz;
+        this->up.z = c * uz - s * ux;
+        this->at.x = c * ax + s * az;
+        this->at.z = c * az - s * ax;
+        this->pos.x = c * px + s * pz;
+        this->pos.z = c * pz - s * px;
+    }
+
+    void CopyToRwMatrix(RwMatrix* matrix) {
+        matrix->right.x = right.x;
+        matrix->right.y = right.y;
+        matrix->right.z = right.z;
+
+        matrix->up.x = up.x;
+        matrix->up.y = up.y;
+        matrix->up.z = up.z;
+
+        matrix->at.x = at.x;
+        matrix->at.y = at.y;
+        matrix->at.z = at.z;
+
+        matrix->pos.x = pos.x;
+        matrix->pos.y = pos.y;
+        matrix->pos.z = pos.z;
+
+        RwMatrixUpdate(matrix);
+    }
 };
 
 VALIDATE_SIZE(CMatrix, 0x48);

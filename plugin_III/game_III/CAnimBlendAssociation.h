@@ -86,6 +86,9 @@ public:
     inline float GetTimeLeft() { return this->m_pAnimBlendHierarchy->m_fTotalLength - this->m_fCurrentTime; }
     inline float GetProgress() { return this->m_fCurrentTime / this->m_pAnimBlendHierarchy->m_fTotalLength; }
 
+    static CAnimBlendAssociation* FromLink(CAnimBlendLink* l) {
+        return (CAnimBlendAssociation*)((uint8_t*)l - offsetof(CAnimBlendAssociation, link));
+    }
 };
 
 VTABLE_DESC(CAnimBlendAssociation, 0x5EA02C, 1);

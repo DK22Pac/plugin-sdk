@@ -116,6 +116,21 @@ public:
             x = 1.0f;
     }
 
+    float NormaliseAndMag() {
+        float sq = MagnitudeSqr();
+        if (sq > 0.0f) {
+            float invsqrt = 1.0f / std::sqrt(sq);
+            x *= invsqrt;
+            y *= invsqrt;
+            z *= invsqrt;
+            return 1.0f / invsqrt;
+        }
+        else {
+            x = 1.0f;
+            return 1.0f;
+        }
+    }
+
     inline RwV3d ToRwV3d() const {
         return{ x, y, z };
     }
@@ -157,4 +172,8 @@ inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &point
 
 inline CVector operator/(const CVector& left, float right) {
     return CVector(left.x / right, left.y / right, left.z / right);
+}
+
+inline float DotProduct(const CVector& v1, const CVector& v2) {
+    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }

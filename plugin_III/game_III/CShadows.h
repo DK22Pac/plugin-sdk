@@ -74,7 +74,7 @@ public:
     float m_fZDistance;
     float m_fScale;
     unsigned short m_nIntensity;
-    char m_bShadowType;
+    char m_nShadowType;
     unsigned char m_nRed;
     unsigned char m_nGreen;
     unsigned char m_nBlue;

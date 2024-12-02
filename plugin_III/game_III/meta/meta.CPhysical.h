@@ -128,7 +128,7 @@ using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CPhysical *>, 0>;
 META_END
 
-META_BEGIN(CPhysical::ApplyMoveForce)
+META_BEGIN_OVERLOADED(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float))
 static int address;
 static int global_address;
 static const int id = 0x4959A0;

@@ -415,3 +415,8 @@ struct RtAnimInterpolator
         ( (void *)( ( (RwUInt8 *)&(anim[1]) +                                  \
                       ((nodeIndex) *                                           \
                        anim->currentKeyFrameSize) ) ) )
+
+#define rtANIMGETANIMFRAME( anim, nodeIndex )                              \
+        ( (void *)( ( (RwUInt8 *)&(anim->pCurrentAnim->pFrames) +           \
+                      ((nodeIndex) *                                           \
+                       anim->currentKeyFrameSize) ) ) )

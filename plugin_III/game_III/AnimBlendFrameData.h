@@ -8,6 +8,16 @@
 
 #include "PluginBase.h"
 #include "RenderWare.h"
+#include "rw/rphanim.h"
+
+#ifdef PED_SKIN
+struct RpHAnimStdInterpFrame {
+    RpHAnimStdKeyFrame* keyFrame1;
+    RpHAnimStdKeyFrame* keyFrame2;
+    RtQuat q;
+    RwV3d t;
+};
+#endif
 
 enum PLUGIN_API eFrameDataFlag : unsigned char {
     IGNORE_ROTATION = 0x2,
@@ -19,7 +29,22 @@ enum PLUGIN_API eFrameDataFlag : unsigned char {
 struct PLUGIN_API AnimBlendFrameData {
     unsigned char m_nFlags;
     RwV3d m_vecResetPos;
-    RwFrame *m_pFrame;
+#ifdef PED_SKIN
+    union {
+        RpHAnimStdInterpFrame* m_pAnimFrame;
+        RwFrame* m_pFrame;
+    };
+#else
+    RwFrame* m_pFrame;
+#endif
+
+#ifdef PED_SKIN
+    int32_t m_nNodeId;
+#endif
 };
 
+#ifdef PED_SKIN
+VALIDATE_SIZE(AnimBlendFrameData, 0x18);
+#else
 VALIDATE_SIZE(AnimBlendFrameData, 0x14);
+#endif

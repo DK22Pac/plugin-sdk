@@ -8,7 +8,7 @@
 
 void plugin::Image::Release() {
     if (pixels)
-        delete pixels;
+        free(pixels);
 
     delete this;
 }

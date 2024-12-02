@@ -11,20 +11,24 @@
 namespace plugin {
     class Timer {
     public:
-        static bool timerInit;
-        static std::chrono::time_point<std::chrono::steady_clock> startTime;
+        static inline std::chrono::time_point<std::chrono::high_resolution_clock> startTime;
 
     public:
-        Timer();
-        ~Timer();
+        inline Timer() {
+            startTime = std::chrono::high_resolution_clock::now();
+        }
+
+        inline ~Timer() {
+
+        }
 
     public:
         template<typename T = int32_t>
         static T GetTimeInMilliseconds() {
-            return static_cast<T>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - startTime).count());
+            return static_cast<T>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - startTime).count());
         }
 
-        template<typename T = int32_t>
+        template<typename T = double>
         static T GetTimeInSeconds() {
             return GetTimeInMilliseconds<T>() / 1000;
         }

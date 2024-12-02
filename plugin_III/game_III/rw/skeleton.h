@@ -82,12 +82,13 @@ enum RsEvent
     rsREGISTERIMAGELOADER,
     rsRIGHTBUTTONDOWN,
     rsRIGHTBUTTONUP,
-    rsRWINITIALIZE,
+    rsRWINITIALIZE = 21,
     rsRWTERMINATE,
     rsSELECTDEVICE,
     rsINITIALIZE,
     rsTERMINATE,
     rsIDLE,
+    rsFRONTENDIDLE,
     rsKEYDOWN,
     rsKEYUP,
     rsQUITAPP,
@@ -99,7 +100,6 @@ enum RsEvent
     rsPADANALOGUERIGHTRESET,
     rsPREINITCOMMANDLINE,
     rsACTIVATE,
-    rsSETMEMORYFUNCS
 };
 typedef enum RsEvent RsEvent;
 

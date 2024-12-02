@@ -40,6 +40,7 @@
 #include <mutex>
 #include <utility>
 #include <vector>
+#include <optional>
 
 
 //

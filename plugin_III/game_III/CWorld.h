@@ -5,6 +5,20 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#define SECTOR_SIZE_X (40.0f)
+#define SECTOR_SIZE_Y (40.0f)
+
+#define NUMSECTORS_X (100)
+#define NUMSECTORS_Y (100)
+
+#define WORLD_SIZE_X (NUMSECTORS_X * SECTOR_SIZE_X)
+#define WORLD_SIZE_Y (NUMSECTORS_Y * SECTOR_SIZE_Y)
+
+#define WORLD_MIN_X (-2000.0f)
+#define WORLD_MIN_Y (-2000.0f)
+
+#define WORLD_MAX_X (WORLD_MIN_X + WORLD_SIZE_X)
+#define WORLD_MAX_Y (WORLD_MIN_Y + WORLD_SIZE_Y)
 
 #include "PluginBase.h"
 #include "CEntity.h"
@@ -89,4 +103,38 @@ public:
     static void TriggerExplosion(CVector const& point, float radius, float visibleDistance, CEntity* entity, bool processVehicleBombTimer);
     static void TriggerExplosionSectorList(CPtrList& list, CVector const& point, float radius, float visibleDistance, CEntity* entity, bool processVehicleBombTimer);
     static void UseDetonator(CEntity* creator);
+
+    static uint16_t GetCurrentScanCode() {
+        return ms_nCurrentScanCode;
+    }
+
+    static inline CSector* GetSector(int32_t x, int32_t y) {
+        return &ms_aSectors[y * NUMSECTORS_X + x];
+    }
+
+    static inline void AdvanceCurrentScanCode() {
+        if (++CWorld::ms_nCurrentScanCode == 0) {
+            CWorld::ClearScanCodes();
+            CWorld::ms_nCurrentScanCode = 1;
+        }
+    }
+
+    static float GetSectorX(float f) {
+        return ((f - WORLD_MIN_X) / SECTOR_SIZE_X);
+    }
+    static float GetSectorY(float f) {
+        return ((f - WORLD_MIN_Y) / SECTOR_SIZE_Y);
+    }
+    static int32_t GetSectorIndexX(float f) {
+        return (int)GetSectorX(f);
+    }
+    static int32_t GetSectorIndexY(float f) {
+        return (int)GetSectorY(f);
+    }
+    static float GetWorldX(int x) {
+        return x * SECTOR_SIZE_X + WORLD_MIN_X;
+    }
+    static float GetWorldY(int y) {
+        return y * SECTOR_SIZE_Y + WORLD_MIN_Y;
+    }
 };
