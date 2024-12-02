@@ -33,7 +33,6 @@ defines {
 	"_USE_MATH_DEFINES",
 	"_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING"
 }
-cppdialect "C++17"
 
 files {
 	projectPath .. "source/Main.cpp",

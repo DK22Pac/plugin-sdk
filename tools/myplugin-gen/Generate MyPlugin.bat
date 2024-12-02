@@ -56,5 +56,9 @@ goto build
 
 :build
 ..\\premake\\premake5 vs"!vsVer!" --file=premake\\"!input!.lua" --project_name="!name!" --game_name="!input!"
+
+echo Path: "tools/myplugin-gen/generated"
+
+start generated/!projectName!/project_files/!projectName!.sln
     
 pause
