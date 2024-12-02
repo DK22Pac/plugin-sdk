@@ -225,7 +225,7 @@ RwFrame* RwFrameTranslate(RwFrame* frame, const RwV3d* v, RwOpCombineType combin
 RwFrame* RwFrameRotate(RwFrame* frame, const RwV3d* axis, RwReal angle, RwOpCombineType combine); // 0x5A21E0 gta3
 RwFrame* RwFrameScale(RwFrame* frame, const RwV3d* v, RwOpCombineType combine); // 0x5A20A0 gta3
 RwFrame* RwFrameTransform(RwFrame* frame, const RwMatrix* m, RwOpCombineType combine); // 0x5A2140 gta3
-RwFrame* RwFrameOrthoNormalize(RwFrame* frame); // 0x5A2280 gta3
+RwFrame* RwFrameSetIdentity(RwFrame* frame); // 0x5A2280 gta3
 RwBool RwFrameDestroyHierarchy(RwFrame* frame); // 0x5A1BF0 gta3
 RwFrame* RwFrameForAllChildren(RwFrame* frame, RwFrameCallBack callBack, void* data); // 0x5A1FC0 gta3
 RwFrame* RwFrameRemoveChild(RwFrame* child); // 0x5A1ED0 gta3

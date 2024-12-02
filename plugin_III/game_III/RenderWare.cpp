@@ -798,7 +798,7 @@ RwFrame* RwFrameTransform(RwFrame* frame, const RwMatrix* m, RwOpCombineType com
     return ((RwFrame*(__cdecl *)(RwFrame*, const RwMatrix*, RwOpCombineType))0x5A2140)(frame, m, combine);
 }
 
-RwFrame* RwFrameOrthoNormalize(RwFrame* frame) {
+RwFrame* RwFrameSetIdentity(RwFrame* frame) {
     return ((RwFrame*(__cdecl *)(RwFrame*))0x5A2280)(frame);
 }
 
