@@ -66,5 +66,4 @@ CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* asso
 bool RpAnimBlendPluginAttach();
 void DefinedState();
 
-template<typename T>
-T* GetD3DDevice();
+void* GetD3DDevice();

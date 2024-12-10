@@ -191,7 +191,6 @@ void DefinedState() {
     plugin::Call<0x526330>();
 }
 
-template<typename T>
-T* GetD3DDevice() {
-    return *reinterpret_cast<T**>(0x7897A8);
+void* GetD3DDevice() {
+    return *reinterpret_cast<void**>(0x7897A8);
 }
