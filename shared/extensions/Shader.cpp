@@ -160,7 +160,8 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
                     }
                     char *vShaderCode = CompileShaderFromString(shaderCode.c_str(), &entryPoint[1], &version[1], bDebug);
                     if (vShaderCode) {
-                        GetD3DDevice<IDirect3DDevice9>()->CreateVertexShader((DWORD *)vShaderCode, &vertexShader);
+                        auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
+                        dev->CreateVertexShader((DWORD *)vShaderCode, &vertexShader);
                         delete[] vShaderCode;
                     }
                 }
@@ -184,7 +185,8 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
                     }
                     char *pShaderCode = CompileShaderFromString(shaderCode.c_str(), &entryPoint[1], &version[1], bDebug);
                     if (pShaderCode) {
-                        GetD3DDevice<IDirect3DDevice9>()->CreatePixelShader((DWORD *)pShaderCode, &pixelShader);
+                        auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
+                        dev->CreatePixelShader((DWORD *)pShaderCode, &pixelShader);
                         delete[] pShaderCode;
                     }
                 }
@@ -206,14 +208,16 @@ bool Shader::LoadFromBinary(std::ifstream &file) {
                     char *vShaderCode = new char[header.vsSize];
                     file.seekg(header.vsOffset);
                     file.read(vShaderCode, header.vsSize);
-                    GetD3DDevice<IDirect3DDevice9>()->CreateVertexShader((DWORD *)vShaderCode, &vertexShader);
+                    auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
+                    dev->CreateVertexShader((DWORD *)vShaderCode, &vertexShader);
                     delete[] vShaderCode;
                 }
                 if (header.psSize) {
                     char *pShaderCode = new char[header.psSize];
                     file.seekg(header.psOffset);
                     file.read(pShaderCode, header.psSize);
-                    GetD3DDevice<IDirect3DDevice9>()->CreatePixelShader((DWORD *)pShaderCode, &pixelShader);
+                    auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
+                    dev->CreatePixelShader((DWORD *)pShaderCode, &pixelShader);
                     delete[] pShaderCode;
                 }
                 return true;
@@ -356,14 +360,15 @@ void Shader::GetWorldViewProj(RpAtomic *atomic, D3DMATRIX *world, D3DMATRIX *vie
 
 void Shader::DrawRect(float left, float top, float right, float bottom) {
     D3DVIEWPORT9 oldViewport, viewport;
-    GetD3DDevice<IDirect3DDevice9>()->GetViewport(&oldViewport);
+    auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
+    dev->GetViewport(&oldViewport);
     viewport.X = static_cast<DWORD>(left);
     viewport.Y = static_cast<DWORD>(top);
     viewport.Width = static_cast<DWORD>(right - left);
     viewport.Height = static_cast<DWORD>(bottom - top);
     viewport.MinZ = 0.0f;
     viewport.MaxZ = 1.0f;
-    GetD3DDevice<IDirect3DDevice9>()->SetViewport(&viewport);
+    dev->SetViewport(&viewport);
     IDirect3DVertexDeclaration9*  VertDecl = NULL, *oldVertDecl = NULL;
     struct Vertex {
         D3DXVECTOR2 pos;
@@ -378,13 +383,13 @@ void Shader::DrawRect(float left, float top, float right, float bottom) {
         { 0, 8, D3DDECLTYPE_FLOAT2, D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_TEXCOORD, 0 },
         D3DDECL_END()
     };
-    GetD3DDevice<IDirect3DDevice9>()->CreateVertexDeclaration(Decl, &VertDecl);
-    GetD3DDevice<IDirect3DDevice9>()->GetVertexDeclaration(&oldVertDecl);
-    GetD3DDevice<IDirect3DDevice9>()->SetVertexDeclaration(VertDecl);
+    dev->CreateVertexDeclaration(Decl, &VertDecl);
+    dev->GetVertexDeclaration(&oldVertDecl);
+    dev->SetVertexDeclaration(VertDecl);
     _rwD3D9DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 2, quad, sizeof(Vertex));
     VertDecl->Release();
-    GetD3DDevice<IDirect3DDevice9>()->SetVertexDeclaration(oldVertDecl);
-    GetD3DDevice<IDirect3DDevice9>()->SetViewport(&oldViewport);
+    dev->SetVertexDeclaration(oldVertDecl);
+    dev->SetViewport(&oldViewport);
 }
 
 void plugin::Shader::SetMeshTexture(RxD3D9InstanceData* mesh, unsigned int idx) {
