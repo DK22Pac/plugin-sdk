@@ -11,6 +11,7 @@
 #include "CRect.h"
 #include "RenderWare.h"
 #include "CColModel.h"
+#include "CModelInfo.h"
 
 enum PLUGIN_API eEntityType {
     ENTITY_TYPE_NOTHING = 0,
@@ -137,6 +138,7 @@ public:
     void ProcessLightsForEntity();
     bool IsEntityOccluded();
 
+public:
     inline CVector &GetPosition() {
         return m_placement.pos;
     }
@@ -162,6 +164,10 @@ public:
 
     inline CVector TransformFromObjectSpace(CVector const& offset) {
         return this->m_placement * offset;
+    }
+
+    inline CColModel* GetColModel() {
+        return CModelInfo::GetModelInfo(m_nModelIndex)->m_pColModel;
     }
 
     CEntity() = delete;

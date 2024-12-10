@@ -6,8 +6,7 @@
 */
 #include "RenderWare.h"
 
-RwGlobals *&RwEngineInstance = *(RwGlobals **)0x661228;
-
+void *RwEngineInstance = *(void **)0x661228;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x8F4360;
 
 /* rwplcore.h */
@@ -120,9 +119,89 @@ RwMatrix* RwMatrixTransform(RwMatrix* matrix, const RwMatrix* transform, RwOpCom
     return ((RwMatrix*(__cdecl *)(RwMatrix*, const RwMatrix*, RwOpCombineType))0x5A31C0)(matrix, transform, combineOp);
 }
 
-//RwMatrix* RwMatrixOrthoNormalize(RwMatrix* matrixOut, const RwMatrix* matrixIn) {
-//    return ((RwMatrix*(__cdecl *)(RwMatrix*, const RwMatrix*))0x643830)(matrixOut, matrixIn);
-//}
+RwMatrix* RwMatrixOrthoNormalize(RwMatrix* matrixOut, const RwMatrix* matrixIn) {
+    RwV3d right, up, at, pos;
+    RwV3d* vpU, * vpV, * vpW;
+    RwV3d vInner, vOuter;
+    RwReal recip;
+
+    RwV3dAssign(&right, &matrixIn->right);
+    RwV3dAssign(&up, &matrixIn->up);
+    RwV3dAssign(&at, &matrixIn->at);
+    RwV3dAssign(&pos, &matrixIn->pos);
+
+    _rwV3dNormalizeMacro(vInner.x, &right, &right);
+    _rwV3dNormalizeMacro(vInner.y, &up, &up);
+    _rwV3dNormalizeMacro(vInner.z, &at, &at);
+
+    if (vInner.x > ((RwReal)0)) {
+        if (vInner.y > ((RwReal)0)) {
+            if (vInner.z > ((RwReal)0)) {
+                vOuter.x = RwV3dDotProductMacro(&up, &at);
+                vOuter.x = RwRealAbs(vOuter.x);
+
+                vOuter.y = RwV3dDotProductMacro(&at, &right);
+                vOuter.y = RwRealAbs(vOuter.y);
+
+                vOuter.z = RwV3dDotProductMacro(&right, &up);
+                vOuter.z = RwRealAbs(vOuter.z);
+
+                if (vOuter.x < vOuter.y) {
+                    if (vOuter.x < vOuter.z) {
+                        vpU = &up;
+                        vpV = &at;
+                        vpW = &right;
+                    }
+                    else {
+                        vpU = &right;
+                        vpV = &up;
+                        vpW = &at;
+                    }
+                }
+                else {
+                    if (vOuter.y < vOuter.z) {
+                        vpU = &at;
+                        vpV = &right;
+                        vpW = &up;
+                    }
+                    else {
+                        vpU = &right;
+                        vpV = &up;
+                        vpW = &at;
+                    }
+                }
+            }
+            else {
+                vpU = &right;
+                vpV = &up;
+                vpW = &at;
+            }
+        }
+        else {
+            vpU = &at;
+            vpV = &right;
+            vpW = &up;
+        }
+    }
+    else {
+        vpU = &up;
+        vpV = &at;
+        vpW = &right;
+    }
+
+    RwV3dCrossProductMacro(vpW, vpU, vpV);
+    _rwV3dNormalizeMacro(recip, vpW, vpW);
+    RwV3dCrossProductMacro(vpV, vpW, vpU);
+    _rwV3dNormalizeMacro(recip, vpV, vpV);
+
+    matrixOut->right = right;
+    matrixOut->up = up;
+    matrixOut->at = at;
+    matrixOut->pos = pos;
+    matrixOut->flags = ((matrixOut->flags | rwMATRIXTYPEORTHONORMAL) & ~rwMATRIXINTERNALIDENTITY);
+
+    return matrixOut;
+}
 
 RwMatrix* RwMatrixInvert(RwMatrix* matrixOut, const RwMatrix* matrixIn) {
     return ((RwMatrix*(__cdecl *)(RwMatrix*, const RwMatrix*))0x5A2C90)(matrixOut, matrixIn);
@@ -570,9 +649,10 @@ RwBool RwTextureDestroy(RwTexture* texture) {
     return ((RwBool(__cdecl *)(RwTexture*))0x5A7330)(texture);
 }
 
-//RwTexture* RwTextureSetRaster(RwTexture* texture, RwRaster* raster) {
-//    return ((RwTexture*(__cdecl *)(RwTexture*, RwRaster*))0x64DCC0)(texture, raster);
-//}
+RwTexture* RwTextureSetRaster(RwTexture* texture, RwRaster* raster) {
+    texture->raster = raster;
+    return texture;
+}
 
 RwTexture* RwTexDictionaryAddTexture(RwTexDictionary* dict, RwTexture* texture) {
     return ((RwTexture*(__cdecl *)(RwTexDictionary*, RwTexture*))0x5A7490)(dict, texture);
@@ -796,6 +876,12 @@ RwFrame* RwFrameScale(RwFrame* frame, const RwV3d* v, RwOpCombineType combine) {
 
 RwFrame* RwFrameTransform(RwFrame* frame, const RwMatrix* m, RwOpCombineType combine) {
     return ((RwFrame*(__cdecl *)(RwFrame*, const RwMatrix*, RwOpCombineType))0x5A2140)(frame, m, combine);
+}
+
+RwFrame* RwFrameOrthoNormalize(RwFrame* frame) {
+    RwMatrixOrthoNormalize(&frame->modelling, &frame->modelling);
+    RwFrameUpdateObjects(frame);
+    return frame;
 }
 
 RwFrame* RwFrameSetIdentity(RwFrame* frame) {
@@ -1184,6 +1270,10 @@ RpGeometry* RpGeometryStreamRead(RwStream* stream) {
     return ((RpGeometry*(__cdecl *)(RwStream*))0x5AD050)(stream);
 }
 
+RpAtomic* AtomicDefaultRenderCallBack(RpAtomic* atomic) {
+    return ((RpAtomic * (__cdecl*)(RpAtomic*))0x59E690)(atomic);
+}
+
 void _rpAtomicResyncInterpolatedSphere(RpAtomic* atomic) {
     ((void(__cdecl *)(RpAtomic*))0x59E6C0)(atomic);
 }
@@ -1354,9 +1444,10 @@ RpWorld* RpWorldRemoveLight(RpWorld* world, RpLight* light) {
 
 /* rtquat.h */
 
-//RtQuat* RtQuatRotate(RtQuat* quat, const RwV3d* axis, RwReal angle, RwOpCombineType combineOp) {
-//    return ((RtQuat*(__cdecl *)(RtQuat*, const RwV3d*, RwReal, RwOpCombineType))0x65ABD0)(quat, axis, angle, combineOp);
-//}
+RtQuat* RtQuatRotate(RtQuat* quat, const RwV3d* axis, RwReal angle, RwOpCombineType combineOp) {
+    PLUGIN_FUNC_NOP();
+    return quat;
+}
 
 /* rtanim.h */
 
@@ -1384,8 +1475,8 @@ RpWorld* RpWorldRemoveLight(RpWorld* world, RpLight* light) {
 //    ((void(__cdecl *)(RtAnimInterpolator*))0x64DAC0)(anim);
 //}
 
-RwBool RtAnimInterpolatorSetCurrentAnim(RtAnimInterpolator* animI, RtAnimAnimation* anim) {
-    return ((RwBool(__cdecl *)(RtAnimInterpolator*, RtAnimAnimation*))0x5B1200)(animI, anim);
+RwBool RpHAnimHierarchySetCurrentAnim(RpHAnimHierarchy* hierarchy, RpHAnimAnimation* anim) {
+    return ((RwBool(__cdecl *)(RpHAnimHierarchy*, RpHAnimAnimation*))0x5B1200)(hierarchy, anim);
 }
 
 /* rphanim.h */
@@ -1398,17 +1489,20 @@ RpHAnimHierarchy* RpHAnimFrameGetHierarchy(RwFrame* frame) {
     return ((RpHAnimHierarchy*(__cdecl *)(RwFrame*))0x5B11F0)(frame);
 }
 
-//RwMatrix* RpHAnimHierarchyGetMatrixArray(RpHAnimHierarchy* hierarchy) {
-//    return ((RwMatrix*(__cdecl *)(RpHAnimHierarchy*))0x646370)(hierarchy);
-//}
+RwMatrix* RpHAnimHierarchyGetMatrixArray(RpHAnimHierarchy* hierarchy) {
+    return hierarchy->pMatrixArray;
+}
 
 RwBool RpHAnimHierarchyUpdateMatrices(RpHAnimHierarchy* hierarchy) {
     return ((RwBool(__cdecl *)(RpHAnimHierarchy*))0x5B1780)(hierarchy);
 }
 
-//RwInt32 RpHAnimIDGetIndex(RpHAnimHierarchy* hierarchy, RwInt32 ID) {
-//    return ((RwInt32(__cdecl *)(RpHAnimHierarchy*, RwInt32))0x646390)(hierarchy, ID);
-//}
+RwInt32 RpHAnimIDGetIndex(RpHAnimHierarchy* hierarchy, RwInt32 ID) {
+    for (RwInt32 i = 0; i < hierarchy->numNodes; i++)
+        if (hierarchy->pNodeInfo[i].nodeID == ID)
+            return i;
+    return -1;
+}
 
 RwBool RpHAnimPluginAttach(void) {
     return ((RwBool(__cdecl *)(void))0x5B1D50)();
@@ -1434,16 +1528,16 @@ void RpHAnimKeyFrameMulRecip(void* voidFrame, void* voidStart) {
     ((void(__cdecl *)(void*, void*))0x5CE950)(voidFrame, voidStart);
 }
 
-RtAnimAnimation* RpHAnimKeyFrameStreamRead(RwStream* stream, RtAnimAnimation* animation) {
-    return ((RtAnimAnimation*(__cdecl *)(RwStream*, RtAnimAnimation*))0x5CE820)(stream, animation);
+RpHAnimAnimation* RpHAnimKeyFrameStreamRead(RwStream* stream, RpHAnimAnimation* animation) {
+    return ((RpHAnimAnimation *(__cdecl *)(RwStream*, RpHAnimAnimation*))0x5CE820)(stream, animation);
 }
 
-RwBool RpHAnimKeyFrameStreamWrite(RtAnimAnimation* animation, RwStream* stream) {
-    return ((RwBool(__cdecl *)(RtAnimAnimation*, RwStream*))0x5CE8C0)(animation, stream);
+RwBool RpHAnimKeyFrameStreamWrite(RpHAnimAnimation* animation, RwStream* stream) {
+    return ((RwBool(__cdecl *)(RpHAnimAnimation*, RwStream*))0x5CE8C0)(animation, stream);
 }
 
-RwInt32 RpHAnimKeyFrameStreamGetSize(RtAnimAnimation* animation) {
-    return ((RwInt32(__cdecl *)(RtAnimAnimation*))0x5CE930)(animation);
+RwInt32 RpHAnimKeyFrameStreamGetSize(RpHAnimAnimation* animation) {
+    return ((RwInt32(__cdecl *)(RpHAnimAnimation*))0x5CE930)(animation);
 }
 
 /* rpskin.h */
@@ -1468,13 +1562,13 @@ RpSkin* RpSkinGeometryGetSkin(RpGeometry* geometry) {
     return ((RpSkin*(__cdecl *)(RpGeometry*))0x5B1080)(geometry);
 }
 
-//RwUInt32 RpSkinGetNumBones(RpSkin* skin) {
-//    return ((RwUInt32(__cdecl *)(RpSkin*))0x6499C0)(skin);
-//}
+RwUInt32 RpSkinGetNumBones(RpSkin* skin) {
+    return RpSkinGetData(skin)->boneData.numBones;
+}
 
-//const RwMatrixWeights* RpSkinGetVertexBoneWeights(RpSkin* skin) {
-//    return ((const RwMatrixWeights*(__cdecl *)(RpSkin*))0x6499D0)(skin);
-//}
+const RwMatrixWeights* RpSkinGetVertexBoneWeights(RpSkin* skin) {
+    return (RwMatrixWeights*)(&skin + 0x18);
+}
 
 const RwMatrix* RpSkinGetSkinToBoneMatrices(RpSkin* skin) {
     return ((const RwMatrix*(__cdecl *)(RpSkin*))0x5B10D0)(skin);

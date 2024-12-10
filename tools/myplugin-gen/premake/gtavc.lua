@@ -8,6 +8,7 @@ defines { "GTAVC", "PLUGIN_SGV_10EN", "RW" }
 includedirs {
 	"$(PLUGIN_SDK_DIR)\\plugin_VC\\",
 	"$(PLUGIN_SDK_DIR)\\plugin_VC\\game_VC\\",
+    "$(PLUGIN_SDK_DIR)\\plugin_VC\\game_VC\\rw\\",
 }
 
 debugdir "$(GTA_VC_DIR)"

@@ -400,6 +400,18 @@ template<> struct vtable_meta<className> {\
     virtual ~className() = default;\
     className &operator=(className &&) = default;
 
+#define PLUGIN_FUNC_NOP() \
+    do { \
+        MessageBoxA(nullptr, \
+                   (std::string() + \
+                    __FUNCTION__ " it's not an implemented function and cannot be used in this instance." + \
+                    "\nFile: " + __FILE__ + \
+                    "\nLine: " + std::to_string(__LINE__) \
+                   ).c_str(), \
+                   "plugin-sdk", MB_ICONERROR | MB_OK); \
+        __debugbreak(); \
+    } while (false)
+
 // get global address for current exe version
 #ifdef GTASA
 #define GLOBAL_ADDRESS_BY_VERSION(a,b,c,d,e,f) (plugin::GetGlobalAddress(plugin::by_version_dyn(a,b,c,d,e,f)))

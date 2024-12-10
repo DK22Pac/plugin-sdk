@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "RenderWare.h"
+#include "Pattern.h"
 
 RsGlobalType& RsGlobal = *gpatternt(RsGlobalType, "48 89 05 ? ? ? ? 8B 05 ? ? ? ? 89 05 ? ? ? ? 8B 05 ? ? ? ? 89 05 ? ? ? ? 33 C0", 3);
 

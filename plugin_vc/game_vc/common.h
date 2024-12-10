@@ -65,3 +65,6 @@ void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen 
 CAnimBlendAssociation* RpAnimBlendGetNextAssociation(CAnimBlendAssociation* association);
 bool RpAnimBlendPluginAttach();
 void DefinedState();
+
+template<typename T>
+T* GetD3DDevice();

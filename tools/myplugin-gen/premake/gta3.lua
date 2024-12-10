@@ -8,6 +8,7 @@ defines { "GTA3", "PLUGIN_SGV_10EN", "RW" }
 includedirs {
 	"$(PLUGIN_SDK_DIR)\\plugin_III\\",
 	"$(PLUGIN_SDK_DIR)\\plugin_III\\game_III\\",
+    "$(PLUGIN_SDK_DIR)\\plugin_III\\game_III\\rw\\",
 }
 
 debugdir "$(GTA_III_DIR)"

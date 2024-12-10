@@ -12,7 +12,6 @@
 #include "CWeaponModelInfo.h"
 #include "CTimeModelInfo.h"
 #include "CPedModelInfo.h"
-#include "CVehicle.h"
 
 class CModelInfo {
 public:

@@ -36,15 +36,6 @@ enum eDoorLock : unsigned int {
     DOORLOCK_SKIP_SHUT_DOORS
 };
 
-enum eVehicleType {
-    VEHICLE_AUTOMOBILE,
-    VEHICLE_BOAT,
-    VEHICLE_TRAIN,
-    VEHICLE_HELI,
-    VEHICLE_PLANE,
-    VEHICLE_BIKE
-};
-
 enum eVehicleApperance {
     VEHICLE_APPEARANCE_AUTOMOBILE = 1,
     VEHICLE_APPEARANCE_BIKE,

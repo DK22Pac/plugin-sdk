@@ -67,3 +67,6 @@ void WorldReplaceNormalLightsWithScorched(RpWorld* world, float intensity);
 RpWorld* LightsDestroy(RpWorld* world);
 RpWorld* LightsCreate(RpWorld* world);
 void SetLightsWithTimeOfDayColour(RpWorld* world);
+
+template<typename T>
+T* GetD3DDevice();

@@ -212,3 +212,8 @@ bool RpAnimBlendPluginAttach() {
 void DefinedState() {
     plugin::Call<0x57F9C0>();
 }
+
+template<typename T>
+T* GetD3DDevice() {
+    return *reinterpret_cast<T**>(0x662EF0);
+}

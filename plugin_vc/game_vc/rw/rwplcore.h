@@ -1,10 +1,3 @@
-/*
-    Plugin-SDK (Grand Theft Auto Vice City) header file
-    Authors: GTA Community. See more here
-    https://github.com/DK22Pac/plugin-sdk
-    Do not delete this comment block. Respect others' work!
-*/
-
 /******************************************/
 /*                                        */
 /*    RenderWare(TM) Graphics Library     */
@@ -29,11 +22,12 @@
 /*************************************************************************
  *
  * Filename: <C:/daily/rwsdk/include/d3d8/rwplcore.h>
- * Automatically Generated on: Thu Jan 23 11:06:23 2003
+ * Automatically Generated on: Wed Jul 10 10:45:00 2002
  *
  ************************************************************************/
 
-#pragma once
+#ifndef RWPLCORE_H
+#define RWPLCORE_H
 
 /*--- System Header Files ---*/
 #include <stdarg.h>
@@ -65,8 +59,8 @@ typedef float RwReal;
 typedef RwInt32 RwBool;
 
 #ifdef _MSC_VER
-typedef long long RwInt64;
-typedef unsigned long long RwUInt64;
+typedef __int64 RwInt64;
+typedef unsigned __int64 RwUInt64;
 #define RWZERO64 ((RwUInt64)0)
 #else /* _MSC_VER */
 
@@ -74,7 +68,6 @@ typedef struct _RwUInt64 RwUInt64;
 typedef struct _RwInt64 RwInt64;
 
 /* We'll do it with structures (can't do maths on these, but OK for allocation): */
-#if (!defined(DOXYGEN))
 #ifdef rwBIGENDIAN
 struct _RwUInt64
 {
@@ -106,7 +99,6 @@ struct _RwInt64
 #error "ENDIAN-ness undefined!"
 #endif /* rwLITTLEENDIAN */
 #endif /* rwBIGENDIAN */
-#endif /* (!defined(DOXYGEN)) */
 
 #define RWZERO64 { (RwUInt32)0, (RwUInt32)0 }
 #endif /* _MSC_VER */
@@ -116,8 +108,7 @@ typedef struct _RwInt128 RwInt128;
 
 /* We'll do it with structures
  * (can't do maths on these, but OK for allocation): */
-#if (!defined(DOXYGEN))
-#ifdef rwBIGENDIAN 
+#ifdef rwBIGENDIAN
 struct _RwUInt128
 {
     RwUInt64 top;
@@ -148,7 +139,6 @@ struct _RwInt128
 #error "ENDIAN-ness undefined!"
 #endif /* rwLITTLEENDIAN */
 #endif /* rwBIGENDIAN */
-#endif /* (!defined(DOXYGEN)) */
 
 #define RWZERO128 { RWZERO64, RWZERO64 }
 
@@ -169,10 +159,6 @@ struct _RwInt128
 #define rwMATRIXALIGNMENT sizeof(RwUInt32)
 #define rwFRAMEALIGNMENT sizeof(RwUInt32)
 #define rwV4DALIGNMENT sizeof(RwUInt32)
-
-#if (!defined(rwMALLOCALIGNMENT))
-#define rwMALLOCALIGNMENT sizeof(RwUInt32)
-#endif /* (!defined(rwMALLOCALIGNMENT) */
 
 #if (defined(_MSC_VER))
 
@@ -489,7 +475,6 @@ MACRO_STOP
 static __inline RwInt32
 int32fromreal(RwReal x)
 {
-#if defined(_X86_)
     RwInt16 savemode;
     RwInt16 workmode;
     RwInt32 res;
@@ -509,29 +494,22 @@ int32fromreal(RwReal x)
     }
 
     return res;
-
-#else
-    return 0;
-#endif
 }
 #define RwInt32FromRealMacro(x) int32fromreal(x)
 
 #endif /* (!defined(RWINT32FROMFLOAT)) */
 
-#if (!defined(NOASM) && !defined(__GNUC__) && !defined(__clang__) && defined(_X86_))
+#if (!defined(NOASM))
 static __inline RwUInt32 
-RwFastRealToUInt32Inline(RwReal x)
+RwFastRealToUInt32(RwReal x)
 {
     RwUInt32 res;
 
-    __asm fld dword ptr[x];
-    __asm fistp dword ptr[res];
+    __asm FLD DWord Ptr[x];
+    __asm FISTP DWord Ptr[res];
     
     return(res);
 }
-
-#define RwFastRealToUInt32 RwFastRealToUInt32Inline
-
 #endif /* (defined(NOASM)) */
 
 #endif /* (defined(_MSC_VER)) */
@@ -649,14 +627,11 @@ do                                                                \
 while(0)                                                                  
 
 typedef union _rwIEEEFloatShapeType _rwIEEEFloatShapeType;
-
-#if (!defined(DOXYGEN))
 union _rwIEEEFloatShapeType
 {
     float               value;
     unsigned int        word;
 };
-#endif /* (!defined(DOXYGEN)) */
 
 #define _RW_GET_FLOAT_WORD(i,d)                 \
 do {                                            \
@@ -974,13 +949,13 @@ while(0)
 #if (!defined(rwSqrt))
 /* NOTE: this is overloaded in drvmodel.h for some targets (SKY2 and XBOX atm)
  * [we do in fact do overload w/ sqrtf there, if RW_USE_SPF,
- *  for D3D8, OpenGL and SoftRas] */
+ *  for D3D7, D3D8, OpenGL and SoftRas] */
 #define rwSqrt(_result, _x)     rwSqrtMacro(_result, _x)
 #endif /* (!defined(rwSqrt)) */
 #if (!defined(rwInvSqrt))
 /* NOTE: this is overloaded in drvmodel.h for some targets (SKY2 and XBOX atm)
  * [we do in fact do overload w/ (1 / sqrtf) there, if RW_USE_SPF,
- *  for D3D8, OpenGL and SoftRas] */
+ *  for D3D7, D3D8, OpenGL and SoftRas] */
 #define rwInvSqrt(_recip, _x)   rwInvSqrtMacro(_recip, _x)
 #endif /* (!defined(rwInvSqrt)) */
 #if (!defined(RwTan))
@@ -1002,22 +977,7 @@ while(0)
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/batypes.h ---*/
 #define rwLIBRARYBASEVERSION    0x31000
-#define rwLIBRARYCURRENTVERSION 0x34005
-
-#define rwLIBRARYVERSION31000   0x31000
-#if (rwLIBRARYVERSION31000 < rwLIBRARYBASEVERSION)
-#error "Time to remove all rwLIBRARYVERSION31000 code"
-#endif
-
-#define rwLIBRARYVERSION34001   0x34001
-#if (rwLIBRARYVERSION34001 < rwLIBRARYBASEVERSION)
-#error "Time to remove all rwLIBRARYVERSION34001 code"
-#endif
-
-#define rwLIBRARYVERSION34002   0x34002
-#if (rwLIBRARYVERSION34002 < rwLIBRARYBASEVERSION)
-#error "Time to remove all rwLIBRARYVERSION34002 code"
-#endif
+#define rwLIBRARYCURRENTVERSION 0x33002
 
 /*
  * RWBUILDNUMBER
@@ -1033,16 +993,14 @@ while(0)
  * The following Doxygen comment MUST be copied into RwCore.h,
  * so don't move it from here. */
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup fundamentaltypes
- * \page fundtypesoverview Fundamental Types Overview
+ * \ingroup rwcore
+ * \page rwcoreoverview Core Library Overview
  *
- * \par Requirements
- * \li \b Headers: rwcore.h
- * \li \b Libraries: rwcore.lib
+ * LIBRARY: rwcore.lib
+ * HEADER: rwcore.h
  *
- * The rwcore.lib library provides the fundamental RenderWare features.
+ * This library provides the fundamental RenderWare features.
  *
  * When creating a RenderWare application, this library must always be
  * linked.
@@ -1066,7 +1024,7 @@ while(0)
  * supplied User Guide.  The RenderWare Engine \ref rwengine API is
  * usually the starting point for new developers.
  */
-#endif /* RWADOXYGENEXTERNAL */
+
 
 #if (!defined(RWFORCEENUMSIZEINT))
 #define RWFORCEENUMSIZEINT ((RwInt32)((~((RwUInt32)0))>>1))
@@ -1199,6 +1157,7 @@ while(0)
 
 #if (defined(RWDEBUG) && defined(RWVERBOSE))
 
+/* #include <windows.h> */
 #if (defined(RWMEMDEBUG) && !defined(_CRTDBG_MAP_ALLOC))
 #define _CRTDBG_MAP_ALLOC
 #endif /* defined(RWMEMDEBUG) && !defined(_CRTDBG_MAP_ALLOC)) */
@@ -1230,8 +1189,6 @@ while(0)
 
 /* NB volatile keyword required for VC5.0 to ensure a reload - AMB */
 typedef union RwSplitBits RwSplitBits;
-
-#if (!defined(DOXYGEN))
 union RwSplitBits
 {
     RwReal nReal;
@@ -1262,7 +1219,6 @@ struct RwSplitFixed
 #endif /* rwBIGENDIAN */
 
 typedef union RwUnionReal RwUnionReal;
-
 union RwUnionReal /* MSB is sign bit in any circumstance */
 {
     RwReal real; /* 4 bytes interpreted as RwReal */
@@ -1270,7 +1226,6 @@ union RwUnionReal /* MSB is sign bit in any circumstance */
     RwFixed fixed; /* 4 bytes interpreted as 16:16 fixed */
     RwSplitFixed splitfixed; /* 4 bytes interpreted as 16:16 fixed */
 };
-#endif /* (!defined(DOXYGEN)) */
 
 /*****************/
 
@@ -1278,9 +1233,14 @@ union RwUnionReal /* MSB is sign bit in any circumstance */
 
 /*****************/
 
+/**
+ * \ingroup datatypes
+ * \typedef RwV2d
+ * typedef for struct RwV2d
+ */
 typedef struct RwV2d RwV2d;
 /**
- * \ingroup rwv2d
+ * \ingroup datatypes
  * \struct RwV2d
  * This type represents points in a 2D space, such as device
  * space, specified by the (x, y) coordinates of the point.
@@ -1291,9 +1251,14 @@ struct RwV2d
     RwReal y;   /**< Y vlaue */
 };
 
+/**
+ * \ingroup datatypes
+ * \typedef RwV3d
+ * typedef for struct RwV3d
+ */
 typedef struct RwV3d RwV3d;
 /**
- * \ingroup rwv3d
+ * \ingroup datatypes
  * \struct RwV3d
  *  This type represents 3D points and vectors specified by
  * the (x, y, z) coordinates of a 3D point or the (x, y, z) components of a
@@ -1309,16 +1274,13 @@ struct RwV3d
 #define RWV4DALIGNMENT(_v4d) \
    (! (((rwV4DALIGNMENT)-1) & ((RwUInt32)(_v4d))))
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwv4d
+ * \ingroup datatypes
  * \struct RwV4d
  *  This type represents 4D points and vectors specified by
  * the (x, y, z, w) coordinates of a 4D point or the (x, y, z, w) components of a
  * 4D vector.
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 struct RwV4d
 {
     RwReal x;   /**< X value */
@@ -1327,21 +1289,27 @@ struct RwV4d
     RwReal w;   /**< W value */
 };
 
+/**
+ * \ingroup datatypes
+ * \typedef RwV4d
+ * typedef for struct RwV4d
+ */
 typedef struct RwV4d RWALIGN(RwV4d, rwV4DALIGNMENT);
 
 
-typedef struct RwRect RwRect;
-
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup geometricaltypes
+ * \ingroup datatypes
+ * \typedef RwRect
+ * typedef for struct RwRect
+ */
+typedef struct RwRect RwRect;
+/**
+ * \ingroup datatypes
  * \struct RwRect
  * This type represents a 2D device space rectangle specified
  * by the position of the top-left corner (the offset x, y) and its width (w)
  * and height (h).
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 struct RwRect
 {
     RwInt32 x;  /**< X value of the top-left corner */
@@ -1350,15 +1318,18 @@ struct RwRect
     RwInt32 h;  /**< Height of the rectangle */
 };
 
-typedef struct RwSphere RwSphere;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup geometricaltypes
+ * \ingroup datatypes
+ * \typedef RwSphere
+ * typedef for struct RwSphere
+ */
+typedef struct RwSphere RwSphere;
+/**
+ * \ingroup datatypes
  * \struct RwSphere
  * This type represents a sphere specified by the position
  * of its center and its radius
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwSphere
 {
     RwV3d center;   /**< Sphere center */
@@ -1370,16 +1341,18 @@ struct RwSphere
     ( *(_target) = *(_source) )
 #endif /* (!defined(RwSphereAssign)) */
 
-typedef struct RwLine RwLine;
-
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup geometricaltypes
+ * \ingroup datatypes
+ * \typedef RwLine
+ * typedef for struct RwLine
+ */
+typedef struct RwLine RwLine;
+/**
+ * \ingroup datatypes
  * \struct RwLine
  * This type represents a 3D line specified by the position
  * of its start and end points.
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwLine
 {
     RwV3d start;    /**< Line start */
@@ -1394,13 +1367,11 @@ struct RwLine
 /* The maximum number of texture coordinates */
 #define rwMAXTEXTURECOORDS 8
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup fundtypesdatatypes
+ * \ingroup datatypes
  * RwTextureCoordinateIndex
  *  This type represents the index for texture coordinates.
  */
-#endif /* RWADOXYGENEXTERNAL */
 enum RwTextureCoordinateIndex
 {
     rwNARWTEXTURECOORDINATEINDEX = 0,
@@ -1416,16 +1387,18 @@ enum RwTextureCoordinateIndex
 };
 typedef enum RwTextureCoordinateIndex RwTextureCoordinateIndex;
 
-typedef struct RwTexCoords RwTexCoords;
-
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup fundtypesdatatypes
+ * \ingroup datatypes
+ * \typedef RwTexCoords
+ * typedef for struct RwTexCoords
+ */
+typedef struct RwTexCoords RwTexCoords;
+/**
+ * \ingroup datatypes
  * \struct RwTexCoords
  * This type represents the the u and v texture
  * coordinates of a particular vertex.
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwTexCoords
 {
     RwReal u;   /**< U value */
@@ -1436,13 +1409,10 @@ struct RwTexCoords
 /* Singley linked list macros. End marked as NULL */
 
 typedef struct RwSLLink RwSLLink;    /*** RwSLLink ***/
-
-#if (!defined(DOXYGEN))
 struct RwSLLink
 {
     RwSLLink  *next;
 };
-#endif /* (!defined(DOXYGEN)) */
 
 #define rwSLLinkGetData(link,type,entry)                                \
     ((type *)(((RwUInt8 *)(link))-offsetof(type,entry)))
@@ -1457,13 +1427,10 @@ struct RwSLLink
     ((linkvar)->next)
 
 typedef struct RwSingleList RwSingleList;
-
-#if (!defined(DOXYGEN))
 struct RwSingleList
 {
     RwSLLink link;
 };
-#endif /* (!defined(DOXYGEN)) */
 
 #define rwSingleListInitialize(list)                                    \
     (list)->link.next= NULL;
@@ -1479,14 +1446,11 @@ struct RwSingleList
 /* Doubly linked list. End marked as start (its a ring) */
 
 typedef struct RwLLLink  RwLLLink;                     /*** RwLLLink ***/
-
-#if (!defined(DOXYGEN))
 struct RwLLLink
 {
     RwLLLink *next;
     RwLLLink *prev;
 };
-#endif /* (!defined(DOXYGEN)) */
 
 #define rwLLLinkGetData(linkvar,type,entry)                             \
     ((type *)(((RwUInt8 *)(linkvar))-offsetof(type,entry)))
@@ -1508,13 +1472,10 @@ struct RwLLLink
     ((linkvar)->next)
 
 typedef struct RwLinkList RwLinkList;
-
-#if (!defined(DOXYGEN))
 struct RwLinkList
 {
     RwLLLink link;
 };
-#endif /* (!defined(DOXYGEN)) */
 
 #define rwLinkListInitialize(list)                                      \
     ( (list)->link.next = ((RwLLLink *)(list)),                         \
@@ -1536,17 +1497,19 @@ struct RwLinkList
 #define rwLinkListGetTerminator(list)                                   \
     (&((list)->link))
 
-typedef struct RwSurfaceProperties RwSurfaceProperties;
-
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup fundtypesdatatypes
+ * \ingroup datatypes
+ * \typedef RwSurfaceProperties
+ * typedef for struct RwSurfaceProperties
+ */
+typedef struct RwSurfaceProperties RwSurfaceProperties;
+/**
+ * \ingroup datatypes
  * \struct RwSurfaceProperties
  *  This type represents the ambient, diffuse and
  * specular reflection coefficients of a particular geometry. Each coefficient
  * is specified in the range 0.0 (no reflection) to 1.0 (maximum reflection).
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwSurfaceProperties
 {
     RwReal ambient;   /**< ambient reflection coefficient */
@@ -1578,10 +1541,10 @@ struct RwSurfaceProperties
  */
 #define RWFIX_MIN     (1)
 #define RWFIX_MAX     (0x7fffffff)
-#define RwFixedToInt(a)    ((a) >> 16)
-#define RwFixedToFloat(a)  ((float)(((float)(a)) * (1.0f / 65536.0f)))
+#define RwFixedCast(A)     (RwInt32FromRealMacro((A) * 65536.0f))
+#define RwFixedToInt(A)    ((A) >> 16)
+#define RwFixedToFloat(A)  ((float)(((float)(A)) * (1.0f / 65536.0f)))
 #define RwFixedToReal(a)   ((RwReal)(((RwReal)(a)) * (1.0f / 65536.0f)))
-#define RwIntToFixed(a)    ((a) << 16)
 #define RwRealToFixed(a)   (RwInt32FromRealMacro((a) * 65536.0f))
 #define RwRealAbs(a)       ((RwReal)((a) >= (RwReal)(0.0) ? (a) : (-(a))))
 #define RwRealMin2(a,b)    ((RwReal)( ((a) <= (b)) ?  (a) : (b)))
@@ -1592,6 +1555,7 @@ struct RwSurfaceProperties
 #ifndef NORWREALSHORTCUT
 #define RToFixed RwRealToFixed
 #define RAbs     RwRealAbs
+#define FxCast    RwFixedCast
 #define FxToInt   RwFixedToInt
 #define FxToFloat RwFixedToFloat
 #define FxToReal  RwFixedToFloat
@@ -1616,8 +1580,6 @@ struct RwSurfaceProperties
  * typedef for struct RwPlane
  */
 typedef struct RwPlane RwPlane;
-
-#if (!defined(DOXYGEN))
 /*
  * This type represents a plane
  */
@@ -1626,7 +1588,7 @@ struct RwPlane
     RwV3d normal;    /**< Normal to the plane */
     RwReal distance; /**< Distance to plane from origin in normal direction*/
 };
-#endif /* (!defined(DOXYGEN)) */
+
 
 /****************************************************************************
  Defines
@@ -1651,7 +1613,7 @@ typedef enum RwPlaneType RwPlaneType;
     (*(const RwReal *)(((const RwUInt8 *)(&((vect).x)))+(RwInt32)(y)))
 #define SETCOORD(vect,y,value)                                          \
     (((*(RwReal *)(((RwUInt8 *)(&((vect).x)))+(RwInt32)(y))))=(value))
-#define SETCONSTCOORD(vect,y,value)                                      \
+#define SETCONTCOORD(vect,y,value)                                      \
     (((*(const RwReal *)                                                \
        (((const RwUInt8 *)                                              \
          (&((vect).x)))+(RwInt32)(y))))=(value))
@@ -1662,7 +1624,7 @@ typedef enum RwPlaneType RwPlaneType;
 
 
 /**
- * \ingroup integertypes
+ * \ingroup rwcore
  * \page inttypes Integer Types
  *
  * RenderWare supports a number of integer types:
@@ -1699,7 +1661,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /**
- * \ingroup realtypes
+ * \ingroup datatypes
  * \typedef RwReal 
  *
  * RenderWare supports a single RwReal floating-point type to aid portability
@@ -1721,7 +1683,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup realtypes
+ * \ingroup datatypes
  * \typedef RwFixed
  * 
  * RenderWare supports a single RwFixed fixed-point type.
@@ -1734,15 +1696,15 @@ typedef enum RwPlaneType RwPlaneType;
  * RWFIX_MAX and RWFIX_MIN respectively.
  *
  * The following macros are provided to help you work with RwFixed datatypes:
+ *    \li RwFixedCast(x)        Cast the integer portion of an RwFixed to another type.
  *    \li RwFixedToInt(x)       Convert an RwFixed to an integer. (The fractional portion is lost.)
  *    \li RwFixedToFloat(x)     Convert an RwFixed to a float.
  *    \li RwFixedToReal(x)      Convert an RwFixed to an RwReal.
  *    \li RwRealToFixed(x)      Convert an RwReal to an RwFixed. (Some precision may be lost.)
- *    \li RwIntToFixed(x)       Convert an RwInt32 to an RwFixed. (Some precision may be lost.)
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwInt8    
  * 
  * Signed 8 bit integer type.
@@ -1750,7 +1712,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwUInt8   
  *
  * Unsigned 8bit integer type.
@@ -1758,7 +1720,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwChar    
  *
  * Character type.
@@ -1766,7 +1728,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwInt16   
  *
  * Signed 16 bit integer type.
@@ -1774,7 +1736,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwUInt16  
  *
  * Unsigned 16 bit integer type.
@@ -1782,7 +1744,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwInt32   
  *
  * Signed 32 bit integer type.
@@ -1790,7 +1752,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwUInt32  
  *
  * Unsigned 32 bit integer type.
@@ -1798,7 +1760,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwInt64   
  *
  * Signed 64 bit integer type.
@@ -1806,7 +1768,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwUInt64  
  *
  * Unsigned 64 bit integer type.
@@ -1814,7 +1776,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwInt128  
  *
  * Signed 128 bit integer type.
@@ -1822,7 +1784,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwUInt128 
  *
  * Unsigned 128 bit integer type.
@@ -1830,7 +1792,7 @@ typedef enum RwPlaneType RwPlaneType;
  */
 
 /** 
- * \ingroup integertypes
+ * \ingroup datatypes
  * \typedef RwBool    
  *
  * Boolean type.
@@ -1932,10 +1894,8 @@ enum RwCorePluginID
     rwID_PITEXDICTIONARY        = 0x23,
     rwID_TOC                    = 0x24,
     rwID_PRTSTDGLOBALDATA       = 0x25,
-    rwID_ALTPIPE                = 0x26,
-    rwID_PIPEDS                 = 0x27,
     /* Insert before MAX and increment MAX */
-    rwID_COREPLUGINIDMAX        = 0x28,
+    rwID_COREPLUGINIDMAX        = 0x26,
     rwCOREPLUGINIDFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwCorePluginID RwCorePluginID ;
@@ -1984,15 +1944,12 @@ typedef enum RwPlatformID RwPlatformID;
  */
 
 typedef struct RwObject RwObject;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwobject
+ * \ingroup datatypes
  * \struct RwObject
  * This should be considered an opaque type. Use
  * the RwObject API functions to access.
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 struct RwObject
 {
         RwUInt8 type;                /**< Internal Use */
@@ -2003,24 +1960,34 @@ struct RwObject
                                      /* Often a Frame  */
 };
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwobject
- * \ref RwObjectCallBack
+ * \ingroup datatypes
+ * \typedef RwObjectCallBack
  * callback function supplied for object callback functions.
  *
- * \param  object   Pointer to the current object, supplied by
- *                  iterator.
- * \param  data     Pointer to developer-defined data structure.
- *
  * \return Pointer to the current object
+ *
+ * \param  object   Pointer to the current object, supplied by
+ * iterator.
+ * \param  data  Pointer to developer-defined data structure.
  *
  * \see RwFrameForAllObjects
  *
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 typedef RwObject *(*RwObjectCallBack)(RwObject *object, void *data);
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+/* TYPE METHODS */
+
+/* Creation/cloning */
 
 #define rwObjectCopy(d,s)                               \
 MACRO_START                                             \
@@ -2072,9 +2039,55 @@ MACRO_STOP
 #define rwObjectGetParent(object)           (((const RwObject *)(object))->parent)
 #define rwObjectSetParent(c,p)              (((RwObject *)(c))->parent) = (void *)(p)
 
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/os/win/osintf.h ---*/
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/rwstring.h ---*/
+
+/****************************************************************************
+ Defines
+ */
+
+#define rwsprintf   RWSRCGLOBAL(stringFuncs).vecSprintf
+#define rwvsprintf  RWSRCGLOBAL(stringFuncs).vecVsprintf
+#define rwstrcpy    RWSRCGLOBAL(stringFuncs).vecStrcpy
+#define rwstrncpy   RWSRCGLOBAL(stringFuncs).vecStrncpy
+#define rwstrcat    RWSRCGLOBAL(stringFuncs).vecStrcat
+#define rwstrncat   RWSRCGLOBAL(stringFuncs).vecStrncat
+#define rwstrrchr   RWSRCGLOBAL(stringFuncs).vecStrrchr
+#define rwstrchr    RWSRCGLOBAL(stringFuncs).vecStrchr
+#define rwstrstr    RWSRCGLOBAL(stringFuncs).vecStrstr
+#define rwstrcmp    RWSRCGLOBAL(stringFuncs).vecStrcmp
+#define rwstricmp   RWSRCGLOBAL(stringFuncs).vecStricmp
+#define rwstrlen    RWSRCGLOBAL(stringFuncs).vecStrlen
+#define rwstrupr    RWSRCGLOBAL(stringFuncs).vecStrupr
+#define rwstrlwr    RWSRCGLOBAL(stringFuncs).vecStrlwr
+#define rwstrtok    RWSRCGLOBAL(stringFuncs).vecStrtok
+#define rwsscanf    RWSRCGLOBAL(stringFuncs).vecSscanf
+
+#define rwstrdup(_result, _string)                \
+do                                                \
+{                                                 \
+    _result = ((RwChar*)NULL);                    \
+                                                  \
+    if (((RwChar*)NULL) != (_string))             \
+    {                                             \
+        _result = (RwChar *)                      \
+            RwMalloc( (rwstrlen(_string) + 1) *   \
+                      sizeof (RwChar) );          \
+                                                  \
+        if (((RwChar*)NULL) != (_result))         \
+        {                                         \
+            rwstrcpy(_result, _string);           \
+        }                                         \
+    }                                             \
+}                                                 \
+while (0)
+
 
 /****************************************************************************
  Global Types
@@ -2115,8 +2128,6 @@ typedef int (*vecSscanfFunc)(const RwChar *buffer,
                              ...) /* __RWFORMAT__(scanf, 2, 3) */;
 
 typedef struct RwStringFunctions RwStringFunctions;
-
-#if (!defined(DOXYGEN))
 struct RwStringFunctions
 {
     vecSprintfFunc vecSprintf ;
@@ -2136,7 +2147,6 @@ struct RwStringFunctions
     vecStrtokFunc vecStrtok;
     vecSscanfFunc vecSscanf;
 };
-#endif /* (!defined(DOXYGEN)) */
 
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/rwdbgerr.h ---*/
@@ -2193,32 +2203,32 @@ typedef enum RwErrorCodePlugin_errcore RwErrorCodePlugin_errcore;
 #endif /* (!defined(rwFREELISTCLEANLANDFILL)) */
 
 #define RWFREELISTALIGNED(_pData, _freelist) \
-  (! (((RwUInt32)(_pData)) & ((_freelist)->alignment - 1)) )
+  (! (((RwUInt32)(_pData)) & ((_freelist)->alignmentMinusOne)) )
 
 /*****************************
  * REGULAR MEMORY ALLOCATION *
  *****************************/
 
 /**
- * \ingroup memoryfileinterface
+ * \ingroup rwmem
  * \def RwMalloc
  * RwMalloc(_s) is a macro for malloc(_s).
  */
 
 /**
- * \ingroup memoryfileinterface
+ * \ingroup rwmem
  * \def RwFree
  * RwFree(_p) is a macro for free(_p).
  */
 
 /**
- * \ingroup memoryfileinterface
+ * \ingroup rwmem
  * \def RwCalloc
  * RwCalloc(_n, _s) is a macro for calloc(_n, _s).
  */
 
 /**
- * \ingroup memoryfileinterface
+ * \ingroup rwmem
  * \def RwRealloc
  * RwRealloc(_p, _s) is a macro for realloc(_p, _s).
  */
@@ -2242,6 +2252,8 @@ typedef enum RwErrorCodePlugin_errcore RwErrorCodePlugin_errcore;
 # if (defined(_MSC_VER))
 #  if ((_MSC_VER>=1000) && defined(_DEBUG))
 
+/* Pick up _ASSERTE() macro */
+/* #include <windows.h> */
 #if (defined(RWMEMDEBUG) && !defined(_CRTDBG_MAP_ALLOC))
 #define _CRTDBG_MAP_ALLOC
 #endif /* defined(RWMEMDEBUG) && !defined(_CRTDBG_MAP_ALLOC)) */
@@ -2418,6 +2430,22 @@ typedef enum RwErrorCodePlugin_errcore RwErrorCodePlugin_errcore;
 #define rwDEADPTRFILL      (NULL)
 #endif /* (!defined(rwDEADPTRFILL)) */
 
+#if (!defined(RwMalloc))
+#define RwMalloc(_s)   ((RWSRCGLOBAL(memoryFuncs).rwmalloc)((_s)))
+#endif /* (!defined(RwMalloc)) */
+
+#if (!defined(RwFree))
+#define RwFree(_p)     ((RWSRCGLOBAL(memoryFuncs).rwfree)((_p)))
+#endif /* (!defined(RwFree)) */
+
+#if (!defined(RwCalloc))
+#define RwCalloc(_n, _s)   ((RWSRCGLOBAL(memoryFuncs).rwcalloc)((_n), (_s)))
+#endif /* (!defined(RwCalloc)) */
+
+#if (!defined(RwRealloc))
+#define RwRealloc(_p, _s)  ((RWSRCGLOBAL(memoryFuncs).rwrealloc)((_p),(_s)))
+#endif /* (!defined(RwRealloc)) */
+
 #if (!defined(RWCRTORDBGFLAG))
 #define     RWCRTORDBGFLAG(_flag) /* No op */
 #endif /* (!defined(RWCRTORDBGFLAG)) */
@@ -2528,12 +2556,12 @@ typedef enum RwErrorCodePlugin_errcore RwErrorCodePlugin_errcore;
 
 typedef struct RwMemoryFunctions RwMemoryFunctions;
 /**
- * \ingroup memoryfileinterface
+ * \ingroup datatypes
  * \struct RwMemoryFunctions
  * This type represents the memory functions used
  * by RenderWare. By default, the standard ANSI functions are used. The
  * application may install an alternative interface providing that it is ANSI
- * compliant (in RenderWare Graphics see API function RwEngineInit):
+ * compliant (see API function \ref RwEngineInit):
  */
 struct RwMemoryFunctions
 {
@@ -2546,44 +2574,60 @@ struct RwMemoryFunctions
     void *(*rwcalloc)(size_t numObj, size_t sizeObj); /**< calloc     calloc */
 };
 
- /**
- * \ingroup rwfreelist
- * The free list was statically allocated
+typedef struct RwFreeBlock RwFreeBlock;
+/*
+ * Freelists -- from Page 131
+ * Advanced Animation and Rendering Techniques
+ * Alan Watt and Mark Watt
+ * Addison-Wesley 1993,
+ * ISBN 0-201-54412-1:
  *
- * \see RwFreeListSetFlags
+ * "Lastly, on a more general note concerning speedups for renderers, the
+ *  implementor should be aware that a lot of suggestions for improving
+ *  efficiency fall into the category of ingenious, but complex,
+ *  algorithms for very specific contexts that may save a few microseconds
+ *  but which make your code unreadable.  A more general computer science
+ *  perspective that takes a `global view' of the renderer can be more
+ *  fruitful.  For example, the renderer devotes a lot of time to
+ *  allocating and deallocating chunks of memory for storing data. A lot
+ *  of these chunks are always the same size - such as those that are
+ *  continually required to store the data structure for fragment lists.
+ *  Using memory management techniques that recognize this fact can yield
+ *  considerable dividends.  One such scheme would be to hold a series of
+ *  empty lists in memory for all the commonly used data structures.  An
+ *  empty list for fragments, say, would contain a list of previously
+ *  allocated, but no longer needed, fragment structures.  When the
+ *  renderer needs memory for a new fragment, it looks first at this empty
+ *  list.  If there is nothing there it allocates space directly,
+ *  otherwise it takes a fragments off the end of the list and uses that.
+ *  Conversely, when the renderer no longer needs a fragment, instead of
+ *  freeing it, it goes onto the end of the empty list.  In the authors'
+ *  experience, replacing the naive allocate/deallocate scheme with this
+ *  way of managing memory can result in 100% speedup. "
  */
-#define rwFREELISTFLAG_STATIC 0x00000001
-
-/**
- * \ingroup rwfreelist
- * \hideinitializer
- * Free blocks as soon as they are empty
- *
- * \see RwFreeListSetFlags
- */
-#define rwFREELISTFLAG_FREEBLOCKS 0x00000002
-
+struct RwFreeBlock
+{
+    RwFreeBlock        *nextBlock;
+};
 
 typedef struct RwFreeList RwFreeList;
-
-/**
- * \ingroup rwfreelist
- * Holds free list info, should be considered opaque. Use API functions to access.
- */
 struct RwFreeList
 {
-    RwUInt32   entrySize;       /**<size of an entry in the free list */
-#if (defined(RWDEBUG) && !defined(DOXYGEN))
-    RwUInt32   nonAlignedEntrySize;
-#endif /* (defined(RWDEBUG) && !defined(DOXYGEN)) */
-    RwUInt32   entriesPerBlock; /**<number of entries per free list block */
-    RwUInt32   heapSize;        /**<size of the heap */
-    RwUInt32   alignment;       /**<alignment of a free list entry */
-    RwLinkList blockList;       /**<list of data blocks */
-    RwUInt32   flags;           /**<flags which affect the behavior of the
-                                    free list <BR>
-                                    rwFREELISTFLAG_FREEBLOCKS */
-    RwLLLink   link;            /**<link to the free list linked list */
+    void              **freeListStack; /* Stack of unused entries */
+    void              **freeListStackTop; /* Pointer to the top of the stack */
+
+    RwFreeBlock        *firstBlock; /* Data start */
+
+    RwInt32             blockSize; /* Size of block in bytes */
+    RwInt32             entrySize; /* Entry size */
+    RwInt32             alignmentMinusOne; /* Entry alignment minus 1 */
+    RwInt32             entriesPerBlock; /* Amount of space in a block */
+
+    RwInt32             entriesAllocated; /* Total slots allocated
+                                           * (but not necessarily being used */
+
+    /* All freelists */
+    RwLLLink            lFreeList;
 
 #if (defined(RWDEBUG) && !defined(DOXYGEN))
     const RwChar       *fileCreate;
@@ -2591,9 +2635,8 @@ struct RwFreeList
 #endif /* (defined(RWDEBUG) && !defined(DOXYGEN)) */
 };
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwfreelist
+ * \ingroup datatypes
  * \ref RwFreeListCallBack represents
  * the function called from \ref RwFreeListForAllUsed for all used entries in a
  * given free list.
@@ -2605,11 +2648,94 @@ struct RwFreeList
  * \see RwFreeListForAllUsed
  *
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 typedef void        (*RwFreeListCallBack) (void *pMem, void *pData);
 typedef void       *(*RwMemoryAllocFn)    (RwFreeList * fl);
 typedef RwFreeList *(*RwMemoryFreeFn)     (RwFreeList * fl, void *pData);
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern              "C"
+{
+#endif                          /* __cplusplus */
+
+extern RwMemoryFunctions *RwOsGetMemoryInterface(void);
+
+/*************
+ * FREELISTS *
+ *************/
+
+/* Allocation and freeing */
+#if (defined(RWDEBUG) && !defined(DOXYGEN))
+
+extern RwFreeList  *_rwFreeListCreate(RwInt32 entrySize,
+                                      RwInt32 entriesPerBlock,
+                                      RwInt32 alignment,
+                                      const RwChar *fileCreate,
+                                      RwUInt32 lineCreate );
+
+#define RwFreeListCreate(entrySize, entriesPerBlock, alignment) \
+                    _rwFreeListCreate(entrySize,                \
+                                      entriesPerBlock,          \
+                                      alignment,                \
+                                      __FILE__,                 \
+                                      __LINE__)
+#else /* (defined(RWDEBUG) && !defined(DOXYGEN)) */
+
+extern RwFreeList  *RwFreeListCreate(RwInt32 entrySize,
+                                     RwInt32 entriesPerBlock,
+                                     RwInt32 alignment);
+#endif /* (defined(RWDEBUG) && !defined(DOXYGEN)) */
+
+extern RwBool       RwFreeListDestroy(RwFreeList * freelist);
+/* Garbage collection/enumeration */
+extern RwInt32      RwFreeListPurge(RwFreeList * freelist);
+extern RwFreeList  *RwFreeListForAllUsed(RwFreeList * freelist,
+                                         RwFreeListCallBack
+                                         fpCallBack, void *pData);
+extern RwInt32      RwFreeListPurgeAllFreeLists(void);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+#if (defined(RWDEBUG) && defined(RWNOFREELISTS) && !defined(RWKEEPFREELISTS))
+
+#if ((defined(__MWERKS__) || defined(__GNUC__)) && defined(__R5900__))
+
+/*
+ * for more on memalign, see
+ * http://www.gnu.org/manual/glibc-2.0.6/html_chapter/libc_3.html#SEC28
+ */
+#include <rtdbmalloc.h>
+
+#define RwFreeListAlloc(_f)     \
+    memalign((1 + (_f)->alignmentMinusOne),  (_f)->entrySize)
+
+#else /* ((defined(__MWERKS__) || defined(__GNUC__)) && defined(__R5900__)) */
+
+#define RwFreeListAlloc(_f)     \
+    RwMalloc((_f)->entrySize)
+
+#endif /* ((defined(__MWERKS__) || defined(__GNUC__)) && defined(__R5900__)) */
+
+#define RwFreeListFree(_f, _p)  \
+    RwFree((_p))
+
+#endif /* (defined(RWDEBUG) && defined(RWNOFREELISTS) && !defined(RWKEEPFREELISTS)) */
+
+#if (!defined(RwFreeListAlloc))
+#define RwFreeListAlloc(_f)     \
+    RWSRCGLOBAL(memoryAlloc)(_f)
+#endif /* (!defined(RwFreeListAlloc)) */
+
+#if (!defined(RwFreeListFree))
+#define RwFreeListFree(_f, _p)  \
+    RWSRCGLOBAL(memoryFree)(_f, _p)
+#endif /* (!defined(RwFreeListFree)) */
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/bastream.h ---*/
 
@@ -2624,7 +2750,7 @@ typedef RwFreeList *(*RwMemoryFreeFn)     (RwFreeList * fl, void *pData);
  */
 
 /**
- * \ingroup rwstream
+ * \ingroup datatypes
  * \ref RwStreamType 
  * This type represents the different types of stream that 
  * can be used. 
@@ -2642,7 +2768,7 @@ enum RwStreamType
 typedef enum RwStreamType RwStreamType;
 
 /**
- * \ingroup rwstream
+ * \ingroup datatypes
  * \ref RwStreamAccessType 
  * This type represents the options available for 
  * accessing a stream when it is opened.
@@ -2659,8 +2785,8 @@ typedef enum RwStreamAccessType RwStreamAccessType;
 
 /* Memory stream */
 /**
- * \ingroup rwstream
- * \struct RwStreamMemory
+ * \ingroup datatypes
+ * \typedef RwStreamMemory
  * This should be considered an opaque type.
  * Use the RwStream API functions to access.
  */
@@ -2677,7 +2803,7 @@ struct RwStreamMemory
 
 typedef union RwStreamFile RwStreamFile;
 /**
- * \ingroup rwstream
+ * \ingroup datatypes
  * \union RwStreamFile 
  * This type is used to represent a file pointer for
  * accessing data on disk through the stream mechanism.
@@ -2703,8 +2829,8 @@ typedef             RwBool(*rwCustomStreamFnSkip) (void *data,
 
 /* Custom stream */
 /**
- * \ingroup rwstream
- * \struct  RwStreamCustom
+ * \ingroup datatypes
+ * \typedef  RwStreamCustom
  * This should be considered an opaque type.
  * Use the RwStream API functions to access.
  */
@@ -2724,7 +2850,7 @@ struct RwStreamCustom
 
 typedef union RwStreamUnion RwStreamUnion;
 /**
- * \ingroup rwstream
+ * \ingroup datatypes
  * \union RwStreamUnion
  * The union of all supported stream types
  */
@@ -2736,8 +2862,8 @@ union RwStreamUnion
 };
 
 /**
- * \ingroup rwstream
- * \struct RwStream 
+ * \ingroup datatypes
+ * \typedef RwStream 
  * Binary stream for reading or writing object data. 
  * This should be considered an opaque type.
  * Use the RwStream API functions to access.
@@ -2757,7 +2883,7 @@ struct RwStream
 
 typedef struct RwMemory RwMemory;
 /**
- * \ingroup rwstream
+ * \ingroup datatypes
  * \struct RwMemory
  * This type represents a block of allocated memory.
  * It is used to specify an area of memory connected to a stream of type
@@ -2769,15 +2895,66 @@ struct RwMemory
     RwUInt32    length; /**< length in bytes*/
 };
 
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern              "C"
+{
+#endif                          /* __cplusplus */
+
+/* Open/Close streams */
+
+extern RwStream *
+_rwStreamInitialize(RwStream *stream,
+                    RwBool rwOwned,
+                    RwStreamType type,
+                    RwStreamAccessType accessType,
+                    const void *pData);
+
+extern RwStream *
+RwStreamOpen(RwStreamType type,
+             RwStreamAccessType accessType,
+             const void *pData);
+
+extern RwBool       
+RwStreamClose(RwStream * stream,
+              void *pData);
+
+
+/* Stream read/write */
+extern RwUInt32     
+RwStreamRead(RwStream * stream,
+             void *buffer,
+             RwUInt32 length);
+
+extern RwStream *
+RwStreamWrite(RwStream * stream,
+              const void *buffer,
+              RwUInt32 length);
+
+
+/* Stream skipping */
+extern RwStream *
+RwStreamSkip(RwStream * stream,
+             RwUInt32 offset);
+
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/batkreg.h ---*/
 
 /****************************************************************************
  Global Types
  */
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginDataChunkWriteCallBack represents the function
  * registered by \ref RwCameraRegisterPluginStream, etc. as the function that
  * writes extension data to a binary stream.
@@ -2802,7 +2979,7 @@ struct RwMemory
 typedef RwStream *(*RwPluginDataChunkWriteCallBack)(RwStream *stream, RwInt32 binaryLength, const void *object, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginDataChunkReadCallBack represents the function
  * registered by \ref RwCameraRegisterPluginStream, etc. as the function that
  * reads extension data from a binary stream.
@@ -2827,7 +3004,7 @@ typedef RwStream *(*RwPluginDataChunkWriteCallBack)(RwStream *stream, RwInt32 bi
 typedef RwStream *(*RwPluginDataChunkReadCallBack)(RwStream *stream, RwInt32 binaryLength, void *object, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginDataChunkGetSizeCallBack represents the callback
  * registered by \ref RwCameraRegisterPluginStream, etc. as the function that
  * determines the binary size of the extension data.
@@ -2845,7 +3022,7 @@ typedef RwStream *(*RwPluginDataChunkReadCallBack)(RwStream *stream, RwInt32 bin
 typedef RwInt32(*RwPluginDataChunkGetSizeCallBack)(const void *object, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginDataChunkAlwaysCallBack represents the callback
  * registered by \ref RwCameraSetStreamAlwaysCallBack, etc. as the
  * function that is called after the reading of plugin stream data is
@@ -2860,13 +3037,11 @@ typedef RwInt32(*RwPluginDataChunkGetSizeCallBack)(const void *object, RwInt32 o
  *
  * \param  sizeInObject   A RwInt32 value equal to the size
  * (in bytes) of the extension data.
- *
- * \return Returns TRUE if successful, FALSE otherwise.
  */
 typedef RwBool(*RwPluginDataChunkAlwaysCallBack)(void *object, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginDataChunkRightsCallBack represents the callback
  * registered by RwCameraSetStreamRightsCallBack, etc. as the
  * function that is called after the reading of plugin stream data is
@@ -2883,13 +3058,11 @@ typedef RwBool(*RwPluginDataChunkAlwaysCallBack)(void *object, RwInt32 offsetInO
  * (in bytes) of the extension data.
  *
  * \param  extraData     An RwUInt32 writen with the plugin id.
- *
- * \return Returns TRUE if successful, FALSE otherwise.
  */
 typedef RwBool(*RwPluginDataChunkRightsCallBack)(void *object, RwInt32 offsetInObject, RwInt32 sizeInObject, RwUInt32 extraData);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginObjectConstructor represents the callback
  * registered by \ref RwEngineRegisterPlugin, \ref RwCameraRegisterPlugin, etc.
  * as the function that initializes either the global extension data (in the
@@ -2910,7 +3083,7 @@ typedef RwBool(*RwPluginDataChunkRightsCallBack)(void *object, RwInt32 offsetInO
 typedef void *(*RwPluginObjectConstructor)(void *object, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginObjectCopy represents the callback registered by
  * \ref RwCameraRegisterPlugin, etc. as the function that copies the object
  * extension data when an object is duplicated.
@@ -2932,7 +3105,7 @@ typedef void *(*RwPluginObjectConstructor)(void *object, RwInt32 offsetInObject,
 typedef void *(*RwPluginObjectCopy)(void *dstObject, const void *srcObject, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 /**
- * \ingroup rwplugin
+ * \ingroup datatypes
  * \ref RwPluginObjectDestructor represents the callback registered
  * by \ref RwEngineRegisterPlugin, \ref RwCameraRegisterPlugin, etc. as the
  * function that destroys either the global extension data (in the case of
@@ -2950,8 +3123,6 @@ typedef void *(*RwPluginObjectCopy)(void *dstObject, const void *srcObject, RwIn
  *
  * \return Pointer to the object.
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 typedef void *(*RwPluginObjectDestructor)(void *object, RwInt32 offsetInObject, RwInt32 sizeInObject);
 
 typedef void *(*RwPluginErrorStrCallBack)(void *);
@@ -2959,7 +3130,6 @@ typedef void *(*RwPluginErrorStrCallBack)(void *);
 typedef struct RwPluginRegistry RwPluginRegistry;
 typedef struct RwPluginRegEntry RwPluginRegEntry;
 
-#if (!defined(DOXYGEN))
 struct RwPluginRegistry
 {
     RwInt32          sizeOfStruct;
@@ -2988,9 +3158,139 @@ struct RwPluginRegEntry
     RwPluginRegEntry *prevRegEntry;
     RwPluginRegistry *parentRegistry;
 };
-#endif /* (!defined(DOXYGEN)) */
+
+
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern          "C"
+{
+#endif         /* __cplusplus */
+
+
+/* Registering toolkits and allocating memory */
+extern RwBool
+_rwPluginRegistrySetStaticPluginsSize(RwPluginRegistry * reg,
+                                      RwInt32 size);
+extern RwInt32
+_rwPluginRegistryAddPlugin(RwPluginRegistry * reg,
+                           RwInt32 size,
+                           RwUInt32 pluginID,
+                           RwPluginObjectConstructor constructCB,
+                           RwPluginObjectDestructor destructCB,
+                           RwPluginObjectCopy copyCB);
+extern RwInt32
+_rwPluginRegistryGetPluginOffset(const RwPluginRegistry *reg,
+                                RwUInt32 pluginID);
+
+/* Initializing/De-initializing instances */
+extern const
+RwPluginRegistry *_rwPluginRegistryInitObject(const RwPluginRegistry * reg,
+                                             void *object);
+extern const
+RwPluginRegistry *_rwPluginRegistryDeInitObject(const RwPluginRegistry * reg,
+                                               void *object);
+extern const
+RwPluginRegistry *_rwPluginRegistryCopyObject(const RwPluginRegistry * reg,
+                                             void *dstObject,
+                                             const void *srcObject);
+
+#ifdef RWDEBUG
+extern RwBool
+_rwPluginRegistryValidateObject(const RwPluginRegistry * reg,
+                               const void *object);
+#endif         /* RWDEBUG */
+
+
+#ifdef    __cplusplus
+}
+#endif         /* __cplusplus */
+
+/* Compatibility macros */
+
+#define rwPluginRegistryOpen() \
+       _rwPluginRegistryOpen()
+#define rwPluginRegistryClose() \
+       _rwPluginRegistryClose()
+#define rwPluginRegistrySetStaticPluginsSize(reg, size) \
+       _rwPluginRegistrySetStaticPluginsSize(reg, size)
+#define rwPluginRegistryAddPlugin(reg, size, pluginID, constructCB, destructCB, copyCB) \
+       _rwPluginRegistryAddPlugin(reg, size, pluginID, constructCB, destructCB, copyCB)
+#define rwPluginRegistryGetPluginOffset(reg, pluginID) \
+       _rwPluginRegistryGetPluginOffset(reg, pluginID)
+#define rwPluginRegistryInitObject(reg, object) \
+       _rwPluginRegistryInitObject(reg, object)
+#define rwPluginRegistryDeInitObject(reg, object) \
+       _rwPluginRegistryDeInitObject(reg, object)
+#define rwPluginRegistryCopyObject(reg, dstObject, srcObject) \
+       _rwPluginRegistryCopyObject(reg, dstObject, srcObject)
+#define rwPluginRegistryValidateObject(reg, object) \
+       _rwPluginRegistryValidateObject(reg, object)
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/batkbin.h ---*/
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+/* Plugin binary stream stuff */
+extern RwInt32 _rwPluginRegistryAddPluginStream(
+                   RwPluginRegistry *reg,
+                   RwUInt32 pluginID,
+                   RwPluginDataChunkReadCallBack readCB,
+                   RwPluginDataChunkWriteCallBack writeCB,
+                   RwPluginDataChunkGetSizeCallBack getSizeCB);
+extern RwInt32 _rwPluginRegistryAddPlgnStrmlwysCB(
+                   RwPluginRegistry *reg,
+                   RwUInt32 pluginID,
+                   RwPluginDataChunkAlwaysCallBack alwaysCB);
+extern RwInt32 _rwPluginRegistryAddPlgnStrmRightsCB(
+                   RwPluginRegistry *reg,
+                   RwUInt32 pluginID,
+                   RwPluginDataChunkRightsCallBack rightsCB);
+extern const RwPluginRegistry *_rwPluginRegistryReadDataChunks(const RwPluginRegistry *reg,
+                                                              RwStream *stream,
+                                                              void *object);
+extern const RwPluginRegistry *_rwPluginRegistryWriteDataChunks(const RwPluginRegistry *reg,
+                                                               RwStream *stream,
+                                                               const void *object);
+extern const RwPluginRegistry *_rwPluginRegistrySkipDataChunks(const RwPluginRegistry * reg,
+                                                              RwStream * stream);
+extern RwInt32 _rwPluginRegistryGetSize(const RwPluginRegistry *reg, const void *object);
+extern const RwPluginRegistry *_rwPluginRegistryInvokeRights(const RwPluginRegistry *reg,
+                                                             RwUInt32 id,
+                                                             void *obj,
+                                                             RwUInt32 extraData);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+/* Compatibility macros */
+
+#define rwPluginRegistryAddPluginStream(reg, pluginID, readCB, writeCB, getSizeCB) \
+       _rwPluginRegistryAddPluginStream(reg, pluginID, readCB, writeCB, getSizeCB)
+#define rwPluginRegistryAddPluginStreamAlwaysCB(reg, pluginID, alwaysCB) \
+       _rwPluginRegistryAddPlgnStrmlwysCB(reg, pluginID, alwaysCB)
+#define rwPluginRegistryReadDataChunks(reg, stream, object) \
+       _rwPluginRegistryReadDataChunks(reg, stream, object)
+#define rwPluginRegistryWriteDataChunks(reg, stream, object) \
+       _rwPluginRegistryWriteDataChunks(reg, stream, object)
+#define rwPluginRegistrySkipDataChunks(reg, stream) \
+       _rwPluginRegistrySkipDataChunks(reg, stream)
+#define rwPluginRegistryGetSize(reg, object) \
+       _rwPluginRegistryGetSize(reg, object)
+
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/bamatrix.h ---*/
 
@@ -3001,21 +3301,68 @@ struct RwPluginRegEntry
 #define RWMATRIXALIGNMENT(_mat) \
    (! (((rwMATRIXALIGNMENT)-1) & ((RwUInt32)(_mat))))
 
+#if (defined(RWMATRIXMONITOR))
+# if (defined(_MSC_VER))
+#  if ((_MSC_VER>=1000) && defined(_DEBUG))
+
+typedef char        MatrixString[1024];
+
+#define RWMATRIXPRINT(_matrix)                             \
+MACRO_START                                                \
+{                                                          \
+    MatrixString        message;                           \
+    MatrixString        output;                            \
+                                                           \
+    if (NULL != (_matrix))                                 \
+    {                                                      \
+        const RwV3d * const _x = &(_matrix)->right;        \
+        const RwV3d * const _y = &(_matrix)->up;           \
+        const RwV3d * const _z = &(_matrix)->at;           \
+        const RwV3d * const _w = &(_matrix)->pos;          \
+                                                           \
+        _snprintf(message, sizeof(MatrixString),           \
+                  "[ [ %8.4f, %8.4f, %8.4f, %8.4f ]\n"     \
+                  "  [ %8.4f, %8.4f, %8.4f, %8.4f ]\n"     \
+                  "  [ %8.4f, %8.4f, %8.4f, %8.4f ]\n"     \
+                  "  [ %8.4f, %8.4f, %8.4f, %8.4f ] ]\n"   \
+                  "  %08x == flags\n",                     \
+                  _x->x, _x->y, _x->z, (RwReal) 0,         \
+                  _y->x, _y->y, _y->z, (RwReal) 0,         \
+                  _z->x, _z->y, _z->z, (RwReal) 0,         \
+                  _w->x, _w->y, _w->z, (RwReal) 1,         \
+                  (_matrix)->flags);                       \
+    }                                                      \
+    else                                                   \
+    {                                                      \
+        _snprintf(message, sizeof(MatrixString),           \
+                  "NULL");                                 \
+    }                                                      \
+                                                           \
+    _snprintf(output, sizeof(MatrixString),                \
+              "%s(%d): %s [%p] ==\n%s\n",                  \
+              __FILE__, __LINE__,                          \
+              #_matrix, _matrix, message);                 \
+                                                           \
+    OutputDebugString(RWSTRING(output));                   \
+}                                                          \
+MACRO_STOP
+
+#  endif /* ((_MSC_VER>=1000) && defined(_DEBUG)) */
+# endif /* (defined(_MSC_VER)) */
+#endif /* (defined(RWMATRIXMONITOR)) */
+
 #if (!(defined(RWMATRIXPRINT)))
 #define RWMATRIXPRINT(_matrix) /* No op */
 #endif /* (!(defined(RWMATRIXPRINT))) */
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwmatrix
+ * \ingroup datatypes
  * enum RwOpCombineType 
  * This type represents a combination operator which 
  * can be applied to frames and matrices.
  * The operator determines the order 
  * in which one object is combined with another 
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 enum RwOpCombineType
 {
     rwCOMBINEREPLACE = 0,   /**<Replace - 
@@ -3029,8 +3376,9 @@ enum RwOpCombineType
     rwOPCOMBINETYPEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 
-/*
- * RwOpCombineType typedef for enum RwOpCombineType
+/**
+ * \ingroup datatypes
+ * \typedef RwOpCombineType typedef for enum RwOpCombineType
  */
 typedef enum RwOpCombineType RwOpCombineType;
 
@@ -3040,7 +3388,7 @@ typedef enum RwOpCombineType RwOpCombineType;
 enum RwMatrixType
 {
     rwMATRIXTYPENORMAL = 0x00000001,
-    rwMATRIXTYPEORTHOGONAL = 0x00000002,
+    rwMATRIXTYPEORTHOGANAL = 0x00000002,
     rwMATRIXTYPEORTHONORMAL = 0x00000003,
     rwMATRIXTYPEMASK = 0x00000003,
     rwMATRIXTYPEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
@@ -3066,6 +3414,7 @@ typedef enum RwMatrixOptimizations RwMatrixOptimizations;
  Global Types
  */
 
+#if (!defined(DOXYGEN))
 struct RwMatrixTag
 {
     /* These are padded to be 16 byte quantities per line */
@@ -3079,21 +3428,66 @@ struct RwMatrixTag
     RwUInt32            pad3;
 };
 
-typedef RwMatrixTag RwMatrix;
+/*
+ * RwMatrix & RwMatrixTag must be different otherwise the alignment
+ * directive is ignored when compiling under C++ on Visual C
+ */
+typedef struct RwMatrixTag RWALIGN(RwMatrix, rwMATRIXALIGNMENT);
+
+#else
+
+/*
+ * RwMatrix must appear as the struct name & the typedef,
+ * otherwise Doxygen puts RwMatrixTag in the API ref instead of RwMatrix!
+ */
+
+/**
+ * \ingroup datatypes
+ * \typedef RwMatrix
+ * Matrix to define transformations. 
+ * This should be considered an opaque type.
+ * Use the RwMatrix API functions to access.
+ */
+typedef struct RwMatrix RWALIGN(RwMatrix, rwMATRIXALIGNMENT);
+#endif /* (!defined(DOXYGEN)) */
+
+#if (!defined(RwMatrixCopyMacro))
+#define RwMatrixCopyMacro(_target, _source)             \
+    ( *(_target) = *(_source) )
+#endif /* (!defined(RwMatrixCopyMacro)) */
+
+#if (!defined(RwMatrixSetIdentityMacro))
+#define RwMatrixSetIdentityMacro(m)                                     \
+MACRO_START                                                             \
+{                                                                       \
+    (m)->right.x = (m)->up.y    = (m)->at.z    = (RwReal)((1.0));       \
+    (m)->right.y = (m)->right.z = (m)->up.x    = (RwReal)((0.0));       \
+    (m)->up.z    = (m)->at.x    = (m)->at.y    = (RwReal)((0.0));       \
+    (m)->pos.x   = (m)->pos.y   = (m)->pos.z   = (RwReal)((0.0));       \
+    rwMatrixSetFlags((m),                                               \
+                     rwMatrixGetFlags(m) |                              \
+                     (rwMATRIXINTERNALIDENTITY |                        \
+                      rwMATRIXTYPEORTHONORMAL));                        \
+}                                                                       \
+MACRO_STOP
+#endif /* (!defined(RwMatrixSetIdentityMacro)) */
 
 typedef void (RWASMCALL * rwMatrixMultFn) (RwMatrix * dstMat,
                                            const RwMatrix * matA,
                                            const RwMatrix * matB);
 
+/*
+ * \ingroup datatypes
+ * \typedef RwMatrixTolerance
+ * Typedef for RwMatrixTolerance structure
+ */
 typedef struct RwMatrixTolerance RwMatrixTolerance;
 
-#ifndef RWADOXYGENEXTERNAL
-/**
- * \ingroup rwmatrix
+/*
+ * \ingroup datatypes
  * \struct RwMatrixTolerance
  * Holds tolerances for matrix optimizations with \ref RwMatrixOptimize
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwMatrixTolerance
 {
     RwReal              Normal;
@@ -3103,6 +3497,402 @@ struct RwMatrixTolerance
     RwReal              Identity;
         /**< Tolerance within which matrix is deemed to be identity */
 };
+
+
+/****************************************************************************
+ Function prototypes
+ */
+
+/* Matrix operations */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+extern RwBool
+RwEngineGetMatrixTolerances(RwMatrixTolerance * const tolerance);
+
+extern RwBool
+RwEngineSetMatrixTolerances(const RwMatrixTolerance * const tolerance);
+
+/* Update */
+#define rwMatrixSetFlags(m, flagsbit)     ((m)->flags = (flagsbit))
+#define rwMatrixGetFlags(m)               ((m)->flags)
+#define rwMatrixTestFlags(m, flagsbit)    ((m)->flags & (RwInt32)(flagsbit))
+
+/* Creation/destruction */
+extern RwBool       
+RwMatrixDestroy(RwMatrix * mpMat);
+
+extern RwMatrix *
+RwMatrixCreate(void);
+
+#ifdef RWDEBUG
+
+/* Functions for debug */
+extern void
+RwMatrixCopy(RwMatrix * dstMatrix, const RwMatrix * srcMatrix);
+
+extern void         
+RwMatrixSetIdentity(RwMatrix * matrix);
+
+#else /* RWDEBUG */
+
+#define RwMatrixCopy(dst, src)   RwMatrixCopyMacro(dst, src)
+#define RwMatrixSetIdentity(m)   RwMatrixSetIdentityMacro(m)
+
+#endif /* RWDEBUG */
+
+/* Matrix multiply */
+extern RwMatrix *
+RwMatrixMultiply(RwMatrix * matrixOut,
+                 const RwMatrix * MatrixIn1,
+                 const RwMatrix * matrixIn2);
+
+extern RwMatrix *
+RwMatrixTransform(RwMatrix * matrix,
+                  const RwMatrix * transform,
+                  RwOpCombineType combineOp);
+
+/* Normalise */
+extern RwMatrix *
+RwMatrixOrthoNormalize(RwMatrix * matrixOut,
+                       const RwMatrix * matrixIn);
+
+/* Inversion */
+extern RwMatrix *
+RwMatrixInvert(RwMatrix * matrixOut,
+               const RwMatrix * matrixIn);
+
+/* Unary matrix operations */
+extern RwMatrix *
+RwMatrixScale(RwMatrix * matrix,
+              const RwV3d * scale,
+              RwOpCombineType combineOp);
+
+extern RwMatrix *
+RwMatrixTranslate(RwMatrix * matrix,
+                  const RwV3d * translation,
+                  RwOpCombineType combineOp);
+
+extern RwMatrix *
+RwMatrixRotate(RwMatrix * matrix,
+               const RwV3d * axis,
+               RwReal angle,
+               RwOpCombineType combineOp);
+
+extern RwMatrix *
+RwMatrixRotateOneMinusCosineSine(RwMatrix * matrix,
+                                 const RwV3d * unitAxis,
+                                 RwReal oneMinusCosine,
+                                 RwReal sine,
+                                 RwOpCombineType combineOp);
+
+/* Query what the matrix is */
+extern const RwMatrix *RwMatrixQueryRotate(const RwMatrix * matrix,
+                                           RwV3d * unitAxis,
+                                           RwReal * angle,
+                                           RwV3d * center);
+
+/* Get components */
+#ifndef RWDEBUG
+
+#define RwMatrixGetRight(m)    (&(m)->right)
+#define RwMatrixGetUp(m)       (&(m)->up)
+#define RwMatrixGetAt(m)       (&(m)->at)
+#define RwMatrixGetPos(m)      (&(m)->pos)
+
+#else /* RWDEBUG */
+
+extern RwV3d *
+RwMatrixGetRight(RwMatrix * matrix);
+
+extern RwV3d *
+RwMatrixGetUp(RwMatrix * matrix);
+
+extern RwV3d *
+RwMatrixGetAt(RwMatrix * matrix);
+
+extern RwV3d *
+RwMatrixGetPos(RwMatrix * matrix);
+
+#endif /* RWDEBUG */
+
+/* Update the internal matrix state wrt its elements */
+extern RwMatrix *
+RwMatrixUpdate(RwMatrix * matrix);
+
+/* Update the internal matrix flags wrt its elements */
+extern RwMatrix *
+RwMatrixOptimize(RwMatrix * matrix,
+                 const RwMatrixTolerance *
+                 tolerance);
+
+extern RwReal
+_rwMatrixDeterminant(const RwMatrix * matrix);
+
+extern RwReal
+_rwMatrixNormalError(const RwMatrix * matrix);
+
+extern RwReal
+_rwMatrixOrthogonalError(const RwMatrix * matrix);
+
+extern RwReal
+_rwMatrixIdentityError(const RwMatrix * matrix);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+/* Compatibility macros */
+
+#define rwMatrixSetOptimizations(optimizeFlags) \
+       _rwMatrixSetOptimizations(optimizeFlags)
+
+#define rwMatrixSetMultFn(multMat) \
+       _rwMatrixSetMultFn(multMat)
+
+#define rwMatrixOpen(instance, offset, size) \
+       _rwMatrixOpen(instance, offset, size)
+
+#define rwMatrixClose(instance, offset, size) \
+       _rwMatrixClose(instance, offset, size)
+
+/* Initialisation/deinitialisation */
+#define rwMatrixInitialize(m, t)                \
+MACRO_START                                     \
+{                                               \
+    rwMatrixSetFlags((m), (t));                 \
+}                                               \
+MACRO_STOP
+
+#define rwMatrixIsNormal(_matrix, _epsilon)        \
+  ( (_epsilon) >= _rwMatrixNormalError(_matrix) )
+
+#define rwMatrixIsOrthogonal(_matrix, _epsilon)        \
+  ( (_epsilon) >= _rwMatrixOrthogonalError(_matrix) )
+
+#define rwMatrixIsOrthonormal(_matrix, _epsilon)        \
+  ( rwMatrixIsNormal(_matrix, _epsilon) &&              \
+    rwMatrixIsOrthogonal(_matrix, _epsilon)  )
+
+#define rwMatrixIsOrthonormalPositive(_matrix, _epsilon)                \
+  ( rwMatrixIsOrthonormal(_matrix, _epsilon) &&                         \
+( (((RwReal)1) - (_epsilon)) <= _rwMatrixDeterminant(_matrix) ) )
+
+#define rwMatrixIsIdentity(_matrix, _epsilon)           \
+   ( (_epsilon) >= _rwMatrixIdentityError(_matrix) )
+
+#define rwMatrixValidFlags(_matrix, _epsilon)                           \
+   ( (_matrix) &&                       /* valid pointer */             \
+ ( ( !( rwMatrixGetFlags(_matrix) &    /* not flagged as identity */    \
+        rwMATRIXINTERNALIDENTITY) ) || /* .. or actually is */          \
+   rwMatrixIsIdentity(_matrix, _epsilon)) &&                            \
+ ( ( !( rwMatrixGetFlags(_matrix) &    /* not flagged as normal */      \
+        rwMATRIXTYPENORMAL) ) ||  /* ... or actually is */              \
+   rwMatrixIsNormal(_matrix, _epsilon)) &&                              \
+ ( ( !( rwMatrixGetFlags(_matrix) &    /* not flagged as orthogonal */  \
+        rwMATRIXTYPEORTHOGANAL) ) ||  /* ... or actually is */          \
+   rwMatrixIsOrthogonal(_matrix, _epsilon)) )
+
+#define      rwMat01Det(_mAA)                                           \
+  ( (_mAA) )
+
+#define      rwMat02Det(_mAA, _mAB,                                     \
+                        _mBA, _mBB)                                     \
+  ( (_mAA) * rwMat01Det(_mBB)                                           \
+  - (_mAB) * rwMat01Det(_mBA)                                           \
+  )
+
+#define      rwMat03Det(_mAA, _mAB, _mAC,                               \
+                        _mBA, _mBB, _mBC,                               \
+                        _mCA, _mCB, _mCC)                               \
+  ( (_mAA) * rwMat02Det(_mBB, _mBC,                                     \
+                        _mCB, _mCC)                                     \
+  - (_mAB) * rwMat02Det(_mBA, _mBC,                                     \
+                        _mCA, _mCC)                                     \
+  + (_mAC) * rwMat02Det(_mBA, _mBB,                                     \
+                        _mCA, _mCB)                                     \
+  )
+
+#define      rwMat04Det(_mAA, _mAB, _mAC, _mAD,                         \
+                        _mBA, _mBB, _mBC, _mBD,                         \
+                        _mCA, _mCB, _mCC, _mCD,                         \
+                        _mDA, _mDB, _mDC, _mDD)                         \
+  ( (_mAA) * rwMat03Det(_mBB, _mBC, _mBD,                               \
+                        _mCB, _mCC, _mCD,                               \
+                        _mDB, _mDC, _mDD)                               \
+  - (_mAB) * rwMat03Det(_mBA, _mBC, _mBD,                               \
+                        _mCA, _mCC, _mCD,                               \
+                        _mDA, _mDC, _mDD)                               \
+  + (_mAC) * rwMat03Det(_mBA, _mBB, _mBD,                               \
+                        _mCA, _mCB, _mCD,                               \
+                        _mDA, _mDB, _mDD)                               \
+  - (_mAD) * rwMat03Det(_mBA, _mBB, _mBC,                               \
+                        _mCA, _mCB, _mCC,                               \
+                        _mDA, _mDB, _mDC)                               \
+  )
+
+
+#define rwMat02Inv(_rAA, _rAB,                                          \
+                   _rBA, _rBB)                                          \
+                   _mAA, _mAB,                                          \
+                   _mBA, _mBB)                                          \
+MACRO_START                                                             \
+{                                                                       \
+    RwSplitBits determinant;                                            \
+                                                                        \
+    (_rAA) =  rwMat01Det(_mBB);                                         \
+    (_rAB) = -rwMat01Det(_mAB);                                         \
+                                                                        \
+    determinant.nReal = ( (_rAA) * (_mAA) +                             \
+                          (_rAB) * (_mBA) );                            \
+                                                                        \
+                                                                        \
+    {                                                                   \
+        const RwReal normalize = ( (determinant.nInt != 0)?             \
+                                   (((RwReal)1)/determinant.nReal):     \
+                                   ((RwReal)1) );                       \
+                                                                        \
+        (_rAA) *= normalize;                                            \
+        (_rAB) *= normalize;                                            \
+                                                                        \
+        (_rBA) = -rwMat01Det(_mBA) * normalize;                         \
+        (_rBB) =  rwMat01Det(_mAA) * normalize;                         \
+    }                                                                   \
+}                                                                       \
+MACRO_STOP
+
+#define    rwMat03Inv(_rAA, _rAB, _rAC,                                 \
+                      _rBA, _rBB, _rBC,                                 \
+                      _rCA, _rCB, _rCC,                                 \
+                      _mAA, _mAB, _mAC,                                 \
+                      _mBA, _mBB, _mBC,                                 \
+                      _mCA, _mCB, _mCC)                                 \
+MACRO_START                                                             \
+{                                                                       \
+    RwSplitBits determinant;                                            \
+                                                                        \
+    (_rAA)=  rwMat02Det(_mBB, _mBC,                                     \
+                        _mCB, _mCC);                                    \
+    (_rAB)= -rwMat02Det(_mAB, _mAC,                                     \
+                        _mCB, _mCC);                                    \
+    (_rAC)=  rwMat02Det(_mAB, _mAC,                                     \
+                        _mBB, _mBC);                                    \
+                                                                        \
+    determinant.nReal = ( (_rAA) * (_mAA) +                             \
+                          (_rAB) * (_mBA) +                             \
+                          (_rAC) * (_mCA) );                            \
+                                                                        \
+    {                                                                   \
+        const RwReal normalize = ( (determinant.nInt != 0)?             \
+                                   (((RwReal)1)/determinant.nReal):     \
+                                   ((RwReal)1) );                       \
+        (_rAA) *= normalize;                                            \
+        (_rAB) *= normalize;                                            \
+        (_rAC) *= normalize;                                            \
+                                                                        \
+        (_rBA)= -rwMat02Det(_mBA, _mBC,                                 \
+                            _mCA, _mCC) * normalize ;                   \
+        (_rBB)=  rwMat02Det(_mAA, _mAC,                                 \
+                            _mCA, _mCC) * normalize ;                   \
+        (_rBC)= -rwMat02Det(_mAA, _mAC,                                 \
+                            _mBA, _mBC) * normalize ;                   \
+                                                                        \
+        (_rCA)=  rwMat02Det(_mBA, _mBB,                                 \
+                            _mCA, _mCB) * normalize ;                   \
+        (_rCB)= -rwMat02Det(_mAA, _mAB,                                 \
+                            _mCA, _mCB) * normalize ;                   \
+        (_rCC)=  rwMat02Det(_mAA, _mAB,                                 \
+                            _mBA, _mBB) * normalize ;                   \
+    }                                                                   \
+                                                                        \
+}                                                                       \
+MACRO_STOP
+
+#define    rwMat04Inv(_rAA, _rAB, _rAC, _rAD,                           \
+                      _rBA, _rBB, _rBC, _rBD,                           \
+                      _rCA, _rCB, _rCC, _rCD,                           \
+                      _rDA, _rDB, _rDC, _rDD,                           \
+                      _mAA, _mAB, _mAC, _mAD,                           \
+                      _mBA, _mBB, _mBC, _mBD,                           \
+                      _mCA, _mCB, _mCC, _mCD,                           \
+                      _mDA, _mDB, _mDC, _mDD)                           \
+MACRO_START                                                             \
+{                                                                       \
+    RwSplitBits determinant;                                            \
+                                                                        \
+    (_rAA)=  rwMat03Det(_mBB, _mBC, _mBD,                               \
+                        _mCB, _mCC, _mCD,                               \
+                        _mDB, _mDC, _mDD);                              \
+    (_rAB)= -rwMat03Det(_mAB, _mAC, _mAD,                               \
+                        _mCB, _mCC, _mCD,                               \
+                        _mDB, _mDC, _mDD);                              \
+    (_rAC)=  rwMat03Det(_mAB, _mAC, _mAD,                               \
+                        _mBB, _mBC, _mBD,                               \
+                        _mDB, _mDC, _mDD);                              \
+    (_rAD)= -rwMat03Det(_mAB, _mAC, _mAD,                               \
+                        _mBB, _mBC, _mBD,                               \
+                        _mCB, _mCC, _mCD);                              \
+                                                                        \
+    determinant.nReal = ( (_rAA) * (_mAA) +                             \
+                          (_rAB) * (_mBA) +                             \
+                          (_rAC) * (_mCA) +                             \
+                          (_rAD) * (_mDA) );                            \
+                                                                        \
+    {                                                                   \
+        const RwReal normalize = ( (determinant.nInt != 0)?             \
+                                   (((RwReal)1)/determinant.nReal):     \
+                                   ((RwReal)1) );                       \
+                                                                        \
+        (_rAA) *= normalize;                                            \
+        (_rAB) *= normalize;                                            \
+        (_rAC) *= normalize;                                            \
+        (_rAD) *= normalize;                                            \
+                                                                        \
+        (_rBA)= -rwMat03Det(_mBA, _mBC, _mBD,                           \
+                            _mCA, _mCC, _mCD,                           \
+                            _mDA, _mDC, _mDD) * normalize ;             \
+        (_rBB)=  rwMat03Det(_mAA, _mAC, _mAD,                           \
+                            _mCA, _mCC, _mCD,                           \
+                            _mDA, _mDC, _mDD) * normalize ;             \
+        (_rBC)= -rwMat03Det(_mAA, _mAC, _mAD,                           \
+                            _mBA, _mBC, _mBD,                           \
+                            _mDA, _mDC, _mDD) * normalize ;             \
+        (_rBD)=  rwMat03Det(_mAA, _mAC, _mAD,                           \
+                            _mBA, _mBC, _mBD,                           \
+                            _mCA, _mCC, _mCD) * normalize ;             \
+                                                                        \
+        (_rCA)=  rwMat03Det(_mBA, _mBB, _mBD,                           \
+                            _mCA, _mCB, _mCD,                           \
+                            _mDA, _mDB, _mDD) * normalize ;             \
+        (_rCB)= -rwMat03Det(_mAA, _mAB, _mAD,                           \
+                            _mCA, _mCB, _mCD,                           \
+                            _mDA, _mDB, _mDD) * normalize ;             \
+        (_rCC)=  rwMat03Det(_mAA, _mAB, _mAD,                           \
+                            _mBA, _mBB, _mBD,                           \
+                            _mDA, _mDB, _mDD) * normalize ;             \
+        (_rCD)= -rwMat03Det(_mAA, _mAB, _mAD,                           \
+                            _mBA, _mBB, _mBD,                           \
+                            _mCA, _mCB, _mCD) * normalize ;             \
+                                                                        \
+        (_rDA)= -rwMat03Det(_mBA, _mBB, _mBC,                           \
+                            _mCA, _mCB, _mCC,                           \
+                            _mDA, _mDB, _mDC) * normalize ;             \
+        (_rDB)=  rwMat03Det(_mAA, _mAB, _mAC,                           \
+                            _mCA, _mCB, _mCC,                           \
+                            _mDA, _mDB, _mDC) * normalize ;             \
+        (_rDC)= -rwMat03Det(_mAA, _mAB, _mAC,                           \
+                            _mBA, _mBB, _mBC,                           \
+                            _mDA, _mDB, _mDC) * normalize ;             \
+        (_rDD)=  rwMat03Det(_mAA, _mAB, _mAC,                           \
+                            _mBA, _mBB, _mBC,                           \
+                            _mCA, _mCB, _mCC) * normalize ;             \
+    }                                                                   \
+}                                                                       \
+MACRO_STOP
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/driver/d3d8/drvmodel.h ---*/
 #ifndef D3D8_DRVMODEL_H
@@ -3116,6 +3906,8 @@ struct RwMatrixTolerance
 #pragma warning( disable : 344 )
 #endif /* (defined(__ICL)) */
 
+
+#include <windows.h>
 
 #if (defined(RWDEBUG))
 #if (defined(RWMEMDEBUG) && !defined(_CRTDBG_MAP_ALLOC))
@@ -3209,16 +4001,48 @@ MACRO_START                                                             \
 }                                                                       \
 MACRO_STOP
 
+/* LEGACY-SUPPORT macros */
+#define RWIM2DVERTEXSetCameraX(vert, camx)  RwIm2DVertexSetCameraX(vert, camx)
+#define RWIM2DVERTEXSetCameraY(vert, camy)  RwIm2DVertexSetCameraY(vert, camy)
+#define RWIM2DVERTEXSetCameraZ(vert, camz)  RwIm2DVertexSetCameraZ(vert, camz)
+#define RWIM2DVERTEXSetRecipCameraZ(vert, recipz) \
+    RwIm2DVertexSetRecipCameraZ(vert, recipz)
+#define RWIM2DVERTEXGetCameraX(vert)        RwIm2DVertexGetCameraX(vert)
+#define RWIM2DVERTEXGetCameraY(vert)        RwIm2DVertexGetCameraY(vert)
+#define RWIM2DVERTEXGetCameraZ(vert)        RwIm2DVertexGetCameraZ(vert)
+#define RWIM2DVERTEXGetRecipCameraZ(vert)   RwIm2DVertexGetRecipCameraZ(vert)
+#define RWIM2DVERTEXSetScreenX(vert, scrnx) RwIm2DVertexSetScreenX(vert, scrnx)
+#define RWIM2DVERTEXSetScreenY(vert, scrny) RwIm2DVertexSetScreenY(vert, scrny)
+#define RWIM2DVERTEXSetScreenZ(vert, scrnz) RwIm2DVertexSetScreenZ(vert, scrnz)
+#define RWIM2DVERTEXGetScreenX(vert)        RwIm2DVertexGetScreenX(vert)
+#define RWIM2DVERTEXGetScreenY(vert)        RwIm2DVertexGetScreenY(vert)
+#define RWIM2DVERTEXGetScreenZ(vert)        RwIm2DVertexGetScreenZ(vert)
+#define RWIM2DVERTEXSetU(vert, u, recipz)   RwIm2DVertexSetU(vert, u, recipz)
+#define RWIM2DVERTEXSetV(vert, v, recipz)   RwIm2DVertexSetV(vert, v, recipz)
+#define RWIM2DVERTEXGetU(vert)              RwIm2DVertexGetU(vert)
+#define RWIM2DVERTEXGetV(vert)              RwIm2DVertexGetV(vert)
+#define RWIM2DVERTEXSetRealRGBA(vert, red, green, blue, alpha) \
+    RwIm2DVertexSetRealRGBA(vert, red, green, blue, alpha)
+#define RWIM2DVERTEXSetIntRGBA(vert, red, green, blue, alpha)  \
+    RwIm2DVertexSetIntRGBA(vert, red, green, blue, alpha)
+#define RWIM2DVERTEXGetRed(vert)            RwIm2DVertexGetRed(vert)
+#define RWIM2DVERTEXGetGreen(vert)          RwIm2DVertexGetGreen(vert)
+#define RWIM2DVERTEXGetBlue(vert)           RwIm2DVertexGetBlue(vert)
+#define RWIM2DVERTEXGetAlpha(vert)          RwIm2DVertexGetAlpha(vert)
+#define RWIM2DVERTEXCopyRGBA(dst, src)      RwIm2DVertexCopyRGBA(dst, src)
+#define RWIM2DVERTEXClipRGBA(o, i, n, f)    RwIm2DVertexClipRGBA(o, i, n, f)
+
 /****************************************************************************
  Global Types
  */
 
 /* We use RwD3D8Vertex to drive the hardware in 2D mode */
 
-/*
+/**
+ * \ingroup rwcoredriverd3d8
+ * \typedef RwD3D8Vertex
  * D3D8 vertex structure definition for 2D geometry
  */
-#if !defined(RWADOXYGENEXTERNAL)
 typedef struct RwD3D8Vertex RwD3D8Vertex;
 /**
  * \ingroup rwcoredriverd3d8
@@ -3237,41 +4061,47 @@ struct RwD3D8Vertex
     RwReal      u;              /**< Texture coordinate U */
     RwReal      v;              /**< Texture coordinate V */
 };
-#endif /* !defined(RWADOXYGENEXTERNAL) */
 
 /* Define types used */
 
-#if !defined(RWADOXYGENEXTERNAL)
 /**
  * \ingroup rwcoredriverd3d8
- * \ref RwIm2DVertex
+ * \typedef RwIm2DVertex
  * Typedef for a RenderWare Graphics Immediate Mode 2D Vertex
  */
 typedef RwD3D8Vertex    RwIm2DVertex;
-#endif /* !defined(RWADOXYGENEXTERNAL) */
 
-#if !defined(RWADOXYGENEXTERNAL)
+/* LEGACY-SUPPORT macro */
 /**
  * \ingroup rwcoredriverd3d8
- * \ref RxVertexIndex
+ * \def RWIM2DVERTEX
+ * RWIM2DVERTEX is a legacy macro for RwIm2DVertex
+ */
+#define RWIM2DVERTEX    RwIm2DVertex
+
+/**
+ * \ingroup rwcoredriverd3d8
+ * \typedef RxVertexIndex
  *
  * Typedef for a RenderWare Graphics PowerPipe Immediate
  * Mode Vertex
  */
 typedef RwUInt16        RxVertexIndex;
-#endif /* !defined(RWADOXYGENEXTERNAL) */
-
-#if !defined(RWADOXYGENEXTERNAL)
 
 /**
  * \ingroup rwcoredriverd3d8
- * \ref RwImVertexIndex
+ * \typedef RwImVertexIndex
  * Typedef for a RenderWare Graphics Immediate Mode Vertex.
  */
 typedef RxVertexIndex   RwImVertexIndex;
-#endif /* !defined(RWADOXYGENEXTERNAL) */
 
-#if !defined(RWADOXYGENEXTERNAL)
+/* LEGACY-SUPPORT macro */
+/**
+ * \ingroup rwcoredriverd3d8
+ * \def RWIMVERTEXINDEX
+ * RWIMVERTEXINDEX is a legacy macro for RwImVertexIndex
+ */
+#define RWIMVERTEXINDEX RwImVertexIndex
 
 /**
  * \ingroup rwcoredriverd3d8
@@ -3284,10 +4114,8 @@ typedef struct
     RwUInt32    numTextureStageStateChanges;    /**< Number of Texture Stage States changed */
     RwUInt32    numMaterialChanges;             /**< Number of Material changes */
     RwUInt32    numLightsChanged;               /**< Number of Lights changed */
-    RwUInt32    numVBSwitches;                  /**< Number of Vertex Buffer switches */
 }
 RwD3D8Metrics;
-#endif /* !defined(RWADOXYGENEXTERNAL) */
 
 #endif /* D3D8_DRVMODEL_H */
 
@@ -3297,10 +4125,387 @@ RwD3D8Metrics;
  * Typedef for pointer to Vector multiplication by Matrix function
  */
 
-typedef RwV3d *(*rwVectorMultFn) (RwV3d * pointsOut,
+typedef RwV3d *(*rwVectorMultFn) (RwV3d * pointsOut, 
                                   const RwV3d * pointsIn,
                                   RwInt32 numPoints,
                                   const RwMatrix * matrix);
+
+
+/* If sqrt is overloaded for this platform, we will remove
+ * all the sqrt table stuff from the build entirely
+ * currently applies to SKY2 and XBOX - IDBS [2/11/2001]
+ * [and, if using the intel compiler version 400 or above,
+ *  we will use the single-precision float "sqrtf" under
+ *  D3D7, D3D8, OpenGL or SoftRas] */
+#if (defined(rwSqrtMacro))
+#define RWNOSQRTTABLE
+#endif /* (defined(rwSqrtMacro)) */
+#if (defined(rwInvSqrtMacro))
+#define RWNOINVSQRTTABLE
+#endif /* (defined(rwSqrtMacro)) */
+
+#if (!defined(rwSqrtMacro))
+#define rwSqrtMacro(_root, _input) \
+    ( *(_root) = _rwSqrt(_input) )
+#endif /* (!defined(rwSqrtMacro)) */
+
+#if (!defined(rwInvSqrtMacro))
+#define rwInvSqrtMacro(_recip, _input) \
+    ( *(_recip) = _rwInvSqrt(_input) )
+#endif /* (!defined(rwInvSqrtMacro)) */
+
+#if (!defined(rwSqrtInvSqrtMacro))
+#define rwSqrtInvSqrtMacro(_root, _recip, _input)       \
+MACRO_START                                             \
+{                                                       \
+    RwReal _tmp = _input;                               \
+    rwSqrt((_root), _tmp);                              \
+    rwInvSqrt((_recip), _tmp);                          \
+}                                                       \
+MACRO_STOP
+#endif /* (!defined(rwSqrtInvSqrtMacro)) */
+
+/* Vector operations Macros */
+
+#if (!defined(RwV2dAssignMacro))
+#define RwV2dAssignMacro(_target, _source)                      \
+    ( *(_target) = *(_source) )
+#endif /* (!defined(RwV2dAssignMacro)) */
+
+#define RwV2dAddMacro(o, a, b)                                  \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = (((a)->x) + ( (b)->x));                            \
+    (o)->y = (((a)->y) + ( (b)->y));                            \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dSubMacro(o, a, b)                                  \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = (((a)->x) - ( (b)->x));                            \
+    (o)->y = (((a)->y) - ( (b)->y));                            \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dScaleMacro(o, i, s)                                \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = (((i)->x) * ( (s)));                               \
+    (o)->y = (((i)->y) * ( (s)));                               \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dDotProductMacro(a,b)                               \
+    (( ((((a)->x) * ( (b)->x))) +                               \
+      ( (((a)->y) * ( (b)->y)))))                               \
+
+#define _rwV2dNormalizeMacro(_result, _out, _in)                \
+MACRO_START                                                     \
+{                                                               \
+    RwReal length2 = RwV2dDotProductMacro((_in), (_in));        \
+    rwInvSqrtMacro(&(_result), length2);                        \
+    RwV2dScaleMacro((_out), (_in), (_result));                  \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dNormalizeMacro(_result, _out, _in)                 \
+MACRO_START                                                     \
+{                                                               \
+    RwReal length2 = RwV2dDotProductMacro((_in), (_in));        \
+    RwReal recip;                                               \
+                                                                \
+    rwSqrtInvSqrtMacro(&(_result), &recip, length2);            \
+    RwV2dScaleMacro((_out), (_in), recip);                      \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dLengthMacro(_result, _in)                          \
+MACRO_START                                                     \
+{                                                               \
+    (_result) = RwV2dDotProductMacro(_in, _in);                 \
+    rwSqrtMacro(&(_result), (_result));                         \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dLineNormalMacro(_o, _a, _b)                        \
+MACRO_START                                                     \
+{                                                               \
+    RwReal recip;                                               \
+                                                                \
+    (_o)->y = (((_b)->x) - ( (_a)->x));                         \
+    (_o)->x = (((_a)->y) - ( (_b)->y));                         \
+    _rwV2dNormalizeMacro(recip, _o,_o);                         \
+}                                                               \
+MACRO_STOP
+
+#define RwV2dPerpMacro(o, a)                                    \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = -(a)->y;                                           \
+    (o)->y = (a)->x;                                            \
+}                                                               \
+MACRO_STOP
+
+/* RwV3d */
+
+#if (!defined(RwV3dAssignMacro))
+#define RwV3dAssignMacro(_target, _source)                     \
+    ( *(_target) = *(_source) )
+#endif /* (!defined(RwV3dAssignMacro)) */
+
+
+#define RwV3dAddMacro(o, a, b)                                  \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = (((a)->x) + ( (b)->x));                            \
+    (o)->y = (((a)->y) + ( (b)->y));                            \
+    (o)->z = (((a)->z) + ( (b)->z));                            \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dSubMacro(o, a, b)                                  \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = (((a)->x) - ( (b)->x));                            \
+    (o)->y = (((a)->y) - ( (b)->y));                            \
+    (o)->z = (((a)->z) - ( (b)->z));                            \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dScaleMacro(o, a, s)                                \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = (((a)->x) * ( (s)));                               \
+    (o)->y = (((a)->y) * ( (s)));                               \
+    (o)->z = (((a)->z) * ( (s)));                               \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dIncrementScaledMacro(o, a, s)                      \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x += (((a)->x) * ( (s)));                              \
+    (o)->y += (((a)->y) * ( (s)));                              \
+    (o)->z += (((a)->z) * ( (s)));                              \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dNegateMacro(o, a)                                  \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x = -(a)->x;                                           \
+    (o)->y = -(a)->y;                                           \
+    (o)->z = -(a)->z;                                           \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dDotProductMacro(a, b)                              \
+    ((((( (((a)->x) * ((b)->x))) +                              \
+        ( (((a)->y) * ((b)->y))))) +                            \
+        ( (((a)->z) * ((b)->z)))))                              \
+
+#define RwV3dCrossProductMacro(o, a, b)                         \
+MACRO_START                                                     \
+{                                                               \
+    (o)->x =                                                    \
+        (( (((a)->y) * ( (b)->z))) -                            \
+         ( (((a)->z) * ( (b)->y))));                            \
+    (o)->y =                                                    \
+        (( (((a)->z) * ( (b)->x))) -                            \
+         ( (((a)->x) * ( (b)->z))));                            \
+    (o)->z =                                                    \
+        (( (((a)->x) * ( (b)->y))) -                            \
+         ( (((a)->y) * ( (b)->x))));                            \
+}                                                               \
+MACRO_STOP
+
+#define _rwV3dNormalizeMacro(_result, _out, _in)                \
+MACRO_START                                                     \
+{                                                               \
+    RwReal length2 = RwV3dDotProductMacro(_in, _in);            \
+    rwInvSqrtMacro(&(_result), length2);                        \
+    RwV3dScaleMacro(_out, _in, _result);                        \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dNormalizeMacro(_result, _out, _in)                 \
+MACRO_START                                                     \
+{                                                               \
+    RwReal length2 = RwV3dDotProductMacro((_in), (_in));        \
+    RwReal recip;                                               \
+                                                                \
+    rwSqrtInvSqrtMacro(&(_result), &recip, length2);            \
+    RwV3dScaleMacro((_out), (_in), recip);                      \
+}                                                               \
+MACRO_STOP
+
+#define RwV3dLengthMacro(_result, _in)                          \
+MACRO_START                                                     \
+{                                                               \
+    (_result) = RwV3dDotProductMacro(_in, _in);                 \
+    rwSqrtMacro(&(_result), _result);                           \
+}                                                               \
+MACRO_STOP
+
+#if (! ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) ))
+
+#define RwV2dAssign(o, a)               RwV2dAssignMacro(o, a)
+#define RwV2dAdd(o, a, b)               RwV2dAddMacro(o, a, b)
+#define RwV2dSub(o, a, b)               RwV2dSubMacro(o, a, b)
+#define RwV2dLineNormal(_o, _a, _b)     RwV2dLineNormalMacro(_o, _a, _b)
+#define RwV2dScale(o, i, s)             RwV2dScaleMacro(o, i, s)
+#define RwV2dDotProduct(a,b)            RwV2dDotProductMacro(a,b)
+#define RwV2dPerp(o, a)                 RwV2dPerpMacro(o, a)
+#define RwV3dAssign(o, a)               RwV3dAssignMacro(o, a)
+#define RwV3dAdd(o, a, b)               RwV3dAddMacro(o, a, b)
+#define RwV3dSub(o, a, b)               RwV3dSubMacro(o, a, b)
+#define RwV3dScale(o, a, s)             RwV3dScaleMacro(o, a, s)
+#define RwV3dIncrementScaled(o, a, s)   RwV3dIncrementScaledMacro(o, a, s)
+#define RwV3dNegate(o, a)               RwV3dNegateMacro(o, a)
+#define RwV3dDotProduct(a, b)           RwV3dDotProductMacro(a, b)
+#define RwV3dCrossProduct(o, a, b)      RwV3dCrossProductMacro(o, a, b)
+
+#endif /* (! ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) )) */
+
+#define RWRAD2DEG(_x) ((_x) * (((RwReal)180)/(rwPI)))
+
+#if (!defined(rw4OVERPISQ))
+#define rw4OVERPISQ  ( ((RwReal)4) / ( rwPI * rwPI ))
+#endif /* (!defined(rw4OVERPISQ)) */
+
+#if (!defined(rwPI3))
+#define rwPI3  (rwPI * (RwReal)3) 
+#endif /* (!defined(rwPI3)) */
+
+#if (!defined(rwPI3OVER2))
+#define rwPI3OVER2  ( rwPI3 / (RwReal)2 )
+#endif /* (!defined(rwPI3OVER2)) */
+
+#if (!defined(rwPI3OVER8))
+#define rwPI3OVER8  (rwPI3 / (RwReal)8 )
+#endif /* (!defined(rwPI3OVER8)) */
+
+#define RwQuadSin(_x)                                                       \
+    ( rw4OVERPISQ *                                                         \
+      ( ( (_x) < 0 ) ?                                                      \
+        ( ( rwPI + (_x) ) * (_x) ) :                                        \
+        ( ( rwPI - (_x) ) * (_x) ) ) )
+
+#define RwQuadASin(_result, _s)                                             \
+    ( rwPIOVER2 * ( ((_s)<0) ?                                              \
+                    ( rwSqrtMacro((_result), 1.0f + (_s)) - 1 ) :           \
+                    ( 1 - rwSqrtMacro((_result), 1.0f - (_s)) ) ) )
+
+#define RwQuadCos(_x)                                                       \
+    ( rw4OVERPISQ *                                                         \
+      ( ( (_x) < -rwPIOVER2 ) ?                                             \
+        ( ( -rwPI3OVER2 - (_x) ) * ( -rwPIOVER2 - (_x) ) ) :                \
+        ( ( (_x) < rwPIOVER2) ?                                             \
+          ( ( rwPIOVER2 + (_x) ) * ( rwPIOVER2 - (_x) ) ) :                 \
+          ( ( rwPIOVER2 - (_x) ) * ( rwPI3OVER2 - (_x) ) ) ) ) )
+
+#define RwQuadACos(_result, _c)                                             \
+    ( rwPIOVER2 * ( ((_c)<0) ?                                              \
+                    (2.0f - rwSqrtMacro((_result), 1.0f + (_c))):           \
+                    rwSqrtMacro((_result), 1.0f - (_c))) )
+
+#define RwQuadTan(_x)                                                       \
+    ( rwPI3 * (_x) / ( rwPI * rwPI - (_x) * (_x) * 4.0f ) )
+
+#define RwQuadATan(_result, _t)                                             \
+    ( ( rwSqrtMacro((_result), (rwPI3OVER8 * rwPI3OVER8) +                  \
+                    (_t) * (_t) * (rwPIOVER2 * rwPIOVER2) ) - rwPI3OVER8 )  \
+      / ( _t) )
+
+#define RwQuadATan2(_result, _s, _c)                                        \
+    ( ( rwSqrtMacro((_result), (_c) * (_c) * (rwPI3OVER8 * rwPI3OVER8) +    \
+                    (_s) * (_s) * (rwPIOVER2 * rwPIOVER2) )                 \
+        - (_c) * rwPI3OVER8 ) / ( _s)  )
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif         /* __cplusplus */
+
+/* Other useful stuff */
+
+extern RwReal RwV3dNormalize(RwV3d * out, const RwV3d * in);
+extern RwReal RwV3dLength(const RwV3d * in);
+
+extern RwReal RwV2dLength(const RwV2d * in);
+extern RwReal RwV2dNormalize(RwV2d * out, const RwV2d * in);
+
+#if ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) )
+
+extern void RwV2dAssign(RwV2d * out,
+                        const RwV2d * ina);
+extern void RwV2dAdd(RwV2d * out,
+                     const RwV2d * ina, const RwV2d * inb);
+extern void RwV2dLineNormal(RwV2d * out,
+                     const RwV2d * ina, const RwV2d * inb);
+extern void RwV2dSub(RwV2d * out,
+                     const RwV2d * ina, const RwV2d * inb);
+extern void RwV2dPerp(RwV2d * out, const RwV2d * in);
+extern void RwV2dScale(RwV2d * out,
+                       const RwV2d * in, RwReal scalar);
+extern RwReal RwV2dDotProduct(const RwV2d * ina, const RwV2d * inb);
+
+extern void RwV3dAssign(RwV3d * out,
+                        const RwV3d * ina);
+extern void RwV3dAdd(RwV3d * out,
+                     const RwV3d * ina, const RwV3d * inb);
+extern void RwV3dSub(RwV3d * out,
+                     const RwV3d * ina, const RwV3d * inb);
+extern void RwV3dScale(RwV3d * out,
+                       const RwV3d * in, RwReal scalar);
+extern void RwV3dIncrementScaled(RwV3d * out, 
+                                 const RwV3d * in, RwReal scalar);
+extern void RwV3dNegate(RwV3d * out, const RwV3d * in);
+extern RwReal RwV3dDotProduct(const RwV3d * ina, const RwV3d * inb);
+extern void RwV3dCrossProduct(RwV3d * out,
+                              const RwV3d * ina, const RwV3d * inb);
+
+#endif         /* ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) ) */
+
+/* Transform points/vectors */
+extern RwV3d *RwV3dTransformPoints(RwV3d * pointsOut,
+                                   const RwV3d * pointsIn,
+                                   RwInt32 numPoints,
+                                   const RwMatrix * matrix);
+extern RwV3d *RwV3dTransformVectors(RwV3d * vectorsOut,
+                                    const RwV3d * vectorsIn,
+                                    RwInt32 numPoints,
+                                    const RwMatrix * matrix);
+
+/* SPI */
+
+#if (!defined(RWNOSQRTTABLE))
+extern RwReal _rwSqrt(const RwReal num);
+#endif /* (!defined(RWNOSQRTTABLE)) */
+#if (!defined(RWNOINVSQRTTABLE))
+extern RwReal _rwInvSqrt(const RwReal num);
+#endif /* (!defined(RWNOINVSQRTTABLE)) */
+
+extern RwReal _rwV3dNormalize(RwV3d * out, const RwV3d * in);
+
+#ifdef    __cplusplus
+}
+#endif         /* __cplusplus */
+
+#define rwVectorOpen(instance, offset, size) \
+       _rwVectorOpen(instance, offset, size)
+
+#define rwVectorClose(instance, offset, size) \
+       _rwVectorClose(instance, offset, size)
+
+#define rwVectorSetMultFn(multPoint,multVector) \
+       _rwVectorSetMultFn(multPoint,multVector)
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/balist.h ---*/
 /****************************************************************************
@@ -3308,8 +4513,6 @@ typedef RwV3d *(*rwVectorMultFn) (RwV3d * pointsOut,
  */
 
 typedef struct RwSList RwSList;
-
-#if (!defined(DOXYGEN))
 struct RwSList
 {
     RwUInt8    *listElements;
@@ -3317,7 +4520,67 @@ struct RwSList
     RwInt32     numElementsAlloced;
     RwInt32     entrySize;
 };
-#endif /* (!defined(DOXYGEN) */
+
+
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+/* SList functions */
+extern RwSList    *_rwSListCreate(RwInt32 size);
+extern RwBool      _rwSListDestroy(RwSList *sList);
+extern RwBool      _rwSListDestroyArray(RwUInt8 *array);
+extern void         _rwSListDestroyEndEntries(RwSList *sList, RwInt32 amount);
+extern RwBool      _rwSListDestroyEntry(RwSList *sList, RwInt32 entry);
+extern void         _rwSListEmpty(RwSList *sList);
+extern void        *_rwSListGetArray(RwSList *sList);
+extern void        *_rwSListGetEntry(RwSList *sList, RwInt32 entry);
+extern void        *_rwSListGetNewEntry(RwSList *sList);
+extern void        *_rwSListGetNewEntries(RwSList *sList, RwInt32 entry);
+extern RwInt32     _rwSListGetNumEntries(const RwSList *sList);
+extern RwBool      _rwSListReleaseArray(RwSList *sList);
+extern void        *_rwSListToArray(RwSList *sList);
+
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+/* Comparibility macros */
+
+#define rwSListCreate(size) \
+       _rwSListCreate(size)
+#define rwSListDestroy(sList) \
+       _rwSListDestroy(sList)
+#define rwSListDestroyArray(array) \
+       _rwSListDestroyArray(array)
+#define rwSListDestroyEndEntries(sList, amount) \
+       _rwSListDestroyEndEntries(sList, amount)
+#define rwSListDestroyEntry(sList, entry) \
+       _rwSListDestroyEntry(sList, entry)
+#define rwSListEmpty(sList) \
+       _rwSListEmpty(sList)
+#define rwSListGetArray(sList) \
+       _rwSListGetArray(sList)
+#define rwSListGetEntry(sList, entry) \
+       _rwSListGetEntry(sList, entry)
+#define rwSListGetNewEntry(sList) \
+       _rwSListGetNewEntry(sList)
+#define rwSListGetNewEntries(sList, entry) \
+       _rwSListGetNewEntries(sList, entry)
+#define rwSListGetNumEntries(sList) \
+       _rwSListGetNumEntries(sList)
+#define rwSListReleaseArray(sList) \
+       _rwSListReleaseArray(sList)
+#define rwSListToArray(sList) \
+       _rwSListToArray(sList)
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/baimmedi.h ---*/
 
@@ -3332,169 +4595,99 @@ struct RwSList
 
  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwrenderstate
- * RwRenderState represents the global state variables that control
- * rendering. These may be set and queried using the
- * \ref RwRenderStateSet and \ref RwRenderStateGet functions respectively.
+ * \ingroup datatypes
+ * RwRenderState
+ *     This type represents the various render states that
+ * can be set using the API function \ref RwRenderStateSet. This function also
+ * takes a render state value or pointer to an object depending on the type.
+ * For render states that are toggles, the value should be TRUE to switch the
+ * state on and FALSE to turn it off.
  *
- * Refer to the \ref rwrenderstateoverview for an overview of this system.
- *
- * \note The texture render states (raster, address & filter modes) would
- * normally just be used when rendering in immediate mode and should be
- * specificied completely every time a texture is used. Retained mode
- * pipelines will frequently set theses states internally, usually based on
- * \ref RwTexture objects.
+ * Note that many of these render states may not be supported on certain
+ * platforms. The \ref RwRenderStateSet functions will return FALSE in such cases.
  */
-#endif /* RWADOXYGENEXTERNAL */
 enum RwRenderState
 {
     rwRENDERSTATENARENDERSTATE = 0,
-
-    rwRENDERSTATETEXTURERASTER,
-        /**<Raster used for texturing (normally used in immediate mode). 
-         *  The value is a pointer to an \ref RwRaster.
-         */
-    rwRENDERSTATETEXTUREADDRESS,
-        /**<\ref RwTextureAddressMode: wrap, clamp, mirror or border.
-         */
-    rwRENDERSTATETEXTUREADDRESSU,
-        /**<\ref RwTextureAddressMode in u only.
-         */
-    rwRENDERSTATETEXTUREADDRESSV,
-        /**<\ref RwTextureAddressMode in v only.
-         */
-    rwRENDERSTATETEXTUREPERSPECTIVE,
-        /**<Perspective correction on/off (always enabled on many platforms).
-         */
-    rwRENDERSTATEZTESTENABLE,
-        /**<Z-buffer test on/off.
-         */
-    rwRENDERSTATESHADEMODE,
-        /**<\ref RwShadeMode: flat or gouraud shading.
-         */
-    rwRENDERSTATEZWRITEENABLE,
-        /**<Z-buffer write on/off.
-         */
-    rwRENDERSTATETEXTUREFILTER,
-        /**<\ref RwTextureFilterMode: point sample, bilinear, trilinear, etc.
-         */
-    rwRENDERSTATESRCBLEND,
-        /**<\ref RwBlendFunction used to modulate the source pixel color
-         *  when blending to the frame buffer.
-         */
-    rwRENDERSTATEDESTBLEND,
-        /**<\ref RwBlendFunction used to modulate the destination pixel
-         *  color in the frame buffer when blending. The resulting pixel
-         *  color is given by the formula 
-         *  (SRCBLEND * srcColor + DESTBLEND * destColor) for each RGB
-         *  component. For a particular platform, not all combinations
-         *  of blend function are allowed (see platform specific
-         *  restrictions).
-         */
-    rwRENDERSTATEVERTEXALPHAENABLE,
-        /**<Alpha blending on/off (always enabled on some platforms). 
-         *  This is normally used in immediate mode to enable alpha blending 
-         *  when vertex colors or texture rasters have transparency. Retained
-         *  mode pipelines will usually set this state based on material colors 
-         *  and textures.
-         */
-    rwRENDERSTATEBORDERCOLOR,
-        /**<Border color for \ref RwTextureAddressMode 
-         *  \ref rwTEXTUREADDRESSBORDER. The value should be a packed 
-         *  RwUInt32 in a platform specific format. The macro 
-         *  RWRGBALONG(r, g, b, a) may be used to construct this using 
-         *  8-bit color components.  
-         */
-    rwRENDERSTATEFOGENABLE,
-        /**<Fogging on/off (all polygons will be fogged).  
-         */
-    rwRENDERSTATEFOGCOLOR,
-        /**<Color used for fogging. The value should be a packed RwUInt32 
-         *  in a platform specific format. The macro RWRGBALONG(r, g, b, a)
-         *  may be used to construct this using 8-bit color components. 
-         */
-    rwRENDERSTATEFOGTYPE,
-        /**<\ref RwFogType, the type of fogging to use. 
-         */
-    rwRENDERSTATEFOGDENSITY,
-        /**<Fog density for \ref RwFogType of 
-         *  \ref rwFOGTYPEEXPONENTIAL or \ref rwFOGTYPEEXPONENTIAL2. 
-         *  The value should be a pointer to an RwReal in the 
-         *  range 0 to 1.  
-         */
-    rwRENDERSTATECULLMODE = 20,
-        /**<\ref RwCullMode, for selecting front/back face culling, or
-         *  no culling.
-         */
-    rwRENDERSTATESTENCILENABLE,
-        /**<Stenciling on/off.
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILFAIL,
-        /**<\ref RwStencilOperation used when the stencil test passes.
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILZFAIL,
-        /**<\ref RwStencilOperation used when the stencil test passes and 
-         *  the depth test (z-test) fails. 
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILPASS,
-        /**<Stencil operation used when both the stencil and the depth 
-         *  (z) tests pass. 
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILFUNCTION,
-        /**<\ref RwStencilFunction for the stencil test. 
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILFUNCTIONREF,
-        /**<Integer reference value for the stencil test. 
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILFUNCTIONMASK,
-        /**<Mask applied to the reference value and each stencil buffer 
-         *  entry to determine the significant bits for the stencil test. 
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
-    rwRENDERSTATESTENCILFUNCTIONWRITEMASK,
-        /**<Write mask applied to values written into the stencil buffer. 
-         *  <i> Supported on Xbox, D3D8, and OpenGL only. </i>
-         */
+    rwRENDERSTATETEXTURERASTER,             /**<Raster to texture with. \ref RwRenderStateSet
+                                             *  takes a pointer to an \ref RwRaster */
+    rwRENDERSTATETEXTUREADDRESS,            /**<\ref RwTextureAddressMode: wrap, clamp, mirror or border */
+    rwRENDERSTATETEXTUREADDRESSU,           /**<\ref RwTextureAddressMode in u only */
+    rwRENDERSTATETEXTUREADDRESSV,           /**<\ref RwTextureAddressMode in v only */
+    rwRENDERSTATETEXTUREPERSPECTIVE,        /**<Perspective correction on/off */
+    rwRENDERSTATEZTESTENABLE,               /**<Z-buffer test on/off */
+    rwRENDERSTATESHADEMODE,                 /**<\ref RwShadeMode: flat or gouraud shading */
+    rwRENDERSTATEZWRITEENABLE,              /**<Z-buffer write on/off */
+    rwRENDERSTATETEXTUREFILTER,             /**<\ref RwTextureFilterMode: point sample, bilinear, trilinear, etc */
+    rwRENDERSTATESRCBLEND,                  /**<Source alpha \ref RwBlendFunction: src alpha, 1-src alpha, etc */
+    rwRENDERSTATEDESTBLEND,                 /**<Destination alpha \ref RwBlendFunction */
+    rwRENDERSTATEVERTEXALPHAENABLE,         /**<Vertex alpha transparency on/off */
+    rwRENDERSTATEBORDERCOLOR,               /**<Border color for \ref RwTextureAddressMode rwTEXTUREADDRESSBORDER.
+                                             *  The value should be a packed RwUInt32 in ARGB form. The macro
+                                             *  RWRGBALONG(r, g, b, a) may be used to construct this using 8-bit
+                                             *  color components. */
+    rwRENDERSTATEFOGENABLE,                 /**<Fogging on/off (all polygons will be fogged) */
+    rwRENDERSTATEFOGCOLOR,                  /**<Color used for fogging. The value should be a packed RwUInt32
+                                             *  in ARGB form. The macro RWRGBALONG(r, g, b, a) may be used to
+                                             *  construct this using 8-bit color components */
+    rwRENDERSTATEFOGTYPE,                   /**<Sets \ref RwFogType, the type of fogging to use */
+    rwRENDERSTATEFOGDENSITY,                /**<Select the fog density for \ref RwFogType of rwFOGTYPEEXPONENTIAL
+                                             *  or rwFOGTYPEEXPONENTIAL2. The value should be a pointer to
+                                             *  an RwReal in the range 0 to 1. */
+    rwRENDERSTATEFOGTABLE,                  /**<Install a 256 entry fog table placed between fog distance and far
+                                             *  clip-plane */
+    rwRENDERSTATEALPHAPRIMITIVEBUFFER,      /**<Render transparent alpha polygons last - on/off. \e Not \e supported 
+                                             * \e on \e any \e platform.*/
+    rwRENDERSTATECULLMODE,                  /**<Sets \ref RwCullMode, for selecting face culling. */
+    rwRENDERSTATESTENCILENABLE,             /**< TRUE to enable stenciling, or FALSE to disable stenciling.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only. */
+    rwRENDERSTATESTENCILFAIL,               /**< Stencil test operator for the fail case.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
+    rwRENDERSTATESTENCILZFAIL,              /**< Stencil operation to perform if the stencil test passes
+                                             *   and the depth test (z-test) fails.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
+    rwRENDERSTATESTENCILPASS,               /**< Stencil operation to perform if both the stencil and the 
+                                             *   depth (z) tests pass.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
+    rwRENDERSTATESTENCILFUNCTION,           /**< Comparison function for the stencil test.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
+    rwRENDERSTATESTENCILFUNCTIONREF,        /**< Integer reference value for the stencil test.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
+    rwRENDERSTATESTENCILFUNCTIONMASK,       /**< Mask applied to the reference value and each stencil buffer 
+                                             *   entry to determine the significant bits for the stencil test.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
+    rwRENDERSTATESTENCILFUNCTIONWRITEMASK,  /**< Write mask applied to values written into the stencil buffer.
+                                             * \e Supported \e on \e Xbox, \e D3D8, \e and \e OpenGL \e only */
 
     rwRENDERSTATEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwRenderState RwRenderState;
 
-#ifndef RWADOXYGENEXTERNAL
+
 /**
- * \ingroup rwrenderstate
- * RwShadeMode represents the available shading modes that may be
- * set using the \ref RwRenderState \ref rwRENDERSTATESHADEMODE.
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * \ingroup datatypes
+ * RwShadeMode
+ *  This type represents the options available for setting the
+ * rwRENDERSTATESHADEMODE render state */
 enum RwShadeMode
 {
-    rwSHADEMODENASHADEMODE = 0,
+    rwSHADEMODENASHADEMODE = 0,     /**<Invalid shading mode */
     rwSHADEMODEFLAT,                /**<Flat shading */
     rwSHADEMODEGOURAUD,             /**<Gouraud shading */
     rwSHADEMODEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwShadeMode RwShadeMode;
 
-#ifndef RWADOXYGENEXTERNAL
+
 /**
- * \ingroup rwrenderstate
- * RwTextureFilterMode represents the texture filtering modes that may
- * be set using the \ref RwRenderState \ref rwRENDERSTATETEXTUREFILTER in
- * immediate mode, or \ref RwTextureSetFilterMode in retained mode.
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * \ingroup datatypes
+ * RwTextureFilterMode
+ *  This type represents the options available for texture
+ * filtering (see API functions \ref RwTextureSetFilterMode and \ref RwRenderStateSet)*/
 enum RwTextureFilterMode
 {
-    rwFILTERNAFILTERMODE = 0,
+    rwFILTERNAFILTERMODE = 0,       /**<Invalid filter mode */
     rwFILTERNEAREST,                /**<Point sampled */
     rwFILTERLINEAR,                 /**<Bilinear */
     rwFILTERMIPNEAREST,             /**<Point sampled per pixel mip map */
@@ -3505,18 +4698,15 @@ enum RwTextureFilterMode
 };
 typedef enum RwTextureFilterMode RwTextureFilterMode;
 
-#ifndef RWADOXYGENEXTERNAL
+
 /**
- * \ingroup rwrenderstate
- * RwFogType represents the fog modes available when setting the
- * \ref RwRenderState \ref rwRENDERSTATEFOGTYPE. Note that a particular
- * platform may not support all of these modes (see platform specific
- * restrictions).
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * \ingroup datatypes
+ * RwFogType
+ *  This type represents the options available to the
+ * rwRENDERSTATEFOGTYPE render state (see \ref RwRenderState);*/
 enum RwFogType
 {
-    rwFOGTYPENAFOGTYPE = 0,
+    rwFOGTYPENAFOGTYPE = 0,     /**<Invalid fog type */
     rwFOGTYPELINEAR,            /**<Linear fog */
     rwFOGTYPEEXPONENTIAL,       /**<Exponential fog */
     rwFOGTYPEEXPONENTIAL2,      /**<Exponential^2 fog */
@@ -3524,28 +4714,18 @@ enum RwFogType
 };
 typedef enum RwFogType RwFogType;
 
-#ifndef RWADOXYGENEXTERNAL
+
 /**
- * \ingroup rwrenderstate
- * RwBlendFunction represents the options available when changing the
- * \ref RwRenderState setting for \ref rwRENDERSTATESRCBLEND and 
- * \ref rwRENDERSTATEDESTBLEND. The values are factors used to modulate
- * either the source or destination pixel color when blending to
- * the frame buffer. Note the some  combinations are not allowed on
- * certain platforms (see platform specific restrictions).
- *
- * In the following list, the factors applied to each color component are 
- * listed explicitly. A subscript s refers to a source value while a subscript 
- * d refers to a destination value. Note that blending in the alpha channel is 
- * only applicable when the frame buffer actually contains alpha, and that
- * the precise operation is platform specific. For instance, the
- * source alpha value might simply be written to the alpha channel with
- * no blending.
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * \ingroup datatypes
+ * RwBlendFunction
+ *  This type represents the options available
+ * to the rwRENDERSTATESRCBLEND and rwRENDERSTATEDESTBLEND render states
+ * (see \ref RwRenderState).  In the following description,
+ * a subscript s refers to a source value while subscript d refers to a
+ * destination value.*/
 enum RwBlendFunction
 {
-    rwBLENDNABLEND = 0,
+    rwBLENDNABLEND = 0,     /**<Invalid blend mode */
     rwBLENDZERO,            /**<(0,    0,    0,    0   ) */
     rwBLENDONE,             /**<(1,    1,    1,    1   ) */
     rwBLENDSRCCOLOR,        /**<(Rs,   Gs,   Bs,   As  ) */
@@ -3561,139 +4741,93 @@ enum RwBlendFunction
 };
 typedef enum RwBlendFunction RwBlendFunction;
 
-#ifndef RWADOXYGENEXTERNAL
+
 /**
- * \ingroup rwrenderstate
- * RwTextureAddressMode represents the addressing modes available 
- * when mapping textures to polygons using UV texture coordinates.
- * This may be set in immediate mode via the \ref RwRenderState
- * \ref rwRENDERSTATETEXTUREADDRESS, or via \ref RwTextureSetAddressing
- * for an \ref RwTexture object.
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * \ingroup datatypes
+ * RwTextureAddressMode
+ *  This type represents the options available for
+ * applying textures to polygons (see API functions \ref RwTextureSetAddressing
+ * and \ref RwRenderStateSet, and the \ref RwRenderState type) */
 enum RwTextureAddressMode
 {
-    rwTEXTUREADDRESSNATEXTUREADDRESS = 0,
-    rwTEXTUREADDRESSWRAP,      /**<UV wraps (tiles) */
-    rwTEXTUREADDRESSMIRROR,    /**<Alternate UV is flipped */
-    rwTEXTUREADDRESSCLAMP,     /**<UV is clamped to 0-1 */
-    rwTEXTUREADDRESSBORDER,    /**<Border color takes effect outside of 0-1 */
+    rwTEXTUREADDRESSNATEXTUREADDRESS = 0,   /**<Invalid addressing mode */
+    rwTEXTUREADDRESSWRAP,                   /**<UV wraps (tiles) */
+    rwTEXTUREADDRESSMIRROR,                 /**<Alternate UV is flipped */
+    rwTEXTUREADDRESSCLAMP,                  /**<UV is clamped to 0-1 */
+    rwTEXTUREADDRESSBORDER,                 /**<Border colour takes effect outside of 0-1 */
     rwTEXTUREADDRESSMODEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwTextureAddressMode RwTextureAddressMode;
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwrenderstate
- * RwStencilOperation represents the stencil operations that may be
- * performed depending on the results of stencil/z-buffer tests.
- * The operation may be set for the various tests 
- * via the \ref RwRenderState settings \ref rwRENDERSTATESTENCILFAIL,
- * \ref rwRENDERSTATESTENCILZFAIL and \ref rwRENDERSTATESTENCILPASS.
+ * \ingroup datatypes
+ * RwStencilOperation
+ *  This type represents the stencil operations to perform 
+ * based on the results of the  
+ * \ref rwRENDERSTATESTENCILFAIL, \ref rwRENDERSTATESTENCILZFAIL
+ * and \ref rwRENDERSTATESTENCILPASS tests.
  */ 
-#endif /* RWADOXYGENEXTERNAL */
 enum RwStencilOperation
 {
     rwSTENCILOPERATIONNASTENCILOPERATION = 0,
-
-    rwSTENCILOPERATIONKEEP,     
-        /**<Do not update the entry in the stencil buffer */
-    rwSTENCILOPERATIONZERO,     
-        /**<Set the stencil-buffer entry to 0 */
-    rwSTENCILOPERATIONREPLACE,  
-        /**<Replace the stencil-buffer entry with reference value */
-    rwSTENCILOPERATIONINCRSAT,  
-        /**<Increment the stencil-buffer entry, clamping to the 
-         *  maximum value */
-    rwSTENCILOPERATIONDECRSAT,  
-        /**<Decrement the stencil-buffer entry, clamping to zero */    
-    rwSTENCILOPERATIONINVERT,   
-        /**<Invert the bits in the stencil-buffer entry */
-    rwSTENCILOPERATIONINCR,     
-        /**<Increment the stencil-buffer entry, wrapping to zero if 
-         *  the new value exceeds the maximum value */
-    rwSTENCILOPERATIONDECR,     
-        /**<Decrement the stencil-buffer entry, wrapping to the maximum
-         *  value if the new value is less than zero */
- 
+    rwSTENCILOPERATIONKEEP,     /* Do not update the entry in the stencil buffer */
+    rwSTENCILOPERATIONZERO,     /* Set the stencil-buffer entry to 0 */
+    rwSTENCILOPERATIONREPLACE,  /* Replace the stencil-buffer entry with reference value */
+    rwSTENCILOPERATIONINCRSAT,  /* Increment the stencil-buffer entry, clamping to the maximum value */
+    rwSTENCILOPERATIONDECRSAT,  /* Decrement the stencil-buffer entry, clamping to zero */    
+    rwSTENCILOPERATIONINVERT,   /* Invert the bits in the stencil-buffer entry */
+    rwSTENCILOPERATIONINCR,     /* Increment the stencil-buffer entry, wrapping to zero if the new value exceeds the maximum value */
+    rwSTENCILOPERATIONDECR,     /* Decrement the stencil-buffer entry, wrapping to the maximum value if the new value is less than zero */
     rwSTENCILOPERATIONFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwStencilOperation RwStencilOperation;
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwrenderstate
- * RwStencilFunction represents the comparison functions available for
- * a stencil test. The function may be selected via the 
- * \ref RwRenderState setting \ref rwRENDERSTATESTENCILFUNCTION.
+ * \ingroup datatypes
+ * RwStencilFunction
+ *  This type represents the options available for
+ * the comparison function for the stencil test \ref rwRENDERSTATESTENCILFUNCTION.
  */
-#endif /* RWADOXYGENEXTERNAL */
 enum RwStencilFunction
 {
     rwSTENCILFUNCTIONNASTENCILFUNCTION = 0,
-
-    rwSTENCILFUNCTIONNEVER,         
-        /**<Always fail the test */
-    rwSTENCILFUNCTIONLESS,          
-        /**<Accept the new pixel if its value is less than the value of
-         *  the current pixel */
-    rwSTENCILFUNCTIONEQUAL,         
-        /**<Accept the new pixel if its value equals the value of the
-         *  current pixel */
-    rwSTENCILFUNCTIONLESSEQUAL,     
-        /**<Accept the new pixel if its value is less than or equal to 
-         *  the value of the current pixel */
-    rwSTENCILFUNCTIONGREATER,       
-        /**<Accept the new pixel if its value is greater than the value 
-         *  of the current pixel */
-    rwSTENCILFUNCTIONNOTEQUAL,      
-        /**<Accept the new pixel if its value does not equal the value of 
-         *  the current pixel */
-    rwSTENCILFUNCTIONGREATEREQUAL,  
-        /**<Accept the new pixel if its value is greater than or equal
-         *  to the value of the current pixel */
-    rwSTENCILFUNCTIONALWAYS,        
-        /**<Always pass the test */
-
+    rwSTENCILFUNCTIONNEVER,         /* Always fail the test */
+    rwSTENCILFUNCTIONLESS,          /* Accept the new pixel if its value is less than the value of the current pixel */
+    rwSTENCILFUNCTIONEQUAL,         /* Accept the new pixel if its value equals the value of the current pixel */
+    rwSTENCILFUNCTIONLESSEQUAL,     /* Accept the new pixel if its value is less than or equal to the value of the current pixel */
+    rwSTENCILFUNCTIONGREATER,       /* Accept the new pixel if its value is greater than the value of the current pixel */
+    rwSTENCILFUNCTIONNOTEQUAL,      /* Accept the new pixel if its value does not equal the value of the current pixel */
+    rwSTENCILFUNCTIONGREATEREQUAL,  /* Accept the new pixel if its value is greater than or equal to the value of the current pixel */
+    rwSTENCILFUNCTIONALWAYS,        /* Always pass the test */
     rwSTENCILFUNCTIONFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwStencilFunction RwStencilFunction;
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwrenderstate
- * RwCullMode represents the options available for culling polygons
- * during rendering. The cull mode may be set via the \ref RwRenderState
- * setting \ref rwRENDERSTATECULLMODE.
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * \ingroup datatypes
+ * RwCullMode
+ *  This type represents the options available for culling polygons during rendering.
+ * and \ref RwRenderStateSet, and the \ref RwRenderState type) */
 enum RwCullMode
 {
     rwCULLMODENACULLMODE = 0,
-
-    rwCULLMODECULLNONE, 
-        /**<Both front and back-facing triangles are drawn. */
-    rwCULLMODECULLBACK, 
-        /**<Only front-facing triangles are drawn */
-    rwCULLMODECULLFRONT,
-        /**<Only back-facing triangles are drawn */
+    rwCULLMODECULLNONE,                /**< Both front and back-facing triangles are drawn. */
+    rwCULLMODECULLBACK,                /**< Just front-facing triangles are drawn */
+    rwCULLMODECULLFRONT,               /**< Just rear-facing triangles are drawn */
 
     rwCULLMODEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwCullMode RwCullMode;
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup immediatemodedatatypes
+ * \ingroup datatypes
  * RwPrimitiveType
  *  This type represents the different types of indexed
  * line and indexed triangle primitives that are available when rendering 2D
  * and 3D immediate mode objects (see API functions \ref RwIm2DRenderIndexedPrimitive,
  * \ref RwIm2DRenderPrimitive, \ref RwIm3DRenderIndexedPrimitive and \ref RwIm3DRenderPrimitive).
  * Indices are into a vertex list and must be defined in a counter-clockwise order
- * (as seen from the camera) to be visible.
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * (as seen from the camera) to be visible.*/
 enum RwPrimitiveType
 {
     rwPRIMTYPENAPRIMTYPE = 0,   /**<Invalid primative type */
@@ -3721,6 +4855,37 @@ enum RwPrimitiveType
     rwPRIMITIVETYPEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RwPrimitiveType RwPrimitiveType;
+
+
+
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+/* Expose Z buffer range */
+extern RwReal RwIm2DGetNearScreenZ(void);
+extern RwReal RwIm2DGetFarScreenZ(void);
+
+extern RwBool RwRenderStateGet(RwRenderState state, void *value);
+extern RwBool RwRenderStateSet(RwRenderState state, void *value);
+
+extern RwBool RwIm2DRenderLine(RwIm2DVertex *vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2);
+extern RwBool RwIm2DRenderTriangle(RwIm2DVertex *vertices, RwInt32 numVertices,
+                                   RwInt32 vert1, RwInt32 vert2, RwInt32 vert3 );
+extern RwBool RwIm2DRenderPrimitive(RwPrimitiveType primType, RwIm2DVertex *vertices, RwInt32 numVertices);
+extern RwBool RwIm2DRenderIndexedPrimitive(RwPrimitiveType primType, RwIm2DVertex *vertices, RwInt32 numVertices,
+                                                             RwImVertexIndex *indices, RwInt32 numIndices);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/badevice.h ---*/
 /***************************************************************************/
@@ -3829,9 +4994,8 @@ typedef RwBool (*RwStandardFunc)(void *pOut,void *pInOut,RwInt32 nI);
 
 typedef struct RwEngineOpenParams RwEngineOpenParams;
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwengine
+ * \ingroup datatypes
  * \struct RwEngineOpenParams
  * This type is used to specify device dependent parameters
  * for use by the API function \ref RwEngineOpen.
@@ -3839,7 +5003,6 @@ typedef struct RwEngineOpenParams RwEngineOpenParams;
  * should be set to the window's handle (of type HWND).
  * For NULL and sky libraries displayID=0:
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwEngineOpenParams
 {
     void    *displayID;     /**< Display Identifier */
@@ -3903,41 +5066,37 @@ typedef RwBool
 
 
 typedef struct RwDevice RwDevice;
-
-#if (!defined(DOXYGEN))
-/*
- * struct RwDevice
+/**
+ * \ingroup datatypes
+ * \struct RwDevice
  * Structure describing a display device
  */
 struct RwDevice
 {
-    RwReal                                  gammaCorrection; /* Gamma correction  */
-    RwSystemFunc                            fpSystem;  /* System handler */
-    RwReal                                  zBufferNear; /* Near Z buffer value */
-    RwReal                                  zBufferFar; /* Far Z buffer value */
+    RwReal                                  gammaCorrection; /**<Gamma correction  */
+    RwSystemFunc                            fpSystem;  /**< System handler */
+    RwReal                                  zBufferNear; /**< Near Z buffer value */
+    RwReal                                  zBufferFar; /**< Far Z buffer value */
 
     /* Immediate mode functions */
-    RwRenderStateSetFunction                fpRenderStateSet; /* Internal Use */
-    RwRenderStateGetFunction                fpRenderStateGet; /* Internal Use */
+    RwRenderStateSetFunction                fpRenderStateSet; /**< Internal Use */
+    RwRenderStateGetFunction                fpRenderStateGet; /**< Internal Use */
 
     /* Render functions */
-    RwIm2DRenderLineFunction                fpIm2DRenderLine; /* Internal Use */
-    RwIm2DRenderTriangleFunction            fpIm2DRenderTriangle; /* Internal Use */
-    RwIm2DRenderPrimitiveFunction           fpIm2DRenderPrimitive; /* Internal Use */
-    RwIm2DRenderIndexedPrimitiveFunction    fpIm2DRenderIndexedPrimitive; /* Internal Use */
+    RwIm2DRenderLineFunction                fpIm2DRenderLine; /**< Internal Use */
+    RwIm2DRenderTriangleFunction            fpIm2DRenderTriangle; /**< Internal Use */
+    RwIm2DRenderPrimitiveFunction           fpIm2DRenderPrimitive; /**< Internal Use */
+    RwIm2DRenderIndexedPrimitiveFunction    fpIm2DRenderIndexedPrimitive; /**< Internal Use */
 
-    RwIm3DRenderLineFunction                fpIm3DRenderLine; /* Internal Use */
-    RwIm3DRenderTriangleFunction            fpIm3DRenderTriangle; /* Internal Use */
-    RwIm3DRenderPrimitiveFunction           fpIm3DRenderPrimitive; /* Internal Use */
-    RwIm3DRenderIndexedPrimitiveFunction    fpIm3DRenderIndexedPrimitive; /* Internal Use */
+    RwIm3DRenderLineFunction                fpIm3DRenderLine; /**< Internal Use */
+    RwIm3DRenderTriangleFunction            fpIm3DRenderTriangle; /**< Internal Use */
+    RwIm3DRenderPrimitiveFunction           fpIm3DRenderPrimitive; /**< Internal Use */
+    RwIm3DRenderIndexedPrimitiveFunction    fpIm3DRenderIndexedPrimitive; /**< Internal Use */
 };
 
-#endif /* (!defined(DOXYGEN)) */
-
 typedef struct RwMetrics RwMetrics;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwengine
+ * \ingroup datatypes
  * \struct RwMetrics
  * This structure provides information about the performance
  * of the application.  The metrics are recorded only in the metrics
@@ -3950,7 +5109,6 @@ typedef struct RwMetrics RwMetrics;
  * be considered as bad news and will indicate a significantly
  * reduced rendering performance.
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwMetrics
 {
     RwUInt32    numTriangles;           /**< Number of triangles processed */
@@ -3965,15 +5123,13 @@ struct RwMetrics
 #define SUBSYSTEMNAME_MAXLEN 80
 
 typedef struct RwSubSystemInfo RwSubSystemInfo;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwengine
+ * \ingroup datatypes
  * \struct RwSubSystemInfo
  * This type is used to represent information about a device.
  * The only available field specifies a character string
  * which identifies the subsystem
  * (see API function \ref RwEngineGetSubSystemInfo). */
-#endif  /* RWADOXYGENEXTERNAL */
 struct RwSubSystemInfo
 {
     RwChar  name[SUBSYSTEMNAME_MAXLEN]; /**< Sub system string */
@@ -3983,15 +5139,13 @@ struct RwSubSystemInfo
 /* Video modes */
 /* These are flag bits which may be ORd */
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwengine
+ * \ingroup datatypes
  * RwVideoModeFlag
  * These flags specify the type of display that RenderWare
  * will use.  The flags may be OR'd together to build composite modes.
  * Note that not all modes are supported on all platforms.
  */
-#endif /* RWADOXYGENEXTERNAL */
 enum RwVideoModeFlag
 {
     rwVIDEOMODEEXCLUSIVE  = 0x1,    /**<Exclusive (i.e. full-screen) */
@@ -4008,16 +5162,13 @@ enum RwVideoModeFlag
 typedef enum RwVideoModeFlag RwVideoModeFlag;
 
 typedef struct RwVideoMode RwVideoMode;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwengine
+ * \ingroup datatypes
  * \struct RwVideoMode
  * This type represents a video mode available on a device specified
  * by the frame buffer resolution (width and height) and depth,
  * and a flag indicating  whether the device has exclusive use of
- * the mode (see API function \ref RwEngineGetVideoModeInfo): 
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * the mode (see API function \ref RwEngineGetVideoModeInfo): */
 struct RwVideoMode
 {
         RwInt32         width;  /**< Width */
@@ -4026,9 +5177,8 @@ struct RwVideoMode
         RwVideoModeFlag flags;  /**< Flags */
 };
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwengine
+ * \ingroup datatypes
  * RwEngineInitFlag
  * Engine initialization flags.  An application can use
  * these to control the memory manager that RenderWare uses for dynamic
@@ -4040,7 +5190,6 @@ struct RwVideoMode
  * RwMalloc and RwFree.  This will result in more memory management
  * related calls.
  */
-#endif /* RWADOXYGENEXTERNAL */
 enum RwEngineInitFlag
 {
     rwENGINEINITFREELISTS = 0,      /**<Use Freelists */
@@ -4049,6 +5198,57 @@ enum RwEngineInitFlag
 };
 typedef enum RwEngineInitFlag RwEngineInitFlag;
 
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+/* Get the library binary version */
+extern RwInt32 RwEngineGetVersion(void);
+
+/* Sequence of events to get RenderWare up and running */
+extern RwBool RwEngineInit(RwMemoryFunctions *memFuncs, RwUInt32 initFlags, RwUInt32 resArenaSize);
+extern RwInt32 RwEngineRegisterPlugin(RwInt32 size, RwUInt32 pluginID,
+                                  RwPluginObjectConstructor initCB,
+                                  RwPluginObjectDestructor termCB);
+extern RwInt32 RwEngineGetPluginOffset(RwUInt32 pluginID);
+extern RwBool RwEngineOpen(RwEngineOpenParams *initParams);
+extern RwBool RwEngineStart(void);
+extern RwBool RwEngineStop(void);
+extern RwBool RwEngineClose(void);
+extern RwBool RwEngineTerm(void);
+
+/* Finding out about the rendering sub systems available */
+extern RwInt32 RwEngineGetNumSubSystems(void);
+extern RwSubSystemInfo *RwEngineGetSubSystemInfo(RwSubSystemInfo *subSystemInfo, RwInt32 subSystemIndex);
+extern RwInt32 RwEngineGetCurrentSubSystem(void);
+extern RwBool RwEngineSetSubSystem(RwInt32 subSystemIndex);
+
+/* Finding out about the modes available */
+extern RwInt32 RwEngineGetNumVideoModes(void);
+extern RwVideoMode *RwEngineGetVideoModeInfo(RwVideoMode *modeinfo, RwInt32 modeIndex);
+extern RwInt32 RwEngineGetCurrentVideoMode(void);
+extern RwBool RwEngineSetVideoMode(RwInt32 modeIndex);
+
+/* Finding out how much texture memory is available */
+extern RwInt32 RwEngineGetTextureMemorySize(void);
+extern RwInt32 RwEngineGetMaxTextureSize(void);
+
+/* Getting/Releasing the focus */
+extern RwBool RwEngineSetFocus(RwBool enable);
+
+/* Getting metrics */
+extern RwMetrics *RwEngineGetMetrics(void);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/bafsys.h ---*/
 
 /****************************************************************************
@@ -4056,75 +5256,80 @@ typedef enum RwEngineInitFlag RwEngineInitFlag;
  */
 
 /*
- * rwFnFexist
+ * \typedef rwFnFexist
  * Returns TRUE if file with given name exists, FALSE if it doesn't.
  */
 typedef RwBool  (*rwFnFexist)(const RwChar *name);
 
 /*
- * rwFnFopen
+ * \typedef rwFnFopen
  * Mimics ANSI C Standard Library fopen.
  */
 typedef void   *(*rwFnFopen)(const RwChar *name, const RwChar *mode);
 
 /*
- * rwFnFclose
+ * \typedef rwFnFclose
  * Mimics ANSI C Standard Library fclose.
  */
 typedef int     (*rwFnFclose)(void *fptr);
 
 /*
- * rwFnFread
+ * \typedef rwFnFread
  * Mimics ANSI C Standard Library fread.
  */
 typedef size_t  (*rwFnFread)(void *addr, size_t size, size_t count, void *fptr);
 
 /*
- * rwFnFwrite
+ * \typedef rwFnFwrite
  * Mimics ANSI C Standard Library fwrite.
  */
 typedef size_t  (*rwFnFwrite)(const void *addr, size_t size, size_t count, void *fptr);
 
 /*
- * rwFnFgets
+ * \typedef rwFnFgets
  * Mimics ANSI C Standard Library fgets.
  */
 typedef RwChar *(*rwFnFgets)(RwChar *buffer, int maxLen, void *fptr);
 
 /*
- * rwFnFputs
+ * \typedef rwFnFputs
  * Mimics ANSI C Standard Library fputs.
  */
 typedef int     (*rwFnFputs)(const RwChar *buffer, void *fptr);
 
 /*
- * rwFnFeof
+ * \typedef rwFnFeof
  * Mimics ANSI C Standard Library feof.
  */
 typedef int     (*rwFnFeof)(void *fptr);
 
 /*
- * rwFnFseek
+ * \typedef rwFnFseek
  * Mimics ANSI C Standard Library fseek.
  */
 typedef int     (*rwFnFseek)(void *fptr, long offset, int origin);
 
 /*
- * rwFnFflush
+ * \typedef rwFnFflush
  * Mimics ANSI C Standard Library fflush.
  */
 typedef int     (*rwFnFflush)(void *fptr);
 
 /*
- * rwFnFtell
+ * \typedef rwFnFtell
  * Mimics ANSI C Standard Library ftell.
  */
 typedef int     (*rwFnFtell)(void *fptr);
 
 
+/**
+ * \ingroup datatypes
+ * \typedef RwFileFunctions
+ * typedef for struct RwFileFunctions
+ */
 typedef struct RwFileFunctions RwFileFunctions;
 /**
- * \ingroup memoryfileinterface
+ * \ingroup datatypes
  * \struct RwFileFunctions
  * This type is used to specify the file access
  * functions used by RenderWare. The default file system uses the standard
@@ -4166,15 +5371,27 @@ struct RwFileFunctions
     rwFnFtell   rwftell;  /**< Pointer to ftell function */  
 };
 
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+extern RwFileFunctions *RwOsGetFileInterface(void);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/baerr.h ---*/
 /****************************************************************************
  Global Types
  */
 
 typedef struct RwError RwError;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwerror
+ * \ingroup datatypes
  * \struct RwError
  * This type represents a RenderWare error specified by the
  * ID of the plugin that the error was issued from (pluginID) and the error
@@ -4182,7 +5399,6 @@ typedef struct RwError RwError;
  * \param pluginID The ID of the plugin that issued the error.
  * \param errorCode A value representing the error code.
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwError
 {
     RwInt32     pluginID;  /**< Internal Use */
@@ -4203,6 +5419,24 @@ typedef enum RwErrorCodeCommon RwErrorCodeCommon;
 
 #undef RWECODE
 
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+extern RwError *RwErrorGet(RwError *code);
+extern RwError *RwErrorSet(RwError *code);
+extern RwInt32 _rwerror(RwInt32 code, ...);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/badebug.h ---*/
 
 /****************************************************************************
@@ -4210,7 +5444,7 @@ typedef enum RwErrorCodeCommon RwErrorCodeCommon;
  */
 
 /**
- * \ingroup rwdebug
+ * \ingroup datatypes
  * RwDebugType 
  * This type represents the different types of debug and 
  * trace messages that can be sent to the currently installed debug handler 
@@ -4227,7 +5461,7 @@ enum RwDebugType
 typedef enum RwDebugType RwDebugType;
 
 /**
- * \ingroup rwdebug
+ * \ingroup datatypes
  * \ref RwDebugHandler
  * This type represents the
  * function called from \ref RwDebugSendMessage for sending a message to the
@@ -4244,7 +5478,68 @@ typedef void        (*RwDebugHandler) (RwDebugType type,
 
                                        const RwChar * string);
 
+#ifdef RWDEBUG
+
+#define RwDebugSendMessage(type, funcName, message)     \
+        _rwDebugSendMessage(type,                       \
+                            RWSTRING(__FILE__),         \
+                            __LINE__,                   \
+                            funcName,                   \
+                            message)
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern              "C"
+{
+#endif                          /* __cplusplus */
+
+/* Setting the debug message handler */
+extern RwDebugHandler RwDebugSetHandler(RwDebugHandler handler);
+extern void         RwDebugSetTraceState(RwBool state);
+
+extern void         _rwDebugSendMessage(RwDebugType type,
+                                        const RwChar * file,
+                                        const RwInt32 line,
+                                        const RwChar * funcName,
+                                        const RwChar * message);
+
+/* Sending a message */
+extern RwChar      *_rwdberrcommon(RwInt32 code, ...);
+extern RwChar      *_rwdbsprintf(const RwChar * format,
+                                 ...) __RWFORMAT__(printf, 1, 2);
+
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+#else /* RWDEBUG */
+
+#define RwDebugSetHandler(handler)
+#define RwDebugSetTraceState(state)
+#define RwDebugSendMessage(type, funcName, message)
+
+#if (!defined(RWREGSETDEBUGTRACE))
+#define RWREGSETDEBUGTRACE(_name) /* No op */
+#endif /* (!defined(RWREGSETDEBUGTRACE)) */
+
+#endif /* RWDEBUG */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/balibtyp.h ---*/
+/* Finding MSBs */
+
+#define RWBYTEFINDMSB(a) \
+   (_rwMsbBit[(a)]-1)
+
+#define RWWORDFINDMSB(a) \
+   (((a)&0xff00)?RWBYTEFINDMSB((a)>>8)+8: RWBYTEFINDMSB(a))
+
+#define RWLONGFINDMSB(a) \
+   (((a)&0xffff0000UL)?RWWORDFINDMSB((a)>>16)+16: RWWORDFINDMSB(a))
 
 /****************************************************************************
  Defines
@@ -4256,6 +5551,10 @@ typedef void        (*RwDebugHandler) (RwDebugType type,
 
 #define RWPLUGINOFFSETCONST(_type, _base, _offset)              \
    ((const _type *)((const RwUInt8 *)(_base) + (_offset)))
+
+/* macro used to access global data structure (the root type is RwGlobals) */
+#define RWSRCGLOBAL(variable) \
+   (((RwGlobals *)RwEngineInstance)->variable)
 
 #define RWASSERTISTYPE(_f, _t) \
    RWASSERT((((const RwObject *)(_f))->type)==(_t))
@@ -4275,8 +5574,6 @@ enum RwEngineStatus
 typedef enum RwEngineStatus RwEngineStatus;
 
 typedef struct RwGlobals RwGlobals;
-
-#if (!defined(DOXYGEN))
 struct RwGlobals
 {
 #ifdef RWDEBUG
@@ -4335,49 +5632,70 @@ struct RwModuleInfo
         RwInt32     globalsOffset;
         RwInt32     numInstances;
 };
-#endif /* (!defined(DOXYGEN)) */
+
+
+
+/****************************************************************************
+ Program wide globals
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+#ifdef RWGLOBALSIZE
+extern RwUInt32     ourGlobals[RWGLOBALSIZE / sizeof(RwUInt32)];
+#define RwEngineInstance ourGlobals
+#else /* RWGLOBALSIZE */
+extern void         *RwEngineInstance;
+#endif /* RWGLOBALSIZE */
+
+extern RwInt8 _rwMsbBit[];
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/baresour.h ---*/
 
-#ifndef RWADOXYGENEXTERNAL
+#define RWRESOURCESGLOBAL(var) (RWPLUGINOFFSET(rwResourcesGlobals,  \
+    RwEngineInstance, resourcesModule.globalsOffset)->var)
+
 /**
- * \ingroup rwresources
- * \struct RwResEntry
+ * \ingroup datatypes
+ * \typedef RwResEntry
  * RwResEntry object. Instanced data block in resources arena.
  * This should be considered an opaque
  * type. Use the RwResEntry API functions to access.
  */
-#endif /* RWADOXYGENEXTERNAL */
-
 typedef struct RwResEntry RwResEntry;
 
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwresources
- * \ref RwResEntryDestroyNotify type represents the function
+ * \ingroup datatypes
+ * \typedef RwResEntryDestroyNotify
+ * This type represents the function
  * called from \ref RwResourcesFreeResEntry (and indirectly from
  * \ref RwResourcesEmptyArena) immediately before the memory used by the
  * specified resources entry is released.
  *
  * \param  resEntry   Pointer to the instanced data.
  */
-#endif /* RWADOXYGENEXTERNAL */
 typedef void        (*RwResEntryDestroyNotify) (RwResEntry * resEntry);
 
 #if (!defined(DOXYGEN))
 struct RwResEntry
 {
-    RwLLLink            link;   /* Node in the list of resource elements */
-    RwInt32             size;   /* Size of this node */
-    void               *owner;  /* Owner of this node */
-    RwResEntry        **ownerRef; /* Pointer to pointer to this (enables de-alloc) */
-    RwResEntryDestroyNotify destroyNotify; /* This is called right before destruction */
+    RwLLLink            link;   /**< Node in the list of resource elements */
+    RwInt32             size;   /**< Size of this node */
+    void               *owner;  /**< Owner of this node */
+    RwResEntry        **ownerRef; /**< Pointer to pointer to this (enables de-alloc) */
+    RwResEntryDestroyNotify destroyNotify; /**< This is called right before destruction */
 };
 #endif /* (!defined(DOXYGEN)) */
 
 typedef struct rwResources rwResources;
-
-#if (!defined(DOXYGEN))
 struct rwResources
 {
     RwInt32             maxSize;
@@ -4393,13 +5711,45 @@ struct rwResources
     RwLinkList         *usedEntries;
 };
 
-
 typedef struct rwResourcesGlobals rwResourcesGlobals;
 struct rwResourcesGlobals
 {
     rwResources         res;
 };
-#endif /* (!defined(DOXYGEN)) */
+
+
+#ifdef    __cplusplus
+extern              "C"
+{
+#endif                          /* __cplusplus */
+
+/* Setting the resources arena size */
+extern RwBool       RwResourcesSetArenaSize(RwUInt32 size);
+extern RwInt32      RwResourcesGetArenaSize(void);
+extern RwInt32      RwResourcesGetArenaUsage(void);
+extern RwBool       RwResourcesEmptyArena(void);
+
+/* Allocate */
+extern RwResEntry  *RwResourcesAllocateResEntry(void *owner,
+                                                RwResEntry **ownerRef,
+                                                RwInt32 size,
+                                                RwResEntryDestroyNotify
+                                                destroyNotify);
+/* Deallocate */
+extern RwBool       RwResourcesFreeResEntry(RwResEntry * entry);
+/* Mark all as unused */
+extern void         _rwResourcesPurge(void);
+#if ((defined(RWDEBUG)) || (defined(RWSUPPRESSINLINE)))
+/* Mark as used */
+extern RwResEntry  *RwResourcesUseResEntry(RwResEntry * entry);
+#endif /* ((defined(RWDEBUG)) || (defined(RWSUPPRESSINLINE))) */
+
+extern RwModuleInfo resourcesModule;
+
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
 
 #if ((!defined(RWDEBUG)) && (!defined(RWSUPPRESSINLINE)))
 #define RwResourcesUseResEntry(_ntry)                               \
@@ -4411,15 +5761,15 @@ struct rwResourcesGlobals
      (_ntry))
 #endif /* ((!defined(RWDEBUG)) && (!defined(RWSUPPRESSINLINE))) */
 
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/bacolor.h ---*/
 /****************************************************************************
  Global Types
  */
 
 typedef struct RwRGBAReal RwRGBAReal;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwrgba
+ * \ingroup datatypes
  * \struct RwRGBAReal
  * This structure represents a RGBA color which has 
  * components specified as real values. 
@@ -4435,7 +5785,6 @@ typedef struct RwRGBAReal RwRGBAReal;
  * value 0 generally corresponds to the associcated component in an 
  * RwRGBAReal with the value 0.0.
  */
-#endif /* RWADOXYGENEXTERNAL */
 struct RwRGBAReal
 {
     RwReal red;     /**< red component */
@@ -4450,14 +5799,11 @@ struct RwRGBAReal
 #endif /* (!defined(RwRGBARealAssign)) */
 
 typedef struct RwRGBA RwRGBA;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwrgba
+ * \ingroup datatypes
  * \struct RwRGBA
  * This structure represents a RGBA color 
- * which has integer components specified in the range 0 to 255. 
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * which has integer components specified in the range 0 to 255. */
 struct RwRGBA
 {
     RwUInt8 red;    /**< red component */
@@ -4537,6 +5883,18 @@ MACRO_START                                                              \
 }                                                                        \
 MACRO_STOP
 
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+
+#if (! ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) ))
+
 #define RwRGBARealAdd(o,a,b) \
         RwRGBARealAddMacro(o,a,b)
 
@@ -4552,6 +5910,34 @@ MACRO_STOP
 #define RwRGBARealFromRwRGBA(o, i) \
         RwRGBARealFromRwRGBAMacro(o, i)
 
+#else /* (! ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) )) */
+
+/* Function versions for debug */
+extern void RwRGBARealAdd(RwRGBAReal *result,
+                          const RwRGBAReal *source1,
+                          const RwRGBAReal *source2);
+
+extern void RwRGBARealSub(RwRGBAReal *result,
+                          const RwRGBAReal *source1,
+                          const RwRGBAReal *source2);
+
+extern void RwRGBARealScale(RwRGBAReal *result,
+                            const RwRGBAReal *source,
+                            RwReal scalar);
+
+extern void RwRGBAFromRwRGBAReal(RwRGBA *result,
+                                 const RwRGBAReal *source);
+
+extern void RwRGBARealFromRwRGBA(RwRGBAReal *result,
+                                 RwRGBA *source);
+
+#endif /* (! ( defined(RWDEBUG) || defined(RWSUPPRESSINLINE) )) */
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/babinmtx.h ---*/
 
 /****************************************************************************
@@ -4561,7 +5947,6 @@ MACRO_STOP
 /* Matrix stream format */
 typedef struct rwStreamMatrix RwMatrixChunkInfo;
 typedef struct rwStreamMatrix rwStreamMatrix;
-#if (!defined(DOXYGEN))
 struct rwStreamMatrix
 {
     RwV3d               right;
@@ -4570,7 +5955,32 @@ struct rwStreamMatrix
     RwV3d               pos;
     RwInt32             type;
 };
-#endif /* (!defined(DOXYGEN)) */
+
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern              "C"
+{
+#endif                          /* __cplusplus */
+
+/* Matrix binary format */
+extern RwUInt32     RwMatrixStreamGetSize(const RwMatrix * matrix);
+extern RwMatrix    *RwMatrixStreamRead(RwStream * stream,
+                                       RwMatrix * matrix);
+extern const RwMatrix *RwMatrixStreamWrite(const RwMatrix * matrix,
+                                           RwStream * stream);
+extern RwMatrixChunkInfo *RwMatrixChunkInfoRead(RwStream * stream,
+                                                RwMatrixChunkInfo *
+                                                matrixChunkInfo,
+                                                RwInt32 * bytesRead);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
 
 /*--- Automatically derived from: C:/daily/rwsdk/src/plcore/babinary.h ---*/
 /****************************************************************************
@@ -4581,19 +5991,29 @@ struct rwStreamMatrix
 #define rwCHUNKHEADERSIZE (sizeof(RwUInt32)*3)
 #endif /* rwCHUNKHEADERSIZE */
 
+/* Compatibility macro */
+#define RwStreamWriteInt(_stream, _ints, _numBytes) \
+        RwStreamWriteInt32(_stream, _ints, _numBytes)
+
+#define RwStreamReadInt(_stream, _ints, _numBytes) \
+        RwStreamReadInt32(_stream, _ints, _numBytes)
+
+#define RwMemLittleEndian(_mem, _size) \
+        RwMemLittleEndian32(_mem, _size)
+
+#define RwMemNative(_mem, _size) \
+        RwMemNative32(_mem, _size)
+
 /****************************************************************************
  Global Types
  */
 
 typedef struct RwChunkHeaderInfo RwChunkHeaderInfo;
-#ifndef RWADOXYGENEXTERNAL
 /**
- * \ingroup rwstream
+ * \ingroup datatypes
  * \struct RwChunkHeaderInfo
  * Holds data for a chunk header read from a
- * stream with \ref RwStreamReadChunkHeaderInfo. 
- */
-#endif /* RWADOXYGENEXTERNAL */
+ * stream with \ref RwStreamReadChunkHeaderInfo. */
 struct RwChunkHeaderInfo
 {
     RwUInt32 type;      /**< chunk ID - see \ref RwStreamFindChunk */
@@ -4604,3 +6024,57 @@ struct RwChunkHeaderInfo
                          *   previously used to stream out the data */
     RwBool isComplex;   /**< Internal Use */
 };
+
+/****************************************************************************
+ Function prototypes
+ */
+
+#ifdef    __cplusplus
+extern "C"
+{
+#endif                          /* __cplusplus */
+
+/* Chunk header stuff */
+extern RwBool RwStreamFindChunk(RwStream *stream, RwUInt32 type,
+                                RwUInt32 *lengthOut, RwUInt32 *versionOut);
+
+#define RwStreamWriteChunkHeader(stream, type, size) \
+    _rwStreamWriteVersionedChunkHeader(         \
+        stream, type, size, rwLIBRARYCURRENTVERSION, RWBUILDNUMBER)
+
+extern RwStream *_rwStreamWriteVersionedChunkHeader(RwStream *stream,
+                                                   RwInt32 type,
+                                                   RwInt32 size,
+                                                   RwUInt32 version,
+                                                   RwUInt32 buildNum);
+
+extern RwStream *RwStreamWriteReal(RwStream *stream, const RwReal *reals,
+                                   RwUInt32 numBytes);
+extern RwStream *RwStreamWriteInt32(RwStream *stream, const RwInt32 *ints,
+                                    RwUInt32 numBytes);
+extern RwStream *RwStreamWriteInt16(RwStream *stream, const RwInt16 *ints,
+                                    RwUInt32 numBytes);
+
+extern RwStream *RwStreamReadReal(RwStream *stream, RwReal *reals,
+                                  RwUInt32 numBytes);
+extern RwStream *RwStreamReadInt32(RwStream *stream, RwInt32 *ints,
+                                   RwUInt32 numBytes);
+extern RwStream *RwStreamReadInt16(RwStream *stream, RwInt16 *ints,
+                                   RwUInt32 numBytes);
+
+/* Binary Portability Functions */
+extern void *RwMemLittleEndian16(void *mem, RwUInt32 size);
+extern void *RwMemLittleEndian32(void *mem, RwUInt32 size);
+extern void *RwMemNative16(void *mem, RwUInt32 size);
+extern void *RwMemNative32(void *mem, RwUInt32 size);
+extern void *RwMemRealToFloat32(void *mem, RwUInt32 size);
+extern void *RwMemFloat32ToReal(void *mem, RwUInt32 size);
+
+extern RwStream *
+RwStreamReadChunkHeaderInfo(RwStream *stream, RwChunkHeaderInfo *chunkHeaderInfo);
+
+#ifdef    __cplusplus
+}
+#endif                          /* __cplusplus */
+
+#endif /* RWPLCORE_H */

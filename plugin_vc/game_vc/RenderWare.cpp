@@ -6,8 +6,7 @@
 */
 #include "RenderWare.h"
 
-RwGlobals *&RwEngineInstance = *(RwGlobals **)0x7870C0;
-
+void *RwEngineInstance = *(void**)0x7870C0;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x9B48D8;
 
 /* rwplcore.h */
@@ -1372,8 +1371,8 @@ RtAnimAnimation* RtAnimAnimationCreate(RwInt32 typeID, RwInt32 numFrames, RwInt3
     return ((RtAnimAnimation*(__cdecl *)(RwInt32, RwInt32, RwInt32, RwReal))0x64D970)(typeID, numFrames, flags, duration);
 }
 
-RtAnimAnimation* RtAnimAnimationDestroy(RtAnimAnimation* animation) {
-    return ((RtAnimAnimation*(__cdecl *)(RtAnimAnimation*))0x64DA20)(animation);
+RwBool RtAnimAnimationDestroy(RtAnimAnimation* animation) {
+    return ((RwBool(__cdecl *)(RtAnimAnimation*))0x64DA20)(animation);
 }
 
 RtAnimInterpolator* RtAnimInterpolatorCreate(RwInt32 numNodes, RwInt32 maxKeyFrameSize) {

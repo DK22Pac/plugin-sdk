@@ -8,6 +8,7 @@ defines { "GTASA", "PLUGIN_SGV_10US", "RW" }
 includedirs {
 	"$(PLUGIN_SDK_DIR)\\plugin_SA\\",
 	"$(PLUGIN_SDK_DIR)\\plugin_SA\\game_SA\\",
+    "$(PLUGIN_SDK_DIR)\\plugin_SA\\game_SA\\rw\\",
 }
 
 local sa_dir = os.getenv("GTA_SA_DIR")

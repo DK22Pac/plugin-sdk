@@ -13,6 +13,8 @@
 #include "CRect.h"
 #include "CColModel.h"
 #include "C2dEffect.h"
+#include "CColModel.h"
+#include "CModelInfo.h"
 
 class PLUGIN_API CEntity : public CPlaceable {
 protected:

@@ -19,7 +19,6 @@
 #include "C2dEffect.h"
 #include "eLevelName.h"
 #include "CXtraCompsModelInfo.h"
-#include "CVehicle.h"
 
 class PLUGIN_API CModelInfo {
 public:

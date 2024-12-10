@@ -65,15 +65,6 @@ enum PLUGIN_API eVehicleLightsFlags {
     VEHICLE_LIGHTS_DISABLE_REAR = 32
 };
 
-enum PLUGIN_API eVehicleType : unsigned int {
-    VEHICLE_AUTOMOBILE = 0,
-    VEHICLE_BOAT = 1,
-    VEHICLE_TRAIN = 2,
-    VEHICLE_HELI = 3,
-    VEHICLE_PLANE = 4,
-    VEHICLE_BIKE = 5
-};
-
 enum PLUGIN_API tWheelState {
     WHEEL_STATE_NORMAL = 0, //!< standing still or rolling normally
     WHEEL_STATE_SPINNING = 1, //!< rotating but not moving

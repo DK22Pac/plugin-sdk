@@ -13,6 +13,15 @@
 #include "RenderWare.h"
 #include "CRGBA.h"
 
+enum PLUGIN_API eVehicleType : unsigned int {
+    VEHICLE_AUTOMOBILE = 0,
+    VEHICLE_BOAT = 1,
+    VEHICLE_TRAIN = 2,
+    VEHICLE_HELI = 3,
+    VEHICLE_PLANE = 4,
+    VEHICLE_BIKE = 5
+};
+
 class PLUGIN_API CVehicleModelInfo : public CClumpModelInfo {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CVehicleModelInfo)
 

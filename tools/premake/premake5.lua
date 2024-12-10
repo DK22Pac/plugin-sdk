@@ -162,11 +162,11 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
 			
 		elseif projectName == "plugin_sa_unreal" then
-            defines { "GTASA_UNREAL", "PLUGIN_UNREAL", "UNREAL" }
+            defines { "GTASA_UNREAL", "PLUGIN_UNREAL", "UNREAL", "NOASM", "RWINT32FROMFLOAT" }
 		elseif projectName == "plugin_vc_unreal" then
-            defines { "GTAVC_UNREAL", "PLUGIN_UNREAL", "UNREAL" }
+            defines { "GTAVC_UNREAL", "PLUGIN_UNREAL", "UNREAL", "NOASM", "RWINT32FROMFLOAT" }
 		elseif projectName == "plugin_iii_unreal" then
-            defines { "GTA3_UNREAL", "PLUGIN_UNREAL", "UNREAL" }	
+            defines { "GTA3_UNREAL", "PLUGIN_UNREAL", "UNREAL", "NOASM", "RWINT32FROMFLOAT" }	
         end
     end
     
@@ -214,6 +214,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         includedirs {
             ("$(PLUGIN_SDK_DIR)\\" .. projectName),
             ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName),
+            ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName .. "\\rw"),
             "$(PLUGIN_SDK_DIR)\\shared",
             "$(PLUGIN_SDK_DIR)\\shared\\game"
         }

@@ -7,22 +7,11 @@
 #include "RenderWare.h"
 #include "PluginBase.h"
 
-RwGlobals *&RwEngineInstance = *(RwGlobals **)0xC97B24;
-
+void *RwEngineInstance = *(void **)0xC97B24;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
-
 RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
 
-_D3DMATRIX *GetD3DViewTransform() {
-    return reinterpret_cast<_D3DMATRIX *>(0xC9BC80);
-}
-
-_D3DMATRIX *GetD3DProjTransform() {
-    return reinterpret_cast<_D3DMATRIX *>(0x8E2458);
-}
-
 /* rwplcore.h */
-
 RwMemoryFunctions* RwOsGetMemoryInterface(void) {
     return ((RwMemoryFunctions*(__cdecl *)(void))0x802230)();
 }
@@ -325,22 +314,6 @@ void* _rwSListGetBegin(RwSList* sList) {
 
 void* _rwSListGetEnd(RwSList* sList) {
     return ((void*(__cdecl *)(RwSList*))0x809540)(sList);
-}
-
-RwBool RwIm2DRenderPrimitive(RwPrimitiveType primType, RwIm2DVertex* vertices, RwInt32 numVertices) {
-    return ((int(__cdecl *)(RwPrimitiveType, RwIm2DVertex*, RwInt32))0x734E90)(primType, vertices, numVertices);
-}
-
-RwBool RwIm2DRenderIndexedPrimitive(RwPrimitiveType primType, RwIm2DVertex* vertices, RwInt32 numVertices, RwImVertexIndex* indices, RwInt32 numIndices) {
-    return ((int(__cdecl *)(RwPrimitiveType, RwIm2DVertex*, RwInt32, RwImVertexIndex*, RwInt32))0x734EA0)(primType, vertices, numVertices, indices, numIndices);
-}
-
-RwBool RwIm2DRenderTriangle(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2, RwInt32 vert3) {
-    return ((int(__cdecl *)(RwIm2DVertex*, RwInt32, RwInt32, RwInt32, RwInt32))0x734EB0)(vertices, numVertices, vert1, vert2, vert3);
-}
-
-RwBool RwIm2DRenderLine(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2) {
-    return ((int(__cdecl *)(RwIm2DVertex*, RwInt32, RwInt32, RwInt32))0x734EC0)(vertices, numVertices, vert1, vert2);
 }
 
 RwUInt32 RwEngineGetVersion(void) {

@@ -15,6 +15,7 @@
 #include <sstream>
 #include "RenderWare.h"
 #include "DynamicResource.h"
+#include "common.h"
 
 namespace plugin {
     class Shader : public DynamicResource {

@@ -177,3 +177,12 @@ bool DoRWStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bo
 void DoRWStuffEndOfFrame();
 void RsCameraShowRaster(RwCamera* camera);
 
+template<typename T>
+T* GetD3DDevice();
+
+#ifndef D3DMATRIX_DEFINED
+struct _D3DMATRIX;
+#endif
+
+_D3DMATRIX* GetD3DViewTransform();
+_D3DMATRIX* GetD3DProjTransform();
