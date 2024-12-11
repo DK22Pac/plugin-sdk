@@ -25,7 +25,7 @@
 namespace plugin {
     void BassSampleManager::LoadSample(std::string const& file, uint32_t loopStart, int32_t loopEnd) {
         BassSample s;
-        s.handle = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 1, BASS_SAMPLE_3D);
+        s.handle = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 1, BASS_SAMPLE_MONO | BASS_SAMPLE_3D);
         s.loopStart = loopStart;
         s.loopEnd = loopEnd;
         samples.push_back(s);
