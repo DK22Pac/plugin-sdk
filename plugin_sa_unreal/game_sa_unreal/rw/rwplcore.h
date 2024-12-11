@@ -6460,7 +6460,7 @@ extern RwUInt32     ourGlobals[RWGLOBALSIZE / sizeof(RwUInt32)];
 #ifdef _RWDLL
 __declspec(dllimport) extern void         *RwEngineInstance;
 #else
-extern void         *RwEngineInstance;
+extern void         *&RwEngineInstance;
 #endif
 
 #endif /* RWGLOBALSIZE */

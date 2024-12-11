@@ -6,7 +6,7 @@
 */
 #include "RenderWare.h"
 
-void *RwEngineInstance = *(void**)0x7870C0;
+void *&RwEngineInstance = *(void**)0x7870C0;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x9B48D8;
 
 /* rwplcore.h */

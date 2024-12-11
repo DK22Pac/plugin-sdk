@@ -6,7 +6,7 @@
 */
 #include "RenderWare.h"
 
-void *RwEngineInstance = *(void **)0x661228;
+void *&RwEngineInstance = *(void **)0x661228;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x8F4360;
 
 /* rwplcore.h */
@@ -1567,7 +1567,7 @@ RwUInt32 RpSkinGetNumBones(RpSkin* skin) {
 }
 
 const RwMatrixWeights* RpSkinGetVertexBoneWeights(RpSkin* skin) {
-    return (RwMatrixWeights*)(&skin + 0x18);
+    return  RpSkinGetData(skin)->vertexMaps.matrixWeights;
 }
 
 const RwMatrix* RpSkinGetSkinToBoneMatrices(RpSkin* skin) {

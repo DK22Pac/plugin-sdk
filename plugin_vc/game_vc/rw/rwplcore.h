@@ -5648,7 +5648,7 @@ extern "C"
 extern RwUInt32     ourGlobals[RWGLOBALSIZE / sizeof(RwUInt32)];
 #define RwEngineInstance ourGlobals
 #else /* RWGLOBALSIZE */
-extern void         *RwEngineInstance;
+extern void         *&RwEngineInstance;
 #endif /* RWGLOBALSIZE */
 
 extern RwInt8 _rwMsbBit[];

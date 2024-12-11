@@ -7,7 +7,7 @@
 #include "RenderWare.h"
 #include "PluginBase.h"
 
-void *RwEngineInstance = *(void **)0xC97B24;
+void *&RwEngineInstance = *(void **)0xC97B24;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
 RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
 
