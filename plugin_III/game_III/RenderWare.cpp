@@ -8,6 +8,10 @@
 
 void *&RwEngineInstance = *(void **)0x661228;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x8F4360;
+RwModuleInfo& _rwIm3DModule = *(RwModuleInfo*)0x7143F8;
+RwModuleInfo& rasterModule = *(RwModuleInfo*)0x6615C8;
+RwInt32& _rpClumpLightExtOffset = *(RwInt32*)0x661024;
+
 
 /* rwplcore.h */
 
@@ -247,9 +251,11 @@ RwReal _rwMatrixIdentityError(const RwMatrix* matrix) {
     return ((RwReal(__cdecl *)(const RwMatrix*))0x5A2660)(matrix);
 }
 
-//RwReal RwV3dNormalize(RwV3d* out, const RwV3d* in) {
-//    return ((RwReal(__cdecl *)(RwV3d*, const RwV3d*))0x646F20)(out, in);
-//}
+RwReal RwV3dNormalize(RwV3d* out, const RwV3d* in) {
+    RwReal length = ((RwReal)0);
+    RwV3dNormalizeMacro(length, out, in);
+    return length;
+}
 
 RwReal RwV3dLength(const RwV3d* in) {
     return ((RwReal(__cdecl *)(const RwV3d*))0x5A36A0)(in);
@@ -525,6 +531,25 @@ RwRaster* RwRasterPopContext(void) {
     return ((RwRaster*(__cdecl *)(void))0x5AD870)();
 }
 
+RwBool RwRasterClear(RwInt32 pixelValue) {
+    RwBool              result;
+
+    RWAPIFUNCTION(RWSTRING("RwRasterClear"));
+    RWASSERT(rasterModule.numInstances);
+
+    result = (RWRASTERGLOBAL(rasterSP) > 0);
+
+    if (result) {
+        RWSRCGLOBAL(stdFunc[rwSTANDARDRASTERCLEAR]) (NULL, NULL,
+                                                     pixelValue);
+    }
+    else {
+        RWERROR((E_RW_RASTERSTACKEMPTY));
+    }
+
+    RWRETURN(result);
+}
+
 RwRaster* RwRasterGetCurrentContext(void) {
     return ((RwRaster*(__cdecl *)(void))0x5AD6D0)();
 }
@@ -696,6 +721,129 @@ RwBool RwIm3DRenderLine(RwInt32 vert1, RwInt32 vert2) {
 
 RwBool RwIm3DRenderIndexedPrimitive(RwPrimitiveType primType, RwImVertexIndex* indices, RwInt32 numIndices) {
     return ((RwBool(__cdecl *)(RwPrimitiveType, RwImVertexIndex*, RwInt32))0x5B6820)(primType, indices, numIndices);
+}
+
+RwBool RwIm3DRenderPrimitive(RwPrimitiveType primType) {
+    RwBool              im3dactive;
+    RxHeap* heap;
+
+    RWAPIFUNCTION(RWSTRING("RwIm3DRenderPrimitive"));
+
+#if (!defined(SUPPRESS_IM3D))
+    im3dactive = (RWIMMEDIGLOBAL(curPool).elements != NULL);
+
+    heap = RxHeapGetGlobalHeap();
+    RWASSERT(NULL != heap);
+
+    if (im3dactive) {
+        _rwIm3DPoolStash* stash = &(RWIMMEDIGLOBAL(curPool).stash);
+
+        stash->pipeline = (RxPipeline*)NULL;
+        stash->primType = (RwPrimitiveType)primType;
+        stash->indices = (RxVertexIndex*)NULL;
+        stash->numIndices = (RwUInt32)RWIMMEDIGLOBAL(curPool).numElements;
+
+        RWASSERT(RWPRIMTYPEVALID(primType));
+
+        switch (primType) {
+            case rwPRIMTYPETRILIST:
+            {
+                /* We need at least 3 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 3);
+                /* We need a multiple of 3 vertices */
+                RWASSERT((RWIMMEDIGLOBAL(curPool).numElements % 3) == 0);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).triList;
+
+                break;
+            }
+            case rwPRIMTYPETRIFAN:
+            {
+                /* We need at least 3 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 3);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).triFan;
+
+                break;
+            }
+            case rwPRIMTYPETRISTRIP:
+            {
+                /* We need at least 3 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 3);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).triStrip;
+
+                break;
+            }
+            case rwPRIMTYPELINELIST:
+            {
+                /* We need at least 2 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 2);
+                /* We need a multiple of 2 vertices */
+                RWASSERT((RWIMMEDIGLOBAL(curPool).numElements % 2) == 0);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).lineList;
+
+                break;
+            }
+            case rwPRIMTYPEPOLYLINE:
+            {
+                /* We need at least 2 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 2);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).polyLine;
+
+                break;
+            }
+
+            default:
+            {
+                RWERROR((E_RX_INVALIDPRIMTYPE, primType));
+                break;
+            }
+        }
+
+#if (defined(SKY2_DRVMODEL_H) && defined(RWDEBUG))
+        /* Either use both the PS2All default transform AND render pipeline
+         * or neither - mixing PS2All with non-PS2All is heap bad voodoo
+         * [can also use PS2Manager render pipe w/ PS2All transform pipe] */
+
+         /* NOTE: this test may become appropriate for other targets */
+        {
+            RxPipeline* curTrns, * ps2AllTrns;
+            RxPipeline* ps2AllRnd, * ps2AllRnd2;
+
+            curTrns = RWIMMEDIGLOBAL(im3DTransformPipeline);
+            ps2AllTrns = RWIMMEDIGLOBAL(platformIm3DTransformPipeline);
+            ps2AllRnd = RWIMMEDIGLOBAL(platformIm3DRenderPipelines).triList;
+            ps2AllRnd2 = RWIMMEDIGLOBAL(platformIm3DRenderPipelines).lineList;
+
+            RWASSERT(((curTrns == ps2AllTrns) &&
+                     ((stash->pipeline == ps2AllRnd) ||
+                     (stash->pipeline == ps2AllRnd2))) ||
+                      ((curTrns != ps2AllTrns) &&
+                     ((stash->pipeline != ps2AllRnd) &&
+                     (stash->pipeline != ps2AllRnd2))));
+        }
+#endif /* (defined(SKY2_DRVMODEL_H) && defined(RWDEBUG)) */
+
+        if (RxPipelineExecute(stash->pipeline, (void*)stash, FALSE) != NULL) {
+            RWRETURN(TRUE);
+        }
+    }
+    else {
+        RWERROR((E_RX_IM3DNOTACTIVE));
+    }
+
+    RWRETURN(FALSE);
+#else /* (!defined(SUPPRESS_IM3D)) */
+    RWRETURN(TRUE);
+#endif /* (!defined(SUPPRESS_IM3D)) */
 }
 
 RxPipeline* RwIm3DSetTransformPipeline(RxPipeline* pipeline) {
@@ -1311,8 +1459,29 @@ RpClump* RpClumpAddAtomic(RpClump* clump, RpAtomic* atomic) {
 }
 
 RpClump* RpClumpRemoveLight(RpClump* clump, RpLight* light) {
-    return ((RpClump*(__cdecl *)(RpClump*, RpLight*))0x59F6E0)(clump, light);
+    return ((RpClump * (__cdecl*)(RpClump*, RpLight*))0x59F6E0)(clump, light);
 }
+
+RpClump* RpClumpAddLight(RpClump* clump, RpLight* light) {
+    RpClumpLightExt* lightExt = CLUMPLIGHTEXTFROMLIGHT(light);
+
+    RWAPIFUNCTION(RWSTRING("RpClumpAddLight"));
+    RWASSERT(clumpModule.numInstances);
+    RWASSERT(clump);
+    RWASSERTISTYPE(clump, rpCLUMP);
+    RWASSERT(light);
+    RWASSERTISTYPE(light, rpLIGHT);
+
+    /* It is assumed the light is NOT in the world although the
+     * clump might be
+     */
+
+    rwLinkListAddLLLink(&clump->lightList, &lightExt->inClumpLink);
+    lightExt->clump = clump;
+
+    RWRETURN(clump);
+}
+
 
 RwBool RpClumpDestroy(RpClump* clump) {
     return ((RwBool(__cdecl *)(RpClump*))0x59F500)(clump);

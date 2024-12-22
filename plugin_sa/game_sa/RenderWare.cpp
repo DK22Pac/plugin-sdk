@@ -1242,8 +1242,8 @@ void RwD3D9DeleteVertexShader(void) {
     ((void(__cdecl *)(void))0x7FAC90)();
 }
 
-RwBool RwD3D9CreatePixelShader(const RwUInt32* function, void* shader) {
-    return ((RwBool(__cdecl *)(const RwUInt32*, void*))0x7FACC0)(function, shader);
+RwBool RwD3D9CreatePixelShader(const RwUInt32* function, void** shader) {
+    return ((RwBool(__cdecl *)(const RwUInt32*, void**))0x7FACC0)(function, shader);
 }
 
 void RwD3D9DeletePixelShader(void) {

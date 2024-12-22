@@ -473,6 +473,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool &bPedCheat3;
     SUPPORTED_10EN_11EN_STEAM static bool &bPedCheat2;
 
+public:
+    inline CWeapon* GetWeapon() {
+        return &this->m_aWeapons[this->m_nCurrentWeapon];
+    }
+
+
     // virtual function #0 (destructor)
 
 

@@ -177,3 +177,9 @@ inline CVector operator/(const CVector& left, float right) {
 inline float DotProduct(const CVector& v1, const CVector& v2) {
     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
+
+inline CVector operator*(const RwMatrix& mat, const CVector& vec) {
+    return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
+                   mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
+                   mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
+}

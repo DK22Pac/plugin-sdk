@@ -9,6 +9,9 @@
 #include "PluginBase.h"
 
 #if __has_include(<rwplcore.h>)
+#ifndef rwPLUGIN_ID 
+#define rwPLUGIN_ID 0x01
+#endif
 #include <rwcore.h>
 #include <rpworld.h>
 #include <rphanim.h>
@@ -21,6 +24,7 @@
 #include <rtpng.h>
 #include <rpanisot.h>
 #include <skeleton.h>
+#include <rpdbgerr.h>
 #else
 #error[Plugin-SDK] RenderWare SDK not found, please add (to this project include directories) a path to: "$(PLUGIN_SDK_DIR)\\plugin_XX\\game_XX\\rw\\" XX is the suffix of the target game (ex: III, VC or SA)
 #endif
@@ -75,9 +79,47 @@ static RpSkinData* RpSkinGetData(RpSkin* skin) {
 }
 
 extern RsGlobalType& RsGlobal;
+extern RwModuleInfo& _rwIm3DModule;
+extern RwModuleInfo& rasterModule;
+extern RwInt32& _rpClumpLightExtOffset;
 
 #ifdef GTASA
 extern RwPluginRegistry& geometryTKList;
+#endif
+
+
+#ifndef RWIMMEDIGLOBAL
+#define RWIMMEDIGLOBAL(var)                             \
+    (RWPLUGINOFFSET(rwImmediGlobals,                    \
+                    RwEngineInstance,                   \
+                    _rwIm3DModule.globalsOffset)->var)
+#endif
+
+typedef struct rwRasterGlobals rwRasterGlobals;
+struct rwRasterGlobals {
+    RwRaster* rasterStack[rwRASTERCONTEXTSTACKSIZE];
+    RwInt32 rasterSP;
+    RwRaster dummyRaster;
+
+    RwFreeList* rasterFreeList;
+};
+
+#ifndef RWRASTERGLOBAL
+#define RWRASTERGLOBAL(var)                             \
+    (RWPLUGINOFFSET(rwRasterGlobals,                    \
+                    RwEngineInstance,                   \
+                    rasterModule.globalsOffset)->var)
+#endif
+
+typedef struct RpClumpLightExt RpClumpLightExt;
+struct RpClumpLightExt {
+    RpClump* clump;
+    RwLLLink inClumpLink;
+};
+
+#ifndef CLUMPLIGHTEXTFROMLIGHT
+#define CLUMPLIGHTEXTFROMLIGHT(light) \
+   ((RpClumpLightExt *)(((RwUInt8 *)(light)) + _rpClumpLightExtOffset))
 #endif
 
 #endif
