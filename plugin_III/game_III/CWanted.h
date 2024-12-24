@@ -31,7 +31,7 @@ class PLUGIN_API CWanted {
 public:
     int m_nChaosLevel;
     unsigned int m_nLastTimeWantedDecreased;
-    unsigned int m_LastTimeWantedLevelChanged;
+    unsigned int m_nLastTimeWantedLevelChanged;
     float m_fMultiplier;
     unsigned char m_nCopsInPursuit;
     unsigned char m_nMaxCopsInPursuit;

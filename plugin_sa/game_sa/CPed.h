@@ -438,6 +438,11 @@ public:
     void DeadPedMakesTyresBloody();
 	void SetModelIndex(unsigned int modelIndex);
 
+public:
+    inline CWeapon* GetWeapon() {
+        return &m_aWeapons[m_nActiveWeaponSlot];
+    }
+
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };

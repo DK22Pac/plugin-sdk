@@ -11,6 +11,21 @@ void *&RwEngineInstance = *(void **)0xC97B24;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
 RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
 
+// Hacky hacky
+void RwD3D9SetIm2DPixelShader(void* ps) {
+    static void* im2dPixelShader;
+    im2dPixelShader = ps;
+    static bool initIm2dPixelShader = false;
+
+    if (!initIm2dPixelShader) {
+        static plugin::CdeclEvent<plugin::AddressList<0x7FB830, plugin::H_CALL>, plugin::PRIORITY_BEFORE, plugin::ArgPickNone, void(int, int)> onSetPixelShader;
+        onSetPixelShader += []() {
+            _rwD3D9SetPixelShader(im2dPixelShader);
+        };
+        initIm2dPixelShader = true;
+    }
+}
+
 /* rwplcore.h */
 RwMemoryFunctions* RwOsGetMemoryInterface(void) {
     return ((RwMemoryFunctions*(__cdecl *)(void))0x802230)();

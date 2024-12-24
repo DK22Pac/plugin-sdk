@@ -8,6 +8,8 @@
 
 void *&RwEngineInstance = *(void**)0x7870C0;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x9B48D8;
+RwModuleInfo& rasterModule = *(RwModuleInfo*)0x787674;
+RwModuleInfo &frameModule = *(RwModuleInfo*)0x66122C;
 
 /* rwplcore.h */
 
@@ -449,6 +451,25 @@ RwRaster* RwRasterGetCurrentContext(void) {
     return ((RwRaster*(__cdecl *)(void))0x655230)();
 }
 
+RwBool RwRasterClear(RwInt32 pixelValue) {
+    RwBool result;
+
+    RWAPIFUNCTION(RWSTRING("RwRasterClear"));
+    RWASSERT(rasterModule.numInstances);
+
+    result = (RWRASTERGLOBAL(rasterSP) > 0);
+
+    if (result) {
+        RWSRCGLOBAL(stdFunc[rwSTANDARDRASTERCLEAR]) (NULL, NULL,
+                                                     pixelValue);
+    }
+    else {
+        RWERROR((E_RW_RASTERSTACKEMPTY));
+    }
+
+    RWRETURN(result);
+}
+
 RwRaster* RwRasterShowRaster(RwRaster* raster, void* dev, RwUInt32 flags) {
     return ((RwRaster*(__cdecl *)(RwRaster*, void*, RwUInt32))0x655460)(raster, dev, flags);
 }
@@ -799,6 +820,22 @@ RwFrame* RwFrameTransform(RwFrame* frame, const RwMatrix* m, RwOpCombineType com
 
 RwFrame* RwFrameOrthoNormalize(RwFrame* frame) {
     return ((RwFrame*(__cdecl *)(RwFrame*))0x645320)(frame);
+}
+
+RwFrame* RwFrameSetIdentity(RwFrame* frame) {
+    RWAPIFUNCTION(RWSTRING("RwFrameSetIdentity"));
+    RWASSERT(frameModule.numInstances);
+    RWASSERT(frame);
+    RWASSERT(RWFRAMEALIGNMENT(frame));
+    RWASSERTISTYPE(frame, rwFRAME);
+
+    /* Do the operation */
+    RwMatrixSetIdentity(&frame->modelling);
+
+    /* And mark the hierarchy as dirty */
+    RwFrameUpdateObjects(frame);
+
+    RWRETURN(frame);
 }
 
 RwBool RwFrameDestroyHierarchy(RwFrame* frame) {

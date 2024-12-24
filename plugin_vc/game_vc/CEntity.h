@@ -24,9 +24,8 @@ enum PLUGIN_API eEntityType {
     ENTITY_TYPE_7 = 7
 };
 
-class CEntity {
+class CEntity : public CPlaceable {
 public:
-    CPlaceable m_placement;
     union {
         RwObject *m_pRwObject;
         RpAtomic *m_pRwAtomic;
@@ -94,7 +93,7 @@ public:
 
 protected:
     virtual ~CEntity() {};
-    CEntity(plugin::dummy_func_t) : m_placement(plugin::dummy) {}
+    CEntity(plugin::dummy_func_t) {}
 
 public:
     //vtable
@@ -140,11 +139,11 @@ public:
 
 public:
     inline CVector &GetPosition() {
-        return m_placement.pos;
+        return pos;
     }
 
     inline float GetHeading() {
-        float angle = atan2f(-m_placement.up.x, m_placement.up.y) * 57.295776f;
+        float angle = atan2f(-up.x, up.y) * 57.295776f;
         if (angle < 0.0f)
             angle += 360.0f;
         if (angle > 360.0f)
@@ -153,17 +152,17 @@ public:
     }
 
     inline void SetPosition(float x, float y, float z) {
-        this->m_placement.pos.x = x;
-        this->m_placement.pos.y = y;
-        this->m_placement.pos.z = z;
+        this->pos.x = x;
+        this->pos.y = y;
+        this->pos.z = z;
     }
 
     inline void SetPosition(CVector &pos) {
-        this->m_placement.pos = pos;
+        this->pos = pos;
     }
 
     inline CVector TransformFromObjectSpace(CVector const& offset) {
-        return this->m_placement * offset;
+        return *this * offset;
     }
 
     inline CColModel* GetColModel() {

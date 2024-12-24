@@ -38,6 +38,11 @@
 #include <rtdict.h>
 #endif
 
+#ifdef GTASA
+// Hacky hacky
+extern void RwD3D9SetIm2DPixelShader(void* ps);
+#endif
+
 struct SkinBoneData {
     RwUInt32 numBones;
     RwUInt32 numUsedBones;
@@ -82,6 +87,7 @@ extern RsGlobalType& RsGlobal;
 extern RwModuleInfo& _rwIm3DModule;
 extern RwModuleInfo& rasterModule;
 extern RwInt32& _rpClumpLightExtOffset;
+extern RwModuleInfo& frameModule;
 
 #ifdef GTASA
 extern RwPluginRegistry& geometryTKList;

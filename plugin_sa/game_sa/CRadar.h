@@ -268,7 +268,7 @@ extern airstrip_info *airstrip_table; // airstrip_info airstrip_table[4]
 
 extern unsigned int MAX_AIRSTRIP_INFOS;
 
-extern int *gRadarTextures; // int gRadarTextures[12][12]
+extern int *gRadarTxdIds; // int gRadarTextures[12][12]
 
 extern unsigned int MAX_RADAR_WIDTH_TILES;
 extern unsigned int MAX_RADAR_HEIHGT_TILES;

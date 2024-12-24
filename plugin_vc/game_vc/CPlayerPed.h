@@ -103,6 +103,11 @@ public:
     static void SetupPlayerPed(int playerId);
     void UpdateMeleeAttackers();
     int GetWantedLevel();
+
+public:
+    inline CWanted* GetWanted() {
+        return m_pWanted;
+    }
 };
 
 VALIDATE_SIZE(CPlayerPed, 0x6D8);

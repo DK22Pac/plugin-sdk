@@ -634,6 +634,11 @@ public:
     static void* operator new(unsigned int size);
     static void* operator new(unsigned int size, int arg1);
     CPed(ePedType pedType);
+
+public:
+    inline CWeapon* GetWeapon() {
+        return &this->m_aWeapons[this->m_nCurrentWeapon];
+    }
 };
 
 VALIDATE_SIZE(CPed, 0x5F4);

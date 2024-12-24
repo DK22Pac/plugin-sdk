@@ -133,6 +133,11 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void DeactivatePlayerPed(int playerId);
     SUPPORTED_10EN_11EN_STEAM static void ReactivatePlayerPed(int playerId);
     SUPPORTED_10EN_11EN_STEAM static void SetupPlayerPed(int playerId);
+
+public:
+    inline CWanted* GetWanted() {
+        return m_pWanted;
+    }
 };
 
 VTABLE_DESC(CPlayerPed, 0x5FA500, 19);

@@ -34,8 +34,16 @@ public:
         this->z = a.x * b.y - b.x * a.y;
     }
 
+    inline float Heading() const {
+        return std::atan2(-x, y);
+    }
+
     inline float Magnitude() {
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+    }
+
+    inline float Magnitude2D() {
+        return sqrtf(this->x * this->x + this->y * this->y);
     }
 
     inline void Sum(CVector &a, CVector &b) {

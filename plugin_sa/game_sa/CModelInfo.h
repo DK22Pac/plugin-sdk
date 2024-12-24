@@ -35,11 +35,11 @@ public:
 	static CVehicleModelInfo* AddVehicleModel(int index);
 	static class CPedModelInfo* AddPedModel(int index);
 	static void Initialise();
-	static CBaseModelInfo* GetModelInfo(char* name, int* index);
+	static CBaseModelInfo* GetModelInfo(const char* name, int* index);
 	static CBaseModelInfo* GetModelInfoFromHashKey(unsigned int arg0, int* index);
-	static CBaseModelInfo* GetModelInfoUInt16(char* name, unsigned short* int16index);
+	static CBaseModelInfo* GetModelInfoUInt16(const char* name, unsigned short* int16index);
 	// get model in range (search for model only in range (min;max))
-	static CBaseModelInfo* GetModelInfo(char* name, int minIndex, int maxInedx);
+	static CBaseModelInfo* GetModelInfo(const char* name, int minIndex, int maxInedx);
 	static int* Get2dEffectStore();
 	static bool IsBoatModel(int index);
 	static bool IsCarModel(int index);

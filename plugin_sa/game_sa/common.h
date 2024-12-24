@@ -19,25 +19,25 @@ extern char *gString; // char gString[200]
 extern float &GAME_GRAVITY; // default 0.0080000004
 
 // returns player coors
-CVector FindPlayerCoors(int playerId);
+CVector FindPlayerCoors(int playerId = -1);
 // returns player speed
-CVector const& FindPlayerSpeed(int playerId);
+CVector const& FindPlayerSpeed(int playerId = -1);
 // returns player ped or player vehicle if he's driving
-CEntity * FindPlayerEntity(int playerId);
+CEntity * FindPlayerEntity(int playerId = -1);
 // gets player coords
-CVector const& FindPlayerCentreOfWorld(int playerId);
+CVector const& FindPlayerCentreOfWorld(int playerId = -1);
 // gets player coords with skipping sniper shift
-CVector const& FindPlayerCentreOfWorld_NoSniperShift(int playerId);
+CVector const& FindPlayerCentreOfWorld_NoSniperShift(int playerId = -1);
 // returns player coords with skipping interior shift
-CVector FindPlayerCentreOfWorld_NoInteriorShift(int playerId);
+CVector FindPlayerCentreOfWorld_NoInteriorShift(int playerId = -1);
 // returns player angle in radians
-float FindPlayerHeading(int playerId);
+float FindPlayerHeading(int playerId = -1);
 // returns Z coord for active player
 float FindPlayerHeight();
 // returns player ped
 CPlayerPed * FindPlayerPed(int playerId = -1);
 // returns player vehicle
-CVehicle * FindPlayerVehicle(int playerId, bool bIncludeRemote);
+CVehicle * FindPlayerVehicle(int playerId = -1, bool bIncludeRemote = false);
 // 2 players are playing
 bool InTwoPlayersMode();
 // vectorsub
@@ -45,7 +45,7 @@ CVector VectorSub(CVector const& from, CVector const& what);
 // matrix mul
 CVector Multiply3x3(CMatrix  const& matrix, CVector  const& vec);
 // returns player wanted
-CWanted * FindPlayerWanted(int playerId);
+CWanted * FindPlayerWanted(int playerId = -1);
 
 extern unsigned int &ClumpOffset;
 

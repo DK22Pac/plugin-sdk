@@ -33,7 +33,7 @@ public:
     unsigned int   m_nWeaponFire; // see eWeaponFire
     float          m_fTargetRange; // max targeting range
     float          m_fWeaponRange; // absolute gun range / default melee attack range
-    int            m_nModelId1; // modelinfo id
+    int            m_nModelId; // modelinfo id
     int            m_nModelId2; // second modelinfo id
     unsigned int   m_nSlot;
     struct {
@@ -94,7 +94,7 @@ public:
 	// load weapon data file
 	static void LoadWeaponData();
 	// get weapon info for this type and with this skill
-	static CWeaponInfo *GetWeaponInfo(eWeaponType weaponType, unsigned char skill);
+	static CWeaponInfo *GetWeaponInfo(eWeaponType weaponType, unsigned char skill = 0);
 	// get weapon type by name
 	static eWeaponType FindWeaponType(char *name);
 	// get weapon fire type by name

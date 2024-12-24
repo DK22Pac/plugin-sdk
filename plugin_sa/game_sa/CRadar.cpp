@@ -26,7 +26,7 @@ CRect &CRadar::m_radarRect = *(CRect *)0x8D0920;
 unsigned char &CRadar::airstrip_location = *(unsigned char *)0xBA8300;
 int &CRadar::airstrip_blip = *(int *)0xBA8304;
 airstrip_info *airstrip_table = (airstrip_info *)0x8D06E0;
-int *gRadarTextures = (int *)0xBA8478;
+int *gRadarTxdIds = (int *)0xBA8478;
 
 // Converted from cdecl void CRadar::LoadTextures(void) 0x5827D0
 void CRadar::LoadTextures()
