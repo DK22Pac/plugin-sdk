@@ -1614,7 +1614,45 @@ RpWorld* RpWorldRemoveLight(RpWorld* world, RpLight* light) {
 /* rtquat.h */
 
 RtQuat* RtQuatRotate(RtQuat* quat, const RwV3d* axis, RwReal angle, RwOpCombineType combineOp) {
-    PLUGIN_FUNC_NOP();
+    if (!quat || !axis) {
+        return nullptr;
+    }
+
+    RwV3d normalizedAxis = *axis;
+    RwReal length = std::sqrt(axis->x * axis->x + axis->y * axis->y + axis->z * axis->z);
+    if (length > 0.0f) {
+        normalizedAxis.x /= length;
+        normalizedAxis.y /= length;
+        normalizedAxis.z /= length;
+    }
+    else {
+        return quat;
+    }
+
+    RwReal halfAngle = (angle * 0.5f) / 57.2957795f;
+    RwReal sinHalfAngle = std::sin(halfAngle);
+    RwReal cosHalfAngle = std::cos(halfAngle);
+
+    RtQuat rotationQuat;
+    rotationQuat.imag.x = normalizedAxis.x * sinHalfAngle;
+    rotationQuat.imag.y = normalizedAxis.y * sinHalfAngle;
+    rotationQuat.imag.z = normalizedAxis.z * sinHalfAngle;
+    rotationQuat.real = cosHalfAngle;
+
+    if (combineOp == rwCOMBINEPRECONCAT) {
+        RtQuat result;
+        RtQuatMultiply(&result, &rotationQuat, quat);
+        *quat = result;
+    }
+    else if (combineOp == rwCOMBINEPOSTCONCAT) {
+        RtQuat result;
+        RtQuatMultiply(&result, quat, &rotationQuat);
+        *quat = result;
+    }
+    else {
+        return quat;
+    }
+
     return quat;
 }
 

@@ -116,6 +116,13 @@ public:
             x = 1.0f;
     }
 
+    void Normalise2D(void) {
+        float sq = MagnitudeSqr2D();
+        float invsqrt = 1.0f / std::sqrt(sq);
+        x *= invsqrt;
+        y *= invsqrt;
+    }
+
     float NormaliseAndMag() {
         float sq = MagnitudeSqr();
         if (sq > 0.0f) {
