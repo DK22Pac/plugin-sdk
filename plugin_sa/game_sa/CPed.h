@@ -250,7 +250,7 @@ public:
     eWeaponType         m_nSavedWeapon; // when we need to hide ped weapon, we save it temporary here
     eWeaponType         m_nDelayedWeapon; // 'delayed' weapon is like an additional weapon, f.e., simple cop has a nitestick as current and pistol as delayed weapons
     unsigned int        m_nDelayedWeaponAmmo;
-    unsigned char       m_nActiveWeaponSlot;
+    unsigned char       m_nSelectedWepSlot;
     unsigned char       m_nWeaponShootingRate;
     unsigned char       m_nWeaponAccuracy;
     CObject            *m_pTargetedObject;
@@ -440,7 +440,7 @@ public:
 
 public:
     inline CWeapon* GetWeapon() {
-        return &m_aWeapons[m_nActiveWeaponSlot];
+        return &m_aWeapons[m_nSelectedWepSlot];
     }
 
     static void* operator new(unsigned int size);

@@ -81,11 +81,15 @@ namespace plugin {
         };
         
         struct BassSample {
+            std::string name;
+            uint32_t sample;
             HSAMPLE handle;
             uint32_t loopStart;
             int32_t loopEnd;
 
             BassSample() {
+                name = "";
+                sample = 0;
                 handle = 0;
                 loopStart = 0;
                 loopEnd = -1;
@@ -149,6 +153,8 @@ namespace plugin {
         }
 
         void LoadSample(std::string const& file, uint32_t loopStart = 0, int32_t loopEnd = -1);
+        void LoadAllSamplesFromFolder(std::string const& path);
+        BassSample* GetSample(std::string const& name);
         void ClearSamples();
         void SetChannelFrequency(uint32_t channel, int32_t freq);
         void SetChannel3DDistances(uint32_t channel, float min, float max);
@@ -165,6 +171,7 @@ namespace plugin {
         void SetChannel3D(uint32_t channel, bool on);
         uint32_t GetChannelFrequency(uint32_t channel);
         uint32_t GetSampleBaseFrequency(uint32_t sample);
+        uint32_t AddSampleToQueue(uint8_t vol, uint32_t freq, std::string const& sample, bool loop, CVector const& pos, uint32_t framesToPlay = 8, bool is3d = true);
         uint32_t AddSampleToQueue(uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay = 8, bool is3d = true);
         void AddSampleToQueue(BassQueue const& queue);     
         bool InitialiseChannel(uint32_t channel, uint32_t sample);

@@ -28,7 +28,7 @@ public:
         FromRwV3d(right);
     }
 
-    inline void Cross(CVector &a, CVector &b) {
+    inline void Cross(CVector const& a, CVector const& b) {
         this->x = b.z * a.y - a.z * b.y;
         this->y = a.z * b.x - a.x * b.z;
         this->z = a.x * b.y - b.x * a.y;

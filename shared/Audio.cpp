@@ -25,10 +25,32 @@
 namespace plugin {
     void BassSampleManager::LoadSample(std::string const& file, uint32_t loopStart, int32_t loopEnd) {
         BassSample s;
+
+        s.name = plugin::RemoveExtension(plugin::RemovePath(file));
+        s.sample = samples.size();
         s.handle = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 1, BASS_SAMPLE_MONO | BASS_SAMPLE_3D);
         s.loopStart = loopStart;
         s.loopEnd = loopEnd;
         samples.push_back(s);
+    }
+
+    void BassSampleManager::LoadAllSamplesFromFolder(std::string const& path) {
+        auto files = plugin::GetAllFilesInFolder(path, ".wav");
+        for (auto& file : files) {
+            LoadSample(path + "\\" + file);
+        }
+    }
+
+    BassSampleManager::BassSample* BassSampleManager::GetSample(std::string const& name) {
+        auto it = std::find_if(samples.begin(), samples.end(),
+                  [name](const BassSample& s) {
+            return s.name == name;
+        });
+
+        if (it != samples.end())
+            return it._Ptr;
+
+        return nullptr;
     }
 
     void BassSampleManager::ClearSamples() {
@@ -179,6 +201,10 @@ namespace plugin {
         return static_cast<uint32_t>(info.freq);
     }
 
+    uint32_t BassSampleManager::AddSampleToQueue(uint8_t vol, uint32_t freq, std::string const& sample, bool loop, CVector const& pos, uint32_t framesToPlay, bool is3d) {
+        return AddSampleToQueue(vol, freq, GetSample(sample)->sample, loop, pos, framesToPlay, is3d);
+    }
+
     uint32_t BassSampleManager::AddSampleToQueue(uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay, bool is3d) {
         if (vol > 127)
             vol = 127;
@@ -222,30 +248,10 @@ namespace plugin {
 
         BASS_SAMPLE sampleInfo = {};
         BASS_SampleGetInfo(samples[sample].handle, &sampleInfo);
-        //
-        //void* buffer = malloc(sampleInfo.length);
-        //if (!BASS_SampleGetData(samples[sample].handle, buffer)) {
-        //    free(buffer);
-        //    return false;
-        //}
-
-        //if (streams[channel].dsp)
-        //    BASS_ChannelRemoveDSP(streams[channel].stream, streams[channel].dsp);
-
-        //BASS_ChannelRemoveFX(streams[channel].fx.reverb, BASS_FX_DX8_REVERB);
-        //BASS_StreamFree(streams[channel].handle);
-        //DWORD flags = sampleInfo.flags;
-        //if (sampleInfo.chans == 1)
-        //    flags |= BASS_SAMPLE_3D;
-        //
-        //flags |= BASS_SAMPLE_LOOP;
 
         streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, 0);//BASS_StreamCreate(sampleInfo.freq, sampleInfo.chans, flags, STREAMPROC_PUSH, nullptr);
         streams[channel].channelId = channel;
         streams[channel].sampleId = sample;
-
-        //BASS_StreamPutData(streams[channel].handle, buffer, sampleInfo.length);
-        //free(buffer);
 
         streams[channel].owner = this;
         return true;
@@ -408,18 +414,7 @@ namespace plugin {
     }
 
     void BassSampleManager::SetChannelReverbFlag(uint32_t channel, bool reverb) {
-       //if (reverb) {
-       //    streams[channel].fx.reverb = BASS_ChannelSetFX(streams[channel].stream, BASS_FX_DX8_REVERB, 1);
-       //
-       //    BASS_DX8_REVERB reverbParams;
-       //    reverbParams.fInGain = -1.0f;
-       //    reverbParams.fReverbMix = -6.0f;
-       //    reverbParams.fReverbTime = 1000.0f;
-       //    reverbParams.fHighFreqRTRatio = 0.001f;
-       //    BASS_FXSetParameters(streams[channel].fx.reverb, &reverbParams);
-       //}
-       //else
-       //    BASS_ChannelRemoveFX(streams[channel].fx.reverb, BASS_FX_DX8_REVERB);
+        ;;
     }
 
     void BassSampleManager::StopAllChannels() {
