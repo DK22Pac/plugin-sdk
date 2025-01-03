@@ -18,32 +18,32 @@ namespace plugin {
         };
 
         static void GetGameDirPathA(char *out);
-        static char *GetGameDirPathA();
+        static const char *GetGameDirPathA();
         static void GetPluginDirPathA(char *out);
-        static char *GetPluginDirPathA();
+        static const char *GetPluginDirPathA();
 
         static void GetGameDirPathW(wchar_t *out);
-        static wchar_t *GetGameDirPathW();
+        static const wchar_t *GetGameDirPathW();
         static void GetPluginDirPathW(wchar_t *out);
-        static wchar_t *GetPluginDirPathW();
+        static const wchar_t *GetPluginDirPathW();
 
-        static void GetGameDirRelativePathA(char *out, char *substring);
-        static char *GetGameDirRelativePathA(char *substring);
-        static void GetPluginDirRelativePathA(char *out, char *substring);
-        static char *GetPluginDirRelativePathA(char *substring);
+        static void GetGameDirRelativePathA(char *out, const char *substring);
+        static const char *GetGameDirRelativePathA(const char *substring);
+        static void GetPluginDirRelativePathA(char *out, const char *substring);
+        static const char *GetPluginDirRelativePathA(const char *substring);
 
-        static void GetGameDirRelativePathW(wchar_t *out, wchar_t *subpath);
-        static wchar_t *GetGameDirRelativePathW(wchar_t *subpath);
-        static void GetPluginDirRelativePathW(wchar_t *out, wchar_t *subpath);
-        static wchar_t *GetPluginDirRelativePathW(wchar_t *subpath);
+        static void GetGameDirRelativePathW(wchar_t *out, const wchar_t *subpath);
+        static const wchar_t *GetGameDirRelativePathW(const wchar_t *subpath);
+        static void GetPluginDirRelativePathW(wchar_t *out, const wchar_t *subpath);
+        static const wchar_t *GetPluginDirRelativePathW(const wchar_t *subpath);
 
-        static char *GetDirPath(char *substring, ePathDir dir);
-        static wchar_t *GetDirPath(wchar_t *substring, ePathDir dir);
+        static const char *GetDirPath(const char *substring, ePathDir dir);
+        static const wchar_t *GetDirPath(const wchar_t *substring, ePathDir dir);
 
-        static char *GetPluginFileName(char *out);
-        static wchar_t *GetPluginFileName(wchar_t *out);
-        static char *GetPluginFileNameA();
-        static wchar_t *GetPluginFileNameW();
+        static const char *GetPluginFileName(char *out);
+        static const wchar_t *GetPluginFileName(wchar_t *out);
+        static const char *GetPluginFileNameA();
+        static const wchar_t *GetPluginFileNameW();
     };
 }
 
