@@ -1,0 +1,1486 @@
+set(PROJECT_NAME plugin_sa)
+
+################################################################################
+# Source groups
+################################################################################
+set(no_group_source_files
+    "plugin_sa.h"
+)
+source_group("" FILES ${no_group_source_files})
+
+set(..__hooking
+    "../hooking/Hooking.Patterns.cpp"
+    "../hooking/Hooking.Patterns.h"
+)
+source_group("..\\hooking" FILES ${..__hooking})
+
+set(..__injector
+    "../injector/assembly.hpp"
+    "../injector/calling.hpp"
+    "../injector/hooking.hpp"
+    "../injector/injector.hpp"
+    "../injector/utility.hpp"
+)
+source_group("..\\injector" FILES ${..__injector})
+
+set(..__injector__gvm
+    "../injector/gvm/gvm.hpp"
+    "../injector/gvm/translator.hpp"
+)
+source_group("..\\injector\\gvm" FILES ${..__injector__gvm})
+
+set(..__safetyhook
+    "../safetyhook/safetyhook.cpp"
+    "../safetyhook/safetyhook.hpp"
+    "../safetyhook/Zydis.c"
+)
+source_group("..\\safetyhook" FILES ${..__safetyhook})
+
+set(..__shared
+    "../shared/ArgPicker.h"
+    "../shared/Audio.cpp"
+    "../shared/Audio.h"
+    "../shared/Base.h"
+    "../shared/Color.cpp"
+    "../shared/Color.h"
+    "../shared/common_sdk.cpp"
+    "../shared/common_sdk.h"
+    "../shared/DynAddress.cpp"
+    "../shared/DynAddress.h"
+    "../shared/Error.h"
+    "../shared/EventList.h"
+    "../shared/Events.cpp"
+    "../shared/Events.h"
+    "../shared/Extender.h"
+    "../shared/GameVersion.cpp"
+    "../shared/GameVersion.h"
+    "../shared/GameVersionMessage.h"
+    "../shared/Image.cpp"
+    "../shared/Image.h"
+    "../shared/Maths.h"
+    "../shared/Other.cpp"
+    "../shared/Other.h"
+    "../shared/Patch.cpp"
+    "../shared/Patch.h"
+    "../shared/Pattern.cpp"
+    "../shared/Pattern.h"
+    "../shared/plugin.cpp"
+    "../shared/plugin.h"
+    "../shared/PluginBase.cpp"
+    "../shared/PluginBase.h"
+    "../shared/RefList.h"
+    "../shared/RefListUtils.h"
+    "../shared/RenderWare.h"
+    "../shared/resource.h"
+    "../shared/rpplugin.h"
+    "../shared/SpriteLoader.cpp"
+    "../shared/SpriteLoader.h"
+    "../shared/StringUtils.cpp"
+    "../shared/StringUtils.h"
+    "../shared/TextLoader.cpp"
+    "../shared/TextLoader.h"
+    "../shared/Timer.cpp"
+    "../shared/Timer.h"
+    "../shared/VersionsMacro.h"
+)
+source_group("..\\shared" FILES ${..__shared})
+
+set(..__shared__bass
+    "../shared/bass/bass.h"
+)
+source_group("..\\shared\\bass" FILES ${..__shared__bass})
+
+set(..__shared__comp
+    "../shared/comp/PluginsCompatibility.cpp"
+    "../shared/comp/PluginsCompatibility.h"
+    "../shared/comp/PluginSupport.cpp"
+    "../shared/comp/PluginSupport.h"
+)
+source_group("..\\shared\\comp" FILES ${..__shared__comp})
+
+set(..__shared__comp__plugins
+    "../shared/comp/plugins/LimitAdjusterSupport.cpp"
+    "../shared/comp/plugins/LimitAdjusterSupport.h"
+)
+source_group("..\\shared\\comp\\plugins" FILES ${..__shared__comp__plugins})
+
+set(..__shared__dxsdk
+    "../shared/dxsdk/audiodefs.h"
+    "../shared/dxsdk/comdecl.h"
+    "../shared/dxsdk/D2D1.h"
+    "../shared/dxsdk/D2D1Helper.h"
+    "../shared/dxsdk/D2DBaseTypes.h"
+    "../shared/dxsdk/D2Derr.h"
+    "../shared/dxsdk/d3d.h"
+    "../shared/dxsdk/D3D10.h"
+    "../shared/dxsdk/D3D10_1.h"
+    "../shared/dxsdk/D3D10_1shader.h"
+    "../shared/dxsdk/D3D10effect.h"
+    "../shared/dxsdk/d3d10misc.h"
+    "../shared/dxsdk/d3d10sdklayers.h"
+    "../shared/dxsdk/D3D10shader.h"
+    "../shared/dxsdk/D3D11.h"
+    "../shared/dxsdk/D3D11SDKLayers.h"
+    "../shared/dxsdk/D3D11Shader.h"
+    "../shared/dxsdk/d3d8.h"
+    "../shared/dxsdk/d3d8caps.h"
+    "../shared/dxsdk/d3d8types.h"
+    "../shared/dxsdk/d3d9.h"
+    "../shared/dxsdk/d3d9caps.h"
+    "../shared/dxsdk/d3d9types.h"
+    "../shared/dxsdk/d3dcaps.h"
+    "../shared/dxsdk/D3Dcommon.h"
+    "../shared/dxsdk/D3Dcompiler.h"
+    "../shared/dxsdk/D3DCSX.h"
+    "../shared/dxsdk/d3dres.h"
+    "../shared/dxsdk/d3drm.h"
+    "../shared/dxsdk/d3drmdef.h"
+    "../shared/dxsdk/d3drmobj.h"
+    "../shared/dxsdk/d3drmwin.h"
+    "../shared/dxsdk/d3dtypes.h"
+    "../shared/dxsdk/d3dutil.h"
+    "../shared/dxsdk/d3dx.h"
+    "../shared/dxsdk/D3DX10.h"
+    "../shared/dxsdk/d3dx10async.h"
+    "../shared/dxsdk/D3DX10core.h"
+    "../shared/dxsdk/D3DX10math.h"
+    "../shared/dxsdk/D3DX10mesh.h"
+    "../shared/dxsdk/D3DX10tex.h"
+    "../shared/dxsdk/D3DX11.h"
+    "../shared/dxsdk/D3DX11async.h"
+    "../shared/dxsdk/D3DX11core.h"
+    "../shared/dxsdk/D3DX11tex.h"
+    "../shared/dxsdk/d3dx8.h"
+    "../shared/dxsdk/d3dx8core.h"
+    "../shared/dxsdk/d3dx8effect.h"
+    "../shared/dxsdk/d3dx8math.h"
+    "../shared/dxsdk/d3dx8mesh.h"
+    "../shared/dxsdk/d3dx8shape.h"
+    "../shared/dxsdk/d3dx8tex.h"
+    "../shared/dxsdk/d3dx9.h"
+    "../shared/dxsdk/d3dx9anim.h"
+    "../shared/dxsdk/d3dx9core.h"
+    "../shared/dxsdk/d3dx9effect.h"
+    "../shared/dxsdk/d3dx9math.h"
+    "../shared/dxsdk/d3dx9mesh.h"
+    "../shared/dxsdk/d3dx9shader.h"
+    "../shared/dxsdk/d3dx9shape.h"
+    "../shared/dxsdk/d3dx9tex.h"
+    "../shared/dxsdk/d3dx9xof.h"
+    "../shared/dxsdk/d3dxcore.h"
+    "../shared/dxsdk/d3dxerr.h"
+    "../shared/dxsdk/d3dxmath.h"
+    "../shared/dxsdk/d3dxshapes.h"
+    "../shared/dxsdk/d3dxsprite.h"
+    "../shared/dxsdk/Dcommon.h"
+    "../shared/dxsdk/dinput.h"
+    "../shared/dxsdk/dinputd.h"
+    "../shared/dxsdk/dsconf.h"
+    "../shared/dxsdk/dsetup.h"
+    "../shared/dxsdk/dsound.h"
+    "../shared/dxsdk/DWrite.h"
+    "../shared/dxsdk/dxdiag.h"
+    "../shared/dxsdk/DxErr.h"
+    "../shared/dxsdk/dxfile.h"
+    "../shared/dxsdk/DXGI.h"
+    "../shared/dxsdk/DXGIFormat.h"
+    "../shared/dxsdk/DXGIType.h"
+    "../shared/dxsdk/dxsdkver.h"
+    "../shared/dxsdk/gameux.h"
+    "../shared/dxsdk/PIXPlugin.h"
+    "../shared/dxsdk/rmxfguid.h"
+    "../shared/dxsdk/rmxftmpl.h"
+    "../shared/dxsdk/rpcsal.h"
+    "../shared/dxsdk/X3DAudio.h"
+    "../shared/dxsdk/xact3.h"
+    "../shared/dxsdk/xact3d3.h"
+    "../shared/dxsdk/xact3wb.h"
+    "../shared/dxsdk/XAPO.h"
+    "../shared/dxsdk/XAPOBase.h"
+    "../shared/dxsdk/XAPOFX.h"
+    "../shared/dxsdk/XAudio2.h"
+    "../shared/dxsdk/XAudio2fx.h"
+    "../shared/dxsdk/XDSP.h"
+    "../shared/dxsdk/XInput.h"
+    "../shared/dxsdk/xma2defs.h"
+    "../shared/dxsdk/xnamath.h"
+)
+source_group("..\\shared\\dxsdk" FILES ${..__shared__dxsdk})
+
+set(..__shared__extender
+    "../shared/extender/ObjectExtender.h"
+    "../shared/extender/PedExtender.h"
+    "../shared/extender/VehicleExtender.h"
+)
+source_group("..\\shared\\extender" FILES ${..__shared__extender})
+
+set(..__shared__extensions
+    "../shared/extensions/Config.cpp"
+    "../shared/extensions/Config.h"
+    "../shared/extensions/DynamicResource.cpp"
+    "../shared/extensions/DynamicResource.h"
+    "../shared/extensions/FontPrint.cpp"
+    "../shared/extensions/FontPrint.h"
+    "../shared/extensions/KeyCheck.cpp"
+    "../shared/extensions/KeyCheck.h"
+    "../shared/extensions/Paths.cpp"
+    "../shared/extensions/Paths.h"
+    "../shared/extensions/PoolIterator.h"
+    "../shared/extensions/Screen.cpp"
+    "../shared/extensions/Screen.h"
+    "../shared/extensions/ScriptCommands.cpp"
+    "../shared/extensions/ScriptCommands.h"
+    "../shared/extensions/Shader.cpp"
+    "../shared/extensions/Shader.h"
+)
+source_group("..\\shared\\extensions" FILES ${..__shared__extensions})
+
+set(..__shared__extensions__scripting
+    "../shared/extensions/scripting/ScriptCommandNames.h"
+)
+source_group("..\\shared\\extensions\\scripting" FILES ${..__shared__extensions__scripting})
+
+set(..__shared__game
+    "../shared/game/CompressedVector.cpp"
+    "../shared/game/CompressedVector.h"
+    "../shared/game/CompressedVector2D.cpp"
+    "../shared/game/CompressedVector2D.h"
+    "../shared/game/CRGBA.cpp"
+    "../shared/game/CRGBA.h"
+)
+source_group("..\\shared\\game" FILES ${..__shared__game})
+
+set(..__shared__rwd3d9
+    "../shared/rwd3d9/rwd3d9.h"
+)
+source_group("..\\shared\\rwd3d9" FILES ${..__shared__rwd3d9})
+
+set(game_sa
+    "game_sa/AnimAssociationData.h"
+    "game_sa/AnimBlendFrameData.h"
+    "game_sa/C2dEffect.h"
+    "game_sa/C3dMarker.cpp"
+    "game_sa/C3dMarker.h"
+    "game_sa/C3dMarkers.cpp"
+    "game_sa/C3dMarkers.h"
+    "game_sa/C_PcSave.cpp"
+    "game_sa/C_PcSave.h"
+    "game_sa/CAEAudioChannel.h"
+    "game_sa/CAEAudioEntity.cpp"
+    "game_sa/CAEAudioEntity.h"
+    "game_sa/CAEAudioHardware.cpp"
+    "game_sa/CAEAudioHardware.h"
+    "game_sa/CAECollisionAudioEntity.cpp"
+    "game_sa/CAECollisionAudioEntity.h"
+    "game_sa/CAECutsceneTrackManager.cpp"
+    "game_sa/CAECutsceneTrackManager.h"
+    "game_sa/CAEDoorAudioEntity.cpp"
+    "game_sa/CAEDoorAudioEntity.h"
+    "game_sa/CAEExplosionAudioEntity.h"
+    "game_sa/CAEFireAudioEntity.h"
+    "game_sa/CAEFrontendAudioEntity.cpp"
+    "game_sa/CAEFrontendAudioEntity.h"
+    "game_sa/CAEMP3BankLoader.cpp"
+    "game_sa/CAEMP3BankLoader.h"
+    "game_sa/CAEPedAudioEntity.h"
+    "game_sa/CAEPedlessSpeechAudioEntity.cpp"
+    "game_sa/CAEPedlessSpeechAudioEntity.h"
+    "game_sa/CAEPedSpeechAudioEntity.h"
+    "game_sa/CAEPoliceScannerAudioEntity.h"
+    "game_sa/CAERadioTrackManager.cpp"
+    "game_sa/CAERadioTrackManager.h"
+    "game_sa/CAEScriptAudioEntity.cpp"
+    "game_sa/CAEScriptAudioEntity.h"
+    "game_sa/CAESound.cpp"
+    "game_sa/CAESound.h"
+    "game_sa/CAEStreamingChannel.cpp"
+    "game_sa/CAEStreamingChannel.h"
+    "game_sa/CAEStreamThread.cpp"
+    "game_sa/CAEStreamThread.h"
+    "game_sa/CAETwinLoopSoundEntity.cpp"
+    "game_sa/CAETwinLoopSoundEntity.h"
+    "game_sa/CAEVehicleAudioEntity.cpp"
+    "game_sa/CAEVehicleAudioEntity.h"
+    "game_sa/CAEWeaponAudioEntity.cpp"
+    "game_sa/CAEWeaponAudioEntity.h"
+    "game_sa/CAEWeatherAudioEntity.cpp"
+    "game_sa/CAEWeatherAudioEntity.h"
+    "game_sa/CAnimatedBuilding.cpp"
+    "game_sa/CAnimatedBuilding.h"
+    "game_sa/CAnimationStyleDescriptor.h"
+    "game_sa/CAnimBlendAssocGroup.cpp"
+    "game_sa/CAnimBlendAssocGroup.h"
+    "game_sa/CAnimBlendAssociation.cpp"
+    "game_sa/CAnimBlendAssociation.h"
+    "game_sa/CAnimBlendClumpData.cpp"
+    "game_sa/CAnimBlendClumpData.h"
+    "game_sa/CAnimBlendHierarchy.cpp"
+    "game_sa/CAnimBlendHierarchy.h"
+    "game_sa/CAnimBlendNode.cpp"
+    "game_sa/CAnimBlendNode.h"
+    "game_sa/CAnimBlendSequence.cpp"
+    "game_sa/CAnimBlendSequence.h"
+    "game_sa/CAnimBlendStaticAssociation.cpp"
+    "game_sa/CAnimBlendStaticAssociation.h"
+    "game_sa/CAnimBlock.h"
+    "game_sa/CAnimManager.cpp"
+    "game_sa/CAnimManager.h"
+    "game_sa/CAtomicModelInfo.cpp"
+    "game_sa/CAtomicModelInfo.h"
+    "game_sa/CAttractorScanner.h"
+    "game_sa/CAudioEngine.cpp"
+    "game_sa/CAudioEngine.h"
+    "game_sa/CAudioLink.cpp"
+    "game_sa/CAudioLink.h"
+    "game_sa/CAutomobile.cpp"
+    "game_sa/CAutomobile.h"
+    "game_sa/CAutoPilot.h"
+    "game_sa/CBaseModelInfo.cpp"
+    "game_sa/CBaseModelInfo.h"
+    "game_sa/CBike.cpp"
+    "game_sa/CBike.h"
+    "game_sa/CBirds.cpp"
+    "game_sa/CBirds.h"
+    "game_sa/CBmx.cpp"
+    "game_sa/CBmx.h"
+    "game_sa/CBoat.cpp"
+    "game_sa/CBoat.h"
+    "game_sa/CBouncingPanel.cpp"
+    "game_sa/CBouncingPanel.h"
+    "game_sa/CBoundingBox.cpp"
+    "game_sa/CBoundingBox.h"
+    "game_sa/CBox.cpp"
+    "game_sa/CBox.h"
+    "game_sa/CBrightLights.cpp"
+    "game_sa/CBrightLights.h"
+    "game_sa/CBuilding.cpp"
+    "game_sa/CBuilding.h"
+    "game_sa/CBulletInfo.cpp"
+    "game_sa/CBulletInfo.h"
+    "game_sa/CBulletTrace.cpp"
+    "game_sa/CBulletTrace.h"
+    "game_sa/CBulletTraces.cpp"
+    "game_sa/CBulletTraces.h"
+    "game_sa/CCam.h"
+    "game_sa/CCamera.cpp"
+    "game_sa/CCamera.h"
+    "game_sa/CCamPathSplines.h"
+    "game_sa/CCarAI.cpp"
+    "game_sa/CCarAI.h"
+    "game_sa/CCarCtrl.cpp"
+    "game_sa/CCarCtrl.h"
+    "game_sa/CCarEnterExit.cpp"
+    "game_sa/CCarEnterExit.h"
+    "game_sa/CCarGenerator.cpp"
+    "game_sa/CCarGenerator.h"
+    "game_sa/CCarPathLink.cpp"
+    "game_sa/CCarPathLink.h"
+    "game_sa/CCarPathLinkAddress.h"
+    "game_sa/CCheat.cpp"
+    "game_sa/CCheat.h"
+    "game_sa/CCheckpoint.cpp"
+    "game_sa/CCheckpoint.h"
+    "game_sa/CCheckpoints.cpp"
+    "game_sa/CCheckpoints.h"
+    "game_sa/CCivilianPed.cpp"
+    "game_sa/CCivilianPed.h"
+    "game_sa/CClock.cpp"
+    "game_sa/CClock.h"
+    "game_sa/CClothes.cpp"
+    "game_sa/CClothes.h"
+    "game_sa/CClothesBuilder.cpp"
+    "game_sa/CClothesBuilder.h"
+    "game_sa/CClouds.cpp"
+    "game_sa/CClouds.h"
+    "game_sa/CClumpModelInfo.cpp"
+    "game_sa/CClumpModelInfo.h"
+    "game_sa/CColAccel.cpp"
+    "game_sa/CColAccel.h"
+    "game_sa/CColBox.cpp"
+    "game_sa/CColBox.h"
+    "game_sa/CColDisk.cpp"
+    "game_sa/CColDisk.h"
+    "game_sa/CColLine.cpp"
+    "game_sa/CColLine.h"
+    "game_sa/CCollision.cpp"
+    "game_sa/CCollision.h"
+    "game_sa/CCollisionData.cpp"
+    "game_sa/CCollisionData.h"
+    "game_sa/CColModel.cpp"
+    "game_sa/CColModel.h"
+    "game_sa/CColourSet.cpp"
+    "game_sa/CColourSet.h"
+    "game_sa/CColPoint.cpp"
+    "game_sa/CColPoint.h"
+    "game_sa/CColSphere.cpp"
+    "game_sa/CColSphere.h"
+    "game_sa/CColStore.cpp"
+    "game_sa/CColStore.h"
+    "game_sa/CColTriangle.cpp"
+    "game_sa/CColTriangle.h"
+    "game_sa/CColTrianglePlane.cpp"
+    "game_sa/CColTrianglePlane.h"
+    "game_sa/CControllerConfigManager.cpp"
+    "game_sa/CControllerConfigManager.h"
+    "game_sa/CCopPed.cpp"
+    "game_sa/CCopPed.h"
+    "game_sa/CCoronas.cpp"
+    "game_sa/CCoronas.h"
+    "game_sa/CCover.cpp"
+    "game_sa/CCover.h"
+    "game_sa/CCoverPoint.cpp"
+    "game_sa/CCoverPoint.h"
+    "game_sa/CCredits.cpp"
+    "game_sa/CCredits.h"
+    "game_sa/CCreepingFire.cpp"
+    "game_sa/CCreepingFire.h"
+    "game_sa/CCrimeBeingQd.h"
+    "game_sa/CCullZones.cpp"
+    "game_sa/CCullZones.h"
+    "game_sa/CCustomCarEnvMapPipeline.cpp"
+    "game_sa/CCustomCarEnvMapPipeline.h"
+    "game_sa/CCustomCarPlateMgr.cpp"
+    "game_sa/CCustomCarPlateMgr.h"
+    "game_sa/CCutsceneMgr.cpp"
+    "game_sa/CCutsceneMgr.h"
+    "game_sa/CCutsceneObject.cpp"
+    "game_sa/CCutsceneObject.h"
+    "game_sa/CDamageAtomicModelInfo.cpp"
+    "game_sa/CDamageAtomicModelInfo.h"
+    "game_sa/CDamageManager.cpp"
+    "game_sa/CDamageManager.h"
+    "game_sa/CDarkel.cpp"
+    "game_sa/CDarkel.h"
+    "game_sa/CDate.cpp"
+    "game_sa/CDate.h"
+    "game_sa/CDecision.cpp"
+    "game_sa/CDecision.h"
+    "game_sa/CDecisionMaker.h"
+    "game_sa/CDecisionSimple.cpp"
+    "game_sa/CDecisionSimple.h"
+    "game_sa/CDirectory.cpp"
+    "game_sa/CDirectory.h"
+    "game_sa/CDoor.cpp"
+    "game_sa/CDoor.h"
+    "game_sa/CDraw.cpp"
+    "game_sa/CDraw.h"
+    "game_sa/CDummy.cpp"
+    "game_sa/CDummy.h"
+    "game_sa/CDummyObject.cpp"
+    "game_sa/CDummyObject.h"
+    "game_sa/CDummyPed.cpp"
+    "game_sa/CDummyPed.h"
+    "game_sa/CEmergencyPed.cpp"
+    "game_sa/CEmergencyPed.h"
+    "game_sa/CEntity.cpp"
+    "game_sa/CEntity.h"
+    "game_sa/CEntityScanner.h"
+    "game_sa/CEntryExit.cpp"
+    "game_sa/CEntryExit.h"
+    "game_sa/CEntryExitManager.cpp"
+    "game_sa/CEntryExitManager.h"
+    "game_sa/CEventGroup.h"
+    "game_sa/CEventHandler.h"
+    "game_sa/CEventScanner.h"
+    "game_sa/CExplosion.cpp"
+    "game_sa/CExplosion.h"
+    "game_sa/CFileCarGenerator.h"
+    "game_sa/CFileLoader.cpp"
+    "game_sa/CFileLoader.h"
+    "game_sa/CFileMgr.cpp"
+    "game_sa/CFileMgr.h"
+    "game_sa/CFileObjectInstance.h"
+    "game_sa/CFire.cpp"
+    "game_sa/CFire.h"
+    "game_sa/CFireManager.cpp"
+    "game_sa/CFireManager.h"
+    "game_sa/CFont.cpp"
+    "game_sa/CFont.h"
+    "game_sa/CForbiddenArea.h"
+    "game_sa/CFormation.cpp"
+    "game_sa/CFormation.h"
+    "game_sa/CGame.cpp"
+    "game_sa/CGame.h"
+    "game_sa/CGameLogic.cpp"
+    "game_sa/CGameLogic.h"
+    "game_sa/CGamma.cpp"
+    "game_sa/CGamma.h"
+    "game_sa/CGangInfo.cpp"
+    "game_sa/CGangInfo.h"
+    "game_sa/CGangs.cpp"
+    "game_sa/CGangs.h"
+    "game_sa/CGangWars.cpp"
+    "game_sa/CGangWars.h"
+    "game_sa/CGangWarsSaveStructure.cpp"
+    "game_sa/CGangWarsSaveStructure.h"
+    "game_sa/CGarages.cpp"
+    "game_sa/CGarages.h"
+    "game_sa/CGeneral.cpp"
+    "game_sa/CGeneral.h"
+    "game_sa/CGenericGameStorage.cpp"
+    "game_sa/CGenericGameStorage.h"
+    "game_sa/CGridRef.cpp"
+    "game_sa/CGridRef.h"
+    "game_sa/cHandlingDataMgr.cpp"
+    "game_sa/cHandlingDataMgr.h"
+    "game_sa/CHandObject.cpp"
+    "game_sa/CHandObject.h"
+    "game_sa/CHeli.cpp"
+    "game_sa/CHeli.h"
+    "game_sa/CHud.cpp"
+    "game_sa/CHud.h"
+    "game_sa/CHudColours.cpp"
+    "game_sa/CHudColours.h"
+    "game_sa/CIniFile.cpp"
+    "game_sa/CIniFile.h"
+    "game_sa/CIplStore.cpp"
+    "game_sa/CIplStore.h"
+    "game_sa/CKeyGen.cpp"
+    "game_sa/CKeyGen.h"
+    "game_sa/CLink.h"
+    "game_sa/CLinkList.h"
+    "game_sa/CLoadedCarGroup.cpp"
+    "game_sa/CLoadedCarGroup.h"
+    "game_sa/CLoadingScreen.cpp"
+    "game_sa/CLoadingScreen.h"
+    "game_sa/CLocalisation.cpp"
+    "game_sa/CLocalisation.h"
+    "game_sa/CMatrix.cpp"
+    "game_sa/CMatrix.h"
+    "game_sa/CMatrixLink.cpp"
+    "game_sa/CMatrixLink.h"
+    "game_sa/CMenuManager.cpp"
+    "game_sa/CMenuManager.h"
+    "game_sa/CMenuSystem.cpp"
+    "game_sa/CMenuSystem.h"
+    "game_sa/CMessages.cpp"
+    "game_sa/CMessages.h"
+    "game_sa/CMirrors.cpp"
+    "game_sa/CMirrors.h"
+    "game_sa/CMissionCleanup.cpp"
+    "game_sa/CMissionCleanup.h"
+    "game_sa/CModelInfo.cpp"
+    "game_sa/CModelInfo.h"
+    "game_sa/CModelInfoAccelerator.cpp"
+    "game_sa/CModelInfoAccelerator.h"
+    "game_sa/CMonsterTruck.cpp"
+    "game_sa/CMonsterTruck.h"
+    "game_sa/CMotionBlurStreaks.cpp"
+    "game_sa/CMotionBlurStreaks.h"
+    "game_sa/CNodeAddress.h"
+    "game_sa/CObject.cpp"
+    "game_sa/CObject.h"
+    "game_sa/CObjectData.cpp"
+    "game_sa/CObjectData.h"
+    "game_sa/CObjectInfo.h"
+    "game_sa/COctTree.cpp"
+    "game_sa/COctTree.h"
+    "game_sa/COctTreeBase.cpp"
+    "game_sa/COctTreeBase.h"
+    "game_sa/common.cpp"
+    "game_sa/common.h"
+    "game_sa/COnscreenCounterEntry.cpp"
+    "game_sa/COnscreenCounterEntry.h"
+    "game_sa/COnscreenTimer.cpp"
+    "game_sa/COnscreenTimer.h"
+    "game_sa/COnscreenTimerEntry.cpp"
+    "game_sa/COnscreenTimerEntry.h"
+    "game_sa/CPad.cpp"
+    "game_sa/CPad.h"
+    "game_sa/CPathFind.cpp"
+    "game_sa/CPathFind.h"
+    "game_sa/CPathIntersectionInfo.h"
+    "game_sa/CPathNode.cpp"
+    "game_sa/CPathNode.h"
+    "game_sa/CPed.cpp"
+    "game_sa/CPed.h"
+    "game_sa/CPedAcquaintance.h"
+    "game_sa/CPedClothesDesc.cpp"
+    "game_sa/CPedClothesDesc.h"
+    "game_sa/CPedGroup.cpp"
+    "game_sa/CPedGroup.h"
+    "game_sa/CPedGroupIntelligence.cpp"
+    "game_sa/CPedGroupIntelligence.h"
+    "game_sa/CPedGroupMembership.cpp"
+    "game_sa/CPedGroupMembership.h"
+    "game_sa/CPedGroupPlacer.cpp"
+    "game_sa/CPedGroupPlacer.h"
+    "game_sa/CPedGroups.cpp"
+    "game_sa/CPedGroups.h"
+    "game_sa/CPedIK.cpp"
+    "game_sa/CPedIK.h"
+    "game_sa/CPedIntelligence.cpp"
+    "game_sa/CPedIntelligence.h"
+    "game_sa/CPedList.cpp"
+    "game_sa/CPedList.h"
+    "game_sa/CPedModelInfo.cpp"
+    "game_sa/CPedModelInfo.h"
+    "game_sa/CPedPlacement.cpp"
+    "game_sa/CPedPlacement.h"
+    "game_sa/CPedTaskPair.cpp"
+    "game_sa/CPedTaskPair.h"
+    "game_sa/CPhysical.cpp"
+    "game_sa/CPhysical.h"
+    "game_sa/CPickup.cpp"
+    "game_sa/CPickup.h"
+    "game_sa/CPickups.cpp"
+    "game_sa/CPickups.h"
+    "game_sa/CPlaceable.cpp"
+    "game_sa/CPlaceable.h"
+    "game_sa/CPlane.cpp"
+    "game_sa/CPlane.h"
+    "game_sa/CPlaneTrail.cpp"
+    "game_sa/CPlaneTrail.h"
+    "game_sa/CPlaneTrails.cpp"
+    "game_sa/CPlaneTrails.h"
+    "game_sa/CPlayerData.h"
+    "game_sa/CPlayerInfo.cpp"
+    "game_sa/CPlayerInfo.h"
+    "game_sa/CPlayerPed.cpp"
+    "game_sa/CPlayerPed.h"
+    "game_sa/CPointLights.cpp"
+    "game_sa/CPointLights.h"
+    "game_sa/CPointList.cpp"
+    "game_sa/CPointList.h"
+    "game_sa/CPolyBunch.cpp"
+    "game_sa/CPolyBunch.h"
+    "game_sa/CPool.h"
+    "game_sa/CPools.cpp"
+    "game_sa/CPools.h"
+    "game_sa/CPopCycle.cpp"
+    "game_sa/CPopCycle.h"
+    "game_sa/CPopulation.cpp"
+    "game_sa/CPopulation.h"
+    "game_sa/CProjectile.cpp"
+    "game_sa/CProjectile.h"
+    "game_sa/CProjectileInfo.cpp"
+    "game_sa/CProjectileInfo.h"
+    "game_sa/CPtrList.cpp"
+    "game_sa/CPtrList.h"
+    "game_sa/CPtrListDoubleLink.cpp"
+    "game_sa/CPtrListDoubleLink.h"
+    "game_sa/CPtrListSingleLink.cpp"
+    "game_sa/CPtrListSingleLink.h"
+    "game_sa/CPtrNode.h"
+    "game_sa/CPtrNodeDoubleLink.cpp"
+    "game_sa/CPtrNodeDoubleLink.h"
+    "game_sa/CPtrNodeSingleLink.cpp"
+    "game_sa/CPtrNodeSingleLink.h"
+    "game_sa/CQuadBike.cpp"
+    "game_sa/CQuadBike.h"
+    "game_sa/CQuadTreeNode.cpp"
+    "game_sa/CQuadTreeNode.h"
+    "game_sa/CQuaternion.cpp"
+    "game_sa/CQuaternion.h"
+    "game_sa/CQueuedMode.h"
+    "game_sa/CRadar.cpp"
+    "game_sa/CRadar.h"
+    "game_sa/CRealTimeShadow.cpp"
+    "game_sa/CRealTimeShadow.h"
+    "game_sa/CRect.cpp"
+    "game_sa/CRect.h"
+    "game_sa/CReference.h"
+    "game_sa/CReferences.cpp"
+    "game_sa/CReferences.h"
+    "game_sa/CRegisteredCorona.cpp"
+    "game_sa/CRegisteredCorona.h"
+    "game_sa/CRegisteredMotionBlurStreak.cpp"
+    "game_sa/CRegisteredMotionBlurStreak.h"
+    "game_sa/CRenderer.cpp"
+    "game_sa/CRenderer.h"
+    "game_sa/CRepeatSector.h"
+    "game_sa/CReplay.cpp"
+    "game_sa/CReplay.h"
+    "game_sa/CRestart.cpp"
+    "game_sa/CRestart.h"
+    "game_sa/CRideAnimData.h"
+    "game_sa/CRoadBlocks.cpp"
+    "game_sa/CRoadBlocks.h"
+    "game_sa/CRope.cpp"
+    "game_sa/CRope.h"
+    "game_sa/CRopes.cpp"
+    "game_sa/CRopes.h"
+    "game_sa/CRunningScript.cpp"
+    "game_sa/CRunningScript.h"
+    "game_sa/CScene.cpp"
+    "game_sa/CScene.h"
+    "game_sa/CScriptResourceManager.cpp"
+    "game_sa/CScriptResourceManager.h"
+    "game_sa/CScriptsForBrains.cpp"
+    "game_sa/CScriptsForBrains.h"
+    "game_sa/CSector.h"
+    "game_sa/CSetPiece.cpp"
+    "game_sa/CSetPiece.h"
+    "game_sa/CSetPieces.cpp"
+    "game_sa/CSetPieces.h"
+    "game_sa/CShadowCamera.cpp"
+    "game_sa/CShadowCamera.h"
+    "game_sa/CShadows.cpp"
+    "game_sa/CShadows.h"
+    "game_sa/CShinyTexts.cpp"
+    "game_sa/CShinyTexts.h"
+    "game_sa/CShotInfo.cpp"
+    "game_sa/CShotInfo.h"
+    "game_sa/CSimpleTransform.cpp"
+    "game_sa/CSimpleTransform.h"
+    "game_sa/CSpecialFX.cpp"
+    "game_sa/CSpecialFX.h"
+    "game_sa/CSpecialPlateHandler.cpp"
+    "game_sa/CSpecialPlateHandler.h"
+    "game_sa/CSphere.cpp"
+    "game_sa/CSphere.h"
+    "game_sa/CSprite.cpp"
+    "game_sa/CSprite.h"
+    "game_sa/CSprite2d.cpp"
+    "game_sa/CSprite2d.h"
+    "game_sa/CStats.cpp"
+    "game_sa/CStats.h"
+    "game_sa/CStore.h"
+    "game_sa/CStoredCollPoly.h"
+    "game_sa/CStreamedScripts.cpp"
+    "game_sa/CStreamedScripts.h"
+    "game_sa/CStreaming.cpp"
+    "game_sa/CStreaming.h"
+    "game_sa/CStreamingInfo.cpp"
+    "game_sa/CStreamingInfo.h"
+    "game_sa/CStuckCarCheck.cpp"
+    "game_sa/CStuckCarCheck.h"
+    "game_sa/CTask.cpp"
+    "game_sa/CTask.h"
+    "game_sa/CTaskComplex.cpp"
+    "game_sa/CTaskComplex.h"
+    "game_sa/CTaskComplexClimb.cpp"
+    "game_sa/CTaskComplexClimb.h"
+    "game_sa/CTaskComplexCopInCar.cpp"
+    "game_sa/CTaskComplexCopInCar.h"
+    "game_sa/CTaskComplexDie.cpp"
+    "game_sa/CTaskComplexDie.h"
+    "game_sa/CTaskComplexDriveFireTruck.cpp"
+    "game_sa/CTaskComplexDriveFireTruck.h"
+    "game_sa/CTaskComplexEnterBoatAsDriver.cpp"
+    "game_sa/CTaskComplexEnterBoatAsDriver.h"
+    "game_sa/CTaskComplexEnterCar.cpp"
+    "game_sa/CTaskComplexEnterCar.h"
+    "game_sa/CTaskComplexEnterCarAsDriver.cpp"
+    "game_sa/CTaskComplexEnterCarAsDriver.h"
+    "game_sa/CTaskComplexEnterCarAsPassenger.cpp"
+    "game_sa/CTaskComplexEnterCarAsPassenger.h"
+    "game_sa/CTaskComplexFacial.cpp"
+    "game_sa/CTaskComplexFacial.h"
+    "game_sa/CTaskComplexJump.cpp"
+    "game_sa/CTaskComplexJump.h"
+    "game_sa/CTaskComplexKillPedFromBoat.cpp"
+    "game_sa/CTaskComplexKillPedFromBoat.h"
+    "game_sa/CTaskComplexKillPedOnFoot.cpp"
+    "game_sa/CTaskComplexKillPedOnFoot.h"
+    "game_sa/CTaskComplexLeaveCar.cpp"
+    "game_sa/CTaskComplexLeaveCar.h"
+    "game_sa/CTaskComplexMedicTreatInjuredPed.cpp"
+    "game_sa/CTaskComplexMedicTreatInjuredPed.h"
+    "game_sa/CTaskComplexPlayHandSignalAnim.cpp"
+    "game_sa/CTaskComplexPlayHandSignalAnim.h"
+    "game_sa/CTaskComplexProstituteSolicit.cpp"
+    "game_sa/CTaskComplexProstituteSolicit.h"
+    "game_sa/CTaskComplexSequence.cpp"
+    "game_sa/CTaskComplexSequence.h"
+    "game_sa/CTaskComplexStuckInAir.cpp"
+    "game_sa/CTaskComplexStuckInAir.h"
+    "game_sa/CTaskComplexSunbathe.cpp"
+    "game_sa/CTaskComplexSunbathe.h"
+    "game_sa/CTaskComplexUseMobilePhone.cpp"
+    "game_sa/CTaskComplexUseMobilePhone.h"
+    "game_sa/CTaskComplexWander.cpp"
+    "game_sa/CTaskComplexWander.h"
+    "game_sa/CTaskComplexWanderStandard.cpp"
+    "game_sa/CTaskComplexWanderStandard.h"
+    "game_sa/CTaskManager.cpp"
+    "game_sa/CTaskManager.h"
+    "game_sa/CTaskSimple.cpp"
+    "game_sa/CTaskSimple.h"
+    "game_sa/CTaskSimpleAnim.cpp"
+    "game_sa/CTaskSimpleAnim.h"
+    "game_sa/CTaskSimpleCarSetPedInAsDriver.cpp"
+    "game_sa/CTaskSimpleCarSetPedInAsDriver.h"
+    "game_sa/CTaskSimpleCarSetPedInAsPassenger.cpp"
+    "game_sa/CTaskSimpleCarSetPedInAsPassenger.h"
+    "game_sa/CTaskSimpleCarSetPedOut.cpp"
+    "game_sa/CTaskSimpleCarSetPedOut.h"
+    "game_sa/CTaskSimpleChoking.cpp"
+    "game_sa/CTaskSimpleChoking.h"
+    "game_sa/CTaskSimpleClimb.cpp"
+    "game_sa/CTaskSimpleClimb.h"
+    "game_sa/CTaskSimpleDuck.cpp"
+    "game_sa/CTaskSimpleDuck.h"
+    "game_sa/CTaskSimpleDuckToggle.cpp"
+    "game_sa/CTaskSimpleDuckToggle.h"
+    "game_sa/CTaskSimpleFacial.cpp"
+    "game_sa/CTaskSimpleFacial.h"
+    "game_sa/CTaskSimpleFight.cpp"
+    "game_sa/CTaskSimpleFight.h"
+    "game_sa/CTaskSimpleGangDriveBy.cpp"
+    "game_sa/CTaskSimpleGangDriveBy.h"
+    "game_sa/CTaskSimpleHoldEntity.cpp"
+    "game_sa/CTaskSimpleHoldEntity.h"
+    "game_sa/CTaskSimpleIKChain.cpp"
+    "game_sa/CTaskSimpleIKChain.h"
+    "game_sa/CTaskSimpleIKLookAt.cpp"
+    "game_sa/CTaskSimpleIKLookAt.h"
+    "game_sa/CTaskSimpleIKManager.cpp"
+    "game_sa/CTaskSimpleIKManager.h"
+    "game_sa/CTaskSimpleInAir.cpp"
+    "game_sa/CTaskSimpleInAir.h"
+    "game_sa/CTaskSimpleJetPack.cpp"
+    "game_sa/CTaskSimpleJetpack.h"
+    "game_sa/CTaskSimpleJump.cpp"
+    "game_sa/CTaskSimpleJump.h"
+    "game_sa/CTaskSimplePlayerOnFoot.cpp"
+    "game_sa/CTaskSimplePlayerOnFoot.h"
+    "game_sa/CTaskSimpleRunAnim.cpp"
+    "game_sa/CTaskSimpleRunAnim.h"
+    "game_sa/CTaskSimpleRunNamedAnim.cpp"
+    "game_sa/CTaskSimpleRunNamedAnim.h"
+    "game_sa/CTaskSimpleStandStill.cpp"
+    "game_sa/CTaskSimpleStandStill.h"
+    "game_sa/CTaskSimpleStealthKill.cpp"
+    "game_sa/CTaskSimpleStealthKill.h"
+    "game_sa/CTaskSimpleSwim.cpp"
+    "game_sa/CTaskSimpleSwim.h"
+    "game_sa/CTaskSimpleThrowProjectile.cpp"
+    "game_sa/CTaskSimpleThrowProjectile.h"
+    "game_sa/CTaskSimpleTriggerLookAt.cpp"
+    "game_sa/CTaskSimpleTriggerLookAt.h"
+    "game_sa/CTaskSimpleUseGun.cpp"
+    "game_sa/CTaskSimpleUseGun.h"
+    "game_sa/CTaskTimer.cpp"
+    "game_sa/CTaskTimer.h"
+    "game_sa/CTaskUtilityLineUpPedWithCar.cpp"
+    "game_sa/CTaskUtilityLineUpPedWithCar.h"
+    "game_sa/CText.cpp"
+    "game_sa/CText.h"
+    "game_sa/CTheCarGenerators.cpp"
+    "game_sa/CTheCarGenerators.h"
+    "game_sa/CTheScripts.cpp"
+    "game_sa/CTheScripts.h"
+    "game_sa/CTheZones.cpp"
+    "game_sa/CTheZones.h"
+    "game_sa/CTimeCycle.cpp"
+    "game_sa/CTimeCycle.h"
+    "game_sa/CTimeCycleBox.h"
+    "game_sa/CTimeModelInfo.cpp"
+    "game_sa/CTimeModelInfo.h"
+    "game_sa/CTimer.cpp"
+    "game_sa/CTimer.h"
+    "game_sa/CTrailer.cpp"
+    "game_sa/CTrailer.h"
+    "game_sa/CTrain.cpp"
+    "game_sa/CTrain.h"
+    "game_sa/CTrainNode.cpp"
+    "game_sa/CTrainNode.h"
+    "game_sa/cTransmission.cpp"
+    "game_sa/cTransmission.h"
+    "game_sa/CTxdStore.cpp"
+    "game_sa/CTxdStore.h"
+    "game_sa/CUpsideDownCarCheck.cpp"
+    "game_sa/CUpsideDownCarCheck.h"
+    "game_sa/CUserDisplay.cpp"
+    "game_sa/CUserDisplay.h"
+    "game_sa/CVector.cpp"
+    "game_sa/CVector.h"
+    "game_sa/CVector2D.cpp"
+    "game_sa/CVector2D.h"
+    "game_sa/CVehicle.cpp"
+    "game_sa/CVehicle.h"
+    "game_sa/CVehicleModelInfo.cpp"
+    "game_sa/CVehicleModelInfo.h"
+    "game_sa/CVisibilityPlugins.cpp"
+    "game_sa/CVisibilityPlugins.h"
+    "game_sa/CWanted.cpp"
+    "game_sa/CWanted.h"
+    "game_sa/CWaterLevel.cpp"
+    "game_sa/CWaterLevel.h"
+    "game_sa/CWeapon.cpp"
+    "game_sa/CWeapon.h"
+    "game_sa/CWeaponEffects.cpp"
+    "game_sa/CWeaponEffects.h"
+    "game_sa/CWeaponInfo.cpp"
+    "game_sa/CWeaponInfo.h"
+    "game_sa/CWeaponModelInfo.cpp"
+    "game_sa/CWeaponModelInfo.h"
+    "game_sa/CWeather.cpp"
+    "game_sa/CWeather.h"
+    "game_sa/CWorld.cpp"
+    "game_sa/CWorld.h"
+    "game_sa/CZone.cpp"
+    "game_sa/CZone.h"
+    "game_sa/CZoneInfo.h"
+    "game_sa/D3DIndexDataBuffer.cpp"
+    "game_sa/D3DIndexDataBuffer.h"
+    "game_sa/D3DResourceSystem.cpp"
+    "game_sa/D3DResourceSystem.h"
+    "game_sa/D3DTextureBuffer.cpp"
+    "game_sa/D3DTextureBuffer.h"
+    "game_sa/eAnimations.h"
+    "game_sa/eAnimBlendCallbackType.h"
+    "game_sa/eAudioEvents.h"
+    "game_sa/eCamMode.h"
+    "game_sa/eCarMission.h"
+    "game_sa/eClothesModelPart.h"
+    "game_sa/eClothesTexturePart.h"
+    "game_sa/eCopType.h"
+    "game_sa/eCrimeType.h"
+    "game_sa/eDecisionMakerEvents.h"
+    "game_sa/eEmergencyPedVoices.h"
+    "game_sa/eEntityStatus.h"
+    "game_sa/eEntityType.h"
+    "game_sa/eEventType.h"
+    "game_sa/eGangID.h"
+    "game_sa/eModelID.h"
+    "game_sa/ePadButtons.h"
+    "game_sa/ePedAnims.h"
+    "game_sa/ePedBones.h"
+    "game_sa/ePedModel.h"
+    "game_sa/ePedPieceTypes.h"
+    "game_sa/ePedState.h"
+    "game_sa/ePedType.h"
+    "game_sa/eRadioID.h"
+    "game_sa/eScriptCommands.h"
+    "game_sa/eSoundID.h"
+    "game_sa/eSprintType.h"
+    "game_sa/eStatModAbilities.h"
+    "game_sa/eStats.h"
+    "game_sa/eStatsReactions.h"
+    "game_sa/eSurfaceType.h"
+    "game_sa/eTaskType.h"
+    "game_sa/eVehicleClass.h"
+    "game_sa/eVehicleHandlingFlags.h"
+    "game_sa/eVehicleHandlingModelFlags.h"
+    "game_sa/eWeaponFire.h"
+    "game_sa/eWeaponFlags.h"
+    "game_sa/eWeaponModel.h"
+    "game_sa/eWeaponType.h"
+    "game_sa/eWinchType.h"
+    "game_sa/Fx_c.cpp"
+    "game_sa/Fx_c.h"
+    "game_sa/FxBox_c.cpp"
+    "game_sa/FxBox_c.h"
+    "game_sa/FxEmitterBP_c.h"
+    "game_sa/FxFrustumInfo_c.cpp"
+    "game_sa/FxFrustumInfo_c.h"
+    "game_sa/FxInfoManager_c.h"
+    "game_sa/FxManager_c.cpp"
+    "game_sa/FxManager_c.h"
+    "game_sa/FxMemoryPool_c.cpp"
+    "game_sa/FxMemoryPool_c.h"
+    "game_sa/FxPlane_c.cpp"
+    "game_sa/FxPlane_c.h"
+    "game_sa/FxPrimBP_c.h"
+    "game_sa/FxPrtMult_c.cpp"
+    "game_sa/FxPrtMult_c.h"
+    "game_sa/FxSphere_c.cpp"
+    "game_sa/FxSphere_c.h"
+    "game_sa/FxSystem_c.cpp"
+    "game_sa/FxSystem_c.h"
+    "game_sa/FxSystemBP_c.cpp"
+    "game_sa/FxSystemBP_c.h"
+    "game_sa/IplDef.h"
+    "game_sa/JPegCompress.cpp"
+    "game_sa/JPegCompress.h"
+    "game_sa/List_c.cpp"
+    "game_sa/List_c.h"
+    "game_sa/ListItem_c.cpp"
+    "game_sa/ListItem_c.h"
+    "game_sa/NodeName.cpp"
+    "game_sa/NodeName.h"
+    "game_sa/PipelinePlugin.cpp"
+    "game_sa/PipelinePlugin.h"
+    "game_sa/RenderWare.cpp"
+    "game_sa/RpHAnimBlendInterpFrame.h"
+    "game_sa/RwObjectNameIdAssocation.h"
+    "game_sa/SArray.h"
+    "game_sa/tBikeHandlingData.h"
+    "game_sa/tBinaryIplFile.h"
+    "game_sa/tBoatHandlingData.h"
+    "game_sa/tFlyingHandlingData.h"
+    "game_sa/tHandlingData.h"
+    "game_sa/tPickupMessage.h"
+    "game_sa/tTransmissionGear.h"
+    "game_sa/TxdDef.cpp"
+    "game_sa/TxdDef.h"
+)
+source_group("game_sa" FILES ${game_sa})
+
+set(game_sa__meta
+    "game_sa/meta/meta.CAnimBlendAssociation.h"
+    "game_sa/meta/meta.CAnimBlendClumpData.h"
+    "game_sa/meta/meta.CAnimBlendStaticAssociation.h"
+    "game_sa/meta/meta.CCamera.h"
+    "game_sa/meta/meta.CCarEnterExit.h"
+    "game_sa/meta/meta.CCarGenerator.h"
+    "game_sa/meta/meta.CCarPathLink.h"
+    "game_sa/meta/meta.CCheat.h"
+    "game_sa/meta/meta.CClock.h"
+    "game_sa/meta/meta.CCover.h"
+    "game_sa/meta/meta.CCoverPoint.h"
+    "game_sa/meta/meta.CDate.h"
+    "game_sa/meta/meta.CEntryExit.h"
+    "game_sa/meta/meta.CEntryExitManager.h"
+    "game_sa/meta/meta.CFileLoader.h"
+    "game_sa/meta/meta.CFormation.h"
+    "game_sa/meta/meta.CGame.h"
+    "game_sa/meta/meta.CGangInfo.h"
+    "game_sa/meta/meta.CGangs.h"
+    "game_sa/meta/meta.CGangWars.h"
+    "game_sa/meta/meta.CGangWarsSaveStructure.h"
+    "game_sa/meta/meta.CGenericGameStorage.h"
+    "game_sa/meta/meta.CGridRef.h"
+    "game_sa/meta/meta.CMatrixLink.h"
+    "game_sa/meta/meta.COnscreenCounterEntry.h"
+    "game_sa/meta/meta.COnscreenTimer.h"
+    "game_sa/meta/meta.COnscreenTimerEntry.h"
+    "game_sa/meta/meta.CPathNode.h"
+    "game_sa/meta/meta.CPedGroup.h"
+    "game_sa/meta/meta.CPedGroupIntelligence.h"
+    "game_sa/meta/meta.CPedGroupMembership.h"
+    "game_sa/meta/meta.CPedGroupPlacer.h"
+    "game_sa/meta/meta.CPedGroups.h"
+    "game_sa/meta/meta.CPedList.h"
+    "game_sa/meta/meta.CPedPlacement.h"
+    "game_sa/meta/meta.CPedTaskPair.h"
+    "game_sa/meta/meta.CPointList.h"
+    "game_sa/meta/meta.CRoadBlocks.h"
+    "game_sa/meta/meta.CRunningScript.h"
+    "game_sa/meta/meta.CScriptResourceManager.h"
+    "game_sa/meta/meta.CScriptsForBrains.h"
+    "game_sa/meta/meta.CSpecialPlateHandler.h"
+    "game_sa/meta/meta.CStreamedScripts.h"
+    "game_sa/meta/meta.CStreaming.h"
+    "game_sa/meta/meta.CStreamingInfo.h"
+    "game_sa/meta/meta.CStuckCarCheck.h"
+    "game_sa/meta/meta.CTheCarGenerators.h"
+    "game_sa/meta/meta.CTheScripts.h"
+    "game_sa/meta/meta.CUpsideDownCarCheck.h"
+)
+source_group("game_sa\\meta" FILES ${game_sa__meta})
+
+set(game_sa__rw
+    "game_sa/rw/rpadc.h"
+    "game_sa/rw/rpanisot.h"
+    "game_sa/rw/rpcollis.h"
+    "game_sa/rw/rpcriter.h"
+    "game_sa/rw/rpdbgerr.h"
+    "game_sa/rw/rpdmorph.h"
+    "game_sa/rw/rperror.h"
+    "game_sa/rw/rphanim.h"
+    "game_sa/rw/rplodatm.h"
+    "game_sa/rw/rplogo.h"
+    "game_sa/rw/rpltmap.h"
+    "game_sa/rw/rpmatfx.h"
+    "game_sa/rw/rpmipkl.h"
+    "game_sa/rw/rpmorph.h"
+    "game_sa/rw/rpnormmap.h"
+    "game_sa/rw/rppatch.h"
+    "game_sa/rw/rpprtstd.h"
+    "game_sa/rw/rpptank.h"
+    "game_sa/rw/rppvs.h"
+    "game_sa/rw/rprandom.h"
+    "game_sa/rw/rpskin.h"
+    "game_sa/rw/rpspline.h"
+    "game_sa/rw/rpusrdat.h"
+    "game_sa/rw/rpuvanim.h"
+    "game_sa/rw/rpworld.h"
+    "game_sa/rw/rt2d.h"
+    "game_sa/rw/rt2danim.h"
+    "game_sa/rw/rtanim.h"
+    "game_sa/rw/rtbary.h"
+    "game_sa/rw/rtbezpat.h"
+    "game_sa/rw/rtbmp.h"
+    "game_sa/rw/rtcharse.h"
+    "game_sa/rw/rtcmpkey.h"
+    "game_sa/rw/rtdict.h"
+    "game_sa/rw/rtfsyst.h"
+    "game_sa/rw/rtgcond.h"
+    "game_sa/rw/rtgncpip.h"
+    "game_sa/rw/rtimport.h"
+    "game_sa/rw/rtintsec.h"
+    "game_sa/rw/rtltmap.h"
+    "game_sa/rw/rtltmapcnv.h"
+    "game_sa/rw/rtmipk.h"
+    "game_sa/rw/rtnormmap.h"
+    "game_sa/rw/rtpick.h"
+    "game_sa/rw/rtpitexd.h"
+    "game_sa/rw/rtpng.h"
+    "game_sa/rw/rtquat.h"
+    "game_sa/rw/rtras.h"
+    "game_sa/rw/rtray.h"
+    "game_sa/rw/rtskinsp.h"
+    "game_sa/rw/rtslerp.h"
+    "game_sa/rw/rtsplpvs.h"
+    "game_sa/rw/rttiff.h"
+    "game_sa/rw/rttilerd.h"
+    "game_sa/rw/rttoc.h"
+    "game_sa/rw/rtvcat.h"
+    "game_sa/rw/rtwing.h"
+    "game_sa/rw/rtworld.h"
+    "game_sa/rw/rwcore.h"
+    "game_sa/rw/rwplcore.h"
+    "game_sa/rw/skeleton.h"
+)
+source_group("game_sa\\rw" FILES ${game_sa__rw})
+
+set(ALL_FILES
+    ${no_group_source_files}
+    ${..__hooking}
+    ${..__injector}
+    ${..__injector__gvm}
+    ${..__safetyhook}
+    ${..__shared}
+    ${..__shared__bass}
+    ${..__shared__comp}
+    ${..__shared__comp__plugins}
+    ${..__shared__dxsdk}
+    ${..__shared__extender}
+    ${..__shared__extensions}
+    ${..__shared__extensions__scripting}
+    ${..__shared__game}
+    ${..__shared__rwd3d9}
+    ${game_sa}
+    ${game_sa__meta}
+    ${game_sa__rw}
+)
+
+################################################################################
+# Target
+################################################################################
+add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
+
+use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
+set(ROOT_NAMESPACE plugin_sa)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    VS_GLOBAL_KEYWORD "Win32Proj"
+)
+################################################################################
+# Target name
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_RELEASE "plugin"
+        TARGET_NAME_ZDEBUG  "plugin_d"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_RELEASE "plugin"
+        TARGET_NAME_ZDEBUG  "plugin_d"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_RELEASE "plugin"
+        TARGET_NAME_ZDEBUG  "plugin_d"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_RELEASE "plugin"
+        TARGET_NAME_ZDEBUG  "plugin_d"
+    )
+endif()
+################################################################################
+# Output directory
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_RELEASE "$ENV{PLUGIN_SDK_DIR}/output/lib/"
+        OUTPUT_DIRECTORY_ZDEBUG  "$ENV{PLUGIN_SDK_DIR}/output/lib/"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_RELEASE "$ENV{PLUGIN_SDK_DIR}/output/lib/"
+        OUTPUT_DIRECTORY_ZDEBUG  "$ENV{PLUGIN_SDK_DIR}/output/lib/"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_RELEASE "$ENV{PLUGIN_SDK_DIR}/output/lib/"
+        OUTPUT_DIRECTORY_ZDEBUG  "$ENV{PLUGIN_SDK_DIR}/output/lib/"
+    )
+endif()
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "TRUE"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "TRUE"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "TRUE"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "TRUE"
+    )
+endif()
+################################################################################
+# MSVC runtime library
+################################################################################
+get_property(MSVC_RUNTIME_LIBRARY_DEFAULT TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY)
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+    string(CONCAT "MSVC_RUNTIME_LIBRARY_STR"
+        $<$<CONFIG:Release>:
+            MultiThreaded
+        >
+        $<$<CONFIG:zDebug>:
+            MultiThreadedDebug
+        >
+        $<$<NOT:$<OR:$<CONFIG:Release>,$<CONFIG:zDebug>>>:${MSVC_RUNTIME_LIBRARY_DEFAULT}>
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    string(CONCAT "MSVC_RUNTIME_LIBRARY_STR"
+        $<$<CONFIG:Release>:
+            MultiThreaded
+        >
+        $<$<CONFIG:zDebug>:
+            MultiThreadedDebug
+        >
+        $<$<NOT:$<OR:$<CONFIG:Release>,$<CONFIG:zDebug>>>:${MSVC_RUNTIME_LIBRARY_DEFAULT}>
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    string(CONCAT "MSVC_RUNTIME_LIBRARY_STR"
+        $<$<CONFIG:Release>:
+            MultiThreaded
+        >
+        $<$<CONFIG:zDebug>:
+            MultiThreadedDebug
+        >
+        $<$<NOT:$<OR:$<CONFIG:Release>,$<CONFIG:zDebug>>>:${MSVC_RUNTIME_LIBRARY_DEFAULT}>
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+    string(CONCAT "MSVC_RUNTIME_LIBRARY_STR"
+        $<$<CONFIG:Release>:
+            MultiThreaded
+        >
+        $<$<CONFIG:zDebug>:
+            MultiThreadedDebug
+        >
+        $<$<NOT:$<OR:$<CONFIG:Release>,$<CONFIG:zDebug>>>:${MSVC_RUNTIME_LIBRARY_DEFAULT}>
+    )
+endif()
+set_target_properties(${PROJECT_NAME} PROPERTIES MSVC_RUNTIME_LIBRARY ${MSVC_RUNTIME_LIBRARY_STR})
+
+################################################################################
+# Include directories
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/.;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa/rw;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared/game;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../safetyhook"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/.;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa/rw;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared/game;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../safetyhook"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/.;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa/rw;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared/game;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../safetyhook"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/.;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/game_sa/rw;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../shared/game;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../safetyhook"
+    )
+endif()
+
+################################################################################
+# Compile definitions
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "_CRT_SECURE_NO_WARNINGS;"
+        "_CRT_NON_CONFORMING_SWPRINTFS;"
+        "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;"
+        "_DX9_SDK_INSTALLED;"
+        "GTASA;"
+        "PLUGIN_SGV_10US;"
+        "RW;"
+        "_MBCS"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "_CRT_SECURE_NO_WARNINGS;"
+        "_CRT_NON_CONFORMING_SWPRINTFS;"
+        "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;"
+        "_DX9_SDK_INSTALLED;"
+        "GTASA;"
+        "PLUGIN_SGV_10US;"
+        "RW;"
+        "_MBCS"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "_CRT_SECURE_NO_WARNINGS;"
+        "_CRT_NON_CONFORMING_SWPRINTFS;"
+        "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;"
+        "_DX9_SDK_INSTALLED;"
+        "GTASA;"
+        "PLUGIN_SGV_10US;"
+        "RW;"
+        "_MBCS"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "_CRT_SECURE_NO_WARNINGS;"
+        "_CRT_NON_CONFORMING_SWPRINTFS;"
+        "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;"
+        "_DX9_SDK_INSTALLED;"
+        "GTASA;"
+        "PLUGIN_SGV_10US;"
+        "RW;"
+        "_MBCS"
+    )
+endif()
+
+################################################################################
+# Compile and link options
+################################################################################
+if(MSVC)
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /Gm-;
+                /Ox;
+                /Oi;
+                /GF;
+                /Gy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT}
+            >
+            $<$<CONFIG:zDebug>:
+                /Od;
+                /ZI
+            >
+            /std:c++latest;
+            /W3;
+            /wd4073;
+            /sdl-;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /Y-
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /Gm-;
+                /Ox;
+                /Oi;
+                /GF;
+                /Gy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT}
+            >
+            $<$<CONFIG:zDebug>:
+                /Od;
+                /ZI
+            >
+            /std:c++latest;
+            /W3;
+            /wd4073;
+            /sdl-;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /Y-
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /Gm-;
+                /Ox;
+                /Oi;
+                /GF;
+                /Gy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT}
+            >
+            $<$<CONFIG:zDebug>:
+                /Od;
+                /Zi
+            >
+            /std:c++latest;
+            /W3;
+            /wd4073;
+            /sdl-;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /Y-
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /Gm-;
+                /Ox;
+                /Oi;
+                /GF;
+                /Gy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT}
+            >
+            $<$<CONFIG:zDebug>:
+                /Od;
+                /ZI
+            >
+            /std:c++latest;
+            /W3;
+            /wd4073;
+            /sdl-;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /Y-
+        )
+    endif()
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Mixed Platforms")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            /MACHINE:X86;
+            /SUBSYSTEM:WINDOWS
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            /MACHINE:X86;
+            /SUBSYSTEM:WINDOWS
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            /MACHINE:X86;
+            /SUBSYSTEM:WINDOWS
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x86")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            /MACHINE:X86;
+            /SUBSYSTEM:WINDOWS
+        )
+    endif()
+endif()
+
