@@ -60,8 +60,8 @@ public:
     float              m_fSteeringLeftRight;
     float              m_fAccelerationBreakStatus;
     int field_99C;
-    int                m_fRotorZ;
-    int                m_fSecondRotorZ;
+    float              m_fRotorZ;
+    float              m_fSecondRotorZ;
     float              m_fMaxAltitude;
     float field_9AC;
     float              m_fMinAltitude;
