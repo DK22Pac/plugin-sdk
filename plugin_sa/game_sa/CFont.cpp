@@ -32,6 +32,7 @@ unsigned char& CFont::m_nFontShadow = *(unsigned char *)0xC71A96;
 CRGBA *CFont::m_FontDropColor = (CRGBA *)0xC71A97;
 unsigned char& CFont::m_nFontOutlineSize = *(unsigned char *)0xC71A9B;
 unsigned char& CFont::m_nFontOutline = *(unsigned char *)0xC71A9C;
+CFontRenderState& CFont::RenderState = *(CFontRenderState*)0xC71AA0;
 
 tFontData *gFontData = (tFontData *)0xC718B0;
 

@@ -8,4 +8,4 @@
 
 int& CRenderer::ms_nNoOfVisibleEntities = *(int*)0x940730;
 CEntity** CRenderer::ms_aVisibleEntityPtrs = (CEntity**)0x6E9920;
-
+float& CRenderer::ms_lodDistScale = *(float*)0x5F726C;

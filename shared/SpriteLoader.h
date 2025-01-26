@@ -37,6 +37,8 @@ namespace plugin {
         bool mipMap;
         std::string extension;
 
+        int32_t memUsed;
+
     public:
         inline SpriteLoader() {
 #ifdef RW
@@ -60,6 +62,7 @@ namespace plugin {
         texClass* GetTex(std::string const& name);
         void SetMipMapOn(bool on);
         void SetExtension(std::string ext);
+        uint32_t GetMemoryUsed();
     };
 }
 #endif

@@ -59,5 +59,12 @@ public:
 
     bool operator==(CRGBA const &rhs) const;
     CRGBA &operator=(CRGBA const &rhs);
+
+    inline void operator+=(const CRGBA& right) {
+        r = std::min(r + right.r, 255);
+        g = std::min(g + right.g, 255);
+        b = std::min(b + right.b, 255);
+        a = std::min(a + right.a, 255);
+    }
 };
 #endif

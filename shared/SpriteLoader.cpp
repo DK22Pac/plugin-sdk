@@ -43,14 +43,15 @@ namespace plugin {
             }
 #endif
         }
-        spritesMap = {};
-        spritesMapIndex = {};
-        slotName = {};
+        spritesMap.clear();
+        spritesMapIndex.clear();
+        slotName.clear();
         istxd = false;
         NumSlots = 0;
         Index = 0;
         mipMap = false;
         extension = "png";
+        memUsed = 0;
     }
 
     bool SpriteLoader::LoadAllSpritesFromTxd(std::string const& path) {
@@ -171,6 +172,8 @@ make_slot:
 
             img->Release();
 
+            memUsed += w * h * 4;
+
             return tex;
         }
 
@@ -221,6 +224,10 @@ make_slot:
 
     void SpriteLoader::SetExtension(std::string ext) {
         extension = ext;
+    }
+
+    uint32_t SpriteLoader::GetMemoryUsed() {
+        return memUsed / (1024 * 1024);
     }
 }
 #endif

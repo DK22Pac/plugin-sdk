@@ -293,3 +293,7 @@ int gaddrof(LittleTest) = GLOBAL_ADDRESS_BY_VERSION(0x4A9630, 0x4A9650, 0x4A9500
 void LittleTest() {
     plugin::CallDynGlobal(gaddrof(LittleTest));
 }
+
+RsEventStatus RsEventHandler(RsEvent event, void* param) {
+    return plugin::CallAndReturnDyn<RsEventStatus>(0x602EE0, event, param);
+}

@@ -23,3 +23,7 @@ bool CPathFind::GenerateCarCreationCoors(float arg1, float arg2, float arg3, flo
 int CPathFind::FindNodeClosestToCoors(CVector arg1, unsigned char arg2, float arg3, bool arg4, bool arg5, bool arg6, bool arg7) {
 	return plugin::CallMethodAndReturn<int, 0x437150, CPathFind *, CVector, unsigned char, float, bool, bool, bool, bool>(this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
+
+void CPathFind::DoPathSearch(unsigned char type, CVector start, int startNodeId, CVector target, CPathNode** nodes, short* numNodes, short maxNumNodes, CVehicle* vehicle, float* dist, float distLimit, int forcedTargetNode) {
+    plugin::CallMethod<0x439070>(type, start, startNodeId, target, nodes, numNodes, maxNumNodes, vehicle, dist, distLimit, forcedTargetNode);
+}

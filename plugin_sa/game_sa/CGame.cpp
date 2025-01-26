@@ -227,3 +227,7 @@ bool DoRwStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bo
 void DoRwStuffEndOfFrame() {
     plugin::Call<0x53D840>();
 }
+
+RsEventStatus RsEventHandler(RsEvent event, void* param) {
+    return plugin::CallAndReturnDyn<RsEventStatus>(0x619B60, event, param);
+}

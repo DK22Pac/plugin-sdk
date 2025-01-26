@@ -33,6 +33,25 @@ enum PLUGIN_API eFontStyle : unsigned char {
     FONT_PRICEDOWN
 };
 
+class CFontRenderState {
+public:
+    int32_t id;
+    float x;
+    float y;
+    float ScaleX;
+    float ScaleY;
+    CRGBA Colour;
+    float PixelsToAdd;
+    float Slope;
+    float SlopeRefX;
+    float SlopeRefY;
+    uint8_t Shadow;
+    uint8_t ExtraFont;
+    uint8_t Proportional;
+    int16_t Style;
+    int8_t EdgeAmount;
+};
+
 class PLUGIN_API CFont {
 public:
     // static variables
@@ -65,6 +84,8 @@ public:
     static CRGBA *m_FontDropColor;
     static unsigned char& m_nFontOutlineSize;
     static unsigned char& m_nFontOutline;
+
+    static CFontRenderState& RenderState;
 
     // static functions
 

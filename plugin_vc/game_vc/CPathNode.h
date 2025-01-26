@@ -7,6 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CVector.h"
 
 class CPathNode {
 public:
@@ -18,6 +19,12 @@ public:
     char field_A[2];
     short field_C;
     char field_E[6];
+
+public:
+    CVector GetPosition() {
+        return CVector(m_wPosX / 8.0f, m_wPosY / 8.0f, m_wPosZ / 8.0f);
+    }
+
 };
 
 VALIDATE_SIZE(CPathNode, 0x14);

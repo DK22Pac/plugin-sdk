@@ -5,9 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "RenderWare.h"
+
+#define DIRECTINPUT_VERSION 0x0800
 #include "dinput.h"
 
 enum PLUGIN_API e_ControllerAction {

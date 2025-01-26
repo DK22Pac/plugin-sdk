@@ -68,5 +68,6 @@ SUPPORTED_10EN_11EN_STEAM void TestModelIndices();
 SUPPORTED_10EN_11EN_STEAM void MatchModelString(char *modelName, int modelIndex);
 SUPPORTED_10EN_11EN_STEAM void InitModelIndices();
 SUPPORTED_10EN_11EN_STEAM void LittleTest();
+extern RsEventStatus RsEventHandler(RsEvent event, void* param);
 
 #include "meta/meta.CGame.h"

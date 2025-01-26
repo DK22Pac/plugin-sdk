@@ -214,6 +214,17 @@ namespace plugin {
         return (stat(name, &buffer) == 0);
     }
 
+    static uint64_t GetAvailableMemory() {
+        MEMORYSTATUSEX memInfo;
+        memInfo.dwLength = sizeof(MEMORYSTATUSEX);
+        if (GlobalMemoryStatusEx(&memInfo)) {
+            DWORDLONG availableRAM = memInfo.ullAvailPhys / (1024 * 1024);
+            return availableRAM;
+        }
+
+        return 0;
+    }
+
     struct CaseInsensitiveUnorderedMap {
         struct Comp {
             bool operator() (const std::string& lhs, const std::string& rhs) const {

@@ -135,3 +135,7 @@ void DoRwStuffEndOfFrame() {
 CSprite2d* LoadSplash(const char* name) {
     return plugin::CallAndReturn<CSprite2d*, 0x48D550>(name);
 }
+
+RsEventStatus RsEventHandler(RsEvent event, void* param) {
+    return plugin::CallAndReturnDyn<RsEventStatus>(0x584A20, event, param);
+}

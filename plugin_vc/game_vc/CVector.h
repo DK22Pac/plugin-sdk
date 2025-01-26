@@ -88,6 +88,10 @@ public:
         this->z /= divisor;
     }
 
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
+    }
+
     float Normalise();
 
     inline RwV3d ToRwV3d() const {
@@ -122,4 +126,8 @@ inline CVector operator*(float multiplier, const CVector& vec) {
 inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline float DotProduct(const CVector& v1, const CVector& v2) {
+    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
