@@ -5,7 +5,7 @@ Plugin-SDK is a some kind of "dev-kit" for creating plugins for GTA2, GTA3, GTA:
 
 ### How to use plugin-sdk?
 1. Install development environment (IDE) (Detailed: [**Installing development environment (IDE)**](https://github.com/DK22Pac/plugin-sdk/wiki/Installing-development-environment-(IDE)))
-2. Copy plugin-sdk to your compuer and set it up (Detailed: [**Set up plugin sdk**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk))
+2. Copy plugin-sdk to your computer and set it up (Detailed: [**Set up plugin sdk**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk))
 3. Create your first plugin! (Detailed: [**Creating a new plugin in plugin sdk**](https://github.com/DK22Pac/plugin-sdk/wiki/Creating-a-new-plugin-in-plugin-sdk))
 
 ### Getting in touch with other developers
