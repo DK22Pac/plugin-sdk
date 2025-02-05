@@ -87,9 +87,9 @@ void CSprite2d::Draw(CRect const& rect, CRGBA const& color) {
     ((void(__thiscall *)(CSprite2d*, CRect const&, CRGBA const&))0x578710)(this, rect, color);
 }
 
-// Converted from thiscall void CSprite2d::DrawRectXLU(CRect const&rect,CRGBA const&color1,CRGBA const&color2,CRGBA const&color3,CRGBA const&color4) 0x578760
-void CSprite2d::DrawRectXLU(CRect const& rect, CRGBA const& color1, CRGBA const& color2, CRGBA const& color3, CRGBA const& color4) {
-    ((void(__thiscall *)(CSprite2d*, CRect const&, CRGBA const&, CRGBA const&, CRGBA const&, CRGBA const&))0x578760)(this, rect, color1, color2, color3, color4);
+// Converted from thiscall void CSprite2d::Draw(float x, float y, float w, float h, CRGBA const& color) 0x578760
+void CSprite2d::Draw(float x, float y, float w, float h, CRGBA const& color) {
+    ((void(__thiscall*)(CSprite2d*, float, float, float, float, CRGBA const&))0x578760)(this, x, y, w, h, color);
 }
 
 // Converted from cdecl void CSprite2d::RenderVertexBuffer(void) 0x5787E0

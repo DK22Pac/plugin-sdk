@@ -44,7 +44,7 @@ public:
         unsigned int bBulletProof : 1;
         unsigned int bFireProof : 1;
         unsigned int bCollisionProof : 1;
-        unsigned int bMeeleProof : 1;
+        unsigned int bMeleeProof : 1;
         unsigned int bInvulnerable : 1;
         unsigned int bExplosionProof : 1;
 

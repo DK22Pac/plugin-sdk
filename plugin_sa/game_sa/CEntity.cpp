@@ -48,9 +48,9 @@ void CEntity::DeleteRwObject()
 	((void (__thiscall *)(CEntity *))(*(void ***)this)[8])(this);
 }
 
-CRect CEntity::GetBoundRect()
+CRect* CEntity::GetBoundRect(CRect* rect)
 {
-	return ((CRect (__thiscall *)(CEntity *))(*(void ***)this)[9])(this);
+	return ((CRect* (__thiscall *)(CEntity *, CRect*))(*(void ***)this)[9])(this, rect);
 }
 
 void CEntity::ProcessControl()
@@ -117,6 +117,12 @@ void CEntity::FlagToDestroyWhenNextProcessed()
 void CEntity::UpdateRwFrame()
 {
 	((void (__thiscall *)(CEntity*))0x532B00)(this);
+}
+
+// Converted from thiscall void CEntity::UpdateRwMatrix(void) 0x446F90
+void CEntity::UpdateRwMatrix()
+{
+	((void(__thiscall*)(CEntity*))0x446F90)(this);
 }
 
 // Converted from thiscall void CEntity::UpdateRpHAnim(void) 0x532B20

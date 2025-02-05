@@ -12,7 +12,8 @@ enum eStreamingFlags {
     GAME_REQUIRED = 0x2,
     MISSION_REQUIRED = 0x4,
     KEEP_IN_MEMORY = 0x8,
-    PRIORITY_REQUEST = 0x10
+    PRIORITY_REQUEST = 0x10,
+    SCM_COMMAND_FLAG = 0x16
 };
 
 enum eStreamingLoadState {

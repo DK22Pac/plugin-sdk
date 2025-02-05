@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CAnimManager.h"
 
@@ -15,17 +15,26 @@ CAnimBlendAssocGroup *&CAnimManager::ms_aAnimAssocGroups = *(CAnimBlendAssocGrou
 CAnimationStyleDescriptor *CAnimManager::ms_aAnimAssocDefinitions = (CAnimationStyleDescriptor*)0x6857B0;
 CLinkList<CAnimBlendHierarchy*> &CAnimManager::ms_animCache = *(CLinkList<CAnimBlendHierarchy*>*)0xA0D96C;
 
-int CAnimManager::GetAnimationBlockIndex(const char *name)
-{
+int CAnimManager::GetAnimationBlockIndex(const char *name) {
     return plugin::CallAndReturn<int, 0x4059E0, char const*>(name);
 }
 
-CAnimBlock *CAnimManager::GetAnimationBlock(const char *name)
-{
+CAnimBlock *CAnimManager::GetAnimationBlock(const char *name) {
     return plugin::CallAndReturn<CAnimBlock*, 0x405A50, char const*>(name);
 }
 
-CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int AssocGroupId, int AnimationId, float clumpAssocBlendData)
-{
-    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405640, RpClump*, int, int, float>(clump, AssocGroupId, AnimationId, clumpAssocBlendData);
+CAnimBlendAssociation *CAnimManager::BlendAnimation(RpClump *clump, int assocGroupId, int animationId, float clumpAssocBlendData) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405640, RpClump*, int, int, float>(clump, assocGroupId, animationId, clumpAssocBlendData);
+}
+
+CAnimBlendAssociation* CAnimManager::AddAnimation(RpClump * clump, int assocGroupId, int animationId) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x4058B0, RpClump*, int, int>(clump, assocGroupId, animationId);
+}
+
+CAnimBlendAssociation* CAnimManager::GetAnimAssociation(int assocGroupId, const char* name) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405940, int, const char*>(assocGroupId, name);
+}
+
+CAnimBlendAssociation* CAnimManager::GetAnimAssociation(int assocGroupId, int animationId) {
+    return plugin::CallAndReturn<CAnimBlendAssociation*, 0x405960, int, int>(assocGroupId, animationId);
 }

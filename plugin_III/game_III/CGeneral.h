@@ -42,6 +42,10 @@ public:
     //! @param angle angle in radians
     //! @return normalised angle (in radians)
     SUPPORTED_10EN_11EN_STEAM static float LimitRadianAngle(float angle);
+
+    static int32_t GetRandomNumber();
+    static int32_t GetRandomNumberInRange(int32_t a, int32_t b);
+    static float GetRandomNumberInRange(float a, float b);
 };
 
 #include "meta/meta.CGeneral.h"

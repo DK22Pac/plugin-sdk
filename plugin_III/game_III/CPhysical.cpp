@@ -34,8 +34,10 @@ void CPhysical::Remove() {
 int addrof(CPhysical::GetBoundRect) = ADDRESS_BY_VERSION(0x495150, 0x495210, 0x4951A0);
 int gaddrof(CPhysical::GetBoundRect) = GLOBAL_ADDRESS_BY_VERSION(0x495150, 0x495210, 0x4951A0);
 
-CRect *CPhysical::GetBoundRect() {
-    return plugin::CallVirtualMethodAndReturn<CRect *, 7, CPhysical *>(this);
+CRect CPhysical::GetBoundRect() {
+    CRect out;
+    plugin::CallVirtualMethodAndReturn<CRect *, 7, CPhysical *>(this, &out);
+    return out;
 }
 
 int addrof(CPhysical::ProcessControl) = ADDRESS_BY_VERSION(0x495F10, 0x495FD0, 0x495F60);
@@ -62,8 +64,8 @@ void CPhysical::ProcessShift() {
 int addrof(CPhysical::ProcessEntityCollision) = ADDRESS_BY_VERSION(0x49F790, 0x49F880, 0x49F810);
 int gaddrof(CPhysical::ProcessEntityCollision) = GLOBAL_ADDRESS_BY_VERSION(0x49F790, 0x49F880, 0x49F810);
 
-void CPhysical::ProcessEntityCollision(CEntity *entity, CColPoint *colPoint) {
-    plugin::CallVirtualMethod<17, CPhysical *, CEntity *, CColPoint *>(this, entity, colPoint);
+int CPhysical::ProcessEntityCollision(CEntity *entity, CColPoint *colPoint) {
+    return plugin::CallVirtualMethodAndReturn<int, 17, CPhysical *, CEntity *, CColPoint *>(this, entity, colPoint);
 }
 
 int addrof(CPhysical::AddCollisionRecord) = ADDRESS_BY_VERSION(0x497180, 0x497240, 0x4971D0);
@@ -150,11 +152,11 @@ void CPhysical::ApplyGravity() {
     plugin::CallMethodDynGlobal<CPhysical *>(gaddrof(CPhysical::ApplyGravity), this);
 }
 
-int addrof(CPhysical::ApplyMoveForce) = ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
-int gaddrof(CPhysical::ApplyMoveForce) = GLOBAL_ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
+int addrof_o(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float)) = ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
+int gaddrof_o(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float)) = GLOBAL_ADDRESS_BY_VERSION(0x4959A0, 0x495A60, 0x4959F0);
 
 void CPhysical::ApplyMoveForce(float jx, float jy, float jz) {
-    plugin::CallMethodDynGlobal<CPhysical *, float, float, float>(gaddrof(CPhysical::ApplyMoveForce), this, jx, jy, jz);
+    plugin::CallMethodDynGlobal<CPhysical *, float, float, float>(gaddrof_o(CPhysical::ApplyMoveForce, void (CPhysical::*)(float, float, float)), this, jx, jy, jz);
 }
 
 int addrof(CPhysical::ApplyMoveSpeed) = ADDRESS_BY_VERSION(0x495B10, 0x495BD0, 0x495B60);
@@ -164,11 +166,11 @@ void CPhysical::ApplyMoveSpeed() {
     plugin::CallMethodDynGlobal<CPhysical *>(gaddrof(CPhysical::ApplyMoveSpeed), this);
 }
 
-int addrof(CPhysical::ApplySpringCollisionAlt) = ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
-int gaddrof(CPhysical::ApplySpringCollisionAlt) = GLOBAL_ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
+int addrof(CPhysical::ApplySpringCollision) = ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
+int gaddrof(CPhysical::ApplySpringCollision) = GLOBAL_ADDRESS_BY_VERSION(0x499890, 0x499980, 0x499910);
 
-bool CPhysical::ApplySpringCollisionAlt(float springConst, CVector &springDir, CVector &point, float springRatio, float bias) {
-    return plugin::CallMethodAndReturnDynGlobal<bool, CPhysical *, float, CVector &, CVector &, float, float>(gaddrof(CPhysical::ApplySpringCollisionAlt), this, springConst, springDir, point, springRatio, bias);
+bool CPhysical::ApplySpringCollision(float springConst, CVector &springDir, CVector &point, float springRatio, float bias) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CPhysical *, float, CVector &, CVector &, float, float>(gaddrof(CPhysical::ApplySpringCollision), this, springConst, springDir, point, springRatio, bias);
 }
 
 int addrof(CPhysical::ApplySpringDampening) = ADDRESS_BY_VERSION(0x499990, 0x499A80, 0x499A10);

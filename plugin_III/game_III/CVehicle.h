@@ -25,24 +25,23 @@ enum PLUGIN_API eBombState {
     BOMB_IGNITION_ACTIVATED = 5
 };
 
-enum PLUGIN_API eCarLock : unsigned int {
-    CARLOCK_NOT_USED = 0,
-    CARLOCK_UNLOCKED = 1,
-    CARLOCK_LOCKED = 2,
-    CARLOCK_LOCKOUT_PLAYER_ONLY = 3,
-    CARLOCK_LOCKED_PLAYER_INSIDE = 4,
-    CARLOCK_COP_CAR = 5,
-    CARLOCK_FORCE_SHUT_DOORS = 6,
-    CARLOCK_SKIP_SHUT_DOORS = 7
+enum PLUGIN_API eDoorLock : unsigned int {
+    CARLOCK_NOT_USED,
+    CARLOCK_UNLOCKED,
+    CARLOCK_LOCKED,
+    CARLOCK_LOCKOUT_PLAYER_ONLY,
+    CARLOCK_LOCKED_PLAYER_INSIDE,
+    CARLOCK_LOCKED_INITIALLY,
+    CARLOCK_FORCE_SHUT_DOORS
 };
 
 enum PLUGIN_API eDoors : unsigned char {
     DOOR_BONNET = 0,
-    DOOR_BOOT = 1,
-    DOOR_LEFT_FRONT = 2,
-    DOOR_RIGHT_FRONT = 3,
-    DOOR_LEFT_REAR = 4,
-    DOOR_RIGHT_REAR = 5
+    DOOR_BOOT,
+    DOOR_FRONT_LEFT,
+    DOOR_FRONT_RIGHT,
+    DOOR_REAR_LEFT,
+    DOOR_REAR_RIGHT
 };
 
 enum PLUGIN_API eFlightModel {
@@ -64,15 +63,6 @@ enum PLUGIN_API eVehicleLightsFlags {
     VEHICLE_LIGHTS_IGNORE_DAMAGE = 4,
     VEHICLE_LIGHTS_DISABLE_FRONT = 16,
     VEHICLE_LIGHTS_DISABLE_REAR = 32
-};
-
-enum PLUGIN_API eVehicleType : unsigned int {
-    VEHICLE_AUTOMOBILE = 0,
-    VEHICLE_BOAT = 1,
-    VEHICLE_TRAIN = 2,
-    VEHICLE_HELI = 3,
-    VEHICLE_PLANE = 4,
-    VEHICLE_BIKE = 5
 };
 
 enum PLUGIN_API tWheelState {
@@ -99,13 +89,13 @@ public:
     char m_nNumGettingIn;
     char m_nGettingInFlags;
     char m_nGettingOutFlags;
-    unsigned char m_nNumMaxPassengers;
+    unsigned char m_nMaxPassengers;
     float field_1D0[4];
     CEntity *m_pCurGroundEntity;
     CFire *m_pCarFire;
     float m_fSteerAngle;
     float m_fGasPedal;
-    float m_fBreakPedal;
+    float m_fBrakePedal;
     unsigned char m_nCreatedBy; //!< see eVehicleCreatedBy
     struct {
         unsigned char bIsLawEnforcer : 1; //!< Is this guy chasing the player at the moment
@@ -156,7 +146,7 @@ public:
     CEntity *m_pBlowUpEntity;
     float m_fMapObjectHeightAhead; //!< front Z?
     float m_fMapObjectHeightBehind; //!< rear Z?
-    unsigned int m_nDoorLock; //!< see enum eCarLock
+    eDoorLock m_eDoorLock; 
     char m_nLastWeaponDamage; //!< see eWeaponType, -1 if no damage
     unsigned char m_nRadioStation;
     unsigned char m_nRainAudioCounter;
@@ -167,7 +157,7 @@ public:
     char m_nCcomedyControlState;
     CStoredCollPoly m_frontCollPoly; //!< poly which is under front part of car
     CStoredCollPoly m_rearCollPoly; //!< poly which is under rear part of car
-    float m_fSteerRatio;
+    float m_fSteerInput;
     unsigned int m_nVehicleClass; //!< see enum eVehicleType
 
     SUPPORTED_10EN_11EN_STEAM static bool &m_bDisableMouseSteering;

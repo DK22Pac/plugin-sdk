@@ -34,8 +34,16 @@ public:
         this->z = a.x * b.y - b.x * a.y;
     }
 
+    inline float Heading() const {
+        return std::atan2(-x, y);
+    }
+
     inline float Magnitude() {
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+    }
+
+    inline float Magnitude2D() {
+        return sqrtf(this->x * this->x + this->y * this->y);
     }
 
     inline void Sum(CVector &a, CVector &b) {
@@ -80,6 +88,10 @@ public:
         this->z /= divisor;
     }
 
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
+    }
+
     float Normalise();
 
     inline RwV3d ToRwV3d() const {
@@ -114,4 +126,8 @@ inline CVector operator*(float multiplier, const CVector& vec) {
 inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline float DotProduct(const CVector& v1, const CVector& v2) {
+    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }

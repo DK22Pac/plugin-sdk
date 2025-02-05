@@ -39,8 +39,8 @@ short CTheZones::FindNextZoneByLabelAndReturnIndex(char* name, eZoneType type) {
 }
 
 // Converted from cdecl int CTheZones::FindSmallestNavigationZoneForPosition(CVector const* pPoint,bool,bool) 0x4DD060
-int CTheZones::FindSmallestNavigationZoneForPosition(CVector const* pPoint, bool arg1, bool arg2) {
-    return plugin::CallAndReturn<int, 0x4DD060, CVector const*, bool, bool>(pPoint, arg1, arg2);
+CZone* CTheZones::FindSmallestNavigationZoneForPosition(CVector const* pPoint, bool findDef, bool findNavig) {
+    return plugin::CallAndReturn<CZone*, 0x4DD060, CVector const*, bool, bool>(pPoint, findDef, findNavig);
 }
 
 // Converted from cdecl short CTheZones::FindZoneByLabelAndReturnIndex(char *name,eZoneType type) 0x4DD5F0

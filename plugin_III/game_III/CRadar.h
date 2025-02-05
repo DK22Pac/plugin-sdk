@@ -65,9 +65,7 @@ enum PLUGIN_API eRadarSprite : unsigned short {
     RADAR_SPRITE_COUNT = 21
 };
 
-class PLUGIN_API CBlip {
-    PLUGIN_NO_DEFAULT_CONSTRUCTION(CBlip)
-
+class PLUGIN_API tRadarTrace {
 public:
     unsigned int m_nColour; //!< see eBlipColour
     unsigned int m_nBlipType; //!< see eBlipType
@@ -83,12 +81,12 @@ public:
     unsigned short m_nRadarSprite; //!< see eRadarSprite
 };
 
-VALIDATE_SIZE(CBlip, 0x30);
+VALIDATE_SIZE(tRadarTrace, 0x30);
 
 class PLUGIN_API CRadar {
 public:
     SUPPORTED_10EN_11EN_STEAM static CVector2D &vec2DRadarOrigin;
-    SUPPORTED_10EN_11EN_STEAM static CBlip(&ms_RadarTrace)[32]; // static CBlip ms_RadarTrace[32]
+    SUPPORTED_10EN_11EN_STEAM static tRadarTrace(&ms_RadarTrace)[32];
     SUPPORTED_10EN_11EN_STEAM static CSprite2d &CatSprite;
     SUPPORTED_10EN_11EN_STEAM static CSprite2d &TonySprite;
     SUPPORTED_10EN_11EN_STEAM static float &m_radarRange;

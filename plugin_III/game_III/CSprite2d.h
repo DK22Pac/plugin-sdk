@@ -12,8 +12,6 @@
 #include "CRGBA.h"
 
 class PLUGIN_API CSprite2d {
-    PLUGIN_NO_DEFAULT_CONSTRUCTION(CSprite2d)
-
 public:
     RwTexture *m_pTexture;
 
@@ -50,7 +48,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void InitPerFrame();
     SUPPORTED_10EN_11EN_STEAM static void SetMaskVertices(int numVerts, float *pos);
     SUPPORTED_10EN_11EN_STEAM static void SetRecipNearClip();
-    SUPPORTED_10EN_11EN_STEAM static void SetVertices(CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, unsigned int bFar);
+    SUPPORTED_10EN_11EN_STEAM static void SetVertices(CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, unsigned int bFar = 0);
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4);
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4);
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(int numVerts, float *pos, float *texCoors, CRGBA const &color);

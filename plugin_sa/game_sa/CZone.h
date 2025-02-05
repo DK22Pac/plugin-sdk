@@ -7,6 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 #include "rw/rwplcore.h"     // for RwRGBA stuct
+#include "CZoneInfo.h"
 
 enum eZoneType {
 	ZONE_TYPE_NAVI = 0,		// controls text s
@@ -20,14 +21,6 @@ enum eLevelName {
 	LEVEL_NAME_LAS_VENTURAS
 };
 
-struct CZoneExtraInfo {
-	char m_nGangDensity[10];
-	char m_nDealerDensity;
-	RwRGBA ZoneColor;
-	char m_nFlags;
-	char m_nPopulationRace;
-};
-
 class CZone {
 public:
     char          m_szLabel[8];
@@ -38,7 +31,7 @@ public:
 	short         m_fX2;
 	short         m_fY2;
 	short         m_fZ2;
-	short         m_nZoneExtraIndexInfo;
+	CZoneInfo     m_nZoneExtraIndexInfo;
 	unsigned char m_nType; // see eZoneType
     unsigned char m_nLevel; // see eLevelName
 
@@ -46,4 +39,4 @@ public:
 	const char* GetTranslatedName();
 };
 
-VALIDATE_SIZE(CZone, 0x20);
+VALIDATE_SIZE(CZone, 0x30);

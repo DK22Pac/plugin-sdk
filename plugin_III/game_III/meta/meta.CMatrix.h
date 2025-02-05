@@ -413,7 +413,7 @@ using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CMatrix *>, 0>;
 META_END
 
-META_BEGIN(CMatrix::SetTranslateOnly)
+META_BEGIN(CMatrix::Translate)
 static int address;
 static int global_address;
 static const int id = 0x4CBA70;

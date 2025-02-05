@@ -29,6 +29,7 @@
 #include <cstdint>
 #include <cstdio>
 #include "gvm/gvm.hpp"
+#include "..\shared\DynAddress.h"
 /*
     The following macros (#define) are relevant on this header:
 
@@ -436,7 +437,7 @@ inline memory_pointer_raw GetAbsoluteOffset(int rel_value, memory_pointer_tr end
  *  GetRelativeOffset
  *      Gets relative offset based on absolute address @abs_value for instruction that ends at @end_of_instruction
  */
-inline int GetRelativeOffset(memory_pointer_tr abs_value, memory_pointer_tr end_of_instruction)
+inline uintptr_t GetRelativeOffset(memory_pointer_tr abs_value, memory_pointer_tr end_of_instruction)
 {
     return uintptr_t(abs_value.get<char>() - end_of_instruction.get<char>());
 }
@@ -503,6 +504,10 @@ inline memory_pointer_raw GetBranchDestination(memory_pointer_tr at, bool vp = t
  */
 inline memory_pointer_raw MakeJMP(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
 {
+#if !(defined (_M_IX86) || defined (_X86_))
+    dest = plugin::MakeTrampoline(at.as_int(), dest.get());
+#endif
+
     auto p = GetBranchDestination(at, vp);
     WriteMemory<uint8_t>(at, 0xE9, vp);
     MakeRelativeOffset(at+1, dest, 4, vp);
@@ -516,6 +521,10 @@ inline memory_pointer_raw MakeJMP(memory_pointer_tr at, memory_pointer_raw dest,
  */
 inline memory_pointer_raw MakeCALL(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
 {
+#if !(defined (_M_IX86) || defined (_X86_))
+    dest = plugin::MakeTrampoline(at.as_int(), dest.get());
+#endif
+
     auto p = GetBranchDestination(at, vp);
     WriteMemory<uint8_t>(at, 0xE8, vp);
     MakeRelativeOffset(at+1, dest, 4, vp);
@@ -529,6 +538,10 @@ inline memory_pointer_raw MakeCALL(memory_pointer_tr at, memory_pointer_raw dest
  */
 inline void MakeJA(memory_pointer_tr at, memory_pointer_raw dest, bool vp = true)
 {
+#if !(defined (_M_IX86) || defined (_X86_))
+    dest = plugin::MakeTrampoline(at.as_int(), dest.get());
+#endif
+
     WriteMemory<uint16_t>(at, 0x87F0, vp);
     MakeRelativeOffset(at+2, dest, 4, vp);
 }

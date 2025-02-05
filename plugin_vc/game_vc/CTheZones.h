@@ -8,8 +8,7 @@ Do not delete this comment block. Respect others' work!
 #include "PluginBase.h"
 #include "CVector.h"
 #include "CZone.h"
-
-struct CZoneInfo; 
+#include "CZoneInfo.h"
 
 class CTheZones {
 public:
@@ -33,7 +32,7 @@ public:
     static int FindInformationZoneForPosition(CVector const* pPoint);
     // Returns pointer to zone by index
     static short FindNextZoneByLabelAndReturnIndex(char* name, eZoneType type);
-    static int FindSmallestNavigationZoneForPosition(CVector const* pPoint, bool arg1, bool arg2);
+    static CZone* FindSmallestNavigationZoneForPosition(CVector const* pPoint, bool findDef, bool findNavig);
     // Returns pointer to zone by index
     static short FindZoneByLabelAndReturnIndex(char* name, eZoneType type);
     // Returns eLevelName from position

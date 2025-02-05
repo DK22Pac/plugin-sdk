@@ -11,6 +11,40 @@
 
 class PLUGIN_API CCoronas {
 public:
+	enum {
+		SUN_CORE = 1,
+		SUN_CORONA
+	};
+	enum {
+		TYPE_STAR,
+		TYPE_NORMAL,
+		TYPE_MOON,
+		TYPE_REFLECT,
+		TYPE_HEADLIGHT,
+		TYPE_HEX,
+		TYPE_CIRCLE,
+		TYPE_RING,
+		TYPE_STREAK,
+	};
+	enum {
+		FLARE_NONE,
+		FLARE_SUN,
+		FLARE_HEADLIGHTS
+	};
+	enum {
+		REFLECTION_OFF,
+		REFLECTION_ON,
+	};
+	enum {
+		LOSCHECK_OFF,
+		LOSCHECK_ON,
+	};
+	enum {
+		STREAK_OFF,
+		STREAK_ON,
+	};
+
+public:
     //! 1.0f
     SUPPORTED_10EN_11EN_STEAM static float &LightsMult;
     SUPPORTED_10EN_11EN_STEAM static CRegisteredCorona(&aCoronas)[56]; // static CRegisteredCorona aCoronas[56]

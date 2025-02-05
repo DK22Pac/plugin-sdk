@@ -45,6 +45,16 @@ unsigned int _NOINLINE_ detect_game_id() {
     if (plugin::patch::GetUInt(0x5C6FD0) == 0x53E58955)
         return GAME_STEAM;
 #endif
+#ifdef GTA2
+    if (plugin::patch::GetUInt(0x401000) == 0x5D22D4A1)
+        return GAME_9600EN; 
+#endif
+#ifdef GTAIV
+        return GAME_CE;
+#endif
+#if defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
+        return GAME_UNREAL;
+#endif
     return GAME_UNKNOWN;
 }
 
@@ -180,6 +190,9 @@ int plugin::by_v_dyn(int A_10US, int A_10EU, int A_Steam) {
 int plugin::by_version_dyn(int A_10US, int A_10EU, int A_Steam) {
     return by_v_dyn(A_10US, A_10EU, A_Steam);
 }
+#elif GTA2
+#elif GTAIV
+#elif defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
 #else
 int plugin::by_v_dyn(int A_10EN, int A_11EN, int A_Steam) {
     switch (GetGameVersion()) {

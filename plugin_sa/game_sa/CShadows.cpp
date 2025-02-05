@@ -53,8 +53,8 @@ void CShadows::AddPermanentShadow(unsigned char type, RwTexture* texture, CVecto
 }
 
 // Converted from cdecl void CShadows::StoreShadowToBeRendered(uchar type,RwTexture *texture,CVector *posn,float topX,float topY,float rightX,float rightY,short intensity,uchar red,uchar green,uchar blue,float zDistance,bool drawOnWater,float scale,CRealTimeShadow *realTimeShadow,bool drawOnBuildings) 0x707390
-void CShadows::StoreShadowToBeRendered(unsigned char type, RwTexture* texture, CVector* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, bool drawOnWater, float scale, CRealTimeShadow* realTimeShadow, bool drawOnBuildings) {
-    ((void(__cdecl *)(unsigned char, RwTexture*, CVector*, float, float, float, float, short, unsigned char, unsigned char, unsigned char, float, bool, float, CRealTimeShadow*, bool))0x707390)(type, texture, posn, topX, topY, rightX, rightY, intensity, red, green, blue, zDistance, drawOnWater, scale, realTimeShadow, drawOnBuildings);
+void CShadows::StoreShadowToBeRendered(unsigned char type, RwTexture* texture, CVector const* posn, float topX, float topY, float rightX, float rightY, short intensity, unsigned char red, unsigned char green, unsigned char blue, float zDistance, bool drawOnWater, float scale, CRealTimeShadow* realTimeShadow, bool drawOnBuildings) {
+    ((void(__cdecl *)(unsigned char, RwTexture*, CVector const*, float, float, float, float, short, unsigned char, unsigned char, unsigned char, float, bool, float, CRealTimeShadow*, bool))0x707390)(type, texture, posn, topX, topY, rightX, rightY, intensity, red, green, blue, zDistance, drawOnWater, scale, realTimeShadow, drawOnBuildings);
 }
 
 // Converted from cdecl void CShadows::SetRenderModeForShadowType(uchar shadowType) 0x707460
@@ -92,9 +92,9 @@ void CShadows::AffectColourWithLighting(unsigned char shadowType, unsigned char 
     ((void(__cdecl *)(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char*, unsigned char*, unsigned char*))0x707850)(shadowType, dayNightIntensity, red, green, blue, outRed, outGreen, outBlue);
 }
 
-// Converted from cdecl void CShadows::StoreShadowToBeRendered(uchar shadowTextureType,CVector *posn,float frontX,float frontY,float sideX,float sideY,short intensity,uchar red,uchar green,uchar blue) 0x707930
-void CShadows::StoreShadowToBeRendered(unsigned char shadowTextureType, CVector* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue) {
-    ((void(__cdecl *)(unsigned char, CVector*, float, float, float, float, short, unsigned char, unsigned char, unsigned char))0x707930)(shadowTextureType, posn, frontX, frontY, sideX, sideY, intensity, red, green, blue);
+// Converted from cdecl void CShadows::StoreShadowToBeRendered(uchar shadowTextureType,CVector const *posn,float frontX,float frontY,float sideX,float sideY,short intensity,uchar red,uchar green,uchar blue) 0x707930
+void CShadows::StoreShadowToBeRendered(unsigned char shadowTextureType, CVector const* posn, float frontX, float frontY, float sideX, float sideY, short intensity, unsigned char red, unsigned char green, unsigned char blue) {
+    ((void(__cdecl *)(unsigned char, CVector const*, float, float, float, float, short, unsigned char, unsigned char, unsigned char))0x707930)(shadowTextureType, posn, frontX, frontY, sideX, sideY, intensity, red, green, blue);
 }
 
 // Converted from cdecl void CShadows::StoreShadowForPedObject(CEntity *ped,float displacementX,float displacementY,float frontX,float frontY,float sideX,float sideY) 0x707B40

@@ -92,6 +92,8 @@ public:
     SUPPORTED_10US static void WeaponCheat2();
     SUPPORTED_10US static void WeaponCheat3();
     SUPPORTED_10US static void WeaponSkillsCheat();
+    SUPPORTED_10US static void ResetCheats();
+
 };
 
 #include "meta/meta.CCheat.h"

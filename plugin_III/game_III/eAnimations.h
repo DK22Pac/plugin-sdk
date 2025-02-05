@@ -32,7 +32,8 @@ enum eAnimGroup
     ANIM_GROUP_PLAYERRIGHT = 21,
     ANIM_GROUP_ROCKETBACK = 22,
     ANIM_GROUP_ROCKETLEFT = 23,
-    ANIM_GROUP_ROCKETRIGHT = 24
+    ANIM_GROUP_ROCKETRIGHT = 24,
+    NUM_ANIM_GROUPS,
 };
 
 // GroupName : man | Group ID: 0 | BlockName: ped | Total Animations: 173

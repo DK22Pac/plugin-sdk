@@ -6,16 +6,16 @@
 */
 #pragma once
 
-#ifdef _DX9_SDK_INSTALLED
 #ifdef GTASA
-#include <Windows.h>
-#include "d3dx9.h"
+#include <windows.h>
+#include "dxsdk/d3dx9.h"
 #include <stdio.h>
 #include <vector>
 #include <fstream>
 #include <sstream>
 #include "RenderWare.h"
 #include "DynamicResource.h"
+#include "common.h"
 
 namespace plugin {
     class Shader : public DynamicResource {
@@ -75,36 +75,37 @@ namespace plugin {
         Shader &operator=(Shader const &) = delete;
 
         template <class T> bool PackPSParameters(T& parameters, unsigned int offset = 0) {
+            auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
             unsigned int fsize = sizeof(parameters);
             if (fsize % 16) {
                 unsigned int newSize = fsize + 16 - (fsize % 16);
                 char *newData = new char[newSize];
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
-                GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
+                dev->SetPixelShaderConstantF(offset, (float *)newData, newSize / 16);
                 delete[] newData;
             }
             else
-                GetD3DDevice()->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
+                dev->SetPixelShaderConstantF(offset, (float *)&parameters, fsize / 16);
             return true;
         }
 
         template <class T> bool PackVSParameters(T& parameters, unsigned int offset = 0) {
+            auto dev = reinterpret_cast<IDirect3DDevice9*>(GetD3DDevice());
             unsigned int fsize = sizeof(parameters);
             if (fsize % 16) {
                 unsigned int newSize = fsize + 16 - (fsize % 16);
                 char *newData = new char[newSize];
                 memset(newData, 0, newSize);
                 memcpy(newData, &parameters, fsize);
-                GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
+                dev->SetVertexShaderConstantF(offset, (float *)newData, newSize / 16);
                 delete[] newData;
             }
             else
-                GetD3DDevice()->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);
+                dev->SetVertexShaderConstantF(offset, (float *)&parameters, fsize / 16);
             return true;
         }
     };
 }
 
-#endif
 #endif

@@ -49,3 +49,15 @@ int gaddrof(CGeneral::LimitRadianAngle) = GLOBAL_ADDRESS_BY_VERSION(0x48CB90, 0x
 float CGeneral::LimitRadianAngle(float angle) {
     return plugin::CallAndReturnDynGlobal<float, float>(gaddrof(CGeneral::LimitRadianAngle), angle);
 }
+
+int32_t CGeneral::GetRandomNumber() {
+    return plugin::CallAndReturn<int32_t, 0x54A4B0>();
+}
+
+int32_t CGeneral::GetRandomNumberInRange(int32_t a, int32_t b) {
+    return plugin::CallAndReturn<int32_t, 0x54A4C0>(a, b);
+}
+
+float CGeneral::GetRandomNumberInRange(float a, float b) {
+    return plugin::CallAndReturn<float, 0x54A520>(a, b);
+}

@@ -7,26 +7,26 @@
 #include "RenderWare.h"
 #include "PluginBase.h"
 
-RwGlobals *&RwEngineInstance = *(RwGlobals **)0xC97B24;
-
+void *&RwEngineInstance = *(void **)0xC97B24;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0xC17040;
-
 RwPluginRegistry &geometryTKList = *(RwPluginRegistry *)0x8D628C;
 
-IDirect3DDevice9 *GetD3DDevice() {
-    return *reinterpret_cast<IDirect3DDevice9 **>(0xC97C28);
-}
+// Hacky hacky
+void RwD3D9SetIm2DPixelShader(void* ps) {
+    static void* im2dPixelShader;
+    im2dPixelShader = ps;
+    static bool initIm2dPixelShader = false;
 
-_D3DMATRIX *GetD3DViewTransform() {
-    return reinterpret_cast<_D3DMATRIX *>(0xC9BC80);
-}
-
-_D3DMATRIX *GetD3DProjTransform() {
-    return reinterpret_cast<_D3DMATRIX *>(0x8E2458);
+    if (!initIm2dPixelShader) {
+        static plugin::CdeclEvent<plugin::AddressList<0x7FB830, plugin::H_CALL>, plugin::PRIORITY_BEFORE, plugin::ArgPickNone, void(int, int)> onSetPixelShader;
+        onSetPixelShader += []() {
+            _rwD3D9SetPixelShader(im2dPixelShader);
+        };
+        initIm2dPixelShader = true;
+    }
 }
 
 /* rwplcore.h */
-
 RwMemoryFunctions* RwOsGetMemoryInterface(void) {
     return ((RwMemoryFunctions*(__cdecl *)(void))0x802230)();
 }
@@ -329,22 +329,6 @@ void* _rwSListGetBegin(RwSList* sList) {
 
 void* _rwSListGetEnd(RwSList* sList) {
     return ((void*(__cdecl *)(RwSList*))0x809540)(sList);
-}
-
-RwBool RwIm2DRenderPrimitive(RwPrimitiveType primType, RwIm2DVertex* vertices, RwInt32 numVertices) {
-    return ((int(__cdecl *)(RwPrimitiveType, RwIm2DVertex*, RwInt32))0x734E90)(primType, vertices, numVertices);
-}
-
-RwBool RwIm2DRenderIndexedPrimitive(RwPrimitiveType primType, RwIm2DVertex* vertices, RwInt32 numVertices, RwImVertexIndex* indices, RwInt32 numIndices) {
-    return ((int(__cdecl *)(RwPrimitiveType, RwIm2DVertex*, RwInt32, RwImVertexIndex*, RwInt32))0x734EA0)(primType, vertices, numVertices, indices, numIndices);
-}
-
-RwBool RwIm2DRenderTriangle(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2, RwInt32 vert3) {
-    return ((int(__cdecl *)(RwIm2DVertex*, RwInt32, RwInt32, RwInt32, RwInt32))0x734EB0)(vertices, numVertices, vert1, vert2, vert3);
-}
-
-RwBool RwIm2DRenderLine(RwIm2DVertex* vertices, RwInt32 numVertices, RwInt32 vert1, RwInt32 vert2) {
-    return ((int(__cdecl *)(RwIm2DVertex*, RwInt32, RwInt32, RwInt32))0x734EC0)(vertices, numVertices, vert1, vert2);
 }
 
 RwUInt32 RwEngineGetVersion(void) {
@@ -1273,8 +1257,8 @@ void RwD3D9DeleteVertexShader(void) {
     ((void(__cdecl *)(void))0x7FAC90)();
 }
 
-RwBool RwD3D9CreatePixelShader(const RwUInt32* function, void* shader) {
-    return ((RwBool(__cdecl *)(const RwUInt32*, void*))0x7FACC0)(function, shader);
+RwBool RwD3D9CreatePixelShader(const RwUInt32* function, void** shader) {
+    return ((RwBool(__cdecl *)(const RwUInt32*, void**))0x7FACC0)(function, shader);
 }
 
 void RwD3D9DeletePixelShader(void) {
@@ -3443,6 +3427,12 @@ const RpMaterial* RpMatFXMaterialGetUVTransformMatrices(const RpMaterial* materi
 
 RxPipeline* RpMatFXGetD3D9Pipeline(RpMatFXD3D9Pipeline d3d9Pipeline) {
     return ((RxPipeline*(__cdecl *)(RpMatFXD3D9Pipeline))0x8162F0)(d3d9Pipeline);
+}
+
+/* skeleton.h */
+
+RsEventStatus RsEventHandler(RsEvent e, void* param) {
+    return plugin::CallAndReturn<RsEventStatus, 0x619B60, RsEvent, void*>(e, param);
 }
 
 /* rpanisot.h */

@@ -12,6 +12,11 @@
 #include "CVehicle.h"
 #include "CTrain.h"
 
+extern wchar_t* gUString;
+extern wchar_t* gUString2;
+extern char* gString;
+extern char* gString2;
+
 // returns player angle in radians
 float FindPlayerHeading();
 // gets player coords with skipping sniper shift
@@ -62,3 +67,5 @@ void WorldReplaceNormalLightsWithScorched(RpWorld* world, float intensity);
 RpWorld* LightsDestroy(RpWorld* world);
 RpWorld* LightsCreate(RpWorld* world);
 void SetLightsWithTimeOfDayColour(RpWorld* world);
+
+void* GetD3DDevice();

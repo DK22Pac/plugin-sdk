@@ -8,8 +8,9 @@ Do not delete this comment block. Respect others' work!
 
 PLUGIN_SOURCE_FILE
 
+PLUGIN_VARIABLE int* ScriptParams = reinterpret_cast<int*>(GLOBAL_ADDRESS_BY_VERSION(0xA43C78, 0, 0, 0, 0, 0));
+
 PLUGIN_VARIABLE bool &CTheScripts::DbgFlag = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x859CF8, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE tScriptParam *CTheScripts::ScriptParams = reinterpret_cast<tScriptParam *>(GLOBAL_ADDRESS_BY_VERSION(0xA43C78, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE tScriptSwitchCase *CTheScripts::SwitchJumpTable = reinterpret_cast<tScriptSwitchCase *>(GLOBAL_ADDRESS_BY_VERSION(0xA43CF8, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE unsigned short &CTheScripts::NumberOfEntriesInSwitchTable = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xA43F50, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE void *&CTheScripts::SwitchDefaultAddress = *reinterpret_cast<void **>(GLOBAL_ADDRESS_BY_VERSION(0xA43F54, 0, 0, 0, 0, 0));

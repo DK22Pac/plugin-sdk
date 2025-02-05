@@ -28,10 +28,10 @@ class CColModel;
 
 class PLUGIN_API CWeapon {
 public:
-    eWeaponType m_nType;
+    eWeaponType m_eWeaponType;
     eWeaponState m_nState;
 	unsigned int m_nAmmoInClip;
-	unsigned int m_nTotalAmmo;
+	unsigned int m_nAmmoTotal;
 	unsigned int m_nTimeForNextShot;
 	char field_14;
 	char field_15;

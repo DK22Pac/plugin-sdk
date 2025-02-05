@@ -72,7 +72,11 @@ public:
 	};
 	CColModel        *m_pColModel;
 	float             m_fDrawDistance;
-	struct RwObject  *m_pRwObject;
+	union {
+		RwObject* m_pRwObject;
+		RpClump* m_pRwClump;
+		RpAtomic* m_pRwAtomic;
+	};
 
 	// vtable
 

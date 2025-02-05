@@ -13,6 +13,15 @@
 #include "CRGBA.h"
 #include "CPool.h"
 
+enum eVehicleType {
+    VEHICLE_AUTOMOBILE,
+    VEHICLE_BOAT,
+    VEHICLE_TRAIN,
+    VEHICLE_HELI,
+    VEHICLE_PLANE,
+    VEHICLE_BIKE
+};
+
 class CVehicleModelInfo : public CClumpModelInfo {
 public:
     char m_nLastPrimaryColor;

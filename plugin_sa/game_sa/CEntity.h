@@ -13,6 +13,8 @@
 #include "CRect.h"
 #include "CColModel.h"
 #include "C2dEffect.h"
+#include "CColModel.h"
+#include "CModelInfo.h"
 
 class PLUGIN_API CEntity : public CPlaceable {
 protected:
@@ -85,12 +87,12 @@ public:
     void SetModelIndexNoCreate(unsigned int index);
     void CreateRwObject();
     void DeleteRwObject();
-    CRect GetBoundRect();
+    CRect* GetBoundRect(CRect* rect);
     void ProcessControl();
     void ProcessCollision();
     void ProcessShift();
     bool TestCollision();
-    void Teleport(CVector destination, bool resetRotation);
+    void Teleport(CVector destination, bool resetRotation = false);
     void SpecialEntityPreCollisionStuff(class CEntity *colEntity, bool unk1, unsigned char *unk2, unsigned char *unk3, unsigned char *unk4, unsigned char *unk5);
     void SpecialEntityCalcCollisionSteps(unsigned char *unk1, unsigned char *unk2);
     void PreRender();
@@ -101,6 +103,7 @@ public:
     
     // funcs
     void UpdateRwFrame();
+    void UpdateRwMatrix();
     void UpdateRpHAnim();
     bool HasPreRenderEffects();
     bool DoesNotCollideWithFlyers();

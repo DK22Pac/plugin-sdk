@@ -16,7 +16,7 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM CColSphere();
 
-    SUPPORTED_10EN_11EN_STEAM void Set(float radius, CVector &center, unsigned char material, unsigned char flag);
+    SUPPORTED_10EN_11EN_STEAM void Set(float radius, CVector const& center, unsigned char material, unsigned char flag);
 };
 
 VALIDATE_SIZE(CColSphere, 0x14);

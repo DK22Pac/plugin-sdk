@@ -13,6 +13,11 @@ class PLUGIN_API CBox {
 public:
     CVector m_vecMin;
     CVector m_vecMax;
+
+public:
+    CVector GetSize() {
+        return m_vecMax - m_vecMin;
+    }
 };
 
 VALIDATE_SIZE(CBox, 0x18);

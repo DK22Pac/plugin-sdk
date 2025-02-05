@@ -22,20 +22,29 @@ public:
     CompressedVector(short X, short Y, short Z);
     CompressedVector(CompressedVector const &rhs);
     CompressedVector(CompressedVector2D const &rhs);
+
+#ifdef RW
     CompressedVector(CVector const &rhs);
     CompressedVector(RwV3d const &rhs);
+#endif
 
     void Set(short X, short Y, short Z);
     void Set(CompressedVector const &rhs);
     void Set(CompressedVector2D const &rhs);
+
+#ifdef RW
     void Set(CVector const &rhs);
     void Set(RwV3d const &rhs);
 
     CVector Uncompressed() const;
     RwV3d ToRwV3d() const;
+#endif
+
     CompressedVector2D To2D() const;
 
+#ifdef RW
     void Uncompress(CVector &out) const;
+#endif
 
     bool operator==(CompressedVector const &rhs) const;
     bool operator!=(CompressedVector const &rhs) const;

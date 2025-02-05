@@ -17,6 +17,12 @@
 #define GAME_SR2LV 3210
 #define GAME_STEAM GAME_SR2
 #define GAME_STEAM_LV GAME_SR2LV
+#elif GTA2
+#define GAME_9600EN 9600
+#elif GTAIV
+#define GAME_CE 'CE'
+#elif defined(GTASA_UNREAL) || defined(GTAVC_UNREAL) || defined(GTA3_UNREAL)
+#define GAME_UNREAL 'UE'
 #else
 #define GAME_10EN 100
 #define GAME_11EN 110
@@ -63,6 +69,26 @@ inline char const *GetGameVersionName(int gameVersionId) {
     case GAME_STEAM:
         return "GTA 3 Steam";
 #endif
+#ifdef GTA2
+    case GAME_9600EN:
+        return "GTA2 9.6.0.0";
+#endif
+#ifdef GTAIV
+    case GAME_CE:
+        return "GTAIV CE";
+#endif
+#ifdef GTASA_UNREAL
+    case GAME_UNREAL:
+        return "GTA SA The Definitive Edition";
+#endif
+#ifdef GTAVC_UNREAL
+    case GAME_UNREAL:
+        return "GTA VC The Definitive Edition";
+#endif
+#ifdef GTA3_UNREAL
+    case GAME_UNREAL:
+        return "GTA 3 The Definitive Edition";
+#endif
     }
     return "Unknown";
 }
@@ -107,7 +133,12 @@ inline bool IsGameVersionSteam() {
 inline bool IsGameVersionSteamLV() {
     return GetGameVersion() == GAME_STEAM_LV;
 }
+#elif GTA2
+inline bool IsGameVersion9600en() {
+    return GetGameVersion() == GAME_9600EN;
+}
 #else
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 // Checks if launched game version is 1.0 EN
 inline bool IsGameVersion10en() {
     return GetGameVersion() == GAME_10EN;
@@ -122,6 +153,7 @@ inline bool IsGameVersion11en() {
 inline bool IsGameVersionSteam() {
     return GetGameVersion() == GAME_STEAM;
 }
+#endif
 #endif
 
 // Checks if game version is supported by this plugin
@@ -165,7 +197,29 @@ inline bool IsSupportedGameVersion(int gameVersionId) {
       #else
         return false;
       #endif
+#elif GTA2
+    case GAME_9600EN:
+      #ifdef PLUGIN_SGV_96EN
+        return true;
+      #else
+        return false;
+      #endif
+#elif GTAIV
+    case GAME_CE:
+#ifdef PLUGIN_SGV_CE
+        return true;
 #else
+        return false;
+#endif
+#elif defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
+    case GAME_UNREAL:
+#ifdef PLUGIN_UNREAL
+        return true;
+#else
+        return false;
+#endif
+#else
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
     case GAME_10EN:
       #ifdef PLUGIN_SGV_10EN
         return true;
@@ -184,6 +238,7 @@ inline bool IsSupportedGameVersion(int gameVersionId) {
       #else
         return false;
       #endif
+#endif
 #endif
     }
     return false;
@@ -278,6 +333,7 @@ template <int A_10US, int A_10EU, int A_Steam>
 int by_version() {
     return by_v_dyn(A_10US, A_10EU, A_Steam);
 }
+#elif GTA2
 #else
 int by_v_dyn(int A_10EN, int A_11EN, int A_Steam);
 int by_version_dyn(int A_10EN, int A_11EN, int A_Steam);

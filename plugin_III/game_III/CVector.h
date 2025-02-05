@@ -28,14 +28,34 @@ public:
         FromRwV3d(right);
     }
 
-    inline void Cross(CVector &a, CVector &b) {
+    inline void Cross(CVector const& a, CVector const& b) {
         this->x = b.z * a.y - a.z * b.y;
         this->y = a.z * b.x - a.x * b.z;
         this->z = a.x * b.y - b.x * a.y;
     }
 
+    inline float Heading() const {
+        return std::atan2(-x, y);
+    }
+
     inline float Magnitude() {
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
+    }
+
+    inline float MagnitudeSqr() const {
+        return x * x + y * y + z * z;
+    }
+
+    inline float Magnitude2D() {
+        return sqrtf(this->x * this->x + this->y * this->y);
+    }
+
+    inline float MagnitudeSqr2D() const {
+        return x * x + y * y;
+    }
+
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
     }
 
     inline void Sum(CVector &a, CVector &b) {
@@ -80,7 +100,45 @@ public:
         this->z /= divisor;
     }
 
-    float Normalise();
+    const bool operator!=(CVector const& right) const {
+        return x != right.x || y != right.y || z != right.z;
+    }
+
+    CVector Normalise() {
+        float sq = MagnitudeSqr();
+        if (sq > 0.0f) {
+            float invsqrt = 1.0f / std::sqrt(sq);
+            x *= invsqrt;
+            y *= invsqrt;
+            z *= invsqrt;
+        }
+        else
+            x = 1.0f;
+
+        return *this;
+    }
+
+    void Normalise2D(void) {
+        float sq = MagnitudeSqr2D();
+        float invsqrt = 1.0f / std::sqrt(sq);
+        x *= invsqrt;
+        y *= invsqrt;
+    }
+
+    float NormaliseAndMag() {
+        float sq = MagnitudeSqr();
+        if (sq > 0.0f) {
+            float invsqrt = 1.0f / std::sqrt(sq);
+            x *= invsqrt;
+            y *= invsqrt;
+            z *= invsqrt;
+            return 1.0f / invsqrt;
+        }
+        else {
+            x = 1.0f;
+            return 1.0f;
+        }
+    }
 
     inline RwV3d ToRwV3d() const {
         return{ x, y, z };
@@ -93,6 +151,11 @@ public:
     inline void Set(float X, float Y, float Z) {
         x = X; y = Y; z = Z;
     }
+
+    bool IsZero() const {
+        return x == 0.0f && y == 0.0f && z == 0.0f;
+    }
+
 };
 
 inline CVector operator-(const CVector& vecOne, const CVector& vecTwo) {
@@ -114,4 +177,22 @@ inline CVector operator*(float multiplier, const CVector& vec) {
 inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline CVector operator/(const CVector& left, float right) {
+    return CVector(left.x / right, left.y / right, left.z / right);
+}
+
+inline float DotProduct(const CVector& v1, const CVector& v2) {
+    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+}
+
+inline CVector operator*(const RwMatrix& mat, const CVector& vec) {
+    return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
+                   mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
+                   mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
+}
+
+inline CVector CrossProduct(const CVector& v1, const CVector& v2) {
+    return CVector(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
 }

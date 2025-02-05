@@ -42,7 +42,7 @@ public:
     unsigned char m_nFadeDrunkenness;
     unsigned char m_nDrunkCountdown; //countdown in frames when the drunk effect ends
     bool m_bAdrenaline; 
-    bool m_bFreeAiming;
+    bool m_bHasLockOnTarget;
     bool m_bDrunkVisualsWearOff;
     bool m_checkPlayerFlag;
 private:
@@ -103,6 +103,11 @@ public:
     static void SetupPlayerPed(int playerId);
     void UpdateMeleeAttackers();
     int GetWantedLevel();
+
+public:
+    inline CWanted* GetWanted() {
+        return m_pWanted;
+    }
 };
 
 VALIDATE_SIZE(CPlayerPed, 0x6D8);

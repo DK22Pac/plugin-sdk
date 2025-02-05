@@ -61,8 +61,8 @@ void CAutomobile::Render() {
 int addrof(CAutomobile::ProcessEntityCollision) = ADDRESS_BY_VERSION(0x53B270, 0x53B4B0, 0x53B460);
 int gaddrof(CAutomobile::ProcessEntityCollision) = GLOBAL_ADDRESS_BY_VERSION(0x53B270, 0x53B4B0, 0x53B460);
 
-void CAutomobile::ProcessEntityCollision(CEntity *entity, CColPoint *colPoint) {
-    plugin::CallVirtualMethod<17, CAutomobile *, CEntity *, CColPoint *>(this, entity, colPoint);
+int CAutomobile::ProcessEntityCollision(CEntity *entity, CColPoint *colPoint) {
+    return plugin::CallVirtualMethodAndReturn<int, 17, CAutomobile *, CEntity *, CColPoint *>(this, entity, colPoint);
 }
 
 int addrof(CAutomobile::ProcessControlInputs) = ADDRESS_BY_VERSION(0x53B660, 0x53B8A0, 0x53B850);

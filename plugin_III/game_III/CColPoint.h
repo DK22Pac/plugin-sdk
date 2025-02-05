@@ -10,8 +10,6 @@
 #include "CVector.h"
 
 class PLUGIN_API CColPoint {
-    PLUGIN_NO_DEFAULT_CONSTRUCTION(CColPoint)
-
 public:
     CVector m_vecPoint;
     float m_fPointOffsetZ;

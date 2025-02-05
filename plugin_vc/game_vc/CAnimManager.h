@@ -12,6 +12,7 @@
 #include "CAnimBlendAssociation.h"
 #include "CAnimBlock.h"
 #include "CLinkList.h"
+#include "eAnimations.h"
 
 class PLUGIN_API CAnimManager {
 public:
@@ -25,10 +26,10 @@ public:
 	static int RegisterAnimBlock(const char *name);
 	static void CreateAnimAssocGroups(void);
 	static void LoadAnimFiles(void);
-	static CAnimBlendAssociation *BlendAnimation(RpClump *clump, int AssocGroupId, int AnimationId, float speed);
-	static CAnimBlendAssociation *AddAnimation(RpClump *clump, int AssocGroupId, int AnimationId);
-	static CAnimBlendAssociation *GetAnimAssociation(int AssocGroupId, const char *name);
-	static CAnimBlendAssociation *GetAnimAssociation(int AssocGroupId, int AnimationId);
+	static CAnimBlendAssociation *BlendAnimation(RpClump *clump, int assocGroupId, int animationId, float speed);
+	static CAnimBlendAssociation *AddAnimation(RpClump *clump, int assocGroupId, int animationId);
+	static CAnimBlendAssociation *GetAnimAssociation(int assocGroupId, const char *name);
+	static CAnimBlendAssociation *GetAnimAssociation(int assocGroupId, int animationId);
 	static const char *GetAnimGroupName(int index);
 	static CAnimBlendHierarchy *GetAnimation(const char *name, CAnimBlock *animBlock);
 	static int GetAnimationBlockIndex(const char *name);

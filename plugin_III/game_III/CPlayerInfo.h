@@ -34,9 +34,9 @@ public:
     unsigned int m_nTaxiTimer;
     bool m_bTaxiTimerScore;
     //char _padC5[3];
-    int m_nHookerTimer;
-    int m_nHookerMoneyTimer;
-    int m_nHookerTime;
+    int m_nNextSexFrequencyUpdateTime;
+    int m_nNextSexMoneyUpdateTime;
+    int m_nSexFrequency;
     CPed* m_pHooker;
     ePlayerState m_nPlayerState;
     //char _padD9[3];
@@ -60,8 +60,8 @@ public:
     int field_110;
     bool m_bInfiniteSprint;
     bool m_bFastReload;
-    bool m_bGetOutOfJailFree;
-    bool m_bGetOutOfHospitalFree;
+    bool m_bGetOutOfJailFree;                       // Player doesn't lose money/weapons next time arrested
+    bool m_bGetOutOfHospitalFree;                   // Player doesn't lose money next time patched up at hospital
     char m_szSkinName[32];
     RwTexture *m_pSkinTexture;
 

@@ -57,9 +57,9 @@ public:
     unsigned char bmx1;
     unsigned char bmx2;
     char __align;
-    float Z;
-    float X;
-    float Y;
+    float z;
+    float x;
+    float y;
 };
 
 VALIDATE_SIZE(CMouseControllerState, 0x14);
@@ -188,7 +188,7 @@ public:
     void UpdateMouse();
     void ReconcileTwoControllersInput(CControllerState const& controllerA, CControllerState const& controllerB);
     void SetDrunkInputDelay(int delay);
-    void StartShake(short time, unsigned char frequency, unsigned int arg2);
+    void StartShake(short time, unsigned char frequency, unsigned int arg2 = 0);
     void StartShake_Distance(short time, unsigned char frequency, float x, float y, float z);
     void StartShake_Train(float x, float y);
     // dummy function

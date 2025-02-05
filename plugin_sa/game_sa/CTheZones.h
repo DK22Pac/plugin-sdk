@@ -13,12 +13,9 @@
 class PLUGIN_API CTheZones
 {
 public:
-	// Variables
-
 	static eLevelName& m_CurrLevel;	
-	
-	// Explored teritories
 
+	// Explored territories
 	// Count: 100
 	static char* ExploredTerritoriesArray;
 	// Number of explored territories
@@ -55,7 +52,7 @@ public:
 	// Returns pointer to zone by a point
 	static CZone* FindSmallestZoneForPosition(const CVector& point, bool FindOnlyZonesType0);
 	
-	static CZoneExtraInfo* GetZoneInfo(CVector *point, CZone **outzone);
+	static CZoneInfo* GetZoneInfo(CVector *point, CZone **outzone);
 	
 	static void FillZonesWithGangColours(bool DisableRadarGangColors);
 	

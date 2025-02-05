@@ -10,7 +10,6 @@
 #include "CPhysical.h"
 #include "CStoredCollPoly.h"
 #include "AnimBlendFrameData.h"
-#include "AssocGroupId.h"
 #include "CAnimBlendAssociation.h"
 #include "CPedIK.h"
 #include "CPathNode.h"
@@ -23,185 +22,10 @@
 #include "ePedStats.h"
 #include "CColPoint.h"
 #include "eEventType.h"
+#include "eAnimations.h"
+
 class CFire;
 class CVehicle;
-
-enum PLUGIN_API AnimationId : unsigned int {
-    ANIM_STD_WALK = 0,
-    ANIM_STD_RUN = 1,
-    ANIM_STD_RUNFAST = 2,
-    ANIM_STD_IDLE = 3,
-    ANIM_STD_STARTWALK = 4,
-    ANIM_STD_RUNSTOP1 = 5,
-    ANIM_STD_RUNSTOP2 = 6,
-    ANIM_STD_IDLE_CAM = 7,
-    ANIM_STD_IDLE_HBHB = 8,
-    ANIM_STD_IDLE_TIRED = 9,
-    ANIM_STD_IDLE_BIGGUN = 10,
-    ANIM_STD_CHAT = 11,
-    ANIM_STD_HAILTAXI = 12,
-    ANIM_STD_KO_FRONT = 13,
-    ANIM_STD_KO_LEFT = 14,
-    ANIM_STD_KO_BACK = 15,
-    ANIM_STD_KO_RIGHT = 16,
-    ANIM_STD_KO_SHOT_FACE = 17,
-    ANIM_STD_KO_SHOT_STOMACH = 18,
-    ANIM_STD_KO_SHOT_ARM_L = 19,
-    ANIM_STD_KO_SHOT_ARM_R = 20,
-    ANIM_STD_KO_SHOT_LEG_L = 21,
-    ANIM_STD_KO_SHOT_LEG_R = 22,
-    ANIM_STD_SPINFORWARD_LEFT = 23,
-    ANIM_STD_SPINFORWARD_RIGHT = 24,
-    ANIM_STD_HIGHIMPACT_FRONT = 25,
-    ANIM_STD_HIGHIMPACT_LEFT = 26,
-    ANIM_STD_HIGHIMPACT_BACK = 27,
-    ANIM_STD_HIGHIMPACT_RIGHT = 28,
-    ANIM_STD_HITBYGUN_FRONT = 29,
-    ANIM_STD_HITBYGUN_LEFT = 30,
-    ANIM_STD_HITBYGUN_BACK = 31,
-    ANIM_STD_HITBYGUN_RIGHT = 32,
-    ANIM_STD_HIT_FRONT = 33,
-    ANIM_STD_HIT_LEFT = 34,
-    ANIM_STD_HIT_BACK = 35,
-    ANIM_STD_HIT_RIGHT = 36,
-    ANIM_STD_HIT_FLOOR = 37,
-    ANIM_STD_HIT_BODYBLOW = 38,
-    ANIM_STD_HIT_CHEST = 39,
-    ANIM_STD_HIT_HEAD = 40,
-    ANIM_STD_HIT_WALK = 41,
-    ANIM_STD_HIT_WALL = 42,
-    ANIM_STD_HIT_FLOOR_FRONT = 43,
-    ANIM_STD_HIT_BEHIND = 44,
-    ANIM_STD_PUNCH = 45,
-    ANIM_STD_KICKGROUND = 46,
-    ANIM_STD_WEAPON_BAT_H = 47,
-    ANIM_STD_WEAPON_BAT_V = 48,
-    ANIM_STD_WEAPON_HGUN_BODY = 49,
-    ANIM_STD_WEAPON_AK_BODY = 50,
-    ANIM_STD_WEAPON_PUMP = 51,
-    ANIM_STD_WEAPON_SNIPER = 52,
-    ANIM_STD_WEAPON_THROW = 53,
-    ANIM_STD_THROW_UNDER = 54,
-    ANIM_STD_START_THROW = 55,
-    ANIM_STD_DETONATE = 56,
-    ANIM_STD_HGUN_RELOAD = 57,
-    ANIM_STD_AK_RELOAD = 58,
-    ANIM_FPS_PUNCH = 59,
-    ANIM_FPS_BAT = 60,
-    ANIM_FPS_UZI = 61,
-    ANIM_FPS_PUMP = 62,
-    ANIM_FPS_AK = 63,
-    ANIM_FPS_M16 = 64,
-    ANIM_FPS_ROCKET = 65,
-    ANIM_STD_FIGHT_IDLE = 66,
-    ANIM_STD_FIGHT_2IDLE = 67,
-    ANIM_STD_FIGHT_SHUFFLE_F = 68,
-    ANIM_STD_FIGHT_BODYBLOW = 69,
-    ANIM_STD_FIGHT_HEAD = 70,
-    ANIM_STD_FIGHT_KICK = 71,
-    ANIM_STD_FIGHT_KNEE = 72,
-    ANIM_STD_FIGHT_LHOOK = 73,
-    ANIM_STD_FIGHT_PUNCH = 74,
-    ANIM_STD_FIGHT_ROUNDHOUSE = 75,
-    ANIM_STD_FIGHT_LONGKICK = 76,
-    ANIM_STD_PARTIAL_PUNCH = 77,
-    ANIM_STD_JACKEDCAR_RHS = 78,
-    ANIM_STD_JACKEDCAR_LO_RHS = 79,
-    ANIM_STD_JACKEDCAR_LHS = 80,
-    ANIM_STD_JACKEDCAR_LO_LHS = 81,
-    ANIM_STD_QUICKJACK = 82,
-    ANIM_STD_QUICKJACKED = 83,
-    ANIM_STD_CAR_ALIGN_DOOR_LHS = 84,
-    ANIM_STD_CAR_ALIGNHI_DOOR_LHS = 85,
-    ANIM_STD_CAR_OPEN_DOOR_LHS = 86,
-    ANIM_STD_CARDOOR_LOCKED_LHS = 87,
-    ANIM_STD_CAR_PULL_OUT_PED_LHS = 88,
-    ANIM_STD_CAR_PULL_OUT_PED_LO_LHS = 89,
-    ANIM_STD_CAR_GET_IN_LHS = 90,
-    ANIM_STD_CAR_GET_IN_LO_LHS = 91,
-    ANIM_STD_CAR_CLOSE_DOOR_LHS = 92,
-    ANIM_STD_CAR_CLOSE_DOOR_LO_LHS = 93,
-    ANIM_STD_CAR_CLOSE_DOOR_ROLLING_LHS = 94,
-    ANIM_STD_CAR_CLOSE_DOOR_ROLLING_LO_LHS = 95,
-    ANIM_STD_GETOUT_LHS = 96,
-    ANIM_STD_GETOUT_LO_LHS = 97,
-    ANIM_STD_CAR_CLOSE_LHS = 98,
-    ANIM_STD_CAR_ALIGN_DOOR_RHS = 99,
-    ANIM_STD_CAR_ALIGNHI_DOOR_RHS = 100,
-    ANIM_STD_CAR_OPEN_DOOR_RHS = 101,
-    ANIM_STD_CARDOOR_LOCKED_RHS = 102,
-    ANIM_STD_CAR_PULL_OUT_PED_RHS = 103,
-    ANIM_STD_CAR_PULL_OUT_PED_LO_RHS = 104,
-    ANIM_STD_CAR_GET_IN_RHS = 105,
-    ANIM_STD_CAR_GET_IN_LO_RHS = 106,
-    ANIM_STD_CAR_CLOSE_DOOR_RHS = 107,
-    ANIM_STD_CAR_CLOSE_DOOR_LO_RHS = 108,
-    ANIM_STD_CAR_SHUFFLE_RHS = 109,
-    ANIM_STD_CAR_SHUFFLE_LO_RHS = 110,
-    ANIM_STD_CAR_SIT = 111,
-    ANIM_STD_CAR_SIT_LO = 112,
-    ANIM_STD_CAR_SIT_P = 113,
-    ANIM_STD_CAR_SIT_P_LO = 114,
-    ANIM_STD_CAR_DRIVE_LEFT = 115,
-    ANIM_STD_CAR_DRIVE_RIGHT = 116,
-    ANIM_STD_CAR_DRIVE_LEFT_LO = 117,
-    ANIM_STD_CAR_DRIVE_RIGHT_LO = 118,
-    ANIM_STD_CAR_DRIVEBY_LEFT = 119,
-    ANIM_STD_CAR_DRIVEBY_RIGHT = 120,
-    ANIM_STD_CAR_LOOKBEHIND = 121,
-    ANIM_STD_BOAT_DRIVE = 122,
-    ANIM_STD_GETOUT_RHS = 123,
-    ANIM_STD_GETOUT_LO_RHS = 124,
-    ANIM_STD_CAR_CLOSE_RHS = 125,
-    ANIM_STD_CAR_HOOKERTALK = 126,
-    ANIM_STD_COACH_OPEN_LHS = 127,
-    ANIM_STD_COACH_OPEN_RHS = 128,
-    ANIM_STD_COACH_GET_IN_LHS = 129,
-    ANIM_STD_COACH_GET_IN_RHS = 130,
-    ANIM_STD_COACH_GET_OUT_LHS = 131,
-    ANIM_STD_TRAIN_GETIN = 132,
-    ANIM_STD_TRAIN_GETOUT = 133,
-    ANIM_STD_CRAWLOUT_LHS = 134,
-    ANIM_STD_CRAWLOUT_RHS = 135,
-    ANIM_STD_VAN_OPEN_DOOR_REAR_LHS = 136,
-    ANIM_STD_VAN_GET_IN_REAR_LHS = 137,
-    ANIM_STD_VAN_CLOSE_DOOR_REAR_LHS = 138,
-    ANIM_STD_VAN_GET_OUT_REAR_LHS = 139,
-    ANIM_STD_VAN_OPEN_DOOR_REAR_RHS = 140,
-    ANIM_STD_VAN_GET_IN_REAR_RHS = 141,
-    ANIM_STD_VAN_CLOSE_DOOR_REAR_RHS = 142,
-    ANIM_STD_VAN_GET_OUT_REAR_RHS = 143,
-    ANIM_STD_GET_UP = 144,
-    ANIM_STD_GET_UP_LEFT = 145,
-    ANIM_STD_GET_UP_RIGHT = 146,
-    ANIM_STD_GET_UP_FRONT = 147,
-    ANIM_STD_JUMP_LAUNCH = 148,
-    ANIM_STD_JUMP_GLIDE = 149,
-    ANIM_STD_JUMP_LAND = 150,
-    ANIM_STD_FALL = 151,
-    ANIM_STD_FALL_GLIDE = 152,
-    ANIM_STD_FALL_LAND = 153,
-    ANIM_STD_FALL_COLLAPSE = 154,
-    ANIM_STD_EVADE_STEP = 155,
-    ANIM_STD_EVADE_DIVE = 156,
-    ANIM_STD_XPRESS_SCRATCH = 157,
-    ANIM_STD_ROADCROSS = 158,
-    ANIM_STD_TURN180 = 159,
-    ANIM_STD_ARREST = 160,
-    ANIM_STD_DROWN = 161,
-    ANIM_MEDIC_CPR = 162,
-    ANIM_STD_DUCK_DOWN = 163,
-    ANIM_STD_DUCK_LOW = 164,
-    ANIM_STD_RBLOCK_SHOOT = 165,
-    ANIM_STD_THROW_UNDER2 = 166,
-    ANIM_STD_HANDSUP = 167,
-    ANIM_STD_HANDSCOWER = 168,
-    ANIM_STD_PARTIAL_FUCKU = 169,
-    ANIM_STD_PHONE_IN = 170,
-    ANIM_STD_PHONE_OUT = 171,
-    ANIM_STD_PHONE_TALK = 172,
-    ANIM_STD_NUM = 173
-};
 
 enum PLUGIN_API eCharCreatedBy {
     RANDOM_CHAR = 1,
@@ -430,7 +254,7 @@ enum PLUGIN_API eWaitState : unsigned int {
 };
 
 struct PLUGIN_API FightMove {
-    AnimationId m_nAnimId;
+    int m_nAnimId;
     float m_fStartFireTime;
     float m_fEndFireTime;
     float m_fComboFollowTime;
@@ -546,7 +370,7 @@ public:
     CEntity *m_pEventEntity;
     float m_fAngleToEvent;
     AnimBlendFrameData *m_apFrames[12];
-    AssocGroupId m_nAnimGroupId;
+    int m_nAnimGroupId;
     CAnimBlendAssociation *m_pVehicleAnim;
     CVector2D m_vec2dAnimMoveDelta;
     CVector m_vecOffsetSeek;
@@ -608,8 +432,8 @@ public:
     eWeaponType m_eStoredWeapon;
     unsigned char m_nCurrentWeapon; //!< see eWeaponType
     unsigned char m_nMaxWeaponTypeAllowed; //!< see eWeaponType
-    unsigned char m_nWepSkills;
-    unsigned char m_nWepAccuracy;
+    unsigned char m_nWeaponSkill;
+    unsigned char m_nWeaponAccuracy;
     CEntity *m_pPointGunAt;
     CVector m_vecHitLastPos;
     unsigned int m_nCurFightMove;
@@ -649,6 +473,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool &bPedCheat3;
     SUPPORTED_10EN_11EN_STEAM static bool &bPedCheat2;
 
+public:
+    inline CWeapon* GetWeapon() {
+        return &this->m_aWeapons[this->m_nCurrentWeapon];
+    }
+
+
     // virtual function #0 (destructor)
 
 
@@ -683,7 +513,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool SetupLighting();
     SUPPORTED_10EN_11EN_STEAM void RemoveLighting(bool resetWorldColors);
     SUPPORTED_10EN_11EN_STEAM void FlagToDestroyWhenNextProcessed();
-    SUPPORTED_10EN_11EN_STEAM void ProcessEntityCollision(CEntity *entity, CColPoint *colPoint);
+    SUPPORTED_10EN_11EN_STEAM int ProcessEntityCollision(CEntity *entity, CColPoint *colPoint);
     SUPPORTED_10EN_11EN_STEAM void SetMoveAnim();
 
     SUPPORTED_10EN_11EN_STEAM void AddWeaponModel(int modelIndex);
@@ -833,7 +663,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetChat(CEntity *chatWith, unsigned int time);
     SUPPORTED_10EN_11EN_STEAM void SetCurrentWeapon(int type);
     SUPPORTED_10EN_11EN_STEAM void SetDead();
-    SUPPORTED_10EN_11EN_STEAM void SetDie(AnimationId animId, float delta, float speed);
+    SUPPORTED_10EN_11EN_STEAM void SetDie(int animId, float delta, float speed);
     SUPPORTED_10EN_11EN_STEAM void SetDirectionToWalkAroundObject(CEntity *entity);
     SUPPORTED_10EN_11EN_STEAM void SetDuck(unsigned int time);
     SUPPORTED_10EN_11EN_STEAM void SetEnterCar(CVehicle *vehicle, unsigned int unused);
@@ -843,7 +673,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetEvasiveStep(CPhysical *reason, unsigned char animType);
     SUPPORTED_10EN_11EN_STEAM void SetExitCar(CVehicle *vehicle, unsigned int doorNode);
     SUPPORTED_10EN_11EN_STEAM void SetExitTrain(CVehicle *train);
-    SUPPORTED_10EN_11EN_STEAM void SetFall(int extraTime, AnimationId animId, unsigned char evenIfNotInControl);
+    SUPPORTED_10EN_11EN_STEAM void SetFall(int extraTime, int animId, unsigned char evenIfNotInControl);
     SUPPORTED_10EN_11EN_STEAM void SetFlee(CVector2D const &from, int time);
     SUPPORTED_10EN_11EN_STEAM void SetFlee(CEntity *fleeFrom, int time);
     SUPPORTED_10EN_11EN_STEAM bool SetFollowPath(CVector dest);
@@ -900,6 +730,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool WarpPedToNearLeaderOffScreen();
     SUPPORTED_10EN_11EN_STEAM bool WillChat(CPed *stranger);
     SUPPORTED_10EN_11EN_STEAM float WorkOutHeadingForMovingFirstPerson(float offset);
+    bool IsPedDoingDriveByShooting();
 
     SUPPORTED_10EN_11EN_STEAM static void FinishDieAnimCB(CAnimBlendAssociation *association, void *data);
     SUPPORTED_10EN_11EN_STEAM static void FinishFightMoveCB(CAnimBlendAssociation *association, void *data);

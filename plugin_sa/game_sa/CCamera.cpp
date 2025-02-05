@@ -11,7 +11,7 @@ PLUGIN_SOURCE_FILE
 float &CCamera::m_f3rdPersonCHairMultY = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC10, 0, 0, 0, 0, 0));
 float &CCamera::m_f3rdPersonCHairMultX = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC14, 0, 0, 0, 0, 0));
 float &CCamera::m_fMouseAccelVertical = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC18, 0, 0, 0, 0, 0));
-float &CCamera::m_fMouseAccelHorzntl = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC1C, 0, 0, 0, 0, 0));
+float &CCamera::m_fMouseAccelHorzntal = *reinterpret_cast<float *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC1C, 0, 0, 0, 0, 0));
 bool &CCamera::m_bUseMouse3rdPerson = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xB6EC2E, 0, 0, 0, 0, 0));
 CCamera &TheCamera = *reinterpret_cast<CCamera *>(GLOBAL_ADDRESS_BY_VERSION(0xB6F028, 0, 0, 0, 0, 0));
 
@@ -374,18 +374,18 @@ bool CCamera::IsItTimeForNewcam(int CamSequence, int StartTime) {
     return plugin::CallMethodAndReturnDynGlobal<bool, CCamera *, int, int>(gaddrof(CCamera::IsItTimeForNewcam), this, CamSequence, StartTime);
 }
 
-int addrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float, RwMatrixTag *)) = ADDRESS_BY_VERSION(0x420C40, 0, 0, 0, 0, 0);
-int gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float, RwMatrixTag *)) = GLOBAL_ADDRESS_BY_VERSION(0x420C40, 0, 0, 0, 0, 0);
+int addrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float, RwMatrixTag *)) = ADDRESS_BY_VERSION(0x420C40, 0, 0, 0, 0, 0);
+int gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float, RwMatrixTag *)) = GLOBAL_ADDRESS_BY_VERSION(0x420C40, 0, 0, 0, 0, 0);
 
-bool CCamera::IsSphereVisible(CVector const *origin, float radius, RwMatrixTag *transformMatrix) {
-    return plugin::CallMethodAndReturnDynGlobal<bool, CCamera *, CVector const *, float, RwMatrixTag *>(gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float, RwMatrixTag *)), this, origin, radius, transformMatrix);
+bool CCamera::IsSphereVisible(CVector const &origin, float radius, RwMatrixTag *transformMatrix) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CCamera *, CVector const &, float, RwMatrixTag *>(gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float, RwMatrixTag *)), this, origin, radius, transformMatrix);
 }
 
-int addrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float)) = ADDRESS_BY_VERSION(0x420D40, 0, 0, 0, 0, 0);
-int gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float)) = GLOBAL_ADDRESS_BY_VERSION(0x420D40, 0, 0, 0, 0, 0);
+int addrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float)) = ADDRESS_BY_VERSION(0x420D40, 0, 0, 0, 0, 0);
+int gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float)) = GLOBAL_ADDRESS_BY_VERSION(0x420D40, 0, 0, 0, 0, 0);
 
-bool CCamera::IsSphereVisible(CVector const *origin, float radius) {
-    return plugin::CallMethodAndReturnDynGlobal<bool, CCamera *, CVector const *, float>(gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const *, float)), this, origin, radius);
+bool CCamera::IsSphereVisible(CVector const &origin, float radius) {
+    return plugin::CallMethodAndReturnDynGlobal<bool, CCamera *, CVector const &, float>(gaddrof_o(CCamera::IsSphereVisible, bool (CCamera::*)(CVector const &, float)), this, origin, radius);
 }
 
 int addrof(CCamera::LerpFOV) = ADDRESS_BY_VERSION(0x50D280, 0, 0, 0, 0, 0);

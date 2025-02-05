@@ -11,8 +11,8 @@
 class CPtrNode {
 public:
     void     *m_ptr; // usually a ptr to CEntity
-    CPtrNode *m_pNext;
     CPtrNode *m_pPrev;
+    CPtrNode* m_pNext;
 
     CPtrNode() {}
 

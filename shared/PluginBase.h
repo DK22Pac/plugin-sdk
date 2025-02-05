@@ -5,14 +5,23 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#pragma warning(push)
+#pragma warning(disable: 4244)
+#pragma warning(disable: 4267)
+#pragma warning(disable: 4302)
+#pragma warning(disable: 4311)
 
 #include <cstddef>
 #include <cstdint>
+#include <iostream>
+#include <array>
 #include "Base.h"
 #include "VersionsMacro.h"
 #include "GameVersion.h"
+#include "Pattern.h"
 #include "EventList.h" // TODO: decide if we need it here
 #include "DynAddress.h"
+#include "Maths.h"
 
 namespace plugin {
 
@@ -113,6 +122,11 @@ void operator_delete_array(ClassType *data) {
     delete[] data;
 }
 
+template <class Type, size_t n>
+size_t array_size(Type(&)[n]) { 
+    return n; 
+}
+
 // helpers for event creating
 
 template<typename Meta>
@@ -141,73 +155,93 @@ inline void* GetVMT(const void* self, size_t index) {
     return GetVMT(self)[index];
 }
 
-template <unsigned int address, typename... Args>
+template <uintptr_t address, typename... Args>
 void Call(Args... args) {
     reinterpret_cast<void(__cdecl *)(Args...)>(address)(args...);
 }
 
-template <typename Ret, unsigned int address, typename... Args>
+template <uintptr_t address, typename... Args>
+void CallStd(Args... args) {
+    reinterpret_cast<void(__stdcall*)(Args...)>(address)(args...);
+}
+
+template <typename Ret, uintptr_t address, typename... Args>
+Ret CallStdAndReturn(Args... args) {
+    return reinterpret_cast<Ret(__stdcall*)(Args...)>(address)(args...);
+}
+
+template <typename Ret, uintptr_t address, typename... Args>
 Ret CallAndReturn(Args... args) {
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
 }
 
-template <unsigned int address, typename C, typename... Args>
+template <uintptr_t address, typename C, typename... Args>
 void CallMethod(C _this, Args... args) {
     reinterpret_cast<void(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
-template <typename Ret, unsigned int address, typename C, typename... Args>
+template <typename Ret, uintptr_t address, typename C, typename... Args>
 Ret CallMethodAndReturn(C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
-template <unsigned int tableIndex, typename C, typename... Args>
+template <uintptr_t tableIndex, typename C, typename... Args>
 void CallVirtualMethod(C _this, Args... args) {
     reinterpret_cast<void(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 }
 
-template <typename Ret, unsigned int tableIndex, typename C, typename... Args>
+template <typename Ret, uintptr_t tableIndex, typename C, typename... Args>
 Ret CallVirtualMethodAndReturn(C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 }
 
 template <typename... Args>
-void CallDyn(unsigned int address, Args... args) {
+void CallDyn(uintptr_t address, Args... args) {
     reinterpret_cast<void(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
 template <typename Ret, typename... Args>
-Ret CallAndReturnDyn(unsigned int address, Args... args) {
+Ret CallAndReturnDyn(uintptr_t address, Args... args) {
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
+template <typename... Args>
+void CallStdDyn(uintptr_t address, Args... args) {
+    reinterpret_cast<void(__stdcall*)(Args...)>(GetGlobalAddress(address))(args...);
+}
+
+template <typename Ret, typename... Args>
+Ret CallStdAndReturnDyn(uintptr_t address, Args... args) {
+    return reinterpret_cast<Ret(__stdcall*)(Args...)>(GetGlobalAddress(address))(args...);
+}
+
 template <typename C, typename... Args>
-void CallMethodDyn(unsigned int address, C _this, Args... args) {
+void CallMethodDyn(uintptr_t address, C _this, Args... args) {
     reinterpret_cast<void(__thiscall *)(C, Args...)>(GetGlobalAddress(address))(_this, args...);
 }
 
 template <typename Ret, typename C, typename... Args>
-Ret CallMethodAndReturnDyn(unsigned int address, C _this, Args... args) {
+Ret CallMethodAndReturnDyn(uintptr_t address, C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(GetGlobalAddress(address))(_this, args...);
 }
 
 template <typename... Args>
-void CallDynGlobal(unsigned int address, Args... args) {
+void CallDynGlobal(uintptr_t address, Args... args) {
     reinterpret_cast<void(__cdecl *)(Args...)>(address)(args...);
 }
 
 template <typename Ret, typename... Args>
-Ret CallAndReturnDynGlobal(unsigned int address, Args... args) {
+Ret CallAndReturnDynGlobal(uintptr_t address, Args... args) {
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
 }
 
 template <typename C, typename... Args>
-void CallMethodDynGlobal(unsigned int address, C _this, Args... args) {
+void CallMethodDynGlobal(uintptr_t address, C _this, Args... args) {
     reinterpret_cast<void(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
 template <typename Ret, typename C, typename... Args>
-Ret CallMethodAndReturnDynGlobal(unsigned int address, C _this, Args... args) {
+Ret CallMethodAndReturnDynGlobal(uintptr_t address, C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
@@ -351,18 +385,32 @@ template<> struct vtable_meta<className> {\
 // custom object construction
 
 #define PLUGIN_NO_DEFAULT_CONSTRUCTION(className) \
-    className() = delete;\
-    className(className const &) = delete;\
-    className(className &&) = delete;\
-    ~className() = delete;\
-    className &operator=(className &&) = delete;
+    public: \
+    className() = default;\
+    className(className const &) = default;\
+    className(className &&) = default;\
+    ~className() = default;\
+    className &operator=(className &&) = default;
 
 #define PLUGIN_NO_DEFAULT_CONSTRUCTION_VIRTUALBASE(className) \
-    className() = delete;\
-    className(className const &) = delete;\
-    className(className &&) = delete;\
-    virtual ~className() = delete;\
-    className &operator=(className &&) = delete;
+    public: \
+    className() = default;\
+    className(className const &) = default;\
+    className(className &&) = default;\
+    virtual ~className() = default;\
+    className &operator=(className &&) = default;
+
+#define PLUGIN_FUNC_NOP() \
+    do { \
+        MessageBoxA(nullptr, \
+                   (std::string() + \
+                    __FUNCTION__ " it's not an implemented function and cannot be used in this instance." + \
+                    "\nFile: " + __FILE__ + \
+                    "\nLine: " + std::to_string(__LINE__) \
+                   ).c_str(), \
+                   "plugin-sdk", MB_ICONERROR | MB_OK); \
+        __debugbreak(); \
+    } while (false)
 
 // get global address for current exe version
 #ifdef GTASA
@@ -372,3 +420,7 @@ template<> struct vtable_meta<className> {\
 #define GLOBAL_ADDRESS_BY_VERSION(a,b,c) (plugin::GetGlobalAddress(plugin::by_version_dyn(a,b,c)))
 #define ADDRESS_BY_VERSION(a,b,c) (plugin::by_version_dyn(a,b,c))
 #endif
+
+#define LAMBDA(Ret, Conv, Func, ...) (Ret(Conv*)(__VA_ARGS__))Func
+
+#pragma warning(pop)

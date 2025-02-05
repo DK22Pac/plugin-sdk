@@ -357,7 +357,7 @@ namespace injector
 
                 // Functor for the original call
                 func_type original = [&manager](Args... args) -> Ret {
-                    return manager.original(args...);
+                      return manager.original(args...);
                 };
 
                 if(manager.assoc.size() == 1)
@@ -457,7 +457,7 @@ namespace injector
     class function_hooker_base : public scoped_base
     {
         public:
-            static const uintptr_t addr = addr1;
+            uintptr_t addr = addr1;
 
             using func_type_raw = FuncType;
             using func_type     = std::function<Ret(Args...)>;
@@ -719,6 +719,22 @@ namespace injector
         return add_static_hook(make_function_hook<T>(std::move(functor)));
     }
 
+
+    template<class T, class F> inline
+        T make_function_hook_dyn(F functor, uintptr_t addr)
+    {
+        T a;
+        if (addr)
+            a.addr = addr;
+        a.install(std::move(functor));
+        return a;
+    }
+
+    template<class T, class F> inline
+        T& make_static_hook_dyn(F functor, uintptr_t addr)
+    {
+        return add_static_hook(make_function_hook_dyn<T>(std::move(functor), addr));
+    }
 
     // TODO when we have access to C++14 add a make_function_hook, make_stdcall_function_hook, and so on
     // the problem behind implement it with C++11 is that lambdas cannot be generic and the first param of a hook is a functor pointing

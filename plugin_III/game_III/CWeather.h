@@ -9,6 +9,13 @@
 #include "PluginBase.h"
 #include "CVector.h"
 
+enum {
+    WEATHER_SUNNY,
+    WEATHER_CLOUDY,
+    WEATHER_RAINY,
+    WEATHER_FOGGY
+};
+
 class PLUGIN_API CWeather {
 public:
     SUPPORTED_10EN_11EN_STEAM static int &SoundHandle;

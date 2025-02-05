@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) source file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) source file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #include "CGameLogic.h"
 
@@ -39,4 +39,8 @@ void CGameLogic::AfterDeathArrestSetUpShortCutTaxi() {
 // Converted from cdecl void CGameLogic::RemoveShortCutDropOffPointForMission(void)	0x42ADE0	
 void CGameLogic::RemoveShortCutDropOffPointForMission() {
     plugin::Call<0x42ADE0>();
+}
+
+void CGameLogic::PassTime(uint32_t time) {
+    plugin::Call<0x42B8A0>(time);
 }

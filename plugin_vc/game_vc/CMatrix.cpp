@@ -18,9 +18,9 @@ void Invert(CMatrix const& in, CMatrix&out) {
     ((void(__cdecl *)(CMatrix const&, CMatrix&out))0x4DE870)(in, out);
 }
 
-// Converted from thiscall void CMatrix::CopyToRwMatrix(RwMatrixTag *rwMatrix) 0x4DE960
-void CMatrix::CopyToRwMatrix(RwMatrixTag* rwMatrix) {
-    ((void(__thiscall *)(CMatrix*, RwMatrixTag*))0x4DE960)(this, rwMatrix);
+// Converted from thiscall void CMatrix::CopyToRwMatrix(RwMatrix *rwMatrix) 0x4DE960
+void CMatrix::CopyToRwMatrix(RwMatrix* rwMatrix) {
+    ((void(__thiscall *)(CMatrix*, RwMatrix*))0x4DE960)(this, rwMatrix);
 }
 
 // Converted from cdecl CMatrix Invert(CMatrix const&in) 0x4DE9C0
@@ -140,14 +140,14 @@ void CMatrix::Detach() {
     ((void(__thiscall *)(CMatrix*))0x4DF9E0)(this);
 }
 
-// Converted from thiscall void CMatrix::AttachRW(RwMatrixTag *rwMatrix,bool deleteOnDetach) 0x4DFA00
-void CMatrix::AttachRW(RwMatrixTag* rwMatrix, bool deleteOnDetach) {
-    ((void(__thiscall *)(CMatrix*, RwMatrixTag*, bool))0x4DFA00)(this, rwMatrix, deleteOnDetach);
+// Converted from thiscall void CMatrix::AttachRW(RwMatrix *rwMatrix,bool deleteOnDetach) 0x4DFA00
+void CMatrix::AttachRW(RwMatrix* rwMatrix, bool deleteOnDetach) {
+    ((void(__thiscall *)(CMatrix*, RwMatrix*, bool))0x4DFA00)(this, rwMatrix, deleteOnDetach);
 }
 
-// Converted from thiscall void CMatrix::Attach(RwMatrixTag *rwMatrix,bool deleteOnDetach) 0x4DFA40
-void CMatrix::Attach(RwMatrixTag* rwMatrix, bool deleteOnDetach) {
-    ((void(__thiscall *)(CMatrix*, RwMatrixTag*, bool))0x4DFA40)(this, rwMatrix, deleteOnDetach);
+// Converted from thiscall void CMatrix::Attach(RwMatrix *rwMatrix,bool deleteOnDetach) 0x4DFA40
+void CMatrix::Attach(RwMatrix* rwMatrix, bool deleteOnDetach) {
+    ((void(__thiscall *)(CMatrix*, RwMatrix*, bool))0x4DFA40)(this, rwMatrix, deleteOnDetach);
 }
 
 // Converted from thiscall void CMatrix::~CMatrix() 0x4DFAE0
@@ -155,9 +155,9 @@ CMatrix::~CMatrix() {
     ((void(__thiscall *)(CMatrix*))0x4DFAE0)(this);
 }
 
-// Converted from thiscall void CMatrix::CMatrix(RwMatrixTag *rwMatrix,bool deleteOnDetach) 0x4DFB00
-CMatrix::CMatrix(RwMatrixTag* rwMatrix, bool deleteOnDetach) {
-    ((void(__thiscall *)(CMatrix*, RwMatrixTag*, bool))0x4DFB00)(this, rwMatrix, deleteOnDetach);
+// Converted from thiscall void CMatrix::CMatrix(RwMatrix *rwMatrix,bool deleteOnDetach) 0x4DFB00
+CMatrix::CMatrix(RwMatrix* rwMatrix, bool deleteOnDetach) {
+    ((void(__thiscall *)(CMatrix*, RwMatrix*, bool))0x4DFB00)(this, rwMatrix, deleteOnDetach);
 }
 
 // Converted from thiscall void CMatrix::CMatrix(CMatrix const&src) 0x4DFBA0

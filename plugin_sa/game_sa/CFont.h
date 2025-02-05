@@ -33,6 +33,25 @@ enum PLUGIN_API eFontStyle : unsigned char {
     FONT_PRICEDOWN
 };
 
+class CFontRenderState {
+public:
+    int32_t id;
+    float x;
+    float y;
+    float ScaleX;
+    float ScaleY;
+    CRGBA Colour;
+    float PixelsToAdd;
+    float Slope;
+    float SlopeRefX;
+    float SlopeRefY;
+    uint8_t Shadow;
+    uint8_t ExtraFont;
+    uint8_t Proportional;
+    int16_t Style;
+    int8_t EdgeAmount;
+};
+
 class PLUGIN_API CFont {
 public:
     // static variables
@@ -65,6 +84,8 @@ public:
     static CRGBA *m_FontDropColor;
     static unsigned char& m_nFontOutlineSize;
     static unsigned char& m_nFontOutline;
+
+    static CFontRenderState& RenderState;
 
     // static functions
 
@@ -118,15 +139,15 @@ public:
     static void InitPerFrame();
     // draw text we have in buffer
     static void RenderFontBuffer();
-    static float GetStringWidth(char *string, bool unk1, bool unk2);
+    static float GetStringWidth(const char *string, bool spaces, bool scriptValues = false);
     // same as RenderFontBuffer()
     static void DrawFonts();
-    static short ProcessCurrentString(bool print, float x, float y, char *text);
-    static short GetNumberLines(float x, float y, char *text);
-    static short ProcessStringToDisplay(float x, float y, char *text);
-    static void GetTextRect(CRect *rect, float x, float y, char *text);
-    static void PrintString(float x, float y, char *text);
-    static void PrintStringFromBottom(float x, float y, char *text);
+    static short ProcessCurrentString(bool print, float x, float y, const char *text);
+    static short GetNumberLines(float x, float y, const char *text);
+    static short ProcessStringToDisplay(float x, float y, const char *text);
+    static void GetTextRect(CRect *rect, float x, float y, const char *text);
+    static void PrintString(float x, float y, const char *text);
+    static void PrintStringFromBottom(float x, float y, const char *text);
 };
 
 extern tFontData *gFontData;

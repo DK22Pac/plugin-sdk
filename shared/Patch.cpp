@@ -6,115 +6,124 @@
 */
 #include "Patch.h"
 
-void plugin::patch::Nop(int address, size_t size, bool vp) {
+void plugin::patch::Nop(uintptr_t address, size_t size, bool vp) {
     injector::MakeNOP(GetGlobalAddress(address), size, vp);
 }
 
-void plugin::patch::RedirectCall(int address, void *func, bool vp) {
+void plugin::patch::RedirectCall(uintptr_t address, void *func, bool vp) {
     injector::MakeCALL(GetGlobalAddress(address), func, vp);
 }
 
-void plugin::patch::RedirectJump(int address, void *func, bool vp) {
+void plugin::patch::RedirectJump(uintptr_t address, void *func, bool vp) {
     injector::MakeJMP(GetGlobalAddress(address), func, vp);
 }
 
-void plugin::patch::SetChar(int address, char value, bool vp) {
+void plugin::patch::SetChar(uintptr_t address, char value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetUChar(int address, unsigned char value, bool vp) {
+void plugin::patch::SetUChar(uintptr_t address, unsigned char value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetShort(int address, short value, bool vp) {
+void plugin::patch::SetShort(uintptr_t address, short value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetUShort(int address, unsigned short value, bool vp) {
+void plugin::patch::SetUShort(uintptr_t address, unsigned short value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetInt(int address, int value, bool vp) {
+void plugin::patch::SetInt(uintptr_t address, uintptr_t value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetUInt(int address, unsigned int value, bool vp) {
+void plugin::patch::SetUInt(uintptr_t address, uintptr_t value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetFloat(int address, float value, bool vp) {
+void plugin::patch::SetFloat(uintptr_t address, float value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetPointer(int address, void *value, bool vp) {
+void plugin::patch::SetPointer(uintptr_t address, void *value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-char plugin::patch::GetChar(int address, bool vp) {
+char plugin::patch::GetChar(uintptr_t address, bool vp) {
     return injector::ReadMemory<char>(GetGlobalAddress(address), vp);
 }
 
-unsigned char plugin::patch::GetUChar(int address, bool vp) {
+unsigned char plugin::patch::GetUChar(uintptr_t address, bool vp) {
     return injector::ReadMemory<unsigned char>(GetGlobalAddress(address), vp);
 }
 
-short plugin::patch::GetShort(int address, bool vp) {
+short plugin::patch::GetShort(uintptr_t address, bool vp) {
     return injector::ReadMemory<short>(GetGlobalAddress(address), vp);
 }
 
-unsigned short plugin::patch::GetUShort(int address, bool vp) {
+unsigned short plugin::patch::GetUShort(uintptr_t address, bool vp) {
     return injector::ReadMemory<unsigned short>(GetGlobalAddress(address), vp);
 }
 
-int plugin::patch::GetInt(int address, bool vp) {
-    return injector::ReadMemory<int>(GetGlobalAddress(address), vp);
+uintptr_t plugin::patch::GetInt(uintptr_t address, bool vp) {
+    return injector::ReadMemory<uintptr_t>(GetGlobalAddress(address), vp);
 }
 
-unsigned int plugin::patch::GetUInt(int address, bool vp) {
-    return injector::ReadMemory<unsigned int>(GetGlobalAddress(address), vp);
+uintptr_t plugin::patch::GetUInt(uintptr_t address, bool vp) {
+    return injector::ReadMemory<uintptr_t>(GetGlobalAddress(address), vp);
 }
 
-float plugin::patch::GetFloat(int address, bool vp) {
+float plugin::patch::GetFloat(uintptr_t address, bool vp) {
     return injector::ReadMemory<float>(GetGlobalAddress(address), vp);
 }
 
-void *plugin::patch::GetPointer(int address, bool vp) {
+void *plugin::patch::GetPointer(uintptr_t address, bool vp) {
     return injector::ReadMemory<void *>(GetGlobalAddress(address), vp);
 }
 
-void plugin::patch::ReplaceFunction(int address, void *func, bool vp) {
+void plugin::patch::ReplaceFunction(uintptr_t address, void *func, bool vp) {
     RedirectJump(address, func, vp);
 }
 
-void plugin::patch::ReplaceFunctionCall(int address, void *func, bool vp) {
+void plugin::patch::ReplaceFunctionCall(uintptr_t address, void *func, bool vp) {
     RedirectCall(address, func, vp);
 }
 
-void plugin::patch::SetRaw(int address, void* value, size_t size, bool vp) {   
+void plugin::patch::SetRaw(uintptr_t address, void* value, size_t size, bool vp) {   
     injector::WriteMemoryRaw(GetGlobalAddress(address), value, size, vp);
 }
 
-void plugin::patch::GetRaw(int address,void* ret, size_t size, bool vp) {
+void plugin::patch::GetRaw(uintptr_t address,void* ret, size_t size, bool vp) {
 
     injector::ReadMemoryRaw(GetGlobalAddress(address), ret, size, vp);
 }
 
-void plugin::patch::RedirectShortJump(int address, void* dest, bool vp) {
+void plugin::patch::RedirectShortJump(uintptr_t address, void* dest, bool vp) {
 
-    int GlobalAddress = GetGlobalAddress(address);
+    uintptr_t GlobalAddress = GetGlobalAddress(address);
     injector::WriteMemory<uint8_t>(GlobalAddress, 0xEB, vp);
     if (dest)
         injector::MakeRelativeOffset(GlobalAddress + 1, dest, 1, vp);
 }
 
-void plugin::patch::PutRetn(int address, unsigned short BytesToPop, bool vp) {
+void plugin::patch::PutRetn(uintptr_t address, unsigned short BytesToPop, bool vp) {
     injector::MakeRET(GetGlobalAddress(address), BytesToPop, vp);
 }
 
-void plugin::patch::PutRetn0(int address,unsigned short BytesToPop, bool vp) {
+void plugin::patch::PutRetn0(uintptr_t address, unsigned short BytesToPop, bool vp) {
 
-    int GlobalAddress = GetGlobalAddress(address);
+    uintptr_t GlobalAddress = GetGlobalAddress(address);
     injector::WriteMemory(GlobalAddress, 0x33, vp); // xor eax, eax
     injector::WriteMemory(GlobalAddress + 1, 0xC0, vp);
     injector::MakeRET(GlobalAddress + 2, BytesToPop, vp);
 }
+
+void plugin::patch::PutRetn1(uintptr_t address, unsigned short BytesToPop, bool vp) {
+
+    uintptr_t GlobalAddress = GetGlobalAddress(address);
+    injector::WriteMemory(GlobalAddress, 0xB1, vp); // xor eax, eax
+    injector::WriteMemory(GlobalAddress + 1, 0x01, vp);
+    injector::MakeRET(GlobalAddress + 2, BytesToPop, vp);
+}
+

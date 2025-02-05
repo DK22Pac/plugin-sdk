@@ -27,3 +27,7 @@ bool CControllerConfigManager::GetIsKeyboardKeyDown(RsKeyCodes key) {
 bool CControllerConfigManager::GetIsKeyboardKeyJustDown(RsKeyCodes key) {
     return plugin::CallMethodAndReturn<bool, 0x52E450, CControllerConfigManager *, RsKeyCodes>(this, key);
 }
+
+void CControllerConfigManager::ResetSettingOrder(e_ControllerAction action) {
+    plugin::CallMethod<0x52F5F0, CControllerConfigManager*, e_ControllerAction>(this, action);
+}

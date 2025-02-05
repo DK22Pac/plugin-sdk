@@ -23,6 +23,32 @@ public:
     RwMatrix *m_pAttachMatrix;
     bool m_bOwnsAttachedMatrix; //!< do we need to delete attaching matrix at detaching
 
+    CVector& GetPosition() {
+        return pos;
+    }
+    CVector& GetRight() {
+        return right;
+    }
+    CVector& GetForward() {
+        return up;
+    }
+    CVector& GetUp() {
+        return at;
+    }
+
+    const CVector& GetPosition() const {
+        return pos;
+    }
+    const CVector& GetRight() const {
+        return right;
+    }
+    const CVector& GetForward() const {
+        return up;
+    }
+    const CVector& GetUp() const {
+        return at;
+    }
+
     SUPPORTED_10EN_11EN_STEAM CMatrix();
 
     SUPPORTED_10EN_11EN_STEAM CMatrix(RwMatrix *rwMatrix, bool deleteOnDetach);
@@ -53,16 +79,60 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetScale(float factor);
     SUPPORTED_10EN_11EN_STEAM void SetTranslate(float x, float y, float z);
     SUPPORTED_10EN_11EN_STEAM void SetTranslate(CVector *pos);
-    SUPPORTED_10EN_11EN_STEAM void SetTranslateOnly(float x, float y, float z);
+    SUPPORTED_10EN_11EN_STEAM void Translate(float x, float y, float z);
     SUPPORTED_10EN_11EN_STEAM void SetUnity();
     SUPPORTED_10EN_11EN_STEAM void Update();
     SUPPORTED_10EN_11EN_STEAM void UpdateRW();
+
+    inline void RotateY(float y) {
+        float c = std::cos(y);
+        float s = std::sin(y);
+
+        float rx = this->right.x;
+        float rz = this->right.z;
+        float ux = this->up.x;
+        float uz = this->up.z;
+        float ax = this->at.x;
+        float az = this->at.z;
+        float px = this->pos.x;
+        float pz = this->pos.z;
+
+        this->right.x = c * rx + s * rz;
+        this->right.z = c * rz - s * rx;
+        this->up.x = c * ux + s * uz;
+        this->up.z = c * uz - s * ux;
+        this->at.x = c * ax + s * az;
+        this->at.z = c * az - s * ax;
+        this->pos.x = c * px + s * pz;
+        this->pos.z = c * pz - s * px;
+    }
+
+    void CopyToRwMatrix(RwMatrix* matrix) {
+        matrix->right.x = right.x;
+        matrix->right.y = right.y;
+        matrix->right.z = right.z;
+
+        matrix->up.x = up.x;
+        matrix->up.y = up.y;
+        matrix->up.z = up.z;
+
+        matrix->at.x = at.x;
+        matrix->at.y = at.y;
+        matrix->at.z = at.z;
+
+        matrix->pos.x = pos.x;
+        matrix->pos.y = pos.y;
+        matrix->pos.z = pos.z;
+
+        RwMatrixUpdate(matrix);
+    }
 };
 
 VALIDATE_SIZE(CMatrix, 0x48);
 
 inline CVector operator*(const CMatrix &mat, const CVector &vec) {
-    return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
+    return CVector(
+        mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
         mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
         mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
 };
@@ -84,6 +154,23 @@ inline CMatrix operator*(const CMatrix &m1, const CMatrix &m2) {
     return out;
 };
 
+inline CMatrix PreMultiply(const CMatrix& m1, const CVector& vec) {
+    CMatrix out;
+    out.right.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z;
+    out.right.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z;
+    out.right.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z;
+    out.up.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z;
+    out.up.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z;
+    out.up.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z;
+    out.at.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z;
+    out.at.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z;
+    out.at.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z;
+    out.pos.x = m1.right.x * vec.x + m1.up.x * vec.y + m1.at.x * vec.z + m1.pos.x;
+    out.pos.y = m1.right.y * vec.x + m1.up.y * vec.y + m1.at.y * vec.z + m1.pos.y;
+    out.pos.z = m1.right.z * vec.x + m1.up.z * vec.y + m1.at.z * vec.z + m1.pos.z;
+    return out;
+};
+
 inline CVector Multiply3x3(const CMatrix &mat, const CVector &vec) {
     return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z,
         mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z,
@@ -102,27 +189,27 @@ inline CMatrix& Invert(const CMatrix &src, CMatrix &dst) {
     dst.right.x = src.right.x;
     dst.right.y = src.up.x;
     dst.right.z = src.at.x;
-    *(float *)dst.flags = src.pos.x;
+    *(float *)&dst.flags = src.pos.x;
     dst.up.x = src.right.y;
     dst.up.y = src.up.y;
     dst.up.z = src.at.y;
-    *(float *)dst.pad1 = src.pos.y;
+    *(float *)&dst.pad1 = src.pos.y;
     dst.at.x = src.right.z;
     dst.at.y = src.up.z;
     dst.at.z = src.at.z;
-    *(float *)dst.pad2 = src.pos.z;
+    *(float *)&dst.pad2 = src.pos.z;
     dst.pos.x += dst.right.x * src.pos.x;
     dst.pos.y += dst.right.y * src.pos.x;
     dst.pos.z += dst.right.z * src.pos.x;
-    *(float *)dst.pad3 += *(float *)dst.flags * src.pos.x;
+    *(float *)&dst.pad3 += *(float *)&dst.flags * src.pos.x;
     dst.pos.x += dst.up.x * src.pos.y;
     dst.pos.y += dst.up.y * src.pos.y;
     dst.pos.z += dst.up.z * src.pos.y;
-    *(float *)dst.pad3 += *(float *)dst.pad1 * src.pos.y;
+    *(float *)&dst.pad3 += *(float *)&dst.pad1 * src.pos.y;
     dst.pos.x += dst.at.x * src.pos.z;
     dst.pos.y += dst.at.y * src.pos.z;
     dst.pos.z += dst.at.z * src.pos.z;
-    *(float *)dst.pad3 += *(float *)dst.pad2 * src.pos.z;
+    *(float *)&dst.pad3 += *(float *)&dst.pad2 * src.pos.z;
     dst.pos.x = -dst.pos.x;
     dst.pos.y = -dst.pos.y;
     dst.pos.z = -dst.pos.z;

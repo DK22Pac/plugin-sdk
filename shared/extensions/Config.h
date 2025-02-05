@@ -10,10 +10,16 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || \
+defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
 #include "CVector.h"
 #include "CVector2D.h"
+#elif defined(GTAIV) || defined(GTA2)
+#include "CVector.h"
+#endif
 #include "CRect.h"
 #include "CRGBA.h"
+#include "Paths.h"
 
 namespace plugin {
 
@@ -21,7 +27,7 @@ namespace plugin {
         friend class config_parameter;
     protected:
         static bool config_extract_one_value(std::string const &strinput, bool &value);
-        static int config_extract_values_array(std::string const &strinput, std::vector<bool> &arr);
+        static size_t config_extract_values_array(std::string const &strinput, std::vector<bool> &arr);
 
         template <typename T> static bool config_extract_one_value(std::istringstream &iss, T &value) {
             iss >> value;
@@ -33,12 +39,12 @@ namespace plugin {
             return config_extract_one_value(iss, value);
         }
 
-        template <typename T> static int config_extract_values_array(std::string const &strinput, std::vector<T> &arr) {
+        template <typename T> static unsigned int config_extract_values_array(std::string const &strinput, std::vector<T> &arr) {
             std::istringstream iss(strinput);
             T val;
             while (config_extract_one_value(iss, val))
                 arr.push_back(val);
-            return arr.size();
+            return (unsigned int)arr.size();
         }
     };
 
@@ -85,6 +91,7 @@ namespace plugin {
 
         config_param_line(std::string paramName);
         config_param_line(std::string paramName, std::string value, bool useQuotes);
+        config_param_line(std::string paramName, std::string value, bool useQuotes, std::string paramComment);
     };
 
     class config_file {
@@ -97,6 +104,8 @@ namespace plugin {
         bool _useEqualitySign;
         bool _useAlignment;
         bool _dataRead;
+        bool _usePrecision;
+        bool _writeOnly;
 
         config_parameter _emptyParameter;
 
@@ -107,8 +116,49 @@ namespace plugin {
         bool pathEmpty();
         void prepareData();
         void writeData();
+
+        config_file &operator<<(std::string comment) {
+            if (paramLines.empty())
+                paramLines.emplace_back("", "", false, comment);
+            else
+                paramLines.back().comment.append(comment);
+            return *this;
+        }
+
+        std::string endl() {
+            return "\n";
+        }
+
     public:
         config_file();
+
+        config_file(bool usePluginName, bool writeOnly) {
+#ifdef _MSC_VER
+            _bWidePath = false;
+#endif
+            _dataRead = false;
+            _useAlignment = true;
+            _useEqualitySign = false;
+            _usePrecision = false;
+            _writeOnly = writeOnly;
+
+#ifdef UNICODE
+            std::wstring str = PLUGIN_FILENAME;
+            std::size_t dotPosition = str.find_last_of('.');
+            if (dotPosition != std::wstring::npos) {
+                std::wstring res = str.substr(0, dotPosition) + L".ini";
+                open(PLUGIN_PATH(res.c_str()));
+            }
+#else
+            std::string str = PLUGIN_FILENAME;
+            std::size_t dotPosition = str.find_last_of('.');
+            if (dotPosition != std::string::npos) {
+                std::string res = str.substr(0, dotPosition) + ".ini";
+                open(PLUGIN_PATH(res.c_str()));
+            }
+#endif
+        }
+
         void open(std::string fileName);
         void open(std::string fileName, bool readOnly, bool equalitySign, bool alignment);
         config_file(std::string fileName);
@@ -121,5 +171,7 @@ namespace plugin {
         config_parameter &operator[](std::string name);
         void setUseEqualitySign(bool enable);
         void setUseAlignment(bool enable);
+        void setUsePrecision(bool enable);
+        void setWriteOnly(bool enable);
     };
 }

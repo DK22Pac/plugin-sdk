@@ -1,10 +1,6 @@
-/*
-    Plugin-SDK (Grand Theft Auto Vice City) header file
-    Authors: GTA Community. See more here
-    https://github.com/DK22Pac/plugin-sdk
-    Do not delete this comment block. Respect others' work!
-*/
-#pragma once
+
+#ifndef RPMATFX_H
+#define RPMATFX_H
 
 /*===========================================================================*
  *--- Include files ---------------------------------------------------------*
@@ -15,10 +11,13 @@
 
 /*---- start: ./matfx.h----*/
 
+#ifndef RPMATFX_MATFX_H
+#define RPMATFX_MATFX_H
+
 
 /**
  * \defgroup rpmatfx RpMatFX
- * \ingroup materials
+ * \ingroup rpplugin
  *
  * Material Effects Plugin for RenderWare Graphics.
  */
@@ -47,6 +46,139 @@ enum RpMatFXMaterialFlags
     rpMATFXFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RpMatFXMaterialFlags  RpMatFXMaterialFlags;
+
+
+/*===========================================================================*
+ *--- Plugin API Functions --------------------------------------------------*
+ *===========================================================================*/
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif /* __cplusplus */
+
+/*--- Plugin functions ------------------------------------------------------*/
+extern RwBool
+RpMatFXPluginAttach( void );
+
+/*--- Setup functions -------------------------------------------------------*/
+extern RpAtomic *
+RpMatFXAtomicEnableEffects( RpAtomic *atomic );
+
+extern RwBool
+RpMatFXAtomicQueryEffects( RpAtomic *atomic );
+
+extern RpWorldSector *
+RpMatFXWorldSectorEnableEffects( RpWorldSector *worldSector );
+
+extern RwBool
+RpMatFXWorldSectorQueryEffects( RpWorldSector *worldSector );
+
+extern RpMaterial *
+RpMatFXMaterialSetEffects( RpMaterial *material,
+                           RpMatFXMaterialFlags flags );
+
+
+/*--- Setup Effects ---------------------------------------------------------*/
+extern RpMaterial *
+RpMatFXMaterialSetupBumpMap( RpMaterial *material,
+                             RwTexture *texture,
+                             RwFrame *frame,
+                             RwReal coef );
+
+extern RpMaterial *
+RpMatFXMaterialSetupEnvMap( RpMaterial *material,
+                            RwTexture *texture,
+                            RwFrame *frame,
+                            RwBool useFrameBufferAlpha,
+                            RwReal coef );
+
+extern RpMaterial *
+RpMatFXMaterialSetupDualTexture( RpMaterial *material,
+                                 RwTexture *texture,
+                                 RwBlendFunction srcBlendMode,
+                                 RwBlendFunction dstBlendMode );
+
+/*--- Tinker with effects ---------------------------------------------------*/
+extern RpMatFXMaterialFlags
+RpMatFXMaterialGetEffects( const RpMaterial *material );
+
+/*--- Bump Map --------------------------------------------------------------*/
+extern RpMaterial *
+RpMatFXMaterialSetBumpMapTexture( RpMaterial *material,
+                                  RwTexture *texture );
+
+extern RpMaterial *
+RpMatFXMaterialSetBumpMapFrame( RpMaterial *material,
+                                RwFrame *frame );
+
+extern RpMaterial *
+RpMatFXMaterialSetBumpMapCoefficient( RpMaterial *material,
+                                      RwReal coef );
+extern RwTexture *
+RpMatFXMaterialGetBumpMapTexture( const RpMaterial *material );
+
+extern RwTexture *
+RpMatFXMaterialGetBumpMapBumpedTexture( const RpMaterial *material );
+
+extern RwFrame *
+RpMatFXMaterialGetBumpMapFrame( const RpMaterial *material );
+
+extern RwReal
+RpMatFXMaterialGetBumpMapCoefficient( const RpMaterial *material );
+
+/*--- Env Map ---------------------------------------------------------------*/
+extern RpMaterial *
+RpMatFXMaterialSetEnvMapTexture( RpMaterial *material,
+                                 RwTexture *texture );
+
+extern RpMaterial *
+RpMatFXMaterialSetEnvMapFrame( RpMaterial *material,
+                               RwFrame *frame );
+
+extern RpMaterial *
+RpMatFXMaterialSetEnvMapFrameBufferAlpha( RpMaterial *material,
+                                          RwBool useFrameBufferAlpha );
+
+extern RpMaterial *
+RpMatFXMaterialSetEnvMapCoefficient( RpMaterial *material,
+                                     RwReal coef );
+
+extern RwTexture *
+RpMatFXMaterialGetEnvMapTexture( const RpMaterial *material );
+
+extern RwFrame *
+RpMatFXMaterialGetEnvMapFrame( const RpMaterial *material );
+
+extern RwBool
+RpMatFXMaterialGetEnvMapFrameBufferAlpha( const RpMaterial *material );
+
+extern RwReal
+RpMatFXMaterialGetEnvMapCoefficient( const RpMaterial *material );
+
+/*--- Dual Pass -------------------------------------------------------------*/
+extern RpMaterial *
+RpMatFXMaterialSetDualTexture( RpMaterial *material,
+                               RwTexture *texture );
+
+extern RpMaterial *
+RpMatFXMaterialSetDualBlendModes( RpMaterial *material,
+                                  RwBlendFunction srcBlendMode,
+                                  RwBlendFunction dstBlendMode );
+
+extern RwTexture *
+RpMatFXMaterialGetDualTexture( const RpMaterial *material );
+
+extern const RpMaterial *
+RpMatFXMaterialGetDualBlendModes( const RpMaterial *material,
+                                  RwBlendFunction *srcBlendMode,
+                                  RwBlendFunction *dstBlendMode );
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+
+#endif /* RPMATFX_MATFX_H */
 
 /*---- end: ./matfx.h----*/
 
@@ -77,3 +209,29 @@ enum RpMatFXD3D8Pipeline
     rpMATFXD3D8PIPELINEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RpMatFXD3D8Pipeline RpMatFXD3D8Pipeline;
+
+/******************************************************************************
+ *  Global types
+ */
+
+/******************************************************************************
+ *  Functions
+ */
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif /* __cplusplus */
+
+extern RxPipeline *
+RpMatFXGetD3D8Pipeline( RpMatFXD3D8Pipeline d3d8Pipeline );
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+/*---- end: c:/daily/rwsdk/plugin/matfx/d3d8/matfxplatform.h----*/
+
+#endif /* RPMATFX_H */
+
+

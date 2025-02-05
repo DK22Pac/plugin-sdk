@@ -20,8 +20,8 @@ public:
 private:
     char _pad7;
 public:
-    float X;
-    float Y;
+    float x;
+    float y;
 };
 
 VALIDATE_SIZE(CMouseControllerState, 0x10);

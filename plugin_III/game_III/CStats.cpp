@@ -61,115 +61,115 @@ int   &CStats::mmRain                       = *(int*)0x8F2C98;
 
 // Converted from cdecl void CStats::AnotherCriminalCaught(void) 0x04AB050 
 void CStats::AnotherCriminalCaught() {
-    plugin::Call<0x04AB05>();
+    plugin::Call<0x4AB050>();
 }
 
 // Converted from cdecl void CStats::AnotherFireExtinguished(void) 0x04AB080 
 void CStats::AnotherFireExtinguished() {
-    plugin::Call<0x04AB08>();
+    plugin::Call<0x4AB080>();
 }
 
 // Converted from cdecl void CStats::AnotherKillFrenzyPassed(void) 0x04AB240 
 void CStats::AnotherKillFrenzyPassed() {
-    plugin::Call<0x04AB24>();
+    plugin::Call<0x4AB240>();
 }
 
 // Converted from cdecl void CStats::AnotherLifeSavedWithAmbulance(void) 0x04AB040 
 void CStats::AnotherLifeSavedWithAmbulance() {
-    plugin::Call<0x04AB04>();
+    plugin::Call<0x4AB040>();
 }
 
 // Converted from cdecl void CStats::CheckPointReachedSuccessfully(void) 0x04AB270 
 void CStats::CheckPointReachedSuccessfully() {
-    plugin::Call<0x04AB27>();
+    plugin::Call<0x4AB270>();
 }
 
 // Converted from cdecl void CStats::CheckPointReachedUnsuccessfully(void) 0x04AB290 
 void CStats::CheckPointReachedUnsuccessfully() {
-    plugin::Call<0x04AB29>();
+    plugin::Call<0x4AB290>();
 }
 
 // Converted from cdecl int CStats::FindCriminalRatingNumber(void) 0x04AB2A0 
 int CStats::FindCriminalRatingNumber() {
-    return plugin::CallAndReturn<int, 0x04AB2A>();
+    return plugin::CallAndReturn<int, 0x4AB2A0>();
 }
 
 // Converted from cdecl wchar_t* CStats::FindCriminalRatingString(void) 0x04AB090
 wchar_t* CStats::FindCriminalRatingString() {
-    return plugin::CallAndReturn<wchar_t*, 0x04AB09>();
+    return plugin::CallAndReturn<wchar_t*, 0x4AB090>();
 }
 
 // Converted from cdecl void CStats::Init(void) 0x04AAC60 
 void CStats::Init() {
-    plugin::Call<0x04AAC6>();
+    plugin::Call<0x4AAC60>();
 }
 
 // Converted from cdecl void CStats::LoadStats(uchar *bufferPointer,uint structSize) 0x04AB670
 void CStats::LoadStats(unsigned char* bufferPointer, unsigned int structSize) {
-    plugin::Call<0x04AB67, unsigned char*, unsigned int>(bufferPointer, structSize);
+    plugin::Call<0x4AB670, unsigned char*, unsigned int>(bufferPointer, structSize);
 }
 
 // Converted from cdecl void CStats::Register4x4MayhemTime(int time) 0x04AB020
 void CStats::Register4x4MayhemTime(int time) {
-    plugin::Call<0x04AB02, int>(time);
+    plugin::Call<0x4AB020, int>(time);
 }
 
 // Converted from cdecl void CStats::Register4x4OneTime(int time) 0x04AAFC0
 void CStats::Register4x4OneTime(int time) {
-    plugin::Call<0x04AAFC, int>(time);
+    plugin::Call<0x4AAFC0, int>(time);
 }
 
 // Converted from cdecl void CStats::Register4x4ThreeTime(int time) 0x04AB000
 void CStats::Register4x4ThreeTime(int time) {
-    plugin::Call<0x04AB00, int>(time);
+    plugin::Call<0x4AB000, int>(time);
 }
 
 // Converted from cdecl void CStats::Register4x4TwoTime(int time) 0x04AAFE0
 void CStats::Register4x4TwoTime(int time) {
-    plugin::Call<0x04AAFE, int>(time);
+    plugin::Call<0x4AAFE0, int>(time);
 }
 
 // Converted from cdecl void CStats::RegisterElBurroTime(int time) 0x04AAFA0
 void CStats::RegisterElBurroTime(int time) {
-    plugin::Call<0x04AAFA, int>(time);
+    plugin::Call<0x4AAFA0, int>(time);
 }
 
 // Converted from cdecl void CStats::RegisterFastestTime(int statID,int time) 0x04AAF50
 void CStats::RegisterFastestTime(int statID, int time) {
-    plugin::Call<0x04AAF5, int, int>(statID, time);
+    plugin::Call<0x4AAF50, int, int>(statID, time);
 }
 
 // Converted from cdecl void CStats::RegisterHighestScore(int statID,int score) 0x04AAF80
 void CStats::RegisterHighestScore(int statID, int score) {
-    plugin::Call<0x04AAF8, int, int>(statID, score);
+    plugin::Call<0x4AAF80, int, int>(statID, score);
 }
 
 // Converted from cdecl void CStats::RegisterLevelAmbulanceMission(int level) 0x04AB060
 void CStats::RegisterLevelAmbulanceMission(int level) {
-    plugin::Call<0x04AB06, int>(level);
+    plugin::Call<0x4AB060, int>(level);
 }
 
 // Converted from cdecl void CStats::RegisterLongestFlightInDodo(int distance) 0x04AB200
 void CStats::RegisterLongestFlightInDodo(int distance) {
-    plugin::Call<0x04AB20, int>(distance);
+    plugin::Call<0x4AB200, int>(distance);
 }
 
 // Converted from cdecl void CStats::RegisterTimeTakenDefuseMission(int time) 0x04AB220
 void CStats::RegisterTimeTakenDefuseMission(int time) {
-    plugin::Call<0x04AB22, int>(time);
+    plugin::Call<0x4AB220, int>(time);
 }
 
 // Converted from cdecl void CStats::SaveStats(uchar *bufferPointer,uint *structSize) 0x04AB3E0
 void CStats::SaveStats(unsigned char* bufferPointer, unsigned int* structSize) {
-    plugin::Call<0x04AB3E, unsigned char*, unsigned int*>(bufferPointer, structSize);
+    plugin::Call<0x4AB3E0, unsigned char*, unsigned int*>(bufferPointer, structSize);
 }
 
 // Converted from cdecl void CStats::SetTotalNumberKillFrenzies(int number) 0x04AB250
 void CStats::SetTotalNumberKillFrenzies(int number) {
-    plugin::Call<0x04AB25, int>(number);
+    plugin::Call<0x4AB250, int>(number);
 }
 
 // Converted from cdecl void CStats::SetTotalNumberMissions(int number) 0x04AB260
 void CStats::SetTotalNumberMissions(int number) {
-    plugin::Call<0x04AB26, int>(number);
+    plugin::Call<0x4AB260, int>(number);
 }

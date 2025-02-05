@@ -5,16 +5,22 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Other.h"
-#include <Windows.h>
+#include <fstream>
+#include <ctime>
+
+#if _HAS_CXX17
+#include <filesystem>
+#endif
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "..\stb\stb_image.h"
+
+#include "Image.h"
 
 unsigned int plugin::FormattingUtils::currentBuf = 0;
 char plugin::FormattingUtils::buf[plugin::FormattingUtils::BUF_SIZE][4096];
 unsigned int plugin::FormattingUtils::currentBufW = 0;
 wchar_t plugin::FormattingUtils::bufW[plugin::FormattingUtils::BUF_SIZE][4096];
-
-unsigned int plugin::Random(unsigned int min, unsigned int max) {
-    return min + (rand() % (max - min + 1));
-}
 
 bool plugin::KeyPressed(unsigned int keyCode) {
     return (GetKeyState(keyCode) & 0x8000) != 0;
@@ -55,3 +61,40 @@ wchar_t *plugin::FormattingUtils::GetBufW() {
         currentBufW = 0;
     return result;
 }
+
+bool plugin::CreateImageFromFile(std::string const& path, plugin::Image*& img) {
+    int32_t w, h, c;
+    uint8_t* p = stbi_load(path.c_str(), &w, &h, &c, 4);
+
+    if (p) {
+        if (!img)
+            img = new plugin::Image();
+
+        img->width = w;
+        img->height = h;
+        img->channels = c;
+        img->pixels = p;
+
+        return true;
+    }
+
+    return false;
+}
+
+#if _HAS_CXX17
+std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, std::string const& ext) {
+    std::vector<std::string> files = {};
+    try {
+        for (auto& it : std::filesystem::directory_iterator(path)) {
+            if (it.path().extension() == ext) {
+                files.push_back(it.path().filename().string());
+            }
+        }
+    }
+    catch (const std::exception& ex) {
+        std::cerr << "Error: " << ex.what() << std::endl;
+    }
+
+    return files;
+}
+#endif

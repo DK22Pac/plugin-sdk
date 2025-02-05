@@ -324,7 +324,7 @@ public:
     SUPPORTED_10US static float &m_f3rdPersonCHairMultY;
     SUPPORTED_10US static float &m_f3rdPersonCHairMultX;
     SUPPORTED_10US static float &m_fMouseAccelVertical;
-    SUPPORTED_10US static float &m_fMouseAccelHorzntl;
+    SUPPORTED_10US static float &m_fMouseAccelHorzntal;
     SUPPORTED_10US static bool &m_bUseMouse3rdPerson;
     /* virtual functions */
 
@@ -388,8 +388,8 @@ public:
     SUPPORTED_10US int InitialiseScriptableComponents();
     SUPPORTED_10US bool IsExtraEntityToIgnore(CEntity *entity);
     SUPPORTED_10US bool IsItTimeForNewcam(int CamSequence, int StartTime);
-    SUPPORTED_10US bool IsSphereVisible(CVector const *origin, float radius, RwMatrixTag *transformMatrix);
-    SUPPORTED_10US bool IsSphereVisible(CVector const *origin, float radius);
+    SUPPORTED_10US bool IsSphereVisible(CVector const &origin, float radius, RwMatrixTag *transformMatrix);
+    SUPPORTED_10US bool IsSphereVisible(CVector const &origin, float radius);
     SUPPORTED_10US void LerpFOV(float zoomInFactor, float zoomOutFactor, float timelimit, bool bEase);
     SUPPORTED_10US void LoadPathSplines(int pFile);
     SUPPORTED_10US void Process();

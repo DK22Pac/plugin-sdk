@@ -27,6 +27,11 @@ public:
         unsigned char bBetweenLevels : 1;
     } m_nFlags;
     char m_nGroup;
+
+public:
+    CVector GetPosition() {
+        return m_vecPos;
+    }
 };
 
 VALIDATE_SIZE(CPathNode, 0x20);

@@ -20,8 +20,8 @@ int del_dtor_gaddr(CPlaceable) = GLOBAL_ADDRESS_BY_VERSION(0x49FBD0, 0x49FCC0, 0
 int addrof(CPlaceable::GetPosition) = ADDRESS_BY_VERSION(0x4CBAC0, 0x4CBB60, 0x4CBAF0);
 int gaddrof(CPlaceable::GetPosition) = GLOBAL_ADDRESS_BY_VERSION(0x4CBAC0, 0x4CBB60, 0x4CBAF0);
 
-CVector *CPlaceable::GetPosition() {
-    return plugin::CallMethodAndReturnDynGlobal<CVector *, CPlaceable *>(gaddrof(CPlaceable::GetPosition), this);
+CVector &CPlaceable::GetPosition() {
+    return plugin::CallMethodAndReturnDynGlobal<CVector &, CPlaceable *>(gaddrof(CPlaceable::GetPosition), this);
 }
 
 int addrof_o(CPlaceable::IsWithinArea, bool (CPlaceable::*)(float, float, float, float)) = ADDRESS_BY_VERSION(0x49FA50, 0x49FB40, 0x49FAD0);

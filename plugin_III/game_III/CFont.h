@@ -12,17 +12,44 @@
 #include "CFontDetails.h"
 #include "CSprite2d.h"
 
+struct tFontTable {
+    unsigned short prop[191];
+    unsigned short space;
+    unsigned short unprop;
+};
+
+struct tFontSize {
+    tFontTable fonts[3];
+    unsigned short ftable[338];
+};
+
+enum eFontAlignment : unsigned char {
+    ALIGN_CENTER,
+    ALIGN_LEFT,
+    ALIGN_RIGHT
+};
+
+enum eFontStyle : unsigned char {
+    FONT_BANK,
+    FONT_PAGER,
+    FONT_HEADING,
+
+    FONT_SUBTITLES = FONT_BANK,
+};
+
 class CFont {
 public:
     // variables
     static CFontDetails &Details;
     static CSprite2d *Sprite; 
     static short &NewLine;
+    static tFontSize& Size;
 
     // funcs
 
     static void DrawFonts();
     // get next ' ' character in a string
+    static float GetCharacterSize(const wchar_t c);
     static wchar_t* GetNextSpace(const wchar_t* str);
     static int GetNumberLines(float x, float y, const wchar_t* text);
     static float GetStringWidth(const wchar_t* str, bool sentence);
@@ -83,6 +110,29 @@ public:
     static void PrintChar(float x, float y, char character);
     static void PrintString(float x, float y, const char* text);
     static void PrintString(float x, float y, const char* start, const char* end, float arg4);
+
+    static inline void SetOrientation(eFontAlignment alignment) {
+        if (alignment == ALIGN_CENTER)
+            SetCentreOn();
+        else if (alignment == ALIGN_LEFT)
+            SetJustifyOn();
+        else if (alignment == ALIGN_RIGHT)
+            SetRightJustifyOn();
+    }
+
+    static inline void SetProportional(bool on) {
+        if (on)
+            SetPropOn();
+        else
+            SetPropOff();
+    }
+
+    static inline void SetBackground(bool on) {
+        if (on)
+            SetBackgroundOn();
+        else
+            SetBackgroundOff();
+    }
 };
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);

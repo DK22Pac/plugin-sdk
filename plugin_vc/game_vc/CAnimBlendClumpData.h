@@ -17,6 +17,13 @@ public:
     int m_nNumFrames;
     CVector *m_pvecPedPosition;
     AnimBlendFrameData *m_pFrames;
+
+public:
+    void ForAllFrames(void (*cb)(AnimBlendFrameData*, void*), void* arg) {
+        for (int i = 0; i < this->m_nNumFrames; i++)
+            cb(&this->m_pFrames[i], arg);
+    }
+
 };
 
 VALIDATE_SIZE(CAnimBlendClumpData, 0x14);

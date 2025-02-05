@@ -10,11 +10,57 @@
 #include "CRGBA.h"
 #include "CRect.h"
 #include "CFontDetails.h"
+#include "CSprite2d.h"
+
+struct tFontTable {
+    unsigned short prop[208];
+    unsigned short space;
+    unsigned short unprop;
+};
+
+struct tFontSize {
+    tFontTable fonts[3];
+    unsigned short ftable[338];
+};
+
+enum eFontAlignment : unsigned char {
+    ALIGN_CENTER,
+    ALIGN_LEFT,
+    ALIGN_RIGHT
+};
+
+enum eFontStyle : unsigned char {
+    FONT_BANK,
+    FONT_STANDARD,
+    FONT_HEADING,
+
+    FONT_SUBTITLES = FONT_STANDARD,
+};
+
+class CFontRenderState {
+public:
+    DWORD anonymous_0;
+    float fTextPosX;
+    float fTextPosY;
+    float fTextSizeX;
+    float fTextSizeY;
+    CRGBA color;
+    float fExtraSpace;
+    float fSlant;
+    float fSlantRefPointX;
+    float fSlantRefPointY;
+    char bIsShadow;
+    char bFontHalfTexture;
+    char bProp;
+    char anonymous_14;
+    short FontStyle;
+};
 
 class CFont {
 public:
-	
     static CFontDetails &Details;
+    static CFontRenderState &RenderState;
+    static CSprite2d(&Sprite)[3];
 
     static short character_code(unsigned char character);
     static int FindNewCharacter(short character);
@@ -59,6 +105,29 @@ public:
     static void Initialise();
 
     static void PrintString(float x, float y, const char* text);
+
+    static inline void SetOrientation(eFontAlignment alignment) {
+        if (alignment == ALIGN_CENTER)
+            SetCentreOn();
+        else if (alignment == ALIGN_LEFT)
+            SetJustifyOn();
+        else if (alignment == ALIGN_RIGHT)
+            SetRightJustifyOn();
+    }
+
+    static inline void SetProportional(bool on) {
+        if (on)
+            SetPropOn();
+        else
+            SetPropOff();
+    }
+
+    static inline void SetBackground(bool on) {
+        if (on)
+            SetBackgroundOn();
+        else
+            SetBackgroundOff();
+    }
 };
 
 void UnicodeMakeUpperCase(wchar_t* str_out, wchar_t const* str_in);

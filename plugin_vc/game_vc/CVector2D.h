@@ -64,3 +64,37 @@ public:
         this->y /= divisor;
     }
 };
+
+
+inline CVector2D operator-(const CVector2D& right) {
+    return CVector2D(-right.x, -right.y);
+}
+
+inline CVector2D operator/(const CVector2D& vec, float div) {
+    return CVector2D(vec.x / div, vec.y / div);
+}
+
+inline CVector2D operator-(const CVector2D& vecOne, const CVector2D& vecTwo) {
+    return CVector2D(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y);
+}
+
+inline CVector2D operator+(const CVector2D& vecOne, const CVector2D& vecTwo) {
+    return CVector2D(vecOne.x + vecTwo.x, vecOne.y + vecTwo.y);
+}
+
+inline CVector2D operator*(const CVector2D& vec, float multiplier) {
+    return CVector2D(vec.x * multiplier, vec.y * multiplier);
+}
+
+inline CVector2D operator*(const CVector2D& vecOne, const CVector2D& vecTwo) {
+    return CVector2D(vecOne.x * vecTwo.x, vecOne.y * vecTwo.y);
+}
+
+inline CVector2D operator*(float multiplier, const CVector2D& vec) {
+    return CVector2D(vec.x * multiplier, vec.y * multiplier);
+}
+
+inline float DistanceBetweenPoints(const CVector2D& pointOne, const CVector2D& pointTwo) {
+    CVector2D diff = pointTwo - pointOne;
+    return diff.Magnitude();
+}

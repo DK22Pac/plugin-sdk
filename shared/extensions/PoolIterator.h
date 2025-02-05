@@ -6,6 +6,7 @@
 */
 #pragma once
 
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CPool.h"
 
 namespace plugin {
@@ -64,3 +65,4 @@ template <typename T1, typename T2>
 plugin::PoolIterator<T1, T2> end(CPool<T1, T2> *pool) {
     return plugin::PoolIterator<T1, T2>(pool, -1);
 }
+#endif

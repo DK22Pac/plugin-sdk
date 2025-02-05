@@ -36,7 +36,7 @@ public:
     void Draw(CRect const& rect, CRGBA const& color1, CRGBA const& color2, CRGBA const& color3, CRGBA const& color4);
     void Draw(CRect const& rect, CRGBA const& color, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4);
     void Draw(CRect const& rect, CRGBA const& color);
-    void DrawRectXLU(CRect const& rect, CRGBA const& color1, CRGBA const& color2, CRGBA const& color3, CRGBA const& color4);
+    void Draw(float x, float y, float w, float h, CRGBA const& color);
     static void RenderVertexBuffer();
     static void AddToBuffer(CRect const& rect, CRGBA const& color, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4);
     static void InitPerFrame();

@@ -497,3 +497,7 @@ int gaddrof(CCheat::WeaponSkillsCheat) = GLOBAL_ADDRESS_BY_VERSION(0x439940, 0, 
 void CCheat::WeaponSkillsCheat() {
     plugin::CallDynGlobal(gaddrof(CCheat::WeaponSkillsCheat));
 }
+
+void CCheat::ResetCheats() {
+    plugin::Call<0x438450>();
+}

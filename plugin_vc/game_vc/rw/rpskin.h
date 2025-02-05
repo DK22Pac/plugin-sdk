@@ -1,14 +1,10 @@
-/*
-    Plugin-SDK (Grand Theft Auto Vice City) header file
-    Authors: GTA Community. See more here
-    https://github.com/DK22Pac/plugin-sdk
-    Do not delete this comment block. Respect others' work!
-*/
-#pragma once
+
+#ifndef RPSKIN_H
+#define RPSKIN_H
 
 /**
  * \defgroup rpskin RpSkin
- * \ingroup skinning
+ * \ingroup rpplugin
  *
  * Skin Plugin for RenderWare Graphics.
  */
@@ -20,6 +16,7 @@
 #include "rpworld.h"
 
 #include "rpcriter.h"
+#include "rpskin.rpe"
 
 #include "rphanim.h"
 
@@ -51,7 +48,7 @@ struct RwMatrixWeights
 
 /**
  * \ingroup rpskin
- * \struct RpSkin
+ * \typedef RpSkin
  *
  * Skin object. This should be considered an opaque type.
  * Use the RpSkin API functions to access.
@@ -60,6 +57,62 @@ struct RwMatrixWeights
  * \see RpSkinDestroy
  */
 typedef struct RpSkin RpSkin;
+
+/*===========================================================================*
+ *--- Plugin API Functions --------------------------------------------------*
+ *===========================================================================*/
+#ifdef __cplusplus
+extern "C"
+{
+#endif /* __cplusplus */
+
+/*---------------------------------------------------------------------------*
+ *-   Plugin functions                                                      -*
+ *---------------------------------------------------------------------------*/
+extern RwBool
+RpSkinPluginAttach(void);
+
+/*---------------------------------------------------------------------------*
+ *-   Skin Atomic functions                                                 -*
+ *---------------------------------------------------------------------------*/
+extern RpAtomic *
+RpSkinAtomicSetHAnimHierarchy( RpAtomic *atomic,
+                               RpHAnimHierarchy *hierarchy );
+
+extern RpHAnimHierarchy *
+RpSkinAtomicGetHAnimHierarchy( const RpAtomic *atomic );
+
+/*---------------------------------------------------------------------------*
+ *-   Skin Geometry functions                                               -*
+ *---------------------------------------------------------------------------*/
+extern RpGeometry *
+RpSkinGeometrySetSkin( RpGeometry *geometry,
+                       RpSkin *skin );
+
+extern RpSkin *
+RpSkinGeometryGetSkin( RpGeometry *geometry );
+
+extern RpSkin *
+RpSkinCreate( RwUInt32 numVertices,
+              RwUInt32 numBones,
+              RwMatrixWeights *vertexWeights,
+              RwUInt32 *vertexIndices,
+              RwMatrix *inverseMatrices );
+
+extern RpSkin *
+RpSkinDestroy( RpSkin *skin );
+
+extern RwUInt32
+RpSkinGetNumBones( RpSkin *skin );
+
+extern const RwMatrixWeights *
+RpSkinGetVertexBoneWeights( RpSkin *skin );
+
+extern const RwUInt32 *
+RpSkinGetVertexBoneIndices( RpSkin *skin );
+
+extern const RwMatrix *
+RpSkinGetSkinToBoneMatrices( RpSkin *skin );
 
 /*---------------------------------------------------------------------------*
  *-   Skin pipeline                                                         -*
@@ -78,9 +131,32 @@ enum RpSkinType
     rpSKINTYPEGENERIC   = 1, /**<Generic skin rendering.          */
     rpSKINTYPEMATFX     = 2, /**<Material effects skin rendering. */
     rpSKINTYPETOON      = 3, /**<Toon skin rendering.             */
+    rpSKINTYPEMATFXTOON = 4, /**<Note Toon + MatFX on same object NOT currently supported */
     rpSKINTYPEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RpSkinType RpSkinType;
+
+extern RpAtomic *
+RpSkinAtomicSetType( RpAtomic *atomic,
+                     RpSkinType type );
+
+extern RpSkinType
+RpSkinAtomicGetType( RpAtomic *atomic );
+
+/*---------------------------------------------------------------------------*/
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+/*---------------------------------------------------------------------------*
+ *-   Backwards macros                                                      -*
+ *---------------------------------------------------------------------------*/
+
+#define RpSkinAtomicGetSkin(_a)                                         \
+    RpSkinGeometryGetSkin(RpAtomicGetGeometry(_a))
+
+/*---------------------------------------------------------------------------*/
 
 /*---- start: ./d3d8/skinplatform.h----*/
 
@@ -89,29 +165,6 @@ typedef enum RpSkinType RpSkinType;
  * \ingroup rpskin
  *
  * D3D8 skin pipeline extension.
- */
-
-/**
- * \defgroup rpskind3d8features Features
- * \ingroup rpskind3d8
- *
- * D3D8 skin pipeline features.
- */
-
-/**
- * \defgroup rpskind3d8restrictions Restrictions
- * \ingroup rpskind3d8
- *
- * D3D8 skin pipeline restrictions.
- */
-
-/**
- * \defgroup rpskinbonelimit Bone limit
- * \ingroup rpskind3d8restrictions
- *
- * \par Bone limit
- * The bone limit is 256 as skinning is performed on the CPU.
- *
  */
 
 
@@ -144,3 +197,26 @@ enum RpSkinD3D8Pipeline
     rpSKIND3D8PIPELINEFORCEENUMSIZEINT = RWFORCEENUMSIZEINT
 };
 typedef enum RpSkinD3D8Pipeline RpSkinD3D8Pipeline;
+
+/*===========================================================================*
+ *--- D3D8 Plugin API Functions ----------------------------------------------*
+ *===========================================================================*/
+#ifdef __cplusplus
+extern "C"
+{
+#endif /* __cplusplus */
+/*---------------------------------------------------------------------------*/
+
+extern RxPipeline *
+RpSkinGetD3D8Pipeline( RpSkinD3D8Pipeline D3D8Pipeline );
+
+/*---------------------------------------------------------------------------*/
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+/*---- end: ./d3d8/skinplatform.h----*/
+
+#endif /* RPSKIN_H */
+
+

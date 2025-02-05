@@ -45,9 +45,15 @@ enum eFightingStyle
     STYLE_BOXING,
     STYLE_KUNG_FU,
     STYLE_KNEE_HEAD,
-    // various melee weapon styles
-    STYLE_GRAB_KICK = 15,
-    STYLE_ELBOWS = 16,
+    STYLE_MELEE,
+    STYLE_KNIFE,
+    STYLE_BAT,
+    STYLE_KATANA_CANE,
+    STYLE_CHAINSAW,
+    STYLE_DILDO,
+    STYLE_FLOWER,
+    STYLE_GRAB_KICK,
+    STYLE_ELBOWS
 };
 
 class CObject;
@@ -217,7 +223,7 @@ public:
     short field_50A;
     CPedIK              m_pedIK;
     int field_52C;
-    ePedState           m_nPedState; // see ePedState
+    ePedState           m_ePedState; // see ePedState
     int                 m_nMoveState;
     int field_538;
     int field_53C;
@@ -244,7 +250,7 @@ public:
     eWeaponType         m_nSavedWeapon; // when we need to hide ped weapon, we save it temporary here
     eWeaponType         m_nDelayedWeapon; // 'delayed' weapon is like an additional weapon, f.e., simple cop has a nitestick as current and pistol as delayed weapons
     unsigned int        m_nDelayedWeaponAmmo;
-    unsigned char       m_nActiveWeaponSlot;
+    unsigned char       m_nSelectedWepSlot;
     unsigned char       m_nWeaponShootingRate;
     unsigned char       m_nWeaponAccuracy;
     CObject            *m_pTargetedObject;
@@ -431,6 +437,11 @@ public:
     void MakeTyresMuddySectorList(CPtrList& ptrList);
     void DeadPedMakesTyresBloody();
 	void SetModelIndex(unsigned int modelIndex);
+
+public:
+    inline CWeapon* GetWeapon() {
+        return &m_aWeapons[m_nSelectedWepSlot];
+    }
 
     static void* operator new(unsigned int size);
     static void operator delete(void* data);

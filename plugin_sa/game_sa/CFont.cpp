@@ -32,6 +32,7 @@ unsigned char& CFont::m_nFontShadow = *(unsigned char *)0xC71A96;
 CRGBA *CFont::m_FontDropColor = (CRGBA *)0xC71A97;
 unsigned char& CFont::m_nFontOutlineSize = *(unsigned char *)0xC71A9B;
 unsigned char& CFont::m_nFontOutline = *(unsigned char *)0xC71A9C;
+CFontRenderState& CFont::RenderState = *(CFontRenderState*)0xC71AA0;
 
 tFontData *gFontData = (tFontData *)0xC718B0;
 
@@ -164,9 +165,9 @@ void CFont::RenderFontBuffer()
 	((void (__cdecl *)())0x719840)();
 }
 
-float CFont::GetStringWidth(char *string, bool unk1, bool unk2)
+float CFont::GetStringWidth(const char *string, bool spaces, bool scriptValues)
 {
-	return ((float (__cdecl *)(char *, bool, bool))0x71A0E0)(string, unk1, unk2);
+	return ((float (__cdecl *)(const char *, bool, bool))0x71A0E0)(string, spaces, scriptValues);
 }
 
 void CFont::DrawFonts()
@@ -174,32 +175,32 @@ void CFont::DrawFonts()
 	((void (__cdecl *)())0x71A210)();
 }
 
-short CFont::ProcessCurrentString(bool print, float x, float y, char *text)
+short CFont::ProcessCurrentString(bool print, float x, float y, const char *text)
 {
-	return ((short (__cdecl *)(bool, float, float, char *))0x71A220)(print, x, y, text);
+	return ((short (__cdecl *)(bool, float, float, const char *))0x71A220)(print, x, y, text);
 }
 
-short CFont::GetNumberLines(float x, float y, char *text)
+short CFont::GetNumberLines(float x, float y, const char *text)
 {
-	return ((short (__cdecl *)(float, float, char *))0x71A5E0)(x, y, text);
+	return ((short (__cdecl *)(float, float, const char *))0x71A5E0)(x, y, text);
 }
 
-short CFont::ProcessStringToDisplay(float x, float y, char *text)
+short CFont::ProcessStringToDisplay(float x, float y, const char *text)
 {
-	return ((short (__cdecl *)(float, float, char *))0x71A600)(x, y, text);
+	return ((short (__cdecl *)(float, float, const char *))0x71A600)(x, y, text);
 }
 
-void CFont::GetTextRect(CRect *rect, float x, float y, char *text)
+void CFont::GetTextRect(CRect *rect, float x, float y, const char *text)
 {
-	((void (__cdecl *)(CRect *, float, float, char *))0x71A620)(rect, x, y, text);
+	((void (__cdecl *)(CRect *, float, float, const char *))0x71A620)(rect, x, y, text);
 }
 
-void CFont::PrintString(float x, float y, char *text)
+void CFont::PrintString(float x, float y, const char *text)
 {
-	((void (__cdecl *)(float, float, char *))0x71A700)(x, y, text);
+	((void (__cdecl *)(float, float, const char *))0x71A700)(x, y, text);
 }
 
-void CFont::PrintStringFromBottom(float x, float y, char *text)
+void CFont::PrintStringFromBottom(float x, float y, const char *text)
 {
-	((void (__cdecl *)(float, float, char *))0x71A820)(x, y, text);
+	((void (__cdecl *)(float, float, const char *))0x71A820)(x, y, text);
 }

@@ -6,6 +6,22 @@
 */
 #include "common_sdk.h"
 
+#ifdef GBH
+void plugin::SetRenderState(unsigned int state, unsigned int value) {
+    RenderStateSet(state, reinterpret_cast<void*>(value));
+}
+
+void plugin::GetRenderState(unsigned int state, unsigned int& outValue) {
+    RenderStateGet(state, reinterpret_cast<void**>(&outValue));
+}
+
+unsigned int plugin::GetRenderState(unsigned int state) {
+    unsigned int outValue;
+    RenderStateGet(state, reinterpret_cast<void**>(&outValue));
+    return outValue;
+}
+
+#elif RW
 RwFrame *plugin::GetObjectParent(RwObject *obj) {
     return reinterpret_cast<RwFrame *>(rwObjectGetParent(obj));
 }
@@ -37,3 +53,4 @@ RwRaster *plugin::GetRenderRaster(RwRenderState state) {
     RwRenderStateGet(state, &outRaster);
     return outRaster;
 }
+#endif

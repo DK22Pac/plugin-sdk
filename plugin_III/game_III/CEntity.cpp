@@ -62,8 +62,10 @@ void CEntity::DeleteRwObject() {
 int addrof(CEntity::GetBoundRect) = ADDRESS_BY_VERSION(0x474000, 0x474000, 0x474000);
 int gaddrof(CEntity::GetBoundRect) = GLOBAL_ADDRESS_BY_VERSION(0x474000, 0x474000, 0x474000);
 
-CRect *CEntity::GetBoundRect() {
-    return plugin::CallVirtualMethodAndReturn<CRect *, 7, CEntity *>(this);
+CRect CEntity::GetBoundRect() {
+    CRect out;
+    plugin::CallVirtualMethodAndReturn<CRect *, 7, CEntity *>(this, &out);
+    return out;
 }
 
 int addrof(CEntity::ProcessControl) = ADDRESS_BY_VERSION(0x405900, 0x405900, 0x405900);

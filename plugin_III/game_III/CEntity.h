@@ -13,6 +13,8 @@
 #include "CVector.h"
 #include "CRect.h"
 #include "eEntityStatus.h"
+#include "CColModel.h"
+#include "CModelInfo.h"
 
 enum PLUGIN_API eEntityType {
     ENTITY_TYPE_NOTHING = 0,
@@ -36,7 +38,7 @@ public:
     };
 
     unsigned char m_nType : 3;
-    unsigned char m_nState : 5;
+    unsigned char m_nStatus : 5;
 	
     struct {
         unsigned char bUsesCollision : 1; //!< does entity use collision
@@ -77,7 +79,10 @@ public:
 
         unsigned char bDistanceFade : 1; //!< fade entity because it is far away
         unsigned char bFlag34 : 1;
-    } m_nEntityFlags;
+    } m_nFlags;
+private:
+    char _pad56[2];
+public:
     unsigned short m_nScanCode;
     unsigned short m_nRandomSeed;
     short m_nModelIndex;
@@ -92,7 +97,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetModelIndexNoCreate(unsigned int modelIndex);
     SUPPORTED_10EN_11EN_STEAM void CreateRwObject();
     SUPPORTED_10EN_11EN_STEAM void DeleteRwObject();
-    SUPPORTED_10EN_11EN_STEAM CRect *GetBoundRect();
+    SUPPORTED_10EN_11EN_STEAM CRect GetBoundRect();
     SUPPORTED_10EN_11EN_STEAM void ProcessControl();
     SUPPORTED_10EN_11EN_STEAM void ProcessCollision();
     SUPPORTED_10EN_11EN_STEAM void ProcessShift();
@@ -127,6 +132,10 @@ public:
 	
 	inline CVector TransformFromObjectSpace(CVector const& offset) {
         return this->m_matrix * offset;
+    }
+
+    inline CColModel* GetColModel() {
+        return CModelInfo::GetModelInfo(m_nModelIndex)->m_pColModel;
     }
 };
 

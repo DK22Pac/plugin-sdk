@@ -1,0 +1,106 @@
+/*
+    Plugin-SDK (Grand Theft Auto IV) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
+*/
+#pragma once
+#include "PluginBase.h"
+#include "Rage.h"
+
+enum eHudColours {
+    HUD_COLOUR_PURE_WHITE,
+    HUD_COLOUR_WHITE,
+    HUD_COLOUR_BLACK,
+    HUD_COLOUR_GREY,
+    HUD_COLOUR_RED,
+    HUD_COLOUR_REDLIGHT,
+    HUD_COLOUR_REDDARK,
+    HUD_COLOUR_BLUE,
+    HUD_COLOUR_BLUELIGHT,
+    HUD_COLOUR_BLUEDARK,
+    HUD_COLOUR_YELLOW,
+    HUD_COLOUR_YELLOWLIGHT,
+    HUD_COLOUR_YELLOWDARK,
+    HUD_COLOUR_ORANGE,
+    HUD_COLOUR_ORANGELIGHT,
+    HUD_COLOUR_ORANGEDARK,
+    HUD_COLOUR_GREEN,
+    HUD_COLOUR_GREENLIGHT,
+    HUD_COLOUR_GREENDARK,
+    HUD_COLOUR_PURPLE,
+    HUD_COLOUR_PURPLELIGHT,
+    HUD_COLOUR_PURPLEDARK,
+    HUD_COLOUR_PINK,
+    HUD_COLOUR_STAR,
+    HUD_COLOUR_STARLIGHT,
+    HUD_COLOUR_STARDARK,
+    HUD_COLOUR_NET_PLAYER1,
+    HUD_COLOUR_NET_PLAYER2,
+    HUD_COLOUR_NET_PLAYER3,
+    HUD_COLOUR_NET_PLAYER4,
+    HUD_COLOUR_NET_PLAYER5,
+    HUD_COLOUR_NET_PLAYER6,
+    HUD_COLOUR_NET_PLAYER7,
+    HUD_COLOUR_NET_PLAYER8,
+    HUD_COLOUR_NET_PLAYER9,
+    HUD_COLOUR_NET_PLAYER10,
+    HUD_COLOUR_NET_PLAYER11,
+    HUD_COLOUR_NET_PLAYER12,
+    HUD_COLOUR_NET_PLAYER13,
+    HUD_COLOUR_NET_PLAYER14,
+    HUD_COLOUR_NET_PLAYER15,
+    HUD_COLOUR_NET_PLAYER16,
+    HUD_COLOUR_NET_PLAYER17,
+    HUD_COLOUR_NET_PLAYER18,
+    HUD_COLOUR_NET_PLAYER19,
+    HUD_COLOUR_NET_PLAYER20,
+    HUD_COLOUR_NET_PLAYER21,
+    HUD_COLOUR_NET_PLAYER22,
+    HUD_COLOUR_NET_PLAYER23,
+    HUD_COLOUR_NET_PLAYER24,
+    HUD_COLOUR_NET_PLAYER25,
+    HUD_COLOUR_NET_PLAYER26,
+    HUD_COLOUR_NET_PLAYER27,
+    HUD_COLOUR_NET_PLAYER28,
+    HUD_COLOUR_NET_PLAYER29,
+    HUD_COLOUR_NET_PLAYER30,
+    HUD_COLOUR_NET_PLAYER31,
+    HUD_COLOUR_NET_PLAYER32,
+    HUD_COLOUR_SIMPLEBLIP_DEFAULT,
+    HUD_COLOUR_MENU_BLUE,
+    HUD_COLOUR_MENU_GREY_LIGHT,
+    HUD_COLOUR_MENU_BLUE_EXTRA_DARK,
+    HUD_COLOUR_MENU_YELLOW,
+    HUD_COLOUR_MENU_YELLOW_DARK,
+    HUD_COLOUR_MENU_GREEN,
+    HUD_COLOUR_MENU_GREY,
+    HUD_COLOUR_MENU_GREY_DARK,
+    HUD_COLOUR_MENU_HIGHLIGHT,
+    HUD_COLOUR_MENU_STANDARD,
+    HUD_COLOUR_MENU_DIMMED,
+    HUD_COLOUR_MENU_EXTRA_DIMMED,
+    HUD_COLOUR_BRIEF_TITLE,
+    HUD_COLOUR_MID_GREY_MP,
+};
+
+class CHudColours {
+public:
+    static rage::Color32* m_aColours;
+
+public:
+    static rage::Color32* Get(rage::Color32* out, uint32_t id);
+    static rage::Color32* Get(rage::Color32* out, uint32_t id, uint8_t alpha);
+
+    static inline rage::Color32 Get(uint32_t id) {
+        rage::Color32 out;
+        Get(&out, id);
+        return out;
+    }
+
+    static inline rage::Color32 Get(uint32_t id, uint8_t alpha) {
+        rage::Color32 out;
+        Get(&out, id, alpha);
+        return out;
+    }
+};

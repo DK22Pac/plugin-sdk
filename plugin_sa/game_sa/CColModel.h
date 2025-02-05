@@ -14,8 +14,17 @@
 class CColModel {
 public:
     CBoundingBox m_boundBox;
-	CColSphere m_boundSphere;
-    CCollisionData *m_pColData;
+    CSphere m_boundSphere;
+    unsigned char m_nColSlot;
+    union {
+        struct {
+            unsigned char m_bHasCollisionVolumes : 1;
+            unsigned char m_bIsSingleColDataAlloc : 1;
+            unsigned char m_bIsActive : 1;
+        };
+        unsigned char m_nFlags;
+    };
+    CCollisionData* m_pColData;
 
     CColModel();
     ~CColModel();

@@ -18,7 +18,7 @@ enum eScriptParameterType {
     SCRIPTPARAM_STATIC_FLOAT,
 };
 
-union tScriptVariable {
+union tScriptParam {
     unsigned int uParam;
     int iParam;
     float fParam;
@@ -26,20 +26,20 @@ union tScriptVariable {
     char *szParam;
 };
 
-VALIDATE_SIZE(tScriptVariable, 0x4);
+VALIDATE_SIZE(tScriptParam, 0x4);
 
 class PLUGIN_API CRunningScript {
 public:
     CRunningScript *m_pNext;
     CRunningScript *m_pPrev;
     char            m_szName[8];
-    int             m_nIp;
+    unsigned int    m_nIp;
     int             m_anStack[6];
     unsigned short  m_nSP;
 private:
     char _pad2E[2];
 public:
-    tScriptVariable m_aLocalVars[16];
+    tScriptParam    m_aLocalVars[16];
     int             m_anTimers[2];
     bool            m_bCondResult;
     bool            m_bUseMissionCleanup;
@@ -57,8 +57,11 @@ public:
 
     void Init();
     char ProcessOneCommand();
-    void CollectParameters(int* arg0, short count);
+    void CollectParameters(unsigned int* arg0, short count);
+    void StoreParameters(unsigned int* arg0, short count);
     void UpdateCompareFlag(unsigned char flag);
+    void Process();
+    void DoDeathArrestCheck();
 
     static unsigned char *GetScriptSpaceBase();
 };

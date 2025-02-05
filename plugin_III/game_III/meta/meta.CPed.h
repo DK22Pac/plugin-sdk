@@ -677,7 +677,7 @@ static const int vtable_index = 17;
 using mv_addresses_t = MvAddresses<0x4CBB30, 0x4CBBD0, 0x4CBB60>;
 // total references count: 10en (5), 11en (5), steam (5)
 using refs_t = RefList<0x5F81E0,100,2,0x5F819C,1, 0x5F82E8,100,2,0x5F82A4,1, 0x5F83B8,100,2,0x5F8374,1, 0x5F8C70,100,2,0x5F8C2C,1, 0x5FA544,100,2,0x5FA500,1, 0x5F7F84,110,2,0x5F7F84,1, 0x5F808C,110,2,0x5F808C,1, 0x5F815C,110,2,0x5F815C,1, 0x5F8A14,110,2,0x5F8A14,1, 0x5FA2E8,110,2,0x5FA2E8,1, 0x604F7C,120,2,0x604F7C,1, 0x605084,120,2,0x605084,1, 0x605154,120,2,0x605154,1, 0x605A0C,120,2,0x605A0C,1, 0x6072E0,120,2,0x6072E0,1>;
-using def_t = void(CPed *, CEntity *, CColPoint *);
+using def_t = int(CPed *, CEntity *, CColPoint *);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
 using args_t = ArgPick<ArgTypes<CPed *,CEntity *,CColPoint *>, 0,1,2>;
@@ -1157,10 +1157,10 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4D09B0, 0x4D0A50, 0x4D09E0>;
 // total references count: 10en (16), 11en (16), steam (16)
 using refs_t = RefList<0x4B19A3,100,0,0x4B1340,1, 0x4C939B,100,0,0x4C8910,1, 0x4CAD2D,100,0,0x4C8910,2, 0x4CEF66,100,0,0x4CE8F0,1, 0x4DE792,100,0,0x4DE500,1, 0x4E1A12,100,0,0x4E18D0,1, 0x4E7A2F,100,0,0x4E7780,1, 0x4E7AA2,100,0,0x4E7780,2, 0x4E7BED,100,0,0x4E7780,3, 0x4E956F,100,0,0x4E8EC0,1, 0x4EBDD0,100,0,0x4EB9A0,1, 0x4ECEA7,100,0,0x4EC430,1, 0x5223C1,100,0,0x5220B0,1, 0x55D192,100,0,0x55CA20,1, 0x55FBCF,100,0,0x55F950,1, 0x5610E6,100,0,0x560620,1, 0x4B1A93,110,0,0x4B1430,1, 0x4C943B,110,0,0x4C89B0,1, 0x4CADCD,110,0,0x4C89B0,2, 0x4CF006,110,0,0x4CE990,1, 0x4DE842,110,0,0x4DE5B0,1, 0x4E1AC2,110,0,0x4E1980,1, 0x4E7ADF,110,0,0x4E7830,1, 0x4E7B52,110,0,0x4E7830,2, 0x4E7C9D,110,0,0x4E7830,3, 0x4E961F,110,0,0x4E8F70,1, 0x4EBE80,110,0,0x4EBA50,1, 0x4ECF57,110,0,0x4EC4E0,1, 0x522601,110,0,0x5222F0,1, 0x55D2C2,110,0,0x55CB50,1, 0x55FCFF,110,0,0x55FA80,1, 0x561216,110,0,0x560750,1, 0x4B1A23,120,0,0x4B13C0,1, 0x4C93CB,120,0,0x4C8940,1, 0x4CAD5D,120,0,0x4C8940,2, 0x4CEF96,120,0,0x4CE920,1, 0x4DE7D2,120,0,0x4DE540,1, 0x4E1A52,120,0,0x4E1910,1, 0x4E7A6F,120,0,0x4E77C0,1, 0x4E7AE2,120,0,0x4E77C0,2, 0x4E7C2D,120,0,0x4E77C0,3, 0x4E95AF,120,0,0x4E8F00,1, 0x4EBE10,120,0,0x4EB9E0,1, 0x4ECEE7,120,0,0x4EC470,1, 0x522591,120,0,0x522280,1, 0x55D272,120,0,0x55CB00,1, 0x55FCAF,120,0,0x55FA30,1, 0x5611C6,120,0,0x560700,1>;
-using def_t = void(CPed *, int, AnimationId, unsigned char);
+using def_t = void(CPed *, int, int, unsigned char);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CPed *,int,AnimationId,unsigned char>, 0,1,2,3>;
+using args_t = ArgPick<ArgTypes<CPed *,int,int,unsigned char>, 0,1,2,3>;
 META_END
 
 META_BEGIN(CPed::ClearFall)
@@ -1652,10 +1652,10 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4D37D0, 0x4D3870, 0x4D3800>;
 // total references count: 10en (11), 11en (11), steam (11)
 using refs_t = RefList<0x443925,100,0,0x4429C0,1, 0x4483B3,100,0,0x448240,1, 0x448470,100,0,0x448240,2, 0x4C8E28,100,0,0x4C8910,1, 0x4D0F95,100,0,0x4D0F20,1, 0x4E0D88,100,0,0x4E0D30,1, 0x4EAD15,100,0,0x4EA420,1, 0x4EADBD,100,0,0x4EA420,2, 0x4EB4B0,100,0,0x4EB470,1, 0x53BDFE,100,0,0x53BC60,1, 0x53BE60,100,0,0x53BC60,2, 0x443925,110,0,0x4429C0,1, 0x4483B3,110,0,0x448240,1, 0x448470,110,0,0x448240,2, 0x4C8EC8,110,0,0x4C89B0,1, 0x4D1035,110,0,0x4D0FC0,1, 0x4E0E38,110,0,0x4E0DE0,1, 0x4EADC5,110,0,0x4EA4D0,1, 0x4EAE6D,110,0,0x4EA4D0,2, 0x4EB560,110,0,0x4EB520,1, 0x53C03E,110,0,0x53BEA0,1, 0x53C0A0,110,0,0x53BEA0,2, 0x443925,120,0,0x4429C0,1, 0x4483B3,120,0,0x448240,1, 0x448470,120,0,0x448240,2, 0x4C8E58,120,0,0x4C8940,1, 0x4D0FC5,120,0,0x4D0F50,1, 0x4E0DC8,120,0,0x4E0D70,1, 0x4EAD55,120,0,0x4EA460,1, 0x4EADFD,120,0,0x4EA460,2, 0x4EB4F0,120,0,0x4EB4B0,1, 0x53BFEE,120,0,0x53BE50,1, 0x53C050,120,0,0x53BE50,2>;
-using def_t = void(CPed *, AnimationId, float, float);
+using def_t = void(CPed *, int, float, float);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CPed *,AnimationId,float,float>, 0,1,2,3>;
+using args_t = ArgPick<ArgTypes<CPed *,int,float,float>, 0,1,2,3>;
 META_END
 
 META_BEGIN(CPed::FinishDieAnimCB)

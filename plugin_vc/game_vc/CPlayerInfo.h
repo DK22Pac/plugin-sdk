@@ -50,11 +50,11 @@ public:
 	char field_D6;
 	char field_D7;
 	unsigned int m_nLastTimeArrested;
-	int field_DC;
-	int field_E0;
-	int field_E4;
-	int field_E8;
-	int field_EC;
+	unsigned int m_nLastTimeEnergyLost;
+	unsigned int m_nLastTimeArmourLost;
+	unsigned int m_nLastTimeBigGunFired;
+	unsigned int m_nTimesUpsideDownInARow;
+	unsigned int m_nTimesStuckInARow;
     unsigned int m_nVehicleTimeOnTwoWheels;
     float m_fVehicleDistanceOnTwoWheels;
 	unsigned int m_nVehicleTimeInAir;
@@ -76,13 +76,13 @@ public:
 	int m_nExplosionMultiplier;
 	int field_138;
 	float field_13C;
-	bool m_bNeverGetsTired;
+	bool m_bInfiniteSprint;
 	bool m_bFastReload;
 	bool m_bFireProof;
 	unsigned char m_nMaxHealth;
 	unsigned char m_nMaxArmour;
-	bool m_bGetOutOfJailFree;
-	bool m_bFreeHealthCare;
+	bool m_bGetOutOfJailFree;							// Player doesn't lose money/weapons next time arrested
+	bool m_bGetOutOfHospitalFree;                     	// Player doesn't lose money next time patched up at hospital
 	bool m_bCanDoDriveBy;
 	unsigned char m_nBustedAudioStatus;
 	//char _pad4;

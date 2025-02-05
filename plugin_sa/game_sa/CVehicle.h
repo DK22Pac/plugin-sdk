@@ -31,30 +31,15 @@ enum eCarWeapon {
     CAR_WEAPON_DOUBLE_ROCKET
 };
 
-enum eCarLock {
-    CARLOCK_NOT_USED,
-    CARLOCK_UNLOCKED,
-    CARLOCK_LOCKED,
-    CARLOCK_LOCKOUT_PLAYER_ONLY,
-    CARLOCK_LOCKED_PLAYER_INSIDE,
-    CARLOCK_COP_CAR,
-    CARLOCK_FORCE_SHUT_DOORS,
-    CARLOCK_SKIP_SHUT_DOORS
-};
-
-enum eVehicleType {
-    VEHICLE_AUTOMOBILE,
-    VEHICLE_MTRUCK,
-    VEHICLE_QUAD,
-    VEHICLE_HELI,
-    VEHICLE_PLANE,
-    VEHICLE_BOAT,
-    VEHICLE_TRAIN,
-    VEHICLE_FHELI,
-    VEHICLE_FPLANE,
-    VEHICLE_BIKE,
-    VEHICLE_BMX,
-    VEHICLE_TRAILER
+enum eDoorLock : unsigned int {
+    DOORLOCK_NOT_USED,
+    DOORLOCK_UNLOCKED,
+    DOORLOCK_LOCKED,
+    DOORLOCK_LOCKOUT_PLAYER_ONLY,
+    DOORLOCK_LOCKED_PLAYER_INSIDE,
+    DOORLOCK_COP_CAR,
+    DOORLOCK_FORCE_SHUT_DOORS,
+    DOORLOCK_SKIP_SHUT_DOORS
 };
 
 enum eVehicleApperance {
@@ -278,7 +263,7 @@ public:
     float  m_fVehicleRearGroundZ;  // or CWorld::ProcessVerticalLine
     char field_4EC; // initialised, but not used?
     char field_4ED[11]; // possibly non-used data?
-    unsigned int m_nDoorLock; // see enum eCarLock
+    eDoorLock m_eDoorLock; 
     unsigned int m_nProjectileWeaponFiringTime; // manual-aimed projectiles for hunter, lock-on projectile for hydra
     unsigned int m_nAdditionalProjectileWeaponFiringTime; // manual-aimed projectiles for hydra
     unsigned int m_nTimeForMinigunFiring; // minigun on hunter

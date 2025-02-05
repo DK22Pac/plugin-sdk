@@ -15,6 +15,7 @@ int &CGame::currArea = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB729
 RwMatrix *&CGame::m_pWorkingMatrix1 = *reinterpret_cast<RwMatrix **>(GLOBAL_ADDRESS_BY_VERSION(0xB72920, 0, 0, 0, 0, 0));
 RwMatrix *&CGame::m_pWorkingMatrix2 = *reinterpret_cast<RwMatrix **>(GLOBAL_ADDRESS_BY_VERSION(0xB72924, 0, 0, 0, 0, 0));
 int &gameTxdSlot = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xB728E8, 0, 0, 0, 0, 0));
+int &gGameState = *reinterpret_cast<int*>(0xC8D4C0);
 
 int addrof(CGame::CanSeeOutSideFromCurrArea) = ADDRESS_BY_VERSION(0x53C4A0, 0, 0, 0, 0, 0);
 int gaddrof(CGame::CanSeeOutSideFromCurrArea) = GLOBAL_ADDRESS_BY_VERSION(0x53C4A0, 0, 0, 0, 0, 0);
@@ -217,4 +218,16 @@ int gaddrof(DoHaspChecks) = GLOBAL_ADDRESS_BY_VERSION(0x5BA150, 0, 0, 0, 0, 0);
 
 bool DoHaspChecks() {
     return plugin::CallAndReturnDynGlobal<bool>(gaddrof(DoHaspChecks));
+}
+
+bool DoRwStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bottomRed, short bottomGreen, short bottomBlue, short alpha) {
+    return plugin::CallAndReturn<bool, 0x53D690>(topRed, topGreen, topBlue, bottomRed, bottomGreen, bottomBlue, alpha);
+}
+
+void DoRwStuffEndOfFrame() {
+    plugin::Call<0x53D840>();
+}
+
+RsEventStatus RsEventHandler(RsEvent event, void* param) {
+    return plugin::CallAndReturnDyn<RsEventStatus>(0x619B60, event, param);
 }

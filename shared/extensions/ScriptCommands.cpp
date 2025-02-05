@@ -4,6 +4,8 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTASA_UNREAL)
 #include "ScriptCommands.h"
 #include "Error.h"
 #include "CPools.h"
@@ -56,36 +58,39 @@ void scripting::ScriptCode::AddBytes(unsigned char *bytes, unsigned int count) {
 
 unsigned char *scripting::ScriptCode::GetData() { return data; };
 
+#ifndef RAGE
 void scripting::ScriptCode::SaveResultVariables(CRunningScript *script) {
+#define LocalVar (*(tScriptParam*)&script->m_aLocalVars[varToSet.varIndex])
     for (auto &varToSet : varsToSet) {
         if (varToSet.varType == SCRIPT_RESULT_VAR_NUMBER) {
-            *reinterpret_cast<unsigned int *>(varToSet.pVar) = script->m_aLocalVars[varToSet.varIndex].uParam;
+            *reinterpret_cast<unsigned int *>(varToSet.pVar) = LocalVar.uParam;
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_STRING) {
             char *pStr = reinterpret_cast<char *>(varToSet.pVar);
-            strncpy(pStr, reinterpret_cast<char *>(&script->m_aLocalVars[varToSet.varIndex].iParam), 15);
+            strncpy(pStr, reinterpret_cast<char *>(&LocalVar.iParam), 15);
             pStr[15] = '\0';
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_PED) {
             CPed *result = nullptr;
-            if (script->m_aLocalVars[varToSet.varIndex].iParam != -1)
-                result = CPools::GetPed(script->m_aLocalVars[varToSet.varIndex].iParam);
+            if (LocalVar.iParam != -1)
+                result = CPools::GetPed(LocalVar.iParam);
             *reinterpret_cast<CPed **>(varToSet.pVar) = result;
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_VEHICLE) {
             CVehicle *result = nullptr;
-            if (script->m_aLocalVars[varToSet.varIndex].iParam != -1)
-                result = CPools::GetVehicle(script->m_aLocalVars[varToSet.varIndex].iParam);
+            if (LocalVar.iParam != -1)
+                result = CPools::GetVehicle(LocalVar.iParam);
             *reinterpret_cast<CVehicle **>(varToSet.pVar) = result;
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_OBJECT) {
             CObject *result = nullptr;
-            if (script->m_aLocalVars[varToSet.varIndex].iParam != -1)
-                result = CPools::GetObject(script->m_aLocalVars[varToSet.varIndex].iParam);
+            if (LocalVar.iParam != -1)
+                result = CPools::GetObject(LocalVar.iParam);
             *reinterpret_cast<CObject **>(varToSet.pVar) = result;
         }
     }
 }
+#endif
 
 void scripting::ScriptCode::operator<<(char n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
 void scripting::ScriptCode::operator<<(unsigned char n) { AddParameterDescription(SCRIPTPARAM_STATIC_INT_8BITS); AddBytes(reinterpret_cast<unsigned char *>(&n), 1); }
@@ -224,3 +229,5 @@ void scripting::ScriptCode::operator<<(CObject **p) {
     AddBytes(reinterpret_cast<unsigned char *>(&varIndexCounter), 2);
     ++varIndexCounter;
 }
+
+#endif

@@ -18,4 +18,12 @@ char *CAERadioTrackManager::GetRadioStationName(signed char id)
 	return ((char *(__thiscall *)(CAERadioTrackManager *, signed char))0x4E9E10)(this, id);
 }
 
+void CAERadioTrackManager::StartRadio(int stationId, float bass, int arg, char unused) {
+    plugin::CallMethod<0x4EB3C0, CAERadioTrackManager*, int, float, int, char>(this, stationId, bass, arg, unused);
+}
+
+void CAERadioTrackManager::StopRadio(tVehicleAudioSettings* settings, char arg) {
+    plugin::CallMethod<0x4E9820, CAERadioTrackManager*, tVehicleAudioSettings*, char>(this, settings, arg);
+}
+
 tMusicTrackHistory *CAERadioTrackManager::m_nMusicTrackIndexHistory = (tMusicTrackHistory *)0xB62B40;

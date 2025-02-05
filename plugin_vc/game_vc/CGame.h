@@ -42,6 +42,7 @@ public:
 
 SUPPORTED_10EN_11EN_STEAM extern int &splashTxdId;
 SUPPORTED_10EN_11EN_STEAM extern bool &g_SlowMode;
+extern int &gGameState;
 
 SUPPORTED_10EN_11EN_STEAM void ValidateVersion();
 SUPPORTED_10EN_11EN_STEAM RsEventStatus AppEventHandler(RsEvent event, void *param);
@@ -67,5 +68,6 @@ SUPPORTED_10EN_11EN_STEAM void TestModelIndices();
 SUPPORTED_10EN_11EN_STEAM void MatchModelString(char *modelName, int modelIndex);
 SUPPORTED_10EN_11EN_STEAM void InitModelIndices();
 SUPPORTED_10EN_11EN_STEAM void LittleTest();
+extern RsEventStatus RsEventHandler(RsEvent event, void* param);
 
 #include "meta/meta.CGame.h"

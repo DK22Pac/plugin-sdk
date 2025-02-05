@@ -11,6 +11,8 @@
 #include "CVector.h"
 #include "CMatrix.h"
 
+class CVehicle;
+
 class PLUGIN_API CNodeAddress
 {
 public:
@@ -40,6 +42,7 @@ public:
     bool GeneratePedCreationCoors(float arg1, float arg2, float arg3, float arg4, float arg5, float arg6, CVector* ar7, int* arg8, int* arg9, float* arg10, CMatrix* arg11);
     bool GenerateCarCreationCoors(float arg1, float arg2, float arg3, float arg4, float arg5, float arg6, bool arg7, CVector* arg8, int* arg9, int* arg10, float* arg11, bool arg12);
 	int FindNodeClosestToCoors(CVector arg1, unsigned char arg2, float arg3, bool arg4, bool arg5, bool arg6, bool arg7);
+    void DoPathSearch(unsigned char type, CVector start, int startNodeId, CVector target, CPathNode** nodes, short* numNodes, short maxNumNodes, CVehicle* vehicle, float* dist, float distLimit, int forcedTargetNode);
 
 };
 

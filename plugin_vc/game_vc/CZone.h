@@ -1,17 +1,19 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
 #include "eLevelName.h"
 
 enum eZoneType {
-    
+    ZONE_DEFAULT,
+    ZONE_NAVIG,
+    ZONE_INFO,
+    ZONE_MAPZONE,
 };
-
 
 class CZone {
 public:
@@ -28,7 +30,7 @@ public:
     char townNumber;
 
     // Returns pointer to GXT name string.
-    const char* GetTranslatedName();
+    wchar_t* GetTranslatedName();
 };
 
 VALIDATE_SIZE(CZone, 0x20);

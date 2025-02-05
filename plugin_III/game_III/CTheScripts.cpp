@@ -8,7 +8,7 @@
 
 unsigned int MAX_SCRIPT_SPACE_SIZE = 163840;
 
-tScriptVariable *CTheScripts::ScriptParams = (tScriptVariable *)0x6ED460;
+tScriptParam (&CTheScripts::ScriptParams)[32] = *(tScriptParam(*)[32])0x6ED460;
 unsigned char *CTheScripts::ScriptSpace = (unsigned char *)0x74B248;
 unsigned int &CTheScripts::BaseBriefIdForContact = *(unsigned int *)0x880200;
 unsigned short &CTheScripts::CommandsExecuted = *(unsigned short *)0x95CCA6;
@@ -18,7 +18,7 @@ unsigned char &CTheScripts::FailCurrentMission = *(unsigned char *)0x95CD41;
 char *CTheScripts::IntroRectangles = (char *)0x72D109;
 char *CTheScripts::IntroTextLines = (char *)0x70EA74;
 int *CTheScripts::InvisibilitySettingArray = (int *)0x8620F0;
-unsigned int &CTheScripts::MissionCleanUp = *(unsigned int *)0x8F2A24;
+CMissionCleanup &CTheScripts::MissionCleanUp = *(CMissionCleanup *)0x8F2A24;
 unsigned short &CTheScripts::NumScriptDebugLines = *(unsigned short *)0x95CC42;
 unsigned short &CTheScripts::NumberOfIntroTextLinesThisFrame = *(unsigned short *)0x95CC88;
 unsigned short &CTheScripts::NumberOfUsedObjects = *(unsigned short *)0x95CC72;

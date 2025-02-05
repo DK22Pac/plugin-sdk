@@ -75,7 +75,7 @@ public:
 
         // Show objects on radar
         Events::drawBlipsEvent += [] {
-            if (!FrontEndMenuManager.drawRadarOrMap && FindPlayerPed(0)) {
+            if (!FrontEndMenuManager.m_bDrawRadarOrMap && FindPlayerPed(0)) {
                 for (auto object : CPools::ms_pObjectPool) {
                     CVector &objectPosn = object->GetPosition();
                     CVector2D coords;

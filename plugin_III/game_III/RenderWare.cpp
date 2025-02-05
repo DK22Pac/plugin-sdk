@@ -6,9 +6,12 @@
 */
 #include "RenderWare.h"
 
-RwGlobals *&RwEngineInstance = *(RwGlobals **)0x661228;
-
+void *&RwEngineInstance = *(void **)0x661228;
 RsGlobalType &RsGlobal = *(RsGlobalType *)0x8F4360;
+RwModuleInfo& _rwIm3DModule = *(RwModuleInfo*)0x7143F8;
+RwModuleInfo& rasterModule = *(RwModuleInfo*)0x6615C8;
+RwInt32& _rpClumpLightExtOffset = *(RwInt32*)0x661024;
+
 
 /* rwplcore.h */
 
@@ -120,9 +123,89 @@ RwMatrix* RwMatrixTransform(RwMatrix* matrix, const RwMatrix* transform, RwOpCom
     return ((RwMatrix*(__cdecl *)(RwMatrix*, const RwMatrix*, RwOpCombineType))0x5A31C0)(matrix, transform, combineOp);
 }
 
-//RwMatrix* RwMatrixOrthoNormalize(RwMatrix* matrixOut, const RwMatrix* matrixIn) {
-//    return ((RwMatrix*(__cdecl *)(RwMatrix*, const RwMatrix*))0x643830)(matrixOut, matrixIn);
-//}
+RwMatrix* RwMatrixOrthoNormalize(RwMatrix* matrixOut, const RwMatrix* matrixIn) {
+    RwV3d right, up, at, pos;
+    RwV3d* vpU, * vpV, * vpW;
+    RwV3d vInner, vOuter;
+    RwReal recip;
+
+    RwV3dAssign(&right, &matrixIn->right);
+    RwV3dAssign(&up, &matrixIn->up);
+    RwV3dAssign(&at, &matrixIn->at);
+    RwV3dAssign(&pos, &matrixIn->pos);
+
+    _rwV3dNormalizeMacro(vInner.x, &right, &right);
+    _rwV3dNormalizeMacro(vInner.y, &up, &up);
+    _rwV3dNormalizeMacro(vInner.z, &at, &at);
+
+    if (vInner.x > ((RwReal)0)) {
+        if (vInner.y > ((RwReal)0)) {
+            if (vInner.z > ((RwReal)0)) {
+                vOuter.x = RwV3dDotProductMacro(&up, &at);
+                vOuter.x = RwRealAbs(vOuter.x);
+
+                vOuter.y = RwV3dDotProductMacro(&at, &right);
+                vOuter.y = RwRealAbs(vOuter.y);
+
+                vOuter.z = RwV3dDotProductMacro(&right, &up);
+                vOuter.z = RwRealAbs(vOuter.z);
+
+                if (vOuter.x < vOuter.y) {
+                    if (vOuter.x < vOuter.z) {
+                        vpU = &up;
+                        vpV = &at;
+                        vpW = &right;
+                    }
+                    else {
+                        vpU = &right;
+                        vpV = &up;
+                        vpW = &at;
+                    }
+                }
+                else {
+                    if (vOuter.y < vOuter.z) {
+                        vpU = &at;
+                        vpV = &right;
+                        vpW = &up;
+                    }
+                    else {
+                        vpU = &right;
+                        vpV = &up;
+                        vpW = &at;
+                    }
+                }
+            }
+            else {
+                vpU = &right;
+                vpV = &up;
+                vpW = &at;
+            }
+        }
+        else {
+            vpU = &at;
+            vpV = &right;
+            vpW = &up;
+        }
+    }
+    else {
+        vpU = &up;
+        vpV = &at;
+        vpW = &right;
+    }
+
+    RwV3dCrossProductMacro(vpW, vpU, vpV);
+    _rwV3dNormalizeMacro(recip, vpW, vpW);
+    RwV3dCrossProductMacro(vpV, vpW, vpU);
+    _rwV3dNormalizeMacro(recip, vpV, vpV);
+
+    matrixOut->right = right;
+    matrixOut->up = up;
+    matrixOut->at = at;
+    matrixOut->pos = pos;
+    matrixOut->flags = ((matrixOut->flags | rwMATRIXTYPEORTHONORMAL) & ~rwMATRIXINTERNALIDENTITY);
+
+    return matrixOut;
+}
 
 RwMatrix* RwMatrixInvert(RwMatrix* matrixOut, const RwMatrix* matrixIn) {
     return ((RwMatrix*(__cdecl *)(RwMatrix*, const RwMatrix*))0x5A2C90)(matrixOut, matrixIn);
@@ -168,9 +251,11 @@ RwReal _rwMatrixIdentityError(const RwMatrix* matrix) {
     return ((RwReal(__cdecl *)(const RwMatrix*))0x5A2660)(matrix);
 }
 
-//RwReal RwV3dNormalize(RwV3d* out, const RwV3d* in) {
-//    return ((RwReal(__cdecl *)(RwV3d*, const RwV3d*))0x646F20)(out, in);
-//}
+RwReal RwV3dNormalize(RwV3d* out, const RwV3d* in) {
+    RwReal length = ((RwReal)0);
+    RwV3dNormalizeMacro(length, out, in);
+    return length;
+}
 
 RwReal RwV3dLength(const RwV3d* in) {
     return ((RwReal(__cdecl *)(const RwV3d*))0x5A36A0)(in);
@@ -446,6 +531,25 @@ RwRaster* RwRasterPopContext(void) {
     return ((RwRaster*(__cdecl *)(void))0x5AD870)();
 }
 
+RwBool RwRasterClear(RwInt32 pixelValue) {
+    RwBool              result;
+
+    RWAPIFUNCTION(RWSTRING("RwRasterClear"));
+    RWASSERT(rasterModule.numInstances);
+
+    result = (RWRASTERGLOBAL(rasterSP) > 0);
+
+    if (result) {
+        RWSRCGLOBAL(stdFunc[rwSTANDARDRASTERCLEAR]) (NULL, NULL,
+                                                     pixelValue);
+    }
+    else {
+        RWERROR((E_RW_RASTERSTACKEMPTY));
+    }
+
+    RWRETURN(result);
+}
+
 RwRaster* RwRasterGetCurrentContext(void) {
     return ((RwRaster*(__cdecl *)(void))0x5AD6D0)();
 }
@@ -570,9 +674,10 @@ RwBool RwTextureDestroy(RwTexture* texture) {
     return ((RwBool(__cdecl *)(RwTexture*))0x5A7330)(texture);
 }
 
-//RwTexture* RwTextureSetRaster(RwTexture* texture, RwRaster* raster) {
-//    return ((RwTexture*(__cdecl *)(RwTexture*, RwRaster*))0x64DCC0)(texture, raster);
-//}
+RwTexture* RwTextureSetRaster(RwTexture* texture, RwRaster* raster) {
+    texture->raster = raster;
+    return texture;
+}
 
 RwTexture* RwTexDictionaryAddTexture(RwTexDictionary* dict, RwTexture* texture) {
     return ((RwTexture*(__cdecl *)(RwTexDictionary*, RwTexture*))0x5A7490)(dict, texture);
@@ -616,6 +721,129 @@ RwBool RwIm3DRenderLine(RwInt32 vert1, RwInt32 vert2) {
 
 RwBool RwIm3DRenderIndexedPrimitive(RwPrimitiveType primType, RwImVertexIndex* indices, RwInt32 numIndices) {
     return ((RwBool(__cdecl *)(RwPrimitiveType, RwImVertexIndex*, RwInt32))0x5B6820)(primType, indices, numIndices);
+}
+
+RwBool RwIm3DRenderPrimitive(RwPrimitiveType primType) {
+    RwBool              im3dactive;
+    RxHeap* heap;
+
+    RWAPIFUNCTION(RWSTRING("RwIm3DRenderPrimitive"));
+
+#if (!defined(SUPPRESS_IM3D))
+    im3dactive = (RWIMMEDIGLOBAL(curPool).elements != NULL);
+
+    heap = RxHeapGetGlobalHeap();
+    RWASSERT(NULL != heap);
+
+    if (im3dactive) {
+        _rwIm3DPoolStash* stash = &(RWIMMEDIGLOBAL(curPool).stash);
+
+        stash->pipeline = (RxPipeline*)NULL;
+        stash->primType = (RwPrimitiveType)primType;
+        stash->indices = (RxVertexIndex*)NULL;
+        stash->numIndices = (RwUInt32)RWIMMEDIGLOBAL(curPool).numElements;
+
+        RWASSERT(RWPRIMTYPEVALID(primType));
+
+        switch (primType) {
+            case rwPRIMTYPETRILIST:
+            {
+                /* We need at least 3 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 3);
+                /* We need a multiple of 3 vertices */
+                RWASSERT((RWIMMEDIGLOBAL(curPool).numElements % 3) == 0);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).triList;
+
+                break;
+            }
+            case rwPRIMTYPETRIFAN:
+            {
+                /* We need at least 3 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 3);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).triFan;
+
+                break;
+            }
+            case rwPRIMTYPETRISTRIP:
+            {
+                /* We need at least 3 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 3);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).triStrip;
+
+                break;
+            }
+            case rwPRIMTYPELINELIST:
+            {
+                /* We need at least 2 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 2);
+                /* We need a multiple of 2 vertices */
+                RWASSERT((RWIMMEDIGLOBAL(curPool).numElements % 2) == 0);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).lineList;
+
+                break;
+            }
+            case rwPRIMTYPEPOLYLINE:
+            {
+                /* We need at least 2 verts */
+                RWASSERT(RWIMMEDIGLOBAL(curPool).numElements >= 2);
+
+                stash->pipeline =
+                    RWIMMEDIGLOBAL(im3DRenderPipelines).polyLine;
+
+                break;
+            }
+
+            default:
+            {
+                RWERROR((E_RX_INVALIDPRIMTYPE, primType));
+                break;
+            }
+        }
+
+#if (defined(SKY2_DRVMODEL_H) && defined(RWDEBUG))
+        /* Either use both the PS2All default transform AND render pipeline
+         * or neither - mixing PS2All with non-PS2All is heap bad voodoo
+         * [can also use PS2Manager render pipe w/ PS2All transform pipe] */
+
+         /* NOTE: this test may become appropriate for other targets */
+        {
+            RxPipeline* curTrns, * ps2AllTrns;
+            RxPipeline* ps2AllRnd, * ps2AllRnd2;
+
+            curTrns = RWIMMEDIGLOBAL(im3DTransformPipeline);
+            ps2AllTrns = RWIMMEDIGLOBAL(platformIm3DTransformPipeline);
+            ps2AllRnd = RWIMMEDIGLOBAL(platformIm3DRenderPipelines).triList;
+            ps2AllRnd2 = RWIMMEDIGLOBAL(platformIm3DRenderPipelines).lineList;
+
+            RWASSERT(((curTrns == ps2AllTrns) &&
+                     ((stash->pipeline == ps2AllRnd) ||
+                     (stash->pipeline == ps2AllRnd2))) ||
+                      ((curTrns != ps2AllTrns) &&
+                     ((stash->pipeline != ps2AllRnd) &&
+                     (stash->pipeline != ps2AllRnd2))));
+        }
+#endif /* (defined(SKY2_DRVMODEL_H) && defined(RWDEBUG)) */
+
+        if (RxPipelineExecute(stash->pipeline, (void*)stash, FALSE) != NULL) {
+            RWRETURN(TRUE);
+        }
+    }
+    else {
+        RWERROR((E_RX_IM3DNOTACTIVE));
+    }
+
+    RWRETURN(FALSE);
+#else /* (!defined(SUPPRESS_IM3D)) */
+    RWRETURN(TRUE);
+#endif /* (!defined(SUPPRESS_IM3D)) */
 }
 
 RxPipeline* RwIm3DSetTransformPipeline(RxPipeline* pipeline) {
@@ -799,6 +1027,12 @@ RwFrame* RwFrameTransform(RwFrame* frame, const RwMatrix* m, RwOpCombineType com
 }
 
 RwFrame* RwFrameOrthoNormalize(RwFrame* frame) {
+    RwMatrixOrthoNormalize(&frame->modelling, &frame->modelling);
+    RwFrameUpdateObjects(frame);
+    return frame;
+}
+
+RwFrame* RwFrameSetIdentity(RwFrame* frame) {
     return ((RwFrame*(__cdecl *)(RwFrame*))0x5A2280)(frame);
 }
 
@@ -1184,6 +1418,10 @@ RpGeometry* RpGeometryStreamRead(RwStream* stream) {
     return ((RpGeometry*(__cdecl *)(RwStream*))0x5AD050)(stream);
 }
 
+RpAtomic* AtomicDefaultRenderCallBack(RpAtomic* atomic) {
+    return ((RpAtomic * (__cdecl*)(RpAtomic*))0x59E690)(atomic);
+}
+
 void _rpAtomicResyncInterpolatedSphere(RpAtomic* atomic) {
     ((void(__cdecl *)(RpAtomic*))0x59E6C0)(atomic);
 }
@@ -1221,8 +1459,29 @@ RpClump* RpClumpAddAtomic(RpClump* clump, RpAtomic* atomic) {
 }
 
 RpClump* RpClumpRemoveLight(RpClump* clump, RpLight* light) {
-    return ((RpClump*(__cdecl *)(RpClump*, RpLight*))0x59F6E0)(clump, light);
+    return ((RpClump * (__cdecl*)(RpClump*, RpLight*))0x59F6E0)(clump, light);
 }
+
+RpClump* RpClumpAddLight(RpClump* clump, RpLight* light) {
+    RpClumpLightExt* lightExt = CLUMPLIGHTEXTFROMLIGHT(light);
+
+    RWAPIFUNCTION(RWSTRING("RpClumpAddLight"));
+    RWASSERT(clumpModule.numInstances);
+    RWASSERT(clump);
+    RWASSERTISTYPE(clump, rpCLUMP);
+    RWASSERT(light);
+    RWASSERTISTYPE(light, rpLIGHT);
+
+    /* It is assumed the light is NOT in the world although the
+     * clump might be
+     */
+
+    rwLinkListAddLLLink(&clump->lightList, &lightExt->inClumpLink);
+    lightExt->clump = clump;
+
+    RWRETURN(clump);
+}
+
 
 RwBool RpClumpDestroy(RpClump* clump) {
     return ((RwBool(__cdecl *)(RpClump*))0x59F500)(clump);
@@ -1354,9 +1613,48 @@ RpWorld* RpWorldRemoveLight(RpWorld* world, RpLight* light) {
 
 /* rtquat.h */
 
-//RtQuat* RtQuatRotate(RtQuat* quat, const RwV3d* axis, RwReal angle, RwOpCombineType combineOp) {
-//    return ((RtQuat*(__cdecl *)(RtQuat*, const RwV3d*, RwReal, RwOpCombineType))0x65ABD0)(quat, axis, angle, combineOp);
-//}
+RtQuat* RtQuatRotate(RtQuat* quat, const RwV3d* axis, RwReal angle, RwOpCombineType combineOp) {
+    if (!quat || !axis) {
+        return nullptr;
+    }
+
+    RwV3d normalizedAxis = *axis;
+    RwReal length = std::sqrt(axis->x * axis->x + axis->y * axis->y + axis->z * axis->z);
+    if (length > 0.0f) {
+        normalizedAxis.x /= length;
+        normalizedAxis.y /= length;
+        normalizedAxis.z /= length;
+    }
+    else {
+        return quat;
+    }
+
+    RwReal halfAngle = (angle * 0.5f) / 57.2957795f;
+    RwReal sinHalfAngle = std::sin(halfAngle);
+    RwReal cosHalfAngle = std::cos(halfAngle);
+
+    RtQuat rotationQuat;
+    rotationQuat.imag.x = normalizedAxis.x * sinHalfAngle;
+    rotationQuat.imag.y = normalizedAxis.y * sinHalfAngle;
+    rotationQuat.imag.z = normalizedAxis.z * sinHalfAngle;
+    rotationQuat.real = cosHalfAngle;
+
+    if (combineOp == rwCOMBINEPRECONCAT) {
+        RtQuat result;
+        RtQuatMultiply(&result, &rotationQuat, quat);
+        *quat = result;
+    }
+    else if (combineOp == rwCOMBINEPOSTCONCAT) {
+        RtQuat result;
+        RtQuatMultiply(&result, quat, &rotationQuat);
+        *quat = result;
+    }
+    else {
+        return quat;
+    }
+
+    return quat;
+}
 
 /* rtanim.h */
 
@@ -1384,8 +1682,8 @@ RpWorld* RpWorldRemoveLight(RpWorld* world, RpLight* light) {
 //    ((void(__cdecl *)(RtAnimInterpolator*))0x64DAC0)(anim);
 //}
 
-RwBool RtAnimInterpolatorSetCurrentAnim(RtAnimInterpolator* animI, RtAnimAnimation* anim) {
-    return ((RwBool(__cdecl *)(RtAnimInterpolator*, RtAnimAnimation*))0x5B1200)(animI, anim);
+RwBool RpHAnimHierarchySetCurrentAnim(RpHAnimHierarchy* hierarchy, RpHAnimAnimation* anim) {
+    return ((RwBool(__cdecl *)(RpHAnimHierarchy*, RpHAnimAnimation*))0x5B1200)(hierarchy, anim);
 }
 
 /* rphanim.h */
@@ -1398,17 +1696,20 @@ RpHAnimHierarchy* RpHAnimFrameGetHierarchy(RwFrame* frame) {
     return ((RpHAnimHierarchy*(__cdecl *)(RwFrame*))0x5B11F0)(frame);
 }
 
-//RwMatrix* RpHAnimHierarchyGetMatrixArray(RpHAnimHierarchy* hierarchy) {
-//    return ((RwMatrix*(__cdecl *)(RpHAnimHierarchy*))0x646370)(hierarchy);
-//}
+RwMatrix* RpHAnimHierarchyGetMatrixArray(RpHAnimHierarchy* hierarchy) {
+    return hierarchy->pMatrixArray;
+}
 
 RwBool RpHAnimHierarchyUpdateMatrices(RpHAnimHierarchy* hierarchy) {
     return ((RwBool(__cdecl *)(RpHAnimHierarchy*))0x5B1780)(hierarchy);
 }
 
-//RwInt32 RpHAnimIDGetIndex(RpHAnimHierarchy* hierarchy, RwInt32 ID) {
-//    return ((RwInt32(__cdecl *)(RpHAnimHierarchy*, RwInt32))0x646390)(hierarchy, ID);
-//}
+RwInt32 RpHAnimIDGetIndex(RpHAnimHierarchy* hierarchy, RwInt32 ID) {
+    for (RwInt32 i = 0; i < hierarchy->numNodes; i++)
+        if (hierarchy->pNodeInfo[i].nodeID == ID)
+            return i;
+    return -1;
+}
 
 RwBool RpHAnimPluginAttach(void) {
     return ((RwBool(__cdecl *)(void))0x5B1D50)();
@@ -1434,16 +1735,16 @@ void RpHAnimKeyFrameMulRecip(void* voidFrame, void* voidStart) {
     ((void(__cdecl *)(void*, void*))0x5CE950)(voidFrame, voidStart);
 }
 
-RtAnimAnimation* RpHAnimKeyFrameStreamRead(RwStream* stream, RtAnimAnimation* animation) {
-    return ((RtAnimAnimation*(__cdecl *)(RwStream*, RtAnimAnimation*))0x5CE820)(stream, animation);
+RpHAnimAnimation* RpHAnimKeyFrameStreamRead(RwStream* stream, RpHAnimAnimation* animation) {
+    return ((RpHAnimAnimation *(__cdecl *)(RwStream*, RpHAnimAnimation*))0x5CE820)(stream, animation);
 }
 
-RwBool RpHAnimKeyFrameStreamWrite(RtAnimAnimation* animation, RwStream* stream) {
-    return ((RwBool(__cdecl *)(RtAnimAnimation*, RwStream*))0x5CE8C0)(animation, stream);
+RwBool RpHAnimKeyFrameStreamWrite(RpHAnimAnimation* animation, RwStream* stream) {
+    return ((RwBool(__cdecl *)(RpHAnimAnimation*, RwStream*))0x5CE8C0)(animation, stream);
 }
 
-RwInt32 RpHAnimKeyFrameStreamGetSize(RtAnimAnimation* animation) {
-    return ((RwInt32(__cdecl *)(RtAnimAnimation*))0x5CE930)(animation);
+RwInt32 RpHAnimKeyFrameStreamGetSize(RpHAnimAnimation* animation) {
+    return ((RwInt32(__cdecl *)(RpHAnimAnimation*))0x5CE930)(animation);
 }
 
 /* rpskin.h */
@@ -1468,13 +1769,13 @@ RpSkin* RpSkinGeometryGetSkin(RpGeometry* geometry) {
     return ((RpSkin*(__cdecl *)(RpGeometry*))0x5B1080)(geometry);
 }
 
-//RwUInt32 RpSkinGetNumBones(RpSkin* skin) {
-//    return ((RwUInt32(__cdecl *)(RpSkin*))0x6499C0)(skin);
-//}
+RwUInt32 RpSkinGetNumBones(RpSkin* skin) {
+    return RpSkinGetData(skin)->boneData.numBones;
+}
 
-//const RwMatrixWeights* RpSkinGetVertexBoneWeights(RpSkin* skin) {
-//    return ((const RwMatrixWeights*(__cdecl *)(RpSkin*))0x6499D0)(skin);
-//}
+const RwMatrixWeights* RpSkinGetVertexBoneWeights(RpSkin* skin) {
+    return  RpSkinGetData(skin)->vertexMaps.matrixWeights;
+}
 
 const RwMatrix* RpSkinGetSkinToBoneMatrices(RpSkin* skin) {
     return ((const RwMatrix*(__cdecl *)(RpSkin*))0x5B10D0)(skin);

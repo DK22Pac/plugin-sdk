@@ -5,14 +5,21 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "Screen.h"
+
+#ifdef GTA2
+#include "GBH.h"
+#elif defined(RW) || defined(UNREAL)
 #include "RenderWare.h"
+#elif defined(RAGE)
+#include "Rage.h"
+#endif
 
 #define PLUGIN_SCREEN_RESOLUTION_DEFAULT 1080.0f
 
 float gScreenResolution = PLUGIN_SCREEN_RESOLUTION_DEFAULT;
 
 float plugin::screen::GetCoord(float a) {
-    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? static_cast<float>(RsGlobal.maximumHeight) : static_cast<float>(RsGlobal.maximumWidth);
+    float base = GetScreenWidth() > GetScreenHeight() ? static_cast<float>(GetScreenHeight()) : static_cast<float>(GetScreenWidth());
     return static_cast<float>(static_cast<int>(a * base / gScreenResolution));
 }
 
@@ -73,7 +80,7 @@ float plugin::screen::GetCoordCenterDown(float a) {
 }
 
 float plugin::screen::GetMultiplier(float a) {
-    float base = RsGlobal.maximumWidth > RsGlobal.maximumHeight ? static_cast<float>(RsGlobal.maximumHeight) : static_cast<float>(RsGlobal.maximumWidth);
+    float base = GetScreenWidth() > GetScreenHeight() ? static_cast<float>(GetScreenHeight()) : static_cast<float>(GetScreenWidth());
     return a * base / gScreenResolution;
 }
 
@@ -86,11 +93,27 @@ float plugin::screen::GetBaseResolution() {
 }
 
 float plugin::screen::GetScreenHeight() {
+#ifdef GTA2
+    return static_cast<float>(window_height);
+#elif defined(RW) || defined(UNREAL)
     return static_cast<float>(RsGlobal.maximumHeight);
+#elif defined(RAGE)
+    return static_cast<float>(rage::grcDevice::m_CurrentHeight);
+#else
+    return 0.0f;
+#endif
 }
 
 float plugin::screen::GetScreenWidth() {
+#ifdef GTA2
+    return static_cast<float>(window_width);
+#elif defined(RW) || defined(UNREAL)
     return static_cast<float>(RsGlobal.maximumWidth);
+#elif RAGE
+    return static_cast<float>(rage::grcDevice::m_CurrentWidth);
+#else 
+    return 0.0f;
+#endif
 }
 
 float plugin::screen::GetScreenCenterX() {

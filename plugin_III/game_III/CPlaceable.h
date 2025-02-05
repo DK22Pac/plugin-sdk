@@ -18,7 +18,7 @@ public:
     // virtual function #0 (destructor)
 
 
-    SUPPORTED_10EN_11EN_STEAM CVector *GetPosition();
+    SUPPORTED_10EN_11EN_STEAM CVector &GetPosition();
     SUPPORTED_10EN_11EN_STEAM bool IsWithinArea(float x1, float y1, float x2, float y2);
     SUPPORTED_10EN_11EN_STEAM bool IsWithinArea(float x1, float y1, float z1, float x2, float y2, float z2);
     SUPPORTED_10EN_11EN_STEAM void SetHeading(float angle);
@@ -52,6 +52,19 @@ public:
         y = acosf(cosy);
         float cosz = this->m_matrix.up.y / cosx;
         z = acosf(cosz);
+    }
+
+    CVector& GetRight() {
+        return m_matrix.GetRight();
+    }
+    CVector& GetForward() {
+        return m_matrix.GetForward();
+    }
+    CVector& GetUp() {
+        return m_matrix.GetUp();
+    }
+    CMatrix& GetMatrix() {
+        return m_matrix;
     }
 };
 

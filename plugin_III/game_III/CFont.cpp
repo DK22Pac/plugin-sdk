@@ -11,11 +11,17 @@
 CFontDetails &CFont::Details = *(CFontDetails *)0x8F317C;
 CSprite2d *CFont::Sprite = (CSprite2d *)0x95CC04;
 short &CFont::NewLine = *(short *)0x95CC94;
+tFontSize& CFont::Size = *(tFontSize*)0x5FD120; // [3][193]
+
 char *aStr = (char *)0x64C624;
 
 // Converted from cdecl void CFont::DrawFonts(void) 0x501B50 
 void CFont::DrawFonts() {
     plugin::Call<0x501B50>();
+}
+
+float CFont::GetCharacterSize(const wchar_t c) {
+    return plugin::CallAndReturn<float, 0x501840, const wchar_t>(c);
 }
 
 // Converted from cdecl wchar_t* CFont::GetNextSpace(wchar_t *str) 0x501960

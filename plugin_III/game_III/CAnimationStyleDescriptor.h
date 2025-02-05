@@ -8,6 +8,11 @@
 
 #include "PluginBase.h"
 
+struct CAnimAssocDesc {
+    int animId;
+    int flags;
+};
+
 class PLUGIN_API CAnimationStyleDescriptor {
 public:
     char *groupName;
@@ -15,10 +20,7 @@ public:
     int modelIndex;
     int animsCount;
     char **animNames;
-    struct {
-        int animId;
-        int flags;
-    } *animDesc;
+    CAnimAssocDesc* animDescs;
 };
 
 VALIDATE_SIZE(CAnimationStyleDescriptor, 0x18);

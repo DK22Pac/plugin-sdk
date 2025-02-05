@@ -93,14 +93,14 @@ void CLoadingScreen::Update() {
     plugin::Call<0x5905E0>();
 }
 
-// Converted from cdecl void CLoadingScreen::DoPCTitleFadeOut(void) 0x590860 
+// Converted from cdecl void CLoadingScreen::DoPCTitleFadeOut(void) 0x590990 
 void CLoadingScreen::DoPCTitleFadeOut() {
-    plugin::Call<0x590860>();
+    plugin::Call<0x590990>();
 }
 
-// Converted from cdecl void CLoadingScreen::DoPCTitleFadeIn(void) 0x590990 
+// Converted from cdecl void CLoadingScreen::DoPCTitleFadeIn(void) 0x590860 
 void CLoadingScreen::DoPCTitleFadeIn() {
-    plugin::Call<0x590990>();
+    plugin::Call<0x590860>();
 }
 
 // Converted from cdecl void CLoadingScreen::DoPCScreenChange(uint bFinish) 0x590AC0 

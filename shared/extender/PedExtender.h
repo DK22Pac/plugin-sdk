@@ -6,6 +6,7 @@
 */
 #pragma once
 
+#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 #include "CPools.h"
 #include "Extender.h"
 #include "Events.h"
@@ -64,3 +65,4 @@ namespace plugin {
         }
     };
 }
+#endif

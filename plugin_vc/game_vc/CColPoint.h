@@ -11,7 +11,7 @@
 
 class CColPoint {
 public:
-    CVector  m_vPoint;
+    CVector  m_vecPoint;
     float field_C;
     CVector m_vNormal;
     float field_1C;

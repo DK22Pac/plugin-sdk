@@ -1,14 +1,15 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
 #include "eWeaponType.h"
 #include "eWeaponFire.h"
 #include "CVector.h"
+#include "eAnimations.h"
 
 class CWeaponInfo {
 public:
@@ -23,8 +24,8 @@ public:
     float m_fLifespan;
     float m_fSpread;
     CVector m_vecFireOffset;
-    unsigned int m_AnimToPlay; // AssocGroupId m_AnimToPlay;
-    unsigned int m_Anim2ToPlay;
+    int m_nAnimToPlay; // emanAnimGroup etc...
+    int m_nAnim2ToPlay; // emanAnimGroup etc...
     float m_fAnimLoopStart;
     float m_fAnimLoopEnd;
     float m_fAnimFrameFire;

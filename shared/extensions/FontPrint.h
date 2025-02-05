@@ -1,14 +1,19 @@
-#pragma once
 /*
     Plugin-SDK (Grand Theft Auto) SHARED header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+#pragma once
+#ifndef GTA2
 #include <string>
 #include <vector>
 #include "CRGBA.h"
+#ifdef RW
 #include "CVector.h"
+#elif RAGE
+#include "CVector.h"
+#endif
 #include "Screen.h"
 
 #ifdef GTA3
@@ -70,3 +75,4 @@ public:
 };
 
 }
+#endif

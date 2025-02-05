@@ -24,6 +24,14 @@ void CBaseModelInfo::Shutdown() {
     plugin::CallVirtualMethod<1, CBaseModelInfo *>(this);
 }
 
+void CBaseModelInfo::DeleteRwObject() {
+    plugin::CallVirtualMethod<2, CBaseModelInfo*>(this);
+}
+
+RwObject* CBaseModelInfo::CreateInstance() {
+    return plugin::CallVirtualMethodAndReturn<RwObject*, 3, CBaseModelInfo*>(this);
+}
+
 int addrof(CBaseModelInfo::Add2dEffect) = ADDRESS_BY_VERSION(0x4F6B20, 0x4F6BD0, 0x4F6B60);
 int gaddrof(CBaseModelInfo::Add2dEffect) = GLOBAL_ADDRESS_BY_VERSION(0x4F6B20, 0x4F6BD0, 0x4F6B60);
 

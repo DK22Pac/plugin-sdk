@@ -5,8 +5,11 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CRGBA.h"
+#ifdef RW
 #include "RenderWare.h"
+#endif
 
+#ifndef RAGE
 CRGBA::CRGBA(unsigned char red, unsigned char green, unsigned char blue) {
     Set(red, green, blue, 255);
 }
@@ -23,9 +26,11 @@ CRGBA::CRGBA(unsigned int intValue) {
     Set(intValue);
 }
 
+#ifdef RW
 CRGBA::CRGBA(RwRGBA const &rhs) {
     Set(rhs);
 }
+#endif
 
 CRGBA::CRGBA() {}
 
@@ -55,9 +60,11 @@ void CRGBA::Set(CRGBA const &rhs, unsigned char alpha) {
     Set(rhs.r, rhs.g, rhs.b, alpha);
 }
 
+#ifdef RW
 void CRGBA::Set(RwRGBA const &rwcolor) {
     Set(rwcolor.red, rwcolor.green, rwcolor.blue, rwcolor.alpha);
 }
+#endif
 
 unsigned int CRGBA::ToInt() const {
     return a | (b << 8) | (g << 16) | (r << 24);
@@ -67,6 +74,8 @@ unsigned int CRGBA::ToIntARGB() const {
     return b | (g << 8) | (r << 16) | (a << 24);
 }
 
+
+#ifdef RW
 RwRGBA CRGBA::ToRwRGBA() const {
     return { r, g, b, a };
 }
@@ -74,6 +83,7 @@ RwRGBA CRGBA::ToRwRGBA() const {
 void CRGBA::FromRwRGBA(RwRGBA const &rwcolor) {
     Set(rwcolor);
 }
+#endif
 
 void CRGBA::FromARGB(unsigned int intValue) {
     a = (intValue >> 24) & 0xFF;
@@ -104,3 +114,4 @@ CRGBA &CRGBA::operator=(CRGBA const &rhs) {
 CRGBA CRGBA::ToRGB() const {
     return CRGBA(r, g, b, 255);
 }
+#endif

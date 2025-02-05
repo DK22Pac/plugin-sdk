@@ -585,3 +585,27 @@ void WriteRaster(RwRaster * pRaster, char const * pszPath) {
 	assert(pszPath && pszPath[0]);
 	plugin::Call<0x005A4150>(pRaster, pszPath);
 }
+
+bool DoRWStuffStartOfFrame(short topRed, short topGreen, short topBlue, short bottomRed, short bottomGreen, short bottomBlue, short alpha) {
+    return plugin::CallAndReturn<bool, 0x53D690>(topRed, topGreen, topBlue, bottomRed, bottomGreen, bottomBlue, alpha);
+}
+
+void DoRWStuffEndOfFrame() {
+    plugin::Call<0x53D840>();
+}
+
+void RsCameraShowRaster(RwCamera* camera) {
+    plugin::Call<0x619440>(camera);
+}
+
+void* GetD3DDevice() {
+    return *reinterpret_cast<void**>(0xC97C28);
+}
+
+_D3DMATRIX* GetD3DViewTransform() {
+    return reinterpret_cast<_D3DMATRIX*>(0xC9BC80);
+}
+
+_D3DMATRIX* GetD3DProjTransform() {
+    return reinterpret_cast<_D3DMATRIX*>(0x8E2458);
+}
