@@ -1,91 +1,40 @@
-cmake_minimum_required(VERSION 3.0)
-project(plugin_sdk)
+cmake_minimum_required(VERSION 3.16)
 
-##
-# preamble
-##
-set(SDK_COMPILE_DEFINITIONS)
-set(SDK_INCLUDE_DIRECTORIES 
-	${PROJECT_SOURCE_DIR}
+option(PSDK_GTAIII "Grand Theft Auto III" OFF)
+option(PSDK_GTASA  "Grand Theft Auto: San Anreas" OFF)
+option(PSDK_GTAVC  "Grand Theft Auto: Vice City" OFF)
 
-	${PROJECT_SOURCE_DIR}/shared
-	${PROJECT_SOURCE_DIR}/shared/comp
-	${PROJECT_SOURCE_DIR}/shared/extender
-	${PROJECT_SOURCE_DIR}/shared/extensions
-	${PROJECT_SOURCE_DIR}/shared/game
+option(PSDK_EXAMPLES "Build examples" ON)
+option(PSDK_INSTALL  "Install the library" ON)
 
-	${PROJECT_SOURCE_DIR}/injector
-	${PROJECT_SOURCE_DIR}/injector/gvm)
-set(SDK_BUILD_TYPE "STATIC")
+project(plugin-sdk LANGUAGES C CXX)
+include(GNUInstallDirs)
 
-##
-# default options
-##
-option(GTA_SAN_ANDREAS OFF)
-option(GTA_VICE_CITY OFF)
-option(GTA_III OFF)
+function(set_debug_postfix target)
+  set_target_properties(${target} PROPERTIES DEBUG_POSTFIX "_d")
+endfunction()
 
-option(SDK_STATIC ON)
-option(SDK_SHARED OFF) # does nothing for now.
+add_subdirectory(shared)
 
-##
-# fetch all source/header files
-##
-if (GTA_SAN_ANDREAS)
-	file(GLOB_RECURSE SDK_SA_SOURCES ${PROJECT_SOURCE_DIR}/plugin_sa/*.cpp)
-	file(GLOB_RECURSE SDK_SA_HEADERS ${PROJECT_SOURCE_DIR}/plugin_sa/*.h ${PROJECT_SOURCE_DIR}/plugin_sa/*.hpp)
-
-	list(APPEND SDK_COMPILE_DEFINITIONS -DGTASA)
-	list(APPEND SDK_INCLUDE_DIRECTORIES 
-		${PROJECT_SOURCE_DIR}/plugin_sa
-		${PROJECT_SOURCE_DIR}/plugin_sa/game_sa
-		${PROJECT_SOURCE_DIR}/plugin_sa/game_sa/meta
-		${PROJECT_SOURCE_DIR}/plugin_sa/game_sa/rw)
+if (PSDK_GTAIII)
+  add_subdirectory(plugin_III)
 endif()
 
-if (GTA_VICE_CITY)
-	file(GLOB_RECURSE SDK_VC_SOURCES ${PROJECT_SOURCE_DIR}/plugin_vc/*.cpp)
-	file(GLOB_RECURSE SDK_VC_HEADERS ${PROJECT_SOURCE_DIR}/plugin_vc/*.h ${PROJECT_SOURCE_DIR}/plugin_vc/*.hpp)
-
-	list(APPEND SDK_COMPILE_DEFINITIONS -DGTAVC)
-	list(APPEND SDK_INCLUDE_DIRECTORIES 
-		${PROJECT_SOURCE_DIR}/plugin_vc
-		${PROJECT_SOURCE_DIR}/plugin_vc/game_vc
-		${PROJECT_SOURCE_DIR}/plugin_vc/game_vc/meta
-		${PROJECT_SOURCE_DIR}/plugin_vc/game_vc/rw)
+if (PSDK_GTASA)
+  add_subdirectory(plugin_sa)
 endif()
 
-if (GTA_III)
-	file(GLOB_RECURSE SDK_III_SOURCES ${PROJECT_SOURCE_DIR}/plugin_III/*.cpp)
-	file(GLOB_RECURSE SDK_III_HEADERS ${PROJECT_SOURCE_DIR}/plugin_III/*.h ${PROJECT_SOURCE_DIR}/plugin_III/*.hpp)
-
-	list(APPEND SDK_COMPILE_DEFINITIONS -DGTAIII)
-	list(APPEND SDK_INCLUDE_DIRECTORIES 
-		${PROJECT_SOURCE_DIR}/plugin_III
-		${PROJECT_SOURCE_DIR}/plugin_III/game_III
-		${PROJECT_SOURCE_DIR}/plugin_III/game_III/meta
-		${PROJECT_SOURCE_DIR}/plugin_III/game_III/rw)
+if (PSDK_GTAVC)
+  add_subdirectory(plugin_vc)
 endif()
 
-if (SDK_STATIC)
-	set(SDK_BUILD_TYPE "STATIC")
+if (PSDK_EXAMPLES)
+  add_subdirectory(examples)
 endif()
 
-file(GLOB_RECURSE SDK_INJECTOR_SOURCES ${PROJECT_SOURCE_DIR}/injector/*.cpp)
-file(GLOB_RECURSE SDK_INJECTOR_HEADERS ${PROJECT_SOURCE_DIR}/injector/*.h ${PROJECT_SOURCE_DIR}/injector/*.hpp)
-
-file(GLOB_RECURSE SDK_SHARED_SOURCES ${PROJECT_SOURCE_DIR}/shared/*.cpp)
-file(GLOB_RECURSE SDK_SHARED_HEADERS ${PROJECT_SOURCE_DIR}/shared/*.h ${PROJECT_SOURCE_DIR}/shared/*.hpp)
-
-##
-# begin creating our library
-##
-add_library(plugin_sdk ${SDK_BUILD_TYPE} 
-	${SDK_SA_SOURCES} ${SDK_SA_HEADERS} 
-	${SDK_VC_SOURCES} ${SDK_VC_HEADERS} 
-	${SDK_III_SOURCES} ${SDK_III_HEADERS}
-	${SDK_INJECTOR_SOURCES} ${SDK_INJECTOR_HEADERS}
-	${SDK_SHARED_SOURCES} ${SDK_SHARED_HEADERS})
-
-target_include_directories(plugin_sdk PUBLIC ${SDK_INCLUDE_DIRECTORIES})
-target_compile_definitions(plugin_sdk PUBLIC ${SDK_COMPILE_DEFINITIONS})
+if (PSDK_INSTALL)
+  install(FILES "${PROJECT_SOURCE_DIR}/tools/cmake/plugin-sdk-config.cmake"
+          DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/plugin-sdk")
+  install(EXPORT plugin-sdk-targets NAMESPACE pluginsdk::
+          DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/plugin-sdk")
+endif()
