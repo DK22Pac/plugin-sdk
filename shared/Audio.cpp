@@ -249,7 +249,7 @@ namespace plugin {
         BASS_SAMPLE sampleInfo = {};
         BASS_SampleGetInfo(samples[sample].handle, &sampleInfo);
 
-        streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, 0);//BASS_StreamCreate(sampleInfo.freq, sampleInfo.chans, flags, STREAMPROC_PUSH, nullptr);
+        streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, 0);
         streams[channel].channelId = channel;
         streams[channel].sampleId = sample;
 

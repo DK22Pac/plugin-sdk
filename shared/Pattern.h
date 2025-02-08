@@ -20,9 +20,10 @@ namespace plugin {
 
     public:
         static inline uintptr_t Get(std::string_view const& bytes, int32_t offset = 0) {
-            if (!patternMap)
+            if (!patternMap) {
                 patternMap = std::make_unique<std::unordered_map<std::string_view, uintptr_t>>();
-
+                patternMap->reserve(1024);
+            }
             uintptr_t a = 0x0;
             auto it = patternMap->find(bytes);
             if (it != patternMap->end()) {
@@ -41,9 +42,10 @@ namespace plugin {
         }
 
         static inline uintptr_t GetExternal(void* module, std::string_view const& bytes, int32_t offset = 0) {
-            if (!modulePatternMap)
+            if (!modulePatternMap) {
                 modulePatternMap = std::make_unique<std::unordered_map<std::string_view, uintptr_t>>();
-
+                modulePatternMap->reserve(1024);
+            }
             uintptr_t a = 0x0;
             auto it = modulePatternMap->find(bytes);
             if (it != modulePatternMap->end()) {

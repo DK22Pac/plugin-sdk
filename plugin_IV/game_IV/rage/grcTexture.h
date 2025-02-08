@@ -14,7 +14,7 @@ namespace rage {
     class grcTexture : pgBase {
     public:
         int8_t field_8;
-        int8_t field_9;
+        int8_t m_nDepth;
         int16_t m_RefCount;
         int32_t field_C;
         int32_t field_10;
@@ -26,6 +26,7 @@ namespace rage {
         int16_t m_nMipStride;
         int8_t m_ImageType;
         int8_t m_nMipCount;
+
 
     public:
         grcTexture() = delete;
@@ -51,13 +52,13 @@ namespace rage {
     private:
         Vector3 field_28;
         Vector3 field_34;
-        void* prevTexture;
-        void* nextTexture;
-        void* pixelData;
-        char field_4C;
-        char field_4D;
-        char field_4E;
-        char field_4F;
+        grcTexturePC* m_pPrevious;
+        grcTexturePC* m_pNext;
+        void* m_pPixels;
+        uint8_t field_4C;
+        uint8_t field_4D;
+        uint8_t field_4E;
+        uint8_t field_4F;
 
     public:
         grcTexturePC() = default;

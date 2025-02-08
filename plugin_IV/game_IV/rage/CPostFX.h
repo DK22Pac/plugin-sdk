@@ -10,6 +10,7 @@
 #include "grcTexture.h"
 #include "grmShader.h"
 #include "grcEffect.h"
+#include "grcRenderTarget.h"
 
 namespace rage {
     class CPostFX : datBase {
@@ -19,18 +20,18 @@ namespace rage {
     public:
         uint32_t m_Width;
         uint32_t m_Height;
-        grcTexturePC* m_FSCopy;
-        grcTexturePC* m_FSCopy2;
-        grcTexturePC* m_Unknown;
-        grcTexturePC* m_Quarter;
-        grcTexturePC* m_Blur;
-        grcTexturePC* m_Blur2;
-        grcTexturePC* m_Blur2Copy;
-        grcTexturePC* m_Lum0;
-        grcTexturePC* m_Lum1;
-        grcTexturePC* m_Lum2;
-        grcTexturePC* m_CurrentLum;
-        grcTexturePC* m_AdaptedLum[4];
+        grcRenderTargetPC* m_FSCopy;
+        grcRenderTargetPC* m_FSCopy2;
+        grcRenderTargetPC* m_Unknown;
+        grcRenderTargetPC* m_Quarter;
+        grcRenderTargetPC* m_Blur;
+        grcRenderTargetPC* m_Blur2;
+        grcRenderTargetPC* m_Blur2Copy;
+        grcRenderTargetPC* m_Lum0;
+        grcRenderTargetPC* m_Lum1;
+        grcRenderTargetPC* m_Lum2;
+        grcRenderTargetPC* m_CurrentLum;
+        grcRenderTargetPC* m_AdaptedLum[4];
         uint32_t field_29;
         uint32_t field_30;
         uint32_t field_31;
