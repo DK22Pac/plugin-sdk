@@ -42,13 +42,13 @@ namespace rage {
             bool IsRenderable;
             bool HasParent;
             const grcRenderTarget* Parent;
-            char field_18;
+            uint8_t field_18;
             int32_t field_1C;
             int32_t field_20;
             bool field_24;
             uint8_t field_25;
             uint8_t field_26;
-            uint8_thar field_27;
+            uint8_t field_27;
             uint8_t field_28;
             uint8_t field_29;
             uint8_t field_2A;
