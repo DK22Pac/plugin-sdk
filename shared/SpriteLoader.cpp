@@ -36,7 +36,12 @@ namespace plugin {
 #endif
         }
         else {
-#ifdef RW
+#ifdef RAGE
+            for (auto& it : spritesMap) {
+                auto tex = it.second;
+                tex->Release();
+            }
+#elif RW
             for (auto& it : spritesMap) {
                 auto tex = it.second;
                 RwTextureDestroy(tex);
@@ -50,7 +55,11 @@ namespace plugin {
         NumSlots = 0;
         Index = 0;
         mipMap = false;
+#ifdef RAGE
+        extension = "dds";
+#else
         extension = "png";
+#endif
         memUsed = 0;
     }
 
@@ -124,60 +133,66 @@ make_slot:
     }
 
 
+    texClass* SpriteLoader::LoadSpriteFromFolder(std::string const& file) {
+        std::string fileNoExt = RemovePath(file);
+        fileNoExt = RemoveExtension(fileNoExt);
+
+        texClass* tex = nullptr;
 #ifdef RW
-    RwTexture* SpriteLoader::LoadSpriteFromFolder(std::string const& file) {
         Image* img = nullptr;
-        if (CreateImageFromFile(file, img)) {
-            uint32_t w = img->width;
-            uint32_t h = img->height;
-            uint8_t* p = img->pixels;
+        if (!CreateImageFromFile(file, img))
+            return nullptr;
 
-            int32_t flags = rwRASTERTYPETEXTURE | rwRASTERFORMAT8888;
+        uint32_t w = img->width;
+        uint32_t h = img->height;
+        uint8_t* p = img->pixels;
 
-            if (mipMap)
-                flags |= rwRASTERFORMATMIPMAP | rwRASTERFORMATAUTOMIPMAP;
+        int32_t flags = rwRASTERTYPETEXTURE | rwRASTERFORMAT8888;
 
-            RwRaster* raster = RwRasterCreate(w, h, 0, flags);
-            RwUInt32* pixels = (RwUInt32*)RwRasterLock(raster, 0, rwRASTERLOCKWRITE);
+        if (mipMap)
+            flags |= rwRASTERFORMATMIPMAP | rwRASTERFORMATAUTOMIPMAP;
 
-            for (uint32_t i = 0; i < w * h * 4; i += 4) {
-                uint8_t r = p[i + 2];
-                uint8_t g = p[i + 1];
-                uint8_t b = p[i];
+        RwRaster* raster = RwRasterCreate(w, h, 0, flags);
+        RwUInt32* pixels = (RwUInt32*)RwRasterLock(raster, 0, rwRASTERLOCKWRITE);
 
-                p[i + 2] = b;
-                p[i + 1] = g;
-                p[i] = r;
-            }
+        for (uint32_t i = 0; i < w * h * 4; i += 4) {
+            uint8_t r = p[i + 2];
+            uint8_t g = p[i + 1];
+            uint8_t b = p[i];
 
-            memcpy(pixels, p, w * h * 4);
-            RwRasterUnlock(raster);
-
-            auto tex = RwTextureCreate(raster);
-            std::string fileNoExt = RemovePath(file);
-            fileNoExt = RemoveExtension(fileNoExt);
-
-            if (mipMap)
-                RwTextureSetFilterMode(tex, rwFILTERMIPLINEAR);
-            else
-                RwTextureSetFilterMode(tex, rwFILTERLINEAR);
-
-            RwTextureSetMipmapping(mipMap);
-            RwTextureSetAutoMipmapping(mipMap);
-            memset(tex->name, 0, 32);
-            fileNoExt.copy(tex->name, 32);
-
-            spritesMap.insert({ fileNoExt, tex });
-            spritesMapIndex.insert({ Index++, tex });
-
-            img->Release();
-
-            memUsed += w * h * 4;
-
-            return tex;
+            p[i + 2] = b;
+            p[i + 1] = g;
+            p[i] = r;
         }
 
-        return nullptr;
+        memcpy(pixels, p, w * h * 4);
+        RwRasterUnlock(raster);
+
+        tex = RwTextureCreate(raster);
+        if (mipMap)
+            RwTextureSetFilterMode(tex, rwFILTERMIPLINEAR);
+        else
+            RwTextureSetFilterMode(tex, rwFILTERLINEAR);
+
+        RwTextureSetMipmapping(mipMap);
+        RwTextureSetAutoMipmapping(mipMap);
+
+        memset(tex->name, 0, 32);
+        fileNoExt.copy(tex->name, 32);
+
+        img->Release();
+
+        memUsed += w * h * 4;
+#else
+        tex = rage::grcTextureFactoryPC::GetInstance()->Create(file.c_str(), nullptr);
+
+        memUsed += tex->m_Width, tex->m_Height * 4;
+#endif
+
+        spritesMap.insert({ fileNoExt, tex });
+        spritesMapIndex.insert({ Index++, tex });
+
+        return tex;
     }
 
     bool SpriteLoader::LoadAllSpritesFromFolder(std::string const& path) {
@@ -190,7 +205,6 @@ make_slot:
 
         return true;
     }
-#endif
 
     CSprite2d SpriteLoader::GetSprite(std::string const& name) {
         CSprite2d sprite;

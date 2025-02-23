@@ -101,8 +101,8 @@ namespace rage {
             return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 1>(this, width, height, format, arg4, arg5);
         }
 
-        grcTexturePC* Create(const char* name, grcImage* image) {
-            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 2>(this, name, image);
+        grcTexturePC* Create(const char* path, grcImage* image) {
+            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 3>(this, path, image);
         }
 
         grcRenderTarget* GetBackBuffer() {

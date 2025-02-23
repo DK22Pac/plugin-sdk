@@ -49,14 +49,17 @@ namespace plugin {
             slotName = {};
             istxd = false;
             mipMap = false;
+#ifdef RAGE
+            extension = "dds";
+#else
             extension = "png";
+#endif
+            memUsed = 0;
         }
         void Clear();
         bool LoadAllSpritesFromTxd(std::string const& path);
-#ifdef RW
-        RwTexture* LoadSpriteFromFolder(std::string const& file);
+        texClass* LoadSpriteFromFolder(std::string const& file);
         bool LoadAllSpritesFromFolder(std::string const& path);
-#endif
         CSprite2d GetSprite(std::string const& name);
         CSprite2d GetSprite(uint32_t id);
         texClass* GetTex(std::string const& name);

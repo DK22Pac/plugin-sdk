@@ -21,7 +21,7 @@ public:
     void SetRenderState();
 
 public:
-    CSprite2d() = default;
+    CSprite2d() : m_pTexture(nullptr) {}
 
     static void ClearRenderState();
     static void Draw(rage::Vector2 const& pt1, rage::Vector2 const& pt2, rage::Vector2 const& pt3, rage::Vector2 const& pt4, rage::Color32 const& col);

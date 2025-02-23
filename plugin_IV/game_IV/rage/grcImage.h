@@ -31,7 +31,7 @@ namespace rage {
 
         typedef CTextureDecodeRequestDesc::Type Format;
 
-    private:
+    public:
         uint16_t m_Width;
         uint16_t m_Height;
         Format m_Format;
@@ -50,20 +50,24 @@ namespace rage {
         Vector3 m_ColorExp;
         Vector3 m_ColorOfs;
 
-    public:
+    private:
         ~grcImage();
 
+    public:
         int32_t Release() {
             if (this->m_RefCount-- != 1)
                 return this->m_RefCount;
 
             delete this;
+
+            return 0;
         }
 
     public:
         static grcImage* Create(uint32_t width, uint32_t height, Format format, ImageType type, int32_t extraMipmaps, int32_t extraLayers, int32_t unused);
-        static grcImage* LoadJPEG(const char* name, grcImage* image); // image can be nullptr
-        static grcImage* LoadJPEG(rage::fiStream* S, grcImage* image); // image can be nullptr
-
+        static grcImage* LoadJPEG(const char* path, grcImage* image = nullptr);
+        static grcImage* LoadJPEG(rage::fiStream* S, grcImage* image = nullptr);
+        static grcImage* LoadDDS(const char* path);
+        static grcImage* Load(const char* path); // dds only
     };
 }
