@@ -130,7 +130,7 @@ namespace plugin {
 
     public:
         inline BassSampleManager() {
-            BASS_Init(-1, 44100, 0, NULL, NULL);
+            BASS_Init(-1, 44100, BASS_DEVICE_3D, NULL, NULL);
 
             streams = {};
             samples = {};

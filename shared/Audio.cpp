@@ -28,7 +28,7 @@ namespace plugin {
 
         s.name = plugin::RemoveExtension(plugin::RemovePath(file));
         s.sample = samples.size();
-        s.handle = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 1, BASS_SAMPLE_MONO | BASS_SAMPLE_3D);
+        s.handle = BASS_SampleLoad(FALSE, file.c_str(), 0, 0, 32, BASS_SAMPLE_MONO | BASS_SAMPLE_3D);
         s.loopStart = loopStart;
         s.loopEnd = loopEnd;
         samples.push_back(s);
@@ -76,7 +76,11 @@ namespace plugin {
         if (channel == 0)
             return;
 
-        BASS_ChannelSet3DAttributes(streams[channel].handle, BASS_3DMODE_NORMAL, min, max, 360, 360, 0.0f);
+        if (streams[channel].is3d)
+            BASS_ChannelSet3DAttributes(streams[channel].handle, BASS_3DMODE_NORMAL, min, max, 360, 0, 0.0f);
+        else
+            BASS_ChannelSet3DAttributes(streams[channel].handle, BASS_3DMODE_OFF, min, max, 360, -1, -1);
+
         BASS_Apply3D();
     }
 
@@ -87,12 +91,21 @@ namespace plugin {
         BASS_3DVECTOR pos = { x, y, z };
         BASS_ChannelSet3DPosition(streams[channel].handle, &pos, NULL, NULL);
         BASS_Set3DFactors(1.0f, 1.0f, 1.0f);
+
+        BASS_Set3DPosition(&listener.pos, nullptr, &listener.forward, &listener.up);
         BASS_Apply3D();
     }
 
     void BassSampleManager::SetChannel2DPositions(uint32_t channel) {
-        SetChannel3DDistances(channel, 10.0f, 1000.0f);
-        SetChannel3DPosition(channel, listener.pos.x, listener.pos.y, listener.pos.z);
+        if (channel == 0)
+            return;
+
+        BASS_3DVECTOR pos = { 0.0f, 0.0f, 0.0f };
+        BASS_ChannelSet3DPosition(streams[channel].handle, &listener.pos, NULL, NULL);
+        BASS_Set3DFactors(1.0f, 1.0f, 1.0f);
+
+        BASS_Set3DPosition(&listener.pos, nullptr, &listener.forward, &listener.up);
+        BASS_Apply3D();
     }
 
     void BassSampleManager::SetChannelEmittingVolume(uint32_t channel, int32_t value) {
@@ -249,7 +262,13 @@ namespace plugin {
         BASS_SAMPLE sampleInfo = {};
         BASS_SampleGetInfo(samples[sample].handle, &sampleInfo);
 
-        streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, 0);
+        streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, false);
+        
+        if (streams[channel].handle == 0) {
+            DWORD err = BASS_ErrorGetCode();
+            std::cout << err << std::endl;
+        }
+        
         streams[channel].channelId = channel;
         streams[channel].sampleId = sample;
 
@@ -297,15 +316,16 @@ namespace plugin {
         queue = {};
     }
 
+
     void BassSampleManager::Process() {
 #ifndef GTA2
-        BASS_3DVECTOR* position = (BASS_3DVECTOR*)&TheCamera.GetPosition();
-        BASS_3DVECTOR* front = (BASS_3DVECTOR*)&TheCamera.GetForward();
-        BASS_3DVECTOR* up = (BASS_3DVECTOR*)&TheCamera.GetUp();
-        BASS_Set3DPosition(position, nullptr, front, up);
-        listener.pos = *position;
-        listener.forward = *front;
-        listener.up = *up;
+        auto pos = TheCamera.GetPosition();
+        auto forward = TheCamera.GetForward();
+        auto up = TheCamera.GetUp();
+
+        listener.pos = { pos.x, pos.y, pos.z };
+        listener.forward = { forward.x, forward.y, forward.z };
+        listener.up = { up.x, up.y, up.z };
 #endif
 
         for (auto& it : streams) {
@@ -386,10 +406,10 @@ namespace plugin {
                     SetChannelFramesToPlay(channel, it->framesToPlay);
 
                     SetChannel3D(channel, it->is3d);
+                    SetChannel3DDistances(channel, 10.0f, 100.0f);
                     if (it->is3d) {
                         SetChannelReverbFlag(channel, it->reverb);
                         SetChannel3DPosition(channel, it->pos.x, it->pos.y, it->pos.z);
-                        SetChannel3DDistances(channel, 10.0f, 1000.0f);
                     }
                     else {
                         SetChannel2DPositions(channel);
