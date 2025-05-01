@@ -18,6 +18,10 @@ namespace plugin {
 
 class patch {
 public:
+    static inline std::unordered_map<uintptr_t, std::vector<uint8_t>> m_NopBytesMap = {};
+
+public:
+    static void NopRestore(uintptr_t address, bool vp = true);
     static void Nop(uintptr_t address, size_t size, bool vp = true);
     static void RedirectCall(uintptr_t address, void *func, bool vp = true);
     static void RedirectJump(uintptr_t address, void *func, bool vp = true);
