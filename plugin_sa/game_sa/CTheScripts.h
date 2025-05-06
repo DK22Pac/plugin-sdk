@@ -19,6 +19,13 @@
 #include "CUpsideDownCarCheck.h"
 #include "CScriptsForBrains.h"
 
+enum class eUseTextCommandState : char
+{
+    DISABLED,
+    DISABLE_NEXT_FRAME,
+    ENABLED_BY_SCRIPT
+};
+
 struct tBuildingSwap
 {
     CBuilding *m_pCBuilding;
@@ -211,7 +218,7 @@ public:
     SUPPORTED_10US static unsigned short &MessageWidth;
     SUPPORTED_10US static unsigned short &MessageCentre;
     SUPPORTED_10US static bool &bUseMessageFormatting;
-    SUPPORTED_10US static bool &UseTextCommands;
+    SUPPORTED_10US static eUseTextCommandState &UseTextCommands;
     SUPPORTED_10US static unsigned short &NumberOfIntroTextLinesThisFrame;
     SUPPORTED_10US static unsigned short &NumberOfUsedObjects;
     SUPPORTED_10US static tUsedObject *UsedObjectArray; // static tUsedObject UsedObjectArray[395]
