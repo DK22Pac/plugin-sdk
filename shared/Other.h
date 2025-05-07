@@ -98,13 +98,13 @@ namespace plugin {
 
     static std::wstring ToWString(const std::string& str) {
         std::wstring wstr(str.size(), L'\0');
-        std::mbstowcs(&wstr[0], str.c_str(), str.size());
+        mbstowcs_s(nullptr, wstr.data(), wstr.size() + 1, str.c_str(), str.size());
         return wstr;
     }
 
     static std::string ToString(const std::wstring& wstr) {
         std::string str(wstr.size() * MB_CUR_MAX, '\0');
-        std::wcstombs(&str[0], wstr.c_str(), str.size());
+        wcstombs_s(nullptr, str.data(), str.size() + 1, wstr.c_str(), wstr.size());
         return str;
     }
 
