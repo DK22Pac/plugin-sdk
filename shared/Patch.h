@@ -18,7 +18,7 @@ namespace plugin {
 
 class patch {
 public:
-    static inline std::unordered_map<uintptr_t, std::vector<uint8_t>> m_NopBytesMap = {};
+    static inline std::unique_ptr<std::unordered_map<uintptr_t, std::vector<uint8_t>>> m_NopBytesMap = nullptr;
 
 public:
     static void NopRestore(uintptr_t address, bool vp = true);

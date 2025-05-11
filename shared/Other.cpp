@@ -82,12 +82,12 @@ bool plugin::CreateImageFromFile(std::string const& path, plugin::Image*& img) {
 }
 
 #if _HAS_CXX17
-std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, std::string const& ext) {
+std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, std::string const& ext, bool includePath) {
     std::vector<std::string> files = {};
     try {
         for (auto& it : std::filesystem::directory_iterator(path)) {
             if (it.path().extension() == ext) {
-                files.push_back(it.path().filename().string());
+                files.push_back(includePath ? it.path().filename().string() : it.path().string());
             }
         }
     }
@@ -97,4 +97,5 @@ std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, st
 
     return files;
 }
+
 #endif
