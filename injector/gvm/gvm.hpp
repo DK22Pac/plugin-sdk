@@ -101,16 +101,18 @@ class game_version_manager
         // Gets the game version as text, the buffer must contain at least 32 bytes of space.
         char* GetVersionText(char* buffer)
         {
+            static constexpr size_t BUFFER_SIZE = 32;
+
             if(this->IsUnknown())
             {
-                strcpy(buffer, "UNKNOWN GAME");
+                strcpy_s(buffer, BUFFER_SIZE, "UNKNOWN GAME");
                 return buffer;
             }
 
             const char* g = this->IsIII() ? "III" : this->IsVC() ? "VC" : this->IsSA() ? "SA" : this->IsIV() ? "IV" : this->IsEFLC() ? "EFLC" : "UNK";
             const char* r = this->IsUS()? "US" : this->IsEU()? "EURO" : "UNK_REGION";
             const char* s = this->IsSteam()? "Steam" : "";
-            sprintf(buffer, "GTA %s %d.%d.%d.%d %s%s", g, major, minor, majorRevision, minorRevision, r, s);
+            sprintf_s(buffer, BUFFER_SIZE, "GTA %s %d.%d.%d.%d %s%s", g, major, minor, majorRevision, minorRevision, r, s);
             return buffer;
         }
 
@@ -129,7 +131,7 @@ class game_version_manager
         void RaiseIncompatibleVersion()
         {
             char buf[128], v[32];
-            sprintf(buf,
+            sprintf_s(buf,
                 "An incompatible exe version has been detected! (%s)\nContact the mod creator!",
                 GetVersionText(v)
                 );
