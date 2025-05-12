@@ -87,7 +87,7 @@ std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, st
     try {
         for (auto& it : std::filesystem::directory_iterator(path)) {
             if (it.path().extension() == ext) {
-                files.push_back(includePath ? it.path().filename().string() : it.path().string());
+                files.push_back(includePath ? it.path().string() : it.path().filename().string());
             }
         }
     }
