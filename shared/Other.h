@@ -35,9 +35,9 @@ namespace plugin {
     static void OpenConsole() {
 #if defined(_WIN32)
         AllocConsole();
-        freopen("conin$", "r", stdin);
-        freopen("conout$", "w", stdout);
-        freopen("conout$", "w", stderr);
+        freopen_s(nullptr, "conin$", "r", stdin);
+        freopen_s(nullptr, "conout$", "w", stdout);
+        freopen_s(nullptr, "conout$", "w", stderr);
         std::setvbuf(stdout, NULL, _IONBF, 0);
 #endif
     }
