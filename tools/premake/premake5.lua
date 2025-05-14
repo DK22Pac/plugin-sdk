@@ -400,13 +400,16 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
     end
     if game == "GTASA" then
         aryDefines[counter] = "PLUGIN_SGV_10US"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RW"
+        counter = counter + 2
     elseif game == "GTAVC" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RW"
+        counter = counter + 2
     elseif game == "GTA3" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RW"
+        counter = counter + 2
     elseif game == "GTA2" then
         aryDefines[counter] = "PLUGIN_SGV_96EN"
         counter = counter + 1
@@ -431,9 +434,10 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
     end
     aryDirs[counter] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir)
     aryDirs[counter + 1] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir)
-    aryDirs[counter + 2] = "$(PLUGIN_SDK_DIR)\\shared"
-    aryDirs[counter + 3] = "$(PLUGIN_SDK_DIR)\\shared\\game"
-    counter = counter + 4
+    aryDirs[counter + 2] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir .. "\\rw")
+    aryDirs[counter + 3] = "$(PLUGIN_SDK_DIR)\\shared"
+    aryDirs[counter + 4] = "$(PLUGIN_SDK_DIR)\\shared\\game"
+    counter = counter + 5
     if projectType == "MOON" then
         aryDirs[counter] = "$(MOONLOADER_SDK_SA_DIR)\\src"
         aryDirs[counter + 1] = "$(MOONLOADER_SDK_SA_DIR)\\src\\libs\\lua"
@@ -559,6 +563,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             buildoptions { "/Zc:threadSafeInit-" }
         end
         buildoptions { "/sdl-" }
+        flags "MultiProcessorCompile"
     end
     if mingw then
         buildoptions "-fpermissive"
