@@ -7,6 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CFont.h"
 #include "CRunningScript.h"
 #include "CPed.h"
 #include "CVehicle.h"
@@ -19,6 +20,34 @@ extern unsigned int MAX_SCRIPT_SPACE_SIZE; // default 260512
 class CUpsideDownCarCheck;
 class CStuckCarCheck;
 
+#pragma pack(push,1)
+struct tScriptText
+{
+    // defaults from CTheScripts::Init()
+    float letterWidth = 0.48f;
+    float letterHeight = 1.12f;
+    RwRGBA color = { 255, 255, 255, 255 };
+    bool justify = false;
+    bool centered = false;
+    bool withBackground = false;
+    bool backgroundOnly = false;
+    float wrapWidth = 182.0f;
+    float centerWidth = float(RsGlobal.maximumWidth);
+    RwRGBA backgroundBoxColor = { 128, 128, 128, 128 };
+    bool proportional = true;
+    bool drawBeforeFade = false;
+    bool rightJustify = false;
+    char _pad = 0;
+    int font = FONT_HEADING;
+    float xPosition = 0.0f;
+    float yPosition = 0.0f;
+    wchar_t text[500] = { 0 };
+};
+#pragma pack(pop)
+VALIDATE_SIZE(tScriptText, 0x414);
+
+
+
 class CTheScripts {
 public:
     static tScriptParam (&ScriptParams)[32]; // [32]
@@ -29,7 +58,7 @@ public:
     static unsigned char &DbgFlag;
     static unsigned char &FailCurrentMission;
     static char *IntroRectangles;
-    static char *IntroTextLines;
+    static tScriptText (&IntroTextLines)[2];
     static int *InvisibilitySettingArray;
     static CMissionCleanup &MissionCleanUp;
     static unsigned short &NumScriptDebugLines;
