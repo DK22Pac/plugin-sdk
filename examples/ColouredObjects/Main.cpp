@@ -67,7 +67,7 @@ public:
                     CFont::SetFontStyle(FONT_SUBTITLES);
                     CFont::SetProportional(true);
                     char text[16];
-                    sprintf(text, "%d %d %d", objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue);
+                    sprintf_s(text, "%d %d %d", objColorData.Get(object).red, objColorData.Get(object).green, objColorData.Get(object).blue);
                     CFont::PrintString(screenCoors.x, screenCoors.y, text);
                 }
             }
