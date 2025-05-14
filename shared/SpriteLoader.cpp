@@ -71,7 +71,7 @@ namespace plugin {
         if (slotName.empty()) {
 make_slot:
             char n[64];
-            sprintf(n, "psdkslot_%d", NumSlots);
+            sprintf_s(n, "psdkslot_%d", NumSlots);
             NumSlots++;
 
             int32_t slot = CTxdStore::FindTxdSlot(n);
