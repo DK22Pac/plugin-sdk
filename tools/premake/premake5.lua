@@ -133,6 +133,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         end
         defines { "_CRT_NON_CONFORMING_SWPRINTFS", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
         buildoptions { "/sdl-" }
+        flags "MultiProcessorCompile"
         disablewarnings "4073" -- "initializers put in library initialization area"
         fatalwarnings "4996" -- "This function or variable may be unsafe. Consider using *_s"
     end
