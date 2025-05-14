@@ -13,6 +13,7 @@
 #include "CMissionCleanup.h"
 #include "CBuilding.h"
 #include "CSprite2d.h"
+#include "CFont.h"
 #include "CStreamedScripts.h"
 #include "CScriptResourceManager.h"
 #include "CStuckCarCheck.h"
@@ -59,34 +60,38 @@ struct tScriptSequence
     short wUniqueID;
 };
 
+#pragma pack(push,1)
 struct tScriptText
 {
-    float letterWidth;
-    int letterHeight;
-    RwRGBA color;
-    char m_bJustify;
-    char centered;
-    char withBackground;
-    char _pad;
-    int lineHeight;
-    int lineWidth;
-    RwRGBA backgroundBoxColor;
-    char proportional;
-    RwRGBA backgroundColor;
-    char shadowType;
-    char outlineType;
-    char m_bDrawBeforeFade;
-    char m_bRightJustify;
-    char _pad_25;
-    char _pad_26;
-    char _pad_27;
-    int font;
-    int xPosition;
-    int yPosition;
-    char gxtEntry[8];
-    int param1;
-    int param2;
+    // defaults from CTheScripts::Init()
+    float letterWidth = 0.48f;
+    float letterHeight = 1.12f;
+    RwRGBA color = { 255, 255, 255, 255 };
+    bool justify = false;
+    bool centered = false;
+    bool withBackground = false;
+    char _pad = 0;
+    float wrapWidth = float(RsGlobal.maximumWidth);
+    float centerWidth = float(RsGlobal.maximumWidth);
+    RwRGBA backgroundBoxColor = { 128, 128, 128, 128 };
+    bool proportional = true;
+    RwRGBA backgroundColor = { 0, 0, 0, 255 };
+    char shadowType = 2; // drop shadow offset
+    char outlineType = 0; // outline thickness
+    bool drawBeforeFade = false;
+    bool rightJustify = false;
+    char _pad_25 = 0;
+    char _pad_26 = 0;
+    char _pad_27 = 0;
+    int font = FONT_SUBTITLES;
+    float xPosition = 0.0f;
+    float yPosition = 0.0f;
+    char gxtEntry[8] = { 0 };
+    int param1 = -1;
+    int param2 = -1;
 };
+#pragma pack(pop)
+VALIDATE_SIZE(tScriptText, 0x44);
 
 struct tScriptRectangle
 {
@@ -241,7 +246,7 @@ public:
     SUPPORTED_10US static CStuckCarCheck &StuckCars;
     SUPPORTED_10US static CScriptsForBrains &ScriptsForBrains;
     SUPPORTED_10US static tScriptSphere *ScriptSphereArray; // static CScriptSphere ScriptSphereArray[16]
-    SUPPORTED_10US static tScriptText *IntroTextLines; // static tScriptText IntroTextLines[96]
+    SUPPORTED_10US static tScriptText(&IntroTextLines)[96];
     SUPPORTED_10US static tScriptRectangle *IntroRectangles; // static tScriptRectangle IntroRectangles[128]
     SUPPORTED_10US static CSprite2d *ScriptSprites; // static CSprite2d ScriptSprites[128]
     SUPPORTED_10US static tScriptSearchlight *ScriptSearchLightArray; // static tScriptSearchlight ScriptSearchLightArray[8]
