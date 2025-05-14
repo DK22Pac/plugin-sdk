@@ -226,7 +226,7 @@ const wchar_t *plugin::paths::GetDirPath(const wchar_t *substring, ePathDir dir)
 
 const char *plugin::paths::GetPluginFileName(char *out) {
     strcpy_s(out, MAX_PATH, PluginPathAInstance()._filename);
-	return out;
+    return out;
 }
 
 const wchar_t *plugin::paths::GetPluginFileName(wchar_t *out) {

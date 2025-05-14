@@ -67,7 +67,7 @@ void scripting::ScriptCode::SaveResultVariables(CRunningScript *script) {
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_STRING) {
             char *pStr = reinterpret_cast<char *>(varToSet.pVar);
-            strncpy_s(pStr, 15, reinterpret_cast<char *>(&LocalVar.iParam), 15);
+            strncpy_s(pStr, 16, reinterpret_cast<char *>(&LocalVar.iParam), 15);
             pStr[15] = '\0';
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_PED) {
