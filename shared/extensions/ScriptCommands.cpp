@@ -67,7 +67,7 @@ void scripting::ScriptCode::SaveResultVariables(CRunningScript *script) {
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_STRING) {
             char *pStr = reinterpret_cast<char *>(varToSet.pVar);
-            strncpy(pStr, reinterpret_cast<char *>(&LocalVar.iParam), 15);
+            strncpy_s(pStr, 16, reinterpret_cast<char *>(&LocalVar.iParam), 15);
             pStr[15] = '\0';
         }
         else if (varToSet.varType == SCRIPT_RESULT_VAR_PED) {
@@ -142,14 +142,14 @@ void scripting::ScriptCode::operator<<(char(*p)[16]) {
 #else
 void scripting::ScriptCode::operator<<(char *str) {
     static char tmpString[8];
-    strncpy(tmpString, str, 7);
+    strncpy_s(tmpString, str, 7);
     tmpString[7] = '\0';
     AddBytes(reinterpret_cast<unsigned char *>(tmpString), 8);
 }
 
 void scripting::ScriptCode::operator<<(const char *str) {
     static char tmpString[8];
-    strncpy(tmpString, str, 7);
+    strncpy_s(tmpString, str, 7);
     tmpString[7] = '\0';
     AddBytes(reinterpret_cast<unsigned char *>(const_cast<char *>(tmpString)), 8);
 }

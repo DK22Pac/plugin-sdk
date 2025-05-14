@@ -131,9 +131,10 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
 		else	
 			cppdialect "C++latest"
         end
-        defines { "_CRT_SECURE_NO_WARNINGS", "_CRT_NON_CONFORMING_SWPRINTFS", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
+        defines { "_CRT_NON_CONFORMING_SWPRINTFS", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
         buildoptions { "/sdl-" }
-        disablewarnings "4073"
+        disablewarnings "4073" -- "initializers put in library initialization area"
+        fatalwarnings "4996" -- "This function or variable may be unsafe. Consider using *_s"
     end
     if mingw then
         buildoptions "-fpermissive"
@@ -158,6 +159,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             defines { "GTA3", "PLUGIN_SGV_10EN", "RW" }
 		elseif projectName == "plugin_ii" then
             defines { "GTA2", "PLUGIN_SGV_96EN", "GBH" }
+            defines "_CRT_SECURE_NO_WARNINGS" --TODO: instead warning 4966 should be suppressed for files in game_II\d3d
 		elseif projectName == "plugin_iv" then
             defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
 			
@@ -372,9 +374,8 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
             aryDefines[counter] = "_USING_V110_SDK71_"
             counter = counter + 1
         end
-        aryDefines[counter] = "_CRT_SECURE_NO_WARNINGS"
-        aryDefines[counter + 1] = "_CRT_NON_CONFORMING_SWPRINTFS"
-        counter = counter + 2
+        aryDefines[counter] = "_CRT_NON_CONFORMING_SWPRINTFS"
+        counter = counter + 1
     end
     aryDefines[counter] = game
     aryDefines[counter + 1] = projectDefinition("GTAGAME_NAME", gameName, l1, l2)
@@ -551,7 +552,6 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
     staticruntime "On"
     flags { "NoImportLib" }
 	cppdialect "C++latest"
-	defines { "_CRT_SECURE_NO_WARNINGS" }
 
     if msbuild then
         if winxp then

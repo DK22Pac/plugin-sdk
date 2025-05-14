@@ -146,7 +146,7 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
         // Load vertex shader
         for (unsigned int i = 0; i < lines.size(); i++) {
             if (!lines[i].compare(0, 13, "#VertexShader")) {
-                if (sscanf(lines[i].c_str(), "%*s %s %s", entryPoint, version) == 2) {
+                if (sscanf_s(lines[i].c_str(), "%*s %s %s", entryPoint, sizeof(entryPoint), version, sizeof(version)) == 2) {
                     entryPoint[strlen(entryPoint) - 1] = '\0';
                     version[strlen(version) - 1] = '\0';
                     std::string shaderCode;
@@ -171,7 +171,7 @@ bool Shader::LoadFromSource(std::ifstream &file, bool bDebug) {
         // Load pixel shader
         for (unsigned int i = 0; i < lines.size(); i++) {
             if (!lines[i].compare(0, 12, "#PixelShader")) {
-                if (sscanf(lines[i].c_str(), "%*s %s %s", entryPoint, version) == 2) {
+                if (sscanf_s(lines[i].c_str(), "%*s %s %s", entryPoint, sizeof(entryPoint), version, sizeof(version)) == 2) {
                     entryPoint[strlen(entryPoint) - 1] = '\0';
                     version[strlen(version) - 1] = '\0';
                     std::string shaderCode;
@@ -265,13 +265,13 @@ void Shader::Load() {
 bool Shader::WriteToBinaryFile(std::ofstream &file) {
     if (file.is_open()) {
         BinaryFileHeader header;
-        strcpy(header.fxcSignature, "FXC");
+        strcpy_s(header.fxcSignature, "FXC");
         header.fxcSignature[3] = '\0';
-        strcpy(header.pluginSdkSignature, "plugin-sdk");
+        strcpy_s(header.pluginSdkSignature, "plugin-sdk");
         header.pluginSdkSignature[10] = header.pluginSdkSignature[11] = '\0';
         header.versionId = PLUGIN_SDK_SHADER_MODULE_VERSION;
         memset(header.name, 0, 128);
-        strcpy(header.name, name.c_str());
+        strcpy_s(header.name, name.c_str());
         header.vsOffset = header.vsSize = header.psOffset = header.psSize = 0;
         if (vertexShader) {
             unsigned int functionSize = 0;
