@@ -8,7 +8,7 @@
 #include "CRoadBlocks.h"
 
 PLUGIN_SOURCE_FILE
-tScriptRoadBlocks(&CRoadBlocks::aScriptRoadBlocks)[16] = *reinterpret_cast<tScriptRoadBlocks(*)[16]>(GLOBAL_ADDRESS_BY_VERSION(0xA913E8, 0, 0, 0, 0, 0));
+tScriptRoadBlocks(&CRoadBlocks::aScriptRoadBlocks)[16] = *reinterpret_cast<tScriptRoadBlocks(*)[16]>(GLOBAL_ADDRESS_BY_VERSION(0xA43AB8, 0, 0, 0, 0, 0));
 tRoadbloxDat(&CRoadBlocks::roadbloxDat)[325] = *reinterpret_cast<tRoadbloxDat(*)[325]>(GLOBAL_ADDRESS_BY_VERSION(0xA435A0, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE unsigned int &CRoadBlocks::roadbloxFlags = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xA43438, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE unsigned int &CRoadBlocks::roadbloxDatSize = *reinterpret_cast<unsigned int *>(GLOBAL_ADDRESS_BY_VERSION(0xA43580, 0, 0, 0, 0, 0));
