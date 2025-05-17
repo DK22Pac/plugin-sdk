@@ -580,9 +580,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         buildoptions "-fpermissive"
         linkoptions { "-static-libgcc", "-static-libstdc++" }
     end
-    local strTargetDir = "$(PLUGIN_SDK_DIR)\\output\\examples\\"
-    targetdir (strTargetDir)
-    local strMingwObjDir = ("$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\examples\\$(ProjectName)\\")
+
     local ext = ".asi"
     if projectType == "CLEO" then
         ext = ".cleo"
@@ -590,23 +588,14 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         ext = ".dll"
     end
     targetextension (ext)
+	
     filter "Release"
-        if mingw then
-            objdir (strMingwObjDir .. "Release\\")
-        else
-            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\$(ProjectName)\\Release\\")
-        end
         optimize "On"
         symbols "Off"
         if msbuild then
             flags "LinkTimeOptimization"
         end
     filter "zDebug"
-        if mingw then
-            objdir (strMingwObjDir .. "Debug\\")
-        else
-            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\$(ProjectName)\\Debug\\")
-        end
         symbols "On"
     filter {}
 
