@@ -15,9 +15,15 @@ void CTheScripts::ClearSpaceForMissionEntity(CVector const& position, CEntity* e
 
 PLUGIN_SOURCE_FILE
 
-tScriptText(&CTheScripts::IntroTextLines)[48] = *reinterpret_cast<tScriptText(*)[48]>(GLOBAL_ADDRESS_BY_VERSION(0x7F0EA0, 0x7F0EA8, 0x7EFEA8));
 unsigned char(&CTheScripts::ScriptSpace)[260512] = *reinterpret_cast<unsigned char(*)[260512]>(GLOBAL_ADDRESS_BY_VERSION(0x821280, 0x821288, 0x820288));
-short &CTheScripts::NumberOfIntroTextLinesThisFrame = *reinterpret_cast<short *>(GLOBAL_ADDRESS_BY_VERSION(0xA10A48, 0xA10A50, 0xA0FA50));
+
+// scripts drawing
+eUseTextCommandState& CTheScripts::UseTextCommands = *reinterpret_cast<eUseTextCommandState*>(GLOBAL_ADDRESS_BY_VERSION(0xA10AF1, 0xA10AF9, 0xA0FAF9));
+unsigned short& CTheScripts::NumberOfIntroTextLinesThisFrame = *reinterpret_cast<unsigned short*>(GLOBAL_ADDRESS_BY_VERSION(0xA10A48, 0xA10A50, 0xA0FA50));
+tScriptText (&CTheScripts::IntroTextLines)[48] = *reinterpret_cast<tScriptText(*)[48]>(GLOBAL_ADDRESS_BY_VERSION(0x7F0EA0, 0x7F0EA8, 0x7EFEA8));
+unsigned short& CTheScripts::NumberOfIntroRectanglesThisFrame = *reinterpret_cast<unsigned short*>(GLOBAL_ADDRESS_BY_VERSION(0xA10960, 0xA10968, 0xA0F968));
+tScriptRectangle (&CTheScripts::IntroRectangles)[16] = *reinterpret_cast<tScriptRectangle(*)[16]>(GLOBAL_ADDRESS_BY_VERSION(0x813DF0, 0x813DF8, 0x812DF8));
+CSprite2d (&CTheScripts::ScriptSprites)[16] = *reinterpret_cast<CSprite2d(*)[16]>(GLOBAL_ADDRESS_BY_VERSION(0x8117E8, 0x8117F0, 0x8107F0));
 
 int addrof(CTheScripts::CleanUpThisObject) = ADDRESS_BY_VERSION(0x45EA80, 0x45EA80, 0x45E960);
 int gaddrof(CTheScripts::CleanUpThisObject) = GLOBAL_ADDRESS_BY_VERSION(0x45EA80, 0x45EA80, 0x45E960);

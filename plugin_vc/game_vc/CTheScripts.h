@@ -15,6 +15,13 @@
 #include "CFont.h"
 #include "CRGBA.h"
 
+enum class eUseTextCommandState : char
+{
+    DISABLED,
+    DISABLE_NEXT_FRAME,
+    ENABLED_BY_SCRIPT
+};
+
 #pragma pack(push,1)
 struct tScriptText
 {
@@ -41,6 +48,20 @@ struct tScriptText
 #pragma pack(pop)
 VALIDATE_SIZE(tScriptText, 0xF4);
 
+#pragma pack(push,1)
+struct tScriptRectangle
+{
+    // defaults from CTheScripts::Init()
+    bool isUsed = false;
+    bool drawBeforeFade = false;
+    short spriteIdx = -1;
+    CRect rect;
+    CRGBA color = { 255, 255, 255, 255 };
+};
+#pragma pack(pop)
+VALIDATE_SIZE(tScriptRectangle, 0x18);
+
+
 
 
 class PLUGIN_API CTheScripts {
@@ -48,9 +69,15 @@ public:
     static tScriptParam *ScriptParams; // [32]
     static CRunningScript*& pActiveScripts;
 
-    SUPPORTED_10EN_11EN_STEAM static tScriptText(&IntroTextLines)[48];
     SUPPORTED_10EN_11EN_STEAM static unsigned char(&ScriptSpace)[260512]; // static unsigned char ScriptSpace[260512]
-    SUPPORTED_10EN_11EN_STEAM static short &NumberOfIntroTextLinesThisFrame;
+
+    // script drawing
+    SUPPORTED_10EN_11EN_STEAM static eUseTextCommandState& UseTextCommands;
+    SUPPORTED_10EN_11EN_STEAM static unsigned short& NumberOfIntroTextLinesThisFrame;
+    SUPPORTED_10EN_11EN_STEAM static tScriptText (&IntroTextLines)[48];
+    SUPPORTED_10EN_11EN_STEAM static unsigned short& NumberOfIntroRectanglesThisFrame;
+    SUPPORTED_10EN_11EN_STEAM static tScriptRectangle (&IntroRectangles)[16];
+    SUPPORTED_10EN_11EN_STEAM static CSprite2d (&ScriptSprites)[16];
 
     SUPPORTED_10EN_11EN_STEAM static void CleanUpThisObject(CObject *pObject);
     SUPPORTED_10EN_11EN_STEAM static void CleanUpThisPed(CPed *pPed);

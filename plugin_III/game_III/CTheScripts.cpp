@@ -15,12 +15,9 @@ unsigned short &CTheScripts::CommandsExecuted = *(unsigned short *)0x95CCA6;
 unsigned char &CTheScripts::CountdownToMakePlayerUnsafe = *(unsigned char *)0x95CD51;
 unsigned char &CTheScripts::DbgFlag = *(unsigned char *)0x95CD87;
 unsigned char &CTheScripts::FailCurrentMission = *(unsigned char *)0x95CD41;
-char *CTheScripts::IntroRectangles = (char *)0x72D109;
-tScriptText (&CTheScripts::IntroTextLines)[2] = *(tScriptText(*)[2])0x70EA74;
 int *CTheScripts::InvisibilitySettingArray = (int *)0x8620F0;
 CMissionCleanup &CTheScripts::MissionCleanUp = *(CMissionCleanup *)0x8F2A24;
 unsigned short &CTheScripts::NumScriptDebugLines = *(unsigned short *)0x95CC42;
-unsigned short &CTheScripts::NumberOfIntroTextLinesThisFrame = *(unsigned short *)0x95CC88;
 unsigned short &CTheScripts::NumberOfUsedObjects = *(unsigned short *)0x95CC72;
 unsigned int &CTheScripts::OnAMissionFlag = *(unsigned int *)0x8F1B64;
 unsigned int &CTheScripts::OnAMissionForContactFlag = *(unsigned int *)0x8622F0;
@@ -30,11 +27,18 @@ int &CTheScripts::StoreVehicleIndex = *(int *)0x8F5F3C;
 unsigned char&CTheScripts::StoreVehicleWasRandom = *(unsigned char *)0x95CDBC;
 CStuckCarCheck *CTheScripts::StuckCars = (CStuckCarCheck *)0x87C588;
 CUpsideDownCarCheck *CTheScripts::UpsideDownCars = (CUpsideDownCarCheck *)0x6EE450;
-char &CTheScripts::UseTextCommands = *(char *)0x95CD57;
 bool &CTheScripts::bAlreadyRunningAMissionScript = *(bool *)0x95CDB3;
 bool &CTheScripts::bUsingAMultiScriptFile = *(bool *)0x95CD55;
 CRunningScript *&CTheScripts::pActiveScripts = *(CRunningScript **)0x8E2BF4;
 CRunningScript *&CTheScripts::pIdleScripts = *(CRunningScript **)0x9430D4;
+
+// script drawing
+eUseTextCommandState& CTheScripts::UseTextCommands = *(eUseTextCommandState*)0x95CD57;
+unsigned short& CTheScripts::NumberOfIntroTextLinesThisFrame = *(unsigned short*)0x95CC88;
+tScriptText (&CTheScripts::IntroTextLines)[2] = *(tScriptText(*)[2])0x70EA68;
+unsigned short& CTheScripts::NumberOfIntroRectanglesThisFrame = *(unsigned short*)0x95CC32;
+tScriptRectangle (&CTheScripts::IntroRectangles)[16] = *(tScriptRectangle(*)[16])0x72D108;
+CSprite2d (&CTheScripts::ScriptSprites)[16] = *(CSprite2d(*)[16])0x72B090;
 
 // Converted from cdecl void CTheScripts::Init(void) 0x438790 
 void CTheScripts::Init() {

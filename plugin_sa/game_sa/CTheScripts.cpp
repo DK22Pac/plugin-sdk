@@ -63,12 +63,9 @@ PLUGIN_VARIABLE int *CTheScripts::VehicleModelsBlockedByScript = reinterpret_cas
 PLUGIN_VARIABLE int *CTheScripts::SuppressedVehicleModels = reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xA44940, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE CEntity **CTheScripts::InvisibilitySettingArray = reinterpret_cast<CEntity **>(GLOBAL_ADDRESS_BY_VERSION(0xA449E0, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE tBuildingSwap *CTheScripts::BuildingSwapArray = reinterpret_cast<tBuildingSwap *>(GLOBAL_ADDRESS_BY_VERSION(0xA44A30, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE unsigned short &CTheScripts::NumberOfIntroRectanglesThisFrame = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B5C, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE unsigned short &CTheScripts::MessageWidth = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B60, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE unsigned short &CTheScripts::MessageCentre = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B64, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE bool &CTheScripts::bUseMessageFormatting = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B66, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE eUseTextCommandState &CTheScripts::UseTextCommands = *reinterpret_cast<eUseTextCommandState *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B67, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE unsigned short &CTheScripts::NumberOfIntroTextLinesThisFrame = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B68, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE unsigned short &CTheScripts::NumberOfUsedObjects = *reinterpret_cast<unsigned short *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B6C, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE tUsedObject *CTheScripts::UsedObjectArray = reinterpret_cast<tUsedObject *>(GLOBAL_ADDRESS_BY_VERSION(0xA44B70, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE int &CTheScripts::LastRandomPedId = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0xA476A4, 0, 0, 0, 0, 0));
@@ -89,10 +86,15 @@ PLUGIN_VARIABLE CMissionCleanup &CTheScripts::MissionCleanUp = *reinterpret_cast
 PLUGIN_VARIABLE CStuckCarCheck &CTheScripts::StuckCars = *reinterpret_cast<CStuckCarCheck *>(GLOBAL_ADDRESS_BY_VERSION(0xA90AB0, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE CScriptsForBrains &CTheScripts::ScriptsForBrains = *reinterpret_cast<CScriptsForBrains *>(GLOBAL_ADDRESS_BY_VERSION(0xA90CF0, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE tScriptSphere *CTheScripts::ScriptSphereArray = reinterpret_cast<tScriptSphere *>(GLOBAL_ADDRESS_BY_VERSION(0xA91268, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE tScriptText(&CTheScripts::IntroTextLines)[96] = *reinterpret_cast<tScriptText(*)[96]>(GLOBAL_ADDRESS_BY_VERSION(0xA913E8, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE tScriptRectangle *CTheScripts::IntroRectangles = reinterpret_cast<tScriptRectangle *>(GLOBAL_ADDRESS_BY_VERSION(0xA92D68, 0, 0, 0, 0, 0));
-PLUGIN_VARIABLE CSprite2d *CTheScripts::ScriptSprites = reinterpret_cast<CSprite2d *>(GLOBAL_ADDRESS_BY_VERSION(0xA94B68, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE tScriptSearchlight *CTheScripts::ScriptSearchLightArray = reinterpret_cast<tScriptSearchlight *>(GLOBAL_ADDRESS_BY_VERSION(0xA94D68, 0, 0, 0, 0, 0));
+
+// script drawing
+PLUGIN_VARIABLE eUseTextCommandState& CTheScripts::UseTextCommands = *reinterpret_cast<eUseTextCommandState*>(GLOBAL_ADDRESS_BY_VERSION(0xA44B67, 0, 0, 0, 0, 0));
+PLUGIN_VARIABLE unsigned short& CTheScripts::NumberOfIntroTextLinesThisFrame = *reinterpret_cast<unsigned short*>(GLOBAL_ADDRESS_BY_VERSION(0xA44B68, 0, 0, 0, 0, 0));
+PLUGIN_VARIABLE tScriptText(&CTheScripts::IntroTextLines)[96] = *reinterpret_cast<tScriptText(*)[96]>(GLOBAL_ADDRESS_BY_VERSION(0xA913E8, 0, 0, 0, 0, 0));
+PLUGIN_VARIABLE unsigned short& CTheScripts::NumberOfIntroRectanglesThisFrame = *reinterpret_cast<unsigned short*>(GLOBAL_ADDRESS_BY_VERSION(0xA44B5C, 0, 0, 0, 0, 0));
+PLUGIN_VARIABLE tScriptRectangle(&CTheScripts::IntroRectangles)[128] = *reinterpret_cast<tScriptRectangle(*)[128]>(GLOBAL_ADDRESS_BY_VERSION(0xA92D68, 0, 0, 0, 0, 0));
+PLUGIN_VARIABLE CSprite2d (&CTheScripts::ScriptSprites)[128] = *reinterpret_cast<CSprite2d(*)[128]>(GLOBAL_ADDRESS_BY_VERSION(0xA94B68, 0, 0, 0, 0, 0));
 
 int addrof(CTheScripts::AddScriptCheckpoint) = ADDRESS_BY_VERSION(0x4935A0, 0, 0, 0, 0, 0);
 int gaddrof(CTheScripts::AddScriptCheckpoint) = GLOBAL_ADDRESS_BY_VERSION(0x4935A0, 0, 0, 0, 0, 0);
