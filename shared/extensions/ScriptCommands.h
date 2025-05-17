@@ -131,7 +131,7 @@ static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
 #else
     script.m_bWastedBustedCheck = true;
 #endif
-    strcpy(script.m_szName, "plg-sdk");
+    strcpy_s(script.m_szName, "plg-sdk");
     script.m_bIsMission = false;
     script.m_bUseMissionCleanup = false;
     script.m_bNotFlag = (commandId >> 15) & 1;
