@@ -12,9 +12,9 @@
 class CRect {
 public:
     float left;
-    float bottom;
-    float right;
     float top;
+    float right;
+    float bottom;
 
     CRect(plugin::dummy_func_t) {}
 
