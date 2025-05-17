@@ -3431,9 +3431,6 @@ RxPipeline* RpMatFXGetD3D9Pipeline(RpMatFXD3D9Pipeline d3d9Pipeline) {
 
 /* skeleton.h */
 
-RsEventStatus RsEventHandler(RsEvent e, void* param) {
-    return plugin::CallAndReturn<RsEventStatus, 0x619B60, RsEvent, void*>(e, param);
-}
 
 /* rpanisot.h */
 
