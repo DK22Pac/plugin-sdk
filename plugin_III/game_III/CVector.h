@@ -14,7 +14,11 @@ class CVector {
 public:
     float x, y, z;
 
-    inline CVector() {}
+    inline CVector() {
+        x = 0.0f;
+        y = 0.0f;
+        z = 0.0f;
+    }
 
     inline CVector(float X, float Y, float Z) {
         x = X; y = Y; z = Z;
