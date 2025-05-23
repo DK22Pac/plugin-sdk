@@ -400,13 +400,16 @@ function getExamplePluginDefines(projName, game, projectType, laSupport, d3dSupp
     end
     if game == "GTASA" then
         aryDefines[counter] = "PLUGIN_SGV_10US"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RW"
+        counter = counter + 2
     elseif game == "GTAVC" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RW"
+        counter = counter + 2
     elseif game == "GTA3" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RW"
+        counter = counter + 2
     elseif game == "GTA2" then
         aryDefines[counter] = "PLUGIN_SGV_96EN"
         counter = counter + 1
@@ -431,9 +434,10 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
     end
     aryDirs[counter] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir)
     aryDirs[counter + 1] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir)
-    aryDirs[counter + 2] = "$(PLUGIN_SDK_DIR)\\shared"
-    aryDirs[counter + 3] = "$(PLUGIN_SDK_DIR)\\shared\\game"
-    counter = counter + 4
+    aryDirs[counter + 2] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir .. "\\rw")
+    aryDirs[counter + 3] = "$(PLUGIN_SDK_DIR)\\shared"
+    aryDirs[counter + 4] = "$(PLUGIN_SDK_DIR)\\shared\\game"
+    counter = counter + 5
     if projectType == "MOON" then
         aryDirs[counter] = "$(MOONLOADER_SDK_SA_DIR)\\src"
         aryDirs[counter + 1] = "$(MOONLOADER_SDK_SA_DIR)\\src\\libs\\lua"
@@ -517,6 +521,17 @@ function getExamplePluginLibraries(pluginLibName, projectType, cleoLibName, uses
     return aryLibs
 end
 
+function setupDebugger(gameAbbr, gameExeName)
+    postbuildcommands { "\
+if defined GTA_" .. gameAbbr .. "_DIR ( \r\n\
+taskkill /IM " .. gameExeName .. " /F /FI \"STATUS eq RUNNING\" \r\n\
+xcopy /Y \"$(TargetPath)\" \"$(GTA_" .. gameAbbr .. "_DIR)\" \r\n\
+)" }
+
+    debugcommand ("$(GTA_" .. gameAbbr .. "_DIR)\\" .. gameExeName)
+    debugdir ("$(GTA_" .. gameAbbr .. "_DIR)")
+end
+
 function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3, d3dSupport, laSupport, additionalIncludeDirs, additionalLibraryDirs, additionalLibraries, additionalDefinitions)
     workspace (projectName)
     local projDir = (sdkdir .. "\\examples\\" .. projectName)
@@ -559,14 +574,13 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             buildoptions { "/Zc:threadSafeInit-" }
         end
         buildoptions { "/sdl-" }
+        flags "MultiProcessorCompile"
     end
     if mingw then
         buildoptions "-fpermissive"
         linkoptions { "-static-libgcc", "-static-libstdc++" }
     end
-    local strTargetDir = "$(PLUGIN_SDK_DIR)\\output\\examples\\"
-    targetdir (strTargetDir)
-    local strMingwObjDir = ("$(PLUGIN_SDK_DIR)\\output\\mingw\\obj\\examples\\$(ProjectName)\\")
+
     local ext = ".asi"
     if projectType == "CLEO" then
         ext = ".cleo"
@@ -574,23 +588,14 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
         ext = ".dll"
     end
     targetextension (ext)
+	
     filter "Release"
-        if mingw then
-            objdir (strMingwObjDir .. "Release\\")
-        else
-            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\$(ProjectName)\\Release\\")
-        end
         optimize "On"
         symbols "Off"
         if msbuild then
             flags "LinkTimeOptimization"
         end
     filter "zDebug"
-        if mingw then
-            objdir (strMingwObjDir .. "Debug\\")
-        else
-            objdir ("!$(PLUGIN_SDK_DIR)\\output\\obj\\examples\\$(ProjectName)\\Debug\\")
-        end
         symbols "On"
     filter {}
 
@@ -609,36 +614,39 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             includedirs (getExamplePluginIncludeFolders("plugin_sa", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", false, additionalIncludeDirs, d3dSupport))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_SA_DIR)", false, additionalLibraryDirs, d3dSupport))
             defines (getExamplePluginDefines(projectName, "GTASA", projectType, laSupport, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
+            setupDebugger("SA", "gta_sa.exe")
         filter { "Release", "platforms:GTASA" }
             links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA")
         filter { "zDebug", "platforms:GTASA" }
             links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, true))
-            targetname (projectName .. ".SA_d")
+            targetname (projectName .. ".SA")
     end
     if gameVc == true then
         filter "platforms:GTAVC"
             includedirs (getExamplePluginIncludeFolders("plugin_vc", "game_vc", projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, additionalLibraryDirs, d3dSupport))
             defines (getExamplePluginDefines(projectName, "GTAVC", projectType, laSupport, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
+            setupDebugger("VC", "gta-vc.exe")
         filter { "Release", "platforms:GTAVC" }
             links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC")
         filter { "zDebug", "platforms:GTAVC" }
             links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
-            targetname (projectName .. ".VC_d")
+            targetname (projectName .. ".VC")
     end
     if game3 == true then
         filter "platforms:GTA3"
             includedirs (getExamplePluginIncludeFolders("plugin_iii", "game_iii", projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, additionalLibraryDirs, d3dSupport))
             defines (getExamplePluginDefines(projectName, "GTA3", projectType, laSupport, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
+            setupDebugger("III", "gta3.exe")
         filter { "Release", "platforms:GTA3" }
             links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".III")
         filter { "zDebug", "platforms:GTA3" }
             links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
-            targetname (projectName .. ".III_d")
+            targetname (projectName .. ".III")
     end
     if game2 == true then
         filter "platforms:GTA2"
@@ -650,7 +658,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             targetname (projectName .. ".II")
         filter { "zDebug", "platforms:GTA2" }
             links (getExamplePluginLibraries("plugin_ii", projectType, "II.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
-            targetname (projectName .. ".II_d")
+            targetname (projectName .. ".II")
     end
     if gameIv == true then
         filter "platforms:GTAIV"
@@ -662,7 +670,7 @@ function pluginSdkExampleProject(projectName, projectType, gameSa, gameVc, game3
             targetname (projectName .. ".IV")
         filter { "zDebug", "platforms:GTAIV" }
             links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
-            targetname (projectName .. ".IV_d")
+            targetname (projectName .. ".IV")
     end
     filter {}
 

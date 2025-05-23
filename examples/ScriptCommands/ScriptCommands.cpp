@@ -21,15 +21,18 @@ public:
                     Command<Commands::GET_CAR_HEADING>(vehicle, &angle);
 
                     static char message[256];
-                    snprintf(message, 256, "Position: %.2f %.2f %.2f Angle: %.2f Model: %d (%s)",
+                    snprintf(message, sizeof(message), "Position: %.2f %.2f %.2f Angle: %.1f Model: %d (%s)",
                         posn.x, posn.y, posn.z, angle, vehicle->m_nModelIndex,
                         reinterpret_cast<CVehicleModelInfo *>(
                             CModelInfo::ms_modelInfoPtrs[vehicle->m_nModelIndex])->m_szGameName);
 
                     #ifdef GTASA
-                    CMessages::AddMessageJumpQ(message, 150, 0, false);
+                        CMessages::AddMessageJumpQ(message, 150, 0, false);
                     #else
-                    CMessages::AddMessageJumpQ(message, 150, 0);
+                        // GTA3 and VC use unicode texts
+                        static wchar_t msgWide[256];
+                        swprintf_s(msgWide, L"%S", message);
+                        CMessages::AddMessageJumpQ(msgWide, 150, 0);
                     #endif
                 }
                 else
