@@ -144,6 +144,10 @@ public:
     void ProcessLightsForEntity();
     void RemoveEscalatorsForEntity();
     bool IsEntityOccluded();
+
+    inline float GetBoundRadius() {
+        return CModelInfo::GetColModel(m_nModelIndex)->m_boundSphere.m_fRadius;
+    }
 };
 
 VALIDATE_SIZE(CEntity, 0x38);

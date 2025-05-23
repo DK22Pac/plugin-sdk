@@ -18,3 +18,6 @@ bool CWaterLevel::GetWaterLevelNoWaves(float x, float y, float z, float* pOutWat
 	return plugin::CallAndReturn<bool, 0x6E8580, float, float, float, float*, float*, float*>(x, y, z, pOutWaterLevel, fUnkn1, fUnkn2);
 }
 
+void CWaterLevel::RenderWater() {
+    plugin::Call<0x6EF650>();
+}

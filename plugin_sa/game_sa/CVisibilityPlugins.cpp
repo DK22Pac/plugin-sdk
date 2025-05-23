@@ -8,6 +8,9 @@
 
 int& CVisibilityPlugins::ms_atomicPluginOffset = *(int *)0x8D608C;
 
+CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC88070;
+CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaEntityList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC88120;
+
 void CVisibilityPlugins::AtomicConstructor(void* object) {
     plugin::Call<0x732150, void*>(object);
 }

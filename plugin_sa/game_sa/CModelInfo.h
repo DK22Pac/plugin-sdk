@@ -56,4 +56,8 @@ public:
 	static int IsVehicleModelType(int index);
 
     static CBaseModelInfo *GetModelInfo(int index);
+
+	static inline CColModel* GetColModel(int id) {
+		return ms_modelInfoPtrs[id]->m_pColModel;
+	}
 };

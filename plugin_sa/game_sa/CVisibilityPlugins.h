@@ -13,26 +13,25 @@
 #include "CAtomicModelInfo.h"
 #include "CLinkList.h"
 
-
-struct tAtomicVisibilityPlugin
-{
+struct tAtomicVisibilityPlugin {
 public:
-	short          m_wModelId;
-	unsigned short m_wFlags;
+    short m_wModelId;
+    unsigned short m_wFlags;
 };
 
-class PLUGIN_API CVisibilityPlugins
-{
+class PLUGIN_API CVisibilityPlugins {
 public:
-	static int& ms_atomicPluginOffset;
-
-    struct AlphaObjectInfo
-    {
-        void *m_pAtomic;
-        void *m_pCallback;
-        float m_fAlpha;   
+    struct AlphaObjectInfo {
+        void* pObj;
+        void* RenderFn;
+        float dist;
     };
 
+    static int& ms_atomicPluginOffset;
+    static CLinkList<AlphaObjectInfo>& m_alphaList;
+    static CLinkList<AlphaObjectInfo>& m_alphaEntityList;
+
+public:
     static void AtomicConstructor(void* object);
     static void AtomicCopyConstructor(void* object, void const* originalObject);
     static void* AtomicDestructor(void* object);
@@ -100,7 +99,7 @@ public:
     static void SetAtomicFlag(RpAtomic* pRpAtomic, int flag);
     static void SetAtomicFlag(RpAtomic* pRpAtomic, unsigned short flag);
     static void SetAtomicId(RpAtomic* pRpAtomic, int id);
-    static void SetAtomicRenderCallback(RpAtomic *pRpAtomic, RpAtomic * (*renderCB)(RpAtomic *));
+    static void SetAtomicRenderCallback(RpAtomic* pRpAtomic, RpAtomic* (*renderCB)(RpAtomic*));
     static void SetClumpAlpha(RpClump* pRpClump, int dwAlpha);
     static void SetClumpModelInfo(RpClump* pRpClump, CClumpModelInfo* pClumpModelInfo);
     static void SetFrameHierarchyId(RwFrame* pRwFrame, int id);

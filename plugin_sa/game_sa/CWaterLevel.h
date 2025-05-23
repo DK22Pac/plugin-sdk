@@ -30,10 +30,11 @@ public:
     static int& m_nWaterConfiguration;
     static int& m_nNumWaterZonePolys;
     static std::array<CWaterVertex, 1021>& m_aVertices;
-	static bool GetWaterLevelNoWaves(float x, float y, float z, float* pOutWaterLevel, float* fUnkn1, float* fUnkn2);
     static int& DETAILEDWATERDIST;
 
 public:
+    static bool GetWaterLevelNoWaves(float x, float y, float z, float* pOutWaterLevel, float* fUnkn1, float* fUnkn2);
+    static void RenderWater();
 
 };
 

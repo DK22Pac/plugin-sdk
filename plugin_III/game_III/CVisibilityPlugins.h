@@ -18,11 +18,8 @@ typedef bool(*ClumpVisibilityCB)(RpClump*);
 class PLUGIN_API CVisibilityPlugins {
 public:
     struct PLUGIN_API AlphaObjectInfo {
-        union {
-            CEntity *entity;
-            RpAtomic *atomic;
-        };
-        float m_fDistance;
+        void* pObj;
+        float dist;
     };
     
     union PLUGIN_API AtomicExt {

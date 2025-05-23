@@ -9,3 +9,7 @@
 void CWaterLevel::AllocateBoatWakeArray() {
     plugin::Call<0x557F00>();
 }
+
+void CWaterLevel::RenderWater() {
+    plugin::Call<0x5554E0>();
+}
