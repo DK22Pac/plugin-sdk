@@ -8,11 +8,11 @@
 
 PLUGIN_SOURCE_FILE
 
-void(*(&CCheat::m_aCheatFunctions)[92])() = *reinterpret_cast<void(*(*)[92])()>(GLOBAL_ADDRESS_BY_VERSION(0x8A5B58, 0, 0, 0, 0, 0));
+void(*(&CCheat::m_aCheatFunctions)[TOTAL_CHEATS])() = *reinterpret_cast<void(*(*)[TOTAL_CHEATS])()>(GLOBAL_ADDRESS_BY_VERSION(0x8A5B58, 0, 0, 0, 0, 0));
 
-int(&CCheat::m_aCheatHashKeys)[92] = *reinterpret_cast<int(*)[92]>(GLOBAL_ADDRESS_BY_VERSION(0x8A5CC8, 0, 0, 0, 0, 0));
+int(&CCheat::m_aCheatHashKeys)[TOTAL_CHEATS] = *reinterpret_cast<int(*)[TOTAL_CHEATS]>(GLOBAL_ADDRESS_BY_VERSION(0x8A5CC8, 0, 0, 0, 0, 0));
 char(&CCheat::m_CheatString)[30] = *reinterpret_cast<char(*)[30]>(GLOBAL_ADDRESS_BY_VERSION(0x969110, 0, 0, 0, 0, 0));
-bool(&CCheat::m_aCheatsActive)[92] = *reinterpret_cast<bool(*)[92]>(GLOBAL_ADDRESS_BY_VERSION(0x969130, 0, 0, 0, 0, 0));
+bool(&CCheat::m_aCheatsActive)[TOTAL_CHEATS] = *reinterpret_cast<bool(*)[TOTAL_CHEATS]>(GLOBAL_ADDRESS_BY_VERSION(0x969130, 0, 0, 0, 0, 0));
 bool &CCheat::m_bHasPlayerCheated = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x96918C, 0, 0, 0, 0, 0));
 
 int addrof(CCheat::AddToCheatString) = ADDRESS_BY_VERSION(0x438480, 0, 0, 0, 0, 0);
