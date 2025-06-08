@@ -87,8 +87,8 @@ void CStreaming::AddModelsToRequestList(CVector const *posn, unsigned int Stream
 int addrof(CStreaming::AddToLoadedVehiclesList) = ADDRESS_BY_VERSION(0x408000, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::AddToLoadedVehiclesList) = GLOBAL_ADDRESS_BY_VERSION(0x408000, 0, 0, 0, 0, 0);
 
-bool CStreaming::AddToLoadedVehiclesList() {
-    return plugin::CallAndReturnDynGlobal<bool>(gaddrof(CStreaming::AddToLoadedVehiclesList));
+bool CStreaming::AddToLoadedVehiclesList(int modelID) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CStreaming::AddToLoadedVehiclesList), modelID);
 }
 
 int addrof(CStreaming::AreAnimsUsedByRequestedModels) = ADDRESS_BY_VERSION(0x407AD0, 0, 0, 0, 0, 0);
