@@ -139,11 +139,11 @@ public:
 	static RwObjectNameIdAssocation *ms_vehicleDescs;
 
 	// remap texture
-	static RwTexture *ms_pRemapTexture;
+	static RwTexture *&ms_pRemapTexture;
 	// vehiclelights128 texture
-	static RwTexture *ms_pLightsTexture;
+	static RwTexture *&ms_pLightsTexture;
 	// vehiclelightson128 texture
-	static RwTexture *ms_pLightsOnTexture;
+	static RwTexture *&ms_pLightsOnTexture;
 	
 	// color of currently rendered car
 	// static unsigned char ms_currentCol[4];
