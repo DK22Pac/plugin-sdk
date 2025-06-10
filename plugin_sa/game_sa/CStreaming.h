@@ -102,7 +102,7 @@ public:
     SUPPORTED_10US static int AddImageToList(char const *lpFileName, bool bNotPlayerImg);
     SUPPORTED_10US static void AddLodsToRequestList(CVector const *Posn, unsigned int Streamingflags);
     SUPPORTED_10US static void AddModelsToRequestList(CVector const *posn, unsigned int StreamingFlags);
-    SUPPORTED_10US static bool AddToLoadedVehiclesList();
+    SUPPORTED_10US static bool AddToLoadedVehiclesList(int modelID);
     SUPPORTED_10US static bool AreAnimsUsedByRequestedModels(int AnimFileIndex);
     SUPPORTED_10US static bool AreTexturesUsedByRequestedModels(int txdIndex);
     SUPPORTED_10US static void ClearFlagForAll(unsigned int eStreamingFlag);
