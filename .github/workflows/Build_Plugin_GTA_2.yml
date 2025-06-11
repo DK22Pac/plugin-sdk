@@ -1,0 +1,40 @@
+name: Build Plugin GTA2
+
+on:
+  push:
+    paths:
+    - "!**.dll"
+    - "!**.md"
+    - "!**.txt"
+    - "hooking/**"
+    - "injector/**"
+    - "modutils/**"
+    - "safetyhook/**"
+    - "shared/**"
+    - "plugin_II/**"
+
+jobs:
+  build:
+    name: Build Plugin GTA2
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v2 # add msbuild to PATH
+
+      - name: Premake Visual Studio project
+        shell: cmd
+        run: |
+          set PLUGIN_SDK_DIR=%GITHUB_WORKSPACE%
+          "tools\generate\Visual Studio.bat"
+          
+      - name: Build
+        shell: cmd
+        run: |
+          set PLUGIN_SDK_DIR=%GITHUB_WORKSPACE%
+          msbuild -m plugin.sln /property:Configuration=zDebug /property:Platform="Mixed Platforms" /target:plugin_ii
