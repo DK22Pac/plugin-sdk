@@ -1,11 +1,29 @@
-name: Build Plugin GTA4
+name: Plugin GTA4
 
 on:
+  workflow_dispatch:
+
   push:
     paths:
     - "!**.dll"
     - "!**.md"
     - "!**.txt"
+    - "tools/premake/**"
+    - "hooking/**"
+    - "injector/**"
+    - "modutils/**"
+    - "safetyhook/**"
+    - "shared/**"
+    - "plugin_IV/**"
+
+  pull_request:
+    types:
+      - opened
+    paths:
+    - "!**.dll"
+    - "!**.md"
+    - "!**.txt"
+    - "tools/premake/**"
     - "hooking/**"
     - "injector/**"
     - "modutils/**"
@@ -15,7 +33,7 @@ on:
 
 jobs:
   build:
-    name: Build Plugin GTA4
+    name: Build
     runs-on: windows-2022
 
     steps:
