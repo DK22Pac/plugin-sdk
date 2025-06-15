@@ -33,6 +33,7 @@ for %%I in (1 2 3 4 5 A a Q q) do if #!rmFunc!==#%%I (
     set choice=%%I
     goto game_choice_%%I
 )
+echo ;
 cls
 goto select_platform
 
