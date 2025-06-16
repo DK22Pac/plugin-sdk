@@ -16,11 +16,12 @@ enum eMessageStyle : unsigned short
     STYLE_MIDDLE_SMALLER,         // InTheMiddle_Smaller
     STYLE_MIDDLE_SMALLER_HIGHER,  // InTheMiddle_Smaller_ABitHigherOnTheScreen
     STYLE_WHITE_MIDDLE_SMALLER,   // SmallWhiteText_InTheMiddleOfTheScreen
-    STYLE_LIGHTBLUE_TOP           // LightBlueText_OnTopOfTheScreen
+    STYLE_LIGHTBLUE_TOP,          // LightBlueText_OnTopOfTheScreen
+	STYLE_COUNT                   // total number of styles
 };
 
 struct tMessage {
-	char *          m_pText;
+	char*           m_pText;
 	unsigned short  m_wFlag;
 	char _pad1[2];
 	unsigned int    m_dwTime;
@@ -37,9 +38,9 @@ struct tBigMessage {
 };
 
 struct tPreviousBrief {
-	char * m_pText;
+	char*  m_pText;
 	int    m_nNumber[6];
-	char * m_pString;
+	char*  m_pString;
 };
 
 class PLUGIN_API CMessages {
@@ -51,42 +52,42 @@ public:
 	// count: 7 (for each text style)
 	static tBigMessage *BIGMessages;
 	// Returns length of a string
-	static unsigned int GetStringLength(char *string);
+	static unsigned int GetStringLength(const char* string);
 	// Copies string src to dest
-	static void StringCopy(char *dest, char *src, unsigned short len);
+	static void StringCopy(char* dest, const char* src, unsigned short len);
 	// Compares 2 strings
-	static unsigned char StringCompare(char *str1, char *str2, unsigned short len);
-	static void CutString(int count, char *str, char **dest);
+	static unsigned char StringCompare(const char* str1, const char* str2, unsigned short len);
+	static void CutString(int count, const char* str, char** dest);
 	// Removes registered messages
 	static void ClearMessages(bool flag);
 	// Removes small messages
 	static void ClearSmallMessagesOnly();
 	// Adds message to previous brief
-	static void AddToPreviousBriefArray(char *text, int n1, int n2, int n3, int n4, int n5, int n6, char *string);
+	static void AddToPreviousBriefArray(const char* text, int n1, int n2, int n3, int n4, int n5, int n6, const char* string);
 	// Removes messages from previous brief
 	static void ClearPreviousBriefArray();
 	// Inserts numbers into string
-	static void InsertNumberInString(char *src, int n1, int n2, int n3, int n4, int n5, int n6, char *dst);
-	// Inserts string into src
-	static void InsertStringInString(char *src, char *string);
+	static void InsertNumberInString(const char* src, int n1, int n2, int n3, int n4, int n5, int n6, char* dest);
+	// Inserts string into text
+	static void InsertStringInString(char* text, const char* string);
 	// Inserts key events into string
-	static void InsertPlayerControlKeysInString(char *string);
+	static void InsertPlayerControlKeysInString(char* string);
 	// Adds message with numbers to queue
-	static void AddMessageWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief);
+	static void AddMessageWithNumber(const char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief = true);
 	// Adds message with numbers and shows it instantly
-	static void AddMessageJumpQWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief);
+	static void AddMessageJumpQWithNumber(const char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief = true);
 	// Adds big message with numbers and shows it instantly , see eMessageStyle
-	static void AddBigMessageWithNumber(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
+	static void AddBigMessageWithNumber(const char* text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
 	// Adds big message with numbers to queue , see eMessageStyle
-	static void AddBigMessageWithNumberQ(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
+	static void AddBigMessageWithNumberQ(const char* text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6);
 	// Adds message with string to queue
-	static void AddMessageWithString(char *text, unsigned int time, unsigned short flag, char *string, char bPreviousBrief);
+	static void AddMessageWithString(const char* text, unsigned int time, unsigned short flag, char* string, char bPreviousBrief = true);
 	// Adds message with string and shows it instantly
-	static void AddMessageJumpQWithString(char *text, unsigned int time, unsigned short flag, char *string, char bPreviousBrief);
+	static void AddMessageJumpQWithString(const char* text, unsigned int time, unsigned short flag, char* string, char bPreviousBrief = true);
 	// Removes small message with this text
-	static void ClearThisPrint(char *text);
+	static void ClearThisPrint(const char* text);
 	// Removes big message with this text
-	static void ClearThisBigPrint(char *text);
+	static void ClearThisBigPrint(const char* text);
 	// Removes first big message in messages stack , see eMessageStyle
 	static void ClearThisPrintBigNow(unsigned short style);
 	// Initialises messages
@@ -98,11 +99,11 @@ public:
 	// Displays messages
 	static void Display(bool flag);
 	// Adds message to queue
-	static void AddMessage(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief);
+	static void AddMessage(const char* text, unsigned int time, unsigned short flag, bool bPreviousBrief = true);
 	// Adds message and shows it instantly
-	static void AddMessageJumpQ(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief);
+	static void AddMessageJumpQ(const char* text, unsigned int time, unsigned short flag, bool bPreviousBrief = true);
 	// Adds big message and shows it instantly , see eMessageStyle
-	static void AddBigMessage(char *text, unsigned int time, unsigned short style);
+	static void AddBigMessage(const char* text, unsigned int time, unsigned short style);
 	// Adds big message to queue , see eMessageStyle
-	static void AddBigMessageQ(char *text, unsigned int time, unsigned short style);
+	static void AddBigMessageQ(const char* text, unsigned int time, unsigned short style);
 };

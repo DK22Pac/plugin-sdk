@@ -38,33 +38,31 @@
 #define FUNC_CMessages__AddBigMessage 0x69F2B0
 #define FUNC_CMessages__AddBigMessageQ 0x69F370
 
-tPreviousBrief *CMessages::PreviousBriefs = (tPreviousBrief *)0xC1A570;
-
-tMessage *CMessages::BriefMessages = (tMessage *)0xC1A7F0;
-
-tBigMessage *CMessages::BIGMessages = (tBigMessage *)0xC1A970;
+static inline std::array<tPreviousBrief, 20>& PreviousBriefs = *(std::array<tPreviousBrief, 20>*)0xC1A570;
+static inline std::array<tMessage, 8>& BriefMessages = *(std::array<tMessage, 8>*)0xC1A7F0;
+static inline std::array<tBigMessage, eMessageStyle::STYLE_COUNT>& BIGMessages = *(std::array<tBigMessage, eMessageStyle::STYLE_COUNT>*)0xC1A970; // (for each text style)
 
 // Returns length of a string
-unsigned int CMessages::GetStringLength(char *string)
+unsigned int CMessages::GetStringLength(const char* text)
 {
-	return ((unsigned int (__cdecl *)(char *))FUNC_CMessages__GetStringLength)(string);
+	return ((unsigned int (__cdecl *)(const char*))FUNC_CMessages__GetStringLength)(text);
 }
 
 // Copies string src to dest
-void CMessages::StringCopy(char *dest, char *src, unsigned short len)
+void CMessages::StringCopy(char* dest, const char* src, unsigned short len)
 {
-	((void (__cdecl *)(char *, char *, unsigned short))FUNC_CMessages__StringCopy)(dest, src, len);
+	((void (__cdecl *)(char*, const char*, unsigned short))FUNC_CMessages__StringCopy)(dest, src, len);
 }
 
 // Compares 2 strings
-unsigned char CMessages::StringCompare(char *str1, char *str2, unsigned short len)
+unsigned char CMessages::StringCompare(const char* str1, const char* str2, unsigned short len)
 {
-	return ((unsigned char (__cdecl *)(char *, char *, unsigned short))FUNC_CMessages__StringCompare)(str1, str2, len);
+	return ((unsigned char (__cdecl *)(const char*, const char*, unsigned short))FUNC_CMessages__StringCompare)(str1, str2, len);
 }
 
-void CMessages::CutString(int count, char *str, char **dest)
+void CMessages::CutString(int count, const char* str, char** dest)
 {
-	((void (__cdecl *)(int, char *, char **))FUNC_CMessages__CutString)(count, str, dest);
+	((void (__cdecl *)(int, const char*, char**))FUNC_CMessages__CutString)(count, str, dest);
 }
 
 // Removes registered messages
@@ -80,9 +78,9 @@ void CMessages::ClearSmallMessagesOnly()
 }
 
 // Adds message to previous brief
-void CMessages::AddToPreviousBriefArray(char *text, int n1, int n2, int n3, int n4, int n5, int n6, char *string)
+void CMessages::AddToPreviousBriefArray(const char* text, int n1, int n2, int n3, int n4, int n5, int n6, const char* string)
 {
-	((void (__cdecl *)(char *, int, int, int, int, int, int, char *))FUNC_CMessages__AddToPreviousBriefArray)(text, n1, n2, n3, n4, n5, n6, string);
+	((void (__cdecl *)(const char*, int, int, int, int, int, int, const char*))FUNC_CMessages__AddToPreviousBriefArray)(text, n1, n2, n3, n4, n5, n6, string);
 }
 
 // Removes messages from previous brief
@@ -92,69 +90,69 @@ void CMessages::ClearPreviousBriefArray()
 }
 
 // Inserts numbers into string
-void CMessages::InsertNumberInString(char *src, int n1, int n2, int n3, int n4, int n5, int n6, char *dst)
+void CMessages::InsertNumberInString(const char* src, int n1, int n2, int n3, int n4, int n5, int n6, char* dst)
 {
-	((void (__cdecl *)(char *, int, int, int, int, int, int, char *))FUNC_CMessages__InsertNumberInString)(src, n1, n2, n3, n4, n5, n6, dst);
+	((void (__cdecl *)(const char*, int, int, int, int, int, int, const char*))FUNC_CMessages__InsertNumberInString)(src, n1, n2, n3, n4, n5, n6, dst);
 }
 
 // Inserts string into src
-void CMessages::InsertStringInString(char *src, char *string)
+void CMessages::InsertStringInString(char* text, const char* string)
 {
-	((void (__cdecl *)(char *, char *))FUNC_CMessages__InsertStringInString)(src, string);
+	((void (__cdecl *)(char*, const char*))FUNC_CMessages__InsertStringInString)(text, string);
 }
 
 // Inserts key events into string
-void CMessages::InsertPlayerControlKeysInString(char *string)
+void CMessages::InsertPlayerControlKeysInString(char* string)
 {
-	((void (__cdecl *)(char *))FUNC_CMessages__InsertPlayerControlKeysInString)(string);
+	((void (__cdecl *)(char*))FUNC_CMessages__InsertPlayerControlKeysInString)(string);
 }
 
 // Adds message with numbers to queue
-void CMessages::AddMessageWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief)
+void CMessages::AddMessageWithNumber(const char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, int, int, int, int, int, int, bool))FUNC_CMessages__AddMessageWithNumber)(text, time, flag, n1, n2, n3, n4, n5, n6, bPreviousBrief);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, int, int, int, int, int, int, bool))FUNC_CMessages__AddMessageWithNumber)(text, time, flag, n1, n2, n3, n4, n5, n6, bPreviousBrief);
 }
 
 // Adds message with numbers and shows it instantly
-void CMessages::AddMessageJumpQWithNumber(char *text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief)
+void CMessages::AddMessageJumpQWithNumber(const char* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6, bool bPreviousBrief)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, int, int, int, int, int, int, bool))FUNC_CMessages__AddMessageJumpQWithNumber)(text, time, flag, n1, n2, n3, n4, n5, n6, bPreviousBrief);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, int, int, int, int, int, int, bool))FUNC_CMessages__AddMessageJumpQWithNumber)(text, time, flag, n1, n2, n3, n4, n5, n6, bPreviousBrief);
 }
 
 // Adds big message with numbers and shows it instantly , see eMessageStyle
-void CMessages::AddBigMessageWithNumber(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6)
+void CMessages::AddBigMessageWithNumber(const char* text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumber)(text, time, style, n1, n2, n3, n4, n5, n6);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumber)(text, time, style, n1, n2, n3, n4, n5, n6);
 }
 
 // Adds big message with numbers to queue , see eMessageStyle
-void CMessages::AddBigMessageWithNumberQ(char *text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6)
+void CMessages::AddBigMessageWithNumberQ(const char* text, unsigned int time, unsigned short style, int n1, int n2, int n3, int n4, int n5, int n6)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumberQ)(text, time, style, n1, n2, n3, n4, n5, n6);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, int, int, int, int, int, int))FUNC_CMessages__AddBigMessageWithNumberQ)(text, time, style, n1, n2, n3, n4, n5, n6);
 }
 
 // Adds message with string to queue
-void CMessages::AddMessageWithString(char *text, unsigned int time, unsigned short flag, char *string, char bPreviousBrief)
+void CMessages::AddMessageWithString(const char* text, unsigned int time, unsigned short flag, char* string, char bPreviousBrief)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, char *, char))FUNC_CMessages__AddMessageWithString)(text, time, flag, string, bPreviousBrief);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, char*, char))FUNC_CMessages__AddMessageWithString)(text, time, flag, string, bPreviousBrief);
 }
 
 // Adds message with string and shows it instantly
-void CMessages::AddMessageJumpQWithString(char *text, unsigned int time, unsigned short flag, char *string, char bPreviousBrief)
+void CMessages::AddMessageJumpQWithString(const char* text, unsigned int time, unsigned short flag, char* string, char bPreviousBrief)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, char *, char))FUNC_CMessages__AddMessageJumpQWithString)(text, time, flag, string, bPreviousBrief);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, char*, char))FUNC_CMessages__AddMessageJumpQWithString)(text, time, flag, string, bPreviousBrief);
 }
 
 // Removes small message with this text
-void CMessages::ClearThisPrint(char *text)
+void CMessages::ClearThisPrint(const char* text)
 {
-	((void (__cdecl *)(char *))FUNC_CMessages__ClearThisPrint)(text);
+	((void (__cdecl *)(const char*))FUNC_CMessages__ClearThisPrint)(text);
 }
 
 // Removes big message with this text
-void CMessages::ClearThisBigPrint(char *text)
+void CMessages::ClearThisBigPrint(const char* text)
 {
-	((void (__cdecl *)(char *))FUNC_CMessages__ClearThisBigPrint)(text);
+	((void (__cdecl *)(const char*))FUNC_CMessages__ClearThisBigPrint)(text);
 }
 
 // Removes first big message in messages stack , see eMessageStyle
@@ -188,25 +186,25 @@ void CMessages::Display(bool flag)
 }
 
 // Adds message to queue
-void CMessages::AddMessage(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief)
+void CMessages::AddMessage(const char* text, unsigned int time, unsigned short flag, bool bPreviousBrief)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, bool))FUNC_CMessages__AddMessage)(text, time, flag, bPreviousBrief);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, bool))FUNC_CMessages__AddMessage)(text, time, flag, bPreviousBrief);
 }
 
 // Adds message and shows it instantly
-void CMessages::AddMessageJumpQ(char *text, unsigned int time, unsigned short flag, bool bPreviousBrief)
+void CMessages::AddMessageJumpQ(const char* text, unsigned int time, unsigned short flag, bool bPreviousBrief)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short, bool))FUNC_CMessages__AddMessageJumpQ)(text, time, flag, bPreviousBrief);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short, bool))FUNC_CMessages__AddMessageJumpQ)(text, time, flag, bPreviousBrief);
 }
 
 // Adds big message and shows it instantly , see eMessageStyle
-void CMessages::AddBigMessage(char *text, unsigned int time, unsigned short style)
+void CMessages::AddBigMessage(const char* text, unsigned int time, unsigned short style)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short))FUNC_CMessages__AddBigMessage)(text, time, style);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short))FUNC_CMessages__AddBigMessage)(text, time, style);
 }
 
 // Adds big message to queue , see eMessageStyle
-void CMessages::AddBigMessageQ(char *text, unsigned int time, unsigned short style)
+void CMessages::AddBigMessageQ(const char* text, unsigned int time, unsigned short style)
 {
-	((void (__cdecl *)(char *, unsigned int, unsigned short))FUNC_CMessages__AddBigMessageQ)(text, time, style);
+	((void (__cdecl *)(const char*, unsigned int, unsigned short))FUNC_CMessages__AddBigMessageQ)(text, time, style);
 }
