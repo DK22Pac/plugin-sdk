@@ -27,7 +27,7 @@ public:
 	static void Display();
 	static unsigned short GetWideStringLength(const wchar_t* text);
 	static void Init();
-	static void InsertNumberInString(wchar_t* text, int number, int number1, int number2, int number3, int number4, int number5, const wchar_t* str);
+	static void InsertNumberInString(const wchar_t* text, int number, int number1, int number2, int number3, int number4, int number5, wchar_t* dest);
 	static void InsertPlayerControlKeysInString(wchar_t* text);
 	static void InsertStringInString(wchar_t* text, const wchar_t* str);
 	static void Process();

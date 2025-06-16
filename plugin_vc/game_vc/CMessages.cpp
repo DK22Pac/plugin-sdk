@@ -94,8 +94,8 @@ void CMessages::Init() {
 }
 
 // Converted from cdecl void CMessages::InsertNumberInString(ushort *pString,int number,int number1,int number2,int number3,int number4,int number5,ushort *arg8)	0x583C80	
-void CMessages::InsertNumberInString(wchar_t* text, int number, int number1, int number2, int number3, int number4, int number5, const wchar_t* str) {
-    plugin::Call<0x583C80, wchar_t*, int, int, int, int, int, int, const wchar_t*>(text, number, number1, number2, number3, number4, number5, str);
+void CMessages::InsertNumberInString(const wchar_t* text, int number, int number1, int number2, int number3, int number4, int number5, wchar_t* dest) {
+    plugin::Call<0x583C80, const wchar_t*, int, int, int, int, int, int, const wchar_t*>(text, number, number1, number2, number3, number4, number5, dest);
 }
 
 // Converted from cdecl void CMessages::InsertPlayerControlKeysInString(ushort *pString)	0x5836B0	
