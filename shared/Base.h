@@ -48,7 +48,7 @@ typedef unsigned int uint;
 
 // III/VC char > wchar_t string conversion
 #define _SWSTRING_INIT(str, id) std::wstring my_ws##id; for (size_t i = 0; i < strlen(str); i++) my_ws##id += str[i]
-#define _SWSTRING(id) const_cast<wchar_t *>(my_ws##id.c_str())
+#define _SWSTRING(id) my_ws##id.c_str()
 #define _SWSTRING_STATIC_INIT(id) static wchar_t my_ws##id[512] ; my_ws##id[0] = 0
 #define _SWSTRING_STATIC(id) my_ws##id
 #define _SWSTRING_STATIC_FROM(id, src) for (size_t i = 0; i < strlen(src); i++) my_ws##id[i] = src[i]

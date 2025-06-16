@@ -45,12 +45,10 @@ struct tPreviousBrief {
 
 class PLUGIN_API CMessages {
 public:
-	// count: 20
-	static tPreviousBrief *PreviousBriefs;
-	// count: 8
-	static tMessage *BriefMessages;
-	// count: 7 (for each text style)
-	static tBigMessage *BIGMessages;
+	static inline std::array<tPreviousBrief, 20>& PreviousBriefs = *(std::array<tPreviousBrief, 20>*)0xC1A570;
+	static inline std::array<tMessage, 8>& BriefMessages = *(std::array<tMessage, 8>*)0xC1A7F0;
+	static inline std::array<tBigMessage, eMessageStyle::STYLE_COUNT>& BIGMessages = *(std::array<tBigMessage, eMessageStyle::STYLE_COUNT>*)0xC1A970; // (for each text style)
+
 	// Returns length of a string
 	static unsigned int GetStringLength(const char* string);
 	// Copies string src to dest

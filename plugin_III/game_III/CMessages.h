@@ -59,7 +59,7 @@ public:
     static void AddToPreviousBriefArray(const wchar_t* text, int n1, int n2, int n3, int n4, int n5, int n6, const wchar_t* str);
     static void InsertNumberInString(const wchar_t* src, int n1, int n2, int n3, int n4, int n5, int n6, wchar_t* dst);
     static void InsertStringInString(wchar_t* text, wchar_t* str);
-    static void InsertPlayerControlKeysInString(const wchar_t* text);
+    static void InsertPlayerControlKeysInString(wchar_t* text);
     static void AddMessageWithNumber(const wchar_t* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
     static void AddMessageJumpQWithNumber(const wchar_t* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);
     static void AddMessageSoonWithNumber(const wchar_t* text, unsigned int time, unsigned short flag, int n1, int n2, int n3, int n4, int n5, int n6);

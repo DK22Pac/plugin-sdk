@@ -38,9 +38,6 @@
 #define FUNC_CMessages__AddBigMessage 0x69F2B0
 #define FUNC_CMessages__AddBigMessageQ 0x69F370
 
-static inline std::array<tPreviousBrief, 20>& PreviousBriefs = *(std::array<tPreviousBrief, 20>*)0xC1A570;
-static inline std::array<tMessage, 8>& BriefMessages = *(std::array<tMessage, 8>*)0xC1A7F0;
-static inline std::array<tBigMessage, eMessageStyle::STYLE_COUNT>& BIGMessages = *(std::array<tBigMessage, eMessageStyle::STYLE_COUNT>*)0xC1A970; // (for each text style)
 
 // Returns length of a string
 unsigned int CMessages::GetStringLength(const char* text)
