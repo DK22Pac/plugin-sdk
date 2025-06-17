@@ -57,7 +57,7 @@ public:
     static void InitPerFrame();
     // CFont initialisation
     static void Initialise();
-    static wchar_t* ParseToken(wchar_t* str);
+    static wchar_t* ParseToken(const wchar_t* str);
     // this adds a single character into rendering buffer
     static void PrintChar(float x, float y, short character);
     static void PrintString(float x, float y, const wchar_t* text);
@@ -105,7 +105,7 @@ public:
     static int GetNumberLines(float x, float y, const char* text);
     static float GetStringWidth(const char* str, bool sentence);
     static CRect* GetTextRect(CRect* rect_out, float x, float y, const char* text);
-    static char* ParseToken(char* str);
+    static char* ParseToken(const char* str);
     // this adds a single character into rendering buffer
     static void PrintChar(float x, float y, char character);
     static void PrintString(float x, float y, const char* text);

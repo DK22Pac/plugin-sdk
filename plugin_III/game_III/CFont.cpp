@@ -55,8 +55,8 @@ void CFont::Initialise() {
 }
 
 // Converted from cdecl wchar_t* CFont::ParseToken(wchar_t *str) 0x5019A0
-wchar_t* CFont::ParseToken(wchar_t* str) {
-    return plugin::CallAndReturn<wchar_t*, 0x5019A0, wchar_t*>(str);
+wchar_t* CFont::ParseToken(const wchar_t* str) {
+    return plugin::CallAndReturn<wchar_t*, 0x5019A0, const wchar_t*>(str);
 }
 
 // Converted from cdecl void CFont::PrintChar(float x,float y,short character) 0x500C30
@@ -225,10 +225,10 @@ CRect* CFont::GetTextRect(CRect* rect_out, float x, float y, const char* text) {
     return GetTextRect(rect_out, x, y, _SWSTRING(1));
 }
 
-char* CFont::ParseToken(char* str) {
+char* CFont::ParseToken(const char* str) {
     _SWSTRING_INIT(str, 1);
     wchar_t *result = ParseToken(_SWSTRING(1));
-    return &str[result - _SWSTRING(1)];
+    return const_cast<char*>(str + (result - _SWSTRING(1)));
 }
 
 void CFont::PrintChar(float x, float y, char character) {
