@@ -88,8 +88,8 @@ void CMessages::InsertNumberInString(const wchar_t* src, int n1, int n2, int n3,
 }
 
 // Converted from cdecl void CMessages::InsertStringInString(ushort *text,ushort *str) 0x52A300
-void CMessages::InsertStringInString(wchar_t* text, wchar_t* str) {
-    plugin::Call<0x52A300, wchar_t*, wchar_t*>(text, str);
+void CMessages::InsertStringInString(wchar_t* text, const wchar_t* str) {
+    plugin::Call<0x52A300, wchar_t*, const wchar_t*>(text, str);
 }
 
 // Converted from cdecl void CMessages::InsertPlayerControlKeysInString(ushort *text) 0x52A490
