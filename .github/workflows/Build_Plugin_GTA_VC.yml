@@ -1,21 +1,50 @@
-name: Build Plugin GTA VC
+name: Plugin GTA VC
 
 on:
+  workflow_dispatch:
+
   push:
     paths:
-    - "!**.dll"
-    - "!**.md"
-    - "!**.txt"
-    - "hooking/**"
-    - "injector/**"
-    - "modutils/**"
-    - "safetyhook/**"
-    - "shared/**"
-    - "plugin_vc/**"
+      - "!**.dll"
+      - "!**.md"
+      - "!**.txt"
+      - "tools/premake/**"
+      - "hooking/**"
+      - "injector/**"
+      - "modutils/**"
+      - "safetyhook/**"
+      - "shared/**"
+      - "plugin_vc/**"
+
+  pull_request:
+    paths:
+      - "!**.dll"
+      - "!**.md"
+      - "!**.txt"
+      - "tools/premake/**"
+      - "hooking/**"
+      - "injector/**"
+      - "modutils/**"
+      - "safetyhook/**"
+      - "shared/**"
+      - "plugin_vc/**"
+    
+  pull_request_target:
+    paths:
+      - "!**.dll"
+      - "!**.md"
+      - "!**.txt"
+      - "tools/premake/**"
+      - "hooking/**"
+      - "injector/**"
+      - "modutils/**"
+      - "safetyhook/**"
+      - "shared/**"
+      - "plugin_vc/**"
 
 jobs:
   build:
-    name: Build Plugin GTA VC
+    name: Build
     runs-on: windows-2022
 
     steps:
@@ -36,5 +65,23 @@ jobs:
       - name: Build
         shell: cmd
         run: |
+          rem Compile SDK and test plugin projects
+          echo off
           set PLUGIN_SDK_DIR=%GITHUB_WORKSPACE%
-          msbuild -m plugin.sln /property:Configuration=zDebug /property:Platform="Mixed Platforms" /target:plugin_vc
+          
+          echo ::group::Build SDK
+          msbuild plugin.sln /property:Configuration=zDebug /property:Platform="Mixed Platforms" /target:plugin_vc /m /fileLogger1 /fileLoggerParameters1:warningsOnly;errorsOnly;logfile=output.log
+          powershell -Command "(gc output.log) | sort | get-unique > output.log"
+          powershell -Command "(gc output.log) -replace '     2>','' -replace 'D:\\a\\plugin-sdk\\plugin-sdk\\','' | Out-File -encoding ASCII output.log"
+          powershell -Command "foreach($line in Get-Content 'output.log') { $m = $line -match '^(.*)\((\d+),(\d+)\): (\w+) (.*) \[.*\]$'; if ($m) {$m = $Matches; echo ('::'+$m[4]+' file='+$m[1]+',line='+$m[2]+',title=SDK compilation::'+$m[5])} else {echo ('::error title=SDK compilation::' + $line)} }"
+          for %%R in (output.log) do if not %%~zR lss 1 (exit 1)
+          echo ::groupEnd::
+          
+          echo ::group::Build test plugin
+          msbuild examples\Test\Test.sln /property:Configuration=Debug /property:Platform=GTAVC /m /fileLogger1 /fileLoggerParameters1:warningsOnly;errorsOnly;logfile=output.log
+          powershell -Command "(gc output.log) | sort | get-unique > output.log"
+          powershell -Command "(gc output.log) -replace '     2>','' -replace 'D:\\a\\plugin-sdk\\plugin-sdk\\','' | Out-File -encoding ASCII output.log"
+          powershell -Command "foreach($line in Get-Content 'output.log') { $m = $line -match '^(.*)\((\d+),(\d+)\): (\w+) (.*) \[.*\]$'; if ($m) {$m = $Matches; echo ('::'+$m[4]+' file='+$m[1]+',line='+$m[2]+',title=Test plugin compilation::'+$m[5])} else {echo ('::error title=Test plugin compilation::' + $line)} }"
+          for %%R in (output.log) do if not %%~zR lss 1 (exit 1)
+          echo ::groupEnd::
+
