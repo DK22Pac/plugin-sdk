@@ -6,11 +6,12 @@
 */
 #include "CText.h"
 
+PLUGIN_SOURCE_FILE
+
 #define VAR_TheText 0xC1B340;
 
 #define FUNC_CText__Constructor 0x6A00F0
 #define FUNC_CText__Destructor 0x6A0140
-#define FUNC_CText__Get 0x6A0050
 #define FUNC_CText__Load 0x6A01A0
 #define FUNC_CText__LoadMissionTable 0x69FBF0
 #define FUNC_CText__LoadMpack 0x69F9A0
@@ -93,10 +94,12 @@ CText::~CText()
 	((void (__thiscall*)(CText*)) FUNC_CText__Destructor )(this);
 }
 
+int addrof(CText::Get) = ADDRESS_BY_VERSION(0x6A0050, 0, 0x6A0050, 0x6A0870, 0x6CCCE0, 0);
+int gaddrof(CText::Get) = GLOBAL_ADDRESS_BY_VERSION(0x6A0050, 0, 0x6A0050, 0x6A0870, 0x6CCCE0, 0);
+
 // Returns text pointer by GXT key
-char *__thiscall CText::Get(const char *key)
-{
-	return ( (char *(__thiscall*)(CText*, const char *key)) FUNC_CText__Get )(this, key);
+const char* CText::Get(const char* key) {
+	return plugin::CallMethodAndReturnDynGlobal<const char*, CText*, const char*>(gaddrof(CText::Get), this, key);
 }
 
 // Reads MPACK tag
