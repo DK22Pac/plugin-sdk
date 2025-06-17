@@ -88,7 +88,7 @@ public:
 
     void Normalise() {
         float sq = x * x + y * y;
-        float invsqrt = 1.0f / sqrt(y);
+        float invsqrt = 1.0f / sqrt(sq);
         this->x *= invsqrt;
         this->y *= invsqrt;
     }
