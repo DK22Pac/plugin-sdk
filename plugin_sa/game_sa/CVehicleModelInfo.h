@@ -144,7 +144,12 @@ public:
 	static RwTexture *&ms_pLightsTexture;
 	// vehiclelightson128 texture
 	static RwTexture *&ms_pLightsOnTexture;
+	// defualt white texture
+	static RwTexture *&ms_pWhiteTexture;
 	
+	// vehicle.txd
+	static RwTexDictionary *&ms_pVehicleTxd;
+
 	// color of currently rendered car
 	// static unsigned char ms_currentCol[4];
 	static unsigned char *ms_currentCol;
