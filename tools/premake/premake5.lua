@@ -563,7 +563,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
         gameCounter = gameCounter + 1
     end
     if game4 == true then
-        supportedGames[gameCounter] = "GTAIV"
+        supportedGames[gameCounter] = "GTA4"
         gameCounter = gameCounter + 1
     end
     
@@ -671,14 +671,14 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             targetname (projectName .. ".SA")
     end
     if game4 == true then
-        filter "platforms:GTAIV"
+        filter "platforms:GTA4"
             includedirs (getExamplePluginIncludeFolders("plugin_iv", "game_iv", projectType, "$(CLEO_SDK_IV_DIR)", d3dSupport, additionalIncludeDirs, d3dSupport))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_IV_DIR)", d3dSupport, additionalLibraryDirs, d3dSupport))
             defines (getExamplePluginDefines(projectName, "GTAIV", projectType, laSupport, d3dSupport, additionalDefinitions, "4", "4", "4", "Niko", "Liberty City"))
-        filter { "Release", "platforms:GTAIV" }
+        filter { "Release", "platforms:GTA4" }
             links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".IV")
-        filter { "Debug", "platforms:GTAIV" }
+        filter { "Debug", "platforms:GTA4" }
             links (getExamplePluginLibraries("plugin_iv", projectType, "IV.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".IV")
     end
@@ -864,7 +864,7 @@ else
                                 params[4] == "GTA3",
                                 params[5] == "GTAVC", 
                                 params[6] == "GTASA", 
-                                params[7] == "GTASA",
+                                params[7] == "GTA4",
                                 params[8] == "D3D",
                                 params[9] == "LA",
                                 params[10], params[11], params[12], params[13])
