@@ -32,22 +32,22 @@ newoption { trigger = "gta4", description = "Adds GTA IV configuration to projec
 
 
 function deleteAllFoldersWithName(pathToDir, folderName)
-    os.execute("for /d /r \"" .. pathToDir .. "\" %d in (" .. folderName .. ") do @if exist \"%d\" rd /s/q \"%d\" 2>NUL")
+    os.execute("for /d /r \"" .. pathToDir .. "\" %d in (" .. folderName .. ") do @if exist \"%d\" rd /s/q \"%d\" >nul 2>&1")
 end
 
 function cleanProjectsDirectory(pathToDir)
-    os.execute("del /s \"" .. pathToDir .. "\\*.sln\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.suo\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.sdf\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.opensdf\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj.filters\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj.user\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.workspace\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.cbp\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.project\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.depend\" 2>NUL")
-    os.execute("del /s \"" .. pathToDir .. "\\*.layout\" 2>NUL")
+    os.execute("del /s \"" .. pathToDir .. "\\*.sln\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.suo\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.sdf\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.opensdf\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj.filters\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.vcxproj.user\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.workspace\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.cbp\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.project\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.depend\" >nul 2>&1")
+    os.execute("del /s \"" .. pathToDir .. "\\*.layout\" >nul 2>&1")
     deleteAllFoldersWithName(pathToDir, "obj")
 end
 
@@ -154,7 +154,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
 
     if isPluginProject == true and directX9Installed() == true then
         if msbuild then
-            sysincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
+            externalincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
         else
             includedirs "$(PLUGIN_SDK_DIR)\\shared\\dxsdk"
         end
@@ -186,9 +186,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
 
     filter "Release"
         optimize "On"
-        if msbuild then
-            flags "LinkTimeOptimization"
-        end
+        linktimeoptimization "On"
         symbols "Off"
     filter "zDebug"
         symbols "On"
@@ -223,16 +221,19 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     filter {}
 
     if isPluginProject == true then
-        os.execute("mkdir \"" .. projectPath .. "\"")
+        os.execute('if not exist "' .. projectPath .. '" (mkdir "' .. projectPath .. '")')
         location (projectPath)
+
         includedirs {
             ("$(PLUGIN_SDK_DIR)\\" .. projectName),
             ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName),
             ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName .. "\\rw"),
+            "$(PLUGIN_SDK_DIR)\\safetyhook",
             "$(PLUGIN_SDK_DIR)\\shared",
             "$(PLUGIN_SDK_DIR)\\shared\\game"
         }
 
+        -- shared files
         files {
             (projectPath .. "\\**.h"),
             (projectPath .. "\\**.cpp"),
@@ -247,10 +248,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             (sdkdir .. "\\safetyhook\\**.c"),
         }
 
-        includedirs {
-            (sdkdir .. "\\safetyhook"),
-        }
-
+        -- game files
         vpaths {
             ["shared/*"] = (projectFile(sdkdir, "shared\\**.*")),
 
@@ -353,6 +351,8 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
                                              (gameFile(projectPath, gameName, "CTaskSimple.*")),
                                              (gameFile(projectPath, gameName, "CTaskTimer.*")) }
         }
+
+        -- plugin_[game].h
         if _ACTION == "codeblocks" then
             vpaths {
                 ["plugin"] = (projectFile(projectPath, "plugin*.h")),
@@ -658,7 +658,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
         supportedGames[gameCounter] = "GTA4"
         gameCounter = gameCounter + 1
     end
-    
+
     workspace (projectName)
     location (projectDir)
     platforms (supportedGames)
@@ -690,13 +690,11 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
         ext = ".dll"
     end
     targetextension (ext)
-    
+
     filter "Release"
         optimize "On"
         symbols "Off"
-        if msbuild then
-            flags "LinkTimeOptimization"
-        end
+        linktimeoptimization "On"
     filter "Debug"
         symbols "On"
     filter {}
@@ -706,7 +704,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
 
     if d3dSupport == true then
         if msbuild then
-           sysincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
+           externalincludedirs { "$(IncludePath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
            syslibdirs { "$(LibraryPath)", "$(PLUGIN_SDK_DIR)\\shared\\dxsdk" }
         end
     end
@@ -794,8 +792,8 @@ end
 function generateNewPluginSource(projectDir, projectName, projectType, game2, game3, gameVc, gameSa, game4)
     isTrilogy = false -- any of 3/VC/SA
     if game3 == true or gameVc == true or gameSa == true then isTrilogy = true end
-    
-    platformCount = 0 
+
+    platformCount = 0
     if game2 == true then platformCount = platformCount + 1 end
     if game3 == true or gameVc == true then platformCount = platformCount + 1 end -- 3 and VC are almost identical
     if gameSa == true then platformCount = platformCount + 1 end
@@ -803,15 +801,15 @@ function generateNewPluginSource(projectDir, projectName, projectType, game2, ga
 
     projectDir = path.normalize(projectDir)
     sourceDir = path.join(projectDir, "source")
-    os.execute("if not exist \"" .. sourceDir .. "\" (mkdir \"" .. sourceDir .. "\")")
-    
+    os.execute('if not exist "' .. sourceDir .. '" (mkdir "' .. sourceDir .. '")')
+
     -- generate Main.cpp
     main = io.open(path.join(sourceDir, "Main.cpp"), 'w')
-    
+
     -- includes
     main:write([[#include <plugin.h>]], '\n')
     if isTrilogy == true then main:write([[#include <CMessages.h>]], '\n') end
-    
+
     main:write([[
 
 using namespace plugin;
@@ -841,36 +839,36 @@ struct Main
         if platformCount > 1 then
             main:write([[    #if defined(GTA3) or defined(GTAVC)]], '\n')
         end
-        
+
         main:write([[
         static wchar_t msg[255];
         swprintf_s(msg, L"Hello world! Frame %d", m_frame);
         CMessages::AddMessageJumpQ(msg, 500, 0);]], '\n')
-            
-        if platformCount > 1 then 
+
+        if platformCount > 1 then
             main:write([[    #endif]], '\n')
         end
     end
-    
+
     -- message printing SA
     if gameSa == true then
-        if platformCount > 1 then 
+        if platformCount > 1 then
             main:write([[    #if defined(GTASA)]], '\n')
         end
-        
+
         main:write([[
         static char msg[255];
         sprintf_s(msg, "Hello world! Frame %d", m_frame);
         CMessages::AddMessageJumpQ(msg, 500, 0, false);]], '\n')
-        
-        if platformCount > 1 then 
+
+        if platformCount > 1 then
             main:write([[    #endif]], '\n')
         end
     end
 
 main:write([[    }
 } gInstance;]], '\n')
-    
+
     main:close()
 end
 
@@ -893,7 +891,7 @@ else
             _OPTIONS["gtavc"] ~= nil,
             _OPTIONS["gtasa"] ~= nil,
             _OPTIONS["gta4"] ~= nil,
-            false, false, 
+            false, false,
             "", "", "", "")
     else
         print("Deleting temporary files...")
@@ -915,7 +913,6 @@ else
         os.remove(sdkdir .. "\\plugin.workspace.layout")
         deleteAllFoldersWithName(sdkdir, ".vs")
         generatePrecompiledHeader(sdkdir .. "\\shared", false)
-        print("Done")
 
         if _ACTION ~= "clean" then
             generatePrecompiledHeader(sdkdir .. "\\shared", true)
@@ -951,13 +948,13 @@ else
                             if i - 1 ~= 13 then
                                 print("ERROR! Invalid declaration of project \"" .. params[1] .. "\" in examples.csv. Expected 13 params, found " .. (i-1))
                             end
-                            
+
                             local projDir = (sdkdir .. "\\examples\\" .. params[1])
                             pluginSdkExampleProject(projDir, params[1], params[2],
-                                params[3] == "GTA2", 
+                                params[3] == "GTA2",
                                 params[4] == "GTA3",
-                                params[5] == "GTAVC", 
-                                params[6] == "GTASA", 
+                                params[5] == "GTAVC",
+                                params[6] == "GTASA",
                                 params[7] == "GTA4",
                                 params[8] == "D3D",
                                 params[9] == "LA",
