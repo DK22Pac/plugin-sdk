@@ -83,7 +83,7 @@ namespace rage {
         }
 
         int32_t GetJustIndex_NoFreeAssert(const void* entry) {
-            int index = ((uint8_t*)entry - m_aStorage);
+            int index = (((uint8_t*)entry - m_aStorage) / m_nStorageSize);
             return index;
         }
 
