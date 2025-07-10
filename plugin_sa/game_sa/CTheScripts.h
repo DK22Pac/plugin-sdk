@@ -222,7 +222,7 @@ public:
     SUPPORTED_10US static unsigned short &NumberOfMissionScripts;
     SUPPORTED_10US static unsigned int &LargestMissionScriptSize;
     SUPPORTED_10US static unsigned int &MainScriptSize;
-    SUPPORTED_10US static char *MultiScriptArray; // static char MultiScriptArray[800]
+    SUPPORTED_10US static int(&MultiScriptArray)[200]; // mission offsets in scm file
     SUPPORTED_10US static bool &bUsingAMultiScriptFile;
     SUPPORTED_10US static int &StoreVehicleIndex;
     SUPPORTED_10US static bool &StoreVehicleWasRandom;
