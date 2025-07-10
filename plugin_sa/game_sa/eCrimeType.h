@@ -29,6 +29,6 @@ enum eCrimeType {
     CRIME_COP_STAB,
     CRIME_CAR_DESTROY,
     CRIME_CAR_HIT2,
-    CRIME_WEAPON_AIM,
+    CRIME_COP_AIM,
     CRIME_MAX
 };
