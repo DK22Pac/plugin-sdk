@@ -496,3 +496,5 @@ user.settings
 *.mk
 
 tools/plugin-sdk-funcs-gen/funcs_conv.h
+/shared/stdafx.cpp
+/shared/stdafx.h
