@@ -78,11 +78,16 @@ enum eHudComponents {
     HUD_LOWERRIGHT_MESSAGE,
 };
 
+struct tComponentData {
+	wchar_t text[128];
+};
+
 class CHudComponent {
 public:
     uint8_t field_8[8];
     uint32_t type;
-    uint8_t field_24[5];
+    int32_t state;
+    uint8_t field_24;
     uint8_t display;
     uint8_t field_25[4];
     rage::Vector2 pos;
@@ -93,16 +98,21 @@ public:
     uint8_t edge;
     uint8_t background;
     uint8_t printFromBottom;
-    uint8_t field_108[9];
+    uint32_t timeVisible;
+    uint32_t fadingTime;
+    uint8_t field_108;
     rage::Color32 color;
     uint8_t field_110[16];
     uint8_t alpha;
     uint8_t field_190[18];
-    CSprite2d sprite;
+    tComponentData data;
 
 public:
     bool IsDisplaying();
 };
+
+//VALIDATE_SIZE(CHudComponent, 0x70);
+
 
 class CHudComponentInfo {
 public:
@@ -115,6 +125,8 @@ public:
 public:
 
 };
+
+VALIDATE_SIZE(CHudComponentInfo, 0x1C);
 
 extern CHudComponentInfo* aHudComponentInfo; // [455]
 extern int32_t& MaxComponentInfo;

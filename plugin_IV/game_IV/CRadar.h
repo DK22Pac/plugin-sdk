@@ -198,6 +198,8 @@ public:
     static CSprite2d& RadarRingFront;
     static CSprite2d** RadarSprites;
 	static rage::Vector2& vec2DRadarOrigin;
+	static float& m_radarRange;
+	static float& m_radarScale;
 
 public:
 	static bool IsRenderPhaseTime();

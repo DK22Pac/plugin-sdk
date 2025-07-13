@@ -5,6 +5,7 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#define GET_HUD_COMPONENT(x) CHud::Components[aHudComponentInfo[x].m_nIndex]
 #include "PluginBase.h"
 #include "CSprite2d.h"
 #include "CHudComponent.h"
@@ -56,6 +57,7 @@ public:
     static CHudComponent** Components;
     static int32_t& NumComponents;
     static bool& HideAllComponents;
+    static bool& DisplayAreaName;
 
 public:
 
