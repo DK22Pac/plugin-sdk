@@ -13,10 +13,6 @@ public:
     uint8_t m_playerIndex;
     uint8_t m_isPlayer;
     uint8_t field_3;
-
-public:
-    CControlledByInfo() = default;
-
 };
 
 class CPedFactoryNY : CPedFactory {

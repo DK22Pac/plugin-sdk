@@ -116,8 +116,15 @@ static bool CallCommandById(unsigned int commandId, ArgTypes... arguments) {
     rage::scrThread::InfoWithBuf info;
     (info.Fill(arguments), ...);
 
+    rage::scrThread* currThread = rage::s_CurrentThread;
+    static rage::scrThread dummyThread;
+    memset(&dummyThread, 0, sizeof(rage::scrThread));
+    rage::s_CurrentThread = &dummyThread;
+
     auto fun = rage::scr_resolver(commandId);
     fun(&info);
+
+    rage::s_CurrentThread = currThread;
 
     if constexpr (!std::is_void_v<Ret>)
         return *reinterpret_cast<Ret*>(info.ResultPtr);

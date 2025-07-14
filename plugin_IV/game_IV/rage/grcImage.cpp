@@ -10,8 +10,8 @@ rage::grcImage::~grcImage() {
     plugin::CallMethodDyn(gpattern("56 8B F1 57 8B 4E 1C 85 C9"), this);
 }
 
-rage::grcImage* rage::grcImage::Create(uint32_t width, uint32_t height, rage::grcImage::Format format, rage::grcImage::ImageType type, int32_t extraMipmaps, int32_t extraLayers, int32_t unused) {
-    return plugin::CallAndReturnDyn<rage::grcImage*>(gpattern("53 8B 5C 24 08 55 8B 6C 24 18"), width, height, format, type, extraMipmaps, extraLayers, unused);
+rage::grcImage* rage::grcImage::Create(uint32_t width, uint32_t height, uint32_t depth, rage::grcImage::Format format, rage::grcImage::ImageType type, int32_t extraMipmaps, int32_t extraLayers, int32_t unused) {
+    return plugin::CallAndReturnDyn<rage::grcImage*>(gpattern("53 8B 5C 24 08 55 8B 6C 24 18"), width, height, depth, format, type, extraMipmaps, extraLayers, unused);
 }
 
 rage::grcImage* rage::grcImage::LoadJPEG(const char* path, rage::grcImage* image) {

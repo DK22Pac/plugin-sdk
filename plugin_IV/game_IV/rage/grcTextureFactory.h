@@ -53,6 +53,29 @@ namespace rage {
             uint8_t field_29;
             uint8_t field_2A;
             grcTextureFormat Format;
+
+            CreateParams()
+                : UseFloat(0)
+                , Multisample(grcDevice::MSAA_None)
+                , MultisampleQuality(1)
+                , MipLevels(1)
+                , IsResolvable(1)
+                , IsRenderable(1)
+                , field_1C(1)
+                , field_24(1)
+                , field_26(1)
+                , field_28(1)
+                , HasParent(0)
+                , Parent(0)
+                , field_18(0)
+                , field_20(0)
+                , field_25(0)
+                , field_27(0)
+                , field_29(0)
+                , field_2A(0)
+                , Format(grctfNone)
+            {
+            }
         };
 
     public:
@@ -101,24 +124,28 @@ namespace rage {
             return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 1>(this, width, height, format, arg4, arg5);
         }
 
-        grcTexturePC* Create(const char* path, grcImage* image) {
-            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 3>(this, path, image);
+        grcTexturePC* Create(grcImage* image, void* unk) {
+            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 2>(this, image, unk);
         }
 
-        grcRenderTarget* GetBackBuffer() {
-            return plugin::CallVirtualMethodAndReturn<grcRenderTarget*, 5>(this);
+        grcTexturePC* CreateFromFile(const char* name, grcImage* image) {
+            return plugin::CallVirtualMethodAndReturn<grcTexturePC*, 3>(this, name, image);
+        }
+
+        grcRenderTargetPC* GetBackBuffer() {
+            return plugin::CallVirtualMethodAndReturn<grcRenderTargetPC*, 5>(this);
         }
 
         grcRenderTargetPC* CreateRenderTarget(const char* name, int32_t type, int32_t width, int32_t height, int32_t bitsPerPixel, CreateParams* params) {
             return plugin::CallVirtualMethodAndReturn<grcRenderTargetPC*, 14>(this, name, type, width, height, bitsPerPixel, params);
         }
 
-        void LockRenderTarget(int32_t index, grcRenderTarget* target, grcRenderTarget* depth, uint32_t layer, bool lockDepth, uint32_t mipToLock) {
-            plugin::CallVirtualMethod<15>(index, target, depth, layer, lockDepth, mipToLock);
+        void LockRenderTarget(int32_t index, grcRenderTargetPC* target, grcRenderTargetPC* depth, uint32_t layer, bool lockDepth, uint32_t mipToLock) {
+            plugin::CallVirtualMethod<15>(this, index, target, depth, layer, lockDepth, mipToLock);
         }
     
         void UnlockRenderTarget(int32_t index, grcDevice::grcResolveFlags* resolveFlags, int32_t unused) {
-            plugin::CallVirtualMethod<16>(index, resolveFlags, unused);
+            plugin::CallVirtualMethod<16>(this, index, resolveFlags, unused);
         }
 
     public:

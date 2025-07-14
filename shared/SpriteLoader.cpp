@@ -184,7 +184,7 @@ make_slot:
 
         memUsed += w * h * 4;
 #else
-        tex = rage::grcTextureFactoryPC::GetInstance()->Create(file.c_str(), nullptr);
+        tex = rage::grcTextureFactoryPC::GetInstance()->CreateFromFile(file.c_str(), nullptr);
 
         memUsed += tex->m_Width, tex->m_Height * 4;
 #endif

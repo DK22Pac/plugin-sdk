@@ -23,6 +23,8 @@ public:
         UNKNOWN = 0x0,
         JPEG_BUFFER = 0x1,
         DDS_BUFFER = 0x2,
+		UNK_BUFFER3 = 0x3,
+        UNK_BUFFER4 = 0x4,
     };
 
     char* m_TxdName;

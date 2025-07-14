@@ -39,10 +39,10 @@ namespace rage {
         uint16_t m_Stride;
         uint8_t m_Depth;
         uint8_t m_StrideHi;
-        uint8_t *m_Bits;
-        Color32 *m_Lut;
-        grcImage *m_Next;
-        grcImage *m_NextLayer;
+        uint8_t* m_Bits;
+        Color32* m_Lut;
+        grcImage* m_Next;
+        grcImage* m_NextLayer;
         int32_t m_RefCount;
         int32_t pad0;
         int32_t pad1;
@@ -64,10 +64,13 @@ namespace rage {
         }
 
     public:
-        static grcImage* Create(uint32_t width, uint32_t height, Format format, ImageType type, int32_t extraMipmaps, int32_t extraLayers, int32_t unused);
+        static grcImage* Create(uint32_t width, uint32_t height, uint32_t depth, Format format, ImageType type, int32_t extraMipmaps, int32_t extraLayers, int32_t unused);
         static grcImage* LoadJPEG(const char* path, grcImage* image = nullptr);
         static grcImage* LoadJPEG(rage::fiStream* S, grcImage* image = nullptr);
         static grcImage* LoadDDS(const char* path);
         static grcImage* Load(const char* path); // dds only
     };
 }
+
+
+

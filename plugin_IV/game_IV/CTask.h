@@ -7,6 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 #include "eTasks.h"
+#include "CPools.h"
 
 enum eAbortPriority {
     ABORT_PRIORITY_LEISURE = 0,
@@ -21,6 +22,13 @@ public:
 public:
     virtual ~CTask() {}
 
+    static void* operator new(size_t size) {
+        return CPools::ms_pTaskPool->New();
+    }
+
+    static void operator delete(void* ptr) {
+        CPools::ms_pTaskPool->Delete(ptr);
+    }
 };
 
 VALIDATE_SIZE(CTask, 0x8);

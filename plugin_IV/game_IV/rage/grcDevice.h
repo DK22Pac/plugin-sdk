@@ -10,7 +10,7 @@
 namespace rage {
     class grcDevice {
     public:
-        enum MSAAModeEnum {
+        enum MSAAModeEnum : int32_t {
             MSAA_None = 0x0,
             MSAA_NonMaskAble = 0x1,
             MSAA_2 = 0x2,
