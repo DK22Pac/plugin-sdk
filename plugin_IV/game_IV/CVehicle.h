@@ -126,14 +126,21 @@ public:
     uint32_t m_bVehicleFlags2_30 : 1;
     uint32_t m_bVehicleFlags2_31 : 1;
 
-    uint8_t field_1000[48];
+    uint8_t m_bVehicleFlags3_1 : 1;
+    uint8_t m_bCanBeVisiblyDamaged : 1;
+    uint8_t m_bVehicleFlags3_3 : 1;
+    uint8_t m_bVehicleFlags3_4 : 1;
+
+    uint8_t field_1000[47];
     CPed* m_pDriver;
     CPed* m_pPassengers[8];
     uint8_t field_912[252];
     int8_t m_nMaxPassengers;
     uint8_t field_1100[71];
     uint8_t m_nCreatedBy;
-    uint8_t field_1200[558];
+    uint8_t field_1200[15];
+    float m_fDirtLevel;
+    uint8_t field_1201[539];
     uint8_t m_nVehicleWeapon;
     uint8_t field_2000[28];
     uint32_t m_nVehicleType;
