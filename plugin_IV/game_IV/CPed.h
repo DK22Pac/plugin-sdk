@@ -182,7 +182,29 @@ enum ePedType {
     PED_TYPE_PROSTITUTE
 };
 
+enum ePedVarComp : int32_t {
+    PV_COMP_HEAD,
+    PV_COMP_UPPR,
+    PV_COMP_LOWR,
+    PV_COMP_ACCS,
+    PV_COMP_HAND,
+    PV_COMP_FEET,
+    PV_COMP_JBIB,
+    PV_COMP_HAIR,
+    PV_COMP_DECL,
+    PV_COMP_TEETH,
+    PV_COMP_FACE,
+    PV_MAX_COMP,
+    PV_COMP_INVALID = -1,
+};
+
 class CPlayerInfo;
+
+class CDrawableInfo {
+public:
+    char field_1[128];
+    int32_t m_drawableID;
+};
 
 class CPed : public CPhysical {
 public:
@@ -194,7 +216,7 @@ public:
     uint8_t m_nPlayerIndex;
     uint8_t m_bIsPlayer;
     uint8_t field_10[2];
-    void* m_pDrawableInfo;
+    CDrawableInfo* m_pDrawableInfo;
     uint8_t field_16[4];
     CPedIntelligenceNY* m_pPedIntelligence;
     CPlayerInfo* m_pPlayerInfo;
@@ -486,6 +508,11 @@ public:
 public:
     static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);
     static bool IsPedDead(CPed* ped);
+
+public:
+    inline CWeapon* GetWeapon() {
+        return &m_WeaponData.m_aWeapons[m_nCurrentWeaponSlot];
+    }
 };
 
 VALIDATE_SIZE(CPed, 0xF00);

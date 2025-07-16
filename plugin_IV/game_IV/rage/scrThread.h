@@ -83,6 +83,7 @@ namespace rage {
             }
         };
 
+        int32_t vt;
         Serialized m_Serialized;
         int32_t* m_Stack;
         int32_t* m_iInstructionCount;
@@ -98,7 +99,7 @@ namespace rage {
         static sysArray<scrThread*>& sm_Threads;
 
     public:
-        virtual ~scrThread() { plugin::CallVirtualMethod<0>(this, 0); }
+        //~scrThread() { plugin::CallVirtualMethod<0>(this, 0); }
         void Reset(scrProgramId program, const void* argStruct, int argStructSize) { plugin::CallVirtualMethod<1>(this, program, argStruct, argStructSize); }
         State Run(int insnCount) { return plugin::CallVirtualMethodAndReturn<State, 2>(this, insnCount); }
         State Update(int insnCount) { return plugin::CallVirtualMethodAndReturn<State, 3>(this, insnCount); }

@@ -7,6 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 #include "Rage.h"
+#include "CPools.h"
 
 class CEntity;
 class CPed;
@@ -74,7 +75,9 @@ public:
 	uint8_t field_168[126];
 	CCamera* m_pTheCamera;
 	CCam* m_pNext;
-	uint8_t field_278[32];
+	uint8_t field_278[8];
+	CCam* m_pCurrentCamera;
+	uint8_t field_279[20];
 
 	// Cam Flags 1
 	uint8_t m_bCamFlags1_1 : 1;
@@ -137,6 +140,14 @@ public:
 	virtual eCamMode GetCurrentCamMode() { return plugin::CallVirtualMethodAndReturn<eCamMode, 10>(this); }
 
 public:
+	static void* operator new(size_t size) {
+		return CPools::ms_pCamPool->New();
+	}
+
+	static void operator delete(void* ptr) {
+		CPools::ms_pCamPool->Delete(ptr);
+	}
+
 	void SetAsCurrent();
 	CCam* GetCamMode(eCamMode mode, int32_t arg2);
 	CCam* CreateCamMode(eCamMode mode, int32_t arg2);

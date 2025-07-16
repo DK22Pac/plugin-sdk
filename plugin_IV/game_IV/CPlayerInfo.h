@@ -9,19 +9,6 @@
 #include "CPlayerPed.h"
 #include "CPlayerData.h"
 
-enum ePlayerComponents {
-    COMPONENT_HEAD = 0,
-    COMPONENT_UPPER_BODY = 1,
-    COMPONENT_LOWER_BODY = 2,
-    COMPONENT_BAGS = 3,
-    COMPONENT_HAND = 4,
-    COMPONENT_FEET = 5,
-    COMPONENT_JACKET = 6,
-    COMPONENT_HAIR = 7,
-    COMPONENT_UNKNOWN = 8,
-    COMPONENT_TEETH = 9,
-    COMPONENT_FACE = 10
-};
 
 enum ePlayerState {
     PLAYERSTATE_PLAYING = 0,

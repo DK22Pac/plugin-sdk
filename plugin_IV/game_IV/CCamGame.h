@@ -12,6 +12,7 @@ public:
     uint8_t field_2[30];
 
 public:
+    eCamMode GetCurrentCamMode() { return plugin::CallVirtualMethodAndReturn<eCamMode, 10>(this); }
 
 };
 
