@@ -76,61 +76,61 @@ class PLUGIN_API CVehicle : public CPhysical {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CVehicle)
 
 public:
-    tHandlingData *m_pHandlingData;
+    tHandlingData* m_pHandlingData;
     CAutoPilot m_autoPilot;
     unsigned char m_nPrimaryColor;
     unsigned char m_nSecondaryColor;
     char m_anExtras[2];
     short m_nAlarmState;
     short m_nMissionValue;
-    CPed *m_pDriver;
-    CPed *m_apPassengers[8];
+    CPed* m_pDriver;
+    CPed* m_apPassengers[8];
     unsigned char m_nNumPassengers;
     char m_nNumGettingIn;
     char m_nGettingInFlags;
     char m_nGettingOutFlags;
     unsigned char m_nMaxPassengers;
     float field_1D0[4];
-    CEntity *m_pCurGroundEntity;
-    CFire *m_pCarFire;
+    CEntity* m_pCurGroundEntity;
+    CFire* m_pCarFire;
     float m_fSteerAngle;
     float m_fGasPedal;
     float m_fBrakePedal;
     unsigned char m_nCreatedBy; //!< see eVehicleCreatedBy
-    struct {
-        unsigned char bIsLawEnforcer : 1; //!< Is this guy chasing the player at the moment
-        unsigned char bIsAmbulanceOnDuty : 1; //!< Ambulance trying to get to an accident
-        unsigned char bIsFireTruckOnDuty : 1; //!< Firetruck trying to get to a fire
-        unsigned char bIsLocked : 1; //!< Is this guy locked by the script (cannot be removed)
-        unsigned char bEngineOn : 1; //!< For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
-        unsigned char bIsHandbrakeOn : 1; //!< How's the handbrake doing ?
-        unsigned char bLightsOn : 1; //!< Are the lights switched on ?
-        unsigned char bFreebies : 1; //!< Any freebies left in this vehicle ?
 
-        unsigned char bIsVan : 1; //!< Is this vehicle a van (doors at back of vehicle)
-        unsigned char bIsBus : 1; //!< Is this vehicle a bus
-        unsigned char bIsBig : 1; //!< Is this vehicle a big
-        unsigned char bLowVehicle : 1; //!< Need this for sporty type cars to use low getting-in/out anims
-        unsigned char bComedyControls : 1; //!< Will make the car hard to control (hopefully in a funny way)
-        unsigned char bWarnedPeds : 1; //!< Has scan and warn peds of danger been processed?
-        unsigned char bCraneMessageDone : 1; //!< A crane message has been printed for this car allready
-        unsigned char bExtendedRange : 1; //!< This vehicle needs to be a bit further away to get deleted
+    unsigned char bIsLawEnforcer : 1; //!< Is this guy chasing the player at the moment
+    unsigned char bIsAmbulanceOnDuty : 1; //!< Ambulance trying to get to an accident
+    unsigned char bIsFireTruckOnDuty : 1; //!< Firetruck trying to get to a fire
+    unsigned char bIsLocked : 1; //!< Is this guy locked by the script (cannot be removed)
+    unsigned char bEngineOn : 1; //!< For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
+    unsigned char bIsHandbrakeOn : 1; //!< How's the handbrake doing ?
+    unsigned char bLightsOn : 1; //!< Are the lights switched on ?
+    unsigned char bFreebies : 1; //!< Any freebies left in this vehicle ?
 
-        unsigned char bTakeLessDamage : 1; //!< This vehicle is stronger (takes about 1/4 of damage)
-        unsigned char bIsDamaged : 1; //!< This vehicle has been damaged and is displaying all its components
-        unsigned char bHasBeenOwnedByPlayer : 1; //!< To work out whether stealing it is a crime
-        unsigned char bFadeOut : 1; //!< Fade vehicle out
-        unsigned char bIsBeingCarJacked : 1;
-        unsigned char bCreateRoadBlockPeds : 1; //!< If this vehicle gets close enough we will create peds (coppers or gang members) round it
-        unsigned char bCanBeDamaged : 1; //!< Set to FALSE during cut scenes to avoid explosions
-        unsigned char bUsingSpecialColModel : 1; //!< Is player vehicle using special collision model, stored in player strucure
+    unsigned char bIsVan : 1; //!< Is this vehicle a van (doors at back of vehicle)
+    unsigned char bIsBus : 1; //!< Is this vehicle a bus
+    unsigned char bIsBig : 1; //!< Is this vehicle a big
+    unsigned char bLowVehicle : 1; //!< Need this for sporty type cars to use low getting-in/out anims
+    unsigned char bComedyControls : 1; //!< Will make the car hard to control (hopefully in a funny way)
+    unsigned char bWarnedPeds : 1; //!< Has scan and warn peds of danger been processed?
+    unsigned char bCraneMessageDone : 1; //!< A crane message has been printed for this car allready
+    unsigned char bExtendedRange : 1; //!< This vehicle needs to be a bit further away to get deleted
 
-        unsigned char bOccupantsHaveBeenGenerated : 1; //!< Is true if the occupants have already been generated. (Shouldn't happen again)
-        unsigned char bGunSwitchedOff : 1; //!< Level designers can use this to switch off guns on boats
-        unsigned char bVehicleColProcessed : 1; //!< Has ProcessEntityCollision been processed for this car?
-        unsigned char bIsCarParkVehicle : 1; //!< Car has been created using the special CAR_PARK script command
-        unsigned char bHasAlreadyBeenRecorded : 1; //!< Used for replays
-    } m_nVehicleFlags;
+    unsigned char bTakeLessDamage : 1; //!< This vehicle is stronger (takes about 1/4 of damage)
+    unsigned char bIsDamaged : 1; //!< This vehicle has been damaged and is displaying all its components
+    unsigned char bHasBeenOwnedByPlayer : 1; //!< To work out whether stealing it is a crime
+    unsigned char bFadeOut : 1; //!< Fade vehicle out
+    unsigned char bIsBeingCarJacked : 1;
+    unsigned char bCreateRoadBlockPeds : 1; //!< If this vehicle gets close enough we will create peds (coppers or gang members) round it
+    unsigned char bCanBeDamaged : 1; //!< Set to FALSE during cut scenes to avoid explosions
+    unsigned char bUsingSpecialColModel : 1; //!< Is player vehicle using special collision model, stored in player strucure
+
+    unsigned char bOccupantsHaveBeenGenerated : 1; //!< Is true if the occupants have already been generated. (Shouldn't happen again)
+    unsigned char bGunSwitchedOff : 1; //!< Level designers can use this to switch off guns on boats
+    unsigned char bVehicleColProcessed : 1; //!< Has ProcessEntityCollision been processed for this car?
+    unsigned char bIsCarParkVehicle : 1; //!< Car has been created using the special CAR_PARK script command
+    unsigned char bHasAlreadyBeenRecorded : 1; //!< Used for replays
+
     char m_numPedsUseItAsCover;
     unsigned char m_nAmmoInClip; //!< Used to make the guns on boat do a reload (20 by default)
     unsigned char m_nPacManPickupsCarried;

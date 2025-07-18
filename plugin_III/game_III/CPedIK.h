@@ -33,16 +33,15 @@ struct PLUGIN_API LimbMovementInfo {
 
 class PLUGIN_API CPedIK {
 public:
-    CPed *m_pPed;
+    CPed* m_pPed;
     LimbOrientation m_sHead;
     LimbOrientation m_sTorso;
     LimbOrientation m_sUpperArm;
     LimbOrientation m_sLowerArm;
-    struct {
-        unsigned int bGunPointedSuccessfully : 1;
-        unsigned int bLookaroundHeadOnly : 1;
-        unsigned int bAimsWithArm : 1;
-    } m_nFlags;
+
+    unsigned int bGunPointedSuccessfully : 1;
+    unsigned int bLookaroundHeadOnly : 1;
+    unsigned int bAimsWithArm : 1;
 
     SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_headInfo;
     SUPPORTED_10EN_11EN_STEAM static LimbMovementInfo &ms_headRestoreInfo;

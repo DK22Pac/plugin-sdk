@@ -32,54 +32,53 @@ class PLUGIN_API CEntity : public CPlaceable {
 
 public:
     union {
-        RwObject *m_pRwObject;
-        RpAtomic *m_pRwAtomic;
-        RpClump  *m_pRwClump;
+        RwObject* m_pRwObject;
+        RpAtomic* m_pRwAtomic;
+        RpClump* m_pRwClump;
     };
 
     unsigned char m_nType : 3;
     unsigned char m_nStatus : 5;
-	
-    struct {
-        unsigned char bUsesCollision : 1; //!< does entity use collision
-        unsigned char bCollisionProcessed : 1; //!< has object been processed by a ProcessEntityCollision function
-        unsigned char bIsStatic : 1; //!< is entity static
-        unsigned char bHasContacted : 1; //!< has entity processed some contact forces
-        unsigned char bPedPhysics : 1;
-        unsigned char bIsStuck : 1; //!< is entity stuck
-        unsigned char bIsInSafePosition : 1; //!< is entity in a collision free safe position
-        unsigned char bUseCollisionRecords : 1;
 
-        unsigned char bWasPostponed : 1; //!< was entity control processing postponed
-        unsigned char bExplosionProof : 1;
-        unsigned char bIsVisible : 1; //!< is the entity visible
-        unsigned char bHasCollided : 1;
-        unsigned char bRenderScorched : 1;
-        unsigned char bHasBlip : 1;
-        unsigned char bIsBIGBuilding : 1; //!< set if this entity is a big building
-        unsigned char bRenderDamaged : 1; //!< use damaged LOD models for objects with applicable damage
+    unsigned char bUsesCollision : 1; //!< does entity use collision
+    unsigned char bCollisionProcessed : 1; //!< has object been processed by a ProcessEntityCollision function
+    unsigned char bIsStatic : 1; //!< is entity static
+    unsigned char bHasContacted : 1; //!< has entity processed some contact forces
+    unsigned char bPedPhysics : 1;
+    unsigned char bIsStuck : 1; //!< is entity stuck
+    unsigned char bIsInSafePosition : 1; //!< is entity in a collision free safe position
+    unsigned char bUseCollisionRecords : 1;
 
-        unsigned char bBulletProof : 1;
-        unsigned char bFireProof : 1;
-        unsigned char bCollisionProof : 1;
-        unsigned char bMeleeProof : 1;
-        unsigned char bOnlyDamagedByPlayer : 1;
-        unsigned char bStreamingDontDelete : 1; //!< dont let the streaming remove this
-        unsigned char bZoneCulled : 1;
-        unsigned char bZoneCulled2 : 1; //!< only treadables+10m
+    unsigned char bWasPostponed : 1; //!< was entity control processing postponed
+    unsigned char bExplosionProof : 1;
+    unsigned char bIsVisible : 1; //!< is the entity visible
+    unsigned char bHasCollided : 1;
+    unsigned char bRenderScorched : 1;
+    unsigned char bHasBlip : 1;
+    unsigned char bIsBIGBuilding : 1; //!< set if this entity is a big building
+    unsigned char bRenderDamaged : 1; //!< use damaged LOD models for objects with applicable damage
 
-        unsigned char bRemoveFromWorld : 1; //!< remove this entity next time it should be processed
-        unsigned char bHasHitWall : 1; //!< has collided with a building (changes subsequent collisions)
-        unsigned char bImBeingRendered : 1; //!< don't delete me because I'm being rendered
-        unsigned char bTouchingWater : 1; //!< used by cBuoyancy::ProcessBuoyancy
-        unsigned char bIsSubway : 1; //!< set when subway, but maybe different meaning?
-        unsigned char bDrawLast : 1; //!< draw object last
-        unsigned char bNoBrightHeadLights : 1;
-        unsigned char bDoNotRender : 1;
+    unsigned char bBulletProof : 1;
+    unsigned char bFireProof : 1;
+    unsigned char bCollisionProof : 1;
+    unsigned char bMeleeProof : 1;
+    unsigned char bOnlyDamagedByPlayer : 1;
+    unsigned char bStreamingDontDelete : 1; //!< dont let the streaming remove this
+    unsigned char bZoneCulled : 1;
+    unsigned char bZoneCulled2 : 1; //!< only treadables+10m
 
-        unsigned char bDistanceFade : 1; //!< fade entity because it is far away
-        unsigned char bFlag34 : 1;
-    } m_nFlags;
+    unsigned char bRemoveFromWorld : 1; //!< remove this entity next time it should be processed
+    unsigned char bHasHitWall : 1; //!< has collided with a building (changes subsequent collisions)
+    unsigned char bImBeingRendered : 1; //!< don't delete me because I'm being rendered
+    unsigned char bTouchingWater : 1; //!< used by cBuoyancy::ProcessBuoyancy
+    unsigned char bIsSubway : 1; //!< set when subway, but maybe different meaning?
+    unsigned char bDrawLast : 1; //!< draw object last
+    unsigned char bNoBrightHeadLights : 1;
+    unsigned char bDoNotRender : 1;
+
+    unsigned char bDistanceFade : 1; //!< fade entity because it is far away
+    unsigned char bFlag34 : 1;
+
 private:
     char _pad56[2];
 public:

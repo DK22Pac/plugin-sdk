@@ -42,7 +42,7 @@ public:
             CVehicle *vehicle = FindPlayerVehicle(0, false);
             if (vehicle && vehicle->m_nVehicleClass == VEHICLE_AUTOMOBILE) {
                 CAutomobile *automobile = reinterpret_cast<CAutomobile *>(vehicle);
-                RwEngineInstance->dOpenDevice.fpRenderStateSet(rwRENDERSTATEZTESTENABLE, FALSE);
+                RwRenderStateSet(rwRENDERSTATEZTESTENABLE, FALSE);
                 if (automobile->m_aCarNodes[CAR_DOOR_RF]) {
                     if (RwIm3DTransform(vertsAxis, 6, &automobile->m_aCarNodes[CAR_DOOR_RF]->ltm, 0)) {
                         RwIm3DRenderLine(0, 1);
@@ -59,7 +59,7 @@ public:
                         RwIm3DEnd();
                     }
                 }
-                RwEngineInstance->dOpenDevice.fpRenderStateSet(rwRENDERSTATEZTESTENABLE, (void*)TRUE);
+                RwRenderStateSet(rwRENDERSTATEZTESTENABLE, (void*)TRUE);
             }
         });
     }

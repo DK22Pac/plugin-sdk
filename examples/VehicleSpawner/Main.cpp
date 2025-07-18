@@ -45,7 +45,7 @@ public:
                     str = vehicleNames[i];
                     CVehicle *vehicle = CCheat::VehicleCheat(i + 400);
                     if (vehicle) {
-                        vehicle->m_nVehicleFlags.bHasBeenOwnedByPlayer = true;
+                        vehicle->bHasBeenOwnedByPlayer = true;
                         str.append(" SPAWNED");
                     }
                     else {

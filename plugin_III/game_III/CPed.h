@@ -270,88 +270,87 @@ class PLUGIN_API CPed : public CPhysical {
 public:
     CStoredCollPoly m_collPoly;
     float m_fCollisionSpeed;
-    struct {
-        unsigned char bIsStanding : 1;
-        unsigned char bWasStanding : 1;
-        unsigned char bIsAttacking : 1; //!< doesn't reset after fist fight
-        unsigned char bIsPointingGunAt : 1;
-        unsigned char bIsLooking : 1;
-        unsigned char bKeepTryingToLook : 1; //!< if we can't look somewhere due to unreachable angles
-        unsigned char bIsRestoringLook : 1;
-        unsigned char bIsAimingGun : 1;
+    unsigned char bIsStanding : 1;
+    unsigned char bWasStanding : 1;
+    unsigned char bIsAttacking : 1; //!< doesn't reset after fist fight
+    unsigned char bIsPointingGunAt : 1;
+    unsigned char bIsLooking : 1;
+    unsigned char bKeepTryingToLook : 1; //!< if we can't look somewhere due to unreachable angles
+    unsigned char bIsRestoringLook : 1;
+    unsigned char bIsAimingGun : 1;
 
-        unsigned char bIsRestoringGun : 1;
-        unsigned char bCanPointGunAtTarget : 1;
-        unsigned char bIsTalking : 1;
-        unsigned char bIsInTheAir : 1;
-        unsigned char bIsLanding : 1;
-        unsigned char bIsRunning : 1; //!< on some conditions
-        unsigned char bHitSomethingLastFrame : 1;
-        unsigned char bVehEnterDoorIsBlocked : 1; //!< because someone else enters/exits from there
+    unsigned char bIsRestoringGun : 1;
+    unsigned char bCanPointGunAtTarget : 1;
+    unsigned char bIsTalking : 1;
+    unsigned char bIsInTheAir : 1;
+    unsigned char bIsLanding : 1;
+    unsigned char bIsRunning : 1; //!< on some conditions
+    unsigned char bHitSomethingLastFrame : 1;
+    unsigned char bVehEnterDoorIsBlocked : 1; //!< because someone else enters/exits from there
 
-        unsigned char bCanPedEnterSeekedCar : 1;
-        unsigned char bRespondsToThreats : 1;
-        unsigned char bRenderPedInCar : 1;
-        unsigned char bChangedSeat : 1;
-        unsigned char bUpdateAnimHeading : 1;
-        unsigned char bBodyPartJustCameOff : 1;
-        unsigned char bIsShooting : 1;
-        unsigned char bFindNewNodeAfterStateRestore : 1;
+    unsigned char bCanPedEnterSeekedCar : 1;
+    unsigned char bRespondsToThreats : 1;
+    unsigned char bRenderPedInCar : 1;
+    unsigned char bChangedSeat : 1;
+    unsigned char bUpdateAnimHeading : 1;
+    unsigned char bBodyPartJustCameOff : 1;
+    unsigned char bIsShooting : 1;
+    unsigned char bFindNewNodeAfterStateRestore : 1;
 
-        unsigned char bHasACamera : 1; //!< does ped possess a camera to document accidents involves fire/explosion
-        unsigned char bGonnaInvestigateEvent : 1;
-        unsigned char bPedIsBleeding : 1;
-        unsigned char bStopAndShoot : 1; //!< ped cannot reach target to attack with fist, need to use gun
-        unsigned char bIsPedDieAnimPlaying : 1;
-        unsigned char bUsePedNodeSeek : 1;
-        unsigned char bObjectiveCompleted : 1;
-        unsigned char bScriptObjectiveCompleted : 1;
+    unsigned char bHasACamera : 1; //!< does ped possess a camera to document accidents involves fire/explosion
+    unsigned char bGonnaInvestigateEvent : 1;
+    unsigned char bPedIsBleeding : 1;
+    unsigned char bStopAndShoot : 1; //!< ped cannot reach target to attack with fist, need to use gun
+    unsigned char bIsPedDieAnimPlaying : 1;
+    unsigned char bUsePedNodeSeek : 1;
+    unsigned char bObjectiveCompleted : 1;
+    unsigned char bScriptObjectiveCompleted : 1;
 
-        unsigned char bKindaStayInSamePlace : 1;
-        unsigned char bBeingChasedByPolice : 1; //!< Unused VC leftover. Should've been set for criminal/gang members
-        unsigned char bNotAllowedToDuck : 1;
-        unsigned char bCrouchWhenShooting : 1;
-        unsigned char bIsDucking : 1;
-        unsigned char bGetUpAnimStarted : 1;
-        unsigned char bDoBloodyFootprints : 1;
-        unsigned char bFleeAfterExitingCar : 1;
+    unsigned char bKindaStayInSamePlace : 1;
+    unsigned char bBeingChasedByPolice : 1; //!< Unused VC leftover. Should've been set for criminal/gang members
+    unsigned char bNotAllowedToDuck : 1;
+    unsigned char bCrouchWhenShooting : 1;
+    unsigned char bIsDucking : 1;
+    unsigned char bGetUpAnimStarted : 1;
+    unsigned char bDoBloodyFootprints : 1;
+    unsigned char bFleeAfterExitingCar : 1;
 
-        unsigned char bWanderPathAfterExitingCar : 1;
-        unsigned char bIsLeader : 1;
-        unsigned char bDontDragMeOutCar : 1; //!< unfinished feature
-        unsigned char bPed_flag43 : 1;
-        unsigned char bWillBeQuickJacked : 1;
-        unsigned char bCancelEnteringCar : 1; //!< after door is opened or couldn't be opened due to it's locked
-        unsigned char bObstacleShowedUpDuringKillObjective : 1;
-        unsigned char bDuckAndCover : 1;
+    unsigned char bWanderPathAfterExitingCar : 1;
+    unsigned char bIsLeader : 1;
+    unsigned char bDontDragMeOutCar : 1; //!< unfinished feature
+    unsigned char bPed_flag43 : 1;
+    unsigned char bWillBeQuickJacked : 1;
+    unsigned char bCancelEnteringCar : 1; //!< after door is opened or couldn't be opened due to it's locked
+    unsigned char bObstacleShowedUpDuringKillObjective : 1;
+    unsigned char bDuckAndCover : 1;
 
-        unsigned char bStillOnValidPoly : 1; //!< set if the polygon the ped is on is still valid for collision
-        unsigned char bAllowMedicsToReviveMe : 1;
-        unsigned char bResetWalkAnims : 1;
-        unsigned char bStartWanderPathOnFoot : 1; //!< exits the car if he's in it, reset after path found
-        unsigned char bOnBoat : 1; //!< not just driver, may be just standing
-        unsigned char bBusJacked : 1;
-        unsigned char bGonnaKillTheCarJacker : 1; //!< only set when car is jacked from right door and when arrested by police
-        unsigned char bFadeOut : 1;
+    unsigned char bStillOnValidPoly : 1; //!< set if the polygon the ped is on is still valid for collision
+    unsigned char bAllowMedicsToReviveMe : 1;
+    unsigned char bResetWalkAnims : 1;
+    unsigned char bStartWanderPathOnFoot : 1; //!< exits the car if he's in it, reset after path found
+    unsigned char bOnBoat : 1; //!< not just driver, may be just standing
+    unsigned char bBusJacked : 1;
+    unsigned char bGonnaKillTheCarJacker : 1; //!< only set when car is jacked from right door and when arrested by police
+    unsigned char bFadeOut : 1;
 
-        unsigned char bKnockedUpIntoAir : 1; //!< has ped been knocked up into the air by a car collision
-        unsigned char bHitSteepSlope : 1; //!< has ped collided/is standing on a steep slope (surface type)
-        unsigned char bCullExtraFarAway : 1; //!< special ped only gets culled if it's extra far away (for roadblocks)
-        unsigned char bClearObjective : 1;
-        unsigned char bTryingToReachDryLand : 1; //!< has ped just exited boat and trying to get to dry land
-        unsigned char bCollidedWithMyVehicle : 1;
-        unsigned char bRichFromMugging : 1; //!< ped has lots of cash cause they've been mugging people
-        unsigned char bChrisCriminal : 1; //!< Is a criminal as killed during Chris' police mission (should be counted as such)
+    unsigned char bKnockedUpIntoAir : 1; //!< has ped been knocked up into the air by a car collision
+    unsigned char bHitSteepSlope : 1; //!< has ped collided/is standing on a steep slope (surface type)
+    unsigned char bCullExtraFarAway : 1; //!< special ped only gets culled if it's extra far away (for roadblocks)
+    unsigned char bClearObjective : 1;
+    unsigned char bTryingToReachDryLand : 1; //!< has ped just exited boat and trying to get to dry land
+    unsigned char bCollidedWithMyVehicle : 1;
+    unsigned char bRichFromMugging : 1; //!< ped has lots of cash cause they've been mugging people
+    unsigned char bChrisCriminal : 1; //!< Is a criminal as killed during Chris' police mission (should be counted as such)
 
-        unsigned char bShakeFist : 1; //!< test shake hand at look entity
-        unsigned char bNoCriticalHits : 1; //!< if set, limbs won't came off
-        unsigned char bVehExitWillBeInstant : 1;
-        unsigned char bHasAlreadyBeenRecorded : 1;
-        unsigned char bFallenDown : 1;
-        unsigned char bSomeVCflag1 : 1;
-        unsigned char bDontAcceptIKLookAts : 1;
-        unsigned char bPed_flag71 : 1;
-    } m_nPedFlags;
+    unsigned char bShakeFist : 1; //!< test shake hand at look entity
+    unsigned char bNoCriticalHits : 1; //!< if set, limbs won't came off
+    unsigned char bVehExitWillBeInstant : 1;
+    unsigned char bHasAlreadyBeenRecorded : 1;
+    unsigned char bFallenDown : 1;
+    unsigned char bSomeVCflag1 : 1;
+    unsigned char bDontAcceptIKLookAts : 1;
+    unsigned char bPed_flag71 : 1;
+
     char field_15D;
     char field_15E;
     char field_15F;

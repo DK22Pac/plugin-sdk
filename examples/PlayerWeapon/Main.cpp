@@ -21,8 +21,8 @@ public:
                 keyPressTime = CTimer::m_snTimeInMilliseconds;
                 CStreaming::RequestModel(MODEL_M4, 2);
                 CStreaming::LoadAllRequestedModels(false);
-                playa->GiveWeapon(WEAPON_M4, 10, true);
-                playa->SetCurrentWeapon(WEAPON_M4);
+                playa->GiveWeapon(WEAPONTYPE_M4, 10, true);
+                playa->SetCurrentWeapon(WEAPONTYPE_M4);
                 CStreaming::SetModelIsDeletable(MODEL_M4);
             }
         };

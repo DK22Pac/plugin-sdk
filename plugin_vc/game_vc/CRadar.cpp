@@ -224,7 +224,7 @@ void CRadar::SetRadarMarkerState(int i, unsigned char flag) {
     }
 
     if (entity)
-        entity->m_nFlags.bHasBlip = flag;
+        entity->bHasBlip = flag;
 }
 
 void CRadar::ShowRadarMarker(CVector const& pos, unsigned int colour, float radius) {

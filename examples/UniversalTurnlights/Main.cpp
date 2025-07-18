@@ -39,12 +39,12 @@ public:
         Events::vehicleRenderEvent.before += [](CVehicle *vehicle) {
             if ((vehicle->m_nVehicleSubClass == VEHICLE_AUTOMOBILE || vehicle->m_nVehicleSubClass == VEHICLE_BIKE) &&
                 (vehicle->GetVehicleAppearance() == VEHICLE_APPEARANCE_AUTOMOBILE || vehicle->GetVehicleAppearance() == VEHICLE_APPEARANCE_BIKE) &&
-				vehicle->m_nVehicleFlags.bEngineOn && vehicle->m_fHealth > 0 && !vehicle->m_nVehicleFlags.bIsDrowning && !vehicle->m_pAttachedTo )
+				vehicle->bEngineOn && vehicle->m_fHealth > 0 && !vehicle->bIsDrowning && !vehicle->m_pAttachedTo )
             {
                 eLightsStatus &lightsStatus = turnlightsData.Get(vehicle).lightsStatus;
                 if (vehicle->m_pDriver) {
                     CPed *playa = FindPlayerPed();
-                    if (playa && playa->m_pVehicle == vehicle && playa->m_nPedFlags.bInVehicle) {
+                    if (playa && playa->m_pVehicle == vehicle && playa->bInVehicle) {
                         if (KeyPressed(90)) // Z
                             lightsStatus = LIGHTS_LEFT;
                         else if (KeyPressed(88)) // X

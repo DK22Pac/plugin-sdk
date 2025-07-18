@@ -22,8 +22,8 @@ class PLUGIN_API CPhysical : public CEntity {
 public:
     int m_nAudioEntityId;
     float field_68;
-    CTreadable *m_pLastCarNodeTreadable;
-    CTreadable *m_pLastPedNodeTreadable;
+    CTreadable* m_pLastCarNodeTreadable;
+    CTreadable* m_pLastPedNodeTreadable;
     unsigned int m_nLastTimeCollided;
     CVector m_vecMoveSpeed; //!< velocity
     CVector m_vecTurnSpeed; //!< angular velocity
@@ -39,27 +39,27 @@ public:
     float m_fBuoyancy;
     CVector m_vecCentreOfMass;
     CEntryInfoList m_entryInfoList;
-    CPtrNode *m_pMovingListNode;
+    CPtrNode* m_pMovingListNode;
     char field_EC;
     unsigned char m_nStaticFrames;
     unsigned char m_nNumCollisionRecords;
     bool m_bIsVehicleBeingShifted;
-    CEntity *m_apCollisionRecords[6];
+    CEntity* m_apCollisionRecords[6];
     float m_fDistanceTravelled;
     float m_fDamageImpulse;
-    CEntity *m_pDamageEntity;
+    CEntity* m_pDamageEntity;
     CVector m_vecDamageNormal;
     short m_nDamagePieceType;
-    struct {
-        unsigned char bIsHeavy : 1;
-        unsigned char bAffectedByGravity : 1;
-        unsigned char bInfiniteMass : 1;
-        unsigned char bIsInWater : 1;
-        unsigned char bPhy_flag4 : 1;
-        unsigned char bPhy_flag5 : 1;
-        unsigned char bHitByTrain : 1;
-        unsigned char bSkipLineCol : 1;
-    } m_nPhysicalFlags;
+
+    unsigned char bIsHeavy : 1;
+    unsigned char bAffectedByGravity : 1;
+    unsigned char bInfiniteMass : 1;
+    unsigned char bIsInWater : 1;
+    unsigned char bPhy_flag4 : 1;
+    unsigned char bPhy_flag5 : 1;
+    unsigned char bHitByTrain : 1;
+    unsigned char bSkipLineCol : 1;
+    
     unsigned char m_nSurfaceTouched;
     char m_nZoneLevel;
     
