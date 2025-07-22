@@ -6,6 +6,9 @@
 */
 #include "CCam.h"
 
+bool& CCam::bBlockCam = *gpatternt(bool, "80 3D ? ? ? ? ? 0F 85 ? ? ? ? 80 7C 24 ? ? 8B 86", 2);
+
+
 void CCam::SetAsCurrent() {
     plugin::CallMethodDyn(gpattern("80 89 ? ? ? ? ? 8B 89"), this);
 }

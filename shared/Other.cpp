@@ -81,6 +81,29 @@ bool plugin::CreateImageFromFile(std::string const& path, plugin::Image*& img) {
     return false;
 }
 
+bool plugin::CreateImageFromMemory(std::string const& name, void* data, unsigned long size, class Image*& img) {
+    int32_t w, h, c;
+    uint8_t* p = stbi_load_from_memory(
+        reinterpret_cast<unsigned char*>(data),
+        size,
+        &w, &h, &c, 4
+    );
+
+    if (p) {
+        if (!img)
+            img = new plugin::Image();
+
+        img->width = w;
+        img->height = h;
+        img->channels = c;
+        img->pixels = p;
+
+        return true;
+    }
+
+    return false;
+}
+
 #if _HAS_CXX17
 std::vector<std::string> plugin::GetAllFilesInFolder(std::string const& path, std::string const& ext, bool includePath) {
     std::vector<std::string> files = {};

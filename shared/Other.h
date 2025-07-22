@@ -71,6 +71,7 @@ namespace plugin {
     std::string WtoA(std::wstring const &str);
 
     bool CreateImageFromFile(std::string const& path, class Image*& img);
+	bool CreateImageFromMemory(std::string const& name, void* data, unsigned long size, class Image*& img);
 
 #if _HAS_CXX17
     std::vector<std::string> GetAllFilesInFolder(std::string const& path, std::string const& ext, bool includePath = false);

@@ -127,6 +127,9 @@ public:
 	uint8_t field_500[810];
 
 public:
+	static bool& bBlockCam;
+
+public:
     virtual ~CCam() { plugin::CallVirtualMethod<0>(this, 0); }
 	virtual void Update() { plugin::CallVirtualMethod<1>(this); }
 	virtual void m2() { plugin::CallVirtualMethod<2>(this); }

@@ -9,5 +9,6 @@
 #include "CCam.h"
 
 class CCamFollowVehicle : public CCam {
-
+public:
+    static bool& bProstituteCam;
 };

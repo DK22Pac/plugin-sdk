@@ -57,6 +57,7 @@ public:
     static CHudComponent** Components;
     static int32_t& NumComponents;
     static bool& HideAllComponents;
+    static bool& HideAllComponentsThisFrame;
     static bool& DisplayAreaName;
 
 public:
