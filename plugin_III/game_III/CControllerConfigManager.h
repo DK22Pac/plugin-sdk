@@ -62,6 +62,26 @@ enum eControllerType {
 	CONTROLLER_PAD = 3,
 };
 
+enum e_ControllerActionType
+{
+	ACTIONTYPE_1RSTPERSON = 0,
+	ACTIONTYPE_3RDPERSON,
+	ACTIONTYPE_VEHICLE,
+	ACTIONTYPE_VEHICLE_3RDPERSON,
+	ACTIONTYPE_COMMON,
+	ACTIONTYPE_1RST3RDPERSON,
+	ACTIONTYPE_NONE,
+};
+
+enum eContSetOrder
+{
+	SETORDER_NONE = 0,
+	SETORDER_1,
+	SETORDER_2,
+	SETORDER_3,
+	SETORDER_4
+};
+
 class CControllerKey {
 public:
 	unsigned int keyCode;
@@ -83,6 +103,57 @@ public:
 	CControllerAction m_actions[NUM_CONTROLLER_ACTIONS];
 	bool m_aSimCheckers[4][4];
 	bool m_bMouseAssociated;
+
+	void MakeControllerActionsBlank();
+	int32_t GetJoyButtonJustDown();
+	void SaveSettings(int32_t file);
+	void LoadSettings(int32_t file);
+	void InitDefaultControlConfiguration();
+	void InitDefaultControlConfigMouse(CMouseControllerState const& availableButtons);
+	void InitDefaultControlConfigJoyPad(uint32_t buttons);
+	void InitialiseControllerActionNameArray();
+	void UpdateJoyInConfigMenus_ButtonDown(int32_t button, int32_t padnumber);
+	void AffectControllerStateOn_ButtonDown(int32_t button, eControllerType type);
+	void AffectControllerStateOn_ButtonDown_Driving(int32_t button, eControllerType type, CControllerState& state);
+	void AffectControllerStateOn_ButtonDown_FirstPersonOnly(int32_t button, eControllerType type, CControllerState& state);
+	void AffectControllerStateOn_ButtonDown_ThirdPersonOnly(int32_t button, eControllerType type, CControllerState& state);
+	void AffectControllerStateOn_ButtonDown_FirstAndThirdPersonOnly(int32_t button, eControllerType type, CControllerState& state);
+	void AffectControllerStateOn_ButtonDown_AllStates(int32_t button, eControllerType type, CControllerState& state);
+	void AffectControllerStateOn_ButtonDown_VehicleAndThirdPersonOnly(int32_t button, eControllerType type, CControllerState& state);
+	void UpdateJoyInConfigMenus_ButtonUp(int32_t button, int32_t padnumber);
+	void AffectControllerStateOn_ButtonUp(int32_t button, eControllerType type);
+	void AffectControllerStateOn_ButtonUp_All_Player_States(int32_t button, eControllerType type, CControllerState& state);
+	void AffectPadFromKeyBoard();
+	void AffectPadFromMouse();
+	void ClearSimButtonPressCheckers();
+	bool GetIsKeyboardKeyDown(RsKeyCodes keycode);
+	bool GetIsKeyboardKeyJustDown(RsKeyCodes keycode);
+	bool GetIsMouseButtonDown(RsKeyCodes keycode);
+	bool GetIsMouseButtonUp(RsKeyCodes keycode);
+	void DeleteMatchingCommonControls(e_ControllerAction action, int32_t key, eControllerType type);
+	void DeleteMatching3rdPersonControls(e_ControllerAction action, int32_t key, eControllerType type);
+	void DeleteMatching1rst3rdPersonControls(e_ControllerAction action, int32_t key, eControllerType type);
+	void DeleteMatchingVehicleControls(e_ControllerAction action, int32_t key, eControllerType type);
+	void DeleteMatchingVehicle_3rdPersonControls(e_ControllerAction action, int32_t key, eControllerType type);
+	void DeleteMatching1rstPersonControls(e_ControllerAction action, int32_t key, eControllerType type);
+	void DeleteMatchingActionInitiators(e_ControllerAction action, int32_t key, eControllerType type);
+	bool GetIsKeyBlank(int32_t key, eControllerType type);
+	e_ControllerActionType GetActionType(e_ControllerAction action);
+	void ClearSettingsAssociatedWithAction(e_ControllerAction action, eControllerType type);
+	wchar_t* GetControllerSettingTextWithOrderNumber(e_ControllerAction action, eContSetOrder setorder);
+	wchar_t* GetControllerSettingTextKeyBoard(e_ControllerAction action, eControllerType type);
+	wchar_t* GetControllerSettingTextMouse(e_ControllerAction action);
+	wchar_t* GetControllerSettingTextJoystick(e_ControllerAction action);
+	int32_t GetNumOfSettingsForAction(e_ControllerAction action);
+	void GetWideStringOfCommandKeys(uint16_t action, wchar_t* text, uint16_t leight);
+	int32_t GetControllerKeyAssociatedWithAction(e_ControllerAction action, eControllerType type);
+	void UpdateJoyButtonState(int32_t padnumber);
+	bool GetIsActionAButtonCombo(e_ControllerAction action);
+	wchar_t* GetButtonComboText(e_ControllerAction action);
+	void SetControllerKeyAssociatedWithAction(e_ControllerAction action, int32_t key, eControllerType type);
+	int32_t GetMouseButtonAssociatedWithAction(e_ControllerAction action);
+	void SetMouseButtonAssociatedWithAction(e_ControllerAction action, int32_t button);
+	void ResetSettingOrder(e_ControllerAction action);
 };
 
 VALIDATE_SIZE(CControllerConfigManager, 0x143C);
