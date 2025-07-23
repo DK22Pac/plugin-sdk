@@ -29,6 +29,7 @@ public:
     static uint32_t& ms_nTimeSinceLastArrest;
     static uint32_t* ms_aModelsKilled;
     static CPlayerComponents& ms_PlayerComponents;
+    static bool& ms_bDisplayingPhone;
 
 public:
     rage::Color32 m_RGBColor;
