@@ -31,7 +31,14 @@ namespace rage {
         struct sysIpcCurrentThreadId__* m_Owner;
         bool m_InvertZInProjectionMatrix;
 
+    private:
+        static grcViewport* sm_Current;
+
     public:
+        static grcViewport* GetCurrent() {
+            return sm_Current;
+		}
+
         static void SetCurrent(const grcViewport* viewport, bool regenDevice);
     };
 }

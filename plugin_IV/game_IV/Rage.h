@@ -44,6 +44,7 @@
 #include "rage/ioKeyboard.h"
 #include "rage/grcDevice.h"
 #include "rage/grcWindow.h"
+#include "rage/grcViewport.h"
 
 // Pool
 #include "rage/fwPool.h"

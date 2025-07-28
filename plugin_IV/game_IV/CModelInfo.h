@@ -22,7 +22,7 @@ public:
     rage::Vector3 m_vMinBounds;
     float m_fDrawDistance;
     rage::Vector3 m_vMaxBounds;
-    int32_t m_nHash;
+    uint32_t m_nHash;
     uint32_t m_nIDEFlags;
     int32_t m_nRefCount;
     int16_t m_nTxd;
