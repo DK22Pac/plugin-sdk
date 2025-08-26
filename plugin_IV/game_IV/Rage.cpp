@@ -9,6 +9,7 @@
 rage::VTX* s_Current = gpatternt(rage::VTX, "A3 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? 5E C3 83 3D", 1);
 rage::grcDrawMode& s_DrawMode = *gpatternt(rage::grcDrawMode, "89 35 ? ? ? ? A3 ? ? ? ? C7 05", 2);
 int32_t& s_Count = *gpatternt(int32_t, "89 3D ? ? ? ? 5F 89 35 ? ? ? ? A3", 2);
+rage::grcTexturePC*& s_CurrentTexture = *gpatternt(rage::grcTexturePC*, "A3 ? ? ? ? E8 ? ? ? ? C3 CC CC CC CC CC CC CC A1", 1);
 
 uint32_t rage::atStringHash(const char* str, uint32_t initValue) {
     return plugin::CallAndReturnDyn<uint32_t>(gpattern("8B 54 24 08 53 56 8B 74 24 0C 80 3E 22"), str, initValue);

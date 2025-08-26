@@ -403,7 +403,7 @@ namespace plugin {
         static CdeclEvent <AddressList<0x59D3FD, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> initEngineEvent({ "E8 ? ? ? ? 6A 00 E8 ? ? ? ? 83 C4 04 C7 06" });
         static CdeclEvent <AddressList<0x401621, H_CALL>, PRIORITY_BEFORE, ArgPickNone, uint32_t()> shutdownEngineEvent({ "E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 8B 8C 24" });
         static ThiscallEvent <AddressList<0xC34A85, H_CALL>, PRIORITY_BEFORE, ArgPickN<CAutomobile*, 0>, void(CAutomobile*)> automobileProcessEvent({ "E8 ? ? ? ? 8B 46 28 C1 E8 0A 83 E0 1F 75 2A" });
-        static ThiscallEvent <AddressList<0x9E304D, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>, void(CPed*)> pedRenderEvent({ "E8 ? ? ? ? 50 8B CE E8 ? ? ? ? 50 E8" });
+        static ThiscallEvent <AddressList<0x9E311F, H_CALL, 0x9E2FD8, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>, void(CPed*)> pedRenderEvent({ "E8 ? ? ? ? 8B 4C 24 ? 50 56 57 E8 ? ? ? ? EB", "E8 ? ? ? ? 8B CF 50 FF B3"});
         static ThiscallEvent <AddressList<0x9ED835, H_CALL>, PRIORITY_BEFORE, ArgPickN<CPed*, 0>, uint32_t(CPed*)> pedProcessEvent({ "E8 ? ? ? ? 8B 8E ? ? ? ? 56 81 C1 ? ? ? ? E8 ? ? ? ? F7 86" });
 
         static ThiscallEvent <AddressList<0xA3DAB0, H_CALL, 0xA3DB13, H_CALL>, PRIORITY_BEFORE, ArgPickN<CVehicle*, 0>, void(CVehicle*, int32_t, int32_t, int32_t, int32_t)> vehicleRenderEvent({ "E8 ? ? ? ? 6A 00 6A 0C 8B D8 E8 ? ? ? ? 83 C4 08 85 C0 74 36", "E8 ? ? ? ? 8B D8 85 DB 0F 84 ? ? ? ? 80 BF" });

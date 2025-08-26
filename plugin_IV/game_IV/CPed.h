@@ -511,7 +511,7 @@ public:
 
 public:
     inline CWeapon* GetWeapon() {
-        return &m_WeaponData.m_aWeapons[m_nCurrentWeaponSlot];
+        return &m_WeaponData.m_aWeapons[m_WeaponData.m_nActiveWeaponSlot];
     }
 };
 

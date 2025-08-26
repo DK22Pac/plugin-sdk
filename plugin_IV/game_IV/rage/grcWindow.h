@@ -10,6 +10,14 @@
 namespace rage {
     class grcWindow {
     public:
+        float m_NormX;
+        float m_NormY;
+        float m_NormWidth;
+        float m_NormHeight;
+        float m_MinZ;
+        float m_MaxZ;
+
+    public:
         static int32_t& m_Width;
         static int32_t& m_Height;
     };
