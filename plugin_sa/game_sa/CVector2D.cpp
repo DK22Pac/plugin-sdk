@@ -127,6 +127,10 @@ CVector2D operator+(const CVector2D& vecOne, const CVector2D& vecTwo) {
     return CVector2D(vecOne.x + vecTwo.x, vecOne.y + vecTwo.y);
 }
 
+CVector2D operator*(const CVector2D& vecOne, const CVector2D& vecTwo) {
+    return CVector2D(vecOne.x * vecTwo.x, vecOne.y * vecTwo.y);
+}
+
 CVector2D operator*(const CVector2D& vec, float multiplier) {
     return CVector2D(vec.x * multiplier, vec.y * multiplier);
 }

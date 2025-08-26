@@ -183,6 +183,10 @@ CVector operator+(const CVector& vecOne, const CVector& vecTwo) {
     return CVector(vecOne.x + vecTwo.x, vecOne.y + vecTwo.y, vecOne.z + vecTwo.z);
 }
 
+CVector operator*(const CVector& vecOne, const CVector& vecTwo) {
+    return CVector(vecOne.x * vecTwo.x, vecOne.y * vecTwo.y, vecOne.z * vecTwo.z);
+}
+
 CVector operator*(const CVector& vec, float multiplier) {
     return CVector(vec.x * multiplier, vec.y * multiplier, vec.z * multiplier);
 }

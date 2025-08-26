@@ -62,6 +62,7 @@ public:
 
 CVector operator-(const CVector& vecOne, const CVector& vecTwo);
 CVector operator+(const CVector& vecOne, const CVector& vecTwo);
+CVector operator*(const CVector& vecOne, const CVector& vecTwo); // component wise multiplication
 CVector operator*(const CVector& vec, float multiplier);
 CVector operator*(float multiplier, const CVector& vec);
 float DistanceBetweenPoints(const CVector& pointOne, const CVector& pointTwo);

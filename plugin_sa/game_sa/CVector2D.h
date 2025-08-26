@@ -52,5 +52,6 @@ CVector2D operator-(const CVector2D& vecOne, const CVector2D& vecTwo);
 CVector2D operator+(const CVector2D& vecOne, const CVector2D& vecTwo);
 CVector2D operator*(const CVector2D& vec, float multiplier);
 CVector2D operator*(float multiplier, const CVector2D& vec);
+CVector2D operator*(const CVector2D& vecOne, const CVector2D& vecTwo); // comp wise multiplication
 CVector2D operator/(const CVector2D& vec, float divisor);
 float DistanceBetweenPoints(const CVector2D& pointOne, const CVector2D& pointTwo);
