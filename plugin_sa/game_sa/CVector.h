@@ -8,91 +8,62 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
+class CMatrix;
+class CVector2D;
+struct RwV3d;
+
 class CVector {
 public:
     float x, y, z;
 
     CVector();
     CVector(float X, float Y, float Z);
+    CVector(const CVector& src);
+    CVector(const RwV3d& right);
+    CVector(const CVector2D& vec2d, float zValue = 0.0f);
 
-    inline CVector(CVector const& src) {
-        x = src.x; y = src.y; z = src.z;
-    }
+    CVector2D To2D() const;
+    void From2D(const CVector2D& vec2d, float zValue = 0.0f);
 
-    inline CVector(RwV3d const &right) {
-        FromRwV3d(right);
-    }
-
-    // Returns length of vector
     float Magnitude();
-
-    // Returns length of 2d vector
+    float MagnitudeSqr() const;
     float Magnitude2D();
+    float MagnitudeSqr2D() const;
 
-    float MagnitudeSqr2D() const { return x * x + y * y; }
-
-
-    // Normalises a vector
     void Normalise();
-
-    // Normalises a vector and returns length
     float NormaliseAndMag();
 
-    // Performs cross calculation
-    void Cross(const CVector& left, const CVector &right);
-
-    // Adds left + right and stores result
-    void Sum(const CVector& left, const CVector &right);
-
-    // Subtracts left - right and stores result
-    void Difference(const CVector& left, const CVector &right);
-
+    void Cross(const CVector& left, const CVector& right);
+    void Sum(const CVector& left, const CVector& right);
+    void Difference(const CVector& left, const CVector& right);
+    
     void operator=(const CVector& right);
+    bool operator==(const CVector& other);
+    bool operator!=(const CVector& other);
     void operator+=(const CVector& right);
     void operator-=(const CVector& right);
-    void operator *= (float multiplier);
-    void operator /= (float divisor);
+    void operator*=(float multiplier);
+    void operator/=(float divisor);
 
-    // matrix * vector multiplication
-    void FromMultiply(class CMatrix  const& matrix, CVector const& vector);
-    void FromMultiply3x3(class CMatrix  const& matrix, CVector const& vector);
+    void FromMultiply(const CMatrix& matrix, const CVector& vector);
+    void FromMultiply3x3(const CMatrix& matrix, const CVector& vector);
 
-    inline void Set(float X, float Y, float Z) {
-        x = X; y = Y; z = Z;
-    }
+    void Set(float X, float Y, float Z);
+    RwV3d ToRwV3d() const;
+    void FromRwV3d(const RwV3d& rwvec);
 
-    inline RwV3d ToRwV3d() const {
-        return{ x, y, z };
-    }
+    float Dot(const CVector& other) const;
+    CVector Cross(const CVector& other) const;
 
-    inline void FromRwV3d(RwV3d const &rwvec) {
-        x = rwvec.x; y = rwvec.y; z = rwvec.z;
-    }
-
-    inline float Heading() {
-        return atan2f(-x, y);
-    }
+    bool IsZero() const;
+    bool IsNormalized() const;
+    float Heading();
 };
 
-inline CVector operator-(const CVector& vecOne, const CVector& vecTwo) {
-    return CVector(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y, vecOne.z - vecTwo.z);
-}
-
-inline CVector operator+(const CVector& vecOne, const CVector& vecTwo) {
-    return CVector(vecOne.x + vecTwo.x, vecOne.y + vecTwo.y, vecOne.z + vecTwo.z);
-}
-
-inline CVector operator*(const CVector& vec, float multiplier) {
-    return CVector(vec.x * multiplier, vec.y * multiplier, vec.z * multiplier);
-}
-
-inline CVector operator*(float multiplier, const CVector& vec) {
-    return CVector(vec.x * multiplier, vec.y * multiplier, vec.z * multiplier);
-}
-
-inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
-    CVector diff = pointTwo - pointOne;
-    return diff.Magnitude();
-}
+CVector operator-(const CVector& vecOne, const CVector& vecTwo);
+CVector operator+(const CVector& vecOne, const CVector& vecTwo);
+CVector operator*(const CVector& vec, float multiplier);
+CVector operator*(float multiplier, const CVector& vec);
+float DistanceBetweenPoints(const CVector& pointOne, const CVector& pointTwo);
 
 VALIDATE_SIZE(CVector, 0xC);

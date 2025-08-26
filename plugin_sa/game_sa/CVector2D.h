@@ -8,68 +8,44 @@
 
 #include "PluginBase.h"
 
-class PLUGIN_API CVector2D
-{
+class CVector;
+
+class PLUGIN_API CVector2D {
 public:
     float x, y;
-    
-    inline CVector2D() {
 
-    }
+    CVector2D();
+    CVector2D(float X, float Y);
+    CVector2D(const CVector& vec3d);
+    CVector2D(const CVector2D& src);
 
-    inline CVector2D(float X, float Y) {
-        x = X;
-        y = Y;
-    }
+    CVector To3D(float zValue = 0.0f) const;
+    void From3D(const CVector& vec3d);
 
-    CVector2D(const class CVector& vec3d);
+    float Magnitude();
+    float MagnitudeSqr() const;
 
-	// Returns length of vector
-	float Magnitude();
-    float MagnitudeSqr() const { return x * x + y * y; }
+    void operator=(const CVector2D& right);
+    bool operator==(const CVector2D& other) const;
+    bool operator!=(const CVector2D& other) const;
 
-	void operator=(const CVector2D& right);
+    void Sum(const CVector2D& a, const CVector2D& b);
+    void Difference(const CVector2D& a, const CVector2D& b);
+    void Normalize();
+    float NormaliseAndMag();
 
-    inline CVector2D(CVector2D const& src) {
-        x = src.x; y = src.y;
-    }
+    float Dot(const CVector2D& other) const;
+    float Cross(const CVector2D& other) const;
 
-    inline void Sum(CVector2D &a, CVector2D &b) {
-        this->x = a.x + b.x;
-        this->y = a.y + b.y;
-    }
+    bool IsZero() const;
+    bool IsNormalized() const;
 
-    inline void Difference(CVector2D &a, CVector2D &b) {
-        this->x = a.x - b.x;
-        this->y = a.y - b.y;
-    }
-
-    inline void operator+=(const CVector2D& right) {
-        this->x += right.x;
-        this->y += right.y;
-    }
-
-    inline void operator-=(const CVector2D& right) {
-        this->x -= right.x;
-        this->y -= right.y;
-    }
-
-    inline void operator *= (float multiplier) {
-        this->x *= multiplier;
-        this->y *= multiplier;
-    }
-
-    inline void operator /= (float divisor) {
-        this->x /= divisor;
-        this->y /= divisor;
-    }
+    float Heading();
 };
 
-inline CVector2D operator-(const CVector2D& vecOne, const CVector2D& vecTwo) {
-    return CVector2D(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y);
-}
-
-inline float DistanceBetweenPoints(const CVector2D &pointOne, const CVector2D &pointTwo) {
-    CVector2D diff = pointTwo - pointOne;
-    return diff.Magnitude();
-}
+CVector2D operator-(const CVector2D& vecOne, const CVector2D& vecTwo);
+CVector2D operator+(const CVector2D& vecOne, const CVector2D& vecTwo);
+CVector2D operator*(const CVector2D& vec, float multiplier);
+CVector2D operator*(float multiplier, const CVector2D& vec);
+CVector2D operator/(const CVector2D& vec, float divisor);
+float DistanceBetweenPoints(const CVector2D& pointOne, const CVector2D& pointTwo);
