@@ -18,12 +18,32 @@ void CVector2D::operator=(CVector2D const& right)
 	((void (__thiscall *)(CVector2D *, CVector2D const&))0x43E110)(this, right);
 }
 
-bool CVector2D::operator==(const CVector2D& other) const {
+bool CVector2D::operator==(const CVector2D& other) {
     return x == other.x && y == other.y;
 }
 
-bool CVector2D::operator!=(const CVector2D& other) const {
+bool CVector2D::operator!=(const CVector2D& other) {
     return x != other.x || y != other.y;
+}
+
+void CVector2D::operator+=(const CVector2D& right) {
+    x += right.x;
+    y += right.y;
+}
+
+void CVector2D::operator-=(const CVector2D& right) {
+    x -= right.x;
+    y -= right.y;
+}
+
+void CVector2D::operator*=(float multiplier) {
+    x *= multiplier;
+    y *= multiplier;
+}
+
+void CVector2D::operator/=(float divisor) {
+    x /= divisor;
+    y /= divisor;
 }
 
 CVector2D::CVector2D() : x(0.0f), y(0.0f) {}

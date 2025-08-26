@@ -26,8 +26,13 @@ public:
     float MagnitudeSqr() const;
 
     void operator=(const CVector2D& right);
-    bool operator==(const CVector2D& other) const;
-    bool operator!=(const CVector2D& other) const;
+    bool operator==(const CVector2D& right);
+    bool operator!=(const CVector2D& right);
+    void operator+=(const CVector2D& right);
+    void operator-=(const CVector2D& right);
+    void operator*=(float multiplier);
+    void operator/=(float divisor);
+
 
     void Sum(const CVector2D& a, const CVector2D& b);
     void Difference(const CVector2D& a, const CVector2D& b);
