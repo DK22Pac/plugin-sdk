@@ -58,6 +58,8 @@ enum PLUGIN_API eWheels {
 enum PLUGIN_API ePanels {
     WING_FRONT_LEFT = 0,
     WING_FRONT_RIGHT = 1,
+    WING_REAR_LEFT = 2,
+    WING_REAR_RIGHT = 3,
     WINDSCREEN = 4,
     BUMP_FRONT = 5,
     BUMP_REAR = 6
