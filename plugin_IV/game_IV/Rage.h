@@ -75,3 +75,4 @@ namespace rage {
 extern rage::VTX* s_Current;
 extern rage::grcDrawMode& s_DrawMode;
 extern int32_t& s_Count;
+extern rage::grcTexturePC*& s_CurrentTexture;
