@@ -9,3 +9,17 @@
 float CVector::Normalise() {
     return ((float(__thiscall *)(CVector *))0x4DFEA0)(this);
 }
+
+CVector::CVector(const CVector2D& vec2d, float zValue) {
+    From2D(vec2d, zValue);
+}
+
+CVector2D CVector::To2D() const {
+    return CVector2D(x, y);
+}
+
+void CVector::From2D(const CVector2D& vec2d, float zValue) {
+    x = vec2d.x;
+    y = vec2d.y;
+    z = zValue;
+}

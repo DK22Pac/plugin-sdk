@@ -4,18 +4,21 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#include "CVector.h"
+#include "CVector2D.h"
 
-CVector2D CVector::To2D() const {
-    return CVector2D(x, y);
+CVector CVector2D::To3D(float zValue) {
+    return CVector(x, y, zValue);
 }
 
-void CVector::From2D(const CVector2D& vec2d, float zValue) {
-    x = vec2d.x;
-    y = vec2d.y;
-    z = zValue;
+void CVector2D::From3D(const CVector& vec3d) {
+    x = vec3d.x;
+    y = vec3d.y;
 }
 
 CVector::CVector(const CVector2D& vec2d, float zValue) {
     From2D(vec2d, zValue);
+}
+
+CVector2D::CVector2D(CVector const& src) {
+    x = src.x; y = src.y;
 }
