@@ -6,14 +6,23 @@
 */
 #include "CVector.h"
 
-CVector::CVector()
-{
-
-}
-
 CVector::CVector(float X, float Y, float Z)
 {
 	((void(__thiscall *)(CVector *, float, float, float))0x420B10)(this, X, Y, Z);
+}
+
+CVector::CVector(const CVector2D& vec2d, float zValue) {
+	From2D(vec2d, zValue);
+}
+
+CVector2D CVector::To2D() const {
+	return CVector2D(x, y);
+}
+
+void CVector::From2D(const CVector2D& vec2d, float zValue) {
+	x = vec2d.x;
+	y = vec2d.y;
+	z = zValue;
 }
 
 // Returns length of vector
