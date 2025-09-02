@@ -8,9 +8,7 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
-class CMatrix;
 class CVector2D;
-struct RwV3d;
 
 class CVector {
 public:
