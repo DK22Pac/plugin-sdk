@@ -11,6 +11,7 @@
 #include "CObjectInfo.h"
 
 enum eObjectType {
+    OBJECT_UNKNOWN,
     OBJECT_MISSION = 2,
     OBJECT_TEMPORARY = 3,
     OBJECT_MISSION2 = 6
@@ -85,6 +86,12 @@ public:
 
     // class functions
 
+    static void* operator new(unsigned int size);
+    static void* operator new(unsigned int size, int poolRef);
+    static void operator delete(void* data);
+    CObject();
+    ~CObject();
+    void SetIsStatic(bool isStatic);
     void ProcessGarageDoorBehaviour();
     bool CanBeDeleted();
     void SetRelatedDummy(CDummyObject* relatedDummy);
