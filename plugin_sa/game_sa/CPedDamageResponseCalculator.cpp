@@ -10,7 +10,6 @@ float& CPedDamageResponseCalculator::ms_damageFactor = *(float*)0x8A6260; // 555
 
 // 0x4AD3F0
 CPedDamageResponseCalculator::CPedDamageResponseCalculator(CEntity* entity, float fDamage, eWeaponType weaponType, uint8_t bodyPart, bool bSpeak) {
-    //plugin::CallMethodAndReturn<CPedDamageResponseCalculator *, 0x4AD3F0, CPedDamageResponseCalculator*, CEntity*, float, eWeaponType, uint8_t, bool>(this, entity, fDamage, weaponType, bodyPart, bSpeak);
     ((void(__thiscall*)(CPedDamageResponseCalculator*, CEntity*, float, eWeaponType, uint8_t, bool))0x4AD3F0)(this, entity, fDamage, weaponType, bodyPart, bSpeak);
 }
 
