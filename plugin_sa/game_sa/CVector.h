@@ -8,11 +8,15 @@
 #include "PluginBase.h"
 #include "RenderWare.h"
 
+class CVector2D;
+
 class CVector {
 public:
     float x, y, z;
 
-    CVector();
+    CVector() {
+        x = 0; y = 0; z = 0;
+    }
     CVector(float X, float Y, float Z);
 
     inline CVector(CVector const& src) {
@@ -23,17 +27,34 @@ public:
         FromRwV3d(right);
     }
 
+    CVector(const CVector2D& vec2d, float zValue = 0.0f);
+
+    CVector2D To2D() const;
+    void From2D(const CVector2D& vec2d, float zValue = 0.0f);
+
     // Returns length of vector
     float Magnitude();
+
+    inline float MagnitudeSqr() const {
+        return x * x + y * y + z * z;
+    }
 
     // Returns length of 2d vector
     float Magnitude2D();
 
-    float MagnitudeSqr2D() const { return x * x + y * y; }
-
+    inline float MagnitudeSqr2D() const { 
+        return x * x + y * y; 
+    }
 
     // Normalises a vector
     void Normalise();
+
+    inline void Normalise2D() {
+        float sq = MagnitudeSqr2D();
+        float invsqrt = 1.0f / std::sqrt(sq);
+        x *= invsqrt;
+        y *= invsqrt;
+    }
 
     // Normalises a vector and returns length
     float NormaliseAndMag();
@@ -46,6 +67,18 @@ public:
 
     // Subtracts left - right and stores result
     void Difference(const CVector& left, const CVector &right);
+
+    inline CVector operator-() const {
+        return CVector(-x, -y, -z);
+    }
+
+    inline bool operator==(const CVector& other) {
+        return x == other.x && y == other.y && z == other.z;
+    }
+
+    inline bool operator!=(const CVector& other) {
+        return x != other.x || y != other.y || z != other.z;
+    }
 
     void operator=(const CVector& right);
     void operator+=(const CVector& right);
@@ -69,8 +102,22 @@ public:
         x = rwvec.x; y = rwvec.y; z = rwvec.z;
     }
 
-    inline float Heading() {
-        return atan2f(-x, y);
+    inline void Zero() {
+        x = 0.0f;
+        y = 0.0f;
+        z = 0.0f;
+    }
+
+    inline bool IsZero() const {
+        return x == 0.0f && y == 0.0f && z == 0.0f;
+    }
+
+    inline bool IsNormalized() const {
+        return std::fabs(MagnitudeSqr() - 1.0f) < 0.001f;
+    }
+
+    inline float Heading() const {
+        return std::atan2(-x, y);
     }
 };
 
@@ -90,9 +137,33 @@ inline CVector operator*(float multiplier, const CVector& vec) {
     return CVector(vec.x * multiplier, vec.y * multiplier, vec.z * multiplier);
 }
 
+inline CVector operator*(const CVector& vecOne, const CVector& vecTwo) {
+    return CVector(vecOne.x * vecTwo.x, vecOne.y * vecTwo.y, vecOne.z * vecTwo.z);
+}
+
+inline CVector operator*(const RwMatrix& mat, const CVector& vec) {
+    return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
+        mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
+        mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
+}
+
+inline CVector operator/(const CVector& left, float right) {
+    return CVector(left.x / right, left.y / right, left.z / right);
+}
+
 inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline float DotProduct(const CVector& left, const CVector& right) {
+    return left.x * right.x + left.y * right.y + left.z * right.z;
+}
+
+inline CVector CrossProduct(const CVector& left, const CVector& right) {
+    return CVector(left.y * right.z - left.z * right.y,
+        left.z * right.x - left.x * right.z,
+        left.x * right.y - left.y * right.x);
 }
 
 VALIDATE_SIZE(CVector, 0xC);

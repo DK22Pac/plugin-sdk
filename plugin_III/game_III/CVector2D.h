@@ -8,7 +8,8 @@
 
 #include "PluginBase.h"
 #include <math.h>
-#include "CVector.h"
+
+class CVector;
 
 class CVector2D {
 public:
@@ -26,76 +27,104 @@ public:
         x = src.x; y = src.y;
     }
 
-    inline CVector2D(CVector const& src) {
-        x = src.x; y = src.y;
+    CVector2D(CVector const& src);
+    CVector To3D(float zValue = 0.0f) const;
+    void From3D(const CVector& vec3d);
+
+    inline float Magnitude() const {
+        return sqrtf(x * x + y * y);
     }
 
-    inline float Magnitude() {
-        return sqrtf(this->x * this->x + this->y * this->y);
-    }
-
-    inline float MagnitudeSqr() {
-        return this->x * this->x + this->y * this->y;
+    inline float MagnitudeSqr() const {
+        return x * x + y * y;
     }
 
     inline void Sum(CVector2D &a, CVector2D &b) {
-        this->x = a.x + b.x;
-        this->y = a.y + b.y;
+        x = a.x + b.x;
+        y = a.y + b.y;
     }
 
     inline void Difference(CVector2D &a, CVector2D &b) {
-        this->x = a.x - b.x;
-        this->y = a.y - b.y;
+        x = a.x - b.x;
+        y = a.y - b.y;
     }
 
     inline void operator=(const CVector2D& right) {
-        this->x = right.x;
-        this->y = right.y;
+        x = right.x;
+        y = right.y;
+    }
+
+    inline CVector2D operator-() {
+        return CVector2D(-x, -y);
     }
 
     inline void operator+=(const CVector2D& right) {
-        this->x += right.x;
-        this->y += right.y;
+        x += right.x;
+        y += right.y;
     }
 
     inline void operator-=(const CVector2D& right) {
-        this->x -= right.x;
-        this->y -= right.y;
+        x -= right.x;
+        y -= right.y;
     }
 
     inline void operator *= (float multiplier) {
-        this->x *= multiplier;
-        this->y *= multiplier;
+        x *= multiplier;
+        y *= multiplier;
     }
 
     inline void operator*=(const CVector2D& right) {
-        this->x *= right.x;
-        this->y *= right.y;
+        x *= right.x;
+        y *= right.y;
     }
 
     inline void operator /= (float divisor) {
-        this->x /= divisor;
-        this->y /= divisor;
+        x /= divisor;
+        y /= divisor;
     }
 
     inline bool operator!=(const CVector2D& right) {
-        return this->x != right.x && this->y != right.y;
+        return x != right.x || y != right.y;
     }
 
     inline bool operator==(const CVector2D& right) {
-        return this->x == right.x && this->y == right.y;
+        return x == right.x && y == right.y;
     }
 
-    void Normalise() {
+    inline void Normalise() {
         float sq = x * x + y * y;
         float invsqrt = 1.0f / sqrt(sq);
-        this->x *= invsqrt;
-        this->y *= invsqrt;
+        x *= invsqrt;
+        y *= invsqrt;
     }
 
-    void Zero() {
-        this->x = 0.0f;
-        this->y = 0.0f;
+    inline float NormaliseAndMag() {
+        float magSqr = MagnitudeSqr();
+        if (magSqr > 0.0f) {
+            float mag = std::sqrt(magSqr);
+            float invMag = 1.0f / mag;
+            x *= invMag;
+            y *= invMag;
+            return mag;
+        }
+        return 0.0f;
+    }
+
+    inline void Zero() {
+        x = 0.0f;
+        y = 0.0f;
+    }
+
+    inline bool IsZero() const {
+        return x == 0.0f && y == 0.0f;
+    }
+
+    inline bool IsNormalized() {
+        return std::fabs(MagnitudeSqr() - 1.0f) < 0.001f;
+    }
+
+    inline float Heading() {
+        return std::atan2(-x, y);
     }
 };
 
@@ -130,4 +159,12 @@ inline CVector2D operator*(float multiplier, const CVector2D& vec) {
 inline float DistanceBetweenPoints(const CVector2D& pointOne, const CVector2D& pointTwo) {
     CVector2D diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline float DotProduct(const CVector2D& a, const CVector2D& b) {
+    return a.x * b.x + a.y * b.y;
+}
+
+inline float CrossProduct(const CVector2D& a, const CVector2D& b) {
+    return a.x * b.y - a.y * b.x;
 }
