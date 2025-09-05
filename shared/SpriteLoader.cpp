@@ -169,10 +169,7 @@ make_slot:
         RwRasterUnlock(raster);
 
         tex = RwTextureCreate(raster);
-        if (mipMap)
-            RwTextureSetFilterMode(tex, rwFILTERMIPLINEAR);
-        else
-            RwTextureSetFilterMode(tex, rwFILTERLINEAR);
+        RwTextureSetFilterMode(tex, rwFILTERLINEAR);
 
         RwTextureSetMipmapping(mipMap);
         RwTextureSetAutoMipmapping(mipMap);
