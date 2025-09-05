@@ -30,6 +30,22 @@ public:
     static int& ms_atomicPluginOffset;
     static CLinkList<AlphaObjectInfo>& m_alphaList;
     static CLinkList<AlphaObjectInfo>& m_alphaEntityList;
+    static CLinkList<AlphaObjectInfo>& m_alphaBoatAtomicList;
+    static CLinkList<AlphaObjectInfo>& m_alphaUnderwaterEntityList;
+    static CLinkList<AlphaObjectInfo>& m_alphaReallyDrawLastList;
+    static CLinkList<CPed*>& ms_weaponPedsForPC;
+    static RwCamera*& ms_pCamera;
+    static RwV3d*& ms_pCameraPosn;
+    static float& ms_cullCompsDist;
+    static float& ms_cullBigCompsDist;
+    static float& ms_vehicleLod0RenderMultiPassDist;
+    static float& ms_vehicleLod0Dist;
+    static float& ms_vehicleLod1Dist;
+    static float& ms_bigVehicleLod0Dist;
+    static float& ms_pedLodDist;
+    static float& ms_pedFadeDist;
+    static float& gVehicleDistanceFromCamera;
+    static float& gVehicleAngleToCamera;
 
 public:
     static void AtomicConstructor(void* object);

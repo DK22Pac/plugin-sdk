@@ -10,6 +10,22 @@ int& CVisibilityPlugins::ms_atomicPluginOffset = *(int *)0x8D608C;
 
 CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC88070;
 CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaEntityList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC88120;
+CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaBoatAtomicList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC880C8;
+CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaUnderwaterEntityList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC88178;
+CLinkList<CVisibilityPlugins::AlphaObjectInfo>& CVisibilityPlugins::m_alphaReallyDrawLastList = *(CLinkList<CVisibilityPlugins::AlphaObjectInfo>*)0xC881D0;
+CLinkList<CPed*>& CVisibilityPlugins::ms_weaponPedsForPC = *(CLinkList<CPed*>*)0xC88224;
+RwCamera*& CVisibilityPlugins::ms_pCamera = *(RwCamera**)0xC8804C;
+RwV3d*& CVisibilityPlugins::ms_pCameraPosn = *(RwV3d**)0xC88050;
+float& CVisibilityPlugins::ms_cullCompsDist = *(float*)0x0C8802C;
+float& CVisibilityPlugins::ms_cullBigCompsDist = *(float*)0x0C88028;
+float& CVisibilityPlugins::ms_vehicleLod0RenderMultiPassDist = *(float*)0xC88044;
+float& CVisibilityPlugins::ms_vehicleLod0Dist = *(float*)0xC88040;
+float& CVisibilityPlugins::ms_vehicleLod1Dist = *(float*)0xC8803C;
+float& CVisibilityPlugins::ms_bigVehicleLod0Dist = *(float*)0xC88038;
+float& CVisibilityPlugins::ms_pedLodDist = *(float*)0xC88034;
+float& CVisibilityPlugins::ms_pedFadeDist = *(float*)0xC88030;
+float& CVisibilityPlugins::gVehicleDistanceFromCamera = *(float*)0xC88024;
+float& CVisibilityPlugins::gVehicleAngleToCamera = *(float*)0xC88020;
 
 void CVisibilityPlugins::AtomicConstructor(void* object) {
     plugin::Call<0x732150, void*>(object);
