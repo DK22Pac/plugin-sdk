@@ -23,7 +23,11 @@
 class PLUGIN_API CModelInfo {
 public:
     SUPPORTED_10EN_11EN_STEAM static CStore<CClumpModelInfo, 5> &ms_clumpModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CBaseModelInfo *(&ms_modelInfoPtrs)[5500]; // static CBaseModelInfo *ms_modelInfoPtrs[5500]
+#ifdef LIMIT_ADJUSTER_COMPATIBLE_MODELINFOPTRS
+    SUPPORTED_10EN_11EN_STEAM PLUGIN_VARIABLE static inline CBaseModelInfo* *ms_modelInfoPtrs = reinterpret_cast<CBaseModelInfo**>(GLOBAL_ADDRESS_BY_VERSION(0x83D408, 0x83D408, 0x84D548));
+#else
+    SUPPORTED_10EN_11EN_STEAM PLUGIN_VARIABLE static inline CBaseModelInfo* (&ms_modelInfoPtrs)[5500] = *reinterpret_cast<CBaseModelInfo * (*)[5500]>(GLOBAL_ADDRESS_BY_VERSION(0x83D408, 0x83D408, 0x84D548));
+#endif
     SUPPORTED_10EN_11EN_STEAM static CStore<CSimpleModelInfo, 5000> &ms_simpleModelStore;
     SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1> &ms_mloInstanceStore;
     SUPPORTED_10EN_11EN_STEAM static CStore<CVehicleModelInfo, 120> &ms_vehicleModelStore;
@@ -81,7 +85,11 @@ public:
     // 0 - car, 1 - boat, 2 - train, 3 - heli, 4 - plane
     static inline int IsVehicleModelType(int index) {
         int result;
-        if (index < 5500 && ms_modelInfoPtrs[index]) {
+        if (
+#ifndef LIMIT_ADJUSTER_COMPATIBLE_MODELINFOPTRS
+            index < 5500 &&
+#endif 
+            ms_modelInfoPtrs[index]) {
             if (ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE)
                 result = reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType;
             else
