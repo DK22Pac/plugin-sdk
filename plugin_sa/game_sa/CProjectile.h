@@ -11,6 +11,7 @@
 
 class PLUGIN_API CProjectile : public CObject {
 public:
+    CProjectile(int index);
 };
 
 VALIDATE_SIZE(CProjectile, 0x17C);
