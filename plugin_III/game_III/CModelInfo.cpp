@@ -9,7 +9,6 @@
 PLUGIN_SOURCE_FILE
 
 PLUGIN_VARIABLE CStore<CClumpModelInfo, 5> &CModelInfo::ms_clumpModelStore = *reinterpret_cast<CStore<CClumpModelInfo, 5> *>(GLOBAL_ADDRESS_BY_VERSION(0x6FA108, 0x6FA108, 0x70A248));
-PLUGIN_VARIABLE CBaseModelInfo *(&CModelInfo::ms_modelInfoPtrs)[5500] = *reinterpret_cast<CBaseModelInfo *(*)[5500]>(GLOBAL_ADDRESS_BY_VERSION(0x83D408, 0x83D408, 0x84D548));
 PLUGIN_VARIABLE CStore<CSimpleModelInfo, 5000> &CModelInfo::ms_simpleModelStore = *reinterpret_cast<CStore<CSimpleModelInfo, 5000> *>(GLOBAL_ADDRESS_BY_VERSION(0x885BB4, 0x885B64, 0x895CA4));
 PLUGIN_VARIABLE CStore<CInstance, 1> &CModelInfo::ms_mloInstanceStore = *reinterpret_cast<CStore<CInstance, 1> *>(GLOBAL_ADDRESS_BY_VERSION(0x8E2B84, 0x8E2C38, 0x8F2D78));
 PLUGIN_VARIABLE CStore<CVehicleModelInfo, 120> &CModelInfo::ms_vehicleModelStore = *reinterpret_cast<CStore<CVehicleModelInfo, 120> *>(GLOBAL_ADDRESS_BY_VERSION(0x8E2DE0, 0x8E2E94, 0x8F2FD4));
