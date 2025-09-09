@@ -217,19 +217,30 @@ namespace rage {
         Vector3 QuaternionToEulerAngles(const Quaternion& quat) const {
             Vector3 angles;
 
-            float sinr_cosp = 2.0f * (quat.w * quat.x + quat.y * quat.z);
-            float cosr_cosp = 1.0f - 2.0f * (quat.x * quat.x + quat.y * quat.y);
-            angles.x = atan2(sinr_cosp, cosr_cosp);
+            float w = quat.w, x = quat.x, y = quat.y, z = quat.z;
+            
+            float r11 = 1.0f - 2.0f * (y*y + z*z);
+            float r12 = 2.0f * (x*y + w*z);
+            float r13 = 2.0f * (x*z - w*y);
+            float r21 = 2.0f * (x*y - w*z);
+            float r22 = 1.0f - 2.0f * (x*x + z*z);
+            float r23 = 2.0f * (y*z + w*x);
+            float r31 = 2.0f * (x*z + w*y);
+            float r32 = 2.0f * (y*z - w*x);
+            float r33 = 1.0f - 2.0f * (x*x + y*y);
 
-            float sinp = 2.0f * (quat.w * quat.y - quat.z * quat.x);
-            if (fabs(sinp) >= 1)
-                angles.y = copysign(pi() / 2, sinp);
-            else
-                angles.y = asin(sinp);
-
-            float siny_cosp = 2.0f * (quat.w * quat.z + quat.x * quat.y);
-            float cosy_cosp = 1.0f - 2.0f * (quat.y * quat.y + quat.z * quat.z);
-            angles.z = atan2(siny_cosp, cosy_cosp);
+            float clampedR23 = r23;
+            if (clampedR23 > 1.0f) clampedR23 = 1.0f;
+            if (clampedR23 < -1.0f) clampedR23 = -1.0f;
+            angles.x = asin(clampedR23);
+            
+            if (fabs(r23) < 0.99999f) {
+                angles.y = atan2(-r13, r33);
+                angles.z = atan2(-r21, r22);
+            } else {
+                angles.y = 0.0f;
+                angles.z = atan2(r12, r11);
+            }
 
             return angles;
         }
