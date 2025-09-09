@@ -14,4 +14,6 @@ public:
 	static CEntity** ms_aVisibleEntityPtrs;
 	static float& ms_lodDistScale;
 
+public:
+	static void ConstructRenderList();
 };
