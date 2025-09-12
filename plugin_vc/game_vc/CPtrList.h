@@ -10,26 +10,31 @@
 #include "CPtrNode.h"
 
 class CPtrList {
-public:
-    CPtrNode *m_pLast;
+protected:
+    CPtrNode *m_pHead;
 
+public:
     void Flush();
 
     inline void Add(CPtrNode *node) {
         node->m_pNext = nullptr;
-        node->m_pPrev = m_pLast;
-        if (m_pLast)
-            m_pLast->m_pNext = node;
-        m_pLast = node;
+        node->m_pPrev = m_pHead;
+        if (m_pHead)
+            m_pHead->m_pNext = node;
+        m_pHead = node;
     }
 
     inline void Remove(CPtrNode *node) {
-        if (m_pLast == node)
-            m_pLast = node->m_pPrev;
+        if (m_pHead == node)
+            m_pHead = node->m_pPrev;
         if (node->m_pNext)
             node->m_pNext->m_pPrev = node->m_pPrev;
         if (node->m_pPrev)
             node->m_pPrev->m_pNext = node->m_pNext;
+    }
+
+    inline CPtrNode* GetNode() {
+        return m_pHead;
     }
 };
 

@@ -1,8 +1,8 @@
 /*
-    Plugin-SDK (Grand Theft Auto Vice City) header file
-    Authors: GTA Community. See more here
-    https://github.com/DK22Pac/plugin-sdk
-    Do not delete this comment block. Respect others' work!
+	Plugin-SDK (Grand Theft Auto Vice City) header file
+	Authors: GTA Community. See more here
+	https://github.com/DK22Pac/plugin-sdk
+	Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -10,16 +10,16 @@
 
 class CPtrNode {
 public:
-    void     *m_ptr; // usually a ptr to CEntity
-    CPtrNode *m_pNext;
-    CPtrNode *m_pPrev;
+	void* m_pVoid; // usually a ptr to CEntity
+	CPtrNode* m_pNext;
+	CPtrNode* m_pPrev;
 
-    CPtrNode() {}
+	CPtrNode() {}
 
-    inline CPtrNode(void *Ptr) : m_ptr(Ptr) {}
+	inline CPtrNode(void* Ptr) : m_pVoid(Ptr) {}
 
-    static void operator delete(void* data);
-    static void* operator new(unsigned int size);
+	static void operator delete(void* data);
+	static void* operator new(unsigned int size);
 };
 
 VALIDATE_SIZE(CPtrNode, 0xC);

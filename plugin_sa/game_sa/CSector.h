@@ -6,12 +6,13 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "CPtrListSingleLink.h"
 #include "CPtrListDoubleLink.h"
 
 class PLUGIN_API CSector {
 public:
-    CPtrListDoubleLink m_buildings;
-    CPtrListDoubleLink m_dummies;
+    CPtrListSingleLink m_buildingList;
+    CPtrListDoubleLink m_dummyList;
 };
 
 VALIDATE_SIZE(CSector, 8);

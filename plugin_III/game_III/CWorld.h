@@ -20,6 +20,8 @@
 #define WORLD_MAX_X (WORLD_MIN_X + WORLD_SIZE_X)
 #define WORLD_MAX_Y (WORLD_MIN_Y + WORLD_SIZE_Y)
 
+#define MAP_Z_LOW_LIMIT -100.0f
+
 #include "PluginBase.h"
 #include "CEntity.h"
 #include "CStoredCollPoly.h"
@@ -119,22 +121,22 @@ public:
         }
     }
 
-    static float GetSectorX(float f) {
+    static inline float GetSectorX(float f) {
         return ((f - WORLD_MIN_X) / SECTOR_SIZE_X);
     }
-    static float GetSectorY(float f) {
+    static inline float GetSectorY(float f) {
         return ((f - WORLD_MIN_Y) / SECTOR_SIZE_Y);
     }
-    static int32_t GetSectorIndexX(float f) {
+    static inline int32_t GetSectorIndexX(float f) {
         return (int)GetSectorX(f);
     }
-    static int32_t GetSectorIndexY(float f) {
+    static inline int32_t GetSectorIndexY(float f) {
         return (int)GetSectorY(f);
     }
-    static float GetWorldX(int x) {
+    static inline float GetWorldX(int x) {
         return x * SECTOR_SIZE_X + WORLD_MIN_X;
     }
-    static float GetWorldY(int y) {
+    static inline float GetWorldY(int y) {
         return y * SECTOR_SIZE_Y + WORLD_MIN_Y;
     }
 };

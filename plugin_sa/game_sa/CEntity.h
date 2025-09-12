@@ -87,7 +87,7 @@ public:
     void SetModelIndexNoCreate(unsigned int index);
     void CreateRwObject();
     void DeleteRwObject();
-    CRect* GetBoundRect(CRect* rect);
+    CRect GetBoundRect();
     void ProcessControl();
     void ProcessCollision();
     void ProcessShift();

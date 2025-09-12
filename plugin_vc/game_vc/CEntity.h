@@ -35,7 +35,7 @@ public:
     unsigned char m_nType : 3;
     unsigned char m_nState : 5;
 
-    unsigned char bUseCollision : 1;
+    unsigned char bUsesCollision : 1;
     unsigned char bEntUFlag02 : 1;
     unsigned char bIsStatic : 1;
     unsigned char bEntUFlag04 : 1;

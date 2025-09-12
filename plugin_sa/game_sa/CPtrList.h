@@ -10,14 +10,15 @@
 
 class PLUGIN_API CPtrList {
 protected:
-    CPtrNode *pNode;
+    CPtrNode *m_pHead;
+
 public:
     inline CPtrNode *GetNode() {
-        return pNode;
+        return m_pHead;
     }
 
     inline CPtrList() {
-        pNode = nullptr;
+        m_pHead = nullptr;
     }
 
     // get elements count

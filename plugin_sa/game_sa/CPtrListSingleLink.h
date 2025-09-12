@@ -12,7 +12,7 @@
 class PLUGIN_API CPtrListSingleLink : public CPtrList {
 public:
     inline CPtrNodeSingleLink *GetNode() {
-        return reinterpret_cast<CPtrNodeSingleLink *>(pNode);
+        return reinterpret_cast<CPtrNodeSingleLink *>(this->m_pHead);
     }
 
     inline ~CPtrListSingleLink() {

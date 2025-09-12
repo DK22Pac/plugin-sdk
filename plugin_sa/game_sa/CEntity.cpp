@@ -48,9 +48,11 @@ void CEntity::DeleteRwObject()
 	((void (__thiscall *)(CEntity *))(*(void ***)this)[8])(this);
 }
 
-CRect* CEntity::GetBoundRect(CRect* rect)
+CRect CEntity::GetBoundRect()
 {
-	return ((CRect* (__thiscall *)(CEntity *, CRect*))(*(void ***)this)[9])(this, rect);
+	CRect out;
+	((CRect* (__thiscall *)(CEntity *, CRect*))(*(void ***)this)[9])(this, &out);
+	return out;
 }
 
 void CEntity::ProcessControl()

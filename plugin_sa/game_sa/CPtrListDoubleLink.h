@@ -12,7 +12,7 @@
 class PLUGIN_API CPtrListDoubleLink : public CPtrList {
 public:
     inline CPtrNodeDoubleLink *GetNode() {
-        return reinterpret_cast<CPtrNodeDoubleLink *>(pNode);
+        return reinterpret_cast<CPtrNodeDoubleLink *>(this->m_pHead);
     }
 
     inline ~CPtrListDoubleLink() {
