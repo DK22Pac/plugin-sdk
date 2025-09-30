@@ -139,3 +139,7 @@ CSprite2d* LoadSplash(const char* name) {
 RsEventStatus RsEventHandler(RsEvent event, void* param) {
     return plugin::CallAndReturnDyn<RsEventStatus>(0x584A20, event, param);
 }
+
+void RenderScene() {
+    plugin::Call<0x48E030>();
+}

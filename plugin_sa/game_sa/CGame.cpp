@@ -231,3 +231,7 @@ void DoRwStuffEndOfFrame() {
 RsEventStatus RsEventHandler(RsEvent event, void* param) {
     return plugin::CallAndReturnDyn<RsEventStatus>(0x619B60, event, param);
 }
+
+void RenderScene() {
+    plugin::Call<0x53DF40>();
+}

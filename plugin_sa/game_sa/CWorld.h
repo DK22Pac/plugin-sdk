@@ -11,6 +11,12 @@
 #define NUMSECTORS_X (120)
 #define NUMSECTORS_Y (120)
 
+#define NUMREPEATSECTORS_X (16)
+#define NUMREPEATSECTORS_Y (16)
+
+#define NUMLODPTRLISTS_X (30)
+#define NUMLODPTRLISTS_Y (30)
+
 #define WORLD_SIZE_X (NUMSECTORS_X * SECTOR_SIZE_X)
 #define WORLD_SIZE_Y (NUMSECTORS_Y * SECTOR_SIZE_Y)
 
@@ -159,6 +165,14 @@ public:
 		return &ms_aSectors[y * NUMSECTORS_X + x];
 	}
 
+	static inline CRepeatSector* GetRepeatSector(int32_t x, int32_t y) {
+		return &ms_aRepeatSectors[y * NUMREPEATSECTORS_X + x];
+	}
+
+	static inline CPtrListSingleLink* GetLodPtrList(int32_t x, int32_t y) {
+		return &ms_aLodPtrLists[y * NUMLODPTRLISTS_X + x];
+	}
+
 	static inline void AdvanceCurrentScanCode() {
 		if (++CWorld::ms_nCurrentScanCode == 0) {
 			CWorld::ClearScanCodes();
@@ -184,6 +198,7 @@ public:
 	static inline float GetWorldY(int y) {
 		return y * SECTOR_SIZE_Y + WORLD_MIN_Y;
 	}
+
 };
 
 extern unsigned int& FilledColPointIndex;
