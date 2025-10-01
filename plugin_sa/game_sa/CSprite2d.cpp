@@ -18,10 +18,18 @@ CSprite2d::CSprite2d()
 	((void (__thiscall *)(CSprite2d *))0x727230)(this);
 }
 
-CSprite2d::~CSprite2d()
-{
-	((void (__thiscall *)(CSprite2d *))0x7281E0)(this);
-}
+// Removed CSprite2d destructor to prevent automatic resource cleanup
+// example: when sprites are returned by value from SpriteLoader::GetSprite().
+// The destructor was invalidating texture resources on temporary objects,
+// causing sprites to not render when allocated on the stack,
+// also static objects were affected, since they're deletion time is unknown,
+// and most likely when the game is already shut down, resulting in random crashes.
+// Manual resource management via Delete() method is used instead.
+//
+//CSprite2d::~CSprite2d()
+//{
+//	((void (__thiscall *)(CSprite2d *))0x7281E0)(this);
+//}
 
 // delete this sprite (similar to destructor)
 void CSprite2d::Delete()
