@@ -356,7 +356,7 @@ namespace plugin {
                 StopChannel(it.channelId);
             }
 
-            if (!GetChannelUsedFlag(it.channelId)) {
+            if (!GetChannelUsedFlag(it.channelId) && settings.playPause()) {
                 it = BassStream();
                 continue;
             }
