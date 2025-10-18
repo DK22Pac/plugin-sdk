@@ -23,7 +23,33 @@
 //#pragma comment(lib, "bass_fx.lib")
 
 namespace plugin {
-    void BassSampleManager::LoadSample(std::string const& file, uint32_t loopStart, int32_t loopEnd) {
+    void BassSampleManager::FeedSample(std::string const& name, void* buffer, uint32_t length) {
+        BASS_StreamPutData(GetSample(name)->handle, buffer, length);
+    }
+
+    uint32_t BassSampleManager::CreateSample(std::string const& name, uint32_t channels, uint32_t freq) {
+        BassSample s;
+
+        s.name = name;
+        s.sample = samples.size();
+        s.handle = BASS_StreamCreate(
+            freq,
+            channels,
+            0,
+            STREAMPROC_PUSH,
+            0
+        );
+
+        s.loopStart = 0;
+        s.loopEnd = -1;
+        s.isStream = true;
+        s.streamFreq = freq;
+        samples.push_back(s);
+
+        return s.sample;
+    }
+
+    uint32_t BassSampleManager::LoadSample(std::string const& file, uint32_t loopStart, int32_t loopEnd) {
         BassSample s;
 
         s.name = plugin::RemoveExtension(plugin::RemovePath(file));
@@ -32,6 +58,7 @@ namespace plugin {
         s.loopStart = loopStart;
         s.loopEnd = loopEnd;
         samples.push_back(s);
+        return s.sample;
     }
 
     void BassSampleManager::LoadAllSamplesFromFolder(std::string const& path) {
@@ -167,6 +194,9 @@ namespace plugin {
         if (channel == 0)
             return;
 
+        if (samples[streams[channel].sampleId].isStream)
+            return;
+
         if (loopEnd == -1)
             loopEnd = GetSampleLength(streams[channel].sampleId);
 
@@ -209,13 +239,21 @@ namespace plugin {
     }
 
     uint32_t BassSampleManager::GetSampleBaseFrequency(uint32_t sample) {
+        if (samples[sample].isStream) {
+            return samples[sample].streamFreq;
+        }
+
         BASS_SAMPLE info;
         BASS_SampleGetInfo(samples[sample].handle, &info);
         return static_cast<uint32_t>(info.freq);
     }
 
     uint32_t BassSampleManager::AddSampleToQueue(uint8_t vol, uint32_t freq, std::string const& sample, bool loop, CVector const& pos, uint32_t framesToPlay, bool is3d) {
-        return AddSampleToQueue(vol, freq, GetSample(sample)->sample, loop, pos, framesToPlay, is3d);
+		auto s = GetSample(sample);
+        if (!s)
+            return 0;
+
+        return AddSampleToQueue(vol, freq, s->sample, loop, pos, framesToPlay, is3d);
     }
 
     uint32_t BassSampleManager::AddSampleToQueue(uint8_t vol, uint32_t freq, uint32_t sample, bool loop, CVector const& pos, uint32_t framesToPlay, bool is3d) {
@@ -259,14 +297,20 @@ namespace plugin {
         if (GetChannelUsedFlag(channel) && streams[channel].sampleId == sample)
             return true;
 
-        BASS_SAMPLE sampleInfo = {};
-        BASS_SampleGetInfo(samples[sample].handle, &sampleInfo);
+        if (samples[sample].isStream) {
+            streams[channel].handle = samples[sample].handle;
+        }
+        else {
 
-        streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, false);
-        
-        if (streams[channel].handle == 0) {
-            DWORD err = BASS_ErrorGetCode();
-            std::cout << err << std::endl;
+            BASS_SAMPLE sampleInfo = {};
+            BASS_SampleGetInfo(samples[sample].handle, &sampleInfo);
+
+            streams[channel].handle = BASS_SampleGetChannel(samples[sample].handle, false);
+
+            if (streams[channel].handle == 0) {
+                DWORD err = BASS_ErrorGetCode();
+                std::cout << "BassSampleManager error code " << err << std::endl;
+            }
         }
         
         streams[channel].channelId = channel;
@@ -391,6 +435,7 @@ namespace plugin {
                 });
                 
                 uint32_t channel = 0;
+
                 if (a != streams.end()) {
                     channel = a->channelId;
                     it->played = true;
