@@ -66,7 +66,7 @@ class CHudMessage {
     int m_nType;
 
 public:
-    void SetHudMessage(wchar_t* str, int priority);
+    void SetHudMessage(const wchar_t* str, int priority);
 };
 
 VALIDATE_SIZE(CHudMessage, 0x1C8);
