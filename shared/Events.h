@@ -394,7 +394,7 @@ namespace plugin {
         static inline ThiscallEvent <AddressList<0x45C20D, H_CALL>, PRIORITY_AFTER, ArgPickN<CPlayerPed*, 0>, void(CPlayerPed*)> processPlayerPedEvent;
 #endif
 #ifdef GTAIV
-        static inline CdeclEvent <AddressList<0x5C12AD, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(const char*)> initGameEvent{ { "E8 ? ? ? ? 83 C4 04 E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8" } };
+        static inline CdeclEvent <AddressList<0x5C12AD, H_CALL>, PRIORITY_AFTER, ArgPickNone, void(const char*)> initGameEvent{ { "E8 ? ? ? ? 83 C4 ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? E8 ? ? ? ? 6A" } };
         static inline CdeclEvent <AddressList<0x5C2B7A, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> gameProcessEvent{ { "E8 ? ? ? ? 80 3D ? ? ? ? ? 74 09 C6 05" } };
         static inline CdeclEvent <AddressList<0x5E15BD, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t(uint32_t*)> drawMenuEvent{ { "E8 ? ? ? ? 6A 00 6A 0C E8 ? ? ? ? 83 C4 0C 85 C0 74 30" } };
         static inline CdeclEvent <AddressList<0x5A6FC1, H_CALL>, PRIORITY_AFTER, ArgPickNone, uint32_t()> menuProcessEvent{ { "E8 ? ? ? ? 80 3D ? ? ? ? ? 74 28 E8 ? ? ? ? 84 C0" } };
