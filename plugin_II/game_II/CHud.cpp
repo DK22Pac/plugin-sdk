@@ -29,7 +29,7 @@ void CHud::DrawSprite(int id1, int id2, int x, int y, char style, int const& mod
     plugin::CallStd<0x4C71B0, int, int, int, int, char, int const&, int, int, char>(id1, id2, x, y, style, mode, enableAlpha, alpha, unk);
 }
 
-void CHudMessage::SetHudMessage(wchar_t* str, int priority) {
+void CHudMessage::SetHudMessage(const wchar_t* str, int priority) {
     plugin::CallMethod<0x4C6060>(this, str, priority);
 }
 

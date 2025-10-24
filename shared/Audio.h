@@ -86,6 +86,8 @@ namespace plugin {
             HSAMPLE handle;
             uint32_t loopStart;
             int32_t loopEnd;
+            bool isStream;
+			uint32_t streamFreq;
 
             BassSample() {
                 name = "";
@@ -93,6 +95,8 @@ namespace plugin {
                 handle = 0;
                 loopStart = 0;
                 loopEnd = -1;
+                isStream = false;
+				streamFreq = 44100;
             }
         };
 
@@ -129,8 +133,10 @@ namespace plugin {
         void PauseChannel(uint32_t channel);
 
     public:
-        inline BassSampleManager() {
-            BASS_Init(-1, 44100, BASS_DEVICE_3D, NULL, NULL);
+        inline BassSampleManager(uint32_t freq = 44100) {
+            BASS_SetConfig(BASS_CONFIG_BUFFER, 50);
+            BASS_SetConfig(BASS_CONFIG_UPDATEPERIOD, 10);
+            BASS_Init(-1, freq, BASS_DEVICE_3D | BASS_DEVICE_FREQ, NULL, NULL);
 
             streams = {};
             samples = {};
@@ -152,7 +158,9 @@ namespace plugin {
             }
         }
 
-        void LoadSample(std::string const& file, uint32_t loopStart = 0, int32_t loopEnd = -1);
+        void FeedSample(std::string const& name, void* buffer, uint32_t length);
+		uint32_t CreateSample(std::string const& name, uint32_t channels, uint32_t freq);
+        uint32_t LoadSample(std::string const& file, uint32_t loopStart = 0, int32_t loopEnd = -1);
         void LoadAllSamplesFromFolder(std::string const& path);
         BassSample* GetSample(std::string const& name);
         void ClearSamples();

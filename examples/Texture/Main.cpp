@@ -1,21 +1,25 @@
 #include "plugin.h"
+#include "SpriteLoader.h"
 #include "CSprite2d.h"
 
 using namespace plugin;
 
 class TextureExample {
 public:
-    TextureExample() {
-        static CSprite2d sprite;
+    static inline plugin::SpriteLoader spriteLoader = {};
 
-        Events::drawingEvent += [] {
-            if(!sprite.m_pTexture) // load texture only once
-                sprite.m_pTexture = RwD3D9DDSTextureRead(PLUGIN_PATH((char*)"image"), 0); // rw api gives you ability to load dds images
+    TextureExample() {
+        Events::drawHudEvent += [] {
+			auto sprite = spriteLoader.GetSprite("image"); // get sprite called image
             sprite.Draw(CRect(10.0f, 10.0f, 300.0f, 300.0f), CRGBA(255, 255, 255, 255)); // draw sprite
         };
 
+        Events::initRwEvent += []() {
+ 			spriteLoader.LoadSpriteFromFolder(PLUGIN_PATH("image.png")); // load single sprite called image.png
+        };
+
         Events::shutdownRwEvent += [] {
-            sprite.Delete(); // delete loaded texture
+            spriteLoader.Clear(); // delete any loaded sprites
         };
     }
 } texExample;

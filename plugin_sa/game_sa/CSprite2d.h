@@ -28,7 +28,7 @@ public:
 	static struct RwD3D9Vertex *maVertices;
 	// class functions
 	CSprite2d();
-	~CSprite2d();
+	//~CSprite2d();
 	// delete this sprite (similar to destructor)
 	void Delete();
 	// set texture by name from current txd
