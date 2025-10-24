@@ -1,0 +1,121 @@
+<config>
+
+  <component>
+    <name>Plugin-SDK</name>
+    <envVar>PLUGIN_SDK_DIR</envVar>
+    <checkFile>injector\injector.hpp</checkFile>
+    <mandatory>1</mandatory>
+  </component>
+
+  <!-- Target games -->
+
+  <component>
+    <name>GTA 2</name>
+    <envVar>GTA_II_DIR</envVar>
+    <checkFile>gta2.exe</checkFile>
+    <project>plugin_ii</project>
+    <projectOutput>plugin_ii</projectOutput>
+    <target>GTA2</target>
+  </component>
+
+  <component>
+    <name>GTA 3</name>
+    <envVar>GTA_III_DIR</envVar>
+    <checkFile>gta3.exe</checkFile>
+    <project>plugin_iii</project>
+    <projectOutput>plugin_iii</projectOutput>
+    <target>GTA3</target>
+  </component>
+
+  <component>
+    <name>GTA Vice City</name>
+    <envVar>GTA_VC_DIR</envVar>
+    <checkFile>gta-vc.exe</checkFile>
+    <project>plugin_vc</project>
+    <projectOutput>plugin_vc</projectOutput>
+    <target>GTAVC</target>
+  </component>
+
+  <component>
+    <name>GTA San Andreas</name>
+    <envVar>GTA_SA_DIR</envVar>
+    <checkFile>gta_sa.exe</checkFile>
+    <project>plugin_sa</project>
+    <projectOutput>plugin</projectOutput>
+    <target>GTASA</target>
+  </component>
+
+  <component>
+    <name>GTA 4</name>
+    <envVar>GTA_IV_DIR</envVar>
+    <checkFile>GTAIV.exe</checkFile>
+    <project>plugin_iv</project>
+    <projectOutput>plugin_iv</projectOutput>
+    <target>GTA4</target>
+  </component>
+
+  <component>
+    <name>GTA 3 DE</name>
+    <envVar>GTA_III_UNREAL_DIR</envVar>
+    <checkFile>Gameface\Binaries\Win64\LibertyCity.exe</checkFile>
+    <project>plugin_iii_unreal</project>
+    <projectOutput>plugin_iii_unreal</projectOutput>
+    <target>DE-3</target>
+  </component>
+
+  <component>
+    <name>GTA Vice City DE</name>
+    <envVar>GTA_VC_UNREAL_DIR</envVar>
+    <checkFile>Gameface\Binaries\Win64\ViceCity.exe</checkFile>
+    <project>plugin_vc_unreal</project>
+    <projectOutput>plugin_vc_unreal</projectOutput>
+    <target>DE-VC</target>
+  </component>
+
+  <component>
+    <name>GTA San Andreas DE</name>
+    <envVar>GTA_SA_UNREAL_DIR</envVar>
+    <checkFile>Gameface\Binaries\Win64\SanAndreas.exe</checkFile>
+    <project>plugin_sa_unreal</project>
+    <projectOutput>plugin_unreal</projectOutput>
+    <target>DE-SA</target>
+  </component>
+
+  <!-- Extras -->
+
+  <component>
+    <name>GTA 3 CLEO SDK</name>
+    <envVar>CLEO_SDK_III_DIR</envVar>
+    <checkFile>CLEO.h</checkFile>
+    <info>https://github.com/cleolibrary/III.VC.CLEO</info>
+  </component>
+
+  <component>
+    <name>GTA VC CLEO SDK</name>
+    <envVar>CLEO_SDK_VC_DIR</envVar>
+    <checkFile>CLEO.h</checkFile>
+    <info>https://github.com/cleolibrary/III.VC.CLEO</info>
+  </component>
+
+  <component>
+    <name>GTA SA CLEO SDK</name>
+    <envVar>CLEO_SDK_SA_DIR</envVar>
+    <checkFile>CLEO.h</checkFile>
+    <info>http://cleo.li</info>
+  </component>
+  
+  <!-- New plugin additional properties -->
+  
+  <component>
+    <name>CLEO plugin</name>
+	<info>The project is CLEO plugin (*.cleo)</info>
+    <targetParam>--type=cleo</targetParam>
+  </component>
+  
+  <component>
+    <name>Direct3D support</name>
+	<info>Add support of DirectX 3D</info>
+    <targetParam>--d3d</targetParam>
+  </component>
+  
+</config>
