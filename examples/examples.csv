@@ -1,22 +1,22 @@
-project,type,gta2,gta3,gtavc,gtasa,gta4,d3d,la,additional include dirs,additional library dirs,additional libraries,additional definitions
-ColouredObjects,ASI,,,,GTASA,,,,,,,
-CreateCar,ASI,,,,GTASA,,,,,,,
-DXFont,ASI,,GTA3,GTAVC,GTASA,,D3D,,,,,
-FullNitrousControl,ASI,,,,GTASA,,,,,,,
-GPS,ASI,,,,GTASA,,D3D,,,,,
-HandSignals,ASI,,,,GTASA,,,,,,,
-Neon,ASI,,,,GTASA,,,,,,,
-OpenDoorExample,ASI,,,,GTASA,,,,,,,
-PedPainting,ASI,,,GTAVC,GTASA,,,,,,,
-PedSpawner,ASI,,,GTAVC,GTASA,,,,,,,
-PlayerWeapon,ASI,,,,GTASA,,,,,,,
-RotateDoor,ASI,,,,GTASA,,,,,,,
-ScriptCommands,ASI,,GTA3,GTAVC,GTASA,,,,,,,
-ScriptDrawsTest,ASI,,GTA3,GTAVC,GTASA,,,,,,,
-Speedometer,ASI,,,,GTASA,,,,,,,
-Test,ASI,GTA2,GTA3,GTAVC,GTASA,GTA4,,,,,,
-Texture,ASI,,,,GTASA,,,,,,,
-TimeNotTouchingPadOpcode,CLEO,,,,GTASA,,,,,,,
-UniversalTurnlights,ASI,,,,GTASA,,,,,,,
-VehicleRemap,ASI,,,,GTASA,,,,,,,
-VehicleSpawner,ASI,,,,GTASA,,,,,,,
+PROJECT,					TYPE,	GTA2,	GTA3,	GTA-VC,	GTA-SA,	GTA4,	DE-3,	DE-VC,	DE-SA,	D3D
+ColouredObjects,			ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+CreateCar,					ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+DXFont,						ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	YES
+FullNitrousControl,			ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+GPS,						ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	YES
+HandSignals,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+Neon,						ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+OpenDoorExample,			ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+PedPainting,				ASI,	---,	---,	YES,	YES,	---,	---,	---,	---,	---
+PedSpawner,					ASI,	---,	---,	YES,	YES,	---,	---,	---,	---,	---
+PlayerWeapon,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+RotateDoor,					ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+ScriptCommands,				ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	---
+ScriptDrawsTest,			ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	---
+Speedometer,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+Test,						ASI,	YES,	YES,	YES,	YES,	YES,	---,	---,	---,	---
+Texture,					ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	---
+TimeNotTouchingPadOpcode,	CLEO,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+UniversalTurnlights,		ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+VehicleRemap,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+VehicleSpawner,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
