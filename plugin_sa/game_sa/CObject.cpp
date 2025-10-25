@@ -22,6 +22,14 @@ CObject::CObject() : CPhysical(plugin::dummy) {
     plugin::CallMethod<0x5A1D10, CObject*>(this);
 }
 
+CObject::CObject(int32_t model, bool create) : CPhysical(plugin::dummy) {
+    plugin::CallMethod<0x5A1D70, CObject*, int32_t, bool>(this, model, create);
+}
+
+CObject::CObject(CDummyObject* dummy) : CPhysical(plugin::dummy) {
+    plugin::CallMethod<0x5A1DF0, CObject*, CDummyObject*>(this, dummy);
+}
+
 CObject::~CObject() {
     plugin::CallMethod<0x59F660, CObject*>(this);
 }

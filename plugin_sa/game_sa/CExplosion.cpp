@@ -61,7 +61,7 @@ void CExplosion::Initialise() {
 }
 
 // Converted from cdecl bool CExplosion::AddExplosion(CEntity *victim,CEntity *creator,eExplosionType explosionType,CVector const&posn,uint time,uchar makeSound,float camShake,uchar visibility) 0x736A50
-bool CExplosion::AddExplosion(CEntity* victim, CEntity* creator, eExplosionType explosionType, CVector const& posn, unsigned int time, unsigned char makeSound, float camShake, unsigned char visibility) {
+bool CExplosion::AddExplosion(CEntity* victim, CEntity* creator, eExplosionType explosionType, CVector posn, unsigned int time, unsigned char makeSound, float camShake, unsigned char visibility) {
     return plugin::CallAndReturn<bool, 0x736A50, CEntity*, CEntity*, eExplosionType, CVector, unsigned int, unsigned char, float, unsigned char>(victim, creator, explosionType, posn, time, makeSound, camShake, visibility);
 }
 
