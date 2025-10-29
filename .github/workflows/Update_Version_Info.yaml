@@ -1,0 +1,77 @@
+name: Update version info
+
+on:
+#  schedule:
+#    - cron: '50 * * * *' # 50th minute of every hour
+    
+  workflow_dispatch: # manual trigger
+
+jobs:
+  Update_version_info:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Check conditions
+        run: |
+          echo "SKIP_JOB=false" >> $GITHUB_ENV
+          
+          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+          echo "Current branch: $BRANCH_NAME"
+          
+          if [[ "$BRANCH_NAME" != "master" ]]; then
+            echo "::error::Selected branch is not master!"
+            echo "SKIP_JOB=true" >> $GITHUB_ENV
+          else
+            LAST_COMMIT_MESSAGE=$(git log -1 --format=%B HEAD)
+            echo "Last commit message: $LAST_COMMIT_MESSAGE"
+            
+            if [[ "$LAST_COMMIT_MESSAGE" == "Update version info: v."* ]]; then
+              echo "::warning::Previous commit already updated the version info!"
+              echo "SKIP_JOB=true" >> $GITHUB_ENV
+            else
+              if [ "${{ github.event_name }}" == "cron" ]; then # triggered by scheduler            
+                LAST_COMMIT_DATE=$(git log -1 --format=%cd --date=iso-strict HEAD)
+                LAST_COMMIT_TIMESTAMP=$(date -d "$LAST_COMMIT_DATE" +%s)
+                echo "Last commit date: $LAST_COMMIT_DATE"
+              
+                CURRENT_TIMESTAMP=$(date +%s)
+                TIME_DELTA=$((CURRENT_TIMESTAMP - LAST_COMMIT_TIMESTAMP))
+                echo "Seconds since commit: $TIME_DELTA"
+              
+                if [ TIME_DELTA < 30*60 ]; then
+                  echo "::warning::30 minutes cooldown since last commit not expired yet!"
+                  echo "SKIP_JOB=true" >> $GITHUB_ENV # less than 30 minutes from last commit
+                fi
+              fi
+            fi
+           fi
+          
+      - name: Update version info
+        if: ${{ env.SKIP_JOB == 'false' }}
+        id: update
+        run: |
+          VERSION_FILE="shared/plugin.h"
+          echo "file=$VERSION_FILE" >> $GITHUB_OUTPUT
+          
+          VERSION=$(grep "#define PLUGIN_SDK_VERSION " "$VERSION_FILE" | awk '{print $3}')
+          VERSION=$((VERSION + 1))
+          echo "New version number: $VERSION"
+          sed -i "s/#define PLUGIN_SDK_VERSION .*/#define PLUGIN_SDK_VERSION $VERSION/" "$VERSION_FILE"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+          #DATE=$(git log -1 --format=%cd --date=format-local:'%Y-%m-%d %H:%M:%S' HEAD)
+          DATE=$(date +"%Y-%m-%d %H:%M:%S")
+          echo "New date: $DATE"
+          sed -i "s/#define PLUGIN_SDK_DATE .*/#define PLUGIN_SDK_DATE $DATE/" "$VERSION_FILE"
+          
+      - name: Commit and push changes
+        if: ${{ env.SKIP_JOB == 'false' }}
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update version info: v.${{ steps.update.outputs.version }}"
+          file_pattern: '${{ steps.update.outputs.file }}'

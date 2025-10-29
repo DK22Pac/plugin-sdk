@@ -5,6 +5,16 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
+#define __TO_STR(x) #x
+#define TO_STR(x) __TO_STR(x)
+
+#define PLUGIN_SDK_VERSION 1000
+#define PLUGIN_SDK_VERSION_STR TO_STR(PLUGIN_SDK_VERSION)
+
+#define PLUGIN_SDK_DATE 2025-10-28 18:33:25
+#define PLUGIN_SDK_DATE_STR TO_STR(PLUGIN_SDK_DATE)
+
 #include "PluginBase.h"
 #include "Events.h"
 #include "GameVersionMessage.h"
