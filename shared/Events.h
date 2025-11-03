@@ -232,9 +232,11 @@ namespace plugin {
         static inline CdeclEvent <AddressListMulti<0x4A5BB5, GAME_10EN, H_CALL,
             0x4A5BD5, GAME_11EN, H_CALL,
             0x4A5A85, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, bool()> attachRwPluginsEvent;
-        static inline CdeclEvent <AddressListMulti<0x49E3D9, GAME_10EN, H_CALL,
-            0x49E3FA, GAME_11EN, H_CALL,
-            0x49E298, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> menuDrawingEvent;
+        static inline ThiscallEvent <AddressListMulti<
+            0x4A5D33, GAME_10EN, H_CALL, // before game session
+            0x4A612E, GAME_10EN, H_CALL>, // during game session
+            // TODO: add 11EN and STEAM 
+            PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> menuDrawingEvent;
 #endif
 #ifdef GTA3
         static inline CdeclEvent <AddressList<0x48C7BE, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
