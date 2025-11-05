@@ -22,7 +22,7 @@ namespace plugin {
     class Events {
     public:
 #ifdef GTASA
-        static inline CdeclEvent <AddressList<0x53C6DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
+        static inline CdeclEvent    <AddressList<0x53C6DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
 
         static inline CdeclEvent    <AddressList<0x53E293, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent;
         static inline CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawHudEvent;
@@ -83,6 +83,12 @@ namespace plugin {
             0x5BA340, H_CALL,
             0x5D4FD7, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()>          initScriptsEvent;
         static inline CdeclEvent    <AddressList<0x53C077, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()>          processScriptsEvent;
+
+        static inline ThiscallEvent <AddressList<
+            0x53E82D, H_CALL, // before game session
+            0x53EB8C, H_CALL>, // during game session
+            PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> menuDrawingEvent;
+
         static inline CdeclEvent    <AddressList<0x53ECA1, H_CALL>, PRIORITY_AFTER, ArgPickNone, bool()>          attachRwPluginsEvent;
 #endif
 #ifdef GTAVC
@@ -232,9 +238,11 @@ namespace plugin {
         static inline CdeclEvent <AddressListMulti<0x4A5BB5, GAME_10EN, H_CALL,
             0x4A5BD5, GAME_11EN, H_CALL,
             0x4A5A85, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, bool()> attachRwPluginsEvent;
-        static inline CdeclEvent <AddressListMulti<0x49E3D9, GAME_10EN, H_CALL,
-            0x49E3FA, GAME_11EN, H_CALL,
-            0x49E298, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> menuDrawingEvent;
+        static inline ThiscallEvent <AddressListMulti<
+            0x4A5D33, GAME_10EN, H_CALL, // before game session
+            0x4A612E, GAME_10EN, H_CALL>, // during game session
+            // TODO: add 11EN and STEAM 
+            PRIORITY_AFTER, ArgPickNone, void(CMenuManager*)> menuDrawingEvent;
 #endif
 #ifdef GTA3
         static inline CdeclEvent <AddressList<0x48C7BE, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
