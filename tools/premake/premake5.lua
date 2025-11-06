@@ -20,7 +20,7 @@ newoption { trigger = "gtasa_unreal", description = "Adds GTA San Andreas Defini
 newoption { trigger = "d3d",          description = "Adds DirectX 3D features support. Used with newplugin" }
 
 
--- process and validate and input args
+-- process and validate input args
 if _ACTION then
     _ACTION = string.lower(_ACTION)
 end
@@ -128,12 +128,13 @@ end
 
 function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject, gameName)
     print("Generating project \"" .. projectName .. "\"...")
-    projectName = string.lower(projectName)
+    
+    projNameLower = string.lower(projectName)
     
     project (projectName)
     language "C++"
 
-    if projectName:sub(-#"_unreal") == "_unreal" then
+    if projNameLower:sub(-#"_unreal") == "_unreal" then
         architecture "x64"
         defines "_WIN64"
     else
@@ -166,22 +167,22 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
     end
 
     if isPluginProject then
-        if projectName == "plugin_ii" then
+        if projNameLower == "plugin_ii" then
             defines { "GTA2", "PLUGIN_SGV_96EN", "GBH" }
             defines "_CRT_SECURE_NO_WARNINGS" --TODO: instead warning 4966 should be suppressed for files in game_II\d3d
-        elseif projectName == "plugin_iii" then
+        elseif projNameLower == "plugin_iii" then
             defines { "GTA3", "PLUGIN_SGV_10EN", "RW" }
-        elseif projectName == "plugin_vc" then
+        elseif projNameLower == "plugin_vc" then
             defines { "GTAVC", "PLUGIN_SGV_10EN", "RW" }
-        elseif projectName == "plugin_sa" then
+        elseif projNameLower == "plugin_sa" then
             defines { "GTASA", "PLUGIN_SGV_10US", "RW" }
-        elseif projectName == "plugin_iv" then
+        elseif projNameLower == "plugin_iv" then
             defines { "GTAIV", "PLUGIN_SGV_CE", "RAGE" }
-        elseif projectName == "plugin_iii_unreal" then
+        elseif projNameLower == "plugin_iii_unreal" then
             defines { "GTA3_UNREAL", "PLUGIN_UNREAL", "UNREAL", "NOASM", "RWINT32FROMFLOAT" }
-        elseif projectName == "plugin_vc_unreal" then
+        elseif projNameLower == "plugin_vc_unreal" then
             defines { "GTAVC_UNREAL", "PLUGIN_UNREAL", "UNREAL", "NOASM", "RWINT32FROMFLOAT" }
-        elseif projectName == "plugin_sa_unreal" then
+        elseif projNameLower == "plugin_sa_unreal" then
             defines { "GTASA_UNREAL", "PLUGIN_UNREAL", "UNREAL", "NOASM", "RWINT32FROMFLOAT" }
         end
     end
@@ -367,7 +368,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         end
 
         -- precompiled header
-        if msbuild and (projectName == "plugin_iii" or projectName == "plugin_vc" or projectName == "plugin_sa") then
+        if msbuild and (projNameLower == "plugin_iii" or projNameLower == "plugin_vc" or projNameLower == "plugin_sa") then
             pchheader "stdafx.h"
             forceincludes "stdafx.h"
             pchsource (path.getrelative(path.getabsolute("."), sdkdir .. "/shared/stdafx.cpp"))
@@ -682,11 +683,11 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
         gameCounter = gameCounter + 1
     end
     if gameVc then
-        supportedGames[gameCounter] = "GTAVC"
+        supportedGames[gameCounter] = "GTA-VC"
         gameCounter = gameCounter + 1
     end
     if gameSa then
-        supportedGames[gameCounter] = "GTASA"
+        supportedGames[gameCounter] = "GTA-SA"
         gameCounter = gameCounter + 1
     end
     if game4 then
@@ -694,15 +695,15 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
         gameCounter = gameCounter + 1
     end
     if game3Unreal then
-        supportedGames[gameCounter] = "GTA3_UNREAL"
+        supportedGames[gameCounter] = "GTA3_Unreal"
         gameCounter = gameCounter + 1
     end
     if gameVcUnreal then
-        supportedGames[gameCounter] = "GTAVC_UNREAL"
+        supportedGames[gameCounter] = "GTA-VC_Unreal"
         gameCounter = gameCounter + 1
     end
     if gameSaUnreal then
-        supportedGames[gameCounter] = "GTASA_UNREAL"
+        supportedGames[gameCounter] = "GTA-SA_Unreal"
         gameCounter = gameCounter + 1
     end
 
@@ -755,58 +756,58 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if game2 then
         filter "platforms:GTA2"
-            includedirs (getExamplePluginIncludeFolders("plugin_ii", "game_ii", projectType, "", d3dSupport, false, additionalIncludeDirs))
+            includedirs (getExamplePluginIncludeFolders("Plugin_II", "Game_II", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA2", projectType, d3dSupport, additionalDefinitions, "2", "2", "2", "Claude", "Anywhere City"))
         filter { "Release", "platforms:GTA2" }
-            links (getExamplePluginLibraries("plugin_ii", projectType, "", d3dSupport, false, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_II", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".II")
         filter { "Debug", "platforms:GTA2" }
-            links (getExamplePluginLibraries("plugin_ii", projectType, "", d3dSupport, false, additionalLibraries, true))
+            links (getExamplePluginLibraries("Plugin_II", projectType, "", d3dSupport, false, additionalLibraries, true))
             targetname (projectName .. ".II")
         filter {}
     end
     
     if game3 then
         filter "platforms:GTA3"
-            includedirs (getExamplePluginIncludeFolders("plugin_iii", "game_iii", projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
+            includedirs (getExamplePluginIncludeFolders("Plugin_III", "game_III", projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
             setupDebugger(projectType, "III", "", "gta3.exe")
         filter { "Release", "platforms:GTA3" }
-            links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_III", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".III")
         filter { "Debug", "platforms:GTA3" }
-            links (getExamplePluginLibraries("plugin_iii", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
+            links (getExamplePluginLibraries("Plugin_III", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".III")
         filter {}
     end
     
     if gameVc then
-        filter "platforms:GTAVC"
-            includedirs (getExamplePluginIncludeFolders("plugin_vc", "game_vc", projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
+        filter "platforms:GTA-VC"
+            includedirs (getExamplePluginIncludeFolders("Plugin_VC", "game_vc", projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             setupDebugger(projectType, "VC", "", "gta-vc.exe")
-        filter { "Release", "platforms:GTAVC" }
-            links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+        filter { "Release", "platforms:GTA-VC" }
+            links (getExamplePluginLibraries("Plugin_VC", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC")
-        filter { "Debug", "platforms:GTAVC" }
-            links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
+        filter { "Debug", "platforms:GTA-VC" }
+            links (getExamplePluginLibraries("Plugin_VC", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".VC")
         filter {}
     end
     
     if gameSa then
-        filter "platforms:GTASA"
-            includedirs (getExamplePluginIncludeFolders("plugin_sa", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalIncludeDirs))
+        filter "platforms:GTA-SA"
+            includedirs (getExamplePluginIncludeFolders("Plugin_SA", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             setupDebugger(projectType, "SA", "", "gta_sa.exe")
-        filter { "Release", "platforms:GTASA" }
+        filter { "Release", "platforms:GTA-SA" }
             links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA")
-        filter { "Debug", "platforms:GTASA" }
+        filter { "Debug", "platforms:GTA-SA" }
             links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, true))
             targetname (projectName .. ".SA")
         filter {}
@@ -814,59 +815,59 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if game4 then
         filter "platforms:GTA4"
-            includedirs (getExamplePluginIncludeFolders("plugin_iv", "game_iv", projectType, "", d3dSupport, false, additionalIncludeDirs))
+            includedirs (getExamplePluginIncludeFolders("Plugin_IV", "game_iv", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAIV", projectType, d3dSupport, additionalDefinitions, "4", "4", "4", "Niko", "Liberty City"))
         filter { "Release", "platforms:GTA4" }
-            links (getExamplePluginLibraries("plugin_iv", projectType, "", d3dSupport, false, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_IV", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".IV")
         filter { "Debug", "platforms:GTA4" }
-            links (getExamplePluginLibraries("plugin_iv", projectType, "", d3dSupport, false, additionalLibraries, true))
+            links (getExamplePluginLibraries("Plugin_IV", projectType, "", d3dSupport, false, additionalLibraries, true))
             targetname (projectName .. ".IV")
         filter {}
     end
     
     if game3Unreal then
-        filter "platforms:GTA3_UNREAL"
-            includedirs (getExamplePluginIncludeFolders("plugin_iii_unreal", "game_iii_unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
+        filter "platforms:GTA3_Unreal"
+            includedirs (getExamplePluginIncludeFolders("Plugin_III_Unreal", "Game_III_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3_UNREAL", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
             setupDebugger(projectType, "III_UNREAL", "Gameface\\Binaries\\Win64\\", "LibertyCity.exe")
-        filter { "Release", "platforms:GTA3_UNREAL" }
-            links (getExamplePluginLibraries("plugin_iii_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
+        filter { "Release", "platforms:GTA3_Unreal" }
+            links (getExamplePluginLibraries("Plugin_III_Unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".III-DE")
-        filter { "Debug", "platforms:GTA3_UNREAL" }
-            links (getExamplePluginLibraries("plugin_iii_unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
+        filter { "Debug", "platforms:GTA3_Unreal" }
+            links (getExamplePluginLibraries("Plugin_III_Unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
             targetname (projectName .. ".III-DE")
         filter {}
     end
     
     if gameVcUnreal then
-        filter "platforms:GTAVC_UNREAL"
-            includedirs (getExamplePluginIncludeFolders("plugin_vc_unreal", "game_vc_unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
+        filter "platforms:GTA-VC_Unreal"
+            includedirs (getExamplePluginIncludeFolders("Plugin_VC_Unreal", "Game_VC_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC_UNREAL", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             setupDebugger(projectType, "VC_UNREAL", "Gameface\\Binaries\\Win64\\", "ViceCity.exe")
-        filter { "Release", "platforms:GTAVC_UNREAL" }
-            links (getExamplePluginLibraries("plugin_vc_unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
+        filter { "Release", "platforms:GTA-VC_Unreal" }
+            links (getExamplePluginLibraries("Plugin_VC_Unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC-DE")
-        filter { "Debug", "platforms:GTAVC_UNREAL" }
-            links (getExamplePluginLibraries("plugin_vc_unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, true))
+        filter { "Debug", "platforms:GTA-VC_Unreal" }
+            links (getExamplePluginLibraries("Plugin_VC_Unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, true))
             targetname (projectName .. ".VC-DE")
         filter {}
     end
     
     if gameSaUnreal then
-        filter "platforms:GTASA_UNREAL"
-            includedirs (getExamplePluginIncludeFolders("plugin_sa_unreal", "game_sa_unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
+        filter "platforms:GTA-SA_Unreal"
+            includedirs (getExamplePluginIncludeFolders("Plugin_SA_Unreal", "Game_SA_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA_UNREAL", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             setupDebugger(projectType, "SA_UNREAL", "Gameface\\Binaries\\Win64\\", "SanAndreas.exe")
-        filter { "Release", "platforms:GTASA_UNREAL" }
-            links (getExamplePluginLibraries("plugin_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
+        filter { "Release", "platforms:GTA-SA_Unreal" }
+            links (getExamplePluginLibraries("Plugin_Unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA-DE")
-        filter { "Debug", "platforms:GTASA_UNREAL" }
-            links (getExamplePluginLibraries("plugin", projectType, "", d3dSupport, false, additionalLibraries, true))
+        filter { "Debug", "platforms:GTA-SA_Unreal" }
+            links (getExamplePluginLibraries("Plugin_Unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
             targetname (projectName .. ".SA-DE")
         filter {}
     end
@@ -1022,15 +1023,15 @@ if _ACTION == "newplugin" then
 else -- plugin sdk solution
     print("Deleting temporary files...")
     cleanProjectsDirectory(sdkdir .. "\\examples")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_sa")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_vc")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_iii")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_ii")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_iv")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_SA")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_VC")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_III")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_II")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_IV")
 
-    cleanProjectsDirectory(sdkdir .. "\\plugin_sa_unreal")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_vc_unreal")
-    cleanProjectsDirectory(sdkdir .. "\\plugin_iii_unreal")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_SA_Unreal")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_VC_Unreal")
+    cleanProjectsDirectory(sdkdir .. "\\Plugin_III_Unreal")
 
     os.remove(sdkdir .. "\\plugin.sln")
     os.remove(sdkdir .. "\\plugin.suo")
@@ -1049,14 +1050,14 @@ else -- plugin sdk solution
             configurations { "Release", "zDebug" }
 
         group ""
-            pluginSdkStaticLibProject("plugin_ii",         sdkdir, "plugin_ii",         true, "game_II")
-            pluginSdkStaticLibProject("plugin_iii",        sdkdir, "plugin_iii",        true, "game_III")
-            pluginSdkStaticLibProject("plugin_vc",         sdkdir, "plugin_vc",         true, "game_vc")
-            pluginSdkStaticLibProject("plugin_sa",         sdkdir, "plugin",            true, "game_sa")
-            pluginSdkStaticLibProject("plugin_iv",         sdkdir, "plugin_iv",         true, "game_IV")
-            pluginSdkStaticLibProject("plugin_iii_unreal", sdkdir, "plugin_iii_unreal", true, "game_iii_unreal")
-            pluginSdkStaticLibProject("plugin_vc_unreal",  sdkdir, "plugin_vc_unreal",  true, "game_vc_unreal")
-            pluginSdkStaticLibProject("plugin_sa_unreal",  sdkdir, "plugin_unreal",     true, "game_sa_unreal")
+            pluginSdkStaticLibProject("Plugin_II",         sdkdir, "Plugin_II",         true, "Game_II")
+            pluginSdkStaticLibProject("Plugin_III",        sdkdir, "Plugin_III",        true, "Game_III")
+            pluginSdkStaticLibProject("Plugin_VC",         sdkdir, "Plugin_VC",         true, "Game_VC")
+            pluginSdkStaticLibProject("Plugin_SA",         sdkdir, "Plugin",            true, "Game_SA")
+            pluginSdkStaticLibProject("Plugin_IV",         sdkdir, "Plugin_IV",         true, "Game_IV")
+            pluginSdkStaticLibProject("Plugin_III_Unreal", sdkdir, "Plugin_III_Unreal", true, "Game_III_Unreal")
+            pluginSdkStaticLibProject("Plugin_VC_Unreal",  sdkdir, "Plugin_VC_Unreal",  true, "Game_VC_Unreal")
+            pluginSdkStaticLibProject("Plugin_SA_Unreal",  sdkdir, "Plugin_Unreal",     true, "Game_SA_Unreal")
             
         print("\nGenerating example projects:")
         local f = io.open(sdkdir .. "\\examples\\examples.csv", "rb")
@@ -1095,5 +1096,7 @@ else -- plugin sdk solution
                 end
             end
         end
+		
+		print("\n") -- separator before prints from premake itself
     end
 end
