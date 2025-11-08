@@ -13,8 +13,8 @@
     <name>GTA 2</name>
     <envVar>GTA_II_DIR</envVar>
     <checkFile>gta2.exe</checkFile>
-    <project>plugin_ii</project>
-    <projectOutput>plugin_ii</projectOutput>
+    <project>Plugin_II</project>
+    <projectOutput>Plugin_II</projectOutput>
     <target>GTA2</target>
   </component>
 
@@ -22,8 +22,8 @@
     <name>GTA 3</name>
     <envVar>GTA_III_DIR</envVar>
     <checkFile>gta3.exe</checkFile>
-    <project>plugin_iii</project>
-    <projectOutput>plugin_iii</projectOutput>
+    <project>Plugin_III</project>
+    <projectOutput>Plugin_III</projectOutput>
     <target>GTA3</target>
   </component>
 
@@ -31,8 +31,8 @@
     <name>GTA Vice City</name>
     <envVar>GTA_VC_DIR</envVar>
     <checkFile>gta-vc.exe</checkFile>
-    <project>plugin_vc</project>
-    <projectOutput>plugin_vc</projectOutput>
+    <project>Plugin_VC</project>
+    <projectOutput>Plugin_VC</projectOutput>
     <target>GTAVC</target>
   </component>
 
@@ -40,8 +40,8 @@
     <name>GTA San Andreas</name>
     <envVar>GTA_SA_DIR</envVar>
     <checkFile>gta_sa.exe</checkFile>
-    <project>plugin_sa</project>
-    <projectOutput>plugin</projectOutput>
+    <project>Plugin_SA</project>
+    <projectOutput>Plugin</projectOutput>
     <target>GTASA</target>
   </component>
 
@@ -49,8 +49,8 @@
     <name>GTA 4</name>
     <envVar>GTA_IV_DIR</envVar>
     <checkFile>GTAIV.exe</checkFile>
-    <project>plugin_iv</project>
-    <projectOutput>plugin_iv</projectOutput>
+    <project>Plugin_IV</project>
+    <projectOutput>Plugin_IV</projectOutput>
     <target>GTA4</target>
   </component>
 
@@ -58,27 +58,27 @@
     <name>GTA 3 DE</name>
     <envVar>GTA_III_UNREAL_DIR</envVar>
     <checkFile>Gameface\Binaries\Win64\LibertyCity.exe</checkFile>
-    <project>plugin_iii_unreal</project>
-    <projectOutput>plugin_iii_unreal</projectOutput>
-    <target>DE-3</target>
+    <project>Plugin_III_Unreal</project>
+    <projectOutput>Plugin_III_Unreal</projectOutput>
+    <target>GTA3_UNREAL</target>
   </component>
 
   <component>
     <name>GTA Vice City DE</name>
     <envVar>GTA_VC_UNREAL_DIR</envVar>
     <checkFile>Gameface\Binaries\Win64\ViceCity.exe</checkFile>
-    <project>plugin_vc_unreal</project>
-    <projectOutput>plugin_vc_unreal</projectOutput>
-    <target>DE-VC</target>
+    <project>Plugin_VC_Unreal</project>
+    <projectOutput>Plugin_VC_Unreal</projectOutput>
+    <target>GTA-VC_UNREAL</target>
   </component>
 
   <component>
     <name>GTA San Andreas DE</name>
     <envVar>GTA_SA_UNREAL_DIR</envVar>
     <checkFile>Gameface\Binaries\Win64\SanAndreas.exe</checkFile>
-    <project>plugin_sa_unreal</project>
-    <projectOutput>plugin_unreal</projectOutput>
-    <target>DE-SA</target>
+    <project>Plugin_SA_Unreal</project>
+    <projectOutput>Plugin_Unreal</projectOutput>
+    <target>GTA-SA_UNREAL</target>
   </component>
 
   <!-- Extras -->
