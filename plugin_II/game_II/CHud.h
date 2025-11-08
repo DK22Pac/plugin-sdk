@@ -32,30 +32,44 @@ enum eArrowType {
     TYPE_GREEN,
 };
 
-enum eMessagePriority {
+enum eMessagePriority : int {
     MESSAGE_DISPLAY_NONE,
     MESSAGE_DISPLAY_DEFAULT = 1,
     MESSAGE_DISPLAY_SOON = 2,
     MESSAGE_DISPLAY_NOW = 3,
 };
 
+#pragma pack(push, 1)
 class CHudBrief {
 public:
-    wchar_t str[640];
-    char field_641[36];
-    int* field_642;
-    char field_646[452];
-    char field_647[12];
-    CHudBrief* prev;
-    int field_652;
-    char* field_653;
+    wchar_t text[161];
+    int field_142;
+    char field_146[120];
+    int** field_1BE;
+    char field_1C2[832];
+    char field_502;
+    char field_503; // pad?
+    short displayTime; // render frames
+    short field_506; // pad?
+    int lines; // row count
+    int field_50C;
+    int length; // characters
+    int* field_514;
+    char gxt[8];
+    char field_520[472];
+    CHudBrief* prev; // TODO: is this still member of that struct?
+    int field_6FC; // TODO: is this still member of that struct?
+    char* field_700; // TODO: is this still member of that struct?
 
 public:
-    void SetHudBrief(int priority, const char* str);
-    void Clear(int priority);
-};
+    void SetHudBrief(eMessagePriority priority, const char* gxt, unsigned int timeout = -1); // GXT label
+    void SetHudBriefStr(const char* text, short time = 0);
+    void SetHudBriefStr(const wchar_t* text, short time = 0);
 
-VALIDATE_SIZE(CHudBrief, 0x704);
+    void Clear(eMessagePriority priority);
+};
+#pragma pack(pop)
+VALIDATE_SIZE(CHudBrief, 0x704); // TODO: possibly should be smaller
 
 class CHudMessage {
     char m_nTimeToShow;
@@ -66,7 +80,8 @@ class CHudMessage {
     int m_nType;
 
 public:
-    void SetHudMessage(const wchar_t* str, int priority);
+    void SetHudMessage(const char* text, eMessagePriority priority);
+    void SetHudMessage(const wchar_t* text, eMessagePriority priority);
 };
 
 VALIDATE_SIZE(CHudMessage, 0x1C8);
@@ -173,7 +188,6 @@ public:
 public:
     static void DrawSprite(int id1, int id2, int x, int y, char style, int const& mode, int enableAlpha, int alpha, char unk);
 };
-
 VALIDATE_SIZE(CHud, 0x2AF8);
 
 extern CHud** gHud;

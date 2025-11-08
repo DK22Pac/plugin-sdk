@@ -572,7 +572,7 @@ function getExamplePluginLibraries(pluginLibName, projectType, cleoLibName, uses
     return aryLibs
 end
 
-function setupDebugger(projectType, gameAbbr, gameExePath, gameExeName)
+function setupDebugger(projectType, gameDirVar, gameExePath, gameExeName)
     local trgPath = ""
     if projectType == "ASI" then
         trgPath = "\\scripts"
@@ -581,20 +581,20 @@ function setupDebugger(projectType, gameAbbr, gameExePath, gameExeName)
     end
     
     -- create target directory if doesn't exists
-    fullTrgPath = os.getenv("GTA_" .. gameAbbr .. "_DIR")
+    fullTrgPath = os.getenv(gameDirVar)
     if fullTrgPath ~= nil and fullTrgPath ~= "" then
         fullTrgPath = fullTrgPath .. trgPath
         os.execute('if not exist "' .. fullTrgPath .. '" (mkdir "' .. fullTrgPath .. '")')
     end
 
     postbuildcommands { "\
-if defined GTA_" .. gameAbbr .. "_DIR ( \r\n\
+if defined " .. gameDirVar .. " ( \r\n\
 taskkill /IM " .. gameExeName .. " /F /FI \"STATUS eq RUNNING\" \r\n\
-xcopy /Y \"$(TargetPath)\" \"$(GTA_" .. gameAbbr .. "_DIR)" .. trgPath .. "\" \r\n\
+xcopy /Y \"$(TargetPath)\" \"$(" .. gameDirVar .. ")" .. trgPath .. "\" \r\n\
 )" }
 
-    debugcommand ("$(GTA_" .. gameAbbr .. "_DIR)\\" .. gameExePath .. gameExeName)
-    debugdir ("$(GTA_" .. gameAbbr .. "_DIR)")
+    debugcommand ("$(" .. gameDirVar .. ")\\" .. gameExePath .. gameExeName)
+    debugdir ("$(" .. gameDirVar .. ")")
 end
 
 function generatePrecompiledHeader(directory, create)
@@ -759,6 +759,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_II", "Game_II", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA2", projectType, d3dSupport, additionalDefinitions, "2", "2", "2", "Claude", "Anywhere City"))
+            setupDebugger(projectType, "GTA_II_DIR", "", "gta2.exe")
         filter { "Release", "platforms:GTA2" }
             links (getExamplePluginLibraries("Plugin_II", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".II")
@@ -773,7 +774,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_III", "game_III", projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
-            setupDebugger(projectType, "III", "", "gta3.exe")
+            setupDebugger(projectType, "GTA_III_DIR", "", "gta3.exe")
         filter { "Release", "platforms:GTA3" }
             links (getExamplePluginLibraries("Plugin_III", projectType, "III.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".III")
@@ -788,9 +789,9 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_VC", "game_vc", projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
-            setupDebugger(projectType, "VC", "", "gta-vc.exe")
-        filter { "Release", "platforms:GTA-VC" }
-            links (getExamplePluginLibraries("Plugin_VC", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+            setupDebugger(projectType, "GTA_VC_DIR", "", "gta-vc.exe")
+        filter { "Release", "platforms:GTAVC" }
+            links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC")
         filter { "Debug", "platforms:GTA-VC" }
             links (getExamplePluginLibraries("Plugin_VC", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
@@ -803,8 +804,8 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_SA", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
-            setupDebugger(projectType, "SA", "", "gta_sa.exe")
-        filter { "Release", "platforms:GTA-SA" }
+            setupDebugger(projectType, "GTA_SA_DIR", "", "gta_sa.exe")
+        filter { "Release", "platforms:GTASA" }
             links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA")
         filter { "Debug", "platforms:GTA-SA" }
@@ -818,6 +819,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_IV", "game_iv", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAIV", projectType, d3dSupport, additionalDefinitions, "4", "4", "4", "Niko", "Liberty City"))
+            setupDebugger(projectType, "GTA_IV_DIR", "", "GTAIV.exe")
         filter { "Release", "platforms:GTA4" }
             links (getExamplePluginLibraries("Plugin_IV", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".IV")
@@ -832,9 +834,9 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_III_Unreal", "Game_III_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3_UNREAL", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
-            setupDebugger(projectType, "III_UNREAL", "Gameface\\Binaries\\Win64\\", "LibertyCity.exe")
-        filter { "Release", "platforms:GTA3_Unreal" }
-            links (getExamplePluginLibraries("Plugin_III_Unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
+            setupDebugger(projectType, "GTA_III_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "LibertyCity.exe")
+        filter { "Release", "platforms:GTA3_UNREAL" }
+            links (getExamplePluginLibraries("plugin_iii_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".III-DE")
         filter { "Debug", "platforms:GTA3_Unreal" }
             links (getExamplePluginLibraries("Plugin_III_Unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
@@ -847,9 +849,9 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_VC_Unreal", "Game_VC_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC_UNREAL", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
-            setupDebugger(projectType, "VC_UNREAL", "Gameface\\Binaries\\Win64\\", "ViceCity.exe")
-        filter { "Release", "platforms:GTA-VC_Unreal" }
-            links (getExamplePluginLibraries("Plugin_VC_Unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
+            setupDebugger(projectType, "GTA_VC_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "ViceCity.exe")
+        filter { "Release", "platforms:GTAVC_UNREAL" }
+            links (getExamplePluginLibraries("plugin_vc_unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC-DE")
         filter { "Debug", "platforms:GTA-VC_Unreal" }
             links (getExamplePluginLibraries("Plugin_VC_Unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, true))
@@ -862,9 +864,9 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             includedirs (getExamplePluginIncludeFolders("Plugin_SA_Unreal", "Game_SA_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA_UNREAL", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
-            setupDebugger(projectType, "SA_UNREAL", "Gameface\\Binaries\\Win64\\", "SanAndreas.exe")
-        filter { "Release", "platforms:GTA-SA_Unreal" }
-            links (getExamplePluginLibraries("Plugin_Unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
+            setupDebugger(projectType, "GTA_SA_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "SanAndreas.exe")
+        filter { "Release", "platforms:GTASA_UNREAL" }
+            links (getExamplePluginLibraries("plugin_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA-DE")
         filter { "Debug", "platforms:GTA-SA_Unreal" }
             links (getExamplePluginLibraries("Plugin_Unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
@@ -887,35 +889,82 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     }
 end
 
-function generateNewPluginSource(projectDir, projectName, projectType, game2, game3, gameVc, gameSa, game4, game3Unreal, gameVcUnreal, gameSaUnreal)
-    isTrilogy = false -- any of classic 3/VC/SA
-    if game3 or gameVc or gameSa then isTrilogy = true end
-    isTrilogyOnly = true -- only classic 3/VC/SA
-    if not isTrilogy or game2 or game4 or game3Unreal or gameVcUnreal or gameSaUnreal then isTrilogyOnly = false end
+function getSdkVerInfo()
+    local verNum = nil
+    local verNumPrefix = "#define PLUGIN_SDK_VERSION "
     
-    isUnreal = false -- any of Definitive Edition
-    if game3Unreal or gameVcUnreal or gameSaUnreal then isUnreal = true end
-    isUnrealOnly = true -- only classic 3/VC/SA
-    if not isUnreal or game2 or game3 or gameVc or gameSa or game4 then isUnrealOnly = false end
+    local verDate = nil
+    local verDatePrefix = "#define PLUGIN_SDK_DATE "
+    
+    local file = io.open(path.join(sdkdir, "shared\\plugin.h"), "r")
+    if file then        
+        for line in file:lines() do            
+            if line:sub(1, #verNumPrefix) == verNumPrefix then
+                verNum = line:sub(#verNumPrefix + 1)
+            end
+            
+            if line:sub(1, #verDatePrefix) == verDatePrefix then
+                verDate = line:sub(#verDatePrefix + 1)
+            end
+        end
+        
+        file:close()
+    end
+    
+    local verTxt = nil
+    
+    if verNum ~= nil then
+        verTxt = "version " .. verNum
+    end
+    
+    if verDate ~= nil then
+        if verTxt ~= nil then
+            verTxt = verTxt .. " "
+        end
+        
+        verTxt = verTxt .. "from " .. verDate
+    end
 
-    platformCount = 0
-    if game2 then           platformCount = platformCount + 1 end
-    if game3 or gameVc then platformCount = platformCount + 1 end -- 3 and VC are almost identical
-    if gameSa then          platformCount = platformCount + 1 end
-    if game4 then           platformCount = platformCount + 1 end
-    if game3Unreal then     platformCount = platformCount + 1 end
-    if gameVcUnreal then    platformCount = platformCount + 1 end
-    if gameSaUnreal then    platformCount = platformCount + 1 end
+    return verTxt
+end
 
-    projectDir = path.normalize(projectDir)
-    sourceDir = path.join(projectDir, "source")
+function generateNewPluginSource(projectDir, projectName, projectType, game2, game3, gameVc, gameSa, game4, game3Unreal, gameVcUnreal, gameSaUnreal)
+    -- classis trilogy helper variables
+    local trilogyDefs = {}
+    if game3 then  table.insert(trilogyDefs, "GTA3") end
+    if gameVc then table.insert(trilogyDefs, "GTAVC") end
+    if gameSa then table.insert(trilogyDefs, "GTASA") end
+    local isTrilogy = #trilogyDefs > 0 -- any of classic 3/VC/SA
+    local isTrilogyOnly = isTrilogy and not (game2 or game4 or game3Unreal or gameVcUnreal or gameSaUnreal) -- only classic 3/VC/SA
+    
+    -- Unreal trilogy helper variables
+    local unrealDefs = {}
+    if game3Unreal then  table.insert(unrealDefs, "GTA3_UNREAL") end
+    if gameVcUnreal then table.insert(unrealDefs, "GTAVC_UNREAL") end
+    if gameSaUnreal then table.insert(unrealDefs, "GTASA_UNREAL") end
+    local isUnreal = #unrealDefs > 0 -- any of Unreal 3/VC/SA
+    local isUnrealOnly = isUnreal and not (game2 or isTrilogy or game4) -- only Unreal 3/VC/SA
+    
+    local platformCount = 0
+    if game2 then     platformCount = platformCount + 1 end
+    if isTrilogy then platformCount = platformCount + 1 end
+    if game4 then     platformCount = platformCount + 1 end
+    if isUnreal then  platformCount = platformCount + 1 end
+
+    local projectDir = path.normalize(projectDir)
+    local sourceDir = path.join(projectDir, "source")
     os.execute('if not exist "' .. sourceDir .. '" (mkdir "' .. sourceDir .. '")')
 
     -- generate Main.cpp
-    main = io.open(path.join(sourceDir, "Main.cpp"), 'w')
+    local main = io.open(path.join(sourceDir, "Main.cpp"), 'w')
 
     -- includes
-    main:write([[#include <plugin.h>]], '\n')
+    main:write([[#include <plugin.h>]])
+    local verStr = getSdkVerInfo()
+    if verStr ~= nil then
+        main:write(' // Plugin-SDK ', verStr)
+    end
+    main:write('\n')
     
     if game2 then
         if platformCount > 1 then main:write([[#if defined GTA2]], '\n') end
@@ -923,7 +972,7 @@ function generateNewPluginSource(projectDir, projectName, projectType, game2, ga
         if platformCount > 1 then main:write([[#endif]], '\n') end
     end
     if isTrilogy then
-        if not isTrilogyOnly then main:write([[#if defined GTA3 || defined GTAVC || defined GTASA ]], '\n') end
+        if not isTrilogyOnly then main:write([[#if defined ]], table.concat(trilogyDefs, " || defined "), '\n') end
         main:write([[#include <CMessages.h>]], '\n')
         if not isTrilogyOnly then main:write([[#endif]], '\n') end
     end
@@ -933,7 +982,7 @@ function generateNewPluginSource(projectDir, projectName, projectType, game2, ga
         if platformCount > 1 then main:write([[#endif]], '\n') end
     end
     if isUnreal then
-        if not isUnrealOnly then main:write([[#if defined GTA3_UNREAL || defined GTAVC_UNREAL || defined GTASA_UNREAL ]], '\n') end
+        if not isUnrealOnly then main:write([[#if defined ]], table.concat(unrealDefs, " || defined "), '\n') end
         --main:write([[#include <CHud.h>]], '\n') -- TODO: DE trilogy include
         if not isUnrealOnly then main:write([[#endif]], '\n') end
     end
@@ -956,21 +1005,21 @@ struct Main
     {
         m_frame++;
         
-        static wchar_t msg[255];
-        swprintf_s(msg, L"Hello world! Frame %d", m_frame);
+        static char msg[255];
+        sprintf_s(msg, "Hello world! Frame %d", m_frame);
         
 ]])
     
     -- message printing GTA2
     if game2 then
         if platformCount > 1 then main:write([[    #if defined GTA2]], '\n') end
-        main:write([[        GetHud()->m_HudMessage.SetHudMessage(msg, MESSAGE_DISPLAY_NOW);]], '\n')
+        main:write([[        GetHud()->m_HudBrief.SetHudBriefStr(msg);]], '\n')
         if platformCount > 1 then main:write([[    #endif]], '\n') end
     end
 
     -- message printing classic trilogy
     if isTrilogy then
-        if not isTrilogyOnly then main:write([[    #if defined GTA3 or defined GTAVC or defined GTASA]], '\n') end
+        if not isTrilogyOnly then main:write([[    #if defined ]], table.concat(trilogyDefs, " || defined "), '\n') end
         main:write([[        CMessages::AddMessageJumpQ(msg, 500, 0);]], '\n')
         if not isTrilogyOnly then main:write([[    #endif]], '\n') end
     end
@@ -984,7 +1033,7 @@ struct Main
 
     -- message printing Definitive Edition trilogy
     if isUnreal then
-        if not isUnrealOnly then main:write([[    #if defined GTA3_UNREAL or defined GTAVC_UNREAL or defined GTASA_UNREAL]], '\n') end
+        if not isUnrealOnly then main:write([[    #if defined ]], table.concat(unrealDefs, " || defined "), '\n') end
         --main:write([[        CMessages::AddMessageJumpQ(msg, 500, 0);]], '\n') TODO: DE trilogy message printing
         if not isUnrealOnly then main:write([[    #endif]], '\n') end
     end

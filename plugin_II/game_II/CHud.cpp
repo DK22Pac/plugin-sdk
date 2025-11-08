@@ -6,6 +6,8 @@
 */
 
 #include "CHud.h"
+#include <algorithm>
+#include <string.h>
 
 CHud** gHud = (CHud**)0x672F40;
 
@@ -29,14 +31,35 @@ void CHud::DrawSprite(int id1, int id2, int x, int y, char style, int const& mod
     plugin::CallStd<0x4C71B0, int, int, int, int, char, int const&, int, int, char>(id1, id2, x, y, style, mode, enableAlpha, alpha, unk);
 }
 
-void CHudMessage::SetHudMessage(const wchar_t* str, int priority) {
-    plugin::CallMethod<0x4C6060>(this, str, priority);
+void CHudMessage::SetHudMessage(const char* text, eMessagePriority priority) {
+    _SWSTRING_STATIC_INIT(1); _SWSTRING_STATIC_FROM(1, text);
+    SetHudMessage(_SWSTRING_STATIC(1), priority);
 }
 
-void CHudBrief::SetHudBrief(int priority, const char* str) {
-    plugin::CallMethod<0x4C6750>(this, priority, str);
+void CHudMessage::SetHudMessage(const wchar_t* text, eMessagePriority priority) {
+    plugin::CallMethod<0x4C6060>(this, text, priority);
 }
 
-void CHudBrief::Clear(int priority) {
+void CHudBrief::SetHudBrief(eMessagePriority priority, const char* gxt, unsigned int timeout) {
+    plugin::CallMethod<0x4C6690>(this, priority, gxt, timeout);
+}
+
+void CHudBrief::SetHudBriefStr(const char* text, short time) {
+    _SWSTRING_STATIC_INIT(1); _SWSTRING_STATIC_FROM(1, text);
+    SetHudBriefStr(_SWSTRING_STATIC(1), time);
+}
+
+void CHudBrief::SetHudBriefStr(const wchar_t* text, short time) {
+    SetHudBrief(eMessagePriority::MESSAGE_DISPLAY_NOW, "", -1);
+
+    wcscpy_s(this->text, text);
+    length = wcslen(this->text);
+    lines = 1 + std::count_if(this->text, this->text + length, [](auto ch){ return ch == L'\n'; });
+
+    if (time == 0) time = length * GetHud()->m_nTextSpeed; // automatic
+    displayTime = time;
+}
+
+void CHudBrief::Clear(eMessagePriority priority) {
     plugin::CallMethod<0x4C6860>(this, priority);
 }
