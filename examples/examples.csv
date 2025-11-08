@@ -17,6 +17,7 @@ Speedometer,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 Test,						ASI,	YES,	YES,	YES,	YES,	YES,	---,	---,	---,	---
 Texture,					ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	---
 TimeNotTouchingPadOpcode,	CLEO,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+UnitTests,					ASI,	YES,	YES,	YES,	YES,	YES,	YES,	YES,	YES,	---
 UniversalTurnlights,		ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 VehicleRemap,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 VehicleSpawner,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
