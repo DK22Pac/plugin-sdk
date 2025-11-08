@@ -5,222 +5,96 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "RenderWare.h"
-#include <math.h>
 
+class CMatrix;
 class CVector2D;
 
-class CVector {
+class CVector
+{
 public:
     float x, y, z;
 
-    inline CVector() {
-        x = 0.0f;
-        y = 0.0f;
-        z = 0.0f;
-    }
+    // constructors
+    CVector() = default;
+    explicit CVector(float value);
+    CVector(float x, float y, float z);
+    CVector(const CVector& src);
+    CVector(const RwV3d& src);
+    explicit CVector(const CVector2D& xy, float z = 0.0f);
+    
+    // assignments
+    void Set(float value); // assign value to all components
+    void Set(float x, float y, float z);
+    void operator =(const CVector& src);
+    void FromRwV3d(const RwV3d& src);
+    void From2D(const CVector2D& xy, float z = 0.0f);
+    void FromSum(const CVector& left, const CVector& right); // store sum of two vectors
+    void FromDiff(const CVector& left, const CVector& right); // store left - right substraction result
+    void FromLerp(const CVector& begin, const CVector& end, float progress); // store result of linear interpolation between points
+    void FromCross(const CVector& left, const CVector& right); // store result of cross product
+    void FromMultiply(const CMatrix& matrix, const CVector& point); // store result of matrix and point multiplication
+    void FromMultiply3x3(const CMatrix& matrix, const CVector& vector); // store result of matrix and vector multiplication
 
-    inline CVector(float X, float Y, float Z) {
-        x = X; y = Y; z = Z;
-    }
+    // conversions
+    RwV3d ToRwV3d() const;
+    CVector2D To2D() const; // get XY
 
-    inline CVector(CVector const& src) {
-        x = src.x; y = src.y; z = src.z;
-    }
+    // properties
+    bool operator ==(const CVector& other) const;
+    bool operator !=(const CVector& other) const;
+    CVector operator -() const; // opposite vector
+    float Distance(const CVector& other) const; // distance to other
+    float Distance2D(const CVector& other) const; // XY distance to other
+    float Distance2D(const CVector2D& other) const; // XY distance to other
+    float Dot(const CVector& other) const; // dot product
+    CVector Cross(const CVector& other) const; // cross product
+    float Heading() const; // direction of XY vec in radians
+    float Magnitude() const; // length
+    float MagnitudeSqr() const; // length^2
+    float Magnitude2D() const; // XY vec length
+    float MagnitudeSqr2D() const; // XY vec length^2
+    bool  IsNormalized() const; // length is 1.0 +/- 0.001
+    bool  IsZero() const; // all components are 0.0
 
-    inline CVector(RwV3d const &right) {
-        FromRwV3d(right);
-    }
+    // modifiers
+    void operator +=(float value); // add to all components
+    void operator +=(const CVector& other);
+    void operator -=(float value); // substract from all components
+    void operator -=(const CVector& other);
+    void operator *=(float multiplier); // multiply all components
+    void operator /=(float divisor); // divide all components
+    void Normalise(); // scale to 1.0 length
+    float NormaliseAndMag(); // normalize and return previous length
 
-    inline void Cross(CVector const& a, CVector const& b) {
-        this->x = b.z * a.y - a.z * b.y;
-        this->y = a.z * b.x - a.x * b.z;
-        this->z = a.x * b.y - b.x * a.y;
-    }
-
-    CVector(const CVector2D& vec2d, float zValue = 0.0f);
-
-    CVector2D To2D() const;
-    void From2D(const CVector2D& vec2d, float zValue = 0.0f);
-
-    inline float Heading() const {
-        return std::atan2(-x, y);
-    }
-
-    inline float Magnitude() {
-        return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
-    }
-
-    inline float MagnitudeSqr() const {
-        return x * x + y * y + z * z;
-    }
-
-    inline float Magnitude2D() {
-        return sqrtf(this->x * this->x + this->y * this->y);
-    }
-
-    inline float MagnitudeSqr2D() const {
-        return x * x + y * y;
-    }
-
-    CVector operator-() const {
-        return CVector(-x, -y, -z);
-    }
-
-    inline void Sum(CVector &a, CVector &b) {
-        this->x = a.x + b.x;
-        this->y = a.y + b.y;
-        this->z = a.z + b.z;
-    }
-
-    inline void Difference(CVector &a, CVector &b) {
-        this->x = a.x - b.x;
-        this->y = a.y - b.y;
-        this->z = a.z - b.z;
-    }
-
-    inline void operator=(const CVector& right) {
-        this->x = right.x;
-        this->y = right.y;
-        this->z = right.z;
-    }
-
-    inline void operator+=(const CVector& right) {
-        this->x += right.x;
-        this->y += right.y;
-        this->z += right.z;
-    }
-
-    inline void operator-=(const CVector& right) {
-        this->x -= right.x;
-        this->y -= right.y;
-        this->z -= right.z;
-    }
-
-    inline void operator *= (float multiplier) {
-        this->x *= multiplier;
-        this->y *= multiplier;
-        this->z *= multiplier;
-    }
-
-    inline void operator /= (float divisor) {
-        this->x /= divisor;
-        this->y /= divisor;
-        this->z /= divisor;
-    }
-
-    inline bool operator==(const CVector& other) {
-        return x == other.x && y == other.y && z == other.z;
-    }
-
-    inline bool operator!=(const CVector& other) {
-        return x != other.x || y != other.y || z != other.z;
-    }
-
-    CVector Normalise() {
-        float sq = MagnitudeSqr();
-        if (sq > 0.0f) {
-            float invsqrt = 1.0f / std::sqrt(sq);
-            x *= invsqrt;
-            y *= invsqrt;
-            z *= invsqrt;
-        }
-        else
-            x = 1.0f;
-
-        return *this;
-    }
-
-    void Normalise2D(void) {
-        float sq = MagnitudeSqr2D();
-        float invsqrt = 1.0f / std::sqrt(sq);
-        x *= invsqrt;
-        y *= invsqrt;
-    }
-
-    float NormaliseAndMag() {
-        float sq = MagnitudeSqr();
-        if (sq > 0.0f) {
-            float invsqrt = 1.0f / std::sqrt(sq);
-            x *= invsqrt;
-            y *= invsqrt;
-            z *= invsqrt;
-            return 1.0f / invsqrt;
-        }
-        else {
-            x = 1.0f;
-            return 1.0f;
-        }
-    }
-
-    inline bool IsNormalized() const {
-        return std::fabs(MagnitudeSqr() - 1.0f) < 0.001f;
-    }
-
-    inline RwV3d ToRwV3d() const {
-        return{ x, y, z };
-    }
-
-    inline void FromRwV3d(RwV3d const &rwvec) {
-        x = rwvec.x; y = rwvec.y; z = rwvec.z;
-    }
-
-    inline void Set(float X, float Y, float Z) {
-        x = X; y = Y; z = Z;
-    }
-
-    bool IsZero() const {
-        return x == 0.0f && y == 0.0f && z == 0.0f;
-    }
-
-    inline void Zero() {
-        x = 0.0f;
-        y = 0.0f;
-        z = 0.0f;
-    }
+    // static functions
+    static CVector Sum(const CVector& left, const CVector& right); // result of left + right
+    static CVector Diff(const CVector& left, const CVector& right); // result of left - right
+    static float   Distance(const CVector& left, const CVector& right); // distance between points
+    static float   Distance2D(const CVector& left, const CVector& right); // XY distance between points
+    static float   Distance2D(const CVector& left, const CVector2D& right); // XY distance between points
+    static CVector Lerp(const CVector& begin, const CVector& end, float progress); // result of linear interpolation between points
+    static float   Dot(const CVector& left, const CVector& right); // result of dot product
+    static CVector Cross(const CVector& left, const CVector& right); // result of cross product
+    static CVector Multiply(const CMatrix& matrix, const CVector& point); // result of matrix and point multiplication
+    static CVector Multiply3x3(const CMatrix& matrix, const CVector& vector); // result of matrix and vector multiplication
 };
+VALIDATE_SIZE(CVector, 0xC);
 
-inline CVector operator-(const CVector& vecOne, const CVector& vecTwo) {
-    return CVector(vecOne.x - vecTwo.x, vecOne.y - vecTwo.y, vecOne.z - vecTwo.z);
-}
+// static operators
+CVector operator +(float value, const CVector& vec);
+CVector operator +(const CVector& vec, float value);
+CVector operator +(const CVector& left, const CVector& right);
 
-inline CVector operator+(const CVector& vecOne, const CVector& vecTwo) {
-    return CVector(vecOne.x + vecTwo.x, vecOne.y + vecTwo.y, vecOne.z + vecTwo.z);
-}
+CVector operator -(float value, const CVector& vec);
+CVector operator -(const CVector& vec, float value);
+CVector operator -(const CVector& left, const CVector& right);
 
-inline CVector operator*(const CVector& vec, float multiplier) {
-    return CVector(vec.x * multiplier, vec.y * multiplier, vec.z * multiplier);
-}
+CVector operator *(float value, const CVector& vec);
+CVector operator *(const CVector& vec, float value);
 
-inline CVector operator*(float multiplier, const CVector& vec) {
-    return CVector(vec.x * multiplier, vec.y * multiplier, vec.z * multiplier);
-}
+CVector operator /(float value, const CVector& vec);
+CVector operator /(const CVector& vec, float value);
 
-inline CVector operator*(const CVector& vecOne, const CVector& vecTwo) {
-    return CVector(vecOne.x * vecTwo.x, vecOne.y * vecTwo.y, vecOne.z * vecTwo.z);
-}
-
-inline CVector operator/(const CVector& left, float right) {
-    return CVector(left.x / right, left.y / right, left.z / right);
-}
-
-inline CVector operator*(const RwMatrix& mat, const CVector& vec) {
-    return CVector(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,
-        mat.right.y * vec.x + mat.up.y * vec.y + mat.at.y * vec.z + mat.pos.y,
-        mat.right.z * vec.x + mat.up.z * vec.y + mat.at.z * vec.z + mat.pos.z);
-}
-
-inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
-    CVector diff = pointTwo - pointOne;
-    return diff.Magnitude();
-}
-
-inline float DotProduct(const CVector& v1, const CVector& v2) {
-    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
-}
-
-inline CVector CrossProduct(const CVector& v1, const CVector& v2) {
-    return CVector(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
-}
+#include "CVectorImplementation.h" // inlined functions
