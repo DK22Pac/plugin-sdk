@@ -48,6 +48,7 @@ UTEST(CVector, ctor_CVector)
     EXPECT_EQ(v.z, 3.0f);
 }
 
+#ifdef RW
 UTEST(CVector, ctor_RwV3d)
 {
     RwV3d src;
@@ -60,6 +61,7 @@ UTEST(CVector, ctor_RwV3d)
     EXPECT_EQ(v.y, 2.0f);
     EXPECT_EQ(v.z, 3.0f);
 }
+#endif
 
 UTEST(CVector, ctor_CVector2D)
 {
@@ -108,6 +110,7 @@ UTEST(CVector, operator_assign)
     EXPECT_EQ(v.z, 3.0f);
 }
 
+#ifdef RW
 UTEST(CVector, FromRwV3d)
 {
     RwV3d src;
@@ -121,6 +124,7 @@ UTEST(CVector, FromRwV3d)
     EXPECT_EQ(v.y, 2.0f);
     EXPECT_EQ(v.z, 3.0f);
 }
+#endif
 
 UTEST(CVector, From2D)
 {
@@ -193,6 +197,7 @@ UTEST(CVector, FromCross)
     EXPECT_NEAR(v.z, 1.0f, F_EPS);
 }
 
+#ifdef HAS_CMATRIX
 UTEST(CVector, FromMultiply)
 {
     CMatrix m;
@@ -220,9 +225,11 @@ UTEST(CVector, FromMultiply3x3)
     EXPECT_NEAR(v.y, 1.0f, F_EPS);
     EXPECT_NEAR(v.z, 0.0f, F_EPS);
 }
+#endif
 
 // conversions
 
+#ifdef RW
 UTEST(CVector, ToRwV3d)
 {
     CVector src;
@@ -235,6 +242,7 @@ UTEST(CVector, ToRwV3d)
     EXPECT_EQ(v.y, 2.0f);
     EXPECT_EQ(v.z, 3.0f);
 }
+#endif
 
 UTEST(CVector, To2D)
 {
@@ -676,6 +684,7 @@ UTEST(CVector, Cross_CVectorCVector)
     EXPECT_NEAR(1.0f, v.z, F_EPS);
 }
 
+#ifdef HAS_CMATRIX
 UTEST(CVector, Multiply)
 {
     CMatrix m;
@@ -701,6 +710,7 @@ UTEST(CVector, Multiply3x3)
     EXPECT_NEAR(v.y, 1.0f, F_EPS);
     EXPECT_NEAR(v.z, 0.0f, F_EPS);
 }
+#endif
 
 // static operators
 

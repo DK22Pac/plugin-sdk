@@ -66,39 +66,6 @@ inline CVector2D operator*(const CVector2D& left, float right) {
     return CVector2D(left.x * right, left.y * right);
 }
 
-class CVector {
-public:
-    float x, y, z;
-
-public:
-    CVector();
-    CVector(float X, float Y, float Z);
-    CVector(CVector const& src);
-    float Magnitude();
-    float Magnitude2D();
-
-    void Sum(CVector& a, CVector& b);
-    void Difference(CVector& a, CVector& b);
-    void operator=(const CVector& right);
-    void operator+=(const CVector& right);
-    void operator-=(const CVector& right);
-    void operator*=(float multiplier);
-    void operator/=(float divisor);
-    CEncodedVector ToInt16();
-};
-
-inline CVector operator+(const CVector& left, const CVector& right) {
-    return CVector(left.x + right.x, left.y + right.y, left.z + right.z);
-}
-
-inline CVector operator-(const CVector& left, const CVector& right) {
-    return CVector(left.x - right.x, left.y - right.y, left.z - right.z);
-}
-
-inline CVector operator-(const CVector& left, const CVector2D& right) {
-    return CVector(left.x - right.x, left.y - right.y, left.z);
-}
-
-inline CVector2D operator-(const CVector2D& left, const CVector& right) {
+inline CVector2D operator-(const CVector2D& left, const CVector2D& right) {
     return CVector2D(left.x - right.x, left.y - right.y);
 }

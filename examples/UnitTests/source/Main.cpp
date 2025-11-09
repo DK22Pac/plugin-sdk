@@ -10,8 +10,9 @@ struct Main
 {
     Main()
     {
+        gInstance.RunTests(); // run now. In future some tests might require the game to be initialized
         // register event callbacks
-        Events::menuDrawingEvent += []{ gInstance.RunTests(); };
+        //Events::menuDrawingEvent += []{ gInstance.RunTests(); };
     }
 
     void RunTests()

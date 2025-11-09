@@ -408,18 +408,18 @@ function getExamplePluginDefines(projName, game, projectType, d3dSupport, additi
         aryDefines[counter] = "_CRT_NON_CONFORMING_SWPRINTFS"
         counter = counter + 1
     end
-            
-    aryDefines[counter] = game
-    aryDefines[counter + 1] = projectDefinition("GTAGAME_NAME", gameName)
-    aryDefines[counter + 2] = projectDefinition("GTAGAME_ABBR", gameAbbr)
-    aryDefines[counter + 3] = projectDefinition("GTAGAME_ABBRLOW", gameAbbrLow)
-    aryDefines[counter + 4] = projectDefinition("GTAGAME_PROTAGONISTNAME", protagonistName)
-    aryDefines[counter + 5] = projectDefinition("GTAGAME_CITYNAME", cityName)
-    counter = counter + 6
+    
+    aryDefines[counter] = "TARGET_NAME=R\"($(TargetName))\"" -- this plugin name
+    aryDefines[counter + 1] = game
+    aryDefines[counter + 2] = projectDefinition("GTAGAME_NAME", gameName)
+    aryDefines[counter + 3] = projectDefinition("GTAGAME_ABBR", gameAbbr)
+    aryDefines[counter + 4] = projectDefinition("GTAGAME_ABBRLOW", gameAbbrLow)
+    aryDefines[counter + 5] = projectDefinition("GTAGAME_PROTAGONISTNAME", protagonistName)
+    aryDefines[counter + 6] = projectDefinition("GTAGAME_CITYNAME", cityName)
+    counter = counter + 7
     
     if projectType == "CLEO" then
-        aryDefines[counter] = "TARGET_NAME=R\"($(TargetName))\""
-        counter = counter + 1
+        --
     elseif projectType == "MOON" then
         aryDefines[counter] = "LUA_BUILD_AS_DLL"
         aryDefines[counter + 1] = projectDefinition("MODULE_NAME", projName)
@@ -434,27 +434,50 @@ function getExamplePluginDefines(projName, game, projectType, d3dSupport, additi
     if game == "GTA2" then
         aryDefines[counter] = "PLUGIN_SGV_96EN"
         counter = counter + 1
+        
     elseif game == "GTA3" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
         aryDefines[counter + 1] = "RW"
         counter = counter + 2
+        
     elseif game == "GTAVC" then
         aryDefines[counter] = "PLUGIN_SGV_10EN"
         aryDefines[counter + 1] = "RW"
         counter = counter + 2
+        
     elseif game == "GTASA" then
         aryDefines[counter] = "PLUGIN_SGV_10US"
         aryDefines[counter + 1] = "RW"
         counter = counter + 2
+        
     elseif game == "GTAIV" then
         aryDefines[counter] = "PLUGIN_SGV_CE"
-        counter = counter + 1
+        aryDefines[counter + 1] = "RAGE"
+        counter = counter + 2
+        
     elseif game == "GTA3_UNREAL" then
-        -- TODO
+        aryDefines[counter] = "PLUGIN_UNREAL"
+        aryDefines[counter + 1] = "UNREAL"
+        aryDefines[counter + 2] = "NOASM"
+        aryDefines[counter + 3] = "RWINT32FROMFLOAT"
+        aryDefines[counter + 4] = "_WIN64"
+        counter = counter + 5
+        
     elseif game == "GTAVC_UNREAL" then
-        -- TODO
+        aryDefines[counter] = "PLUGIN_UNREAL"
+        aryDefines[counter + 1] = "UNREAL"
+        aryDefines[counter + 2] = "NOASM"
+        aryDefines[counter + 3] = "RWINT32FROMFLOAT"
+        aryDefines[counter + 4] = "_WIN64"
+        counter = counter + 5
+        
     elseif game == "GTASA_UNREAL" then
-        -- TODO
+        aryDefines[counter] = "PLUGIN_UNREAL"
+        aryDefines[counter + 1] = "UNREAL"
+        aryDefines[counter + 2] = "NOASM"
+        aryDefines[counter + 3] = "RWINT32FROMFLOAT"
+        aryDefines[counter + 4] = "_WIN64"
+        counter = counter + 5
     end
     
     aryDefines = splitStringAndPasteToArray(additionalDefines, ";", aryDefines, counter)
@@ -713,7 +736,6 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     configurations { "Release", "Debug" }
     project (projectName)
     language "C++"
-    architecture "x32"
     characterset ("MBCS")
     staticruntime "On"
     flags { "NoImportLib" }
@@ -756,6 +778,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if game2 then
         filter "platforms:GTA2"
+            architecture "x32"
             includedirs (getExamplePluginIncludeFolders("Plugin_II", "Game_II", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA2", projectType, d3dSupport, additionalDefinitions, "2", "2", "2", "Claude", "Anywhere City"))
@@ -771,6 +794,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if game3 then
         filter "platforms:GTA3"
+            architecture "x32"
             includedirs (getExamplePluginIncludeFolders("Plugin_III", "game_III", projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_III_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
@@ -786,6 +810,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if gameVc then
         filter "platforms:GTA-VC"
+            architecture "x32"
             includedirs (getExamplePluginIncludeFolders("Plugin_VC", "game_vc", projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
@@ -801,6 +826,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if gameSa then
         filter "platforms:GTA-SA"
+            architecture "x32"
             includedirs (getExamplePluginIncludeFolders("Plugin_SA", "game_sa", projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
@@ -816,6 +842,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if game4 then
         filter "platforms:GTA4"
+            architecture "x32"
             includedirs (getExamplePluginIncludeFolders("Plugin_IV", "game_iv", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAIV", projectType, d3dSupport, additionalDefinitions, "4", "4", "4", "Niko", "Liberty City"))
@@ -831,6 +858,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if game3Unreal then
         filter "platforms:GTA3_Unreal"
+            architecture "x64"
             includedirs (getExamplePluginIncludeFolders("Plugin_III_Unreal", "Game_III_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3_UNREAL", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
@@ -846,6 +874,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if gameVcUnreal then
         filter "platforms:GTA-VC_Unreal"
+            architecture "x64"
             includedirs (getExamplePluginIncludeFolders("Plugin_VC_Unreal", "Game_VC_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC_UNREAL", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
@@ -861,6 +890,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     
     if gameSaUnreal then
         filter "platforms:GTA-SA_Unreal"
+            architecture "x64"
             includedirs (getExamplePluginIncludeFolders("Plugin_SA_Unreal", "Game_SA_Unreal", projectType, "", d3dSupport, false, additionalIncludeDirs))
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA_UNREAL", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
@@ -1145,7 +1175,7 @@ else -- plugin sdk solution
                 end
             end
         end
-		
-		print("\n") -- separator before prints from premake itself
+        
+        print("") -- separator before prints from premake itself
     end
 end

@@ -1,14 +1,20 @@
 /*
-    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Plugin-SDK header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
-#include "RenderWare.h"
+#ifdef RW
+    #include "RenderWare.h"
+#endif
 
-class CMatrix;
+#if defined GTA3 || defined GTAVC || defined GTASA
+    #define HAS_CMATRIX
+    class CMatrix;
+#endif
+
 class CVector2D;
 
 class CVector
@@ -21,29 +27,37 @@ public:
     explicit CVector(float value);
     CVector(float x, float y, float z);
     CVector(const CVector& src);
+#ifdef RW
     CVector(const RwV3d& src);
+#endif
     explicit CVector(const CVector2D& xy, float z = 0.0f);
     
     // assignments
     void Set(float value); // assign value to all components
     void Set(float x, float y, float z);
     void operator =(const CVector& src);
+#ifdef RW
     void FromRwV3d(const RwV3d& src);
+#endif
     void From2D(const CVector2D& xy, float z = 0.0f);
     void FromSum(const CVector& left, const CVector& right); // store sum of two vectors
     void FromDiff(const CVector& left, const CVector& right); // store left - right substraction result
     void FromLerp(const CVector& begin, const CVector& end, float progress); // store result of linear interpolation between points
     void FromCross(const CVector& left, const CVector& right); // store result of cross product
+ #ifdef HAS_CMATRIX
     void FromMultiply(const CMatrix& matrix, const CVector& point); // store result of matrix and point multiplication
     void FromMultiply3x3(const CMatrix& matrix, const CVector& vector); // store result of matrix and vector multiplication
+#endif
 
     // conversions
+#ifdef RW
     RwV3d ToRwV3d() const;
+#endif
     CVector2D To2D() const; // get XY
 
     // properties
-    bool operator ==(const CVector& other) const;
-    bool operator !=(const CVector& other) const;
+    bool  operator ==(const CVector& other) const;
+    bool  operator !=(const CVector& other) const;
     CVector operator -() const; // opposite vector
     float Distance(const CVector& other) const; // distance to other
     float Distance2D(const CVector& other) const; // XY distance to other
@@ -77,8 +91,10 @@ public:
     static CVector Lerp(const CVector& begin, const CVector& end, float progress); // result of linear interpolation between points
     static float   Dot(const CVector& left, const CVector& right); // result of dot product
     static CVector Cross(const CVector& left, const CVector& right); // result of cross product
+#ifdef HAS_CMATRIX
     static CVector Multiply(const CMatrix& matrix, const CVector& point); // result of matrix and point multiplication
     static CVector Multiply3x3(const CMatrix& matrix, const CVector& vector); // result of matrix and vector multiplication
+#endif
 };
 VALIDATE_SIZE(CVector, 0xC);
 

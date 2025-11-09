@@ -23,13 +23,8 @@ extern "C" {
 #include "CTimer.h"
 #endif
 
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || \
-defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
+#include "CVector.h"
 #include "CVector2D.h"
-#include "CVector.h"
-#elif defined(GTAIV) || defined(GTA2)
-#include "CVector.h"
-#endif
 
 namespace plugin {
     static void OpenConsole() {

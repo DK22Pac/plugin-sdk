@@ -1,5 +1,5 @@
 /*
-    Plugin-SDK (Grand Theft Auto San Andreas) source file
+    Plugin-SDK source file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
@@ -14,16 +14,18 @@ inline CVector::CVector(float value) {
 }
 
 inline CVector::CVector(float x, float y, float z) {
-    ((void(__thiscall*)(CVector*, float, float, float)) 0x420B10)(this, x, y, z);
+    Set(x, y, z);
 }
 
 inline CVector::CVector(const CVector& src) {
     *this = src;
 }
 
+#ifdef RW
 inline CVector::CVector(const RwV3d& src) {
     FromRwV3d(src);
 }
+#endif
 
 inline CVector::CVector(const CVector2D& xy, float z) {
     Set(xy.x, xy.y, z);
@@ -42,23 +44,27 @@ inline void CVector::Set(float x, float y, float z) {
 }
 
 inline void CVector::operator =(const CVector& src) {
-    ((void (__thiscall*)(CVector*, const CVector&)) 0x411B50)(this, src);
+    Set(src.x, src.y, src.z);
 }
 
+#ifdef RW
 inline void CVector::FromRwV3d(const RwV3d& src) {
-    ((void (__thiscall*)(CVector*, const RwV3d&)) 0x411B50)(this, src); // RwV3d and CVector have same memory layout
+    Set(src.x, src.y, src.z);
 }
+#endif
 
 inline void CVector::From2D(const CVector2D& xy, float z) {
     Set(xy.x, xy.y, z);
 }
 
 inline void CVector::FromSum(const CVector& left, const CVector& right) {
-    ((void (__thiscall*)(CVector*, const CVector&, const CVector&)) 0x40FDD0)(this, left, right);
+    *this = left;
+    *this += right;
 }
 
 inline void CVector::FromDiff(const CVector& left, const CVector& right) {
-    ((void (__thiscall*)(CVector*, const CVector&, const CVector&)) 0x40FE00)(this, left, right);
+    *this = left;
+    *this -= right;
 }
 
 inline void CVector::FromLerp(const CVector& begin, const CVector& end, float progress) {
@@ -66,22 +72,24 @@ inline void CVector::FromLerp(const CVector& begin, const CVector& end, float pr
 }
 
 inline void CVector::FromCross(const CVector& left, const CVector& right) {
-    ((void (__thiscall*)(CVector*, const CVector&, const CVector&)) 0x70F890)(this, left, right);
+    Set(
+        right.z * left.y - left.z * right.y,
+        left.z * right.x - left.x * right.z,
+        left.x * right.y - right.x * left.y
+    );
 }
 
-inline void CVector::FromMultiply(CMatrix const& matrix, CVector const& point) {
-    ((void (__thiscall*)(CVector*, const CMatrix&, const CVector&)) 0x59C670)(this, matrix, point);
-}
+// FromMultiply in CVector.cpp
 
-inline void CVector::FromMultiply3x3(const CMatrix& matrix, const CVector& vector) {
-    ((void (__thiscall*)(CVector*, const CMatrix&, const CVector&)) 0x59C6D0)(this, matrix, vector);
-}
+// FromMultiply3x3 in CVector.cpp
 
 // conversions
 
+#ifdef RW
 inline RwV3d CVector::ToRwV3d() const {
     return RwV3d(x, y, z);
 }
+#endif
 
 inline CVector2D CVector::To2D() const {
     return CVector2D(x, y);
@@ -126,8 +134,7 @@ inline float CVector::Heading() const {
 }
 
 inline float CVector::Magnitude() const {
-    auto s = ((double (__fastcall*)(const CVector*)) 0x4082C0)(this);
-    return (float)s;
+    return std::sqrt(MagnitudeSqr());
 }
 
 inline float CVector::MagnitudeSqr() const {
@@ -135,8 +142,7 @@ inline float CVector::MagnitudeSqr() const {
 }
 
 inline float CVector::Magnitude2D() const {
-    auto s = ((double (__fastcall*)(const CVector*)) 0x406D50)(this);
-    return (float)s;
+    return std::sqrt(MagnitudeSqr2D());
 }
 
 inline float CVector::MagnitudeSqr2D() const {
@@ -160,7 +166,9 @@ inline void CVector::operator +=(float value) {
 }
 
 inline void CVector::operator +=(const CVector& other) {
-    ((void (__thiscall*)(CVector*, const CVector&)) 0x411A00)(this, other);
+    x += other.x;
+    y += other.y;
+    z += other.z;
 }
 
 inline void CVector::operator -=(float value) {
@@ -170,24 +178,31 @@ inline void CVector::operator -=(float value) {
 }
 
 inline void CVector::operator -=(const CVector& other) {
-    ((void (__thiscall*)(CVector*, const CVector&)) 0x406D70)(this, other);
+    x -= other.x;
+    y -= other.y;
+    z -= other.z;
 }
 
 inline void CVector::operator *=(float multiplier) {
-    ((void (__thiscall*)(CVector*, float divisor)) 0x40FEF0)(this, multiplier);
+    x *= multiplier;
+    y *= multiplier;
+    z *= multiplier;
 }
 
 inline void CVector::operator /=(float divisor) {
-    ((void (__thiscall*)(CVector*, float divisor)) 0x411A30)(this, divisor);
+    x /= divisor;
+    y /= divisor;
+    z /= divisor;
 }
 
 inline void CVector::Normalise() {
-    ((void (__thiscall*)(CVector*)) 0x59C910)(this);
+    NormaliseAndMag();
 }
 
 inline float CVector::NormaliseAndMag() {
-    auto s = ((double (__fastcall*)(const CVector*)) 0x59C970)(this);
-    return (float)s;
+    auto length = Magnitude();
+    if (length > 0.0f) *this /= length;
+    return length;
 }
 
 // static functions
@@ -240,17 +255,9 @@ inline CVector CVector::Cross(const CVector& left, const CVector &right) {
     return result;
 }
 
-inline CVector CVector::Multiply(const CMatrix& matrix, const CVector& point) {
-    CVector result;
-    result.FromMultiply(matrix, point);
-    return result;
-}
+// Multiply in CVector.cpp
 
-inline CVector CVector::Multiply3x3(const CMatrix& matrix, const CVector& vector) {
-    CVector result;
-    result.FromMultiply3x3(matrix, vector);
-    return result;
-}
+// Multiply3x3 in CVector.cpp
 
 // static operators
 
