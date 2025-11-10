@@ -1036,7 +1036,7 @@ struct Main
         m_frame++;
         
         static char msg[255];
-        sprintf_s(msg, "Hello world! Frame %d", m_frame);
+        sprintf_s(msg, "Hello from '%s' plugin! Frame %d", TARGET_NAME, m_frame);
         
 ]])
     
