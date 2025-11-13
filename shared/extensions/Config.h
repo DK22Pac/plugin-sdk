@@ -10,15 +10,11 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA) || \
-defined(GTA3_UNREAL) || defined(GTAVC_UNREAL) || defined(GTASA_UNREAL)
-#include "CVector.h"
-#include "CVector2D.h"
-#elif defined(GTAIV) || defined(GTA2)
-#include "CVector.h"
-#endif
+
 #include "CRect.h"
 #include "CRGBA.h"
+#include "CVector.h"
+#include "CVector2D.h"
 #include "Paths.h"
 
 namespace plugin {

@@ -35,6 +35,13 @@ void CMatrix::Reorthogonalise() {
     ((void(__thiscall *)(CMatrix*))0x4DEA30)(this);
 }
 
+void CMatrix::Translate(float x, float y, float z)
+{
+	pos.x += x;
+	pos.y += y;
+	pos.z += z;
+}
+
 // Converted from thiscall void CMatrix::Rotate(float x,float y,float z) 0x4DEBA0
 void CMatrix::Rotate(float x, float y, float z) {
     ((void(__thiscall *)(CMatrix*, float, float, float))0x4DEBA0)(this, x, y, z);
