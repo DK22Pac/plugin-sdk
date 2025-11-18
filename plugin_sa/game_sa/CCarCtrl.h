@@ -15,6 +15,30 @@
 class PLUGIN_API CCarCtrl
 {
 public:
+    static bool& bCarIsBeingCreated;
+    static unsigned int& NumLawEnforcerCars;
+    static unsigned int& NumParkedCars;
+    static unsigned int& NumAmbulancesOnDuty;
+    static unsigned int& NumFireTrucksOnDuty;
+    static unsigned int& MaxNumberOfCarsInUse;
+    static float& CarDensityMultiplier;
+    static int& NumRandomCars;
+    static int& NumMissionCars;
+    static int& NumPermanentVehicles;
+    static int& LastTimeAmbulanceCreated;
+    static int& LastTimeFireTruckCreated;
+    static bool& bAllowEmergencyServicesToBeCreated;
+    static bool& bCarsGeneratedAroundCamera;
+    static char& CountDownToCarsAtStart;
+    static float& TimeNextMadDriverChaseCreated;
+    static int& SequenceElements;
+    static int& SequenceRandomOffset;
+    static bool& bSequenceOtherWay;
+    static int& LastTimeLawEnforcerCreated;
+
+	static CVehicle* (&apCarsToKeep)[2];
+	static unsigned int (&aCarsToKeepTime)[2];
+
 	static int ChooseBoatModel();
 	static int ChooseCarModelToLoad(int arg1);
 	static int ChooseGangCarModel(int arg1);
@@ -123,5 +147,4 @@ public:
 	static void WeaveThroughCarsSectorList(CPtrList& PtrList, CVehicle* pVehicle, CPhysical* pPhysical, float arg4, float arg5, float arg6, float arg7, float* arg8, float* arg9);
 	static void WeaveThroughObjectsSectorList(CPtrList& PtrList, CVehicle* pVehicle, float arg3, float arg4, float arg5, float arg6, float* arg7, float* arg8);
 	static void WeaveThroughPedsSectorList(CPtrList& PtrList, CVehicle* pVehicle, CPhysical* pPhysical, float arg4, float arg5, float arg6, float arg7, float* arg8, float* arg9);
-
 };
