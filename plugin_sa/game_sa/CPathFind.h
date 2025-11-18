@@ -55,9 +55,11 @@ public:
 		float maxSearchDistance, CNodeAddress *targetAddr, float maxUnkLimit, bool oneSideOnly, 
 		CNodeAddress forbiddenNodeAddr, bool includeNodesWithoutLinks, bool waterPath);
 
+    void SetPathsNeededAtPosition(const CVector& pos);
+    void UpdateStreaming(bool bForceStreaming);
+
 	CPathNode *GetPathNode(CNodeAddress address);
 };
-
 VALIDATE_SIZE(CPathFind, 0x3C80);
 
 extern PLUGIN_API CPathFind& ThePaths;
