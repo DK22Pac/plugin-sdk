@@ -20,6 +20,14 @@ void CPathFind::DoPathSearch(unsigned char pathType, CVector origin, CNodeAddres
 		waterPath);
 }
 
+void CPathFind::SetPathsNeededAtPosition(const CVector& pos) {
+	plugin::CallMethod<0x44DCD0, CPathFind*, const CVector&>(this, pos);
+}
+
+void CPathFind::UpdateStreaming(bool bForceStreaming) {
+	plugin::CallMethod<0x450A60, CPathFind*, bool>(this, bForceStreaming);
+}
+
 CPathNode *CPathFind::GetPathNode(CNodeAddress address)
 {
 	return ((CPathNode *(__thiscall *)(CPathFind *, CNodeAddress))0x420AC0)(this, address);
