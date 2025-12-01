@@ -815,7 +815,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_VC_DIR)", d3dSupport, d3dSupport, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             setupDebugger(projectType, "GTA_VC_DIR", "", "gta-vc.exe")
-        filter { "Release", "platforms:GTAVC" }
+        filter { "Release", "platforms:GTA-VC" }
             links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC")
         filter { "Debug", "platforms:GTA-VC" }
@@ -831,7 +831,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             libdirs (getExamplePluginLibraryFolders(projectType, "$(CLEO_SDK_SA_DIR)", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             setupDebugger(projectType, "GTA_SA_DIR", "", "gta_sa.exe")
-        filter { "Release", "platforms:GTASA" }
+        filter { "Release", "platforms:GTA-SA" }
             links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA")
         filter { "Debug", "platforms:GTA-SA" }
@@ -863,7 +863,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTA3_UNREAL", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
             setupDebugger(projectType, "GTA_III_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "LibertyCity.exe")
-        filter { "Release", "platforms:GTA3_UNREAL" }
+        filter { "Release", "platforms:GTA3_Unreal" }
             links (getExamplePluginLibraries("plugin_iii_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".III-DE")
         filter { "Debug", "platforms:GTA3_Unreal" }
@@ -879,7 +879,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTAVC_UNREAL", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             setupDebugger(projectType, "GTA_VC_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "ViceCity.exe")
-        filter { "Release", "platforms:GTAVC_UNREAL" }
+        filter { "Release", "platforms:GTA-VC_Unreal" }
             links (getExamplePluginLibraries("plugin_vc_unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC-DE")
         filter { "Debug", "platforms:GTA-VC_Unreal" }
@@ -895,7 +895,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             libdirs (getExamplePluginLibraryFolders(projectType, "", d3dSupport, false, additionalLibraryDirs))
             defines (getExamplePluginDefines(projectName, "GTASA_UNREAL", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             setupDebugger(projectType, "GTA_SA_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "SanAndreas.exe")
-        filter { "Release", "platforms:GTASA_UNREAL" }
+        filter { "Release", "platforms:GTA-SA_Unreal" }
             links (getExamplePluginLibraries("plugin_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA-DE")
         filter { "Debug", "platforms:GTA-SA_Unreal" }
