@@ -20,6 +20,10 @@ void CPathFind::DoPathSearch(unsigned char pathType, CVector origin, CNodeAddres
 		waterPath);
 }
 
+bool CPathFind::IsWaterNodeNearby(CVector position, float radius) {
+	return plugin::CallMethodAndReturn<bool, 0x450DE0, CPathFind*, CVector, float>(this, position, radius);
+}
+
 void CPathFind::SetPathsNeededAtPosition(const CVector& pos) {
 	plugin::CallMethod<0x44DCD0, CPathFind*, const CVector&>(this, pos);
 }
