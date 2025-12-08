@@ -11,13 +11,8 @@
 
 class PLUGIN_API CDecisionMaker {
 public:
-    CDecision m_decision[DM_TOTAL_NUM_EVENTS];
+    CDecision m_decision[eDecisionMakerEvents::DM_TOTAL_NUM_EVENTS];
 
-    inline CDecisionMaker() { // @0x4650A0
-        for (unsigned int i = 0; i < DM_TOTAL_NUM_EVENTS; ++i) {
-            //m_decision[i].SetDefault();
-        }
-    }
+    CDecisionMaker();
 };
-
 VALIDATE_SIZE(CDecisionMaker, 0x99C);
