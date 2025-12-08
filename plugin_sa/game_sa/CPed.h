@@ -39,7 +39,7 @@ enum PLUGIN_API eMoveState {
     PEDMOVE_SPRINT
 };
 
-enum eFightingStyle
+enum PLUGIN_API eFightingStyle
 {
     STYLE_STANDARD = 4,
     STYLE_BOXING,
