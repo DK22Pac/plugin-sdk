@@ -7,6 +7,7 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CDecisionMakerTypes.h"
 #include "CTaskManager.h"
 #include "CEventHandler.h"
 #include "CEventGroup.h"
@@ -28,35 +29,35 @@
 
 class PLUGIN_API CPedIntelligence {
 public:
-    class CPed*      m_pPed;
-    CTaskManager     m_TaskMgr;
-    CEventHandler    m_eventHandler;
-    CEventGroup      m_eventGroup;
-    unsigned int     m_nDecisionMakerType;
-    unsigned int     m_nDecisionMakerTypeInGroup;
-    float            m_fHearingRange;
-    float            m_fSeeingRange;
-    unsigned int     m_nDmNumPedsToScan;
-    float            m_fDmRadius;
-    float            m_FollowNodeThresholdDistance;
-    char             m_NextEventResponseSequence;
-    unsigned char    m_nEventId;
-    unsigned char    m_nEventPriority;
-    char             field_D3;
-    CEntityScanner   m_vehicleScanner;
-    CEntityScanner   m_pedScanner;
-    CMentalState     m_mentalState;
-    char             field_188;
-    CEventScanner    m_eventScanner;
+    class CPed*        m_pPed;
+    CTaskManager       m_TaskMgr;
+    CEventHandler      m_eventHandler;
+    CEventGroup        m_eventGroup;
+    eDecisionMakerType m_nDecisionMakerType;
+    eDecisionMakerType m_nDecisionMakerTypeInGroup;
+    float              m_fHearingRange;
+    float              m_fSeeingRange;
+    unsigned int       m_nDmNumPedsToScan;
+    float              m_fDmRadius;
+    float              m_FollowNodeThresholdDistance;
+    char               m_NextEventResponseSequence;
+    unsigned char      m_nEventId;
+    unsigned char      m_nEventPriority;
+    char               field_D3;
+    CEntityScanner     m_vehicleScanner;
+    CEntityScanner     m_pedScanner;
+    CMentalState       m_mentalState;
+    char               field_188;
+    CEventScanner      m_eventScanner;
     CCollisionEventScanner m_collisionScanner;
-    CPedStuckChecker m_pedStuckChecker;
-    int              m_AnotherStaticCounter;
-    int              m_StaticCounter;
-    CVector          m_vecLastPedPosDuringDamageEntity;
-    class CEntity*   m_apInterestingEntities[3];
+    CPedStuckChecker   m_pedStuckChecker;
+    int                m_AnotherStaticCounter;
+    int                m_StaticCounter;
+    CVector            m_vecLastPedPosDuringDamageEntity;
+    class CEntity*     m_apInterestingEntities[3];
     
-    void SetPedDecisionMakerType(int newtype);
-    void SetPedDecisionMakerTypeInGroup(int newtype);
+    void SetPedDecisionMakerType(eDecisionMakerType dm);
+    void SetPedDecisionMakerTypeInGroup(eDecisionMakerType dm);
     void RestorePedDecisionMakerType();
     void SetHearingRange(float range);
     void SetSeeingRange(float range);
