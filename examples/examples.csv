@@ -1,6 +1,7 @@
 PROJECT,					TYPE,	GTA2,	GTA3,	GTA-VC,	GTA-SA,	GTA4,	DE-3,	DE-VC,	DE-SA,	D3D
 ColouredObjects,			ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 CreateCar,					ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
+DecisionMaker,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 DXFont,						ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	YES
 FullNitrousControl,			ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 GPS,						ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	YES

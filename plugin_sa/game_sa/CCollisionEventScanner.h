@@ -5,14 +5,16 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+
 #include "PluginBase.h"
-#include "CDecision.h"
-#include "eDecisionMakerEvents.h"
 
-class PLUGIN_API CDecisionMaker {
+class CPed;
+class CEventGroup;
+
+class PLUGIN_API CCollisionEventScanner {
 public:
-    CDecision m_decision[eDecisionMakerEvents::DM_TOTAL_NUM_EVENTS];
+    bool m_bAlreadyHitByCar;
 
-    CDecisionMaker();
+    void ScanForCollisionEvents(CPed* victim, CEventGroup* eventGroup);
 };
-VALIDATE_SIZE(CDecisionMaker, 0x99C);
+VALIDATE_SIZE(CCollisionEventScanner, 0x1);
