@@ -16,7 +16,7 @@ public:
 		ProperEuler    // repeated axis (e.g. ZXZ, XYX)
 	};
 
-	struct t_EulerAngleConvertionFlags {
+	struct t_EulerAngleConversionFlags {
 		uint8_t swapXAndZ: 1; // if set, treats the X axis as Yaw, Z-axis at Pitch
 		uint8_t angleType: 1; // see e_EulerAngleType
 		uint8_t isFlipped: 1;  // if set negate all three angles
@@ -24,14 +24,14 @@ public:
 		// NOTE: the game always uses 0x15 as the convertion flags
 	};
 
-	VALIDATE_SIZE(t_EulerAngleConvertionFlags, 1);
+	VALIDATE_SIZE(t_EulerAngleConversionFlags, 1);
 
     // RwV3d-like:
-    CVector      right;
+    CVector      right; // x-axis
     unsigned int flags;
-    CVector      forward;
+    CVector      up; // y-axis, the member name is supposed to be "forward"
     unsigned int pad1;
-    CVector      up;
+    CVector      at; // z-axis, the member name is supposed to be "up"
     unsigned int pad2;
     CVector      pos;
     unsigned int pad3;
@@ -77,9 +77,9 @@ public:
 	void RotateZ(float yaw);
 	void Rotate(CVector const &rotation);
 	void Rotate(float pitch, float roll, float yaw); // rotate on 3 axes
-	CVector ConvertToEulerAngles(t_EulerAngleConvertionFlags flags);
-	void ConvertFromEulerAngles(CVector rotation, t_EulerAngleConvertionFlags flags);
-	void ConvertFromEulerAngles(float x, float y, float z, t_EulerAngleConvertionFlags flags);
+	CVector ConvertToEulerAngles(t_EulerAngleConversionFlags flags);
+	void ConvertFromEulerAngles(CVector rotation, t_EulerAngleConversionFlags flags);
+	void ConvertFromEulerAngles(float x, float y, float z, t_EulerAngleConversionFlags flags);
 	void Translate(CVector const &offset);
 	void Translate(float x, float y, float z); // move the position
 	void Reorthogonalise();
@@ -94,11 +94,11 @@ public:
 	CVector& GetRight() { return right; }
 	const CVector& GetRight() const { return right; }
 
-	CVector& GetForward() { return forward; }
-	const CVector& GetForward() const { return forward; }
+	CVector& GetForward() { return up; }
+	const CVector& GetForward() const { return up; }
 
-	CVector& GetUp() { return up; }
-	const CVector& GetUp() const { return up; }
+	CVector& GetUp() { return at; }
+	const CVector& GetUp() const { return at; }
 
 	CVector& GetPosition() { return pos; }
 	const CVector& GetPosition() const { return pos; }
