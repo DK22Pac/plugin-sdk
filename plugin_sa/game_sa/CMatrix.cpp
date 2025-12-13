@@ -73,15 +73,27 @@ void CMatrix::SetScale(float scale)
 	((void (__thiscall *)(CMatrix *, float))0x59AED0)(this, scale);
 }
 
+void CMatrix::SetScale(CVector const &scale) {
+	SetScale(pos.x, pos.y, pos.z);
+}
+
 // scale on three axes
 void CMatrix::SetScale(float x, float y, float z)
 {
 	((void (__thiscall *)(CMatrix *, float, float, float))0x59AF00)(this, x, y, z);
 }
 
+void CMatrix::SetTranslateOnly(CVector const &pos) {
+	SetTranslateOnly(pos.x, pos.y, pos.z);
+}
+
 void CMatrix::SetTranslateOnly(float x, float y, float z)
 {
 	((void (__thiscall *)(CMatrix *, float, float, float))0x59AF80)(this, x, y, z);
+}
+
+void CMatrix::SetTranslate(CVector const &pos) {
+	SetTranslate(pos.x, pos.y, pos.z);
 }
 
 // like previous + reset orientation
@@ -90,40 +102,48 @@ void CMatrix::SetTranslate(float x, float y, float z)
 	((void (__thiscall *)(CMatrix *, float, float, float))0x59AF40)(this, x, y, z);
 }
 
-void CMatrix::SetRotateXOnly(float angle)
+void CMatrix::SetRotateXOnly(float pitch)
 {
-	((void (__thiscall *)(CMatrix *, float))0x59AFA0)(this, angle);
+	((void (__thiscall *)(CMatrix *, float))0x59AFA0)(this, pitch);
 }
 
-void CMatrix::SetRotateYOnly(float angle)
+void CMatrix::SetRotateYOnly(float roll)
 {
-	((void (__thiscall *)(CMatrix *, float))0x59AFE0)(this, angle);
+	((void (__thiscall *)(CMatrix *, float))0x59AFE0)(this, roll);
 }
 
-void CMatrix::SetRotateZOnly(float angle)
+void CMatrix::SetRotateZOnly(float yaw)
 {
-	((void (__thiscall *)(CMatrix *, float))0x59B020)(this, angle);
+	((void (__thiscall *)(CMatrix *, float))0x59B020)(this, yaw);
 }
 
-void CMatrix::SetRotateX(float angle)
+void CMatrix::SetRotateX(float pitch)
 {
-	((void (__thiscall *)(CMatrix *, float))0x59B060)(this, angle);
+	((void (__thiscall *)(CMatrix *, float))0x59B060)(this, pitch);
 }
 
-void CMatrix::SetRotateY(float angle)
+void CMatrix::SetRotateY(float roll)
 {
-	((void (__thiscall *)(CMatrix *, float))0x59B0A0)(this, angle);
+	((void (__thiscall *)(CMatrix *, float))0x59B0A0)(this, roll);
 }
 
-void CMatrix::SetRotateZ(float angle)
+void CMatrix::SetRotateZ(float yaw)
 {
-	((void (__thiscall *)(CMatrix *, float))0x59B0E0)(this, angle);
+	((void (__thiscall *)(CMatrix *, float))0x59B0E0)(this, yaw);
+}
+
+void CMatrix::SetRotate(CVector const &rotation) {
+	SetRotate(rotation.x, rotation.y, rotation.z);
 }
 
 // set rotate on 3 axes
-void CMatrix::SetRotate(float x, float y, float z)
+void CMatrix::SetRotate(float roll, float pitch, float yaw)
 {
-	((void (__thiscall *)(CMatrix *, float, float, float))0x59B120)(this, x, y, z);
+	((void (__thiscall *)(CMatrix *, float, float, float))0x59B120)(this, roll, pitch, yaw);
+}
+
+void CMatrix::Translate(CVector const &offset) {
+	pos += offset;
 }
 
 void CMatrix::Translate(float x, float y, float z)
@@ -148,10 +168,14 @@ void CMatrix::RotateZ(float angle)
 	((void (__thiscall *)(CMatrix *, float))0x59B390)(this, angle);
 }
 
+void CMatrix::Rotate(CVector const &rotation) {
+	Rotate(rotation.x, rotation.y, rotation.z);
+}
+
 // rotate on 3 axes
-void CMatrix::Rotate(float x, float y, float z)
+void CMatrix::Rotate(float roll, float pitch, float yaw)
 {
-	((void (__thiscall *)(CMatrix *, float, float, float))0x59B460)(this, x, y, z);
+	((void (__thiscall *)(CMatrix *, float, float, float))0x59B460)(this, roll, pitch, yaw);
 }
 
 void CMatrix::Reorthogonalise()
@@ -176,6 +200,22 @@ void CMatrix::Scale(float scale) {
 
 void CMatrix::Scale(float x, float y, float z) {
     plugin::CallMethod<0x459350, CMatrix *, float, float, float>(this, x, y, z);
+}
+
+CVector CMatrix::ConvertToEulerAngles(CMatrix::t_EulerAngleConvertionFlags flags) {
+	CVector toRotation;
+	((void(__thiscall*)(::CMatrix*, float*, float*, float*, t_EulerAngleConvertionFlags))0x59A840)
+		(this, &toRotation.x, &toRotation.y, &toRotation.z, flags);
+	return toRotation;
+}
+
+void CMatrix::ConvertFromEulerAngles(float x, float y, float z, CMatrix::t_EulerAngleConvertionFlags flags) {
+	((void(__thiscall*)(::CMatrix*, float, float, float, t_EulerAngleConvertionFlags))0x59AA40)
+		(this, x, y, z, flags);
+}
+
+void CMatrix::ConvertFromEulerAngles(CVector fromRotation, CMatrix::t_EulerAngleConvertionFlags flags) {
+	ConvertFromEulerAngles(fromRotation.x, fromRotation.y, fromRotation.z, flags);
 }
 
 void CMatrix::operator=(CMatrix const& rvalue)

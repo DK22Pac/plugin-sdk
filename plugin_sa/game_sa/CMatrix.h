@@ -11,12 +11,27 @@
 
 class CMatrix {
 public:
+	enum class e_EulerAngleType : uint8_t {
+		TaitBryan,     // three distinct axes (yaw/pitch/roll style)
+		ProperEuler    // repeated axis (e.g. ZXZ, XYX)
+	};
+
+	struct t_EulerAngleConvertionFlags {
+		uint8_t swapXAndZ: 1; // if set, treats the X axis as Yaw, Z-axis at Pitch
+		uint8_t angleType: 1; // see e_EulerAngleType
+		uint8_t isFlipped: 1;  // if set negate all three angles
+		uint8_t primaryAxisIndex: 2; // index (0..3) into byte_866D9C[] that selects primary axis/order
+		// NOTE: the game always uses 0x15 as the convertion flags
+	};
+
+	VALIDATE_SIZE(t_EulerAngleConvertionFlags, 1);
+
     // RwV3d-like:
     CVector      right;
     unsigned int flags;
-    CVector      up;
+    CVector      forward;
     unsigned int pad1;
-    CVector      at;
+    CVector      up;
     unsigned int pad2;
     CVector      pos;
     unsigned int pad3;
@@ -43,20 +58,29 @@ public:
 	void SetUnity();
 	void ResetOrientation();
 	void SetScale(float scale); // set (scaled)
+	void SetScale(CVector const &scale);
 	void SetScale(float x, float y, float z); // set (scaled)
+	void SetTranslateOnly(CVector const &pos);
 	void SetTranslateOnly(float x, float y, float z);
+	void SetTranslate(CVector const &pos);
 	void SetTranslate(float x, float y, float z); // like previous + reset orientation
-	void SetRotateXOnly(float angle);
-	void SetRotateYOnly(float angle);
-	void SetRotateZOnly(float angle);
-	void SetRotateX(float angle);
-	void SetRotateY(float angle);
-	void SetRotateZ(float angle);
-	void SetRotate(float x, float y, float z); // set rotate on 3 axes
-	void RotateX(float angle);
-	void RotateY(float angle);
-	void RotateZ(float angle);
-	void Rotate(float x, float y, float z); // rotate on 3 axes
+	void SetRotateXOnly(float pitch);
+	void SetRotateYOnly(float roll);
+	void SetRotateZOnly(float yaw);
+	void SetRotateX(float pitch);
+	void SetRotateY(float roll);
+	void SetRotateZ(float yaw);
+	void SetRotate(CVector const &rotation);
+	void SetRotate(float pitch, float roll, float yaw); // sets the rotation on 3 axes + resets the position to origin(0, 0, 0)
+	void RotateX(float pitch);
+	void RotateY(float roll);
+	void RotateZ(float yaw);
+	void Rotate(CVector const &rotation);
+	void Rotate(float pitch, float roll, float yaw); // rotate on 3 axes
+	CVector ConvertToEulerAngles(t_EulerAngleConvertionFlags flags);
+	void ConvertFromEulerAngles(CVector rotation, t_EulerAngleConvertionFlags flags);
+	void ConvertFromEulerAngles(float x, float y, float z, t_EulerAngleConvertionFlags flags);
+	void Translate(CVector const &offset);
 	void Translate(float x, float y, float z); // move the position
 	void Reorthogonalise();
 	void CopyToRwMatrix(RwMatrix *matrix); // similar to UpdateRW(RwMatrixTag *)
@@ -70,11 +94,11 @@ public:
 	CVector& GetRight() { return right; }
 	const CVector& GetRight() const { return right; }
 
-	CVector& GetForward() { return up; }
-	const CVector& GetForward() const { return up; }
+	CVector& GetForward() { return forward; }
+	const CVector& GetForward() const { return forward; }
 
-	CVector& GetUp() { return at; }
-	const CVector& GetUp() const { return at; }
+	CVector& GetUp() { return up; }
+	const CVector& GetUp() const { return up; }
 
 	CVector& GetPosition() { return pos; }
 	const CVector& GetPosition() const { return pos; }
