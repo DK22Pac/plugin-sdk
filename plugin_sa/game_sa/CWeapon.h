@@ -11,7 +11,6 @@
 #include "FxSystem_c.h"
 #include "CVector2D.h"
 #include "CColPoint.h"
-#include "ePedPieceTypes.h"
 
 enum eWeaponState : unsigned int
 {
@@ -23,6 +22,7 @@ enum eWeaponState : unsigned int
 };
 
 class CPed;
+enum ePedPieceTypes : int;
 class CVehicle;
 class CColModel;
 

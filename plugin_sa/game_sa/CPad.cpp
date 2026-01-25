@@ -148,14 +148,14 @@ bool CPad::ExitVehicleJustDown() {
     return plugin::CallMethodAndReturn<bool, 0x540120, CPad *>(this);
 }
 
-// Converted from thiscall uchar CPad::GetMeleeAttack(void) 0x540340
-unsigned char CPad::GetMeleeAttack() {
-    return plugin::CallMethodAndReturn<unsigned char, 0x540340, CPad *>(this, 0);
+//uchar __thiscall CPad::GetMeleeAttack(CPad *this, bool bCheckButtonCircleStateOnly) 0x540340
+unsigned char CPad::GetMeleeAttack(bool checkButtonCircleOnly) {
+    return plugin::CallMethodAndReturn<unsigned char, 0x540340, CPad*, bool>(this, checkButtonCircleOnly);
 }
 
-// Converted from thiscall uchar CPad::MeleeAttackJustDown(void) 0x540390
-unsigned char CPad::MeleeAttackJustDown() {
-    return plugin::CallMethodAndReturn<unsigned char, 0x540390, CPad *>(this);
+//uchar __thiscall CPad::MeleeAttackJustDown(CPad *this, bool bCheckButtonCircleStateOnly) 0x540390
+unsigned char CPad::MeleeAttackJustDown(bool checkButtonCircleOnly) {
+    return plugin::CallMethodAndReturn<unsigned char, 0x540390, CPad*, bool>(this, checkButtonCircleOnly);
 }
 
 // Converted from thiscall short CPad::GetAccelerate(void) 0x5403F0
