@@ -48,16 +48,18 @@ public:
 	float m_fForbiddenForScrCarsY1;
 	float m_fForbiddenForScrCarsY2;
 
-	//
-
 	void DoPathSearch(unsigned char pathType, CVector origin, CNodeAddress originAddr, 
 		CVector target, CNodeAddress *pResultNodes, short *pNodesCount, int maxNodesToFind, float *pDistance, 
 		float maxSearchDistance, CNodeAddress *targetAddr, float maxUnkLimit, bool oneSideOnly, 
 		CNodeAddress forbiddenNodeAddr, bool includeNodesWithoutLinks, bool waterPath);
 
+	bool IsWaterNodeNearby(CVector position, float radius);
+
+	void SetPathsNeededAtPosition(const CVector& pos);
+	void UpdateStreaming(bool bForceStreaming);
+
 	CPathNode *GetPathNode(CNodeAddress address);
 };
-
 VALIDATE_SIZE(CPathFind, 0x3C80);
 
 extern PLUGIN_API CPathFind& ThePaths;

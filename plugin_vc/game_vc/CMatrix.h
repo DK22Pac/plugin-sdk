@@ -34,6 +34,7 @@ public:
 
     void CopyToRwMatrix(RwMatrix* rwMatrix);
     void Reorthogonalise();
+    void Translate(float x, float y, float z); // move the position
     void Rotate(float x, float y, float z);
     void RotateZ(float angle);
     void RotateY(float angle);

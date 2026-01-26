@@ -50,4 +50,6 @@ extern class CSprite2d* LoadSplash(const char* name);
 
 extern RsEventStatus RsEventHandler(RsEvent event, void* param);
 
+extern void RenderScene();
+
 #include "meta/meta.CGame.h"

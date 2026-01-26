@@ -5,7 +5,8 @@
     Do not delete this comment block. Respect others' work!
 */
 
-#include "CVector.h"
+#include "CVector2D.h"
+#include <CVector.h>
 
 CEncodedVector::CEncodedVector() {
     x = 0; y = 0; z = 0;
@@ -95,70 +96,4 @@ void CVector2D::operator/=(float divisor) {
 
 CEncodedVector2D CVector2D::ToInt16() {
     return CEncodedVector2D((int)(this->x * 16384), (int)(this->y * 16384));
-}
-
-CVector::CVector() {
-    x = 0.0f; y = 0.0f; z = 0.0f;
-}
-
-CVector::CVector(float X, float Y, float Z) {
-    x = X; y = Y; z = Z;
-}
-
-CVector::CVector(CVector const& src) {
-    x = src.x; y = src.y; z = src.z;
-}
-
-float CVector::Magnitude() {
-    return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z);
-}
-
-float CVector::Magnitude2D() {
-    return sqrtf(this->x * this->x + this->y * this->y);
-}
-
-void CVector::Sum(CVector& a, CVector& b) {
-    this->x = a.x + b.x;
-    this->y = a.y + b.y;
-    this->z = a.z + b.z;
-}
-
-void CVector::Difference(CVector& a, CVector& b) {
-    this->x = a.x - b.x;
-    this->y = a.y - b.y;
-    this->z = a.z - b.z;
-}
-
-void CVector::operator=(const CVector& right) {
-    this->x = right.x;
-    this->y = right.y;
-    this->z = right.z;
-}
-
-void CVector::operator+=(const CVector& right) {
-    this->x += right.x;
-    this->y += right.y;
-    this->z += right.z;
-}
-
-void CVector::operator-=(const CVector& right) {
-    this->x -= right.x;
-    this->y -= right.y;
-    this->z -= right.z;
-}
-
-void CVector::operator *= (float multiplier) {
-    this->x *= multiplier;
-    this->y *= multiplier;
-    this->z *= multiplier;
-}
-
-void CVector::operator/=(float divisor) {
-    this->x /= divisor;
-    this->y /= divisor;
-    this->z /= divisor;
-}
-
-CEncodedVector CVector::ToInt16() {
-    return CEncodedVector((int)(this->x * 16384), (int)(this->y * 16384), (int)(this->z * 16384));
 }

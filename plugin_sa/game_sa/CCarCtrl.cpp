@@ -5,6 +5,31 @@
     Do not delete this comment block. Respect others' work!
 */
 #include "CCarCtrl.h"
+
+bool& CCarCtrl::bCarIsBeingCreated = *(bool*)0x9690CC;
+unsigned int& CCarCtrl::NumLawEnforcerCars = *(unsigned int*)0x969098;
+unsigned int& CCarCtrl::NumParkedCars = *(unsigned int*)0x9690A0;
+unsigned int& CCarCtrl::NumAmbulancesOnDuty = *(unsigned int*)0x9690A8;
+unsigned int& CCarCtrl::NumFireTrucksOnDuty = *(unsigned int*)0x9690AC;
+unsigned int& CCarCtrl::MaxNumberOfCarsInUse = *(unsigned int*)0x8A5B24;
+float& CCarCtrl::CarDensityMultiplier = *(float*)0x8A5B20;
+int& CCarCtrl::NumRandomCars = *(int*)0x969094;
+int& CCarCtrl::NumMissionCars = *(int*)0x96909C;
+int& CCarCtrl::NumPermanentVehicles = *(int*)0x9690A4;
+int& CCarCtrl::LastTimeAmbulanceCreated = *(int*)0x9690B0;
+int& CCarCtrl::LastTimeFireTruckCreated = *(int*)0x9690B4;
+bool& CCarCtrl::bAllowEmergencyServicesToBeCreated = *(bool*)0x8A5B28;
+bool& CCarCtrl::bCarsGeneratedAroundCamera = *(bool*)0x9690C1;
+char& CCarCtrl::CountDownToCarsAtStart = *(char*)0x9690C0;
+float& CCarCtrl::TimeNextMadDriverChaseCreated = *(float*)0x9690BC;
+int& CCarCtrl::SequenceElements = *(int*)0x969078;
+int& CCarCtrl::SequenceRandomOffset = *(int*)0x969074;
+bool& CCarCtrl::bSequenceOtherWay = *(bool*)0x969070;
+int& CCarCtrl::LastTimeLawEnforcerCreated = *(int*)0x9690B8;
+
+CVehicle* (&CCarCtrl::apCarsToKeep)[2] = *(CVehicle*(*)[2])0x969084;
+unsigned int (&CCarCtrl::aCarsToKeepTime)[2] = *(unsigned int(*)[2])0x96907C;
+
 // Converted from cdecl int CCarCtrl::ChooseBoatModel(void) 0x421970
 int CCarCtrl::ChooseBoatModel() {
 	return plugin::CallAndReturn<int, 0x421970>();

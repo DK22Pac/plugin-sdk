@@ -18,22 +18,18 @@ public:
     CControllerState PCTempKeyState;
     CControllerState PCTempJoyState;
     CControllerState PCTempMouseState;
-    short wordD2;
+    short Phase;
     short Mode;
     short ShakeDur;
-    char ShakeFreq;
-    char byteD9;
-    char byteDA;
-    char byteDB;
-    char byteDC;
-    char byteDD;
-    char byteDE;
-    char DisablePlayerControls;
-    char byteE0;
-    char gapE1[15];
-    int dwordF0;
-    int dwordF4;
-    int dwordF8;
+    unsigned char ShakeFreq;
+    bool bHornHistory[5];
+    unsigned char iCurrHornHistory;
+    unsigned char DisablePlayerControls;
+    char bApplyBrakes;
+    char CheatString[12];
+    int LastTimeTouched;
+    int AverageWeapon;
+    int AverageEntries;
         
     //variables
     static short &ReconState;

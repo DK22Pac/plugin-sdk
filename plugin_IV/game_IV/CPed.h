@@ -504,6 +504,8 @@ public:
     bool CanStartMission();
     void SetRelationship(int32_t level, int32_t group);
     CControl* GetControlFromPlayer();
+    void SetHealth(float health, int unknown = 0);
+    void AddHealth(float health);
 
 public:
     static CVehicle* GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, bool arg2);

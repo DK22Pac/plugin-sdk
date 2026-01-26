@@ -57,6 +57,7 @@ public:
 	void RotateY(float angle);
 	void RotateZ(float angle);
 	void Rotate(float x, float y, float z); // rotate on 3 axes
+	void Translate(float x, float y, float z); // move the position
 	void Reorthogonalise();
 	void CopyToRwMatrix(RwMatrix *matrix); // similar to UpdateRW(RwMatrixTag *)
 	void SetRotate(CQuaternion  const& quat);

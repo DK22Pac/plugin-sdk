@@ -106,72 +106,79 @@ public:
     float m_fGasPedal;
     float m_fBreakPedal;
     unsigned char m_nCreatedBy; // see eVehicleCreatedBy
-    struct {
-        unsigned char b01 : 1;
-        unsigned char b02 : 1;
-        unsigned char b03 : 1;
-        unsigned char bIsLocked : 1; // Is this guy locked by the script (cannot be removed)
-        unsigned char bEngineOn : 1; // For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
-        unsigned char bIsHandbrakeOn : 1;
-        unsigned char bLightsOn : 1; // Are the lights switched on ?
-        unsigned char b08 : 1;
-        unsigned char bIsVan : 1; // Is this vehicle a van (doors at back of vehicle)
-        unsigned char bHideOccupants : 1;
-        unsigned char bIsBus : 1; // Is this vehicle a bus
-        unsigned char bIsBig : 1; // Is this vehicle a big
-        unsigned char bComedyControls : 1; // Will make the car hard to control (hopefully in a funny way)
-        unsigned char b14 : 1;
-        unsigned char b15 : 1;
-        unsigned char b16 : 1;
-        unsigned char b17 : 1;
-        unsigned char bIsDamaged : 1; // This vehicle has been damaged and is displaying all its components
-        unsigned char b19 : 1;
-        unsigned char b20 : 1;
-        unsigned char b21 : 1;
-        unsigned char bSpawnCops : 1;
-        unsigned char b23 : 1;
-        unsigned char bUsePlayerColModel : 1;
-        unsigned char bIsLawEnforcementVeh : 1;
-        unsigned char b26 : 1;
-        unsigned char bHasDriver : 1;
-        unsigned char b28 : 1;
-        unsigned char b29 : 1;
-        unsigned char b30 : 1;
-        unsigned char b31 : 1;
-        unsigned char b32 : 1;
-        unsigned char b33 : 1;
-        unsigned char bCarTiresInvulnerable : 1;
-        unsigned char b35 : 1;
-        unsigned char b36 : 1;
-        unsigned char b37 : 1;
-        unsigned char b38 : 1;
-        unsigned char b39 : 1;
-        unsigned char b40 : 1;
-        unsigned char b41 : 1;
-        unsigned char b42 : 1;
-        unsigned char b43 : 1;
-        unsigned char b44 : 1;
-        unsigned char b45 : 1;
-        unsigned char b46 : 1;
-        unsigned char b47 : 1;
-        unsigned char b48 : 1;
-        unsigned char b49 : 1;
-        unsigned char b50 : 1;
-        unsigned char b51 : 1;
-        unsigned char b52 : 1;
-        unsigned char b53 : 1;
-        unsigned char b54 : 1;
-        unsigned char b55 : 1;
-        unsigned char b56 : 1;
-        unsigned char b57 : 1;
-        unsigned char b58 : 1;
-        unsigned char b59 : 1;
-        unsigned char b60 : 1;
-        unsigned char b61 : 1;
-        unsigned char b62 : 1;
-        unsigned char b63 : 1;
-        unsigned char b64 : 1;
-    } m_nVehicleFlags;
+
+    unsigned char b01 : 1;
+    unsigned char b02 : 1;
+    unsigned char b03 : 1;
+    unsigned char bIsLocked : 1; // Is this guy locked by the script (cannot be removed)
+    unsigned char bEngineOn : 1; // For sound purposes. Parked cars have their engines switched off (so do destroyed cars)
+    unsigned char bIsHandbrakeOn : 1;
+    unsigned char bLightsOn : 1; // Are the lights switched on ?
+    unsigned char b08 : 1;
+
+    unsigned char bIsVan : 1; // Is this vehicle a van (doors at back of vehicle)
+    unsigned char bHideOccupants : 1;
+    unsigned char bIsBus : 1; // Is this vehicle a bus
+    unsigned char bIsBig : 1; // Is this vehicle a big
+    unsigned char bComedyControls : 1; // Will make the car hard to control (hopefully in a funny way)
+    unsigned char b14 : 1;
+    unsigned char b15 : 1;
+    unsigned char b16 : 1;
+
+    unsigned char b17 : 1;
+    unsigned char bIsDamaged : 1; // This vehicle has been damaged and is displaying all its components
+    unsigned char b19 : 1;
+    unsigned char b20 : 1;
+    unsigned char b21 : 1;
+    unsigned char bSpawnCops : 1;
+    unsigned char b23 : 1;
+    unsigned char bUsePlayerColModel : 1;
+
+    unsigned char bIsLawEnforcementVeh : 1;
+    unsigned char b26 : 1;
+    unsigned char bHasDriver : 1;
+    unsigned char b28 : 1;
+    unsigned char b29 : 1;
+    unsigned char b30 : 1;
+    unsigned char b31 : 1;
+    unsigned char b32 : 1;
+
+    unsigned char b33 : 1;
+    unsigned char bCarTiresInvulnerable : 1;
+    unsigned char b35 : 1;
+    unsigned char b36 : 1;
+    unsigned char b37 : 1;
+    unsigned char b38 : 1;
+    unsigned char b39 : 1;
+    unsigned char b40 : 1;
+
+    unsigned char b41 : 1;
+    unsigned char b42 : 1;
+    unsigned char b43 : 1;
+    unsigned char b44 : 1;
+    unsigned char b45 : 1;
+    unsigned char b46 : 1;
+    unsigned char b47 : 1;
+    unsigned char b48 : 1;
+
+    unsigned char b49 : 1;
+    unsigned char b50 : 1;
+    unsigned char b51 : 1;
+    unsigned char b52 : 1;
+    unsigned char b53 : 1;
+    unsigned char b54 : 1;
+    unsigned char b55 : 1;
+    unsigned char b56 : 1;
+
+    unsigned char b57 : 1;
+    unsigned char b58 : 1;
+    unsigned char b59 : 1;
+    unsigned char b60 : 1;
+    unsigned char b61 : 1;
+    unsigned char b62 : 1;
+    unsigned char b63 : 1;
+    unsigned char b64 : 1;
+
     unsigned char m_nAmmoInClip;
     char field_201;
     float m_fHealth;

@@ -41,11 +41,11 @@ void plugin::patch::Nop(uintptr_t address, size_t size, bool vp) {
     injector::MakeNOP(GetGlobalAddress(address), size, vp);
 }
 
-void plugin::patch::RedirectCall(uintptr_t address, void *func, bool vp) {
+void plugin::patch::RedirectCall(uintptr_t address, injector::memory_pointer_raw func, bool vp) {
     injector::MakeCALL(GetGlobalAddress(address), func, vp);
 }
 
-void plugin::patch::RedirectJump(uintptr_t address, void *func, bool vp) {
+void plugin::patch::RedirectJump(uintptr_t address, injector::memory_pointer_raw func, bool vp) {
     injector::MakeJMP(GetGlobalAddress(address), func, vp);
 }
 
@@ -77,7 +77,7 @@ void plugin::patch::SetFloat(uintptr_t address, float value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
-void plugin::patch::SetPointer(uintptr_t address, void *value, bool vp) {
+void plugin::patch::SetPointer(uintptr_t address, injector::memory_pointer_raw value, bool vp) {
     injector::WriteMemory(GetGlobalAddress(address), value, vp);
 }
 
@@ -130,7 +130,7 @@ void plugin::patch::GetRaw(uintptr_t address,void* ret, size_t size, bool vp) {
     injector::ReadMemoryRaw(GetGlobalAddress(address), ret, size, vp);
 }
 
-void plugin::patch::RedirectShortJump(uintptr_t address, void* dest, bool vp) {
+void plugin::patch::RedirectShortJump(uintptr_t address, injector::memory_pointer_raw dest, bool vp) {
 
     uintptr_t GlobalAddress = GetGlobalAddress(address);
     injector::WriteMemory<uint8_t>(GlobalAddress, 0xEB, vp);

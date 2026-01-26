@@ -53,3 +53,11 @@ CVehicle* CPed::GetVehiclePedWouldEnter(CPed* ped, rage::Vector3 const& pos, boo
 bool CPed::IsPedDead(CPed* ped) {
     return plugin::CallAndReturnDyn<bool>(gpattern("8B 44 24 04 80 B8 ? ? ? ? ? 74 10 8B 88 ? ? ? ? 83 F9 01 74 0E 83 F9 02 74 09 83 B8 ? ? ? ? ? 75 03"), ped);
 }
+
+void CPed::SetHealth(float health, int unknown) {
+    plugin::CallVirtualMethod<61>(this, health, unknown);
+}
+
+void CPed::AddHealth(float health) {
+    plugin::CallVirtualMethod<62>(this, health);
+}

@@ -9,10 +9,12 @@
 #include "PluginBase.h"
 
 enum eStreamingFlags {
+    DEFAULT = 0x0,
     GAME_REQUIRED = 0x2,
     MISSION_REQUIRED = 0x4,
     KEEP_IN_MEMORY = 0x8,
     PRIORITY_REQUEST = 0x10,
+    LOADING_SCENE = 0x20,
     SCM_COMMAND_FLAG = 0x0C
 };
 

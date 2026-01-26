@@ -12,11 +12,7 @@
 
 struct ColDef {
     CRect m_Area;
-    unsigned int field_10;
-    unsigned int field_14;
-    unsigned int field_18;
-    unsigned int field_1C;
-    unsigned short field_20;
+    char name[18];
     short m_nModelIdStart;
     short m_nModelIdEnd;
     unsigned short m_nRefCount;
@@ -25,7 +21,6 @@ struct ColDef {
     bool m_bProcedural;
     bool m_bInterior;
 };
-
 VALIDATE_SIZE(ColDef, 0x2C);
 
 typedef CPool<ColDef> CColPool;
@@ -41,4 +36,25 @@ public:
     static bool& ms_bCollisionNeeded;
     static int ms_nRequiredCollisionArea;
 
+    static void Initialise();
+    static void Shutdown();
+    static int  AddColSlot(const char* name);
+    static void AddCollisionNeededAtPosn(const CVector& pos);
+    static void AddRef(int colNum);
+    static void BoundingBoxesPostProcess();
+    static void EnsureCollisionIsInMemory(const CVector& pos);
+    static CRect* GetBoundingBox(int colSlot);
+    static void IncludeModelIndex(int colSlot, int modelId);
+    static bool HasCollisionLoaded(const CVector& pos, int areaCode);
+    static void LoadAllBoundingBoxes();
+    static void LoadAllCollision();
+    static void LoadCol(int colSlot, const char* filename);
+    static bool LoadCol(int colSlot, unsigned char* data, int dataSize);
+    static void LoadCollision(const CVector& pos, bool bIgnorePlayerVeh);
+    static void RemoveAllCollision();
+    static void RemoveCol(int colSlot);
+    static void RemoveColSlot(int colSlot);
+    static void RemoveRef(int colNum);
+    static void RequestCollision(const CVector& pos, int areaCode);
+    static void SetCollisionRequired(const CVector& pos, int areaCode);
 };

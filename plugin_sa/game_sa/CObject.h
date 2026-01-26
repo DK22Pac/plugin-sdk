@@ -90,6 +90,8 @@ public:
     static void* operator new(unsigned int size, int poolRef);
     static void operator delete(void* data);
     CObject();
+    CObject(int32_t modelId, bool bCreate);
+    CObject(CDummyObject* dummyObj);
     ~CObject();
     void SetIsStatic(bool isStatic);
     void ProcessGarageDoorBehaviour();

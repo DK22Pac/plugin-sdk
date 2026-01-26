@@ -204,7 +204,7 @@ make_slot:
     }
 
     CSprite2d SpriteLoader::GetSprite(std::string const& name) {
-        CSprite2d sprite;
+        CSprite2d sprite = {};
         auto s = spritesMap.find(name);
         if (s != spritesMap.end())
             sprite.m_pTexture = s->second;
@@ -213,7 +213,7 @@ make_slot:
     }
 
     CSprite2d SpriteLoader::GetSprite(uint32_t id) {
-        CSprite2d sprite;
+        CSprite2d sprite = {};
 
         auto s = spritesMapIndex.find(id);
         if (s != spritesMapIndex.end())
@@ -233,7 +233,7 @@ make_slot:
         mipMap = on;
     }
 
-    void SpriteLoader::SetExtension(std::string ext) {
+    void SpriteLoader::SetExtension(std::string const& ext) {
         extension = ext;
     }
 

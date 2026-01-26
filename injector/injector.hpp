@@ -28,6 +28,7 @@
 #include <windows.h>
 #include <cstdint>
 #include <cstdio>
+#include <type_traits>
 #include "gvm/gvm.hpp"
 #include "..\shared\DynAddress.h"
 /*
@@ -61,7 +62,24 @@
 
 namespace injector
 {
+/*
+*   valid_pointer_type
+*       Concept to check if T is either a pointer or an integer that fits in a pointer
+*/
+    template <class T>
+    concept valid_pointer_type = std::is_scalar_v<T> && sizeof(T) <= sizeof(uintptr_t) && !std::is_floating_point_v<T>;
 
+/*
+*   to_void_pointer
+*       Function to convert a valid_pointer_type to a void*
+*/
+    template <valid_pointer_type T>
+    inline void* to_void_pointer(T x)
+    {
+		void* p = nullptr;
+		std::memcpy(&p, std::addressof(x), sizeof(T));
+        return p;
+	}
 
 /*
  *  auto_pointer 
@@ -79,8 +97,9 @@ union auto_pointer
     public:
         auto_pointer() : p(0)                          {}
         auto_pointer(const auto_pointer& x) : p(x.p)  {}
-        explicit auto_pointer(void* x)    : p(x)       {}
-        explicit auto_pointer(uint32_t x) : a(x)       {}
+
+        template<valid_pointer_type T>
+        explicit auto_pointer(T x) : p(to_void_pointer(x))       {}
 
         bool is_null() const { return this->p != nullptr; }
 
@@ -117,13 +136,10 @@ union basic_memory_pointer
     public:
         basic_memory_pointer()                      : p(nullptr)    {}
         basic_memory_pointer(std::nullptr_t)        : p(nullptr)    {}
-        basic_memory_pointer(uintptr_t x)           : a(x)          {}
+        template<valid_pointer_type T>
+        basic_memory_pointer(T x)                   : p(to_void_pointer(x))          {}
         basic_memory_pointer(const auto_pointer& x) : p(x.p)        {}
         basic_memory_pointer(const basic_memory_pointer& rhs) : p(rhs.p)  {}
-
-        template<class T>
-        basic_memory_pointer(T* x) : p((void*)x) {}
-
         
 
         
@@ -136,8 +152,9 @@ union basic_memory_pointer
         // Gets the raw pointer, without translation (casted to T*)
         template<class T> T* get_raw() const    { return auto_pointer(p); }
         
-        // This type can get assigned from void* and uintptr_t
-        basic_memory_pointer& operator=(void* x)		{ return p = x, *this; }
+        // This type can get assigned from any pointer and uintptr_t
+        template<valid_pointer_type T>
+        basic_memory_pointer& operator=(T x) { return p = to_void_pointer(x), *this; }
         basic_memory_pointer& operator=(uintptr_t x)	{ return a = x, *this; }
         
         /* Arithmetic */
@@ -222,13 +239,10 @@ union memory_pointer_tr
             : p(rhs.p)
         {}  // Constructs from my own type, copy constructor
         
-        memory_pointer_tr(uintptr_t x)
-            : p(memory_pointer(x).get())
-        {}  // Constructs from a integer, translating the address
-      
-        memory_pointer_tr(void* x)
-            : p(memory_pointer(x).get())
-        {}  // Constructs from a void pointer, translating the address
+        template<valid_pointer_type T>
+        memory_pointer_tr(T x)
+            : p(memory_pointer(to_void_pointer(x)).get())
+        {}  // Constructs from any pointer or integer, translating the address
         
         // Just to be method-compatible with basic_memory_pointer ...
         auto_pointer         get()      { return auto_pointer(p);     }

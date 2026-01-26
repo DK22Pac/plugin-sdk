@@ -126,6 +126,13 @@ void CMatrix::SetRotate(float x, float y, float z)
 	((void (__thiscall *)(CMatrix *, float, float, float))0x59B120)(this, x, y, z);
 }
 
+void CMatrix::Translate(float x, float y, float z)
+{
+	pos.x += x;
+	pos.y += y;
+	pos.z += z;
+}
+
 void CMatrix::RotateX(float angle)
 {
 	((void (__thiscall *)(CMatrix *, float))0x59B1E0)(this, angle);

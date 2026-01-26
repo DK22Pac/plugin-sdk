@@ -26,32 +26,32 @@ void CPlantMgr::Render() {
     plugin::CallDynGlobal(0x5DBAE0);
 }
 
-void CPlantMgr::_ProcessEntryCollisionDataSections_RemoveLocTris(CPlantColEntEntry* col, CVector const& camPos, int triProcessSkipMask, int colStartIndex, int colEndIndex) {
-    plugin::CallDynGlobal(0x5DBF20, col, camPos, triProcessSkipMask, colStartIndex, colEndIndex);
+void CPlantMgr::_ProcessEntryCollisionDataSections_RemoveLocTris(CPlantColEntEntry* col, const CVector& camPos, int triProcessSkipMask, int colStartIndex, int colEndIndex) {
+    plugin::CallDynGlobal(0x5DBF20, col, &camPos, triProcessSkipMask, colStartIndex, colEndIndex);
 }
 
-void CPlantMgr::_ColEntityCache_Update(CVector const& camPos, uint8_t quickUpdate) {
-    plugin::CallDynGlobal(0x5DC510, camPos, quickUpdate);
+void CPlantMgr::_ColEntityCache_Update(const CVector& camPos, uint8_t quickUpdate) {
+    plugin::CallDynGlobal(0x5DC510, &camPos, quickUpdate);
 }
 
-void CPlantMgr::_ProcessEntryCollisionDataSections_AddLocTris(CPlantColEntEntry* col, CVector const& camPos, int processSkipMask, int colStartIndex, int colEndIndex) {
-    plugin::CallDynGlobal(0x5DC8B0, col, camPos, processSkipMask, colStartIndex, colEndIndex);
+void CPlantMgr::_ProcessEntryCollisionDataSections_AddLocTris(CPlantColEntEntry* col, const CVector& camPos, int processSkipMask, int colStartIndex, int colEndIndex) {
+    plugin::CallDynGlobal(0x5DC8B0, col, &camPos, processSkipMask, colStartIndex, colEndIndex);
 }
 
-void CPlantMgr::_ProcessEntryCollisionDataSections(CPlantColEntEntry* col, CVector const& camPos, int processSkipMask) {
-    plugin::CallDynGlobal(0x5DCD80, col, camPos, processSkipMask);
+void CPlantMgr::_ProcessEntryCollisionDataSections(CPlantColEntEntry* col, const CVector& camPos, int processSkipMask) {
+    plugin::CallDynGlobal(0x5DCD80, col, &camPos, processSkipMask);
 }
 
-void CPlantMgr::_UpdateLocTris(CVector const& camPos, int processSkipMask) {
-    plugin::CallDynGlobal(0x5DCF00, camPos, processSkipMask);
+void CPlantMgr::_UpdateLocTris(const CVector& camPos, int processSkipMask) {
+    plugin::CallDynGlobal(0x5DCF00, &camPos, processSkipMask);
 }
 
-bool CPlantMgr::PreUpdateOnceForNewCameraPos(CVector const& camPos) {
-    return plugin::CallAndReturnDynGlobal<bool>(0x5DCF30, camPos);
+void CPlantMgr::PreUpdateOnceForNewCameraPos(const CVector& camPos) {
+    plugin::CallDynGlobal(0x5DCF30, &camPos);
 }
 
-void CPlantMgr::Update(CVector const& camPos) {
-    plugin::CallDynGlobal(0x5DCFA0, camPos);
+void CPlantMgr::Update(const CVector& camPos) {
+    plugin::CallDynGlobal(0x5DCFA0, &camPos);
 }
 
 bool CPlantMgr::ReloadConfig() {
