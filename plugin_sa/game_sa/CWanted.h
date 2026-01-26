@@ -50,7 +50,7 @@ private:
 public:
 
     static unsigned int &MaximumWantedLevel; // default 6
-    static unsigned int &nMaximumWantedLevel; // default 9200
+    static unsigned int &nMaximumChaosLevel; // default 9200
     static bool &bUseNewsHeliInAdditionToPolice;
 
     static void InitialiseStaticVariables();
