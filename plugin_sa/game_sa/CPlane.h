@@ -42,10 +42,10 @@ class CPlane : public CAutomobile {
 protected:
     CPlane(plugin::dummy_func_t) : CAutomobile(plugin::dummy) {}
 public:
-    float field_988;
-    int field_98C;
-    int field_990;
-    int field_994;
+    float fLeftRightSkid; // field_988
+    float fSteeringUpDown; // field_98C
+    float fSteeringLeftRight; // field_990
+    float fAccelerationBreakStatus; // field_994
     float field_998;
     int field_99C;
     int field_9A0;
