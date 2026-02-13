@@ -8,16 +8,14 @@ sdkdir = path.translate(sdkdir, "/")
 
 workspace "plugin"
     configurations { "Release", "zDebug" }
-    location "build"
+    location (sdkdir .. "\\output")
+    targetdir (sdkdir .. "\\output\\lib")
 
-project "Plugin_SA"
+project "plugin_sa"
     kind "StaticLib"
     language "C++"
     architecture "x32"
-    
-    targetname "Plugin" 
-
-    forceincludes { "cstring", "CPed.h" }
+    staticruntime "On"
 
     defines {
         "RW",
@@ -28,13 +26,30 @@ project "Plugin_SA"
     filter "action:gmake or action:gmake2 or action:codeblocks"
         toolset "clang"
         buildoptions { 
-            "-std=c++2b", -- C++23 
             "--target=i686-w64-mingw32",
             "-fpermissive",
             "-fcommon",
             "-fms-extensions",
-            "-Wno-microsoft-include" 
+            "-Wno-microsoft-include" ,
+            "-static",
         }
+    
+    filter "files:**.cpp"
+        buildoptions { "-std=c++2b" } -- C++23
+
+
+    filter "configurations:Release"
+        defines { "NDEBUG" }
+        optimize "On" 
+        symbols "Off"
+        targetname "plugin" 
+
+    filter "configurations:zDebug"
+        defines { "DEBUG", "_DEBUG" }
+        symbols "On"       
+        optimize "Debug"   
+        targetname "plugin_d" 
+
     filter {}
 
     includedirs { 
@@ -43,10 +58,12 @@ project "Plugin_SA"
         sdkdir .. "/shared/game", 
         sdkdir .. "/plugin_sa", 
         sdkdir .. "/plugin_sa/game_sa",
-        sdkdir .. "/plugin_sa/game_sa/rw"  
+        sdkdir .. "/plugin_sa/game_sa/rw",  
+        sdkdir .. "/safetyhook"  
     }
     
     files { 
         sdkdir .. "/shared/**.cpp", 
-        sdkdir .. "/plugin_sa/**.cpp" 
+        sdkdir .. "/plugin_sa/**.cpp", 
+        sdkdir .. "/safetyhook/**" 
     }
