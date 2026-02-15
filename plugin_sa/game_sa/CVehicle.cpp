@@ -174,10 +174,10 @@ void CVehicle::RemoveRefsToVehicle(CEntity* entity)
 	((void (__thiscall *)(CVehicle*, CEntity*))(*(void ***)this)[40])(this, entity);
 }
 
-// Converted from void CVehicle::BlowUpCar(CEntity *damager,uchar bHideExplosion) 0x871F24
-void CVehicle::BlowUpCar(CEntity* damager, unsigned char bHideExplosion)
+// Converted from void CVehicle::BlowUpCar(CEntity *damager,bool bHideExplosion) 0x871F24
+void CVehicle::BlowUpCar(CEntity* damager, bool bHideExplosion)
 {
-	((void (__thiscall *)(CVehicle*, CEntity*, unsigned char))(*(void ***)this)[41])(this, damager, bHideExplosion);
+	((void (__thiscall *)(CVehicle*, CEntity*, bool))(*(void ***)this)[41])(this, damager, bHideExplosion);
 }
 
 // Converted from void CVehicle::BlowUpCarCutSceneNoExtras(bool bNoCamShake, bool bNoSpawnFlyingComps, bool bDetachWheels, bool bExplosionSound) 0x871F28

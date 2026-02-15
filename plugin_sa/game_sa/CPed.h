@@ -221,15 +221,15 @@ public:
     RwFrame            *m_pGunflashObject;
     RwObject           *m_pGogglesObject;
     unsigned char      *m_pGogglesState;
-    short               m_nWeaponGunflashAlphaMP1; // aka m_nWeaponGunflashStateRightHand
+    short               m_nWeaponGunflashAlphaMP1; // AKA m_nWeaponGunflashStateRightHand
     short               m_nWeaponGunFlashAlphaProgMP1;
-    short               m_nWeaponGunflashAlphaMP2; // aka m_nWeaponGunflashStateLeftHand
+    short               m_nWeaponGunflashAlphaMP2; // AKA m_nWeaponGunflashStateLeftHand
     short               m_nWeaponGunFlashAlphaProgMP2;
     CPedIK              m_pedIK;
     int                 m_nAntiSpazTimer;
     ePedState           m_ePedState;
     eMoveState          m_nMoveState;
-    eMoveState          m_nSwimmingMoveState; // type is eMoveState and used for swimming in CTaskSimpleSwim::ProcessPed
+    eMoveState          m_nSwimmingMoveState; // used for swimming in CTaskSimpleSwim::ProcessPed
     int                 field_53C;
     float               m_fHealth;
     float               m_fMaxHealth;
