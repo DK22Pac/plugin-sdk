@@ -26,42 +26,42 @@ public:
         struct RpAtomic *m_pRwAtomic;
     };
     /* https://code.google.com/p/mtasa-blue/source/browse/trunk/MTA10/game_sa/CEntitySA.h */
-    unsigned int bUsesCollision : 1;           // does entity use collision
-    unsigned int bCollisionProcessed : 1;  // has object been processed by a ProcessEntityCollision function
-    unsigned int bIsStatic : 1;                // is entity static
-    unsigned int bHasContacted : 1;            // has entity processed some contact forces
-    unsigned int bIsStuck : 1;             // is entity stuck
-    unsigned int bIsInSafePosition : 1;        // is entity in a collision free safe position
-    unsigned int bWasPostponed : 1;            // was entity control processing postponed
-    unsigned int bIsVisible : 1;               //is the entity visible
- 
-    unsigned int bIsBIGBuilding : 1;           // Set if this entity is a big building
-    unsigned int bRenderDamaged : 1;           // use damaged LOD models for objects with applicable damage
-    unsigned int bStreamingDontDelete : 1; // Dont let the streaming remove this 
-    unsigned int bRemoveFromWorld : 1;     // remove this entity next time it should be processed
-    unsigned int bHasHitWall : 1;              // has collided with a building (changes subsequent collisions)
-    unsigned int bImBeingRendered : 1;     // don't delete me because I'm being rendered
-    unsigned int bDrawLast :1;             // draw object last
-    unsigned int bDistanceFade :1;         // Fade entity because it is far away
- 
-    unsigned int bDontCastShadowsOn : 1;       // Dont cast shadows on this object
-    unsigned int bOffscreen : 1;               // offscreen flag. This can only be trusted when it is set to true
-    unsigned int bIsStaticWaitingForCollision : 1; // this is used by script created entities - they are static until the collision is loaded below them
-    unsigned int bDontStream : 1;              // tell the streaming not to stream me
-    unsigned int bUnderwater : 1;              // this object is underwater change drawing order
-    unsigned int bHasPreRenderEffects : 1; // Object has a prerender effects attached to it
-    unsigned int bIsTempBuilding : 1;          // whether or not the building is temporary (i.e. can be created and deleted more than once)
-    unsigned int bDontUpdateHierarchy : 1; // Don't update the aniamtion hierarchy this frame
- 
-    unsigned int bHasRoadsignText : 1;     // entity is roadsign and has some 2deffect text stuff to be rendered
-    unsigned int bDisplayedSuperLowLOD : 1;
-    unsigned int bIsProcObject : 1;            // set object has been generate by procedural object generator
-    unsigned int bBackfaceCulled : 1;          // has backface culling on
-    unsigned int bLightObject : 1;         // light object with directional lights
-    unsigned int bUnimportantStream : 1;       // set that this object is unimportant, if streaming is having problems
-    unsigned int bTunnel : 1;          // Is this model part of a tunnel
-    unsigned int bTunnelTransition : 1;        // This model should be rendered from within and outside of the tunnel
-    /* */
+    bool bUsesCollision : 1;       // does entity use collision
+    bool bCollisionProcessed : 1;  // has object been processed by a ProcessEntityCollision function
+    bool bIsStatic : 1;            // is entity static
+    bool bHasContacted : 1;        // has entity processed some contact forces
+    bool bIsStuck : 1;             // is entity stuck
+    bool bIsInSafePosition : 1;    // is entity in a collision free safe position
+    bool bWasPostponed : 1;        // was entity control processing postponed
+    bool bIsVisible : 1;           // is the entity visible
+    
+    bool bIsBIGBuilding : 1;       // Set if this entity is a big building
+    bool bRenderDamaged : 1;       // use damaged LOD models for objects with applicable damage
+    bool bStreamingDontDelete : 1; // don't let the streaming remove this 
+    bool bRemoveFromWorld : 1;     // remove this entity next time it should be processed
+    bool bHasHitWall : 1;          // has collided with a building (changes subsequent collisions)
+    bool bImBeingRendered : 1;     // don't delete me because I'm being rendered
+    bool bDrawLast :1;             // draw object last
+    bool bDistanceFade :1;         // fade entity because it is far away
+    
+    bool bDontCastShadowsOn : 1;   // dont cast shadows on this object
+    bool bOffscreen : 1;           // offscreen flag. This can only be trusted when it is set to true
+    bool bIsStaticWaitingForCollision : 1; // this is used by script created entities - they are static until the collision is loaded below them
+    bool bDontStream : 1;          // tell the streaming not to stream me
+    bool bUnderwater : 1;          // this object is underwater change drawing order
+    bool bHasPreRenderEffects : 1; // object has a prerender effects attached to it
+    bool bIsTempBuilding : 1;      // whether or not the building is temporary (i.e. can be created and deleted more than once)
+    bool bDontUpdateHierarchy : 1; // don't update the aniamtion hierarchy this frame
+    
+    bool bHasRoadsignText : 1;     // entity is roadsign and has some 2deffect text stuff to be rendered
+    bool bDisplayedSuperLowLOD : 1;
+    bool bIsProcObject : 1;        // set object has been generate by procedural object generator
+    bool bBackfaceCulled : 1;      // has backface culling on
+    bool bLightObject : 1;         // light object with directional lights
+    bool bUnimportantStream : 1;   // set that this object is unimportant, if streaming is having problems
+    bool bTunnel : 1;              // is this model part of a tunnel
+    bool bTunnelTransition : 1;    // this model should be rendered from within and outside of the tunnel
+    
     unsigned short m_nRandomSeed;
     unsigned short m_nModelIndex;
     CReference *m_pReferences;
