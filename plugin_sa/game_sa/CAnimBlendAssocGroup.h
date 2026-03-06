@@ -10,9 +10,6 @@
 #include "RenderWare.h"
 #include "CAnimBlock.h"
 
-class CAnimBlendStaticAssociation;
-
-
 class CAnimBlendAssocGroup
 {
 public:

@@ -21,6 +21,7 @@
 #include "CVector2D.h"
 #include "eWeaponType.h"
 #include "ePedState.h"
+#include "AnimationEnums.h"
 #include "CAnimBlendAssociation.h"
 #include "CFire.h"
 
@@ -237,7 +238,7 @@ public:
     float               m_fAimingRotation;
     float               m_fHeadingChangeRate;
     int field_564;
-    int field_568;
+    CEntity*            m_standingOnEntity;
     CVector field_56C;
     CVector field_578;
     CEntity            *m_pContactEntity;

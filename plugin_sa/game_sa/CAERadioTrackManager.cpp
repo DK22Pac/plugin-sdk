@@ -26,4 +26,14 @@ void CAERadioTrackManager::StopRadio(tVehicleAudioSettings* settings, char arg) 
     plugin::CallMethod<0x4E9820, CAERadioTrackManager*, tVehicleAudioSettings*, char>(this, settings, arg);
 }
 
+// 0x5D40E0
+void CAERadioTrackManager::Load() {
+    plugin::Call<0x5D40E0>();
+}
+
+// 0x5D3EE0
+void CAERadioTrackManager::Save() {
+    plugin::Call<0x5D3EE0>();
+}
+
 tMusicTrackHistory *CAERadioTrackManager::m_nMusicTrackIndexHistory = (tMusicTrackHistory *)0xB62B40;

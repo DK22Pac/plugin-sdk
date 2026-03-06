@@ -36,6 +36,6 @@ public:
 	static void Initialise();
 	static void Load();
 	static void OverrideNextRestart(CVector const& point, float angle);
-	//static void Save();
-	//static void SetRespawnPointForDurationOfMission(CVector point);
+	static void Save();
+	static void SetRespawnPointForDurationOfMission(CVector point);
 };

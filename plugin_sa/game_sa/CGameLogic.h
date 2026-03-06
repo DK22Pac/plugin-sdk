@@ -39,4 +39,5 @@ public:
 	static void ResetStuffUponResurrection();
 	static void Update();
 	static void Save();
+	static void Load();
 };

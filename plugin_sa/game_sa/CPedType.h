@@ -7,16 +7,13 @@
 #pragma once
 
 #include "PluginBase.h"
+#include "CPedAcquaintance.h"
 
-class PLUGIN_API CGarages
-{
+class CPedType {
 public:
-	// static char MessageIDString[8];
-	static char *MessageIDString;
-    static int& MessageNumberInString;
-    static int& MessageNumberInString2;
+    static CPedAcquaintance*& ms_apPedTypes;
 
-    static bool Load();
-    static bool Save();
-
+    static void Load();
+    static void Save();
 };
+

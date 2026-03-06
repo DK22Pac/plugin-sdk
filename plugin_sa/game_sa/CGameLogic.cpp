@@ -106,3 +106,8 @@ void CGameLogic::Update() {
 void CGameLogic::Save() {
 	plugin::Call<0x5D33C0>();
 }
+
+//Converted from char CGameLogic::Load() 0x5D3440
+void CGameLogic::Load() {
+	plugin::Call<0x5D3440>();
+}

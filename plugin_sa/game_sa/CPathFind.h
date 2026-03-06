@@ -59,6 +59,9 @@ public:
 	void UpdateStreaming(bool bForceStreaming);
 
 	CPathNode *GetPathNode(CNodeAddress address);
+
+	bool Load();
+	bool Save();
 };
 VALIDATE_SIZE(CPathFind, 0x3C80);
 

@@ -9,3 +9,11 @@
 char *CGarages::MessageIDString = (char *)0x96C014;
 int& CGarages::MessageNumberInString = *(int*)0x96C010;
 int& CGarages::MessageNumberInString2 = *(int*)0x96C00C;
+
+bool CGarages::Load() {
+    return plugin::CallAndReturn<bool, 0x5D3270>();
+}
+
+bool CGarages::Save() {
+    return plugin::CallAndReturn<bool, 0x5D3270>();
+}
