@@ -77,6 +77,16 @@ UTEST(CVector, ctor_CVector2D)
 
 // assignments
 
+UTEST(CVector, Reset)
+{
+    auto v = CVector(1.0f, 2.0f, 3.0f);
+
+    v.Reset();
+    EXPECT_EQ(v.x, 0.0f);
+    EXPECT_EQ(v.y, 0.0f);
+    EXPECT_EQ(v.z, 0.0f);
+}
+
 UTEST(CVector, Set_F)
 {
     auto v = CVector();

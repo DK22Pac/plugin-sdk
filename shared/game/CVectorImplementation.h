@@ -33,6 +33,10 @@ inline CVector::CVector(const CVector2D& xy, float z) {
 
 // assignments
 
+inline void CVector::Reset() {
+    Set(0.0f);
+}
+
 inline void CVector::Set(float value) {
     Set(value, value, value);
 }

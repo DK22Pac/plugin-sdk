@@ -20,7 +20,9 @@ class CVector2D;
 class CVector
 {
 public:
-    float x, y, z;
+    float x = 0.0f;
+    float y = 0.0f;
+    float z = 0.0f;
 
     // constructors
     CVector() = default;
@@ -33,6 +35,7 @@ public:
     explicit CVector(const CVector2D& xy, float z = 0.0f);
     
     // assignments
+    void Reset(); // set to 0 0 0
     void Set(float value); // assign value to all components
     void Set(float x, float y, float z);
     void operator =(const CVector& src);
