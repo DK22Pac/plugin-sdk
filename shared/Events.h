@@ -338,12 +338,17 @@ namespace plugin {
 #ifdef GTASA
         static inline CdeclEvent    <AddressList<0x53C6DB, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
 
+        static inline CdeclEvent    <AddressList<0x53EABA, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderMirrorEvent;
+        static inline CdeclEvent    <AddressList<0x53EABF, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderSceneEvent;
+        static inline CdeclEvent    <AddressList<0x53E222, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderEffectsEvent;
         static inline CdeclEvent    <AddressList<0x53E293, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent;
         static inline CdeclEvent    <AddressList<0x53E4FF, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawHudEvent;
 
         static inline CdeclEvent    <AddressList<0x53E550, H_CALL,
             0x53E83C, H_CALL,
             0x53EBA2, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawAfterFadeEvent;
+
+        static inline CdeclEvent    <AddressList<0x53EBB1, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawFontsEvent;
 
         static inline CdeclEvent    <AddressList<0x58FC53, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawRadarEvent;
         static inline CdeclEvent    <AddressList<0x58AA2D, H_JUMP,
