@@ -6,32 +6,44 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "eTaskType.h"
 
-/*
-    https://www.gtamodding.com/wiki/Decision_Maker
-*/
+struct DecisionContext
+{
+    bool onFoot = false;
+    bool inVehicle = false;
 
-enum eDecisionTypes {
-    DECISION_ON_FOOT = 0,
-    DECISION_IN_VEHICLE = 1
+    DecisionContext() = default;
+    DecisionContext(bool onFoot, bool inVehicle) : 
+        onFoot(onFoot), inVehicle(inVehicle)
+    {}
 };
+VALIDATE_SIZE(DecisionContext, 0x2);
 
-enum eDecisionRelationship {
-    DECISION_RELATIONSHIP_NEUTRAL = 0,
-    DECISION_RELATIONSHIP_PLAYER = 1,
-    DECISION_RELATIONSHIP_FRIEND = 2,
-    DECISION_RELATIONSHIP_THREAT = 3
+struct DecisionChances
+{
+    // weights that sums up to total value of all responses applicable to current event,
+    // then chance is weight/total
+    unsigned char toNeutral = 0;
+    unsigned char toPlayer = 0;
+    unsigned char toFriend = 0;
+    unsigned char toEnemy = 0;
+
+    DecisionChances() = default;
+    DecisionChances(unsigned char toNeutral, unsigned char toPlayer, unsigned char toFriend, unsigned char toEnemy) :
+        toNeutral(toNeutral), toPlayer(toPlayer), toFriend(toFriend), toEnemy(toEnemy)
+    {}
 };
+VALIDATE_SIZE(DecisionChances, 0x4);
 
 class PLUGIN_API CDecision {
 public:
-    int m_anTaskTypes[6]; // see eTaskType
-    unsigned char m_anResponseChances[6][4]; // 4 different relationships : see eDecisionRelationship
-    unsigned char m_anTypeFlags[2][6]; // 2 different types : see eDecisionTypes
+    constexpr static auto RESPONSE_COUNT = 6; // max count of unique responses
 
-    inline CDecision() { // @0x6040C0
-        //SetDefault();
-    }
+    eTaskType task[RESPONSE_COUNT]; // response's task
+    DecisionChances chances[RESPONSE_COUNT]; // response's chances for each relationship type
+    DecisionContext context[RESPONSE_COUNT]; // situations the response applies to
+
+    CDecision();
 };
-
 VALIDATE_SIZE(CDecision, 0x3C);

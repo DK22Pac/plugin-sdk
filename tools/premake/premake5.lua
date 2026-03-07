@@ -193,6 +193,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         symbols "Off"
     filter "zDebug"
         symbols "On"
+        defines "DEBUG"
     filter {}
 
     if mingw then
@@ -764,6 +765,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
         linktimeoptimization "On"
     filter "Debug"
         symbols "On"
+        defines "DEBUG"
     filter {}
 
     setToolset()
