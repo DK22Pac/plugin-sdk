@@ -6,7 +6,7 @@
 */
 #pragma once
 
-enum eEntityStatus
+enum eEntityStatus : unsigned char
 {
 	STATUS_PLAYER,
 	STATUS_PLAYER_PLAYBACKFROMBUFFER,

@@ -21,41 +21,41 @@ public:
     int field_38;
     unsigned int m_nLastCollisionTime;
 
-    unsigned int b01 : 1;
-    unsigned int bApplyGravity : 1;
-    unsigned int bDisableCollisionForce : 1;
-    unsigned int bCollidable : 1;
-    unsigned int bDisableTurnForce : 1;
-    unsigned int bDisableMoveForce : 1;
-    unsigned int bInfiniteMass : 1;
-    unsigned int bDisableZ : 1;
+    bool bIsHeavy : 1; // double the mass
+    bool bApplyGravity : 1;
+    bool bDisableCollisionForce : 1;
+    bool bCollidable : 1;
+    bool bDisableTurnForce : 1;
+    bool bDisableMoveForce : 1;
+    bool bInfiniteMass : 1;
+    bool bDisableZ : 1;
 
-    unsigned int bSubmergedInWater : 1;
-    unsigned int bOnSolidSurface : 1;
-    unsigned int bBroken : 1;
-    unsigned int b12 : 1; // ref @ 0x6F5CF0
-    unsigned int b13 : 1;
-    unsigned int bDontApplySpeed : 1;
-    unsigned int b15 : 1;
-    unsigned int b16 : 1;
+    bool bSubmergedInWater : 1;
+    bool bOnSolidSurface : 1;
+    bool bBroken : 1;
+    bool bProcessCollisionEvenIfStationary : 1;
+    bool bSkipLineCol : 1; // only used for peds
+    bool bDontApplySpeed : 1;
+    bool b15 : 1;
+    bool bProcessingShift : 1;
 
-    unsigned int b17 : 1;
-    unsigned int b18 : 1; // ref @ CPhysical::ProcessCollision
-    unsigned int bBulletProof : 1;
-    unsigned int bFireProof : 1;
-    unsigned int bCollisionProof : 1;
-    unsigned int bMeleeProof : 1;
-    unsigned int bInvulnerable : 1;
-    unsigned int bExplosionProof : 1;
+    bool b17 : 1;
+    bool bDisableSimpleCollision : 1;
+    bool bBulletProof : 1;
+    bool bFireProof : 1;
+    bool bCollisionProof : 1;
+    bool bMeleeProof : 1;
+    bool bInvulnerable : 1;
+    bool bExplosionProof : 1;
 
-    unsigned int b25 : 1;
-    unsigned int bAttachedToEntity : 1;
-    unsigned int b27 : 1;
-    unsigned int bTouchingWater : 1;
-    unsigned int bCanBeCollidedWith : 1;
-    unsigned int bDestroyed : 1;
-    unsigned int b31 : 1;
-    unsigned int b32 : 1;
+    bool bDontCollideWithFlyers : 1;
+    bool bAttachedToEntity : 1;
+    bool bAddMovingCollisionSpeed : 1;
+    bool bTouchingWater : 1;
+    bool bCanBeCollidedWith : 1;
+    bool bDestroyed : 1;
+    bool b31 : 1;
+    bool b32 : 1;
 
     CVector          m_vecMoveSpeed;
     CVector          m_vecTurnSpeed;
@@ -70,28 +70,28 @@ public:
     float            m_fElasticity;
     float            m_fBuoyancyConstant;
     CVector          m_vecCentreOfMass;
-    void            *m_pCollisionList;
-    void            *m_pMovingList;
-    char field_B8;
+    void*            m_pCollisionList;
+    void*            m_pMovingList;
+    char             m_nFakePhysics;
     unsigned char    m_nNumEntitiesCollided;
     unsigned char    m_nContactSurface;
-    char field_BB;
-    CEntity         *m_apCollidedEntities[6];
+    char field_BB;   // padding
+    CEntity*         m_apCollidedEntities[6];
     float            m_fMovingSpeed; // ref @ CTheScripts::IsVehicleStopped
     float            m_fDamageIntensity;
-    CEntity         *m_pDamageEntity;
+    CEntity*         m_pDamageEntity;
     CVector          m_vecLastCollisionImpactVelocity;
     CVector          m_vecLastCollisionPosn;
     unsigned short   m_nPieceType;
-    short field_FA;
-    class CPhysical *m_pAttachedTo;
+    short field_FA;  // padding
+    class CPhysical* m_pAttachedTo;
     CVector          m_vecAttachOffset;
     CVector          m_vecAttachedEntityPosn;
     CQuaternion      m_qAttachedEntityRotation;
-    CEntity         *m_pEntityIgnoredCollision;
+    CEntity*         m_pEntityIgnoredCollision;
     float            m_fContactSurfaceBrightness;
     float            m_fDynamicLighting;
-    CRealTimeShadow *m_pShadowData;
+    CRealTimeShadow* m_pShadowData;
     
     // originally virtual functions
     void ProcessEntityCollision(CEntity *entity, CColPoint *point);
@@ -101,9 +101,11 @@ public:
     void AddToMovingList();
     void RemoveFromMovingList();
     void SetDamagedPieceRecord(float damageIntensity, CEntity* damagingEntity, CColPoint& colPoint, float distanceMult);
+	
     void ApplyMoveForce(CVector force);
     void ApplyTurnForce(CVector dir, CVector velocity);
-    void ApplyForce(CVector dir, CVector velocity, bool flag);
+    void ApplyForce(CVector dir, CVector velocity, bool bUpdateTurnSpeed);
+	
     CVector GetSpeed(CVector direction);
     void ApplyMoveSpeed();
     void ApplyTurnSpeed();
@@ -111,28 +113,34 @@ public:
     void ApplyFrictionMoveForce(CVector moveForce);
     void ApplyFrictionTurnForce(CVector posn, CVector velocity);
     void ApplyFrictionForce(CVector posn, CVector velocity);
+	
     void SkipPhysics();
     void AddCollisionRecord(CEntity* collidedEntity);
     bool GetHasCollidedWith(CEntity* entity);
     bool GetHasCollidedWithAnyObject();
-    bool ApplyCollision(CEntity* entity, CColPoint& colPoint, float& arg2);
-    bool ApplySoftCollision(CEntity* entity, CColPoint& colPoint, float& arg2);
-    bool ApplySpringCollision(float arg0, CVector& arg1, CVector& arg2, float arg3, float arg4, float& arg5);
-    bool ApplySpringCollisionAlt(float arg0, CVector& arg1, CVector& arg2, float arg3, float arg4, CVector& arg5, float& arg6);
-    bool ApplySpringDampening(float arg0, float arg1, CVector& arg2, CVector& arg3, CVector& arg4);
+	
+    bool ApplyCollision(CEntity* entity, CColPoint& colPoint, float& outDamageIntensity);
+    bool ApplySoftCollision(CEntity* entity, CColPoint& colPoint, float& outDamageIntensity);
+    bool ApplySpringCollision(float fSuspensionForceLevel, CVector& direction, CVector& collisionPoint, float fSpringLength, float fSuspensionBias, float& fSpringForceDampingLimit);
+    bool ApplySpringCollisionAlt(float fSuspensionForceLevel, CVector& direction, CVector& collisionPoint, float fSpringLength, float fSuspensionBias, CVector& normal, float& fSpringForceDampingLimit);
+    bool ApplySpringDampening(float fDampingForce, float fSpringForceDampingLimit, CVector& direction, CVector& collisionPoint, CVector& collisionPos);
     bool ApplySpringDampeningOld(float arg0, float arg1, CVector& arg2, CVector& arg3, CVector& arg4);
+	
     void RemoveRefsToEntity(CEntity* entity);
     void DettachEntityFromEntity(float x, float y, float z, bool useCollision);
     void DettachAutoAttachedEntity();
     float GetLightingFromCol(bool flag);
     float GetLightingTotal();
-    bool CanPhysicalBeDamaged(eWeaponType weapon, unsigned char* arg1);
+    bool CanPhysicalBeDamaged(eWeaponType weapon, bool* bDamagedDueToFireOrExplosionOrBullet);
+	
     void ApplyAirResistance();
-    bool ApplyCollisionAlt(CEntity* entity, CColPoint& colPoint, float& arg2, CVector& arg3, CVector& arg4);
-    bool ApplyFriction(float arg0, CColPoint& colPoint);
-    bool ApplyFriction(CPhysical* physical, float arg1, CColPoint& colPoint);
+    bool ApplyCollisionAlt(CPhysical* entity, CColPoint& colPoint, float& damageIntensity, CVector& outVecMoveSpeed, CVector& outVecTurnSpeed);
+    bool ApplyFriction(float friction, CColPoint& colPoint);
+    bool ApplyFriction(CPhysical* physical, float friction, CColPoint& colPoint);
+	
     bool ProcessShiftSectorList(int sectorX, int sectorY);
     static void PlacePhysicalRelativeToOtherPhysical(CPhysical* physical1, CPhysical* physical2, CVector offset);
+	
     float ApplyScriptCollision(CVector arg0, float arg1, float arg2, CVector* arg3);
     void PositionAttachedEntity();
     void ApplySpeed();
@@ -140,10 +148,11 @@ public:
     void ApplyFriction();
     bool ApplyCollision(CPhysical* physical, CColPoint& colPoint, float& arg2, float& arg3);
     bool ApplySoftCollision(CPhysical* physical, CColPoint& colPoint, float& arg2, float& arg3);
+	
     bool ProcessCollisionSectorList(int sectorX, int sectorY);
     bool ProcessCollisionSectorList_SimpleCar(CRepeatSector* sector);
     void AttachEntityToEntity(CEntity* entity, CVector offset, CVector rotation);
-    void AttachEntityToEntity(CEntity* entity, CVector* , RtQuat* rotation);
+    void AttachEntityToEntity(CEntity* entity, CVector* offset, RtQuat* rotation);
     bool CheckCollision();
     bool CheckCollision_SimpleCar();
 };

@@ -47,10 +47,10 @@ void CPhysical::ApplyTurnForce(CVector dir, CVector velocity)
 	((void (__thiscall *)(CPhysical*, CVector, CVector))0x542A50)(this, dir, velocity);
 }
 
-// Converted from thiscall void CPhysical::ApplyForce(CVector dir,CVector velocity,bool flag) 0x542B50
-void CPhysical::ApplyForce(CVector dir, CVector velocity, bool flag)
+// Converted from thiscall void CPhysical::ApplyForce(CVector dir,CVector velocity,bool bUpdateTurnSpeed) 0x542B50
+void CPhysical::ApplyForce(CVector dir, CVector velocity, bool bUpdateTurnSpeed)
 {
-	((void (__thiscall *)(CPhysical*, CVector, CVector, bool))0x542B50)(this, dir, velocity, flag);
+	((void (__thiscall *)(CPhysical*, CVector, CVector, bool))0x542B50)(this, dir, velocity, bUpdateTurnSpeed);
 }
 
 // Converted from thiscall CVector CPhysical::GetSpeed(CVector direction) 0x542CE0
@@ -122,15 +122,15 @@ bool CPhysical::GetHasCollidedWithAnyObject()
 }
 
 // Converted from thiscall bool CPhysical::ApplyCollision(CEntity *entity,CColPoint &colPoint,float &) 0x5435C0
-bool CPhysical::ApplyCollision(CEntity* entity, CColPoint& colPoint, float& arg2)
+bool CPhysical::ApplyCollision(CEntity* entity, CColPoint& colPoint, float& outDamageIntensity)
 {
-	return ((bool (__thiscall *)(CPhysical*, CEntity*, CColPoint&, float&))0x5435C0)(this, entity, colPoint, arg2);
+	return ((bool (__thiscall *)(CPhysical*, CEntity*, CColPoint&, float&))0x5435C0)(this, entity, colPoint, outDamageIntensity);
 }
 
 // Converted from thiscall bool CPhysical::ApplySoftCollision(CEntity *entity,CColPoint &colPoint,float &) 0x543890
-bool CPhysical::ApplySoftCollision(CEntity* entity, CColPoint& colPoint, float& arg2)
+bool CPhysical::ApplySoftCollision(CEntity* entity, CColPoint& colPoint, float& outDamageIntensity)
 {
-	return ((bool (__thiscall *)(CPhysical*, CEntity*, CColPoint&, float&))0x543890)(this, entity, colPoint, arg2);
+	return ((bool (__thiscall *)(CPhysical*, CEntity*, CColPoint&, float&))0x543890)(this, entity, colPoint, outDamageIntensity);
 }
 
 // Converted from thiscall bool CPhysical::ApplySpringCollision(float,CVector &,CVector &,float,float,float &) 0x543C90
@@ -187,10 +187,10 @@ float CPhysical::GetLightingTotal()
 	return ((float (__thiscall *)(CPhysical*))0x544850)(this);
 }
 
-// Converted from thiscall bool CPhysical::CanPhysicalBeDamaged(eWeaponType weapon,uchar *) 0x5448B0
-bool CPhysical::CanPhysicalBeDamaged(eWeaponType weapon, unsigned char* arg1)
+// Converted from thiscall bool CPhysical::CanPhysicalBeDamaged(eWeaponType weapon,bool *) 0x5448B0
+bool CPhysical::CanPhysicalBeDamaged(eWeaponType weapon, bool* bDamagedDueToFireOrExplosionOrBullet)
 {
-	return ((bool (__thiscall *)(CPhysical*, eWeaponType, unsigned char*))0x5448B0)(this, weapon, arg1);
+	return ((bool (__thiscall *)(CPhysical*, eWeaponType, bool*))0x5448B0)(this, weapon, bDamagedDueToFireOrExplosionOrBullet);
 }
 
 // Converted from thiscall void CPhysical::ApplyAirResistance(void) 0x544C40
@@ -199,22 +199,22 @@ void CPhysical::ApplyAirResistance()
 	((void (__thiscall *)(CPhysical*))0x544C40)(this);
 }
 
-// Converted from thiscall bool CPhysical::ApplyCollisionAlt(CEntity *entity,CColPoint &colPoint,float &,CVector &,CVector &) 0x544D50
-bool CPhysical::ApplyCollisionAlt(CEntity* entity, CColPoint& colPoint, float& arg2, CVector& arg3, CVector& arg4)
+// Converted from thiscall bool CPhysical::ApplyCollisionAlt(CPhysical *entity,CColPoint &colPoint,float &,CVector &,CVector &) 0x544D50
+bool CPhysical::ApplyCollisionAlt(CPhysical* entity, CColPoint& colPoint, float& arg2, CVector& arg3, CVector& arg4)
 {
-	return ((bool (__thiscall *)(CPhysical*, CEntity*, CColPoint&, float&, CVector&, CVector&))0x544D50)(this, entity, colPoint, arg2, arg3, arg4);
+	return ((bool (__thiscall *)(CPhysical*, CPhysical*, CColPoint&, float&, CVector&, CVector&))0x544D50)(this, entity, colPoint, arg2, arg3, arg4);
 }
 
 // Converted from thiscall bool CPhysical::ApplyFriction(float,CColPoint &colPoint) 0x5454C0
-bool CPhysical::ApplyFriction(float arg0, CColPoint& colPoint)
+bool CPhysical::ApplyFriction(float friction, CColPoint& colPoint)
 {
-	return ((bool (__thiscall *)(CPhysical*, float, CColPoint&))0x5454C0)(this, arg0, colPoint);
+	return ((bool (__thiscall *)(CPhysical*, float, CColPoint&))0x5454C0)(this, friction, colPoint);
 }
 
 // Converted from thiscall bool CPhysical::ApplyFriction(CPhysical* physical,float,CColPoint &colPoint) 0x545980
-bool CPhysical::ApplyFriction(CPhysical* physical, float arg1, CColPoint& colPoint)
+bool CPhysical::ApplyFriction(CPhysical* physical, float friction, CColPoint& colPoint)
 {
-	return ((bool (__thiscall *)(CPhysical*, CPhysical*, float, CColPoint&))0x545980)(this, physical, arg1, colPoint);
+	return ((bool (__thiscall *)(CPhysical*, CPhysical*, float, CColPoint&))0x545980)(this, physical, friction, colPoint);
 }
 
 // Converted from thiscall bool CPhysical::ProcessShiftSectorList(int sectorX,int sectorY) 0x546670
