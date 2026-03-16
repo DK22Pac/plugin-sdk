@@ -167,7 +167,7 @@ public:
     struct imf {
         float                       screenZ;
         float                       recipCameraZ;
-        RwRaster* RasterDrawBuffer;
+        RwRaster*                   RasterDrawBuffer;
         int32_t                     sizeDrawBufferX;
         int32_t                     sizeDrawBufferY;
         float                       fFrontBufferU1;
