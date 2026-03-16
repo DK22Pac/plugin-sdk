@@ -39,6 +39,11 @@ namespace plugin {
 
 #ifdef GTA3
         static inline CdeclEvent <AddressList<0x48C7BE, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
+
+        static inline CdeclEvent <AddressList<0x48E5F9, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderSceneEvent;
+        static inline CdeclEvent <AddressList<0x48E0D6, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderEffectsEvent;
+        static inline CdeclEvent <AddressList<0x48E475, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawFontsEvent;
+
         static inline CdeclEvent <AddressListMulti<0x48E126, GAME_10EN, H_CALL,
             0x48E1E6, GAME_11EN, H_CALL,
             0x48E176, GAME_STEAM, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawingEvent;
@@ -183,6 +188,10 @@ namespace plugin {
 
 #ifdef GTAVC
         static inline CdeclEvent <AddressList<0x4A46F1, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> restartGameEvent;
+
+        static inline CdeclEvent <AddressList<0x4A604A, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderSceneEvent;
+        static inline CdeclEvent <AddressList<0x4A655B, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> renderEffectsEvent;
+        static inline CdeclEvent <AddressList<0x4A613D, H_CALL>, PRIORITY_AFTER, ArgPickNone, void()> drawFontsEvent;
 
         static inline CdeclEvent <AddressListMulti<0x4A61D6, GAME_10EN, H_CALL,
             0x4A61F6, GAME_11EN, H_CALL,
