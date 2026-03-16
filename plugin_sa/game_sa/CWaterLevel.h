@@ -7,8 +7,11 @@
 #pragma once
 #include "PluginBase.h"
 #include "RenderWare.h"
+#include "CVector.h"
+#include "CObject.h"
 
-struct CRenPar {
+struct CRenPar
+{
     float z;
     float bigWaves;
     float smallWaves;
@@ -16,13 +19,15 @@ struct CRenPar {
     char flowY;
 };
 
-struct CWaterVertex {
+struct CWaterVertex
+{
     short x;
     short y;
     CRenPar rp;
 };
 
-enum eBeachToy : int32_t {
+enum eBeachToy : int32_t
+{
     BEACHTOY_BEACHBALL = 0x1,
     BEACHTOY_LOUNGE_WOOD_UP = 0x2,
     BEACHTOY_LOUNGE_TOWEL_UP = 0x3,
@@ -36,32 +41,33 @@ enum eBeachToy : int32_t {
     BEACHTOY_BEACHTOWEL_ANY = 0xB,
 };
 
-class CWaterLevel {
+class CWaterLevel
+{
 public:
-    static int& m_nNumOfWaterTriangles;
-    static int& m_nNumOfWaterQuads;
-    static int& m_nNumOfWaterVertices;
-    static int& m_nWaterConfiguration;
-    static int& m_nNumWaterZonePolys;
-    static std::array<CWaterVertex, 1021>& m_aVertices;
-    static int& DETAILEDWATERDIST;
+    static int &m_nNumOfWaterTriangles;
+    static int &m_nNumOfWaterQuads;
+    static int &m_nNumOfWaterVertices;
+    static int &m_nWaterConfiguration;
+    static int &m_nNumWaterZonePolys;
+    static std::array<CWaterVertex, 1021> &m_aVertices;
+    static int &DETAILEDWATERDIST;
 
 public:
-    static void AddWaveToResult(float x, float y, float* pWaterZ, float BigWavesAmpl, float SmallWavesAmpl, CVector* pNormal);
-    static void AddWaveToResult(int32_t x, int32_t y, float* pWaterZ, float BigWavesAmpl, float SmallWavesAmpl);
+    static void AddWaveToResult(float x, float y, float *pWaterZ, float BigWavesAmpl, float SmallWavesAmpl, CVector *pNormal);
+    static void AddWaveToResult(int32_t x, int32_t y, float *pWaterZ, float BigWavesAmpl, float SmallWavesAmpl);
     static void BlockHit(int32_t BlockX, int32_t BlockY);
-    static void CalculateWavesOnlyForCoordinate(int32_t X, int32_t Y, float BigWavesAmpl, float SmallWavesAmpl, float* pResultHeight);
+    static void CalculateWavesOnlyForCoordinate(int32_t X, int32_t Y, float BigWavesAmpl, float SmallWavesAmpl, float *pResultHeight);
     static void ChangeWaterConfiguration(int32_t NewWaterConfig);
-    static CObject* CreateBeachToy(const CVector* pos, eBeachToy beachToy);
+    static CObject *CreateBeachToy(const CVector *pos, eBeachToy beachToy);
     static void FindNearestWaterAndItsFlow();
     static bool GetWaterLevel(
         float x,
         float y,
         float z,
-        float* pWaterZ,
+        float *pWaterZ,
         bool bForceResult,
-        CVector* pNormal);
-    static bool GetWaterLevelNoWaves(float x, float y, float z, float* pWaterZ);
+        CVector *pNormal);
+    static bool GetWaterLevelNoWaves(float x, float y, float z, float *pWaterZ);
     static void PreRenderWater();
     static void RenderAndEmptyRenderBuffer();
 
@@ -72,10 +78,10 @@ public:
     static void RenderWaterFog();
     static void ScanThroughBlocks();
     static void SetCameraRange();
-	static void WaterLevelInitialise();
+    static void WaterLevelInitialise();
     static void Shutdown();
 };
 
-extern RwTexture* TexWaterClear256;
-extern RwTexture* TexSeabd32;
-extern RwTexture* TexWaterWake;
+extern RwTexture *TexWaterClear256;
+extern RwTexture *TexSeabd32;
+extern RwTexture *TexWaterWake;
