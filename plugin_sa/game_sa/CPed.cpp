@@ -761,10 +761,10 @@ void CPed::SayScript(int arg0, unsigned char arg1, unsigned char arg2, unsigned 
 	((void (__thiscall *)(CPed*, int, unsigned char, unsigned char, unsigned char))0x5EFFB0)(this, arg0, arg1, arg2, arg3);
 }
 
-// Converted from thiscall void CPed::Say(ushort,uint,float,uchar,uchar,uchar) 0x5EFFE0
-void CPed::Say(unsigned short arg0, unsigned int arg1, float arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5)
+// Converted from thiscall unsigned short CPed::Say(ushort,uint,float,uchar,uchar,uchar) 0x5EFFE0
+unsigned short CPed::Say(unsigned short gCtx, unsigned int startTimeDelay, float probability, bool overrideSilence, bool isForceAudible, bool isFrontEnd)
 {
-	((void (__thiscall *)(CPed*, unsigned short, unsigned int, float, unsigned char, unsigned char, unsigned char))0x5EFFE0)(this, arg0, arg1, arg2, arg3, arg4, arg5);
+	return ((unsigned short (__thiscall *)(CPed*, unsigned short, unsigned int, float, bool, bool, bool))0x5EFFE0)(this, gCtx, startTimeDelay, probability, overrideSilence, isForceAudible, isFrontEnd);
 }
 
 // Converted from cdecl RwObject* SetPedAtomicVisibilityCB(RwObject *rwObject,void *data) 0x5F0060

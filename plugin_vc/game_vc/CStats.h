@@ -138,5 +138,5 @@ public:
 	static void BuildStatLine(char* a1, void* a2, int a3, void* a4, int a5);
 	static void SaveStats(unsigned char* bufferPointer, unsigned int* structSize);
 	static void LoadStats(unsigned char* bufferPointer, unsigned int structSize);
-	static void ConstructStatLine(int a1);
+	static int ConstructStatLine(int a1);
 };
