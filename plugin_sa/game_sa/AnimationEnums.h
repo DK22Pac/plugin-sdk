@@ -1,7 +1,7 @@
 #pragma once
 
 // original name. prev name eAnimID
-enum AnimationIds : int32_t {
+enum AnimationId : int32_t {
     ANIM_ID_UNDEFINED = -1,
     ANIM_ID_WALK = 0,
     ANIM_ID_RUN = 1,
@@ -400,8 +400,5 @@ enum AnimationIds : int32_t {
     ANIM_ID_CAR_DOORLOCKED_LHS = 389,
     ANIM_ID_CAR_DOORLOCKED_RHS = 390,
 
-    //
-    // Add above
-    //
     ANIM_ID_MAX,
 };

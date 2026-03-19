@@ -8,7 +8,7 @@ Do not delete this comment block. Respect others' work!
 
 PLUGIN_SOURCE_FILE
 
-PLUGIN_VARIABLE int(&ScriptParams)[10] = *reinterpret_cast<int(*)[10]>(GLOBAL_ADDRESS_BY_VERSION(0xA43C78, 0, 0, 0, 0, 0));
+PLUGIN_VARIABLE int(&ScriptParams)[32] = *reinterpret_cast<int(*)[32]>(GLOBAL_ADDRESS_BY_VERSION(0xA43C78, 0, 0, 0, 0, 0));
 
 PLUGIN_VARIABLE bool &CTheScripts::DbgFlag = *reinterpret_cast<bool *>(GLOBAL_ADDRESS_BY_VERSION(0x859CF8, 0, 0, 0, 0, 0));
 PLUGIN_VARIABLE tScriptSwitchCase *CTheScripts::SwitchJumpTable = reinterpret_cast<tScriptSwitchCase *>(GLOBAL_ADDRESS_BY_VERSION(0xA43CF8, 0, 0, 0, 0, 0));
