@@ -390,7 +390,9 @@ void CStats::LoadStats(unsigned char* bufferPointer, unsigned int structSize)
 }
 
 // Converted from static void __cdecl CStats::ConstructStatLine(int a1) 0x4CB085
-void CStats::ConstructStatLine(int a1)
+// Updated to int - as there is a specific line in PrintStatBox function which 
+// expects a return value of row number by passing 99999
+int CStats::ConstructStatLine(int a1)
 {
-	((void (__cdecl *)(int))0x4CB085)(a1);
+	return ((int (__cdecl *)(int))0x4CB085)(a1);
 }

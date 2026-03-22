@@ -8,26 +8,27 @@
 #include "PluginBase.h"
 #include "CRope.h"
 
-
 class PLUGIN_API CRopes
 {
 public:
-	static CRope* ms_aRopes;	// array of 8
-	static int& ms_bPlayerControlsCrane;
+    static int& ms_bPlayerControlsCrane;
 
+    static constexpr auto MAX_NUM_ROPES = 8;
+    static unsigned int& m_nRopeIdCreationCounter;
+    static CRope (&ms_aRopes)[MAX_NUM_ROPES];
 
-	static void CreateRopeForSwatPed(CVector const& startPos);
-	static void FindPickupHeight(CEntity* entity);
+    static void Init();
+    static void Shutdown();
+    static void Update();
+    static void Render();
 
-	// Returns id to array
-	static int FindRope(unsigned int id);
-	static void Init();
-	static bool IsCarriedByRope(CEntity* entity);
+    static bool RegisterRope(unsigned int ropeId, unsigned int ropeType, CVector startPos, bool expires, unsigned char segmentCount, unsigned char flags, CEntity* holder, unsigned int timeExpire); // call in loop to make attached to holder
 
-	// Must be used in loop to make attached to holder
-	static bool RegisterRope(CEntity* ropeId, unsigned int ropeType, CVector startPos, bool bExpires, unsigned char segmentCount, unsigned char flags, CEntity* holder, unsigned int timeExpire);
-	static void Render();
-	static void SetSpeedOfTopNode(unsigned int ropeId, CVector dirSpeed);
-	static void Shutdown();
-	static void Update();
+    static float FindPickupHeight(CEntity* entity); // get model's center-to-top offset
+    static unsigned int FindRope(unsigned int ropeId); // returns index in the array, -1 if not found
+    static bool FindCoorsAlongRope(unsigned int ropeId, float dist, CVector* outPosn, CVector* outSpeed); // dist range is 0.0 to 1.0
+
+    static unsigned int CreateRopeForSwatPed(const CVector& startPos); // returns ropeId, -1 if failed
+    static bool IsCarriedByRope(CEntity* entity);
+    static void SetSpeedOfTopNode(unsigned int ropeId, CVector dirSpeed);
 };

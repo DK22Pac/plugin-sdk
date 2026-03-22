@@ -7,7 +7,7 @@
 #pragma once
 
 /* https://code.google.com/p/mtasa-blue/source/browse/trunk/MTA10/sdk/game/CEntity.h */
-enum eEntityType
+enum eEntityType : unsigned char
 {
 	ENTITY_TYPE_NOTHING,
 	ENTITY_TYPE_BUILDING,
