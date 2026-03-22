@@ -16,6 +16,11 @@
 namespace plugin {
     static int32_t NumSlots = 0;
     static int32_t Index = 0;
+#ifdef RAGE
+    static std::vector<std::string> loadedSlotNames;
+#elif RW
+    static std::vector<RwTexDictionary*> loadedDictionaries;
+#endif
 
     void SpriteLoader::Clear() {
         if (istxd) {
@@ -24,15 +29,19 @@ namespace plugin {
                 auto tex = it.second;
                 tex->Release();
             }
-
-            int32_t slot = CTxdStore::FindTxdSlot(slotName.c_str());
-            if (slot != -1)
-                CTxdStore::RemoveTxdSlot(slot);
-#elif RW
-            if (texDictionary) {
-                RwTexDictionaryDestroy(texDictionary);
-                texDictionary = nullptr;
+            for (const auto& slotName : loadedSlotNames) {
+                int32_t slot = CTxdStore::FindTxdSlot(slotName.c_str());
+                if (slot != -1)
+                    CTxdStore::RemoveTxdSlot(slot);
             }
+            loadedSlotNames.clear();
+#elif RW
+            for (auto dict : loadedDictionaries) {
+                if (dict) {
+                    RwTexDictionaryDestroy(dict);
+                }
+            }
+            loadedDictionaries.clear();
 #endif
         }
         else {
@@ -50,7 +59,11 @@ namespace plugin {
         }
         spritesMap.clear();
         spritesMapIndex.clear();
-        slotName.clear();
+#ifdef RAGE
+        loadedSlotNames.clear();
+#elif RW
+        loadedDictionaries.clear();
+#endif
         istxd = false;
         NumSlots = 0;
         Index = 0;
@@ -64,71 +77,51 @@ namespace plugin {
     }
 
     bool SpriteLoader::LoadAllSpritesFromTxd(std::string const& path) {
-        if (!spritesMap.empty())
-            return false;
-
 #ifdef RAGE
-        if (slotName.empty()) {
-make_slot:
-            char n[64];
+        char n[64];
+        while (true) {
             sprintf_s(n, "psdkslot_%d", NumSlots);
-            NumSlots++;
-
             int32_t slot = CTxdStore::FindTxdSlot(n);
-            if (slot != -1)
-                goto make_slot;
-
-            slotName = n;
+            if (slot == -1) break;
+            NumSlots++;
         }
-
+        std::string slotName = n;
+        NumSlots++;
         int32_t slot = CTxdStore::AddTxdSlot(slotName.c_str());
         if (!CTxdStore::LoadTxd(slot, path.c_str())) {
             CTxdStore::RemoveTxdSlot(slot);
             return false;
         }
-    
+        loadedSlotNames.push_back(slotName);
         CTxdStore::AddRef(slot);
         CTxdStore::PushCurrentTxd();
         CTxdStore::SetCurrentTxd(slot);
-
         for (auto& it : CTxdStore::ms_pStoredTxd->m_Entries) {
             std::string n = it.Get()->m_Name;
             std::string prefix = "pack:/";
             std::string suffix = ".dds";
-
             if (n.substr(0, prefix.length()) == prefix) {
                 n.erase(0, prefix.length());
             }
-
             if (n.length() >= suffix.length() &&
                 n.substr(n.length() - suffix.length()) == suffix) {
                 n.erase(n.length() - suffix.length());
             }
             spritesMap.insert({ n, it.Get() });
         }
-
         CTxdStore::PopCurrentTxd();
 #else
-        if (!texDictionary) {
-            auto dict = CFileLoader::LoadTexDictionary(path.c_str());
-
-            if (!dict)
-                return false;
-
-            RwTexDictionaryForAllTextures(dict, [](RwTexture* tex, void* data) {
-                auto map = (std::unordered_map<std::string, RwTexture*>*)data;
-
-                map->insert({ tex->name, tex });
-                return tex;
-                }, &spritesMap);
-
-            texDictionary = dict;
-        }
-
+        auto dict = CFileLoader::LoadTexDictionary(path.c_str());
+        if (!dict)
+            return false;
+        RwTexDictionaryForAllTextures(dict, [](RwTexture* tex, void* data) {
+            auto map = (std::unordered_map<std::string, RwTexture*>*)data;
+            map->insert({ tex->name, tex });
+            return tex;
+            }, &spritesMap);
+        loadedDictionaries.push_back(dict);
 #endif
-
         istxd = true;
-
         return true;
     }
 
