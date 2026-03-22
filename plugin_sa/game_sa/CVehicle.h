@@ -24,6 +24,14 @@
 
 /*  Thanks to MTA team for https://code.google.com/p/mtasa-blue/source/browse/tags/1.3.4/MTA10/game_sa/CVehicleSA.h */
 
+enum eBombState {
+    BOMB_TIMED_NOT_ACTIVATED = 1,
+    BOMB_IGNITION = 2,
+    BOMB_STICKY = 3,
+    BOMB_TIMED_ACTIVATED = 4,
+    BOMB_IGNITION_ACTIVATED = 5
+};
+
 enum eCarWeapon {
     CAR_WEAPON_NOT_USED,
     CAR_WEAPON_HEAVY_GUN,
@@ -71,12 +79,11 @@ enum eVehicleCreatedBy {
     PERMANENT_VEHICLE = 4
 };
 
-enum eBombState {
-    BOMB_TIMED_NOT_ACTIVATED = 1,
-    BOMB_IGNITION = 2,
-    BOMB_STICKY = 3,
-    BOMB_TIMED_ACTIVATED = 4,
-    BOMB_IGNITION_ACTIVATED = 5
+enum eWheelState : int32_t {
+    WHEEL_STATE_NORMAL,   // standing still or rolling normally
+    WHEEL_STATE_SPINNING, // rotating but not moving
+    WHEEL_STATE_SKIDDING,
+    WHEEL_STATE_FIXED,    // not rotating
 };
 
 #if 0
