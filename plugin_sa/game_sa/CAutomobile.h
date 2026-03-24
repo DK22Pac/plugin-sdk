@@ -6,11 +6,12 @@
 */
 #pragma once
 #include "PluginBase.h"
-#include "CVehicle.h"
-#include "CDoor.h"
 #include "CBouncingPanel.h"
-#include "CDamageManager.h"
 #include "CColPoint.h"
+#include "CDamageManager.h"
+#include "CDoor.h"
+#include "CVehicle.h"
+#include "eSkidmarkType.h"
 
 class CObject;
 
@@ -52,88 +53,83 @@ public:
     RwFrame *m_aCarNodes[CAR_NUM_NODES];
     CBouncingPanel m_panels[3];
     CDoor m_swingingChassis;
+
     CColPoint m_wheelColPoint[4];
-    float wheelsDistancesToGround1[4];
-    float wheelsDistancesToGround2[4];
-    float field_7F4[4];
-    float field_800;
-    float field_804;
-    float field_80C;
-    int field_810[4];
-    char field_81C[4];
-    int field_820;
+    float wheelsDistancesToGround1[4]; // m_fWheelsSuspensionCompression: 0.0 compressed, 1.0 completely relaxed
+    float wheelsDistancesToGround2[4]; // m_fWheelsSuspensionCompressionPrev
+    float m_WheelCounts[4];
+    float m_fBrakeCount;
+    float m_fIntertiaValue1;
+    float m_fIntertiaValue2;
+    eSkidmarkType m_wheelSkidmarkType[4];
+    bool m_wheelSkidmarkBloodState[4];
+    bool m_wheelSkidmarkMuddy[4];
     float m_fWheelRotation[4];
-    float field_838[4];
+    float m_wheelPosition[4];
     float m_fWheelSpeed[4];
-    int field_858[4];
-    char taxiAvaliable;
-    char field_869;
-    char field_86A;
-    char field_867;
+    float m_fWheelBurnoutSpeed[4]; // unused
+
+    struct {
+        bool bTaxiLight : 1;
+        bool bShouldNotChangeColour : 1;
+        bool bWaterTight : 1;
+        bool bDoesNotGetDamagedUpsideDown : 1;
+        bool bCanBeVisiblyDamaged : 1;
+        bool bTankExplodesCars : 1;
+        bool bIsBoggedDownInSand : 1;
+        bool bIsMonsterTruck : 1;
+    } autoFlags;
+    char field_869; // pad
+    bool m_bDoingBurnout;
+    char field_867; // pad
+
     short m_wMiscComponentAngle;
-    short m_wVoodooSuspension;
+    short m_wMiscComponentAnglePrev;
+
     int m_dwBusDoorTimerEnd;
     int m_dwBusDoorTimerStart;
-    float field_878;
-    float wheelOffsetZ[4];
-    int field_88C[3];
+
+    float m_aSuspensionSpringLength[4];
+    float m_aSuspensionLineLength[4];
     float m_fFrontHeightAboveRoad;
     float m_fRearHeightAboveRoad;
+
     float m_fCarTraction;
-    float m_fNitroValue;
-    int field_8A4;
-    int m_fRotationBalance; // used in CHeli::TestSniperCollision
-    float m_fMoveDirection;
-    int field_8B4[6];
-    int field_8C8[6];
+    float m_fNitroValue; // m_fTireTemperature
+
+    float m_fAircraftGoToHeading;
+    float m_fRotationBalance; // controls destroyed helicopter rotation
+    float m_fMoveDirection; // prev speed
+    CVector m_moveForce;
+    CVector m_turnForce;
+
+    float m_aDoorRotation[6]; // unused
+
     float m_fBurningTimer; // starts when vehicle health is lower than 250.0, car blows up when it hits 5000.0
-    CEntity *m_pWheelCollisionEntity[4];
+    CEntity* m_pWheelCollisionEntity[4];
     CVector m_vWheelCollisionPos[4];
-    char field_924;
-    char field_925;
-    char field_926;
-    char field_927;
-    char field_928;
-    char field_929;
-    char field_92A;
-    char field_92B;
-    char field_92C;
-    char field_92D;
-    char field_92E;
-    char field_92F;
-    char field_930;
-    char field_931;
-    char field_932;
-    char field_933;
-    char field_934;
-    char field_935;
-    char field_936;
-    char field_937;
-    char field_938;
-    char field_939;
-    char field_93A;
-    char field_93B;
-    char field_93C;
-    char field_93D;
-    char field_93E;
-    char field_93F;
-    int field_940;
-    int field_944;
+
+    CPed* m_pExplosionVictim;
+    char field_92C[24];
+    int field_940; // m_fLeftDoorOpenForDriveBys
+    int field_944; // m_fRightDoorOpenForDriveBys
+
     float m_fDoomVerticalRotation;
     float m_fDoomHorizontalRotation;
     float m_fForcedOrientation;
-    float m_fUpDownLightAngle[2];
+    float m_fPropRotate; // previously m_fUpDownLightAngle[0]
+    float m_fCumulativeDamage; // previously m_fUpDownLightAngle[1]
     unsigned char m_nNumContactWheels;
     unsigned char m_nWheelsOnGround;
-    char field_962;
-    char field_963;
-    float field_964;
-    int field_968[4];
-    void *pNitroParticle[2];
-    char field_980;
-    char field_981;
-    short field_982;
-    float field_984;
+    unsigned char m_NumDriveWheelsOnGroundLastFrame;
+    char field_963; // pad
+    float m_GasPedalAudioRevs; // adjusts the speed of playback of the skiding sound (0.0 to 1.0)
+    eWheelState m_WheelStates[4];
+    FxSystem_c* pNitroParticle[2];
+    unsigned char m_harvesterParticleCounter;
+    unsigned char m_fireParticleCounter;
+    short field_982; // pad
+    float m_heliDustFxTimeConst;
 
     // variables
     static bool &m_sAllTaxiLights;
@@ -246,6 +242,12 @@ public:
     bool HasCarStoppedBecauseOfLight();
 };
 
+VALIDATE_OFFSET(CAutomobile, m_wMiscComponentAngle, 0x86C);
+VALIDATE_OFFSET(CAutomobile, m_aSuspensionSpringLength, 0x878);
+VALIDATE_OFFSET(CAutomobile, m_fBurningTimer, 0x8E4);
+VALIDATE_OFFSET(CAutomobile, m_pExplosionVictim, 0x928);
+VALIDATE_OFFSET(CAutomobile, m_fDoomVerticalRotation, 0x94C);
+VALIDATE_OFFSET(CAutomobile, field_982, 0x982);
 VALIDATE_SIZE(CAutomobile, 0x988);
 
 extern CColPoint *aAutomobileColPoints;
