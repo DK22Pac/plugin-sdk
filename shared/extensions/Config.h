@@ -102,6 +102,7 @@ namespace plugin {
         bool _dataRead;
         bool _usePrecision;
         bool _writeOnly;
+        std::string _streamCommentBuffer;
 
         config_parameter _emptyParameter;
 
@@ -114,10 +115,7 @@ namespace plugin {
         void writeData();
 
         config_file &operator<<(std::string comment) {
-            if (paramLines.empty())
-                paramLines.emplace_back("", "", false, comment);
-            else
-                paramLines.back().comment.append(comment);
+            _streamCommentBuffer.append(comment);
             return *this;
         }
 

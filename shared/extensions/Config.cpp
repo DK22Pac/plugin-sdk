@@ -408,6 +408,11 @@ void config_file::writeData() {
                 out << '\n';
             }
         }
+        if (!_streamCommentBuffer.empty()) {
+            out << _streamCommentBuffer;
+            if (_streamCommentBuffer.back() != '\n')
+                out << '\n';
+        }
         out.close();
     }
 }
@@ -421,6 +426,7 @@ config_file::config_file() {
     _useEqualitySign = false;
     _usePrecision = false;
     _writeOnly = false;
+    _streamCommentBuffer.clear();
 }
 
 void config_file::open(std::string fileName) {
@@ -448,6 +454,7 @@ config_file::config_file(std::string fileName) {
     _useEqualitySign = false;
     _usePrecision = false;
     _writeOnly = false;
+    _streamCommentBuffer.clear();
     open(fileName);
 }
 
@@ -475,6 +482,7 @@ config_file::config_file(std::wstring fileName) {
     _dataRead = false;
     _useAlignment = true;
     _useEqualitySign = false;
+    _streamCommentBuffer.clear();
     open(fileName);
 }
 #endif
@@ -485,10 +493,19 @@ void config_file::save() {
 
 config_parameter &config_file::operator[](std::string name) {
     for (config_param_line &param : paramLines) {
-        if (!param.name.compare(name))
+        if (!param.name.compare(name)) {
+            if (!_streamCommentBuffer.empty()) {
+                param.comment.append(_streamCommentBuffer);
+                _streamCommentBuffer.clear();
+            }
             return param;
+        }
     }
     paramLines.emplace_back(name);
+    if (!_streamCommentBuffer.empty()) {
+        paramLines.back().comment.append(_streamCommentBuffer);
+        _streamCommentBuffer.clear();
+    }
     return paramLines.back();
 }
 
