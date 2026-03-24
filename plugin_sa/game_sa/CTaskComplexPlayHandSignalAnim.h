@@ -9,6 +9,8 @@
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 
+typedef int AnimationId;
+
 class PLUGIN_API CTaskComplexPlayHandSignalAnim : public CTaskComplex {
 public:
     int   m_animationId;

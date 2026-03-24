@@ -21,7 +21,6 @@
 #include "CVector2D.h"
 #include "eWeaponType.h"
 #include "ePedState.h"
-#include "AnimationEnums.h"
 #include "CAnimBlendAssociation.h"
 #include "CFire.h"
 
