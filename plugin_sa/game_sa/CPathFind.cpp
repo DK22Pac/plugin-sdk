@@ -6,7 +6,7 @@
 */
 #include "CPathFind.h"
 
-CPathFind &ThePaths = **(CPathFind **)(0x40CA27);
+CPathFind &ThePaths = **(CPathFind**)(0x40CA27); // limit adjusters support - get from reference in CStreaming::ConvertBufferToObject
 
 void CPathFind::DoPathSearch(unsigned char pathType, CVector origin, CNodeAddress originAddr, 
 		CVector target, CNodeAddress *pResultNodes, short *pNodesCount, int maxNodesToFind, float *pDistance, 

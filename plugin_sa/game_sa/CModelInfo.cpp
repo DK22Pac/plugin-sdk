@@ -6,7 +6,7 @@
 */
 #include "CModelInfo.h"
 
-CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo**)0xA9B0C8;
+CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = *(CBaseModelInfo***)0x40CD67; // limit adjusters support - get from reference in CStreaming::RequestModelStream
 
 // Converted from stdcall void CModelInfo::ReInit2dEffects(void) 0x4C63B0
 void CModelInfo::ReInit2dEffects()
@@ -180,8 +180,4 @@ bool CModelInfo::IsTrailerModel(int index)
 int CModelInfo::IsVehicleModelType(int index)
 {
 	return ((int (__cdecl *)(int))0x4C5C80)(index);
-}
-
-CBaseModelInfo *CModelInfo::GetModelInfo(int index) {
-    return plugin::CallAndReturn<CBaseModelInfo *, 0x403DA0, int>(index);
 }
