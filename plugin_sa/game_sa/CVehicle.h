@@ -312,7 +312,7 @@ public:
 	
     RwTexture*    m_pCustomCarPlate;
     float         m_fRawSteerAngle; // AKA m_fSteeringLeftRight or fSteer
-    eVehicleType  m_nVehicleClass; // m_nVehicleType
+    eVehicleType  m_nVehicleClass; // m_nVehicleType - base class
     eVehicleType  m_nVehicleSubClass; // m_nVehicleSubType
     short         m_nPreviousRemapTxd;
     short         m_nRemapTxd;

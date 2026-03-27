@@ -44,30 +44,32 @@ enum eCarNodes {
     CAR_NUM_NODES
 };
 
+#pragma pack(push, 4)
 class CAutomobile : public CVehicle {
 protected:
     CAutomobile(plugin::dummy_func_t) : CVehicle(plugin::dummy) {}
-public:
-    CDamageManager m_damageManager;
-    CDoor m_doors[6];
-    RwFrame *m_aCarNodes[CAR_NUM_NODES];
-    CBouncingPanel m_panels[3];
-    CDoor m_swingingChassis;
 
-    CColPoint m_wheelColPoint[4];
-    float wheelsDistancesToGround1[4]; // m_fWheelsSuspensionCompression: 0.0 compressed, 1.0 completely relaxed
-    float wheelsDistancesToGround2[4]; // m_fWheelsSuspensionCompressionPrev
-    float m_WheelCounts[4];
-    float m_fBrakeCount;
-    float m_fIntertiaValue1;
-    float m_fIntertiaValue2;
+public:
+    CDamageManager  m_damageManager;
+    CDoor           m_doors[6];
+    RwFrame*        m_aCarNodes[CAR_NUM_NODES];
+    CBouncingPanel  m_panels[3];
+    CDoor           m_swingingChassis;
+
+    CColPoint   m_wheelColPoint[4];
+    float       m_fWheelsSuspensionCompression[4]; // 0.0 compressed, 1.0 completely relaxed
+    float       m_fWheelsSuspensionCompressionPrev[4];
+    float       m_fWheelCounts[4];
+    float       m_fBrakeCount;
+    float       m_fIntertiaValue1;
+    float       m_fIntertiaValue2;
     eSkidmarkType m_wheelSkidmarkType[4];
-    bool m_wheelSkidmarkBloodState[4];
-    bool m_wheelSkidmarkMuddy[4];
-    float m_fWheelRotation[4];
-    float m_wheelPosition[4];
-    float m_fWheelSpeed[4];
-    float m_fWheelBurnoutSpeed[4]; // unused
+    bool        m_bWheelSkidmarkBloody[4];
+    bool        m_bWheelSkidmarkMuddy[4];
+    float       m_fWheelRotation[4];
+    float       m_fWheelPosition[4];
+    float       m_fWheelSpeed[4];
+    float       m_fWheelBurnoutSpeed[4]; // unused
 
     struct {
         bool bTaxiLight : 1;
@@ -78,10 +80,8 @@ public:
         bool bTankExplodesCars : 1;
         bool bIsBoggedDownInSand : 1;
         bool bIsMonsterTruck : 1;
-    } autoFlags;
-    char field_869; // pad
-    bool m_bDoingBurnout;
-    char field_867; // pad
+    } m_nAutomobileFlags;
+    short m_bDoingBurnout;
 
     short m_wMiscComponentAngle;
     short m_wMiscComponentAnglePrev;
@@ -94,42 +94,43 @@ public:
     float m_fFrontHeightAboveRoad;
     float m_fRearHeightAboveRoad;
 
-    float m_fCarTraction;
+    float m_fExtraTractionMult;
     float m_fNitroValue; // m_fTireTemperature
 
     float m_fAircraftGoToHeading;
     float m_fRotationBalance; // controls destroyed helicopter rotation
     float m_fMoveDirection; // prev speed
-    CVector m_moveForce;
-    CVector m_turnForce;
+    CVector m_vecMoveForce;
+    CVector m_vecTurnForce;
 
     float m_aDoorRotation[6]; // unused
 
     float m_fBurningTimer; // starts when vehicle health is lower than 250.0, car blows up when it hits 5000.0
+
     CEntity* m_pWheelCollisionEntity[4];
-    CVector m_vWheelCollisionPos[4];
+    CVector  m_vWheelCollisionPos[4];
 
     CPed* m_pExplosionVictim;
-    char field_92C[24];
-    int field_940; // m_fLeftDoorOpenForDriveBys
-    int field_944; // m_fRightDoorOpenForDriveBys
+    char field_92C[24]; // unknown
+    float m_fLeftDoorOpenForDriveBys;
+    float m_fRightDoorOpenForDriveBys;
 
     float m_fDoomVerticalRotation;
     float m_fDoomHorizontalRotation;
     float m_fForcedOrientation;
     float m_fPropRotate; // previously m_fUpDownLightAngle[0]
     float m_fCumulativeDamage; // previously m_fUpDownLightAngle[1]
-    unsigned char m_nNumContactWheels;
-    unsigned char m_nWheelsOnGround;
-    unsigned char m_NumDriveWheelsOnGroundLastFrame;
-    char field_963; // pad
-    float m_GasPedalAudioRevs; // adjusts the speed of playback of the skiding sound (0.0 to 1.0)
-    eWheelState m_WheelStates[4];
-    FxSystem_c* pNitroParticle[2];
-    unsigned char m_harvesterParticleCounter;
-    unsigned char m_fireParticleCounter;
-    short field_982; // pad
-    float m_heliDustFxTimeConst;
+
+    uint8_t     m_nNumContactWheels;
+    uint8_t     m_nWheelsOnGround;
+    uint8_t     m_nNumDriveWheelsOnGroundLastFrame;
+    float       m_fGasPedalAudioRevs; // adjusts the speed of playback of the skiding sound (0.0 to 1.0)
+    eWheelState m_wheelState[4];
+
+    FxSystem_c* m_pNitroParticle[2];
+    uint8_t     m_harvesterParticleCounter;
+    uint8_t     m_fireParticleCounter;
+    float       m_heliDustFxTimeConst;
 
     // variables
     static bool &m_sAllTaxiLights;
@@ -241,13 +242,18 @@ public:
     void FireTruckControl(float arg0);
     bool HasCarStoppedBecauseOfLight();
 };
+#pragma pack(pop)
 
+VALIDATE_OFFSET(CAutomobile, m_swingingChassis, 0x70C);
+VALIDATE_OFFSET(CAutomobile, m_wheelColPoint, 0x724);
+VALIDATE_OFFSET(CAutomobile, m_nAutomobileFlags, 0x868);
 VALIDATE_OFFSET(CAutomobile, m_wMiscComponentAngle, 0x86C);
 VALIDATE_OFFSET(CAutomobile, m_aSuspensionSpringLength, 0x878);
 VALIDATE_OFFSET(CAutomobile, m_fBurningTimer, 0x8E4);
 VALIDATE_OFFSET(CAutomobile, m_pExplosionVictim, 0x928);
 VALIDATE_OFFSET(CAutomobile, m_fDoomVerticalRotation, 0x94C);
-VALIDATE_OFFSET(CAutomobile, field_982, 0x982);
+VALIDATE_OFFSET(CAutomobile, m_pNitroParticle, 0x978);
+VALIDATE_OFFSET(CAutomobile, m_heliDustFxTimeConst, 0x984);
 VALIDATE_SIZE(CAutomobile, 0x988);
 
 extern CColPoint *aAutomobileColPoints;

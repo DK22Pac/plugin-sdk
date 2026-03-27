@@ -7,8 +7,8 @@
 #pragma once
 #include "PluginBase.h"
 #include "CVehicle.h"
+#include "tBikeHandlingData.h"
 
-struct tBikeHandlingData;
 
 enum eBikeNodes {
     BIKE_NODE_NONE = 0,
@@ -24,62 +24,79 @@ enum eBikeNodes {
     BIKE_NUM_NODES
 };
 
-class CBike : public CVehicle {
+#pragma pack(push, 4)
+class CBike : public CVehicle{
 protected:
     CBike(plugin::dummy_func_t) : CVehicle(plugin::dummy), m_mLeanMatrix(plugin::dummy) {}
+
 public:
-    RwFrame       *m_aBikeNodes[BIKE_NUM_NODES];
-    bool           m_bLeanMatrixCalculated;
-    char _pad0[3];
-    CMatrix        m_mLeanMatrix;
-    unsigned char  m_nDamageFlags;
-    char field_615[27];
-    CVector field_630;
-    void          *m_pBikeHandlingData;
-    CRideAnimData  m_rideAnimData;
-    unsigned char  m_anWheelDamageState[2];
-    char field_65E;
-    char field_65F;
-    CColPoint      m_anWheelColPoint[4];
-    float field_710[4];
-    float field_720[4];
-    float field_730[4];
-    float field_740;
-    int            m_anWheelSurfaceType[2];
-    char field_74C[2];
-    char field_74E[2];
-    float          m_afWheelRotationX[2];
-    float m_fWheelSpeed[2];
-    float field_760;
-    float field_764;
-    float field_768;
-    float field_76C;
-    float field_770[4];
-    float field_780[4];
-    float          m_fHeightAboveRoad;
-    float          m_fCarTraction;
-    float field_798;
-    float field_79C;
-    float field_7A0;
-    float field_7A4;
-    short field_7A8;
-    char field_7AA[2];
-    int field_7AC;
-    int field_7B0;
-    bool           m_bPedLeftHandFixed;
-    bool           m_bPedRightHandFixed;
-    char field_7B6[2];
-    int field_7B8;
+    static constexpr auto NUM_WHEELS = 2;
+    static constexpr auto NUM_SUSP_LINES = 4;
+
+    RwFrame* m_aBikeNodes[BIKE_NUM_NODES];
+
+    bool m_bLeanMatrixCalculated;
+    CMatrix m_mLeanMatrix;
+
+    union {
+        struct {
+            bool bShouldNotChangeColour : 1;
+            bool bPanelsAreThougher : 1;
+            bool bWaterTight : 1; // ignores water
+            bool bGettingPickedUp : 1;
+            bool bOnSideStand : 1; // is standing
+            bool bPlayerBoost : 1;
+            bool bEngineOnFire : 1;
+            bool bWheelieForCamera : 1;
+        };
+        uint8_t m_nBikeFlags;
+    };
+
+    CVector m_vecAveGroundNormal;
+    CVector m_vecGroundRight;
+    CVector m_vecOldSpeedForPlayback;
+    tBikeHandlingData* m_pBikeHandlingData;
+    CRideAnimData m_rideAnimData;
+
+    uint8_t         m_nWheelStatus[NUM_WHEELS];
+    CColPoint       m_anWheelColPoint[NUM_SUSP_LINES];
+    float           m_aWheelRatios[NUM_SUSP_LINES];
+    float           m_aRatioHistory[NUM_SUSP_LINES];
+    float           m_fWheelCounts[NUM_SUSP_LINES];
+    float           m_fBrakeCount;
+    eSkidmarkType   m_aWheelSkidmarkType[NUM_WHEELS];
+    bool            m_bWheelBloody[NUM_WHEELS];
+    bool            m_bMoreSkidMarks[NUM_WHEELS];
+    float           m_aWheelPitchAngles[NUM_WHEELS];
+    float           m_aWheelAngularVelocity[NUM_WHEELS];
+    float           m_aWheelSuspensionHeights[NUM_WHEELS];
+    float           m_aWheelOrigHeights[NUM_WHEELS];
+    float           m_fSuspensionLength[NUM_SUSP_LINES];
+    float           m_fLineLength[NUM_SUSP_LINES];
+    float           m_fHeightAboveRoad;
+    float           m_fExtraTractionMult;
+    float           m_fSwingArmLength;
+    float           m_fForkYOffset;
+    float           m_fForkZOffset;
+    float           m_fSteerAngleTan;
+    uint16_t        m_nBrakesOn;
+    float           m_fNitroValue; // m_fTyreTemp
+    float           m_fBrakingSlide;
+    uint8_t         m_nFixLeftHand;
+    uint8_t         m_nFixRightHand;
+    uint8_t         m_nTestPedCollision;
+    float           m_fPrevSpeed;
+
     float m_fBurningTimer; // starts when vehicle health is lower than 250.0, bike blows up when it hits 5000.0
-    CEntity       *m_apWheelCollisionEntity[4];
-    CVector        m_avTouchPointsLocalSpace[4];
-    CEntity       *m_pDamager;
-    unsigned char  m_nNumContactWheels;
-    unsigned char  m_nNumWheelsOnGround;
-    char field_806;
-    char field_807;
-    int field_808;
-    unsigned int   m_anWheelState[2]; // enum tWheelState
+
+    CEntity*    m_apWheelCollisionEntity[NUM_SUSP_LINES];
+    CVector     m_avTouchPointsLocalSpace[NUM_SUSP_LINES];
+    CEntity*    m_pDamager;
+    uint8_t     m_nNumContactWheels;
+    uint8_t     m_nNumWheelsOnGround;
+    uint8_t     m_nNumDriveWheelsOnGroundLastFrame;
+    float       m_fGasPedalAudioRevs;
+    eWheelState m_wheelState[NUM_WHEELS];
 
     //vtable
 
@@ -107,5 +124,16 @@ public:
     void PlaceOnRoadProperly();
     void GetCorrectedWorldDoorPosition(CVector& out, CVector arg1, CVector arg2);
 };
+#pragma pack(pop)
 
+VALIDATE_OFFSET(CBike, m_bLeanMatrixCalculated, 0x5C8);
+VALIDATE_OFFSET(CBike, m_nBikeFlags, 0x614);
+VALIDATE_OFFSET(CBike, m_vecOldSpeedForPlayback, 0x630);
+VALIDATE_OFFSET(CBike, m_rideAnimData, 0x640);
+VALIDATE_OFFSET(CBike, m_anWheelColPoint, 0x660);
+VALIDATE_OFFSET(CBike, m_aWheelSkidmarkType, 0x744);
+VALIDATE_OFFSET(CBike, m_fHeightAboveRoad, 0x790);
+VALIDATE_OFFSET(CBike, m_apWheelCollisionEntity, 0x7C0);
+VALIDATE_OFFSET(CBike, m_nNumWheelsOnGround, 0x805);
+VALIDATE_OFFSET(CBike, m_wheelState, 0x80C);
 VALIDATE_SIZE(CBike, 0x814);

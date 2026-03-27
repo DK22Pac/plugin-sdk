@@ -66,7 +66,7 @@ public:
 private:
 	char _pad3A[2];
 public:
-	unsigned int m_nVehicleType;
+	eVehicleType m_nVehicleType;
 	float m_fWheelSizeFront;
 	float m_fWheelSizeRear;
 	short m_nWheelModelIndex;
@@ -296,5 +296,7 @@ public:
     int GetNumDoors();
 };
 
-VALIDATE_SIZE(CVehicleModelInfo::CVehicleStructure, 0x314);
+VALIDATE_OFFSET(CVehicleModelInfo, field_51, 0x51);
 VALIDATE_SIZE(CVehicleModelInfo, 0x308);
+
+VALIDATE_SIZE(CVehicleModelInfo::CVehicleStructure, 0x314);
