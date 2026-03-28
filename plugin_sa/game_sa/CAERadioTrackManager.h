@@ -95,6 +95,9 @@ public:
     void StartRadio(int stationId, float bass, int arg, char unused);
     void StopRadio(tVehicleAudioSettings* settings, char arg);
 
+    static void Load();
+    static void Save();
+
     // 11 structures
     static tMusicTrackHistory *m_nMusicTrackIndexHistory;
 };

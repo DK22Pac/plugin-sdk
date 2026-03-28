@@ -347,4 +347,4 @@ public:
 
 #include "meta/meta.CTheScripts.h"
 
-SUPPORTED_10US extern int* ScriptParams; // 32
+SUPPORTED_10US extern int (&ScriptParams)[32];

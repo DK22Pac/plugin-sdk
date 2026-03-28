@@ -36,3 +36,13 @@ CPathNode *CPathFind::GetPathNode(CNodeAddress address)
 {
 	return ((CPathNode *(__thiscall *)(CPathFind *, CNodeAddress))0x420AC0)(this, address);
 }
+
+// 0x5D34C0
+bool CPathFind::Save() {
+	return plugin::CallAndReturn<bool, 0x5D34C0>();
+}
+
+// 0x5D3500
+bool CPathFind::Load() {
+	return plugin::CallAndReturn<bool, 0x5D3500>();
+}

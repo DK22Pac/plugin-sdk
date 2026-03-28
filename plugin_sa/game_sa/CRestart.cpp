@@ -59,7 +59,6 @@ void CRestart::OverrideNextRestart(CVector const& point, float angle)
 	((void(__cdecl *)(CVector const&, float))0x4607D0)(point, angle);
 }
 
-/*
 void CRestart::Save()
 {
 	((void(__cdecl *)())0x460780)();
@@ -69,4 +68,3 @@ void CRestart::SetRespawnPointForDurationOfMission(CVector point)
 {
 	((void(__cdecl *)())0x460780)();
 }
-*/

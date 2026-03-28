@@ -106,6 +106,9 @@ public:
     CPlayerInfo();
     void MakePlayerSafe(bool safe, float radius);
 
+    bool Load();
+    bool Save();
+
 };
 
 VALIDATE_SIZE(CPlayerInfo, 0x190);

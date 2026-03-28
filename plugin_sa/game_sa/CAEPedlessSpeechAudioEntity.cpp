@@ -6,3 +6,8 @@
 */
 
 #include "CAEPedSpeechAudioEntity.h"
+
+// 0x4E68D0
+void CAEPedSpeechAudioEntity::Initialise(CPed* ped) {
+    plugin::CallMethod<0x4E68D0, CAEPedSpeechAudioEntity*, CPed*>(this, ped);
+}

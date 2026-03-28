@@ -101,3 +101,223 @@ float& CPostEffects::m_waterStrength = *(float*)0x8D512C;
 float& CPostEffects::m_waterSpeed = *(float*)0x8D5138;
 float& CPostEffects::m_waterFreq = *(float*)0x8D513C;
 CRGBA& CPostEffects::m_waterCol = *(CRGBA*)0x8D5140;
+
+// 0x704630
+void CPostEffects::Initialise() {
+    plugin::Call<0x704630>();
+}
+
+// 0x7010C0
+void CPostEffects::Close() {
+    plugin::Call<0x7010C0>();
+}
+
+// 0x7046D0
+void CPostEffects::DoScreenModeDependentInitializations() {
+    plugin::Call<0x7046D0>();
+}
+
+// 0x7043D0
+void CPostEffects::SetupBackBufferVertex() {
+    plugin::Call<0x7043D0>();
+}
+
+// 0x7046A0
+void CPostEffects::Update() {
+    plugin::Call<0x7046A0>();
+}
+
+// 0x700EC0
+void CPostEffects::DrawQuad(RwReal xPos, RwReal yPos, RwReal xSize, RwReal ySize, RwUInt8 r, RwUInt8 g, RwUInt8 b, RwUInt8 a, RwRaster* pRaster) {
+    plugin::Call<0x700EC0, RwReal, RwReal, RwReal, RwReal, RwUInt8, RwUInt8, RwUInt8, RwUInt8, RwRaster*>(xPos, yPos, xSize, ySize, r, g, b, a, pRaster);
+}
+
+// 0x701060
+void CPostEffects::DrawQuadSetDefaultUVs() {
+    plugin::Call<0x701060>();
+}
+
+// 0x700FE0
+void CPostEffects::DrawQuadSetPixelUVs(RwReal u1, RwReal v1, RwReal u2, RwReal v2, RwReal u3, RwReal v3, RwReal u4, RwReal v4) {
+    plugin::Call<0x700FE0, RwReal, RwReal, RwReal, RwReal, RwReal, RwReal, RwReal, RwReal>(u1, v1, u2, v2, u3, v3, u4, v4);
+}
+
+// 0x700F90
+void CPostEffects::DrawQuadSetUVs(RwReal u1, RwReal v1, RwReal u2, RwReal v2, RwReal u3, RwReal v3, RwReal u4, RwReal v4) {
+    plugin::Call<0x700F90, RwReal, RwReal, RwReal, RwReal, RwReal, RwReal, RwReal, RwReal>(u1, v1, u2, v2, u3, v3, u4, v4);
+}
+
+// 0x7034B0
+void CPostEffects::FilterFX_RestoreDayNightBalance() {
+    plugin::Call<0x7034B0>();
+}
+
+// 0x7034D0
+void CPostEffects::FilterFX_StoreAndSetDayNightBalance() {
+    plugin::Call<0x7034D0>();
+}
+
+// 0x703CC0
+void CPostEffects::ImmediateModeFilterStuffInitialize() {
+    plugin::Call<0x703CC0>();
+}
+
+// 0x700D70
+void CPostEffects::ImmediateModeRenderStatesSet() {
+    plugin::Call<0x700D70>();
+}
+
+// 0x700CC0
+void CPostEffects::ImmediateModeRenderStatesStore() {
+    plugin::Call<0x700CC0>();
+}
+
+// 0x700E00
+void CPostEffects::ImmediateModeRenderStatesReStore() {
+    plugin::Call<0x700E00>();
+}
+
+// 0x700C90
+RwRaster* CPostEffects::RasterCreatePostEffects(RwRect rect) {
+    return plugin::CallAndReturn<RwRaster*, 0x700C90, RwRect>(rect);
+}
+
+// 0x7011B0
+void CPostEffects::ScriptCCTVSwitch(bool n) {
+    plugin::Call<0x7011B0, bool>(n);
+}
+
+// 0x701170
+void CPostEffects::ScriptDarknessFilterSwitch(bool n, int32_t alpha) {
+    plugin::Call<0x701170, bool>(n, alpha);
+}
+
+// 0x701160
+void CPostEffects::ScriptHeatHazeFXSwitch(bool n) {
+    plugin::Call<0x701160, bool>(n);
+}
+
+// 0x701140
+void CPostEffects::ScriptInfraredVisionSwitch(bool n) {
+    plugin::Call<0x701140, bool>(n);
+}
+
+// 0x701120
+void CPostEffects::ScriptNightVisionSwitch(bool n) {
+    plugin::Call<0x701120, bool>(n);
+}
+
+// 0x7010F0
+void CPostEffects::ScriptResetForEffects() {
+    plugin::Call<0x7010F0>();
+}
+
+// 0x7039C0
+void CPostEffects::UnderWaterRipple(RwRGBA col, float xoffset, float yoffset, int32_t strength, float speed, float freq) {
+    plugin::Call<0x7039C0, RwRGBA, float, float, int32_t, float, float>(col, xoffset, yoffset, strength, speed, freq);
+}
+
+// 0x703CB0
+void CPostEffects::UnderWaterRippleFadeToFX() {
+    plugin::Call<0x703CB0>();
+}
+
+// 0x701450
+void CPostEffects::HeatHazeFXInit() {
+    plugin::Call<0x701450>();
+}
+
+// 0x701780
+void CPostEffects::HeatHazeFX(float fIntensity, bool bAlphaMaskMode) {
+    plugin::Call<0x701780, float, bool>(fIntensity, bAlphaMaskMode);
+}
+
+// 0x7034F0
+bool CPostEffects::IsVisionFXActive() {
+    return plugin::CallAndReturn<bool, 0x7034F0>();
+}
+
+// 0x7011C0
+void CPostEffects::NightVision() {
+    plugin::Call<0x7011C0>();
+}
+
+// 0x7012E0
+void CPostEffects::NightVisionSetLights() {
+    plugin::Call<0x7012E0>();
+}
+
+// 0x703520
+void CPostEffects::SetFilterMainColour(RwRaster* pRaster, RwRGBA colour) {
+    plugin::Call<0x703520, RwRaster*, RwRGBA>(pRaster, colour);
+}
+
+// 0x703F80
+void CPostEffects::InfraredVision(RwRGBA colour, RwRGBA colourMain) {
+    plugin::Call<0x703F80, RwRGBA, RwRGBA>(colour, colourMain);
+}
+
+// 0x701430
+void CPostEffects::InfraredVisionSetLightsForDefaultObjects() {
+    plugin::Call<0x701430>();
+}
+
+// 0x701300
+void CPostEffects::InfraredVisionSetLightsForHeatObjects() {
+    plugin::Call<0x701300>();
+}
+
+// 0x701320
+void CPostEffects::InfraredVisionStoreAndSetLightsForHeatObjects(CPed* ped) {
+    plugin::Call<0x701320, CPed*>(ped);
+}
+
+// 0x701410
+void CPostEffects::InfraredVisionRestoreLightsForHeatObjects() {
+    plugin::Call<0x701410>();
+}
+
+// 0x704150
+void CPostEffects::Fog() {
+    plugin::Call<0x704150>();
+}
+
+// 0x702F40
+void CPostEffects::CCTV() {
+    plugin::Call<0x702F40>();
+}
+
+// 0x7037C0
+void CPostEffects::Grain(int32_t strengthMask, bool update) {
+    plugin::Call<0x7037C0, int32_t, bool>(strengthMask, update);
+}
+
+// 0x7030A0
+void CPostEffects::SpeedFX(float speed) {
+    plugin::Call<0x7030A0, float>(speed);
+}
+
+// 0x702F00
+void CPostEffects::DarknessFilter(int32_t alpha) {
+    plugin::Call<0x702F00, int32_t>(alpha);
+}
+
+// 0x703650
+void CPostEffects::ColourFilter(RwRGBA col1, RwRGBA col2) {
+    plugin::Call<0x703650, RwRGBA, RwRGBA>(col1, col2);
+}
+
+// 0x702080
+void CPostEffects::Radiosity(int32_t intensityLimit, int32_t filterPasses, int32_t renderPasses, int32_t intensity) {
+    plugin::Call<0x702080>();
+}
+
+// 0x700BE0
+void CPostEffects::SetSpeedFXManualSpeedCurrentFrame(float value) {
+    plugin::Call<0x700BE0, float>(value);
+}
+
+// 0x7046E0
+void CPostEffects::Render() {
+    plugin::Call<0x7046E0>();
+}

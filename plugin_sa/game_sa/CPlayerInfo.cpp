@@ -14,3 +14,13 @@ CPlayerInfo::CPlayerInfo()
 void CPlayerInfo::MakePlayerSafe(bool safe, float radius) {
     plugin::CallMethod<0x56E870, CPlayerInfo*, bool, float>(this, safe, radius);
 }
+
+// 0x5D3B00
+bool CPlayerInfo::Load() {
+    return plugin::CallAndReturn<bool, 0x5D3B00>();
+}
+
+// 0x5D3AC0
+bool CPlayerInfo::Save() {
+    return plugin::CallAndReturn<bool, 0x5D3AC0>();
+}
