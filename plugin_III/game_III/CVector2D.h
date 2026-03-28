@@ -9,7 +9,7 @@
 #include "PluginBase.h"
 #include <math.h>
 
-class CVector;
+struct CVector;
 
 class CVector2D {
 public:

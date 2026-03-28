@@ -48,7 +48,6 @@ UTEST(CVector, ctor_CVector)
     EXPECT_EQ(v.z, 3.0f);
 }
 
-#ifdef RW
 UTEST(CVector, ctor_RwV3d)
 {
     RwV3d src;
@@ -61,7 +60,6 @@ UTEST(CVector, ctor_RwV3d)
     EXPECT_EQ(v.y, 2.0f);
     EXPECT_EQ(v.z, 3.0f);
 }
-#endif
 
 UTEST(CVector, ctor_CVector2D)
 {
@@ -120,8 +118,7 @@ UTEST(CVector, operator_assign)
     EXPECT_EQ(v.z, 3.0f);
 }
 
-#ifdef RW
-UTEST(CVector, FromRwV3d)
+UTEST(CVector, operator_assign_RwV3d)
 {
     RwV3d src;
     src.x = 1.0f;
@@ -129,12 +126,11 @@ UTEST(CVector, FromRwV3d)
     src.z = 3.0f;
     CVector v;
 
-    v.FromRwV3d(src);
+    v = src;
     EXPECT_EQ(v.x, 1.0f);
     EXPECT_EQ(v.y, 2.0f);
     EXPECT_EQ(v.z, 3.0f);
 }
-#endif
 
 UTEST(CVector, From2D)
 {
@@ -239,7 +235,6 @@ UTEST(CVector, FromMultiply3x3)
 
 // conversions
 
-#ifdef RW
 UTEST(CVector, ToRwV3d)
 {
     CVector src;
@@ -247,12 +242,11 @@ UTEST(CVector, ToRwV3d)
     src.y = 2.0f;
     src.z = 3.0f;
 
-    RwV3d v = src.ToRwV3d();
+    RwV3d v = src;
     EXPECT_EQ(v.x, 1.0f);
     EXPECT_EQ(v.y, 2.0f);
     EXPECT_EQ(v.z, 3.0f);
 }
-#endif
 
 UTEST(CVector, To2D)
 {

@@ -6,8 +6,14 @@
 */
 #pragma once
 #include "PluginBase.h"
+
 #ifdef RW
     #include "RenderWare.h"
+#else
+    struct RwV3d
+    {
+        float x, y, z;
+    };
 #endif
 
 #if defined GTA3 || defined GTAVC || defined GTASA
@@ -17,21 +23,16 @@
 
 class CVector2D;
 
-class CVector
+struct CVector : public RwV3d
 {
 public:
-    float x = 0.0f;
-    float y = 0.0f;
-    float z = 0.0f;
-
     // constructors
-    CVector() = default;
+    CVector();
     explicit CVector(float value);
     CVector(float x, float y, float z);
     CVector(const CVector& src);
-#ifdef RW
     CVector(const RwV3d& src);
-#endif
+
     explicit CVector(const CVector2D& xy, float z = 0.0f);
     
     // assignments
@@ -39,9 +40,6 @@ public:
     void Set(float value); // assign value to all components
     void Set(float x, float y, float z);
     void operator =(const CVector& src);
-#ifdef RW
-    void FromRwV3d(const RwV3d& src);
-#endif
     void From2D(const CVector2D& xy, float z = 0.0f);
     void FromSum(const CVector& left, const CVector& right); // store sum of two vectors
     void FromDiff(const CVector& left, const CVector& right); // store left - right substraction result
@@ -53,9 +51,10 @@ public:
 #endif
 
     // conversions
-#ifdef RW
-    RwV3d ToRwV3d() const;
-#endif
+    operator RwV3d&();
+    operator const RwV3d&() const;
+    operator RwV3d*();
+    operator const RwV3d*() const;
     CVector2D To2D() const; // get XY
 
     // properties

@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-class CVector;
+struct CVector;
 
 class PLUGIN_API CVector2D
 {

@@ -194,7 +194,7 @@ bool Get3dTo2d(CVector const &posn, CVector &out) {
 #else
     RwV3d rwvec;
     float outw, outh;
-    result = CSprite::CalcScreenCoors(posn.ToRwV3d(),
+    result = CSprite::CalcScreenCoors(posn,
                                       &rwvec,
                                       &outw,
                                       &outh,
@@ -204,7 +204,7 @@ bool Get3dTo2d(CVector const &posn, CVector &out) {
 #endif
     );
 
-    out.FromRwV3d(rwvec);
+    out = rwvec;
 #endif
     return result;
 }
