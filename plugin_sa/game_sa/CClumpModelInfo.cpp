@@ -46,9 +46,9 @@ RwFrame *CClumpModelInfo::GetFrameFromId(RpClump *clump, int id)
 	return ((RwFrame *(__cdecl *)(RpClump *, int))0x4C53C0)(clump, id);
 }
 
-RwFrame *CClumpModelInfo::GetFrameFromName(RpClump *clump, char *name)
+RwFrame *CClumpModelInfo::GetFrameFromName(RpClump *clump, const char *name)
 {
-	return ((RwFrame *(__cdecl *)(RpClump *, char *))0x4C5400)(clump, name);
+	return ((RwFrame *(__cdecl *)(RpClump *, const char *))0x4C5400)(clump, name);
 }
 
 void CClumpModelInfo::FillFrameArray(RpClump *clump, RwFrame **frames)
