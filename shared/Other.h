@@ -218,13 +218,13 @@ namespace plugin
     template <typename T>
     static T DegToRad(T x)
     {
-        return (x * PI / (T)180);
+        return (T)(x * PI / (T)180);
     }
 
     template <typename T>
     static T RadToDeg(T x)
     {
-        return (x * (T)180 / PI);
+        return (T)(x * (T)180 / PI);
     }
 
     template <typename T, typename T2, typename T3>

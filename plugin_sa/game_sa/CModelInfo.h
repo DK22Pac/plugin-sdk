@@ -19,8 +19,7 @@ class PLUGIN_API CModelInfo
 {
 public:
 	// variables
-	//static CBaseModelInfo *ms_modelInfoPtrs[20000]; Use GetModelInfo(int index) to get model info by id
-	static CBaseModelInfo **ms_modelInfoPtrs;
+	static CBaseModelInfo **ms_modelInfoPtrs; // 20000, might be extended by limit adjusters
 
 	// functions
 	static void ReInit2dEffects();
@@ -55,7 +54,9 @@ public:
 	// return -1 if model is not a vehicle model otherwise returns vehicle model type
 	static int IsVehicleModelType(int index);
 
-    static CBaseModelInfo *GetModelInfo(int index);
+    static inline CBaseModelInfo* GetModelInfo(int index) {
+        return ms_modelInfoPtrs[index];
+    }
 
 	static inline CColModel* GetColModel(int id) {
 		return ms_modelInfoPtrs[id]->m_pColModel;
