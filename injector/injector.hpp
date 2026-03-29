@@ -642,7 +642,7 @@ namespace injector
         template <class T>
         static T *get()
         {
-            return get().get<T>();
+            return get().template get<T>();
         }
 
     private:

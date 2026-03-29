@@ -8,7 +8,7 @@
 #include "PluginBase.h"
 #include "CVehicle.h"
 #include "tBikeHandlingData.h"
-
+#include "eSkidmarkType.h"
 
 enum eBikeNodes {
     BIKE_NODE_NONE = 0,

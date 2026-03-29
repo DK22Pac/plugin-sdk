@@ -9,6 +9,8 @@
 #include "RenderWare.h"
 #include "CRGBA.h"
 
+class CPed;
+
 class CPostEffects {
 public:
     static void Initialise();

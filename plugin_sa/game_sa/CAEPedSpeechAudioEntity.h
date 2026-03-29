@@ -19,6 +19,7 @@ enum eAudioPedType {
     PED_TYPE_SPC = 5
 };
 
+class CPed;
 
 class CAEPedSpeechAudioEntity : public CAEAudioEntity {
 public:
