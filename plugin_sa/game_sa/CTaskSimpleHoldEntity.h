@@ -6,10 +6,10 @@
 */
 #pragma once
 
-#include "CAEAudioEntity.h"
 #include "PluginBase.h"
-#include "CTaskSimple.h"
+#include "CAEAudioEntity.h"
 #include "CAnimBlock.h"
+#include "CTaskSimple.h"
 #include "eAnimations.h"
 
 class CEntity;
