@@ -8,7 +8,7 @@
 #pragma once
 #include "PluginBase.h"
 
-class CVector;
+struct CVector;
 class CVector2D;
 
 class CEncodedVector {

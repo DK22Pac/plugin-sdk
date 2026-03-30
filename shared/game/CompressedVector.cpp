@@ -7,11 +7,7 @@
 #pragma once
 #include "CompressedVector.h"
 #include "CompressedVector2D.h"
-
-#ifdef RW
-#include "RenderWare.h"
 #include "CVector.h"
-#endif
 
 CompressedVector::CompressedVector() {
     Set(0, 0, 0);
@@ -29,15 +25,9 @@ CompressedVector::CompressedVector(CompressedVector2D const & rhs) {
     Set(rhs);
 }
 
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 CompressedVector::CompressedVector(CVector const & rhs) {
     Set(rhs);
 }
-
-CompressedVector::CompressedVector(RwV3d const & rhs) {
-    Set(rhs);
-}
-#endif
 
 void CompressedVector::Set(short X, short Y, short Z) {
     x = X;
@@ -57,14 +47,7 @@ void CompressedVector::Set(CompressedVector2D const & rhs) {
     z = 0;
 }
 
-#ifdef RW
 void CompressedVector::Set(CVector const & rhs) {
-    x = static_cast<short>(rhs.x * 8.0f);
-    y = static_cast<short>(rhs.y * 8.0f);
-    z = static_cast<short>(rhs.z * 8.0f);
-}
-
-void CompressedVector::Set(RwV3d const & rhs) {
     x = static_cast<short>(rhs.x * 8.0f);
     y = static_cast<short>(rhs.y * 8.0f);
     z = static_cast<short>(rhs.z * 8.0f);
@@ -74,24 +57,13 @@ CVector CompressedVector::Uncompressed() const {
     return CVector(static_cast<float>(x) / 8.0f, static_cast<float>(y) / 8.0f, static_cast<float>(z) / 8.0f);
 }
 
-RwV3d CompressedVector::ToRwV3d() const {
-    RwV3d result;
-    result.x = static_cast<float>(x) / 8.0f;
-    result.y = static_cast<float>(y) / 8.0f;
-    result.z = static_cast<float>(z) / 8.0f;
-    return result;
-}
-#endif
-
 CompressedVector2D CompressedVector::To2D() const {
     return CompressedVector2D(x, y);
 }
 
-#if defined(GTA3) || defined(GTAVC) || defined(GTASA)
 void CompressedVector::Uncompress(CVector &out) const {
     out = Uncompressed();
 }
-#endif
 
 bool CompressedVector::operator==(CompressedVector const &rhs) const {
     return x == rhs.x && y == rhs.y && z == rhs.z;
