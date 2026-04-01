@@ -10,12 +10,16 @@
 #include "CAEAudioEntity.h"
 #include "CAnimBlock.h"
 #include "CTaskSimple.h"
+#include "CVector.h"
 #include "eAnimations.h"
 
 class CEntity;
 class CAnimBlendAssociation;
 class CAnimBlendHierarchy;
-struct CVector;
+
+#ifndef _MSC_VER
+class CVector;
+#endif
 
 class PLUGIN_API CTaskSimpleHoldEntity : public CTaskSimple {
 protected:
