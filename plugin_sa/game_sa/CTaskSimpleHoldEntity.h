@@ -15,7 +15,7 @@
 class CEntity;
 class CAnimBlendAssociation;
 class CAnimBlendHierarchy;
-class CVector;
+struct CVector;
 
 class PLUGIN_API CTaskSimpleHoldEntity : public CTaskSimple {
 protected:

@@ -1,4 +1,4 @@
-name: Plugin GTA SA
+name: Plugin GTA SA (Clang)
 
 on:
   workflow_dispatch:

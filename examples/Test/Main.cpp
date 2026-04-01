@@ -13,7 +13,7 @@ struct Main
     Main()
     {
         // register event callbacks
-        Events::gameProcessEvent += []{ gInstance.OnGameProcess(); };
+        Events::gameProcessEvent += [this]{ OnGameProcess(); };
     }
 
     void OnGameProcess()
