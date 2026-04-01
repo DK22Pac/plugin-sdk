@@ -13,9 +13,9 @@
 #include "eAnimations.h"
 
 class CEntity;
-class CVector;
-class CAnimBlendHierarchy;
 class CAnimBlendAssociation;
+class CAnimBlendHierarchy;
+class CVector;
 
 class PLUGIN_API CTaskSimpleHoldEntity : public CTaskSimple {
 protected:

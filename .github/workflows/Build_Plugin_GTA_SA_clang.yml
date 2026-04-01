@@ -1,0 +1,104 @@
+name: Plugin GTA SA
+
+on:
+  workflow_dispatch:
+
+  push:
+    paths:
+      - "!**.dll"
+      - "!**.md"
+      - "!**.txt"
+      - "tools/premake/**"
+      - "hooking/**"
+      - "injector/**"
+      - "modutils/**"
+      - "safetyhook/**"
+      - "shared/**"
+      - "plugin_sa/**"
+
+  pull_request:
+    paths:
+      - "!**.dll"
+      - "!**.md"
+      - "!**.txt"
+      - "tools/premake/**"
+      - "hooking/**"
+      - "injector/**"
+      - "modutils/**"
+      - "safetyhook/**"
+      - "shared/**"
+      - "plugin_sa/**"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget gnupg software-properties-common lsb-release g++-mingw-w64-i686
+
+          # Download LLVM installer script
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+
+          # Install Clang 23
+          sudo ./llvm.sh 23
+
+      - name: Verify Clang
+        run: |
+          clang-23 --version
+          clang++-23 --version
+
+      - name: Build SDK
+        run: |
+          echo "::group::Setup directories"
+          mkdir -p output/lib
+          for dir in shared plugin_sa safetyhook; do
+            find "$dir" -type d -exec mkdir -p "obj/{}" \;
+          done
+          echo "::groupEnd::"
+
+          FLAGS="-I. -Ishared -Ishared/game -Iplugin_sa -Iplugin_sa/game_sa -Iplugin_sa/game_sa/rw -Isafetyhook -DGTASA -DPLUGIN_SGV_10US -DRW"
+          CLANG_FLAGS="--target=i686-w64-mingw32 -fpermissive -fcommon -fms-extensions -Wno-microsoft-include -Wno-invalid-offsetof -Wno-builtin-macro-redefined -O2 -D__cpp_concepts=202202L"
+
+          echo "::group::Compile C++ files"
+          find shared plugin_sa safetyhook -name '*.cpp' -print0 | \
+            xargs -0 -P$(nproc) -I{} clang++-23 $CLANG_FLAGS -std=c++2b $FLAGS -c {} -o obj/{}.o
+          echo "::groupEnd::"
+
+          echo "::group::Compile C files"
+          find safetyhook -name '*.c' -print0 | \
+            xargs -0 -P$(nproc) -I{} clang-23 $CLANG_FLAGS $FLAGS -c {} -o obj/{}.o
+          echo "::groupEnd::"
+
+          echo "::group::Archive SDK"
+          find obj -name '*.o' | xargs i686-w64-mingw32-ar rcs output/lib/libplugin.a
+          echo "::groupEnd::"
+
+      - name: Build test plugin
+        run: |
+          echo "::group::Build test plugin"
+          
+          # Setup object directories for the test plugin
+          find examples/Test -type d -exec mkdir -p "obj/{}" \;
+          mkdir -p output/examples
+          
+          TEST_FLAGS="-I. -Ishared -Ishared/game -Iplugin_sa -Iplugin_sa/game_sa -Iplugin_sa/game_sa/rw -Isafetyhook -DGTASA -DPLUGIN_SGV_10US -DRW"
+          TEST_CLANG_FLAGS="--target=i686-w64-mingw32 -fpermissive -fcommon -fms-extensions -Wno-microsoft-include -Wno-invalid-offsetof -Wno-builtin-macro-redefined -O2 -D__cpp_concepts=202202L"
+          
+          # Compile
+          find examples/Test -name '*.cpp' -print0 | \
+            xargs -0 -P$(nproc) -I{} clang++-23 $TEST_CLANG_FLAGS -std=c++2b $TEST_FLAGS -c {} -o obj/{}.o
+            
+          # Link into ASI
+          clang++-23 --target=i686-w64-mingw32 -shared -o output/examples/Test.asi $(find obj/examples/Test -name '*.o') -Loutput/lib -lplugin -static-libgcc -static-libstdc++ -Wl,--enable-stdcall-fixup
+          
+          echo "::groupEnd::"
