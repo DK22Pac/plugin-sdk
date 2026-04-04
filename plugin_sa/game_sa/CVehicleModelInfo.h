@@ -13,21 +13,7 @@
 #include "RwObjectNameIdAssocation.h"
 #include "CRGBA.h"
 #include "CPool.h"
-
-enum eVehicleType {
-	VEHICLE_AUTOMOBILE,
-	VEHICLE_MTRUCK,
-	VEHICLE_QUAD,
-	VEHICLE_HELI,
-	VEHICLE_PLANE,
-	VEHICLE_BOAT,
-	VEHICLE_TRAIN,
-	VEHICLE_FHELI,
-	VEHICLE_FPLANE,
-	VEHICLE_BIKE,
-	VEHICLE_BMX,
-	VEHICLE_TRAILER
-};
+#include "eVehicleType.h"
 
 enum VehicleUpgradePosn {
 	UPGRADE_BONNET,

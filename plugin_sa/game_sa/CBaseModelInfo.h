@@ -10,17 +10,7 @@
 #include "CColModel.h"
 #include "C2dEffect.h"
 #include "eModelID.h"
-
-enum ModelInfoType : unsigned char
-{
-	MODEL_INFO_ATOMIC = 1,
-	MODEL_INFO_TIME = 3,
-	MODEL_INFO_WEAPON = 4,
-	MODEL_INFO_CLUMP = 5,
-	MODEL_INFO_VEHICLE = 6,
-	MODEL_INFO_PED = 7,
-	MODEL_INFO_LOD = 8
-};
+#include "eModelInfoType.h"
 
 struct tTimeInfo
 {
@@ -83,7 +73,7 @@ public:
 	class CBaseModelInfo *AsAtomicModelInfoPtr();
 	class CBaseModelInfo *AsDamageAtomicModelInfoPtr();
 	class CBaseModelInfo *AsLodAtomicModelInfoPtr();
-	ModelInfoType GetModelType();//=0
+	eModelInfoType GetModelType();//=0
 	tTimeInfo *GetTimeInfo();
 	void Init();
 	void Shutdown();

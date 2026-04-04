@@ -63,7 +63,7 @@ public:
     bool bTunnelTransition : 1;    // this model should be rendered from within and outside of the tunnel
     
     unsigned short m_nRandomSeed;
-    unsigned short m_nModelIndex;
+    short m_nModelIndex;
     CReference *m_pReferences;
     void *m_pStreamingLink;
     short m_nScanCode;
@@ -146,7 +146,8 @@ public:
     bool IsEntityOccluded();
 
     inline float GetBoundRadius() {
-        return CModelInfo::GetColModel(m_nModelIndex)->m_boundSphere.m_fRadius;
+        auto col = GetColModel();
+        return col ? col->m_boundSphere.m_fRadius : 0.0f;
     }
 };
 
