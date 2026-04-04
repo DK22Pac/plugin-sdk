@@ -8,19 +8,11 @@
 
 #include "PluginBase.h"
 #include "CClumpModelInfo.h"
-#include "eHandlingIndex.h"
-#include "CVector.h"
-#include "RenderWare.h"
 #include "CRGBA.h"
-
-enum PLUGIN_API eVehicleType : unsigned int {
-    VEHICLE_AUTOMOBILE = 0,
-    VEHICLE_BOAT = 1,
-    VEHICLE_TRAIN = 2,
-    VEHICLE_HELI = 3,
-    VEHICLE_PLANE = 4,
-    VEHICLE_BIKE = 5
-};
+#include "CVector.h"
+#include "eHandlingIndex.h"
+#include "eVehicleType.h"
+#include "RenderWare.h"
 
 class PLUGIN_API CVehicleModelInfo : public CClumpModelInfo {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CVehicleModelInfo)
@@ -29,7 +21,7 @@ public:
     unsigned char m_nLastPrimaryColor;
     unsigned char m_nLastSecondaryColor;
     char m_szGameName[32];
-    unsigned int m_nVehicleType;
+    eVehicleType m_nVehicleType;
     union {
         int m_nWheelModelIndex;
         int m_nPlaneLodId;

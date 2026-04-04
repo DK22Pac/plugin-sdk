@@ -134,7 +134,8 @@ public:
     }
 
     inline CColModel* GetColModel() {
-        return CModelInfo::GetModelInfo(m_nModelIndex)->m_pColModel;
+       auto mi = CModelInfo::GetModelInfo(m_nModelIndex);
+       return mi ? mi->m_pColModel : nullptr;
     }
 };
 
