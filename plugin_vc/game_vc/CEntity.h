@@ -165,7 +165,13 @@ public:
     }
 
     inline CColModel* GetColModel() {
-        return CModelInfo::GetModelInfo(m_nModelIndex)->m_pColModel;
+        auto mi = CModelInfo::GetModelInfo(m_nModelIndex);
+        return mi ? mi->m_pColModel : nullptr;
+    }
+
+    inline float GetBoundRadius() {
+        auto col = GetColModel();
+        return col ? col->m_boundSphere.m_fRadius : 0.0f;
     }
 
     CEntity() = delete;

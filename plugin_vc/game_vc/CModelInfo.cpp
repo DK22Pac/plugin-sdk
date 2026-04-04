@@ -6,7 +6,9 @@ Do not delete this comment block. Respect others' work!
 */
 #include "CModelInfo.h"
 
-CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = (CBaseModelInfo**)0x92D4C8;
+CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = *(CBaseModelInfo***)0x40B824; // limit adjusters support - get from reference in CStreaming::LoadAllRequestedModels
+const int& CModelInfo::ms_modelInfoCount = *(const int*)0x40B818; // limit adjusters support - get from CStreaming::LoadAllRequestedModels
+
 ClumpModelStore *CModelInfo::ms_clumpModelStore = (ClumpModelStore*)0x752988;
 PedModelStore *CModelInfo::ms_pedModelStore = (PedModelStore*)0x75CA70;
 SimpleModelStore *CModelInfo::ms_simpleModelStore = (SimpleModelStore*)0x709EAC;
@@ -14,72 +16,136 @@ TimeModelStore *CModelInfo::ms_timeModelStore = (TimeModelStore*)0x74A6B0;
 VehicleModelStore *CModelInfo::ms_vehicleModelStore = (VehicleModelStore*)0x752A88;
 WeaponModelStore *CModelInfo::ms_weaponModelStore = (WeaponModelStore*)0x751F10;
 
-// Converted from cdecl CClumpModelInfo* CModelInfo::AddClumpModel(int index) 0x55F640
-CClumpModelInfo* CModelInfo::AddClumpModel(int index) {
-    return plugin::CallAndReturn<CClumpModelInfo*, 0x55F640, int>(index);
-}
-
-// Converted from cdecl CPedModelInfo* CModelInfo::AddPedModel(int index) 0x55F580
-CPedModelInfo* CModelInfo::AddPedModel(int index) {
-    return plugin::CallAndReturn<CPedModelInfo*, 0x55F580, int>(index);
-}
-
-// Converted from cdecl CSimpleModelInfo* CModelInfo::AddSimpleModel(int index) 0x55F730
-CSimpleModelInfo* CModelInfo::AddSimpleModel(int index) {
-    return plugin::CallAndReturn<CSimpleModelInfo*, 0x55F730, int>(index);
-}
-
-// Converted from cdecl CTimeModelInfo* CModelInfo::AddTimeModel(int index) 0x55F6E0
-CTimeModelInfo* CModelInfo::AddTimeModel(int index) {
-    return plugin::CallAndReturn<CTimeModelInfo*, 0x55F6E0, int>(index);
-}
-
-// Converted from cdecl CVehicleModelInfo* CModelInfo::AddVehicleModel(int index) 0x55F5D0
-CVehicleModelInfo* CModelInfo::AddVehicleModel(int index) {
-    return plugin::CallAndReturn<CVehicleModelInfo*, 0x55F5D0, int>(index);
-}
-
-// Converted from cdecl CWeaponModelInfo* CModelInfo::AddWeaponModel(int index) 0x55F690
-CWeaponModelInfo* CModelInfo::AddWeaponModel(int index) {
-    return plugin::CallAndReturn<CWeaponModelInfo*, 0x55F690, int>(index);
-}
-
-// Converted from cdecl void* CModelInfo::Get2dEffectStore(void) 0x55F570 
-void* CModelInfo::Get2dEffectStore() {
-    return plugin::CallAndReturn<void*, 0x55F570>();
-}
-
-// Converted from cdecl CBaseModelInfo* CModelInfo::GetModelInfo(char const* name,int * index) 0x55F7D0
-CBaseModelInfo* CModelInfo::GetModelInfo(char const* name, int* index) {
-    return plugin::CallAndReturn<CBaseModelInfo*, 0x55F7D0, char const*, int*>(name, index);
-}
-
-// Converted from cdecl CBaseModelInfo* CModelInfo::GetModelInfo(char const* name,int minIndex,int maxInedx) 0x55F780
-CBaseModelInfo* CModelInfo::GetModelInfo(char const* name, int minIndex, int maxInedx) {
-    return plugin::CallAndReturn<CBaseModelInfo*, 0x55F780, char const*, int, int>(name, minIndex, maxInedx);
-}
-
-// Converted from cdecl void CModelInfo::Initialise(void) 0x55FA40 
 void CModelInfo::Initialise() {
     plugin::Call<0x55FA40>();
 }
 
-// Converted from cdecl bool CModelInfo::IsBikeModel(int index) 0x55F4E0
-bool CModelInfo::IsBikeModel(int index) {
-    return plugin::CallAndReturn<bool, 0x55F4E0, int>(index);
-}
-
-// Converted from cdecl bool CModelInfo::IsBoatModel(int index) 0x55F540
-bool CModelInfo::IsBoatModel(int index) {
-    return plugin::CallAndReturn<bool, 0x55F540, int>(index);
-}
-
-// Converted from cdecl bool CModelInfo::IsCarModel(int index) 0x55F510
-bool CModelInfo::IsCarModel(int index) {
-    return plugin::CallAndReturn<bool, 0x55F510, int>(index);
-}
-
-// Converted from cdecl void CModelInfo::ShutDown(void) 0x55F820 
 void CModelInfo::ShutDown() {
     plugin::Call<0x55F820>();
+}
+
+CClumpModelInfo* CModelInfo::AddClumpModel(int modelId) {
+    return plugin::CallAndReturn<CClumpModelInfo*, 0x55F640, int>(modelId);
+}
+
+CPedModelInfo* CModelInfo::AddPedModel(int modelId) {
+    return plugin::CallAndReturn<CPedModelInfo*, 0x55F580, int>(modelId);
+}
+
+CSimpleModelInfo* CModelInfo::AddSimpleModel(int modelId) {
+    return plugin::CallAndReturn<CSimpleModelInfo*, 0x55F730, int>(modelId);
+}
+
+CTimeModelInfo* CModelInfo::AddTimeModel(int modelId) {
+    return plugin::CallAndReturn<CTimeModelInfo*, 0x55F6E0, int>(modelId);
+}
+
+CVehicleModelInfo* CModelInfo::AddVehicleModel(int modelId) {
+    return plugin::CallAndReturn<CVehicleModelInfo*, 0x55F5D0, int>(modelId);
+}
+
+CWeaponModelInfo* CModelInfo::AddWeaponModel(int modelId) {
+    return plugin::CallAndReturn<CWeaponModelInfo*, 0x55F690, int>(modelId);
+}
+
+void* CModelInfo::Get2dEffectStore() {
+    return plugin::CallAndReturn<void*, 0x55F570>();
+}
+
+CBaseModelInfo* CModelInfo::GetModelInfo(int modelId) {
+    return modelId < ms_modelInfoCount ? ms_modelInfoPtrs[modelId] : nullptr;
+}
+
+CBaseModelInfo* CModelInfo::GetModelInfo(char const* name, int* modelId) {
+    return plugin::CallAndReturn<CBaseModelInfo*, 0x55F7D0, char const*, int*>(name, modelId);
+}
+
+CBaseModelInfo* CModelInfo::GetModelInfo(char const* name, int minModelId, int maxModelId) {
+    return plugin::CallAndReturn<CBaseModelInfo*, 0x55F780, char const*, int, int>(name, minModelId, maxModelId);
+}
+
+int CModelInfo::FindNextModel(eModelInfoType type, int startModelId, bool searchForward, bool warpAround) {
+    const auto minId = 0;
+    const auto maxId = CModelInfo::ms_modelInfoCount - 1;
+
+    int modelId = startModelId;
+    while (true)
+    {
+        modelId += searchForward ? 1 : -1;
+
+        if (modelId < minId || modelId > maxId)
+        {
+            if (warpAround)
+                modelId = searchForward ? minId : maxId;
+            else
+                break;
+        }
+
+        if (modelId == startModelId)
+            break; // all models checked
+
+        if (CModelInfo::ms_modelInfoPtrs[modelId] && CModelInfo::ms_modelInfoPtrs[modelId]->GetModelType() == type)
+            return static_cast<eModelID>(modelId); // found
+    }
+
+    return eModelID::MODEL_INVALID; // not found
+}
+
+bool CModelInfo::IsPedModel(int modelId) {
+    return modelId < ms_modelInfoCount && ms_modelInfoPtrs[modelId] && ms_modelInfoPtrs[modelId]->GetModelType() == MODEL_INFO_PED;
+}
+
+bool CModelInfo::IsVehicleModel(int modelId) {
+    return modelId < ms_modelInfoCount && ms_modelInfoPtrs[modelId] && ms_modelInfoPtrs[modelId]->GetModelType() == MODEL_INFO_VEHICLE;
+}
+
+eVehicleType CModelInfo::GetVehicleModelType(int modelId) {
+    if (modelId >= ms_modelInfoCount ||
+        ms_modelInfoPtrs[modelId] == nullptr ||
+        ms_modelInfoPtrs[modelId]->GetModelType() != MODEL_INFO_VEHICLE)
+    {
+        return eVehicleType::VEHICLE_INVALID;
+    }
+
+    return reinterpret_cast<CVehicleModelInfo*>(ms_modelInfoPtrs[modelId])->m_nVehicleType;
+}
+
+bool CModelInfo::IsBikeModel(int modelId) {
+    return plugin::CallAndReturn<bool, 0x55F4E0, int>(modelId);
+}
+
+bool CModelInfo::IsBmxModel(int modelId) {
+    return false; // not present in Vice City
+}
+
+bool CModelInfo::IsBoatModel(int modelId) {
+    return plugin::CallAndReturn<bool, 0x55F540, int>(modelId);
+}
+
+bool CModelInfo::IsCarModel(int modelId) {
+    return plugin::CallAndReturn<bool, 0x55F510, int>(modelId);
+}
+
+bool CModelInfo::IsHeliModel(int modelId) {
+    return GetVehicleModelType(modelId) == eVehicleType::VEHICLE_HELI;
+}
+
+bool CModelInfo::IsMonsterTruckModel(int modelId) {
+    return false; // not present in Vice City
+}
+
+bool CModelInfo::IsPlaneModel(int modelId) {
+    return GetVehicleModelType(modelId) == eVehicleType::VEHICLE_PLANE;
+}
+
+bool CModelInfo::IsQuadBikeModel(int modelId) {
+    return false; // not present in Vice City
+}
+
+bool CModelInfo::IsTrailerModel(int modelId) {
+    return false; // not present in Vice City
+}
+
+bool CModelInfo::IsTrainModel(int modelId) {
+    return GetVehicleModelType(modelId) == eVehicleType::VEHICLE_TRAIN;
 }

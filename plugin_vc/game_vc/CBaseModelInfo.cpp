@@ -86,6 +86,10 @@ C2dEffect* CBaseModelInfo::Get2dEffect(int effectNumber) {
     return plugin::CallMethodAndReturn<C2dEffect*, 0x53F260, CBaseModelInfo *, int>(this, effectNumber);
 }
 
-CColModel * CBaseModelInfo::GetColModel() {
-    return plugin::CallMethodAndReturn<CColModel *, 0x4739B2, CBaseModelInfo *>(this);
+CColModel* CBaseModelInfo::GetColModel() {
+    return plugin::CallMethodAndReturn<CColModel*, 0x4739B2, CBaseModelInfo *>(this);
+}
+
+eModelInfoType CBaseModelInfo::GetModelType() {
+    return m_nType;
 }
