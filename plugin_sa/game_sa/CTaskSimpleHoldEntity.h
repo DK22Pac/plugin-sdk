@@ -17,10 +17,6 @@ class CEntity;
 class CAnimBlendAssociation;
 class CAnimBlendHierarchy;
 
-#ifndef _MSC_VER
-class CVector;
-#endif
-
 class PLUGIN_API CTaskSimpleHoldEntity : public CTaskSimple {
 protected:
     CTaskSimpleHoldEntity(plugin::dummy_func_t a) : CTaskSimple(a) {}
