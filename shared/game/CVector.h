@@ -21,7 +21,7 @@
     class CMatrix;
 #endif
 
-class CVector2D;
+struct CVector2D;
 
 struct CVector : public RwV3d
 {

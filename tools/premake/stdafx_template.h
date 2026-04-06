@@ -31,14 +31,4 @@
     #include <windows.h>
 
 GENERATED_LIST
-
-    #ifdef GTAIII
-        #include "game_iii\CVector2D.h"
-    #endif
-    #ifdef GTAVC
-        #include "game_vc\CVector2D.h"
-    #endif
-    #ifdef GTASA
-        #include "game_sa\CVector2D.h"
-    #endif
 #endif
