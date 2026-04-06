@@ -7,8 +7,8 @@
 #pragma once
 #include "PluginBase.h"
 #include "CVehicle.h"
+#include "eSkidmarkType.h"
 #include "tBikeHandlingData.h"
-
 
 enum eBikeNodes {
     BIKE_NODE_NONE = 0,

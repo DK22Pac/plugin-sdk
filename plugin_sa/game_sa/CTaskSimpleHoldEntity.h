@@ -7,8 +7,15 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CTaskSimple.h"
+#include "CAEAudioEntity.h"
 #include "CAnimBlock.h"
+#include "CTaskSimple.h"
+#include "CVector.h"
+#include "eAnimations.h"
+
+class CEntity;
+class CAnimBlendAssociation;
+class CAnimBlendHierarchy;
 
 class PLUGIN_API CTaskSimpleHoldEntity : public CTaskSimple {
 protected:

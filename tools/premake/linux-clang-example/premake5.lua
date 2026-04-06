@@ -30,6 +30,7 @@ project "plugin_sa"
             "-fpermissive",
             "-fcommon",
             "-fms-extensions",
+            "-Wno-invalid-offsetof",
             "-Wno-microsoft-include" ,
             "-static",
         }
