@@ -9,7 +9,7 @@
 #define MAX_HUD_ARROWS 17
 
 #include "PluginBase.h"
-#include "CVector.h"
+#include "CEncodedVector.h"
 
 enum eArrowSprites {
     SPRITE_BIGARROW,

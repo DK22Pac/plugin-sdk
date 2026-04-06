@@ -7,7 +7,7 @@
 
 #pragma once
 #include "PluginBase.h"
-#include "CVector.h"
+#include "CEncodedVector.h"
 
 class CPed;
 class CSprite;

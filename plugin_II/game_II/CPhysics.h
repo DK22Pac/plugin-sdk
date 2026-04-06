@@ -7,7 +7,7 @@
 
 #pragma once
 #include "PluginBase.h"
-#include "CVector.h"
+#include "CEncodedVector.h"
 
 enum eTileCollisionType {
     TILE_COLLISION_TYPE_FLAT = 0,
