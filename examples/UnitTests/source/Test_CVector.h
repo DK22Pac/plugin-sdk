@@ -1,13 +1,10 @@
 #pragma once
 #include <plugin.h>
 #include "utest.h"
+#include "Shared.h"
 #include <CVector.h>
 
 using namespace plugin;
-
-constexpr float F_EPS = 0.00001f;
-const float F_PI = (float)PI;
-const float F_PI2 = (float)(PI/2);
 
 // constructors
 

@@ -22,6 +22,14 @@ inline CVector2D::CVector2D(float x, float y) {
     Set(x, y);
 }
 
+inline CVector2D::CVector2D(const CVector2D& src) {
+    Set(src.x, src.y);
+}
+
+inline CVector2D::CVector2D(const RwV2d& src) {
+    Set(src.x, src.y);
+}
+
 // assignments
 
 inline void CVector2D::Reset() {
@@ -58,10 +66,6 @@ inline void CVector2D::FromDiff(const CVector2D& left, const CVector2D& right) {
 inline void CVector2D::FromLerp(const CVector2D& begin, const CVector2D& end, float progress) {
     *this = Lerp(begin, end, progress);
 }
-
-// FromMultiply in CVector2D.cpp
-
-// FromMultiply3x3 in CVector2D.cpp
 
 // conversions
 

@@ -16,11 +16,6 @@
     };
 #endif
 
-#if defined GTA3 || defined GTAVC || defined GTASA
-    #define HAS_CMATRIX
-    class CMatrix;
-#endif
-
 struct CVector;
 
 struct CVector2D : public RwV2d
@@ -42,10 +37,6 @@ public:
     void FromSum(const CVector2D& left, const CVector2D& right); // store sum of two vectors
     void FromDiff(const CVector2D& left, const CVector2D& right); // store left - right subtraction result
     void FromLerp(const CVector2D& begin, const CVector2D& end, float progress); // store result of linear interpolation between points
- #ifdef HAS_CMATRIX
-    void FromMultiply(const CMatrix& matrix, const CVector2D& point); // store result of matrix and point multiplication
-    void FromMultiply3x3(const CMatrix& matrix, const CVector2D& vector); // store result of matrix and vector multiplication
-#endif
 
     // conversions
     [[nodiscard]] operator RwV2d&();
@@ -85,10 +76,6 @@ public:
     [[nodiscard]] static CVector2D Lerp(const CVector2D& begin, const CVector2D& end, float progress); // result of linear interpolation between points
     [[nodiscard]] static float     Dot(const CVector2D& left, const CVector2D& right); // result of dot product
     [[nodiscard]] static float     Cross(const CVector2D& left, const CVector2D& right); // result of cross/wedge product
-#ifdef HAS_CMATRIX
-    [[nodiscard]] static CVector2D Multiply(const CMatrix& matrix, const CVector2D& point); // result of matrix and point multiplication
-    [[nodiscard]] static CVector2D Multiply3x3(const CMatrix& matrix, const CVector2D& vector); // result of matrix and vector multiplication
-#endif
 };
 VALIDATE_SIZE(CVector2D, 0x8);
 
