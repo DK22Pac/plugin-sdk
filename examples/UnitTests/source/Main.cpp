@@ -1,6 +1,7 @@
 #include <plugin.h>
 #include "utest.h"
 #include "Test_CVector.h"
+#include "Test_CVector2D.h"
 
 using namespace plugin;
 

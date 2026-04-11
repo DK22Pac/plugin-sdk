@@ -161,6 +161,12 @@ inline float CVector::MagnitudeSqr2D() const {
     return x * x + y * y;
 }
 
+inline CVector CVector::Normalized() const {
+    auto result = *this;
+    result.Normalize();
+    return result;
+}
+
 inline bool CVector::IsNormalized() const {
     return fabs(MagnitudeSqr() - 1.0f) < 0.001f;
 }
@@ -207,11 +213,11 @@ inline void CVector::operator /=(float divisor) {
     z /= divisor;
 }
 
-inline void CVector::Normalise() {
-    NormaliseAndMag();
+inline void CVector::Normalize() {
+    NormalizeAndMag();
 }
 
-inline float CVector::NormaliseAndMag() {
+inline float CVector::NormalizeAndMag() {
     auto length = Magnitude();
     if (length > 0.0f) *this /= length;
     return length;

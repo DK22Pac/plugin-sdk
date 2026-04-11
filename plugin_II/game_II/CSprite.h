@@ -7,8 +7,8 @@
 
 #pragma once
 #include "PluginBase.h"
-#include "CVector.h"
 #include "CCollisionBox.h"
+#include "CEncodedVector.h"
 
 #ifdef GetObject
 #undef GetObject

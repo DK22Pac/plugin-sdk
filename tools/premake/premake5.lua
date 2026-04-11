@@ -282,8 +282,6 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
                                              (gameFile(projectPath, gameName, "CQuaternion.*")),
                                              (gameFile(projectPath, gameName, "CRect.*")),
                                              (gameFile(projectPath, gameName, "CStore.*")),
-                                             (gameFile(projectPath, gameName, "CVector.*")),
-                                             (gameFile(projectPath, gameName, "CVector2D.*")),
                                              (gameFile(projectPath, gameName, "List_c.*")),
                                              (gameFile(projectPath, gameName, "ListItem_c.*")),
                                              (gameFile(projectPath, gameName, "SArray.*")) },

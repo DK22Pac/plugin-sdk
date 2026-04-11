@@ -1,13 +1,10 @@
 #pragma once
 #include <plugin.h>
 #include "utest.h"
+#include "Shared.h"
 #include <CVector.h>
 
 using namespace plugin;
-
-constexpr float F_EPS = 0.00001f;
-const float F_PI = (float)PI;
-const float F_PI2 = (float)(PI/2);
 
 // constructors
 
@@ -449,6 +446,22 @@ UTEST(CVector, MagnitudeSqr2D)
     EXPECT_NEAR(5.0f, m, F_EPS);
 }
 
+UTEST(CVector, Normalized)
+{
+    CVector v;
+
+    v.Set(0.1f, 0.0f, 0.0f);
+    CVector b = v.Normalized();
+
+    EXPECT_NEAR(0.1f, v.x, F_EPS);
+    EXPECT_NEAR(0.0f, v.y, F_EPS);
+    EXPECT_NEAR(0.0f, v.z, F_EPS);
+
+    EXPECT_NEAR(1.0f, b.x, F_EPS);
+    EXPECT_NEAR(0.0f, b.y, F_EPS);
+    EXPECT_NEAR(0.0f, b.z, F_EPS);
+}
+
 UTEST(CVector, IsNormalized)
 {
     CVector v;
@@ -550,45 +563,45 @@ UTEST(CVector, Normalize)
     CVector v;
 
     v.Set(0.1f, 0.0f, 0.0f);
-    v.Normalise();
+    v.Normalize();
     EXPECT_NEAR(1.0f, v.x, F_EPS);
     EXPECT_NEAR(0.0f, v.y, F_EPS);
     EXPECT_NEAR(0.0f, v.z, F_EPS);
 
     v.Set(0.0f, 2.0f, 0.0f);
-    v.Normalise();
+    v.Normalize();
     EXPECT_NEAR(0.0f, v.x, F_EPS);
     EXPECT_NEAR(1.0f, v.y, F_EPS);
     EXPECT_NEAR(0.0f, v.z, F_EPS);
 
     v.Set(1.0f, 2.0f, 3.0f);
-    v.Normalise();
+    v.Normalize();
     EXPECT_NEAR(0.267261f, v.x, F_EPS);
     EXPECT_NEAR(0.534522f, v.y, F_EPS);
     EXPECT_NEAR(0.801784f, v.z, F_EPS);
 }
 
-UTEST(CVector, NormaliseAndMag)
+UTEST(CVector, NormalizeAndMag)
 {
     CVector v;
     float m;
 
     v.Set(0.1f, 0.0f, 0.0f);
-    m = v.NormaliseAndMag();
+    m = v.NormalizeAndMag();
     EXPECT_NEAR(0.1f, m, F_EPS);
     EXPECT_NEAR(1.0f, v.x, F_EPS);
     EXPECT_NEAR(0.0f, v.y, F_EPS);
     EXPECT_NEAR(0.0f, v.z, F_EPS);
 
     v.Set(0.0f, 2.0f, 0.0f);
-    m = v.NormaliseAndMag();
+    m = v.NormalizeAndMag();
     EXPECT_NEAR(2.0f, m, F_EPS);
     EXPECT_NEAR(0.0f, v.x, F_EPS);
     EXPECT_NEAR(1.0f, v.y, F_EPS);
     EXPECT_NEAR(0.0f, v.z, F_EPS);
 
     v.Set(1.0f, 2.0f, 3.0f);
-    m = v.NormaliseAndMag();
+    m = v.NormalizeAndMag();
     EXPECT_NEAR(3.741657f, m, F_EPS);
     EXPECT_NEAR(0.267261f, v.x, F_EPS);
     EXPECT_NEAR(0.534522f, v.y, F_EPS);

@@ -8,7 +8,7 @@
 
 #include "PluginBase.h"
 
-class CVector2D;
+struct CVector2D;
 struct RwV2d;
 class CompressedVector;
 
