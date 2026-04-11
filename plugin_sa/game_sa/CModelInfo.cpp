@@ -6,178 +6,163 @@
 */
 #include "CModelInfo.h"
 
-CBaseModelInfo **CModelInfo::ms_modelInfoPtrs = *(CBaseModelInfo***)0x40CD67; // limit adjusters support - get from reference in CStreaming::RequestModelStream
+CBaseModelInfo** CModelInfo::ms_modelInfoPtrs = *(CBaseModelInfo***)0x40CD67; // limit adjusters support - get from CStreaming::RequestModelStream
+const int& CModelInfo::ms_modelInfoCount = *(const int*)0x40CD58; // limit adjusters support - get from CStreaming::RequestModelStream
 
-// Converted from stdcall void CModelInfo::ReInit2dEffects(void) 0x4C63B0
-void CModelInfo::ReInit2dEffects()
-{
-	((void (__cdecl *)())0x4C63B0)();
+void CModelInfo::Initialise() {
+    ((void (__cdecl*)())0x4C6810)();
 }
 
-// Converted from stdcall void CModelInfo::ShutDown(void) 0x4C63E0
-void CModelInfo::ShutDown()
-{
-	((void (__cdecl *)())0x4C63E0)();
+void CModelInfo::ReInit2dEffects() {
+    ((void (__cdecl*)())0x4C63B0)();
 }
 
-// Converted from stdcall CAtomicModelInfo* CModelInfo::AddAtomicModel(int index) 0x4C6620
-CAtomicModelInfo* CModelInfo::AddAtomicModel(int index)
-{
-	return ((CAtomicModelInfo* (__cdecl *)(int))0x4C6620)(index);
+void CModelInfo::ShutDown() {
+    ((void (__cdecl*)())0x4C63E0)();
 }
 
-// Converted from stdcall CDamageAtomicModelInfo* CModelInfo::AddDamageAtomicModel(int index) 0x4C6650
-CDamageAtomicModelInfo* CModelInfo::AddDamageAtomicModel(int index)
-{
-	return ((CDamageAtomicModelInfo* (__cdecl *)(int))0x4C6650)(index);
+CAtomicModelInfo* CModelInfo::AddAtomicModel(int modelId) {
+    return ((CAtomicModelInfo* (__cdecl*)(int))0x4C6620)(modelId);
 }
 
-// Converted from stdcall CLodAtomicModelInfo* CModelInfo::AddLodAtomicModel(int index) 0x4C6680
-CLodAtomicModelInfo* CModelInfo::AddLodAtomicModel(int index)
-{
-	return ((CLodAtomicModelInfo* (__cdecl *)(int))0x4C6680)(index);
+CDamageAtomicModelInfo* CModelInfo::AddDamageAtomicModel(int modelId) {
+    return ((CDamageAtomicModelInfo* (__cdecl*)(int))0x4C6650)(modelId);
 }
 
-// Converted from stdcall CTimeModelInfo* CModelInfo::AddTimeModel(int index) 0x4C66B0
-CTimeModelInfo* CModelInfo::AddTimeModel(int index)
-{
-	return ((CTimeModelInfo* (__cdecl *)(int))0x4C66B0)(index);
+CLodAtomicModelInfo* CModelInfo::AddLodAtomicModel(int modelId) {
+    return ((CLodAtomicModelInfo* (__cdecl*)(int))0x4C6680)(modelId);
 }
 
-// Converted from stdcall CLodTimeModelInfo* CModelInfo::AddLodTimeModel(int index) 0x4C66E0
-CLodTimeModelInfo* CModelInfo::AddLodTimeModel(int index)
-{
-	return ((CLodTimeModelInfo* (__cdecl *)(int))0x4C66E0)(index);
+CTimeModelInfo* CModelInfo::AddTimeModel(int modelId) {
+    return ((CTimeModelInfo* (__cdecl*)(int))0x4C66B0)(modelId);
 }
 
-// Converted from stdcall CWeaponModelInfo* CModelInfo::AddWeaponModel(int index) 0x4C6710
-CWeaponModelInfo* CModelInfo::AddWeaponModel(int index)
-{
-	return ((CWeaponModelInfo* (__cdecl *)(int))0x4C6710)(index);
+CLodTimeModelInfo* CModelInfo::AddLodTimeModel(int modelId) {
+    return ((CLodTimeModelInfo* (__cdecl*)(int))0x4C66E0)(modelId);
 }
 
-// Converted from stdcall CClumpModelInfo* CModelInfo::AddClumpModel(int) index 0x4C6740
-CClumpModelInfo* CModelInfo::AddClumpModel(int index)
-{
-	return ((CClumpModelInfo* (__cdecl *)(int))0x4C6740)(index);
+CWeaponModelInfo* CModelInfo::AddWeaponModel(int modelId) {
+    return ((CWeaponModelInfo* (__cdecl*)(int))0x4C6710)(modelId);
 }
 
-// Converted from stdcall CVehicleModelInfo* CModelInfo::AddVehicleModel(int index) 0x4C6770
-CVehicleModelInfo* CModelInfo::AddVehicleModel(int index)
-{
-	return ((CVehicleModelInfo* (__cdecl *)(int))0x4C6770)(index);
+CClumpModelInfo* CModelInfo::AddClumpModel(int modelId) {
+    return ((CClumpModelInfo* (__cdecl*)(int))0x4C6740)(modelId);
 }
 
-// Converted from stdcall CPedModelInfo* CModelInfo::AddPedModel(int index) 0x4C67A0
-CPedModelInfo* CModelInfo::AddPedModel(int index)
-{
-	return ((CPedModelInfo* (__cdecl *)(int))0x4C67A0)(index);
+CVehicleModelInfo* CModelInfo::AddVehicleModel(int modelId) {
+    return ((CVehicleModelInfo* (__cdecl*)(int))0x4C6770)(modelId);
 }
 
-// Converted from stdcall void CModelInfo::Initialise(void) 0x4C6810
-void CModelInfo::Initialise()
-{
-	((void (__cdecl *)())0x4C6810)();
+CPedModelInfo* CModelInfo::AddPedModel(int modelId) {
+    return ((CPedModelInfo* (__cdecl*)(int))0x4C67A0)(modelId);
 }
 
-// Converted from stdcall CBaseModelInfo* CModelInfo::GetModelInfo(char* name,int *index) 0x4C5940
-CBaseModelInfo* CModelInfo::GetModelInfo(const char* name, int* index)
-{
-	return ((CBaseModelInfo* (__cdecl *)(const char*, int*))0x4C5940)(name, index);
+int* CModelInfo::Get2dEffectStore() {
+    return ((int* (__cdecl*)())0x4C5A60)();
 }
 
-// Converted from stdcall CBaseModelInfo* CModelInfo::GetModelInfoFromHashKey(uint,int *index) 0x4C59B0
-CBaseModelInfo* CModelInfo::GetModelInfoFromHashKey(unsigned int arg0, int* index)
-{
-	return ((CBaseModelInfo* (__cdecl *)(unsigned int, int*))0x4C59B0)(arg0, index);
+CBaseModelInfo* CModelInfo::GetModelInfo(int modelId) {
+    return modelId < ms_modelInfoCount ? ms_modelInfoPtrs[modelId] : nullptr;
 }
 
-// Converted from stdcall CBaseModelInfo* CModelInfo::GetModelInfoUInt16(char *name,ushort *int16index) 0x4C59F0
-CBaseModelInfo* CModelInfo::GetModelInfoUInt16(const char* name, unsigned short* int16index)
-{
-	return ((CBaseModelInfo* (__cdecl *)(const char*, unsigned short*))0x4C59F0)(name, int16index);
+CBaseModelInfo* CModelInfo::GetModelInfo(const char* name, int* modelId) {
+    return ((CBaseModelInfo* (__cdecl*)(const char*, int*))0x4C5940)(name, modelId);
 }
 
-// Converted from stdcall CBaseModelInfo* CModelInfo::GetModelInfo(char* name,int minIndex,int maxInedx) 0x4C5A20
-CBaseModelInfo* CModelInfo::GetModelInfo(const char* name, int minIndex, int maxInedx)
-{
-	return ((CBaseModelInfo* (__cdecl *)(const char*, int, int))0x4C5A20)(name, minIndex, maxInedx);
+CBaseModelInfo* CModelInfo::GetModelInfo(const char* name, int minmodelId, int maxInedx) {
+    return ((CBaseModelInfo* (__cdecl*)(const char*, int, int))0x4C5A20)(name, minmodelId, maxInedx);
 }
 
-// Converted from stdcall void* CModelInfo::Get2dEffectStore(void) 0x4C5A60
-int* CModelInfo::Get2dEffectStore()
-{
-	return ((int* (__cdecl *)())0x4C5A60)();
+CBaseModelInfo* CModelInfo::GetModelInfoFromHashKey(unsigned int arg0, int* modelId) {
+    return ((CBaseModelInfo* (__cdecl*)(unsigned int, int*))0x4C59B0)(arg0, modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsBoatModel(int index) 0x4C5A70
-bool CModelInfo::IsBoatModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5A70)(index);
+CBaseModelInfo* CModelInfo::GetModelInfoUInt16(const char* name, int* modelId) {
+    return ((CBaseModelInfo* (__cdecl*)(const char*, int*))0x4C59F0)(name, modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsCarModel(int index) 0x4C5AA0
-bool CModelInfo::IsCarModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5AA0)(index);
+int CModelInfo::FindNextModel(eModelInfoType type, int startModelId, bool searchForward, bool warpAround) {
+    const auto minId = 0;
+    const auto maxId = CModelInfo::ms_modelInfoCount - 1;
+
+    int modelId = startModelId;
+    while (true)
+    {
+        modelId += searchForward ? 1 : -1;
+
+        if (modelId < minId || modelId > maxId)
+        {
+            if (warpAround)
+                modelId = searchForward ? minId : maxId;
+            else
+                break;
+        }
+
+        if (modelId == startModelId)
+            break; // all models checked
+
+        if (CModelInfo::ms_modelInfoPtrs[modelId] && CModelInfo::ms_modelInfoPtrs[modelId]->GetModelType() == type)
+            return static_cast<eModelID>(modelId); // found
+    }
+
+    return eModelID::MODEL_INVALID; // not found
 }
 
-// Converted from stdcall bool CModelInfo::IsTrainModel(int index) 0x4C5AD0
-bool CModelInfo::IsTrainModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5AD0)(index);
+bool CModelInfo::IsPedModel(int modelId) {
+    return modelId < ms_modelInfoCount && ms_modelInfoPtrs[modelId] && ms_modelInfoPtrs[modelId]->GetModelType() == MODEL_INFO_PED;
 }
 
-// Converted from stdcall bool CModelInfo::IsHeliModel(int index) 0x4C5B00
-bool CModelInfo::IsHeliModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5B00)(index);
+bool CModelInfo::IsVehicleModel(int modelId) {
+    return modelId < ms_modelInfoCount && ms_modelInfoPtrs[modelId] && ms_modelInfoPtrs[modelId]->GetModelType() == MODEL_INFO_VEHICLE;
 }
 
-// Converted from stdcall bool CModelInfo::IsPlaneModel(int index) 0x4C5B30
-bool CModelInfo::IsPlaneModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5B30)(index);
+eVehicleType CModelInfo::GetVehicleModelType(int modelId) {
+    if (modelId >= ms_modelInfoCount ||
+        ms_modelInfoPtrs[modelId] == nullptr ||
+        ms_modelInfoPtrs[modelId]->GetModelType() != MODEL_INFO_VEHICLE)
+    {
+        return eVehicleType::VEHICLE_INVALID;
+    }
+
+    return reinterpret_cast<CVehicleModelInfo*>(ms_modelInfoPtrs[modelId])->m_nVehicleType;
 }
 
-// Converted from stdcall bool CModelInfo::IsBikeModel(int index) 0x4C5B60
-bool CModelInfo::IsBikeModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5B60)(index);
+bool CModelInfo::IsBikeModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5B60)(modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsFakePlaneModel(int index) 0x4C5B90
-bool CModelInfo::IsFakePlaneModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5B90)(index);
+bool CModelInfo::IsBmxModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5C20)(modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsMonsterTruckModel(int index) 0x4C5BC0
-bool CModelInfo::IsMonsterTruckModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5BC0)(index);
+bool CModelInfo::IsBoatModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5A70)(modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsQuadBikeModel(int index) 0x4C5BF0
-bool CModelInfo::IsQuadBikeModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5BF0)(index);
+bool CModelInfo::IsCarModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5AA0)(modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsBmxModel(int index) 0x4C5C20
-bool CModelInfo::IsBmxModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5C20)(index);
+bool CModelInfo::IsHeliModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5B00)(modelId);
 }
 
-// Converted from stdcall bool CModelInfo::IsTrailerModel(int index) 0x4C5C50
-bool CModelInfo::IsTrailerModel(int index)
-{
-	return ((bool (__cdecl *)(int))0x4C5C50)(index);
+static bool IsMonsterTruckModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5BC0)(modelId);
 }
 
-// Converted from stdcall int CModelInfo::IsVehicleModelType(int index) 0x4C5C80
-int CModelInfo::IsVehicleModelType(int index)
-{
-	return ((int (__cdecl *)(int))0x4C5C80)(index);
+bool CModelInfo::IsPlaneModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5B30)(modelId);
+}
+
+bool CModelInfo::IsQuadBikeModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5BF0)(modelId);
+}
+
+bool CModelInfo::IsTrailerModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5C50)(modelId);
+}
+
+bool CModelInfo::IsTrainModel(int modelId) {
+    return ((bool (__cdecl*)(int))0x4C5AD0)(modelId);
 }

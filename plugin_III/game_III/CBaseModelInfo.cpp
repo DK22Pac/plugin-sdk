@@ -8,8 +8,8 @@
 
 PLUGIN_SOURCE_FILE
 
-int ctor_addr_o(CBaseModelInfo, void(ModelInfoType)) = ADDRESS_BY_VERSION(0x4F6A50, 0x4F6B00, 0x4F6A90);
-int ctor_gaddr_o(CBaseModelInfo, void(ModelInfoType)) = GLOBAL_ADDRESS_BY_VERSION(0x4F6A50, 0x4F6B00, 0x4F6A90);
+int ctor_addr_o(CBaseModelInfo, void(eModelInfoType)) = ADDRESS_BY_VERSION(0x4F6A50, 0x4F6B00, 0x4F6A90);
+int ctor_gaddr_o(CBaseModelInfo, void(eModelInfoType)) = GLOBAL_ADDRESS_BY_VERSION(0x4F6A50, 0x4F6B00, 0x4F6A90);
 
 int dtor_addr(CBaseModelInfo) = ADDRESS_BY_VERSION(0x4F6C00, 0x4F6CB0, 0x4F6C40);
 int dtor_gaddr(CBaseModelInfo) = GLOBAL_ADDRESS_BY_VERSION(0x4F6C00, 0x4F6CB0, 0x4F6C40);
@@ -72,6 +72,10 @@ int gaddrof(CBaseModelInfo::Get2dEffect) = GLOBAL_ADDRESS_BY_VERSION(0x4F6B00, 0
 
 C2dEffect *CBaseModelInfo::Get2dEffect(int effectNumber) {
     return plugin::CallMethodAndReturnDynGlobal<C2dEffect *, CBaseModelInfo *, int>(gaddrof(CBaseModelInfo::Get2dEffect), this, effectNumber);
+}
+
+eModelInfoType CBaseModelInfo::GetModelType() {
+    return m_nType;
 }
 
 int addrof(CBaseModelInfo::Init2dEffects) = ADDRESS_BY_VERSION(0x4F6AF0, 0x4F6BA0, 0x4F6B30);

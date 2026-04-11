@@ -7,67 +7,58 @@
 #pragma once
 #include "PluginBase.h"
 #include "CBaseModelInfo.h"
+#include "CPedModelInfo.h"
 #include "CSimpleModelInfo.h"
+#include "CTimeModelInfo.h"
 #include "CVehicleModelInfo.h"
 #include "CWeaponModelInfo.h"
-#include "CTimeModelInfo.h"
-#include "CPedModelInfo.h"
+#include "eModelID.h"
 
 class CModelInfo {
 public:
     // variables
-    static CBaseModelInfo **ms_modelInfoPtrs;       // [6500];
-    static ClumpModelStore* ms_clumpModelStore;     // [5]
-    static PedModelStore* ms_pedModelStore;         // [130]
-    static SimpleModelStore* ms_simpleModelStore;   // [3885]
-    static TimeModelStore* ms_timeModelStore;       // [385]
-    static VehicleModelStore* ms_vehicleModelStore; // [110]
-    static WeaponModelStore* ms_weaponModelStore;   // [37]
+    static CBaseModelInfo** ms_modelInfoPtrs; // extended by limit adjusters
+    static const int&       ms_modelInfoCount;
 
-    //funcs
-    static CClumpModelInfo* AddClumpModel(int index);
-    static CPedModelInfo* AddPedModel(int index);
-    static CSimpleModelInfo* AddSimpleModel(int index);
-    static CTimeModelInfo* AddTimeModel(int index);
-    static CVehicleModelInfo* AddVehicleModel(int index);
-    static CWeaponModelInfo* AddWeaponModel(int index);
-    static void* Get2dEffectStore();
-    static CBaseModelInfo* GetModelInfo(char const* name, int* index);
-    static CBaseModelInfo* GetModelInfo(char const* name, int minIndex, int maxInedx);
     static void Initialise();
-    static bool IsBikeModel(int index);
-    static bool IsBoatModel(int index);
-    static bool IsCarModel(int index);
     static void ShutDown();
 
-    static inline CBaseModelInfo *GetModelInfo(int index) {
-        return ms_modelInfoPtrs[index];
-    }
+    static ClumpModelStore*   ms_clumpModelStore;   // [5]
+    static PedModelStore*     ms_pedModelStore;     // [130]
+    static SimpleModelStore*  ms_simpleModelStore;  // [3885]
+    static TimeModelStore*    ms_timeModelStore;    // [385]
+    static VehicleModelStore* ms_vehicleModelStore; // [110]
+    static WeaponModelStore*  ms_weaponModelStore;  // [37]
 
-    static inline bool IsPedModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_PED);
-    }
+    //funcs
+    static CClumpModelInfo*   AddClumpModel(int modelId);
+    static CPedModelInfo*     AddPedModel(int modelId);
+    static CSimpleModelInfo*  AddSimpleModel(int modelId);
+    static CTimeModelInfo*    AddTimeModel(int modelId);
+    static CVehicleModelInfo* AddVehicleModel(int modelId);
+    static CWeaponModelInfo*  AddWeaponModel(int modelId);
 
-    static inline bool IsHeliModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_HELI);
-    }
+    static void* Get2dEffectStore();
 
-    static inline bool IsPlaneModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_PLANE);
-    }
+    static CBaseModelInfo* GetModelInfo(int modelId);
+    static CBaseModelInfo* GetModelInfo(char const* name, int* modelId);
+    static CBaseModelInfo* GetModelInfo(char const* name, int minModelId, int maxModelId); // get model in range
 
-    // return -1 if model is not a vehicle model otherwise returns vehicle model type
-    // 0 - car, 1 - boat, 2 - train, 3 - heli, 4 - plane, 5 - bike 
-    static inline int IsVehicleModelType(int index) {
-        int result;
-        if (index < 6500 && ms_modelInfoPtrs[index]) {
-            if (ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE)
-                result = reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType;
-            else
-                result = -1;
-        }
-        else
-            result = -1;
-        return result;
-    }
+    static int FindNextModel(eModelInfoType type, int startModelId, bool searchForward = true, bool warpAround = true); // find next/previous model of given type
+
+    static bool IsPedModel(int modelId);
+    static bool IsVehicleModel(int modelId);
+
+    // vehicle subclass info
+    static eVehicleType GetVehicleModelType(int modelId);
+    static bool IsBikeModel(int modelId);
+    static bool IsBmxModel(int modelId);
+    static bool IsBoatModel(int modelId);
+    static bool IsCarModel(int modelId);
+    static bool IsHeliModel(int modelId);
+    static bool IsMonsterTruckModel(int modelId);
+    static bool IsPlaneModel(int modelId);
+    static bool IsQuadBikeModel(int modelId);
+    static bool IsTrailerModel(int modelId);
+    static bool IsTrainModel(int modelId);
 };

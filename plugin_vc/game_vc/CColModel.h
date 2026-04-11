@@ -12,7 +12,7 @@ Do not delete this comment block. Respect others' work!
 
 class CColModel {
 public:
-    CColSphere m_colSphere;
+    CColSphere m_boundSphere;
     CBox m_boundBox;
     unsigned short m_nNumSpheres;
     unsigned short m_nNumBoxes;

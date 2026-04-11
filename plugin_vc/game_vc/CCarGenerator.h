@@ -5,17 +5,14 @@ https://github.com/DK22Pac/plugin-sdk
 Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CVector.h"
-#include "eVehicleModel.h"
 
 class CVehicle;
 
-
 class CCarGenerator {
 public:
-    eVehicleModel  m_nModelId;
+    int            m_nModelId;
     CVector        m_vPos;
     float          m_fAngle;
     short          m_nPrimaryColor;
@@ -27,7 +24,7 @@ public:
     unsigned short m_nMinDelay;
     unsigned short m_nMaxDelay;
     unsigned int   m_nTimeNextGen;
-    CVehicle      *m_pVehicle;
+    unsigned int   m_nVehicleHandle;
     short          m_nEnabled;
     char field_2A;
     char field_2B;

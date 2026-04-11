@@ -7,18 +7,9 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "CColModel.h"
 #include "C2dEffect.h"
-
-enum PLUGIN_API ModelInfoType : unsigned char {
-    MODEL_INFO_SIMPLE = 1,
-    MODEL_INFO_MLO = 2,
-    MODEL_INFO_TIME = 3,
-    MODEL_INFO_CLUMP = 4,
-    MODEL_INFO_VEHICLE = 5,
-    MODEL_INFO_PED = 6,
-    MODEL_INFO_XTRACOMPS = 7
-};
+#include "CColModel.h"
+#include "eModelInfoType.h"
 
 //! CBaseModelInfo       // base, abstract class
 //!      |
@@ -56,7 +47,7 @@ public:
     short m_nObjectDataIndex;
     unsigned short m_nRefCount;
     short m_nTxdIndex;
-    ModelInfoType m_nType;
+    eModelInfoType m_nType;
     unsigned char m_nNum2dEffects;
     bool m_bDoWeOwnTheColModel;
 
@@ -72,6 +63,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ClearTexDictionary();
     SUPPORTED_10EN_11EN_STEAM void DeleteCollisionModel();
     SUPPORTED_10EN_11EN_STEAM C2dEffect *Get2dEffect(int effectNumber);
+    eModelInfoType GetModelType();
     SUPPORTED_10EN_11EN_STEAM void Init2dEffects();
     SUPPORTED_10EN_11EN_STEAM void RemoveRef();
     SUPPORTED_10EN_11EN_STEAM void RemoveTexDictionaryRef();

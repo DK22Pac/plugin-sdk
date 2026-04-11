@@ -21,9 +21,9 @@ CBaseModelInfo *CBaseModelInfo::AsLodAtomicModelInfoPtr()
 	return ((CBaseModelInfo *(__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 3))(this);
 }
 
-ModelInfoType CBaseModelInfo::GetModelType()
+eModelInfoType CBaseModelInfo::GetModelType()
 {
-	return ((ModelInfoType (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 4))(this);
+	return ((eModelInfoType (__thiscall *)(CBaseModelInfo *))plugin::GetVMT(this, 4))(this);
 }
 
 struct tTimeInfo *CBaseModelInfo::GetTimeInfo()

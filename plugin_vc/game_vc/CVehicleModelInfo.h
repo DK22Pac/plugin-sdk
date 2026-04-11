@@ -12,22 +12,14 @@
 #include "RwObjectNameIdAssocation.h"
 #include "CRGBA.h"
 #include "CPool.h"
-
-enum eVehicleType {
-    VEHICLE_AUTOMOBILE,
-    VEHICLE_BOAT,
-    VEHICLE_TRAIN,
-    VEHICLE_HELI,
-    VEHICLE_PLANE,
-    VEHICLE_BIKE
-};
+#include "eVehicleType.h"
 
 class CVehicleModelInfo : public CClumpModelInfo {
 public:
     char m_nLastPrimaryColor;
     char m_nLastSecondaryColor;
     char m_szGameName[10];
-    unsigned int m_nVehicleType;
+    eVehicleType m_nVehicleType;
     float m_fWheelSize;
     short m_nWheelModelIndex;
     short m_nHandlingId;

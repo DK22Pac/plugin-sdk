@@ -7,30 +7,29 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "eVehicleModel.h"
 #include "CVector.h"
 
 class PLUGIN_API CCarGenerator {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CCarGenerator)
 
 public:
-    eVehicleModel m_nModelId;
-    CVector m_vecPos;
-    float m_fAngle;
-    short m_nPrimaryColor;
-    short m_nSecondaryColor;
-    unsigned char m_nForceSpawn;
-    unsigned char m_nAlarm;
-    unsigned char m_nDoorLock;
+    int            m_nModelId;
+    CVector        m_vecPos;
+    float          m_fAngle;
+    short          m_nPrimaryColor;
+    short          m_nSecondaryColor;
+    unsigned char  m_nForceSpawn;
+    unsigned char  m_nAlarm;
+    unsigned char  m_nDoorLock;
     unsigned short m_nMinDelay;
     unsigned short m_nMaxDelay;
-    unsigned int m_nTimeNextGen;
-    unsigned int m_nVehicleHandle;
-    short m_nEnabled;
-    bool m_bIsBlocking;
-    CVector m_vecInf;
-    CVector m_vecSup;
-    float m_fDistance;
+    unsigned int   m_nTimeNextGen;
+    unsigned int   m_nVehicleHandle;
+    short          m_nEnabled;
+    bool           m_bIsBlocking;
+    CVector        m_vecInf;
+    CVector        m_vecSup;
+    float          m_fDistance;
 
     SUPPORTED_10EN_11EN_STEAM unsigned int CalcNextGen();
     SUPPORTED_10EN_11EN_STEAM bool CheckForBlockage();

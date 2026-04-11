@@ -8,7 +8,7 @@
 
 namespace plugin {
 
-CTOR_META_BEGIN_OVERLOADED(CBaseModelInfo, void(ModelInfoType))
+CTOR_META_BEGIN_OVERLOADED(CBaseModelInfo, void(eModelInfoType))
 static int address;
 static int global_address;
 static const int id = 0x4F6A50;
@@ -17,10 +17,10 @@ static const int vtable_index = -1;
 using mv_addresses_t = MvAddresses<0x4F6A50, 0x4F6B00, 0x4F6A90>;
 // total references count: 10en (7), 11en (7), steam (7)
 using refs_t = RefList<0x50BF15,100,0,0x50BF10,1, 0x50BFA5,100,0,0x50BFA0,1, 0x50C045,100,0,0x50C040,1, 0x50C0A5,100,0,0x50C0A0,1, 0x50C105,100,0,0x50C100,1, 0x50C155,100,0,0x50C150,1, 0x51FB1C,100,0,0x51FB10,1, 0x50C005,110,0,0x50C000,1, 0x50C095,110,0,0x50C090,1, 0x50C135,110,0,0x50C130,1, 0x50C195,110,0,0x50C190,1, 0x50C1F5,110,0,0x50C1F0,1, 0x50C245,110,0,0x50C240,1, 0x51FD4C,110,0,0x51FD40,1, 0x50BF95,120,0,0x50BF90,1, 0x50C025,120,0,0x50C020,1, 0x50C0C5,120,0,0x50C0C0,1, 0x50C125,120,0,0x50C120,1, 0x50C185,120,0,0x50C180,1, 0x50C1D5,120,0,0x50C1D0,1, 0x51FCDC,120,0,0x51FCD0,1>;
-using def_t = CBaseModelInfo *(CBaseModelInfo *, ModelInfoType);
+using def_t = CBaseModelInfo *(CBaseModelInfo *, eModelInfoType);
 static const int cb_priority = PRIORITY_BEFORE; 
 using calling_convention_t = CallingConventions::Thiscall;
-using args_t = ArgPick<ArgTypes<CBaseModelInfo *,ModelInfoType>, 0,1>;
+using args_t = ArgPick<ArgTypes<CBaseModelInfo *,eModelInfoType>, 0,1>;
 META_END
 
 META_BEGIN(CBaseModelInfo::Shutdown)
@@ -220,8 +220,8 @@ META_END
 
 template<>
 struct stack_object<CBaseModelInfo> : stack_object_no_default<CBaseModelInfo> {
-    SUPPORTED_10EN_11EN_STEAM stack_object(ModelInfoType type) {
-        plugin::CallMethodDynGlobal<CBaseModelInfo *, ModelInfoType>(ctor_gaddr_o(CBaseModelInfo, void(ModelInfoType)), reinterpret_cast<CBaseModelInfo *>(objBuff), type);
+    SUPPORTED_10EN_11EN_STEAM stack_object(eModelInfoType type) {
+        plugin::CallMethodDynGlobal<CBaseModelInfo *, eModelInfoType>(ctor_gaddr_o(CBaseModelInfo, void(eModelInfoType)), reinterpret_cast<CBaseModelInfo *>(objBuff), type);
     }
     SUPPORTED_10EN_11EN_STEAM ~stack_object() {
         plugin::CallMethodDynGlobal<CBaseModelInfo *>(dtor_gaddr(CBaseModelInfo), reinterpret_cast<CBaseModelInfo *>(objBuff));
@@ -229,10 +229,10 @@ struct stack_object<CBaseModelInfo> : stack_object_no_default<CBaseModelInfo> {
 };
 
 template <>
-SUPPORTED_10EN_11EN_STEAM inline CBaseModelInfo *operator_new<CBaseModelInfo>(ModelInfoType type) {
+SUPPORTED_10EN_11EN_STEAM inline CBaseModelInfo *operator_new<CBaseModelInfo>(eModelInfoType type) {
     void *objData = operator new(sizeof(CBaseModelInfo)); 
     CBaseModelInfo *obj = reinterpret_cast<CBaseModelInfo *>(objData);
-    plugin::CallMethodDynGlobal<CBaseModelInfo *, ModelInfoType>(ctor_gaddr_o(CBaseModelInfo, void(ModelInfoType)), obj, type);
+    plugin::CallMethodDynGlobal<CBaseModelInfo *, eModelInfoType>(ctor_gaddr_o(CBaseModelInfo, void(eModelInfoType)), obj, type);
     return obj;
 }
 template <>

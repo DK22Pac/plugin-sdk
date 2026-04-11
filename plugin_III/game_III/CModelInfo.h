@@ -5,100 +5,77 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
-#include "CBaseModelInfo.h"
-#include "CSimpleModelInfo.h"
-#include "CMloModelInfo.h"
-#include "CTimeModelInfo.h"
-#include "CClumpModelInfo.h"
-#include "CVehicleModelInfo.h"
-#include "CPedModelInfo.h"
-#include "CStore.h"
-#include "CInstance.h"
 #include "C2dEffect.h"
-#include "eLevelName.h"
+#include "CBaseModelInfo.h"
+#include "CClumpModelInfo.h"
+#include "CInstance.h"
+#include "CMloModelInfo.h"
+#include "CPedModelInfo.h"
+#include "CSimpleModelInfo.h"
+#include "CStore.h"
+#include "CTimeModelInfo.h"
 #include "CXtraCompsModelInfo.h"
+#include "eLevelName.h"
+#include "eModelID.h"
+#include "eModelInfoType.h"
+#include "eVehicleType.h"
+
+class CVehicleModelInfo;
 
 class PLUGIN_API CModelInfo {
 public:
-    SUPPORTED_10EN_11EN_STEAM static CStore<CClumpModelInfo, 5> &ms_clumpModelStore;
-#ifdef LIMIT_ADJUSTER_COMPATIBLE_MODELINFOPTRS
-    SUPPORTED_10EN_11EN_STEAM PLUGIN_VARIABLE static inline CBaseModelInfo* *ms_modelInfoPtrs = reinterpret_cast<CBaseModelInfo**>(GLOBAL_ADDRESS_BY_VERSION(0x83D408, 0x83D408, 0x84D548));
-#else
-    SUPPORTED_10EN_11EN_STEAM PLUGIN_VARIABLE static inline CBaseModelInfo* (&ms_modelInfoPtrs)[5500] = *reinterpret_cast<CBaseModelInfo * (*)[5500]>(GLOBAL_ADDRESS_BY_VERSION(0x83D408, 0x83D408, 0x84D548));
-#endif
-    SUPPORTED_10EN_11EN_STEAM static CStore<CSimpleModelInfo, 5000> &ms_simpleModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1> &ms_mloInstanceStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<CVehicleModelInfo, 120> &ms_vehicleModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<CMloModelInfo, 1> &ms_mloModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<CXtraCompsModelInfo, 2> &ms_xtraCompsModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<CTimeModelInfo, 30> &ms_timeModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<CPedModelInfo, 90> &ms_pedModelStore;
-    SUPPORTED_10EN_11EN_STEAM static CStore<C2dEffect, 2000> &ms_2dEffectStore;
+    SUPPORTED_10EN static CBaseModelInfo** ms_modelInfoPtrs; // extended by limit adjusters
+    SUPPORTED_10EN static const int&       ms_modelInfoCount;
 
-    SUPPORTED_10EN_11EN_STEAM static CClumpModelInfo *AddClumpModel(int index);
-    SUPPORTED_10EN_11EN_STEAM static CMloModelInfo *AddMloModel(int index);
-    SUPPORTED_10EN_11EN_STEAM static CPedModelInfo *AddPedModel(int index);
-    SUPPORTED_10EN_11EN_STEAM static CSimpleModelInfo *AddSimpleModel(int index);
-    SUPPORTED_10EN_11EN_STEAM static CTimeModelInfo *AddTimeModel(int index);
-    SUPPORTED_10EN_11EN_STEAM static CVehicleModelInfo *AddVehicleModel(int index);
-    SUPPORTED_10EN_11EN_STEAM static void ConstructMloClumps();
-    SUPPORTED_10EN_11EN_STEAM static CStore<C2dEffect, 2000> *Get2dEffectStore();
-    SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1> *GetMloInstanceStore();
-    SUPPORTED_10EN_11EN_STEAM static CBaseModelInfo *GetModelInfo(char const *name, int *index);
+    // TODO: these should be replaced by limit adjuster supporting getter functions
+    SUPPORTED_10EN_11EN_STEAM static CStore<CClumpModelInfo, 5>&     ms_clumpModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CSimpleModelInfo, 5000>& ms_simpleModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1>&           ms_mloInstanceStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CVehicleModelInfo, 120>& ms_vehicleModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CMloModelInfo, 1>&       ms_mloModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CXtraCompsModelInfo, 2>& ms_xtraCompsModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CTimeModelInfo, 30>&     ms_timeModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<CPedModelInfo, 90>&      ms_pedModelStore;
+    SUPPORTED_10EN_11EN_STEAM static CStore<C2dEffect, 2000>&        ms_2dEffectStore;
+
     SUPPORTED_10EN_11EN_STEAM static void Initialise();
-    SUPPORTED_10EN_11EN_STEAM static bool IsBoatModel(int index);
     SUPPORTED_10EN_11EN_STEAM static void ReInit2dEffects();
-    SUPPORTED_10EN_11EN_STEAM static void RemoveColModelsFromOtherLevels(eLevelName level);
     SUPPORTED_10EN_11EN_STEAM static void ShutDown();
 
-    static inline CBaseModelInfo *GetModelInfo(int index) {
-        return ms_modelInfoPtrs[index];
-    }
+    SUPPORTED_10EN_11EN_STEAM static CClumpModelInfo*   AddClumpModel(int modelId);
+    SUPPORTED_10EN_11EN_STEAM static CMloModelInfo*     AddMloModel(int modelId);
+    SUPPORTED_10EN_11EN_STEAM static CPedModelInfo*     AddPedModel(int modelId);
+    SUPPORTED_10EN_11EN_STEAM static CSimpleModelInfo*  AddSimpleModel(int modelId);
+    SUPPORTED_10EN_11EN_STEAM static CTimeModelInfo*    AddTimeModel(int modelId);
+    SUPPORTED_10EN_11EN_STEAM static CVehicleModelInfo* AddVehicleModel(int modelId);
 
-    static inline bool IsPedModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_PED);
-    }
+    SUPPORTED_10EN_11EN_STEAM static CStore<C2dEffect, 2000>* Get2dEffectStore();
 
-    static inline bool IsCarModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_AUTOMOBILE);
-    }
+    SUPPORTED_10EN_11EN_STEAM static void ConstructMloClumps();
+    SUPPORTED_10EN_11EN_STEAM static CStore<CInstance, 1>* GetMloInstanceStore();
+    SUPPORTED_10EN_11EN_STEAM static void RemoveColModelsFromOtherLevels(eLevelName level);
 
-    static inline bool IsTrainModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_TRAIN);
-    }
+    static CBaseModelInfo* GetModelInfo(int modelId);
+    SUPPORTED_10EN_11EN_STEAM static CBaseModelInfo* GetModelInfo(char const* name, int* modelId);
 
-    static inline bool IsHeliModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_HELI);
-    }
+    static int FindNextModel(eModelInfoType type, int startModelId, bool searchForward = true, bool warpAround = true); // find next/previous model of given type
 
-    static inline bool IsPlaneModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_PLANE);
-    }
+    static bool IsPedModel(int modelId);
+    static bool IsVehicleModel(int modelId);
 
-    static inline bool IsBikeModel(int index) {
-        return (ms_modelInfoPtrs[index] && ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE && reinterpret_cast<CVehicleModelInfo*>(ms_modelInfoPtrs[index])->m_nVehicleType == VEHICLE_BIKE);
-    }
-
-    // return -1 if model is not a vehicle model otherwise returns vehicle model type
-    // 0 - car, 1 - boat, 2 - train, 3 - heli, 4 - plane
-    static inline int IsVehicleModelType(int index) {
-        int result;
-        if (
-#ifndef LIMIT_ADJUSTER_COMPATIBLE_MODELINFOPTRS
-            index < 5500 &&
-#endif 
-            ms_modelInfoPtrs[index]) {
-            if (ms_modelInfoPtrs[index]->m_nType == MODEL_INFO_VEHICLE)
-                result = reinterpret_cast<CVehicleModelInfo *>(ms_modelInfoPtrs[index])->m_nVehicleType;
-            else
-                result = -1;
-        }
-        else
-            result = -1;
-        return result;
-    }
+    // vehicle subclass info
+    static eVehicleType GetVehicleModelType(int modelId);
+    static bool IsBikeModel(int modelId);
+    static bool IsBmxModel(int modelId);
+    static bool IsBoatModel(int modelId);
+    static bool IsCarModel(int modelId);
+    static bool IsHeliModel(int modelId);
+    static bool IsMonsterTruckModel(int modelId);
+    static bool IsPlaneModel(int modelId);
+    static bool IsQuadBikeModel(int modelId);
+    static bool IsTrailerModel(int modelId);
+    static bool IsTrainModel(int modelId);
 };
 
 #include "meta/meta.CModelInfo.h"
