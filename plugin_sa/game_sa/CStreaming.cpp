@@ -266,6 +266,10 @@ int CStreaming::GetNextFileOnCd(int pos, bool bNotPriority) {
     return plugin::CallAndReturnDynGlobal<int, int, bool>(gaddrof(CStreaming::GetNextFileOnCd), pos, bNotPriority);
 }
 
+bool CStreaming::HasModelLoaded(int modelIndex) {
+    return ms_aInfoForModel[modelIndex].m_nLoadState == LOADSTATE_LOADED;
+}
+
 int addrof(CStreaming::HasSpecialCharLoaded) = ADDRESS_BY_VERSION(0x407F00, 0, 0, 0, 0, 0);
 int gaddrof(CStreaming::HasSpecialCharLoaded) = GLOBAL_ADDRESS_BY_VERSION(0x407F00, 0, 0, 0, 0, 0);
 
