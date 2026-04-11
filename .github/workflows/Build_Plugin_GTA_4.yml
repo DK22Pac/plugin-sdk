@@ -36,12 +36,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: "recursive"
 
       - name: Setup msbuild
-        uses: microsoft/setup-msbuild@v2 # add msbuild to PATH
+        uses: microsoft/setup-msbuild@v3 # add msbuild to PATH
 
       - name: Premake Visual Studio project
         shell: cmd
