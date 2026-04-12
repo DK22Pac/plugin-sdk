@@ -157,7 +157,7 @@ void RpAnimBlendClumpRemoveAllAssociations(RpClump* clump);
 void RpAnimBlendClumpRemoveAssociations(RpClump* clump, unsigned int flags);
 void RpAnimBlendClumpSetBlendDeltas(RpClump* clump, unsigned int flags, float delta);
 void RpAnimBlendClumpUnPauseAllAnimations(RpClump* clump);
-void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen);
+void RpAnimBlendClumpUpdateAnimations(RpClump* clump, float step, bool onScreen = true);
 RtAnimAnimation* RpAnimBlendCreateAnimationForHierarchy(RpHAnimHierarchy* hierarchy);
 char* RpAnimBlendFrameGetName(RwFrame* frame);
 void RpAnimBlendFrameSetName(RwFrame* frame, char* name);
