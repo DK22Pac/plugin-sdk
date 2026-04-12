@@ -141,14 +141,7 @@ public:
         return pos;
     }
 
-    inline float GetHeading() {
-        float angle = atan2f(-up.x, up.y) * 57.295776f;
-        if (angle < 0.0f)
-            angle += 360.0f;
-        if (angle > 360.0f)
-            angle -= 360.0f;
-        return angle;
-    }
+    inline float GetHeading() { return GetForward().Heading(); }
 
     inline void SetPosition(float x, float y, float z) {
         this->pos.x = x;
