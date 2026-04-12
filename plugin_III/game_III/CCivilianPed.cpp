@@ -17,8 +17,20 @@ int dtor_gaddr(CCivilianPed) = GLOBAL_ADDRESS_BY_VERSION(0x4BFFC0, 0x4C00B0, 0x4
 int del_dtor_addr(CCivilianPed) = ADDRESS_BY_VERSION(0x4C1170, 0x4C1260, 0x4C11F0);
 int del_dtor_gaddr(CCivilianPed) = GLOBAL_ADDRESS_BY_VERSION(0x4C1170, 0x4C1260, 0x4C11F0);
 
+void* CCivilianPed::operator new(size_t size) {
+    return plugin::CallAndReturnDynGlobal<void*, size_t>(op_new_gaddr(CPed), size);
+}
+
+void CCivilianPed::operator delete(void* data) {
+    return plugin::CallDynGlobal<void*>(op_delete_gaddr(CPed), data);
+}
+
 int addrof(CCivilianPed::ProcessControl) = ADDRESS_BY_VERSION(0x4BFFE0, 0x4C00D0, 0x4C0060);
 int gaddrof(CCivilianPed::ProcessControl) = GLOBAL_ADDRESS_BY_VERSION(0x4BFFE0, 0x4C00D0, 0x4C0060);
+
+CCivilianPed::CCivilianPed(ePedType pedType, unsigned int modelIndex) {
+    plugin::CallMethodDynGlobal<CCivilianPed*, ePedType, unsigned int>(ctor_gaddr_o(CCivilianPed, void(ePedType, unsigned int)), this, pedType, modelIndex);
+}
 
 void CCivilianPed::ProcessControl() {
     plugin::CallVirtualMethod<8, CCivilianPed *>(this);
