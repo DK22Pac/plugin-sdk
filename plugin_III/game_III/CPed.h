@@ -397,10 +397,10 @@ public:
     short m_nRoutePointsPassed;
     short m_nRouteType; //!< see ePedRouteType
     short m_nRoutePointsBeingPassed;
-    CVector2D m_vec2dMoved;
-    float m_fRotationCur;
-    float m_fRotationDest;
-    float m_fHeadingRate;
+    CVector2D m_vecAnimMovingShift; // velocity from walk animations
+    float m_fHeadingCurrent; // current heading angle
+    float m_fHeadingGoal; // desired heading angle
+    float m_fHeadingChangeRate; // speed of turing to m_fHeadingGoal
     unsigned short m_nVehicleDoor;
     short m_nWalkAroundType;
     CPhysical *m_pCurrentPhysSurface;

@@ -235,10 +235,10 @@ public:
     float               m_fMaxHealth;
     float               m_fArmour;
     unsigned int        m_nTimeTillWeNeedThisPed;
-    CVector2D           m_vecAnimMovingShift;
-    float               m_fCurrentRotation;
-    float               m_fAimingRotation;
-    float               m_fHeadingChangeRate;
+    CVector2D           m_vecAnimMovingShift; // velocity from walk animations
+    float               m_fHeadingCurrent; // current heading angle
+    float               m_fHeadingGoal; // desired heading angle
+    float               m_fHeadingChangeRate; // speed of turing to m_fHeadingGoal
     int                 m_fMoveAnim;
     CEntity*            m_standingOnEntity;
     CVector field_56C;
