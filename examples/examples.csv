@@ -9,7 +9,7 @@ HandSignals,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 Neon,						ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 OpenDoorExample,			ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 PedPainting,				ASI,	---,	---,	YES,	YES,	---,	---,	---,	---,	---
-PedSpawner,					ASI,	---,	---,	YES,	YES,	---,	---,	---,	---,	---
+PedSpawner,					ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	---
 PlayerWeapon,				ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 RotateDoor,					ASI,	---,	---,	---,	YES,	---,	---,	---,	---,	---
 ScriptCommands,				ASI,	---,	YES,	YES,	YES,	---,	---,	---,	---,	---

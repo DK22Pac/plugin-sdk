@@ -76,8 +76,8 @@ void CPlaceable::SetMatrix(CMatrix  const& matrix)
 	((void (__thiscall *)(CPlaceable *, CMatrix  const&))0x54F610)(this, matrix);
 }
 
-CMatrixLink *CPlaceable::GetMatrix() {
-    return ((CMatrixLink *(__thiscall *)(CPlaceable *))0x411990)(this);
+CMatrixLink& CPlaceable::GetMatrix() {
+    return *((CMatrixLink *(__thiscall *)(CPlaceable *))0x411990)(this);
 }
 
 void CPlaceable::ShutdownMatrixArray() {

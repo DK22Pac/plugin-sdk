@@ -1,7 +1,13 @@
-## Random Ped Spawner
-Spawns random male and female pedestrians in front of the player when F9 is pressed.
+## Ped Spawner
+Showcase browsing and creation of all (non-cutscene) ped models.  
+Supports new model IDs added with limit adjusters.
 
-![Img1](http://i.imgur.com/J1m0lHH.png) ![Img2](http://i.imgur.com/BrkDKbn.png)
+### Controls (keyboard)
+* **<** - find previous ped model ID and spawn it
+* **>** - find next ped model ID and spawn it
+* **SHIFT** - hold for faster model browising
 
-#### Controls (keyboard)
-* F9 - Spawn Ped
+### Target platforms
+* Classic GTA 3
+* Classic GTA Vice City
+* Classic GTA San Andreas

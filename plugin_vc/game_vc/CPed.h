@@ -277,11 +277,10 @@ public:
 private:
     char _pad36A[2];
 public:
-    float m_fMovedX;
-    float m_fMovedY;
-    float m_fRotationCur;
-    float m_fRotationDest;
-    float m_fHeadingRate;
+    CVector2D m_vecAnimMovingShift; // velocity from walk animations
+    float m_fHeadingCurrent; // current heading angle
+    float m_fHeadingGoal; // desired heading angle
+    float m_fHeadingChangeRate; // speed of turing to m_fHeadingGoal
     unsigned short m_nEnterType; //shows how the ped enters the vehicle (from the driver side or passenger side, from the back, etc : 11 - passenger side 15 - driver side)
     unsigned short m_nWalkAroundType;
     CPhysical *m_pCurPhysSurface;

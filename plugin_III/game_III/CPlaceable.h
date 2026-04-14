@@ -23,15 +23,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool IsWithinArea(float x1, float y1, float z1, float x2, float y2, float z2);
     SUPPORTED_10EN_11EN_STEAM void SetHeading(float angle);
     SUPPORTED_10EN_11EN_STEAM void SetPosition(float x, float y, float z);
-	
-	inline float GetHeading() {
-        float angle = atan2f(-m_matrix.up.x, m_matrix.up.y) * 57.295776f;
-        if (angle < 0.0f)
-            angle += 360.0f;
-        if (angle > 360.0f)
-            angle -= 360.0f;
-        return angle;
-    }
+
+    inline float GetHeading() { return GetForward().Heading(); }
 
     inline void SetPos(CVector &pos) {
         this->m_matrix.pos = pos;

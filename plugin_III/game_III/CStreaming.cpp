@@ -28,7 +28,7 @@ int &CStreaming::ms_oldSectorX = *(int *)0x8F2C84;
 int &CStreaming::ms_oldSectorY = *(int *)0x8F2C88;
 int &CStreaming::ms_vehiclesLoaded = *(int *)0x773560;
 
-CStreamingInfo *CStreaming::ms_aInfoForModel = (CStreamingInfo *)0x6C7088;
+CStreamingInfo *CStreaming::ms_aInfoForModel = *(CStreamingInfo**)0x40A4AD; // limit adjusters support - get from reference in CStreaming::LoadAllRequestedModels
 CStreamingInfo *CStreaming::ms_endRequestedList = (CStreamingInfo *)0x940738;
 CStreamingInfo *CStreaming::ms_startLoadedList = (CStreamingInfo *)0x942F60;
 CStreamingInfo *CStreaming::ms_startRequestedList = (CStreamingInfo *)0x8F1B3C;
@@ -234,6 +234,10 @@ unsigned int CStreaming::GetCdImageOffset(int arg0) {
 // Converted from cdecl int CStreaming::GetNextFileOnCd(int, bool) 0x409E50
 int CStreaming::GetNextFileOnCd(int arg0, bool arg1) {
     return plugin::CallAndReturn<int, 0x409E50, int, bool>(arg0, arg1);
+}
+
+bool CStreaming::HasModelLoaded(int modelIndex) {
+    return ms_aInfoForModel[modelIndex].m_nLoadState == LOADSTATE_LOADED;
 }
 
 // Converted from cdecl bool CStreaming::HasSpecialCharLoaded(int modelIndex) 0x40ADC0

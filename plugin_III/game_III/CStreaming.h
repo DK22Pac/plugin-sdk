@@ -92,7 +92,10 @@ public:
     static bool FinishLoadingLargeFile(char* FileName, int modelIndex);
     static unsigned int GetCdImageOffset(int arg0);
     static int GetNextFileOnCd(int arg0, bool arg1);
+
+    static bool HasModelLoaded(int modelIndex);
     static bool HasSpecialCharLoaded(int modelIndex);
+
     static void HaveAllBigBuildingsLoaded(eLevelName levelName);
     static void IHaveUsedStreamingMemory();
     // empty function

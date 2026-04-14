@@ -9,11 +9,14 @@
 #include "PluginBase.h"
 #include "CPed.h"
 
-class PLUGIN_API CCivilianPed {
+class PLUGIN_API CCivilianPed : public CPed 
+{
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CCivilianPed)
+    static void* operator new(size_t size);
+    static void operator delete(void* data);
 
 public:
-    CPed ped; //!<  isbase:true
+    SUPPORTED_10EN_11EN_STEAM CCivilianPed(ePedType pedType, unsigned int modelIndex);
 
     // virtual function #0 (destructor)
 

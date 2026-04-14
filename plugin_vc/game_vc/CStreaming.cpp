@@ -15,7 +15,7 @@ PLUGIN_VARIABLE bool(&CStreaming::ms_bIsPedFromPedGroupLoaded)[16] = *reinterpre
 PLUGIN_VARIABLE char *&CStreaming::ms_pStreamingBuffer = *reinterpret_cast<char **>(GLOBAL_ADDRESS_BY_VERSION(0x94B840, 0, 0));
 PLUGIN_VARIABLE int &CStreaming::ms_channelError = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x94DB60, 0, 0));
 PLUGIN_VARIABLE int &CStreaming::ms_lastImageRead = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x94DBE4, 0, 0));
-PLUGIN_VARIABLE CStreamingInfo(&CStreaming::ms_aInfoForModel)[7951] = *reinterpret_cast<CStreamingInfo(*)[7951]>(GLOBAL_ADDRESS_BY_VERSION(0x94DDD0, 0, 0));
+PLUGIN_VARIABLE CStreamingInfo* CStreaming::ms_aInfoForModel = *reinterpret_cast<CStreamingInfo**>(0x40B6E3); // limit adjusters support - get from reference in CStreaming::LoadAllRequestedModels
 PLUGIN_VARIABLE int &CStreaming::ms_numModelsRequested = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x975354, 0, 0));
 PLUGIN_VARIABLE int &CStreaming::ms_imageSize = *reinterpret_cast<int *>(GLOBAL_ADDRESS_BY_VERSION(0x978578, 0, 0));
 PLUGIN_VARIABLE tModelRequest &CStreaming::ms_endLoadedList = *reinterpret_cast<tModelRequest *>(GLOBAL_ADDRESS_BY_VERSION(0x978640, 0, 0));
@@ -141,6 +141,10 @@ int gaddrof(CStreaming::GetNextFileOnCd) = GLOBAL_ADDRESS_BY_VERSION(0x40BCA0, 0
 
 int CStreaming::GetNextFileOnCd(int CdOffset, bool bOnlyPriorityRequests) {
     return plugin::CallAndReturnDynGlobal<int, int, bool>(gaddrof(CStreaming::GetNextFileOnCd), CdOffset, bOnlyPriorityRequests);
+}
+
+bool CStreaming::HasModelLoaded(int modelIndex) {
+    return ms_aInfoForModel[modelIndex].m_nLoadState == LOADSTATE_LOADED;
 }
 
 int addrof(CStreaming::HasSpecialCharLoaded) = ADDRESS_BY_VERSION(0x409A10, 0, 0);

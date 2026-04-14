@@ -34,7 +34,7 @@ public:
     SUPPORTED_10EN static char *&ms_pStreamingBuffer;
     SUPPORTED_10EN static int &ms_channelError;
     SUPPORTED_10EN static int &ms_lastImageRead;
-    SUPPORTED_10EN static CStreamingInfo(&ms_aInfoForModel)[7951]; // static CStreamingInfo ms_aInfoForModel[7951]
+    SUPPORTED_10EN static CStreamingInfo* ms_aInfoForModel; // 7951, extended by limit adjusters
     SUPPORTED_10EN static int &ms_numModelsRequested;
     SUPPORTED_10EN static int &ms_imageSize;
     SUPPORTED_10EN static tModelRequest &ms_endLoadedList;
@@ -66,7 +66,10 @@ public:
     SUPPORTED_10EN static void FlushRequestList();
     SUPPORTED_10EN static unsigned int GetCdImageOffset(int CdPosn);
     SUPPORTED_10EN static int GetNextFileOnCd(int CdOffset, bool bOnlyPriorityRequests);
+
+    static bool HasModelLoaded(int modelIndex);
     SUPPORTED_10EN static bool HasSpecialCharLoaded(int SpecialSlotID);
+
     //! unused function
     SUPPORTED_10EN static void IHaveUsedStreamingMemory();
     //! empty function
