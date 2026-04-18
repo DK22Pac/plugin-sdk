@@ -69,14 +69,6 @@ inline void CVector2D::FromLerp(const CVector2D& begin, const CVector2D& end, fl
 
 // conversions
 
-inline CVector2D::operator RwV2d&() {
-    return *this;
-}
-
-inline CVector2D::operator const RwV2d&() const {
-    return *this;
-}
-
 inline CVector2D::operator RwV2d*() {
     return reinterpret_cast<RwV2d*>(this);
 }
@@ -217,10 +209,6 @@ inline float CVector2D::Dot(const CVector2D& left, const CVector2D& right) {
 inline float CVector2D::Cross(const CVector2D& left, const CVector2D &right) {
     return left.x * right.y - left.y * right.x;
 }
-
-// Multiply in CVector2D.cpp
-
-// Multiply3x3 in CVector2D.cpp
 
 // static operators
 

@@ -51,8 +51,6 @@ public:
 #endif
 
     // conversions
-    [[nodiscard]] operator RwV3d&();
-    [[nodiscard]] operator const RwV3d&() const;
     [[nodiscard]] operator RwV3d*();
     [[nodiscard]] operator const RwV3d*() const;
     [[nodiscard]] CVector2D To2D() const; // get XY

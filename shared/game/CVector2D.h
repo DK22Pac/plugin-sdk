@@ -39,8 +39,6 @@ public:
     void FromLerp(const CVector2D& begin, const CVector2D& end, float progress); // store result of linear interpolation between points
 
     // conversions
-    [[nodiscard]] operator RwV2d&();
-    [[nodiscard]] operator const RwV2d&() const;
     [[nodiscard]] operator RwV2d*();
     [[nodiscard]] operator const RwV2d*() const;
     [[nodiscard]] CVector To3D() const; // get X Y 0

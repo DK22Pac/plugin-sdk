@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-#pragma once
 #include "CompressedVector.h"
 #include "CompressedVector2D.h"
 #include "CVector.h"
