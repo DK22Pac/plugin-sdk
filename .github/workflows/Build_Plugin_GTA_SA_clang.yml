@@ -66,7 +66,7 @@ jobs:
           done
           echo "::groupEnd::"
 
-          FLAGS="-I. -Ishared -Ishared/game -Iplugin_sa -Iplugin_sa/game_sa -Iplugin_sa/game_sa/rw -Isafetyhook -DGTASA -DPLUGIN_SGV_10US -DRW"
+          FLAGS="-I. -Ishared -Ishared/game -Iplugin_sa -Iplugin_sa/game_sa -Iplugin_sa/game_sa/enums -Iplugin_sa/game_sa/rw -Isafetyhook -DGTASA -DPLUGIN_SGV_10US -DRW"
           CLANG_FLAGS="--target=i686-w64-mingw32 -fpermissive -fcommon -fms-extensions -Wno-microsoft-include -Wno-invalid-offsetof -Wno-builtin-macro-redefined -O2 -D__cpp_concepts=202202L"
 
           echo "::group::Compile C++ files"
@@ -91,7 +91,7 @@ jobs:
           find examples/Test -type d -exec mkdir -p "obj/{}" \;
           mkdir -p output/examples
           
-          TEST_FLAGS="-I. -Ishared -Ishared/game -Iplugin_sa -Iplugin_sa/game_sa -Iplugin_sa/game_sa/rw -Isafetyhook -DGTASA -DPLUGIN_SGV_10US -DRW"
+          TEST_FLAGS="-I. -Ishared -Ishared/game -Iplugin_sa -Iplugin_sa/game_sa -Iplugin_sa/game_sa/enums -Iplugin_sa/game_sa/rw -Isafetyhook -DGTASA -DPLUGIN_SGV_10US -DRW"
           TEST_CLANG_FLAGS="--target=i686-w64-mingw32 -fpermissive -fcommon -fms-extensions -Wno-microsoft-include -Wno-invalid-offsetof -Wno-builtin-macro-redefined -O2 -D__cpp_concepts=202202L"
           
           # Compile

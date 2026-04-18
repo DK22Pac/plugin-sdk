@@ -231,6 +231,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         includedirs {
             ("$(PLUGIN_SDK_DIR)\\" .. projectName),
             ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName),
+            ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName .. "\\enums"),
             ("$(PLUGIN_SDK_DIR)\\" .. projectName .. "\\" .. gameName .. "\\rw"),
             "$(PLUGIN_SDK_DIR)\\safetyhook",
             "$(PLUGIN_SDK_DIR)\\shared",
@@ -490,10 +491,11 @@ function getExamplePluginIncludeFolders(pluginDir, gameDir, projectType, cleoDir
 
     aryDirs[counter] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir)
     aryDirs[counter + 1] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir)
-    aryDirs[counter + 2] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir .. "\\rw")
-    aryDirs[counter + 3] = "$(PLUGIN_SDK_DIR)\\shared"
-    aryDirs[counter + 4] = "$(PLUGIN_SDK_DIR)\\shared\\game"
-    counter = counter + 5
+    aryDirs[counter + 2] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir .. "\\enums")
+    aryDirs[counter + 3] = ("$(PLUGIN_SDK_DIR)\\" .. pluginDir .. "\\" .. gameDir .. "\\rw")
+    aryDirs[counter + 4] = "$(PLUGIN_SDK_DIR)\\shared"
+    aryDirs[counter + 5] = "$(PLUGIN_SDK_DIR)\\shared\\game"
+    counter = counter + 6
     
     if projectType == "CLEO" and cleoDir ~= "" then
         aryDirs[counter] = cleoDir

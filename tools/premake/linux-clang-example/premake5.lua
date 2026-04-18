@@ -59,6 +59,7 @@ project "plugin_sa"
         sdkdir .. "/shared/game", 
         sdkdir .. "/plugin_sa", 
         sdkdir .. "/plugin_sa/game_sa",
+        sdkdir .. "/plugin_sa/game_sa/enums",
         sdkdir .. "/plugin_sa/game_sa/rw",  
         sdkdir .. "/safetyhook"  
     }
