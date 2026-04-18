@@ -87,14 +87,6 @@ inline void CVector::FromCross(const CVector& left, const CVector& right) {
 
 // conversions
 
-inline CVector::operator RwV3d&() {
-    return *this;
-}
-
-inline CVector::operator const RwV3d&() const {
-    return *this;
-}
-
 inline CVector::operator RwV3d*() {
     return reinterpret_cast<RwV3d*>(this);
 }
