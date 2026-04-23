@@ -7,36 +7,26 @@
 #pragma once
 
 #include "PluginBase.h"
-#include "ePedType.h"
-#include "CPhysical.h"
+#include "AnimBlendFrameData.h"
 #include "CAEPedAudioEntity.h"
 #include "CAEPedSpeechAudioEntity.h"
 #include "CAEWeaponAudioEntity.h"
-#include "CPedIntelligence.h"
-#include "CPlayerData.h"
-#include "AnimBlendFrameData.h"
-#include "CPedAcquaintance.h"
-#include "CPedIK.h"
-#include "CWeapon.h"
-#include "CVector2D.h"
-#include "eWeaponType.h"
-#include "ePedState.h"
 #include "CAnimBlendAssociation.h"
 #include "CFire.h"
+#include "CPedAcquaintance.h"
+#include "CPedIK.h"
+#include "CPedIntelligence.h"
+#include "CPhysical.h"
+#include "CPlayerData.h"
+#include "CVector2D.h"
+#include "CWeapon.h"
+#include "eMoveState.h"
+#include "ePedState.h"
+#include "ePedType.h"
+#include "eWeaponType.h"
 
 enum PLUGIN_API ePedStats {
 
-};
-
-enum PLUGIN_API eMoveState {
-    PEDMOVE_NONE = 0,
-    PEDMOVE_STILL,
-    PEDMOVE_TURN_L,
-    PEDMOVE_TURN_R,
-    PEDMOVE_WALK,
-    PEDMOVE_JOG,
-    PEDMOVE_RUN,
-    PEDMOVE_SPRINT
 };
 
 enum PLUGIN_API eFightingStyle : char

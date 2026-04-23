@@ -5,34 +5,32 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
+#include "eAbortPriority.h"
 #include "eTaskType.h"
 
-enum eAbortPriority
-{
-    ABORT_PRIORITY_LEISURE = 0,
-    ABORT_PRIORITY_URGENT,
-    ABORT_PRIORITY_IMMEDIATE
-};
+class CEvent;
+class CPed;
 
 class PLUGIN_API CTask {
-    CTask() = delete;
 protected:
     CTask(plugin::dummy_func_t) {}
-public:
-	class CTask *m_pParentTask;
+    CTask() = delete;
 
-	void *operator new(unsigned int size);
-	void operator delete(void *object);
+public:
+    CTask* m_pParentTask;
+
+    void* operator new(unsigned int size);
+    void  operator delete(void* object);
 
     virtual ~CTask() {}
-	virtual class CTask *Clone();//=0
-	virtual class CTask *GetSubTask();//=0
-	virtual bool IsSimple();//=0
-	virtual eTaskType GetId();//=0
-	virtual void StopTimer(class CEvent *_event);
-	virtual bool MakeAbortable(class CPed *ped, eAbortPriority priority, class CEvent *_event);//=0
+    virtual class CTask* Clone();
+    virtual class CTask* GetSubTask();
+    virtual bool IsSimple();
+    virtual eTaskType GetId();
+    virtual void StopTimer(CEvent* event);
+    virtual bool MakeAbortable(CPed* ped, eAbortPriority priority, CEvent* event);
 };
 
-VALIDATE_SIZE(CTask, 8);
+VALIDATE_OFFSET(CTask, m_pParentTask, 0x4);
+VALIDATE_SIZE(CTask, 0x8);
