@@ -97,7 +97,7 @@ function verifyPluginSdkComment(filename, isHeader)
     {
         if (actualLines[i] !== expectedLines[i])
         {            
-            console.log(`::error file=${filename},line=${i+1},title=Invalid PSDK comment header::Found:\`${actualLines[i]}\`, expected \`${expectedLines[i]}\``);
+            console.log(`::error file=${filename},line=${i+1},title=Invalid PSDK comment header::Found:"${actualLines[i]}", expected \`\`\`${expectedLines[i]}\``);
             return false;
         }
     }
