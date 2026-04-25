@@ -40,6 +40,9 @@ function processFile(filename)
 
 function processCodeFile(filename)
 {
+	if (filename.includes("/rw/")) // skip Renderware files
+        return true;
+		
     const headerExtensions = [".h", ".hpp"];
     const sourceExtensions = [".c", ".cpp"];
     const filetype = path.extname(filename).toLowerCase();
@@ -56,9 +59,6 @@ function processCodeFile(filename)
 
 function verifyPluginSdkComment(filename, isHeader)
 {
-    if (filename.includes("/rw/")) // skip Renderware files
-        return true;
-    
     let expected = "/*\n";
     
     expected += "    Plugin-SDK (Grand Theft Auto ";
@@ -97,7 +97,7 @@ function verifyPluginSdkComment(filename, isHeader)
     {
         if (actualLines[i] !== expectedLines[i])
         {            
-            console.log(`::error file=${filename},line=${i+1},title=Invalid PSDK comment header::Found:"${actualLines[i]}", expected \`\`\`${expectedLines[i]}\``);
+            console.log(`::error file=${filename},line=${i+1},title=Invalid PSDK comment header::Found "${actualLines[i]}", expected "${expectedLines[i]}"`);
             return false;
         }
     }
