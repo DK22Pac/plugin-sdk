@@ -1,0 +1,29 @@
+name: Validate file contents
+
+on:
+  workflow_dispatch: # manual trigger
+
+  push:
+    paths:
+      - "plugin_*/**.h"
+      - "plugin_*/**.cpp"
+      - "shared/**.h"
+      - "shared/**.cpp"
+
+  pull_request:
+    paths:
+      - "plugin_*/**.h"
+      - "plugin_*/**.cpp"
+      - "shared/**.h"
+      - "shared/**.cpp"
+
+jobs:
+  Validate_file_contents:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v6
+          
+      - name: Check files
+        run: node .github/workflows/scripts/validate_file_contents.js
