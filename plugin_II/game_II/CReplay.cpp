@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CReplay.h"
 
 CReplay* gReplay = (CReplay*)0x5ECAC8;

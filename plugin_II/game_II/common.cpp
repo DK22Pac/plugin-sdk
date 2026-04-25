@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "common.h"
 
 wchar_t* gUString = (wchar_t*)0x5E9F08; //[640]

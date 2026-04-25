@@ -5,7 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "DRAW_FADE_STATE.h"
 #include "CSprite2d.h"

@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CClothes.h"
 
 // Converted from cdecl void CClothes::ConstructPedModel(uint modelid,CPedClothesDesc &newclothes,CPedClothesDesc const*oldclothes,bool bCutscenePlayer) 0x5A81E0 

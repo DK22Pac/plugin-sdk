@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CWorld.h"
 
 int32_t& CWorld::PlayerInFocus = *gpatternt(int32_t, "A1 ? ? ? ? 83 F8 FF 74 12", 1);

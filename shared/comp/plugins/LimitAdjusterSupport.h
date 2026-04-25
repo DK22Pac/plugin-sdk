@@ -5,7 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "comp/PluginSupport.h"
 
 class Fastman92LimitAdjusterSupport : public PluginSupport {

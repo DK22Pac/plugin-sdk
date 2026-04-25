@@ -24,7 +24,6 @@
  *
  */
 #pragma once
-
 #if !defined(INJECTOR_GVM_HAS_TRANSLATOR)
 #error Missing INJECTOR_GVM_HAS_TRANSLATOR on compiler definitions
 #endif

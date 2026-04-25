@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CLoadingScreen.h"
 
 int &CLoadingScreen::m_currDisplayedSplash = *(int*)0x8D093C;

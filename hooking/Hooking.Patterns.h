@@ -6,7 +6,6 @@
  */
 
 #pragma once
-
 #include <cassert>
 #include <vector>
 #include <string_view>

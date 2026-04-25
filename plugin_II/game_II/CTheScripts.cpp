@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CTheScripts.h"
 
 CTheScripts** TheScripts = (CTheScripts**)0x6644BC;

@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "tVideo.h"
 
 T_Vid_GetVersion& Vid_GetVersion = *(T_Vid_GetVersion*)0x59501C;

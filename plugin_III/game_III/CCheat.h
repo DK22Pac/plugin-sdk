@@ -5,7 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 
 SUPPORTED_10EN_11EN_STEAM void WeaponCheat();

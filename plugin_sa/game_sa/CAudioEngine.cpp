@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #include "CAudioEngine.h"
 
 CAudioEngine& AudioEngine = *(CAudioEngine*)0xB6BC90;
