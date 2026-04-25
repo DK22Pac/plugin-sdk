@@ -78,40 +78,30 @@ function verifyPluginSdkComment(filename, isHeader)
 	expected += "    Authors: GTA Community. See more here\n";
 	expected += "    https://github.com/DK22Pac/plugin-sdk\n";
 	expected += "    Do not delete this comment block. Respect others' work!\n";
-	expected += "*/\n";
+	expected += "*/";
 	
-	const buffer = Buffer.alloc(expected.length);
+	const buffer = Buffer.alloc(expected.length + 100);
     const fd = fs.openSync(filename, 'r');
-    fs.readSync(fd, buffer, 0, expected.length, 0);
+    fs.readSync(fd, buffer, 0, expected.length + 100, 0);
     fs.closeSync(fd);
 	let actual = buffer.toString('utf8');
-	actual.replace("\r\n", "\n").replace("\r", "\n");
+	actual = actual.replace(/\r\n/g, "\n");
 	
-	let diff = findDifferenceLine(actual, expected)
-	if (diff)
+	// compare lines
+    const actualLines = actual.split('\n');
+	const expectedLines = expected.split('\n');
+    for (let i = 0; i < expectedLines.length; i++)
 	{
-		console.log(`::error file=${filename},line=${diff},title=Invalid PSDK comment header::Expected comment:\`${expected}\``);
-		return false;
-	}
-
-    return true;
-}
-
-function findDifferenceLine(str1, str2)
-{
-    const lines1 = str1.split('\n');
-    const lines2 = str2.split('\n');
-    const maxLines = Math.max(lines1.length, lines2.length);
-
-    for (let i = 0; i < maxLines; i++)
-	{
-        if (lines1[i] !== lines2[i])
+        if (actualLines[i] !== expectedLines[i])
 		{
-            return i + 1; // 1-based line number
+			console.log(actualLines)
+			
+            console.log(`::error file=${filename},line=${i+1},title=Invalid PSDK comment header::Found:\`${actualLines[i]}\`, expected \`${expectedLines[i]}\``);
+			return false;
         }
     }
 
-    return 0;
+    return true;
 }
 
 /*const fs = require("fs");
