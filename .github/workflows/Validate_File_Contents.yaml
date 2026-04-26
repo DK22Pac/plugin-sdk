@@ -5,6 +5,7 @@ on:
 
   push:
     paths:
+      - ".github/workflows/**"
       - "examples/**/*.h*"
       - "examples/**/*.c*"
       - "plugin_*/**/*.c*"
@@ -15,6 +16,7 @@ on:
 
   pull_request:
     paths:
+      - ".github/workflows/**"
       - "examples/**/*.h*"
       - "examples/**/*.c*"
       - "plugin_*/**/*.c*"
@@ -33,4 +35,4 @@ jobs:
         uses: actions/checkout@v6
           
       - name: Check files
-        run: node .github/workflows/scripts/Validate_Contents.js
+        run: node .github/workflows/scripts/Validate_Contents.js "github"
