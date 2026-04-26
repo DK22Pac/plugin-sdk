@@ -1,4 +1,4 @@
-﻿/*
+/*
     Plugin-SDK (Grand Theft Auto) SHARED source file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
