@@ -1,0 +1,36 @@
+name: Validate contents
+
+on:
+  workflow_dispatch: # manual trigger
+
+  push:
+    paths:
+      - "examples/**/*.h*"
+      - "examples/**/*.c*"
+      - "plugin_*/**/*.c*"
+      - "plugin_*/**/*.h*"
+      - "plugin_*/**/*.c*"
+      - "shared/**/*.h*"
+      - "shared/**/*.c*"
+
+  pull_request:
+    paths:
+      - "examples/**/*.h*"
+      - "examples/**/*.c*"
+      - "plugin_*/**/*.c*"
+      - "plugin_*/**/*.h*"
+      - "plugin_*/**/*.c*"
+      - "shared/**/*.h*"
+      - "shared/**/*.c*"
+
+jobs:
+  Validate_contents:
+    name: Validate contents
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v6
+          
+      - name: Check files
+        run: node .github/workflows/scripts/Validate_Contents.js
