@@ -1,4 +1,3 @@
-
 /*
     Plugin-SDK (Grand Theft Auto San Andreas) header file
     Authors: GTA Community. See more here
