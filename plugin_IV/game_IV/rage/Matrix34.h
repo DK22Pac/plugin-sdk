@@ -105,4 +105,9 @@ namespace rage {
             return result;
         }
     };
+    VALIDATE_OFFSET(Matrix34, right, 0x0);
+    VALIDATE_OFFSET(Matrix34, up, 0xC);
+    VALIDATE_OFFSET(Matrix34, at, 0x18);
+    VALIDATE_OFFSET(Matrix34, pos, 0x24);
+    VALIDATE_SIZE(Matrix34, 0x30);
 }

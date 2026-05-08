@@ -27,6 +27,13 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Update_NewInput(CVector *pos, CVector *dir);
     SUPPORTED_10EN_11EN_STEAM void Update_OncePerFrame(short index);
 };
+VALIDATE_OFFSET(CWaterCannon, m_nId, 0x0);
+VALIDATE_OFFSET(CWaterCannon, m_nCur, 0x4);
+VALIDATE_OFFSET(CWaterCannon, m_nTimeCreated, 0x8);
+VALIDATE_OFFSET(CWaterCannon, m_avecPosition, 0xC);
+VALIDATE_OFFSET(CWaterCannon, m_avecVelocity, 0xCC);
+VALIDATE_OFFSET(CWaterCannon, m_abUsed, 0x18C);
+VALIDATE_SIZE(CWaterCannon, 0x19C);
 
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&WaterCannonIndexList)[12]; // RwImVertexIndex WaterCannonIndexList[12]
 SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&WaterCannonVertices)[4]; // RwIm3DVertex WaterCannonVertices[4]

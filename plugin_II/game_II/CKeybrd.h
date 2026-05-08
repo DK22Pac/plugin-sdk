@@ -15,7 +15,8 @@ public:
 public:
     bool Keydown(unsigned short key);
 };
-
+VALIDATE_OFFSET(CKeybrd, m_nKeys, 0x0);
+VALIDATE_OFFSET(CKeybrd, m_nLayout, 0x200);
 VALIDATE_SIZE(CKeybrd, 0x204);
 
 extern CKeybrd** gKeybrd;

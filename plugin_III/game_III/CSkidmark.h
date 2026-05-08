@@ -25,7 +25,17 @@ public:
     CVector m_avecPos[16];
     CVector m_avecSide[16];
 };
-
+VALIDATE_OFFSET(CSkidmark, m_nState, 0x0);
+VALIDATE_OFFSET(CSkidmark, m_bWasUpdated, 0x1);
+VALIDATE_OFFSET(CSkidmark, m_bIsBloody, 0x2);
+VALIDATE_OFFSET(CSkidmark, m_bIsMuddy, 0x3);
+VALIDATE_OFFSET(CSkidmark, m_nId, 0x4);
+VALIDATE_OFFSET(CSkidmark, m_nLast, 0x8);
+VALIDATE_OFFSET(CSkidmark, m_nLastUpdate, 0xC);
+VALIDATE_OFFSET(CSkidmark, m_nFadeStart, 0x10);
+VALIDATE_OFFSET(CSkidmark, m_nFadeEnd, 0x14);
+VALIDATE_OFFSET(CSkidmark, m_avecPos, 0x18);
+VALIDATE_OFFSET(CSkidmark, m_avecSide, 0xD8);
 VALIDATE_SIZE(CSkidmark, 0x198);
 
 #include "meta/meta.CSkidmark.h"

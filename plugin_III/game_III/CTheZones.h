@@ -40,3 +40,4 @@ public:
 	static short FindAudioZone(CVector* pos);
 	static eLevelName FindZoneForPoint(const CVector& pos);
 };
+VALIDATE_SIZE(CTheZones, 0x1);

@@ -22,7 +22,14 @@ public:
     CTheScripts();
     void Save(const char* saveName);
 };
-
+VALIDATE_OFFSET(CTheScripts, field_0, 0x0);
+VALIDATE_OFFSET(CTheScripts, field_1, 0x4);
+VALIDATE_OFFSET(CTheScripts, OnAMissionFlag, 0x344);
+VALIDATE_OFFSET(CTheScripts, field_4, 0x348);
+VALIDATE_OFFSET(CTheScripts, field_5, 0x468);
+VALIDATE_OFFSET(CTheScripts, gap, 0x46C);
+VALIDATE_OFFSET(CTheScripts, missionScript, 0x334C);
+VALIDATE_OFFSET(CTheScripts, gap2, 0x1334C);
 VALIDATE_SIZE(CTheScripts, 0xC1EA8);
 
 extern CTheScripts** TheScripts;

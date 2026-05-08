@@ -32,5 +32,10 @@ public:
     static audRadioStation* GetStation(uint32_t index);
     static int32_t GetNumStations();
 };
-
+VALIDATE_OFFSET(audRadioStation, field_1, 0x0);
+VALIDATE_OFFSET(audRadioStation, name, 0x17FC);
+VALIDATE_OFFSET(audRadioStation, field_6140, 0x1814);
+VALIDATE_OFFSET(audRadioStation, m_nIndex, 0x1919);
+VALIDATE_OFFSET(audRadioStation, field_6400, 0x191A);
+VALIDATE_OFFSET(audRadioStation, m_bFreeze, 0x1927);
 VALIDATE_SIZE(audRadioStation, 0x1928);

@@ -67,4 +67,9 @@ public:
         a = std::min(a + right.a, 255);
     }
 };
+VALIDATE_OFFSET(CRGBA, r, 0x0);
+VALIDATE_OFFSET(CRGBA, g, 0x1);
+VALIDATE_OFFSET(CRGBA, b, 0x2);
+VALIDATE_OFFSET(CRGBA, a, 0x3);
+VALIDATE_SIZE(CRGBA, 0x4);
 #endif

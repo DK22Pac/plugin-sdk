@@ -29,5 +29,9 @@ public:
     };
     int     m_nLodInstanceIndex; // -1 - without LOD model
 };
-
+VALIDATE_OFFSET(CFileObjectInstance, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CFileObjectInstance, m_qRotation, 0xC);
+VALIDATE_OFFSET(CFileObjectInstance, m_nModelId, 0x1C);
+VALIDATE_OFFSET(CFileObjectInstance, m_nInstanceType, 0x20);
+VALIDATE_OFFSET(CFileObjectInstance, m_nLodInstanceIndex, 0x24);
 VALIDATE_SIZE(CFileObjectInstance, 0x28);

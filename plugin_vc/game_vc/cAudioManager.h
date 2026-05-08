@@ -36,6 +36,7 @@ class PLUGIN_API tSound {
 	unsigned int m_nFinalPriority;
 	char m_nVolumeChange;
 };
+VALIDATE_SIZE(tSound, 0x5C);
 
 class PLUGIN_API cAudioManager {
 public:
@@ -55,5 +56,17 @@ public:
 	static CVehicle* FindVehicleOfPlayer();
 
 };
+VALIDATE_OFFSET(cAudioManager, m_bIsInitialised, 0x0);
+VALIDATE_OFFSET(cAudioManager, m_bIsSurround, 0x1);
+VALIDATE_OFFSET(cAudioManager, m_bReduceReleasingPriority, 0x2);
+VALIDATE_OFFSET(cAudioManager, m_nActiveSamples, 0x3);
+VALIDATE_OFFSET(cAudioManager, m_bDoubleVolume, 0x4);
+VALIDATE_OFFSET(cAudioManager, m_bDynamicAcousticModelingStatus, 0x5);
+VALIDATE_OFFSET(cAudioManager, m_nChannelOffset, 0x6);
+VALIDATE_OFFSET(cAudioManager, m_fSpeedOfSound, 0x8);
+VALIDATE_OFFSET(cAudioManager, m_bTimerJustReset, 0xC);
+VALIDATE_OFFSET(cAudioManager, m_nTimer, 0x10);
+VALIDATE_OFFSET(cAudioManager, m_sQueueSample, 0x14);
+VALIDATE_SIZE(cAudioManager, 0x70);
 
 extern cAudioManager AudioManager;

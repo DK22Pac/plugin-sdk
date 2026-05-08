@@ -40,7 +40,20 @@ public:
     void Update(CPlayerPed* arg0, CVehicle* vehicle, int arg2);
     CPickup();
 };
-
+VALIDATE_OFFSET(CPickup, vecPos, 0x0);
+VALIDATE_OFFSET(CPickup, fStandProximity, 0xC);
+VALIDATE_OFFSET(CPickup, pObject, 0x10);
+VALIDATE_OFFSET(CPickup, pExtraObject, 0x14);
+VALIDATE_OFFSET(CPickup, dwPickupQuantity, 0x18);
+VALIDATE_OFFSET(CPickup, nTimer, 0x1C);
+VALIDATE_OFFSET(CPickup, wMoneySpeed, 0x20);
+VALIDATE_OFFSET(CPickup, nModelId, 0x22);
+VALIDATE_OFFSET(CPickup, wUniqueId, 0x24);
+VALIDATE_OFFSET(CPickup, szPickupTextKey, 0x26);
+VALIDATE_OFFSET(CPickup, bPickupType, 0x2E);
+VALIDATE_OFFSET(CPickup, bRemoved, 0x2F);
+VALIDATE_OFFSET(CPickup, bEffects, 0x30);
+VALIDATE_OFFSET(CPickup, _pad0, 0x31);
 VALIDATE_SIZE(CPickup, 0x34);
 
 
@@ -55,7 +68,14 @@ struct tPickupMessage
 	unsigned char nTextID;
 	char _pad0[2];
 };
-
+VALIDATE_OFFSET(tPickupMessage, Pos, 0x0);
+VALIDATE_OFFSET(tPickupMessage, WeaponType, 0x8);
+VALIDATE_OFFSET(tPickupMessage, fW, 0xC);
+VALIDATE_OFFSET(tPickupMessage, fH, 0x10);
+VALIDATE_OFFSET(tPickupMessage, Color, 0x14);
+VALIDATE_OFFSET(tPickupMessage, Flags, 0x18);
+VALIDATE_OFFSET(tPickupMessage, nTextID, 0x19);
+VALIDATE_OFFSET(tPickupMessage, _pad0, 0x1A);
 VALIDATE_SIZE(tPickupMessage, 0x1C);
 
 class CPickups {
@@ -94,3 +114,4 @@ public:
     static void Save(unsigned char* arg0, unsigned int* arg1);
     static void Update();
 };
+VALIDATE_SIZE(CPickups, 0x1);

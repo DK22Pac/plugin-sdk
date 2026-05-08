@@ -28,7 +28,11 @@ public:
 
     SUPPORTED_10US float OneWayLaneOffset();
 };
-
+VALIDATE_OFFSET(CCarPathLink, m_vecPosn, 0x0);
+VALIDATE_OFFSET(CCarPathLink, m_address, 0x4);
+VALIDATE_OFFSET(CCarPathLink, m_nDirX, 0x8);
+VALIDATE_OFFSET(CCarPathLink, m_nDirY, 0x9);
+VALIDATE_OFFSET(CCarPathLink, m_nPathNodeWidth, 0xA);
 VALIDATE_SIZE(CCarPathLink, 0xE);
 
 #include "meta/meta.CCarPathLink.h"

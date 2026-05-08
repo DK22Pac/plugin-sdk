@@ -69,6 +69,16 @@ public:
     SUPPORTED_10EN_11EN_STEAM void RemoveTexDictionaryRef();
     SUPPORTED_10EN_11EN_STEAM void SetTexDictionary(char const *txdName);
 };
+VALIDATE_OFFSET(CBaseModelInfo, m_szName, 0x4);
+VALIDATE_OFFSET(CBaseModelInfo, m_pColModel, 0x1C);
+VALIDATE_OFFSET(CBaseModelInfo, m_p2dEffect, 0x20);
+VALIDATE_OFFSET(CBaseModelInfo, m_nObjectDataIndex, 0x24);
+VALIDATE_OFFSET(CBaseModelInfo, m_nRefCount, 0x26);
+VALIDATE_OFFSET(CBaseModelInfo, m_nTxdIndex, 0x28);
+VALIDATE_OFFSET(CBaseModelInfo, m_nType, 0x2A);
+VALIDATE_OFFSET(CBaseModelInfo, m_nNum2dEffects, 0x2B);
+VALIDATE_OFFSET(CBaseModelInfo, m_bDoWeOwnTheColModel, 0x2C);
+VALIDATE_SIZE(CBaseModelInfo, 0x30);
 
 VTABLE_DESC(CBaseModelInfo, 0x5FAB58, 2);
 VALIDATE_SIZE(CBaseModelInfo, 0x30);

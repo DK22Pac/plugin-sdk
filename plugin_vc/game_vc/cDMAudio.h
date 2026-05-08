@@ -24,5 +24,6 @@ public:
     void SetMusicMasterVolume(unsigned char volume);
 
 };
+VALIDATE_SIZE(cDMAudio, 0x1);
 
 extern cDMAudio& DMAudio;

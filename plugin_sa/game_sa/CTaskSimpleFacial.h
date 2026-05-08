@@ -29,5 +29,7 @@ public:
 
     CTaskSimpleFacial(eFacialExpression nFacialExpress,int nDuration);
 };
-
+VALIDATE_OFFSET(CTaskSimpleFacial, m_Timer, 0x8);
+VALIDATE_OFFSET(CTaskSimpleFacial, m_nFacialExpression, 0x14);
+VALIDATE_OFFSET(CTaskSimpleFacial, m_nDuration, 0x18);
 VALIDATE_SIZE(CTaskSimpleFacial, 0x1C);

@@ -29,6 +29,13 @@ public:
 	CTaskSimpleCarSetPedOut(CVehicle *pTargetVehicle, int nTargetDoor, bool bSwitchOffEngine);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_pTargetVehicle, 0x8);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_nTargetDoor, 0xC);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_bSwitchOffEngine, 0x10);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_bWarpingOutOfCar, 0x11);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_bFallingOutOfCar, 0x12);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_bKnockedOffBike, 0x13);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_nDoorFlagsToClear, 0x14);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedOut, m_nNumGettingInToClear, 0x15);
 VALIDATE_SIZE(CTaskSimpleCarSetPedOut, 0x18);
 

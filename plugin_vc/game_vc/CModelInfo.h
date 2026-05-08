@@ -62,3 +62,4 @@ public:
     static bool IsTrailerModel(int modelId);
     static bool IsTrainModel(int modelId);
 };
+VALIDATE_SIZE(CModelInfo, 0x1);

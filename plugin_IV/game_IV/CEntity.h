@@ -131,5 +131,33 @@ public:
     void Teleport(rage::Matrix44* mat, int32_t dontUpdatePhysicsMatrix, bool immediately) { plugin::CallVirtualMethod<1>(this, mat, dontUpdatePhysicsMatrix, immediately); }
     void Teleport(rage::Vector4* pos, int32_t dontUpdatePhysicsMatrix, bool immediately) { plugin::CallVirtualMethod<2>(this, pos, dontUpdatePhysicsMatrix, immediately); }
 };
-
+VALIDATE_OFFSET(CEntity, m_nCurrentWeaponSlot, 0x4);
+VALIDATE_OFFSET(CEntity, field_1, 0x8);
+VALIDATE_OFFSET(CEntity, m_Transform, 0x10);
+VALIDATE_OFFSET(CEntity, m_pMatrix, 0x20);
+VALIDATE_OFFSET(CEntity, field_2C, 0x2C);
+VALIDATE_OFFSET(CEntity, m_nModelIndex, 0x2E);
+VALIDATE_OFFSET(CEntity, m_pReference, 0x30);
+VALIDATE_OFFSET(CEntity, field_34, 0x34);
+VALIDATE_OFFSET(CEntity, m_pColModel, 0x38);
+VALIDATE_OFFSET(CEntity, field_3C, 0x3C);
+VALIDATE_OFFSET(CEntity, field_40, 0x40);
+VALIDATE_OFFSET(CEntity, field_41, 0x41);
+VALIDATE_OFFSET(CEntity, field_42, 0x42);
+VALIDATE_OFFSET(CEntity, field_44, 0x44);
+VALIDATE_OFFSET(CEntity, field_46, 0x46);
+VALIDATE_OFFSET(CEntity, m_hInterior, 0x48);
+VALIDATE_OFFSET(CEntity, field_4C, 0x4C);
+VALIDATE_OFFSET(CEntity, field_50, 0x50);
+VALIDATE_OFFSET(CEntity, field_54, 0x54);
+VALIDATE_OFFSET(CEntity, field_58, 0x58);
+VALIDATE_OFFSET(CEntity, field_5C, 0x5C);
+VALIDATE_OFFSET(CEntity, field_5E, 0x5E);
+VALIDATE_OFFSET(CEntity, field_60, 0x60);
+VALIDATE_OFFSET(CEntity, field_61, 0x61);
+VALIDATE_OFFSET(CEntity, field_62, 0x62);
+VALIDATE_OFFSET(CEntity, m_nAlpha, 0x63);
+VALIDATE_OFFSET(CEntity, field_64, 0x64);
+VALIDATE_OFFSET(CEntity, field_68, 0x68);
+VALIDATE_OFFSET(CEntity, field_6C, 0x6C);
 VALIDATE_SIZE(CEntity, 0x70);

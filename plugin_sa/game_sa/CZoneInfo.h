@@ -17,5 +17,9 @@ public:
 	char m_nFlags;
 	char m_nPopulationRace;
 };
-
+VALIDATE_OFFSET(CZoneInfo, m_nGangDensity, 0x0);
+VALIDATE_OFFSET(CZoneInfo, m_nDealerCounter, 0xA);
+VALIDATE_OFFSET(CZoneInfo, m_ZoneColor, 0xB);
+VALIDATE_OFFSET(CZoneInfo, m_nFlags, 0xF);
+VALIDATE_OFFSET(CZoneInfo, m_nPopulationRace, 0x10);
 VALIDATE_SIZE(CZoneInfo, 0x11);

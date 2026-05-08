@@ -26,5 +26,11 @@ public:
 
     void Update();
 };
-
+VALIDATE_OFFSET(CBulletTrace, m_vecStart, 0x0);
+VALIDATE_OFFSET(CBulletTrace, m_vecEnd, 0xC);
+VALIDATE_OFFSET(CBulletTrace, m_bExists, 0x18);
+VALIDATE_OFFSET(CBulletTrace, m_nCreationTime, 0x1C);
+VALIDATE_OFFSET(CBulletTrace, m_nLifeTime, 0x20);
+VALIDATE_OFFSET(CBulletTrace, m_fRadius, 0x24);
+VALIDATE_OFFSET(CBulletTrace, m_nTransparency, 0x28);
 VALIDATE_SIZE(CBulletTrace, 0x2C);

@@ -30,5 +30,5 @@ public:
         CPools::ms_pTaskPool->Delete(ptr);
     }
 };
-
+VALIDATE_OFFSET(CTask, m_pParentTask, 0x4);
 VALIDATE_SIZE(CTask, 0x8);

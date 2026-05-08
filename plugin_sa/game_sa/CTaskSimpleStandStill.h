@@ -26,5 +26,9 @@ public:
 
 	CTaskSimpleStandStill(int nTime, bool Looped, bool bUseAnimIdleStance, float fBlendData);
 };
-
+VALIDATE_OFFSET(CTaskSimpleStandStill, m_nTime, 0x8);
+VALIDATE_OFFSET(CTaskSimpleStandStill, m_timer, 0xC);
+VALIDATE_OFFSET(CTaskSimpleStandStill, m_bLooped, 0x18);
+VALIDATE_OFFSET(CTaskSimpleStandStill, m_bUseAnimIdleStance, 0x19);
+VALIDATE_OFFSET(CTaskSimpleStandStill, m_fBlendData, 0x1C);
 VALIDATE_SIZE(CTaskSimpleStandStill, 0x20);

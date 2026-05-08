@@ -11,3 +11,4 @@ class CCutsceneObject {
 public:
 
 };
+VALIDATE_SIZE(CCutsceneObject, 0x1);

@@ -41,7 +41,8 @@ public:
     int StartScriptFire(CVector const& point, CEntity* target, _IGNORED_ float arg2, _IGNORED_ unsigned char arg3, signed char numGenerations, int size);
     void Update();
 };
-
+VALIDATE_OFFSET(CFireManager, m_aFires, 0x0);
+VALIDATE_OFFSET(CFireManager, m_nMaxFireGenerationsAllowed, 0x960);
 VALIDATE_SIZE(CFireManager, 0x964);
 
 extern CFireManager &gFireManager;

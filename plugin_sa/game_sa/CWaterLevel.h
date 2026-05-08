@@ -18,6 +18,12 @@ struct CRenPar
     char flowX;
     char flowY;
 };
+VALIDATE_OFFSET(CRenPar, z, 0x0);
+VALIDATE_OFFSET(CRenPar, bigWaves, 0x4);
+VALIDATE_OFFSET(CRenPar, smallWaves, 0x8);
+VALIDATE_OFFSET(CRenPar, flowX, 0xC);
+VALIDATE_OFFSET(CRenPar, flowY, 0xD);
+VALIDATE_SIZE(CRenPar, 0x10);
 
 struct CWaterVertex
 {
@@ -25,6 +31,10 @@ struct CWaterVertex
     short y;
     CRenPar rp;
 };
+VALIDATE_OFFSET(CWaterVertex, x, 0x0);
+VALIDATE_OFFSET(CWaterVertex, y, 0x2);
+VALIDATE_OFFSET(CWaterVertex, rp, 0x4);
+VALIDATE_SIZE(CWaterVertex, 0x14);
 
 enum eBeachToy : int32_t
 {
@@ -81,6 +91,7 @@ public:
     static void WaterLevelInitialise();
     static void Shutdown();
 };
+VALIDATE_SIZE(CWaterLevel, 0x1);
 
 extern RwTexture *TexWaterClear256;
 extern RwTexture *TexSeabd32;

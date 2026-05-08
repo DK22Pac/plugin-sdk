@@ -42,6 +42,17 @@ public:
 
     CTaskComplexSunbathe(CObject* pTowel, bool bStartStanding);
 };
-
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_bStartStanding, 0xC);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_bBathing, 0xD);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_bBeachAnimsReferenced, 0xE);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_bSunbatheAnimsReferenced, 0xF);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_bAborted, 0x10);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_BathingTimer, 0x14);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_SunbatherType, 0x20);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_pBeachAnimBlock, 0x24);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_pSunbatheAnimBlock, 0x28);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_BeachAnimBlockIndex, 0x2C);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_SunbatheAnimBlockIndex, 0x30);
+VALIDATE_OFFSET(CTaskComplexSunbathe, m_pTowel, 0x34);
 VALIDATE_SIZE(CTaskComplexSunbathe, 0x38);
 

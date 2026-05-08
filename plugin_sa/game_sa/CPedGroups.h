@@ -32,5 +32,6 @@ public:
     SUPPORTED_10US static void RemoveAllFollowersFromGroup(int groupID);
     SUPPORTED_10US static void RemoveGroup(int groupID);
 };
+VALIDATE_SIZE(CPedGroups, 0x1);
 
 #include "meta/meta.CPedGroups.h"

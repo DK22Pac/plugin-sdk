@@ -17,3 +17,4 @@ public:
 	CTaskComplexDriveFireTruck(CVehicle* pFiretruck, CPed *pFireman, bool isPassenger);
 
 };
+VALIDATE_SIZE(CTaskComplexDriveFireTruck, 0xC);

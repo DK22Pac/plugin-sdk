@@ -5,10 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#include "PluginBase.h"
 
 class CFileLoader {
 public:
 
-public:
-
 };
+VALIDATE_SIZE(CFileLoader, 0x1);

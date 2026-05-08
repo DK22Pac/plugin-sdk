@@ -11,5 +11,5 @@
 struct tCamPathSplines {
 	float *m_arr_PathData;//    FLOAT m_arr_PathData[MAXPATHLENGTH = 800];    
 };
-
+VALIDATE_OFFSET(tCamPathSplines, m_arr_PathData, 0x0);
 VALIDATE_SIZE(tCamPathSplines, 0x4);

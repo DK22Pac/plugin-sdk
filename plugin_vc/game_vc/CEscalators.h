@@ -19,3 +19,4 @@ public:
     static void Shutdown();
     void Update();
 };
+VALIDATE_SIZE(CEscalators, 0x1);

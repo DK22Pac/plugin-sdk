@@ -8,8 +8,6 @@
 
 #include "PluginBase.h"
 
-//! http://www.gtamodding.com/wiki/IMG_archive#Version_1_-_GTA_III_.26_VC
- 
 class PLUGIN_API CDirectory {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CDirectory)
 
@@ -29,8 +27,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ReadDirFile(char const *fileName);
     SUPPORTED_10EN_11EN_STEAM bool WriteDirFile(char const *fileName);
 };
-
-VALIDATE_SIZE(CDirectory::DirectoryInfo, 0x20);
+VALIDATE_OFFSET(CDirectory, m_pEntries, 0x0);
+VALIDATE_OFFSET(CDirectory, m_nCapacity, 0x4);
+VALIDATE_OFFSET(CDirectory, m_nNumEntries, 0x8);
 VALIDATE_SIZE(CDirectory, 0xC);
 
 #include "meta/meta.CDirectory.h"

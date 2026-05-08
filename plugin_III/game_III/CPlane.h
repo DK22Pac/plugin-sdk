@@ -30,6 +30,10 @@ struct PLUGIN_API CPlaneNode {
     float m_fPosAtPath; //!< xy-distance from start on path
     bool m_bOnGround; //!< i.e. not flying
 };
+VALIDATE_OFFSET(CPlaneNode, m_vecPos, 0x0);
+VALIDATE_OFFSET(CPlaneNode, m_fPosAtPath, 0xC);
+VALIDATE_OFFSET(CPlaneNode, m_bOnGround, 0x10);
+VALIDATE_SIZE(CPlaneNode, 0x14);
 
 struct PLUGIN_API CPlaneInterpolationLine {
     unsigned char m_nType;
@@ -38,6 +42,12 @@ struct PLUGIN_API CPlaneInterpolationLine {
     float m_fSpeed;
     float m_fAcceleration;
 };
+VALIDATE_OFFSET(CPlaneInterpolationLine, m_nType, 0x0);
+VALIDATE_OFFSET(CPlaneInterpolationLine, m_nTime, 0x4);
+VALIDATE_OFFSET(CPlaneInterpolationLine, m_fPosition, 0x8);
+VALIDATE_OFFSET(CPlaneInterpolationLine, m_fSpeed, 0xC);
+VALIDATE_OFFSET(CPlaneInterpolationLine, m_fAcceleration, 0x10);
+VALIDATE_SIZE(CPlaneInterpolationLine, 0x14);
 
 class PLUGIN_API CPlane : public CVehicle {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CPlane)
@@ -157,6 +167,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool TestRocketCollision(CVector *coors);
     SUPPORTED_10EN_11EN_STEAM static void UpdatePlanes();
 };
+VALIDATE_OFFSET(CPlane, m_nPlaneId, 0x288);
+VALIDATE_OFFSET(CPlane, m_nIsFarAway, 0x28A);
+VALIDATE_OFFSET(CPlane, m_nCurPathNode, 0x28C);
+VALIDATE_OFFSET(CPlane, m_fSpeed, 0x290);
+VALIDATE_OFFSET(CPlane, m_nFrameWhenHit, 0x294);
+VALIDATE_OFFSET(CPlane, m_bHasBeenHit, 0x298);
+VALIDATE_OFFSET(CPlane, m_bIsDrugRunCesna, 0x299);
+VALIDATE_OFFSET(CPlane, m_bIsDropOffCesna, 0x29A);
+VALIDATE_SIZE(CPlane, 0x29C);
 
 SUPPORTED_10EN_11EN_STEAM extern float &TotalDurationOfFlightPath;
 SUPPORTED_10EN_11EN_STEAM extern float &TotalLengthOfFlightPath2;

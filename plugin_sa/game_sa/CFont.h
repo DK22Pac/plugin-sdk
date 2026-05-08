@@ -19,6 +19,10 @@ struct PLUGIN_API tFontData {
 	char m_spaceValue;
 	char m_unpropValue;
 };
+VALIDATE_OFFSET(tFontData, m_propValues, 0x0);
+VALIDATE_OFFSET(tFontData, m_spaceValue, 0xD0);
+VALIDATE_OFFSET(tFontData, m_unpropValue, 0xD1);
+VALIDATE_SIZE(tFontData, 0xD2);
 
 enum PLUGIN_API eFontAlignment : unsigned char {
     ALIGN_CENTER,
@@ -51,6 +55,22 @@ public:
     int16_t Style;
     int8_t EdgeAmount;
 };
+VALIDATE_OFFSET(CFontRenderState, id, 0x0);
+VALIDATE_OFFSET(CFontRenderState, x, 0x4);
+VALIDATE_OFFSET(CFontRenderState, y, 0x8);
+VALIDATE_OFFSET(CFontRenderState, ScaleX, 0xC);
+VALIDATE_OFFSET(CFontRenderState, ScaleY, 0x10);
+VALIDATE_OFFSET(CFontRenderState, Colour, 0x14);
+VALIDATE_OFFSET(CFontRenderState, PixelsToAdd, 0x18);
+VALIDATE_OFFSET(CFontRenderState, Slope, 0x1C);
+VALIDATE_OFFSET(CFontRenderState, SlopeRefX, 0x20);
+VALIDATE_OFFSET(CFontRenderState, SlopeRefY, 0x24);
+VALIDATE_OFFSET(CFontRenderState, Shadow, 0x28);
+VALIDATE_OFFSET(CFontRenderState, ExtraFont, 0x29);
+VALIDATE_OFFSET(CFontRenderState, Proportional, 0x2A);
+VALIDATE_OFFSET(CFontRenderState, Style, 0x2C);
+VALIDATE_OFFSET(CFontRenderState, EdgeAmount, 0x2E);
+VALIDATE_SIZE(CFontRenderState, 0x30);
 
 class PLUGIN_API CFont {
 public:
@@ -149,5 +169,6 @@ public:
     static void PrintString(float x, float y, const char *text);
     static void PrintStringFromBottom(float x, float y, const char *text);
 };
+VALIDATE_SIZE(CFont, 0x1);
 
 extern tFontData *gFontData;

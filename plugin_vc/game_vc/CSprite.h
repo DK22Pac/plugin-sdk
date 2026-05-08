@@ -15,3 +15,4 @@ public:
         unsigned char red, unsigned char green, unsigned char blue, short intensity, float rhw, unsigned char alpha);
     static bool CalcScreenCoors(RwV3d const& posn, RwV3d *out, float *w, float *h, bool checkMaxVisible);
 };
+VALIDATE_SIZE(CSprite, 0x1);

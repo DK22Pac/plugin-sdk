@@ -200,6 +200,7 @@ public:
 	}
 
 };
+VALIDATE_SIZE(CWorld, 0x1);
 
 extern unsigned int& FilledColPointIndex;
 extern CColPoint* gaTempSphereColPoints; // CColPoint gaTempSphereColPoints[32]

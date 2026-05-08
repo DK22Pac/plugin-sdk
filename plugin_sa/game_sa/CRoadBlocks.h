@@ -17,11 +17,21 @@ struct tScriptRoadBlocks {
 	char	type;
 	char	field_1B;
 };
+VALIDATE_OFFSET(tScriptRoadBlocks, cornerA, 0x0);
+VALIDATE_OFFSET(tScriptRoadBlocks, cornerB, 0xC);
+VALIDATE_OFFSET(tScriptRoadBlocks, m_nActive, 0x18);
+VALIDATE_OFFSET(tScriptRoadBlocks, m_bIsCreated, 0x19);
+VALIDATE_OFFSET(tScriptRoadBlocks, type, 0x1A);
+VALIDATE_OFFSET(tScriptRoadBlocks, field_1B, 0x1B);
+VALIDATE_SIZE(tScriptRoadBlocks, 0x1C);
 
 struct tRoadbloxDat {
 	short areaId;
 	short nodeId;
 };
+VALIDATE_OFFSET(tRoadbloxDat, areaId, 0x0);
+VALIDATE_OFFSET(tRoadbloxDat, nodeId, 0x2);
+VALIDATE_SIZE(tRoadbloxDat, 0x4);
 
 class PLUGIN_API CRoadBlocks {
 public:
@@ -37,5 +47,6 @@ public:
 	SUPPORTED_10US_11US static void CreateRoadBlockBetween2Points(CVector *a, CVector *b, byte type);
 	SUPPORTED_10US_11US static void GenerateRoadBlocks();
 };
+VALIDATE_SIZE(CRoadBlocks, 0x1);
 
 #include "meta/meta.CRoadBlocks.h"

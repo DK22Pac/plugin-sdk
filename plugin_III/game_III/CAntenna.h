@@ -22,7 +22,12 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Update(CVector dir, CVector pos);
 };
-
+VALIDATE_OFFSET(CAntenna, m_bIsActive, 0x0);
+VALIDATE_OFFSET(CAntenna, m_bIsUpdatedLastFrame, 0x1);
+VALIDATE_OFFSET(CAntenna, m_nId, 0x4);
+VALIDATE_OFFSET(CAntenna, m_fSegmentLength, 0x8);
+VALIDATE_OFFSET(CAntenna, m_avecPos, 0xC);
+VALIDATE_OFFSET(CAntenna, m_avecSpeed, 0x54);
 VALIDATE_SIZE(CAntenna, 0x9C);
 
 #include "meta/meta.CAntenna.h"

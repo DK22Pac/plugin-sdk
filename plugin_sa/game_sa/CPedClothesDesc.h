@@ -27,5 +27,8 @@ public:
     void SetTextureAndModel(unsigned int texture, unsigned int model, int eClothesTexturePart);
     void SetTextureAndModel(char const* texturename, char const* modelname, int eClothesTexturePart);
 };
-
+VALIDATE_OFFSET(CPedClothesDesc, m_anModelKeys, 0x0);
+VALIDATE_OFFSET(CPedClothesDesc, m_anTextureKeys, 0x28);
+VALIDATE_OFFSET(CPedClothesDesc, m_fFatStat, 0x70);
+VALIDATE_OFFSET(CPedClothesDesc, m_fMuscleStat, 0x74);
 VALIDATE_SIZE(CPedClothesDesc, 0x78);

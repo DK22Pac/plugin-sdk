@@ -83,5 +83,5 @@ public:
 	static void DrawBarChart(float x, float y, unsigned short width, unsigned char height, float progress, signed char progressAdd, 
 		unsigned char drawPercentage, unsigned char drawBlackBorder, CRGBA color, CRGBA addColor);
 };
-
-VALIDATE_SIZE(CSprite2d, 4);
+VALIDATE_OFFSET(CSprite2d, m_pTexture, 0x0);
+VALIDATE_SIZE(CSprite2d, 0x4);

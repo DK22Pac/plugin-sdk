@@ -21,7 +21,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Init();
     SUPPORTED_10EN_11EN_STEAM void Process();
 };
-
+VALIDATE_OFFSET(CPlaceName, m_pZone, 0x0);
+VALIDATE_OFFSET(CPlaceName, m_pZoneOther, 0x4);
+VALIDATE_OFFSET(CPlaceName, m_nAdditionalTimer, 0x8);
 VALIDATE_SIZE(CPlaceName, 0xC);
 
 #include "meta/meta.CPlaceName.h"

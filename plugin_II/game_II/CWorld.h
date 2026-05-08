@@ -11,6 +11,7 @@ class CWorld {
 public:
     int FindGroundZForCoord(int* z, int x, int y);
 };
+VALIDATE_SIZE(CWorld, 0x1);
 
 extern CWorld** gWorld;
 extern CWorld* GetWorld();

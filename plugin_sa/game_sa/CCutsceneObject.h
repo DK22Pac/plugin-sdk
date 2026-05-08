@@ -19,5 +19,9 @@ public:
     CVector m_vWorldPosition;
     CVector m_vForce;
 };
-
+VALIDATE_OFFSET(CCutsceneObject, m_pAttachTo, 0x17C);
+VALIDATE_OFFSET(CCutsceneObject, m_nAttachBone, 0x17C);
+VALIDATE_OFFSET(CCutsceneObject, m_pAttachmentObject, 0x180);
+VALIDATE_OFFSET(CCutsceneObject, m_vWorldPosition, 0x184);
+VALIDATE_OFFSET(CCutsceneObject, m_vForce, 0x190);
 VALIDATE_SIZE(CCutsceneObject, 0x19C);

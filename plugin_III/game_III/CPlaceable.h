@@ -60,6 +60,8 @@ public:
         return m_matrix;
     }
 };
+VALIDATE_OFFSET(CPlaceable, m_matrix, 0x4);
+VALIDATE_SIZE(CPlaceable, 0x4C);
 
 VTABLE_DESC(CPlaceable, 0x5F6A28, 1);
 VALIDATE_SIZE(CPlaceable, 0x4C);

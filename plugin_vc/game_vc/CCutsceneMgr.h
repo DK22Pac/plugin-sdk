@@ -19,3 +19,4 @@ public:
     static int32_t GetCutsceneTimeInMilliseconds();
 
 };
+VALIDATE_SIZE(CCutsceneMgr, 0x1);

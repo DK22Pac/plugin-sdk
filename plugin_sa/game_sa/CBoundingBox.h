@@ -15,5 +15,4 @@ public:
 
     CBoundingBox(plugin::dummy_func_t) {}
 };
-
 VALIDATE_SIZE(CBoundingBox, 0x18);

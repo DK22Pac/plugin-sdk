@@ -43,5 +43,18 @@ public:
 
     CTaskSimpleClimb(CEntity *pClimbEnt, const CVector &vecTarget, float fHeading, unsigned char nSurfaceType, eClimbHeights nHeight, bool bForceClimb);
 };
-
+VALIDATE_OFFSET(CTaskSimpleClimb, m_bIsFinished, 0x8);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_bChangeAnimation, 0x9);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_bChangePosition, 0xA);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_bForceClimb, 0xB);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_bInvalidClimb, 0xC);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_nHeightForAnim, 0xD);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_nHeightForPos, 0xE);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_nSurfaceType, 0xF);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_nFallAfterVault, 0x10);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_fHandholdHeading, 0x14);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_vecHandholdPos, 0x18);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_pClimbEnt, 0x24);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_nGetToPosCounter, 0x28);
+VALIDATE_OFFSET(CTaskSimpleClimb, m_pAnim, 0x2C);
 VALIDATE_SIZE(CTaskSimpleClimb, 0x30);

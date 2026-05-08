@@ -74,6 +74,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Update();
     SUPPORTED_10EN_11EN_STEAM static void UpdatePedCount(ePedType pedType, bool decrease);
 };
+VALIDATE_SIZE(CPopulation, 0x1);
 
 //! Don't know the original name
 struct PLUGIN_API RegenerationPoint {
@@ -90,6 +91,19 @@ struct PLUGIN_API RegenerationPoint {
     CVector m_vecSrcPosA;
     CVector m_vecSrcPosB;
 };
+VALIDATE_OFFSET(RegenerationPoint, srcLevel, 0x0);
+VALIDATE_OFFSET(RegenerationPoint, destLevel, 0x4);
+VALIDATE_OFFSET(RegenerationPoint, x1, 0x8);
+VALIDATE_OFFSET(RegenerationPoint, x2, 0xC);
+VALIDATE_OFFSET(RegenerationPoint, y1, 0x10);
+VALIDATE_OFFSET(RegenerationPoint, y2, 0x14);
+VALIDATE_OFFSET(RegenerationPoint, z1, 0x18);
+VALIDATE_OFFSET(RegenerationPoint, z2, 0x1C);
+VALIDATE_OFFSET(RegenerationPoint, m_vecDestPosA, 0x20);
+VALIDATE_OFFSET(RegenerationPoint, m_vecDestPosB, 0x2C);
+VALIDATE_OFFSET(RegenerationPoint, m_vecSrcPosA, 0x38);
+VALIDATE_OFFSET(RegenerationPoint, m_vecSrcPosB, 0x44);
+VALIDATE_SIZE(RegenerationPoint, 0x50);
 
 SUPPORTED_10EN_11EN_STEAM extern RegenerationPoint(&aSafeZones)[8]; // RegenerationPoint aSafeZones[8]
 

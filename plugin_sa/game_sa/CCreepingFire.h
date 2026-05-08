@@ -18,3 +18,4 @@ public:
     static void SetReadyToBurn();
     static void Update();
 };
+VALIDATE_SIZE(CCreepingFire, 0x1);

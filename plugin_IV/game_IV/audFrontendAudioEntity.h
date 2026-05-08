@@ -14,5 +14,6 @@ public:
     void StopLoadingTune(bool arg1);
     void TriggerMissionCompleteAudioEvent(int32_t index);
 };
+VALIDATE_SIZE(audFrontendAudioEntity, 0x54);
 
 extern audFrontendAudioEntity& g_FrontendAudioEntity;

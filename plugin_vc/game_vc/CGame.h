@@ -39,6 +39,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ShutdownRenderWare();
     SUPPORTED_10EN_11EN_STEAM static void TidyUpMemory(bool a1, bool clearD3Dmem);
 };
+VALIDATE_SIZE(CGame, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern int &splashTxdId;
 SUPPORTED_10EN_11EN_STEAM extern bool &g_SlowMode;

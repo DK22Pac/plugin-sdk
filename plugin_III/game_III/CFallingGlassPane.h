@@ -26,6 +26,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Render();
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+VALIDATE_OFFSET(CFallingGlassPane, m_vecMoveSpeed, 0x48);
+VALIDATE_OFFSET(CFallingGlassPane, m_vecTurn, 0x54);
+VALIDATE_OFFSET(CFallingGlassPane, m_nTimer, 0x60);
+VALIDATE_OFFSET(CFallingGlassPane, m_fGroundZ, 0x64);
+VALIDATE_OFFSET(CFallingGlassPane, m_fStep, 0x68);
+VALIDATE_OFFSET(CFallingGlassPane, m_nTriIndex, 0x6C);
+VALIDATE_OFFSET(CFallingGlassPane, m_bActive, 0x6D);
+VALIDATE_OFFSET(CFallingGlassPane, m_bShattered, 0x6E);
+VALIDATE_SIZE(CFallingGlassPane, 0x70);
 
 SUPPORTED_10EN_11EN_STEAM extern CVector2D(&CoorsWithTriangle)[5][3]; // CVector2D CoorsWithTriangle[5][3]
 SUPPORTED_10EN_11EN_STEAM extern CVector2D(&CentersWithTriangle)[5]; // CVector2D CentersWithTriangle[5]

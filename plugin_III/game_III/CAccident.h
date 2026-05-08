@@ -17,7 +17,9 @@ public:
     unsigned int m_nMedicsAttending;
     unsigned int m_nMedicsPerformingCPR;
 };
-
+VALIDATE_OFFSET(CAccident, m_pVictim, 0x0);
+VALIDATE_OFFSET(CAccident, m_nMedicsAttending, 0x4);
+VALIDATE_OFFSET(CAccident, m_nMedicsPerformingCPR, 0x8);
 VALIDATE_SIZE(CAccident, 0xC);
 
 #include "meta/meta.CAccident.h"

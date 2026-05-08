@@ -75,5 +75,36 @@ public:
 public:
 
 };
-
+VALIDATE_OFFSET(CWeapon, m_nAmmo, 0x0);
+VALIDATE_OFFSET(CWeapon, m_nTimer, 0x2);
+VALIDATE_OFFSET(CWeapon, field_3, 0x3);
+VALIDATE_OFFSET(CWeapon, field_8, 0x4);
+VALIDATE_OFFSET(CWeapon, field_9, 0x8);
+VALIDATE_OFFSET(CWeapon, field_10, 0x9);
+VALIDATE_OFFSET(CWeapon, field_11, 0xA);
+VALIDATE_OFFSET(CWeapon, field_12, 0xB);
+VALIDATE_OFFSET(CWeapon, field_13, 0xC);
+VALIDATE_OFFSET(CWeapon, field_14, 0xD);
+VALIDATE_OFFSET(CWeapon, field_15, 0xE);
+VALIDATE_OFFSET(CWeapon, field_16, 0xF);
+VALIDATE_OFFSET(CWeapon, field_17, 0x10);
+VALIDATE_OFFSET(CWeapon, field_18, 0x11);
+VALIDATE_OFFSET(CWeapon, field_19, 0x12);
+VALIDATE_OFFSET(CWeapon, field_20, 0x13);
+VALIDATE_OFFSET(CWeapon, m_nVehicleId, 0x14);
+VALIDATE_OFFSET(CWeapon, m_pNext, 0x18);
+VALIDATE_OFFSET(CWeapon, m_eType, 0x1C);
+VALIDATE_OFFSET(CWeapon, field_32, 0x20);
+VALIDATE_OFFSET(CWeapon, field_33, 0x21);
+VALIDATE_OFFSET(CWeapon, field_34, 0x22);
+VALIDATE_OFFSET(CWeapon, field_35, 0x23);
+VALIDATE_OFFSET(CWeapon, m_pPed, 0x24);
+VALIDATE_OFFSET(CWeapon, m_nRange, 0x28);
+VALIDATE_OFFSET(CWeapon, field_41, 0x29);
+VALIDATE_OFFSET(CWeapon, field_42, 0x2A);
+VALIDATE_OFFSET(CWeapon, field_43, 0x2B);
+VALIDATE_OFFSET(CWeapon, field_44, 0x2C);
+VALIDATE_OFFSET(CWeapon, field_45, 0x2D);
+VALIDATE_OFFSET(CWeapon, field_46, 0x2E);
+VALIDATE_OFFSET(CWeapon, field_47, 0x2F);
 VALIDATE_SIZE(CWeapon, 0x30);

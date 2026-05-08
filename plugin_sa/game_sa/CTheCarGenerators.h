@@ -25,5 +25,6 @@ public:
     SUPPORTED_10US static void RemoveCarGenerators(unsigned char IplID);
     SUPPORTED_10US static void Save();
 };
+VALIDATE_SIZE(CTheCarGenerators, 0x1);
 
 #include "meta/meta.CTheCarGenerators.h"

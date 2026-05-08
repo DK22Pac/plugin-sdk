@@ -90,6 +90,20 @@ public:
         return (CAnimBlendAssociation*)((uint8_t*)l - offsetof(CAnimBlendAssociation, link));
     }
 };
+VALIDATE_OFFSET(CAnimBlendAssociation, link, 0x4);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nNumBlendNodes, 0xC);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_pAnimBlendNodeArray, 0x10);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_pAnimBlendHierarchy, 0x14);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fBlendAmount, 0x18);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fBlendDelta, 0x1C);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fCurrentTime, 0x20);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fSpeed, 0x24);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fTimeStep, 0x28);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nAnimID, 0x2C);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nFlags, 0x30);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nCallbackType, 0x34);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_pCallbackData, 0x3C);
+VALIDATE_SIZE(CAnimBlendAssociation, 0x40);
 
 VTABLE_DESC(CAnimBlendAssociation, 0x5EA02C, 1);
 VALIDATE_SIZE(CAnimBlendAssociation, 0x40);

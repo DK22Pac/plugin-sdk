@@ -45,5 +45,7 @@ public:
     SUPPORTED_10US void StartOrRequestNewStreamedScriptBrainWithThisName(char const *name, CEntity *pEntity, signed char attachType);
     SUPPORTED_10US void SwitchAllObjectBrainsWithThisID(signed char ID, bool bStatus);
 };
+VALIDATE_OFFSET(CScriptsForBrains, m_aScriptForBrains, 0x0);
+VALIDATE_SIZE(CScriptsForBrains, 0x578);
 
 #include "meta/meta.CScriptsForBrains.h"

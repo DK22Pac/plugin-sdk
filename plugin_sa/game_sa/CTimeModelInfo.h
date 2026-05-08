@@ -14,5 +14,5 @@ public:
 
 	void FindOtherTimeModel(char *modelName);
 };
-
+VALIDATE_OFFSET(CTimeModelInfo, m_timeInfo, 0x20);
 VALIDATE_SIZE(CTimeModelInfo, 0x24);

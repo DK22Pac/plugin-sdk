@@ -21,6 +21,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CSkidmarks, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&SkidmarkIndexList)[96]; // RwImVertexIndex SkidmarkIndexList[96]
 SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&SkidmarkVertices)[32]; // RwIm3DVertex SkidmarkVertices[32]

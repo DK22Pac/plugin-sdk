@@ -33,7 +33,16 @@ public:
 private:
     char _pad0;
 };
-
+VALIDATE_OFFSET(CPointLight, m_vecPosn, 0x0);
+VALIDATE_OFFSET(CPointLight, m_vecDirection, 0xC);
+VALIDATE_OFFSET(CPointLight, m_fRange, 0x18);
+VALIDATE_OFFSET(CPointLight, m_fColorRed, 0x1C);
+VALIDATE_OFFSET(CPointLight, m_fColorGreen, 0x20);
+VALIDATE_OFFSET(CPointLight, m_fColorBlue, 0x24);
+VALIDATE_OFFSET(CPointLight, m_pEntityToLight, 0x28);
+VALIDATE_OFFSET(CPointLight, m_nType, 0x2C);
+VALIDATE_OFFSET(CPointLight, m_nFogType, 0x2D);
+VALIDATE_OFFSET(CPointLight, m_bGenerateShadows, 0x2E);
 VALIDATE_SIZE(CPointLight, 0x30);
 
 class CPointLights {
@@ -59,5 +68,6 @@ public:
     static void AddLight(unsigned char lightType, CVector point, CVector direction, float radius, float red, float green, float blue, unsigned char fogType, bool generateExtraShadows, CEntity* entityAffected);
     static void RenderFogEffect();
 };
+VALIDATE_SIZE(CPointLights, 0x1);
 
 extern unsigned int MAX_POINTLIGHTS; // default: 32

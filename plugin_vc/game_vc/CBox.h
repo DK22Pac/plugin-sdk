@@ -15,5 +15,6 @@ public:
 
     static void Set(CVector const& vecMin, CVector const& vecMax);
 };
-
+VALIDATE_OFFSET(CBox, m_vecMin, 0x0);
+VALIDATE_OFFSET(CBox, m_vecMax, 0xC);
 VALIDATE_SIZE(CBox, 0x18);

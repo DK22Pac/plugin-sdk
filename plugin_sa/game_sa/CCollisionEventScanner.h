@@ -17,4 +17,5 @@ public:
 
     void ScanForCollisionEvents(CPed* victim, CEventGroup* eventGroup);
 };
+VALIDATE_OFFSET(CCollisionEventScanner, m_bAlreadyHitByCar, 0x0);
 VALIDATE_SIZE(CCollisionEventScanner, 0x1);

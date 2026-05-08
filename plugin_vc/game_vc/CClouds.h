@@ -18,3 +18,4 @@ public:
     static void Shutdown();
     static void Update();
 };
+VALIDATE_SIZE(CClouds, 0x1);

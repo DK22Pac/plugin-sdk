@@ -46,12 +46,13 @@ enum PLUGIN_API eSaveLoadError {
 struct PLUGIN_API tSlotSaveDate {
     char m_sSavedGameDateAndTime[70];
 };
+VALIDATE_OFFSET(tSlotSaveDate, m_sSavedGameDateAndTime, 0x0);
+VALIDATE_SIZE(tSlotSaveDate, 0x46);
 
 struct PLUGIN_API tSlotFileName {
     char m_sSavedGameName[260];
 };
-
-VALIDATE_SIZE(tSlotSaveDate, 0x46);
+VALIDATE_OFFSET(tSlotFileName, m_sSavedGameName, 0x0);
 VALIDATE_SIZE(tSlotFileName, 0x104);
 
 class PLUGIN_API CGenericGameStorage {
@@ -101,7 +102,6 @@ public:
     SUPPORTED_10US static bool _LoadDataFromWorkBuffer(void *pData, int size);
     SUPPORTED_10US static bool _SaveDataToWorkBuffer(void *pData, int Size);
 };
-
-
+VALIDATE_SIZE(CGenericGameStorage, 0x1);
 
 #include "meta/meta.CGenericGameStorage.h"

@@ -23,25 +23,38 @@ enum eMessageStyle : unsigned short
 struct tMessage {
 	char*           m_pText;
 	unsigned short  m_wFlag;
-	char _pad1[2];
 	unsigned int    m_dwTime;
 	unsigned int    m_dwStartTime;
 	int             m_dwNumber[6];
-	char           *m_pString;
+	char*           m_pString;
 	unsigned char   m_bPreviousBrief;
-	char _pad2[3];
 };
+VALIDATE_OFFSET(tMessage, m_pText, 0x0);
+VALIDATE_OFFSET(tMessage, m_wFlag, 0x4);
+VALIDATE_OFFSET(tMessage, m_dwTime, 0x8);
+VALIDATE_OFFSET(tMessage, m_dwStartTime, 0xC);
+VALIDATE_OFFSET(tMessage, m_dwNumber, 0x10);
+VALIDATE_OFFSET(tMessage, m_pString, 0x28);
+VALIDATE_OFFSET(tMessage, m_bPreviousBrief, 0x2C);
+VALIDATE_SIZE(tMessage, 0x30);
 
 struct tBigMessage {
 	tMessage m_Current;
 	tMessage m_Stack[3];
 };
+VALIDATE_OFFSET(tBigMessage, m_Current, 0x0);
+VALIDATE_OFFSET(tBigMessage, m_Stack, 0x30);
+VALIDATE_SIZE(tBigMessage, 0xC0);
 
 struct tPreviousBrief {
 	char*  m_pText;
 	int    m_nNumber[6];
 	char*  m_pString;
 };
+VALIDATE_OFFSET(tPreviousBrief, m_pText, 0x0);
+VALIDATE_OFFSET(tPreviousBrief, m_nNumber, 0x4);
+VALIDATE_OFFSET(tPreviousBrief, m_pString, 0x1C);
+VALIDATE_SIZE(tPreviousBrief, 0x20);
 
 class PLUGIN_API CMessages {
 public:
@@ -105,3 +118,4 @@ public:
 	// Adds big message to queue , see eMessageStyle
 	static void AddBigMessageQ(const char* text, unsigned int time, unsigned short style);
 };
+VALIDATE_SIZE(CMessages, 0x1);

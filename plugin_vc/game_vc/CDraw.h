@@ -26,3 +26,4 @@ public:
 	static void CalculateAspectRatio();
 	static void SetFOV(float fov);
 };
+VALIDATE_SIZE(CDraw, 0x1);

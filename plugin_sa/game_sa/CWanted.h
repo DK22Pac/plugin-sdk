@@ -88,5 +88,24 @@ public:
     bool CanCopJoinPursuit(CCopPed* cop);
     bool SetPursuitCop(CCopPed* cop);
 };
-
+VALIDATE_OFFSET(CWanted, m_nChaosLevel, 0x0);
+VALIDATE_OFFSET(CWanted, m_nChaosLevelBeforeParole, 0x4);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedDecreased, 0x8);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedLevelChanged, 0xC);
+VALIDATE_OFFSET(CWanted, m_nTimeOfParole, 0x10);
+VALIDATE_OFFSET(CWanted, m_fMultiplier, 0x14);
+VALIDATE_OFFSET(CWanted, m_nCopsInPursuit, 0x18);
+VALIDATE_OFFSET(CWanted, m_nMaxCopsInPursuit, 0x19);
+VALIDATE_OFFSET(CWanted, m_nMaxCopCarsInPursuit, 0x1A);
+VALIDATE_OFFSET(CWanted, m_nCopsBeatingSuspect, 0x1B);
+VALIDATE_OFFSET(CWanted, m_nChanceOnRoadBlock, 0x1C);
+VALIDATE_OFFSET(CWanted, m_nCurrentChaseTime, 0x20);
+VALIDATE_OFFSET(CWanted, m_nCurrentChaseTimeCounter, 0x24);
+VALIDATE_OFFSET(CWanted, m_nTimeCounting, 0x28);
+VALIDATE_OFFSET(CWanted, m_nWantedLevel, 0x2C);
+VALIDATE_OFFSET(CWanted, m_nWantedLevelBeforeParole, 0x30);
+VALIDATE_OFFSET(CWanted, m_CrimesBeingQd, 0x34);
+VALIDATE_OFFSET(CWanted, m_pCopsInPursuit, 0x1F4);
+VALIDATE_OFFSET(CWanted, m_PoliceScannerAudio, 0x21C);
+VALIDATE_OFFSET(CWanted, m_bLeavePlayerAlone, 0x298);
 VALIDATE_SIZE(CWanted, 0x29C);

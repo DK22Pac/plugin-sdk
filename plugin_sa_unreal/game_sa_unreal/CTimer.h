@@ -11,3 +11,4 @@ class CTimer {
 public:
 
 };
+VALIDATE_SIZE(CTimer, 0x1);

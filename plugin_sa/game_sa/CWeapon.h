@@ -89,7 +89,16 @@ public:
 
     CWeapon(plugin::dummy_func_t) {}
 };
-
+VALIDATE_OFFSET(CWeapon, m_eWeaponType, 0x0);
+VALIDATE_OFFSET(CWeapon, m_nState, 0x4);
+VALIDATE_OFFSET(CWeapon, m_nAmmoInClip, 0x8);
+VALIDATE_OFFSET(CWeapon, m_nAmmoTotal, 0xC);
+VALIDATE_OFFSET(CWeapon, m_nTimeForNextShot, 0x10);
+VALIDATE_OFFSET(CWeapon, field_14, 0x14);
+VALIDATE_OFFSET(CWeapon, field_15, 0x15);
+VALIDATE_OFFSET(CWeapon, field_16, 0x16);
+VALIDATE_OFFSET(CWeapon, field_17, 0x17);
+VALIDATE_OFFSET(CWeapon, m_pFxSystem, 0x18);
 VALIDATE_SIZE(CWeapon, 0x1C);
 
 extern float &fPlayerAimScale; // default 0.75

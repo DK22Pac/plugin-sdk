@@ -12,4 +12,5 @@ namespace rage {
     public:
 
     };
+    VALIDATE_SIZE(grmShader, 0x1);
 }

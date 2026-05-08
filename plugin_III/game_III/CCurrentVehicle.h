@@ -19,7 +19,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Init();
     SUPPORTED_10EN_11EN_STEAM void Process();
 };
-
+VALIDATE_OFFSET(CCurrentVehicle, m_pCurrentVehicle, 0x0);
 VALIDATE_SIZE(CCurrentVehicle, 0x4);
 
 #include "meta/meta.CCurrentVehicle.h"

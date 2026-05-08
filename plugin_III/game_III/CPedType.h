@@ -67,5 +67,12 @@ public:
     static void Save(unsigned char* bufferPointer, unsigned int* structSize);
     static void Shutdown();
 };
-
+VALIDATE_OFFSET(CPedType, m_Type, 0x0);
+VALIDATE_OFFSET(CPedType, field_4, 0x4);
+VALIDATE_OFFSET(CPedType, field_8, 0x8);
+VALIDATE_OFFSET(CPedType, field_C, 0xC);
+VALIDATE_OFFSET(CPedType, field_10, 0x10);
+VALIDATE_OFFSET(CPedType, field_14, 0x14);
+VALIDATE_OFFSET(CPedType, m_Threat, 0x18);
+VALIDATE_OFFSET(CPedType, m_Avoid, 0x1C);
 VALIDATE_SIZE(CPedType, 0x20);

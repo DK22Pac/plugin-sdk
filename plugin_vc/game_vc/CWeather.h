@@ -33,3 +33,4 @@ public:
     static void RenderRainStreaks();
     static void Update();
 };
+VALIDATE_SIZE(CWeather, 0x1);

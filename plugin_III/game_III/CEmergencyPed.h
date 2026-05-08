@@ -92,6 +92,13 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool InRange(CPed *victim);
     SUPPORTED_10EN_11EN_STEAM void MedicAI();
 };
+VALIDATE_OFFSET(CEmergencyPed, m_pRevivedPed, 0x53C);
+VALIDATE_OFFSET(CEmergencyPed, m_nEmergencyPedState, 0x540);
+VALIDATE_OFFSET(CEmergencyPed, m_pAttendedAccident, 0x544);
+VALIDATE_OFFSET(CEmergencyPed, m_pAttendedFire, 0x548);
+VALIDATE_OFFSET(CEmergencyPed, m_bStartedToCPR, 0x54C);
+VALIDATE_OFFSET(CEmergencyPed, field_550, 0x550);
+VALIDATE_SIZE(CEmergencyPed, 0x554);
 
 VTABLE_DESC(CEmergencyPed, 0x5F8374, 19);
 VALIDATE_SIZE(CEmergencyPed, 0x554);

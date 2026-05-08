@@ -76,5 +76,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static float GetWetMultiplier(unsigned char surfaceType);
     SUPPORTED_10EN_11EN_STEAM static void Initialise(char const *fileName);
 };
+VALIDATE_SIZE(CSurfaceTable, 0x1);
 
 #include "meta/meta.CSurfaceTable.h"

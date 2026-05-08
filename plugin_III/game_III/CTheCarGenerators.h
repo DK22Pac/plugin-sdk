@@ -24,5 +24,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Process();
     SUPPORTED_10EN_11EN_STEAM static void SaveAllCarGenerators(unsigned char *buffer, unsigned int *size);
 };
+VALIDATE_SIZE(CTheCarGenerators, 0x1);
 
 #include "meta/meta.CTheCarGenerators.h"

@@ -39,5 +39,6 @@ public:
     SUPPORTED_10US static bool ShouldThisBuildingHaveItsCoverPointsCreated(CBuilding *building);
     SUPPORTED_10US static void Update();
 };
+VALIDATE_SIZE(CCover, 0x1);
 
 #include "meta/meta.CCover.h"

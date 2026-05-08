@@ -21,7 +21,8 @@ public:
 
     CNodeAddress() : m_wAreaId(-1), m_wNodeId(-1) {}
 };
-
+VALIDATE_OFFSET(CNodeAddress, m_wAreaId, 0x0);
+VALIDATE_OFFSET(CNodeAddress, m_wNodeId, 0x2);
 VALIDATE_SIZE(CNodeAddress, 0x4);
 
 class PLUGIN_API CCarPathLinkAddress
@@ -30,7 +31,6 @@ public:
     short m_wCarPathLinkId : 10;
     short m_wAreaId : 6;
 };
-
 VALIDATE_SIZE(CCarPathLinkAddress, 0x2);
 
 
@@ -45,7 +45,7 @@ public:
     void DoPathSearch(unsigned char type, CVector start, int startNodeId, CVector target, CPathNode** nodes, short* numNodes, short maxNumNodes, CVehicle* vehicle, float* dist, float distLimit, int forcedTargetNode);
 
 };
-
+VALIDATE_OFFSET(CPathFind, nodes, 0x0);
 VALIDATE_SIZE(CPathFind, 0x2F1E8);
 
 extern CPathFind &ThePaths;

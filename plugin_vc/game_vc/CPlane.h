@@ -38,5 +38,13 @@ public:
     static bool TestRocketCollision(CVector* arg0);
     static void UpdatePlanes();
 };
-
+VALIDATE_OFFSET(CPlane, field_2A0, 0x2A0);
+VALIDATE_OFFSET(CPlane, field_2A2, 0x2A2);
+VALIDATE_OFFSET(CPlane, field_2A4, 0x2A4);
+VALIDATE_OFFSET(CPlane, field_2A8, 0x2A8);
+VALIDATE_OFFSET(CPlane, field_2AC, 0x2AC);
+VALIDATE_OFFSET(CPlane, field_2B0, 0x2B0);
+VALIDATE_OFFSET(CPlane, field_2B1, 0x2B1);
+VALIDATE_OFFSET(CPlane, field_2B2, 0x2B2);
+VALIDATE_OFFSET(CPlane, field_2B3, 0x2B3);
 VALIDATE_SIZE(CPlane, 0x2B4);

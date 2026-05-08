@@ -58,6 +58,30 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_OFFSET(CParticle, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CParticle, m_vecDirection, 0xC);
+VALIDATE_OFFSET(CParticle, m_vecScreenPosition, 0x18);
+VALIDATE_OFFSET(CParticle, m_nTimeWhenWillBeDestroyed, 0x24);
+VALIDATE_OFFSET(CParticle, m_nTimeWhenColorWillBeChanged, 0x28);
+VALIDATE_OFFSET(CParticle, m_fZCoord, 0x2C);
+VALIDATE_OFFSET(CParticle, m_vecParticleMovementOffset, 0x30);
+VALIDATE_OFFSET(CParticle, m_nCurrentZRotation, 0x3C);
+VALIDATE_OFFSET(CParticle, m_nZRotationTimer, 0x3E);
+VALIDATE_OFFSET(CParticle, m_fCurrentZRadius, 0x40);
+VALIDATE_OFFSET(CParticle, m_nZRadiusTimer, 0x44);
+VALIDATE_OFFSET(CParticle, m_fSize, 0x48);
+VALIDATE_OFFSET(CParticle, m_fExpansionRate, 0x4C);
+VALIDATE_OFFSET(CParticle, m_nFadeToBlackTimer, 0x50);
+VALIDATE_OFFSET(CParticle, m_nFadeAlphaTimer, 0x52);
+VALIDATE_OFFSET(CParticle, m_nColorIntensity, 0x54);
+VALIDATE_OFFSET(CParticle, m_nAlpha, 0x55);
+VALIDATE_OFFSET(CParticle, m_nCurrentFrame, 0x56);
+VALIDATE_OFFSET(CParticle, m_nAnimationSpeedTimer, 0x58);
+VALIDATE_OFFSET(CParticle, m_nRotationStep, 0x5A);
+VALIDATE_OFFSET(CParticle, m_nRotation, 0x5C);
+VALIDATE_OFFSET(CParticle, m_color, 0x5E);
+VALIDATE_OFFSET(CParticle, m_pNext, 0x64);
+VALIDATE_SIZE(CParticle, 0x68);
 
 SUPPORTED_10EN_11EN_STEAM extern CParticle(&gParticleArray)[1000]; // CParticle gParticleArray[1000]
 SUPPORTED_10EN_11EN_STEAM extern RwTexture *&gpFlame1Tex;

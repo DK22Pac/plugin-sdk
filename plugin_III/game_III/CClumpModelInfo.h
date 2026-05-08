@@ -15,6 +15,9 @@ struct PLUGIN_API FrameSearchData {
     char const *name;
     RwFrame *result;
 };
+VALIDATE_OFFSET(FrameSearchData, name, 0x0);
+VALIDATE_OFFSET(FrameSearchData, result, 0x4);
+VALIDATE_SIZE(FrameSearchData, 0x8);
 
 class PLUGIN_API CClumpModelInfo : public CBaseModelInfo {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CClumpModelInfo)
@@ -51,8 +54,8 @@ public:
         return searchData.result;
     }
 };
-
-VALIDATE_SIZE(FrameSearchData, 0x8);
+VALIDATE_OFFSET(CClumpModelInfo, m_pClump, 0x30);
+VALIDATE_SIZE(CClumpModelInfo, 0x34);
 VTABLE_DESC(CClumpModelInfo, 0x5FE020, 7);
 VALIDATE_SIZE(CClumpModelInfo, 0x34);
 

@@ -15,4 +15,5 @@ namespace rage {
         static uint8_t* sm_CurrentState;
         static int32_t& sm_Active;
     };
+    VALIDATE_SIZE(ioKeyboard, 0x1);
 }

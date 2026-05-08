@@ -39,6 +39,10 @@ public:
     SUPPORTED_10US void RemoveStreamedScriptFromMemory(int index);
     SUPPORTED_10US CRunningScript *StartNewStreamedScript(int index);
 };
+VALIDATE_OFFSET(CStreamedScripts, m_aScripts, 0x0);
+VALIDATE_OFFSET(CStreamedScripts, m_nLargestExternalSize, 0xA40);
+VALIDATE_OFFSET(CStreamedScripts, m_nCountOfScripts, 0xA44);
+VALIDATE_OFFSET(CStreamedScripts, field_A46, 0xA46);
 VALIDATE_SIZE(CStreamedScripts, 0xA48);
 
 #include "meta/meta.CStreamedScripts.h"

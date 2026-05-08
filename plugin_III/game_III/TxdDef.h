@@ -11,9 +11,11 @@
 
 class TxdDef {
 public:
-	RwTexDictionary *m_pRwDictionary;
-	unsigned short m_nRefCount;
+    RwTexDictionary* m_pRwDictionary;
+    unsigned short m_nRefCount;
     char m_szName[20];
 };
-
+VALIDATE_OFFSET(TxdDef, m_pRwDictionary, 0x0);
+VALIDATE_OFFSET(TxdDef, m_nRefCount, 0x4);
+VALIDATE_OFFSET(TxdDef, m_szName, 0x6);
 VALIDATE_SIZE(TxdDef, 0x1C);

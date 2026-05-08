@@ -34,6 +34,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Suspend();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CTimer, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern int &suspendPcTimer;
 SUPPORTED_10EN_11EN_STEAM extern int &suspendDepth;

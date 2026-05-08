@@ -15,3 +15,4 @@ public:
     static float &PedNumberMultiplier;
     static float &CarNumberMultiplier;
 };
+VALIDATE_SIZE(CIniFile, 0x1);

@@ -12,3 +12,4 @@ class CHeli : public CAutomobile {
 public:
     CHeli(uint8_t createdBy);
 };
+VALIDATE_SIZE(CHeli, 0x2080);

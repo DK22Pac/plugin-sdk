@@ -46,6 +46,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM CObject *GiveUsAPickUpObject(int handle);
     SUPPORTED_10EN_11EN_STEAM bool Update(CPlayerPed *player, CVehicle *vehicle, int playerId);
 };
+VALIDATE_OFFSET(CPickup, m_nPickupType, 0x0);
+VALIDATE_OFFSET(CPickup, m_bRemoved, 0x1);
+VALIDATE_OFFSET(CPickup, m_nQuantity, 0x2);
+VALIDATE_OFFSET(CPickup, m_pObject, 0x4);
+VALIDATE_OFFSET(CPickup, m_nTimer, 0x8);
+VALIDATE_OFFSET(CPickup, m_nModelIndex, 0xC);
+VALIDATE_OFFSET(CPickup, m_nReferenceIndex, 0xE);
+VALIDATE_OFFSET(CPickup, m_vecPos, 0x10);
+VALIDATE_SIZE(CPickup, 0x1C);
 
 //! unsigned short AmmoForWeapon[20] = { 0, 1, 45, 125, 25, 150, 300, 25, 5, 250, 5, 5, 0, 500, 0, 100, 0, 0, 0, 0 };
 SUPPORTED_10EN_11EN_STEAM extern unsigned short(&AmmoForWeapon)[20]; // unsigned short AmmoForWeapon[20]

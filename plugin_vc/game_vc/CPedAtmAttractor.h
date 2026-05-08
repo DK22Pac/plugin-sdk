@@ -36,6 +36,7 @@ public:
     // virtual function #7 (not overriden)
 
 };
+VALIDATE_SIZE(CPedAtmAttractor, 0x64);
 
 VTABLE_DESC(CPedAtmAttractor, 0x6DBED8, 8);
 VALIDATE_SIZE(CPedAtmAttractor, 0x64);

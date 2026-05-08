@@ -89,3 +89,4 @@ public:
 
     static void LoadCollisionModel(unsigned char* buf, CColModel& model, char* modelname);
 };
+VALIDATE_SIZE(CFileLoader, 0x1);

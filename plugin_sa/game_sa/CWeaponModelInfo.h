@@ -13,6 +13,8 @@ class PLUGIN_API CWeaponModelInfo : public CClumpModelInfo {
 public:
 	eWeaponType m_weaponInfo;
 };
+VALIDATE_OFFSET(CWeaponModelInfo, m_weaponInfo, 0x24);
+VALIDATE_SIZE(CWeaponModelInfo, 0x28);
 
 
 VALIDATE_SIZE(CWeaponModelInfo, 0x28);

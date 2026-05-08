@@ -171,7 +171,15 @@ public:
     CEntity(const CEntity &) = delete;
     CEntity &operator=(const CEntity &) = delete;
 };
-
+VALIDATE_OFFSET(CEntity, m_pRwObject, 0x4C);
+VALIDATE_OFFSET(CEntity, m_pRwAtomic, 0x4C);
+VALIDATE_OFFSET(CEntity, m_pRwClump, 0x4C);
+VALIDATE_OFFSET(CEntity, m_nScanCode, 0x58);
+VALIDATE_OFFSET(CEntity, m_nRandomSeed, 0x5A);
+VALIDATE_OFFSET(CEntity, m_nModelIndex, 0x5C);
+VALIDATE_OFFSET(CEntity, m_nLevel, 0x5E);
+VALIDATE_OFFSET(CEntity, m_nAreaCode, 0x5F);
+VALIDATE_OFFSET(CEntity, m_pFirstRef, 0x60);
 VALIDATE_SIZE(CEntity, 0x64);
 
 RpAtomic *AtomicRemoveAnimFromSkinCB(RpAtomic* atomic, void* callbackData);

@@ -17,6 +17,6 @@ public:
 
 	CTaskComplexKillPedFromBoat(CPed* ped);
 };
-
+VALIDATE_OFFSET(CTaskComplexKillPedFromBoat, pPed, 0xC);
 VALIDATE_SIZE(CTaskComplexKillPedFromBoat, 0x10);
 

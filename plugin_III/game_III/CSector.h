@@ -22,5 +22,14 @@ public:
     CPtrList m_dummyList;
     CPtrList m_dummyOverlapList;
 };
-
+VALIDATE_OFFSET(CSector, m_buildingList, 0x0);
+VALIDATE_OFFSET(CSector, m_buildingOverlapList, 0x4);
+VALIDATE_OFFSET(CSector, m_objectList, 0x8);
+VALIDATE_OFFSET(CSector, m_objectOverlapList, 0xC);
+VALIDATE_OFFSET(CSector, m_vehicleList, 0x10);
+VALIDATE_OFFSET(CSector, m_vehicleOverlapList, 0x14);
+VALIDATE_OFFSET(CSector, m_pedList, 0x18);
+VALIDATE_OFFSET(CSector, m_pedOverlapList, 0x1C);
+VALIDATE_OFFSET(CSector, m_dummyList, 0x20);
+VALIDATE_OFFSET(CSector, m_dummyOverlapList, 0x24);
 VALIDATE_SIZE(CSector, 0x28);

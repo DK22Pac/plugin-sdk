@@ -39,3 +39,4 @@ public:
     static void AddHospitalRestartPoint(CVector const& point, float angle);
     static void Initialise();
 };
+VALIDATE_SIZE(CRestart, 0x1);

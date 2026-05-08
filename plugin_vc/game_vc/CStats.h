@@ -140,3 +140,4 @@ public:
 	static void LoadStats(unsigned char* bufferPointer, unsigned int structSize);
 	static int ConstructStatLine(int a1);
 };
+VALIDATE_SIZE(CStats, 0x1);

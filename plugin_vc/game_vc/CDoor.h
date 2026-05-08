@@ -21,5 +21,14 @@ public:
     float fVelAngle;
     CVector vecVelocity;
 };
-
+VALIDATE_OFFSET(CDoor, fAngleInPosOne, 0x0);
+VALIDATE_OFFSET(CDoor, fAngleInPosTwo, 0x4);
+VALIDATE_OFFSET(CDoor, nAxisDirection, 0x8);
+VALIDATE_OFFSET(CDoor, nAxis, 0x9);
+VALIDATE_OFFSET(CDoor, nState, 0xA);
+VALIDATE_OFFSET(CDoor, __f000B, 0xB);
+VALIDATE_OFFSET(CDoor, fAngle, 0xC);
+VALIDATE_OFFSET(CDoor, fPrevAngle, 0x10);
+VALIDATE_OFFSET(CDoor, fVelAngle, 0x14);
+VALIDATE_OFFSET(CDoor, vecVelocity, 0x18);
 VALIDATE_SIZE(CDoor, 0x24);

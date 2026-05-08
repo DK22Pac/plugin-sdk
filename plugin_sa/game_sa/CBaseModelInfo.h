@@ -18,8 +18,10 @@ struct tTimeInfo
 	unsigned char m_nTimeOff;
 	signed short  m_wOtherTimeModel;
 };
-
-VALIDATE_SIZE(tTimeInfo, 4);
+VALIDATE_OFFSET(tTimeInfo, m_nTimeOn, 0x0);
+VALIDATE_OFFSET(tTimeInfo, m_nTimeOff, 0x1);
+VALIDATE_OFFSET(tTimeInfo, m_wOtherTimeModel, 0x2);
+VALIDATE_SIZE(tTimeInfo, 0x4);
 
 // originally an abstract class
 class PLUGIN_API CBaseModelInfo {
@@ -117,5 +119,17 @@ public:
 	void SetOwnsColModel(int bOwns);
 	void IncreaseAlpha();
 };
-
+VALIDATE_OFFSET(CBaseModelInfo, m_nKey, 0x4);
+VALIDATE_OFFSET(CBaseModelInfo, m_nRefCount, 0x8);
+VALIDATE_OFFSET(CBaseModelInfo, m_nTxdIndex, 0xA);
+VALIDATE_OFFSET(CBaseModelInfo, m_nAlpha, 0xC);
+VALIDATE_OFFSET(CBaseModelInfo, m_nNum2dEffects, 0xD);
+VALIDATE_OFFSET(CBaseModelInfo, m_n2dEffectIndex, 0xE);
+VALIDATE_OFFSET(CBaseModelInfo, m_nObjectInfoIndex, 0x10);
+VALIDATE_OFFSET(CBaseModelInfo, m_nFlags, 0x12);
+VALIDATE_OFFSET(CBaseModelInfo, m_pColModel, 0x14);
+VALIDATE_OFFSET(CBaseModelInfo, m_fDrawDistance, 0x18);
+VALIDATE_OFFSET(CBaseModelInfo, m_pRwObject, 0x1C);
+VALIDATE_OFFSET(CBaseModelInfo, m_pRwClump, 0x1C);
+VALIDATE_OFFSET(CBaseModelInfo, m_pRwAtomic, 0x1C);
 VALIDATE_SIZE(CBaseModelInfo, 0x20);

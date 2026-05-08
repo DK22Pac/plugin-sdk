@@ -14,6 +14,8 @@ namespace rage {
         int m_PadIndex;
         uint8_t field_3[1968];
     };
-
+    VALIDATE_OFFSET(ioMapper, m_Count, 0x0);
+    VALIDATE_OFFSET(ioMapper, m_PadIndex, 0x4);
+    VALIDATE_OFFSET(ioMapper, field_3, 0x8);
     VALIDATE_SIZE(ioMapper, 0x7B8);
 }

@@ -53,7 +53,14 @@ struct CZoneDef {
 
     bool IsPointWithin(const CVector& point);
 };
-
+VALIDATE_OFFSET(CZoneDef, x1, 0x0);
+VALIDATE_OFFSET(CZoneDef, y1, 0x2);
+VALIDATE_OFFSET(CZoneDef, x2, 0x4);
+VALIDATE_OFFSET(CZoneDef, y2, 0x6);
+VALIDATE_OFFSET(CZoneDef, x3, 0x8);
+VALIDATE_OFFSET(CZoneDef, y3, 0xA);
+VALIDATE_OFFSET(CZoneDef, z1, 0xC);
+VALIDATE_OFFSET(CZoneDef, z2, 0xE);
 VALIDATE_SIZE(CZoneDef, 0x10);
 
 struct CCullZoneReflection {
@@ -64,14 +71,20 @@ struct CCullZoneReflection {
     char vz;
     unsigned char flags;
 };
-
+VALIDATE_OFFSET(CCullZoneReflection, zoneDef, 0x0);
+VALIDATE_OFFSET(CCullZoneReflection, cm, 0x10);
+VALIDATE_OFFSET(CCullZoneReflection, vx, 0x14);
+VALIDATE_OFFSET(CCullZoneReflection, vy, 0x15);
+VALIDATE_OFFSET(CCullZoneReflection, vz, 0x16);
+VALIDATE_OFFSET(CCullZoneReflection, flags, 0x17);
 VALIDATE_SIZE(CCullZoneReflection, 0x18);
 
 struct CCullZone {
     CZoneDef zoneDef;
     eZoneAttributes flags;
 };
-
+VALIDATE_OFFSET(CCullZone, zoneDef, 0x0);
+VALIDATE_OFFSET(CCullZone, flags, 0x10);
 VALIDATE_SIZE(CCullZone, 0x12);
 
 class CCullZones {
@@ -111,3 +124,4 @@ public:
     static CCullZone* FindZoneWithStairsAttributeForPlayer();
     static eZoneAttributes FindAttributesForCoors(CVector pos);
 };
+VALIDATE_SIZE(CCullZones, 0x1);

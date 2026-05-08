@@ -18,6 +18,7 @@ public:
     // 0 - jump , 1 - climb
     CTaskComplexJump(unsigned int jumpType); 
 };
-
+VALIDATE_OFFSET(CTaskComplexJump, m_nType, 0xC);
+VALIDATE_OFFSET(CTaskComplexJump, bUnkFlag, 0x10);
 VALIDATE_SIZE(CTaskComplexJump, 0x14);
 

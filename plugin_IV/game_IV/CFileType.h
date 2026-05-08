@@ -28,6 +28,25 @@ public:
     uint32_t field_106;
     int32_t nVersion;
 };
+VALIDATE_OFFSET(CFileType, field_4, 0x0);
+VALIDATE_OFFSET(CFileType, pfnAt, 0x4);
+VALIDATE_OFFSET(CFileType, field_12, 0x8);
+VALIDATE_OFFSET(CFileType, field_16, 0xC);
+VALIDATE_OFFSET(CFileType, pfnReleaseData, 0x10);
+VALIDATE_OFFSET(CFileType, pfnGetIndexByNameAlways, 0x14);
+VALIDATE_OFFSET(CFileType, pfnAddRef, 0x18);
+VALIDATE_OFFSET(CFileType, pfnRelease, 0x1C);
+VALIDATE_OFFSET(CFileType, pfnGetUsageCount, 0x20);
+VALIDATE_OFFSET(CFileType, pfnHaveParent, 0x24);
+VALIDATE_OFFSET(CFileType, pfnDefrag, 0x28);
+VALIDATE_OFFSET(CFileType, pfnOnLoad, 0x2C);
+VALIDATE_OFFSET(CFileType, pfnSetData, 0x30);
+VALIDATE_OFFSET(CFileType, szStructureName, 0x34);
+VALIDATE_OFFSET(CFileType, szExt, 0x54);
+VALIDATE_OFFSET(CFileType, nStartIndex, 0x58);
+VALIDATE_OFFSET(CFileType, field_106, 0x5C);
+VALIDATE_OFFSET(CFileType, nVersion, 0x60);
+VALIDATE_SIZE(CFileType, 0x64);
 
 class CFileTypeMgr {
 public:
@@ -42,5 +61,8 @@ public:
 public:
     static CFileTypeMgr* GetManager();
 };
+VALIDATE_OFFSET(CFileTypeMgr, m_types, 0x0);
+VALIDATE_OFFSET(CFileTypeMgr, m_nTypeCount, 0x9C4);
+VALIDATE_SIZE(CFileTypeMgr, 0x9C8);
 
 extern CFileTypeMgr& FileTypeMgr;

@@ -54,7 +54,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(int numVerts, float *pos, float *texCoors, CRGBA const &color);
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(RwIm2DVertex *vertices, CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4);
 };
-
+VALIDATE_OFFSET(CSprite2d, m_pTexture, 0x0);
 VALIDATE_SIZE(CSprite2d, 0x4);
 
 #include "meta/meta.CSprite2d.h"

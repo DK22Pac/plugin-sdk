@@ -19,5 +19,6 @@ public:
     bool Insert(unsigned char colorRed, unsigned char colorGreen, unsigned char colorBlue);
     void ReduceBranches(int newBranchesCount);
 };
-
+VALIDATE_OFFSET(COctTreeBase, numBranches, 0x28);
+VALIDATE_OFFSET(COctTreeBase, hasTransparentPixels, 0x2C);
 VALIDATE_SIZE(COctTreeBase, 0x30);

@@ -32,6 +32,7 @@ public:
     static RpMaterial* SetupMaterialPlateTexture(RpMaterial* material, char* plateText, unsigned char plateType);
     static RpMaterial* SetupClump(RpClump* clump, char* plateText, unsigned char plateType);
 };
+VALIDATE_SIZE(CCustomCarPlateMgr, 0x1);
 
 extern unsigned char *&CharsetLockedData;
 extern RpMaterial *&CurrentLicensePlateMaterial;

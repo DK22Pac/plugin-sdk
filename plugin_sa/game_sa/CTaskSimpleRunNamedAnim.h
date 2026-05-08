@@ -31,5 +31,13 @@ public:
 
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_animName, 0x10);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_animGroupName, 0x28);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_fBlendDelta, 0x38);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_pAnimHierarchy, 0x3C);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_nTime, 0x40);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_timer, 0x44);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_vecOffsetAtEnd, 0x50);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_nFlags, 0x5C);
+VALIDATE_OFFSET(CTaskSimpleRunNamedAnim, m_nAnimId, 0x60);
 VALIDATE_SIZE(CTaskSimpleRunNamedAnim, 0x64);

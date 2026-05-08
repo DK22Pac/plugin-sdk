@@ -43,5 +43,21 @@ public:
     CTaskSimpleIKChain(char* _IGNORED_ idString ,int effectorBoneTag,RwV3d effectorVec,int pivotBoneTag,
         CEntity* pEntity,int offsetBoneTag, RwV3d offsetPos,float speed,int time,int blendTime);
 };
-
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_time, 0x8);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_blendTime, 0xC);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_pIKChain, 0x10);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_slotID, 0x14);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_pivotBoneTag, 0x16);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_effectorBoneTag, 0x18);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_effectorVec, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_pEntity, 0x28);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_offsetBoneTag, 0x2C);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_offsetPos, 0x30);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_speed, 0x3C);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_bEntityExist, 0x40);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_blend, 0x44);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_endTime, 0x48);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_targetBlend, 0x4C);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_targetTime, 0x50);
+VALIDATE_OFFSET(CTaskSimpleIKChain, m_isBlendingOut, 0x54);
 VALIDATE_SIZE(CTaskSimpleIKChain, 0x58);

@@ -86,5 +86,6 @@ public:
     int CreateEntity(void* object);
     void DestroyEntity(int audioEntity);
 };
+VALIDATE_SIZE(cDMAudio, 0x1);
 
 extern cDMAudio& DMAudio;

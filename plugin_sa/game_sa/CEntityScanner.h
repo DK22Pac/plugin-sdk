@@ -17,5 +17,8 @@ public:
     class CEntity *m_apEntities[16];
     int field_4C;
 };
-
+VALIDATE_OFFSET(CEntityScanner, field_4, 0x4);
+VALIDATE_OFFSET(CEntityScanner, m_nCount, 0x8);
+VALIDATE_OFFSET(CEntityScanner, m_apEntities, 0xC);
+VALIDATE_OFFSET(CEntityScanner, field_4C, 0x4C);
 VALIDATE_SIZE(CEntityScanner, 0x50);

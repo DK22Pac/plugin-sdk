@@ -31,5 +31,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool ShouldCarStopForBridge(CVehicle *vehicle);
     SUPPORTED_10EN_11EN_STEAM static bool ShouldCarStopForLight(CVehicle *vehicle, bool alwaysStop);
 };
+VALIDATE_SIZE(CTrafficLights, 0x1);
 
 #include "meta/meta.CTrafficLights.h"

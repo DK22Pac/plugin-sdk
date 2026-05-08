@@ -12,3 +12,4 @@ class CRAGE_SetRenderStateDC : public CBaseDC {
 public:
     CRAGE_SetRenderStateDC(int32_t state, int32_t value);
 };
+VALIDATE_SIZE(CRAGE_SetRenderStateDC, 0x8);

@@ -14,6 +14,10 @@ public:
     uint8_t m_isPlayer;
     uint8_t field_3;
 };
+VALIDATE_OFFSET(CControlledByInfo, m_playerIndex, 0x0);
+VALIDATE_OFFSET(CControlledByInfo, m_isPlayer, 0x1);
+VALIDATE_OFFSET(CControlledByInfo, field_3, 0x2);
+VALIDATE_SIZE(CControlledByInfo, 0x3);
 
 class CPedFactoryNY : CPedFactory {
 private:
@@ -29,4 +33,5 @@ public:
         return ms_pInstance;
     }
 };
+VALIDATE_SIZE(CPedFactoryNY, 0x4);
 

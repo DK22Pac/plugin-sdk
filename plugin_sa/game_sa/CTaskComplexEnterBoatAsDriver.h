@@ -18,6 +18,6 @@ public:
     CTaskComplexEnterBoatAsDriver(CVehicle* pTargetVehicle);
 
 };
-
+VALIDATE_OFFSET(CTaskComplexEnterBoatAsDriver, m_pTargetVehicle, 0xC);
 VALIDATE_SIZE(CTaskComplexEnterBoatAsDriver, 0x10);
 

@@ -44,7 +44,25 @@ private:
     char           _pad2;
 public:
 };
-
+VALIDATE_OFFSET(tMenuPanel, m_anUsedCarColors, 0x0);
+VALIDATE_OFFSET(tMenuPanel, m_nType, 0x40);
+VALIDATE_OFFSET(tMenuPanel, m_aaacRowTitles, 0x41);
+VALIDATE_OFFSET(tMenuPanel, m_aadwNumberInRowTitle, 0x224);
+VALIDATE_OFFSET(tMenuPanel, m_aadw2ndNumberInRowTitle, 0x2E4);
+VALIDATE_OFFSET(tMenuPanel, m_aacColumnHeaders, 0x3A4);
+VALIDATE_OFFSET(tMenuPanel, m_acTitle, 0x3CC);
+VALIDATE_OFFSET(tMenuPanel, m_abRowSelectable, 0x3D6);
+VALIDATE_OFFSET(tMenuPanel, m_abRowAlreadyBought, 0x3E2);
+VALIDATE_OFFSET(tMenuPanel, m_anColumnAlignment, 0x3EE);
+VALIDATE_OFFSET(tMenuPanel, m_anColumnHeaderAlignment, 0x3F2);
+VALIDATE_OFFSET(tMenuPanel, m_nNumRows, 0x3F6);
+VALIDATE_OFFSET(tMenuPanel, m_nNumColumns, 0x3F7);
+VALIDATE_OFFSET(tMenuPanel, m_abColumnInteractive, 0x3F8);
+VALIDATE_OFFSET(tMenuPanel, m_afColumnWidth, 0x3FC);
+VALIDATE_OFFSET(tMenuPanel, m_vPosn, 0x40C);
+VALIDATE_OFFSET(tMenuPanel, m_bColumnBackground, 0x414);
+VALIDATE_OFFSET(tMenuPanel, m_nSelectedRow, 0x415);
+VALIDATE_OFFSET(tMenuPanel, m_nAcceptedRow, 0x416);
 VALIDATE_SIZE(tMenuPanel, 0x418);
 
 class PLUGIN_API CMenuSystem
@@ -80,5 +98,6 @@ public:
 	static void SetHeaderOrientation(unsigned char panelId, unsigned char columnId, eFontAlignment alignment);
 	static void SwitchOffMenu(unsigned char panelId);
 };
+VALIDATE_SIZE(CMenuSystem, 0x1);
 
 extern tMenuPanel **MenuNumber; // tMenuPanel MenuNumber[2]

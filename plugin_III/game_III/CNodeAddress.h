@@ -16,5 +16,6 @@ public:
 
     CNodeAddress() : m_wAreaId(-1), m_wNodeId(-1) {}
 };
-
+VALIDATE_OFFSET(CNodeAddress, m_wAreaId, 0x0);
+VALIDATE_OFFSET(CNodeAddress, m_wNodeId, 0x2);
 VALIDATE_SIZE(CNodeAddress, 0x4);

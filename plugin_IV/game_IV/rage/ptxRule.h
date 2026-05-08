@@ -12,4 +12,5 @@ namespace rage {
     class ptxRule : atReferenceCounter {
 
     };
+    VALIDATE_SIZE(ptxRule, 0x4);
 }

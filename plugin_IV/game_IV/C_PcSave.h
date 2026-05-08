@@ -15,3 +15,4 @@ public:
     static int32_t LoadSlot(int32_t slot);
     static int32_t SaveSlot(int32_t slot);
 };
+VALIDATE_SIZE(C_PcSave, 0x1);

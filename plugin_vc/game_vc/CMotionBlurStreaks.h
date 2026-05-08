@@ -17,5 +17,6 @@ public:
     static void RegisterStreak(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, CVector leftPoint, CVector rightPoint);
     static void Render();
 };
+VALIDATE_SIZE(CMotionBlurStreaks, 0x1);
 
 extern unsigned int MAX_NUM_MOTIONBLUR_STREAKS; // default 4

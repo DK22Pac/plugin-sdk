@@ -15,8 +15,9 @@ struct FrameSearchData {
     char const *name;
     RwFrame *result;
 };
-
-VALIDATE_SIZE(FrameSearchData, 8);
+VALIDATE_OFFSET(FrameSearchData, name, 0x0);
+VALIDATE_OFFSET(FrameSearchData, result, 0x4);
+VALIDATE_SIZE(FrameSearchData, 0x8);
 
 class CClumpModelInfo : public CBaseModelInfo {
 public:
@@ -67,7 +68,9 @@ protected:
     CClumpModelInfo(const CClumpModelInfo &) {};
     CClumpModelInfo &operator=(const CClumpModelInfo &) { return *this; };
 };
-
+VALIDATE_OFFSET(CClumpModelInfo, m_pClump, 0x28);
+VALIDATE_OFFSET(CClumpModelInfo, m_pszAnimFileName, 0x2C);
+VALIDATE_OFFSET(CClumpModelInfo, m_nAnimFileIndex, 0x2C);
 VALIDATE_SIZE(CClumpModelInfo, 0x30);
 
 struct ClumpModelStore {
@@ -76,3 +79,6 @@ struct ClumpModelStore {
 
     ~ClumpModelStore();
 };
+VALIDATE_OFFSET(ClumpModelStore, m_nCount, 0x0);
+VALIDATE_OFFSET(ClumpModelStore, m_sObject, 0x4);
+VALIDATE_SIZE(ClumpModelStore, 0xF4);

@@ -82,6 +82,7 @@ public:
 	static void SetZoneName(wchar_t *name);
 	static void Shutdown();
 };
+VALIDATE_SIZE(CHud, 0x1);
 
 extern float *BigMessageInUse;
 extern float *BigMessageAlpha;

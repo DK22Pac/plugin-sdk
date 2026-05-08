@@ -16,7 +16,11 @@ public:
     short m_nCarsCount;
     char pad[2];
 };
-
+VALIDATE_OFFSET(CCarManager, m_pFirst, 0x0);
+VALIDATE_OFFSET(CCarManager, m_pLast, 0x4);
+VALIDATE_OFFSET(CCarManager, m_pCars, 0x8);
+VALIDATE_OFFSET(CCarManager, m_nCarsCount, 0x4D0);
+VALIDATE_OFFSET(CCarManager, pad, 0x4D2);
 VALIDATE_SIZE(CCarManager, 0x4D4);
 
 extern CCarManager** gCarManager;

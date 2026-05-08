@@ -20,7 +20,13 @@ public:
     //funcs
     void Process();
 };
-
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nVarId, 0x0);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_acDescriptionTextKey, 0x4);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_acDisplayedText, 0xE);
+VALIDATE_OFFSET(COnscreenTimerEntry, _pad0, 0x36);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_bEnabled, 0x38);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nTimerDirection, 0x39);
+VALIDATE_OFFSET(COnscreenTimerEntry, _pad1, 0x3A);
 VALIDATE_SIZE(COnscreenTimerEntry, 0x3C);
 
 class COnscreenCounterEntry {
@@ -33,7 +39,13 @@ public:
 	bool m_bEnabled;
 	char _pad1[1];
 };
-
+VALIDATE_OFFSET(COnscreenCounterEntry, m_nVarId, 0x0);
+VALIDATE_OFFSET(COnscreenCounterEntry, m_acDescriptionTextKey, 0x4);
+VALIDATE_OFFSET(COnscreenCounterEntry, m_nType, 0xE);
+VALIDATE_OFFSET(COnscreenCounterEntry, m_acDisplayedText, 0x10);
+VALIDATE_OFFSET(COnscreenCounterEntry, _pad0, 0x38);
+VALIDATE_OFFSET(COnscreenCounterEntry, m_bEnabled, 0x3A);
+VALIDATE_OFFSET(COnscreenCounterEntry, _pad1, 0x3B);
 VALIDATE_SIZE(COnscreenCounterEntry, 0x3C);
 
 class COnscreenTimer {
@@ -53,5 +65,9 @@ public:
     void Process();
     void ProcessForDisplay();
 };
-
+VALIDATE_OFFSET(COnscreenTimer, m_aClocks, 0x0);
+VALIDATE_OFFSET(COnscreenTimer, m_aCounters, 0x3C);
+VALIDATE_OFFSET(COnscreenTimer, m_bDisplay, 0xF0);
+VALIDATE_OFFSET(COnscreenTimer, m_bTimerFeezed, 0xF1);
+VALIDATE_OFFSET(COnscreenTimer, _pad0, 0xF2);
 VALIDATE_SIZE(COnscreenTimer, 0xF4);

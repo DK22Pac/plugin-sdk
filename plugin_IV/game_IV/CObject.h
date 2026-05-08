@@ -17,5 +17,9 @@ public:
     CAmmoData* m_pAmmoData;
     uint8_t field_194[192];
 };
-
+VALIDATE_OFFSET(CObject, field_1, 0x210);
+VALIDATE_OFFSET(CObject, m_fScale, 0x250);
+VALIDATE_OFFSET(CObject, field_68, 0x254);
+VALIDATE_OFFSET(CObject, m_pAmmoData, 0x25C);
+VALIDATE_OFFSET(CObject, field_194, 0x260);
 VALIDATE_SIZE(CObject, 0x320);

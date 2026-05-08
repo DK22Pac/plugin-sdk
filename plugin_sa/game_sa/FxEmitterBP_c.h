@@ -12,5 +12,4 @@
 class FxEmitterBP_c : public FxPrimBP_c {
 public:
 };
-
 VALIDATE_SIZE(FxEmitterBP_c, 0x40);

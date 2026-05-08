@@ -24,7 +24,13 @@ public:
 // [FrogByteDQ]: TODO: move this to CCrimeBeingQd.h file
 // [FrogByteDQ]: TODO: constructor sub_5388D0
 };
-
+VALIDATE_OFFSET(CCrimeBeingQd, m_nCrimeType, 0x0);
+VALIDATE_OFFSET(CCrimeBeingQd, pVictim, 0x4);
+VALIDATE_OFFSET(CCrimeBeingQd, m_nStartTime, 0x8);
+VALIDATE_OFFSET(CCrimeBeingQd, m_vecCoors, 0xC);
+VALIDATE_OFFSET(CCrimeBeingQd, m_bAlreadyReported, 0x18);
+VALIDATE_OFFSET(CCrimeBeingQd, m_bPoliceDontReallyCare, 0x19);
+VALIDATE_OFFSET(CCrimeBeingQd, pad, 0x1A);
 VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
 
 class CWanted {
@@ -84,5 +90,21 @@ public:
     void UpdateWantedLevel();
     static void WorkOutPolicePresence(CVector arg0, float arg1);
 };
-
+VALIDATE_OFFSET(CWanted, m_nChaosLevel, 0x0);
+VALIDATE_OFFSET(CWanted, m_nChaosLevelBeforeParole, 0x4);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedDecreased, 0x8);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedLevelChanged, 0xC);
+VALIDATE_OFFSET(CWanted, m_dwTimeOfParole, 0x10);
+VALIDATE_OFFSET(CWanted, m_fMultiplier, 0x14);
+VALIDATE_OFFSET(CWanted, m_nCopsInPursuit, 0x18);
+VALIDATE_OFFSET(CWanted, m_nMaxCopsInPursuit, 0x19);
+VALIDATE_OFFSET(CWanted, m_nMaxCopCarsInPursuit, 0x1A);
+VALIDATE_OFFSET(CWanted, m_nCopsBeatingSuspect, 0x1B);
+VALIDATE_OFFSET(CWanted, m_nChanceOnRoadBlock, 0x1C);
+VALIDATE_OFFSET(CWanted, m_nWantedFlags, 0x1E);
+VALIDATE_OFFSET(CWanted, _pad0, 0x1F);
+VALIDATE_OFFSET(CWanted, m_nWantedLevel, 0x20);
+VALIDATE_OFFSET(CWanted, m_nWantedLevelBeforeParole, 0x24);
+VALIDATE_OFFSET(CWanted, m_asCrimesBeingQd, 0x28);
+VALIDATE_OFFSET(CWanted, m_apCopsInPursuit, 0x1E8);
 VALIDATE_SIZE(CWanted, 0x210);

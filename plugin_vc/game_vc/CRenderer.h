@@ -13,3 +13,4 @@ public:
 	static int& ms_nNoOfVisibleEntities;
 	static CEntity** ms_aVisibleEntityPtrs;
 };
+VALIDATE_SIZE(CRenderer, 0x1);

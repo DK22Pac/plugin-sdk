@@ -18,7 +18,8 @@ public:
     void Update();
     void PrintCycle();
 };
-
+VALIDATE_OFFSET(CGeneral, m_nCycle, 0x0);
+VALIDATE_OFFSET(CGeneral, m_nRandomNumber, 0x4);
 VALIDATE_SIZE(CGeneral, 0x8);
 
 extern CGeneral** gGeneral;

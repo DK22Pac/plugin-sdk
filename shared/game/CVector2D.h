@@ -14,6 +14,9 @@
     {
         float x, y;
     };
+    VALIDATE_OFFSET(RwV2d, x, 0x0);
+    VALIDATE_OFFSET(RwV2d, y, 0x4);
+    VALIDATE_SIZE(RwV2d, 0x8);
 #endif
 
 struct CVector;

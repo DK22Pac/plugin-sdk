@@ -13,5 +13,6 @@ public:
     int16_t m_numChildren;
     int16_t m_numChildrenRendered;
 };
-
+VALIDATE_OFFSET(CLodAtomicModelInfo, m_numChildren, 0x20);
+VALIDATE_OFFSET(CLodAtomicModelInfo, m_numChildrenRendered, 0x22);
 VALIDATE_SIZE(CLodAtomicModelInfo, 0x24);

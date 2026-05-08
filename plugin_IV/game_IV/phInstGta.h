@@ -15,3 +15,8 @@ public:
     int field_58;
     int field_5C;
 };
+VALIDATE_OFFSET(phInstGta, field_50, 0x50);
+VALIDATE_OFFSET(phInstGta, field_54, 0x54);
+VALIDATE_OFFSET(phInstGta, field_58, 0x58);
+VALIDATE_OFFSET(phInstGta, field_5C, 0x5C);
+VALIDATE_SIZE(phInstGta, 0x60);

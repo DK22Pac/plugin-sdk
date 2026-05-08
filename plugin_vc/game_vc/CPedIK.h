@@ -21,7 +21,8 @@ public:
     float m_fYaw;
     float m_fPitch;
 };
-
+VALIDATE_OFFSET(LimbOrientation, m_fYaw, 0x0);
+VALIDATE_OFFSET(LimbOrientation, m_fPitch, 0x4);
 VALIDATE_SIZE(LimbOrientation, 0x8);
 
 struct LimbMovementInfo {
@@ -32,7 +33,12 @@ struct LimbMovementInfo {
     float minPitch;
     float pitchD;
 };
-
+VALIDATE_OFFSET(LimbMovementInfo, maxYaw, 0x0);
+VALIDATE_OFFSET(LimbMovementInfo, minYaw, 0x4);
+VALIDATE_OFFSET(LimbMovementInfo, yawD, 0x8);
+VALIDATE_OFFSET(LimbMovementInfo, maxPitch, 0xC);
+VALIDATE_OFFSET(LimbMovementInfo, minPitch, 0x10);
+VALIDATE_OFFSET(LimbMovementInfo, pitchD, 0x14);
 VALIDATE_SIZE(LimbMovementInfo, 0x18);
 
 class CPed;
@@ -66,5 +72,10 @@ public:
     void GetComponentPosition(RwV3d& returnedPos, unsigned int boneIndex);
     void ExtractYawAndPitchWorld(RwMatrix* matrix, float* yaw, float* pitch);
 };
-
+VALIDATE_OFFSET(CPedIK, m_pPed, 0x0);
+VALIDATE_OFFSET(CPedIK, m_sHead, 0x4);
+VALIDATE_OFFSET(CPedIK, m_sTorso, 0xC);
+VALIDATE_OFFSET(CPedIK, m_sUpperArm, 0x14);
+VALIDATE_OFFSET(CPedIK, m_sLowerArm, 0x1C);
+VALIDATE_OFFSET(CPedIK, m_nFlags, 0x24);
 VALIDATE_SIZE(CPedIK, 0x28);

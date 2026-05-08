@@ -18,6 +18,7 @@ public:
 
     virtual void Execute() override;
 };
+VALIDATE_SIZE(T_CB_Generic_NoArgs, 0xC);
 
 template<typename T>
 class T_CB_Generic_1Arg : public CBaseDC {

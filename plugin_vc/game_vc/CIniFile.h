@@ -11,3 +11,4 @@ class CIniFile {
 public:
     static void LoadIniFile();
 };
+VALIDATE_SIZE(CIniFile, 0x1);

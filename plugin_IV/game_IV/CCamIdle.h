@@ -16,3 +16,4 @@ public:
     void ResetStats(bool unused);
 
 };
+VALIDATE_SIZE(CCamIdle, 0x500);

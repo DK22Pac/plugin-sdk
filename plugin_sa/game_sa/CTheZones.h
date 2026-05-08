@@ -91,3 +91,4 @@ public:
 	static void Load();
 
 };
+VALIDATE_SIZE(CTheZones, 0x1);

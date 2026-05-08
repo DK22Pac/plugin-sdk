@@ -20,6 +20,8 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Shutdown();
 };
+VALIDATE_OFFSET(CInstance, m_nModelIndex, 0x4C);
+VALIDATE_SIZE(CInstance, 0x50);
 
 VTABLE_DESC(CInstance, 0x5FE068, 1);
 VALIDATE_SIZE(CInstance, 0x50);

@@ -12,5 +12,5 @@ class PLUGIN_API CAEPedlessSpeechAudioEntity {
 public:
     CAEPedSpeechAudioEntity pedSpeech;
 };
-
+VALIDATE_OFFSET(CAEPedlessSpeechAudioEntity, pedSpeech, 0x0);
 VALIDATE_SIZE(CAEPedlessSpeechAudioEntity, 0x100);

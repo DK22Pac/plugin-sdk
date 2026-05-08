@@ -19,3 +19,4 @@ public:
     static void RegisterStreak(unsigned int id, unsigned char red, unsigned char green, unsigned char blue, CVector leftPoint, CVector rightPoint);
     static void Init();
 };
+VALIDATE_SIZE(CMotionBlurStreaks, 0x1);

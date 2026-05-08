@@ -19,14 +19,20 @@ public:
     int             m_nNumber[6];
     wchar_t        *m_pString;
 };
-
+VALIDATE_OFFSET(tMessage, m_pText, 0x0);
+VALIDATE_OFFSET(tMessage, m_nFlag, 0x4);
+VALIDATE_OFFSET(tMessage, m_nTime, 0x8);
+VALIDATE_OFFSET(tMessage, m_nStartTime, 0xC);
+VALIDATE_OFFSET(tMessage, m_nNumber, 0x10);
+VALIDATE_OFFSET(tMessage, m_pString, 0x28);
 VALIDATE_SIZE(tMessage, 0x2C);
 
 struct tBigMessage {
     tMessage m_Current;
     tMessage m_Stack[3];
 };
-
+VALIDATE_OFFSET(tBigMessage, m_Current, 0x0);
+VALIDATE_OFFSET(tBigMessage, m_Stack, 0x2C);
 VALIDATE_SIZE(tBigMessage, 0xB0);
 
 struct tPreviousBrief {
@@ -34,7 +40,9 @@ struct tPreviousBrief {
     int      m_nNumber[6];
     wchar_t *m_pString;
 };
-
+VALIDATE_OFFSET(tPreviousBrief, m_pText, 0x0);
+VALIDATE_OFFSET(tPreviousBrief, m_nNumber, 0x4);
+VALIDATE_OFFSET(tPreviousBrief, m_pString, 0x1C);
 VALIDATE_SIZE(tPreviousBrief, 0x20);
 
 class CMessages {
@@ -91,3 +99,4 @@ public:
     static void ClearThisPrint(const char* text);
     static void ClearThisBigPrint(const char* text);
 };
+VALIDATE_SIZE(CMessages, 0x1);

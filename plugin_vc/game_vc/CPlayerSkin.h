@@ -15,6 +15,12 @@ struct PLUGIN_API CPlayerSkinData {
     char m_aDateInfo[256];
     CPlayerSkinData* m_pNextSkin;
 };
+VALIDATE_OFFSET(CPlayerSkinData, m_nSkinId, 0x0);
+VALIDATE_OFFSET(CPlayerSkinData, m_aSkinNameDisplayed, 0x4);
+VALIDATE_OFFSET(CPlayerSkinData, m_aSkinNameOriginal, 0x104);
+VALIDATE_OFFSET(CPlayerSkinData, m_aDateInfo, 0x204);
+VALIDATE_OFFSET(CPlayerSkinData, m_pNextSkin, 0x304);
+VALIDATE_SIZE(CPlayerSkinData, 0x308);
 
 class CPlayerSkin {
 public:
@@ -29,5 +35,6 @@ public:
     static void RenderFrontendSkinEdit();
     static void Shutdown();
 };
+VALIDATE_SIZE(CPlayerSkin, 0x1);
 
 extern RpClump*& gpPlayerClump;

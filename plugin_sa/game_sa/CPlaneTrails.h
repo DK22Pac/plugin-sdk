@@ -20,3 +20,4 @@ public:
 	static void Update();
 	static void RegisterPoint(CVector point, unsigned int trailIndex);
 };
+VALIDATE_SIZE(CPlaneTrails, 0x1);

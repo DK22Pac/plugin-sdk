@@ -56,5 +56,12 @@ public:
         return m_pCamFinal->m_pMatrix->pos;
     }
 };
+VALIDATE_OFFSET(CCamera, field_4, 0x0);
+VALIDATE_OFFSET(CCamera, m_pCamFinal, 0x4);
+VALIDATE_OFFSET(CCamera, field_12, 0x8);
+VALIDATE_OFFSET(CCamera, m_pCamGame, 0xC);
+VALIDATE_OFFSET(CCamera, m_pCamFollowVeh, 0x10);
+VALIDATE_OFFSET(CCamera, m_pCamFollowPed, 0x14);
+VALIDATE_SIZE(CCamera, 0x18);
 
 extern CCamera& TheCamera;

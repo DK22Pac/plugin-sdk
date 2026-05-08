@@ -21,5 +21,7 @@ public:
     virtual void Execute() override;
     virtual int32_t GetSize() override;
 };
-
+VALIDATE_OFFSET(CDrawRadarCircleDC, pos, 0x8);
+VALIDATE_OFFSET(CDrawRadarCircleDC, scale, 0x10);
+VALIDATE_OFFSET(CDrawRadarCircleDC, col, 0x18);
 VALIDATE_SIZE(CDrawRadarCircleDC, 0x1C);

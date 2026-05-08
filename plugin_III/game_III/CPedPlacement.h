@@ -15,5 +15,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool IsPositionClearForPed(CVector *position);
     SUPPORTED_10EN_11EN_STEAM static CEntity *IsPositionClearOfCars(CVector *position);
 };
+VALIDATE_SIZE(CPedPlacement, 0x1);
 
 #include "meta/meta.CPedPlacement.h"

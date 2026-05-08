@@ -37,7 +37,7 @@ public:
     bool SaveSlot(int slot);
     static void SetSaveDirectory(const char* path);
 };
-
+VALIDATE_OFFSET(C_PcSave, nErrorCode, 0x0);
 VALIDATE_SIZE(C_PcSave, 0x4);
 
 extern C_PcSave& PcSaveHelper;

@@ -29,7 +29,15 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static char const *GetString();
 };
-
+VALIDATE_OFFSET(CDigitalClock, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CDigitalClock, m_vecSize, 0xC);
+VALIDATE_OFFSET(CDigitalClock, m_fDrawDistance, 0x18);
+VALIDATE_OFFSET(CDigitalClock, m_fScale, 0x1C);
+VALIDATE_OFFSET(CDigitalClock, m_nRed, 0x20);
+VALIDATE_OFFSET(CDigitalClock, m_nGreen, 0x21);
+VALIDATE_OFFSET(CDigitalClock, m_nBlue, 0x22);
+VALIDATE_OFFSET(CDigitalClock, m_bVisible, 0x23);
+VALIDATE_OFFSET(CDigitalClock, m_fIntensity, 0x24);
 VALIDATE_SIZE(CDigitalClock, 0x28);
 
 #include "meta/meta.CDigitalClock.h"

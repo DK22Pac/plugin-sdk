@@ -17,3 +17,4 @@ public:
     static int32_t GetRandomNumberInRange(int32_t low, int32_t high);
     static float GetRandomNumberInRange(float low, float high);
 };
+VALIDATE_SIZE(CGeneral, 0x1);

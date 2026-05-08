@@ -35,5 +35,8 @@ public:
     // Empty function
     static void UpdateTrains();
 };
-
+VALIDATE_OFFSET(CTrain, gap_2A0, 0x2A0);
+VALIDATE_OFFSET(CTrain, field_2C0, 0x2C0);
+VALIDATE_OFFSET(CTrain, gap_2F0, 0x2F0);
+VALIDATE_OFFSET(CTrain, field_2FB, 0x2FB);
 VALIDATE_SIZE(CTrain, 0x2FC);

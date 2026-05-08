@@ -20,7 +20,7 @@ enum ePlayerState {
 struct CPlayerComponents {
     uint8_t bodyParts[16];
 };
-
+VALIDATE_OFFSET(CPlayerComponents, bodyParts, 0x0);
 VALIDATE_SIZE(CPlayerComponents, 0x10);
 
 class CPlayerInfo {
@@ -33,7 +33,7 @@ public:
 
 public:
     rage::Color32 m_RGBColor;
-    unsigned __int8 field_1[88];
+    char field_1[88];
     char m_sName[17];
     uint8_t m_nFlag1;
     CPlayerData m_PlayerData;
@@ -98,7 +98,7 @@ public:
     int16_t field_1255;
     int8_t field_1256;
     int8_t field_1257;
-    unsigned __int8 field_1258[36];
+    char field_1258[36];
     uint32_t m_nTimeSincePerformingWheelie;
     uint32_t m_nTimeSinceSomethingIdk;
     uint32_t m_nTimeSincePerformingStoppie;
@@ -175,5 +175,72 @@ public:
     void MakePlayerSafe(bool arg1, bool safe, float radius, bool arg4, bool arg5);
     bool IsPlayerOnline();
 };
-
+VALIDATE_OFFSET(CPlayerInfo, m_RGBColor, 0x0);
+VALIDATE_OFFSET(CPlayerInfo, field_1, 0x4);
+VALIDATE_OFFSET(CPlayerInfo, m_sName, 0x5C);
+VALIDATE_OFFSET(CPlayerInfo, m_nFlag1, 0x6D);
+VALIDATE_OFFSET(CPlayerInfo, m_PlayerData, 0x70);
+VALIDATE_OFFSET(CPlayerInfo, field_1100, 0x400);
+VALIDATE_OFFSET(CPlayerInfo, m_nObjFlags, 0x440);
+VALIDATE_OFFSET(CPlayerInfo, field_1111, 0x444);
+VALIDATE_OFFSET(CPlayerInfo, m_bDisableSprint, 0x484);
+VALIDATE_OFFSET(CPlayerInfo, field_1112, 0x485);
+VALIDATE_OFFSET(CPlayerInfo, m_bForceInteriorLighting, 0x487);
+VALIDATE_OFFSET(CPlayerInfo, field_1150, 0x488);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePlayerHitCar, 0x4A0);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePlayerHitPed, 0x4A4);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePlayerHitBuilding, 0x4A8);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePlayerHitObject, 0x4AC);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSinceDroveOnPavement, 0x4B0);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePlayerRanLight, 0x4B4);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSinceDroveAgainstTraffic, 0x4B8);
+VALIDATE_OFFSET(CPlayerInfo, field_1152, 0x4BC);
+VALIDATE_OFFSET(CPlayerInfo, field_1154, 0x4CC);
+VALIDATE_OFFSET(CPlayerInfo, m_fAirDragMultForCar, 0x4D8);
+VALIDATE_OFFSET(CPlayerInfo, field_1156, 0x4DC);
+VALIDATE_OFFSET(CPlayerInfo, field_1251, 0x4E0);
+VALIDATE_OFFSET(CPlayerInfo, field_1252, 0x4E1);
+VALIDATE_OFFSET(CPlayerInfo, field_1253, 0x4E2);
+VALIDATE_OFFSET(CPlayerInfo, field_1254, 0x4E3);
+VALIDATE_OFFSET(CPlayerInfo, m_nPlayerId, 0x4E4);
+VALIDATE_OFFSET(CPlayerInfo, m_nPlayerState, 0x4E8);
+VALIDATE_OFFSET(CPlayerInfo, field_1255, 0x4EC);
+VALIDATE_OFFSET(CPlayerInfo, field_1256, 0x4EE);
+VALIDATE_OFFSET(CPlayerInfo, field_1257, 0x4EF);
+VALIDATE_OFFSET(CPlayerInfo, field_1258, 0x4F0);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePerformingWheelie, 0x514);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSinceSomethingIdk, 0x518);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeSincePerformingStoppie, 0x51C);
+VALIDATE_OFFSET(CPlayerInfo, field_1259, 0x520);
+VALIDATE_OFFSET(CPlayerInfo, field_1260, 0x53C);
+VALIDATE_OFFSET(CPlayerInfo, field_1271, 0x540);
+VALIDATE_OFFSET(CPlayerInfo, field_1272, 0x542);
+VALIDATE_OFFSET(CPlayerInfo, field_1273, 0x543);
+VALIDATE_OFFSET(CPlayerInfo, field_1274, 0x544);
+VALIDATE_OFFSET(CPlayerInfo, m_bNeverTired, 0x552);
+VALIDATE_OFFSET(CPlayerInfo, m_bFastReload, 0x553);
+VALIDATE_OFFSET(CPlayerInfo, m_bFireProof, 0x554);
+VALIDATE_OFFSET(CPlayerInfo, m_bSomeFlag3, 0x555);
+VALIDATE_OFFSET(CPlayerInfo, MaxHealth, 0x556);
+VALIDATE_OFFSET(CPlayerInfo, MaxArmour, 0x558);
+VALIDATE_OFFSET(CPlayerInfo, m_bFlag1, 0x55A);
+VALIDATE_OFFSET(CPlayerInfo, m_bFlag2, 0x55B);
+VALIDATE_OFFSET(CPlayerInfo, m_bCanDoDriveBy, 0x55C);
+VALIDATE_OFFSET(CPlayerInfo, m_bCanBeHassledByGangs, 0x55D);
+VALIDATE_OFFSET(CPlayerInfo, field_1372, 0x564);
+VALIDATE_OFFSET(CPlayerInfo, m_nBadMoodTimer, 0x568);
+VALIDATE_OFFSET(CPlayerInfo, field_1376, 0x56C);
+VALIDATE_OFFSET(CPlayerInfo, m_nColour, 0x57C);
+VALIDATE_OFFSET(CPlayerInfo, m_nTeam, 0x580);
+VALIDATE_OFFSET(CPlayerInfo, field_1381, 0x584);
+VALIDATE_OFFSET(CPlayerInfo, m_nHasDiedRecently, 0x588);
+VALIDATE_OFFSET(CPlayerInfo, field_1392, 0x58C);
+VALIDATE_OFFSET(CPlayerInfo, m_pPed, 0x598);
+VALIDATE_OFFSET(CPlayerInfo, field_1403, 0x59C);
+VALIDATE_OFFSET(CPlayerInfo, m_pVehicle, 0x5A0);
+VALIDATE_OFFSET(CPlayerInfo, m_nMpModifier, 0x5A4);
+VALIDATE_OFFSET(CPlayerInfo, field_1500, 0x5B4);
+VALIDATE_OFFSET(CPlayerInfo, m_nMoney, 0x5C4);
+VALIDATE_OFFSET(CPlayerInfo, m_nDisplayMoney, 0x5C8);
+VALIDATE_OFFSET(CPlayerInfo, field_1644, 0x5CC);
 VALIDATE_SIZE(CPlayerInfo, 0x5D0);

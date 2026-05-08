@@ -17,3 +17,4 @@ public:
 public:
 
 };
+VALIDATE_SIZE(CControlMgr, 0x1);

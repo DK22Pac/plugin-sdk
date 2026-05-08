@@ -34,5 +34,8 @@ public:
 
 
 };
-
+VALIDATE_OFFSET(CGangs, nVehicleModel, 0x0);
+VALIDATE_OFFSET(CGangs, nPedModels, 0x4);
+VALIDATE_OFFSET(CGangs, uUnknown, 0xC);
+VALIDATE_OFFSET(CGangs, nWeapons, 0x10);
 VALIDATE_SIZE(CGangs, 0x18);

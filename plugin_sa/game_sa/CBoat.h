@@ -88,7 +88,29 @@ public:
     static void CheckForSkippingCalculations();
     static void FillBoatList();
 };
-
+VALIDATE_OFFSET(CBoat, m_fMovingHiRotation, 0x5A0);
+VALIDATE_OFFSET(CBoat, m_fPropSpeed, 0x5A4);
+VALIDATE_OFFSET(CBoat, m_fPropRotation, 0x5A8);
+VALIDATE_OFFSET(CBoat, m_nBoatFlags, 0x5AC);
+VALIDATE_OFFSET(CBoat, m_aBoatNodes, 0x5B0);
+VALIDATE_OFFSET(CBoat, m_boatFlap, 0x5E0);
+VALIDATE_OFFSET(CBoat, m_pBoatHandling, 0x5F8);
+VALIDATE_OFFSET(CBoat, m_fAnchoredAngle, 0x5FC);
+VALIDATE_OFFSET(CBoat, m_nAttackPlayerTime, 0x600);
+VALIDATE_OFFSET(CBoat, field_604, 0x604);
+VALIDATE_OFFSET(CBoat, m_fBurningTimer, 0x608);
+VALIDATE_OFFSET(CBoat, m_pWhoDestroyedMe, 0x60C);
+VALIDATE_OFFSET(CBoat, m_vecBoatMoveForce, 0x610);
+VALIDATE_OFFSET(CBoat, m_vecBoatTurnForce, 0x61C);
+VALIDATE_OFFSET(CBoat, m_apPropSplashFx, 0x628);
+VALIDATE_OFFSET(CBoat, m_vecWaterDamping, 0x630);
+VALIDATE_OFFSET(CBoat, field_63C, 0x63C);
+VALIDATE_OFFSET(CBoat, m_nPadNumber, 0x63D);
+VALIDATE_OFFSET(CBoat, m_fWaterResistance, 0x640);
+VALIDATE_OFFSET(CBoat, m_nNumWaterTrailPoints, 0x644);
+VALIDATE_OFFSET(CBoat, m_avecWakePoints, 0x648);
+VALIDATE_OFFSET(CBoat, m_afWakePointLifeTime, 0x748);
+VALIDATE_OFFSET(CBoat, m_anWakePointIntensity, 0x7C8);
 VALIDATE_SIZE(CBoat, 0x7E8);
 
 extern float &fShapeLength; // 0.4

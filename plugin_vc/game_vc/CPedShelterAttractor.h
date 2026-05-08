@@ -32,6 +32,7 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static CVector GetDisplacement(int qid);
 };
+VALIDATE_SIZE(CPedShelterAttractor, 0x64);
 
 VTABLE_DESC(CPedShelterAttractor, 0x6DBE38, 8);
 VALIDATE_SIZE(CPedShelterAttractor, 0x64);

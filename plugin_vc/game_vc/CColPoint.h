@@ -23,5 +23,13 @@ public:
 
     CColPoint& operator=(CColPoint const& right);
 };
-
+VALIDATE_OFFSET(CColPoint, m_vecPoint, 0x0);
+VALIDATE_OFFSET(CColPoint, field_C, 0xC);
+VALIDATE_OFFSET(CColPoint, m_vNormal, 0x10);
+VALIDATE_OFFSET(CColPoint, field_1C, 0x1C);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeA, 0x20);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeA, 0x21);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeB, 0x22);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeB, 0x23);
+VALIDATE_OFFSET(CColPoint, field_24, 0x24);
 VALIDATE_SIZE(CColPoint, 0x28);

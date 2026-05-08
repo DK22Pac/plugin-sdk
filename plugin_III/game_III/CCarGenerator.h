@@ -40,7 +40,23 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SwitchOff();
     SUPPORTED_10EN_11EN_STEAM void SwitchOn();
 };
-
+VALIDATE_OFFSET(CCarGenerator, m_nModelId, 0x0);
+VALIDATE_OFFSET(CCarGenerator, m_vecPos, 0x4);
+VALIDATE_OFFSET(CCarGenerator, m_fAngle, 0x10);
+VALIDATE_OFFSET(CCarGenerator, m_nPrimaryColor, 0x14);
+VALIDATE_OFFSET(CCarGenerator, m_nSecondaryColor, 0x16);
+VALIDATE_OFFSET(CCarGenerator, m_nForceSpawn, 0x18);
+VALIDATE_OFFSET(CCarGenerator, m_nAlarm, 0x19);
+VALIDATE_OFFSET(CCarGenerator, m_nDoorLock, 0x1A);
+VALIDATE_OFFSET(CCarGenerator, m_nMinDelay, 0x1C);
+VALIDATE_OFFSET(CCarGenerator, m_nMaxDelay, 0x1E);
+VALIDATE_OFFSET(CCarGenerator, m_nTimeNextGen, 0x20);
+VALIDATE_OFFSET(CCarGenerator, m_nVehicleHandle, 0x24);
+VALIDATE_OFFSET(CCarGenerator, m_nEnabled, 0x28);
+VALIDATE_OFFSET(CCarGenerator, m_bIsBlocking, 0x2A);
+VALIDATE_OFFSET(CCarGenerator, m_vecInf, 0x2C);
+VALIDATE_OFFSET(CCarGenerator, m_vecSup, 0x38);
+VALIDATE_OFFSET(CCarGenerator, m_fDistance, 0x44);
 VALIDATE_SIZE(CCarGenerator, 0x48);
 
 #include "meta/meta.CCarGenerator.h"

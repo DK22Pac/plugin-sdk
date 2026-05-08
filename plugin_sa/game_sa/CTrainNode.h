@@ -30,5 +30,10 @@ public:
     float GetDistanceFromStart();
     unsigned char GetLightingFromCollision();
 };
-
+VALIDATE_OFFSET(CTrainNode, x, 0x0);
+VALIDATE_OFFSET(CTrainNode, y, 0x2);
+VALIDATE_OFFSET(CTrainNode, z, 0x4);
+VALIDATE_OFFSET(CTrainNode, m_nDistanceFromStart, 0x6);
+VALIDATE_OFFSET(CTrainNode, m_nSurfaceLighting, 0x8);
+VALIDATE_OFFSET(CTrainNode, m_bSurfLightingFound, 0x9);
 VALIDATE_SIZE(CTrainNode, 0xA);

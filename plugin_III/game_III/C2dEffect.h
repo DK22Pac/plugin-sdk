@@ -52,6 +52,10 @@ struct PLUGIN_API tEffectParticle {
     CVector m_vecDir;
     float m_fScale;
 };
+VALIDATE_OFFSET(tEffectParticle, m_nParticleType, 0x0);
+VALIDATE_OFFSET(tEffectParticle, m_vecDir, 0x4);
+VALIDATE_OFFSET(tEffectParticle, m_fScale, 0x10);
+VALIDATE_SIZE(tEffectParticle, 0x14);
 
 struct PLUGIN_API tEffectLight {
     float m_fDist;
@@ -66,12 +70,28 @@ struct PLUGIN_API tEffectLight {
     RwTexture *m_pCoronaTex;
     RwTexture *m_pShadowTex;
 };
+VALIDATE_OFFSET(tEffectLight, m_fDist, 0x0);
+VALIDATE_OFFSET(tEffectLight, m_fPointlightRange, 0x4);
+VALIDATE_OFFSET(tEffectLight, m_fCoronaSize, 0x8);
+VALIDATE_OFFSET(tEffectLight, m_fShadowSize, 0xC);
+VALIDATE_OFFSET(tEffectLight, m_nCoronaFlashType, 0x10);
+VALIDATE_OFFSET(tEffectLight, m_bCoronaEnableReflection, 0x11);
+VALIDATE_OFFSET(tEffectLight, m_nCoronaFlareType, 0x12);
+VALIDATE_OFFSET(tEffectLight, m_nShadowColorMultiplier, 0x13);
+VALIDATE_OFFSET(tEffectLight, m_nFlags, 0x14);
+VALIDATE_OFFSET(tEffectLight, m_pCoronaTex, 0x18);
+VALIDATE_OFFSET(tEffectLight, m_pShadowTex, 0x1C);
+VALIDATE_SIZE(tEffectLight, 0x20);
 
 struct PLUGIN_API tEffectAttractor {
     CVector m_vecDir;
     eAttractorType m_nAttractorType;
     unsigned char m_nProbability;
 };
+VALIDATE_OFFSET(tEffectAttractor, m_vecDir, 0x0);
+VALIDATE_OFFSET(tEffectAttractor, m_nAttractorType, 0xC);
+VALIDATE_OFFSET(tEffectAttractor, m_nProbability, 0xD);
+VALIDATE_SIZE(tEffectAttractor, 0x10);
 
 class PLUGIN_API C2dEffect {
 public:
@@ -86,10 +106,12 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Shutdown();
 };
-
-VALIDATE_SIZE(tEffectParticle, 0x14);
-VALIDATE_SIZE(tEffectLight, 0x20);
-VALIDATE_SIZE(tEffectAttractor, 0x10);
+VALIDATE_OFFSET(C2dEffect, m_vecPosn, 0x0);
+VALIDATE_OFFSET(C2dEffect, m_color, 0xC);
+VALIDATE_OFFSET(C2dEffect, m_nType, 0x10);
+VALIDATE_OFFSET(C2dEffect, m_light, 0x14);
+VALIDATE_OFFSET(C2dEffect, m_particle, 0x14);
+VALIDATE_OFFSET(C2dEffect, m_attractor, 0x14);
 VALIDATE_SIZE(C2dEffect, 0x34);
 
 #include "meta/meta.C2dEffect.h"

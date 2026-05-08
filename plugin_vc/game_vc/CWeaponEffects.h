@@ -28,7 +28,12 @@ public:
     static void Render();
     static void Shutdown();
 };
-
+VALIDATE_OFFSET(CWeaponEffects, m_bActive, 0x0);
+VALIDATE_OFFSET(CWeaponEffects, _pad0, 0x1);
+VALIDATE_OFFSET(CWeaponEffects, m_vecPosn, 0x4);
+VALIDATE_OFFSET(CWeaponEffects, m_Color, 0x10);
+VALIDATE_OFFSET(CWeaponEffects, m_fSize, 0x14);
+VALIDATE_OFFSET(CWeaponEffects, m_fRotation, 0x18);
 VALIDATE_SIZE(CWeaponEffects, 0x1C);
 
 extern RwTexture*& gpCrossHairTex;		// RwTexture* gpCrossHairTex

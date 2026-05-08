@@ -19,5 +19,10 @@ public:
   float strength;
   float falloff;
 };
-
-VALIDATE_SIZE(CTimeCycleBox,0x28)
+VALIDATE_OFFSET(CTimeCycleBox, box, 0x0);
+VALIDATE_OFFSET(CTimeCycleBox, farclip, 0x18);
+VALIDATE_OFFSET(CTimeCycleBox, lodDistMult, 0x1A);
+VALIDATE_OFFSET(CTimeCycleBox, extraColor, 0x1C);
+VALIDATE_OFFSET(CTimeCycleBox, strength, 0x20);
+VALIDATE_OFFSET(CTimeCycleBox, falloff, 0x24);
+VALIDATE_SIZE(CTimeCycleBox, 0x28);

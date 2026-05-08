@@ -52,5 +52,11 @@ public:
     CTaskComplexWander(int MoveState, unsigned char Dir, bool bWanderSensibly, float TargetRadius = 0.5f);
     
 };
-
+VALIDATE_OFFSET(CTaskComplexWander, m_nMoveState, 0xC);
+VALIDATE_OFFSET(CTaskComplexWander, m_nDir, 0x10);
+VALIDATE_OFFSET(CTaskComplexWander, m_fTargetRadius, 0x14);
+VALIDATE_OFFSET(CTaskComplexWander, m_LastNode, 0x18);
+VALIDATE_OFFSET(CTaskComplexWander, m_NextNode, 0x1C);
+VALIDATE_OFFSET(CTaskComplexWander, m_nLastUpdateDirFrameCount, 0x20);
+VALIDATE_OFFSET(CTaskComplexWander, m_nFlags, 0x24);
 VALIDATE_SIZE(CTaskComplexWander, 0x28);

@@ -46,7 +46,6 @@ public:
         bool playTiredAnim, // if timeouted play tired animation
         bool faceEntityWhenDone);
 };
-
 VALIDATE_OFFSET(CTaskComplexSeekEntityMove, m_entity, 0xC);
 VALIDATE_OFFSET(CTaskComplexSeekEntityMove, m_time, 0x10);
 VALIDATE_OFFSET(CTaskComplexSeekEntityMove, m_scanInterval, 0x14);

@@ -11,3 +11,4 @@ class CGarage {
 public:
 
 };
+VALIDATE_SIZE(CGarage, 0x1);

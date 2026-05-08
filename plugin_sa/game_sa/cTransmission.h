@@ -31,5 +31,16 @@ public:
     void DisplayGearRatios();
     float CalculateDriveAcceleration(float& gasPedal, unsigned char& currrentGear, float& gearChangeCount, float& speed, float& unk1, float& unk2, bool allWheelsOnGround, unsigned char handlingType);
 };
-
+VALIDATE_OFFSET(cTransmission, m_aGears, 0x0);
+VALIDATE_OFFSET(cTransmission, m_nDriveType, 0x48);
+VALIDATE_OFFSET(cTransmission, m_nEngineType, 0x49);
+VALIDATE_OFFSET(cTransmission, m_nNumberOfGears, 0x4A);
+VALIDATE_OFFSET(cTransmission, field_4B, 0x4B);
+VALIDATE_OFFSET(cTransmission, m_nHandlingFlags, 0x4C);
+VALIDATE_OFFSET(cTransmission, m_fEngineAcceleration, 0x50);
+VALIDATE_OFFSET(cTransmission, m_fEngineInertia, 0x54);
+VALIDATE_OFFSET(cTransmission, m_fMaxGearVelocity, 0x58);
+VALIDATE_OFFSET(cTransmission, field_5C, 0x5C);
+VALIDATE_OFFSET(cTransmission, m_fMinGearVelocity, 0x60);
+VALIDATE_OFFSET(cTransmission, m_fCurrentSpeed, 0x64);
 VALIDATE_SIZE(cTransmission, 0x68);

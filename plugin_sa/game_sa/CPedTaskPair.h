@@ -19,7 +19,9 @@ public:
 
     SUPPORTED_10US void Flush();
 };
-
+VALIDATE_OFFSET(CPedTaskPair, m_pPed, 0x0);
+VALIDATE_OFFSET(CPedTaskPair, m_pTask, 0x4);
+VALIDATE_OFFSET(CPedTaskPair, field_8, 0x8);
 VALIDATE_SIZE(CPedTaskPair, 0xC);
 
 #include "meta/meta.CPedTaskPair.h"

@@ -41,7 +41,22 @@ public:
     static bool TestForExplosionInArea(eExplosionType explosionType, float x1, float y1, float z1, float x2, float y2, float z2);
     static void Update();
 };
-
+VALIDATE_OFFSET(CExplosion, m_nType, 0x0);
+VALIDATE_OFFSET(CExplosion, m_vecPosition, 0x4);
+VALIDATE_OFFSET(CExplosion, m_fRadius, 0x10);
+VALIDATE_OFFSET(CExplosion, m_fPropagationRate, 0x14);
+VALIDATE_OFFSET(CExplosion, m_pCreator, 0x18);
+VALIDATE_OFFSET(CExplosion, m_pVictim, 0x1C);
+VALIDATE_OFFSET(CExplosion, m_nExpireTime, 0x20);
+VALIDATE_OFFSET(CExplosion, m_bIsActive, 0x24);
+VALIDATE_OFFSET(CExplosion, m_nActiveCounter, 0x25);
+VALIDATE_OFFSET(CExplosion, field_26, 0x26);
+VALIDATE_OFFSET(CExplosion, field_27, 0x27);
+VALIDATE_OFFSET(CExplosion, m_nCreatedTime, 0x28);
+VALIDATE_OFFSET(CExplosion, m_nParticlesExpireTime, 0x2C);
+VALIDATE_OFFSET(CExplosion, m_fVisibleDistance, 0x30);
+VALIDATE_OFFSET(CExplosion, m_nFuelTimer, 0x34);
+VALIDATE_OFFSET(CExplosion, m_fGroundZ, 0x38);
 VALIDATE_SIZE(CExplosion, 0x3C);
 
 extern CExplosion *gaExplosion; // [48]

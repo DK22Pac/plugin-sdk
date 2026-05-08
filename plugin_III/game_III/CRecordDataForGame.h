@@ -28,6 +28,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SaveOrRetrieveDataForThisFrame();
     SUPPORTED_10EN_11EN_STEAM static unsigned char *UnPackCurrentPadValues(unsigned char *buf, unsigned char total, CControllerState *state);
 };
+VALIDATE_SIZE(CRecordDataForGame, 0x1);
 
 struct PLUGIN_API tGameBuffer {
     float m_fTimeStep;
@@ -36,6 +37,12 @@ struct PLUGIN_API tGameBuffer {
     unsigned short m_nChecksum;
     unsigned char m_ControllerBuffer[116];
 };
+VALIDATE_OFFSET(tGameBuffer, m_fTimeStep, 0x0);
+VALIDATE_OFFSET(tGameBuffer, m_nTimeInMilliseconds, 0x4);
+VALIDATE_OFFSET(tGameBuffer, m_nSizeOfPads, 0x8);
+VALIDATE_OFFSET(tGameBuffer, m_nChecksum, 0xA);
+VALIDATE_OFFSET(tGameBuffer, m_ControllerBuffer, 0xC);
+VALIDATE_SIZE(tGameBuffer, 0x80);
 
 SUPPORTED_10EN_11EN_STEAM extern tGameBuffer &BufferDataToBeSaved;
 

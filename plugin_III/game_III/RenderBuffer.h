@@ -19,6 +19,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StartStoring(int numIndices, int numVertices, RwImVertexIndex **indexStart, RwIm3DVertex **vertexStart);
     SUPPORTED_10EN_11EN_STEAM static void StopStoring();
 };
+VALIDATE_SIZE(RenderBuffer, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&TempBufferRenderIndexList)[1024]; // RwImVertexIndex TempBufferRenderIndexList[1024]
 SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&TempBufferRenderVertices)[256]; // RwIm3DVertex TempBufferRenderVertices[256]

@@ -29,5 +29,15 @@ public:
     COneSheet *m_pNext;
     COneSheet *m_pPrev;
 };
-
+VALIDATE_OFFSET(COneSheet, m_avPosn, 0x0);
+VALIDATE_OFFSET(COneSheet, m_fGroundZ, 0x18);
+VALIDATE_OFFSET(COneSheet, m_bActive, 0x1C);
+VALIDATE_OFFSET(COneSheet, m_bMovementActive, 0x1D);
+VALIDATE_OFFSET(COneSheet, m_nTimer, 0x20);
+VALIDATE_OFFSET(COneSheet, m_nDuration, 0x24);
+VALIDATE_OFFSET(COneSheet, m_vOffset, 0x28);
+VALIDATE_OFFSET(COneSheet, m_fAngle, 0x34);
+VALIDATE_OFFSET(COneSheet, m_abZoneVissible, 0x38);
+VALIDATE_OFFSET(COneSheet, m_pNext, 0x3C);
+VALIDATE_OFFSET(COneSheet, m_pPrev, 0x40);
 VALIDATE_SIZE(COneSheet, 0x44);

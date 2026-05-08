@@ -12,3 +12,4 @@ class CGrcState_SetDepthWrite : public CBaseDC {
 public:
     CGrcState_SetDepthWrite(int32_t mode);
 };
+VALIDATE_SIZE(CGrcState_SetDepthWrite, 0x8);

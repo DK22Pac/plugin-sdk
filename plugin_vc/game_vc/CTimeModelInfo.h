@@ -16,7 +16,9 @@ public:
     
     void FindOtherTimeModel();
 };
-
+VALIDATE_OFFSET(CTimeModelInfo, m_nStartHour, 0x44);
+VALIDATE_OFFSET(CTimeModelInfo, m_nEndHour, 0x48);
+VALIDATE_OFFSET(CTimeModelInfo, m_pPairedModel, 0x4C);
 VALIDATE_SIZE(CTimeModelInfo, 0x50);
 
 struct TimeModelStore {
@@ -25,3 +27,6 @@ struct TimeModelStore {
 
     ~TimeModelStore();
 };
+VALIDATE_OFFSET(TimeModelStore, m_nCount, 0x0);
+VALIDATE_OFFSET(TimeModelStore, m_sObject, 0x4);
+VALIDATE_SIZE(TimeModelStore, 0x7854);

@@ -26,17 +26,35 @@ private:
     char _pad6A[2];
 public:
 };
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_szEffectName, 0x0);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_pFxSystem, 0x20);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_nStartTime, 0x24);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_nEndTime, 0x28);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_nObjectId, 0x2C);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_szObjectPart, 0x30);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_vecPosn, 0x50);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_vecDirection, 0x5C);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_bPlaying, 0x68);
+VALIDATE_OFFSET(tCutsceneParticleEffect, m_bStopped, 0x69);
+VALIDATE_SIZE(tCutsceneParticleEffect, 0x6C);
 
 struct tCutsceneAttachment {
     int m_nCutscenePedObjectId;
     int m_nCutsceneAttachmentObjectId;
     int m_nBoneId;
 };
+VALIDATE_OFFSET(tCutsceneAttachment, m_nCutscenePedObjectId, 0x0);
+VALIDATE_OFFSET(tCutsceneAttachment, m_nCutsceneAttachmentObjectId, 0x4);
+VALIDATE_OFFSET(tCutsceneAttachment, m_nBoneId, 0x8);
+VALIDATE_SIZE(tCutsceneAttachment, 0xC);
 
 struct tCutsceneRemoval {
     CVector m_vecPosn;
     char m_szObjectName[32];
 };
+VALIDATE_OFFSET(tCutsceneRemoval, m_vecPosn, 0x0);
+VALIDATE_OFFSET(tCutsceneRemoval, m_szObjectName, 0xC);
+VALIDATE_SIZE(tCutsceneRemoval, 0x2C);
 
 extern unsigned int MAX_NUM_CUTSCENE_OBJECTS; // default: 50
 extern unsigned int MAX_NUM_CUTSCENE_PARTICLE_EFFECTS; // default: 8
@@ -129,6 +147,7 @@ public:
     static void Update();
     static void Update_overlay();
 };
+VALIDATE_SIZE(CCutsceneMgr, 0x1);
 
 short FindCutsceneAudioTrackId(char const* cutsceneName);
 void UpdateCutsceneObjectBoundingBox(RpClump* clump, int modelId);

@@ -15,5 +15,7 @@ public:
     CAESound *field_80;
     class FxSystem_c *field_84;
 };
-
+VALIDATE_OFFSET(CAEFireAudioEntity, field_7C, 0x7C);
+VALIDATE_OFFSET(CAEFireAudioEntity, field_80, 0x80);
+VALIDATE_OFFSET(CAEFireAudioEntity, field_84, 0x84);
 VALIDATE_SIZE(CAEFireAudioEntity, 0x88);

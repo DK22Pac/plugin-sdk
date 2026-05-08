@@ -29,5 +29,5 @@ public:
     virtual void m_4() { plugin::CallVirtualMethod<4>(this); }
     virtual void m_5() { plugin::CallVirtualMethod<5>(this); }
 };
-
+VALIDATE_OFFSET(CBaseDC, field_1, 0x4);
 VALIDATE_SIZE(CBaseDC, 0x8);

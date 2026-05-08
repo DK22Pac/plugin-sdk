@@ -100,7 +100,34 @@ public:
     static float& PLANE_MAX_PROP_SPEED;
     static float& PLANE_ROC_PROP_SPEED;
 };
-
+VALIDATE_OFFSET(CPlane, field_988, 0x988);
+VALIDATE_OFFSET(CPlane, field_98C, 0x98C);
+VALIDATE_OFFSET(CPlane, field_990, 0x990);
+VALIDATE_OFFSET(CPlane, field_994, 0x994);
+VALIDATE_OFFSET(CPlane, field_998, 0x998);
+VALIDATE_OFFSET(CPlane, field_99C, 0x99C);
+VALIDATE_OFFSET(CPlane, field_9A0, 0x9A0);
+VALIDATE_OFFSET(CPlane, field_9A4, 0x9A4);
+VALIDATE_OFFSET(CPlane, field_9A8, 0x9A8);
+VALIDATE_OFFSET(CPlane, field_9AC, 0x9AC);
+VALIDATE_OFFSET(CPlane, field_9B0, 0x9B0);
+VALIDATE_OFFSET(CPlane, field_9B4, 0x9B4);
+VALIDATE_OFFSET(CPlane, field_9B8, 0x9B8);
+VALIDATE_OFFSET(CPlane, field_9BC, 0x9BC);
+VALIDATE_OFFSET(CPlane, m_nStartedFlyingTime, 0x9C0);
+VALIDATE_OFFSET(CPlane, field_9C4, 0x9C4);
+VALIDATE_OFFSET(CPlane, field_9C8, 0x9C8);
+VALIDATE_OFFSET(CPlane, m_fLandingGearStatus, 0x9CC);
+VALIDATE_OFFSET(CPlane, field_9D0, 0x9D0);
+VALIDATE_OFFSET(CPlane, m_pGunParticles, 0x9D4);
+VALIDATE_OFFSET(CPlane, m_nFiringMultiplier, 0x9D8);
+VALIDATE_OFFSET(CPlane, field_9DC, 0x9DC);
+VALIDATE_OFFSET(CPlane, field_9E0, 0x9E0);
+VALIDATE_OFFSET(CPlane, field_9E4, 0x9E4);
+VALIDATE_OFFSET(CPlane, m_apJettrusParticles, 0x9E8);
+VALIDATE_OFFSET(CPlane, m_pSmokeParticle, 0x9F8);
+VALIDATE_OFFSET(CPlane, m_nSmokeTimer, 0x9FC);
+VALIDATE_OFFSET(CPlane, m_bSmokeEjectorEnabled, 0xA00);
 VALIDATE_SIZE(CPlane, 0xA04);
 
 extern float &HARRIER_NOZZLE_ROTATERATE;

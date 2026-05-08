@@ -25,3 +25,4 @@ protected:
 
 friend class List_c;
 };
+VALIDATE_SIZE(ListItem_c, 0x8);

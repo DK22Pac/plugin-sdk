@@ -59,3 +59,4 @@ public:
 	static int& ms_numAnimations;
 
 };
+VALIDATE_SIZE(CAnimManager, 0x1);

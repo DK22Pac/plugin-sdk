@@ -166,6 +166,7 @@ public:
         SetZoneName(wname);
     }
 };
+VALIDATE_SIZE(CHud, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern float(&BigMessageX)[6]; // float BigMessageX[6]
 SUPPORTED_10EN_11EN_STEAM extern float(&BigMessageInUse)[6]; // float BigMessageInUse[6]

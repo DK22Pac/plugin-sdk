@@ -18,5 +18,8 @@ public:
 public:
 
 };
-
+VALIDATE_OFFSET(CWeapon, m_nType, 0x0);
+VALIDATE_OFFSET(CWeapon, m_nAmountofAmmunition, 0x4);
+VALIDATE_OFFSET(CWeapon, m_bHasModelLoaded, 0x8);
+VALIDATE_OFFSET(CWeapon, pad, 0x9);
 VALIDATE_SIZE(CWeapon, 0xC);

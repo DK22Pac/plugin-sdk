@@ -16,6 +16,5 @@ public:
 
     CTaskComplexStuckInAir();
 };
-
 VALIDATE_SIZE(CTaskComplexStuckInAir, 0xC);
 

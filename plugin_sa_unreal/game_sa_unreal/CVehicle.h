@@ -11,3 +11,4 @@ class CVehicle {
 public:
 
 };
+VALIDATE_SIZE(CVehicle, 0x1);

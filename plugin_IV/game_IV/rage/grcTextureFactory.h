@@ -85,6 +85,9 @@ namespace rage {
     public:
         virtual ~grcTextureFactory() {}
     };
+    VALIDATE_OFFSET(grcTextureFactory, field_4, 0x4);
+    VALIDATE_OFFSET(grcTextureFactory, field_5, 0x5);
+    VALIDATE_SIZE(grcTextureFactory, 0x8);
 
     class grcTextureFactoryPC : public grcTextureFactory {
     private:
@@ -153,6 +156,27 @@ namespace rage {
             return sm_Instance;
         }
     };
+    VALIDATE_OFFSET(grcTextureFactoryPC, m_pRenderTargets, 0x8);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_14, 0x14);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_18, 0x18);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_1C, 0x1C);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_20, 0x20);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_24, 0x24);
+    VALIDATE_OFFSET(grcTextureFactoryPC, renderTargets, 0x28);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_38, 0x38);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_3C, 0x3C);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_40, 0x40);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_44, 0x44);
+    VALIDATE_OFFSET(grcTextureFactoryPC, m_pDepthStencilSurface, 0x48);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_4C, 0x4C);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_50, 0x50);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_54, 0x54);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_58, 0x58);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_5C, 0x5C);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_60, 0x60);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_64, 0x64);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_68, 0x68);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_6C, 0x6C);
+    VALIDATE_OFFSET(grcTextureFactoryPC, field_70, 0x70);
+    VALIDATE_SIZE(grcTextureFactoryPC, 0x74);
 }
-
-VALIDATE_SIZE(rage::grcTextureFactoryPC, 0x74);

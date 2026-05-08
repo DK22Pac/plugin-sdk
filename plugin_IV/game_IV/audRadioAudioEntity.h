@@ -52,5 +52,21 @@ public:
     static bool CanRetune();
 
 };
+VALIDATE_OFFSET(audRadioAudioEntity, field_24, 0x54);
+VALIDATE_OFFSET(audRadioAudioEntity, m_PlayerVehicleRadioState, 0x6C);
+VALIDATE_OFFSET(audRadioAudioEntity, m_MobilePhoneRadioState, 0x70);
+VALIDATE_OFFSET(audRadioAudioEntity, field_27, 0x74);
+VALIDATE_OFFSET(audRadioAudioEntity, m_nIndex, 0x78);
+VALIDATE_OFFSET(audRadioAudioEntity, field_29, 0x7C);
+VALIDATE_OFFSET(audRadioAudioEntity, field_30, 0x80);
+VALIDATE_OFFSET(audRadioAudioEntity, field_31, 0x84);
+VALIDATE_OFFSET(audRadioAudioEntity, field_32, 0x85);
+VALIDATE_OFFSET(audRadioAudioEntity, field_33, 0x86);
+VALIDATE_OFFSET(audRadioAudioEntity, field_34, 0x87);
+VALIDATE_OFFSET(audRadioAudioEntity, field_35, 0x88);
+VALIDATE_OFFSET(audRadioAudioEntity, field_36, 0x89);
+VALIDATE_OFFSET(audRadioAudioEntity, field_70, 0x8A);
+VALIDATE_OFFSET(audRadioAudioEntity, field_94, 0xD0);
+VALIDATE_SIZE(audRadioAudioEntity, 0xE8);
 
 extern audRadioAudioEntity& g_RadioAudioEntity;

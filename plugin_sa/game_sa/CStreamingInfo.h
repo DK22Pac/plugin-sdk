@@ -58,7 +58,14 @@ public:
     SUPPORTED_10US void RemoveFromList();
     SUPPORTED_10US void SetCdPosnAndSize(unsigned int CdPosn, unsigned int CdSize);
 };
-
+VALIDATE_OFFSET(CStreamingInfo, m_nNextIndex, 0x0);
+VALIDATE_OFFSET(CStreamingInfo, m_nPrevIndex, 0x2);
+VALIDATE_OFFSET(CStreamingInfo, m_nNextIndexOnCd, 0x4);
+VALIDATE_OFFSET(CStreamingInfo, m_nFlags, 0x6);
+VALIDATE_OFFSET(CStreamingInfo, m_nImgId, 0x7);
+VALIDATE_OFFSET(CStreamingInfo, m_nCdPosn, 0x8);
+VALIDATE_OFFSET(CStreamingInfo, m_nCdSize, 0xC);
+VALIDATE_OFFSET(CStreamingInfo, m_nLoadState, 0x10);
 VALIDATE_SIZE(CStreamingInfo, 0x14);
 
 #include "meta/meta.CStreamingInfo.h"

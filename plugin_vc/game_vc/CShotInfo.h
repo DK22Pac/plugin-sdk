@@ -31,7 +31,13 @@ public:
     static bool AddShot(CEntity* creator, eWeaponType weaponType, CVector origin, CVector target);
     static void Update();
 };
-
+VALIDATE_OFFSET(CShotInfo, m_nWeaponType, 0x0);
+VALIDATE_OFFSET(CShotInfo, m_vecOrigin, 0x4);
+VALIDATE_OFFSET(CShotInfo, m_vecTargetOffset, 0x10);
+VALIDATE_OFFSET(CShotInfo, m_fRange, 0x1C);
+VALIDATE_OFFSET(CShotInfo, m_pCreator, 0x20);
+VALIDATE_OFFSET(CShotInfo, fFlameVar, 0x24);
+VALIDATE_OFFSET(CShotInfo, bInUse, 0x28);
 VALIDATE_SIZE(CShotInfo, 0x2C);
 
 extern unsigned int MAX_SHOT_INFOS; // default 100

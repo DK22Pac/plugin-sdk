@@ -12,7 +12,8 @@ struct tCarGenPlateText {
     int m_nCarGenId; // -1 - empty
     char m_szPlateText[12];
 };
-
+VALIDATE_OFFSET(tCarGenPlateText, m_nCarGenId, 0x0);
+VALIDATE_OFFSET(tCarGenPlateText, m_szPlateText, 0x4);
 VALIDATE_SIZE(tCarGenPlateText, 0x10);
 
 class CSpecialPlateHandler {
@@ -26,5 +27,6 @@ public:
     void Add(int carGenId, char* plateText);
     void Remove(int plateTextId);
 };
-
+VALIDATE_OFFSET(CSpecialPlateHandler, m_plateTextEntries, 0x0);
+VALIDATE_OFFSET(CSpecialPlateHandler, m_nCount, 0xF0);
 VALIDATE_SIZE(CSpecialPlateHandler, 0xF4);

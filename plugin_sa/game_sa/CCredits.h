@@ -20,3 +20,4 @@ public:
     static void Start();
     static void Stop();
 };
+VALIDATE_SIZE(CCredits, 0x1);

@@ -35,6 +35,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void MotionBlurRender(RwCamera *cam, unsigned int red, unsigned int green, unsigned int blue, unsigned int blur, int type, unsigned int blurAlpha);
     SUPPORTED_10EN_11EN_STEAM static void OverlayRender(RwCamera *cam, RwRaster *raster, RwRGBA color, int type, int blurAlpha);
 };
+VALIDATE_SIZE(CMBlur, 0x1);
 
 //! RwImVertexIndex Index[6] = { 0, 1, 2, 0, 2, 3 };
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&Index)[6]; // RwImVertexIndex Index[6]

@@ -17,5 +17,10 @@ public:
 	void *animNames;
 	void *animDesc;
 };
-
+VALIDATE_OFFSET(CAnimationStyleDescriptor, groupName, 0x0);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, blockName, 0x10);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, field_20, 0x20);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, animsCount, 0x24);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, animNames, 0x28);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, animDesc, 0x2C);
 VALIDATE_SIZE(CAnimationStyleDescriptor, 0x30);

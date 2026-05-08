@@ -23,7 +23,12 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Render();
 };
-
+VALIDATE_OFFSET(CMoneyMessage, m_nTimeRegistered, 0x0);
+VALIDATE_OFFSET(CMoneyMessage, m_vecPos, 0x4);
+VALIDATE_OFFSET(CMoneyMessage, m_aText, 0x10);
+VALIDATE_OFFSET(CMoneyMessage, m_Color, 0x30);
+VALIDATE_OFFSET(CMoneyMessage, m_fSize, 0x34);
+VALIDATE_OFFSET(CMoneyMessage, m_fOpacity, 0x38);
 VALIDATE_SIZE(CMoneyMessage, 0x3C);
 
 #include "meta/meta.CMoneyMessage.h"

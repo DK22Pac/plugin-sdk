@@ -56,3 +56,4 @@ public:
     static void InitPlayBack();
     static void Initialise();
 };
+VALIDATE_SIZE(CSceneEdit, 0x1);

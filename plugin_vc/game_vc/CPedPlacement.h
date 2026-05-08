@@ -17,3 +17,4 @@ public:
     static bool IsPositionClearForPed(CVector const& posn, float arg1, int arg2, CEntity** entity);
     static bool IsPositionClearOfCars(CVector* posn);
 };
+VALIDATE_SIZE(CPedPlacement, 0x1);

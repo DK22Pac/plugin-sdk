@@ -30,5 +30,11 @@ public:
     void EnterVacantNearbyCars();
     void UseNearbyAttractors();
 };
-
+VALIDATE_OFFSET(CCivilianPed, m_bIsCriminal, 0x5F4);
+VALIDATE_OFFSET(CCivilianPed, field_5F8, 0x5F8);
+VALIDATE_OFFSET(CCivilianPed, field_5FC, 0x5FC);
+VALIDATE_OFFSET(CCivilianPed, m_bFoundVacantNearbyCar, 0x5FD);
+VALIDATE_OFFSET(CCivilianPed, m_nCivilianVehicleModels, 0x600);
+VALIDATE_OFFSET(CCivilianPed, m_bUseAttractorInstantly, 0x640);
+VALIDATE_OFFSET(CCivilianPed, dwSitFreqCounter, 0x644);
 VALIDATE_SIZE(CCivilianPed, 0x648);

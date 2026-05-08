@@ -13,3 +13,4 @@ public:
     virtual ~CVehicleFactory() { plugin::CallVirtualMethod<0>(this, 0); }
 
 };
+VALIDATE_SIZE(CVehicleFactory, 0x4);

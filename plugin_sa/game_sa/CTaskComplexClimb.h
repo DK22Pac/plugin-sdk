@@ -15,6 +15,5 @@ public:
 
     CTaskComplexClimb();
 };
-
 VALIDATE_SIZE(CTaskComplexClimb, 0x14);
 

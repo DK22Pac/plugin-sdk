@@ -28,7 +28,12 @@ public:
     SUPPORTED_10US void ReleaseCoverPointForPed(CPed *ped);
     SUPPORTED_10US void ReserveCoverPointForPed(CPed *ped);
 };
-
+VALIDATE_OFFSET(CCoverPoint, m_nMaxPedsInCover, 0x0);
+VALIDATE_OFFSET(CCoverPoint, m_nCoverType, 0x1);
+VALIDATE_OFFSET(CCoverPoint, m_nDirection, 0x2);
+VALIDATE_OFFSET(CCoverPoint, m_vecOffset, 0x4);
+VALIDATE_OFFSET(CCoverPoint, m_pCoverEntity, 0x10);
+VALIDATE_OFFSET(CCoverPoint, m_apCoveredPeds, 0x14);
 VALIDATE_SIZE(CCoverPoint, 0x1C);
 
 #include "meta/meta.CCoverPoint.h"

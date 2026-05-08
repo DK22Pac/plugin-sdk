@@ -40,6 +40,10 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void ConstructClump();
 };
+VALIDATE_OFFSET(CMloModelInfo, m_fDrawDistance, 0x34);
+VALIDATE_OFFSET(CMloModelInfo, m_nFirstInstance, 0x38);
+VALIDATE_OFFSET(CMloModelInfo, m_nLastInstance, 0x3C);
+VALIDATE_SIZE(CMloModelInfo, 0x40);
 
 VTABLE_DESC(CMloModelInfo, 0x5FDF74, 7);
 VALIDATE_SIZE(CMloModelInfo, 0x40);

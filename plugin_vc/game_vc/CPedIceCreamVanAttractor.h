@@ -36,6 +36,7 @@ public:
     // virtual function #7 (not overriden)
 
 };
+VALIDATE_SIZE(CPedIceCreamVanAttractor, 0x64);
 
 VTABLE_DESC(CPedIceCreamVanAttractor, 0x6DBE10, 8);
 VALIDATE_SIZE(CPedIceCreamVanAttractor, 0x64);

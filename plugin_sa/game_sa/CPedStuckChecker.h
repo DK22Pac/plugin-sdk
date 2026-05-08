@@ -32,4 +32,7 @@ public:
 
     auto GetState() const { return m_state; }
 };
+VALIDATE_OFFSET(CPedStuckChecker, m_lastNonStuckPoint, 0x0);
+VALIDATE_OFFSET(CPedStuckChecker, m_radius, 0xC);
+VALIDATE_OFFSET(CPedStuckChecker, m_state, 0xE);
 VALIDATE_SIZE(CPedStuckChecker, 0x10);

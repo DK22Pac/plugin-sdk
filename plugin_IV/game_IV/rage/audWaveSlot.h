@@ -14,4 +14,5 @@ namespace rage {
     public:
         static audWaveSlot* FindWaveSlot(const char* name);
     };
+    VALIDATE_SIZE(audWaveSlot, 0x1);
 }

@@ -48,3 +48,5 @@ public:
     ~CSprite2d();
     CSprite2d();
 };
+VALIDATE_OFFSET(CSprite2d, m_pTexture, 0x0);
+VALIDATE_SIZE(CSprite2d, 0x4);

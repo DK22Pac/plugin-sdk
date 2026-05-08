@@ -17,5 +17,6 @@ public:
 public:
     CDrawRectDC(rage::Vector4 const& rect, rage::Color32 const& col);
 };
-
+VALIDATE_OFFSET(CDrawRectDC, m_rect, 0x8);
+VALIDATE_OFFSET(CDrawRectDC, m_col, 0x18);
 VALIDATE_SIZE(CDrawRectDC, 0x1C);

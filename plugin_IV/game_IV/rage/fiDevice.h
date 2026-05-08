@@ -13,4 +13,5 @@ namespace rage {
     public:
         rage::fiDevice* GetDevice(char* filename, char readOnly);
     };
+    VALIDATE_SIZE(fiDevice, 0x1);
 }

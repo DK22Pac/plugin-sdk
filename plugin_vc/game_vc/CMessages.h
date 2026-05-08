@@ -50,3 +50,4 @@ public:
 	static void InsertPlayerControlKeysInString(char* text);
 	static void InsertStringInString(char* text, const char* str);
 };
+VALIDATE_SIZE(CMessages, 0x1);

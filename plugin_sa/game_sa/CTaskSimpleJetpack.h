@@ -67,6 +67,34 @@ public:
 
     CTaskSimpleJetPack(const CVector *pVecTargetPos = NULL, float fCruiseHeight = 10.0f, int nHoverTime = 0);
 };
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_bIsFinished, 0x8);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_bAddedIdleAnim, 0x9);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_bAnimsReferenced, 0xA);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_bAttackButtonPressed, 0xB);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_bSwitchedWeapons, 0xC);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_nThrustStop, 0xD);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_nThrustFwd, 0xE);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fThrustStrafe, 0x10);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fThrustAngle, 0x14);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fLegSwingFwd, 0x18);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fLegSwingSide, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fLegTwist, 0x20);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fLegSwingFwdSpeed, 0x24);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fLegSwingSideSpeed, 0x28);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fLegTwistSpeed, 0x2C);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_vecOldSpeed, 0x30);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fOldHeading, 0x3C);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_pJetPackClump, 0x40);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_pAnim, 0x44);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_vecTargetPos, 0x48);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fCruiseHeight, 0x54);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_nHoverTime, 0x58);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_nStartHover, 0x5C);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_pTargetEnt, 0x60);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_pFxSysL, 0x64);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_pFxSysR, 0x68);
+VALIDATE_OFFSET(CTaskSimpleJetPack, m_fxKeyTime, 0x6C);
+VALIDATE_SIZE(CTaskSimpleJetPack, 0x70);
 
 extern CVector &JETPACK_POS_OFFSET; // { 0.1, 0.08, 0.0 }
 extern CVector &JETPACK_ROT_AXIS;   // { 0.0, 1.0, 0.0 }

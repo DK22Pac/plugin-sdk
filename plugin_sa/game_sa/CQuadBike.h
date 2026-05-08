@@ -51,7 +51,13 @@ public:
 
     CQuadBike(int modelIndex, unsigned char createdBy);
 };
-
+VALIDATE_OFFSET(CQuadBike, m_pHandling, 0x988);
+VALIDATE_OFFSET(CQuadBike, m_rideAnimData, 0x98C);
+VALIDATE_OFFSET(CQuadBike, field_9A8, 0x9A8);
+VALIDATE_OFFSET(CQuadBike, field_9AC, 0x9AC);
+VALIDATE_OFFSET(CQuadBike, field_9B0, 0x9B0);
+VALIDATE_OFFSET(CQuadBike, field_9B4, 0x9B4);
+VALIDATE_OFFSET(CQuadBike, m_nQuadFlags, 0x9B8);
 VALIDATE_SIZE(CQuadBike, 0x9BC);
 
 extern bool& bDoQuadDamping; // true

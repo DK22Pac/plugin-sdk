@@ -12,3 +12,4 @@ class CGrcState_SetLightingMode : public CBaseDC {
 public:
     CGrcState_SetLightingMode(int32_t mode);
 };
+VALIDATE_SIZE(CGrcState_SetLightingMode, 0x8);

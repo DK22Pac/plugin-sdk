@@ -28,7 +28,15 @@ struct tBrightLight {
     char field_36;
     char field_37;
 };
-
+VALIDATE_OFFSET(tBrightLight, m_vecPosition, 0x0);
+VALIDATE_OFFSET(tBrightLight, m_vecRight, 0xC);
+VALIDATE_OFFSET(tBrightLight, m_vecTop, 0x18);
+VALIDATE_OFFSET(tBrightLight, m_vecAt, 0x24);
+VALIDATE_OFFSET(tBrightLight, m_fDistanceToCamera, 0x30);
+VALIDATE_OFFSET(tBrightLight, m_nColor, 0x34);
+VALIDATE_OFFSET(tBrightLight, field_35, 0x35);
+VALIDATE_OFFSET(tBrightLight, field_36, 0x36);
+VALIDATE_OFFSET(tBrightLight, field_37, 0x37);
 VALIDATE_SIZE(tBrightLight, 0x38);
 
 extern unsigned int MAX_NUM_BRIGHTLIGHTS; // default 32
@@ -43,3 +51,4 @@ public:
     static void RegisterOne(CVector posn, CVector top, CVector right, CVector at, unsigned char color, unsigned char arg5, unsigned char arg6, unsigned char arg7);
     static void Init();
 };
+VALIDATE_SIZE(CBrightLights, 0x1);

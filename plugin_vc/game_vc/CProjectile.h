@@ -14,5 +14,4 @@ public:
     //funcs
     CProjectile(int arg0);
 };
-
 VALIDATE_SIZE(CProjectile, 0x194);

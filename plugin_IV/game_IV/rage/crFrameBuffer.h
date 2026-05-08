@@ -16,4 +16,9 @@ namespace rage {
         int8_t field_20;
         int8_t field_21[3];
     };
+    VALIDATE_OFFSET(crFrameBuffer, field_14, 0x14);
+    VALIDATE_OFFSET(crFrameBuffer, gap_18, 0x18);
+    VALIDATE_OFFSET(crFrameBuffer, field_20, 0x20);
+    VALIDATE_OFFSET(crFrameBuffer, field_21, 0x21);
+    VALIDATE_SIZE(crFrameBuffer, 0x24);
 }

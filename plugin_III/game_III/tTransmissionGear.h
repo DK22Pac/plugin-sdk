@@ -12,5 +12,7 @@ struct tTransmissionGear {
 	float fShiftUpVelocity;
 	float fShiftDownVelocity;
 };
-
+VALIDATE_OFFSET(tTransmissionGear, fMaxVelocity, 0x0);
+VALIDATE_OFFSET(tTransmissionGear, fShiftUpVelocity, 0x4);
+VALIDATE_OFFSET(tTransmissionGear, fShiftDownVelocity, 0x8);
 VALIDATE_SIZE(tTransmissionGear, 0xC);

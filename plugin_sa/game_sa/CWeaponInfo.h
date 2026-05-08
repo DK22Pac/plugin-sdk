@@ -104,7 +104,35 @@ public:
 	// closing
 	static void Shutdown();
 };
-
+VALIDATE_OFFSET(CWeaponInfo, m_nWeaponFire, 0x0);
+VALIDATE_OFFSET(CWeaponInfo, m_fTargetRange, 0x4);
+VALIDATE_OFFSET(CWeaponInfo, m_fWeaponRange, 0x8);
+VALIDATE_OFFSET(CWeaponInfo, m_nModelId, 0xC);
+VALIDATE_OFFSET(CWeaponInfo, m_nModelId2, 0x10);
+VALIDATE_OFFSET(CWeaponInfo, m_nSlot, 0x14);
+VALIDATE_OFFSET(CWeaponInfo, m_nFlags, 0x18);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimToPlay, 0x1C);
+VALIDATE_OFFSET(CWeaponInfo, m_nAmmoClip, 0x20);
+VALIDATE_OFFSET(CWeaponInfo, m_nDamage, 0x22);
+VALIDATE_OFFSET(CWeaponInfo, m_vecFireOffset, 0x24);
+VALIDATE_OFFSET(CWeaponInfo, m_nSkillLevel, 0x30);
+VALIDATE_OFFSET(CWeaponInfo, m_nReqStatLevel, 0x34);
+VALIDATE_OFFSET(CWeaponInfo, m_fAccuracy, 0x38);
+VALIDATE_OFFSET(CWeaponInfo, m_fMoveSpeed, 0x3C);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnimLoopStart, 0x40);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnimLoopEnd, 0x44);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimLoopFire, 0x48);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimLoop2Start, 0x4C);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimLoop2End, 0x50);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimLoop2Fire, 0x54);
+VALIDATE_OFFSET(CWeaponInfo, m_fBreakoutTime, 0x58);
+VALIDATE_OFFSET(CWeaponInfo, m_fSpeed, 0x5C);
+VALIDATE_OFFSET(CWeaponInfo, m_fRadius, 0x60);
+VALIDATE_OFFSET(CWeaponInfo, m_fLifespan, 0x64);
+VALIDATE_OFFSET(CWeaponInfo, m_fSpread, 0x68);
+VALIDATE_OFFSET(CWeaponInfo, m_nAimOffsetIndex, 0x6C);
+VALIDATE_OFFSET(CWeaponInfo, m_nBaseCombo, 0x6E);
+VALIDATE_OFFSET(CWeaponInfo, m_nNumCombos, 0x6F);
 VALIDATE_SIZE(CWeaponInfo, 0x70);
 
 // list of weapon infos. Count: MAX_WEAPON_INFOS (80)

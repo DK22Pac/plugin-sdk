@@ -65,6 +65,8 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void PlayAnimation(char const *name);
 };
+VALIDATE_OFFSET(CCutsceneHead, m_pHeadNode, 0x198);
+VALIDATE_SIZE(CCutsceneHead, 0x19C);
 
 VTABLE_DESC(CCutsceneHead, 0x5F7C08, 18);
 VALIDATE_SIZE(CCutsceneHead, 0x19C);

@@ -24,6 +24,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Render();
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_nId, 0x0);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_color, 0x4);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_avecLeftPoints, 0x8);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_avecRightPoints, 0x2C);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_bExists, 0x50);
+VALIDATE_SIZE(CRegisteredMotionBlurStreak, 0x54);
 
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&StreakIndexList)[12]; // RwImVertexIndex StreakIndexList[12]
 SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&StreakVertices)[4]; // RwIm3DVertex StreakVertices[4]

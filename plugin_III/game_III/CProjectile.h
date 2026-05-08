@@ -67,6 +67,7 @@ public:
     // virtual function #17 (not overriden)
 
 };
+VALIDATE_SIZE(CProjectile, 0x198);
 
 VTABLE_DESC(CProjectile, 0x5F8048, 18);
 VALIDATE_SIZE(CProjectile, 0x198);

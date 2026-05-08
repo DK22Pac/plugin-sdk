@@ -84,6 +84,8 @@ namespace rage {
             float Float;
         };
     };
-
+    VALIDATE_OFFSET(grcRenderState, State, 0x0);
+    VALIDATE_OFFSET(grcRenderState, Int, 0x4);
+    VALIDATE_OFFSET(grcRenderState, Float, 0x4);
     VALIDATE_SIZE(grcRenderState, 0x8);
 }

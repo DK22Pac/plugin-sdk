@@ -55,5 +55,26 @@ public:
     
     CTaskSimpleSwim(CVector const* pPosn, CPed* pPed);
 };
-
+VALIDATE_OFFSET(CTaskSimpleSwim, m_bFinishedBlending, 0x8);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_bAnimBlockRefAdded, 0x9);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_nSwimState, 0xA);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_AnimID, 0xC);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_fAnimSpeed, 0x10);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_vecPos, 0x14);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_pPed, 0x20);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_24, 0x24);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_28, 0x28);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_2C, 0x2C);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_30, 0x30);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_34, 0x34);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_pEntity, 0x38);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_pClimbPos, 0x3C);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_fAngle, 0x48);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_nSurfaceType, 0x4C);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_50, 0x50);
+VALIDATE_OFFSET(CTaskSimpleSwim, flt_54, 0x54);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_nProcessTimeCounter, 0x58);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_pFxSystem, 0x5C);
+VALIDATE_OFFSET(CTaskSimpleSwim, m_bTriggerWaterSplash, 0x60);
+VALIDATE_OFFSET(CTaskSimpleSwim, pad2, 0x61);
 VALIDATE_SIZE(CTaskSimpleSwim, 0x64);

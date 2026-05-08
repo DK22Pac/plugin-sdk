@@ -15,7 +15,8 @@ public:
     signed char m_nPedModelOverride;
     int m_nGangWeapons[3];
 };
-
+VALIDATE_OFFSET(CGangInfo, m_nPedModelOverride, 0x0);
+VALIDATE_OFFSET(CGangInfo, m_nGangWeapons, 0x4);
 VALIDATE_SIZE(CGangInfo, 0x10);
 
 #include "meta/meta.CGangInfo.h"

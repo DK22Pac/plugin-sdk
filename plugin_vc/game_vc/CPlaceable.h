@@ -21,3 +21,4 @@ public:
 
     inline CMatrix& GetMatrix() { return *this; }
 };
+VALIDATE_SIZE(CPlaceable, 0x48);

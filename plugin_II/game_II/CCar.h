@@ -188,7 +188,16 @@ struct tCarDoor {
     unsigned char field_e;
     unsigned char field_f;
 };
-
+VALIDATE_OFFSET(tCarDoor, animationFrame, 0x0);
+VALIDATE_OFFSET(tCarDoor, field_1, 0x1);
+VALIDATE_OFFSET(tCarDoor, index, 0x2);
+VALIDATE_OFFSET(tCarDoor, field_3, 0x3);
+VALIDATE_OFFSET(tCarDoor, state, 0x4);
+VALIDATE_OFFSET(tCarDoor, ped, 0x8);
+VALIDATE_OFFSET(tCarDoor, field_c, 0xC);
+VALIDATE_OFFSET(tCarDoor, field_d, 0xD);
+VALIDATE_OFFSET(tCarDoor, field_e, 0xE);
+VALIDATE_OFFSET(tCarDoor, field_f, 0xF);
 VALIDATE_SIZE(tCarDoor, 0x10);
 
 struct tRoof {
@@ -204,11 +213,26 @@ struct tRoof {
     unsigned char field_16;
     unsigned char field_17;
 };
+VALIDATE_OFFSET(tRoof, sprite, 0x0);
+VALIDATE_OFFSET(tRoof, next, 0x4);
+VALIDATE_OFFSET(tRoof, x, 0x8);
+VALIDATE_OFFSET(tRoof, y, 0xC);
+VALIDATE_OFFSET(tRoof, rotation, 0x10);
+VALIDATE_OFFSET(tRoof, field_12, 0x12);
+VALIDATE_OFFSET(tRoof, field_13, 0x13);
+VALIDATE_OFFSET(tRoof, field_14, 0x14);
+VALIDATE_OFFSET(tRoof, field_15, 0x15);
+VALIDATE_OFFSET(tRoof, field_16, 0x16);
+VALIDATE_OFFSET(tRoof, field_17, 0x17);
+VALIDATE_SIZE(tRoof, 0x18);
 
 struct tPassenger {
     CPed* ped;
     tPassenger* prev;
 };
+VALIDATE_OFFSET(tPassenger, ped, 0x0);
+VALIDATE_OFFSET(tPassenger, prev, 0x4);
+VALIDATE_SIZE(tPassenger, 0x8);
 
 class PLUGIN_API CCar {
 public:
@@ -276,5 +300,63 @@ public:
     void SetPosition(CEncodedVector pos);
     void SetRemap(short remap);
 };
-
+VALIDATE_OFFSET(CCar, m_pRoof, 0x0);
+VALIDATE_OFFSET(CCar, m_pLastPassenger, 0x4);
+VALIDATE_OFFSET(CCar, m_nCarLights, 0x8);
+VALIDATE_OFFSET(CCar, m_aCarDoor, 0xC);
+VALIDATE_OFFSET(CCar, m_pLastCar, 0x4C);
+VALIDATE_OFFSET(CCar, m_pSprite, 0x50);
+VALIDATE_OFFSET(CCar, m_pDriver, 0x54);
+VALIDATE_OFFSET(CCar, m_pPhysics, 0x58);
+VALIDATE_OFFSET(CCar, field_56, 0x5C);
+VALIDATE_OFFSET(CCar, field_60, 0x60);
+VALIDATE_OFFSET(CCar, m_pTrailerCtrl, 0x64);
+VALIDATE_OFFSET(CCar, field_68, 0x68);
+VALIDATE_OFFSET(CCar, m_nIndex, 0x6C);
+VALIDATE_OFFSET(CCar, m_bDamaged, 0x70);
+VALIDATE_OFFSET(CCar, field_71, 0x71);
+VALIDATE_OFFSET(CCar, field_72, 0x72);
+VALIDATE_OFFSET(CCar, field_73, 0x73);
+VALIDATE_OFFSET(CCar, m_nDamage, 0x74);
+VALIDATE_OFFSET(CCar, field_76, 0x76);
+VALIDATE_OFFSET(CCar, m_nBitMask, 0x78);
+VALIDATE_OFFSET(CCar, field_7a, 0x7A);
+VALIDATE_OFFSET(CCar, field_7b, 0x7B);
+VALIDATE_OFFSET(CCar, field_7c, 0x7C);
+VALIDATE_OFFSET(CCar, field_80, 0x80);
+VALIDATE_OFFSET(CCar, field_81, 0x81);
+VALIDATE_OFFSET(CCar, field_82, 0x82);
+VALIDATE_OFFSET(CCar, field_83, 0x83);
+VALIDATE_OFFSET(CCar, m_nModel, 0x84);
+VALIDATE_OFFSET(CCar, m_nMask, 0x88);
+VALIDATE_OFFSET(CCar, m_nFire, 0x8C);
+VALIDATE_OFFSET(CCar, field_8d, 0x8D);
+VALIDATE_OFFSET(CCar, m_nAlarmTimer, 0x8E);
+VALIDATE_OFFSET(CCar, field_8f, 0x8F);
+VALIDATE_OFFSET(CCar, m_nDamageType, 0x90);
+VALIDATE_OFFSET(CCar, m_nDamageShotTimer, 0x94);
+VALIDATE_OFFSET(CCar, m_nPlayerId, 0x95);
+VALIDATE_OFFSET(CCar, field_96, 0x96);
+VALIDATE_OFFSET(CCar, field_97, 0x97);
+VALIDATE_OFFSET(CCar, m_nDoorLockState, 0x98);
+VALIDATE_OFFSET(CCar, m_nEngineState, 0x9C);
+VALIDATE_OFFSET(CCar, m_nTrafficCarType, 0xA0);
+VALIDATE_OFFSET(CCar, m_nSirenState, 0xA4);
+VALIDATE_OFFSET(CCar, m_nSirenPhase, 0xA5);
+VALIDATE_OFFSET(CCar, field_a6, 0xA6);
+VALIDATE_OFFSET(CCar, m_bHorn, 0xA7);
+VALIDATE_OFFSET(CCar, field_a8, 0xA8);
+VALIDATE_OFFSET(CCar, m_nFireTimer, 0xA9);
+VALIDATE_OFFSET(CCar, field_aa, 0xAA);
+VALIDATE_OFFSET(CCar, field_ab, 0xAB);
+VALIDATE_OFFSET(CCar, field_ac, 0xAC);
+VALIDATE_OFFSET(CCar, field_ad, 0xAD);
+VALIDATE_OFFSET(CCar, field_ae, 0xAE);
+VALIDATE_OFFSET(CCar, field_af, 0xAF);
+VALIDATE_OFFSET(CCar, field_b0, 0xB0);
+VALIDATE_OFFSET(CCar, m_nPlaySound, 0xB4);
+VALIDATE_OFFSET(CCar, m_bTurretRotated, 0xB5);
+VALIDATE_OFFSET(CCar, field_b9, 0xB6);
+VALIDATE_OFFSET(CCar, field_ba, 0xB7);
+VALIDATE_OFFSET(CCar, field_bb, 0xB8);
 VALIDATE_SIZE(CCar, 0xBC);

@@ -14,5 +14,7 @@ public:
     unsigned int m_nHierarchyId;
     unsigned int m_nFlags;
 };
-
+VALIDATE_OFFSET(RwObjectNameIdAssocation, m_pName, 0x0);
+VALIDATE_OFFSET(RwObjectNameIdAssocation, m_nHierarchyId, 0x4);
+VALIDATE_OFFSET(RwObjectNameIdAssocation, m_nFlags, 0x8);
 VALIDATE_SIZE(RwObjectNameIdAssocation, 0xC);

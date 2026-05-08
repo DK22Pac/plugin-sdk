@@ -21,7 +21,12 @@ public:
     float m_fDistanceToCamera;
     RwRGBA m_color;
 };
-
+VALIDATE_OFFSET(CBrightLight, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CBrightLight, m_vecRight, 0xC);
+VALIDATE_OFFSET(CBrightLight, m_vecUp, 0x18);
+VALIDATE_OFFSET(CBrightLight, m_vecAt, 0x24);
+VALIDATE_OFFSET(CBrightLight, m_fDistanceToCamera, 0x30);
+VALIDATE_OFFSET(CBrightLight, m_color, 0x34);
 VALIDATE_SIZE(CBrightLight, 0x38);
 
 #include "meta/meta.CBrightLight.h"

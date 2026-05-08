@@ -50,7 +50,14 @@ public:
     void SetLodDistances(float* distances);
     void SetupBigBuilding(int minLineIndex, int maxLineIndex);
 };
-
+VALIDATE_OFFSET(CSimpleModelInfo, m_apAtomics, 0x28);
+VALIDATE_OFFSET(CSimpleModelInfo, m_pLodModelInfo, 0x30);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nWeaponType, 0x30);
+VALIDATE_OFFSET(CSimpleModelInfo, m_afLodDistances, 0x34);
+VALIDATE_OFFSET(CSimpleModelInfo, m_fLodModelDistance, 0x3C);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nNumAtomics, 0x40);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nVisibility, 0x41);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nFlags, 0x42);
 VALIDATE_SIZE(CSimpleModelInfo, 0x44);
 
 struct SimpleModelStore {
@@ -59,3 +66,6 @@ struct SimpleModelStore {
 
     ~SimpleModelStore();
 };
+VALIDATE_OFFSET(SimpleModelStore, m_nCount, 0x0);
+VALIDATE_OFFSET(SimpleModelStore, m_sObject, 0x4);
+VALIDATE_SIZE(SimpleModelStore, 0x407F8);

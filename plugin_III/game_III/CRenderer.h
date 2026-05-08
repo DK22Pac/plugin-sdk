@@ -17,3 +17,4 @@ public:
 public:
 	static void ConstructRenderList();
 };
+VALIDATE_SIZE(CRenderer, 0x1);

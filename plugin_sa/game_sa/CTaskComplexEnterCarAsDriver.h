@@ -16,5 +16,4 @@ public:
     CTaskComplexEnterCarAsDriver(CVehicle* pTargetVehicle);
 
 };
-
 VALIDATE_SIZE(CTaskComplexEnterCarAsDriver, 0x50);

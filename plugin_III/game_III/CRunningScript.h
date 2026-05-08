@@ -65,5 +65,22 @@ public:
 
     static unsigned char *GetScriptSpaceBase();
 };
-
+VALIDATE_OFFSET(CRunningScript, m_pNext, 0x0);
+VALIDATE_OFFSET(CRunningScript, m_pPrev, 0x4);
+VALIDATE_OFFSET(CRunningScript, m_szName, 0x8);
+VALIDATE_OFFSET(CRunningScript, m_nIp, 0x10);
+VALIDATE_OFFSET(CRunningScript, m_anStack, 0x14);
+VALIDATE_OFFSET(CRunningScript, m_nSP, 0x2C);
+VALIDATE_OFFSET(CRunningScript, m_aLocalVars, 0x30);
+VALIDATE_OFFSET(CRunningScript, m_anTimers, 0x70);
+VALIDATE_OFFSET(CRunningScript, m_bCondResult, 0x78);
+VALIDATE_OFFSET(CRunningScript, m_bUseMissionCleanup, 0x79);
+VALIDATE_OFFSET(CRunningScript, m_bIsActive, 0x7A);
+VALIDATE_OFFSET(CRunningScript, m_bAwake, 0x7B);
+VALIDATE_OFFSET(CRunningScript, m_nWakeTime, 0x7C);
+VALIDATE_OFFSET(CRunningScript, m_nLogicalOp, 0x80);
+VALIDATE_OFFSET(CRunningScript, m_bNotFlag, 0x82);
+VALIDATE_OFFSET(CRunningScript, m_bWastedBustedCheck, 0x83);
+VALIDATE_OFFSET(CRunningScript, m_bWastedOrBusted, 0x84);
+VALIDATE_OFFSET(CRunningScript, m_bIsMission, 0x85);
 VALIDATE_SIZE(CRunningScript, 0x88);

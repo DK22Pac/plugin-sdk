@@ -14,5 +14,7 @@ struct PLUGIN_API RwObjectNameIdAssocation
     unsigned int m_dwHierarchyId;
     unsigned int m_dwFlags;
 };
-
+VALIDATE_OFFSET(RwObjectNameIdAssocation, m_pName, 0x0);
+VALIDATE_OFFSET(RwObjectNameIdAssocation, m_dwHierarchyId, 0x4);
+VALIDATE_OFFSET(RwObjectNameIdAssocation, m_dwFlags, 0x8);
 VALIDATE_SIZE(RwObjectNameIdAssocation, 0xC);

@@ -11,3 +11,4 @@ class CReplay {
 public:
     static bool& ms_bSaving;
 };
+VALIDATE_SIZE(CReplay, 0x1);

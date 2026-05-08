@@ -59,6 +59,10 @@ public:
 	 */
 	ListItem_c * GetItemOffset(bool bFromHead, int iOffset);
 };
+VALIDATE_OFFSET(List_c, last, 0x0);
+VALIDATE_OFFSET(List_c, first, 0x4);
+VALIDATE_OFFSET(List_c, count, 0x8);
+VALIDATE_SIZE(List_c, 0xC);
 
 
 /**

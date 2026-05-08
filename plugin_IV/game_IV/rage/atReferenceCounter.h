@@ -12,4 +12,5 @@ namespace rage {
     class atReferenceCounter : datBase {
 
     };
+    VALIDATE_SIZE(atReferenceCounter, 0x4);
 }

@@ -38,6 +38,7 @@ public:
     //! dummy function
     SUPPORTED_10EN_11EN_STEAM static void TidyUpMemory(bool moveTextures, bool flushDraw);
 };
+VALIDATE_SIZE(CGame, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern int &gameTxdSlot;
 extern int &gGameState;

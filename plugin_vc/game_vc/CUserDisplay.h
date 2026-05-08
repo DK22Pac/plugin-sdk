@@ -20,3 +20,4 @@ public:
     static void Init();
     static void Process();
 };
+VALIDATE_SIZE(CUserDisplay, 0x1);

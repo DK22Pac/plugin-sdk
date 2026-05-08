@@ -24,7 +24,12 @@ private:
     char _pad31[3];
 public:
 };
-
+VALIDATE_OFFSET(CPhone, m_vecPos, 0x0);
+VALIDATE_OFFSET(CPhone, m_pMessages, 0xC);
+VALIDATE_OFFSET(CPhone, m_nStartTimer, 0x24);
+VALIDATE_OFFSET(CPhone, m_pEntity, 0x28);
+VALIDATE_OFFSET(CPhone, m_nState, 0x2C);
+VALIDATE_OFFSET(CPhone, m_bPlayerIsClose, 0x30);
 VALIDATE_SIZE(CPhone, 0x34);
 
 #include "meta/meta.CPhone.h"

@@ -28,5 +28,9 @@ private:
     char _unused40[12];
 public:
 };
-
+VALIDATE_OFFSET(tBinaryIplFile, fourcc, 0x0);
+VALIDATE_OFFSET(tBinaryIplFile, numInstances, 0x4);
+VALIDATE_OFFSET(tBinaryIplFile, numCarGenerators, 0x14);
+VALIDATE_OFFSET(tBinaryIplFile, instancesOffset, 0x1C);
+VALIDATE_OFFSET(tBinaryIplFile, carGeneratorsOffset, 0x3C);
 VALIDATE_SIZE(tBinaryIplFile, 0x4C);

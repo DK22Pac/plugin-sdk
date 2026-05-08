@@ -16,5 +16,8 @@ public:
     class IFrame  *m_pIFrame;
     unsigned int   m_nNodeId;
 };
-
+VALIDATE_OFFSET(AnimBlendFrameData, m_nFlags, 0x0);
+VALIDATE_OFFSET(AnimBlendFrameData, m_vecOffset, 0x4);
+VALIDATE_OFFSET(AnimBlendFrameData, m_pIFrame, 0x10);
+VALIDATE_OFFSET(AnimBlendFrameData, m_nNodeId, 0x14);
 VALIDATE_SIZE(AnimBlendFrameData, 0x18);

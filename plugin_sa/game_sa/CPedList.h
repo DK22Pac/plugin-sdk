@@ -24,7 +24,8 @@ public:
     SUPPORTED_10US void RemovePedsAttackingPedType(int pedtype);
     SUPPORTED_10US void RemovePedsThatDontListenToPlayer();
 };
-
+VALIDATE_OFFSET(CPedList, m_nCount, 0x0);
+VALIDATE_OFFSET(CPedList, m_apPeds, 0x4);
 VALIDATE_SIZE(CPedList, 0x7C);
 
 #include "meta/meta.CPedList.h"

@@ -31,3 +31,4 @@ public:
 	static char FindPoliceCarMissionForWantedLevel();
 
 };
+VALIDATE_SIZE(CCarAI, 0x1);

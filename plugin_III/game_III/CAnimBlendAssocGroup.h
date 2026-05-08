@@ -26,6 +26,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM CAnimBlendAssociation *GetAnimation(char const *name);
     SUPPORTED_10EN_11EN_STEAM CAnimBlendAssociation *GetAnimation(unsigned int id);
 };
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_pAssociations, 0x0);
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_nNumAssociations, 0x4);
+VALIDATE_SIZE(CAnimBlendAssocGroup, 0x8);
 
 SUPPORTED_10EN_11EN_STEAM bool strcmpIgnoringDigits(char const *s1, char const *s2);
 SUPPORTED_10EN_11EN_STEAM CBaseModelInfo *GetModelFromName(char const *name);

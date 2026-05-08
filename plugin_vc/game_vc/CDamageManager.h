@@ -106,5 +106,8 @@ public:
      void SetWheelStatus(int wheel, unsigned int status);
      void SetLightStatus(eLights light, unsigned int status);
 };
-
+VALIDATE_OFFSET(CDamageManager, uDamId, 0x0);
+VALIDATE_OFFSET(CDamageManager, bStates, 0x4);
+VALIDATE_OFFSET(CDamageManager, uLightBits, 0x10);
+VALIDATE_OFFSET(CDamageManager, uPanelBits, 0x14);
 VALIDATE_SIZE(CDamageManager, 0x18);

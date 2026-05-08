@@ -74,3 +74,12 @@ public:
     CDecisionMaker m_DefaultRandomPedGroupDecisionMaker;
     CDecisionMaker m_DefaultMissionPedGroupDecisionMaker;
 };
+VALIDATE_OFFSET(CDecisionMakerTypes, m_NoOfDecisionMakers, 0x0);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_DecisionMakers, 0x4);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_EventIndices, 0xC034);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_DefaultRandomPedDecisionMaker, 0xC1B4);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_DefaultMissionPedDecisionMaker, 0xCB50);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_DefaultPlayerPedDecisionMaker, 0xD4EC);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_DefaultRandomPedGroupDecisionMaker, 0xDE88);
+VALIDATE_OFFSET(CDecisionMakerTypes, m_DefaultMissionPedGroupDecisionMaker, 0xE824);
+VALIDATE_SIZE(CDecisionMakerTypes, 0xF1C0);

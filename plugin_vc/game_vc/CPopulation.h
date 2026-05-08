@@ -80,3 +80,4 @@ public:
     static void Update(bool generatePeds);
     static void UpdatePedCount(ePedType pedType, unsigned char updateState);
 };
+VALIDATE_SIZE(CPopulation, 0x1);

@@ -45,5 +45,19 @@ public:
     
    CTaskSimpleFight(CEntity *pTargetEntity, int nCommand, unsigned int nIdlePeriod = 10000);
 };
-
+VALIDATE_OFFSET(CTaskSimpleFight, m_bIsFinished, 0x8);
+VALIDATE_OFFSET(CTaskSimpleFight, m_bIsInControl, 0x9);
+VALIDATE_OFFSET(CTaskSimpleFight, m_bAnimsReferenced, 0xA);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nRequiredAnimGroup, 0xC);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nIdlePeriod, 0x10);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nIdleCounter, 0x12);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nContinueStrike, 0x14);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nChainCounter, 0x15);
+VALIDATE_OFFSET(CTaskSimpleFight, m_pTargetEntity, 0x18);
+VALIDATE_OFFSET(CTaskSimpleFight, m_pAnim, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleFight, m_pIdleAnim, 0x20);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nComboSet, 0x24);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nCurrentMove, 0x25);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nNextCommand, 0x26);
+VALIDATE_OFFSET(CTaskSimpleFight, m_nLastCommand, 0x27);
 VALIDATE_SIZE(CTaskSimpleFight, 0x28);

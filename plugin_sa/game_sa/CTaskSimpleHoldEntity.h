@@ -39,5 +39,20 @@ public:
     CAnimBlendAssociation* m_pAnimBlendAssociation;
     
 };
-
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_pEntityToHold, 0x8);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_vecPosition, 0xC);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_nBoneFrameId, 0x18);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_bBoneFlags, 0x19);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, field_1A, 0x1A);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_fRotation, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_nAnimId, 0x20);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_nAnimGroupId, 0x24);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_animFlags, 0x28);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_pAnimBlock, 0x2C);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_pAnimBlendHierarchy, 0x30);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_bEntityDropped, 0x34);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_bEntityRequiresProcessing, 0x35);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_bDisallowDroppingOnAnimEnd, 0x36);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, field_37, 0x37);
+VALIDATE_OFFSET(CTaskSimpleHoldEntity, m_pAnimBlendAssociation, 0x38);
 VALIDATE_SIZE(CTaskSimpleHoldEntity, 0x3C);

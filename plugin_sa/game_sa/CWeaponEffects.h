@@ -45,7 +45,15 @@ public:
     static void ClearCrossHairsImmediately();
     static void Render();
 };
-
+VALIDATE_OFFSET(CWeaponEffects, m_bActive, 0x0);
+VALIDATE_OFFSET(CWeaponEffects, m_nTimeWhenToDeactivate, 0x4);
+VALIDATE_OFFSET(CWeaponEffects, m_vecPosn, 0x8);
+VALIDATE_OFFSET(CWeaponEffects, m_color, 0x14);
+VALIDATE_OFFSET(CWeaponEffects, m_fSize, 0x18);
+VALIDATE_OFFSET(CWeaponEffects, field_1C, 0x1C);
+VALIDATE_OFFSET(CWeaponEffects, field_20, 0x20);
+VALIDATE_OFFSET(CWeaponEffects, m_fRotation, 0x24);
+VALIDATE_OFFSET(CWeaponEffects, field_28, 0x28);
 VALIDATE_SIZE(CWeaponEffects, 0x2C);
 
 extern unsigned int MAX_NUM_WEAPON_CROSSHAIRS; // default 2

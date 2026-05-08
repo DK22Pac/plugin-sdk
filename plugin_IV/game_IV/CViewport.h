@@ -22,5 +22,14 @@ public:
     float FindAspectRatio(bool wide);
     void SetWidescreenBorders(bool on, int32_t delay);
 };
+VALIDATE_OFFSET(CViewport, field_1, 0x0);
+VALIDATE_OFFSET(CViewport, field_2, 0x2);
+VALIDATE_OFFSET(CViewport, field_3, 0x4);
+VALIDATE_OFFSET(CViewport, field_4, 0x6);
+VALIDATE_OFFSET(CViewport, field_5, 0x8);
+VALIDATE_OFFSET(CViewport, field_6, 0xA);
+VALIDATE_OFFSET(CViewport, field_1107, 0xC);
+VALIDATE_OFFSET(CViewport, m_bWidescreen, 0x453);
+VALIDATE_SIZE(CViewport, 0x454);
 
 extern CViewport& TheViewport;

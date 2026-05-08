@@ -22,6 +22,13 @@ struct tSample {
     int loopStart;
     int loopEnd;
 };
+VALIDATE_OFFSET(tSample, offset, 0x0);
+VALIDATE_OFFSET(tSample, size, 0x4);
+VALIDATE_OFFSET(tSample, frequency, 0x8);
+VALIDATE_OFFSET(tSample, field_C, 0xC);
+VALIDATE_OFFSET(tSample, loopStart, 0x10);
+VALIDATE_OFFSET(tSample, loopEnd, 0x14);
+VALIDATE_SIZE(tSample, 0x18);
 
 class cSampleManager {
 public:
@@ -71,7 +78,40 @@ public:
     bool IsFrontendTrackPlaying();
     bool IsSampleNotPlaying();
 };
-
+VALIDATE_OFFSET(cSampleManager, m_pDig, 0x0);
+VALIDATE_OFFSET(cSampleManager, field_4, 0x4);
+VALIDATE_OFFSET(cSampleManager, m_szCDRomRootPath, 0x5);
+VALIDATE_OFFSET(cSampleManager, m_bInitialised, 0x55);
+VALIDATE_OFFSET(cSampleManager, pad, 0x56);
+VALIDATE_OFFSET(cSampleManager, m_hSamples, 0x58);
+VALIDATE_OFFSET(cSampleManager, m_hSample, 0x98);
+VALIDATE_OFFSET(cSampleManager, m_hStreams, 0x9C);
+VALIDATE_OFFSET(cSampleManager, field_A4, 0xA4);
+VALIDATE_OFFSET(cSampleManager, field_A5, 0xA5);
+VALIDATE_OFFSET(cSampleManager, field_A6, 0xA6);
+VALIDATE_OFFSET(cSampleManager, field_A7, 0xA7);
+VALIDATE_OFFSET(cSampleManager, m_aSamples, 0xA8);
+VALIDATE_OFFSET(cSampleManager, field_1EA8, 0x1EA8);
+VALIDATE_OFFSET(cSampleManager, field_1EAC, 0x1EAC);
+VALIDATE_OFFSET(cSampleManager, m_nNumberOfSamples, 0x1EB0);
+VALIDATE_OFFSET(cSampleManager, field_1EB1, 0x1EB1);
+VALIDATE_OFFSET(cSampleManager, field_1EB2, 0x1EB2);
+VALIDATE_OFFSET(cSampleManager, field_1EB3, 0x1EB3);
+VALIDATE_OFFSET(cSampleManager, m_aProvider, 0x1EB4);
+VALIDATE_OFFSET(cSampleManager, m_szStr, 0x22B4);
+VALIDATE_OFFSET(cSampleManager, field_26B4, 0x26B4);
+VALIDATE_OFFSET(cSampleManager, m_nUsingEAX, 0x26B8);
+VALIDATE_OFFSET(cSampleManager, field_26BC, 0x26BC);
+VALIDATE_OFFSET(cSampleManager, m_n3dProvider, 0x26C0);
+VALIDATE_OFFSET(cSampleManager, m_a3dSamples, 0x26C4);
+VALIDATE_OFFSET(cSampleManager, field_2704, 0x2704);
+VALIDATE_OFFSET(cSampleManager, field_2708, 0x2708);
+VALIDATE_OFFSET(cSampleManager, field_270C, 0x270C);
+VALIDATE_OFFSET(cSampleManager, field_2710, 0x2710);
+VALIDATE_OFFSET(cSampleManager, field_2714, 0x2714);
+VALIDATE_OFFSET(cSampleManager, field_2715, 0x2715);
+VALIDATE_OFFSET(cSampleManager, field_2716, 0x2716);
+VALIDATE_OFFSET(cSampleManager, field_2717, 0x2717);
 VALIDATE_SIZE(cSampleManager, 0x2718);
 
 extern cSampleManager& SampleManager;

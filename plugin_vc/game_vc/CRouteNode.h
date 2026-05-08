@@ -24,6 +24,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Initialise();
     SUPPORTED_10EN_11EN_STEAM static void RemoveRoute(short route);
 };
+VALIDATE_OFFSET(CRouteNode, m_nRoute, 0x0);
+VALIDATE_OFFSET(CRouteNode, m_vecPosition, 0x4);
+VALIDATE_SIZE(CRouteNode, 0x10);
 
 SUPPORTED_10EN_11EN_STEAM extern CRouteNode(&gaRoutes)[200]; // CRouteNode gaRoutes[200]
 

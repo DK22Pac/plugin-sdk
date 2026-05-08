@@ -40,5 +40,6 @@ public:
     // Updates coronas
     static void Update();
 };
+VALIDATE_SIZE(CCoronas, 0x1);
 
 extern RwTexture **gpCoronaTexture;

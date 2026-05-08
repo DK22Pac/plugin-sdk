@@ -33,6 +33,13 @@ public:
     CTaskSimpleCarSetPedInAsPassenger(CVehicle *pTargetVehicle, int nTargetDoor, CTaskUtilityLineUpPedWithCar *pUtility);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_bIsFinished, 0x8);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_pAnim, 0xC);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_pTargetVehicle, 0x10);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_iTargetDoor, 0x14);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_pUtility, 0x18);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_bWarpingInToCar, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_nDoorFlagsToClear, 0x1D);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsPassenger, m_nNumGettingInToClear, 0x1E);
 VALIDATE_SIZE(CTaskSimpleCarSetPedInAsPassenger, 0x20);
 

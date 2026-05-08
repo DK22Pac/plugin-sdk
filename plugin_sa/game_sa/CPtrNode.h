@@ -14,5 +14,6 @@ public:
 
 	inline CPtrNode(void* item) : m_pVoid(item) {}
 };
-
-VALIDATE_SIZE(CPtrNode, 8);
+VALIDATE_OFFSET(CPtrNode, m_pVoid, 0x0);
+VALIDATE_OFFSET(CPtrNode, m_pNext, 0x4);
+VALIDATE_SIZE(CPtrNode, 0x8);

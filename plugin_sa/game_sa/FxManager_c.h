@@ -57,7 +57,17 @@ public:
     FxSystemBP_c* LoadFxSystemBP(char* filename, int file);
     bool LoadFxProject(char* filename);
 };
-
+VALIDATE_OFFSET(FxManager_c, m_fxSystemBPList, 0x0);
+VALIDATE_OFFSET(FxManager_c, m_fxSystemList, 0xC);
+VALIDATE_OFFSET(FxManager_c, m_pFxEmitters, 0x18);
+VALIDATE_OFFSET(FxManager_c, m_fxEmitterPrtList, 0x1C);
+VALIDATE_OFFSET(FxManager_c, m_nFxTxdIndex, 0x28);
+VALIDATE_OFFSET(FxManager_c, m_pWindDir, 0x2C);
+VALIDATE_OFFSET(FxManager_c, m_pfWindSpeed, 0x30);
+VALIDATE_OFFSET(FxManager_c, m_frustum, 0x34);
+VALIDATE_OFFSET(FxManager_c, m_nCurrentMatrix, 0x88);
+VALIDATE_OFFSET(FxManager_c, m_apMatrices, 0x8C);
+VALIDATE_OFFSET(FxManager_c, m_pool, 0xAC);
 VALIDATE_SIZE(FxManager_c, 0xB8);
 
 extern PLUGIN_API FxManager_c &g_fxMan;

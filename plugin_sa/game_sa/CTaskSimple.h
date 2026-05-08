@@ -17,5 +17,4 @@ public:
 	virtual bool ProcessPed(class CPed *ped);//=0
 	virtual bool SetPedPosition(class CPed *ped);
 };
-
-VALIDATE_SIZE(CTaskSimple, 8);
+VALIDATE_SIZE(CTaskSimple, 0x8);

@@ -14,4 +14,6 @@ public:
     uint8_t field_2886[2886];
 
 };
+VALIDATE_OFFSET(audVehicleAudioEntity, field_2886, 0x54);
+VALIDATE_SIZE(audVehicleAudioEntity, 0xB9C);
 

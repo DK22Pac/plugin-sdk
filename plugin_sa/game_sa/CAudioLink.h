@@ -18,5 +18,10 @@ public:
     int m_nBankId;
     int m_nBankSlotId;
 };
-
+VALIDATE_OFFSET(CAudioLink, m_vPosition, 0x0);
+VALIDATE_OFFSET(CAudioLink, m_pEntity, 0xC);
+VALIDATE_OFFSET(CAudioLink, field_10, 0x10);
+VALIDATE_OFFSET(CAudioLink, m_nAudioEvent, 0x14);
+VALIDATE_OFFSET(CAudioLink, m_nBankId, 0x18);
+VALIDATE_OFFSET(CAudioLink, m_nBankSlotId, 0x1C);
 VALIDATE_SIZE(CAudioLink, 0x20);

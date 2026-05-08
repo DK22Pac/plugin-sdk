@@ -23,3 +23,4 @@ public:
 	static void RemoveReferencesToPlayer();
 	static void PruneAllReferencesInWorld();
 };
+VALIDATE_SIZE(CReferences, 0x1);

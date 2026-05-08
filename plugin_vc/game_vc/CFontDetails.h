@@ -46,5 +46,36 @@ public:
 	
 	~CFontDetails();
 };
+VALIDATE_OFFSET(CFontDetails, m_Color, 0x0);
+VALIDATE_OFFSET(CFontDetails, m_vecScale, 0x4);
+VALIDATE_OFFSET(CFontDetails, m_fSlant, 0xC);
+VALIDATE_OFFSET(CFontDetails, m_vecSlantRefPoint, 0x10);
+VALIDATE_OFFSET(CFontDetails, m_bJustify, 0x18);
+VALIDATE_OFFSET(CFontDetails, m_bCentre, 0x19);
+VALIDATE_OFFSET(CFontDetails, m_bRightJustify, 0x1A);
+VALIDATE_OFFSET(CFontDetails, m_bBackground, 0x1B);
+VALIDATE_OFFSET(CFontDetails, m_bBackGroundOnlyText, 0x1C);
+VALIDATE_OFFSET(CFontDetails, m_bPropOn, 0x1D);
+VALIDATE_OFFSET(CFontDetails, m_bForcedColor, 0x1E);
+VALIDATE_OFFSET(CFontDetails, field_1F, 0x1F);
+VALIDATE_OFFSET(CFontDetails, field_20, 0x20);
+VALIDATE_OFFSET(CFontDetails, _pad0, 0x21);
+VALIDATE_OFFSET(CFontDetails, m_fAlpha, 0x24);
+VALIDATE_OFFSET(CFontDetails, m_BackgroundColor, 0x28);
+VALIDATE_OFFSET(CFontDetails, m_fWrapX, 0x2C);
+VALIDATE_OFFSET(CFontDetails, m_fCentreSize, 0x30);
+VALIDATE_OFFSET(CFontDetails, m_fRightJustifyWrap, 0x34);
+VALIDATE_OFFSET(CFontDetails, m_FontStyle, 0x38);
+VALIDATE_OFFSET(CFontDetails, m_bFontHalfTexture, 0x3A);
+VALIDATE_OFFSET(CFontDetails, _unk, 0x3B);
+VALIDATE_OFFSET(CFontDetails, m_nShadowPos, 0x40);
+VALIDATE_OFFSET(CFontDetails, m_DropColor, 0x42);
+VALIDATE_OFFSET(CFontDetails, field_46, 0x46);
+VALIDATE_OFFSET(CFontDetails, field_47, 0x47);
+VALIDATE_OFFSET(CFontDetails, field_48, 0x48);
+VALIDATE_OFFSET(CFontDetails, field_4C, 0x4C);
+VALIDATE_OFFSET(CFontDetails, _pad1, 0x4D);
+VALIDATE_OFFSET(CFontDetails, field_50, 0x50);
+VALIDATE_SIZE(CFontDetails, 0x54);
 
 //VALIDATE_SIZE(CFontDetails, 0x54);

@@ -27,5 +27,8 @@ public:
         char* pTaskName _IGNORED_, bool bHoldLastFrame);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_nAnimGroup, 0x10);
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_nAnimId, 0x14);
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_fBlendDelta, 0x18);
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_nTaskType, 0x1C);
 VALIDATE_SIZE(CTaskSimpleRunAnim, 0x20);

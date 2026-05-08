@@ -45,3 +45,6 @@ public:
     void Draw(CRect const& rect, CRGBA const& color, float u0, float v0, float u1, float v1, float u3, float v3, float u2, float v2);
     void Draw(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, CRGBA const& color);
 };
+VALIDATE_OFFSET(CSprite2d, m_pTexture, 0x0);
+VALIDATE_OFFSET(CSprite2d, m_cPath, 0x4);
+VALIDATE_SIZE(CSprite2d, 0x108);

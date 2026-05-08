@@ -32,5 +32,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void WindowRespondsToExplosion(CEntity *entity, CVector point);
     SUPPORTED_10EN_11EN_STEAM static void WindowRespondsToSoftCollision(CEntity *entity, float amount);
 };
+VALIDATE_SIZE(CGlass, 0x1);
 
 #include "meta/meta.CGlass.h"

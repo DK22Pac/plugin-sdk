@@ -124,6 +124,24 @@ public:
     bool WeaponJustDown();
     ~CPad();
 };
+VALIDATE_OFFSET(CPad, NewState, 0x0);
+VALIDATE_OFFSET(CPad, OldState, 0x2A);
+VALIDATE_OFFSET(CPad, PCTempKeyState, 0x54);
+VALIDATE_OFFSET(CPad, PCTempJoyState, 0x7E);
+VALIDATE_OFFSET(CPad, PCTempMouseState, 0xA8);
+VALIDATE_OFFSET(CPad, Phase, 0xD2);
+VALIDATE_OFFSET(CPad, Mode, 0xD4);
+VALIDATE_OFFSET(CPad, ShakeDur, 0xD6);
+VALIDATE_OFFSET(CPad, ShakeFreq, 0xD8);
+VALIDATE_OFFSET(CPad, bHornHistory, 0xD9);
+VALIDATE_OFFSET(CPad, iCurrHornHistory, 0xDE);
+VALIDATE_OFFSET(CPad, DisablePlayerControls, 0xDF);
+VALIDATE_OFFSET(CPad, bApplyBrakes, 0xE0);
+VALIDATE_OFFSET(CPad, CheatString, 0xE1);
+VALIDATE_OFFSET(CPad, LastTimeTouched, 0xF0);
+VALIDATE_OFFSET(CPad, AverageWeapon, 0xF4);
+VALIDATE_OFFSET(CPad, AverageEntries, 0xF8);
+VALIDATE_SIZE(CPad, 0xFC);
 
 extern CPad* Pads; // [2]
 

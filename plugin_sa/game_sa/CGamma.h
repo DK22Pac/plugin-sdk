@@ -18,7 +18,10 @@ public:
 
 	void SetGamma(float arg1, char arg2);
 };
-
+VALIDATE_OFFSET(CGamma, field_0, 0x0);
+VALIDATE_OFFSET(CGamma, field_4, 0x4);
+VALIDATE_OFFSET(CGamma, field_8, 0x8);
+VALIDATE_OFFSET(CGamma, field_C, 0xC);
 VALIDATE_SIZE(CGamma, 0x10);
 
 extern PLUGIN_API CGamma &gamma;

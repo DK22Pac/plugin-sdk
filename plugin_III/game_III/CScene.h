@@ -14,6 +14,9 @@ public:
     RpWorld *m_pWorld;
     RwCamera *m_pCamera;
 };
+VALIDATE_OFFSET(CScene, m_pWorld, 0x0);
+VALIDATE_OFFSET(CScene, m_pCamera, 0x4);
+VALIDATE_SIZE(CScene, 0x8);
 
 SUPPORTED_10EN_11EN_STEAM extern CScene &Scene;
 

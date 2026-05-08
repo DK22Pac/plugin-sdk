@@ -24,5 +24,6 @@ public:
     static void Shutdown();
     static void Update();
 };
+VALIDATE_SIZE(CSpecialFX, 0x1);
 
 extern RwTexture *&gpFinishFlagTex;

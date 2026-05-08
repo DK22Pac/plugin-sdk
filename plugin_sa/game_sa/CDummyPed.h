@@ -8,10 +8,7 @@
 #include "PluginBase.h"
 #include "CDummy.h"
 
-
 class PLUGIN_API CDummyPed : public CDummy {
 public:
 };
-
-
 VALIDATE_SIZE(CDummyPed, 0x38);

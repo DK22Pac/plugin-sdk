@@ -11,3 +11,4 @@ class CColAccel {
 public:
     bool IsCacheLoading();
 };
+VALIDATE_SIZE(CColAccel, 0x1);

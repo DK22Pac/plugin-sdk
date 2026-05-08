@@ -10,8 +10,5 @@
 class audLoopingSound {
 public:
 
-
-public:
-
 };
-
+VALIDATE_SIZE(audLoopingSound, 0x1);

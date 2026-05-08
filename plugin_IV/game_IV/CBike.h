@@ -12,3 +12,4 @@ class CBike : public CVehicle {
 public:
     CBike(uint8_t createdBy);
 };
+VALIDATE_SIZE(CBike, 0x2080);

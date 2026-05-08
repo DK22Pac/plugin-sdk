@@ -22,6 +22,12 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+VALIDATE_OFFSET(CBulletTrace, m_vecOrigin, 0x0);
+VALIDATE_OFFSET(CBulletTrace, m_vecTarget, 0xC);
+VALIDATE_OFFSET(CBulletTrace, m_bExist, 0x18);
+VALIDATE_OFFSET(CBulletTrace, m_nTimeCounter, 0x19);
+VALIDATE_OFFSET(CBulletTrace, m_nIntensity, 0x1A);
+VALIDATE_SIZE(CBulletTrace, 0x1C);
 
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&TraceIndexList)[12]; // RwImVertexIndex TraceIndexList[12]
 SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&TraceVertices)[6]; // RwIm3DVertex TraceVertices[6]

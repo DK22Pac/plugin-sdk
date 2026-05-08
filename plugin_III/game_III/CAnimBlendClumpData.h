@@ -27,7 +27,11 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ForAllFrames(void(*func)(AnimBlendFrameData *, void *), void *data);
     SUPPORTED_10EN_11EN_STEAM void SetNumberOfBones(int n);
 };
-
+VALIDATE_OFFSET(CAnimBlendClumpData, link, 0x0);
+VALIDATE_OFFSET(CAnimBlendClumpData, m_nNumFrames, 0x8);
+VALIDATE_OFFSET(CAnimBlendClumpData, m_vecVelocity2d, 0xC);
+VALIDATE_OFFSET(CAnimBlendClumpData, m_vecVelocity3d, 0xC);
+VALIDATE_OFFSET(CAnimBlendClumpData, m_pFrames, 0x10);
 VALIDATE_SIZE(CAnimBlendClumpData, 0x14);
 
 #include "meta/meta.CAnimBlendClumpData.h"

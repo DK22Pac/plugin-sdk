@@ -63,7 +63,11 @@ public:
 
     CPolyBunch();
 };
-
+VALIDATE_OFFSET(CPolyBunch, m_nNumVerts, 0x0);
+VALIDATE_OFFSET(CPolyBunch, m_avecPosn, 0x4);
+VALIDATE_OFFSET(CPolyBunch, m_aU, 0x58);
+VALIDATE_OFFSET(CPolyBunch, m_aV, 0x5F);
+VALIDATE_OFFSET(CPolyBunch, m_pNext, 0x68);
 VALIDATE_SIZE(CPolyBunch, 0x6C);
 
 class CRegisteredShadow {
@@ -88,7 +92,18 @@ public:
 
     CRegisteredShadow();
 };
-
+VALIDATE_OFFSET(CRegisteredShadow, m_vecPos, 0x0);
+VALIDATE_OFFSET(CRegisteredShadow, m_vec2dFront, 0xC);
+VALIDATE_OFFSET(CRegisteredShadow, m_vec2dSide, 0x14);
+VALIDATE_OFFSET(CRegisteredShadow, m_fZDistance, 0x1C);
+VALIDATE_OFFSET(CRegisteredShadow, m_fScale, 0x20);
+VALIDATE_OFFSET(CRegisteredShadow, m_nIntensity, 0x24);
+VALIDATE_OFFSET(CRegisteredShadow, m_nShadowType, 0x26);
+VALIDATE_OFFSET(CRegisteredShadow, m_nRed, 0x27);
+VALIDATE_OFFSET(CRegisteredShadow, m_nGreen, 0x28);
+VALIDATE_OFFSET(CRegisteredShadow, m_nBlue, 0x29);
+VALIDATE_OFFSET(CRegisteredShadow, m_nFlags, 0x2A);
+VALIDATE_OFFSET(CRegisteredShadow, m_pTexture, 0x2C);
 VALIDATE_SIZE(CRegisteredShadow, 0x30);
 
 class CPermanentShadow {
@@ -110,7 +125,19 @@ public:
 
     CPermanentShadow();
 };
-
+VALIDATE_OFFSET(CPermanentShadow, m_vecPos, 0x0);
+VALIDATE_OFFSET(CPermanentShadow, m_vec2dFront, 0xC);
+VALIDATE_OFFSET(CPermanentShadow, m_vec2dSide, 0x14);
+VALIDATE_OFFSET(CPermanentShadow, m_fZDistance, 0x1C);
+VALIDATE_OFFSET(CPermanentShadow, m_fScale, 0x20);
+VALIDATE_OFFSET(CPermanentShadow, m_nIntensity, 0x24);
+VALIDATE_OFFSET(CPermanentShadow, m_nType, 0x26);
+VALIDATE_OFFSET(CPermanentShadow, m_nRed, 0x27);
+VALIDATE_OFFSET(CPermanentShadow, m_nGreen, 0x28);
+VALIDATE_OFFSET(CPermanentShadow, m_nBlue, 0x29);
+VALIDATE_OFFSET(CPermanentShadow, m_nTimeCreated, 0x2C);
+VALIDATE_OFFSET(CPermanentShadow, m_nTimeDuration, 0x30);
+VALIDATE_OFFSET(CPermanentShadow, m_pTexture, 0x34);
 VALIDATE_SIZE(CPermanentShadow, 0x38);
 
 class CStaticShadow {
@@ -138,7 +165,23 @@ public:
     CStaticShadow();
     void Free();
 };
-
+VALIDATE_OFFSET(CStaticShadow, m_nId, 0x0);
+VALIDATE_OFFSET(CStaticShadow, m_pPolyBunch, 0x4);
+VALIDATE_OFFSET(CStaticShadow, m_nTimeCreated, 0x8);
+VALIDATE_OFFSET(CStaticShadow, m_vecPosn, 0xC);
+VALIDATE_OFFSET(CStaticShadow, m_vec2dFront, 0x18);
+VALIDATE_OFFSET(CStaticShadow, m_vec2dSide, 0x20);
+VALIDATE_OFFSET(CStaticShadow, m_fZDistance, 0x28);
+VALIDATE_OFFSET(CStaticShadow, m_fScale, 0x2C);
+VALIDATE_OFFSET(CStaticShadow, m_nType, 0x30);
+VALIDATE_OFFSET(CStaticShadow, m_nIntensity, 0x32);
+VALIDATE_OFFSET(CStaticShadow, m_nRed, 0x34);
+VALIDATE_OFFSET(CStaticShadow, m_nGreen, 0x35);
+VALIDATE_OFFSET(CStaticShadow, m_nBlue, 0x36);
+VALIDATE_OFFSET(CStaticShadow, m_bJustCreated, 0x37);
+VALIDATE_OFFSET(CStaticShadow, m_bRendered, 0x38);
+VALIDATE_OFFSET(CStaticShadow, m_bTemporaryShadow, 0x39);
+VALIDATE_OFFSET(CStaticShadow, m_pTexture, 0x3C);
 VALIDATE_SIZE(CStaticShadow, 0x40);
 
 class CShadows {
@@ -177,6 +220,7 @@ public:
     static void RenderExtraPlayerShadows();
     static void TidyUpShadows();
 };
+VALIDATE_SIZE(CShadows, 0x1);
 
 extern RwTexture*& gpShadowCarTex;
 extern RwTexture*& gpShadowExplosionTex;

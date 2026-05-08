@@ -33,7 +33,19 @@ struct hitPoint {
     uint32_t field_11;
     uint32_t field_12;
 };
-
+VALIDATE_OFFSET(hitPoint, hitEntity, 0x0);
+VALIDATE_OFFSET(hitPoint, field_2, 0x4);
+VALIDATE_OFFSET(hitPoint, hitPosition, 0x10);
+VALIDATE_OFFSET(hitPoint, field_3, 0x1C);
+VALIDATE_OFFSET(hitPoint, pos, 0x20);
+VALIDATE_OFFSET(hitPoint, field_5, 0x2C);
+VALIDATE_OFFSET(hitPoint, pos2, 0x30);
+VALIDATE_OFFSET(hitPoint, field_7, 0x3C);
+VALIDATE_OFFSET(hitPoint, field_8, 0x40);
+VALIDATE_OFFSET(hitPoint, field_9, 0x44);
+VALIDATE_OFFSET(hitPoint, field_10, 0x48);
+VALIDATE_OFFSET(hitPoint, field_11, 0x4C);
+VALIDATE_OFFSET(hitPoint, field_12, 0x50);
 VALIDATE_SIZE(hitPoint, 0x54);
 
 class CWorld {
@@ -48,3 +60,4 @@ public:
     static void Add(CEntity* e, bool arg);
     static void Remove(CEntity* e, bool arg);
 };
+VALIDATE_SIZE(CWorld, 0x1);

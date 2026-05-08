@@ -20,7 +20,8 @@ public:
     void Init();
     int SetWeaponInfo(int weaponType);
 };
-
+VALIDATE_OFFSET(CWeaponModelInfo, m_pszAnimFileName, 0x44);
+VALIDATE_OFFSET(CWeaponModelInfo, m_nAnimFileIndex, 0x44);
 VALIDATE_SIZE(CWeaponModelInfo, 0x48);
 
 struct WeaponModelStore {
@@ -29,3 +30,6 @@ struct WeaponModelStore {
 
     ~WeaponModelStore();
 };
+VALIDATE_OFFSET(WeaponModelStore, m_nCount, 0x0);
+VALIDATE_OFFSET(WeaponModelStore, m_sObject, 0x4);
+VALIDATE_SIZE(WeaponModelStore, 0xA6C);

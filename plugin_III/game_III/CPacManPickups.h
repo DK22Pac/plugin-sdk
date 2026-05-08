@@ -32,6 +32,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StartPacManScramble(CVector pos, float scrambleMult, short count);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CPacManPickups, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern CVector(&aRacePoints1)[107]; // CVector aRacePoints1[107]
 SUPPORTED_10EN_11EN_STEAM extern short &ThingsToCollect;

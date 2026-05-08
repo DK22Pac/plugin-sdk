@@ -18,7 +18,7 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Set(float radius, CVector const& center, unsigned char material, unsigned char flag);
 };
-
+VALIDATE_OFFSET(CColSphere, m_surface, 0x10);
 VALIDATE_SIZE(CColSphere, 0x14);
 
 #include "meta/meta.CColSphere.h"

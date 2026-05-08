@@ -52,6 +52,7 @@ public:
     static int SetupRelatedIpls(char const* iplName, int entityArraysIndex, CEntity** instances);
     static void Shutdown();
 };
+VALIDATE_SIZE(CIplStore, 0x1);
 
 extern unsigned int MAX_IPL_ENTITY_INDEX_ARRAYS; // default 40
 extern unsigned int MAX_IPL_INSTANCES; // default 1000

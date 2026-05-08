@@ -12,3 +12,4 @@ class PLUGIN_API CVisibilityPlugins {
 public:
     static void SetAtomicRenderCallback(RpAtomic* atomic, RpAtomicCallBackRender cb);
 };
+VALIDATE_SIZE(CVisibilityPlugins, 0x1);

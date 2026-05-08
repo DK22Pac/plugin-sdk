@@ -26,7 +26,21 @@ struct PLUGIN_API tRadioSettings {
     char field_31;
     char m_musicTrackIndices[10];
 };
-
+VALIDATE_OFFSET(tRadioSettings, m_djIndex, 0x0);
+VALIDATE_OFFSET(tRadioSettings, field_10, 0x10);
+VALIDATE_OFFSET(tRadioSettings, trackId, 0x14);
+VALIDATE_OFFSET(tRadioSettings, field_18, 0x18);
+VALIDATE_OFFSET(tRadioSettings, trackPlayTime, 0x1C);
+VALIDATE_OFFSET(tRadioSettings, trackLength, 0x20);
+VALIDATE_OFFSET(tRadioSettings, field_24, 0x24);
+VALIDATE_OFFSET(tRadioSettings, m_nCurrentRadioStation, 0x25);
+VALIDATE_OFFSET(tRadioSettings, m_nBassSet, 0x26);
+VALIDATE_OFFSET(tRadioSettings, _pad, 0x27);
+VALIDATE_OFFSET(tRadioSettings, m_fBassGain, 0x28);
+VALIDATE_OFFSET(tRadioSettings, currRadioBC_, 0x2C);
+VALIDATE_OFFSET(tRadioSettings, field_30, 0x30);
+VALIDATE_OFFSET(tRadioSettings, field_31, 0x31);
+VALIDATE_OFFSET(tRadioSettings, m_musicTrackIndices, 0x32);
 VALIDATE_SIZE(tRadioSettings, 0x3C);
 
 struct PLUGIN_API tRadioStationData {
@@ -45,12 +59,27 @@ struct PLUGIN_API tRadioStationData {
     char lastGameClockDays;
     int lastGameClockHours;
 };
-
+VALIDATE_OFFSET(tRadioStationData, field_0, 0x0);
+VALIDATE_OFFSET(tRadioStationData, field_4, 0x4);
+VALIDATE_OFFSET(tRadioStationData, field_8, 0x8);
+VALIDATE_OFFSET(tRadioStationData, m_nTimeRetuneStopped, 0xC);
+VALIDATE_OFFSET(tRadioStationData, lastPlayingTime, 0x10);
+VALIDATE_OFFSET(tRadioStationData, trackPlayTime, 0x14);
+VALIDATE_OFFSET(tRadioStationData, field_18, 0x18);
+VALIDATE_OFFSET(tRadioStationData, field_1C, 0x1C);
+VALIDATE_OFFSET(tRadioStationData, field_20, 0x20);
+VALIDATE_OFFSET(tRadioStationData, field_24, 0x24);
+VALIDATE_OFFSET(tRadioStationData, field_25, 0x25);
+VALIDATE_OFFSET(tRadioStationData, field_26, 0x26);
+VALIDATE_OFFSET(tRadioStationData, lastGameClockDays, 0x27);
+VALIDATE_OFFSET(tRadioStationData, lastGameClockHours, 0x28);
 VALIDATE_SIZE(tRadioStationData, 0x2C);
 
 struct PLUGIN_API tMusicTrackHistory {
     char m_indices[20];
 };
+VALIDATE_OFFSET(tMusicTrackHistory, m_indices, 0x0);
+VALIDATE_SIZE(tMusicTrackHistory, 0x14);
 
 class PLUGIN_API CAERadioTrackManager {
 public:
@@ -101,6 +130,41 @@ public:
     // 11 structures
     static tMusicTrackHistory *m_nMusicTrackIndexHistory;
 };
+VALIDATE_OFFSET(CAERadioTrackManager, field_0, 0x0);
+VALIDATE_OFFSET(CAERadioTrackManager, field_1, 0x1);
+VALIDATE_OFFSET(CAERadioTrackManager, field_2, 0x2);
+VALIDATE_OFFSET(CAERadioTrackManager, field_3, 0x3);
+VALIDATE_OFFSET(CAERadioTrackManager, field_4, 0x4);
+VALIDATE_OFFSET(CAERadioTrackManager, field_5, 0x5);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bRetuneJustStarted, 0x6);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bRadioAutoSelect, 0x7);
+VALIDATE_OFFSET(CAERadioTrackManager, field_8, 0x8);
+VALIDATE_OFFSET(CAERadioTrackManager, m_nMonthDay, 0x16);
+VALIDATE_OFFSET(CAERadioTrackManager, m_nClockHours, 0x17);
+VALIDATE_OFFSET(CAERadioTrackManager, m_anPlayerStats, 0x18);
+VALIDATE_OFFSET(CAERadioTrackManager, m_nTimeRadioStationRetuned, 0x50);
+VALIDATE_OFFSET(CAERadioTrackManager, m_nTimeToDisplayRadioName, 0x54);
+VALIDATE_OFFSET(CAERadioTrackManager, field_58, 0x58);
+VALIDATE_OFFSET(CAERadioTrackManager, field_5C, 0x5C);
+VALIDATE_OFFSET(CAERadioTrackManager, field_60, 0x60);
+VALIDATE_OFFSET(CAERadioTrackManager, field_64, 0x64);
+VALIDATE_OFFSET(CAERadioTrackManager, field_68, 0x68);
+VALIDATE_OFFSET(CAERadioTrackManager, m_nStationsListed, 0x6C);
+VALIDATE_OFFSET(CAERadioTrackManager, m_nStationsListDown, 0x70);
+VALIDATE_OFFSET(CAERadioTrackManager, field_74, 0x74);
+VALIDATE_OFFSET(CAERadioTrackManager, field_78, 0x78);
+VALIDATE_OFFSET(CAERadioTrackManager, field_7C, 0x7C);
+VALIDATE_OFFSET(CAERadioTrackManager, field_80, 0x80);
+VALIDATE_OFFSET(CAERadioTrackManager, field_84, 0x84);
+VALIDATE_OFFSET(CAERadioTrackManager, m_TempSettings, 0x88);
+VALIDATE_OFFSET(CAERadioTrackManager, m_Settings, 0xC4);
+VALIDATE_OFFSET(CAERadioTrackManager, m_RadioStationsData, 0x100);
+VALIDATE_OFFSET(CAERadioTrackManager, gap33C, 0x33C);
+VALIDATE_OFFSET(CAERadioTrackManager, field_348, 0x348);
+VALIDATE_OFFSET(CAERadioTrackManager, field_368, 0x368);
+VALIDATE_OFFSET(CAERadioTrackManager, field_36C, 0x36C);
+VALIDATE_OFFSET(CAERadioTrackManager, field_36D, 0x36D);
+VALIDATE_SIZE(CAERadioTrackManager, 0x370);
 
 extern CAERadioTrackManager &AERadioTrackManager;
 

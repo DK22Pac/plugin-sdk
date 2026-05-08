@@ -28,5 +28,11 @@ public:
 
     CTaskSimpleThrowProjectile(CEntity* pTarget, CVector Posn);
 };
-
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_bIsAborting, 0x8);
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_bFinished, 0x9);
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_bStarted, 0xA);
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_pAnim, 0xC);
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_pTarget, 0x10);
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_vecPosition, 0x14);
+VALIDATE_OFFSET(CTaskSimpleThrowProjectile, m_nStartTime, 0x20);
 VALIDATE_SIZE(CTaskSimpleThrowProjectile, 0x24);

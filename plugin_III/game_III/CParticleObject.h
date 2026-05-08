@@ -60,6 +60,23 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SaveParticle(unsigned char *buffer, unsigned int *size);
     SUPPORTED_10EN_11EN_STEAM static void UpdateAll();
 };
+VALIDATE_OFFSET(CParticleObject, m_pNext, 0x4C);
+VALIDATE_OFFSET(CParticleObject, m_pPrev, 0x50);
+VALIDATE_OFFSET(CParticleObject, m_pParticle, 0x54);
+VALIDATE_OFFSET(CParticleObject, m_nRemoveTimer, 0x58);
+VALIDATE_OFFSET(CParticleObject, m_eType, 0x5C);
+VALIDATE_OFFSET(CParticleObject, m_eParticleType, 0x60);
+VALIDATE_OFFSET(CParticleObject, m_nNumEffectCycles, 0x64);
+VALIDATE_OFFSET(CParticleObject, m_nSkipFrames, 0x65);
+VALIDATE_OFFSET(CParticleObject, m_nFrameCounter, 0x66);
+VALIDATE_OFFSET(CParticleObject, m_nState, 0x68);
+VALIDATE_OFFSET(CParticleObject, m_vecTarget, 0x6C);
+VALIDATE_OFFSET(CParticleObject, m_fRandVal, 0x78);
+VALIDATE_OFFSET(CParticleObject, m_fSize, 0x7C);
+VALIDATE_OFFSET(CParticleObject, m_color, 0x80);
+VALIDATE_OFFSET(CParticleObject, m_bRemove, 0x84);
+VALIDATE_OFFSET(CParticleObject, m_nCreationChance, 0x85);
+VALIDATE_SIZE(CParticleObject, 0x88);
 
 VTABLE_DESC(CParticleObject, 0x5F8030, 1);
 VALIDATE_SIZE(CParticleObject, 0x88);

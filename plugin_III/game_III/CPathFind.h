@@ -32,6 +32,8 @@ enum PLUGIN_API ePathType {
 struct PLUGIN_API CTempDetachedNode {
     unsigned char foo[20];
 };
+VALIDATE_OFFSET(CTempDetachedNode, foo, 0x0);
+VALIDATE_SIZE(CTempDetachedNode, 0x14);
 
 struct PLUGIN_API CPathInfoNode {
     short x;
@@ -43,10 +45,20 @@ struct PLUGIN_API CPathInfoNode {
     char m_nNumRightLanes;
     unsigned char crossing : 1;
 };
+VALIDATE_OFFSET(CPathInfoNode, x, 0x0);
+VALIDATE_OFFSET(CPathInfoNode, y, 0x2);
+VALIDATE_OFFSET(CPathInfoNode, z, 0x4);
+VALIDATE_OFFSET(CPathInfoNode, m_nType, 0x6);
+VALIDATE_OFFSET(CPathInfoNode, m_nNext, 0x7);
+VALIDATE_OFFSET(CPathInfoNode, m_nNumLeftLanes, 0x8);
+VALIDATE_OFFSET(CPathInfoNode, m_nNumRightLanes, 0x9);
+VALIDATE_SIZE(CPathInfoNode, 0xC);
 
 struct PLUGIN_API CPathInfoForObject {
     CPathInfoNode m_aNodes[12];
 };
+VALIDATE_OFFSET(CPathInfoForObject, m_aNodes, 0x0);
+VALIDATE_SIZE(CPathInfoForObject, 0x90);
 
 class PLUGIN_API CCarPathLink {
 public:
@@ -60,6 +72,14 @@ public:
         unsigned char bBridgeLights : 1;
     } m_nFlags;
 };
+VALIDATE_OFFSET(CCarPathLink, m_vec2dPos, 0x0);
+VALIDATE_OFFSET(CCarPathLink, m_vec2dDir, 0x8);
+VALIDATE_OFFSET(CCarPathLink, m_nPathNodeIndex, 0x10);
+VALIDATE_OFFSET(CCarPathLink, m_nNumLeftLanes, 0x12);
+VALIDATE_OFFSET(CCarPathLink, m_nNumRightLanes, 0x13);
+VALIDATE_OFFSET(CCarPathLink, m_nTrafficLightType, 0x14);
+VALIDATE_OFFSET(CCarPathLink, m_nFlags, 0x15);
+VALIDATE_SIZE(CCarPathLink, 0x18);
 
 class PLUGIN_API CPathFind {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CPathFind)
@@ -123,6 +143,24 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static bool LoadPathFindData();
 };
+VALIDATE_OFFSET(CPathFind, m_aPathNodes, 0x0);
+VALIDATE_OFFSET(CPathFind, m_aCarPathLinks, 0x26840);
+VALIDATE_OFFSET(CPathFind, m_apMapObjects, 0x32AE0);
+VALIDATE_OFFSET(CPathFind, m_anMapObjectFlags, 0x33E68);
+VALIDATE_OFFSET(CPathFind, m_anConnections, 0x3434A);
+VALIDATE_OFFSET(CPathFind, m_anDistances, 0x39372);
+VALIDATE_OFFSET(CPathFind, m_anConnectionFlags, 0x3E39A);
+VALIDATE_OFFSET(CPathFind, m_anCarPathConnections, 0x40BAE);
+VALIDATE_OFFSET(CPathFind, m_nNumPathNodes, 0x45BD8);
+VALIDATE_OFFSET(CPathFind, m_nNumCarPathNodes, 0x45BDC);
+VALIDATE_OFFSET(CPathFind, m_nNumPedPathNodes, 0x45BE0);
+VALIDATE_OFFSET(CPathFind, m_nNumMapObjects, 0x45BE4);
+VALIDATE_OFFSET(CPathFind, m_nNumConnections, 0x45BE6);
+VALIDATE_OFFSET(CPathFind, m_nNumCarPathLinks, 0x45BE8);
+VALIDATE_OFFSET(CPathFind, field_45BEC, 0x45BEC);
+VALIDATE_OFFSET(CPathFind, m_nNumGroups, 0x45BF0);
+VALIDATE_OFFSET(CPathFind, m_aSearchNodes, 0x45BF4);
+VALIDATE_SIZE(CPathFind, 0x49BF4);
 
 SUPPORTED_10EN_11EN_STEAM extern int &TempListLength;
 SUPPORTED_10EN_11EN_STEAM extern CPathNode *(&apNodesToBeCleared)[4995]; // CPathNode *apNodesToBeCleared[4995]

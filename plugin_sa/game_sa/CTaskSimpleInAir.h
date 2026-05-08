@@ -39,5 +39,15 @@ public:
     CTaskSimpleInAir(bool bUsingJumpGlide, bool bUsingFallGlide, bool bUsingClimbJump);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleInAir, m_vecPosn, 0x8);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_fAngle, 0x14);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_nSurfaceType, 0x18);
+VALIDATE_OFFSET(CTaskSimpleInAir, _pad, 0x19);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_pAnim, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_fHeight, 0x20);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_nFlags, 0x24);
+VALIDATE_OFFSET(CTaskSimpleInAir, _pad2, 0x25);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_nProcessCounter, 0x28);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_timer, 0x2C);
+VALIDATE_OFFSET(CTaskSimpleInAir, m_pEntity, 0x38);
 VALIDATE_SIZE(CTaskSimpleInAir, 0x3C);

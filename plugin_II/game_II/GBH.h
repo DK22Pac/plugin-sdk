@@ -20,6 +20,10 @@ struct tPalData {
     unsigned short* data;
     unsigned long loaded;
 };
+VALIDATE_OFFSET(tPalData, originalData, 0x0);
+VALIDATE_OFFSET(tPalData, data, 0x4);
+VALIDATE_OFFSET(tPalData, loaded, 0x8);
+VALIDATE_SIZE(tPalData, 0xC);
 
 typedef int(__stdcall* T_gbh_InitDLL)(tVideo*);
 typedef int(__stdcall* T_gbh_Init)(int);
@@ -134,7 +138,21 @@ struct tGraphics {
     unsigned long pitchQ;
     IDirectDrawSurface4* surface;
 };
-
+VALIDATE_OFFSET(tGraphics, videoDriver, 0x0);
+VALIDATE_OFFSET(tGraphics, nextDevice, 0x4);
+VALIDATE_OFFSET(tGraphics, firstDevice, 0x8);
+VALIDATE_OFFSET(tGraphics, deviceIdGen, 0xC);
+VALIDATE_OFFSET(tGraphics, numEnums, 0x10);
+VALIDATE_OFFSET(tGraphics, activeDevice, 0x14);
+VALIDATE_OFFSET(tGraphics, currentId, 0x18);
+VALIDATE_OFFSET(tGraphics, field_1C, 0x1C);
+VALIDATE_OFFSET(tGraphics, field_20, 0x20);
+VALIDATE_OFFSET(tGraphics, d3d, 0x24);
+VALIDATE_OFFSET(tGraphics, device, 0x28);
+VALIDATE_OFFSET(tGraphics, viewPort, 0x2C);
+VALIDATE_OFFSET(tGraphics, d3dViewPort, 0x30);
+VALIDATE_OFFSET(tGraphics, pitchQ, 0x5C);
+VALIDATE_OFFSET(tGraphics, surface, 0x60);
 VALIDATE_SIZE(tGraphics, 0x64);
 
 extern tGraphics* GetGBH();

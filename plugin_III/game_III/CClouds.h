@@ -26,6 +26,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CClouds, 0x1);
 
 //! RwTexture* gpCloudTex[5] = {cloud1, cloud2, cloud3, cloudhilit, cloudmasked};
 SUPPORTED_10EN_11EN_STEAM extern RwTexture *(&gpCloudTex)[5]; // RwTexture *gpCloudTex[5]

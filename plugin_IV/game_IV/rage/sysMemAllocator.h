@@ -16,4 +16,5 @@ namespace rage {
         virtual void* Allocate(size_t size, size_t align, int subAllocator) { plugin::CallVirtualMethod<2>(this, size, align, subAllocator); }
         virtual void Free(void* pointer) { plugin::CallVirtualMethod<3>(this, pointer); }
     };
+    VALIDATE_SIZE(sysMemAllocator, 0x4);
 }

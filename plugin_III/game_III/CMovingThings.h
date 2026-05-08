@@ -23,6 +23,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CMovingThings, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern CScrollBar(&aScrollBars)[11]; // CScrollBar aScrollBars[11]
 SUPPORTED_10EN_11EN_STEAM extern CTowerClock(&aTowerClocks)[2]; // CTowerClock aTowerClocks[2]

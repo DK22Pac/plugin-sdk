@@ -89,6 +89,18 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetArrestPlayer(CPed *player);
     SUPPORTED_10EN_11EN_STEAM void SetPursuit(bool ignoreCopLimit);
 };
+VALIDATE_OFFSET(CCopPed, m_nRoadblockNode, 0x53C);
+VALIDATE_OFFSET(CCopPed, m_fDistanceToTarget, 0x540);
+VALIDATE_OFFSET(CCopPed, m_bIsInPursuit, 0x544);
+VALIDATE_OFFSET(CCopPed, m_bIsDisabledCop, 0x545);
+VALIDATE_OFFSET(CCopPed, field_546, 0x546);
+VALIDATE_OFFSET(CCopPed, m_bBeatingSuspect, 0x547);
+VALIDATE_OFFSET(CCopPed, m_bStopAndShootDisabledZone, 0x548);
+VALIDATE_OFFSET(CCopPed, m_bZoneDisabled, 0x549);
+VALIDATE_OFFSET(CCopPed, m_fAbseilPos, 0x54C);
+VALIDATE_OFFSET(CCopPed, m_nCopType, 0x550);
+VALIDATE_OFFSET(CCopPed, field_554, 0x554);
+VALIDATE_SIZE(CCopPed, 0x558);
 
 VTABLE_DESC(CCopPed, 0x5F82A4, 19);
 VALIDATE_SIZE(CCopPed, 0x558);

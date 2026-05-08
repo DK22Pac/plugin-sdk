@@ -33,7 +33,15 @@ public:
         return m_vecPos;
     }
 };
-
+VALIDATE_OFFSET(CPathNode, m_vecPos, 0x0);
+VALIDATE_OFFSET(CPathNode, m_pPrev, 0xC);
+VALIDATE_OFFSET(CPathNode, m_pNext, 0x10);
+VALIDATE_OFFSET(CPathNode, m_nSearchList, 0x14);
+VALIDATE_OFFSET(CPathNode, m_nObjectIndex, 0x16);
+VALIDATE_OFFSET(CPathNode, m_nFirstLink, 0x18);
+VALIDATE_OFFSET(CPathNode, m_nNumLinks, 0x1A);
+VALIDATE_OFFSET(CPathNode, m_nFlags, 0x1B);
+VALIDATE_OFFSET(CPathNode, m_nGroup, 0x1C);
 VALIDATE_SIZE(CPathNode, 0x20);
 
 #include "meta/meta.CPathNode.h"

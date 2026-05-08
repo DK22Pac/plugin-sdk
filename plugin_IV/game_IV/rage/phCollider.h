@@ -17,4 +17,7 @@ namespace rage {
     public:
         virtual ~phCollider() {}
     };
+    VALIDATE_OFFSET(phCollider, field_100, 0x4);
+    VALIDATE_OFFSET(phCollider, m_vVelocity, 0x110);
+    VALIDATE_SIZE(phCollider, 0x11C);
 }

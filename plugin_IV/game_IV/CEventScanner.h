@@ -16,6 +16,13 @@ struct CEventScanner_obj1 {
     char field_15;
     __int16 __pad;
 };
+VALIDATE_OFFSET(CEventScanner_obj1, field_0, 0x0);
+VALIDATE_OFFSET(CEventScanner_obj1, field_C, 0xC);
+VALIDATE_OFFSET(CEventScanner_obj1, field_10, 0x10);
+VALIDATE_OFFSET(CEventScanner_obj1, field_14, 0x14);
+VALIDATE_OFFSET(CEventScanner_obj1, field_15, 0x15);
+VALIDATE_OFFSET(CEventScanner_obj1, __pad, 0x16);
+VALIDATE_SIZE(CEventScanner_obj1, 0x18);
 
 struct CEventScanner_obj2 {
     CObjectScanner field_0;
@@ -32,6 +39,20 @@ struct CEventScanner_obj2 {
     int field_48[9];
     int field_6C[9];
 };
+VALIDATE_OFFSET(CEventScanner_obj2, field_0, 0x0);
+VALIDATE_OFFSET(CEventScanner_obj2, field_C, 0xC);
+VALIDATE_OFFSET(CEventScanner_obj2, __pad_D, 0xD);
+VALIDATE_OFFSET(CEventScanner_obj2, field_10, 0x10);
+VALIDATE_OFFSET(CEventScanner_obj2, field_14, 0x14);
+VALIDATE_OFFSET(CEventScanner_obj2, field_18, 0x18);
+VALIDATE_OFFSET(CEventScanner_obj2, field_19, 0x19);
+VALIDATE_OFFSET(CEventScanner_obj2, __pad_1A, 0x1A);
+VALIDATE_OFFSET(CEventScanner_obj2, field_1C, 0x1C);
+VALIDATE_OFFSET(CEventScanner_obj2, field_20, 0x20);
+VALIDATE_OFFSET(CEventScanner_obj2, field_24, 0x24);
+VALIDATE_OFFSET(CEventScanner_obj2, field_48, 0x48);
+VALIDATE_OFFSET(CEventScanner_obj2, field_6C, 0x6C);
+VALIDATE_SIZE(CEventScanner_obj2, 0x90);
 
 struct CEventScanner_obj3
 {
@@ -41,6 +62,12 @@ struct CEventScanner_obj3
     char field_1A;
     char __pad_1A;
 };
+VALIDATE_OFFSET(CEventScanner_obj3, field_0, 0x0);
+VALIDATE_OFFSET(CEventScanner_obj3, field_18, 0x18);
+VALIDATE_OFFSET(CEventScanner_obj3, field_19, 0x19);
+VALIDATE_OFFSET(CEventScanner_obj3, field_1A, 0x1A);
+VALIDATE_OFFSET(CEventScanner_obj3, __pad_1A, 0x1B);
+VALIDATE_SIZE(CEventScanner_obj3, 0x1C);
 
 class CEventScanner {
 public:
@@ -59,5 +86,15 @@ public:
 public:
     virtual ~CEventScanner() {}
 };
-
+VALIDATE_OFFSET(CEventScanner, field_4, 0x4);
+VALIDATE_OFFSET(CEventScanner, field_8, 0x8);
+VALIDATE_OFFSET(CEventScanner, field_C, 0xC);
+VALIDATE_OFFSET(CEventScanner, field_24, 0x24);
+VALIDATE_OFFSET(CEventScanner, field_3C, 0x3C);
+VALIDATE_OFFSET(CEventScanner, field_CC, 0xCC);
+VALIDATE_OFFSET(CEventScanner, field_E8, 0xE8);
+VALIDATE_OFFSET(CEventScanner, field_100, 0x100);
+VALIDATE_OFFSET(CEventScanner, field_118, 0x118);
+VALIDATE_OFFSET(CEventScanner, field_124, 0x124);
+VALIDATE_OFFSET(CEventScanner, field_128, 0x128);
 VALIDATE_SIZE(CEventScanner, 0x12C);

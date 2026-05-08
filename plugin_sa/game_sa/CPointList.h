@@ -17,7 +17,9 @@ public:
 
     SUPPORTED_10US void Empty();
 };
-
+VALIDATE_OFFSET(CPointList, m_nCount, 0x0);
+VALIDATE_OFFSET(CPointList, m_avCoords, 0x4);
+VALIDATE_OFFSET(CPointList, m_abUsedCoords, 0x124);
 VALIDATE_SIZE(CPointList, 0x13C);
 
 #include "meta/meta.CPointList.h"

@@ -28,7 +28,11 @@ struct tStatMessage {
     float value; // value stat must reach to display message
     char text_id[8]; // text id from american.gxt text file to display
 };
-
+VALIDATE_OFFSET(tStatMessage, stat_num, 0x0);
+VALIDATE_OFFSET(tStatMessage, displayed, 0x2);
+VALIDATE_OFFSET(tStatMessage, condition, 0x3);
+VALIDATE_OFFSET(tStatMessage, value, 0x4);
+VALIDATE_OFFSET(tStatMessage, text_id, 0x8);
 VALIDATE_SIZE(tStatMessage, 0x10);
 
 class CVehicle;
@@ -118,3 +122,4 @@ public:
     static bool Save();
     static bool Load();
 };
+VALIDATE_SIZE(CStats, 0x1);

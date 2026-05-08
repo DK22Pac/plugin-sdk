@@ -58,7 +58,21 @@ public:
     //! unused
     SUPPORTED_10US static CCarGenerator *Get(unsigned short index);
 };
-
+VALIDATE_OFFSET(CCarGenerator, m_nModelId, 0x0);
+VALIDATE_OFFSET(CCarGenerator, m_nColor1, 0x2);
+VALIDATE_OFFSET(CCarGenerator, m_nColor2, 0x3);
+VALIDATE_OFFSET(CCarGenerator, m_vecPosn, 0x4);
+VALIDATE_OFFSET(CCarGenerator, m_nAngle, 0xA);
+VALIDATE_OFFSET(CCarGenerator, m_nAlarm, 0xB);
+VALIDATE_OFFSET(CCarGenerator, m_nDoorLock, 0xC);
+VALIDATE_OFFSET(CCarGenerator, m_nFlags, 0xD);
+VALIDATE_OFFSET(CCarGenerator, m_nMinDelay, 0xE);
+VALIDATE_OFFSET(CCarGenerator, m_nMaxDelay, 0x10);
+VALIDATE_OFFSET(CCarGenerator, m_nNextGenTime, 0x14);
+VALIDATE_OFFSET(CCarGenerator, m_nVehicleHandle, 0x18);
+VALIDATE_OFFSET(CCarGenerator, m_nGenerateCount, 0x1A);
+VALIDATE_OFFSET(CCarGenerator, m_nIplId, 0x1C);
+VALIDATE_OFFSET(CCarGenerator, m_bIsUsed, 0x1D);
 VALIDATE_SIZE(CCarGenerator, 0x20);
 
 #include "meta/meta.CCarGenerator.h"

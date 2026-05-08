@@ -15,5 +15,8 @@ public:
     unsigned short m_nMinZoom;
     unsigned short m_nMaxZoom;
 };
-
+VALIDATE_OFFSET(CQueuedMode, m_nMode, 0x0);
+VALIDATE_OFFSET(CQueuedMode, m_fDuration, 0x4);
+VALIDATE_OFFSET(CQueuedMode, m_nMinZoom, 0x8);
+VALIDATE_OFFSET(CQueuedMode, m_nMaxZoom, 0xA);
 VALIDATE_SIZE(CQueuedMode, 0xC);

@@ -25,6 +25,9 @@ struct PLUGIN_API CTrainNode {
     CVector m_vecPosition;
     float m_fStationDist; //!< xy-distance from start on track
 };
+VALIDATE_OFFSET(CTrainNode, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CTrainNode, m_fStationDist, 0xC);
+VALIDATE_SIZE(CTrainNode, 0x10);
 
 struct PLUGIN_API CTrainInterpolationLine {
     unsigned char m_nType;
@@ -33,6 +36,12 @@ struct PLUGIN_API CTrainInterpolationLine {
     float m_fSpeed;
     float m_fAcceleration;
 };
+VALIDATE_OFFSET(CTrainInterpolationLine, m_nType, 0x0);
+VALIDATE_OFFSET(CTrainInterpolationLine, m_fTime, 0x4);
+VALIDATE_OFFSET(CTrainInterpolationLine, m_fPosition, 0x8);
+VALIDATE_OFFSET(CTrainInterpolationLine, m_fSpeed, 0xC);
+VALIDATE_OFFSET(CTrainInterpolationLine, m_fAcceleration, 0x10);
+VALIDATE_SIZE(CTrainInterpolationLine, 0x14);
 
 class PLUGIN_API CTrain : public CVehicle {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CTrain)
@@ -163,6 +172,22 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void UpdateTrains();
 };
+VALIDATE_OFFSET(CTrain, m_fWagonPosition, 0x288);
+VALIDATE_OFFSET(CTrain, m_nWagonId, 0x28C);
+VALIDATE_OFFSET(CTrain, m_nIsFarAway, 0x28E);
+VALIDATE_OFFSET(CTrain, m_nCurTrackNode, 0x290);
+VALIDATE_OFFSET(CTrain, m_nWagonGroup, 0x292);
+VALIDATE_OFFSET(CTrain, m_fSpeed, 0x294);
+VALIDATE_OFFSET(CTrain, m_bProcessDoor, 0x298);
+VALIDATE_OFFSET(CTrain, m_bTrainStopping, 0x299);
+VALIDATE_OFFSET(CTrain, m_bIsFirstWagon, 0x29A);
+VALIDATE_OFFSET(CTrain, m_bIsLastWagon, 0x29B);
+VALIDATE_OFFSET(CTrain, m_nTrackId, 0x29C);
+VALIDATE_OFFSET(CTrain, m_nDoorTimer, 0x2A0);
+VALIDATE_OFFSET(CTrain, m_nDoorState, 0x2A4);
+VALIDATE_OFFSET(CTrain, m_aTrainDoors, 0x2A8);
+VALIDATE_OFFSET(CTrain, m_apTrainNodes, 0x2D8);
+VALIDATE_SIZE(CTrain, 0x2E4);
 
 //! 873.0f, 1522.0f, 2481.0f
 SUPPORTED_10EN_11EN_STEAM extern float(&StationDist)[3]; // float StationDist[3]

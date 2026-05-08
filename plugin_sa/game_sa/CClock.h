@@ -47,5 +47,6 @@ public:
     //! Updates a time
     SUPPORTED_10US static void Update();
 };
+VALIDATE_SIZE(CClock, 0x1);
 
 #include "meta/meta.CClock.h"

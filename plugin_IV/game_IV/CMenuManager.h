@@ -365,14 +365,19 @@ struct CMenuEntry {
     int8_t m_nScaler;
     eMenuDisplay m_nDisplayValue;
 };
-
+VALIDATE_OFFSET(CMenuEntry, m_nAction, 0x0);
+VALIDATE_OFFSET(CMenuEntry, m_EntryName, 0x1);
+VALIDATE_OFFSET(CMenuEntry, m_nValue, 0x12);
+VALIDATE_OFFSET(CMenuEntry, m_nScaler, 0x14);
+VALIDATE_OFFSET(CMenuEntry, m_nDisplayValue, 0x15);
 VALIDATE_SIZE(CMenuEntry, 0x16);
 
 struct CMenuScreen {
     CMenuEntry* m_aEntries;
     uint8_t field_2[20];
 };
-
+VALIDATE_OFFSET(CMenuScreen, m_aEntries, 0x0);
+VALIDATE_OFFSET(CMenuScreen, field_2, 0x4);
 VALIDATE_SIZE(CMenuScreen, 0x18);
 
 class CMenuManager {
@@ -409,6 +414,7 @@ public:
     static void DrawHelpText();
     static void SetHelpText(const char* right, const char* left, uint8_t arg3);
 };
+VALIDATE_SIZE(CMenuManager, 0x1);
 
 extern CMenuScreen* aScreens;
 extern int32_t* aPrefs;

@@ -19,5 +19,7 @@ public:
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };
-
+VALIDATE_OFFSET(CPtrNodeDoubleLink, pItem, 0x0);
+VALIDATE_OFFSET(CPtrNodeDoubleLink, pNext, 0x4);
+VALIDATE_OFFSET(CPtrNodeDoubleLink, pPrev, 0x8);
 VALIDATE_SIZE(CPtrNodeDoubleLink, 0xC);

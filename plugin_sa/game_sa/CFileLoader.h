@@ -75,6 +75,7 @@ public:
     SUPPORTED_10US static RpAtomic *SetRelatedModelInfoCB(RpAtomic *atomic, void *data);
     SUPPORTED_10US static bool StartLoadClumpFile(RwStream *stream, unsigned int modelIndex);
 };
+VALIDATE_SIZE(CFileLoader, 0x1);
 
 //! global variable to be used in a callback
 SUPPORTED_10US extern unsigned int &gAtomicModelId;

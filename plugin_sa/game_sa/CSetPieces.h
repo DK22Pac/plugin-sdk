@@ -23,3 +23,4 @@ public:
     static unsigned int &NumSetPieces;
     static CSetPiece *aSetPieces; // static CSetPiece aSetPieces[MAX_SET_PIECES]
 };
+VALIDATE_SIZE(CSetPieces, 0x1);

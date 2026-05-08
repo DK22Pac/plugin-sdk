@@ -26,6 +26,12 @@ public:
     void Render();
     void Update_OncePerFrame(short index);
 };
+VALIDATE_OFFSET(CWaterCannon, m_pCreator, 0x0);
+VALIDATE_OFFSET(CWaterCannon, m_nSectionsCount, 0x4);
+VALIDATE_OFFSET(CWaterCannon, m_nCreationTime, 0x8);
+VALIDATE_OFFSET(CWaterCannon, m_avecPosition, 0xC);
+VALIDATE_OFFSET(CWaterCannon, m_avecMoveSpeed, 0xCC);
+VALIDATE_OFFSET(CWaterCannon, m_anSectionState, 0x18C);
 VALIDATE_SIZE(CWaterCannon, 0x19C);
 
 extern RxObjSpace3DVertex *WaterCannonVertices; // [4]
@@ -42,3 +48,4 @@ public:
     static void Update();
     static void UpdateOne(unsigned int pCar, CVector* posn, CVector* moveSpeed);
 };
+VALIDATE_SIZE(CWaterCannons, 0x1);

@@ -21,5 +21,6 @@ public:
     // vtable
     void UpdateParameters(CAESound *sound, short arg2);
 };
-
+VALIDATE_OFFSET(CAEAudioEntity, m_pEntity, 0x4);
+VALIDATE_OFFSET(CAEAudioEntity, m_tempSound, 0x8);
 VALIDATE_SIZE(CAEAudioEntity, 0x7C);

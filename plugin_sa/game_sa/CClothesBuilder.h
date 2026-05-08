@@ -41,3 +41,4 @@ public:
     static bool AddColour(RwRGBA* color);
     static void FillPalette(RwRGBA* color);	
 };
+VALIDATE_SIZE(CClothesBuilder, 0x1);

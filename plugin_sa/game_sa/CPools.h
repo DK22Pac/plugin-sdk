@@ -64,3 +64,4 @@ public:
     static bool SaveVehiclePool();
     static void ShutDown();
 };
+VALIDATE_SIZE(CPools, 0x1);

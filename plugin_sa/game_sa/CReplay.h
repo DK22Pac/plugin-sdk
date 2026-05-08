@@ -12,3 +12,4 @@ public:
 	static char &Mode;
 
 };
+VALIDATE_SIZE(CReplay, 0x1);

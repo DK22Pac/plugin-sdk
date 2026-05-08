@@ -25,5 +25,10 @@ public:
         m_bCheckIfAffectsPed = false;
     }
 };
-
+VALIDATE_OFFSET(CPedDamageResponse, m_fDamageHealth, 0x0);
+VALIDATE_OFFSET(CPedDamageResponse, m_fDamageArmor, 0x4);
+VALIDATE_OFFSET(CPedDamageResponse, m_bHealthZero, 0x8);
+VALIDATE_OFFSET(CPedDamageResponse, m_bForceDeath, 0x9);
+VALIDATE_OFFSET(CPedDamageResponse, m_bDamageCalculated, 0xA);
+VALIDATE_OFFSET(CPedDamageResponse, m_bCheckIfAffectsPed, 0xB);
 VALIDATE_SIZE(CPedDamageResponse, 0xC);

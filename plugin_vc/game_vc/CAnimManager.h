@@ -48,3 +48,4 @@ public:
 	static CAnimationStyleDescriptor *ms_aAnimAssocDefinitions;
 	static CLinkList<CAnimBlendHierarchy*> &ms_animCache;
 };
+VALIDATE_SIZE(CAnimManager, 0x1);

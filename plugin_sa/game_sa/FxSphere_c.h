@@ -21,5 +21,7 @@ public:
     bool IsCollision(FxSphere_c* sphere);
     float GetDistToPlane(FxPlane_c* plane);
 };
-
+VALIDATE_OFFSET(FxSphere_c, m_vecCenter, 0x0);
+VALIDATE_OFFSET(FxSphere_c, m_fRadius, 0xC);
+VALIDATE_OFFSET(FxSphere_c, m_nNumPlanesPassed, 0x10);
 VALIDATE_SIZE(FxSphere_c, 0x14);

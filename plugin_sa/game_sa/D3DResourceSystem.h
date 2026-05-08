@@ -40,3 +40,4 @@ public:
     static void DestroyTexture(void* pTexture);
 #endif
 };
+VALIDATE_SIZE(D3DResourceSystem, 0x1);

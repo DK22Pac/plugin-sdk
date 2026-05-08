@@ -31,6 +31,12 @@ public:
 
     CTaskSimpleStealthKill(bool bKeepTargetAlive,CPed *pTarget,int nAssocGroupId);
 };
-
+VALIDATE_OFFSET(CTaskSimpleStealthKill, m_bKeepTargetAlive, 0x8);
+VALIDATE_OFFSET(CTaskSimpleStealthKill, m_pTarget, 0xC);
+VALIDATE_OFFSET(CTaskSimpleStealthKill, m_nAssocGroupId, 0x10);
+VALIDATE_OFFSET(CTaskSimpleStealthKill, b_bIsAborting, 0x14);
+VALIDATE_OFFSET(CTaskSimpleStealthKill, b_bIsFinished, 0x15);
+VALIDATE_OFFSET(CTaskSimpleStealthKill, m_pAnim, 0x18);
+VALIDATE_OFFSET(CTaskSimpleStealthKill, m_nTime, 0x1C);
 VALIDATE_SIZE(CTaskSimpleStealthKill, 0x20);
 

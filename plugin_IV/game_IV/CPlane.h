@@ -12,3 +12,4 @@ class CPlane : public CAutomobile {
 public:
     CPlane(uint8_t createdBy);
 };
+VALIDATE_SIZE(CPlane, 0x2080);

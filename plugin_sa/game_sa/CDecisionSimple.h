@@ -17,5 +17,7 @@ public:
     void MakeDecision(int taskType, short& outTaskType, int& outDecisionIndex);
     void SetDefault();
 };
-
+VALIDATE_OFFSET(CDecisionSimple, m_anTasks, 0x0);
+VALIDATE_OFFSET(CDecisionSimple, m_afChances, 0x18);
+VALIDATE_OFFSET(CDecisionSimple, m_nCount, 0x30);
 VALIDATE_SIZE(CDecisionSimple, 0x34);

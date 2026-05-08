@@ -28,3 +28,4 @@ public:
     static void ChangeDir(char const* dir);
     static void Initialise();
 };
+VALIDATE_SIZE(CFileMgr, 0x1);

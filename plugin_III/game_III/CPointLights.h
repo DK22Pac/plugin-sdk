@@ -25,7 +25,15 @@ public:
 
     CPointLight();
 };
-
+VALIDATE_OFFSET(CPointLight, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CPointLight, m_vecDirection, 0xC);
+VALIDATE_OFFSET(CPointLight, m_fRange, 0x18);
+VALIDATE_OFFSET(CPointLight, m_fColorRed, 0x1C);
+VALIDATE_OFFSET(CPointLight, m_fColorGreen, 0x20);
+VALIDATE_OFFSET(CPointLight, m_fColorBlue, 0x24);
+VALIDATE_OFFSET(CPointLight, m_nType, 0x28);
+VALIDATE_OFFSET(CPointLight, m_nFogType, 0x29);
+VALIDATE_OFFSET(CPointLight, m_bGenerateShadows, 0x2A);
 VALIDATE_SIZE(CPointLight, 0x2C);
 
 class CPointLights {
@@ -57,5 +65,6 @@ public:
     static void RemoveLightsAffectingObject();
     static void RenderFogEffect();
 };
+VALIDATE_SIZE(CPointLights, 0x1);
 
 extern unsigned int MAX_POINTLIGHTS; // default: 32

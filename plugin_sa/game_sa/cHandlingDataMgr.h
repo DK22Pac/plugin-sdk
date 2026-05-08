@@ -47,7 +47,15 @@ public:
 	// get boat handling by id
 	tBoatHandlingData *GetBoatPointer(unsigned char handlingId);
 };
-
+VALIDATE_OFFSET(cHandlingDataMgr, field_0, 0x0);
+VALIDATE_OFFSET(cHandlingDataMgr, field_4, 0x4);
+VALIDATE_OFFSET(cHandlingDataMgr, field_8, 0x8);
+VALIDATE_OFFSET(cHandlingDataMgr, field_C, 0xC);
+VALIDATE_OFFSET(cHandlingDataMgr, field_10, 0x10);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aVehicleHandling, 0x14);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aBikeHandling, 0xB7D4);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aFlyingHandling, 0xBB14);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aBoatHandling, 0xC354);
 VALIDATE_SIZE(cHandlingDataMgr, 0xC624);
 
 extern cHandlingDataMgr& gHandlingDataMgr;

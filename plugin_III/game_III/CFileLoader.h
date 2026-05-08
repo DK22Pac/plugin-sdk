@@ -51,6 +51,7 @@ public:
     static void LoadCollisionFile(char* filepath);
     static void LoadCollisionModel(unsigned char* buffer, CColModel& outColModel, char* name);
 };
+VALIDATE_SIZE(CFileLoader, 0x1);
 
 char* GetFilename(char const* filepath);
 void LoadingScreenLoadingFile(char const* filepath);

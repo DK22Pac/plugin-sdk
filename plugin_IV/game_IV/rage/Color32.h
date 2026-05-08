@@ -69,4 +69,9 @@ namespace rage {
             return *this;
         }
     };
+    VALIDATE_OFFSET(Color32, b, 0x0);
+    VALIDATE_OFFSET(Color32, g, 0x1);
+    VALIDATE_OFFSET(Color32, r, 0x2);
+    VALIDATE_OFFSET(Color32, a, 0x3);
+    VALIDATE_SIZE(Color32, 0x4);
 }

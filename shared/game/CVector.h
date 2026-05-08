@@ -14,6 +14,10 @@
     {
         float x, y, z;
     };
+    VALIDATE_OFFSET(RwV3d, x, 0x0);
+    VALIDATE_OFFSET(RwV3d, y, 0x4);
+    VALIDATE_OFFSET(RwV3d, z, 0x8);
+    VALIDATE_SIZE(RwV3d, 0xC);
 #endif
 
 #if defined GTA3 || defined GTAVC || defined GTASA

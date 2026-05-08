@@ -23,7 +23,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Process();
     SUPPORTED_10EN_11EN_STEAM void ProcessForDisplay();
 };
-
+VALIDATE_OFFSET(COnscreenTimer, m_sEntries, 0x0);
+VALIDATE_OFFSET(COnscreenTimer, m_bDisplay, 0x74);
+VALIDATE_OFFSET(COnscreenTimer, m_bDisabled, 0x75);
 VALIDATE_SIZE(COnscreenTimer, 0x78);
 
 #include "meta/meta.COnscreenTimer.h"

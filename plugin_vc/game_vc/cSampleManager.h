@@ -14,6 +14,12 @@ struct PLUGIN_API tSample {
 	unsigned int nLoopStart;
 	int nLoopEnd;
 };
+VALIDATE_OFFSET(tSample, nOffset, 0x0);
+VALIDATE_OFFSET(tSample, nSize, 0x4);
+VALIDATE_OFFSET(tSample, nFrequency, 0x8);
+VALIDATE_OFFSET(tSample, nLoopStart, 0xC);
+VALIDATE_OFFSET(tSample, nLoopEnd, 0x10);
+VALIDATE_SIZE(tSample, 0x14);
 
 class PLUGIN_API cSampleManager {
 public:
@@ -36,5 +42,21 @@ public:
 	static bool IsMP3RadioChannelAvailable();
 
 };
+VALIDATE_OFFSET(cSampleManager, m_nEffectsVolume, 0x0);
+VALIDATE_OFFSET(cSampleManager, m_nMusicVolume, 0x1);
+VALIDATE_OFFSET(cSampleManager, m_nMP3BoostVolume, 0x2);
+VALIDATE_OFFSET(cSampleManager, m_nEffectsFadeVolume, 0x3);
+VALIDATE_OFFSET(cSampleManager, m_nMusicFadeVolume, 0x4);
+VALIDATE_OFFSET(cSampleManager, m_nMonoMode, 0x5);
+VALIDATE_OFFSET(cSampleManager, m_szCDRomRootPath, 0x6);
+VALIDATE_OFFSET(cSampleManager, m_bInitialised, 0x56);
+VALIDATE_OFFSET(cSampleManager, m_nNumberOfProviders, 0x57);
+VALIDATE_OFFSET(cSampleManager, m_aAudioProviders, 0x58);
+VALIDATE_OFFSET(cSampleManager, m_aSamples, 0x158);
+VALIDATE_OFFSET(cSampleManager, m_MiscomPath, 0x309FC);
+VALIDATE_OFFSET(cSampleManager, m_WavFilesPath, 0x30B00);
+VALIDATE_OFFSET(cSampleManager, m_MP3FilesPath, 0x30C04);
+VALIDATE_OFFSET(cSampleManager, m_aChannels, 0x30CC0);
+VALIDATE_SIZE(cSampleManager, 0x30D08);
 
 extern cSampleManager& SampleManager;

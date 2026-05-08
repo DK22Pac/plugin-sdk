@@ -58,5 +58,8 @@ public:
     static void* operator new(unsigned int size);
 
 };
-
+VALIDATE_OFFSET(CQuadTreeNode, rect, 0x0);
+VALIDATE_OFFSET(CQuadTreeNode, itemList, 0x10);
+VALIDATE_OFFSET(CQuadTreeNode, childrens, 0x14);
+VALIDATE_OFFSET(CQuadTreeNode, level, 0x24);
 VALIDATE_SIZE(CQuadTreeNode, 0x28);

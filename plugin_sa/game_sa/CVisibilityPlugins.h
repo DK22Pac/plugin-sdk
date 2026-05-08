@@ -20,6 +20,9 @@ public:
     short m_wModelId;
     unsigned short m_wFlags;
 };
+VALIDATE_OFFSET(tAtomicVisibilityPlugin, m_wModelId, 0x0);
+VALIDATE_OFFSET(tAtomicVisibilityPlugin, m_wFlags, 0x2);
+VALIDATE_SIZE(tAtomicVisibilityPlugin, 0x4);
 
 class PLUGIN_API CVisibilityPlugins
 {
@@ -130,5 +133,6 @@ public:
     static bool VehicleVisibilityCB(RpClump *pRpClump);
     static bool VehicleVisibilityCB_BigVehicle(RpClump *pRpClump);
 };
+VALIDATE_SIZE(CVisibilityPlugins, 0x1);
 
 #define RpAtomicGetVisibilityPlugin(atomic) ((tAtomicVisibilityPlugin *)((unsigned int)atomic + CVisibilityPlugins::ms_atomicPluginOffset))

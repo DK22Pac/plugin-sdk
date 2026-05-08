@@ -43,5 +43,6 @@ public:
         return m_nAreaId != rhs.m_nAreaId || m_nNodeId != rhs.m_nNodeId;
     }
 };
-
+VALIDATE_OFFSET(CNodeAddress, m_nAreaId, 0x0);
+VALIDATE_OFFSET(CNodeAddress, m_nNodeId, 0x2);
 VALIDATE_SIZE(CNodeAddress, 0x4);

@@ -26,5 +26,7 @@ public:
     bool IsClimbing();
     void ClearTasks(bool arg1);
 };
-
+VALIDATE_OFFSET(CPedIntelligence, gap_4, 0x4);
+VALIDATE_OFFSET(CPedIntelligence, m_TaskMgr, 0x44);
+VALIDATE_OFFSET(CPedIntelligence, field_100, 0x74);
 VALIDATE_SIZE(CPedIntelligence, 0x2F0);

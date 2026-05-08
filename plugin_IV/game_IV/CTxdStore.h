@@ -15,6 +15,11 @@ struct TxdDef {
     uint32_t name;
     int32_t pad;
 };
+VALIDATE_OFFSET(TxdDef, dict, 0x0);
+VALIDATE_OFFSET(TxdDef, refName, 0x4);
+VALIDATE_OFFSET(TxdDef, name, 0x8);
+VALIDATE_OFFSET(TxdDef, pad, 0xC);
+VALIDATE_SIZE(TxdDef, 0x10);
 
 class CTxdStore {
 public:
@@ -36,4 +41,5 @@ public:
 
     static void RemoveTxdSlot(int32_t slot);
 };
+VALIDATE_SIZE(CTxdStore, 0x1);
 

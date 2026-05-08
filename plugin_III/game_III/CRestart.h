@@ -35,5 +35,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void OverrideNextRestart(CVector const &pos, float heading);
     SUPPORTED_10EN_11EN_STEAM static void SaveAllRestartPoints(unsigned char *buf, unsigned int *size);
 };
+VALIDATE_SIZE(CRestart, 0x1);
 
 #include "meta/meta.CRestart.h"

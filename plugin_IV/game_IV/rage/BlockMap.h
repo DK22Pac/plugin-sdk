@@ -13,4 +13,5 @@ namespace rage {
     public:
 
     };
+    VALIDATE_SIZE(BlockMap, 0x4);
 }

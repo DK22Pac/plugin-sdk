@@ -21,5 +21,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool CalcPedRoute(unsigned char pathType, CVector position, CVector destination, CVector *pointPoses, short *pointsFound, short maxPoints);
     SUPPORTED_10EN_11EN_STEAM static void RemoveNodeFromList(CPedPathNode *node);
 };
+VALIDATE_SIZE(CPedPath, 0x1);
 
 #include "meta/meta.CPedPath.h"

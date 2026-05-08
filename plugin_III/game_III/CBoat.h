@@ -152,6 +152,33 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool IsSectorAffectedByWake(CVector2D sector, float size, CBoat **apBoats);
     SUPPORTED_10EN_11EN_STEAM static float IsVertexAffectedByWake(CVector vecVertex, CBoat *boat);
 };
+VALIDATE_OFFSET(CBoat, m_fThrustZ, 0x288);
+VALIDATE_OFFSET(CBoat, m_fThrustY, 0x28C);
+VALIDATE_OFFSET(CBoat, m_vecMoveRes, 0x290);
+VALIDATE_OFFSET(CBoat, m_vecTurnRes, 0x29C);
+VALIDATE_OFFSET(CBoat, m_fMovingRotation, 0x2A8);
+VALIDATE_OFFSET(CBoat, field_2AC, 0x2AC);
+VALIDATE_OFFSET(CBoat, m_aBoatNodes, 0x2B0);
+VALIDATE_OFFSET(CBoat, m_nBoatFlags, 0x2C0);
+VALIDATE_OFFSET(CBoat, m_bIsAnchored, 0x2C1);
+VALIDATE_OFFSET(CBoat, m_fOrientation, 0x2C4);
+VALIDATE_OFFSET(CBoat, field_2C8, 0x2C8);
+VALIDATE_OFFSET(CBoat, m_fDamage, 0x2CC);
+VALIDATE_OFFSET(CBoat, m_pSetOnFireEntity, 0x2D0);
+VALIDATE_OFFSET(CBoat, field_2D4, 0x2D4);
+VALIDATE_OFFSET(CBoat, m_fAccelerate, 0x2D8);
+VALIDATE_OFFSET(CBoat, m_fBrake, 0x2DC);
+VALIDATE_OFFSET(CBoat, m_fSteeringLeftRight, 0x2E0);
+VALIDATE_OFFSET(CBoat, m_nPadID, 0x2E4);
+VALIDATE_OFFSET(CBoat, field_2E8, 0x2E8);
+VALIDATE_OFFSET(CBoat, m_fVolumeUnderWater, 0x2EC);
+VALIDATE_OFFSET(CBoat, m_vecBuoyancePoint, 0x2F0);
+VALIDATE_OFFSET(CBoat, m_fPrevVolumeUnderWater, 0x2FC);
+VALIDATE_OFFSET(CBoat, m_nDeltaVolumeUnderWater, 0x300);
+VALIDATE_OFFSET(CBoat, m_nNumWakePoints, 0x302);
+VALIDATE_OFFSET(CBoat, m_avec2dWakePoints, 0x304);
+VALIDATE_OFFSET(CBoat, m_afWakePointLifeTime, 0x404);
+VALIDATE_SIZE(CBoat, 0x484);
 
 //! 50.0f
 SUPPORTED_10EN_11EN_STEAM extern float &MAX_WAKE_LENGTH;

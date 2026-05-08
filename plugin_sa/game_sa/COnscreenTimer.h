@@ -31,6 +31,10 @@ public:
     SUPPORTED_10US void SetCounterColourID(unsigned int varID, unsigned char ColourID);
     SUPPORTED_10US void SetCounterFlashWhenFirstDisplayed(unsigned int varId, unsigned char bFlashWhenFirstDisplayed);
 };
+VALIDATE_OFFSET(COnscreenTimer, m_Clock, 0x0);
+VALIDATE_OFFSET(COnscreenTimer, m_aCounters, 0x40);
+VALIDATE_OFFSET(COnscreenTimer, m_bDisplay, 0x150);
+VALIDATE_OFFSET(COnscreenTimer, m_bPaused, 0x151);
 VALIDATE_SIZE(COnscreenTimer, 0x154);
 
 #include "meta/meta.COnscreenTimer.h"

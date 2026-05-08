@@ -34,5 +34,9 @@ public:
     static bool AddProjectile(CEntity* pEntity, eWeaponType weapontype, CVector posn, float fPower);
 
 };
-
+VALIDATE_OFFSET(CProjectileInfo, nWeaponId, 0x0);
+VALIDATE_OFFSET(CProjectileInfo, pSource, 0x4);
+VALIDATE_OFFSET(CProjectileInfo, dwTimer, 0x8);
+VALIDATE_OFFSET(CProjectileInfo, bInUse, 0xC);
+VALIDATE_OFFSET(CProjectileInfo, vecPos, 0x10);
 VALIDATE_SIZE(CProjectileInfo, 0x1C);

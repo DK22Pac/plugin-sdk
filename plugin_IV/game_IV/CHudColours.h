@@ -104,3 +104,4 @@ public:
         return out;
     }
 };
+VALIDATE_SIZE(CHudColours, 0x1);

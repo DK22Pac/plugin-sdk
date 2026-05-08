@@ -21,7 +21,8 @@ public:
     bool IsCutsceneTrackActive();
     char GetCutsceneTrackStatus();
 };
-
+VALIDATE_OFFSET(CAECutsceneTrackManager, gap0, 0x0);
+VALIDATE_OFFSET(CAECutsceneTrackManager, m_nStatus, 0x8);
 VALIDATE_SIZE(CAECutsceneTrackManager, 0xC);
 
 extern CAECutsceneTrackManager& AECutsceneTrackManager;

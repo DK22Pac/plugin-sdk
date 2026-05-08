@@ -22,6 +22,13 @@ public:
 	short renderFrameCounter;
 	void *texture;
 };
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, scaleX, 0x0);
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, scaleY, 0x1);
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, transSclX, 0x2);
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, transSclY, 0x3);
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, shininess, 0x4);
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, renderFrameCounter, 0x6);
+VALIDATE_OFFSET(CustomEnvMapPipeMaterialData, texture, 0x8);
 VALIDATE_SIZE(CustomEnvMapPipeMaterialData, 0xC);
 
 struct CustomEnvMapPipeAtomicData
@@ -30,6 +37,9 @@ struct CustomEnvMapPipeAtomicData
 	float posx;
 	float posy;
 };
+VALIDATE_OFFSET(CustomEnvMapPipeAtomicData, lastTrans, 0x0);
+VALIDATE_OFFSET(CustomEnvMapPipeAtomicData, posx, 0x4);
+VALIDATE_OFFSET(CustomEnvMapPipeAtomicData, posy, 0x8);
 VALIDATE_SIZE(CustomEnvMapPipeAtomicData, 0xC);
 
 struct CustomSpecMapPipeMaterialData
@@ -37,6 +47,8 @@ struct CustomSpecMapPipeMaterialData
 	float specularity;
 	void *texture;
 };
+VALIDATE_OFFSET(CustomSpecMapPipeMaterialData, specularity, 0x0);
+VALIDATE_OFFSET(CustomSpecMapPipeMaterialData, texture, 0x4);
 VALIDATE_SIZE(CustomSpecMapPipeMaterialData, 0x8);
 
 class PLUGIN_API CCustomCarEnvMapPipeline {
@@ -81,3 +93,4 @@ public:
     
 
 };
+VALIDATE_SIZE(CCustomCarEnvMapPipeline, 0x1);

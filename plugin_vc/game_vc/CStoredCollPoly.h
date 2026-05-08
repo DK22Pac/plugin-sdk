@@ -16,5 +16,6 @@ public:
 private:
     char _pad[3];
 };
-
+VALIDATE_OFFSET(CStoredCollPoly, m_aVertices, 0x0);
+VALIDATE_OFFSET(CStoredCollPoly, m_bIsActual, 0x24);
 VALIDATE_SIZE(CStoredCollPoly, 0x28);

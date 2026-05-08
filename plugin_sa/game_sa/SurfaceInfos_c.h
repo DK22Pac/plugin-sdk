@@ -74,6 +74,43 @@ struct SurfaceInfo {
     int32_t  Climbable;
     char     BulletFx[32];
 };
+VALIDATE_OFFSET(SurfaceInfo, SurfaceName, 0x0);
+VALIDATE_OFFSET(SurfaceInfo, AdhesionGroup, 0x40);
+VALIDATE_OFFSET(SurfaceInfo, TyreGrip, 0x60);
+VALIDATE_OFFSET(SurfaceInfo, WetGrip, 0x64);
+VALIDATE_OFFSET(SurfaceInfo, SkidMark, 0x68);
+VALIDATE_OFFSET(SurfaceInfo, FrictionEffect, 0x88);
+VALIDATE_OFFSET(SurfaceInfo, SoftLand, 0xA8);
+VALIDATE_OFFSET(SurfaceInfo, SeeThrough, 0xAC);
+VALIDATE_OFFSET(SurfaceInfo, ShootThrough, 0xB0);
+VALIDATE_OFFSET(SurfaceInfo, Sand, 0xB4);
+VALIDATE_OFFSET(SurfaceInfo, Water, 0xB8);
+VALIDATE_OFFSET(SurfaceInfo, ShallowWater, 0xBC);
+VALIDATE_OFFSET(SurfaceInfo, Beach, 0xC0);
+VALIDATE_OFFSET(SurfaceInfo, SteepSlope, 0xC4);
+VALIDATE_OFFSET(SurfaceInfo, Glass, 0xC8);
+VALIDATE_OFFSET(SurfaceInfo, Stairs, 0xCC);
+VALIDATE_OFFSET(SurfaceInfo, Skateable, 0xD0);
+VALIDATE_OFFSET(SurfaceInfo, Pavement, 0xD4);
+VALIDATE_OFFSET(SurfaceInfo, Roughness, 0xD8);
+VALIDATE_OFFSET(SurfaceInfo, Flame, 0xDC);
+VALIDATE_OFFSET(SurfaceInfo, Sparks, 0xE0);
+VALIDATE_OFFSET(SurfaceInfo, Sprint, 0xE4);
+VALIDATE_OFFSET(SurfaceInfo, Footsteps, 0xE8);
+VALIDATE_OFFSET(SurfaceInfo, FootDust, 0xEC);
+VALIDATE_OFFSET(SurfaceInfo, CarDirt, 0xF0);
+VALIDATE_OFFSET(SurfaceInfo, CarClean, 0xF4);
+VALIDATE_OFFSET(SurfaceInfo, WheelGrass, 0xF8);
+VALIDATE_OFFSET(SurfaceInfo, WheelGravel, 0xFC);
+VALIDATE_OFFSET(SurfaceInfo, WheelMud, 0x100);
+VALIDATE_OFFSET(SurfaceInfo, WheelDust, 0x104);
+VALIDATE_OFFSET(SurfaceInfo, WheelSand, 0x108);
+VALIDATE_OFFSET(SurfaceInfo, WheelSpray, 0x10C);
+VALIDATE_OFFSET(SurfaceInfo, ProcPlant, 0x110);
+VALIDATE_OFFSET(SurfaceInfo, ProcObj, 0x114);
+VALIDATE_OFFSET(SurfaceInfo, Climbable, 0x118);
+VALIDATE_OFFSET(SurfaceInfo, BulletFx, 0x11C);
+VALIDATE_SIZE(SurfaceInfo, 0x13C);
 
 class SurfaceInfo_c {
 public:
@@ -134,10 +171,11 @@ public:
         uint32_t m_nFlags2;
     };
 };
-
+VALIDATE_OFFSET(SurfaceInfo_c, tyreGrip, 0x0);
+VALIDATE_OFFSET(SurfaceInfo_c, wetGrip, 0x1);
+VALIDATE_OFFSET(SurfaceInfo_c, m_nFlags1, 0x4);
+VALIDATE_OFFSET(SurfaceInfo_c, m_nFlags2, 0x4);
 VALIDATE_SIZE(SurfaceInfo_c, 0xC);
-
-
 
 class SurfaceInfos_c {
 public:
@@ -198,4 +236,6 @@ public:
     bool IsAudioTile(SurfaceId id);
     float GetAdhesiveLimit(CColPoint* colPoint);
 };
+VALIDATE_OFFSET(SurfaceInfos_c, m_adhesiveLimits, 0x0);
+VALIDATE_OFFSET(SurfaceInfos_c, m_surfaces, 0x90);
 VALIDATE_SIZE(SurfaceInfos_c, 0x8F4);

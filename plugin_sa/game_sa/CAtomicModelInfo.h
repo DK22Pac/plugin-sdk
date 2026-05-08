@@ -16,5 +16,4 @@ public:
 
 	struct RpAtomic *GetAtomicFromDistance(float distance);
 };
-
 VALIDATE_SIZE(CAtomicModelInfo, 0x20);

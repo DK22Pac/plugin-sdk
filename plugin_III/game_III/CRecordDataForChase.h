@@ -35,7 +35,20 @@ public:
     bool m_bIsHandbrakeOn;
     CVector m_vecPos;
 };
-
+VALIDATE_OFFSET(CCarStateEachFrame, m_nMoveSpeedX, 0x0);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nMoveSpeedY, 0x2);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nMoveSpeedZ, 0x4);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nRightX, 0x6);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nRightY, 0x7);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nRightZ, 0x8);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nUpX, 0x9);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nUpY, 0xA);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nUpZ, 0xB);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nSteerAngle, 0xC);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nGasPedal, 0xD);
+VALIDATE_OFFSET(CCarStateEachFrame, m_nBreakPedal, 0xE);
+VALIDATE_OFFSET(CCarStateEachFrame, m_bIsHandbrakeOn, 0xF);
+VALIDATE_OFFSET(CCarStateEachFrame, m_vecPos, 0x10);
 VALIDATE_SIZE(CCarStateEachFrame, 0x1C);
 
 class PLUGIN_API CRecordDataForChase {
@@ -72,6 +85,7 @@ public:
         return false;
     }
 };
+VALIDATE_SIZE(CRecordDataForChase, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM void RemoveUnusedCollision();
 

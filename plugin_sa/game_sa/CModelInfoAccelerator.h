@@ -29,5 +29,9 @@ public:
     void EndOfLoadPhase();
     bool Begin(char* filePath);
 };
-
+VALIDATE_OFFSET(CModelInfoAccelerator, m_pIDs, 0x0);
+VALIDATE_OFFSET(CModelInfoAccelerator, m_nNumIDs, 0x4);
+VALIDATE_OFFSET(CModelInfoAccelerator, m_szFilePath, 0x6);
+VALIDATE_OFFSET(CModelInfoAccelerator, field_1A, 0x1A);
+VALIDATE_OFFSET(CModelInfoAccelerator, m_bFileRead, 0x1B);
 VALIDATE_SIZE(CModelInfoAccelerator, 0x1C);

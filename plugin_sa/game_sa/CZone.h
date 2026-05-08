@@ -38,5 +38,15 @@ public:
 	// Returns pointer to GXT name string.
 	const char* GetTranslatedName();
 };
-
+VALIDATE_OFFSET(CZone, m_szLabel, 0x0);
+VALIDATE_OFFSET(CZone, m_szTextKey, 0x8);
+VALIDATE_OFFSET(CZone, m_fX1, 0x10);
+VALIDATE_OFFSET(CZone, m_fY1, 0x12);
+VALIDATE_OFFSET(CZone, m_fZ1, 0x14);
+VALIDATE_OFFSET(CZone, m_fX2, 0x16);
+VALIDATE_OFFSET(CZone, m_fY2, 0x18);
+VALIDATE_OFFSET(CZone, m_fZ2, 0x1A);
+VALIDATE_OFFSET(CZone, m_nZoneExtraIndexInfo, 0x1C);
+VALIDATE_OFFSET(CZone, m_nType, 0x2D);
+VALIDATE_OFFSET(CZone, m_nLevel, 0x2E);
 VALIDATE_SIZE(CZone, 0x30);

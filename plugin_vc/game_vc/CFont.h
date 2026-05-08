@@ -17,11 +17,18 @@ struct tFontTable {
     unsigned short space;
     unsigned short unprop;
 };
+VALIDATE_OFFSET(tFontTable, prop, 0x0);
+VALIDATE_OFFSET(tFontTable, space, 0x1A0);
+VALIDATE_OFFSET(tFontTable, unprop, 0x1A2);
+VALIDATE_SIZE(tFontTable, 0x1A4);
 
 struct tFontSize {
     tFontTable fonts[3];
     unsigned short ftable[338];
 };
+VALIDATE_OFFSET(tFontSize, fonts, 0x0);
+VALIDATE_OFFSET(tFontSize, ftable, 0x4EC);
+VALIDATE_SIZE(tFontSize, 0x790);
 
 enum eFontAlignment : unsigned char {
     ALIGN_CENTER,
@@ -55,6 +62,22 @@ public:
     char anonymous_14;
     short FontStyle;
 };
+VALIDATE_OFFSET(CFontRenderState, anonymous_0, 0x0);
+VALIDATE_OFFSET(CFontRenderState, fTextPosX, 0x4);
+VALIDATE_OFFSET(CFontRenderState, fTextPosY, 0x8);
+VALIDATE_OFFSET(CFontRenderState, fTextSizeX, 0xC);
+VALIDATE_OFFSET(CFontRenderState, fTextSizeY, 0x10);
+VALIDATE_OFFSET(CFontRenderState, color, 0x14);
+VALIDATE_OFFSET(CFontRenderState, fExtraSpace, 0x18);
+VALIDATE_OFFSET(CFontRenderState, fSlant, 0x1C);
+VALIDATE_OFFSET(CFontRenderState, fSlantRefPointX, 0x20);
+VALIDATE_OFFSET(CFontRenderState, fSlantRefPointY, 0x24);
+VALIDATE_OFFSET(CFontRenderState, bIsShadow, 0x28);
+VALIDATE_OFFSET(CFontRenderState, bFontHalfTexture, 0x29);
+VALIDATE_OFFSET(CFontRenderState, bProp, 0x2A);
+VALIDATE_OFFSET(CFontRenderState, anonymous_14, 0x2B);
+VALIDATE_OFFSET(CFontRenderState, FontStyle, 0x2C);
+VALIDATE_SIZE(CFontRenderState, 0x30);
 
 class CFont {
 public:
@@ -129,6 +152,7 @@ public:
             SetBackgroundOff();
     }
 };
+VALIDATE_SIZE(CFont, 0x1);
 
 void UnicodeMakeUpperCase(wchar_t* str_out, wchar_t const* str_in);
 int UnicodeStrlen(wchar_t const* str);

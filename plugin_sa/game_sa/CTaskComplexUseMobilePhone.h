@@ -20,6 +20,9 @@ public:
 
     CTaskComplexUseMobilePhone(int nDuration);
 };
-
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_nDuration, 0xC);
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_timer, 0x10);
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_bIsAborting, 0x1C);
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_bQuit, 0x1D);
 VALIDATE_SIZE(CTaskComplexUseMobilePhone, 0x20);
 

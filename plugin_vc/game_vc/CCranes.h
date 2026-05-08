@@ -20,5 +20,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void RegisterCarForMilitaryCrane(unsigned short arg1);
     SUPPORTED_10EN_11EN_STEAM static void UpdateCranes();
 };
+VALIDATE_SIZE(CCranes, 0x1);
 
 #include "meta/meta.CCranes.h"

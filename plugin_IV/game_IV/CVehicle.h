@@ -19,10 +19,17 @@ struct tDoor {
     char boneIndex;
     char field_6[46];
 };
+VALIDATE_OFFSET(tDoor, boneID, 0x0);
+VALIDATE_OFFSET(tDoor, field_4, 0x4);
+VALIDATE_OFFSET(tDoor, boneIndex, 0x5);
+VALIDATE_OFFSET(tDoor, field_6, 0x6);
+VALIDATE_SIZE(tDoor, 0x34);
 
 struct tDoors {
     tDoor m_Doors[6];
 };
+VALIDATE_OFFSET(tDoors, m_Doors, 0x0);
+VALIDATE_SIZE(tDoors, 0x138);
 
 enum eVehicleType {
     VEHICLETYPE_AUTOMOBILE = 0x0,
@@ -166,5 +173,33 @@ public:
     void Fix() { plugin::CallVirtualMethod<101>(this); }
     void SetHealth(float health, int32_t arg2) { plugin::CallVirtualMethod<61>(this, health, arg2); }
 };
-
+VALIDATE_OFFSET(CVehicle, m_pVehicleAudioEntity, 0x210);
+VALIDATE_OFFSET(CVehicle, field_1, 0x214);
+VALIDATE_OFFSET(CVehicle, m_nColor1, 0x2AA);
+VALIDATE_OFFSET(CVehicle, m_nColor2, 0x2AB);
+VALIDATE_OFFSET(CVehicle, m_nColor3, 0x2AC);
+VALIDATE_OFFSET(CVehicle, m_nColor4, 0x2AD);
+VALIDATE_OFFSET(CVehicle, field_146, 0x2AE);
+VALIDATE_OFFSET(CVehicle, m_ForcePlayerStation, 0xD3B);
+VALIDATE_OFFSET(CVehicle, field_156, 0xD3C);
+VALIDATE_OFFSET(CVehicle, m_pHandlingData, 0xDC8);
+VALIDATE_OFFSET(CVehicle, m_nHandlingFlags, 0xDCC);
+VALIDATE_OFFSET(CVehicle, field_157, 0xDD0);
+VALIDATE_OFFSET(CVehicle, m_pVehicleFrag, 0xE14);
+VALIDATE_OFFSET(CVehicle, field_192, 0xE18);
+VALIDATE_OFFSET(CVehicle, field_200, 0xE20);
+VALIDATE_OFFSET(CVehicle, field_1000, 0xF21);
+VALIDATE_OFFSET(CVehicle, m_pDriver, 0xF50);
+VALIDATE_OFFSET(CVehicle, m_pPassengers, 0xF54);
+VALIDATE_OFFSET(CVehicle, field_912, 0xF74);
+VALIDATE_OFFSET(CVehicle, m_nMaxPassengers, 0x1070);
+VALIDATE_OFFSET(CVehicle, field_1100, 0x1071);
+VALIDATE_OFFSET(CVehicle, m_nCreatedBy, 0x10B8);
+VALIDATE_OFFSET(CVehicle, field_1200, 0x10B9);
+VALIDATE_OFFSET(CVehicle, m_fDirtLevel, 0x10C8);
+VALIDATE_OFFSET(CVehicle, field_1201, 0x10CC);
+VALIDATE_OFFSET(CVehicle, m_nVehicleWeapon, 0x12E7);
+VALIDATE_OFFSET(CVehicle, field_2000, 0x12E8);
+VALIDATE_OFFSET(CVehicle, m_nVehicleType, 0x1304);
+VALIDATE_OFFSET(CVehicle, field_3304, 0x1308);
 VALIDATE_SIZE(CVehicle, 0x2080);

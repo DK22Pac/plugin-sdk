@@ -60,3 +60,4 @@ public:
     static void Update();
     static bool ZoneIsEntirelyContainedWithinOtherZone(CZone* currentZona, CZone* otherZone);
 };
+VALIDATE_SIZE(CTheZones, 0x1);

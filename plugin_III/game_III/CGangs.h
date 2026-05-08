@@ -21,5 +21,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SetGangVehicleModel(short gang, int model);
     SUPPORTED_10EN_11EN_STEAM static void SetGangWeapons(short gang, int weaponOne, int weaponTwo);
 };
+VALIDATE_SIZE(CGangs, 0x1);
 
 #include "meta/meta.CGangs.h"

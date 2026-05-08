@@ -16,5 +16,4 @@ public:
     CTaskComplexEnterCarAsPassenger(CVehicle* pTargetVehicle, int nTargetSeat, bool bCarryOnAfterFallingOff);
 
 };
-
 VALIDATE_SIZE(CTaskComplexEnterCarAsPassenger, 0x50);

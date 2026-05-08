@@ -34,7 +34,14 @@ public:
     SUPPORTED_10EN_11EN_STEAM float RetTranslationWhenClosed();
     SUPPORTED_10EN_11EN_STEAM float RetTranslationWhenOpen();
 };
-
+VALIDATE_OFFSET(CTrainDoor, m_fOpenAngle, 0x0);
+VALIDATE_OFFSET(CTrainDoor, m_fClosedAngle, 0x4);
+VALIDATE_OFFSET(CTrainDoor, m_nDirn, 0x8);
+VALIDATE_OFFSET(CTrainDoor, m_nState, 0x9);
+VALIDATE_OFFSET(CTrainDoor, m_nAxis, 0xA);
+VALIDATE_OFFSET(CTrainDoor, m_fAngle, 0xC);
+VALIDATE_OFFSET(CTrainDoor, m_fPrevAngle, 0x10);
+VALIDATE_OFFSET(CTrainDoor, m_fAngleVel, 0x14);
 VALIDATE_SIZE(CTrainDoor, 0x18);
 
 #include "meta/meta.CTrainDoor.h"

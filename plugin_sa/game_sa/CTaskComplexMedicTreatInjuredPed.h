@@ -17,3 +17,4 @@ public:
 	CTaskComplexMedicTreatInjuredPed(CVehicle* pAmbulance, CPed *pMedic, bool isPassenger);
 
 };
+VALIDATE_SIZE(CTaskComplexMedicTreatInjuredPed, 0xC);

@@ -145,5 +145,9 @@ public:
     bool GetKeyJustDown(eKeyCodes key, int32_t index, const char* str);
     bool GetKeyDown(eKeyCodes key, int32_t index, const char* str);
 };
-
+VALIDATE_OFFSET(CKeyboard, field_1, 0x0);
+VALIDATE_OFFSET(CKeyboard, m_nCurrentIndex, 0x1);
+VALIDATE_OFFSET(CKeyboard, field_3, 0x2);
+VALIDATE_OFFSET(CKeyboard, field_4, 0x3);
+VALIDATE_OFFSET(CKeyboard, field_5, 0x4);
 VALIDATE_SIZE(CKeyboard, 0x8);

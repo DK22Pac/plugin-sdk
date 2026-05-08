@@ -41,6 +41,17 @@ private:
 public:
     unsigned short m_nMaxDelay;
 };
+VALIDATE_OFFSET(CFileCarGenerator, m_vecPosn, 0x0);
+VALIDATE_OFFSET(CFileCarGenerator, m_fAngle, 0xC);
+VALIDATE_OFFSET(CFileCarGenerator, m_nModelId, 0x10);
+VALIDATE_OFFSET(CFileCarGenerator, m_nColor1, 0x14);
+VALIDATE_OFFSET(CFileCarGenerator, m_nColor2, 0x18);
+VALIDATE_OFFSET(CFileCarGenerator, m_nFlags, 0x1C);
+VALIDATE_OFFSET(CFileCarGenerator, m_nAlarm, 0x20);
+VALIDATE_OFFSET(CFileCarGenerator, m_nDoorLock, 0x24);
+VALIDATE_OFFSET(CFileCarGenerator, m_nMinDelay, 0x28);
+VALIDATE_OFFSET(CFileCarGenerator, m_nMaxDelay, 0x2C);
+VALIDATE_SIZE(CFileCarGenerator, 0x2E);
 #pragma pack(pop)
 
 VALIDATE_SIZE(CFileCarGenerator, 0x2E);

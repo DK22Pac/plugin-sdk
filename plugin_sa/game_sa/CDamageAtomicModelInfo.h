@@ -14,4 +14,5 @@ public:
     static bool& ms_bCreateDamagedVersion;
 
 };
+VALIDATE_OFFSET(CDamageAtomicModelInfo, m_pDamagedAtomic, 0x20);
 VALIDATE_SIZE(CDamageAtomicModelInfo, 0x24);

@@ -65,7 +65,25 @@ public:
     static bool AddExplosion(CEntity* victim, CEntity* creator, eExplosionType explosionType, CVector posn, unsigned int time, unsigned char makeSound, float camShake, unsigned char visibility);
     static void Update();
 };
-
+VALIDATE_OFFSET(CExplosion, m_nType, 0x0);
+VALIDATE_OFFSET(CExplosion, m_vecPosition, 0x4);
+VALIDATE_OFFSET(CExplosion, m_fRadius, 0x10);
+VALIDATE_OFFSET(CExplosion, m_fPropagationRate, 0x14);
+VALIDATE_OFFSET(CExplosion, m_pCreator, 0x18);
+VALIDATE_OFFSET(CExplosion, m_pVictim, 0x1C);
+VALIDATE_OFFSET(CExplosion, m_nExpireTime, 0x20);
+VALIDATE_OFFSET(CExplosion, m_fDamagePercentage, 0x24);
+VALIDATE_OFFSET(CExplosion, m_bIsActive, 0x28);
+VALIDATE_OFFSET(CExplosion, m_nActiveCounter, 0x29);
+VALIDATE_OFFSET(CExplosion, m_bMakeSound, 0x2A);
+VALIDATE_OFFSET(CExplosion, m_nCreatedTime, 0x2C);
+VALIDATE_OFFSET(CExplosion, m_nParticlesExpireTime, 0x30);
+VALIDATE_OFFSET(CExplosion, m_fVisibleDistance, 0x34);
+VALIDATE_OFFSET(CExplosion, m_fGroundZ, 0x38);
+VALIDATE_OFFSET(CExplosion, m_nFuelTimer, 0x3C);
+VALIDATE_OFFSET(CExplosion, m_vecFuelDirection, 0x40);
+VALIDATE_OFFSET(CExplosion, m_fFuelOffsetDistance, 0x64);
+VALIDATE_OFFSET(CExplosion, m_fFuelSpeed, 0x70);
 VALIDATE_SIZE(CExplosion, 0x7C);
 
 extern unsigned int MAX_EXPLOSIONS; // default 16

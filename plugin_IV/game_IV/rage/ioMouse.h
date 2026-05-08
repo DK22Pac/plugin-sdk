@@ -20,4 +20,5 @@ namespace rage {
         static int32_t& m_Buttons;
 
     };
+    VALIDATE_SIZE(ioMouse, 0x1);
 }

@@ -33,3 +33,4 @@ public:
     static bool &germanGame;
     static bool &frenchGame;
 };
+VALIDATE_SIZE(CLocalisation, 0x1);

@@ -31,3 +31,6 @@ public:
 		Init();
 	}
 };
+VALIDATE_OFFSET(CAnimBlendLink, next, 0x0);
+VALIDATE_OFFSET(CAnimBlendLink, prev, 0x4);
+VALIDATE_SIZE(CAnimBlendLink, 0x8);

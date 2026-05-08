@@ -13,27 +13,27 @@ class CAutomobile;
 class CGarages {
 public:
     // static variables
-    static CGarage *aGarages; // [32] max
-    static int&BankVansCollected;
-    static bool &BombsAreFree;
-    static bool &RespraysAreFree;
-    static int&CarsCollected;
-    static int&CarTypesCollected;
-    static int &CrushedCarId;
-    static unsigned int &LastTimeHelpMessage;
-    static int&MessageNumberInString;
-    static char *MessageIDString;
-    static int&MessageNumberInString2;
+    static CGarage* aGarages; // [32] max
+    static int& BankVansCollected;
+    static bool& BombsAreFree;
+    static bool& RespraysAreFree;
+    static int& CarsCollected;
+    static int& CarTypesCollected;
+    static int& CrushedCarId;
+    static unsigned int& LastTimeHelpMessage;
+    static int& MessageNumberInString;
+    static char* MessageIDString;
+    static int& MessageNumberInString2;
     static unsigned int &MessageStartTime;
     static unsigned int &MessageEndTime;
     static unsigned int &NumGarages;
-    static bool &PlayerInGarage;
-    static int&PoliceCarsCollected;
-    static unsigned int &GarageToBeTidied;
-    static CStoredCar *aCarsInSafeHouse1;
-    static CStoredCar *aCarsInSafeHouse2;
-    static CStoredCar *aCarsInSafeHouse3;
-    static bool &bCamShouldBeOutside;
+    static bool& PlayerInGarage;
+    static int& PoliceCarsCollected;
+    static unsigned int& GarageToBeTidied;
+    static CStoredCar* aCarsInSafeHouse1;
+    static CStoredCar* aCarsInSafeHouse2;
+    static CStoredCar* aCarsInSafeHouse3;
+    static bool& bCamShouldBeOutside;
 
     // static functions
     static void ActivateGarage(short index);
@@ -75,5 +75,6 @@ public:
     static void TriggerMessage(char* text, short numberInString, unsigned short time, short numberInString2);
     static void Update();
 };
+VALIDATE_SIZE(CGarages, 0x1);
 
 extern int *hGarages;

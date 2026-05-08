@@ -128,8 +128,9 @@ struct tBlipHandle {
     unsigned short arrayIndex;
     unsigned short number;
 };
-
-VALIDATE_SIZE(tBlipHandle, 4);
+VALIDATE_OFFSET(tBlipHandle, arrayIndex, 0x0);
+VALIDATE_OFFSET(tBlipHandle, number, 0x2);
+VALIDATE_SIZE(tBlipHandle, 0x4);
 
 struct airstrip_info {
     float x;
@@ -137,7 +138,10 @@ struct airstrip_info {
     float direction; // angle
     float radius; // not sure
 };
-
+VALIDATE_OFFSET(airstrip_info, x, 0x0);
+VALIDATE_OFFSET(airstrip_info, y, 0x4);
+VALIDATE_OFFSET(airstrip_info, direction, 0x8);
+VALIDATE_OFFSET(airstrip_info, radius, 0xC);
 VALIDATE_SIZE(airstrip_info, 0x10);
 
 
@@ -160,7 +164,14 @@ struct tRadarTrace {
     unsigned char  m_nBlipDisplay : 2; // see eBlipDisplay
     unsigned char  m_nBlipType : 4; // see eBlipType
 };
-
+VALIDATE_OFFSET(tRadarTrace, m_nColour, 0x0);
+VALIDATE_OFFSET(tRadarTrace, m_nEntityHandle, 0x4);
+VALIDATE_OFFSET(tRadarTrace, m_vecPos, 0x8);
+VALIDATE_OFFSET(tRadarTrace, m_nCounter, 0x14);
+VALIDATE_OFFSET(tRadarTrace, m_fSphereRadius, 0x18);
+VALIDATE_OFFSET(tRadarTrace, m_nBlipSize, 0x1C);
+VALIDATE_OFFSET(tRadarTrace, m_pEntryExit, 0x20);
+VALIDATE_OFFSET(tRadarTrace, m_nRadarSprite, 0x24);
 VALIDATE_SIZE(tRadarTrace, 0x28);
 
 extern unsigned int MAX_RADAR_SPRITES;
@@ -262,6 +273,7 @@ public:
     // Save radar blips to save file
     static void Save();
 };
+VALIDATE_SIZE(CRadar, 0x1);
 
 extern airstrip_info *airstrip_table; // airstrip_info airstrip_table[4]
 

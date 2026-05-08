@@ -66,7 +66,19 @@ public:
     SUPPORTED_10US bool TransitionStarted(CPed *player);
     SUPPORTED_10US void WarpGangWithPlayer(CPed *player);
 };
-
+VALIDATE_OFFSET(CEntryExit, m_szName, 0x0);
+VALIDATE_OFFSET(CEntryExit, m_recEntrance, 0x8);
+VALIDATE_OFFSET(CEntryExit, m_fEntranceZ, 0x18);
+VALIDATE_OFFSET(CEntryExit, m_fEntranceAngle, 0x1C);
+VALIDATE_OFFSET(CEntryExit, m_vecExitPos, 0x20);
+VALIDATE_OFFSET(CEntryExit, m_fExitAngle, 0x2C);
+VALIDATE_OFFSET(CEntryExit, m_nFlags, 0x30);
+VALIDATE_OFFSET(CEntryExit, m_nArea, 0x32);
+VALIDATE_OFFSET(CEntryExit, m_nSkyColor, 0x33);
+VALIDATE_OFFSET(CEntryExit, m_nTimeOn, 0x34);
+VALIDATE_OFFSET(CEntryExit, m_nTimeOff, 0x35);
+VALIDATE_OFFSET(CEntryExit, m_nNumberOfPeds, 0x36);
+VALIDATE_OFFSET(CEntryExit, m_pLink, 0x38);
 VALIDATE_SIZE(CEntryExit, 0x3C);
 
 #include "meta/meta.CEntryExit.h"

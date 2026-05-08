@@ -25,7 +25,12 @@ struct CStuntJump {
     bool         done;
     bool         found;
 };
-
+VALIDATE_OFFSET(CStuntJump, start, 0x0);
+VALIDATE_OFFSET(CStuntJump, end, 0x18);
+VALIDATE_OFFSET(CStuntJump, camera, 0x30);
+VALIDATE_OFFSET(CStuntJump, reward, 0x3C);
+VALIDATE_OFFSET(CStuntJump, done, 0x40);
+VALIDATE_OFFSET(CStuntJump, found, 0x41);
 VALIDATE_SIZE(CStuntJump, 0x44);
 
 typedef CPool<CStuntJump> CStuntJumpsPool;
@@ -44,3 +49,4 @@ public:
     static bool Save();
     static bool Load();
 };
+VALIDATE_SIZE(CStuntJumpManager, 0x1);

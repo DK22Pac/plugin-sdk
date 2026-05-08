@@ -17,5 +17,6 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static void LoadIniFile();
 };
+VALIDATE_SIZE(CIniFile, 0x1);
 
 #include "meta/meta.CIniFile.h"

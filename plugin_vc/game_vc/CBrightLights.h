@@ -20,7 +20,12 @@ public:
 
     CBrightLight();
 };
-
+VALIDATE_OFFSET(CBrightLight, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CBrightLight, m_vecRight, 0xC);
+VALIDATE_OFFSET(CBrightLight, m_vecUp, 0x18);
+VALIDATE_OFFSET(CBrightLight, m_vecAt, 0x24);
+VALIDATE_OFFSET(CBrightLight, m_fDistanceToCamera, 0x30);
+VALIDATE_OFFSET(CBrightLight, m_color, 0x34);
 VALIDATE_SIZE(CBrightLight, 0x38);
 
 class CBrightLights {
@@ -32,5 +37,6 @@ public:
     static void RegisterOne(CVector posn, CVector right, CVector up, CVector at, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha);
     static void Render();
 };
+VALIDATE_SIZE(CBrightLights, 0x1);
 
 extern unsigned int MAX_NUM_BRIGHTLIGHTS; // default 32

@@ -12,3 +12,4 @@ class CCoronas {
 public:
 
 };
+VALIDATE_SIZE(CCoronas, 0x1);

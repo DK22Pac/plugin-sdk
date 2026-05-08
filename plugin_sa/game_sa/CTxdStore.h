@@ -61,3 +61,4 @@ public:
 	// load txd from file
 	static bool LoadTxd(int index, char  const* filename);
 };
+VALIDATE_SIZE(CTxdStore, 0x1);

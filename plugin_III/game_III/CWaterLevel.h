@@ -13,3 +13,4 @@ public:
     static void AllocateBoatWakeArray();
     static void RenderWater();
 };
+VALIDATE_SIZE(CWaterLevel, 0x1);

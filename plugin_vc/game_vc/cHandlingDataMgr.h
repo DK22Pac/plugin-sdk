@@ -41,7 +41,16 @@ public:
 
     
 };
-
+VALIDATE_OFFSET(cHandlingDataMgr, field_0, 0x0);
+VALIDATE_OFFSET(cHandlingDataMgr, field_4, 0x4);
+VALIDATE_OFFSET(cHandlingDataMgr, field_8, 0x8);
+VALIDATE_OFFSET(cHandlingDataMgr, field_C, 0xC);
+VALIDATE_OFFSET(cHandlingDataMgr, field_10, 0x10);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aVehicleHandling, 0x14);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aBikeHandling, 0x5B2C);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aFlyingHandling, 0x5C6C);
+VALIDATE_OFFSET(cHandlingDataMgr, m_aBoatHandling, 0x5F64);
+VALIDATE_OFFSET(cHandlingDataMgr, _pad, 0x61F8);
 VALIDATE_SIZE(cHandlingDataMgr, 0x61FC);
 
 extern cHandlingDataMgr& gHandlingDataMgr;

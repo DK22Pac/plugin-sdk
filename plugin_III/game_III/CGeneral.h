@@ -47,5 +47,6 @@ public:
     static int32_t GetRandomNumberInRange(int32_t a, int32_t b);
     static float GetRandomNumberInRange(float a, float b);
 };
+VALIDATE_SIZE(CGeneral, 0x1);
 
 #include "meta/meta.CGeneral.h"

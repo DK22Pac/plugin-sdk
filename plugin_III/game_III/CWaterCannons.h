@@ -18,5 +18,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Update();
     SUPPORTED_10EN_11EN_STEAM static void UpdateOne(unsigned int id, CVector *pos, CVector *dir);
 };
+VALIDATE_SIZE(CWaterCannons, 0x1);
 
 #include "meta/meta.CWaterCannons.h"

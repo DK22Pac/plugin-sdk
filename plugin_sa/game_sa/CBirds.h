@@ -33,7 +33,18 @@ private:
     char _pad41[3];
 public:
 };
-
+VALIDATE_OFFSET(CBird, m_vecPosn, 0x0);
+VALIDATE_OFFSET(CBird, m_vecCurrentVelocity, 0xC);
+VALIDATE_OFFSET(CBird, m_vecVelocity, 0x18);
+VALIDATE_OFFSET(CBird, m_fAngle, 0x24);
+VALIDATE_OFFSET(CBird, field_28, 0x28);
+VALIDATE_OFFSET(CBird, m_nWingSpeed, 0x2C);
+VALIDATE_OFFSET(CBird, m_fSize, 0x30);
+VALIDATE_OFFSET(CBird, m_fMaxBirdDistance, 0x34);
+VALIDATE_OFFSET(CBird, field_38, 0x38);
+VALIDATE_OFFSET(CBird, m_anPolyColors, 0x39);
+VALIDATE_OFFSET(CBird, m_bCreated, 0x3F);
+VALIDATE_OFFSET(CBird, m_bMustDoCurves, 0x40);
 VALIDATE_SIZE(CBird, 0x44);
 
 extern unsigned int MAX_BIRDS; // default: 6
@@ -52,6 +63,7 @@ public:
     static void Render();
     static void HandleGunShot(CVector const* pointA, CVector const* pointB);
 };
+VALIDATE_SIZE(CBirds, 0x1);
 
 extern float *BIRD_CREATION_COORS_X; // { 0.0f, -1.0f, 2.0f, -3.0f, 1.0f, -2.0f }
 extern float *BIRD_CREATION_COORS_Y; // { 0.0f, -1.0f, -2.0f, 1.0f, 1.0f, -2.0f }

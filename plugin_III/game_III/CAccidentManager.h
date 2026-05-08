@@ -23,6 +23,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Update();
     SUPPORTED_10EN_11EN_STEAM bool WorkToDoForMedics();
 };
+VALIDATE_OFFSET(CAccidentManager, m_aAccidents, 0x0);
+VALIDATE_SIZE(CAccidentManager, 0xF0);
 
 SUPPORTED_10EN_11EN_STEAM extern CAccidentManager &gAccidentManager;
 

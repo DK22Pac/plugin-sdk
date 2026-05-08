@@ -49,6 +49,31 @@ struct CFontDetails {
     uint32_t* field_20;
     uint8_t* field_21;
 };
+VALIDATE_OFFSET(CFontDetails, color, 0x0);
+VALIDATE_OFFSET(CFontDetails, width, 0x4);
+VALIDATE_OFFSET(CFontDetails, height, 0x8);
+VALIDATE_OFFSET(CFontDetails, field_3, 0xC);
+VALIDATE_OFFSET(CFontDetails, alignment, 0x10);
+VALIDATE_OFFSET(CFontDetails, backgroundOn, 0x14);
+VALIDATE_OFFSET(CFontDetails, backgroundWrap, 0x18);
+VALIDATE_OFFSET(CFontDetails, propOn, 0x1C);
+VALIDATE_OFFSET(CFontDetails, redFade, 0x20);
+VALIDATE_OFFSET(CFontDetails, greenFade, 0x24);
+VALIDATE_OFFSET(CFontDetails, blueFade, 0x28);
+VALIDATE_OFFSET(CFontDetails, alphaFade, 0x2C);
+VALIDATE_OFFSET(CFontDetails, backgroundColor, 0x30);
+VALIDATE_OFFSET(CFontDetails, wrapX, 0x34);
+VALIDATE_OFFSET(CFontDetails, wrapY, 0x38);
+VALIDATE_OFFSET(CFontDetails, fontStyle, 0x3C);
+VALIDATE_OFFSET(CFontDetails, field_15, 0x40);
+VALIDATE_OFFSET(CFontDetails, dropShadow, 0x44);
+VALIDATE_OFFSET(CFontDetails, dropColor, 0x48);
+VALIDATE_OFFSET(CFontDetails, edgeX, 0x4C);
+VALIDATE_OFFSET(CFontDetails, edgeY, 0x50);
+VALIDATE_OFFSET(CFontDetails, lineHeight, 0x54);
+VALIDATE_OFFSET(CFontDetails, field_20, 0x58);
+VALIDATE_OFFSET(CFontDetails, field_21, 0x5C);
+VALIDATE_SIZE(CFontDetails, 0x60);
 
 class CFont {
 public:
@@ -80,3 +105,4 @@ public:
 
     static void PrintString(float x, float y, const char* text);
 };
+VALIDATE_SIZE(CFont, 0x1);

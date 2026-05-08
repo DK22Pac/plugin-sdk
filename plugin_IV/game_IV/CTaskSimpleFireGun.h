@@ -12,3 +12,4 @@ class CTaskSimpleFireGun : CTaskSimple {
 public:
 
 };
+VALIDATE_SIZE(CTaskSimpleFireGun, 0x8);

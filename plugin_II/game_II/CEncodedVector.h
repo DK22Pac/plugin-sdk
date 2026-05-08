@@ -21,6 +21,9 @@ public:
 
     CVector2D FromInt16();
 };
+VALIDATE_OFFSET(CEncodedVector2D, x, 0x0);
+VALIDATE_OFFSET(CEncodedVector2D, y, 0x4);
+VALIDATE_SIZE(CEncodedVector2D, 0x8);
 
 class CEncodedVector {
 public:
@@ -33,3 +36,7 @@ public:
 
     CVector FromInt16();
 };
+VALIDATE_OFFSET(CEncodedVector, x, 0x0);
+VALIDATE_OFFSET(CEncodedVector, y, 0x4);
+VALIDATE_OFFSET(CEncodedVector, z, 0x8);
+VALIDATE_SIZE(CEncodedVector, 0xC);

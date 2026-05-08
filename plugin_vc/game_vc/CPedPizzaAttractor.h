@@ -35,6 +35,7 @@ public:
     // virtual function #7 (not overriden)
 
 };
+VALIDATE_SIZE(CPedPizzaAttractor, 0x64);
 
 VTABLE_DESC(CPedPizzaAttractor, 0x6DBE60, 8);
 VALIDATE_SIZE(CPedPizzaAttractor, 0x64);

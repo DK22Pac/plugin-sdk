@@ -12,3 +12,4 @@ class CColPoint {
 public:
 
 };
+VALIDATE_SIZE(CColPoint, 0x1);

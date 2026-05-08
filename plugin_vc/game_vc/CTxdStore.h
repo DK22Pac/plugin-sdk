@@ -53,3 +53,4 @@ public:
     // initialise txd store
     static void Initialise();
 };
+VALIDATE_SIZE(CTxdStore, 0x1);

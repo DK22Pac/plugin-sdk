@@ -15,3 +15,4 @@ public:
     void Set(CVector const& sup, CVector const& inf, unsigned char material, unsigned char flags);
     void operator=(CColBox const& right);
 };
+VALIDATE_SIZE(CColBox, 0x18);

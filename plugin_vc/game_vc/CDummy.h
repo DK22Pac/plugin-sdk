@@ -23,7 +23,7 @@ public:
     CDummy(const CDummy &) = delete;
     CDummy &operator=(const CDummy &) = delete;
 };
-
+VALIDATE_OFFSET(CDummy, m_collisionList, 0x64);
 VALIDATE_SIZE(CDummy, 0x68);
 
 bool IsDummyPointerValid(CDummy* dummy);

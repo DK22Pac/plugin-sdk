@@ -15,4 +15,5 @@ namespace rage {
     public:
         void PrepareAndPlay(audWaveSlot* slot, bool allowLoad, int32_t timeLimit);
     };
+    VALIDATE_SIZE(audSound, 0x1);
 }

@@ -174,5 +174,5 @@ public:
 	static void StartExtraColour(int colour, bool bNoExtraColorInterior);
 	static void StopExtraColour(bool bNoExtraColorInterior);
 	static void Update();
-
 };
+VALIDATE_SIZE(CTimeCycle, 0x1);

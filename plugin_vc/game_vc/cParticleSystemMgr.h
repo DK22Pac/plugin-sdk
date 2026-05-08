@@ -16,6 +16,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Initialise();
     SUPPORTED_10EN_11EN_STEAM void LoadParticleData();
 };
+VALIDATE_OFFSET(cParticleSystemMgr, m_systems, 0x0);
+VALIDATE_SIZE(cParticleSystemMgr, 0x2FFC);
 
 SUPPORTED_10EN_11EN_STEAM extern cParticleSystemMgr &mod_ParticleSystemManager;
 

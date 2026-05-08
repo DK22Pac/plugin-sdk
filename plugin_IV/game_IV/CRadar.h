@@ -164,7 +164,8 @@ struct tRadarTraceProperties {
     uint8_t field_1[4];
     uint32_t m_nSprite;
 };
-
+VALIDATE_OFFSET(tRadarTraceProperties, field_1, 0x0);
+VALIDATE_OFFSET(tRadarTraceProperties, m_nSprite, 0x4);
 VALIDATE_SIZE(tRadarTraceProperties, 0x8);
 
 struct tRadarTrace {
@@ -188,7 +189,25 @@ struct tRadarTrace {
     uint8_t field_40[3];
     tRadarTraceProperties* m_pProperties;
 };
-
+VALIDATE_OFFSET(tRadarTrace, m_nIndex, 0x0);
+VALIDATE_OFFSET(tRadarTrace, field_2, 0x2);
+VALIDATE_OFFSET(tRadarTrace, m_bSomething, 0x8);
+VALIDATE_OFFSET(tRadarTrace, field_4, 0x9);
+VALIDATE_OFFSET(tRadarTrace, m_nDisplay, 0xC);
+VALIDATE_OFFSET(tRadarTrace, field_8, 0x10);
+VALIDATE_OFFSET(tRadarTrace, m_fActualScale, 0x18);
+VALIDATE_OFFSET(tRadarTrace, field_14, 0x1C);
+VALIDATE_OFFSET(tRadarTrace, m_nFlags, 0x20);
+VALIDATE_OFFSET(tRadarTrace, field_16, 0x21);
+VALIDATE_OFFSET(tRadarTrace, m_vPos, 0x30);
+VALIDATE_OFFSET(tRadarTrace, field_24, 0x3C);
+VALIDATE_OFFSET(tRadarTrace, m_fRotation, 0x40);
+VALIDATE_OFFSET(tRadarTrace, field_30, 0x44);
+VALIDATE_OFFSET(tRadarTrace, m_fScale, 0x50);
+VALIDATE_OFFSET(tRadarTrace, m_nColour, 0x54);
+VALIDATE_OFFSET(tRadarTrace, m_nAlpha, 0x58);
+VALIDATE_OFFSET(tRadarTrace, field_40, 0x59);
+VALIDATE_OFFSET(tRadarTrace, m_pProperties, 0x5C);
 VALIDATE_SIZE(tRadarTrace, 0x60);
 
 class CRadar {
@@ -205,4 +224,5 @@ public:
 	static bool IsRenderPhaseTime();
 	static int32_t GetActualBlipArrayIndex(int32_t blipIndex);
 };
+VALIDATE_SIZE(CRadar, 0x1);
 

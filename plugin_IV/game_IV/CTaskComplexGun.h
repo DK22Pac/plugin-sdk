@@ -12,3 +12,4 @@ class CTaskComplexGun : CTaskComplex {
 public:
 
 };
+VALIDATE_SIZE(CTaskComplexGun, 0xC);

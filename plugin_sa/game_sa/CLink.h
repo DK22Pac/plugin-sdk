@@ -15,5 +15,4 @@ public:
     CLink<T>* prev;
     CLink<T>* next;
 };
-
 VALIDATE_SIZE(CLink<void *>, 0xC);

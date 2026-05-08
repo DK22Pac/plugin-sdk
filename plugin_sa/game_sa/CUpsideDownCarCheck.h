@@ -28,6 +28,7 @@ public:
     SUPPORTED_10US static bool IsCarUpsideDown(CVehicle *pVehicle);
     SUPPORTED_10US static bool IsCarUpsideDown(int carhandle);
 };
+VALIDATE_OFFSET(CUpsideDownCarCheck, m_aUpsideDownCars, 0x0);
 VALIDATE_SIZE(CUpsideDownCarCheck, 0x30);
 
 #include "meta/meta.CUpsideDownCarCheck.h"

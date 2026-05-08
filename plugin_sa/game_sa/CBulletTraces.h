@@ -21,3 +21,4 @@ public:
 	static void Update();
 	static void Init();
 };
+VALIDATE_SIZE(CBulletTraces, 0x1);

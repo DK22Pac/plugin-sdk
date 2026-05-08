@@ -41,7 +41,34 @@ public:
 public:
 
 };
-
+VALIDATE_OFFSET(CGlobal, mapName, 0x0);
+VALIDATE_OFFSET(CGlobal, styleName, 0xFF);
+VALIDATE_OFFSET(CGlobal, scriptName, 0x1FE);
+VALIDATE_OFFSET(CGlobal, saveName, 0x2FD);
+VALIDATE_OFFSET(CGlobal, field_400, 0x3FC);
+VALIDATE_OFFSET(CGlobal, field_401, 0x3FD);
+VALIDATE_OFFSET(CGlobal, field_402, 0x3FE);
+VALIDATE_OFFSET(CGlobal, saveSlot, 0x3FF);
+VALIDATE_OFFSET(CGlobal, field_404, 0x400);
+VALIDATE_OFFSET(CGlobal, field_405, 0x401);
+VALIDATE_OFFSET(CGlobal, field_406, 0x402);
+VALIDATE_OFFSET(CGlobal, field_407, 0x403);
+VALIDATE_OFFSET(CGlobal, field_408, 0x404);
+VALIDATE_OFFSET(CGlobal, field_430, 0x42C);
+VALIDATE_OFFSET(CGlobal, field_434, 0x430);
+VALIDATE_OFFSET(CGlobal, field_438, 0x434);
+VALIDATE_OFFSET(CGlobal, field_43A, 0x436);
+VALIDATE_OFFSET(CGlobal, field_43B, 0x437);
+VALIDATE_OFFSET(CGlobal, field_43C, 0x438);
+VALIDATE_OFFSET(CGlobal, field_440, 0x43C);
+VALIDATE_OFFSET(CGlobal, field_441, 0x43D);
+VALIDATE_OFFSET(CGlobal, field_442, 0x43E);
+VALIDATE_OFFSET(CGlobal, field_443, 0x43F);
+VALIDATE_OFFSET(CGlobal, field_444, 0x440);
+VALIDATE_OFFSET(CGlobal, field_448, 0x444);
+VALIDATE_OFFSET(CGlobal, field_490, 0x48C);
+VALIDATE_OFFSET(CGlobal, field_49C, 0x498);
+VALIDATE_OFFSET(CGlobal, field_4B4, 0x4B0);
 VALIDATE_SIZE(CGlobal, 0x570);
 
 extern CGlobal& gGlobal;

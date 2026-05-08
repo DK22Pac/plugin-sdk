@@ -100,6 +100,21 @@ public:
 	unsigned short m_nBlipDisplay; //!< see eBlipDisplay
 	unsigned short m_nRadarSprite; //!< see eRadarSprite
 };
+VALIDATE_OFFSET(tRadarTrace, m_nColour, 0x0);
+VALIDATE_OFFSET(tRadarTrace, m_nBlipType, 0x4);
+VALIDATE_OFFSET(tRadarTrace, m_nEntityHandle, 0x8);
+VALIDATE_OFFSET(tRadarTrace, m_vec2DPos, 0xC);
+VALIDATE_OFFSET(tRadarTrace, m_vecPos, 0x18);
+VALIDATE_OFFSET(tRadarTrace, m_nBlipIndex, 0x24);
+VALIDATE_OFFSET(tRadarTrace, m_bDim, 0x26);
+VALIDATE_OFFSET(tRadarTrace, m_bInUse, 0x27);
+VALIDATE_OFFSET(tRadarTrace, m_bShortRange, 0x28);
+VALIDATE_OFFSET(tRadarTrace, m_bUnk, 0x29);
+VALIDATE_OFFSET(tRadarTrace, m_fSphereRadius, 0x2C);
+VALIDATE_OFFSET(tRadarTrace, m_nBlipSize, 0x30);
+VALIDATE_OFFSET(tRadarTrace, m_nBlipDisplay, 0x32);
+VALIDATE_OFFSET(tRadarTrace, m_nRadarSprite, 0x34);
+VALIDATE_SIZE(tRadarTrace, 0x38);
 
 class PLUGIN_API CRadar {
 public:
@@ -196,6 +211,7 @@ public:
 	static void TransformRealWorldPointToRadarSpace(CVector2D& out, CVector2D const& in);
 	static void TransformRealWorldToTexCoordSpace(CVector2D& out, CVector2D const& in, int x, int y);
 };
+VALIDATE_SIZE(CRadar, 0x1);
 
 extern CSprite2d** pRadarSprites;
 extern int* gRadarTxdIds; // int gRadarTxdIds[64]

@@ -12,3 +12,4 @@ class CPedFactory {
 public:
     virtual ~CPedFactory() { plugin::CallVirtualMethod<0>(this, 0); }
 };
+VALIDATE_SIZE(CPedFactory, 0x4);

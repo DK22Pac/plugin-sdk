@@ -26,7 +26,12 @@ public:
     void AnimatePedColModelSkinnedWorld(RpClump* clump);
     void CreateHitColModelSkinned(RpClump* clump);
 };
-
+VALIDATE_OFFSET(CPedModelInfo, m_nAnigGroupId, 0x30);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedType, 0x34);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedStatType, 0x38);
+VALIDATE_OFFSET(CPedModelInfo, m_nCarsCanDriveMask, 0x3C);
+VALIDATE_OFFSET(CPedModelInfo, m_pHitColModel, 0x40);
+VALIDATE_OFFSET(CPedModelInfo, m_anPreferredRadioStations, 0x44);
 VALIDATE_SIZE(CPedModelInfo, 0x48);
 
 struct PedModelStore {
@@ -35,3 +40,6 @@ struct PedModelStore {
 
     ~PedModelStore();
 };
+VALIDATE_OFFSET(PedModelStore, m_nCount, 0x0);
+VALIDATE_OFFSET(PedModelStore, m_sObject, 0x4);
+VALIDATE_SIZE(PedModelStore, 0x2494);

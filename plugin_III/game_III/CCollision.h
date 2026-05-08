@@ -43,6 +43,7 @@ public:
     static bool IsStoredPolyStillValidVerticalLine(CVector const& lineOrigin, float lineDist, CColPoint& colPoint, CStoredCollPoly* colPoly);
     static int ProcessColModels(CMatrix const& transform1, CColModel& colModel1, CMatrix const& transform2, CColModel& colModel2, CColPoint* colPoint1, CColPoint* colPoint2, float* maxTouchDistance);
 };
+VALIDATE_SIZE(CCollision, 0x1);
 
 eLevelName GetCollisionInSectorList(CPtrList& list);
 eLevelName GetCollisionInSector(CSector& sector);

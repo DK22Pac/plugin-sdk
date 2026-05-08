@@ -20,5 +20,10 @@ public:
         int flags;
     } *animDesc;
 };
-
+VALIDATE_OFFSET(CAnimationStyleDescriptor, groupName, 0x0);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, blockName, 0x4);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, modelIndex, 0x8);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, animsCount, 0xC);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, animNames, 0x10);
+VALIDATE_OFFSET(CAnimationStyleDescriptor, animDesc, 0x14);
 VALIDATE_SIZE(CAnimationStyleDescriptor, 0x18);

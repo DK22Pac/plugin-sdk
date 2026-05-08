@@ -45,7 +45,20 @@ public:
     SUPPORTED_10EN_11EN_STEAM static char const *GetBridgeString();
     SUPPORTED_10EN_11EN_STEAM static char const *GetTunnelString();
 };
-
+VALIDATE_OFFSET(CScrollBar, m_Counter, 0x0);
+VALIDATE_OFFSET(CScrollBar, m_pMessage, 0x4);
+VALIDATE_OFFSET(CScrollBar, m_vecPosition, 0x8);
+VALIDATE_OFFSET(CScrollBar, m_MessageCurrentChar, 0x14);
+VALIDATE_OFFSET(CScrollBar, m_MessageLength, 0x18);
+VALIDATE_OFFSET(CScrollBar, m_vecSize, 0x1C);
+VALIDATE_OFFSET(CScrollBar, m_fIntensity, 0x28);
+VALIDATE_OFFSET(CScrollBar, m_MessageBar, 0x2C);
+VALIDATE_OFFSET(CScrollBar, m_nType, 0x54);
+VALIDATE_OFFSET(CScrollBar, m_bVisible, 0x55);
+VALIDATE_OFFSET(CScrollBar, m_nRed, 0x56);
+VALIDATE_OFFSET(CScrollBar, m_nGreen, 0x57);
+VALIDATE_OFFSET(CScrollBar, m_nBlue, 0x58);
+VALIDATE_OFFSET(CScrollBar, m_fScale, 0x5C);
 VALIDATE_SIZE(CScrollBar, 0x60);
 
 #include "meta/meta.CScrollBar.h"

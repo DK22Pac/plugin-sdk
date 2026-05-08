@@ -38,5 +38,19 @@ public:
     void Update();
     void UpdateWeightInRope(CVector a1, float a2, CVector *a3);
 };
-
+VALIDATE_OFFSET(CRope, m_avecRopeSegments, 0x0);
+VALIDATE_OFFSET(CRope, m_avecRopeSegmentsReleased, 0x180);
+VALIDATE_OFFSET(CRope, m_nId, 0x300);
+VALIDATE_OFFSET(CRope, field_304, 0x304);
+VALIDATE_OFFSET(CRope, m_fMass, 0x308);
+VALIDATE_OFFSET(CRope, m_fRopeTotalLength, 0x30C);
+VALIDATE_OFFSET(CRope, m_pRopeHolder, 0x310);
+VALIDATE_OFFSET(CRope, m_pRopeAttachObject, 0x314);
+VALIDATE_OFFSET(CRope, m_pAttachedEntity, 0x318);
+VALIDATE_OFFSET(CRope, m_fRopeSegmentLength, 0x31C);
+VALIDATE_OFFSET(CRope, m_nTime, 0x320);
+VALIDATE_OFFSET(CRope, m_nNumSegments, 0x324);
+VALIDATE_OFFSET(CRope, m_nRopeType, 0x325);
+VALIDATE_OFFSET(CRope, m_nFlags1, 0x326);
+VALIDATE_OFFSET(CRope, m_nFlags2, 0x327);
 VALIDATE_SIZE(CRope, 0x328);

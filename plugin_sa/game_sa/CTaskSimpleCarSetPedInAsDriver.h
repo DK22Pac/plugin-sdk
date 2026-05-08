@@ -33,5 +33,11 @@ public:
 
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_bIsFinished, 0x8);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_pAnim, 0xC);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_pTargetVehicle, 0x10);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_pUtility, 0x14);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_bWarpingInToCar, 0x18);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_nDoorFlagsToClear, 0x19);
+VALIDATE_OFFSET(CTaskSimpleCarSetPedInAsDriver, m_nNumGettingInToClear, 0x1A);
 VALIDATE_SIZE(CTaskSimpleCarSetPedInAsDriver, 0x1C);

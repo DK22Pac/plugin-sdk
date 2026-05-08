@@ -25,7 +25,14 @@ public:
     void Render();
     CRegisteredMotionBlurStreak();
 };
-
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_nId, 0x0);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_color, 0x4);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_avecLeftPoints, 0x8);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_avecRightPoints, 0x2C);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, m_bExists, 0x50);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, field_51, 0x51);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, field_52, 0x52);
+VALIDATE_OFFSET(CRegisteredMotionBlurStreak, field_53, 0x53);
 VALIDATE_SIZE(CRegisteredMotionBlurStreak, 0x54);
 
 extern RxObjSpace3DVertex *StreakVertices;

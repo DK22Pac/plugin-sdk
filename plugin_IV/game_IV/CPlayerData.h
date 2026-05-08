@@ -16,5 +16,6 @@ public:
 public:
     int32_t GetWantedLevel();
 };
-
+VALIDATE_OFFSET(CPlayerData, m_Wanted, 0x0);
+VALIDATE_OFFSET(CPlayerData, field_760, 0x388);
 VALIDATE_SIZE(CPlayerData, 0x390);

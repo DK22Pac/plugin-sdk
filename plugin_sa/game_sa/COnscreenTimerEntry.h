@@ -21,5 +21,11 @@ public:
     //! unused
     SUPPORTED_10US void ProcessForDisplayClock();
 };
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nVarId, 0x0);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_szDescriptionTextKey, 0x4);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_szDisplayedText, 0xE);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_bEnabled, 0x38);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nTimerDirection, 0x39);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nClockBeepCountdownSecs, 0x3C);
 VALIDATE_SIZE(COnscreenTimerEntry, 0x40);
 #include "meta/meta.COnscreenTimerEntry.h"

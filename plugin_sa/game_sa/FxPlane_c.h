@@ -14,5 +14,6 @@ public:
     RwV3d m_vecNormal;
     float m_fDistance;
 };
-
+VALIDATE_OFFSET(FxPlane_c, m_vecNormal, 0x0);
+VALIDATE_OFFSET(FxPlane_c, m_fDistance, 0xC);
 VALIDATE_SIZE(FxPlane_c, 0x10);

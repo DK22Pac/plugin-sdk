@@ -30,6 +30,10 @@ public:
     SUPPORTED_10EN_11EN void Shutdown();
     SUPPORTED_10EN_11EN void Update();
 };
+VALIDATE_OFFSET(CPhoneInfo, m_nTotalPhones, 0x0);
+VALIDATE_OFFSET(CPhoneInfo, m_nFirstFreeIndex, 0x4);
+VALIDATE_OFFSET(CPhoneInfo, m_aPhones, 0x8);
+VALIDATE_SIZE(CPhoneInfo, 0xA30);
 
 SUPPORTED_10EN_11EN extern int &PhoneEnableControlsTimer;
 SUPPORTED_10EN_11EN extern bool &bDisplayingPhoneMessage;

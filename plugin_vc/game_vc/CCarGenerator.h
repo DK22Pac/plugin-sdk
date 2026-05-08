@@ -38,5 +38,20 @@ public:
     void SwitchOff();
     void SwitchOn();
 };
-
+VALIDATE_OFFSET(CCarGenerator, m_nModelId, 0x0);
+VALIDATE_OFFSET(CCarGenerator, m_vPos, 0x4);
+VALIDATE_OFFSET(CCarGenerator, m_fAngle, 0x10);
+VALIDATE_OFFSET(CCarGenerator, m_nPrimaryColor, 0x14);
+VALIDATE_OFFSET(CCarGenerator, m_nSecondaryColor, 0x16);
+VALIDATE_OFFSET(CCarGenerator, m_nForceSpawn, 0x18);
+VALIDATE_OFFSET(CCarGenerator, m_nAlarm, 0x19);
+VALIDATE_OFFSET(CCarGenerator, m_nDoorLock, 0x1A);
+VALIDATE_OFFSET(CCarGenerator, field_1B, 0x1B);
+VALIDATE_OFFSET(CCarGenerator, m_nMinDelay, 0x1C);
+VALIDATE_OFFSET(CCarGenerator, m_nMaxDelay, 0x1E);
+VALIDATE_OFFSET(CCarGenerator, m_nTimeNextGen, 0x20);
+VALIDATE_OFFSET(CCarGenerator, m_nVehicleHandle, 0x24);
+VALIDATE_OFFSET(CCarGenerator, m_nEnabled, 0x28);
+VALIDATE_OFFSET(CCarGenerator, field_2A, 0x2A);
+VALIDATE_OFFSET(CCarGenerator, field_2B, 0x2B);
 VALIDATE_SIZE(CCarGenerator, 0x2C);

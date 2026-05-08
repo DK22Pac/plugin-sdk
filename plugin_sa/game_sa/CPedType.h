@@ -16,4 +16,5 @@ public:
     static void Load();
     static void Save();
 };
+VALIDATE_SIZE(CPedType, 0x1);
 

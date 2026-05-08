@@ -13,5 +13,4 @@ public:
     short m_nCarPathLinkId : 10;
     short m_nAreaId : 6;
 };
-
 VALIDATE_SIZE(CCarPathLinkAddress, 0x2);

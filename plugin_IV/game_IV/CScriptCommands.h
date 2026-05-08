@@ -12,3 +12,4 @@ class CScriptCommands {
 public:
 
 };
+VALIDATE_SIZE(CScriptCommands, 0x1);

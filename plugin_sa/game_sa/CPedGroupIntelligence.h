@@ -65,7 +65,16 @@ public:
     SUPPORTED_10US void SetScriptCommandTask(CPed *ped, CTask const *task);
     SUPPORTED_10US void SetTask(CPed *ped, CTask const *task, CPedTaskPair *taskpair, int arg5, bool arg6);
 };
-
+VALIDATE_OFFSET(CPedGroupIntelligence, m_pPedGroup, 0x0);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_pGroupEventHandler, 0x4);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_pEventGroupEvent, 0x8);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_groupTasks, 0xC);
+VALIDATE_OFFSET(CPedGroupIntelligence, gap288, 0x288);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_pPedGroupDefaultTaskAllocator, 0x28C);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_pPrimaryTaskAllocator, 0x290);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_pEventResponseTaskAllocator, 0x294);
+VALIDATE_OFFSET(CPedGroupIntelligence, m_dwDecisionMakerType, 0x298);
+VALIDATE_OFFSET(CPedGroupIntelligence, field_29C, 0x29C);
 VALIDATE_SIZE(CPedGroupIntelligence, 0x2A0);
 
 #include "meta/meta.CPedGroupIntelligence.h"

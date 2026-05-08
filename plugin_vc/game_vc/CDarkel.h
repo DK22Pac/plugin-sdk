@@ -45,3 +45,4 @@ public:
     static void StartFrenzy(eWeaponType weaponType, int arg1, unsigned short arg2, int arg3, unsigned short* arg4, int arg5, int arg6, int arg7, bool arg8, bool arg9);
     static void Update();
 };
+VALIDATE_SIZE(CDarkel, 0x1);

@@ -123,5 +123,6 @@ public:
     static void RetryLoadFile(int streamnum);
     static void StreamZoneModels(CVector const& point);
 };
+VALIDATE_SIZE(CStreaming, 0x1);
 
 void DeleteIsland(CEntity* entity);

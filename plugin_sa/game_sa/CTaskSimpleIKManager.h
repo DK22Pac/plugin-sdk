@@ -21,5 +21,6 @@ public:
 
     CTaskSimpleIKManager();
 };
-
+VALIDATE_OFFSET(CTaskSimpleIKManager, m_pIKChainTasks, 0x8);
+VALIDATE_OFFSET(CTaskSimpleIKManager, m_bAborting, 0x18);
 VALIDATE_SIZE(CTaskSimpleIKManager, 0x1C);

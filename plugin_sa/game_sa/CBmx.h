@@ -47,5 +47,14 @@ public:
 
     static void LaunchBunnyHopCB(CAnimBlendAssociation* blendAssoc, void* data); // data is a ptr to CBmx
 };
-
+VALIDATE_OFFSET(CBmx, m_fBunnyHopCharge, 0x814);
+VALIDATE_OFFSET(CBmx, field_818, 0x818);
+VALIDATE_OFFSET(CBmx, m_fSprintLeanAngle, 0x81C);
+VALIDATE_OFFSET(CBmx, field_820, 0x820);
+VALIDATE_OFFSET(CBmx, m_fPedalAngleL, 0x824);
+VALIDATE_OFFSET(CBmx, m_fPedalAngleR, 0x828);
+VALIDATE_OFFSET(CBmx, m_fDistanceBetweenWheels, 0x82C);
+VALIDATE_OFFSET(CBmx, m_fWheelsBalance, 0x830);
+VALIDATE_OFFSET(CBmx, field_834, 0x834);
+VALIDATE_OFFSET(CBmx, _pad, 0x835);
 VALIDATE_SIZE(CBmx, 0x838);

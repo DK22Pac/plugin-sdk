@@ -33,5 +33,9 @@ public:
     void ComputeWillKillPed(CPed* ped, CPedDamageResponse& response, bool bSpeak);
     void ComputeDamageResponse(CPed* ped, CPedDamageResponse& response, bool bSpeak);
 };
-
+VALIDATE_OFFSET(CPedDamageResponseCalculator, m_pDamager, 0x0);
+VALIDATE_OFFSET(CPedDamageResponseCalculator, m_fDamageFactor, 0x4);
+VALIDATE_OFFSET(CPedDamageResponseCalculator, m_bodyPart, 0x8);
+VALIDATE_OFFSET(CPedDamageResponseCalculator, m_weaponType, 0xC);
+VALIDATE_OFFSET(CPedDamageResponseCalculator, m_bSpeak, 0x10);
 VALIDATE_SIZE(CPedDamageResponseCalculator, 0x14);

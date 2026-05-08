@@ -52,5 +52,24 @@ public:
     void SetArrestPlayer(CPed* ped);
     void SetPursuit(bool arg0);
 };
-
+VALIDATE_OFFSET(CCopPed, field_5F4, 0x5F4);
+VALIDATE_OFFSET(CCopPed, field_5F8, 0x5F8);
+VALIDATE_OFFSET(CCopPed, field_5FC, 0x5FC);
+VALIDATE_OFFSET(CCopPed, field_5FD, 0x5FD);
+VALIDATE_OFFSET(CCopPed, field_5FE, 0x5FE);
+VALIDATE_OFFSET(CCopPed, field_5FF, 0x5FF);
+VALIDATE_OFFSET(CCopPed, field_600, 0x600);
+VALIDATE_OFFSET(CCopPed, field_601, 0x601);
+VALIDATE_OFFSET(CCopPed, field_602, 0x602);
+VALIDATE_OFFSET(CCopPed, field_603, 0x603);
+VALIDATE_OFFSET(CCopPed, fAbseilPos, 0x604);
+VALIDATE_OFFSET(CCopPed, m_copType, 0x608);
+VALIDATE_OFFSET(CCopPed, bThrowsSpikeTrap, 0x60C);
+VALIDATE_OFFSET(CCopPed, pHeliAbseil, 0x610);
+VALIDATE_OFFSET(CCopPed, dwRopeIdentifier, 0x614);
+VALIDATE_OFFSET(CCopPed, field_618, 0x618);
+VALIDATE_OFFSET(CCopPed, field_61C, 0x61C);
+VALIDATE_OFFSET(CCopPed, m_pStinger, 0x620);
+VALIDATE_OFFSET(CCopPed, field_624, 0x624);
+VALIDATE_OFFSET(CCopPed, field_628, 0x628);
 VALIDATE_SIZE(CCopPed, 0x62C);

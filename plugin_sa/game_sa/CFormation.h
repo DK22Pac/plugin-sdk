@@ -33,5 +33,6 @@ public:
     SUPPORTED_10US static bool ReturnDestinationForPed(CPed *ped, CVector *pos);
     SUPPORTED_10US static int ReturnTargetPedForPed(CPed *ped, CPed **pOutTargetPed);
 };
+VALIDATE_SIZE(CFormation, 0x1);
 
 #include "meta/meta.CFormation.h"

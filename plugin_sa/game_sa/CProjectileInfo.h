@@ -40,6 +40,14 @@ public:
     static void RemoveAllProjectiles();
     static bool RemoveIfThisIsAProjectile(CObject* object);
 };
+VALIDATE_OFFSET(CProjectileInfo, m_nWeaponType, 0x0);
+VALIDATE_OFFSET(CProjectileInfo, m_pCreator, 0x4);
+VALIDATE_OFFSET(CProjectileInfo, m_pVictim, 0x8);
+VALIDATE_OFFSET(CProjectileInfo, m_nDestroyTime, 0xC);
+VALIDATE_OFFSET(CProjectileInfo, m_bActive, 0x10);
+VALIDATE_OFFSET(CProjectileInfo, m_vecLastPosn, 0x14);
+VALIDATE_OFFSET(CProjectileInfo, m_pFxSystem, 0x20);
+VALIDATE_SIZE(CProjectileInfo, 0x24);
 
 extern unsigned int MAX_PROJECTILE_INFOS; // default 32
 extern CProjectileInfo *gaProjectileInfo; // CProjectileInfo gaProjectileInfo[MAX_PROJECTILE_INFOS]

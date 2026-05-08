@@ -188,6 +188,31 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool TestRocketCollision(CVector *coors);
     SUPPORTED_10EN_11EN_STEAM static void UpdateHelis();
 };
+VALIDATE_OFFSET(CHeli, m_apModelNodes, 0x288);
+VALIDATE_OFFSET(CHeli, m_nHeliStatus, 0x2A8);
+VALIDATE_OFFSET(CHeli, m_fSearchLightX, 0x2AC);
+VALIDATE_OFFSET(CHeli, m_fSearchLightY, 0x2B0);
+VALIDATE_OFFSET(CHeli, m_nExplosionTimer, 0x2B4);
+VALIDATE_OFFSET(CHeli, m_fRotation, 0x2B8);
+VALIDATE_OFFSET(CHeli, m_fAngularSpeed, 0x2BC);
+VALIDATE_OFFSET(CHeli, m_fTargetZ, 0x2C0);
+VALIDATE_OFFSET(CHeli, m_fSearchLightIntensity, 0x2C4);
+VALIDATE_OFFSET(CHeli, m_nHeliId, 0x2C8);
+VALIDATE_OFFSET(CHeli, m_nHeliType, 0x2C9);
+VALIDATE_OFFSET(CHeli, m_nPathState, 0x2CA);
+VALIDATE_OFFSET(CHeli, m_nNumSwatPassengers, 0x2CB);
+VALIDATE_OFFSET(CHeli, m_afSearchLightHistoryX, 0x2CC);
+VALIDATE_OFFSET(CHeli, m_afSearchLightHistoryY, 0x2E4);
+VALIDATE_OFFSET(CHeli, m_nSearchLightTimer, 0x2FC);
+VALIDATE_OFFSET(CHeli, m_nShootTimer, 0x300);
+VALIDATE_OFFSET(CHeli, m_nLastShotTime, 0x304);
+VALIDATE_OFFSET(CHeli, m_nBulletDamage, 0x308);
+VALIDATE_OFFSET(CHeli, m_fRotorRotation, 0x30C);
+VALIDATE_OFFSET(CHeli, m_fHeliDustZ, 0x310);
+VALIDATE_OFFSET(CHeli, m_nPoliceShoutTimer, 0x330);
+VALIDATE_OFFSET(CHeli, m_fTargetOffset, 0x334);
+VALIDATE_OFFSET(CHeli, m_bTestRight, 0x338);
+VALIDATE_SIZE(CHeli, 0x33C);
 
 SUPPORTED_10EN_11EN_STEAM extern float(&CatalinaTargetX)[7]; // float CatalinaTargetX[7]
 SUPPORTED_10EN_11EN_STEAM extern float(&CatalinaTargetY)[7]; // float CatalinaTargetY[7]

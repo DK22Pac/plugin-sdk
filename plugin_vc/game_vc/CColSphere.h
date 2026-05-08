@@ -15,3 +15,4 @@ public:
     bool IntersectRay(CVector const& rayStart, CVector const& rayEnd, CVector& intPoint1, CVector& intPoint2);
     void Set(float radius, CVector const& center, unsigned char material, unsigned char flags);
 };
+VALIDATE_SIZE(CColSphere, 0x10);

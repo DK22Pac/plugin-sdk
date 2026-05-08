@@ -5,7 +5,6 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 
 struct CVector;
@@ -36,5 +35,7 @@ public:
     bool operator==(CompressedVector const &rhs) const;
     bool operator!=(CompressedVector const &rhs) const;
 };
-
+VALIDATE_OFFSET(CompressedVector, x, 0x0);
+VALIDATE_OFFSET(CompressedVector, y, 0x2);
+VALIDATE_OFFSET(CompressedVector, z, 0x4);
 VALIDATE_SIZE(CompressedVector, 0x6);

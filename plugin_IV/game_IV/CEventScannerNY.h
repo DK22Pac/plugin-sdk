@@ -12,5 +12,4 @@ class CEventScannerNY : CEventScanner {
 public:
 
 };
-
 VALIDATE_SIZE(CEventScannerNY, 0x12C);

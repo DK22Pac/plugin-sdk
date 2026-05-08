@@ -34,9 +34,11 @@ class PLUGIN_API CHudColour
 public:
 	unsigned char red, green, blue, alpha;
 };
-
-
-VALIDATE_SIZE(CHudColour, 4);
+VALIDATE_OFFSET(CHudColour, red, 0x0);
+VALIDATE_OFFSET(CHudColour, green, 0x1);
+VALIDATE_OFFSET(CHudColour, blue, 0x2);
+VALIDATE_OFFSET(CHudColour, alpha, 0x3);
+VALIDATE_SIZE(CHudColour, 0x4);
 
 
 class PLUGIN_API CHudColours
@@ -59,6 +61,8 @@ public:
 	// get color RGBA. "color" parameter - index of color in the table, see eHudColours enum.
 	CRGBA GetRGBA(unsigned char color);
 };
+VALIDATE_OFFSET(CHudColours, m_aColours, 0x0);
+VALIDATE_SIZE(CHudColours, 0x3C);
 
 
 VALIDATE_SIZE(CHudColours, 0x3C);

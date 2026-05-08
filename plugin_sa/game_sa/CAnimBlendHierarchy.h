@@ -34,5 +34,12 @@ public:
 	void Uncompress();
 
 };
-
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_hashKey, 0x0);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_pSequences, 0x4);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_nSeqCount, 0x8);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_bRunningCompressed, 0xA);
+VALIDATE_OFFSET(CAnimBlendHierarchy, field_B, 0xB);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_nAnimBlockId, 0xC);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_fTotalTime, 0x10);
+VALIDATE_OFFSET(CAnimBlendHierarchy, field_14, 0x14);
 VALIDATE_SIZE(CAnimBlendHierarchy, 0x18);

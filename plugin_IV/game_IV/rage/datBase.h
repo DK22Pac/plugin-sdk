@@ -14,4 +14,5 @@ namespace rage {
     public:
         virtual ~datBase() {}
     };
+    VALIDATE_SIZE(datBase, 0x4);
 }

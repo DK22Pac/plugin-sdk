@@ -30,7 +30,7 @@ enum class eUseTextCommandState : char
 #pragma pack(push,1)
 struct tScriptText
 {
-    // defaults from CTheScripts::Init()
+    // defaults from CTheScripts
     float letterWidth = 0.48f;
     float letterHeight = 1.12f;
     CRGBA color = { 255, 255, 255, 255 };
@@ -50,8 +50,26 @@ struct tScriptText
     float yPosition = 0.0f;
     wchar_t text[500] = { 0 };
 };
-#pragma pack(pop)
+VALIDATE_OFFSET(tScriptText, letterWidth, 0x0);
+VALIDATE_OFFSET(tScriptText, letterHeight, 0x4);
+VALIDATE_OFFSET(tScriptText, color, 0x8);
+VALIDATE_OFFSET(tScriptText, justify, 0xC);
+VALIDATE_OFFSET(tScriptText, centered, 0xD);
+VALIDATE_OFFSET(tScriptText, withBackground, 0xE);
+VALIDATE_OFFSET(tScriptText, backgroundOnly, 0xF);
+VALIDATE_OFFSET(tScriptText, wrapWidth, 0x10);
+VALIDATE_OFFSET(tScriptText, centerWidth, 0x14);
+VALIDATE_OFFSET(tScriptText, backgroundBoxColor, 0x18);
+VALIDATE_OFFSET(tScriptText, proportional, 0x1C);
+VALIDATE_OFFSET(tScriptText, drawBeforeFade, 0x1D);
+VALIDATE_OFFSET(tScriptText, rightJustify, 0x1E);
+VALIDATE_OFFSET(tScriptText, _pad, 0x1F);
+VALIDATE_OFFSET(tScriptText, font, 0x20);
+VALIDATE_OFFSET(tScriptText, xPosition, 0x24);
+VALIDATE_OFFSET(tScriptText, yPosition, 0x28);
+VALIDATE_OFFSET(tScriptText, text, 0x2C);
 VALIDATE_SIZE(tScriptText, 0x414);
+#pragma pack(pop)
 
 #pragma pack(push,1)
 struct tScriptRectangle
@@ -63,9 +81,13 @@ struct tScriptRectangle
     CRect rect;
     CRGBA color = { 255, 255, 255, 255 };
 };
-#pragma pack(pop)
+VALIDATE_OFFSET(tScriptRectangle, isUsed, 0x0);
+VALIDATE_OFFSET(tScriptRectangle, drawBeforeFade, 0x1);
+VALIDATE_OFFSET(tScriptRectangle, spriteIdx, 0x2);
+VALIDATE_OFFSET(tScriptRectangle, rect, 0x4);
+VALIDATE_OFFSET(tScriptRectangle, color, 0x14);
 VALIDATE_SIZE(tScriptRectangle, 0x18);
-
+#pragma pack(pop)
 
 
 class CTheScripts {
@@ -113,3 +135,4 @@ public:
     static void CleanUpThisVehicle(CVehicle* vehicle);
     static void ClearSpaceForMissionEntity(CVector const& position, CEntity* entity);
 };
+VALIDATE_SIZE(CTheScripts, 0x1);

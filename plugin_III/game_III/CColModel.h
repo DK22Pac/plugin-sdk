@@ -43,7 +43,20 @@ public:
     SUPPORTED_10EN_11EN_STEAM void RemoveTrianglePlanes();
     SUPPORTED_10EN_11EN_STEAM void SetLinkPtr(CLink<CColModel *> *link);
 };
-
+VALIDATE_OFFSET(CColModel, m_boundSphere, 0x0);
+VALIDATE_OFFSET(CColModel, m_boundBox, 0x14);
+VALIDATE_OFFSET(CColModel, m_nNumOfSpheres, 0x30);
+VALIDATE_OFFSET(CColModel, m_nNumOfLines, 0x32);
+VALIDATE_OFFSET(CColModel, m_nNumOfBoxes, 0x34);
+VALIDATE_OFFSET(CColModel, m_nNumOfTriangles, 0x36);
+VALIDATE_OFFSET(CColModel, m_nColLevel, 0x38);
+VALIDATE_OFFSET(CColModel, m_bOwnsCollisionVolumes, 0x3C);
+VALIDATE_OFFSET(CColModel, m_pSpheres, 0x40);
+VALIDATE_OFFSET(CColModel, m_pLines, 0x44);
+VALIDATE_OFFSET(CColModel, m_pBoxes, 0x48);
+VALIDATE_OFFSET(CColModel, m_pVertices, 0x4C);
+VALIDATE_OFFSET(CColModel, m_pTriangles, 0x50);
+VALIDATE_OFFSET(CColModel, m_pTrianglePlanes, 0x54);
 VALIDATE_SIZE(CColModel, 0x58);
 
 #include "meta/meta.CColModel.h"
