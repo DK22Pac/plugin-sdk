@@ -7,7 +7,7 @@ const isGithubWorkflow = process.argv.includes("github");
 
 let result = true;
 result &= processDir("examples");
-result &= processDir("shared/game");
+result &= processDir("shared");
 result &= processDir("plugin_II");
 result &= processDir("plugin_III");
 result &= processDir("plugin_vc");
@@ -226,6 +226,7 @@ function verifyMemoryLayoutInfo(filename)
 {
     if (!filename.endsWith(".h") ||
         filename.startsWith("examples/") ||
+        (filename.startsWith("shared") && !filename.startsWith("shared/game")) || // only shared/game from shared
         filename == "plugin_sa/game_sa/CShopping.h") // parsing of such nested types not implemented
         return true;
 
