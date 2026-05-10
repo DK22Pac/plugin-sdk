@@ -32,6 +32,10 @@ on:
 jobs:
   build:
     name: Build
+    
+    # skip on pull request inside forks
+    if: github.event_name != 'pull_request' || github.repository == 'DK22Pac/plugin-sdk'
+    
     runs-on: ubuntu-latest
 
     steps:
