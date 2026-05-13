@@ -6,6 +6,7 @@
 */
 #include "CHud.h"
 
+int &CHud::SpriteBrightness = *(int*)0x95CC54;
 wchar_t *CHud::m_HelpMessage = (wchar_t*)0x86B888;
 wchar_t *CHud::m_LastHelpMessage = (wchar_t*)0x6E8F28;
 int &CHud::m_HelpMessageState = *(int*)0x880E1C;
@@ -47,7 +48,6 @@ char &TimerOnLastFrame = *(char*)0x95CDA7;
 char &OddJob2On = *(char*)0x95CC78;
 char &TimerFlashTimer = *(char*)0x95CC6C;
 char &PagerSoundPlayed = *(char*)0x95CC4A;
-int &SpriteBrightness = *(int*)0x95CC54;
 float &PagerXOffset = *(float*)0x941590;
 char &PagerTimer = *(char*)0x95CC3A;
 char &PagerOn = *(char*)0x95CCA0;
