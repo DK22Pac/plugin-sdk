@@ -16,7 +16,6 @@
     #include <map>
     #include <math.h>
     #include <memory>
-    #include <rwcore.h>
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h> // c-string utils
@@ -29,6 +28,10 @@
     #include <utility>
     #include <vector>
     #include <windows.h>
+
+#ifdef RW
+    #include <rwcore.h>
+#endif
 
 GENERATED_LIST
 #endif

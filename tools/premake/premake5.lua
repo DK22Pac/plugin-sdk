@@ -368,7 +368,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         end
 
         -- precompiled header
-        if msbuild and (projNameLower == "plugin_iii" or projNameLower == "plugin_vc" or projNameLower == "plugin_sa") then
+        if msbuild and (projNameLower == "plugin_iii" or projNameLower == "plugin_vc" or projNameLower == "plugin_sa" or projNameLower == "plugin_iv") then
             pchheader "stdafx.h"
             forceincludes "stdafx.h"
             pchsource (path.getrelative(path.getabsolute("."), sdkdir .. "/shared/stdafx.cpp"))
