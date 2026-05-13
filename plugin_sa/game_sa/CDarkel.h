@@ -40,3 +40,4 @@ public:
 	static void RegisterKillByPlayer(CPed const* pKilledPed, eWeaponType damageWeaponID, bool bHeadShotted, int arg4);
 	static void RegisterCarBlownUpByPlayer(CVehicle* pVehicle, int arg2);
 };
+VALIDATE_SIZE(CDarkel, 0x1);

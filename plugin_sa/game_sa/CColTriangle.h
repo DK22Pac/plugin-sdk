@@ -16,5 +16,9 @@ public:
 	unsigned char m_nMaterial;
 	unsigned char m_nLight;
 };
-
-VALIDATE_SIZE(CColTriangle, 8);
+VALIDATE_OFFSET(CColTriangle, m_nVertA, 0x0);
+VALIDATE_OFFSET(CColTriangle, m_nVertB, 0x2);
+VALIDATE_OFFSET(CColTriangle, m_nVertC, 0x4);
+VALIDATE_OFFSET(CColTriangle, m_nMaterial, 0x6);
+VALIDATE_OFFSET(CColTriangle, m_nLight, 0x7);
+VALIDATE_SIZE(CColTriangle, 0x8);

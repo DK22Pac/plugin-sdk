@@ -24,7 +24,13 @@ public:
 public:
 	int GetHandlingId(const char* name);
 };
-
+VALIDATE_OFFSET(cHandlingDataMgr, field_0, 0x0);
+VALIDATE_OFFSET(cHandlingDataMgr, fWheelFriction, 0x4);
+VALIDATE_OFFSET(cHandlingDataMgr, field_8, 0x8);
+VALIDATE_OFFSET(cHandlingDataMgr, field_C, 0xC);
+VALIDATE_OFFSET(cHandlingDataMgr, field_10, 0x10);
+VALIDATE_OFFSET(cHandlingDataMgr, HandlingData, 0x14);
+VALIDATE_OFFSET(cHandlingDataMgr, field_302C, 0x302C);
 VALIDATE_SIZE(cHandlingDataMgr, 0x3030);
 
 extern cHandlingDataMgr& mod_HandlingManager;

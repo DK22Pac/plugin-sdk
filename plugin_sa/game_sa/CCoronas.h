@@ -54,6 +54,7 @@ public:
 	// Draw sun (Moon went to CClouds since SA)
 	static void DoSunAndMoon();
 };
+VALIDATE_SIZE(CCoronas, 0x1);
 
 extern unsigned int MAX_CORONAS;
 extern RwTexture **gpCoronaTexture;

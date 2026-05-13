@@ -15,6 +15,10 @@ struct PLUGIN_API ActiveOccluderLine {
     CVector2D m_vec2dDirection;
     float m_fLength;
 };
+VALIDATE_OFFSET(ActiveOccluderLine, m_vec2dOrigin, 0x0);
+VALIDATE_OFFSET(ActiveOccluderLine, m_vec2dDirection, 0x8);
+VALIDATE_OFFSET(ActiveOccluderLine, m_fLength, 0x10);
+VALIDATE_SIZE(ActiveOccluderLine, 0x14);
 
 class PLUGIN_API CActiveOccluder {
 public:
@@ -22,6 +26,10 @@ public:
     int m_nLinesCount;
     float m_fRadius;
 };
+VALIDATE_OFFSET(CActiveOccluder, m_lines, 0x0);
+VALIDATE_OFFSET(CActiveOccluder, m_nLinesCount, 0x78);
+VALIDATE_OFFSET(CActiveOccluder, m_fRadius, 0x7C);
+VALIDATE_SIZE(CActiveOccluder, 0x80);
 
 class PLUGIN_API COccluder {
 public:
@@ -37,6 +45,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool ProcessLineSegment(int corner1, int corner2, CActiveOccluder *occl);
     SUPPORTED_10EN_11EN_STEAM bool ProcessOneOccluder(CActiveOccluder *occl);
 };
+VALIDATE_OFFSET(COccluder, length, 0x0);
+VALIDATE_OFFSET(COccluder, width, 0x2);
+VALIDATE_OFFSET(COccluder, height, 0x4);
+VALIDATE_OFFSET(COccluder, x, 0x6);
+VALIDATE_OFFSET(COccluder, y, 0x8);
+VALIDATE_OFFSET(COccluder, z, 0xA);
+VALIDATE_OFFSET(COccluder, angle, 0xC);
+VALIDATE_OFFSET(COccluder, listIndex, 0xE);
+VALIDATE_SIZE(COccluder, 0x10);
 
 class PLUGIN_API COcclusion {
 public:
@@ -55,6 +72,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool IsPositionOccluded(CVector pos, float side);
     SUPPORTED_10EN_11EN_STEAM static void ProcessBeforeRendering();
 };
+VALIDATE_SIZE(COcclusion, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern CVector(&gOccluderCoorsOnScreen)[8]; // CVector gOccluderCoorsOnScreen[8]
 SUPPORTED_10EN_11EN_STEAM extern CVector(&gOccluderCoors)[8]; // CVector gOccluderCoors[8]

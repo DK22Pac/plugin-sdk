@@ -14,5 +14,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SetHookMatrix();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CCrane, 0x1);
 
 #include "meta/meta.CCrane.h"

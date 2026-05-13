@@ -35,6 +35,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Set6Vertices2D(RwIm2DVertex *vertex, CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4);
     SUPPORTED_10EN_11EN_STEAM static void Set6Vertices2D(RwIm2DVertex *vertex, float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4);
 };
+VALIDATE_SIZE(CSprite, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern int &nSpriteBufferIndex;
 SUPPORTED_10EN_11EN_STEAM extern RwIm2DVertex(&SpriteBufferVerts)[384]; // RwIm2DVertex SpriteBufferVerts[384]

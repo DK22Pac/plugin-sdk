@@ -14,3 +14,4 @@ class CTaskComplexAimAndThrowProjectile : public CTaskComplex {
 public:
     CPed* GetAt();
 };
+VALIDATE_SIZE(CTaskComplexAimAndThrowProjectile, 0xC);

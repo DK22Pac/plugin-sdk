@@ -1,5 +1,5 @@
 /*
-    Plugin-SDK header file
+    Plugin-SDK (Grand Theft Auto) SHARED header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
@@ -14,6 +14,9 @@
     {
         float x, y;
     };
+    VALIDATE_OFFSET(RwV2d, x, 0x0);
+    VALIDATE_OFFSET(RwV2d, y, 0x4);
+    VALIDATE_SIZE(RwV2d, 0x8);
 #endif
 
 struct CVector;

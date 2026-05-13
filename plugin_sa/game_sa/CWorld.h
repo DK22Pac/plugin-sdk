@@ -1,8 +1,8 @@
 /*
-	Plugin-SDK (Grand Theft Auto San Andreas) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #define SECTOR_SIZE_X (50.0f)
@@ -200,6 +200,7 @@ public:
 	}
 
 };
+VALIDATE_SIZE(CWorld, 0x1);
 
 extern unsigned int& FilledColPointIndex;
 extern CColPoint* gaTempSphereColPoints; // CColPoint gaTempSphereColPoints[32]

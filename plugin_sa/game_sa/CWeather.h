@@ -102,3 +102,4 @@ public:
     static void UpdateInTunnelness();
     static void UpdateWeatherRegion(CVector* posn);
 };
+VALIDATE_SIZE(CWeather, 0x1);

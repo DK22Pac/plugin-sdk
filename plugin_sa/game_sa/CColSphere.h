@@ -19,5 +19,8 @@ public:
 	void Set(float radius, CVector  const& center, unsigned char material , unsigned char flags, unsigned char lighting);
 	bool IntersectRay(CVector  const& rayStart, CVector  const& rayEnd, CVector& intPoint1, CVector& intPoint2);
 };
-
+VALIDATE_OFFSET(CColSphere, m_nMaterial, 0x10);
+VALIDATE_OFFSET(CColSphere, m_nFlags, 0x11);
+VALIDATE_OFFSET(CColSphere, m_nLighting, 0x12);
+VALIDATE_OFFSET(CColSphere, m_nLight, 0x13);
 VALIDATE_SIZE(CColSphere, 0x14);

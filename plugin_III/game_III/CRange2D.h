@@ -16,7 +16,8 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM CVector2D *GetRandomPointInRange();
 };
-
+VALIDATE_OFFSET(CRange2D, m_vec2dMin, 0x0);
+VALIDATE_OFFSET(CRange2D, m_vec2dMax, 0x8);
 VALIDATE_SIZE(CRange2D, 0x10);
 
 #include "meta/meta.CRange2D.h"

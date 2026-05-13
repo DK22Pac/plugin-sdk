@@ -17,3 +17,4 @@ public:
 
     static int32_t& ms_nGameClockDayOfWeek;
 };
+VALIDATE_SIZE(CClock, 0x1);

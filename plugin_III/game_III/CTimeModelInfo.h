@@ -37,6 +37,10 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM CTimeModelInfo *FindOtherTimeModel();
 };
+VALIDATE_OFFSET(CTimeModelInfo, m_nStartHour, 0x4C);
+VALIDATE_OFFSET(CTimeModelInfo, m_nEndHour, 0x50);
+VALIDATE_OFFSET(CTimeModelInfo, m_nRelatedTimeModelIndex, 0x54);
+VALIDATE_SIZE(CTimeModelInfo, 0x58);
 
 VTABLE_DESC(CTimeModelInfo, 0x5FDFB8, 6);
 VALIDATE_SIZE(CTimeModelInfo, 0x58);

@@ -56,5 +56,19 @@ public:
 public:
     static void SetMaximumWantedLevel(int32_t level);
 };
-
+VALIDATE_OFFSET(CWanted, field_1, 0x0);
+VALIDATE_OFFSET(CWanted, m_nLastWantedLevelChange, 0x8);
+VALIDATE_OFFSET(CWanted, field_8, 0xC);
+VALIDATE_OFFSET(CWanted, m_fMultiplier, 0x1C);
+VALIDATE_OFFSET(CWanted, field_58, 0x20);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedDecreased, 0x50);
+VALIDATE_OFFSET(CWanted, field_72, 0x54);
+VALIDATE_OFFSET(CWanted, m_nShockingEvents, 0x58);
+VALIDATE_OFFSET(CWanted, field_73, 0x59);
+VALIDATE_OFFSET(CWanted, field_76, 0x5C);
+VALIDATE_OFFSET(CWanted, m_nFlashingAfterOffence, 0x6C);
+VALIDATE_OFFSET(CWanted, field_574, 0x70);
+VALIDATE_OFFSET(CWanted, field_750, 0x2AE);
+VALIDATE_OFFSET(CWanted, m_WantedLevelOld, 0x380);
+VALIDATE_OFFSET(CWanted, m_WantedLevel, 0x384);
 VALIDATE_SIZE(CWanted, 0x388);

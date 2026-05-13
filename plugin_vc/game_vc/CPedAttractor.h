@@ -61,6 +61,21 @@ public:
     SUPPORTED_10EN_11EN_STEAM int GetNoOfRegisteredPeds();
     SUPPORTED_10EN_11EN_STEAM bool RegisterPed(CPed *ped);
 };
+VALIDATE_OFFSET(CPedAttractor, m_p2dEffect, 0x4);
+VALIDATE_OFFSET(CPedAttractor, vApproachingQueue, 0x8);
+VALIDATE_OFFSET(CPedAttractor, vWaitingQueue, 0x14);
+VALIDATE_OFFSET(CPedAttractor, m_nMaxPedsInAttractor, 0x20);
+VALIDATE_OFFSET(CPedAttractor, m_fQueueDistance, 0x24);
+VALIDATE_OFFSET(CPedAttractor, m_fTimeInWaitQueue, 0x28);
+VALIDATE_OFFSET(CPedAttractor, m_fTimeInApproachingQueue, 0x2C);
+VALIDATE_OFFSET(CPedAttractor, m_fDistanceToUseAttractor, 0x30);
+VALIDATE_OFFSET(CPedAttractor, m_fAcceptableHeading, 0x34);
+VALIDATE_OFFSET(CPedAttractor, m_fMaxPositionDisplacement, 0x38);
+VALIDATE_OFFSET(CPedAttractor, m_fMaxHeadingDisplacement, 0x3C);
+VALIDATE_OFFSET(CPedAttractor, vecEffectPos, 0x40);
+VALIDATE_OFFSET(CPedAttractor, vecQueueDir, 0x4C);
+VALIDATE_OFFSET(CPedAttractor, vecUseDir, 0x58);
+VALIDATE_SIZE(CPedAttractor, 0x64);
 
 VTABLE_DESC(CPedAttractor, 0x6DBF00, 8);
 VALIDATE_SIZE(CPedAttractor, 0x64);

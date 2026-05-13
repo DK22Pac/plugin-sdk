@@ -11,3 +11,4 @@ class CCopPed {
 public:
 
 };
+VALIDATE_SIZE(CCopPed, 0x1);

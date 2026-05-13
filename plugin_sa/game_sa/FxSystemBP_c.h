@@ -36,5 +36,13 @@ public:
     void SetBoundingSphere(RwV3d* center, float radius);
     void Load(char* filename, int file, int version);
 };
-
+VALIDATE_OFFSET(FxSystemBP_c, m_nNameKey, 0x8);
+VALIDATE_OFFSET(FxSystemBP_c, m_fLength, 0xC);
+VALIDATE_OFFSET(FxSystemBP_c, m_fLoopIntervalMin, 0x10);
+VALIDATE_OFFSET(FxSystemBP_c, m_fLoopLength, 0x14);
+VALIDATE_OFFSET(FxSystemBP_c, m_nCullDist, 0x18);
+VALIDATE_OFFSET(FxSystemBP_c, m_nPlayMode, 0x1A);
+VALIDATE_OFFSET(FxSystemBP_c, m_nNumEmitters, 0x1B);
+VALIDATE_OFFSET(FxSystemBP_c, m_emittersList, 0x1C);
+VALIDATE_OFFSET(FxSystemBP_c, m_pBoundingSphere, 0x20);
 VALIDATE_SIZE(FxSystemBP_c, 0x24);

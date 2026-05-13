@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "CEncodedVector.h"
@@ -79,5 +78,55 @@ public:
     unsigned char field_174;
     unsigned char field_175;
 };
-
+VALIDATE_OFFSET(CCarPhysics, m_vPrevVelocity, 0x0);
+VALIDATE_OFFSET(CCarPhysics, m_nDamage, 0x8);
+VALIDATE_OFFSET(CCarPhysics, m_pNext, 0xC);
+VALIDATE_OFFSET(CCarPhysics, m_vRearRightSkid, 0x10);
+VALIDATE_OFFSET(CCarPhysics, m_vRearLeftSkid, 0x18);
+VALIDATE_OFFSET(CCarPhysics, m_vFrontLeftSkid, 0x20);
+VALIDATE_OFFSET(CCarPhysics, m_vFrontRightSkid, 0x28);
+VALIDATE_OFFSET(CCarPhysics, m_vPosition, 0x30);
+VALIDATE_OFFSET(CCarPhysics, m_vPrevPosition, 0x38);
+VALIDATE_OFFSET(CCarPhysics, m_vVelocity, 0x40);
+VALIDATE_OFFSET(CCarPhysics, m_vSlope, 0x48);
+VALIDATE_OFFSET(CCarPhysics, field_80, 0x50);
+VALIDATE_OFFSET(CCarPhysics, field_84, 0x54);
+VALIDATE_OFFSET(CCarPhysics, m_nRotation, 0x58);
+VALIDATE_OFFSET(CCarPhysics, field_144, 0x5A);
+VALIDATE_OFFSET(CCarPhysics, m_pPrev, 0x5C);
+VALIDATE_OFFSET(CCarPhysics, m_nGasPedal, 0x60);
+VALIDATE_OFFSET(CCarPhysics, field_258, 0x64);
+VALIDATE_OFFSET(CCarPhysics, m_nVelocityZ, 0x68);
+VALIDATE_OFFSET(CCarPhysics, m_nPosZ, 0x6C);
+VALIDATE_OFFSET(CCarPhysics, m_nPrevVelocityZ, 0x70);
+VALIDATE_OFFSET(CCarPhysics, m_nRotationForce, 0x74);
+VALIDATE_OFFSET(CCarPhysics, m_nPointingAngle, 0x78);
+VALIDATE_OFFSET(CCarPhysics, field_124, 0x7C);
+VALIDATE_OFFSET(CCarPhysics, field_128, 0x80);
+VALIDATE_OFFSET(CCarPhysics, m_nFrontSkid, 0x84);
+VALIDATE_OFFSET(CCarPhysics, m_nRearSkid, 0x88);
+VALIDATE_OFFSET(CCarPhysics, field_140, 0x8C);
+VALIDATE_OFFSET(CCarPhysics, m_nTimerSinceLastMove, 0x90);
+VALIDATE_OFFSET(CCarPhysics, m_bBrakeOn, 0x91);
+VALIDATE_OFFSET(CCarPhysics, m_bHandbrakeOn, 0x92);
+VALIDATE_OFFSET(CCarPhysics, m_bForwardGasOn, 0x93);
+VALIDATE_OFFSET(CCarPhysics, m_bBackwardGasOn, 0x94);
+VALIDATE_OFFSET(CCarPhysics, field_149, 0x95);
+VALIDATE_OFFSET(CCarPhysics, field_150, 0x96);
+VALIDATE_OFFSET(CCarPhysics, field_151, 0x97);
+VALIDATE_OFFSET(CCarPhysics, m_nTileCollisionType, 0x98);
+VALIDATE_OFFSET(CCarPhysics, m_nTileSurfaceType, 0x9C);
+VALIDATE_OFFSET(CCarPhysics, field_160, 0xA0);
+VALIDATE_OFFSET(CCarPhysics, field_164, 0xA4);
+VALIDATE_OFFSET(CCarPhysics, m_nCurrentSlopeLength, 0xA5);
+VALIDATE_OFFSET(CCarPhysics, m_nCurrentSlopeLeftTiles, 0xA6);
+VALIDATE_OFFSET(CCarPhysics, m_nCurrentTileZ, 0xA7);
+VALIDATE_OFFSET(CCarPhysics, m_nHandbrakeForce, 0xA8);
+VALIDATE_OFFSET(CCarPhysics, m_nCarModel, 0xA9);
+VALIDATE_OFFSET(CCarPhysics, field_170, 0xAA);
+VALIDATE_OFFSET(CCarPhysics, field_171, 0xAB);
+VALIDATE_OFFSET(CCarPhysics, m_nDriveWheelsLocked, 0xAC);
+VALIDATE_OFFSET(CCarPhysics, m_nSteering, 0xAD);
+VALIDATE_OFFSET(CCarPhysics, field_174, 0xAE);
+VALIDATE_OFFSET(CCarPhysics, field_175, 0xAF);
 VALIDATE_SIZE(CCarPhysics, 0xB0);

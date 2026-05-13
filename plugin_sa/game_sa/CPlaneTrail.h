@@ -4,6 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+#pragma once
 #include "PluginBase.h"
 #include "CVector.h"
 
@@ -16,5 +17,6 @@ public:
     void Render(float intensity);
     void RegisterPoint(CVector point);
 };
-
+VALIDATE_OFFSET(CPlaneTrail, m_avecPosn, 0x0);
+VALIDATE_OFFSET(CPlaneTrail, m_anTime, 0xC0);
 VALIDATE_SIZE(CPlaneTrail, 0x100);

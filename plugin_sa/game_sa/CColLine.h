@@ -19,5 +19,8 @@ public:
 	CColLine(CVector  const& start, CVector  const& end);
 	void Set(CVector  const& start, CVector  const& end);
 };
-
+VALIDATE_OFFSET(CColLine, m_vecStart, 0x0);
+VALIDATE_OFFSET(CColLine, m_fStartSize, 0xC);
+VALIDATE_OFFSET(CColLine, m_vecEnd, 0x10);
+VALIDATE_OFFSET(CColLine, m_fEndSize, 0x1C);
 VALIDATE_SIZE(CColLine, 0x20);

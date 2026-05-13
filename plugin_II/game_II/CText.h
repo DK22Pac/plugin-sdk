@@ -12,17 +12,26 @@ public:
     wchar_t* chars;
     int numChars;
 };
+VALIDATE_OFFSET(CData, chars, 0x0);
+VALIDATE_OFFSET(CData, numChars, 0x4);
+VALIDATE_SIZE(CData, 0x8);
 
 struct CKeyEntry {
     wchar_t* value;
     char key[8];
 };
+VALIDATE_OFFSET(CKeyEntry, value, 0x0);
+VALIDATE_OFFSET(CKeyEntry, key, 0x4);
+VALIDATE_SIZE(CKeyEntry, 0xC);
 
 class CKeyArray {
 public:
     CKeyEntry* entries;
     int numEntries;
 };
+VALIDATE_OFFSET(CKeyArray, entries, 0x0);
+VALIDATE_OFFSET(CKeyArray, numEntries, 0x4);
+VALIDATE_SIZE(CKeyArray, 0x8);
 
 class PLUGIN_API CText {
 public:
@@ -39,7 +48,9 @@ public:
     void LoadChunk(const char* type, int size);
     void Update(wchar_t* chars);
 };
-
+VALIDATE_OFFSET(CText, keyArray, 0x0);
+VALIDATE_OFFSET(CText, data, 0x8);
+VALIDATE_OFFSET(CText, language, 0x10);
 VALIDATE_SIZE(CText, 0x14);
 
 extern CText** TheText;

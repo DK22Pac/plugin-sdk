@@ -14,5 +14,7 @@ public:
 	int startAnimation;	// into CAnimBlock::ms_aAnimations[]
 	int animationCount;
 };
-
-VALIDATE_SIZE(CAnimBlock,0x20);
+VALIDATE_OFFSET(CAnimBlock, szName, 0x0);
+VALIDATE_OFFSET(CAnimBlock, startAnimation, 0x18);
+VALIDATE_OFFSET(CAnimBlock, animationCount, 0x1C);
+VALIDATE_SIZE(CAnimBlock, 0x20);

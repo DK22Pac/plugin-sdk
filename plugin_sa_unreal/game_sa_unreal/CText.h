@@ -11,5 +11,6 @@ class CText {
 public:
     const wchar_t* Get(const char* str);
 };
+VALIDATE_SIZE(CText, 0x1);
 
 extern CText TheText;

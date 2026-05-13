@@ -13,7 +13,6 @@ class PLUGIN_API C2deffectsModelInfo : public CClumpModelInfo {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(C2deffectsModelInfo)
 public:
 };
-
 VALIDATE_SIZE(C2deffectsModelInfo, 0x34);
 
 #include "meta/meta.C2deffectsModelInfo.h"

@@ -130,6 +130,32 @@ public:
     //! unloads 'white' texture
     SUPPORTED_10EN_11EN_STEAM static void ShutdownEnvironmentMaps();
 };
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastPrimaryColor, 0x34);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastSecondaryColor, 0x35);
+VALIDATE_OFFSET(CVehicleModelInfo, m_szGameName, 0x36);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleType, 0x58);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nWheelModelIndex, 0x5C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nPlaneLodId, 0x5C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fWheelScale, 0x60);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumDoors, 0x64);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nHandlingId, 0x68);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleClass, 0x6C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLvl, 0x70);
+VALIDATE_OFFSET(CVehicleModelInfo, m_vecDummyPos, 0x74);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCompRules, 0xEC);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCompRulesBits, 0xEC);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fBikeSteerAngle, 0xF0);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apMaterialsPrimary, 0xF4);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apMaterialsSecondary, 0x15C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_bPrimaryColorId, 0x1C4);
+VALIDATE_OFFSET(CVehicleModelInfo, m_bSecondaryColorId, 0x1CC);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumColorVariations, 0x1D4);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastColorVariation, 0x1D5);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentColorId, 0x1D6);
+VALIDATE_OFFSET(CVehicleModelInfo, m_pEnvironmentTex, 0x1D8);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apExtras, 0x1DC);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumExtras, 0x1F4);
+VALIDATE_SIZE(CVehicleModelInfo, 0x1F8);
 
 SUPPORTED_10EN_11EN_STEAM extern RwTexture *&gpWhiteTexture;
 SUPPORTED_10EN_11EN_STEAM extern RwFrame *&pMatFxIdentityFrame;

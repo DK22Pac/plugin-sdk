@@ -36,6 +36,23 @@ public:
     SUPPORTED_10EN_11EN_STEAM void DeleteMarkerObject();
     SUPPORTED_10EN_11EN_STEAM void Render();
 };
+VALIDATE_OFFSET(C3dMarker, m_mMat, 0x0);
+VALIDATE_OFFSET(C3dMarker, m_pAtomic, 0x48);
+VALIDATE_OFFSET(C3dMarker, m_pMaterial, 0x4C);
+VALIDATE_OFFSET(C3dMarker, m_nType, 0x50);
+VALIDATE_OFFSET(C3dMarker, m_bIsUsed, 0x52);
+VALIDATE_OFFSET(C3dMarker, m_bMustBeRenderedThisFrame, 0x53);
+VALIDATE_OFFSET(C3dMarker, m_nIdentifier, 0x54);
+VALIDATE_OFFSET(C3dMarker, m_colour, 0x58);
+VALIDATE_OFFSET(C3dMarker, m_nPulsePeriod, 0x5C);
+VALIDATE_OFFSET(C3dMarker, m_nRotateRate, 0x5E);
+VALIDATE_OFFSET(C3dMarker, m_nStartTime, 0x60);
+VALIDATE_OFFSET(C3dMarker, m_fPulseFraction, 0x64);
+VALIDATE_OFFSET(C3dMarker, m_fStdSize, 0x68);
+VALIDATE_OFFSET(C3dMarker, m_fSize, 0x6C);
+VALIDATE_OFFSET(C3dMarker, m_fBrightness, 0x70);
+VALIDATE_OFFSET(C3dMarker, m_fCameraRange, 0x74);
+VALIDATE_SIZE(C3dMarker, 0x78);
 
 SUPPORTED_10EN_11EN_STEAM RpAtomic *MarkerAtomicCB(RpAtomic *atomic, void *data);
 

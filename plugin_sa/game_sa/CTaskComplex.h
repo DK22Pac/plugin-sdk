@@ -24,6 +24,5 @@ public:
     virtual CTask* CreateFirstSubTask(CPed* ped);
     virtual CTask* ControlSubTask(CPed* ped);
 };
-
 VALIDATE_OFFSET(CTaskComplex, m_pSubTask, 0x8);
 VALIDATE_SIZE(CTaskComplex, 0xC);

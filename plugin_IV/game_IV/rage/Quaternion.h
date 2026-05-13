@@ -14,4 +14,9 @@ namespace rage {
 
         Quaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
     };
+    VALIDATE_OFFSET(Quaternion, x, 0x0);
+    VALIDATE_OFFSET(Quaternion, y, 0x4);
+    VALIDATE_OFFSET(Quaternion, z, 0x8);
+    VALIDATE_OFFSET(Quaternion, w, 0xC);
+    VALIDATE_SIZE(Quaternion, 0x10);
 }

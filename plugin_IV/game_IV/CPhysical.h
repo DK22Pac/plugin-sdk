@@ -88,6 +88,27 @@ public:
         return vel;
     }
 };
+VALIDATE_OFFSET(CPhysical, m_nBodyPart, 0x110);
+VALIDATE_OFFSET(CPhysical, m_nRelationshipGroup, 0x11C);
+VALIDATE_OFFSET(CPhysical, field_24, 0x11E);
+VALIDATE_OFFSET(CPhysical, m_fPercentSubmerged, 0x120);
+VALIDATE_OFFSET(CPhysical, field_32, 0x124);
+VALIDATE_OFFSET(CPhysical, m_nSubmergedState, 0x144);
+VALIDATE_OFFSET(CPhysical, field_40, 0x148);
+VALIDATE_OFFSET(CPhysical, m_pAttachedToEntity, 0x1BC);
+VALIDATE_OFFSET(CPhysical, m_vAttachOffset, 0x1C0);
+VALIDATE_OFFSET(CPhysical, field_116, 0x1CC);
+VALIDATE_OFFSET(CPhysical, m_qAttachOffset, 0x1D0);
+VALIDATE_OFFSET(CPhysical, field_124, 0x1E0);
+VALIDATE_OFFSET(CPhysical, m_pLastDamageEntity, 0x1E4);
+VALIDATE_OFFSET(CPhysical, field_132, 0x1E8);
+VALIDATE_OFFSET(CPhysical, m_nLastDamageWeapon, 0x1EC);
+VALIDATE_OFFSET(CPhysical, field_138, 0x1ED);
+VALIDATE_OFFSET(CPhysical, m_fLife, 0x1F0);
+VALIDATE_OFFSET(CPhysical, field_152, 0x1F4);
+VALIDATE_OFFSET(CPhysical, m_pEntityIgnoredCollision, 0x1F8);
+VALIDATE_OFFSET(CPhysical, field_158, 0x1FC);
+VALIDATE_SIZE(CPhysical, 0x210);
 #pragma pack(pop)
 
 VALIDATE_SIZE(CPhysical, 0x210);

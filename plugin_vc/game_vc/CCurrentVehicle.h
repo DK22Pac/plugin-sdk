@@ -13,5 +13,5 @@ class CCurrentVehicle
 public:
 	class CVehicle *m_pCurrentVehicle;
 };
-
-VALIDATE_SIZE(CCurrentVehicle, 0x04);
+VALIDATE_OFFSET(CCurrentVehicle, m_pCurrentVehicle, 0x0);
+VALIDATE_SIZE(CCurrentVehicle, 0x4);

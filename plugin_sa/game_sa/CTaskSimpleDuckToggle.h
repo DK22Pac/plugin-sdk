@@ -21,5 +21,5 @@ public:
     CTaskSimpleDuckToggle(int toggleType);
     
 };
-
+VALIDATE_OFFSET(CTaskSimpleDuckToggle, m_nToggleType, 0x8);
 VALIDATE_SIZE(CTaskSimpleDuckToggle, 0xC);

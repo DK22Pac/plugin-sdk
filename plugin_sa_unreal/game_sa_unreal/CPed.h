@@ -11,3 +11,4 @@ class CPed {
 public:
 
 };
+VALIDATE_SIZE(CPed, 0x1);

@@ -11,5 +11,6 @@ class audWeaponAudioEntity : public audGtaAudioEntity {
 public:
 
 };
+VALIDATE_SIZE(audWeaponAudioEntity, 0x54);
 
 extern audWeaponAudioEntity& g_WeaponAudioEntity;

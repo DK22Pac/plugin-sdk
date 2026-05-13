@@ -23,4 +23,5 @@ public:
         return ms_pInstance;
     }
 };
+VALIDATE_SIZE(CVehicleFactoryNY, 0x4);
 

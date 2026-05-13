@@ -17,6 +17,7 @@ public:
     SUPPORTED_10US static void GetGridRefPositions(unsigned char *outSectorX, unsigned char *outSectorY);
     SUPPORTED_10US static void Init();
 };
+VALIDATE_SIZE(CGridRef, 0x1);
 
 SUPPORTED_10US extern char(&GridRefList)[10][10][32]; // char GridRefList[10][10][32]
 

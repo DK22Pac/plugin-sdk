@@ -13,3 +13,4 @@ public:
     CViewportRadar();
 
 };
+VALIDATE_SIZE(CViewportRadar, 0x1);

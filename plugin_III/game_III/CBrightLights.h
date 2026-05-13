@@ -43,6 +43,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Render();
     SUPPORTED_10EN_11EN_STEAM static void RenderOutGeometryBuffer();
 };
+VALIDATE_SIZE(CBrightLights, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern float(&TrafficLightsSide)[6]; // float TrafficLightsSide[6]
 SUPPORTED_10EN_11EN_STEAM extern float(&TrafficLightsUp)[6]; // float TrafficLightsUp[6]

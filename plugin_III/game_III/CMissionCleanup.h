@@ -19,6 +19,9 @@ struct PLUGIN_API tCleanupEntity {
     unsigned char m_nType; //!< see eCleanupEntityType
     int m_nEntityIndex;
 };
+VALIDATE_OFFSET(tCleanupEntity, m_nType, 0x0);
+VALIDATE_OFFSET(tCleanupEntity, m_nEntityIndex, 0x4);
+VALIDATE_SIZE(tCleanupEntity, 0x8);
 
 class PLUGIN_API CMissionCleanup {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CMissionCleanup)
@@ -33,8 +36,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Process();
     SUPPORTED_10EN_11EN_STEAM void RemoveEntityFromList(int id, unsigned char type);
 };
-
-VALIDATE_SIZE(tCleanupEntity, 0x8);
+VALIDATE_OFFSET(CMissionCleanup, m_sEntities, 0x0);
+VALIDATE_OFFSET(CMissionCleanup, m_nCount, 0x190);
 VALIDATE_SIZE(CMissionCleanup, 0x194);
 
 #include "meta/meta.CMissionCleanup.h"

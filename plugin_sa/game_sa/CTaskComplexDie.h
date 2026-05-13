@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 #include "eWeaponType.h"
@@ -39,6 +38,12 @@ public:
         float fBlendDelta, float fAnimSpeed, bool bBeingKilledByStealth, bool bFallingToDeath, int nFallToDeathDir, bool bFallToDeathOverRailing);
 
 };
-
+VALIDATE_OFFSET(CTaskComplexDie, m_nWeaponType, 0xC);
+VALIDATE_OFFSET(CTaskComplexDie, m_animGroup, 0x10);
+VALIDATE_OFFSET(CTaskComplexDie, m_animID, 0x14);
+VALIDATE_OFFSET(CTaskComplexDie, m_fBlendDelta, 0x18);
+VALIDATE_OFFSET(CTaskComplexDie, m_fAnimSpeed, 0x1C);
+VALIDATE_OFFSET(CTaskComplexDie, m_nFlags, 0x20);
+VALIDATE_OFFSET(CTaskComplexDie, nFallToDeathDir, 0x24);
 VALIDATE_SIZE(CTaskComplexDie, 0x28);
 

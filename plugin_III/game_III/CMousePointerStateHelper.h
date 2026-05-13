@@ -17,6 +17,9 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM CMouseControllerState GetMouseSetUp();
 };
+VALIDATE_OFFSET(CMousePointerStateHelper, m_bInvertHorizontally, 0x0);
+VALIDATE_OFFSET(CMousePointerStateHelper, m_bInvertVertically, 0x1);
+VALIDATE_SIZE(CMousePointerStateHelper, 0x2);
 #pragma pack(pop)
 
 SUPPORTED_10EN_11EN_STEAM extern CMousePointerStateHelper &MousePointerStateHelper;

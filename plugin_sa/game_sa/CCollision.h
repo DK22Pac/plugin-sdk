@@ -77,6 +77,7 @@ public:
     static bool BuildCacheOfCameraCollision(CColSphere* sphere1, CColSphere* sphere2);
     static bool CameraConeCastVsWorldCollision(CColSphere* sphere1, CColSphere* sphere2, float* arg2, float arg3);
 };
+VALIDATE_SIZE(CCollision, 0x1);
 
 void CalculateColPointInsideBox(CBox const& box, CVector const& point, CColPoint& colPoint);
 bool ProcessDiscCollision(CColPoint& colPoint1, CMatrix const& mat, CColDisk const& disk, CColPoint& colPoint2, bool& arg4, float& arg5, CColPoint& colPoint3);

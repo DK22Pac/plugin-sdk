@@ -22,6 +22,14 @@ public:
     float m_fRadius;
     unsigned char m_nTransparency;
 };
+VALIDATE_OFFSET(CBulletTrace, m_vecOrigin, 0x0);
+VALIDATE_OFFSET(CBulletTrace, m_vecTarget, 0xC);
+VALIDATE_OFFSET(CBulletTrace, m_bExist, 0x18);
+VALIDATE_OFFSET(CBulletTrace, m_nCreationTime, 0x1C);
+VALIDATE_OFFSET(CBulletTrace, m_nLifeTime, 0x20);
+VALIDATE_OFFSET(CBulletTrace, m_fRadius, 0x24);
+VALIDATE_OFFSET(CBulletTrace, m_nTransparency, 0x28);
+VALIDATE_SIZE(CBulletTrace, 0x2C);
 
 //! RwImVertexIndex TraceIndexList[48] = { 0, 5, 7, 0, 7, 2, 0, 7, 5, 0, 2, 7, 0, 4, 9, 0,
 //!                   9, 5, 0, 9, 4, 0, 5, 9, 0, 1, 6, 0, 6, 5, 0, 6,

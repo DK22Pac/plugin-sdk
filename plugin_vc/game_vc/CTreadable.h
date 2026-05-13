@@ -19,5 +19,4 @@ public:
     CTreadable(const CTreadable &) = delete;
     CTreadable &operator=(const CTreadable &) = delete;
 };
-
 VALIDATE_SIZE(CTreadable, 0x64);

@@ -31,7 +31,13 @@ public:
     SUPPORTED_10EN_11EN_STEAM bool NextKeyFrame();
     SUPPORTED_10EN_11EN_STEAM bool Update(CVector &trans, CQuaternion &rot, float weight);
 };
-
+VALIDATE_OFFSET(CAnimBlendNode, theta, 0x0);
+VALIDATE_OFFSET(CAnimBlendNode, invSin, 0x4);
+VALIDATE_OFFSET(CAnimBlendNode, frameA, 0x8);
+VALIDATE_OFFSET(CAnimBlendNode, frameB, 0xC);
+VALIDATE_OFFSET(CAnimBlendNode, remainingTime, 0x10);
+VALIDATE_OFFSET(CAnimBlendNode, m_pAnimBlendSequence, 0x14);
+VALIDATE_OFFSET(CAnimBlendNode, m_pAnimBlendAssociation, 0x18);
 VALIDATE_SIZE(CAnimBlendNode, 0x1C);
 
 #include "meta/meta.CAnimBlendNode.h"

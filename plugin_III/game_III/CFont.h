@@ -17,11 +17,18 @@ struct tFontTable {
     unsigned short space;
     unsigned short unprop;
 };
+VALIDATE_OFFSET(tFontTable, prop, 0x0);
+VALIDATE_OFFSET(tFontTable, space, 0x17E);
+VALIDATE_OFFSET(tFontTable, unprop, 0x180);
+VALIDATE_SIZE(tFontTable, 0x182);
 
 struct tFontSize {
     tFontTable fonts[3];
     unsigned short ftable[338];
 };
+VALIDATE_OFFSET(tFontSize, fonts, 0x0);
+VALIDATE_OFFSET(tFontSize, ftable, 0x486);
+VALIDATE_SIZE(tFontSize, 0x72A);
 
 enum eFontAlignment : unsigned char {
     ALIGN_CENTER,
@@ -134,6 +141,7 @@ public:
             SetBackgroundOff();
     }
 };
+VALIDATE_SIZE(CFont, 0x1);
 
 void AsciiToUnicode(char const* str_ascii, wchar_t* str_unicode);
 int UnicodeStrlen(wchar_t const* str);

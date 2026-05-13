@@ -92,5 +92,8 @@ public:
             bottom = y;
     }
 };
-
+VALIDATE_OFFSET(CRect, left, 0x0);
+VALIDATE_OFFSET(CRect, bottom, 0x4);
+VALIDATE_OFFSET(CRect, right, 0x8);
+VALIDATE_OFFSET(CRect, top, 0xC);
 VALIDATE_SIZE(CRect, 0x10);

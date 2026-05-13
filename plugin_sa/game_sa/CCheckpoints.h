@@ -25,3 +25,4 @@ public:
     static void Update();
     static void UpdatePos(unsigned int id, CVector& posn);
 };
+VALIDATE_SIZE(CCheckpoints, 0x1);

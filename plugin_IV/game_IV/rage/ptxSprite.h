@@ -12,4 +12,5 @@ namespace rage {
     class ptxSprite : ptxRule {
 
     };
+    VALIDATE_SIZE(ptxSprite, 0x4);
 }

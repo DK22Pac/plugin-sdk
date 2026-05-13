@@ -13,4 +13,5 @@ namespace rage {
     public:
 
     };
+    VALIDATE_SIZE(pgStreamableBase, 0x4);
 }

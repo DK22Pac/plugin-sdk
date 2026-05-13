@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CVector.h"
 #include "CRGBA.h"
@@ -28,7 +27,12 @@ public:
     static void Shutdown();
     ~CWeaponEffects();
 };
-
+VALIDATE_OFFSET(CWeaponEffects, m_bActive, 0x0);
+VALIDATE_OFFSET(CWeaponEffects, _pad0, 0x1);
+VALIDATE_OFFSET(CWeaponEffects, m_vPosn, 0x4);
+VALIDATE_OFFSET(CWeaponEffects, m_Color, 0x10);
+VALIDATE_OFFSET(CWeaponEffects, m_fSize, 0x14);
+VALIDATE_OFFSET(CWeaponEffects, m_fRotation, 0x18);
 VALIDATE_SIZE(CWeaponEffects, 0x1C);
 
 extern CWeaponEffects& gCrossHair;		// CWeaponEffects gCrossHair

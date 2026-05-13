@@ -14,5 +14,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void CalcCurvePoint(CVector *pPos1, CVector *pPos2, CVector *pDir1, CVector *pDir2, float between, int timeOnCurve, CVector *pOutPos, CVector *pOutDir);
     SUPPORTED_10EN_11EN_STEAM static float CalcSpeedScaleFactor(CVector *pPoint1, CVector *pPoint2, float dir1X, float dir1Y, float dir2X, float dir2Y);
 };
+VALIDATE_SIZE(CCurves, 0x1);
 
 #include "meta/meta.CCurves.h"

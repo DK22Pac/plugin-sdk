@@ -81,6 +81,8 @@ enum eHudComponents {
 struct tComponentData {
 	wchar_t text[128];
 };
+VALIDATE_OFFSET(tComponentData, text, 0x0);
+VALIDATE_SIZE(tComponentData, 0x100);
 
 class CHudComponent {
 public:
@@ -110,6 +112,29 @@ public:
 public:
     bool IsDisplaying();
 };
+VALIDATE_OFFSET(CHudComponent, field_8, 0x0);
+VALIDATE_OFFSET(CHudComponent, type, 0x8);
+VALIDATE_OFFSET(CHudComponent, state, 0xC);
+VALIDATE_OFFSET(CHudComponent, field_24, 0x10);
+VALIDATE_OFFSET(CHudComponent, display, 0x11);
+VALIDATE_OFFSET(CHudComponent, field_25, 0x12);
+VALIDATE_OFFSET(CHudComponent, pos, 0x18);
+VALIDATE_OFFSET(CHudComponent, scale, 0x20);
+VALIDATE_OFFSET(CHudComponent, field_52, 0x28);
+VALIDATE_OFFSET(CHudComponent, defaultState, 0x30);
+VALIDATE_OFFSET(CHudComponent, fontStyle, 0x34);
+VALIDATE_OFFSET(CHudComponent, edge, 0x38);
+VALIDATE_OFFSET(CHudComponent, background, 0x39);
+VALIDATE_OFFSET(CHudComponent, printFromBottom, 0x3A);
+VALIDATE_OFFSET(CHudComponent, timeVisible, 0x3C);
+VALIDATE_OFFSET(CHudComponent, fadingTime, 0x40);
+VALIDATE_OFFSET(CHudComponent, field_108, 0x44);
+VALIDATE_OFFSET(CHudComponent, color, 0x45);
+VALIDATE_OFFSET(CHudComponent, field_110, 0x49);
+VALIDATE_OFFSET(CHudComponent, alpha, 0x59);
+VALIDATE_OFFSET(CHudComponent, field_190, 0x5A);
+VALIDATE_OFFSET(CHudComponent, data, 0x6C);
+VALIDATE_SIZE(CHudComponent, 0x16C);
 
 //VALIDATE_SIZE(CHudComponent, 0x70);
 
@@ -125,7 +150,11 @@ public:
 public:
 
 };
-
+VALIDATE_OFFSET(CHudComponentInfo, m_nIndex, 0x0);
+VALIDATE_OFFSET(CHudComponentInfo, m_vPos, 0x4);
+VALIDATE_OFFSET(CHudComponentInfo, m_vSize, 0xC);
+VALIDATE_OFFSET(CHudComponentInfo, m_nRGB, 0x14);
+VALIDATE_OFFSET(CHudComponentInfo, m_nAlpha, 0x18);
 VALIDATE_SIZE(CHudComponentInfo, 0x1C);
 
 extern CHudComponentInfo* aHudComponentInfo; // [455]

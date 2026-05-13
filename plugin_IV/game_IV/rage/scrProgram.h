@@ -21,4 +21,10 @@ namespace rage {
     public:
         int32_t Release();
     };
+    VALIDATE_OFFSET(scrProgram, field_1, 0x8);
+    VALIDATE_OFFSET(scrProgram, field_2, 0xC);
+    VALIDATE_OFFSET(scrProgram, field_3, 0x10);
+    VALIDATE_OFFSET(scrProgram, field_4, 0x14);
+    VALIDATE_OFFSET(scrProgram, RefCount, 0x18);
+    VALIDATE_SIZE(scrProgram, 0x1C);
 }

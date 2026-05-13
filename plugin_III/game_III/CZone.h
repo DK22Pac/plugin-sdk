@@ -26,7 +26,16 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM wchar_t *GetTranslatedName();
 };
-
+VALIDATE_OFFSET(CZone, m_aName, 0x0);
+VALIDATE_OFFSET(CZone, m_vecMin, 0x8);
+VALIDATE_OFFSET(CZone, m_vecMax, 0x14);
+VALIDATE_OFFSET(CZone, m_eZoneType, 0x20);
+VALIDATE_OFFSET(CZone, m_eLevel, 0x24);
+VALIDATE_OFFSET(CZone, m_nZoneDay, 0x28);
+VALIDATE_OFFSET(CZone, m_nZoneNight, 0x2A);
+VALIDATE_OFFSET(CZone, m_pChild, 0x2C);
+VALIDATE_OFFSET(CZone, m_pParent, 0x30);
+VALIDATE_OFFSET(CZone, m_pNext, 0x34);
 VALIDATE_SIZE(CZone, 0x38);
 
 #include "meta/meta.CZone.h"

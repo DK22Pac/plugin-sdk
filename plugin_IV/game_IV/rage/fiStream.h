@@ -24,6 +24,13 @@ namespace rage {
     public:
 
     };
-
+    VALIDATE_OFFSET(fiStream, m_Device, 0x0);
+    VALIDATE_OFFSET(fiStream, m_Handle, 0x4);
+    VALIDATE_OFFSET(fiStream, m_Name, 0x8);
+    VALIDATE_OFFSET(fiStream, m_Buffer, 0xA8);
+    VALIDATE_OFFSET(fiStream, m_Start, 0xAC);
+    VALIDATE_OFFSET(fiStream, m_Offset, 0xB0);
+    VALIDATE_OFFSET(fiStream, m_Length, 0xB4);
+    VALIDATE_OFFSET(fiStream, m_Size, 0xB8);
     VALIDATE_SIZE(fiStream, 0xBC);
 }

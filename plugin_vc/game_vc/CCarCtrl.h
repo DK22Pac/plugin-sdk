@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -70,3 +70,4 @@ public:
     static void WeaveThroughObjectsSectorList(CPtrList& ptrlist, CVehicle* vehicle, float arg2, float arg3, float arg4, float arg5, float* arg6, float* arg7);
     static void WeaveThroughPedsSectorList(CPtrList& ptrlist, CVehicle* vehicle, CPhysical* arg2, float arg3, float arg4, float arg5, float arg6, float* arg7, float* arg8);
 };
+VALIDATE_SIZE(CCarCtrl, 0x1);

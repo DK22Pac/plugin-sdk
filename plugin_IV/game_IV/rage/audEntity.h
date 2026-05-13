@@ -26,4 +26,7 @@ namespace rage {
     public:
         void CreateSound_LocalReference(const char* name, rage::audSound* sound, audSoundInitParams* initParams, int32_t arg4, int32_t arg5, int32_t arg6);
     };
+    VALIDATE_OFFSET(audEntity, m_ControllerEntityId, 0x4);
+    VALIDATE_OFFSET(audEntity, m_EntityVariableBlock, 0x6);
+    VALIDATE_SIZE(audEntity, 0x8);
 }

@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -89,7 +89,16 @@ public:
         return at;
     }
 };
-
+VALIDATE_OFFSET(CMatrix, right, 0x0);
+VALIDATE_OFFSET(CMatrix, flags, 0xC);
+VALIDATE_OFFSET(CMatrix, up, 0x10);
+VALIDATE_OFFSET(CMatrix, pad1, 0x1C);
+VALIDATE_OFFSET(CMatrix, at, 0x20);
+VALIDATE_OFFSET(CMatrix, pad2, 0x2C);
+VALIDATE_OFFSET(CMatrix, pos, 0x30);
+VALIDATE_OFFSET(CMatrix, pad3, 0x3C);
+VALIDATE_OFFSET(CMatrix, m_pAttachMatrix, 0x40);
+VALIDATE_OFFSET(CMatrix, m_bOwnsAttachedMatrix, 0x44);
 VALIDATE_SIZE(CMatrix, 0x48);
 
 void Invert(CMatrix const& in, CMatrix&out);

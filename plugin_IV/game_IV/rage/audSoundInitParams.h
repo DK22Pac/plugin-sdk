@@ -23,6 +23,13 @@ namespace rage {
     public:
         audSoundInitParams();
     };
-
+    VALIDATE_OFFSET(audSoundInitParams, field_8, 0x0);
+    VALIDATE_OFFSET(audSoundInitParams, Position, 0xC);
+    VALIDATE_OFFSET(audSoundInitParams, field_1, 0x18);
+    VALIDATE_OFFSET(audSoundInitParams, TimerId, 0x38);
+    VALIDATE_OFFSET(audSoundInitParams, Volume, 0x3C);
+    VALIDATE_OFFSET(audSoundInitParams, Pan, 0x40);
+    VALIDATE_OFFSET(audSoundInitParams, field_61, 0x44);
+    VALIDATE_OFFSET(audSoundInitParams, field_62, 0x46);
     VALIDATE_SIZE(audSoundInitParams, 0x48);
 }

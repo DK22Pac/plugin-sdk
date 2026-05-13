@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "Rage.h"
@@ -207,7 +206,67 @@ public:
 	static CWeaponInfo* GetWeaponInfo(uint32_t weaponType);
 
 };
-
+VALIDATE_OFFSET(CWeaponInfo, m_nWeaponType, 0x0);
+VALIDATE_OFFSET(CWeaponInfo, m_nSlot, 0x4);
+VALIDATE_OFFSET(CWeaponInfo, m_nWeaponFire, 0x8);
+VALIDATE_OFFSET(CWeaponInfo, m_nDamageType, 0xC);
+VALIDATE_OFFSET(CWeaponInfo, m_nGroup, 0x10);
+VALIDATE_OFFSET(CWeaponInfo, m_fTargetRange, 0x14);
+VALIDATE_OFFSET(CWeaponInfo, m_fWeaponRange, 0x18);
+VALIDATE_OFFSET(CWeaponInfo, m_nStatType, 0x1C);
+VALIDATE_OFFSET(CWeaponInfo, m_nModelHash, 0x24);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimGroup, 0x28);
+VALIDATE_OFFSET(CWeaponInfo, m_fFireRate, 0x2C);
+VALIDATE_OFFSET(CWeaponInfo, m_fBlindFireRate, 0x30);
+VALIDATE_OFFSET(CWeaponInfo, m_fAccuracy, 0x34);
+VALIDATE_OFFSET(CWeaponInfo, m_fAccuracy1stPerson, 0x38);
+VALIDATE_OFFSET(CWeaponInfo, field_128, 0x3C);
+VALIDATE_OFFSET(CWeaponInfo, m_vFireOffset, 0x40);
+VALIDATE_OFFSET(CWeaponInfo, field_132, 0x4C);
+VALIDATE_OFFSET(CWeaponInfo, m_vCrouchOffset, 0x50);
+VALIDATE_OFFSET(CWeaponInfo, field_142, 0x5C);
+VALIDATE_OFFSET(CWeaponInfo, field_146, 0x60);
+VALIDATE_OFFSET(CWeaponInfo, m_fReticuleStanding, 0x64);
+VALIDATE_OFFSET(CWeaponInfo, m_fReticuleDucked, 0x68);
+VALIDATE_OFFSET(CWeaponInfo, m_fReticuleScale, 0x6C);
+VALIDATE_OFFSET(CWeaponInfo, m_nRumbleDuration, 0x70);
+VALIDATE_OFFSET(CWeaponInfo, m_fRumbleIntensity, 0x74);
+VALIDATE_OFFSET(CWeaponInfo, m_nPickupSpawnTime, 0x78);
+VALIDATE_OFFSET(CWeaponInfo, field_172, 0x7C);
+VALIDATE_OFFSET(CWeaponInfo, m_nPickupAmmoOnStreet, 0x80);
+VALIDATE_OFFSET(CWeaponInfo, m_nDamage, 0x82);
+VALIDATE_OFFSET(CWeaponInfo, m_nDamage1stPerson, 0x84);
+VALIDATE_OFFSET(CWeaponInfo, m_nClipSize, 0x86);
+VALIDATE_OFFSET(CWeaponInfo, m_nMaxAmmo, 0x88);
+VALIDATE_OFFSET(CWeaponInfo, m_nTimeBetweenShots, 0x8C);
+VALIDATE_OFFSET(CWeaponInfo, m_fPhysicsForce, 0x90);
+VALIDATE_OFFSET(CWeaponInfo, m_nReloadTimeNormal, 0x94);
+VALIDATE_OFFSET(CWeaponInfo, m_nReloadTimeFast, 0x98);
+VALIDATE_OFFSET(CWeaponInfo, m_nReloadTimeCrouch, 0x9C);
+VALIDATE_OFFSET(CWeaponInfo, m_nProjectileType, 0xA0);
+VALIDATE_OFFSET(CWeaponInfo, m_nProjectileFuseTime, 0xA4);
+VALIDATE_OFFSET(CWeaponInfo, m_nProjectileToCreate, 0xA8);
+VALIDATE_OFFSET(CWeaponInfo, m_nProjectilExplosionType, 0xAC);
+VALIDATE_OFFSET(CWeaponInfo, m_vProjectileOffset, 0xB0);
+VALIDATE_OFFSET(CWeaponInfo, field_202, 0xBC);
+VALIDATE_OFFSET(CWeaponInfo, m_vProjectileRot, 0xC0);
+VALIDATE_OFFSET(CWeaponInfo, field_208, 0xCC);
+VALIDATE_OFFSET(CWeaponInfo, m_fProjectilePhysicsExplodeImpactThreshold, 0xD0);
+VALIDATE_OFFSET(CWeaponInfo, m_fProjectilePhysicsExplodeImpactWithVehicleThreshold, 0xD4);
+VALIDATE_OFFSET(CWeaponInfo, m_fProjectilePhysicsVehicleVelocity, 0xD8);
+VALIDATE_OFFSET(CWeaponInfo, m_nMeleeAnim, 0xDC);
+VALIDATE_OFFSET(CWeaponInfo, field_222, 0xE0);
+VALIDATE_OFFSET(CWeaponInfo, m_nMuzzlefx, 0xE4);
+VALIDATE_OFFSET(CWeaponInfo, m_nShellfx, 0xE8);
+VALIDATE_OFFSET(CWeaponInfo, m_nProjectileTrailFx, 0xEC);
+VALIDATE_OFFSET(CWeaponInfo, m_fNetworkPlayerMod, 0xF0);
+VALIDATE_OFFSET(CWeaponInfo, m_fNetworkPedMod, 0xF4);
+VALIDATE_OFFSET(CWeaponInfo, m_fAimingAccuracyTime, 0xF8);
+VALIDATE_OFFSET(CWeaponInfo, m_nAimingPellets, 0xFC);
+VALIDATE_OFFSET(CWeaponInfo, m_nShotsFired, 0x100);
+VALIDATE_OFFSET(CWeaponInfo, field_244, 0x104);
+VALIDATE_OFFSET(CWeaponInfo, field_248, 0x108);
+VALIDATE_OFFSET(CWeaponInfo, field_252, 0x10C);
 VALIDATE_SIZE(CWeaponInfo, 0x110);
 
 extern CWeaponInfo* aWeaponInfo;

@@ -31,6 +31,5 @@ public:
     virtual void StopTimer(CEvent* event);
     virtual bool MakeAbortable(CPed* ped, eAbortPriority priority, CEvent* event);
 };
-
 VALIDATE_OFFSET(CTask, m_pParentTask, 0x4);
 VALIDATE_SIZE(CTask, 0x8);

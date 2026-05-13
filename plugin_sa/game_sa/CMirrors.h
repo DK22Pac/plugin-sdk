@@ -28,6 +28,7 @@ public:
     static void RenderMirrorBuffer();
     static void ShutDown();
 };
+VALIDATE_SIZE(CMirrors, 0x1);
 
 extern bool &bFudgeNow;
 extern float *Screens8Track; // float Screens8Track[24]

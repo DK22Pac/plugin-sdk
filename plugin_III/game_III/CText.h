@@ -12,6 +12,9 @@ struct PLUGIN_API CKeyEntry {
     wchar_t *value;
     char key[8];
 };
+VALIDATE_OFFSET(CKeyEntry, value, 0x0);
+VALIDATE_OFFSET(CKeyEntry, key, 0x4);
+VALIDATE_SIZE(CKeyEntry, 0xC);
 
 class PLUGIN_API CKeyArray {
 public:
@@ -24,6 +27,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Unload();
     SUPPORTED_10EN_11EN_STEAM void Update(wchar_t *chars);
 };
+VALIDATE_OFFSET(CKeyArray, m_pEntries, 0x0);
+VALIDATE_OFFSET(CKeyArray, m_nNumEntries, 0x4);
+VALIDATE_SIZE(CKeyArray, 0x8);
 
 class PLUGIN_API CData {
 public:
@@ -33,6 +39,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Load(unsigned int length, char *data, int *offset);
     SUPPORTED_10EN_11EN_STEAM void Unload();
 };
+VALIDATE_OFFSET(CData, chars, 0x0);
+VALIDATE_OFFSET(CData, numChars, 0x4);
+VALIDATE_SIZE(CData, 0x8);
 
 class PLUGIN_API CText {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CText)
@@ -48,6 +57,10 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Unload();
     SUPPORTED_10EN_11EN_STEAM void UpperCase(wchar_t *s);
 };
+VALIDATE_OFFSET(CText, keyArray, 0x0);
+VALIDATE_OFFSET(CText, data, 0x8);
+VALIDATE_OFFSET(CText, encoding, 0x10);
+VALIDATE_SIZE(CText, 0x14);
 
 SUPPORTED_10EN_11EN_STEAM extern CText &TheText;
 SUPPORTED_10EN_11EN_STEAM extern wchar_t(&WideErrorString)[25]; // wchar_t WideErrorString[25]

@@ -44,5 +44,17 @@ public:
     short field_9E;
     CAESound       *m_apSounds[2];
 };
-
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_nBankSlotId, 0x7C);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_nSoundType, 0x7E);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_pBaseAudio, 0x84);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, field_88, 0x88);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, field_8A, 0x8A);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, field_8C, 0x8C);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_nPlayTimeMin, 0x8E);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_nPlayTimeMax, 0x90);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_nTimeToSwapSounds, 0x94);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_bPlayingFirstSound, 0x98);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_anStartingPlayPercentage, 0x9A);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, field_9E, 0x9E);
+VALIDATE_OFFSET(CAETwinLoopSoundEntity, m_apSounds, 0xA0);
 VALIDATE_SIZE(CAETwinLoopSoundEntity, 0xA8);

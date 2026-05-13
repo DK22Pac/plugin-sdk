@@ -17,3 +17,4 @@ public:
     ~CTaskComplexSequence();
     bool AddTask(CTask *pTask);
 };
+VALIDATE_SIZE(CTaskComplexSequence, 0xC);

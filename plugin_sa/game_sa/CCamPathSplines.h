@@ -14,5 +14,5 @@ class PLUGIN_API CCamPathSplines
 public:
 	float *m_pArrPathData;
 };
-
-VALIDATE_SIZE(CCamPathSplines, 4);
+VALIDATE_OFFSET(CCamPathSplines, m_pArrPathData, 0x0);
+VALIDATE_SIZE(CCamPathSplines, 0x4);

@@ -26,3 +26,4 @@ public:
     static eClothesTexturePart GetDependentTexture(int eClothesModelPart);
     static int GetDefaultPlayerMotionGroup();
 };
+VALIDATE_SIZE(CClothes, 0x1);

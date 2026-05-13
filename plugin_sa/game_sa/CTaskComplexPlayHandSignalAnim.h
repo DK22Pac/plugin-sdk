@@ -31,5 +31,8 @@ public:
     CTask* CreateSubTask(int taskType);
     int GetAnimIdForPed(CPed* ped);
 };
-
+VALIDATE_OFFSET(CTaskComplexPlayHandSignalAnim, m_animationId, 0xC);
+VALIDATE_OFFSET(CTaskComplexPlayHandSignalAnim, m_fBlendFactor, 0x10);
+VALIDATE_OFFSET(CTaskComplexPlayHandSignalAnim, m_nFlags, 0x14);
+VALIDATE_OFFSET(CTaskComplexPlayHandSignalAnim, _pad, 0x15);
 VALIDATE_SIZE(CTaskComplexPlayHandSignalAnim, 0x18);

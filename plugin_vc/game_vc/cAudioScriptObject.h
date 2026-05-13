@@ -23,7 +23,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void LoadAllAudioScriptObjects(unsigned char *buffer, unsigned int size);
     SUPPORTED_10EN_11EN_STEAM static void SaveAllAudioScriptObjects(unsigned char *buffer, int *outSize);
 };
-
+VALIDATE_OFFSET(cAudioScriptObject, m_nEventId, 0x0);
+VALIDATE_OFFSET(cAudioScriptObject, m_vecPosition, 0x4);
+VALIDATE_OFFSET(cAudioScriptObject, m_nStatusIndex, 0x10);
 VALIDATE_SIZE(cAudioScriptObject, 0x14);
 
 #include "meta/meta.cAudioScriptObject.h"

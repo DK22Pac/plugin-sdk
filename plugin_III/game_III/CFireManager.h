@@ -29,6 +29,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM int StartScriptFire(CVector const &pos, CEntity *target, float strength, unsigned char propagation);
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+VALIDATE_OFFSET(CFireManager, m_nTotalFires, 0x0);
+VALIDATE_OFFSET(CFireManager, m_aFires, 0x4);
+VALIDATE_SIZE(CFireManager, 0x784);
 
 SUPPORTED_10EN_11EN_STEAM extern CFireManager &gFireManager;
 

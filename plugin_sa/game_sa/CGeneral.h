@@ -23,3 +23,4 @@ public:
     static uint32_t GetRandomNumber();
     static void CamShakeNoPos(CCamera *camera, float strength);
 };
+VALIDATE_SIZE(CGeneral, 0x1);

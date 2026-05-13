@@ -20,5 +20,7 @@ public:
     CCutsceneObject();
     void CreateShadow();
 };
-
+VALIDATE_OFFSET(CCutsceneObject, m_pCutsceneShadow, 0x194);
+VALIDATE_OFFSET(CCutsceneObject, m_pAttachTo, 0x198);
+VALIDATE_OFFSET(CCutsceneObject, m_pAttachmentObject, 0x19C);
 VALIDATE_SIZE(CCutsceneObject, 0x1A0);

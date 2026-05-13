@@ -48,5 +48,6 @@ public:
     bool operator==(CompressedVector2D const &rhs) const;
     bool operator!=(CompressedVector2D const &rhs) const;
 };
-
+VALIDATE_OFFSET(CompressedVector2D, x, 0x0);
+VALIDATE_OFFSET(CompressedVector2D, y, 0x2);
 VALIDATE_SIZE(CompressedVector2D, 0x4);

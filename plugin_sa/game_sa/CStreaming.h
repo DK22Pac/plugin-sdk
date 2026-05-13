@@ -31,6 +31,11 @@ struct tStreamingFileDesc
   char __pad[3];
   int m_StreamHandle;
 };
+VALIDATE_OFFSET(tStreamingFileDesc, m_szName, 0x0);
+VALIDATE_OFFSET(tStreamingFileDesc, bNotPlayerImg, 0x28);
+VALIDATE_OFFSET(tStreamingFileDesc, __pad, 0x29);
+VALIDATE_OFFSET(tStreamingFileDesc, m_StreamHandle, 0x2C);
+VALIDATE_SIZE(tStreamingFileDesc, 0x30);
 
 struct tStreamingChannel
 {
@@ -43,6 +48,15 @@ struct tStreamingChannel
   int field_90;
   int m_nCdStreamStatus;
 };
+VALIDATE_OFFSET(tStreamingChannel, modelIds, 0x0);
+VALIDATE_OFFSET(tStreamingChannel, field_40, 0x40);
+VALIDATE_OFFSET(tStreamingChannel, m_nStreamStatus, 0x80);
+VALIDATE_OFFSET(tStreamingChannel, field_84, 0x84);
+VALIDATE_OFFSET(tStreamingChannel, field_88, 0x88);
+VALIDATE_OFFSET(tStreamingChannel, field_8C, 0x8C);
+VALIDATE_OFFSET(tStreamingChannel, field_90, 0x90);
+VALIDATE_OFFSET(tStreamingChannel, m_nCdStreamStatus, 0x94);
+VALIDATE_SIZE(tStreamingChannel, 0x98);
 
 
 class PLUGIN_API CStreaming {
@@ -228,6 +242,7 @@ public:
     SUPPORTED_10US static void UpdateForAnimViewer();
     SUPPORTED_10US static bool WeAreTryingToPhaseVehicleOut(int modelIndex);
 };
+VALIDATE_SIZE(CStreaming, 0x1);
 
 SUPPORTED_10US extern RwStream &gRwStream;
 

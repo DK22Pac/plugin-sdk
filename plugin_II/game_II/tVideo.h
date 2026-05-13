@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include <ddraw.h>
@@ -21,6 +20,16 @@ struct tDevice {
     unsigned long totalVideoMemory;
     unsigned long buffer;
 };
+VALIDATE_OFFSET(tDevice, id, 0x0);
+VALIDATE_OFFSET(tDevice, flags, 0x4);
+VALIDATE_OFFSET(tDevice, driverName, 0x8);
+VALIDATE_OFFSET(tDevice, driverDesc, 0xC);
+VALIDATE_OFFSET(tDevice, next, 0x10);
+VALIDATE_OFFSET(tDevice, guid, 0x14);
+VALIDATE_OFFSET(tDevice, field_18, 0x18);
+VALIDATE_OFFSET(tDevice, totalVideoMemory, 0x28);
+VALIDATE_OFFSET(tDevice, buffer, 0x2C);
+VALIDATE_SIZE(tDevice, 0x30);
 
 struct tDisplayMode {
     unsigned long displayModeIndex;
@@ -40,11 +49,31 @@ struct tDisplayMode {
     tDisplayMode* field_38;
     unsigned long field_3C;
 };
+VALIDATE_OFFSET(tDisplayMode, displayModeIndex, 0x0);
+VALIDATE_OFFSET(tDisplayMode, deviceId, 0x4);
+VALIDATE_OFFSET(tDisplayMode, width, 0x8);
+VALIDATE_OFFSET(tDisplayMode, height, 0xC);
+VALIDATE_OFFSET(tDisplayMode, pitch, 0x10);
+VALIDATE_OFFSET(tDisplayMode, bits, 0x14);
+VALIDATE_OFFSET(tDisplayMode, field_18, 0x18);
+VALIDATE_OFFSET(tDisplayMode, field_1C, 0x1C);
+VALIDATE_OFFSET(tDisplayMode, field_20, 0x20);
+VALIDATE_OFFSET(tDisplayMode, field_24, 0x24);
+VALIDATE_OFFSET(tDisplayMode, field_28, 0x28);
+VALIDATE_OFFSET(tDisplayMode, field_2C, 0x2C);
+VALIDATE_OFFSET(tDisplayMode, field_30, 0x30);
+VALIDATE_OFFSET(tDisplayMode, field_34, 0x34);
+VALIDATE_OFFSET(tDisplayMode, field_38, 0x38);
+VALIDATE_OFFSET(tDisplayMode, field_3C, 0x3C);
+VALIDATE_SIZE(tDisplayMode, 0x40);
 
 struct tVidVersion {
     unsigned long version;
     char versionString[255];
 };
+VALIDATE_OFFSET(tVidVersion, version, 0x0);
+VALIDATE_OFFSET(tVidVersion, versionString, 0x4);
+VALIDATE_SIZE(tVidVersion, 0x104);
 
 struct tVideoFunctions;
 
@@ -99,6 +128,56 @@ struct tVideo {
     DDCAPS field_344;
     HWND hwnd;
 };
+VALIDATE_OFFSET(tVideo, field_0, 0x0);
+VALIDATE_OFFSET(tVideo, flags, 0x4);
+VALIDATE_OFFSET(tVideo, width, 0x8);
+VALIDATE_OFFSET(tVideo, height, 0xC);
+VALIDATE_OFFSET(tVideo, bits, 0x10);
+VALIDATE_OFFSET(tVideo, displayMode, 0x14);
+VALIDATE_OFFSET(tVideo, field_18, 0x18);
+VALIDATE_OFFSET(tVideo, field_1C, 0x1C);
+VALIDATE_OFFSET(tVideo, field_20, 0x20);
+VALIDATE_OFFSET(tVideo, field_24, 0x24);
+VALIDATE_OFFSET(tVideo, field_28, 0x28);
+VALIDATE_OFFSET(tVideo, field_2C, 0x2C);
+VALIDATE_OFFSET(tVideo, field_30, 0x30);
+VALIDATE_OFFSET(tVideo, field_34, 0x34);
+VALIDATE_OFFSET(tVideo, field_38, 0x38);
+VALIDATE_OFFSET(tVideo, field_3C, 0x3C);
+VALIDATE_OFFSET(tVideo, full_screen, 0x40);
+VALIDATE_OFFSET(tVideo, field_44, 0x44);
+VALIDATE_OFFSET(tVideo, field_48, 0x48);
+VALIDATE_OFFSET(tVideo, field_4C, 0x4C);
+VALIDATE_OFFSET(tVideo, pixels, 0x50);
+VALIDATE_OFFSET(tVideo, pitch, 0x54);
+VALIDATE_OFFSET(tVideo, field_58, 0x58);
+VALIDATE_OFFSET(tVideo, field_5C, 0x5C);
+VALIDATE_OFFSET(tVideo, field_60, 0x60);
+VALIDATE_OFFSET(tVideo, field_64, 0x64);
+VALIDATE_OFFSET(tVideo, field_68, 0x68);
+VALIDATE_OFFSET(tVideo, field_6C, 0x6C);
+VALIDATE_OFFSET(tVideo, field_70, 0x70);
+VALIDATE_OFFSET(tVideo, field_74, 0x74);
+VALIDATE_OFFSET(tVideo, field_78, 0x78);
+VALIDATE_OFFSET(tVideo, handle, 0x7C);
+VALIDATE_OFFSET(tVideo, activeMode, 0x80);
+VALIDATE_OFFSET(tVideo, field_84, 0x84);
+VALIDATE_OFFSET(tVideo, lastError, 0x88);
+VALIDATE_OFFSET(tVideo, ddraw7, 0x8C);
+VALIDATE_OFFSET(tVideo, buffer, 0x90);
+VALIDATE_OFFSET(tVideo, ddraw4, 0x120);
+VALIDATE_OFFSET(tVideo, field_124, 0x124);
+VALIDATE_OFFSET(tVideo, surfacePrimary, 0x134);
+VALIDATE_OFFSET(tVideo, surface, 0x138);
+VALIDATE_OFFSET(tVideo, surfaceDesc, 0x13C);
+VALIDATE_OFFSET(tVideo, clipper, 0x1B8);
+VALIDATE_OFFSET(tVideo, field_1BC, 0x1BC);
+VALIDATE_OFFSET(tVideo, field_1C0, 0x1C0);
+VALIDATE_OFFSET(tVideo, field_1C4, 0x1C4);
+VALIDATE_OFFSET(tVideo, caps, 0x1C8);
+VALIDATE_OFFSET(tVideo, field_344, 0x344);
+VALIDATE_OFFSET(tVideo, hwnd, 0x4C0);
+VALIDATE_SIZE(tVideo, 0x4C4);
 
 typedef tVidVersion(__stdcall* T_Vid_GetVersion)();
 typedef tVideo(__stdcall* T_Vid_Init_SYS)(HINSTANCE hInstance, unsigned short flags);
@@ -147,6 +226,29 @@ struct tVideoFunctions {
     T_Vid_InitDLL* pVid_InitDLL;
     T_Vid_SetGamma* pVid_SetGamma;
 };
+VALIDATE_OFFSET(tVideoFunctions, pVid_GetVersion, 0x0);
+VALIDATE_OFFSET(tVideoFunctions, pVid_Init_SYS, 0x4);
+VALIDATE_OFFSET(tVideoFunctions, pVid_CheckMode, 0x8);
+VALIDATE_OFFSET(tVideoFunctions, pVid_FindMode, 0xC);
+VALIDATE_OFFSET(tVideoFunctions, pVid_FindFirstMode, 0x10);
+VALIDATE_OFFSET(tVideoFunctions, pVid_FindNextMode, 0x14);
+VALIDATE_OFFSET(tVideoFunctions, pVid_FindDevice, 0x18);
+VALIDATE_OFFSET(tVideoFunctions, pVid_SetDevice, 0x1C);
+VALIDATE_OFFSET(tVideoFunctions, pVid_CloseScreen, 0x20);
+VALIDATE_OFFSET(tVideoFunctions, pVid_SetMode, 0x24);
+VALIDATE_OFFSET(tVideoFunctions, pVid_FlipBuffers, 0x28);
+VALIDATE_OFFSET(tVideoFunctions, pVid_ReleaseSurface, 0x2C);
+VALIDATE_OFFSET(tVideoFunctions, pVid_GrabSurface, 0x30);
+VALIDATE_OFFSET(tVideoFunctions, pVid_ShutDown_SYS, 0x34);
+VALIDATE_OFFSET(tVideoFunctions, pVid_EnableWrites, 0x38);
+VALIDATE_OFFSET(tVideoFunctions, pVid_DisableWrites, 0x3C);
+VALIDATE_OFFSET(tVideoFunctions, pVid_GetSurface, 0x40);
+VALIDATE_OFFSET(tVideoFunctions, pVid_FreeSurface, 0x44);
+VALIDATE_OFFSET(tVideoFunctions, pVid_ClearScreen, 0x48);
+VALIDATE_OFFSET(tVideoFunctions, pVid_WindowProc, 0x4C);
+VALIDATE_OFFSET(tVideoFunctions, pVid_InitDLL, 0x50);
+VALIDATE_OFFSET(tVideoFunctions, pVid_SetGamma, 0x54);
+VALIDATE_SIZE(tVideoFunctions, 0x58);
 
 extern T_Vid_GetVersion& Vid_GetVersion;
 extern T_Vid_Init_SYS& Vid_Init_SYS;

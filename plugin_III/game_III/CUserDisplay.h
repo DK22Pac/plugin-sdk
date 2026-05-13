@@ -22,5 +22,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Init();
     SUPPORTED_10EN_11EN_STEAM static void Process();
 };
+VALIDATE_SIZE(CUserDisplay, 0x1);
 
 #include "meta/meta.CUserDisplay.h"

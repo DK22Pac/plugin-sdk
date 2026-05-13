@@ -33,7 +33,15 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static void SetExtras(char first, char second);
 };
-
+VALIDATE_OFFSET(CStoredCar, m_nModelIndex, 0x0);
+VALIDATE_OFFSET(CStoredCar, m_vecPosition, 0x4);
+VALIDATE_OFFSET(CStoredCar, m_vecRotation, 0x10);
+VALIDATE_OFFSET(CStoredCar, m_nStoredCarFlags, 0x1C);
+VALIDATE_OFFSET(CStoredCar, m_nPrimaryColor, 0x20);
+VALIDATE_OFFSET(CStoredCar, m_nSecondaryColor, 0x21);
+VALIDATE_OFFSET(CStoredCar, m_nRadioStation, 0x22);
+VALIDATE_OFFSET(CStoredCar, m_anCompsToUse, 0x23);
+VALIDATE_OFFSET(CStoredCar, m_nCarBombType, 0x25);
 VALIDATE_SIZE(CStoredCar, 0x28);
 
 #include "meta/meta.CStoredCar.h"

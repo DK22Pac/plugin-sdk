@@ -39,6 +39,9 @@ struct PLUGIN_API tMissionCleanupEntity
   char __pad[3];
   int handle;
 };
+VALIDATE_OFFSET(tMissionCleanupEntity, type, 0x0);
+VALIDATE_OFFSET(tMissionCleanupEntity, __pad, 0x1);
+VALIDATE_OFFSET(tMissionCleanupEntity, handle, 0x4);
 VALIDATE_SIZE(tMissionCleanupEntity, 0x8);
 
 
@@ -71,5 +74,6 @@ public:
 	// Checks if collision has loaded for mission objects
 	void CheckIfCollisionHasLoadedForMissionObjects();
 };
-
+VALIDATE_OFFSET(CMissionCleanup, m_Objects, 0x0);
+VALIDATE_OFFSET(CMissionCleanup, m_Count, 0x258);
 VALIDATE_SIZE(CMissionCleanup, 0x25C);

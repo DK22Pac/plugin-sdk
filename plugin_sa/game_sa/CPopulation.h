@@ -30,6 +30,10 @@ struct tPedGroupTranslationData {
     int field_4;
     int field_8;
 };
+VALIDATE_OFFSET(tPedGroupTranslationData, pedGroupId, 0x0);
+VALIDATE_OFFSET(tPedGroupTranslationData, field_4, 0x4);
+VALIDATE_OFFSET(tPedGroupTranslationData, field_8, 0x8);
+VALIDATE_SIZE(tPedGroupTranslationData, 0xC);
 
 class PLUGIN_API CPopulation {
 public:
@@ -172,3 +176,4 @@ public:
     static void PopulateInterior(int numPeds, CVector posn);
     static void Update(bool generatePeds);
 };
+VALIDATE_SIZE(CPopulation, 0x1);

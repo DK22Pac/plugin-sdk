@@ -52,6 +52,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetLodDistances(float *distance);
     SUPPORTED_10EN_11EN_STEAM void SetupBigBuilding();
 };
+VALIDATE_OFFSET(CSimpleModelInfo, m_apAtomics, 0x30);
+VALIDATE_OFFSET(CSimpleModelInfo, m_afLodDistances, 0x3C);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nNumAtomics, 0x48);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nVisibility, 0x49);
+VALIDATE_OFFSET(CSimpleModelInfo, m_nSimpleModelFlags, 0x4A);
+VALIDATE_SIZE(CSimpleModelInfo, 0x4C);
 
 VTABLE_DESC(CSimpleModelInfo, 0x5FDF98, 6);
 VALIDATE_SIZE(CSimpleModelInfo, 0x4C);

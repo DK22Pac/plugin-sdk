@@ -21,5 +21,6 @@ public:
     void Clear();
     void AddMember(int member);
 };
-
+VALIDATE_OFFSET(CLoadedCarGroup, m_members, 0x0);
+VALIDATE_OFFSET(CLoadedCarGroup, field_2C, 0x2C);
 VALIDATE_SIZE(CLoadedCarGroup, 0x2E);

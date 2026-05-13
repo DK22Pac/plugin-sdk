@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "cTransmission.h"
 #include "CVector.h"
@@ -124,5 +123,38 @@ struct PLUGIN_API tHandlingData {
     eVehicleLightsSize m_nRearLights;
     unsigned char      m_nAnimGroup;
 };
-
+VALIDATE_OFFSET(tHandlingData, m_nVehicleId, 0x0);
+VALIDATE_OFFSET(tHandlingData, m_fMass, 0x4);
+VALIDATE_OFFSET(tHandlingData, field_8, 0x8);
+VALIDATE_OFFSET(tHandlingData, m_fTurnMass, 0xC);
+VALIDATE_OFFSET(tHandlingData, m_fDragMult, 0x10);
+VALIDATE_OFFSET(tHandlingData, m_vecCentreOfMass, 0x14);
+VALIDATE_OFFSET(tHandlingData, m_nPercentSubmerged, 0x20);
+VALIDATE_OFFSET(tHandlingData, m_fBuoyancyConstant, 0x24);
+VALIDATE_OFFSET(tHandlingData, m_fTractionMultiplier, 0x28);
+VALIDATE_OFFSET(tHandlingData, m_transmissionData, 0x2C);
+VALIDATE_OFFSET(tHandlingData, m_fBrakeDeceleration, 0x94);
+VALIDATE_OFFSET(tHandlingData, m_fBrakeBias, 0x98);
+VALIDATE_OFFSET(tHandlingData, m_bABS, 0x9C);
+VALIDATE_OFFSET(tHandlingData, field_9D, 0x9D);
+VALIDATE_OFFSET(tHandlingData, field_9E, 0x9E);
+VALIDATE_OFFSET(tHandlingData, field_9F, 0x9F);
+VALIDATE_OFFSET(tHandlingData, m_fSteeringLock, 0xA0);
+VALIDATE_OFFSET(tHandlingData, m_fTractionLoss, 0xA4);
+VALIDATE_OFFSET(tHandlingData, m_fTractionBias, 0xA8);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionForceLevel, 0xAC);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionDampingLevel, 0xB0);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionHighSpdComDamp, 0xB4);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionUpperLimit, 0xB8);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionLowerLimit, 0xBC);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionBiasBetweenFrontAndRear, 0xC0);
+VALIDATE_OFFSET(tHandlingData, m_fSuspensionAntiDiveMultiplier, 0xC4);
+VALIDATE_OFFSET(tHandlingData, m_fCollisionDamageMultiplier, 0xC8);
+VALIDATE_OFFSET(tHandlingData, m_nModelFlags, 0xCC);
+VALIDATE_OFFSET(tHandlingData, m_nHandlingFlags, 0xD0);
+VALIDATE_OFFSET(tHandlingData, m_fSeatOffsetDistance, 0xD4);
+VALIDATE_OFFSET(tHandlingData, m_nMonetaryValue, 0xD8);
+VALIDATE_OFFSET(tHandlingData, m_nFrontLights, 0xDC);
+VALIDATE_OFFSET(tHandlingData, m_nRearLights, 0xDD);
+VALIDATE_OFFSET(tHandlingData, m_nAnimGroup, 0xDE);
 VALIDATE_SIZE(tHandlingData, 0xE0);

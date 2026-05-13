@@ -19,5 +19,6 @@ public:
     SUPPORTED_10US static CVehicle *IsPositionClearOfCars(CVector const *pos);
     SUPPORTED_10US static CVehicle *IsPositionClearOfCars(CPed const *ped);
 };
+VALIDATE_SIZE(CPedPlacement, 0x1);
 
 #include "meta/meta.CPedPlacement.h"

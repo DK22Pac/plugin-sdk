@@ -89,3 +89,4 @@ public:
     static void SetTotalNumberKillFrenzies(int number);
     static void SetTotalNumberMissions(int number);
 };
+VALIDATE_SIZE(CStats, 0x1);

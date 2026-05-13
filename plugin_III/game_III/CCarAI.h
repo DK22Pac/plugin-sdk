@@ -28,5 +28,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void TellOccupantsToLeaveCar(CVehicle *vehicle);
     SUPPORTED_10EN_11EN_STEAM static void UpdateCarAI(CVehicle *vehicle);
 };
+VALIDATE_SIZE(CCarAI, 0x1);
 
 #include "meta/meta.CCarAI.h"

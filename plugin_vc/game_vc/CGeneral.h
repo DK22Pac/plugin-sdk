@@ -45,5 +45,6 @@ public:
     //! Solves the given quadratic function
     SUPPORTED_10EN_11EN_STEAM static unsigned char SolveQuadratic(float a, float b, float c, float &x1, float &x2);
 };
+VALIDATE_SIZE(CGeneral, 0x1);
 
 #include "meta/meta.CGeneral.h"

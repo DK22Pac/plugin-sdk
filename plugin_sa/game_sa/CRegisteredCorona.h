@@ -62,5 +62,20 @@ public:
 
 	void Update();
 };
-
+VALIDATE_OFFSET(CRegisteredCorona, m_vPosn, 0x0);
+VALIDATE_OFFSET(CRegisteredCorona, m_dwId, 0xC);
+VALIDATE_OFFSET(CRegisteredCorona, m_pTexture, 0x10);
+VALIDATE_OFFSET(CRegisteredCorona, m_fSize, 0x14);
+VALIDATE_OFFSET(CRegisteredCorona, m_fAngle, 0x18);
+VALIDATE_OFFSET(CRegisteredCorona, m_fFarClip, 0x1C);
+VALIDATE_OFFSET(CRegisteredCorona, m_fNearClip, 0x20);
+VALIDATE_OFFSET(CRegisteredCorona, m_fHeightAboveGround, 0x24);
+VALIDATE_OFFSET(CRegisteredCorona, m_fFadeSpeed, 0x28);
+VALIDATE_OFFSET(CRegisteredCorona, m_Color, 0x2C);
+VALIDATE_OFFSET(CRegisteredCorona, m_nFadeState, 0x30);
+VALIDATE_OFFSET(CRegisteredCorona, m_bRegisteredThisFrame, 0x31);
+VALIDATE_OFFSET(CRegisteredCorona, m_nFlareType, 0x32);
+VALIDATE_OFFSET(CRegisteredCorona, m_bUsesReflection, 0x33);
+VALIDATE_OFFSET(CRegisteredCorona, m_bJustCreated, 0x35);
+VALIDATE_OFFSET(CRegisteredCorona, m_pAttachedTo, 0x38);
 VALIDATE_SIZE(CRegisteredCorona, 0x3C);

@@ -20,7 +20,10 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Set(CVector const &start, CVector const &end);
 };
-
+VALIDATE_OFFSET(CColLine, m_vecStart, 0x0);
+VALIDATE_OFFSET(CColLine, field_C, 0xC);
+VALIDATE_OFFSET(CColLine, m_vecEnd, 0x10);
+VALIDATE_OFFSET(CColLine, field_1C, 0x1C);
 VALIDATE_SIZE(CColLine, 0x20);
 
 #include "meta/meta.CColLine.h"

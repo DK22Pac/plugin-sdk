@@ -36,6 +36,7 @@ public:
     // virtual function #7 (not overriden)
 
 };
+VALIDATE_SIZE(CPedSeatAttractor, 0x64);
 
 VTABLE_DESC(CPedSeatAttractor, 0x6DBEB0, 8);
 VALIDATE_SIZE(CPedSeatAttractor, 0x64);

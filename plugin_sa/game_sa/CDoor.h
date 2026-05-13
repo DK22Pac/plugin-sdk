@@ -40,5 +40,12 @@ public:
     bool IsClosed();
     bool IsFullyOpen();
 };
-
+VALIDATE_OFFSET(CDoor, m_fOpenAngle, 0x0);
+VALIDATE_OFFSET(CDoor, m_fClosedAngle, 0x4);
+VALIDATE_OFFSET(CDoor, m_nDirn, 0x8);
+VALIDATE_OFFSET(CDoor, m_nAxis, 0xA);
+VALIDATE_OFFSET(CDoor, m_nDoorState, 0xB);
+VALIDATE_OFFSET(CDoor, m_fAngle, 0xC);
+VALIDATE_OFFSET(CDoor, m_fPrevAngle, 0x10);
+VALIDATE_OFFSET(CDoor, m_fAngVel, 0x14);
 VALIDATE_SIZE(CDoor, 0x18);

@@ -56,5 +56,6 @@ public:
     SUPPORTED_10US static void Update();
     SUPPORTED_10US static bool WeAreInInteriorTransition();
 };
+VALIDATE_SIZE(CEntryExitManager, 0x1);
 
 #include "meta/meta.CEntryExitManager.h"

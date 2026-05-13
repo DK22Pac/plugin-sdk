@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "CAudioManager.h"
@@ -87,5 +86,6 @@ public:
     int CreateEntity(void* object);
     void DestroyEntity(int audioEntity);
 };
+VALIDATE_SIZE(cDMAudio, 0x1);
 
 extern cDMAudio& DMAudio;

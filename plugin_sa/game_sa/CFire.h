@@ -42,5 +42,14 @@ public:
     void Extinguish();
     void ProcessFire();
 };
-
+VALIDATE_OFFSET(CFire, m_nFlags, 0x0);
+VALIDATE_OFFSET(CFire, m_nScriptReferenceIndex, 0x2);
+VALIDATE_OFFSET(CFire, m_vecPosition, 0x4);
+VALIDATE_OFFSET(CFire, m_pEntityTarget, 0x10);
+VALIDATE_OFFSET(CFire, m_pEntityCreator, 0x14);
+VALIDATE_OFFSET(CFire, m_nTimeToBurn, 0x18);
+VALIDATE_OFFSET(CFire, m_fStrength, 0x1C);
+VALIDATE_OFFSET(CFire, m_nNumGenerationsAllowed, 0x20);
+VALIDATE_OFFSET(CFire, m_nRemovalDist, 0x21);
+VALIDATE_OFFSET(CFire, m_pFxSystem, 0x24);
 VALIDATE_SIZE(CFire, 0x28);

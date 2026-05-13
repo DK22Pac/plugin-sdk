@@ -41,5 +41,9 @@ public:
     static void* operator new(unsigned int size);
     static void operator delete(void* data);
 };
-
+VALIDATE_OFFSET(CColModel, m_boundBox, 0x0);
+VALIDATE_OFFSET(CColModel, m_boundSphere, 0x18);
+VALIDATE_OFFSET(CColModel, m_nColSlot, 0x28);
+VALIDATE_OFFSET(CColModel, m_nFlags, 0x29);
+VALIDATE_OFFSET(CColModel, m_pColData, 0x2C);
 VALIDATE_SIZE(CColModel, 0x30);

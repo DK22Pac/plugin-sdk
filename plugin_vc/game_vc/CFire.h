@@ -43,5 +43,18 @@ public:
     void Extinguish();
     void ProcessFire();
 };
-
+VALIDATE_OFFSET(CFire, m_bActive, 0x0);
+VALIDATE_OFFSET(CFire, m_bCreatedByScript, 0x1);
+VALIDATE_OFFSET(CFire, m_bMoves, 0x2);
+VALIDATE_OFFSET(CFire, m_bMakesNoise, 0x3);
+VALIDATE_OFFSET(CFire, m_vecPosition, 0x4);
+VALIDATE_OFFSET(CFire, m_pEntityTarget, 0x10);
+VALIDATE_OFFSET(CFire, m_pEntityCreator, 0x14);
+VALIDATE_OFFSET(CFire, m_nTimeToBurn, 0x18);
+VALIDATE_OFFSET(CFire, m_uShadowTimer, 0x1C);
+VALIDATE_OFFSET(CFire, m_uPeriodTimer, 0x20);
+VALIDATE_OFFSET(CFire, m_fParticleSize, 0x24);
+VALIDATE_OFFSET(CFire, m_fStrength, 0x28);
+VALIDATE_OFFSET(CFire, m_bBeingExtinguished, 0x2C);
+VALIDATE_OFFSET(CFire, pad, 0x2D);
 VALIDATE_SIZE(CFire, 0x30);

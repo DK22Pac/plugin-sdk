@@ -45,6 +45,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM void CreateHitColModel();
     SUPPORTED_10EN_11EN_STEAM void SetLowDetailClump(RpClump *clump);
 };
+VALIDATE_OFFSET(CPedModelInfo, m_nAnimGroupId, 0x34);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedType, 0x38);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedStatType, 0x3C);
+VALIDATE_OFFSET(CPedModelInfo, m_nCarsCanDriveMask, 0x40);
+VALIDATE_OFFSET(CPedModelInfo, m_pHitColModel, 0x44);
+VALIDATE_SIZE(CPedModelInfo, 0x48);
 
 VTABLE_DESC(CPedModelInfo, 0x5FDFFC, 7);
 VALIDATE_SIZE(CPedModelInfo, 0x48);

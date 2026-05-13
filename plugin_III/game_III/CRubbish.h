@@ -30,6 +30,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StirUp(CVehicle *vehicle);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CRubbish, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern float(&aAnimations)[3][34]; // float aAnimations[3][34]
 SUPPORTED_10EN_11EN_STEAM extern RwImVertexIndex(&RubbishIndexList)[6]; // RwImVertexIndex RubbishIndexList[6]

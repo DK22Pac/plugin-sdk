@@ -1,4 +1,3 @@
-
 /*
     Plugin-SDK (Grand Theft Auto San Andreas) header file
     Authors: GTA Community. See more here
@@ -42,3 +41,4 @@ public:
     static bool AddColour(RwRGBA* color);
     static void FillPalette(RwRGBA* color);	
 };
+VALIDATE_SIZE(CClothesBuilder, 0x1);

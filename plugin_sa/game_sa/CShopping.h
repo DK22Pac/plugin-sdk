@@ -27,24 +27,30 @@ class CShopping {
         uint32_t key;
         uint32_t price;
     };
+    VALIDATE_OFFSET(PriceModifier, key, 0x0);
+    VALIDATE_OFFSET(PriceModifier, price, 0x4);
     VALIDATE_SIZE(PriceModifier, 0x8);
 
     struct ItemPrice {
         uint32_t key;
         uint32_t price;
 
-        union {
+        union
+        {
             struct {
                 uint32_t ammo;
             } weapon;
+
             struct {
                 uint32_t modelKey;
                 uint32_t type; // a/k/a textureKey
             } clothes;
+
             struct {
                 uint32_t type1;
                 uint32_t texKey;
             } tattoos;
+
             struct {
                 int32_t extra1;
                 int32_t extra2;
@@ -53,6 +59,12 @@ class CShopping {
 
         char nameTag[8];
     };
+    VALIDATE_OFFSET(ItemPrice, key, 0x0);
+    VALIDATE_OFFSET(ItemPrice, price, 0x4);
+    VALIDATE_OFFSET(ItemPrice, weapon, 0x8);
+    VALIDATE_OFFSET(ItemPrice, clothes, 0x8);
+    VALIDATE_OFFSET(ItemPrice, tattoos, 0x8);
+    VALIDATE_OFFSET(ItemPrice, general, 0x8);
     VALIDATE_SIZE(ItemPrice, 0x18);
 
     struct StatModifiers {

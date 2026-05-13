@@ -14,3 +14,4 @@ class CTaskComplexCombat : public CTaskComplex {
 public:
     CTaskComplexCombat(CPed* target, int32_t unk);
 };
+VALIDATE_SIZE(CTaskComplexCombat, 0xC);

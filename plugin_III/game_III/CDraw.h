@@ -21,5 +21,6 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static void SetFOV(float fovValue);
 };
+VALIDATE_SIZE(CDraw, 0x1);
 
 #include "meta/meta.CDraw.h"

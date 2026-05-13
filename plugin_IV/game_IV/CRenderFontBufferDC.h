@@ -12,3 +12,4 @@ class CRenderFontBufferDC : public CBaseDC {
 public:
 
 };
+VALIDATE_SIZE(CRenderFontBufferDC, 0x8);

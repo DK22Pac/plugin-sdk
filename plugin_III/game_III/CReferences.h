@@ -18,5 +18,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void PruneAllReferencesInWorld();
     SUPPORTED_10EN_11EN_STEAM static void RemoveReferencesToPlayer();
 };
+VALIDATE_SIZE(CReferences, 0x1);
 
 #include "meta/meta.CReferences.h"

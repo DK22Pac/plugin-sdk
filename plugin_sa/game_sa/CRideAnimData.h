@@ -18,5 +18,11 @@ public:
     float        m_fHandlebarsAngle;
     float        m_fAnimPercentageState;
 };
-
+VALIDATE_OFFSET(CRideAnimData, m_nAnimGroup, 0x0);
+VALIDATE_OFFSET(CRideAnimData, m_fSteerAngle, 0x4);
+VALIDATE_OFFSET(CRideAnimData, m_fAnimLean, 0x8);
+VALIDATE_OFFSET(CRideAnimData, dwordC, 0xC);
+VALIDATE_OFFSET(CRideAnimData, dword10, 0x10);
+VALIDATE_OFFSET(CRideAnimData, m_fHandlebarsAngle, 0x14);
+VALIDATE_OFFSET(CRideAnimData, m_fAnimPercentageState, 0x18);
 VALIDATE_SIZE(CRideAnimData, 0x1C);

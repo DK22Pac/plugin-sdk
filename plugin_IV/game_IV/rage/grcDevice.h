@@ -61,4 +61,5 @@ namespace rage {
         static int32_t& m_CurrentWidth;
         static int32_t& m_CurrentHeight;
     };
+    VALIDATE_SIZE(grcDevice, 0x1);
 }

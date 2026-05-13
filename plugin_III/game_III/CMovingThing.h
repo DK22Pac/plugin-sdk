@@ -24,7 +24,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM void RemoveFromList();
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
-
+VALIDATE_OFFSET(CMovingThing, m_pNext, 0x0);
+VALIDATE_OFFSET(CMovingThing, m_pPrev, 0x4);
+VALIDATE_OFFSET(CMovingThing, m_nType, 0x8);
+VALIDATE_OFFSET(CMovingThing, m_nHidden, 0xA);
+VALIDATE_OFFSET(CMovingThing, m_vecPosition, 0xC);
+VALIDATE_OFFSET(CMovingThing, m_pEntity, 0x18);
 VALIDATE_SIZE(CMovingThing, 0x1C);
 
 #include "meta/meta.CMovingThing.h"

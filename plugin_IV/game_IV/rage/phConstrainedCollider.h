@@ -13,4 +13,5 @@ namespace rage {
     public:
 
     };
+    VALIDATE_SIZE(phConstrainedCollider, 0x11C);
 }

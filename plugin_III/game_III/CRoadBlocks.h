@@ -19,5 +19,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void GenerateRoadBlocks();
     SUPPORTED_10EN_11EN_STEAM static void Init();
 };
+VALIDATE_SIZE(CRoadBlocks, 0x1);
 
 #include "meta/meta.CRoadBlocks.h"

@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 #include "CVehicle.h"
@@ -44,6 +43,18 @@ public:
     CTaskComplexLeaveCar(CVehicle* pTargetVehicle, int nTargetDoor, int nDelayTime, bool bSensibleLeaveCar, bool bForceGetOut);
 
 };
-
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_pTargetVehicle, 0xC);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_nTargetDoor, 0x10);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_nDelayTime, 0x14);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_bSensibleLeaveCar, 0x18);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_bForceGetOut, 0x19);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_bDie, 0x1A);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_pTaskUtilityLineUpPedWithCa, 0x1C);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_nDoorFlagsSet, 0x20);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_nNumGettingInSet, 0x21);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_nDieAnimID, 0x24);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_fDieAnimBlendDelta, 0x28);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_fDieAnimSpeed, 0x2C);
+VALIDATE_OFFSET(CTaskComplexLeaveCar, m_bIsInAir, 0x30);
 VALIDATE_SIZE(CTaskComplexLeaveCar, 0x34);
 

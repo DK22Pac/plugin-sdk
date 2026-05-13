@@ -190,6 +190,28 @@ public:
     //! Sets instruction pointer, used in GOTO-like commands
     SUPPORTED_10US void UpdatePC(int newIP);
 };
+VALIDATE_OFFSET(CRunningScript, m_pNext, 0x0);
+VALIDATE_OFFSET(CRunningScript, m_pPrev, 0x4);
+VALIDATE_OFFSET(CRunningScript, m_szName, 0x8);
+VALIDATE_OFFSET(CRunningScript, m_pBaseIP, 0x10);
+VALIDATE_OFFSET(CRunningScript, m_pCurrentIP, 0x14);
+VALIDATE_OFFSET(CRunningScript, m_apStack, 0x18);
+VALIDATE_OFFSET(CRunningScript, m_nSP, 0x38);
+VALIDATE_OFFSET(CRunningScript, m_aLocalVars, 0x3C);
+VALIDATE_OFFSET(CRunningScript, m_anTimers, 0xBC);
+VALIDATE_OFFSET(CRunningScript, m_bIsActive, 0xC4);
+VALIDATE_OFFSET(CRunningScript, m_bCondResult, 0xC5);
+VALIDATE_OFFSET(CRunningScript, m_bUseMissionCleanup, 0xC6);
+VALIDATE_OFFSET(CRunningScript, m_bIsExternal, 0xC7);
+VALIDATE_OFFSET(CRunningScript, m_bTextBlockOverride, 0xC8);
+VALIDATE_OFFSET(CRunningScript, m_nWakeTime, 0xCC);
+VALIDATE_OFFSET(CRunningScript, m_nLogicalOp, 0xD0);
+VALIDATE_OFFSET(CRunningScript, m_bNotFlag, 0xD2);
+VALIDATE_OFFSET(CRunningScript, m_bWastedBustedCheck, 0xD3);
+VALIDATE_OFFSET(CRunningScript, m_bWastedOrBusted, 0xD4);
+VALIDATE_OFFSET(CRunningScript, m_pSceneSkipIP, 0xD8);
+VALIDATE_OFFSET(CRunningScript, m_bIsMission, 0xDC);
+VALIDATE_SIZE(CRunningScript, 0xE0);
 
 #include "meta/meta.CRunningScript.h"
 

@@ -36,5 +36,8 @@ public:
 
     bool IsOutOfTime();
 };
-
+VALIDATE_OFFSET(CTaskTimer, m_nStartTime, 0x0);
+VALIDATE_OFFSET(CTaskTimer, m_nInterval, 0x4);
+VALIDATE_OFFSET(CTaskTimer, m_bStarted, 0x8);
+VALIDATE_OFFSET(CTaskTimer, m_bStopped, 0x9);
 VALIDATE_SIZE(CTaskTimer, 0xC);

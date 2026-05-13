@@ -75,6 +75,7 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void CivilianAI();
 };
+VALIDATE_SIZE(CCivilianPed, 0x53C);
 
 VTABLE_DESC(CCivilianPed, 0x5F819C, 19);
 VALIDATE_SIZE(CCivilianPed, 0x53C);

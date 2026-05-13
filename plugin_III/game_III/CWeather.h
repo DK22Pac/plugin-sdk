@@ -53,12 +53,17 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StoreWeatherState();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CWeather, 0x1);
 
 struct PLUGIN_API tRainStreak {
     CVector m_vecPosition;
     CVector m_vecDirection;
     unsigned int m_nTimer;
 };
+VALIDATE_OFFSET(tRainStreak, m_vecPosition, 0x0);
+VALIDATE_OFFSET(tRainStreak, m_vecDirection, 0xC);
+VALIDATE_OFFSET(tRainStreak, m_nTimer, 0x18);
+VALIDATE_SIZE(tRainStreak, 0x1C);
 
 //! 0.0f - WEATHER_SUNNY, 0.7f - WEATHER_CLOUDY, 1.0f - WEATHER_RAINY, 0.5f - WEATHER_FOGGY, 0.0f, 0.0f
 SUPPORTED_10EN_11EN_STEAM extern float(&Windyness)[6]; // float Windyness[6]

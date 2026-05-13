@@ -19,5 +19,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SortOutStreamingAndMemory(CVector const &pos);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CGameLogic, 0x1);
 
 #include "meta/meta.CGameLogic.h"

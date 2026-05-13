@@ -28,7 +28,6 @@ public:
     CBuilding(const CBuilding &) = delete;
     CBuilding &operator=(const CBuilding &) = delete;
 };
-
 VALIDATE_SIZE(CBuilding, 0x64);
 
 bool IsBuildingPointerValid(CBuilding* building);

@@ -24,5 +24,15 @@ public:
 public:
 
 };
-
+VALIDATE_OFFSET(CCollisionBox, x, 0x0);
+VALIDATE_OFFSET(CCollisionBox, y, 0x4);
+VALIDATE_OFFSET(CCollisionBox, z, 0x8);
+VALIDATE_OFFSET(CCollisionBox, x1, 0xC);
+VALIDATE_OFFSET(CCollisionBox, y1, 0x10);
+VALIDATE_OFFSET(CCollisionBox, x2, 0x14);
+VALIDATE_OFFSET(CCollisionBox, y2, 0x18);
+VALIDATE_OFFSET(CCollisionBox, x3, 0x1C);
+VALIDATE_OFFSET(CCollisionBox, y4, 0x20);
+VALIDATE_OFFSET(CCollisionBox, x4, 0x24);
+VALIDATE_OFFSET(CCollisionBox, y3, 0x28);
 VALIDATE_SIZE(CCollisionBox, 0x2C);

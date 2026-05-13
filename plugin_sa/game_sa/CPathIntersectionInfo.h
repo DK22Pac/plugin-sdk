@@ -13,5 +13,4 @@ public:
     unsigned char m_bRoadCross : 1;
     unsigned char m_bPedTrafficLight : 1;
 };
-
 VALIDATE_SIZE(CPathIntersectionInfo, 0x1);

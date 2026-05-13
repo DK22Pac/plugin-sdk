@@ -107,6 +107,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool VehicleVisibilityCB(RpClump *clump);
     SUPPORTED_10EN_11EN_STEAM static bool VehicleVisibilityCB_BigVehicle(RpClump *clump);
 };
+VALIDATE_SIZE(CVisibilityPlugins, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM RpMaterial *SetAlphaCB(RpMaterial *material, void *data);
 SUPPORTED_10EN_11EN_STEAM RpMaterial *SetTextureCB(RpMaterial *material, void *data);

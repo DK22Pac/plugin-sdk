@@ -23,7 +23,7 @@ public:
         UNKNOWN = 0x0,
         JPEG_BUFFER = 0x1,
         DDS_BUFFER = 0x2,
-		UNK_BUFFER3 = 0x3,
+        UNK_BUFFER3 = 0x3,
         UNK_BUFFER4 = 0x4,
     };
 
@@ -35,3 +35,11 @@ public:
     eDownscaleFactor m_JPEGScalingFactor;
     bool m_JPEGEncodeAsDXT;
 };
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_TxdName, 0x0);
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_TextureName, 0x4);
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_Type, 0x8);
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_BufferPtr, 0xC);
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_BufferSize, 0x10);
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_JPEGScalingFactor, 0x14);
+VALIDATE_OFFSET(CTextureDecodeRequestDesc, m_JPEGEncodeAsDXT, 0x18);
+VALIDATE_SIZE(CTextureDecodeRequestDesc, 0x1C);

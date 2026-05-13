@@ -40,5 +40,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void UncompressAnimation(CAnimBlendHierarchy *hier);
 };
+VALIDATE_SIZE(CAnimManager, 0x1);
 
 #include "meta/meta.CAnimManager.h"

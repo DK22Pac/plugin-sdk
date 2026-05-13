@@ -124,6 +124,14 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetPanelStatus(int panel, unsigned int status);
     SUPPORTED_10EN_11EN_STEAM void SetWheelStatus(int wheel, unsigned int status);
 };
+VALIDATE_OFFSET(CDamageManager, m_fWheelDamageEffect, 0x0);
+VALIDATE_OFFSET(CDamageManager, m_nEngineStatus, 0x4);
+VALIDATE_OFFSET(CDamageManager, m_anWheelStatus, 0x5);
+VALIDATE_OFFSET(CDamageManager, m_anDoorStatus, 0x9);
+VALIDATE_OFFSET(CDamageManager, m_nLightStatus, 0x10);
+VALIDATE_OFFSET(CDamageManager, m_nPanelStatus, 0x14);
+VALIDATE_OFFSET(CDamageManager, bDamSwitch, 0x18);
+VALIDATE_SIZE(CDamageManager, 0x1C);
 
 //! 2.5f, 1.25f, 3.2f, 1.4f, 2.5f, 2.8f, 0.5f
 SUPPORTED_10EN_11EN_STEAM extern float(&G_aComponentDamage)[7]; // float G_aComponentDamage[7]

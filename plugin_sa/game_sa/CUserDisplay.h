@@ -14,3 +14,4 @@ class PLUGIN_API CUserDisplay
 public:
 	static COnscreenTimer &OnscnTimer;
 };
+VALIDATE_SIZE(CUserDisplay, 0x1);

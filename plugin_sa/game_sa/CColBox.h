@@ -19,5 +19,8 @@ public:
 	void Set(CVector  const& sup, CVector  const& inf, unsigned char material , unsigned char flags, unsigned char lighting);
 	void operator=(CColBox const& right);
 };
-
+VALIDATE_OFFSET(CColBox, m_nMaterial, 0x18);
+VALIDATE_OFFSET(CColBox, m_nFlags, 0x19);
+VALIDATE_OFFSET(CColBox, m_nLighting, 0x1A);
+VALIDATE_OFFSET(CColBox, m_nLight, 0x1B);
 VALIDATE_SIZE(CColBox, 0x1C);

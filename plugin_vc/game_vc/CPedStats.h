@@ -91,5 +91,16 @@ public:
 	static void LoadPedStats();
 	static unsigned int GetPedStatType(char* pedStatName);
 };
-
+VALIDATE_OFFSET(CPedStats, m_Personality, 0x0);
+VALIDATE_OFFSET(CPedStats, m_aszName, 0x4);
+VALIDATE_OFFSET(CPedStats, m_fFleeDistance, 0x1C);
+VALIDATE_OFFSET(CPedStats, m_fHeadingChangeRate, 0x20);
+VALIDATE_OFFSET(CPedStats, m_nFear, 0x24);
+VALIDATE_OFFSET(CPedStats, m_nTemper, 0x25);
+VALIDATE_OFFSET(CPedStats, m_nLawfullness, 0x26);
+VALIDATE_OFFSET(CPedStats, m_nSexiness, 0x27);
+VALIDATE_OFFSET(CPedStats, m_fAttackStrength, 0x28);
+VALIDATE_OFFSET(CPedStats, m_fDefendWeakness, 0x2C);
+VALIDATE_OFFSET(CPedStats, m_nFlags, 0x30);
+VALIDATE_OFFSET(CPedStats, _pad0, 0x31);
 VALIDATE_SIZE(CPedStats, 0x34);

@@ -13,5 +13,5 @@ class PLUGIN_API CLodTimeModelInfo : public CLodAtomicModelInfo {
 public:
     tTimeInfo m_lodTimeInfo;
 };
-
+VALIDATE_OFFSET(CLodTimeModelInfo, m_lodTimeInfo, 0x24);
 VALIDATE_SIZE(CLodTimeModelInfo, 0x28);

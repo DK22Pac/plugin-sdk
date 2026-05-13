@@ -12,3 +12,4 @@ class CTempColModels {
 public:
     static CColModel& ms_colModelPedGroundHit;
 };
+VALIDATE_SIZE(CTempColModels, 0x1);

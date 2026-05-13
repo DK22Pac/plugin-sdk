@@ -12,6 +12,8 @@ namespace rage {
     struct Entry {
         char folder[512];
     };
+    VALIDATE_OFFSET(Entry, folder, 0x0);
+    VALIDATE_SIZE(Entry, 0x200);
 
     class fiAssetManager {
     public:
@@ -32,7 +34,12 @@ namespace rage {
         bool Exists(const char* base, const char* ext);
         uint8_t FullReadPath(char* dest, int maxLen, const char* base, const char* ext);
     };
-
+    VALIDATE_OFFSET(fiAssetManager, m_Paths, 0x0);
+    VALIDATE_OFFSET(fiAssetManager, m_Entries, 0x800);
+    VALIDATE_OFFSET(fiAssetManager, m_SP, 0x1800);
+    VALIDATE_OFFSET(fiAssetManager, m_PathCount, 0x1804);
+    VALIDATE_OFFSET(fiAssetManager, m_WritePath, 0x1808);
+    VALIDATE_OFFSET(fiAssetManager, m_WritePathIsWriteOnly, 0x180C);
     VALIDATE_SIZE(fiAssetManager, 0x1810);
 
     extern fiAssetManager& ASSET;

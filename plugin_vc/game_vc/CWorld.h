@@ -1,8 +1,8 @@
 /*
-	Plugin-SDK (Grand Theft Auto Vice City) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #define SECTOR_SIZE_X (50.0f)
@@ -136,3 +136,4 @@ public:
 		return y * SECTOR_SIZE_Y + WORLD_MIN_Y;
 	}
 };
+VALIDATE_SIZE(CWorld, 0x1);

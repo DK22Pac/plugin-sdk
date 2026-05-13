@@ -13,5 +13,7 @@ public:
     CPtrNodeDouble* next;
     CPtrNodeDouble* prev;
 };
-
+VALIDATE_OFFSET(CPtrNodeDouble, ptr, 0x0);
+VALIDATE_OFFSET(CPtrNodeDouble, next, 0x4);
+VALIDATE_OFFSET(CPtrNodeDouble, prev, 0x8);
 VALIDATE_SIZE(CPtrNodeDouble, 0xC);

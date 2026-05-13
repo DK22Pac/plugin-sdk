@@ -4,6 +4,7 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
+#pragma once
 #include "PluginBase.h"
 #include "CPlaneTrail.h"
 
@@ -19,3 +20,4 @@ public:
 	static void Update();
 	static void RegisterPoint(CVector point, unsigned int trailIndex);
 };
+VALIDATE_SIZE(CPlaneTrails, 0x1);

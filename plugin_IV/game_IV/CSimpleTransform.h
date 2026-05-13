@@ -16,5 +16,6 @@ public:
 public:
     void UpdateMatrix(rage::Matrix44* matrix);
 };
-
+VALIDATE_OFFSET(CSimpleTransform, m_vPosn, 0x0);
+VALIDATE_OFFSET(CSimpleTransform, m_fHeading, 0xC);
 VALIDATE_SIZE(CSimpleTransform, 0x10);

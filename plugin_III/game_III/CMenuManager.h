@@ -1,8 +1,8 @@
 /*
-	Plugin-SDK (Grand Theft Auto 3) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -258,6 +258,14 @@ struct PLUGIN_API CMenuScreen {
 		int m_nTargetMenu;
 	} m_aEntries[NUM_ENTRIES];
 };
+VALIDATE_OFFSET(CMenuScreen, m_ScreenName, 0x0);
+VALIDATE_OFFSET(CMenuScreen, unk, 0x8);
+VALIDATE_OFFSET(CMenuScreen, m_nPreviousPage, 0xC);
+VALIDATE_OFFSET(CMenuScreen, m_nPreviousGamePage, 0x10);
+VALIDATE_OFFSET(CMenuScreen, m_nParentEntry, 0x14);
+VALIDATE_OFFSET(CMenuScreen, m_nParentGameEntry, 0x18);
+VALIDATE_OFFSET(CMenuScreen, m_aEntries, 0x1C);
+VALIDATE_SIZE(CMenuScreen, 0x184);
 
 class PLUGIN_API CMenuManager {
 public:
@@ -393,7 +401,66 @@ public:
 	void UnloadTextures();
 	void WaitForUserCD();
 };
-
+VALIDATE_OFFSET(CMenuManager, m_nPrefsVideoMode, 0x0);
+VALIDATE_OFFSET(CMenuManager, m_nDisplayVideoMode, 0x4);
+VALIDATE_OFFSET(CMenuManager, m_nPrefsAudio3DProviderIndex, 0x8);
+VALIDATE_OFFSET(CMenuManager, m_bKeyChangeNotProcessed, 0x9);
+VALIDATE_OFFSET(CMenuManager, m_aSkinName, 0xA);
+VALIDATE_OFFSET(CMenuManager, m_nHelperTextMsgId, 0x10C);
+VALIDATE_OFFSET(CMenuManager, m_bLanguageLoaded, 0x110);
+VALIDATE_OFFSET(CMenuManager, m_bMenuActive, 0x111);
+VALIDATE_OFFSET(CMenuManager, m_bMenuStateChanged, 0x112);
+VALIDATE_OFFSET(CMenuManager, m_bWaitingForNewKeyBind, 0x113);
+VALIDATE_OFFSET(CMenuManager, m_bWantToRestart, 0x114);
+VALIDATE_OFFSET(CMenuManager, m_bFirstTime, 0x115);
+VALIDATE_OFFSET(CMenuManager, m_bGameNotLoaded, 0x116);
+VALIDATE_OFFSET(CMenuManager, m_nMousePosX, 0x118);
+VALIDATE_OFFSET(CMenuManager, m_nMousePosY, 0x11C);
+VALIDATE_OFFSET(CMenuManager, m_nMouseTempPosX, 0x120);
+VALIDATE_OFFSET(CMenuManager, m_nMouseTempPosY, 0x124);
+VALIDATE_OFFSET(CMenuManager, m_bShowMouse, 0x128);
+VALIDATE_OFFSET(CMenuManager, m_sSkin, 0x12C);
+VALIDATE_OFFSET(CMenuManager, m_pSelectedSkin, 0x434);
+VALIDATE_OFFSET(CMenuManager, m_nFirstVisibleRowOnList, 0x438);
+VALIDATE_OFFSET(CMenuManager, m_nScrollbarTopMargin, 0x43C);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentExSize, 0x440);
+VALIDATE_OFFSET(CMenuManager, m_nSkinsTotal, 0x444);
+VALIDATE_OFFSET(CMenuManager, _unk0, 0x448);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentExOption, 0x44C);
+VALIDATE_OFFSET(CMenuManager, m_bSkinsEnumerated, 0x450);
+VALIDATE_OFFSET(CMenuManager, m_bQuitGameNoCD, 0x451);
+VALIDATE_OFFSET(CMenuManager, m_bRenderGameInMenu, 0x452);
+VALIDATE_OFFSET(CMenuManager, m_bSaveMenuActive, 0x453);
+VALIDATE_OFFSET(CMenuManager, m_bWantToLoad, 0x454);
+VALIDATE_OFFSET(CMenuManager, field_455, 0x455);
+VALIDATE_OFFSET(CMenuManager, field_456, 0x456);
+VALIDATE_OFFSET(CMenuManager, m_bSpritesLoaded, 0x457);
+VALIDATE_OFFSET(CMenuManager, m_aFrontEndSprites, 0x458);
+VALIDATE_OFFSET(CMenuManager, m_aMenuSprites, 0x4C8);
+VALIDATE_OFFSET(CMenuManager, field_518, 0x518);
+VALIDATE_OFFSET(CMenuManager, m_nMenuFadeAlpha, 0x51C);
+VALIDATE_OFFSET(CMenuManager, field_520, 0x520);
+VALIDATE_OFFSET(CMenuManager, field_521, 0x521);
+VALIDATE_OFFSET(CMenuManager, field_522, 0x522);
+VALIDATE_OFFSET(CMenuManager, field_523, 0x523);
+VALIDATE_OFFSET(CMenuManager, field_524, 0x524);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentControlAction, 0x528);
+VALIDATE_OFFSET(CMenuManager, _unk1, 0x52C);
+VALIDATE_OFFSET(CMenuManager, field_530, 0x530);
+VALIDATE_OFFSET(CMenuManager, field_534, 0x534);
+VALIDATE_OFFSET(CMenuManager, field_535, 0x535);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentExLayer, 0x536);
+VALIDATE_OFFSET(CMenuManager, m_nHelperTextAlpha, 0x538);
+VALIDATE_OFFSET(CMenuManager, m_nMouseOldPosX, 0x53C);
+VALIDATE_OFFSET(CMenuManager, m_nMouseOldPosY, 0x540);
+VALIDATE_OFFSET(CMenuManager, m_nHoverOption, 0x544);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentMenuPage, 0x548);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentMenuEntry, 0x54C);
+VALIDATE_OFFSET(CMenuManager, m_nPreviousMenuEntry, 0x550);
+VALIDATE_OFFSET(CMenuManager, m_nPreviousMenuPage, 0x554);
+VALIDATE_OFFSET(CMenuManager, field_558, 0x558);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentSaveSlot, 0x55C);
+VALIDATE_OFFSET(CMenuManager, m_nScreenChangeDelayTimer, 0x560);
 VALIDATE_SIZE(CMenuManager, 0x564);
 
 extern CMenuManager &FrontEndMenuManager;

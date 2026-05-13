@@ -39,6 +39,8 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM static void SetSaveDirectory(char const *path);
 };
+VALIDATE_OFFSET(C_PcSave, nErrorCode, 0x0);
+VALIDATE_SIZE(C_PcSave, 0x4);
 
 SUPPORTED_10EN_11EN_STEAM extern C_PcSave &PcSaveHelper;
 

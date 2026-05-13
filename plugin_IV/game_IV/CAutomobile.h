@@ -13,4 +13,5 @@ public:
     CAutomobile(uint8_t createdBy);
 
 };
+VALIDATE_SIZE(CAutomobile, 0x2080);
 

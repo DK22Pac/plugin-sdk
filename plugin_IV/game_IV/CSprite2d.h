@@ -39,5 +39,5 @@ public:
     static void DrawRect(rage::fwRect const& rect, float z, rage::Color32 const& col);
     static void DrawCircle(rage::Vector2 const& center, rage::Vector2 const& scale, int radius, rage::Color32 const& col, float z);
 };
-
+VALIDATE_OFFSET(CSprite2d, m_pTexture, 0x0);
 VALIDATE_SIZE(CSprite2d, 0x4);

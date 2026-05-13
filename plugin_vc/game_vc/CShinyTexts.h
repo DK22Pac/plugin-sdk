@@ -24,7 +24,16 @@ public:
 
     CRegisteredShinyText();
 };
-
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerAA, 0x0);
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerAB, 0xC);
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerBA, 0x18);
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerBB, 0x24);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsAA, 0x30);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsAB, 0x38);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsBA, 0x40);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsBB, 0x48);
+VALIDATE_OFFSET(CRegisteredShinyText, m_fDistanceToCamera, 0x50);
+VALIDATE_OFFSET(CRegisteredShinyText, m_color, 0x54);
 VALIDATE_SIZE(CRegisteredShinyText, 0x58);
 
 class CShinyTexts {
@@ -35,5 +44,6 @@ public:
     //funcs
     static void Render();
 };
+VALIDATE_SIZE(CShinyTexts, 0x1);
 
 extern unsigned int MAX_SHINYTEXTS; // default = 32

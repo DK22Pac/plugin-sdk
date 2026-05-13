@@ -32,5 +32,5 @@ public:
             node->m_pPrev->m_pNext = node->m_pNext;
     }
 };
-
+VALIDATE_OFFSET(CEntryInfoList, m_pLastEntry, 0x0);
 VALIDATE_SIZE(CEntryInfoList, 0x4);

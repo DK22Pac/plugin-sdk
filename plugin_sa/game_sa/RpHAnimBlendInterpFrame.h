@@ -13,5 +13,6 @@ struct RpHAnimBlendInterpFrame {
     RtQuat orientation;
     RwV3d translation;
 };
-
+VALIDATE_OFFSET(RpHAnimBlendInterpFrame, orientation, 0x0);
+VALIDATE_OFFSET(RpHAnimBlendInterpFrame, translation, 0x10);
 VALIDATE_SIZE(RpHAnimBlendInterpFrame, 0x1C);

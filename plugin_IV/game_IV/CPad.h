@@ -56,7 +56,26 @@ public:
 public:
     void Clear();
 };
-
+VALIDATE_OFFSET(CControllerState, LeftStickX, 0x0);
+VALIDATE_OFFSET(CControllerState, LeftStickY, 0x4);
+VALIDATE_OFFSET(CControllerState, RightStickX, 0x8);
+VALIDATE_OFFSET(CControllerState, RightStickY, 0xC);
+VALIDATE_OFFSET(CControllerState, LeftShoulder1, 0x10);
+VALIDATE_OFFSET(CControllerState, LeftShoulder2, 0x14);
+VALIDATE_OFFSET(CControllerState, ShockButtonL, 0x18);
+VALIDATE_OFFSET(CControllerState, RightShoulder1, 0x1C);
+VALIDATE_OFFSET(CControllerState, RightShoulder2, 0x20);
+VALIDATE_OFFSET(CControllerState, ShockButtonR, 0x24);
+VALIDATE_OFFSET(CControllerState, ButtonSquare, 0x28);
+VALIDATE_OFFSET(CControllerState, ButtonTriangle, 0x2C);
+VALIDATE_OFFSET(CControllerState, ButtonCross, 0x30);
+VALIDATE_OFFSET(CControllerState, ButtonCircle, 0x34);
+VALIDATE_OFFSET(CControllerState, DPadUp, 0x38);
+VALIDATE_OFFSET(CControllerState, DPadDown, 0x3C);
+VALIDATE_OFFSET(CControllerState, DPadLeft, 0x40);
+VALIDATE_OFFSET(CControllerState, DPadRight, 0x44);
+VALIDATE_OFFSET(CControllerState, Start, 0x48);
+VALIDATE_OFFSET(CControllerState, Select, 0x4C);
 VALIDATE_SIZE(CControllerState, 0x50);
 
 class CPad {
@@ -97,7 +116,18 @@ public:
 
     static void StopPadsShaking();
 };
-
+VALIDATE_OFFSET(CPad, field_1, 0x0);
+VALIDATE_OFFSET(CPad, NewState, 0x4);
+VALIDATE_OFFSET(CPad, OldState, 0x54);
+VALIDATE_OFFSET(CPad, field_4, 0xA4);
+VALIDATE_OFFSET(CPad, ShakeDur, 0xA8);
+VALIDATE_OFFSET(CPad, ShakeFreq, 0xAC);
+VALIDATE_OFFSET(CPad, NoShakeBeforeThis, 0xB0);
+VALIDATE_OFFSET(CPad, NoShakeFreq, 0xB4);
+VALIDATE_OFFSET(CPad, field_5, 0xB8);
+VALIDATE_OFFSET(CPad, field_6, 0xB9);
+VALIDATE_OFFSET(CPad, field_7, 0xBA);
+VALIDATE_OFFSET(CPad, field_8, 0xBB);
 VALIDATE_SIZE(CPad, 0xBC);
 
 extern CPad* Pads;

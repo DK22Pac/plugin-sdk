@@ -20,5 +20,8 @@ public:
 public:
     void ReportSoundEvent(const char* name, rage::audSoundInitParams* params, int32_t arg3, int32_t arg4, int32_t arg5);
 };
-
+VALIDATE_OFFSET(audGtaAudioEntity, field_1, 0x8);
+VALIDATE_OFFSET(audGtaAudioEntity, m_PlayerVehicle, 0x28);
+VALIDATE_OFFSET(audGtaAudioEntity, field_3, 0x2C);
+VALIDATE_OFFSET(audGtaAudioEntity, m_LoadingTune, 0x50);
 VALIDATE_SIZE(audGtaAudioEntity, 0x54);

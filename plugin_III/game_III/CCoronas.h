@@ -64,6 +64,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Update();
     SUPPORTED_10EN_11EN_STEAM static void UpdateCoronaCoors(unsigned int id, CVector const &coors, float drawDist, float someAngle);
 };
+VALIDATE_SIZE(CCoronas, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern RwTexture *(&gpCoronaTexture)[9]; // RwTexture *gpCoronaTexture[9]
 

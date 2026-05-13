@@ -72,7 +72,36 @@ public:
     SUPPORTED_10EN_11EN_STEAM void SetHookMatrix();
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
-
+VALIDATE_OFFSET(CCrane, m_pCraneEntity, 0x0);
+VALIDATE_OFFSET(CCrane, m_pHook, 0x4);
+VALIDATE_OFFSET(CCrane, m_nAudioEntity, 0x8);
+VALIDATE_OFFSET(CCrane, m_fPickupX1, 0xC);
+VALIDATE_OFFSET(CCrane, m_fPickupX2, 0x10);
+VALIDATE_OFFSET(CCrane, m_fPickupY1, 0x14);
+VALIDATE_OFFSET(CCrane, m_fPickupY2, 0x18);
+VALIDATE_OFFSET(CCrane, m_vecDropoffTarget, 0x1C);
+VALIDATE_OFFSET(CCrane, m_fDropoffHeading, 0x28);
+VALIDATE_OFFSET(CCrane, m_fPickupAngle, 0x2C);
+VALIDATE_OFFSET(CCrane, m_fDropoffAngle, 0x30);
+VALIDATE_OFFSET(CCrane, m_fPickupDistance, 0x34);
+VALIDATE_OFFSET(CCrane, m_fDropoffDistance, 0x38);
+VALIDATE_OFFSET(CCrane, m_fPickupHeight, 0x3C);
+VALIDATE_OFFSET(CCrane, m_fDropoffHeight, 0x40);
+VALIDATE_OFFSET(CCrane, m_fHookAngle, 0x44);
+VALIDATE_OFFSET(CCrane, m_fHookOffset, 0x48);
+VALIDATE_OFFSET(CCrane, m_fHookHeight, 0x4C);
+VALIDATE_OFFSET(CCrane, m_vecHookInitPos, 0x50);
+VALIDATE_OFFSET(CCrane, m_vecHookCurPos, 0x5C);
+VALIDATE_OFFSET(CCrane, m_vecHookVelocity, 0x68);
+VALIDATE_OFFSET(CCrane, m_pVehiclePickedUp, 0x70);
+VALIDATE_OFFSET(CCrane, m_nTimeForNextCheck, 0x74);
+VALIDATE_OFFSET(CCrane, m_nCraneStatus, 0x78);
+VALIDATE_OFFSET(CCrane, m_nCraneState, 0x79);
+VALIDATE_OFFSET(CCrane, m_nVehiclesCollected, 0x7A);
+VALIDATE_OFFSET(CCrane, m_bIsCrusher, 0x7B);
+VALIDATE_OFFSET(CCrane, m_bIsMilitaryCrane, 0x7C);
+VALIDATE_OFFSET(CCrane, m_bWasMilitaryCrane, 0x7D);
+VALIDATE_OFFSET(CCrane, m_bIsTop, 0x7E);
 VALIDATE_SIZE(CCrane, 0x80);
 
 #include "meta/meta.CCrane.h"

@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -101,5 +101,61 @@ public:
     void SetupSuspensionLines();
     void VehicleDamage();
 };
-
+VALIDATE_OFFSET(CBike, m_aBikeNodes, 0x2A0);
+VALIDATE_OFFSET(CBike, field_2C4, 0x2C4);
+VALIDATE_OFFSET(CBike, gap_30C, 0x30C);
+VALIDATE_OFFSET(CBike, pBikeHandling, 0x324);
+VALIDATE_OFFSET(CBike, nBikeAnimGroup, 0x328);
+VALIDATE_OFFSET(CBike, tireStatus, 0x32C);
+VALIDATE_OFFSET(CBike, gap_32E, 0x32E);
+VALIDATE_OFFSET(CBike, field_330, 0x330);
+VALIDATE_OFFSET(CBike, field_3D0, 0x3D0);
+VALIDATE_OFFSET(CBike, field_3E0, 0x3E0);
+VALIDATE_OFFSET(CBike, field_3F0, 0x3F0);
+VALIDATE_OFFSET(CBike, field_400, 0x400);
+VALIDATE_OFFSET(CBike, field_404, 0x404);
+VALIDATE_OFFSET(CBike, field_408, 0x408);
+VALIDATE_OFFSET(CBike, field_40C, 0x40C);
+VALIDATE_OFFSET(CBike, field_40D, 0x40D);
+VALIDATE_OFFSET(CBike, field_40E, 0x40E);
+VALIDATE_OFFSET(CBike, field_40F, 0x40F);
+VALIDATE_OFFSET(CBike, field_410, 0x410);
+VALIDATE_OFFSET(CBike, field_414, 0x414);
+VALIDATE_OFFSET(CBike, field_418, 0x418);
+VALIDATE_OFFSET(CBike, field_41C, 0x41C);
+VALIDATE_OFFSET(CBike, gap_420, 0x420);
+VALIDATE_OFFSET(CBike, field_428, 0x428);
+VALIDATE_OFFSET(CBike, field_42C, 0x42C);
+VALIDATE_OFFSET(CBike, gap_430, 0x430);
+VALIDATE_OFFSET(CBike, field_450, 0x450);
+VALIDATE_OFFSET(CBike, field_454, 0x454);
+VALIDATE_OFFSET(CBike, field_458, 0x458);
+VALIDATE_OFFSET(CBike, field_45C, 0x45C);
+VALIDATE_OFFSET(CBike, field_460, 0x460);
+VALIDATE_OFFSET(CBike, field_464, 0x464);
+VALIDATE_OFFSET(CBike, field_468, 0x468);
+VALIDATE_OFFSET(CBike, field_46C, 0x46C);
+VALIDATE_OFFSET(CBike, field_470, 0x470);
+VALIDATE_OFFSET(CBike, field_474, 0x474);
+VALIDATE_OFFSET(CBike, field_478, 0x478);
+VALIDATE_OFFSET(CBike, field_47C, 0x47C);
+VALIDATE_OFFSET(CBike, field_480, 0x480);
+VALIDATE_OFFSET(CBike, gap_481, 0x481);
+VALIDATE_OFFSET(CBike, m_nDamageFlags, 0x484);
+VALIDATE_OFFSET(CBike, gap_485, 0x485);
+VALIDATE_OFFSET(CBike, field_486, 0x486);
+VALIDATE_OFFSET(CBike, field_488, 0x488);
+VALIDATE_OFFSET(CBike, field_48C, 0x48C);
+VALIDATE_OFFSET(CBike, field_490, 0x490);
+VALIDATE_OFFSET(CBike, field_494, 0x494);
+VALIDATE_OFFSET(CBike, field_498, 0x498);
+VALIDATE_OFFSET(CBike, field_4A8, 0x4A8);
+VALIDATE_OFFSET(CBike, field_4D8, 0x4D8);
+VALIDATE_OFFSET(CBike, field_4DC, 0x4DC);
+VALIDATE_OFFSET(CBike, field_4DD, 0x4DD);
+VALIDATE_OFFSET(CBike, field_4DE, 0x4DE);
+VALIDATE_OFFSET(CBike, gap_4DF, 0x4DF);
+VALIDATE_OFFSET(CBike, field_4E0, 0x4E0);
+VALIDATE_OFFSET(CBike, field_4E4, 0x4E4);
+VALIDATE_OFFSET(CBike, field_4E8, 0x4E8);
 VALIDATE_SIZE(CBike, 0x4EC);

@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 #include "CPathFind.h"
@@ -68,5 +67,20 @@ public:
         bool bQuitAfterDraggingPedOut, bool bCarryOnAfterFallingOff = false); 
 
 };
-
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_pTargetVehicle, 0xC);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nFlags, 0x10);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nTargetDoor, 0x14);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nTargetDoorOppositeToFlag, 0x18);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nTargetSeat, 0x1C);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nDraggedPedDownTime, 0x20);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nMoveState, 0x24);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nNumGettingInSet, 0x28);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nCamMovementChoice, 0x29);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_vTargetDoorPos, 0x2C);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_pTaskUtilityLineUpPedWithCar, 0x38);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_bIsAborting, 0x3C);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_pDraggedPed, 0x40);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nDoorFlagsSet, 0x44);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_fCruiseSpeed, 0x48);
+VALIDATE_OFFSET(CTaskComplexEnterCar, m_nEnterCarStartTime, 0x4C);
 VALIDATE_SIZE(CTaskComplexEnterCar, 0x50);

@@ -11,3 +11,4 @@ class CHeli {
 public:
 
 };
+VALIDATE_SIZE(CHeli, 0x1);

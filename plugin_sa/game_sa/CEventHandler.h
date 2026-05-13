@@ -26,5 +26,19 @@ public:
     int field_2C;
     int field_30;
 };
-
+VALIDATE_OFFSET(CEventHandler, m_pPed, 0x0);
+VALIDATE_OFFSET(CEventHandler, field_4, 0x4);
+VALIDATE_OFFSET(CEventHandler, field_8, 0x8);
+VALIDATE_OFFSET(CEventHandler, field_C, 0xC);
+VALIDATE_OFFSET(CEventHandler, field_10, 0x10);
+VALIDATE_OFFSET(CEventHandler, field_14, 0x14);
+VALIDATE_OFFSET(CEventHandler, field_18, 0x18);
+VALIDATE_OFFSET(CEventHandler, field_1C, 0x1C);
+VALIDATE_OFFSET(CEventHandler, field_1D, 0x1D);
+VALIDATE_OFFSET(CEventHandler, field_1E, 0x1E);
+VALIDATE_OFFSET(CEventHandler, field_20, 0x20);
+VALIDATE_OFFSET(CEventHandler, field_24, 0x24);
+VALIDATE_OFFSET(CEventHandler, field_28, 0x28);
+VALIDATE_OFFSET(CEventHandler, field_2C, 0x2C);
+VALIDATE_OFFSET(CEventHandler, field_30, 0x30);
 VALIDATE_SIZE(CEventHandler, 0x34);

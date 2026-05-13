@@ -34,5 +34,11 @@ public:
     unsigned int m_nCdPosn;
     unsigned int m_nCdSize;
 };
-
+VALIDATE_OFFSET(CStreamingInfo, m_pNext, 0x0);
+VALIDATE_OFFSET(CStreamingInfo, m_pPrev, 0x4);
+VALIDATE_OFFSET(CStreamingInfo, m_nLoadState, 0x8);
+VALIDATE_OFFSET(CStreamingInfo, m_nFlags, 0x9);
+VALIDATE_OFFSET(CStreamingInfo, m_nModelIndex, 0xA);
+VALIDATE_OFFSET(CStreamingInfo, m_nCdPosn, 0xC);
+VALIDATE_OFFSET(CStreamingInfo, m_nCdSize, 0x10);
 VALIDATE_SIZE(CStreamingInfo, 0x14);

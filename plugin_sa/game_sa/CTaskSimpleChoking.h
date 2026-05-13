@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskSimple.h"
 #include "CAnimBlendAssociation.h"
@@ -26,5 +25,10 @@ public:
     void UpdateChoke(CPed* pVictim, CPed* pAttacker, bool bIsTeargas);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleChoking, m_pAttacker, 0x8);
+VALIDATE_OFFSET(CTaskSimpleChoking, m_pAnim, 0xC);
+VALIDATE_OFFSET(CTaskSimpleChoking, m_nTimeRemaining, 0x10);
+VALIDATE_OFFSET(CTaskSimpleChoking, m_nTimeStarted, 0x14);
+VALIDATE_OFFSET(CTaskSimpleChoking, m_bIsTeargas, 0x18);
+VALIDATE_OFFSET(CTaskSimpleChoking, m_bIsFinished, 0x19);
 VALIDATE_SIZE(CTaskSimpleChoking, 0x1C);

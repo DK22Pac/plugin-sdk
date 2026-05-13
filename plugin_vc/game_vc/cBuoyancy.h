@@ -37,5 +37,28 @@ public:
 public:
     bool ProcessBuoyancy(CPhysical* phys, float buoyancy, CVector* point, CVector* impulse);
 };
+VALIDATE_OFFSET(cBuoyancy, m_vecPosition, 0x0);
+VALIDATE_OFFSET(cBuoyancy, m_Matrix, 0xC);
+VALIDATE_OFFSET(cBuoyancy, m_field_54, 0x54);
+VALIDATE_OFFSET(cBuoyancy, m_vecPositionZ, 0x58);
+VALIDATE_OFFSET(cBuoyancy, m_fWaterlevel, 0x64);
+VALIDATE_OFFSET(cBuoyancy, m_fWaterLevelInc, 0x68);
+VALIDATE_OFFSET(cBuoyancy, m_fBuoyancy, 0x6C);
+VALIDATE_OFFSET(cBuoyancy, m_vecDimMax, 0x70);
+VALIDATE_OFFSET(cBuoyancy, m_vecDimMin, 0x7C);
+VALIDATE_OFFSET(cBuoyancy, m_fNumPartialVolumes, 0x88);
+VALIDATE_OFFSET(cBuoyancy, m_field_8C, 0x8C);
+VALIDATE_OFFSET(cBuoyancy, m_field_90, 0x90);
+VALIDATE_OFFSET(cBuoyancy, m_field_94, 0x94);
+VALIDATE_OFFSET(cBuoyancy, m_bHaveVolume, 0x98);
+VALIDATE_OFFSET(cBuoyancy, m_vecStep, 0x9C);
+VALIDATE_OFFSET(cBuoyancy, m_vecStepRatio, 0xA8);
+VALIDATE_OFFSET(cBuoyancy, m_fNumSteps, 0xB4);
+VALIDATE_OFFSET(cBuoyancy, m_bFlipAverage, 0xB8);
+VALIDATE_OFFSET(cBuoyancy, m_field_B9, 0xB9);
+VALIDATE_OFFSET(cBuoyancy, m_bIsBoat, 0xBA);
+VALIDATE_OFFSET(cBuoyancy, m_fVolumeUnderWater, 0xBC);
+VALIDATE_OFFSET(cBuoyancy, m_vecImpulsePoint, 0xC0);
+VALIDATE_SIZE(cBuoyancy, 0xCC);
 
 extern cBuoyancy& mod_Buoyancy;

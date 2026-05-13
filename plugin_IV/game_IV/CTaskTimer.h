@@ -16,5 +16,8 @@ public:
 private:
     char _pad[2];
 };
-
+VALIDATE_OFFSET(CTaskTimer, field_0, 0x0);
+VALIDATE_OFFSET(CTaskTimer, m_nInterval, 0x10);
+VALIDATE_OFFSET(CTaskTimer, m_bStarted, 0x14);
+VALIDATE_OFFSET(CTaskTimer, m_bStopped, 0x15);
 VALIDATE_SIZE(CTaskTimer, 0x18);

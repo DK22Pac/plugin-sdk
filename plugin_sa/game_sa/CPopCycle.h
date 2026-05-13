@@ -155,3 +155,4 @@ public:
 	static void UpdatePercentages();
 
 };
+VALIDATE_SIZE(CPopCycle, 0x1);

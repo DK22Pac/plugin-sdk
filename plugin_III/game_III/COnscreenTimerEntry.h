@@ -25,7 +25,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ProcessForDisplayClock();
     SUPPORTED_10EN_11EN_STEAM void ProcessForDisplayCounter();
 };
-
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nTimerOffset, 0x0);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nCounterOffset, 0x4);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_szTimerTextKey, 0x8);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_szCounterTextKey, 0x12);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_nType, 0x1C);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_szCounterDisplayedText, 0x1E);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_szTimerDisplayedText, 0x48);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_bTimerProcessed, 0x72);
+VALIDATE_OFFSET(COnscreenTimerEntry, m_bCounterProcessed, 0x73);
 VALIDATE_SIZE(COnscreenTimerEntry, 0x74);
 
 #include "meta/meta.COnscreenTimerEntry.h"

@@ -97,5 +97,6 @@ public:
     SUPPORTED_10US static void Update();
     SUPPORTED_10US static void UpdateTerritoryUnderControlPercentage();
 };
+VALIDATE_SIZE(CGangWars, 0x1);
 
 #include "meta/meta.CGangWars.h"

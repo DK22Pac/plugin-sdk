@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -81,6 +81,30 @@ public:
     // closing
     static void Shutdown();
 };
+VALIDATE_OFFSET(CWeaponInfo, m_eWeaponFire, 0x0);
+VALIDATE_OFFSET(CWeaponInfo, m_fRange, 0x4);
+VALIDATE_OFFSET(CWeaponInfo, m_nFiringRate, 0x8);
+VALIDATE_OFFSET(CWeaponInfo, m_nReload, 0xC);
+VALIDATE_OFFSET(CWeaponInfo, m_nAmountofAmmunition, 0x10);
+VALIDATE_OFFSET(CWeaponInfo, m_nDamage, 0x14);
+VALIDATE_OFFSET(CWeaponInfo, m_fSpeed, 0x18);
+VALIDATE_OFFSET(CWeaponInfo, m_fRadius, 0x1C);
+VALIDATE_OFFSET(CWeaponInfo, m_fLifespan, 0x20);
+VALIDATE_OFFSET(CWeaponInfo, m_fSpread, 0x24);
+VALIDATE_OFFSET(CWeaponInfo, m_vecFireOffset, 0x28);
+VALIDATE_OFFSET(CWeaponInfo, m_nAnimToPlay, 0x34);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnimLoopStart, 0x38);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnimLoopEnd, 0x3C);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnimFrameFire, 0x40);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnim2LoopStart, 0x44);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnim2LoopEnd, 0x48);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnim2FrameFire, 0x4C);
+VALIDATE_OFFSET(CWeaponInfo, m_fAnimBreakout, 0x50);
+VALIDATE_OFFSET(CWeaponInfo, m_nModelId, 0x54);
+VALIDATE_OFFSET(CWeaponInfo, m_nModel2Id, 0x58);
+VALIDATE_OFFSET(CWeaponInfo, m_nWeaponFlags, 0x5C);
+VALIDATE_OFFSET(CWeaponInfo, m_WeaponSlot, 0x60);
+VALIDATE_SIZE(CWeaponInfo, 0x64);
 
 extern CWeaponInfo (&aWeaponInfo)[37];		// CWeaponInfo aWeaponInfo[37]
 

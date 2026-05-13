@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -108,5 +108,64 @@ public:
 	void LoadPlayerSkin();
 	void DeletePlayerSkin();
 };
-
+VALIDATE_OFFSET(CPlayerInfo, m_pPed, 0x0);
+VALIDATE_OFFSET(CPlayerInfo, m_pRemoteVehicle, 0x4);
+VALIDATE_OFFSET(CPlayerInfo, m_ColModel, 0x8);
+VALIDATE_OFFSET(CPlayerInfo, m_pVehicleEx, 0x54);
+VALIDATE_OFFSET(CPlayerInfo, m_aszPlayerName, 0x58);
+VALIDATE_OFFSET(CPlayerInfo, m_nMoney, 0xA0);
+VALIDATE_OFFSET(CPlayerInfo, m_nDisplayMoney, 0xA4);
+VALIDATE_OFFSET(CPlayerInfo, m_nCollectablesCollected, 0xA8);
+VALIDATE_OFFSET(CPlayerInfo, m_nCollectablesTotal, 0xAC);
+VALIDATE_OFFSET(CPlayerInfo, field_B0, 0xB0);
+VALIDATE_OFFSET(CPlayerInfo, m_nTaxiTimer, 0xB4);
+VALIDATE_OFFSET(CPlayerInfo, m_bTaxiTimerScore, 0xB8);
+VALIDATE_OFFSET(CPlayerInfo, m_nHookerTimer, 0xBC);
+VALIDATE_OFFSET(CPlayerInfo, m_nHookerMoneyTimer, 0xC0);
+VALIDATE_OFFSET(CPlayerInfo, m_nHookerTime, 0xC4);
+VALIDATE_OFFSET(CPlayerInfo, m_pHooker, 0xC8);
+VALIDATE_OFFSET(CPlayerInfo, m_nPlayerState, 0xCC);
+VALIDATE_OFFSET(CPlayerInfo, m_nDeathFadeTimer, 0xD0);
+VALIDATE_OFFSET(CPlayerInfo, m_bFadeAfterRemoteVehicleExplosion, 0xD4);
+VALIDATE_OFFSET(CPlayerInfo, field_D5, 0xD5);
+VALIDATE_OFFSET(CPlayerInfo, field_D6, 0xD6);
+VALIDATE_OFFSET(CPlayerInfo, field_D7, 0xD7);
+VALIDATE_OFFSET(CPlayerInfo, m_nLastTimeArrested, 0xD8);
+VALIDATE_OFFSET(CPlayerInfo, m_nLastTimeEnergyLost, 0xDC);
+VALIDATE_OFFSET(CPlayerInfo, m_nLastTimeArmourLost, 0xE0);
+VALIDATE_OFFSET(CPlayerInfo, m_nLastTimeBigGunFired, 0xE4);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimesUpsideDownInARow, 0xE8);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimesStuckInARow, 0xEC);
+VALIDATE_OFFSET(CPlayerInfo, m_nVehicleTimeOnTwoWheels, 0xF0);
+VALIDATE_OFFSET(CPlayerInfo, m_fVehicleDistanceOnTwoWheels, 0xF4);
+VALIDATE_OFFSET(CPlayerInfo, m_nVehicleTimeInAir, 0xF8);
+VALIDATE_OFFSET(CPlayerInfo, field_FC, 0xFC);
+VALIDATE_OFFSET(CPlayerInfo, field_100, 0x100);
+VALIDATE_OFFSET(CPlayerInfo, field_104, 0x104);
+VALIDATE_OFFSET(CPlayerInfo, field_108, 0x108);
+VALIDATE_OFFSET(CPlayerInfo, field_10C, 0x10C);
+VALIDATE_OFFSET(CPlayerInfo, field_110, 0x110);
+VALIDATE_OFFSET(CPlayerInfo, field_114, 0x114);
+VALIDATE_OFFSET(CPlayerInfo, field_118, 0x118);
+VALIDATE_OFFSET(CPlayerInfo, field_11C, 0x11C);
+VALIDATE_OFFSET(CPlayerInfo, field_120, 0x120);
+VALIDATE_OFFSET(CPlayerInfo, field_124, 0x124);
+VALIDATE_OFFSET(CPlayerInfo, m_nCarDensityForCurrentZone, 0x128);
+VALIDATE_OFFSET(CPlayerInfo, m_fRoadDensityAroundPlayer, 0x12C);
+VALIDATE_OFFSET(CPlayerInfo, m_nTimeOfLastCarExplosionCaused, 0x130);
+VALIDATE_OFFSET(CPlayerInfo, m_nExplosionMultiplier, 0x134);
+VALIDATE_OFFSET(CPlayerInfo, field_138, 0x138);
+VALIDATE_OFFSET(CPlayerInfo, field_13C, 0x13C);
+VALIDATE_OFFSET(CPlayerInfo, m_bInfiniteSprint, 0x140);
+VALIDATE_OFFSET(CPlayerInfo, m_bFastReload, 0x141);
+VALIDATE_OFFSET(CPlayerInfo, m_bFireProof, 0x142);
+VALIDATE_OFFSET(CPlayerInfo, m_nMaxHealth, 0x143);
+VALIDATE_OFFSET(CPlayerInfo, m_nMaxArmour, 0x144);
+VALIDATE_OFFSET(CPlayerInfo, m_bGetOutOfJailFree, 0x145);
+VALIDATE_OFFSET(CPlayerInfo, m_bGetOutOfHospitalFree, 0x146);
+VALIDATE_OFFSET(CPlayerInfo, m_bCanDoDriveBy, 0x147);
+VALIDATE_OFFSET(CPlayerInfo, m_nBustedAudioStatus, 0x148);
+VALIDATE_OFFSET(CPlayerInfo, m_nLastBustMessageNumber, 0x14A);
+VALIDATE_OFFSET(CPlayerInfo, m_szSkinName, 0x14C);
+VALIDATE_OFFSET(CPlayerInfo, m_pSkinTexture, 0x16C);
 VALIDATE_SIZE(CPlayerInfo, 0x170);

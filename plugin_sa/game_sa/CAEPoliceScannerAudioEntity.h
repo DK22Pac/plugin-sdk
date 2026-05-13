@@ -12,5 +12,4 @@
 class PLUGIN_API CAEPoliceScannerAudioEntity : public CAEAudioEntity {
 public:
 };
-
 VALIDATE_SIZE(CAEPoliceScannerAudioEntity, 0x7C);

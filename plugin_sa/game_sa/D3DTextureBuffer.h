@@ -41,5 +41,11 @@ public:
     bool PushWithoutIncreasingCounter(void* texture);
 #endif
 };
-
+VALIDATE_OFFSET(D3DTextureBuffer, m_nFormat, 0x0);
+VALIDATE_OFFSET(D3DTextureBuffer, m_nWidth, 0x4);
+VALIDATE_OFFSET(D3DTextureBuffer, m_nLevels, 0x8);
+VALIDATE_OFFSET(D3DTextureBuffer, m_nCapcacity, 0xC);
+VALIDATE_OFFSET(D3DTextureBuffer, m_nNumTexturesInBuffer, 0x10);
+VALIDATE_OFFSET(D3DTextureBuffer, m_nSize, 0x14);
+VALIDATE_OFFSET(D3DTextureBuffer, m_apTextures, 0x18);
 VALIDATE_SIZE(D3DTextureBuffer, 0x1C);

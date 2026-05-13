@@ -36,3 +36,4 @@ public:
     static int32_t GetVehicleRef(CVehicle* vehicle);
     static int32_t GetObjectRef(CObject* object);
 };
+VALIDATE_SIZE(CPools, 0x1);

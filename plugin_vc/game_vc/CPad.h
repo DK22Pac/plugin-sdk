@@ -125,6 +125,27 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void UpdateMouse();
     SUPPORTED_10EN_11EN_STEAM static void UpdatePads();
 };
+VALIDATE_OFFSET(CPad, NewState, 0x0);
+VALIDATE_OFFSET(CPad, OldState, 0x2A);
+VALIDATE_OFFSET(CPad, SteeringLeftRightBuffer, 0x54);
+VALIDATE_OFFSET(CPad, DrunkDrivingBufferUsed, 0x68);
+VALIDATE_OFFSET(CPad, PCTempKeyState, 0x6C);
+VALIDATE_OFFSET(CPad, PCTempJoyState, 0x96);
+VALIDATE_OFFSET(CPad, PCTempMouseState, 0xC0);
+VALIDATE_OFFSET(CPad, field_EA, 0xEA);
+VALIDATE_OFFSET(CPad, Mode, 0xEC);
+VALIDATE_OFFSET(CPad, ShakeDur, 0xEE);
+VALIDATE_OFFSET(CPad, DisablePlayerControls, 0xF0);
+VALIDATE_OFFSET(CPad, ShakeFreq, 0xF2);
+VALIDATE_OFFSET(CPad, bHornHistory, 0xF3);
+VALIDATE_OFFSET(CPad, iCurrHornHistory, 0xF8);
+VALIDATE_OFFSET(CPad, JustOutOfFrontEnd, 0xF9);
+VALIDATE_OFFSET(CPad, bApplyBrakes, 0xFA);
+VALIDATE_OFFSET(CPad, field_FB, 0xFB);
+VALIDATE_OFFSET(CPad, LastTimeTouched, 0x108);
+VALIDATE_OFFSET(CPad, AverageWeapon, 0x10C);
+VALIDATE_OFFSET(CPad, AverageEntries, 0x110);
+VALIDATE_SIZE(CPad, 0x114);
 
 SUPPORTED_10EN_11EN_STEAM extern CPad(&Pads)[2]; // CPad Pads[2]
 

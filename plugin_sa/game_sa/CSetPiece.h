@@ -70,5 +70,18 @@ public:
     CVehicle* TryToGenerateCopCar(CVector2D posn, CVector2D target);
     void Update();
 };
-
+VALIDATE_OFFSET(CSetPiece, m_nLastGenerationTime, 0x0);
+VALIDATE_OFFSET(CSetPiece, m_nAreaCornerX1, 0x4);
+VALIDATE_OFFSET(CSetPiece, m_nAreaCornerY1, 0x6);
+VALIDATE_OFFSET(CSetPiece, m_nAreaCornerX2, 0x8);
+VALIDATE_OFFSET(CSetPiece, m_nAreaCornerY2, 0xA);
+VALIDATE_OFFSET(CSetPiece, m_nSpawnCoord1X, 0xC);
+VALIDATE_OFFSET(CSetPiece, m_nSpawnCoord1Y, 0xE);
+VALIDATE_OFFSET(CSetPiece, m_nSpawnCoord2X, 0x10);
+VALIDATE_OFFSET(CSetPiece, m_nSpawnCoord2Y, 0x12);
+VALIDATE_OFFSET(CSetPiece, m_nTargetCoord1X, 0x14);
+VALIDATE_OFFSET(CSetPiece, m_nTargetCoord1Y, 0x16);
+VALIDATE_OFFSET(CSetPiece, m_nTargetCoord2X, 0x18);
+VALIDATE_OFFSET(CSetPiece, m_nTargetCoord2Y, 0x1A);
+VALIDATE_OFFSET(CSetPiece, m_nType, 0x1C);
 VALIDATE_SIZE(CSetPiece, 0x20);

@@ -21,5 +21,12 @@ public:
     int field_40[10];
     int field_68[10];
 };
-
+VALIDATE_OFFSET(CAttractorScanner, field_0, 0x0);
+VALIDATE_OFFSET(CAttractorScanner, _pad, 0x1);
+VALIDATE_OFFSET(CAttractorScanner, field_4, 0x4);
+VALIDATE_OFFSET(CAttractorScanner, m_pEffectInUse, 0x10);
+VALIDATE_OFFSET(CAttractorScanner, field_14, 0x14);
+VALIDATE_OFFSET(CAttractorScanner, field_18, 0x18);
+VALIDATE_OFFSET(CAttractorScanner, field_40, 0x40);
+VALIDATE_OFFSET(CAttractorScanner, field_68, 0x68);
 VALIDATE_SIZE(CAttractorScanner, 0x90);

@@ -67,6 +67,7 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void ReplaceWithNewModel(int modelIndex);
 };
+VALIDATE_SIZE(CBuilding, 0x64);
 
 VTABLE_DESC(CBuilding, 0x5EBF44, 18);
 VALIDATE_SIZE(CBuilding, 0x64);

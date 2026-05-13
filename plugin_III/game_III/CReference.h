@@ -13,5 +13,6 @@ struct PLUGIN_API CReference {
     CReference *m_pNext;
     CEntity **m_ppEntity;
 };
-
+VALIDATE_OFFSET(CReference, m_pNext, 0x0);
+VALIDATE_OFFSET(CReference, m_ppEntity, 0x4);
 VALIDATE_SIZE(CReference, 0x8);

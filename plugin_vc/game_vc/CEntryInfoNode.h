@@ -28,5 +28,9 @@ public:
         m_pSector = sector;
     }
 };
-
+VALIDATE_OFFSET(CEntryInfoNode, m_pPtrList, 0x0);
+VALIDATE_OFFSET(CEntryInfoNode, m_pPtrNode, 0x4);
+VALIDATE_OFFSET(CEntryInfoNode, m_pSector, 0x8);
+VALIDATE_OFFSET(CEntryInfoNode, m_pNext, 0xC);
+VALIDATE_OFFSET(CEntryInfoNode, m_pPrev, 0x10);
 VALIDATE_SIZE(CEntryInfoNode, 0x14);

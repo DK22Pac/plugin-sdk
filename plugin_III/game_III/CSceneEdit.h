@@ -59,6 +59,7 @@ public:
     static bool SelectVehicle();
     static bool SelectWeapon();
 };
+VALIDATE_SIZE(CSceneEdit, 0x1);
 
 // PrevOrNextModelIndex: -1 (prev), 1 (next) 
 int NextValidModelId(int currentModelIndex, int PrevOrNextModelIndex);

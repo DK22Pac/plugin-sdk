@@ -27,5 +27,13 @@ public:
 
     CTaskComplexKillPedOnFoot(CPed *target, int time, int specFlags, int delay, int chance, char a7);
 };
-
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_nFlags, 0xC);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_pTarget, 0x10);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_nAttackFlags, 0x14);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_nActionDelay, 0x18);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_nActionChance, 0x1C);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, field_20, 0x20);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_nLaunchTime, 0x24);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_nTime, 0x28);
+VALIDATE_OFFSET(CTaskComplexKillPedOnFoot, m_taskTimer, 0x2C);
 VALIDATE_SIZE(CTaskComplexKillPedOnFoot, 0x38);

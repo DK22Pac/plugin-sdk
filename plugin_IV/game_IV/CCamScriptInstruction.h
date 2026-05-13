@@ -24,6 +24,8 @@ public:
 public:
     void SetInstruction(CCamScriptInstruction* instruction);
 };
+VALIDATE_OFFSET(CCamScriptInstruction, field_1, 0x4);
+VALIDATE_SIZE(CCamScriptInstruction, 0x8);
 
 class CCamScriptInstruction_SetCamBehindPed : public CCamScriptInstruction {
 public:
@@ -36,6 +38,8 @@ public:
 
     void Process() override;
 };
+VALIDATE_OFFSET(CCamScriptInstruction_SetCamBehindPed, m_pPed, 0x8);
+VALIDATE_SIZE(CCamScriptInstruction_SetCamBehindPed, 0xC);
 
 class CCamScriptInstruction_SetCamInFrontPed : public CCamScriptInstruction {
 public:
@@ -48,6 +52,8 @@ public:
 
     void Process() override;
 };
+VALIDATE_OFFSET(CCamScriptInstruction_SetCamInFrontPed, m_pPed, 0x8);
+VALIDATE_SIZE(CCamScriptInstruction_SetCamInFrontPed, 0xC);
 
 class CCamScriptInstruction_EnableDebugCam : public CCamScriptInstruction {
 public:
@@ -60,6 +66,8 @@ public:
 
     void Process() override;
 };
+VALIDATE_OFFSET(CCamScriptInstruction_EnableDebugCam, m_bEnabled, 0x8);
+VALIDATE_SIZE(CCamScriptInstruction_EnableDebugCam, 0xC);
 
 class CCamScriptInstruction_CamProcess : public CCamScriptInstruction {
 public:
@@ -72,6 +80,8 @@ public:
 
     void Process() override;
 };
+VALIDATE_OFFSET(CCamScriptInstruction_CamProcess, m_pCam, 0x8);
+VALIDATE_SIZE(CCamScriptInstruction_CamProcess, 0xC);
 
 class CCamScriptInstruction_DestroyAllCams : public CCamScriptInstruction {
 public:
@@ -82,6 +92,7 @@ public:
 public:
     void Process() override;
 };
+VALIDATE_SIZE(CCamScriptInstruction_DestroyAllCams, 0x8);
 
 class CCamScriptInstruction_SetPosTargetEntity : public CCamScriptInstruction {
 public:
@@ -97,5 +108,8 @@ public:
 public:
     void Process() override;
 };
+VALIDATE_OFFSET(CCamScriptInstruction_SetPosTargetEntity, m_nCamIndex, 0x8);
+VALIDATE_OFFSET(CCamScriptInstruction_SetPosTargetEntity, m_pPed, 0xC);
+VALIDATE_SIZE(CCamScriptInstruction_SetPosTargetEntity, 0x10);
 
 extern CCamScriptInstruction& CamScript;

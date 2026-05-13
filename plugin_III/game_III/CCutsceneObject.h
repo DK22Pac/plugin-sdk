@@ -55,6 +55,7 @@ public:
     // virtual function #17 (not overriden)
 
 };
+VALIDATE_SIZE(CCutsceneObject, 0x198);
 
 VTABLE_DESC(CCutsceneObject, 0x5F7C80, 18);
 VALIDATE_SIZE(CCutsceneObject, 0x198);

@@ -66,3 +66,4 @@ public:
     static void ChangeWeatherCheat();
     static void SpawnAnnihilator();
 };
+VALIDATE_SIZE(CCheat, 0x1);

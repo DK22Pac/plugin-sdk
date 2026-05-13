@@ -20,3 +20,4 @@ public:
     static bool Save();
 
 };
+VALIDATE_SIZE(CGarages, 0x1);

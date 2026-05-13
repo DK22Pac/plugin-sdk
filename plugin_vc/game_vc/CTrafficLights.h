@@ -18,5 +18,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ShouldCarStopForBridge();
     SUPPORTED_10EN_11EN_STEAM static void ShouldCarStopForLight(CVehicle *arg1, bool arg2);
 };
+VALIDATE_SIZE(CTrafficLights, 0x1);
 
 #include "meta/meta.CTrafficLights.h"

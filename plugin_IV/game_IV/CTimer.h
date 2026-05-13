@@ -36,3 +36,4 @@ public:
 public:
     static void SetTimeScale(float scale);
 };
+VALIDATE_SIZE(CTimer, 0x1);

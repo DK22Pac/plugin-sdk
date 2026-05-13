@@ -23,5 +23,11 @@ public:
 
     void Set(float startRadius, CVector const& start, CVector const& end, float endRadius, unsigned char material, unsigned char pieceType, unsigned char lighting);
 };
-
+VALIDATE_OFFSET(CColDisk, m_vecStart, 0x0);
+VALIDATE_OFFSET(CColDisk, m_fStartRadius, 0xC);
+VALIDATE_OFFSET(CColDisk, m_nMaterial, 0x10);
+VALIDATE_OFFSET(CColDisk, m_nPiece, 0x11);
+VALIDATE_OFFSET(CColDisk, m_nLighting, 0x12);
+VALIDATE_OFFSET(CColDisk, m_vecEnd, 0x14);
+VALIDATE_OFFSET(CColDisk, m_fEndRadius, 0x20);
 VALIDATE_SIZE(CColDisk, 0x24);

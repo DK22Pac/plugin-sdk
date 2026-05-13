@@ -19,5 +19,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Render();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CMotionBlurStreaks, 0x1);
 
 #include "meta/meta.CMotionBlurStreaks.h"

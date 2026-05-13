@@ -31,3 +31,4 @@ public:
     static float& Wind;
 
 };
+VALIDATE_SIZE(CWeather, 0x1);

@@ -18,4 +18,10 @@ namespace rage {
         int32_t field_C;
         Matrix44 field_10;
     };
+    VALIDATE_OFFSET(phInst, field_4, 0x4);
+    VALIDATE_OFFSET(phInst, field_8, 0x8);
+    VALIDATE_OFFSET(phInst, field_A, 0xA);
+    VALIDATE_OFFSET(phInst, field_C, 0xC);
+    VALIDATE_OFFSET(phInst, field_10, 0x10);
+    VALIDATE_SIZE(phInst, 0x50);
 }

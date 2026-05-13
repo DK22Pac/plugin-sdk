@@ -84,5 +84,20 @@ public:
 
     static unsigned char& nNoTempObjects;
 };
-
+VALIDATE_OFFSET(CObject, m_matDummyInitial, 0x120);
+VALIDATE_OFFSET(CObject, m_fAttachForce, 0x168);
+VALIDATE_OFFSET(CObject, m_nObjectType, 0x16C);
+VALIDATE_OFFSET(CObject, m_nObjectFlags, 0x16D);
+VALIDATE_OFFSET(CObject, m_nBonusValue, 0x16F);
+VALIDATE_OFFSET(CObject, m_wCostValue, 0x170);
+VALIDATE_OFFSET(CObject, m_fDamageMultiplier, 0x174);
+VALIDATE_OFFSET(CObject, m_CollisionDamageType, 0x178);
+VALIDATE_OFFSET(CObject, m_nSpecialCollisionType, 0x179);
+VALIDATE_OFFSET(CObject, m_bCameraAvoids, 0x17A);
+VALIDATE_OFFSET(CObject, m_nBounceScore, 0x17B);
+VALIDATE_OFFSET(CObject, m_dwObjectTimer, 0x180);
+VALIDATE_OFFSET(CObject, m_wRefModelId, 0x184);
+VALIDATE_OFFSET(CObject, m_pInitialSurface, 0x188);
+VALIDATE_OFFSET(CObject, m_pContactPhysical, 0x18C);
+VALIDATE_OFFSET(CObject, m_nCarColor, 0x190);
 VALIDATE_SIZE(CObject, 0x194);

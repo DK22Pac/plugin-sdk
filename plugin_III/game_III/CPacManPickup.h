@@ -25,7 +25,9 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
-
+VALIDATE_OFFSET(CPacManPickup, m_vecPos, 0x0);
+VALIDATE_OFFSET(CPacManPickup, m_pObject, 0xC);
+VALIDATE_OFFSET(CPacManPickup, m_nType, 0x10);
 VALIDATE_SIZE(CPacManPickup, 0x14);
 
 #include "meta/meta.CPacManPickup.h"

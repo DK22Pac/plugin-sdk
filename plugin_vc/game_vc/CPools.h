@@ -54,5 +54,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SaveVehiclePool(unsigned char *buffer, unsigned int *outSize);
     SUPPORTED_10EN_11EN_STEAM static void ShutDown();
 };
+VALIDATE_SIZE(CPools, 0x1);
 
 #include "meta/meta.CPools.h"

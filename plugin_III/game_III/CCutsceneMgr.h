@@ -44,5 +44,6 @@ public:
     static void Shutdown();
     static void Update();
 };
+VALIDATE_SIZE(CCutsceneMgr, 0x1);
 
 int FindCutsceneAudioTrackId(char const* cutsceneName);

@@ -11,3 +11,4 @@ class CObject {
 public:
 
 };
+VALIDATE_SIZE(CObject, 0x1);

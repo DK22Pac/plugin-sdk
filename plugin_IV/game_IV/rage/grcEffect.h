@@ -16,4 +16,6 @@ namespace rage {
     public:
         uint8_t field_1[1080];
     };
+    VALIDATE_OFFSET(grcEffect, field_1, 0x0);
+    VALIDATE_SIZE(grcEffect, 0x438);
 }

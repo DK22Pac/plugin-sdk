@@ -12,5 +12,6 @@ class audAmbientAudioEntity : public audGtaAudioEntity {
 public:
 
 };
+VALIDATE_SIZE(audAmbientAudioEntity, 0x54);
 
 extern audAmbientAudioEntity& g_AmbientAudioEntity;

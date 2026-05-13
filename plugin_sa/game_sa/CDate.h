@@ -25,7 +25,12 @@ public:
 
     SUPPORTED_10US void PopulateDateFields(char const &seconds, char const &minutes, char const &hours, char const &day, char const &month, short year);
 };
-
+VALIDATE_OFFSET(CDate, seconds, 0x0);
+VALIDATE_OFFSET(CDate, minutes, 0x4);
+VALIDATE_OFFSET(CDate, hours, 0x8);
+VALIDATE_OFFSET(CDate, day, 0xC);
+VALIDATE_OFFSET(CDate, month, 0x10);
+VALIDATE_OFFSET(CDate, year, 0x14);
 VALIDATE_SIZE(CDate, 0x18);
 
 #include "meta/meta.CDate.h"

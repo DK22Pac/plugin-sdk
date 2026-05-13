@@ -26,6 +26,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StirUp(CVehicle *pVehicle);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CRubbish, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern int *gpRubbishTexture; // int gpRubbishTexture[4]
 

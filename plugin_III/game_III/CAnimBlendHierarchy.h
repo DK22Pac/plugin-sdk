@@ -30,7 +30,12 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Shutdown();
     SUPPORTED_10EN_11EN_STEAM void Uncompress();
 };
-
+VALIDATE_OFFSET(CAnimBlendHierarchy, szName, 0x0);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_pAnimBlendSequence, 0x18);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_nNumSequences, 0x1C);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_nCompressed, 0x1E);
+VALIDATE_OFFSET(CAnimBlendHierarchy, m_fTotalLength, 0x20);
+VALIDATE_OFFSET(CAnimBlendHierarchy, linkPtr, 0x24);
 VALIDATE_SIZE(CAnimBlendHierarchy, 0x28);
 
 #include "meta/meta.CAnimBlendHierarchy.h"

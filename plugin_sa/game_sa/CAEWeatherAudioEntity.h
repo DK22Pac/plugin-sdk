@@ -17,5 +17,5 @@ public:
 
 
 };
-
+VALIDATE_OFFSET(CAEWeatherAudioEntity, m_nThunderFrequencyVariationCounter, 0x7C);
 VALIDATE_SIZE(CAEWeatherAudioEntity, 0x80);

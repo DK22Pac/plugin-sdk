@@ -23,5 +23,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Init();
     SUPPORTED_10EN_11EN_STEAM static void RenderFogEffect();
 };
+VALIDATE_SIZE(CPointLights, 0x1);
 
 #include "meta/meta.CPointLights.h"

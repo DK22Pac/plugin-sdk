@@ -29,5 +29,8 @@ public:
     ~CAnimBlendSequence();
 
 };
-
+VALIDATE_OFFSET(CAnimBlendSequence, m_nHash, 0x0);
+VALIDATE_OFFSET(CAnimBlendSequence, m_nFlags, 0x4);
+VALIDATE_OFFSET(CAnimBlendSequence, m_nFrameCount, 0x6);
+VALIDATE_OFFSET(CAnimBlendSequence, m_pFrames, 0x8);
 VALIDATE_SIZE(CAnimBlendSequence, 0xC);

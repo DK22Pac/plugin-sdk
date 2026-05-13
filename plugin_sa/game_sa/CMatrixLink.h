@@ -22,7 +22,9 @@ public:
     SUPPORTED_10US void Insert(CMatrixLink *where);
     SUPPORTED_10US void Remove();
 };
-
+VALIDATE_OFFSET(CMatrixLink, m_pOwner, 0x48);
+VALIDATE_OFFSET(CMatrixLink, m_pPrev, 0x4C);
+VALIDATE_OFFSET(CMatrixLink, m_pNext, 0x50);
 VALIDATE_SIZE(CMatrixLink, 0x54);
 
 #include "meta/meta.CMatrixLink.h"

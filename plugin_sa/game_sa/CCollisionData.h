@@ -53,5 +53,20 @@ public:
     void SetLinkPtr(CLink<CCollisionData*> *link);
     CLink<CCollisionData*> *GetLinkPtr();
 };
-
+VALIDATE_OFFSET(CCollisionData, m_nNumSpheres, 0x0);
+VALIDATE_OFFSET(CCollisionData, m_nNumBoxes, 0x2);
+VALIDATE_OFFSET(CCollisionData, m_nNumTriangles, 0x4);
+VALIDATE_OFFSET(CCollisionData, m_nNumLines, 0x6);
+VALIDATE_OFFSET(CCollisionData, m_nFlags, 0x7);
+VALIDATE_OFFSET(CCollisionData, m_pSpheres, 0x8);
+VALIDATE_OFFSET(CCollisionData, m_pBoxes, 0xC);
+VALIDATE_OFFSET(CCollisionData, m_pLines, 0x10);
+VALIDATE_OFFSET(CCollisionData, m_pDisks, 0x10);
+VALIDATE_OFFSET(CCollisionData, m_pVertices, 0x14);
+VALIDATE_OFFSET(CCollisionData, m_pTriangles, 0x18);
+VALIDATE_OFFSET(CCollisionData, m_pTrianglePlanes, 0x1C);
+VALIDATE_OFFSET(CCollisionData, m_nNumShadowTriangles, 0x20);
+VALIDATE_OFFSET(CCollisionData, m_nNumShadowVertices, 0x24);
+VALIDATE_OFFSET(CCollisionData, m_pShadowVertices, 0x28);
+VALIDATE_OFFSET(CCollisionData, m_pShadowTriangles, 0x2C);
 VALIDATE_SIZE(CCollisionData, 0x30);

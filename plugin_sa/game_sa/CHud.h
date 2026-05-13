@@ -127,6 +127,7 @@ public:
     static void RenderBreathBar(int playerId, int x, int y);
     static void RenderHealthBar(int playerId, int x, int y);
 };
+VALIDATE_SIZE(CHud, 0x1);
 
 extern short &TimerMainCounterHideState;
 extern bool &TimerMainCounterWasDisplayed;

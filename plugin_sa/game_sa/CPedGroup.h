@@ -37,7 +37,11 @@ public:
     SUPPORTED_10US void RemoveAllFollowers();
     SUPPORTED_10US void Teleport(CVector const *Pos);
 };
-
+VALIDATE_OFFSET(CPedGroup, field_0, 0x0);
+VALIDATE_OFFSET(CPedGroup, m_bMembersEnterLeadersVehicle, 0x4);
+VALIDATE_OFFSET(CPedGroup, m_groupMembership, 0x8);
+VALIDATE_OFFSET(CPedGroup, m_fSeparationRange, 0x30);
+VALIDATE_OFFSET(CPedGroup, m_groupIntelligence, 0x34);
 VALIDATE_SIZE(CPedGroup, 0x2D4);
 
 #include "meta/meta.CPedGroup.h"

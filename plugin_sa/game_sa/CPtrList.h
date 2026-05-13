@@ -50,5 +50,4 @@ public:
     */
 
 };
-
-VALIDATE_SIZE(CPtrList, 4);
+VALIDATE_SIZE(CPtrList, 0x4);

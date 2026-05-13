@@ -44,5 +44,12 @@ public:
     static void GetRidOfPlayerProstitute();
     static bool IsTaskValid(CPed* pProstitute, CPed* pClient);
 };
-
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_pClient, 0xC);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_vecVehiclePosn, 0x10);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_nLastSavedTime, 0x1C);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_nNextTimeToCheckForSecludedPlace, 0x20);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_nLastPaymentTime, 0x24);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_nVehicleMovementTimer, 0x28);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_nCurrentTimer, 0x2A);
+VALIDATE_OFFSET(CTaskComplexProstituteSolicit, m_nFlags, 0x2C);
 VALIDATE_SIZE(CTaskComplexProstituteSolicit, 0x30);

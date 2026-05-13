@@ -139,6 +139,32 @@ public:
         return m_pWanted;
     }
 };
+VALIDATE_OFFSET(CPlayerPed, m_pWanted, 0x53C);
+VALIDATE_OFFSET(CPlayerPed, m_pArrestingCop, 0x540);
+VALIDATE_OFFSET(CPlayerPed, m_fMoveSpeed, 0x544);
+VALIDATE_OFFSET(CPlayerPed, m_fCurrentStamina, 0x548);
+VALIDATE_OFFSET(CPlayerPed, m_fMaxStamina, 0x54C);
+VALIDATE_OFFSET(CPlayerPed, m_fStaminaProgress, 0x550);
+VALIDATE_OFFSET(CPlayerPed, m_nSelectedWepSlot, 0x554);
+VALIDATE_OFFSET(CPlayerPed, m_bSpeedTimerFlag, 0x555);
+VALIDATE_OFFSET(CPlayerPed, m_nEvadeAmount, 0x556);
+VALIDATE_OFFSET(CPlayerPed, field_557, 0x557);
+VALIDATE_OFFSET(CPlayerPed, m_nSpeedTimer, 0x558);
+VALIDATE_OFFSET(CPlayerPed, m_nHitAnimDelayTimer, 0x55C);
+VALIDATE_OFFSET(CPlayerPed, m_fAttackButtonCounter, 0x560);
+VALIDATE_OFFSET(CPlayerPed, m_bHaveTargetSelected, 0x564);
+VALIDATE_OFFSET(CPlayerPed, m_pEvadingFrom, 0x568);
+VALIDATE_OFFSET(CPlayerPed, m_nTargettableObjects, 0x56C);
+VALIDATE_OFFSET(CPlayerPed, m_bAdrenalineActive, 0x57C);
+VALIDATE_OFFSET(CPlayerPed, m_bHasLockOnTarget, 0x57D);
+VALIDATE_OFFSET(CPlayerPed, m_nAdrenalineTime, 0x580);
+VALIDATE_OFFSET(CPlayerPed, m_bCanBeDamaged, 0x584);
+VALIDATE_OFFSET(CPlayerPed, field_585, 0x585);
+VALIDATE_OFFSET(CPlayerPed, m_vecSafePos, 0x588);
+VALIDATE_OFFSET(CPlayerPed, m_pPedAtSafePos, 0x5D0);
+VALIDATE_OFFSET(CPlayerPed, m_fWalkAngle, 0x5E8);
+VALIDATE_OFFSET(CPlayerPed, m_fFPSMoveHeading, 0x5EC);
+VALIDATE_SIZE(CPlayerPed, 0x5F0);
 
 VTABLE_DESC(CPlayerPed, 0x5FA500, 19);
 VALIDATE_SIZE(CPlayerPed, 0x5F0);

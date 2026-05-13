@@ -12,5 +12,4 @@ class CPlayerPed : public CPed {
 public:
 
 };
-
 VALIDATE_SIZE(CPlayerPed, 0xF00);

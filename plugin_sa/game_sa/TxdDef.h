@@ -16,5 +16,8 @@ public:
 	short m_wParentIndex;
 	unsigned int m_hash;
 };
-
+VALIDATE_OFFSET(TxdDef, m_pRwDictionary, 0x0);
+VALIDATE_OFFSET(TxdDef, m_wRefsCount, 0x4);
+VALIDATE_OFFSET(TxdDef, m_wParentIndex, 0x6);
+VALIDATE_OFFSET(TxdDef, m_hash, 0x8);
 VALIDATE_SIZE(TxdDef, 0xC);

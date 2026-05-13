@@ -12,4 +12,6 @@ namespace rage {
     public:
         uint32_t* ptr;
     };
+    VALIDATE_OFFSET(sysUseAllocator, ptr, 0x0);
+    VALIDATE_SIZE(sysUseAllocator, 0x4);
 }

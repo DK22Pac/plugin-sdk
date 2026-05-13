@@ -23,7 +23,15 @@ public:
 
     void operator=(CColPoint const &right);
 };
-
+VALIDATE_OFFSET(CColPoint, m_vecPoint, 0x0);
+VALIDATE_OFFSET(CColPoint, m_fPointOffsetZ, 0xC);
+VALIDATE_OFFSET(CColPoint, m_vecNormal, 0x10);
+VALIDATE_OFFSET(CColPoint, m_fNormalOffsetZ, 0x1C);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeA, 0x20);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeA, 0x21);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeB, 0x22);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeB, 0x23);
+VALIDATE_OFFSET(CColPoint, m_fCollisionRadius, 0x24);
 VALIDATE_SIZE(CColPoint, 0x28);
 
 #include "meta/meta.CColPoint.h"

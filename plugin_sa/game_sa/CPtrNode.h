@@ -1,8 +1,8 @@
 /*
-	Plugin-SDK (Grand Theft Auto San Andreas) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -14,5 +14,6 @@ public:
 
 	inline CPtrNode(void* item) : m_pVoid(item) {}
 };
-
-VALIDATE_SIZE(CPtrNode, 8);
+VALIDATE_OFFSET(CPtrNode, m_pVoid, 0x0);
+VALIDATE_OFFSET(CPtrNode, m_pNext, 0x4);
+VALIDATE_SIZE(CPtrNode, 0x8);

@@ -1,8 +1,8 @@
 /*
-	Plugin-SDK (Grand Theft Auto 3) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -87,11 +87,16 @@ public:
 	unsigned int keyCode;
 	unsigned int priority;
 };
+VALIDATE_OFFSET(CControllerKey, keyCode, 0x0);
+VALIDATE_OFFSET(CControllerKey, priority, 0x4);
+VALIDATE_SIZE(CControllerKey, 0x8);
 
 class CControllerAction {
 public:
 	CControllerKey keys[4];
 };
+VALIDATE_OFFSET(CControllerAction, keys, 0x0);
+VALIDATE_SIZE(CControllerAction, 0x20);
 
 class CControllerConfigManager {
 public:
@@ -155,7 +160,14 @@ public:
 	void SetMouseButtonAssociatedWithAction(e_ControllerAction action, int32_t button);
 	void ResetSettingOrder(e_ControllerAction action);
 };
-
+VALIDATE_OFFSET(CControllerConfigManager, m_bFirstCapture, 0x0);
+VALIDATE_OFFSET(CControllerConfigManager, m_OldState, 0x4);
+VALIDATE_OFFSET(CControllerConfigManager, m_NewState, 0x114);
+VALIDATE_OFFSET(CControllerConfigManager, m_aActionNames, 0x224);
+VALIDATE_OFFSET(CControllerConfigManager, m_aButtonStates, 0xEF4);
+VALIDATE_OFFSET(CControllerConfigManager, m_actions, 0xF08);
+VALIDATE_OFFSET(CControllerConfigManager, m_aSimCheckers, 0x1428);
+VALIDATE_OFFSET(CControllerConfigManager, m_bMouseAssociated, 0x1438);
 VALIDATE_SIZE(CControllerConfigManager, 0x143C);
 
 extern CControllerConfigManager& ControlsManager;

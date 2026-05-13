@@ -16,5 +16,7 @@ public:
     CEventScannerNY field_330;
     int field_45C;
 };
-
+VALIDATE_OFFSET(CPedIntelligenceNY, m_eventHandler, 0x2F0);
+VALIDATE_OFFSET(CPedIntelligenceNY, field_330, 0x330);
+VALIDATE_OFFSET(CPedIntelligenceNY, field_45C, 0x45C);
 VALIDATE_SIZE(CPedIntelligenceNY, 0x460);

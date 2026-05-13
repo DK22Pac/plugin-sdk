@@ -31,6 +31,14 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool TestForSniperBullet(float x1, float x2, float y1, float y2, float z1, float z2);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_OFFSET(CBulletInfo, m_nWeaponType, 0x0);
+VALIDATE_OFFSET(CBulletInfo, m_pSource, 0x4);
+VALIDATE_OFFSET(CBulletInfo, m_fTimer, 0x8);
+VALIDATE_OFFSET(CBulletInfo, m_bExist, 0xC);
+VALIDATE_OFFSET(CBulletInfo, m_vecPosition, 0x10);
+VALIDATE_OFFSET(CBulletInfo, m_vecSpeed, 0x1C);
+VALIDATE_OFFSET(CBulletInfo, m_nDamage, 0x28);
+VALIDATE_SIZE(CBulletInfo, 0x2C);
 
 SUPPORTED_10EN_11EN_STEAM extern CVector &PlayerSniperBulletStart;
 SUPPORTED_10EN_11EN_STEAM extern CVector &PlayerSniperBulletEnd;

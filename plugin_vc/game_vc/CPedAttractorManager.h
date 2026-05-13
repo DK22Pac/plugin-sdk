@@ -40,6 +40,14 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool IsApproachable(C2dEffect *effect, CMatrix const &matrix, int unk, CPed *ped);
     SUPPORTED_10EN_11EN_STEAM static CPedAttractor *RegisterPed(CPed *ped, C2dEffect *effect, CMatrix const &matrix, std::vector<CPedAttractor *> &vecAttractors);
 };
+VALIDATE_OFFSET(CPedAttractorManager, vAtmAttractors, 0x0);
+VALIDATE_OFFSET(CPedAttractorManager, vSeatAttractors, 0xC);
+VALIDATE_OFFSET(CPedAttractorManager, vStopAttractors, 0x18);
+VALIDATE_OFFSET(CPedAttractorManager, vPizzaAttractors, 0x24);
+VALIDATE_OFFSET(CPedAttractorManager, vShelterAttractors, 0x30);
+VALIDATE_OFFSET(CPedAttractorManager, vIceCreamAttractors, 0x3C);
+VALIDATE_OFFSET(CPedAttractorManager, vVehicleToEffect, 0x48);
+VALIDATE_SIZE(CPedAttractorManager, 0x54);
 
 SUPPORTED_10EN_11EN_STEAM extern CPedAttractorManager *&pedAttrMgr;
 

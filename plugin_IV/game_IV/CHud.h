@@ -63,3 +63,4 @@ public:
 public:
 
 };
+VALIDATE_SIZE(CHud, 0x1);

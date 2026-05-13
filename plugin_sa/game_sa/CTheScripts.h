@@ -43,12 +43,19 @@ struct tBuildingSwap
     int m_nOldModelIndex;
     int m_nNewModelIndex;
 };
+VALIDATE_OFFSET(tBuildingSwap, m_pCBuilding, 0x0);
+VALIDATE_OFFSET(tBuildingSwap, m_nOldModelIndex, 0x4);
+VALIDATE_OFFSET(tBuildingSwap, m_nNewModelIndex, 0x8);
+VALIDATE_SIZE(tBuildingSwap, 0xC);
 
 struct tScriptSwitchCase
 {
     int m_nSwitchValue;
     int m_nSwitchLabelAddress;
 };
+VALIDATE_OFFSET(tScriptSwitchCase, m_nSwitchValue, 0x0);
+VALIDATE_OFFSET(tScriptSwitchCase, m_nSwitchLabelAddress, 0x4);
+VALIDATE_SIZE(tScriptSwitchCase, 0x8);
 
 struct tScriptCheckpoint
 {
@@ -57,18 +64,30 @@ struct tScriptCheckpoint
     short wUniqueID;
     void *field_4;
 };
+VALIDATE_OFFSET(tScriptCheckpoint, bUsed, 0x0);
+VALIDATE_OFFSET(tScriptCheckpoint, field_1, 0x1);
+VALIDATE_OFFSET(tScriptCheckpoint, wUniqueID, 0x2);
+VALIDATE_OFFSET(tScriptCheckpoint, field_4, 0x4);
+VALIDATE_SIZE(tScriptCheckpoint, 0x8);
 struct tScriptEffectSystem
 {
     char bUsed;
     short wUniqueID;
     void *m_pFxSystem;
 };
+VALIDATE_OFFSET(tScriptEffectSystem, bUsed, 0x0);
+VALIDATE_OFFSET(tScriptEffectSystem, wUniqueID, 0x2);
+VALIDATE_OFFSET(tScriptEffectSystem, m_pFxSystem, 0x4);
+VALIDATE_SIZE(tScriptEffectSystem, 0x8);
 
 struct tScriptSequence
 {
     char bUsed;
     short wUniqueID;
 };
+VALIDATE_OFFSET(tScriptSequence, bUsed, 0x0);
+VALIDATE_OFFSET(tScriptSequence, wUniqueID, 0x2);
+VALIDATE_SIZE(tScriptSequence, 0x4);
 
 #pragma pack(push,1)
 struct tScriptText
@@ -100,8 +119,33 @@ struct tScriptText
     int param1 = -1;
     int param2 = -1;
 };
-#pragma pack(pop)
+VALIDATE_OFFSET(tScriptText, letterWidth, 0x0);
+VALIDATE_OFFSET(tScriptText, letterHeight, 0x4);
+VALIDATE_OFFSET(tScriptText, color, 0x8);
+VALIDATE_OFFSET(tScriptText, justify, 0xC);
+VALIDATE_OFFSET(tScriptText, centered, 0xD);
+VALIDATE_OFFSET(tScriptText, withBackground, 0xE);
+VALIDATE_OFFSET(tScriptText, _pad, 0xF);
+VALIDATE_OFFSET(tScriptText, wrapWidth, 0x10);
+VALIDATE_OFFSET(tScriptText, centerWidth, 0x14);
+VALIDATE_OFFSET(tScriptText, backgroundBoxColor, 0x18);
+VALIDATE_OFFSET(tScriptText, proportional, 0x1C);
+VALIDATE_OFFSET(tScriptText, backgroundColor, 0x1D);
+VALIDATE_OFFSET(tScriptText, shadowType, 0x21);
+VALIDATE_OFFSET(tScriptText, outlineType, 0x22);
+VALIDATE_OFFSET(tScriptText, drawBeforeFade, 0x23);
+VALIDATE_OFFSET(tScriptText, rightJustify, 0x24);
+VALIDATE_OFFSET(tScriptText, _pad_25, 0x25);
+VALIDATE_OFFSET(tScriptText, _pad_26, 0x26);
+VALIDATE_OFFSET(tScriptText, _pad_27, 0x27);
+VALIDATE_OFFSET(tScriptText, font, 0x28);
+VALIDATE_OFFSET(tScriptText, xPosition, 0x2C);
+VALIDATE_OFFSET(tScriptText, yPosition, 0x30);
+VALIDATE_OFFSET(tScriptText, text, 0x34);
+VALIDATE_OFFSET(tScriptText, param1, 0x3C);
+VALIDATE_OFFSET(tScriptText, param2, 0x40);
 VALIDATE_SIZE(tScriptText, 0x44);
+#pragma pack(pop)
 
 #pragma pack(push,1)
 struct tScriptRectangle
@@ -126,14 +170,36 @@ struct tScriptRectangle
     char _pad_38 = 0;
     int textboxStyle = 3;
 };
-#pragma pack(pop)
+VALIDATE_OFFSET(tScriptRectangle, type, 0x0);
+VALIDATE_OFFSET(tScriptRectangle, drawBeforeFade, 0x4);
+VALIDATE_OFFSET(tScriptRectangle, _pad_5, 0x5);
+VALIDATE_OFFSET(tScriptRectangle, spriteIdx, 0x6);
+VALIDATE_OFFSET(tScriptRectangle, rect, 0x8);
+VALIDATE_OFFSET(tScriptRectangle, angle, 0x18);
+VALIDATE_OFFSET(tScriptRectangle, color, 0x1C);
+VALIDATE_OFFSET(tScriptRectangle, title, 0x20);
+VALIDATE_OFFSET(tScriptRectangle, _pad_28, 0x28);
+VALIDATE_OFFSET(tScriptRectangle, _pad_29, 0x29);
+VALIDATE_OFFSET(tScriptRectangle, message, 0x2A);
+VALIDATE_OFFSET(tScriptRectangle, _pad_32, 0x32);
+VALIDATE_OFFSET(tScriptRectangle, _pad_33, 0x33);
+VALIDATE_OFFSET(tScriptRectangle, alignment, 0x34);
+VALIDATE_OFFSET(tScriptRectangle, _pad_36, 0x35);
+VALIDATE_OFFSET(tScriptRectangle, _pad_37, 0x36);
+VALIDATE_OFFSET(tScriptRectangle, _pad_38, 0x37);
+VALIDATE_OFFSET(tScriptRectangle, textboxStyle, 0x38);
 VALIDATE_SIZE(tScriptRectangle, 0x3C);
+#pragma pack(pop)
+
 
 struct tScriptAttachedAnimGroup
 {
     int m_nModelID;
     char m_IfpName[16];
 };
+VALIDATE_OFFSET(tScriptAttachedAnimGroup, m_nModelID, 0x0);
+VALIDATE_OFFSET(tScriptAttachedAnimGroup, m_IfpName, 0x4);
+VALIDATE_SIZE(tScriptAttachedAnimGroup, 0x14);
 
 struct tScriptSearchlight
 {
@@ -159,12 +225,37 @@ struct tScriptSearchlight
     RwV3d field_64;
     RwV3d field_70;
 };
+VALIDATE_OFFSET(tScriptSearchlight, bUsed, 0x0);
+VALIDATE_OFFSET(tScriptSearchlight, field_1, 0x1);
+VALIDATE_OFFSET(tScriptSearchlight, bEnableShadow, 0x2);
+VALIDATE_OFFSET(tScriptSearchlight, field_3, 0x3);
+VALIDATE_OFFSET(tScriptSearchlight, wUniqueID, 0x4);
+VALIDATE_OFFSET(tScriptSearchlight, field_6, 0x6);
+VALIDATE_OFFSET(tScriptSearchlight, position, 0x8);
+VALIDATE_OFFSET(tScriptSearchlight, target, 0x14);
+VALIDATE_OFFSET(tScriptSearchlight, targetRadius, 0x20);
+VALIDATE_OFFSET(tScriptSearchlight, baseRadius, 0x24);
+VALIDATE_OFFSET(tScriptSearchlight, pathCoord1, 0x28);
+VALIDATE_OFFSET(tScriptSearchlight, pathCoord2, 0x34);
+VALIDATE_OFFSET(tScriptSearchlight, pathSpeed, 0x40);
+VALIDATE_OFFSET(tScriptSearchlight, attachedEntity, 0x44);
+VALIDATE_OFFSET(tScriptSearchlight, followingEntity, 0x48);
+VALIDATE_OFFSET(tScriptSearchlight, tower, 0x4C);
+VALIDATE_OFFSET(tScriptSearchlight, housing, 0x50);
+VALIDATE_OFFSET(tScriptSearchlight, bulb, 0x54);
+VALIDATE_OFFSET(tScriptSearchlight, targetSpot, 0x58);
+VALIDATE_OFFSET(tScriptSearchlight, field_64, 0x64);
+VALIDATE_OFFSET(tScriptSearchlight, field_70, 0x70);
+VALIDATE_SIZE(tScriptSearchlight, 0x7C);
 
 struct tUsedObject
 {
     char szModelName[24];
     int dwModelIndex;
 };
+VALIDATE_OFFSET(tUsedObject, szModelName, 0x0);
+VALIDATE_OFFSET(tUsedObject, dwModelIndex, 0x18);
+VALIDATE_SIZE(tUsedObject, 0x1C);
 
 struct tScriptSphere
 {
@@ -175,6 +266,13 @@ struct tScriptSphere
     RwV3d vCoords;
     int fRadius;
 };
+VALIDATE_OFFSET(tScriptSphere, bUsed, 0x0);
+VALIDATE_OFFSET(tScriptSphere, field_1, 0x1);
+VALIDATE_OFFSET(tScriptSphere, wUniqueID, 0x2);
+VALIDATE_OFFSET(tScriptSphere, field_4, 0x4);
+VALIDATE_OFFSET(tScriptSphere, vCoords, 0x8);
+VALIDATE_OFFSET(tScriptSphere, fRadius, 0x14);
+VALIDATE_SIZE(tScriptSphere, 0x18);
 
 
 
@@ -344,6 +442,7 @@ public:
     SUPPORTED_10US static void UseSwitchJumpTable(int *pSwitchLabelAddress);
     SUPPORTED_10US static void WipeLocalVariableMemoryForMissionScript();
 };
+VALIDATE_SIZE(CTheScripts, 0x1);
 
 #include "meta/meta.CTheScripts.h"
 

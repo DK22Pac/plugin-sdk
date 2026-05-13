@@ -31,7 +31,19 @@ public:
     SUPPORTED_10EN_11EN_STEAM void ProcessFire();
     SUPPORTED_10EN_11EN_STEAM void ReportThisFire();
 };
-
+VALIDATE_OFFSET(CFire, m_bIsOngoing, 0x0);
+VALIDATE_OFFSET(CFire, m_bIsScriptFire, 0x1);
+VALIDATE_OFFSET(CFire, m_bPropagationFlag, 0x2);
+VALIDATE_OFFSET(CFire, m_bAudioSet, 0x3);
+VALIDATE_OFFSET(CFire, m_vecPosition, 0x4);
+VALIDATE_OFFSET(CFire, m_pEntity, 0x10);
+VALIDATE_OFFSET(CFire, m_pSource, 0x14);
+VALIDATE_OFFSET(CFire, m_nExtinguishTime, 0x18);
+VALIDATE_OFFSET(CFire, m_nStartTime, 0x1C);
+VALIDATE_OFFSET(CFire, m_nPeriodTimer, 0x20);
+VALIDATE_OFFSET(CFire, m_nNextTimeToAddFlames, 0x24);
+VALIDATE_OFFSET(CFire, m_nFiremenPuttingOut, 0x28);
+VALIDATE_OFFSET(CFire, m_fStrength, 0x2C);
 VALIDATE_SIZE(CFire, 0x30);
 
 #include "meta/meta.CFire.h"

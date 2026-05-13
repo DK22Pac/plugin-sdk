@@ -1,11 +1,10 @@
 /*
-    Plugin-SDK (Grand Theft Auto San Andreas) source file
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "CVector.h"
 
 class CPed;
@@ -33,4 +32,7 @@ public:
 
     auto GetState() const { return m_state; }
 };
+VALIDATE_OFFSET(CPedStuckChecker, m_lastNonStuckPoint, 0x0);
+VALIDATE_OFFSET(CPedStuckChecker, m_radius, 0xC);
+VALIDATE_OFFSET(CPedStuckChecker, m_state, 0xE);
 VALIDATE_SIZE(CPedStuckChecker, 0x10);

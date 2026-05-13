@@ -15,5 +15,7 @@ public:
     bool         m_bIsActual;
     unsigned int m_nLighting;
 };
-
+VALIDATE_OFFSET(CStoredCollPoly, m_aMeshVertices, 0x0);
+VALIDATE_OFFSET(CStoredCollPoly, m_bIsActual, 0x24);
+VALIDATE_OFFSET(CStoredCollPoly, m_nLighting, 0x28);
 VALIDATE_SIZE(CStoredCollPoly, 0x2C);

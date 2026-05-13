@@ -23,5 +23,10 @@ public:
         m_fCornerB_x = m_fCornerB_y = m_fCornerB_z = -999999.0f;
     }
 };
-
+VALIDATE_OFFSET(FxBox_c, m_fCornerA_x, 0x0);
+VALIDATE_OFFSET(FxBox_c, m_fCornerB_x, 0x4);
+VALIDATE_OFFSET(FxBox_c, m_fCornerA_y, 0x8);
+VALIDATE_OFFSET(FxBox_c, m_fCornerB_y, 0xC);
+VALIDATE_OFFSET(FxBox_c, m_fCornerA_z, 0x10);
+VALIDATE_OFFSET(FxBox_c, m_fCornerB_z, 0x14);
 VALIDATE_SIZE(FxBox_c, 0x18);

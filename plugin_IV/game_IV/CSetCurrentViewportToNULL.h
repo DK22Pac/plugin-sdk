@@ -12,3 +12,4 @@ class CSetCurrentViewportToNULL : public CBaseDC {
 public:
 
 };
+VALIDATE_SIZE(CSetCurrentViewportToNULL, 0x8);

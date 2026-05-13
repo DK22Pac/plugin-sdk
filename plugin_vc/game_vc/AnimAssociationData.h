@@ -27,5 +27,16 @@ public:
     short m_nAnimId;
     unsigned short m_nFlags;
 };
-
+VALIDATE_OFFSET(AnimAssociationData, m_link, 0x0);
+VALIDATE_OFFSET(AnimAssociationData, m_nNumBlendNodes, 0x8);
+VALIDATE_OFFSET(AnimAssociationData, m_nAnimGroup, 0xA);
+VALIDATE_OFFSET(AnimAssociationData, m_pNodeArray, 0xC);
+VALIDATE_OFFSET(AnimAssociationData, m_pHierarchy, 0x10);
+VALIDATE_OFFSET(AnimAssociationData, m_fBlendAmount, 0x14);
+VALIDATE_OFFSET(AnimAssociationData, m_fBlendDelta, 0x18);
+VALIDATE_OFFSET(AnimAssociationData, m_fCurrentTime, 0x1C);
+VALIDATE_OFFSET(AnimAssociationData, m_fSpeed, 0x20);
+VALIDATE_OFFSET(AnimAssociationData, fTimeStep, 0x24);
+VALIDATE_OFFSET(AnimAssociationData, m_nAnimId, 0x28);
+VALIDATE_OFFSET(AnimAssociationData, m_nFlags, 0x2A);
 VALIDATE_SIZE(AnimAssociationData, 0x2C);

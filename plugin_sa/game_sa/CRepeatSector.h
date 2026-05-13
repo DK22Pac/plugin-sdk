@@ -18,5 +18,5 @@ class PLUGIN_API CRepeatSector {
 public:
     CPtrListDoubleLink m_lists[3];
 };
-
+VALIDATE_OFFSET(CRepeatSector, m_lists, 0x0);
 VALIDATE_SIZE(CRepeatSector, 0xC);

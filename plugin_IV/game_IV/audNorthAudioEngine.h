@@ -12,3 +12,4 @@ class audNorthAudioEngine {
 public:
 
 };
+VALIDATE_SIZE(audNorthAudioEngine, 0x1);

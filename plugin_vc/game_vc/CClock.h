@@ -44,5 +44,6 @@ public:
     //! Updates a time. Called each frame from CGame::Process
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CClock, 0x1);
 
 #include "meta/meta.CClock.h"

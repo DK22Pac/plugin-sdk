@@ -68,6 +68,9 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM bool GetIsATreadable();
 };
+VALIDATE_OFFSET(CTreadable, m_aNodeIndicesCarNodes, 0x64);
+VALIDATE_OFFSET(CTreadable, m_aNodeIndicesPedNodes, 0x7C);
+VALIDATE_SIZE(CTreadable, 0x94);
 
 VTABLE_DESC(CTreadable, 0x5EBFB4, 18);
 VALIDATE_SIZE(CTreadable, 0x94);

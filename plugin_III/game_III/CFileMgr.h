@@ -28,5 +28,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SetDirMyDocuments();
     SUPPORTED_10EN_11EN_STEAM static int Write(FILESTREAM fileHandle, char *buf, int size);
 };
+VALIDATE_SIZE(CFileMgr, 0x1);
 
 #include "meta/meta.CFileMgr.h"

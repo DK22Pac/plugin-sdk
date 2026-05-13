@@ -19,5 +19,11 @@ public:
  	int animationCount;
  	int animationStyle;
 };
-
-VALIDATE_SIZE(CAnimBlock,0x20);
+VALIDATE_OFFSET(CAnimBlock, szName, 0x0);
+VALIDATE_OFFSET(CAnimBlock, bLoaded, 0x10);
+VALIDATE_OFFSET(CAnimBlock, pad, 0x11);
+VALIDATE_OFFSET(CAnimBlock, usRefs, 0x12);
+VALIDATE_OFFSET(CAnimBlock, startAnimation, 0x14);
+VALIDATE_OFFSET(CAnimBlock, animationCount, 0x18);
+VALIDATE_OFFSET(CAnimBlock, animationStyle, 0x1C);
+VALIDATE_SIZE(CAnimBlock, 0x20);

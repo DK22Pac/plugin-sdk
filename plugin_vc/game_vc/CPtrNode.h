@@ -1,11 +1,10 @@
 /*
-	Plugin-SDK (Grand Theft Auto Vice City) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 
 class CPtrNode {
@@ -21,5 +20,7 @@ public:
 	static void operator delete(void* data);
 	static void* operator new(unsigned int size);
 };
-
+VALIDATE_OFFSET(CPtrNode, m_pVoid, 0x0);
+VALIDATE_OFFSET(CPtrNode, m_pNext, 0x4);
+VALIDATE_OFFSET(CPtrNode, m_pPrev, 0x8);
 VALIDATE_SIZE(CPtrNode, 0xC);

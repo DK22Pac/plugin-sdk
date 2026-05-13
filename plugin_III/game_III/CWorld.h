@@ -140,3 +140,4 @@ public:
         return y * SECTOR_SIZE_Y + WORLD_MIN_Y;
     }
 };
+VALIDATE_SIZE(CWorld, 0x1);

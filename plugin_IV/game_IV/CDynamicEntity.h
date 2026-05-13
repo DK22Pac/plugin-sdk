@@ -16,6 +16,8 @@ public:
     uint32_t* m_pAnim;
     uint8_t pad7[148];
 };
-
+VALIDATE_OFFSET(CDynamicEntity, pad6, 0x70);
+VALIDATE_OFFSET(CDynamicEntity, m_pAnim, 0x78);
+VALIDATE_OFFSET(CDynamicEntity, pad7, 0x7C);
 VALIDATE_SIZE(CDynamicEntity, 0x110);
 

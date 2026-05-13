@@ -29,5 +29,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool ThisIsABridgeObjectMovingUp(unsigned int modelIndex);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CBridge, 0x1);
 
 #include "meta/meta.CBridge.h"

@@ -28,6 +28,16 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Render();
     SUPPORTED_10EN_11EN_STEAM void Update();
 };
+VALIDATE_OFFSET(CTowerClock, m_vecPosition, 0x0);
+VALIDATE_OFFSET(CTowerClock, m_vecSize, 0xC);
+VALIDATE_OFFSET(CTowerClock, m_fDrawDistance, 0x18);
+VALIDATE_OFFSET(CTowerClock, m_fScale, 0x1C);
+VALIDATE_OFFSET(CTowerClock, m_nRed, 0x20);
+VALIDATE_OFFSET(CTowerClock, m_nGreen, 0x21);
+VALIDATE_OFFSET(CTowerClock, m_nBlue, 0x22);
+VALIDATE_OFFSET(CTowerClock, m_bVisible, 0x23);
+VALIDATE_OFFSET(CTowerClock, m_fIntensity, 0x24);
+VALIDATE_SIZE(CTowerClock, 0x28);
 
 SUPPORTED_10EN_11EN_STEAM extern RwIm3DVertex(&TempV)[4]; // RwIm3DVertex TempV[4]
 

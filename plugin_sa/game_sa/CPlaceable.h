@@ -53,5 +53,6 @@ public:
     inline const CVector& GetPosition() const { return m_matrix ? m_matrix->GetPosition() : m_placement.m_vPosn; }
     inline CVector& GetPosition() { return m_matrix ? m_matrix->GetPosition() : m_placement.m_vPosn; }
 };
-
+VALIDATE_OFFSET(CPlaceable, m_placement, 0x4);
+VALIDATE_OFFSET(CPlaceable, m_matrix, 0x14);
 VALIDATE_SIZE(CPlaceable, 0x18);

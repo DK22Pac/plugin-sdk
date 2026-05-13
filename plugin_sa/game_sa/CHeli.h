@@ -46,7 +46,15 @@ struct tHeliLight {
     char _pad[2];
     CVector field_28[3];
 };
-
+VALIDATE_OFFSET(tHeliLight, m_vecOrigin, 0x0);
+VALIDATE_OFFSET(tHeliLight, m_vecTarget, 0xC);
+VALIDATE_OFFSET(tHeliLight, m_fTargetRadius, 0x18);
+VALIDATE_OFFSET(tHeliLight, m_fPower, 0x1C);
+VALIDATE_OFFSET(tHeliLight, m_nCoronaIndex, 0x20);
+VALIDATE_OFFSET(tHeliLight, field_24, 0x24);
+VALIDATE_OFFSET(tHeliLight, m_bDrawShadow, 0x25);
+VALIDATE_OFFSET(tHeliLight, _pad, 0x26);
+VALIDATE_OFFSET(tHeliLight, field_28, 0x28);
 VALIDATE_SIZE(tHeliLight, 0x4C);
 
 class CHeli : public CAutomobile {
@@ -110,5 +118,35 @@ public:
     static void UpdateHelis();
     static void RenderAllHeliSearchLights();
 };
-
+VALIDATE_OFFSET(CHeli, m_nHeliFlags, 0x988);
+VALIDATE_OFFSET(CHeli, _pad1, 0x989);
+VALIDATE_OFFSET(CHeli, m_fLeftRightSkid, 0x98C);
+VALIDATE_OFFSET(CHeli, m_fSteeringUpDown, 0x990);
+VALIDATE_OFFSET(CHeli, m_fSteeringLeftRight, 0x994);
+VALIDATE_OFFSET(CHeli, m_fAccelerationBreakStatus, 0x998);
+VALIDATE_OFFSET(CHeli, field_99C, 0x99C);
+VALIDATE_OFFSET(CHeli, m_fRotorZ, 0x9A0);
+VALIDATE_OFFSET(CHeli, m_fSecondRotorZ, 0x9A4);
+VALIDATE_OFFSET(CHeli, m_fMaxAltitude, 0x9A8);
+VALIDATE_OFFSET(CHeli, field_9AC, 0x9AC);
+VALIDATE_OFFSET(CHeli, m_fMinAltitude, 0x9B0);
+VALIDATE_OFFSET(CHeli, field_9B4, 0x9B4);
+VALIDATE_OFFSET(CHeli, field_9B8, 0x9B8);
+VALIDATE_OFFSET(CHeli, m_nNumSwatOccupants, 0x9B9);
+VALIDATE_OFFSET(CHeli, m_anSwatIDs, 0x9BA);
+VALIDATE_OFFSET(CHeli, _pad2, 0x9BE);
+VALIDATE_OFFSET(CHeli, field_9C0, 0x9C0);
+VALIDATE_OFFSET(CHeli, field_9D0, 0x9D0);
+VALIDATE_OFFSET(CHeli, m_pParticlesList, 0x9D4);
+VALIDATE_OFFSET(CHeli, field_9D8, 0x9D8);
+VALIDATE_OFFSET(CHeli, field_9F0, 0x9F0);
+VALIDATE_OFFSET(CHeli, m_vecSearchLightTarget, 0x9F4);
+VALIDATE_OFFSET(CHeli, m_fSearchLightIntensity, 0xA00);
+VALIDATE_OFFSET(CHeli, field_A04, 0xA04);
+VALIDATE_OFFSET(CHeli, field_A08, 0xA08);
+VALIDATE_OFFSET(CHeli, m_ppGunflashFx, 0xA0C);
+VALIDATE_OFFSET(CHeli, m_nFiringMultiplier, 0xA10);
+VALIDATE_OFFSET(CHeli, m_bSearchLightEnabled, 0xA11);
+VALIDATE_OFFSET(CHeli, _pad3, 0xA12);
+VALIDATE_OFFSET(CHeli, field_A14, 0xA14);
 VALIDATE_SIZE(CHeli, 0xA18);

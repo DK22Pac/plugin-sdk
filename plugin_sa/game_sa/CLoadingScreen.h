@@ -56,3 +56,4 @@ public:
     static void NewChunkLoaded();
 	
 };
+VALIDATE_SIZE(CLoadingScreen, 0x1);

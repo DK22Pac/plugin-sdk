@@ -136,7 +136,23 @@ public:
     static void CreateMissionTrain(CVector posn, bool clockwiseDirection, unsigned int trainType, CTrain**outFirstCarriage, CTrain**outLastCarriage, int nodeIndex, int trackId, bool isMissionTrain);
     static void DoTrainGenerationAndRemoval();
 };
-
+VALIDATE_OFFSET(CTrain, m_nNodeIndex, 0x5A0);
+VALIDATE_OFFSET(CTrain, m_fTrainSpeed, 0x5A4);
+VALIDATE_OFFSET(CTrain, m_fCurrentRailDistance, 0x5A8);
+VALIDATE_OFFSET(CTrain, m_fLength, 0x5AC);
+VALIDATE_OFFSET(CTrain, m_fTrainGas, 0x5B0);
+VALIDATE_OFFSET(CTrain, m_fTrainBrake, 0x5B4);
+VALIDATE_OFFSET(CTrain, m_nTrainFlags, 0x5B8);
+VALIDATE_OFFSET(CTrain, m_nTimeWhenStoppedAtStation, 0x5BC);
+VALIDATE_OFFSET(CTrain, m_nTrackId, 0x5C0);
+VALIDATE_OFFSET(CTrain, m_nTimeWhenCreated, 0x5C4);
+VALIDATE_OFFSET(CTrain, field_5C8, 0x5C8);
+VALIDATE_OFFSET(CTrain, m_nPassengersGenerationState, 0x5CA);
+VALIDATE_OFFSET(CTrain, m_pTemporaryPassenger, 0x5CC);
+VALIDATE_OFFSET(CTrain, m_pPrevCarriage, 0x5D0);
+VALIDATE_OFFSET(CTrain, m_pNextCarriage, 0x5D4);
+VALIDATE_OFFSET(CTrain, m_aDoors, 0x5D8);
+VALIDATE_OFFSET(CTrain, m_aTrainNodes, 0x668);
 VALIDATE_SIZE(CTrain, 0x6AC);
 
 extern unsigned int *NumTrackNodes; // unsigned int NumTrackNodes[4]

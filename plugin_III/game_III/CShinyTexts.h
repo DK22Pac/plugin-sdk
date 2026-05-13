@@ -19,5 +19,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Render();
     SUPPORTED_10EN_11EN_STEAM static void RenderOutGeometryBuffer();
 };
+VALIDATE_SIZE(CShinyTexts, 0x1);
 
 #include "meta/meta.CShinyTexts.h"

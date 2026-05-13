@@ -32,5 +32,11 @@ public:
 	void RemoveCriminalToKill(CPed* likeUnused, int criminalIdx);
 	void ClearCriminalsToKill();
 };
-
+VALIDATE_OFFSET(CCopPed, field_79C, 0x79C);
+VALIDATE_OFFSET(CCopPed, field_79D, 0x79D);
+VALIDATE_OFFSET(CCopPed, m_copType, 0x7A0);
+VALIDATE_OFFSET(CCopPed, field_7A4, 0x7A4);
+VALIDATE_OFFSET(CCopPed, m_pCopPartner, 0x7A8);
+VALIDATE_OFFSET(CCopPed, m_apCriminalsToKill, 0x7AC);
+VALIDATE_OFFSET(CCopPed, field_7C0, 0x7C0);
 VALIDATE_SIZE(CCopPed, 0x7C4);

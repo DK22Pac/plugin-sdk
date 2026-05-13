@@ -17,5 +17,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StartBoatFoamAnimation();
     SUPPORTED_10EN_11EN_STEAM static void UpdateBoatFoamAnimation(CMatrix *matrix);
 };
+VALIDATE_SIZE(CSpecialParticleStuff, 0x1);
 
 #include "meta/meta.CSpecialParticleStuff.h"

@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "CEncodedVector.h"
@@ -119,5 +118,99 @@ public:
     void SetRotation(short rot);
 
 };
-
+VALIDATE_OFFSET(CObject, field_0, 0x0);
+VALIDATE_OFFSET(CObject, field_2, 0x4);
+VALIDATE_OFFSET(CObject, field_4, 0x8);
+VALIDATE_OFFSET(CObject, field_6, 0xC);
+VALIDATE_OFFSET(CObject, field_8, 0x10);
+VALIDATE_OFFSET(CObject, m_nIndex, 0x14);
+VALIDATE_OFFSET(CObject, field_12, 0x18);
+VALIDATE_OFFSET(CObject, field_16, 0x1C);
+VALIDATE_OFFSET(CObject, field_20, 0x20);
+VALIDATE_OFFSET(CObject, field_21, 0x21);
+VALIDATE_OFFSET(CObject, field_22, 0x22);
+VALIDATE_OFFSET(CObject, field_23, 0x23);
+VALIDATE_OFFSET(CObject, field_24, 0x24);
+VALIDATE_OFFSET(CObject, field_26, 0x26);
+VALIDATE_OFFSET(CObject, field_27, 0x27);
+VALIDATE_OFFSET(CObject, field_28, 0x28);
+VALIDATE_OFFSET(CObject, field_29, 0x29);
+VALIDATE_OFFSET(CObject, field_2a, 0x2A);
+VALIDATE_OFFSET(CObject, field_2b, 0x2B);
+VALIDATE_OFFSET(CObject, field_2c, 0x2C);
+VALIDATE_OFFSET(CObject, field_2d, 0x2D);
+VALIDATE_OFFSET(CObject, field_2e, 0x2E);
+VALIDATE_OFFSET(CObject, field_2f, 0x2F);
+VALIDATE_OFFSET(CObject, field_30, 0x30);
+VALIDATE_OFFSET(CObject, field_31, 0x31);
+VALIDATE_OFFSET(CObject, field_32, 0x32);
+VALIDATE_OFFSET(CObject, field_33, 0x33);
+VALIDATE_OFFSET(CObject, field_34, 0x34);
+VALIDATE_OFFSET(CObject, field_35, 0x35);
+VALIDATE_OFFSET(CObject, field_36, 0x36);
+VALIDATE_OFFSET(CObject, field_37, 0x37);
+VALIDATE_OFFSET(CObject, m_nSpeed, 0x38);
+VALIDATE_OFFSET(CObject, field_3c, 0x3C);
+VALIDATE_OFFSET(CObject, m_nRotation, 0x40);
+VALIDATE_OFFSET(CObject, field_42, 0x42);
+VALIDATE_OFFSET(CObject, field_44, 0x44);
+VALIDATE_OFFSET(CObject, field_45, 0x45);
+VALIDATE_OFFSET(CObject, field_46, 0x46);
+VALIDATE_OFFSET(CObject, field_48, 0x48);
+VALIDATE_OFFSET(CObject, field_49, 0x49);
+VALIDATE_OFFSET(CObject, m_nIdleTimer, 0x4A);
+VALIDATE_OFFSET(CObject, field_4c, 0x4C);
+VALIDATE_OFFSET(CObject, field_50, 0x50);
+VALIDATE_OFFSET(CObject, field_54, 0x54);
+VALIDATE_OFFSET(CObject, field_55, 0x55);
+VALIDATE_OFFSET(CObject, field_56, 0x56);
+VALIDATE_OFFSET(CObject, field_57, 0x57);
+VALIDATE_OFFSET(CObject, field_58, 0x58);
+VALIDATE_OFFSET(CObject, field_59, 0x59);
+VALIDATE_OFFSET(CObject, field_5a, 0x5A);
+VALIDATE_OFFSET(CObject, field_5b, 0x5B);
+VALIDATE_OFFSET(CObject, field_5c, 0x5C);
+VALIDATE_OFFSET(CObject, field_5d, 0x5D);
+VALIDATE_OFFSET(CObject, field_5e, 0x5E);
+VALIDATE_OFFSET(CObject, field_5f, 0x5F);
+VALIDATE_OFFSET(CObject, field_60, 0x60);
+VALIDATE_OFFSET(CObject, field_64, 0x64);
+VALIDATE_OFFSET(CObject, field_68, 0x68);
+VALIDATE_OFFSET(CObject, field_69, 0x69);
+VALIDATE_OFFSET(CObject, field_6a, 0x6A);
+VALIDATE_OFFSET(CObject, field_6b, 0x6B);
+VALIDATE_OFFSET(CObject, field_6c, 0x6C);
+VALIDATE_OFFSET(CObject, field_70, 0x70);
+VALIDATE_OFFSET(CObject, field_71, 0x71);
+VALIDATE_OFFSET(CObject, field_72, 0x72);
+VALIDATE_OFFSET(CObject, field_73, 0x73);
+VALIDATE_OFFSET(CObject, field_74, 0x74);
+VALIDATE_OFFSET(CObject, field_75, 0x75);
+VALIDATE_OFFSET(CObject, field_76, 0x76);
+VALIDATE_OFFSET(CObject, field_77, 0x77);
+VALIDATE_OFFSET(CObject, m_pNext, 0x78);
+VALIDATE_OFFSET(CObject, m_pPed, 0x7C);
+VALIDATE_OFFSET(CObject, m_pSprite, 0x80);
+VALIDATE_OFFSET(CObject, field_84, 0x84);
+VALIDATE_OFFSET(CObject, field_85, 0x85);
+VALIDATE_OFFSET(CObject, field_86, 0x86);
+VALIDATE_OFFSET(CObject, field_87, 0x87);
+VALIDATE_OFFSET(CObject, field_88, 0x88);
+VALIDATE_OFFSET(CObject, field_89, 0x89);
+VALIDATE_OFFSET(CObject, field_8a, 0x8A);
+VALIDATE_OFFSET(CObject, field_8b, 0x8B);
+VALIDATE_OFFSET(CObject, field_8c, 0x8C);
+VALIDATE_OFFSET(CObject, field_8d, 0x8D);
+VALIDATE_OFFSET(CObject, field_8e, 0x8E);
+VALIDATE_OFFSET(CObject, field_8f, 0x8F);
+VALIDATE_OFFSET(CObject, field_90, 0x90);
+VALIDATE_OFFSET(CObject, field_94, 0x94);
+VALIDATE_OFFSET(CObject, m_nDeltaX, 0x98);
+VALIDATE_OFFSET(CObject, m_nDeltaY, 0x9C);
+VALIDATE_OFFSET(CObject, field_a0, 0xA0);
+VALIDATE_OFFSET(CObject, field_a1, 0xA1);
+VALIDATE_OFFSET(CObject, field_a2, 0xA2);
+VALIDATE_OFFSET(CObject, field_a3, 0xA3);
+VALIDATE_OFFSET(CObject, m_vPosition, 0xA4);
+VALIDATE_OFFSET(CObject, field_b0, 0xB0);
 VALIDATE_SIZE(CObject, 0xB4);

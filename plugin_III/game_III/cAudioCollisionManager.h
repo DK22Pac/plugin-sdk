@@ -21,7 +21,11 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void AddCollisionToRequestedQueue();
 };
-
+VALIDATE_OFFSET(cAudioCollisionManager, m_asCollisions1, 0x0);
+VALIDATE_OFFSET(cAudioCollisionManager, m_asCollisions2, 0x190);
+VALIDATE_OFFSET(cAudioCollisionManager, m_nIndicesTable, 0x320);
+VALIDATE_OFFSET(cAudioCollisionManager, m_nCollisionsInQueue, 0x32A);
+VALIDATE_OFFSET(cAudioCollisionManager, m_sQueue, 0x32C);
 VALIDATE_SIZE(cAudioCollisionManager, 0x354);
 
 #include "meta/meta.cAudioCollisionManager.h"

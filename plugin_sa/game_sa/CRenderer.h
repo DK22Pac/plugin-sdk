@@ -17,15 +17,20 @@ struct tScanLists {
     CPtrListDoubleLink *pedsList;
     CPtrListDoubleLink *dummiesList;
 };
-
+VALIDATE_OFFSET(tScanLists, buildingsList, 0x0);
+VALIDATE_OFFSET(tScanLists, objectsList, 0x4);
+VALIDATE_OFFSET(tScanLists, vehiclesList, 0x8);
+VALIDATE_OFFSET(tScanLists, pedsList, 0xC);
+VALIDATE_OFFSET(tScanLists, dummiesList, 0x10);
 VALIDATE_SIZE(tScanLists, 0x14);
 
 struct tRenderListEntry {
     CEntity *pEntity;
     float distance;
 };
-
-VALIDATE_SIZE(tRenderListEntry, 8);
+VALIDATE_OFFSET(tRenderListEntry, pEntity, 0x0);
+VALIDATE_OFFSET(tRenderListEntry, distance, 0x4);
+VALIDATE_SIZE(tRenderListEntry, 0x8);
 
 extern unsigned int MAX_INVISIBLE_ENTITY_PTRS; // default 150
 extern unsigned int MAX_VISIBLE_ENTITY_PTRS; // default 1000
@@ -94,6 +99,7 @@ public:
     static void RequestObjectsInDirection(CVector const& posn, float angle, int modelRequesFlags);
     static void SetupScanLists(int sector_x, int sector_y);
 };
+VALIDATE_SIZE(CRenderer, 0x1);
 
 extern unsigned int &gnRendererModelRequestFlags;
 extern CEntity **&gpOutEntitiesForGetObjectsInFrustum;

@@ -16,7 +16,8 @@ public:
     CVector m_avecVertices[3]; //!< triangle vertices
     bool m_bValid;
 };
-
+VALIDATE_OFFSET(CStoredCollPoly, m_avecVertices, 0x0);
+VALIDATE_OFFSET(CStoredCollPoly, m_bValid, 0x24);
 VALIDATE_SIZE(CStoredCollPoly, 0x28);
 
 #include "meta/meta.CStoredCollPoly.h"

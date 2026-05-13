@@ -21,7 +21,13 @@ namespace rage {
     public:
         void Update(uint32_t timeInMs);
     };
-
+    VALIDATE_OFFSET(audController, field, 0x0);
+    VALIDATE_OFFSET(audController, m_EnvironmentListHead, 0xFA4);
+    VALIDATE_OFFSET(audController, field_6402, 0xFA6);
+    VALIDATE_OFFSET(audController, m_EnvironmentGroupList, 0x28A8);
+    VALIDATE_OFFSET(audController, field_8842, 0x30A8);
+    VALIDATE_OFFSET(audController, m_IsInitialized, 0x3230);
+    VALIDATE_OFFSET(audController, m_IsActive, 0x3231);
     VALIDATE_SIZE(audController, 0x3234);
 
     extern audController*& g_Controller;

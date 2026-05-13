@@ -17,5 +17,6 @@ public:
 
     bool IsCollision(FxSphere_c* sphere);
 };
-
+VALIDATE_OFFSET(FxFrustumInfo_c, m_sphere, 0x0);
+VALIDATE_OFFSET(FxFrustumInfo_c, m_planes, 0x14);
 VALIDATE_SIZE(FxFrustumInfo_c, 0x54);

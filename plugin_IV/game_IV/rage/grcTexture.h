@@ -45,7 +45,19 @@ namespace rage {
             }
         }
     };
-
+    VALIDATE_OFFSET(grcTexture, field_8, 0x8);
+    VALIDATE_OFFSET(grcTexture, m_nDepth, 0x9);
+    VALIDATE_OFFSET(grcTexture, m_RefCount, 0xA);
+    VALIDATE_OFFSET(grcTexture, field_C, 0xC);
+    VALIDATE_OFFSET(grcTexture, field_10, 0x10);
+    VALIDATE_OFFSET(grcTexture, m_Name, 0x14);
+    VALIDATE_OFFSET(grcTexture, m_pDirect3DTexture9, 0x18);
+    VALIDATE_OFFSET(grcTexture, m_Width, 0x1C);
+    VALIDATE_OFFSET(grcTexture, m_Height, 0x1E);
+    VALIDATE_OFFSET(grcTexture, m_Format, 0x20);
+    VALIDATE_OFFSET(grcTexture, m_nMipStride, 0x24);
+    VALIDATE_OFFSET(grcTexture, m_ImageType, 0x26);
+    VALIDATE_OFFSET(grcTexture, m_nMipCount, 0x27);
     VALIDATE_SIZE(grcTexture, 0x28);
 
     class grcTexturePC : public grcTexture {
@@ -67,6 +79,5 @@ namespace rage {
         int32_t GetHeight() { return plugin::CallVirtualMethodAndReturn<int32_t, 9>(this); }
         int32_t GetMipMapCount() { return plugin::CallVirtualMethodAndReturn<int32_t, 11>(this); }
     };
-
     VALIDATE_SIZE(grcTexturePC, 0x50);
 }

@@ -28,6 +28,7 @@ namespace rage {
             plugin::CallVirtualMethod<0>(this, 0);
         }
     };
+    VALIDATE_SIZE(grcRenderTarget, 0x28);
 
     class grcRenderTargetPC : public grcRenderTarget {
     public:
@@ -35,4 +36,5 @@ namespace rage {
             return (grcTexturePC*)this;
         }
     };
+    VALIDATE_SIZE(grcRenderTargetPC, 0x28);
 }

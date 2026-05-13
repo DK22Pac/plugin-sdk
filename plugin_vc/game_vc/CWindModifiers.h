@@ -16,7 +16,8 @@ public:
     CVector m_vecPos;
     int m_nType;
 };
-
+VALIDATE_OFFSET(CWindModifier, m_vecPos, 0x0);
+VALIDATE_OFFSET(CWindModifier, m_nType, 0xC);
 VALIDATE_SIZE(CWindModifier, 0x10);
 
 class PLUGIN_API CWindModifiers {
@@ -27,5 +28,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static bool FindWindModifier(CVector pos, float *x, float *y);
     SUPPORTED_10EN_11EN_STEAM static void RegisterOne(CVector pos, int type);
 };
+VALIDATE_SIZE(CWindModifiers, 0x1);
 
 #include "meta/meta.CWindModifiers.h"

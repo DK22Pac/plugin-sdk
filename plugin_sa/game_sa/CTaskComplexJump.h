@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 
@@ -19,6 +18,7 @@ public:
     // 0 - jump , 1 - climb
     CTaskComplexJump(unsigned int jumpType); 
 };
-
+VALIDATE_OFFSET(CTaskComplexJump, m_nType, 0xC);
+VALIDATE_OFFSET(CTaskComplexJump, bUnkFlag, 0x10);
 VALIDATE_SIZE(CTaskComplexJump, 0x14);
 

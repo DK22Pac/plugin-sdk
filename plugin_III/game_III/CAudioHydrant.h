@@ -19,7 +19,8 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Add(CParticleObject *object);
     SUPPORTED_10EN_11EN_STEAM static void Remove(CParticleObject *object);
 };
-
+VALIDATE_OFFSET(CAudioHydrant, m_nAudioEntity, 0x0);
+VALIDATE_OFFSET(CAudioHydrant, m_pObject, 0x4);
 VALIDATE_SIZE(CAudioHydrant, 0x8);
 
 #include "meta/meta.CAudioHydrant.h"

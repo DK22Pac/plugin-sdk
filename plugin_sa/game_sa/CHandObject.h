@@ -15,7 +15,9 @@ public:
     unsigned int m_nBoneIndex;
     RwTexture   *m_pTexture;
     bool         m_bUpdatedMatricesArray;
-    char _pad[3];
 };
-
+VALIDATE_OFFSET(CHandObject, m_pPed, 0x17C);
+VALIDATE_OFFSET(CHandObject, m_nBoneIndex, 0x180);
+VALIDATE_OFFSET(CHandObject, m_pTexture, 0x184);
+VALIDATE_OFFSET(CHandObject, m_bUpdatedMatricesArray, 0x188);
 VALIDATE_SIZE(CHandObject, 0x18C);

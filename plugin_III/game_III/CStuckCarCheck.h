@@ -17,6 +17,13 @@ struct PLUGIN_API CStuckCarCheckData {
     unsigned int m_nStuckTime;
     bool m_bIsStuck;
 };
+VALIDATE_OFFSET(CStuckCarCheckData, m_nVehicleIndex, 0x0);
+VALIDATE_OFFSET(CStuckCarCheckData, m_vecPos, 0x4);
+VALIDATE_OFFSET(CStuckCarCheckData, m_nLastCheck, 0x10);
+VALIDATE_OFFSET(CStuckCarCheckData, m_fRadius, 0x14);
+VALIDATE_OFFSET(CStuckCarCheckData, m_nStuckTime, 0x18);
+VALIDATE_OFFSET(CStuckCarCheckData, m_bIsStuck, 0x1C);
+VALIDATE_SIZE(CStuckCarCheckData, 0x20);
 
 class PLUGIN_API CStuckCarCheck {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CStuckCarCheck)
@@ -30,8 +37,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Process();
     SUPPORTED_10EN_11EN_STEAM void RemoveCarFromCheck(int id);
 };
-
-VALIDATE_SIZE(CStuckCarCheckData, 0x20);
+VALIDATE_OFFSET(CStuckCarCheck, m_aCars, 0x0);
 VALIDATE_SIZE(CStuckCarCheck, 0xC0);
 
 #include "meta/meta.CStuckCarCheck.h"

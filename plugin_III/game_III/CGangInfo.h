@@ -17,7 +17,10 @@ public:
     int m_nWeaponOne; //!< eWeaponType
     int m_nWeaponTwo; //!< eWeaponType
 };
-
+VALIDATE_OFFSET(CGangInfo, m_nVehicleModel, 0x0);
+VALIDATE_OFFSET(CGangInfo, m_nPedModelOverride, 0x4);
+VALIDATE_OFFSET(CGangInfo, m_nWeaponOne, 0x8);
+VALIDATE_OFFSET(CGangInfo, m_nWeaponTwo, 0xC);
 VALIDATE_SIZE(CGangInfo, 0x10);
 
 #include "meta/meta.CGangInfo.h"

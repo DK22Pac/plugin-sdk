@@ -116,6 +116,11 @@ namespace rage {
             this->w += y;
         }
     };
+    VALIDATE_OFFSET(Vector4, x, 0x0);
+    VALIDATE_OFFSET(Vector4, y, 0x4);
+    VALIDATE_OFFSET(Vector4, z, 0x8);
+    VALIDATE_OFFSET(Vector4, w, 0xC);
+    VALIDATE_SIZE(Vector4, 0x10);
 
     static Vector3 operator+(const Vector3& v3, const Vector4& v4) {
         return Vector3(v3.x + v4.x, v3.y + v4.y, v3.z + v4.z);

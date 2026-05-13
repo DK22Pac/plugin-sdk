@@ -12,3 +12,4 @@ class CTrain : CVehicle {
 public:
     CTrain(uint8_t createdBy);
 };
+VALIDATE_SIZE(CTrain, 0x2080);

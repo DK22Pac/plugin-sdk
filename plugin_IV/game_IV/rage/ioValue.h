@@ -199,8 +199,8 @@ namespace rage {
 		INPUT_VEH_MOVE_RIGHT_2,
 	};
 
-    class ioValue {
-    public:
+	class ioValue {
+	public:
 		uint8_t field_1[2];
 		uint8_t m_nNewState;
 		uint8_t m_nOldState;
@@ -213,7 +213,11 @@ namespace rage {
 	public:
 		bool IsPressed();
 		bool IsDown();
-    };
-
-    VALIDATE_SIZE(ioValue, 0x10);
+	};
+	VALIDATE_OFFSET(ioValue, field_1, 0x4);
+	VALIDATE_OFFSET(ioValue, m_nNewState, 0x6);
+	VALIDATE_OFFSET(ioValue, m_nOldState, 0x7);
+	VALIDATE_OFFSET(ioValue, m_nIndex, 0x8);
+	VALIDATE_OFFSET(ioValue, field_9, 0xC);
+	VALIDATE_SIZE(ioValue, 0x10);
 }

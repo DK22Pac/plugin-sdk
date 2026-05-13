@@ -14,5 +14,6 @@ public:
     CPtrListSingleLink m_buildingList;
     CPtrListDoubleLink m_dummyList;
 };
-
-VALIDATE_SIZE(CSector, 8);
+VALIDATE_OFFSET(CSector, m_buildingList, 0x0);
+VALIDATE_OFFSET(CSector, m_dummyList, 0x4);
+VALIDATE_SIZE(CSector, 0x8);

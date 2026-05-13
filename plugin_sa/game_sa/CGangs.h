@@ -27,5 +27,6 @@ public:
     //! unused
     SUPPORTED_10US static void SetWillAttackPlayerWithCops(ePedType gangID, bool bAttackPlayerWithCops);
 };
+VALIDATE_SIZE(CGangs, 0x1);
 
 #include "meta/meta.CGangs.h"

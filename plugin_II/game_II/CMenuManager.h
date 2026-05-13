@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "GBH.h"
@@ -68,6 +67,10 @@ struct tTargaFileTexture {
     int size;
     int id;
 };
+VALIDATE_OFFSET(tTargaFileTexture, path, 0x0);
+VALIDATE_OFFSET(tTargaFileTexture, size, 0x80);
+VALIDATE_OFFSET(tTargaFileTexture, id, 0x84);
+VALIDATE_SIZE(tTargaFileTexture, 0x88);
 
 struct tMenuEntry {
     char action; // eMenuActions
@@ -77,6 +80,13 @@ struct tMenuEntry {
     char gap[22];
     short targetPage; // eMenuPages
 };
+VALIDATE_OFFSET(tMenuEntry, action, 0x0);
+VALIDATE_OFFSET(tMenuEntry, x, 0x2);
+VALIDATE_OFFSET(tMenuEntry, y, 0x4);
+VALIDATE_OFFSET(tMenuEntry, str, 0x6);
+VALIDATE_OFFSET(tMenuEntry, gap, 0x6A);
+VALIDATE_OFFSET(tMenuEntry, targetPage, 0x80);
+VALIDATE_SIZE(tMenuEntry, 0x82);
 
 struct tMenuPage {
     short numMenuItems;
@@ -86,7 +96,12 @@ struct tMenuPage {
     unsigned short currentMenuItem;
     unsigned short initialMenuItem;
 };
-
+VALIDATE_OFFSET(tMenuPage, numMenuItems, 0x0);
+VALIDATE_OFFSET(tMenuPage, field_4, 0x2);
+VALIDATE_OFFSET(tMenuPage, items, 0x4);
+VALIDATE_OFFSET(tMenuPage, gap, 0x61C);
+VALIDATE_OFFSET(tMenuPage, currentMenuItem, 0xBC6);
+VALIDATE_OFFSET(tMenuPage, initialMenuItem, 0xBC8);
 VALIDATE_SIZE(tMenuPage, 0xBCA);
 
 class CKeyState {
@@ -110,6 +125,14 @@ public:
         del = 0;
     }
 };
+VALIDATE_OFFSET(CKeyState, left, 0x0);
+VALIDATE_OFFSET(CKeyState, right, 0x1);
+VALIDATE_OFFSET(CKeyState, up, 0x2);
+VALIDATE_OFFSET(CKeyState, down, 0x3);
+VALIDATE_OFFSET(CKeyState, enter, 0x4);
+VALIDATE_OFFSET(CKeyState, esc, 0x5);
+VALIDATE_OFFSET(CKeyState, del, 0x6);
+VALIDATE_SIZE(CKeyState, 0x7);
 
 class CMenuManager {
 public:
@@ -158,7 +181,39 @@ public:
     int Process();
     void PopulateMenu();
 };
-
+VALIDATE_OFFSET(CMenuManager, m_pDirectInput, 0x0);
+VALIDATE_OFFSET(CMenuManager, m_pInputDevice, 0x4);
+VALIDATE_OFFSET(CMenuManager, m_nKeys, 0x8);
+VALIDATE_OFFSET(CMenuManager, m_nFrontendState, 0x108);
+VALIDATE_OFFSET(CMenuManager, m_nKeyboardAcquired, 0x10C);
+VALIDATE_OFFSET(CMenuManager, m_bFrontendKeysEnabled, 0x10D);
+VALIDATE_OFFSET(CMenuManager, field_271, 0x10E);
+VALIDATE_OFFSET(CMenuManager, field_272, 0x10F);
+VALIDATE_OFFSET(CMenuManager, m_nState, 0x110);
+VALIDATE_OFFSET(CMenuManager, field_277, 0x114);
+VALIDATE_OFFSET(CMenuManager, field_278, 0x115);
+VALIDATE_OFFSET(CMenuManager, field_279, 0x116);
+VALIDATE_OFFSET(CMenuManager, field_280, 0x117);
+VALIDATE_OFFSET(CMenuManager, field_281, 0x118);
+VALIDATE_OFFSET(CMenuManager, field_282, 0x119);
+VALIDATE_OFFSET(CMenuManager, field_283, 0x11A);
+VALIDATE_OFFSET(CMenuManager, m_nFontStyle, 0x11C);
+VALIDATE_OFFSET(CMenuManager, m_nCurrentMenuPage, 0x11E);
+VALIDATE_OFFSET(CMenuManager, field_0, 0x120);
+VALIDATE_OFFSET(CMenuManager, m_MenuPages, 0x122);
+VALIDATE_OFFSET(CMenuManager, gap3, 0xC98C);
+VALIDATE_OFFSET(CMenuManager, NewKeyState, 0xC9B8);
+VALIDATE_OFFSET(CMenuManager, OldKeyState, 0xC9BF);
+VALIDATE_OFFSET(CMenuManager, m_nTimeInMilliseconds, 0xC9C8);
+VALIDATE_OFFSET(CMenuManager, m_nFrameCounter, 0xC9CC);
+VALIDATE_OFFSET(CMenuManager, field_300, 0xC9CD);
+VALIDATE_OFFSET(CMenuManager, field_301, 0xC9CE);
+VALIDATE_OFFSET(CMenuManager, m_nTimeToWaitBeforeDemoStart, 0xC9D0);
+VALIDATE_OFFSET(CMenuManager, gap4, 0xC9D4);
+VALIDATE_OFFSET(CMenuManager, gap5, 0xCAC1);
+VALIDATE_OFFSET(CMenuManager, m_nCurrScreen, 0xEDF4);
+VALIDATE_OFFSET(CMenuManager, field_304, 0xEDF5);
+VALIDATE_OFFSET(CMenuManager, field_305, 0xEDF6);
 VALIDATE_SIZE(CMenuManager, 0xEDF8);
 
 extern CMenuManager** FrontendMenuManager;

@@ -16,5 +16,6 @@ public:
 
 	void Set(float radius, CVector  const& center);
 };
-
+VALIDATE_OFFSET(CSphere, m_vecCenter, 0x0);
+VALIDATE_OFFSET(CSphere, m_fRadius, 0xC);
 VALIDATE_SIZE(CSphere, 0x10);

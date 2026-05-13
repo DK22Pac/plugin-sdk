@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "CCar.h"
@@ -177,21 +176,25 @@ public:
     CWeapon* m_pWeapons[28];
     short m_nCurrentWeapon;
 };
+VALIDATE_OFFSET(CPedWeapon, field_0, 0x0);
+VALIDATE_OFFSET(CPedWeapon, m_pWeapons, 0x718);
+VALIDATE_OFFSET(CPedWeapon, m_nCurrentWeapon, 0x788);
+VALIDATE_SIZE(CPedWeapon, 0x78C);
 
 class CPed {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CPed)
 
 public:
-    unsigned __int8 field_0[44];
+    char field_0[44];
     int m_nCounter;
-    unsigned __int8 field_30;
-    unsigned __int8 field_31;
+    char field_30;
+    char field_31;
     char field_32;
     char field_33;
     char m_nObjective;
     char field_34;
     char m_nPrevObjective;
-    unsigned __int8 field_38[9];
+    char field_38[9];
     unsigned __int16 field_40;
     unsigned char field_42[234];
     unsigned short field_300;
@@ -317,7 +320,7 @@ public:
     unsigned int m_nGangCarModel;
     unsigned int m_nPedState; // ePedState
     unsigned int field_27B;
-    unsigned __int8 field_27C[20];
+    char field_27C[20];
 
 public:
     void GiveWeapon(int id, int ammo);
@@ -342,5 +345,136 @@ public:
     char GetRemap();
     void EnterCarAsPassenger(CCar* target);
 };
-
+VALIDATE_OFFSET(CPed, field_0, 0x0);
+VALIDATE_OFFSET(CPed, m_nCounter, 0x2C);
+VALIDATE_OFFSET(CPed, field_30, 0x30);
+VALIDATE_OFFSET(CPed, field_31, 0x31);
+VALIDATE_OFFSET(CPed, field_32, 0x32);
+VALIDATE_OFFSET(CPed, field_33, 0x33);
+VALIDATE_OFFSET(CPed, m_nObjective, 0x34);
+VALIDATE_OFFSET(CPed, field_34, 0x35);
+VALIDATE_OFFSET(CPed, m_nPrevObjective, 0x36);
+VALIDATE_OFFSET(CPed, field_38, 0x37);
+VALIDATE_OFFSET(CPed, field_40, 0x40);
+VALIDATE_OFFSET(CPed, field_42, 0x42);
+VALIDATE_OFFSET(CPed, field_300, 0x12C);
+VALIDATE_OFFSET(CPed, field_302, 0x12E);
+VALIDATE_OFFSET(CPed, field_304, 0x130);
+VALIDATE_OFFSET(CPed, field_305, 0x132);
+VALIDATE_OFFSET(CPed, field_306, 0x133);
+VALIDATE_OFFSET(CPed, m_nRotation, 0x134);
+VALIDATE_OFFSET(CPed, field_308, 0x136);
+VALIDATE_OFFSET(CPed, field_309, 0x137);
+VALIDATE_OFFSET(CPed, field_310, 0x138);
+VALIDATE_OFFSET(CPed, field_314, 0x13C);
+VALIDATE_OFFSET(CPed, m_pRefCar, 0x140);
+VALIDATE_OFFSET(CPed, field_324, 0x144);
+VALIDATE_OFFSET(CPed, m_pRefPed, 0x148);
+VALIDATE_OFFSET(CPed, field_332, 0x14C);
+VALIDATE_OFFSET(CPed, m_pArmyCarRef, 0x150);
+VALIDATE_OFFSET(CPed, m_pTargetCarToEnter, 0x154);
+VALIDATE_OFFSET(CPed, field_344, 0x158);
+VALIDATE_OFFSET(CPed, m_pWeapons, 0x15C);
+VALIDATE_OFFSET(CPed, m_pNextPed, 0x160);
+VALIDATE_OFFSET(CPed, m_pTarget, 0x164);
+VALIDATE_OFFSET(CPed, m_pObject, 0x168);
+VALIDATE_OFFSET(CPed, m_pCurrentCar, 0x16C);
+VALIDATE_OFFSET(CPed, m_pSelectedWeapon, 0x170);
+VALIDATE_OFFSET(CPed, m_pWeap, 0x174);
+VALIDATE_OFFSET(CPed, field_178, 0x178);
+VALIDATE_OFFSET(CPed, field_17c, 0x17C);
+VALIDATE_OFFSET(CPed, m_pPedRef, 0x180);
+VALIDATE_OFFSET(CPed, field_184, 0x184);
+VALIDATE_OFFSET(CPed, field_188, 0x188);
+VALIDATE_OFFSET(CPed, field_18c, 0x18C);
+VALIDATE_OFFSET(CPed, field_190, 0x190);
+VALIDATE_OFFSET(CPed, field_194, 0x194);
+VALIDATE_OFFSET(CPed, field_198, 0x198);
+VALIDATE_OFFSET(CPed, field_19c, 0x19C);
+VALIDATE_OFFSET(CPed, field_1a0, 0x1A0);
+VALIDATE_OFFSET(CPed, field_420, 0x1A4);
+VALIDATE_OFFSET(CPed, m_pElvisLeader, 0x1A8);
+VALIDATE_OFFSET(CPed, m_vPosition, 0x1AC);
+VALIDATE_OFFSET(CPed, field_430, 0x1B8);
+VALIDATE_OFFSET(CPed, field_1c4, 0x1C4);
+VALIDATE_OFFSET(CPed, field_1c8, 0x1C8);
+VALIDATE_OFFSET(CPed, field_1cc, 0x1CC);
+VALIDATE_OFFSET(CPed, field_1d0, 0x1D0);
+VALIDATE_OFFSET(CPed, field_1d4, 0x1D4);
+VALIDATE_OFFSET(CPed, field_472, 0x1D8);
+VALIDATE_OFFSET(CPed, field_473, 0x1DC);
+VALIDATE_OFFSET(CPed, field_474, 0x1E8);
+VALIDATE_OFFSET(CPed, field_475, 0x1EC);
+VALIDATE_OFFSET(CPed, m_fMaxRunSpeed, 0x1F0);
+VALIDATE_OFFSET(CPed, field_477, 0x1F4);
+VALIDATE_OFFSET(CPed, m_fMaxDriveSpeed, 0x1F8);
+VALIDATE_OFFSET(CPed, field_1FC, 0x1FC);
+VALIDATE_OFFSET(CPed, m_nId, 0x200);
+VALIDATE_OFFSET(CPed, m_nTargetPedId, 0x204);
+VALIDATE_OFFSET(CPed, m_nInvulnerability, 0x208);
+VALIDATE_OFFSET(CPed, m_nWantedLevel, 0x20A);
+VALIDATE_OFFSET(CPed, field_20c, 0x20C);
+VALIDATE_OFFSET(CPed, field_20e, 0x20E);
+VALIDATE_OFFSET(CPed, field_210, 0x210);
+VALIDATE_OFFSET(CPed, field_212, 0x212);
+VALIDATE_OFFSET(CPed, field_214, 0x214);
+VALIDATE_OFFSET(CPed, m_nHealth, 0x216);
+VALIDATE_OFFSET(CPed, m_nTimerAction, 0x218);
+VALIDATE_OFFSET(CPed, field_21a, 0x21A);
+VALIDATE_OFFSET(CPed, m_nPedFlags, 0x21C);
+VALIDATE_OFFSET(CPed, field_220, 0x220);
+VALIDATE_OFFSET(CPed, field_224, 0x224);
+VALIDATE_OFFSET(CPed, m_nActionTimer, 0x225);
+VALIDATE_OFFSET(CPed, field_226, 0x226);
+VALIDATE_OFFSET(CPed, field_227, 0x227);
+VALIDATE_OFFSET(CPed, field_228, 0x228);
+VALIDATE_OFFSET(CPed, field_229, 0x229);
+VALIDATE_OFFSET(CPed, field_22a, 0x22A);
+VALIDATE_OFFSET(CPed, field_22b, 0x22B);
+VALIDATE_OFFSET(CPed, field_22c, 0x22C);
+VALIDATE_OFFSET(CPed, field_230, 0x230);
+VALIDATE_OFFSET(CPed, field_234, 0x234);
+VALIDATE_OFFSET(CPed, field_235, 0x235);
+VALIDATE_OFFSET(CPed, field_236, 0x236);
+VALIDATE_OFFSET(CPed, field_237, 0x237);
+VALIDATE_OFFSET(CPed, m_nSearchType, 0x238);
+VALIDATE_OFFSET(CPed, field_23c, 0x23C);
+VALIDATE_OFFSET(CPed, field_23d, 0x23D);
+VALIDATE_OFFSET(CPed, field_23e, 0x23E);
+VALIDATE_OFFSET(CPed, field_23f, 0x23F);
+VALIDATE_OFFSET(CPed, m_nOccupation, 0x240);
+VALIDATE_OFFSET(CPed, m_nRemap, 0x244);
+VALIDATE_OFFSET(CPed, field_245, 0x245);
+VALIDATE_OFFSET(CPed, field_246, 0x246);
+VALIDATE_OFFSET(CPed, field_247, 0x247);
+VALIDATE_OFFSET(CPed, field_248, 0x248);
+VALIDATE_OFFSET(CPed, m_nTargetCarDoor, 0x24C);
+VALIDATE_OFFSET(CPed, field_24d, 0x24D);
+VALIDATE_OFFSET(CPed, field_24e, 0x24E);
+VALIDATE_OFFSET(CPed, field_24f, 0x24F);
+VALIDATE_OFFSET(CPed, field_250, 0x250);
+VALIDATE_OFFSET(CPed, field_254, 0x254);
+VALIDATE_OFFSET(CPed, field_255, 0x255);
+VALIDATE_OFFSET(CPed, field_256, 0x256);
+VALIDATE_OFFSET(CPed, field_257, 0x257);
+VALIDATE_OFFSET(CPed, m_nState, 0x258);
+VALIDATE_OFFSET(CPed, field_25c, 0x25C);
+VALIDATE_OFFSET(CPed, field_260, 0x260);
+VALIDATE_OFFSET(CPed, field_261, 0x261);
+VALIDATE_OFFSET(CPed, field_262, 0x262);
+VALIDATE_OFFSET(CPed, field_263, 0x263);
+VALIDATE_OFFSET(CPed, field_264, 0x264);
+VALIDATE_OFFSET(CPed, field_265, 0x265);
+VALIDATE_OFFSET(CPed, field_266, 0x266);
+VALIDATE_OFFSET(CPed, field_267, 0x267);
+VALIDATE_OFFSET(CPed, field_268, 0x268);
+VALIDATE_OFFSET(CPed, field_269, 0x269);
+VALIDATE_OFFSET(CPed, field_26a, 0x26A);
+VALIDATE_OFFSET(CPed, field_26b, 0x26B);
+VALIDATE_OFFSET(CPed, m_nGraphicType, 0x26C);
+VALIDATE_OFFSET(CPed, field_270, 0x270);
+VALIDATE_OFFSET(CPed, m_nGangCarModel, 0x274);
+VALIDATE_OFFSET(CPed, m_nPedState, 0x278);
+VALIDATE_OFFSET(CPed, field_27B, 0x27C);
+VALIDATE_OFFSET(CPed, field_27C, 0x280);
 VALIDATE_SIZE(CPed, 0x294);

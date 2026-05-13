@@ -12,3 +12,4 @@ class CBoat : public CVehicle {
 public:
     CBoat(uint8_t createdBy);
 };
+VALIDATE_SIZE(CBoat, 0x2080);

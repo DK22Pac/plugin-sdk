@@ -14,6 +14,7 @@ struct PLUGIN_API tColLighting
     unsigned char day : 4;
     unsigned char night : 4;
 };
+VALIDATE_SIZE(tColLighting, 0x1);
 
 
 class PLUGIN_API CColPoint {
@@ -42,5 +43,15 @@ public:
 
 	void operator=(CColPoint const& right);
 };
-
+VALIDATE_OFFSET(CColPoint, m_vecPoint, 0x0);
+VALIDATE_OFFSET(CColPoint, field_C, 0xC);
+VALIDATE_OFFSET(CColPoint, m_vecNormal, 0x10);
+VALIDATE_OFFSET(CColPoint, field_1C, 0x1C);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeA, 0x20);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeA, 0x21);
+VALIDATE_OFFSET(CColPoint, m_nLightingA, 0x22);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeB, 0x24);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeB, 0x25);
+VALIDATE_OFFSET(CColPoint, m_nLightingB, 0x26);
+VALIDATE_OFFSET(CColPoint, m_fDepth, 0x28);
 VALIDATE_SIZE(CColPoint, 0x2C);

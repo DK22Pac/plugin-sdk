@@ -24,6 +24,9 @@ public:
     SUPPORTED_10EN_11EN_STEAM RwRaster *RasterResample(RwRaster *raster);
     SUPPORTED_10EN_11EN_STEAM RwCamera *Update(RpAtomic *atomic);
 };
+VALIDATE_OFFSET(CShadowCamera, m_pCamera, 0x0);
+VALIDATE_OFFSET(CShadowCamera, m_pTexture, 0x4);
+VALIDATE_SIZE(CShadowCamera, 0x8);
 
 SUPPORTED_10EN_11EN_STEAM RpAtomic *ShadowRenderCallBack(RpAtomic *atomic, void *data);
 

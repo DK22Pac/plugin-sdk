@@ -17,6 +17,7 @@ public:
     CPed* CreatePed(CEncodedVector pos, char remap, int rotation);
     CPed* FindPed(int id);
 };
+VALIDATE_SIZE(CChar, 0x1);
 
 extern CChar** gCharManager;
 extern CChar* GetCharManager();

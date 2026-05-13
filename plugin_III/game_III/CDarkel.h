@@ -52,5 +52,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void StartFrenzy(eWeaponType weaponType, int time, unsigned short kill, int model, wchar_t *text, int model2, int model3, int model4, bool standardSound, bool headShot);
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CDarkel, 0x1);
 
 #include "meta/meta.CDarkel.h"

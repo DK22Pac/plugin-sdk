@@ -22,7 +22,12 @@ struct PLUGIN_API CPickupMessage {
     unsigned char bOutOfStock : 1;
     unsigned char m_nQuantity;
 };
-
+VALIDATE_OFFSET(CPickupMessage, m_vec2dPos, 0x0);
+VALIDATE_OFFSET(CPickupMessage, m_weaponType, 0x8);
+VALIDATE_OFFSET(CPickupMessage, m_fW, 0xC);
+VALIDATE_OFFSET(CPickupMessage, m_fH, 0x10);
+VALIDATE_OFFSET(CPickupMessage, m_color, 0x14);
+VALIDATE_OFFSET(CPickupMessage, m_nQuantity, 0x19);
 VALIDATE_SIZE(CPickupMessage, 0x1C);
 
 class PLUGIN_API CPickups {
@@ -60,6 +65,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Update();
     SUPPORTED_10EN_11EN_STEAM static eWeaponType WeaponForModel(int model);
 };
+VALIDATE_SIZE(CPickups, 0x1);
 
 //! unsigned char aWeaponReds[16] = { 255, 0, 128, 255, 255, 0, 255, 0, 128, 128, 255, 255, 128, 0, 255, 0 };
 SUPPORTED_10EN_11EN_STEAM extern unsigned char(&aWeaponReds)[16]; // unsigned char aWeaponReds[16]

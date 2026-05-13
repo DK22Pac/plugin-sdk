@@ -21,6 +21,15 @@ struct ColDef {
     bool m_bProcedural;
     bool m_bInterior;
 };
+VALIDATE_OFFSET(ColDef, m_Area, 0x0);
+VALIDATE_OFFSET(ColDef, name, 0x10);
+VALIDATE_OFFSET(ColDef, m_nModelIdStart, 0x22);
+VALIDATE_OFFSET(ColDef, m_nModelIdEnd, 0x24);
+VALIDATE_OFFSET(ColDef, m_nRefCount, 0x26);
+VALIDATE_OFFSET(ColDef, m_bActive, 0x28);
+VALIDATE_OFFSET(ColDef, m_bCollisionIsRequired, 0x29);
+VALIDATE_OFFSET(ColDef, m_bProcedural, 0x2A);
+VALIDATE_OFFSET(ColDef, m_bInterior, 0x2B);
 VALIDATE_SIZE(ColDef, 0x2C);
 
 typedef CPool<ColDef> CColPool;
@@ -58,3 +67,4 @@ public:
     static void RequestCollision(const CVector& pos, int areaCode);
     static void SetCollisionRequired(const CVector& pos, int areaCode);
 };
+VALIDATE_SIZE(CColStore, 0x1);

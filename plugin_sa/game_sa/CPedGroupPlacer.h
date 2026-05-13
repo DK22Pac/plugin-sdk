@@ -31,5 +31,6 @@ public:
     SUPPORTED_10US bool PlaceGroup(ePedType pedtype, int numOfPeds, CVector const *origin, int nGroupPlacerType);
     SUPPORTED_10US bool PlaceRandomGroup(ePedType pedtype, int numOfPeds, CVector *origin, int unused);
 };
+VALIDATE_SIZE(CPedGroupPlacer, 0x1);
 
 #include "meta/meta.CPedGroupPlacer.h"

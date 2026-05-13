@@ -12,6 +12,9 @@ struct PLUGIN_API UpsideDownCarsData {
     int m_nVehicleIndex;
     unsigned int m_nUpsideDownTimer;
 };
+VALIDATE_OFFSET(UpsideDownCarsData, m_nVehicleIndex, 0x0);
+VALIDATE_OFFSET(UpsideDownCarsData, m_nUpsideDownTimer, 0x4);
+VALIDATE_SIZE(UpsideDownCarsData, 0x8);
 
 class PLUGIN_API CUpsideDownCarCheck {
 public:
@@ -25,8 +28,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void RemoveCarFromCheck(int id);
     SUPPORTED_10EN_11EN_STEAM void UpdateTimers();
 };
-
-VALIDATE_SIZE(UpsideDownCarsData, 0x8);
+VALIDATE_OFFSET(CUpsideDownCarCheck, m_aCars, 0x0);
 VALIDATE_SIZE(CUpsideDownCarCheck, 0x30);
 
 #include "meta/meta.CUpsideDownCarCheck.h"

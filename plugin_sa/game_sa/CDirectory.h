@@ -39,6 +39,10 @@ public:
     DirectoryInfo* FindItem(char const* name, unsigned int& outOffset, unsigned int& outStreamingSize);
     DirectoryInfo* FindItem(unsigned int key, unsigned int& outOffset, unsigned int& outStreamingSize);
 };
-
+VALIDATE_OFFSET(CDirectory, m_pEntries, 0x0);
+VALIDATE_OFFSET(CDirectory, m_nCapacity, 0x4);
+VALIDATE_OFFSET(CDirectory, m_nNumEntries, 0x8);
+VALIDATE_OFFSET(CDirectory, m_bOwnsEntries, 0xC);
 VALIDATE_SIZE(CDirectory, 0x10);
+
 VALIDATE_SIZE(CDirectory::DirectoryInfo, 0x20);

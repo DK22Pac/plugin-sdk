@@ -27,5 +27,17 @@ public:
     short m_nVoice2;
     short m_nVoiceId;
 };
-
+VALIDATE_OFFSET(CPedModelInfo, m_nAnimType, 0x24);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedType, 0x28);
+VALIDATE_OFFSET(CPedModelInfo, m_nStatType, 0x2C);
+VALIDATE_OFFSET(CPedModelInfo, m_nCarsCanDriveMask, 0x30);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedFlags, 0x32);
+VALIDATE_OFFSET(CPedModelInfo, m_pHitColModel, 0x34);
+VALIDATE_OFFSET(CPedModelInfo, m_nRadio1, 0x38);
+VALIDATE_OFFSET(CPedModelInfo, m_nRadio2, 0x39);
+VALIDATE_OFFSET(CPedModelInfo, m_nRace, 0x3A);
+VALIDATE_OFFSET(CPedModelInfo, m_nPedAudioType, 0x3C);
+VALIDATE_OFFSET(CPedModelInfo, m_nVoice1, 0x3E);
+VALIDATE_OFFSET(CPedModelInfo, m_nVoice2, 0x40);
+VALIDATE_OFFSET(CPedModelInfo, m_nVoiceId, 0x42);
 VALIDATE_SIZE(CPedModelInfo, 0x44);

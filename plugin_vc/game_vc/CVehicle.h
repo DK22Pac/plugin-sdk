@@ -1,8 +1,8 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 
@@ -305,7 +305,62 @@ public:
     static void* operator new(unsigned int size, int arg1);
     static void operator delete(void* data);
 };
-
+VALIDATE_OFFSET(CVehicle, m_pHandlingData, 0x120);
+VALIDATE_OFFSET(CVehicle, m_pFlyingHandling, 0x124);
+VALIDATE_OFFSET(CVehicle, m_autoPilot, 0x128);
+VALIDATE_OFFSET(CVehicle, m_pVehicleToRam, 0x19C);
+VALIDATE_OFFSET(CVehicle, m_nPrimaryColor, 0x1A0);
+VALIDATE_OFFSET(CVehicle, m_nSecondaryColor, 0x1A1);
+VALIDATE_OFFSET(CVehicle, m_anExtras, 0x1A2);
+VALIDATE_OFFSET(CVehicle, m_wWantedStarsOnEnter, 0x1A4);
+VALIDATE_OFFSET(CVehicle, m_wMissionValue, 0x1A6);
+VALIDATE_OFFSET(CVehicle, m_pDriver, 0x1A8);
+VALIDATE_OFFSET(CVehicle, m_passengers, 0x1AC);
+VALIDATE_OFFSET(CVehicle, m_nNumPassengers, 0x1CC);
+VALIDATE_OFFSET(CVehicle, m_nNumGettingIn, 0x1CD);
+VALIDATE_OFFSET(CVehicle, m_nGettingInFlags, 0x1CE);
+VALIDATE_OFFSET(CVehicle, m_nGettingOutFlags, 0x1CF);
+VALIDATE_OFFSET(CVehicle, m_nMaxPassengers, 0x1D0);
+VALIDATE_OFFSET(CVehicle, __f01CD, 0x1D1);
+VALIDATE_OFFSET(CVehicle, field_1D4, 0x1D4);
+VALIDATE_OFFSET(CVehicle, field_1D8, 0x1D8);
+VALIDATE_OFFSET(CVehicle, m_pEntityWeAreOn, 0x1E4);
+VALIDATE_OFFSET(CVehicle, m_pFire, 0x1E8);
+VALIDATE_OFFSET(CVehicle, m_fSteerAngle, 0x1EC);
+VALIDATE_OFFSET(CVehicle, m_fGasPedal, 0x1F0);
+VALIDATE_OFFSET(CVehicle, m_fBreakPedal, 0x1F4);
+VALIDATE_OFFSET(CVehicle, m_nCreatedBy, 0x1F8);
+VALIDATE_OFFSET(CVehicle, m_nAmmoInClip, 0x201);
+VALIDATE_OFFSET(CVehicle, field_201, 0x202);
+VALIDATE_OFFSET(CVehicle, m_fHealth, 0x204);
+VALIDATE_OFFSET(CVehicle, m_nCurrentGear, 0x208);
+VALIDATE_OFFSET(CVehicle, __f0205, 0x209);
+VALIDATE_OFFSET(CVehicle, field_20C, 0x20C);
+VALIDATE_OFFSET(CVehicle, field_210, 0x210);
+VALIDATE_OFFSET(CVehicle, m_nTimeTillWeNeedThisCar, 0x214);
+VALIDATE_OFFSET(CVehicle, field_218, 0x218);
+VALIDATE_OFFSET(CVehicle, m_nTimeOfDeath, 0x21C);
+VALIDATE_OFFSET(CVehicle, field_220, 0x220);
+VALIDATE_OFFSET(CVehicle, m_wBombTimer, 0x222);
+VALIDATE_OFFSET(CVehicle, field_224, 0x224);
+VALIDATE_OFFSET(CVehicle, field_228, 0x228);
+VALIDATE_OFFSET(CVehicle, field_22C, 0x22C);
+VALIDATE_OFFSET(CVehicle, m_eDoorLock, 0x230);
+VALIDATE_OFFSET(CVehicle, m_nLastWeaponDamage, 0x234);
+VALIDATE_OFFSET(CVehicle, __f0231, 0x235);
+VALIDATE_OFFSET(CVehicle, pLastDamEntity, 0x238);
+VALIDATE_OFFSET(CVehicle, m_nRadioStation, 0x23C);
+VALIDATE_OFFSET(CVehicle, field_23D, 0x23D);
+VALIDATE_OFFSET(CVehicle, field_23E, 0x23E);
+VALIDATE_OFFSET(CVehicle, m_bHornEnabled, 0x240);
+VALIDATE_OFFSET(CVehicle, field_244, 0x244);
+VALIDATE_OFFSET(CVehicle, m_nSirenOrAlarm, 0x245);
+VALIDATE_OFFSET(CVehicle, m_nSirenExtra, 0x246);
+VALIDATE_OFFSET(CVehicle, field_247, 0x247);
+VALIDATE_OFFSET(CVehicle, m_frontCollPoly, 0x248);
+VALIDATE_OFFSET(CVehicle, m_rearCollPoly, 0x270);
+VALIDATE_OFFSET(CVehicle, m_fSteerRatio, 0x298);
+VALIDATE_OFFSET(CVehicle, m_nVehicleClass, 0x29C);
 VALIDATE_SIZE(CVehicle, 0x2A0);
 
 extern float &fBurstTyreMod; // 0.13

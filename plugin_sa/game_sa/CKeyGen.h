@@ -17,3 +17,4 @@ public:
     static unsigned int GetUppercaseKey(char const* str);
     static unsigned int AppendStringToKey(unsigned int key, char const* str);
 };
+VALIDATE_SIZE(CKeyGen, 0x1);

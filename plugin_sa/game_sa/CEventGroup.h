@@ -16,5 +16,7 @@ public:
     unsigned int  m_dwCount;
     void         *m_apEvents[16];
 };
-
+VALIDATE_OFFSET(CEventGroup, m_pPed, 0x4);
+VALIDATE_OFFSET(CEventGroup, m_dwCount, 0x8);
+VALIDATE_OFFSET(CEventGroup, m_apEvents, 0xC);
 VALIDATE_SIZE(CEventGroup, 0x4C);

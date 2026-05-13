@@ -15,6 +15,6 @@ namespace rage {
     public:
         pgPtr<BlockMap> blockMap;
     };
-
+    VALIDATE_OFFSET(pgBase, blockMap, 0x4);
     VALIDATE_SIZE(pgBase, 0x8);
 }

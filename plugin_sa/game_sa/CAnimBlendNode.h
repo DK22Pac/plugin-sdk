@@ -36,5 +36,11 @@ public:
     bool Update(CVector& Vector, CQuaternion& Qauternion, float arg3);
     bool UpdateCompressed(CVector& Vector, CQuaternion& Quaternion, float arg3);
 };
-
+VALIDATE_OFFSET(CAnimBlendNode, field_0, 0x0);
+VALIDATE_OFFSET(CAnimBlendNode, field_4, 0x4);
+VALIDATE_OFFSET(CAnimBlendNode, field_8, 0x8);
+VALIDATE_OFFSET(CAnimBlendNode, field_A, 0xA);
+VALIDATE_OFFSET(CAnimBlendNode, field_C, 0xC);
+VALIDATE_OFFSET(CAnimBlendNode, field_10, 0x10);
+VALIDATE_OFFSET(CAnimBlendNode, m_pAnimBlendAssociation, 0x14);
 VALIDATE_SIZE(CAnimBlendNode, 0x18);

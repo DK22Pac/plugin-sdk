@@ -70,6 +70,24 @@ namespace rage {
         static grcImage* LoadDDS(const char* path);
         static grcImage* Load(const char* path); // dds only
     };
+    VALIDATE_OFFSET(grcImage, m_Width, 0x0);
+    VALIDATE_OFFSET(grcImage, m_Height, 0x2);
+    VALIDATE_OFFSET(grcImage, m_Format, 0x4);
+    VALIDATE_OFFSET(grcImage, m_Type, 0x8);
+    VALIDATE_OFFSET(grcImage, m_Stride, 0xC);
+    VALIDATE_OFFSET(grcImage, m_Depth, 0xE);
+    VALIDATE_OFFSET(grcImage, m_StrideHi, 0xF);
+    VALIDATE_OFFSET(grcImage, m_Bits, 0x10);
+    VALIDATE_OFFSET(grcImage, m_Lut, 0x14);
+    VALIDATE_OFFSET(grcImage, m_Next, 0x18);
+    VALIDATE_OFFSET(grcImage, m_NextLayer, 0x1C);
+    VALIDATE_OFFSET(grcImage, m_RefCount, 0x20);
+    VALIDATE_OFFSET(grcImage, pad0, 0x24);
+    VALIDATE_OFFSET(grcImage, pad1, 0x28);
+    VALIDATE_OFFSET(grcImage, pad2, 0x2C);
+    VALIDATE_OFFSET(grcImage, m_ColorExp, 0x30);
+    VALIDATE_OFFSET(grcImage, m_ColorOfs, 0x3C);
+    VALIDATE_SIZE(grcImage, 0x48);
 }
 
 

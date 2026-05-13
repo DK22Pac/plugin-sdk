@@ -41,7 +41,15 @@ public:
 
     SUPPORTED_10US CVector GetNodeCoors();
 };
-
+VALIDATE_OFFSET(CPathNode, ptr, 0x0);
+VALIDATE_OFFSET(CPathNode, ptr2, 0x4);
+VALIDATE_OFFSET(CPathNode, m_vecPosn, 0x8);
+VALIDATE_OFFSET(CPathNode, m_nSearchList, 0xE);
+VALIDATE_OFFSET(CPathNode, m_nBaseLinkId, 0x10);
+VALIDATE_OFFSET(CPathNode, m_nAreaId, 0x12);
+VALIDATE_OFFSET(CPathNode, m_nNodeId, 0x14);
+VALIDATE_OFFSET(CPathNode, m_nPathWidth, 0x16);
+VALIDATE_OFFSET(CPathNode, m_nFloodFill, 0x17);
 VALIDATE_SIZE(CPathNode, 0x1C);
 
 #include "meta/meta.CPathNode.h"

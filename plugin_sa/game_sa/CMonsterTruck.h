@@ -52,7 +52,11 @@ public:
 
     void ExtendSuspension();
 };
-
+VALIDATE_OFFSET(CMonsterTruck, field_988, 0x988);
+VALIDATE_OFFSET(CMonsterTruck, field_98C, 0x98C);
+VALIDATE_OFFSET(CMonsterTruck, field_990, 0x990);
+VALIDATE_OFFSET(CMonsterTruck, field_994, 0x994);
+VALIDATE_OFFSET(CMonsterTruck, field_998, 0x998);
 VALIDATE_SIZE(CMonsterTruck, 0x99C);
 
 extern float& fWheelExtensionRate; // 0.1

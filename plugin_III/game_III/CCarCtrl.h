@@ -109,6 +109,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void WeaveThroughObjectsSectorList(CPtrList &list, CVehicle *vehicle, float x_inf, float y_inf, float x_sup, float y_sup, float *pAngleToWeaveLeft, float *pAngleToWeaveRight);
     SUPPORTED_10EN_11EN_STEAM static void WeaveThroughPedsSectorList(CPtrList &list, CVehicle *vehicle, CPhysical *target, float x_inf, float y_inf, float x_sup, float y_sup, float *pAngleToWeaveLeft, float *pAngleToWeaveRight);
 };
+VALIDATE_SIZE(CCarCtrl, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern CVehicle *(&apCarsToKeep)[2]; // CVehicle *apCarsToKeep[2]
 SUPPORTED_10EN_11EN_STEAM extern unsigned int(&aCarsToKeepTime)[2]; // unsigned int aCarsToKeepTime[2]

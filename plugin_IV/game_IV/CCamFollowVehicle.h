@@ -12,3 +12,4 @@ class CCamFollowVehicle : public CCam {
 public:
     static bool& bProstituteCam;
 };
+VALIDATE_SIZE(CCamFollowVehicle, 0x500);

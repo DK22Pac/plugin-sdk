@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CSpecialPlateHandler.h"
 #include "CCarGenerator.h"
@@ -26,5 +25,6 @@ public:
     SUPPORTED_10US static void RemoveCarGenerators(unsigned char IplID);
     SUPPORTED_10US static void Save();
 };
+VALIDATE_SIZE(CTheCarGenerators, 0x1);
 
 #include "meta/meta.CTheCarGenerators.h"

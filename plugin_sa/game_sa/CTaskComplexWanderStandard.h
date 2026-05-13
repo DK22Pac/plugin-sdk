@@ -19,5 +19,6 @@ public:
 
     CTaskComplexWanderStandard(int MoveState, unsigned char Dir, bool bWanderSensibly = true);
 };
-
+VALIDATE_OFFSET(CTaskComplexWanderStandard, m_TaskTimer, 0x28);
+VALIDATE_OFFSET(CTaskComplexWanderStandard, m_nMinNextScanTime, 0x34);
 VALIDATE_SIZE(CTaskComplexWanderStandard, 0x38);

@@ -28,3 +28,4 @@ public:
     static void RequestScript(int32_t hash, int32_t flags);
     static void SetIsModelDeletable(int32_t model, int32_t fileTypeId);
 };
+VALIDATE_SIZE(CStreaming, 0x1);

@@ -72,5 +72,6 @@ public:
     // Normalises a quat
     void Normalise();
 };
-
+VALIDATE_OFFSET(CQuaternion, imag, 0x0);
+VALIDATE_OFFSET(CQuaternion, real, 0xC);
 VALIDATE_SIZE(CQuaternion, 0x10);

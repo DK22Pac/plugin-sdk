@@ -82,11 +82,16 @@ public:
     unsigned int keyCode;
     unsigned int priority;
 };
+VALIDATE_OFFSET(CControllerKey, keyCode, 0x0);
+VALIDATE_OFFSET(CControllerKey, priority, 0x4);
+VALIDATE_SIZE(CControllerKey, 0x8);
 
 class PLUGIN_API CControllerAction {
 public:
     CControllerKey keys[4];
 };
+VALIDATE_OFFSET(CControllerAction, keys, 0x0);
+VALIDATE_SIZE(CControllerAction, 0x20);
 
 class PLUGIN_API CControllerConfigManager {
 public:
@@ -110,7 +115,19 @@ public:
     bool GetIsKeyboardKeyJustDown(RsKeyCodes key);
     void ResetSettingOrder(e_ControllerAction action);
 };
-
+VALIDATE_OFFSET(CControllerConfigManager, field_0, 0x0);
+VALIDATE_OFFSET(CControllerConfigManager, field_1, 0x1);
+VALIDATE_OFFSET(CControllerConfigManager, field_2, 0x2);
+VALIDATE_OFFSET(CControllerConfigManager, field_3, 0x3);
+VALIDATE_OFFSET(CControllerConfigManager, m_prevPadState, 0x4);
+VALIDATE_OFFSET(CControllerConfigManager, m_currPadState, 0x114);
+VALIDATE_OFFSET(CControllerConfigManager, m_aszEventNames, 0x224);
+VALIDATE_OFFSET(CControllerConfigManager, field_B5C, 0xB5C);
+VALIDATE_OFFSET(CControllerConfigManager, _pad1, 0xB6D);
+VALIDATE_OFFSET(CControllerConfigManager, m_actions, 0xB70);
+VALIDATE_OFFSET(CControllerConfigManager, field_12D0, 0x12D0);
+VALIDATE_OFFSET(CControllerConfigManager, field_12E0, 0x12E0);
+VALIDATE_OFFSET(CControllerConfigManager, _pad2, 0x12E1);
 VALIDATE_SIZE(CControllerConfigManager, 0x12E4);
 
 extern PLUGIN_API CControllerConfigManager &ControlsManager;

@@ -11,3 +11,4 @@ class CSprite2d {
 public:
 
 };
+VALIDATE_SIZE(CSprite2d, 0x1);

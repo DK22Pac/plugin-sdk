@@ -35,7 +35,13 @@ public:
     static void TestForSniperBullet(float x1, float y1, float z1, float x2, float y2, float z2);
     static void Update();
 };
-
+VALIDATE_OFFSET(CBulletInfo, m_nWeaponType, 0x0);
+VALIDATE_OFFSET(CBulletInfo, m_pCreator, 0x4);
+VALIDATE_OFFSET(CBulletInfo, m_nDestroyTime, 0x8);
+VALIDATE_OFFSET(CBulletInfo, m_bExists, 0xC);
+VALIDATE_OFFSET(CBulletInfo, m_vecPosition, 0x10);
+VALIDATE_OFFSET(CBulletInfo, m_vecVelocity, 0x1C);
+VALIDATE_OFFSET(CBulletInfo, m_nDamage, 0x28);
 VALIDATE_SIZE(CBulletInfo, 0x2C);
 
 extern unsigned int MAX_BULLET_INFOS; // default 100

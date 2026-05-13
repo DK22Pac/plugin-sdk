@@ -56,6 +56,22 @@ public:
     // vtable function #0 (destructor)
     ~CAnimBlendAssociation();
 };
+VALIDATE_OFFSET(CAnimBlendAssociation, vtable, 0x0);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_link, 0x4);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nNumBlendNodes, 0xC);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nAnimGroup, 0xE);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_pNodeArray, 0x10);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_pHierarchy, 0x14);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fBlendAmount, 0x18);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fBlendDelta, 0x1C);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fCurrentTime, 0x20);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_fSpeed, 0x24);
+VALIDATE_OFFSET(CAnimBlendAssociation, fTimeStep, 0x28);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nAnimId, 0x2C);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nFlags, 0x2E);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_nCallbackType, 0x30);
+VALIDATE_OFFSET(CAnimBlendAssociation, m_pCallbackData, 0x38);
+VALIDATE_SIZE(CAnimBlendAssociation, 0x3C);
 
 VTABLE_DESC(CAnimBlendAssociation, 0x68308C, 1);
 VALIDATE_SIZE(CAnimBlendAssociation, 0x3C);

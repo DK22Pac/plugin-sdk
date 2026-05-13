@@ -66,5 +66,29 @@ public:
 private:
     char _pad[2];
 };
-
+VALIDATE_OFFSET(CAutoPilot, m_currentAddress, 0x0);
+VALIDATE_OFFSET(CAutoPilot, m_startingRouteNode, 0x4);
+VALIDATE_OFFSET(CAutoPilot, m_PreviousRouteNode, 0x8);
+VALIDATE_OFFSET(CAutoPilot, m_nTotalSpeedScaleFactor, 0xC);
+VALIDATE_OFFSET(CAutoPilot, m_nSpeedScaleFactor, 0x10);
+VALIDATE_OFFSET(CAutoPilot, m_nCurrentPathNodeInfo, 0x14);
+VALIDATE_OFFSET(CAutoPilot, m_nNextPathNodeInfo, 0x18);
+VALIDATE_OFFSET(CAutoPilot, m_nPreviousPathNodeInfo, 0x1C);
+VALIDATE_OFFSET(CAutoPilot, m_nTimeToStartMission, 0x20);
+VALIDATE_OFFSET(CAutoPilot, m_nTimeSwitchedToRealPhysics, 0x24);
+VALIDATE_OFFSET(CAutoPilot, m_nPreviousDirection, 0x28);
+VALIDATE_OFFSET(CAutoPilot, m_nCurrentDirecton, 0x29);
+VALIDATE_OFFSET(CAutoPilot, m_nNextDirection, 0x2A);
+VALIDATE_OFFSET(CAutoPilot, m_nCurrentLane, 0x2B);
+VALIDATE_OFFSET(CAutoPilot, m_nNextLane, 0x2C);
+VALIDATE_OFFSET(CAutoPilot, m_nDrivingStyle, 0x2D);
+VALIDATE_OFFSET(CAutoPilot, m_nCarMission, 0x2E);
+VALIDATE_OFFSET(CAutoPilot, m_nAnimationId, 0x2F);
+VALIDATE_OFFSET(CAutoPilot, m_nAnimationTime, 0x30);
+VALIDATE_OFFSET(CAutoPilot, m_fMaxTrafficSpeed, 0x34);
+VALIDATE_OFFSET(CAutoPilot, m_nCruiseSpeed, 0x38);
+VALIDATE_OFFSET(CAutoPilot, unknown, 0x39);
+VALIDATE_OFFSET(CAutoPilot, m_vecDestinationCoors, 0x44);
+VALIDATE_OFFSET(CAutoPilot, m_aPathFindNodesInfo, 0x50);
+VALIDATE_OFFSET(CAutoPilot, m_nPathFindNodesCount, 0x70);
 VALIDATE_SIZE(CAutoPilot, 0x74);

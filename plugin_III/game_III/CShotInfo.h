@@ -30,6 +30,15 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Shutdown();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_OFFSET(CShotInfo, weaponType, 0x0);
+VALIDATE_OFFSET(CShotInfo, m_vecStartPos, 0x4);
+VALIDATE_OFFSET(CShotInfo, m_vecAreaAffected, 0x10);
+VALIDATE_OFFSET(CShotInfo, m_fRadius, 0x1C);
+VALIDATE_OFFSET(CShotInfo, m_pSourceEntity, 0x20);
+VALIDATE_OFFSET(CShotInfo, m_fTimeOut, 0x24);
+VALIDATE_OFFSET(CShotInfo, m_bExist, 0x28);
+VALIDATE_OFFSET(CShotInfo, m_bExecuted, 0x29);
+VALIDATE_SIZE(CShotInfo, 0x2C);
 
 SUPPORTED_10EN_11EN_STEAM extern CShotInfo(&gaShotInfo)[100]; // CShotInfo gaShotInfo[100]
 

@@ -15,3 +15,4 @@ public:
     SUPPORTED_10EN_11EN_STEAM static float &ms_fFramesPerUpdate;
     SUPPORTED_10EN_11EN_STEAM static float &ms_fTimeScale;
 };
+VALIDATE_SIZE(CTimeStep, 0x1);

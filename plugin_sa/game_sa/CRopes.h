@@ -32,3 +32,4 @@ public:
     static bool IsCarriedByRope(CEntity* entity);
     static void SetSpeedOfTopNode(unsigned int ropeId, CVector dirSpeed);
 };
+VALIDATE_SIZE(CRopes, 0x1);

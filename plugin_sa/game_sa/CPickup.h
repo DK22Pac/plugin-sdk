@@ -102,5 +102,14 @@ public:
     static void FindTextIndexForString(char* message);
     static char const *FindStringForTextIndex(int index);
 };
-
+VALIDATE_OFFSET(CPickup, m_fRevenueValue, 0x0);
+VALIDATE_OFFSET(CPickup, m_pObject, 0x4);
+VALIDATE_OFFSET(CPickup, m_nAmmo, 0x8);
+VALIDATE_OFFSET(CPickup, m_nRegenerationTime, 0xC);
+VALIDATE_OFFSET(CPickup, m_vecPos, 0x10);
+VALIDATE_OFFSET(CPickup, m_nMoneyPerDay, 0x16);
+VALIDATE_OFFSET(CPickup, m_nModelIndex, 0x18);
+VALIDATE_OFFSET(CPickup, m_nReferenceIndex, 0x1A);
+VALIDATE_OFFSET(CPickup, m_nPickupType, 0x1C);
+VALIDATE_OFFSET(CPickup, m_nFlags, 0x1D);
 VALIDATE_SIZE(CPickup, 0x20);

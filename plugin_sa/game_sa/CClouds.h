@@ -26,6 +26,16 @@ public:
     int field_27B4[12];
     unsigned int m_nPrimIndices[6];
 };
+VALIDATE_OFFSET(tMovingFog, m_bFogSlots, 0x0);
+VALIDATE_OFFSET(tMovingFog, m_vecPosn, 0x160);
+VALIDATE_OFFSET(tMovingFog, m_fSize, 0x11C8);
+VALIDATE_OFFSET(tMovingFog, m_fIntensity, 0x1740);
+VALIDATE_OFFSET(tMovingFog, m_fMaxIntensity, 0x1CB8);
+VALIDATE_OFFSET(tMovingFog, m_vecWind, 0x2230);
+VALIDATE_OFFSET(tMovingFog, m_fSpeed, 0x223C);
+VALIDATE_OFFSET(tMovingFog, field_27B4, 0x27B4);
+VALIDATE_OFFSET(tMovingFog, m_nPrimIndices, 0x27E4);
+VALIDATE_SIZE(tMovingFog, 0x27FC);
 
 struct tVolumetricClouds {
     char       m_bSlots[180];
@@ -41,6 +51,19 @@ struct tVolumetricClouds {
     float      m_fCloudUCoords[18];
     float      m_fCloudVCoords[18];
 };
+VALIDATE_OFFSET(tVolumetricClouds, m_bSlots, 0x0);
+VALIDATE_OFFSET(tVolumetricClouds, m_bInsideVisibilityRange, 0xB4);
+VALIDATE_OFFSET(tVolumetricClouds, field_168, 0x168);
+VALIDATE_OFFSET(tVolumetricClouds, field_9D8, 0x9D8);
+VALIDATE_OFFSET(tVolumetricClouds, m_nHeight, 0x1248);
+VALIDATE_OFFSET(tVolumetricClouds, m_pTex, 0x1518);
+VALIDATE_OFFSET(tVolumetricClouds, m_vecCloudsSpace, 0x151C);
+VALIDATE_OFFSET(tVolumetricClouds, m_fCloudXCoords, 0x1540);
+VALIDATE_OFFSET(tVolumetricClouds, m_fCloudYCoords, 0x1588);
+VALIDATE_OFFSET(tVolumetricClouds, m_fCloudZCoords, 0x15D0);
+VALIDATE_OFFSET(tVolumetricClouds, m_fCloudUCoords, 0x1618);
+VALIDATE_OFFSET(tVolumetricClouds, m_fCloudVCoords, 0x1660);
+VALIDATE_SIZE(tVolumetricClouds, 0x16A8);
 
 class PLUGIN_API CClouds {
 public:
@@ -79,6 +102,7 @@ public:
     static void MovingFog_Update();
     static void MovingFogRender();
 };
+VALIDATE_SIZE(CClouds, 0x1);
 
 extern unsigned char *RAINBOW_LINES_COLOR_RED;   // RAINBOW_LINES_COLOR_RED[6] =   { 30, 30, 30, 10,  0, 15 }
 extern unsigned char *RAINBOW_LINES_COLOR_GREEN; // RAINBOW_LINES_COLOR_GREEN[6] = {  0, 15, 30, 30,  0,  0 }

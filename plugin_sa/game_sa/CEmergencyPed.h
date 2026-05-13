@@ -18,5 +18,4 @@ public:
 	
 	void ProcessControl();
 };
-
 VALIDATE_SIZE(CEmergencyPed, 0x79C);

@@ -29,4 +29,11 @@ public:
     void IncrementAnger(int anger);
     void Process();
 };
+VALIDATE_OFFSET(CMentalState, m_AngerAtPlayer, 0x0);
+VALIDATE_OFFSET(CMentalState, m_LastAngerAtPlayer, 0x1);
+VALIDATE_OFFSET(CMentalState, m_AngerTimer, 0x4);
+VALIDATE_OFFSET(CMentalState, m_pedHealth, 0x10);
+VALIDATE_OFFSET(CMentalState, m_oldPedHealth, 0x11);
+VALIDATE_OFFSET(CMentalState, m_vehicleHealth, 0x12);
+VALIDATE_OFFSET(CMentalState, m_oldVehicleHealth, 0x13);
 VALIDATE_SIZE(CMentalState, 0x14);

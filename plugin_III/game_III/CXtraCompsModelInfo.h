@@ -31,6 +31,8 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void SetClump(RpClump *clump);
 };
+VALIDATE_OFFSET(CXtraCompsModelInfo, m_nModelIndex, 0x34);
+VALIDATE_SIZE(CXtraCompsModelInfo, 0x38);
 
 VTABLE_DESC(CXtraCompsModelInfo, 0x5FE044, 7);
 VALIDATE_SIZE(CXtraCompsModelInfo, 0x38);

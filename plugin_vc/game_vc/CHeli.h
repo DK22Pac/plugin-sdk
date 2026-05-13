@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto Vice City) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto Vice City) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CVehicle.h"
 #include "CObject.h"
@@ -86,7 +85,39 @@ public:
     static bool TestSniperCollision(CVector* origin, CVector* target);
     static void UpdateHelis();
 }; 
-
+VALIDATE_OFFSET(CHeli, m_apModelNodes, 0x2A0);
+VALIDATE_OFFSET(CHeli, m_nHeliState, 0x2C0);
+VALIDATE_OFFSET(CHeli, m_fSearchLightX, 0x2C4);
+VALIDATE_OFFSET(CHeli, m_fSearchLightY, 0x2C8);
+VALIDATE_OFFSET(CHeli, m_nExplosionTime, 0x2CC);
+VALIDATE_OFFSET(CHeli, field_2D0, 0x2D0);
+VALIDATE_OFFSET(CHeli, m_fRotationX, 0x2D4);
+VALIDATE_OFFSET(CHeli, m_fHeliForcedZ, 0x2D8);
+VALIDATE_OFFSET(CHeli, m_fSearchLightIntensity, 0x2DC);
+VALIDATE_OFFSET(CHeli, m_nHeliNumber, 0x2E0);
+VALIDATE_OFFSET(CHeli, m_nHeliType, 0x2E1);
+VALIDATE_OFFSET(CHeli, m_nHeliDestinationPoint, 0x2E2);
+VALIDATE_OFFSET(CHeli, m_nNumSwatPassengers, 0x2E3);
+VALIDATE_OFFSET(CHeli, m_anRopeLifeTime, 0x2E4);
+VALIDATE_OFFSET(CHeli, fLastXPoses, 0x2E8);
+VALIDATE_OFFSET(CHeli, fLastYPoses, 0x300);
+VALIDATE_OFFSET(CHeli, field_318, 0x318);
+VALIDATE_OFFSET(CHeli, field_31C, 0x31C);
+VALIDATE_OFFSET(CHeli, field_320, 0x320);
+VALIDATE_OFFSET(CHeli, m_nDamagePoints, 0x324);
+VALIDATE_OFFSET(CHeli, m_fRotorAngle, 0x328);
+VALIDATE_OFFSET(CHeli, field_32C, 0x32C);
+VALIDATE_OFFSET(CHeli, field_330, 0x330);
+VALIDATE_OFFSET(CHeli, field_334, 0x334);
+VALIDATE_OFFSET(CHeli, field_338, 0x338);
+VALIDATE_OFFSET(CHeli, field_33C, 0x33C);
+VALIDATE_OFFSET(CHeli, field_340, 0x340);
+VALIDATE_OFFSET(CHeli, field_344, 0x344);
+VALIDATE_OFFSET(CHeli, field_348, 0x348);
+VALIDATE_OFFSET(CHeli, field_34C, 0x34C);
+VALIDATE_OFFSET(CHeli, field_354, 0x354);
+VALIDATE_OFFSET(CHeli, field_358, 0x358);
+VALIDATE_OFFSET(CHeli, field_35C, 0x35C);
 VALIDATE_SIZE(CHeli, 0x360);
 
 void GenerateHeli(bool enable);

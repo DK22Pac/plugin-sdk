@@ -12,3 +12,4 @@ class CRadioHud {
 public:
 
 };
+VALIDATE_SIZE(CRadioHud, 0x1);

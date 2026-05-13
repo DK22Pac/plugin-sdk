@@ -11,5 +11,4 @@ class CVirtualBase {
 public:
     virtual ~CVirtualBase() {}
 };
-
 VALIDATE_SIZE(CVirtualBase, 0x4);

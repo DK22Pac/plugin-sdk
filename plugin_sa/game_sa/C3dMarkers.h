@@ -18,7 +18,11 @@ public:
     unsigned int m_nGreen;
     unsigned int m_nBlue;
 };
-
+VALIDATE_OFFSET(tUser3dMarker, m_bIsUsed, 0x0);
+VALIDATE_OFFSET(tUser3dMarker, m_vecPosition, 0x4);
+VALIDATE_OFFSET(tUser3dMarker, m_nRed, 0x10);
+VALIDATE_OFFSET(tUser3dMarker, m_nGreen, 0x14);
+VALIDATE_OFFSET(tUser3dMarker, m_nBlue, 0x18);
 VALIDATE_SIZE(tUser3dMarker, 0x1C);
 
 struct tDirectionArrow {
@@ -34,7 +38,14 @@ public:
     unsigned int m_nBlue;
     unsigned int m_nAlpha;
 };
-
+VALIDATE_OFFSET(tDirectionArrow, m_bIsUsed, 0x0);
+VALIDATE_OFFSET(tDirectionArrow, m_vecPosition, 0x4);
+VALIDATE_OFFSET(tDirectionArrow, m_fSize, 0x10);
+VALIDATE_OFFSET(tDirectionArrow, m_vecDirection, 0x14);
+VALIDATE_OFFSET(tDirectionArrow, m_nRed, 0x20);
+VALIDATE_OFFSET(tDirectionArrow, m_nGreen, 0x24);
+VALIDATE_OFFSET(tDirectionArrow, m_nBlue, 0x28);
+VALIDATE_OFFSET(tDirectionArrow, m_nAlpha, 0x2C);
 VALIDATE_SIZE(tDirectionArrow, 0x30);
 
 extern unsigned int MAX_NUM_3DMARKERS; // default 32
@@ -81,6 +92,7 @@ public:
     static int User3dMarkerSet(float x, float y, float z, int colour);
     static void User3dMarkersDraw();
 };
+VALIDATE_SIZE(C3dMarkers, 0x1);
 
 // 'data' is a pointer to store atomic (RpAtomic **)
 RpAtomic* MarkerAtomicCB(RpAtomic* atomic, void* data);

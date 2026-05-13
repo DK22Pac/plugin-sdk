@@ -21,3 +21,4 @@ public:
     static void PassTime(uint32_t time);
 	
 };
+VALIDATE_SIZE(CGameLogic, 0x1);

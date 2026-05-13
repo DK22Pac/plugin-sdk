@@ -14,5 +14,4 @@ protected:
 public:
     CAnimatedBuilding();
 };
-
 VALIDATE_SIZE(CAnimatedBuilding, 0x38);

@@ -80,6 +80,7 @@ public:
     // returns weapon type (see eWeaponType)
     static int WeaponForModel(int modelId);
 };
+VALIDATE_SIZE(CPickups, 0x1);
 
 extern int &CollectPickupBuffer;
 

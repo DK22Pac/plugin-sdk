@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskSimpleAnim.h"
 #include "CAnimBlendAssociation.h"
@@ -28,5 +27,8 @@ public:
         char* pTaskName _IGNORED_, bool bHoldLastFrame);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_nAnimGroup, 0x10);
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_nAnimId, 0x14);
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_fBlendDelta, 0x18);
+VALIDATE_OFFSET(CTaskSimpleRunAnim, m_nTaskType, 0x1C);
 VALIDATE_SIZE(CTaskSimpleRunAnim, 0x20);

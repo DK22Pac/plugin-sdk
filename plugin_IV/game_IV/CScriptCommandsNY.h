@@ -10,5 +10,6 @@
 
 class CScriptCommandsNY {
 public:
-    
+
 };
+VALIDATE_SIZE(CScriptCommandsNY, 0x1);

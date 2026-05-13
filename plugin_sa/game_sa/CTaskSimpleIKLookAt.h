@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskSimple.h"
 #include "CAnimBlendAssociation.h"
@@ -22,5 +21,6 @@ public:
     CTaskSimpleIKLookAt(char* idString _IGNORED_ ,CEntity* pEntity,int time,int offsetBoneTag, RwV3d offsetPos,
         bool bUseTorso,float speed,int blendTime,int m_priority);
 };
-
+VALIDATE_OFFSET(CTaskSimpleIKLookAt, m_bUseTorso, 0x58);
+VALIDATE_OFFSET(CTaskSimpleIKLookAt, m_priority, 0x59);
 VALIDATE_SIZE(CTaskSimpleIKLookAt, 0x5C);

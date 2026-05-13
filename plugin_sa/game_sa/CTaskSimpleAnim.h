@@ -40,5 +40,6 @@ public:
     CTaskSimpleAnim(bool bHoldLastFrame);
 
 };
-
+VALIDATE_OFFSET(CTaskSimpleAnim, m_pAnim, 0x8);
+VALIDATE_OFFSET(CTaskSimpleAnim, m_nFlags, 0xC);
 VALIDATE_SIZE(CTaskSimpleAnim, 0x10);

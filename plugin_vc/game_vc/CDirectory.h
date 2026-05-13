@@ -27,8 +27,9 @@ public:
     SUPPORTED_10EN void ReadDirFile(char const *filename);
     SUPPORTED_10EN bool WriteDirFile(char const *filename);
 };
-
+VALIDATE_OFFSET(CDirectory, m_pEntries, 0x0);
+VALIDATE_OFFSET(CDirectory, m_nCapacity, 0x4);
+VALIDATE_OFFSET(CDirectory, m_nNumEntries, 0x8);
 VALIDATE_SIZE(CDirectory, 0xC);
-VALIDATE_SIZE(CDirectory::DirectoryInfo, 0x20);
 
 #include "meta/meta.CDirectory.h"

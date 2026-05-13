@@ -17,7 +17,7 @@ public:
     void Initialise();
     void LoadParticleData();
 };
-
+VALIDATE_OFFSET(cParticleSystemMgr, m_particleSystems, 0x0);
 VALIDATE_SIZE(cParticleSystemMgr, 0x2420);
 
 extern cParticleSystemMgr &mod_ParticleSystemManager;

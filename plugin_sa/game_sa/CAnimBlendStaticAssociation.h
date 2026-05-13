@@ -29,6 +29,13 @@ public:
     SUPPORTED_10US void FreeSequenceArray();
     SUPPORTED_10US void Init(RpClump *clump, CAnimBlendHierarchy *hierarchy);
 };
+VALIDATE_OFFSET(CAnimBlendStaticAssociation, m_nNumBlendNodes, 0x4);
+VALIDATE_OFFSET(CAnimBlendStaticAssociation, m_nAnimId, 0x6);
+VALIDATE_OFFSET(CAnimBlendStaticAssociation, m_nAnimGroup, 0x8);
+VALIDATE_OFFSET(CAnimBlendStaticAssociation, m_nFlags, 0xA);
+VALIDATE_OFFSET(CAnimBlendStaticAssociation, m_pSequenceArray, 0xC);
+VALIDATE_OFFSET(CAnimBlendStaticAssociation, m_pHeirarchy, 0x10);
+VALIDATE_SIZE(CAnimBlendStaticAssociation, 0x14);
 
 VTABLE_DESC(CAnimBlendStaticAssociation, 0x85C6CC, 1);
 VALIDATE_SIZE(CAnimBlendStaticAssociation, 0x14);

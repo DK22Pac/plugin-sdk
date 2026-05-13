@@ -90,7 +90,12 @@ public:
         this->m_nYear = year;
     }
 };
-
+VALIDATE_OFFSET(CDate, m_nSecond, 0x0);
+VALIDATE_OFFSET(CDate, m_nMinute, 0x4);
+VALIDATE_OFFSET(CDate, m_nHour, 0x8);
+VALIDATE_OFFSET(CDate, m_nDay, 0xC);
+VALIDATE_OFFSET(CDate, m_nMonth, 0x10);
+VALIDATE_OFFSET(CDate, m_nYear, 0x14);
 VALIDATE_SIZE(CDate, 0x18);
 
 #include "meta/meta.CDate.h"

@@ -16,6 +16,9 @@ struct tTagDesc {
     CEntity* m_pEntity;
     uint8_t    m_nAlpha;
 };
+VALIDATE_OFFSET(tTagDesc, m_pEntity, 0x0);
+VALIDATE_OFFSET(tTagDesc, m_nAlpha, 0x4);
+VALIDATE_SIZE(tTagDesc, 0x8);
 
 class CTagManager {
 public:
@@ -29,3 +32,4 @@ public:
     static void     Save();
     static void     Load();
 };
+VALIDATE_SIZE(CTagManager, 0x1);

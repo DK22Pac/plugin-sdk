@@ -19,7 +19,8 @@ public:
     //! Spherical linear interpolation
     SUPPORTED_10EN_11EN_STEAM void Slerp(CQuaternion const &from, CQuaternion const &to, float halftheta, float sintheta_inv, float t);
 };
-
+VALIDATE_OFFSET(CQuaternion, imag, 0x0);
+VALIDATE_OFFSET(CQuaternion, real, 0xC);
 VALIDATE_SIZE(CQuaternion, 0x10);
 
 #include "meta/meta.CQuaternion.h"

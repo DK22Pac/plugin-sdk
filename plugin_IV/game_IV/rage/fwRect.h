@@ -33,4 +33,9 @@ namespace rage {
             this->bottom += y;
         }
     };
+    VALIDATE_OFFSET(fwRect, left, 0x0);
+    VALIDATE_OFFSET(fwRect, top, 0x4);
+    VALIDATE_OFFSET(fwRect, right, 0x8);
+    VALIDATE_OFFSET(fwRect, bottom, 0xC);
+    VALIDATE_SIZE(fwRect, 0x10);
 }

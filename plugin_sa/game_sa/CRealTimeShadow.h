@@ -43,5 +43,16 @@ public:
     // this updates texture and give it to us
     RwTexture *Update();
 };
-
+VALIDATE_OFFSET(CRealTimeShadow, m_pOwner, 0x0);
+VALIDATE_OFFSET(CRealTimeShadow, m_bCreated, 0x4);
+VALIDATE_OFFSET(CRealTimeShadow, m_nIntensity, 0x5);
+VALIDATE_OFFSET(CRealTimeShadow, m_camera, 0x8);
+VALIDATE_OFFSET(CRealTimeShadow, m_bBlurred, 0x10);
+VALIDATE_OFFSET(CRealTimeShadow, m_blurCamera, 0x14);
+VALIDATE_OFFSET(CRealTimeShadow, m_nBlurPasses, 0x1C);
+VALIDATE_OFFSET(CRealTimeShadow, m_bDrawMoreBlur, 0x20);
+VALIDATE_OFFSET(CRealTimeShadow, m_nRwObjectType, 0x24);
+VALIDATE_OFFSET(CRealTimeShadow, m_pLight, 0x28);
+VALIDATE_OFFSET(CRealTimeShadow, m_boundingSphere, 0x2C);
+VALIDATE_OFFSET(CRealTimeShadow, m_baseSphere, 0x3C);
 VALIDATE_SIZE(CRealTimeShadow, 0x4C);

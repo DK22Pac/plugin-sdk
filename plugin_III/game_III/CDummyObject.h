@@ -65,6 +65,7 @@ public:
     // virtual function #16 (not overriden)
 
 };
+VALIDATE_SIZE(CDummyObject, 0x68);
 
 VTABLE_DESC(CDummyObject, 0x5F7CEC, 17);
 VALIDATE_SIZE(CDummyObject, 0x68);

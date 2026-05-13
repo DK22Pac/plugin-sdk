@@ -22,5 +22,9 @@ public:
     int m_nIdOffset;
     int m_nGroupID;
 };
-
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_pAnimBlock, 0x0);
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_pAssociations, 0x4);
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_nNumAnimations, 0x8);
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_nIdOffset, 0xC);
+VALIDATE_OFFSET(CAnimBlendAssocGroup, m_nGroupID, 0x10);
 VALIDATE_SIZE(CAnimBlendAssocGroup, 0x14);

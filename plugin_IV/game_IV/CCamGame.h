@@ -15,4 +15,6 @@ public:
     eCamMode GetCurrentCamMode() { return plugin::CallVirtualMethodAndReturn<eCamMode, 10>(this); }
 
 };
+VALIDATE_OFFSET(CCamGame, field_2, 0x500);
+VALIDATE_SIZE(CCamGame, 0x520);
 

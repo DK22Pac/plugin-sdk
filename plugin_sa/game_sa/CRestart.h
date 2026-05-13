@@ -39,3 +39,4 @@ public:
 	static void Save();
 	static void SetRespawnPointForDurationOfMission(CVector point);
 };
+VALIDATE_SIZE(CRestart, 0x1);

@@ -19,3 +19,4 @@ public:
     static void LoadSprites();
     static void UnloadSprites();
 };
+VALIDATE_SIZE(CCutsceneMgr, 0x1);

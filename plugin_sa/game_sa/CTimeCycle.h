@@ -1,11 +1,10 @@
 /*
-	Plugin-SDK (Grand Theft Auto San Andreas) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CColourSet.h"
 #include "CBox.h"
@@ -175,5 +174,5 @@ public:
 	static void StartExtraColour(int colour, bool bNoExtraColorInterior);
 	static void StopExtraColour(bool bNoExtraColorInterior);
 	static void Update();
-
 };
+VALIDATE_SIZE(CTimeCycle, 0x1);

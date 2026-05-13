@@ -15,6 +15,9 @@ namespace rage {
         uint8_t field_3;
         uint8_t field_4;
     };
-
+    VALIDATE_OFFSET(ioSource, field_1, 0x0);
+    VALIDATE_OFFSET(ioSource, m_DeviceIndex, 0x1);
+    VALIDATE_OFFSET(ioSource, field_3, 0x2);
+    VALIDATE_OFFSET(ioSource, field_4, 0x3);
     VALIDATE_SIZE(ioSource, 0x4);
 }

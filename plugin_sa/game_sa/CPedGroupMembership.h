@@ -43,7 +43,9 @@ public:
 
     SUPPORTED_10US static signed int GetObjectForPedToHold();
 };
-
+VALIDATE_OFFSET(CPedGroupMembership, m_pPedGroup, 0x0);
+VALIDATE_OFFSET(CPedGroupMembership, m_apMembers, 0x4);
+VALIDATE_OFFSET(CPedGroupMembership, m_fMaxSeparation, 0x24);
 VALIDATE_SIZE(CPedGroupMembership, 0x28);
 
 #include "meta/meta.CPedGroupMembership.h"

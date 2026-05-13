@@ -24,6 +24,13 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void operator=(CCrimeBeingQd const &right);
 };
+VALIDATE_OFFSET(CCrimeBeingQd, m_nCrimeType, 0x0);
+VALIDATE_OFFSET(CCrimeBeingQd, m_nCrimeId, 0x4);
+VALIDATE_OFFSET(CCrimeBeingQd, m_nTimeOfQing, 0x8);
+VALIDATE_OFFSET(CCrimeBeingQd, m_vecPosn, 0xC);
+VALIDATE_OFFSET(CCrimeBeingQd, m_bAlreadyReported, 0x18);
+VALIDATE_OFFSET(CCrimeBeingQd, m_bPoliceDontReallyCare, 0x19);
+VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
 
 class PLUGIN_API CWanted {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(CWanted)
@@ -69,8 +76,19 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SetMaximumWantedLevel(int level);
     SUPPORTED_10EN_11EN_STEAM static int WorkOutPolicePresence(CVector pos, float radius);
 };
-
-VALIDATE_SIZE(CCrimeBeingQd, 0x1C);
+VALIDATE_OFFSET(CWanted, m_nChaosLevel, 0x0);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedDecreased, 0x4);
+VALIDATE_OFFSET(CWanted, m_nLastTimeWantedLevelChanged, 0x8);
+VALIDATE_OFFSET(CWanted, m_fMultiplier, 0xC);
+VALIDATE_OFFSET(CWanted, m_nCopsInPursuit, 0x10);
+VALIDATE_OFFSET(CWanted, m_nMaxCopsInPursuit, 0x11);
+VALIDATE_OFFSET(CWanted, m_nMaxCopCarsInPursuit, 0x12);
+VALIDATE_OFFSET(CWanted, m_nCopsBeatingSuspect, 0x13);
+VALIDATE_OFFSET(CWanted, m_nChanceOnRoadBlock, 0x14);
+VALIDATE_OFFSET(CWanted, m_nWantedFlags, 0x16);
+VALIDATE_OFFSET(CWanted, m_nWantedLevel, 0x18);
+VALIDATE_OFFSET(CWanted, m_aCrimesBeingQd, 0x1C);
+VALIDATE_OFFSET(CWanted, m_apCopsInPursuit, 0x1DC);
 VALIDATE_SIZE(CWanted, 0x204);
 
 #include "meta/meta.CWanted.h"

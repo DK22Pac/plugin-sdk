@@ -19,5 +19,8 @@ public:
     FxPrtMult_c(float red, float green, float blue, float alpha, float size, float arg5, float lastFactor);
     void SetUp(float red, float green, float blue, float alpha, float size, float arg5, float lastFactor);
 };
-
+VALIDATE_OFFSET(FxPrtMult_c, m_color, 0x0);
+VALIDATE_OFFSET(FxPrtMult_c, m_fSize, 0x10);
+VALIDATE_OFFSET(FxPrtMult_c, field_14, 0x14);
+VALIDATE_OFFSET(FxPrtMult_c, m_fLife, 0x18);
 VALIDATE_SIZE(FxPrtMult_c, 0x1C);

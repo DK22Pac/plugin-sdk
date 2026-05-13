@@ -87,7 +87,32 @@ public:
     void ExitEntitySystems();
     void Exit();
 };
-
+VALIDATE_OFFSET(Fx_c, m_pPrtBlood, 0x0);
+VALIDATE_OFFSET(Fx_c, m_pPrtBoatsplash, 0x4);
+VALIDATE_OFFSET(Fx_c, m_pPrtBubble, 0x8);
+VALIDATE_OFFSET(Fx_c, m_pPrtCardebris, 0xC);
+VALIDATE_OFFSET(Fx_c, m_pPrtCollisionsmoke, 0x10);
+VALIDATE_OFFSET(Fx_c, m_pPrtGunshell, 0x14);
+VALIDATE_OFFSET(Fx_c, m_pPrtSand, 0x18);
+VALIDATE_OFFSET(Fx_c, m_pPrtSand2, 0x1C);
+VALIDATE_OFFSET(Fx_c, m_pPrtSmoke_huge, 0x20);
+VALIDATE_OFFSET(Fx_c, m_pPrtSmokeII3expand, 0x24);
+VALIDATE_OFFSET(Fx_c, m_pPrtSpark, 0x28);
+VALIDATE_OFFSET(Fx_c, m_pPrtSpark2, 0x2C);
+VALIDATE_OFFSET(Fx_c, m_pPrtSplash, 0x30);
+VALIDATE_OFFSET(Fx_c, m_pPrtWake, 0x34);
+VALIDATE_OFFSET(Fx_c, m_pPrtWatersplash, 0x38);
+VALIDATE_OFFSET(Fx_c, m_pPrtWheeldirt, 0x3C);
+VALIDATE_OFFSET(Fx_c, m_pPrtGlass, 0x40);
+VALIDATE_OFFSET(Fx_c, m_entityFxList, 0x44);
+VALIDATE_OFFSET(Fx_c, m_nBloodPoolsCount, 0x50);
+VALIDATE_OFFSET(Fx_c, m_fxQuality, 0x54);
+VALIDATE_OFFSET(Fx_c, m_nVerticesCount2, 0x58);
+VALIDATE_OFFSET(Fx_c, m_nVerticesCount, 0x5C);
+VALIDATE_OFFSET(Fx_c, m_nTransformRenderFlags, 0x60);
+VALIDATE_OFFSET(Fx_c, m_pRasterToRender, 0x64);
+VALIDATE_OFFSET(Fx_c, m_pTransformLTM, 0x68);
+VALIDATE_OFFSET(Fx_c, m_pVerts, 0x6C);
 VALIDATE_SIZE(Fx_c, 0x70);
 
 void RenderBegin(RwRaster* raster, RwMatrix* transform, unsigned int transformRenderFlags);

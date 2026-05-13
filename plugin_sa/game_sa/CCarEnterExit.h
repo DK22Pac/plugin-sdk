@@ -58,5 +58,6 @@ public:
     SUPPORTED_10US static void SetAnimOffsetForEnterOrExitVehicle();
     SUPPORTED_10US static void SetPedInCarDirect(CPed *ped, CVehicle *vehicle, int seatNumber, bool bAsDriver);
 };
+VALIDATE_SIZE(CCarEnterExit, 0x1);
 
 #include "meta/meta.CCarEnterExit.h"

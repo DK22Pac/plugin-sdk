@@ -39,7 +39,9 @@ struct PLUGIN_API UpgradePosnDesc {
 	CQuaternion m_qRotation;
 	int m_nParentComponentId;
 };
-
+VALIDATE_OFFSET(UpgradePosnDesc, m_vPosition, 0x0);
+VALIDATE_OFFSET(UpgradePosnDesc, m_qRotation, 0xC);
+VALIDATE_OFFSET(UpgradePosnDesc, m_nParentComponentId, 0x1C);
 VALIDATE_SIZE(UpgradePosnDesc, 0x20);
 
 class PLUGIN_API CVehicleModelInfo : public CClumpModelInfo {
@@ -281,8 +283,42 @@ public:
     // get num doors in this model
     int GetNumDoors();
 };
-
+VALIDATE_OFFSET(CVehicleModelInfo, m_pPlateMaterial, 0x24);
+VALIDATE_OFFSET(CVehicleModelInfo, m_szPlateText, 0x28);
+VALIDATE_OFFSET(CVehicleModelInfo, field_30, 0x30);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nPlateType, 0x31);
+VALIDATE_OFFSET(CVehicleModelInfo, m_szGameName, 0x32);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleType, 0x3C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fWheelSizeFront, 0x40);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fWheelSizeRear, 0x44);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nWheelModelIndex, 0x48);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nHandlingId, 0x4A);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumDoors, 0x4C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleClass, 0x4D);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nFlags, 0x4E);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nWheelUpgradeClass, 0x4F);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nTimesUsed, 0x50);
 VALIDATE_OFFSET(CVehicleModelInfo, field_51, 0x51);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nFrq, 0x52);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCompRules, 0x54);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCompRulesBits, 0x54);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fBikeSteerAngle, 0x58);
+VALIDATE_OFFSET(CVehicleModelInfo, m_pVehicleStruct, 0x5C);
+VALIDATE_OFFSET(CVehicleModelInfo, field_60, 0x60);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apDirtMaterials, 0x230);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anPrimaryColors, 0x2B0);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anSecondaryColors, 0x2B8);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anTertiaryColors, 0x2C0);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anQuaternaryColors, 0x2C8);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumColorVariations, 0x2D0);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastColorVariation, 0x2D1);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentPrimaryColor, 0x2D2);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentSecondaryColor, 0x2D3);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentTertiaryColor, 0x2D4);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentQuaternaryColor, 0x2D5);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anUpgrades, 0x2D6);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anRemapTxds, 0x2FA);
+VALIDATE_OFFSET(CVehicleModelInfo, m_pAnimBlock, 0x304);
 VALIDATE_SIZE(CVehicleModelInfo, 0x308);
 
 VALIDATE_SIZE(CVehicleModelInfo::CVehicleStructure, 0x314);

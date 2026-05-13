@@ -40,5 +40,10 @@ public:
     bool PushWithoutIncreasingCounter(void* indexBuffer);
 #endif
 };
-
+VALIDATE_OFFSET(D3DIndexDataBuffer, m_nFormat, 0x0);
+VALIDATE_OFFSET(D3DIndexDataBuffer, field_4, 0x4);
+VALIDATE_OFFSET(D3DIndexDataBuffer, m_nCapcacity, 0x8);
+VALIDATE_OFFSET(D3DIndexDataBuffer, m_nNumDatasInBuffer, 0xC);
+VALIDATE_OFFSET(D3DIndexDataBuffer, m_nSize, 0x10);
+VALIDATE_OFFSET(D3DIndexDataBuffer, m_apIndexData, 0x14);
 VALIDATE_SIZE(D3DIndexDataBuffer, 0x18);

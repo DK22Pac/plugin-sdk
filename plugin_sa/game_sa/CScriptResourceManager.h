@@ -33,7 +33,7 @@ public:
     //! see eScriptResourceType
     SUPPORTED_10US bool RemoveFromResourceManager(int modelID, unsigned int ResourceType, CRunningScript *pScript);
 };
-
-VALIDATE_SIZE(CScriptResourceManager,0x384);
+VALIDATE_OFFSET(CScriptResourceManager, m_aScriptResources, 0x0);
+VALIDATE_SIZE(CScriptResourceManager, 0x384);
 
 #include "meta/meta.CScriptResourceManager.h"

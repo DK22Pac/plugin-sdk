@@ -12,5 +12,5 @@ class CTaskComplex : public CTask {
 public:
     CTask* m_pSubTask;
 };
-
+VALIDATE_OFFSET(CTaskComplex, m_pSubTask, 0x8);
 VALIDATE_SIZE(CTaskComplex, 0xC);

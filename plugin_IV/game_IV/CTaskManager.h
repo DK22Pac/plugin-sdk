@@ -25,5 +25,7 @@ public:
         return (T*)FindActiveTaskByType(index);
     }
 };
-
+VALIDATE_OFFSET(CTaskManager, m_aPrimaryTasks, 0x0);
+VALIDATE_OFFSET(CTaskManager, m_aSecondaryTasks, 0x14);
+VALIDATE_OFFSET(CTaskManager, m_pPed, 0x2C);
 VALIDATE_SIZE(CTaskManager, 0x30);

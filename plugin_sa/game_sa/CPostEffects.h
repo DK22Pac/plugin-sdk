@@ -194,3 +194,4 @@ public:
         RwTextureFilterMode         textureFilter;
     };
 };
+VALIDATE_SIZE(CPostEffects, 0x1);

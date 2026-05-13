@@ -37,3 +37,4 @@ public:
 	static int Tell(FILESTREAM file);
 	static bool GetErrorReadWrite(FILESTREAM file);
 };
+VALIDATE_SIZE(CFileMgr, 0x1);

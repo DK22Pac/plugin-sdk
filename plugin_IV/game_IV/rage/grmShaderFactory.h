@@ -21,10 +21,12 @@ namespace rage {
             return sm_Instance;
         }
     };
+    VALIDATE_SIZE(grmShaderFactory, 0x4);
 
     class grmShaderFactoryStandard : public grmShaderFactory {
     public:
         grmShader* Create(const char* name, int32_t arg2, int32_t arg3) { return plugin::CallVirtualMethodAndReturn<grmShader*, 1>(this, name, arg2, arg3); }
 
     };
+    VALIDATE_SIZE(grmShaderFactoryStandard, 0x4);
 }

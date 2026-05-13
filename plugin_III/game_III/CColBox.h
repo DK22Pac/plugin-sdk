@@ -18,7 +18,7 @@ public:
 
     SUPPORTED_10EN_11EN_STEAM void Set(CVector &min, CVector &max, unsigned char material, unsigned char flag);
 };
-
+VALIDATE_OFFSET(CColBox, m_surface, 0x18);
 VALIDATE_SIZE(CColBox, 0x1C);
 
 #include "meta/meta.CColBox.h"

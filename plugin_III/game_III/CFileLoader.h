@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "RenderWare.h"
 #include "CColModel.h"
@@ -52,6 +51,7 @@ public:
     static void LoadCollisionFile(char* filepath);
     static void LoadCollisionModel(unsigned char* buffer, CColModel& outColModel, char* name);
 };
+VALIDATE_SIZE(CFileLoader, 0x1);
 
 char* GetFilename(char const* filepath);
 void LoadingScreenLoadingFile(char const* filepath);

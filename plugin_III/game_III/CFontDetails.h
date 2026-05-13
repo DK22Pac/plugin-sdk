@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto 3) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CRGBA.h"
 #include "CVector2D.h"
@@ -43,5 +42,23 @@ public:
     //funcs
     ~CFontDetails();
 };
-
+VALIDATE_OFFSET(CFontDetails, m_Color, 0x0);
+VALIDATE_OFFSET(CFontDetails, m_vScale, 0x4);
+VALIDATE_OFFSET(CFontDetails, m_fSlant, 0xC);
+VALIDATE_OFFSET(CFontDetails, m_vSlantRefPoint, 0x10);
+VALIDATE_OFFSET(CFontDetails, m_bJustify, 0x18);
+VALIDATE_OFFSET(CFontDetails, m_bCentre, 0x19);
+VALIDATE_OFFSET(CFontDetails, m_bRightJustify, 0x1A);
+VALIDATE_OFFSET(CFontDetails, m_bBackground, 0x1B);
+VALIDATE_OFFSET(CFontDetails, m_bBackGroundOnlyText, 0x1C);
+VALIDATE_OFFSET(CFontDetails, m_bProp, 0x1D);
+VALIDATE_OFFSET(CFontDetails, m_fAlphaFade, 0x20);
+VALIDATE_OFFSET(CFontDetails, m_BackgroundColor, 0x24);
+VALIDATE_OFFSET(CFontDetails, m_fWrapX, 0x28);
+VALIDATE_OFFSET(CFontDetails, m_fCentreSize, 0x2C);
+VALIDATE_OFFSET(CFontDetails, m_fRightJustifyWrap, 0x30);
+VALIDATE_OFFSET(CFontDetails, m_nStyle, 0x34);
+VALIDATE_OFFSET(CFontDetails, field_38, 0x38);
+VALIDATE_OFFSET(CFontDetails, m_nDropShadowPosition, 0x3C);
+VALIDATE_OFFSET(CFontDetails, m_DropColor, 0x3E);
 VALIDATE_SIZE(CFontDetails, 0x44);

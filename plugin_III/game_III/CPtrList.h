@@ -36,5 +36,4 @@ public:
         return m_pHead;
     }
 };
-
 VALIDATE_SIZE(CPtrList, 0x4);

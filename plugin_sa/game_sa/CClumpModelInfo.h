@@ -40,5 +40,6 @@ public:
 	static void FillFrameArray(RpClump *clump, RwFrame **frames);
     void SetFrameIds(RwObjectNameIdAssocation* data);
 };
-
+VALIDATE_OFFSET(CClumpModelInfo, m_animFileName, 0x20);
+VALIDATE_OFFSET(CClumpModelInfo, m_dwAnimFileIndex, 0x20);
 VALIDATE_SIZE(CClumpModelInfo, 0x24);

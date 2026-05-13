@@ -107,5 +107,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Initialise();
     SUPPORTED_10EN_11EN_STEAM static void Update();
 };
+VALIDATE_SIZE(CTimeCycle, 0x1);
 
 #include "meta/meta.CTimeCycle.h"

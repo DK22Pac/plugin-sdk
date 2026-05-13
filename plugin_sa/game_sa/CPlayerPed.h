@@ -95,7 +95,8 @@ public:
     static bool PedCanBeTargettedVehicleWise(CPed* ped);
     static void SetupPlayerPed(int playerId);
 };
-
+VALIDATE_OFFSET(CPlayerPed, m_pPlayerTargettedPed, 0x79C);
+VALIDATE_OFFSET(CPlayerPed, field_7A0, 0x7A0);
 VALIDATE_SIZE(CPlayerPed, 0x7A4);
 
 extern char *abTempNeverLeavesGroup; // char abTempNeverLeavesGroup[7];

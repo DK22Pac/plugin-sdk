@@ -22,6 +22,10 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void LoadAllAudioScriptObjects(unsigned char *buf, unsigned int size);
     SUPPORTED_10EN_11EN_STEAM static void SaveAllAudioScriptObjects(unsigned char *buf, unsigned int *size);
 };
+VALIDATE_OFFSET(cAudioScriptObject, m_nAudioId, 0x0);
+VALIDATE_OFFSET(cAudioScriptObject, m_vecPosition, 0x4);
+VALIDATE_OFFSET(cAudioScriptObject, m_nStatusIndex, 0x10);
+VALIDATE_SIZE(cAudioScriptObject, 0x14);
 
 SUPPORTED_10EN_11EN_STEAM void PlayOneShotScriptObject(unsigned char id, CVector const &pos);
 

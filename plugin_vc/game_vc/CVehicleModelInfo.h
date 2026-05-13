@@ -113,7 +113,32 @@ public:
     // unloads 'white' texture
     static void ShutdownEnvironmentMaps();
 };
-
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastPrimaryColor, 0x30);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastSecondaryColor, 0x31);
+VALIDATE_OFFSET(CVehicleModelInfo, m_szGameName, 0x32);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleType, 0x3C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fWheelSize, 0x40);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nWheelModelIndex, 0x44);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nHandlingId, 0x46);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumDoors, 0x48);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nVehicleClass, 0x49);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLvl, 0x4A);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumExtras, 0x4B);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nFrq, 0x4C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_avDummyPos, 0x50);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCompRules, 0x8C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCompRulesBits, 0x8C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_fBikeSteerAngle, 0x90);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apMaterialsPrimary, 0x94);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apMaterialsSecondary, 0xF4);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anPrimaryColors, 0x144);
+VALIDATE_OFFSET(CVehicleModelInfo, m_anSecondaryColors, 0x14C);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nNumColorVariations, 0x154);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nLastColorVariation, 0x155);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentPrimaryColor, 0x156);
+VALIDATE_OFFSET(CVehicleModelInfo, m_nCurrentSecondaryColor, 0x157);
+VALIDATE_OFFSET(CVehicleModelInfo, m_apExtras, 0x158);
+VALIDATE_OFFSET(CVehicleModelInfo, m_pszAnimName, 0x170);
 VALIDATE_SIZE(CVehicleModelInfo, 0x174);
 
 extern RwFrame *&pMatFxIdentityFrame;
@@ -127,3 +152,6 @@ struct VehicleModelStore {
 
     ~VehicleModelStore();
 };
+VALIDATE_OFFSET(VehicleModelStore, m_nCount, 0x0);
+VALIDATE_OFFSET(VehicleModelStore, m_sObject, 0x4);
+VALIDATE_SIZE(VehicleModelStore, 0x9FDC);

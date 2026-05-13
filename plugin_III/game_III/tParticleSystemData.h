@@ -72,5 +72,41 @@ public:
     RwTexture     *m_pTexture; // rendering texture
     CParticle     *m_pParticles; // created particles list
 };
-
+VALIDATE_OFFSET(tParticleSystemData, m_nType, 0x0);
+VALIDATE_OFFSET(tParticleSystemData, m_szName, 0x4);
+VALIDATE_OFFSET(tParticleSystemData, m_fParticleCreateRange, 0x18);
+VALIDATE_OFFSET(tParticleSystemData, m_fDefaultInitialRadius, 0x1C);
+VALIDATE_OFFSET(tParticleSystemData, m_fExpansionRate, 0x20);
+VALIDATE_OFFSET(tParticleSystemData, m_nZRotationInitialAngle, 0x24);
+VALIDATE_OFFSET(tParticleSystemData, m_nZRotationAngleChangeAmount, 0x26);
+VALIDATE_OFFSET(tParticleSystemData, m_nZRotationChangeTime, 0x28);
+VALIDATE_OFFSET(tParticleSystemData, m_nZRadiusChangeTime, 0x2A);
+VALIDATE_OFFSET(tParticleSystemData, m_fInitialZRadius, 0x2C);
+VALIDATE_OFFSET(tParticleSystemData, m_fZRadiusChangeAmount, 0x30);
+VALIDATE_OFFSET(tParticleSystemData, m_nFadeToBlackTime, 0x34);
+VALIDATE_OFFSET(tParticleSystemData, m_nFadeToBlackAmount, 0x36);
+VALIDATE_OFFSET(tParticleSystemData, m_nFadeToBlackInitialIntensity, 0x38);
+VALIDATE_OFFSET(tParticleSystemData, m_nFadeAlphaInitialIntensity, 0x39);
+VALIDATE_OFFSET(tParticleSystemData, m_nFadeAlphaTime, 0x3A);
+VALIDATE_OFFSET(tParticleSystemData, m_nFadeAlphaAmount, 0x3C);
+VALIDATE_OFFSET(tParticleSystemData, m_nStartAnimationFrame, 0x3E);
+VALIDATE_OFFSET(tParticleSystemData, m_nFinalAnimationFrame, 0x40);
+VALIDATE_OFFSET(tParticleSystemData, m_nAnimationSpeed, 0x42);
+VALIDATE_OFFSET(tParticleSystemData, m_nRotationSpeed, 0x44);
+VALIDATE_OFFSET(tParticleSystemData, m_fGravitationalAcceleration, 0x48);
+VALIDATE_OFFSET(tParticleSystemData, m_nFrictionDecceleration, 0x4C);
+VALIDATE_OFFSET(tParticleSystemData, m_nDefaultLifeSpan, 0x50);
+VALIDATE_OFFSET(tParticleSystemData, m_fPositionRandomError, 0x54);
+VALIDATE_OFFSET(tParticleSystemData, m_fVelocityRandomError, 0x58);
+VALIDATE_OFFSET(tParticleSystemData, m_fExpansionRateError, 0x5C);
+VALIDATE_OFFSET(tParticleSystemData, m_nRotationRateError, 0x60);
+VALIDATE_OFFSET(tParticleSystemData, m_nLifeSpanErrorShape, 0x64);
+VALIDATE_OFFSET(tParticleSystemData, m_fTrailLengthMultiplier, 0x68);
+VALIDATE_OFFSET(tParticleSystemData, m_nFlags, 0x6C);
+VALIDATE_OFFSET(tParticleSystemData, m_renderColor, 0x70);
+VALIDATE_OFFSET(tParticleSystemData, m_nInitialColorVariation, 0x74);
+VALIDATE_OFFSET(tParticleSystemData, m_fadeDestinationColor, 0x75);
+VALIDATE_OFFSET(tParticleSystemData, m_nColorFadeTime, 0x7C);
+VALIDATE_OFFSET(tParticleSystemData, m_pTexture, 0x80);
+VALIDATE_OFFSET(tParticleSystemData, m_pParticles, 0x84);
 VALIDATE_SIZE(tParticleSystemData, 0x88);

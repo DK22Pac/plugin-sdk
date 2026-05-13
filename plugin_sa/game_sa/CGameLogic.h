@@ -41,3 +41,4 @@ public:
 	static void Save();
 	static void Load();
 };
+VALIDATE_SIZE(CGameLogic, 0x1);

@@ -245,6 +245,11 @@ namespace rage {
             return angles;
         }
     };
+    VALIDATE_OFFSET(Matrix44, right, 0x0);
+    VALIDATE_OFFSET(Matrix44, up, 0x10);
+    VALIDATE_OFFSET(Matrix44, at, 0x20);
+    VALIDATE_OFFSET(Matrix44, pos, 0x30);
+    VALIDATE_SIZE(Matrix44, 0x40);
 
     static inline Vector3 operator*(const Matrix44& mat, const Vector3& vec) {
         return Vector3(mat.right.x * vec.x + mat.up.x * vec.y + mat.at.x * vec.z + mat.pos.x,

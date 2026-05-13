@@ -33,4 +33,5 @@ public:
     
     static void PlaceMarkerSet(unsigned int id, unsigned short type, CVector& pos, float size, unsigned char r, unsigned char g, unsigned char b, unsigned char a, unsigned short pulsePeriod, float pulseFraction, short rotateRate);
 };
+VALIDATE_SIZE(C3dMarkers, 0x1);
 

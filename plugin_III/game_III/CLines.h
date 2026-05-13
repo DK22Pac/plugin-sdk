@@ -12,5 +12,6 @@ class PLUGIN_API CLines {
 public:
     SUPPORTED_10EN_11EN_STEAM static void RenderLineWithClipping(float x1, float y1, float z1, float x2, float y2, float z2, unsigned int color1, unsigned int color2);
 };
+VALIDATE_SIZE(CLines, 0x1);
 
 #include "meta/meta.CLines.h"

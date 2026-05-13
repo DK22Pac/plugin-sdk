@@ -5,9 +5,10 @@
     Do not delete this comment block. Respect others' work!
 */
 #pragma once
+#include "PluginBase.h"
 
 class CTimeCycle {
 public:
 
 };
-
+VALIDATE_SIZE(CTimeCycle, 0x1);

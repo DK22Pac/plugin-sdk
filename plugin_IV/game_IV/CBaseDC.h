@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "CVirtualBase.h"
@@ -30,5 +29,5 @@ public:
     virtual void m_4() { plugin::CallVirtualMethod<4>(this); }
     virtual void m_5() { plugin::CallVirtualMethod<5>(this); }
 };
-
+VALIDATE_OFFSET(CBaseDC, field_1, 0x4);
 VALIDATE_SIZE(CBaseDC, 0x8);

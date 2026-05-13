@@ -12,3 +12,4 @@ class CObjectData {
 public:
     static CObjectInfo* ms_aObjectInfo; // 160
 };
+VALIDATE_SIZE(CObjectData, 0x1);

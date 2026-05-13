@@ -43,5 +43,16 @@ public:
     CTaskSimpleDuck(eDuckControlTypes DuckControlType, unsigned short nLengthOfDuck, short nUseShotsWhizzingEvents = -1);
     
 };
-
+VALIDATE_OFFSET(CTaskSimpleDuck, m_nStartTime, 0x8);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_nLengthOfDuck, 0xC);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_nShotWhizzingCounter, 0xE);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_pDuckAnim, 0x10);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_pMoveAnim, 0x14);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_bIsFinished, 0x18);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_bIsAborting, 0x19);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_bNeedToSetDuckFlag, 0x1A);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_bIsInControl, 0x1B);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_vecMoveCommand, 0x1C);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_nDuckControlType, 0x24);
+VALIDATE_OFFSET(CTaskSimpleDuck, m_nCountDownFrames, 0x25);
 VALIDATE_SIZE(CTaskSimpleDuck, 0x28);

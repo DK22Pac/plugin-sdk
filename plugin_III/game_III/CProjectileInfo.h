@@ -32,7 +32,11 @@ public:
     static void Shutdown();
     static void Update();
 };
-
+VALIDATE_OFFSET(CProjectileInfo, m_nWeaponType, 0x0);
+VALIDATE_OFFSET(CProjectileInfo, m_pCreator, 0x4);
+VALIDATE_OFFSET(CProjectileInfo, m_nDestroyTime, 0x8);
+VALIDATE_OFFSET(CProjectileInfo, m_bActive, 0xC);
+VALIDATE_OFFSET(CProjectileInfo, m_vecLastPosn, 0x10);
 VALIDATE_SIZE(CProjectileInfo, 0x1C);
 
 extern CProjectileInfo *gaProjectileInfo; // [32]

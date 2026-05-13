@@ -142,6 +142,13 @@ namespace rage {
             m_numSlotsUsed--;
         }
     };
+    VALIDATE_OFFSET(fwBasePool, m_aStorage, 0x0);
+    VALIDATE_OFFSET(fwBasePool, m_aFlags, 0x4);
+    VALIDATE_OFFSET(fwBasePool, m_nSize, 0x8);
+    VALIDATE_OFFSET(fwBasePool, m_nStorageSize, 0xC);
+    VALIDATE_OFFSET(fwBasePool, m_nFirstFreeIndex, 0x10);
+    VALIDATE_OFFSET(fwBasePool, m_numSlotsUsed, 0x14);
+    VALIDATE_SIZE(fwBasePool, 0x18);
 
     template<class T>
     class fwPool : public fwBasePool {

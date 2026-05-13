@@ -42,6 +42,31 @@ public:
     signed short m_bVehicleMouseLook;
     signed short m_bRadioTrackSkip;
 };
+VALIDATE_OFFSET(CControllerState, LeftStickX, 0x0);
+VALIDATE_OFFSET(CControllerState, LeftStickY, 0x2);
+VALIDATE_OFFSET(CControllerState, RightStickX, 0x4);
+VALIDATE_OFFSET(CControllerState, RightStickY, 0x6);
+VALIDATE_OFFSET(CControllerState, LeftShoulder1, 0x8);
+VALIDATE_OFFSET(CControllerState, LeftShoulder2, 0xA);
+VALIDATE_OFFSET(CControllerState, RightShoulder1, 0xC);
+VALIDATE_OFFSET(CControllerState, RightShoulder2, 0xE);
+VALIDATE_OFFSET(CControllerState, DPadUp, 0x10);
+VALIDATE_OFFSET(CControllerState, DPadDown, 0x12);
+VALIDATE_OFFSET(CControllerState, DPadLeft, 0x14);
+VALIDATE_OFFSET(CControllerState, DPadRight, 0x16);
+VALIDATE_OFFSET(CControllerState, Start, 0x18);
+VALIDATE_OFFSET(CControllerState, Select, 0x1A);
+VALIDATE_OFFSET(CControllerState, ButtonSquare, 0x1C);
+VALIDATE_OFFSET(CControllerState, ButtonTriangle, 0x1E);
+VALIDATE_OFFSET(CControllerState, ButtonCross, 0x20);
+VALIDATE_OFFSET(CControllerState, ButtonCircle, 0x22);
+VALIDATE_OFFSET(CControllerState, ShockButtonL, 0x24);
+VALIDATE_OFFSET(CControllerState, ShockButtonR, 0x26);
+VALIDATE_OFFSET(CControllerState, m_bChatIndicated, 0x28);
+VALIDATE_OFFSET(CControllerState, m_bPedWalk, 0x2A);
+VALIDATE_OFFSET(CControllerState, m_bVehicleMouseLook, 0x2C);
+VALIDATE_OFFSET(CControllerState, m_bRadioTrackSkip, 0x2E);
+VALIDATE_SIZE(CControllerState, 0x30);
 
 
 VALIDATE_SIZE(CControllerState, 0x30);
@@ -61,7 +86,17 @@ public:
     float x;
     float y;
 };
-
+VALIDATE_OFFSET(CMouseControllerState, lmb, 0x0);
+VALIDATE_OFFSET(CMouseControllerState, rmb, 0x1);
+VALIDATE_OFFSET(CMouseControllerState, mmb, 0x2);
+VALIDATE_OFFSET(CMouseControllerState, wheelUp, 0x3);
+VALIDATE_OFFSET(CMouseControllerState, wheelDown, 0x4);
+VALIDATE_OFFSET(CMouseControllerState, bmx1, 0x5);
+VALIDATE_OFFSET(CMouseControllerState, bmx2, 0x6);
+VALIDATE_OFFSET(CMouseControllerState, __align, 0x7);
+VALIDATE_OFFSET(CMouseControllerState, z, 0x8);
+VALIDATE_OFFSET(CMouseControllerState, x, 0xC);
+VALIDATE_OFFSET(CMouseControllerState, y, 0x10);
 VALIDATE_SIZE(CMouseControllerState, 0x14);
 
 
@@ -114,7 +149,52 @@ public:
     short rwin;
     short apps;
 };
-
+VALIDATE_OFFSET(CKeyboardState, FKeys, 0x0);
+VALIDATE_OFFSET(CKeyboardState, standardKeys, 0x18);
+VALIDATE_OFFSET(CKeyboardState, esc, 0x218);
+VALIDATE_OFFSET(CKeyboardState, insert, 0x21A);
+VALIDATE_OFFSET(CKeyboardState, del, 0x21C);
+VALIDATE_OFFSET(CKeyboardState, home, 0x21E);
+VALIDATE_OFFSET(CKeyboardState, end, 0x220);
+VALIDATE_OFFSET(CKeyboardState, pgup, 0x222);
+VALIDATE_OFFSET(CKeyboardState, pgdn, 0x224);
+VALIDATE_OFFSET(CKeyboardState, up, 0x226);
+VALIDATE_OFFSET(CKeyboardState, down, 0x228);
+VALIDATE_OFFSET(CKeyboardState, left, 0x22A);
+VALIDATE_OFFSET(CKeyboardState, right, 0x22C);
+VALIDATE_OFFSET(CKeyboardState, scroll, 0x22E);
+VALIDATE_OFFSET(CKeyboardState, pause, 0x230);
+VALIDATE_OFFSET(CKeyboardState, numlock, 0x232);
+VALIDATE_OFFSET(CKeyboardState, div, 0x234);
+VALIDATE_OFFSET(CKeyboardState, mul, 0x236);
+VALIDATE_OFFSET(CKeyboardState, sub, 0x238);
+VALIDATE_OFFSET(CKeyboardState, add, 0x23A);
+VALIDATE_OFFSET(CKeyboardState, enter, 0x23C);
+VALIDATE_OFFSET(CKeyboardState, decimal, 0x23E);
+VALIDATE_OFFSET(CKeyboardState, num1, 0x240);
+VALIDATE_OFFSET(CKeyboardState, num2, 0x242);
+VALIDATE_OFFSET(CKeyboardState, num3, 0x244);
+VALIDATE_OFFSET(CKeyboardState, num4, 0x246);
+VALIDATE_OFFSET(CKeyboardState, num5, 0x248);
+VALIDATE_OFFSET(CKeyboardState, num6, 0x24A);
+VALIDATE_OFFSET(CKeyboardState, num7, 0x24C);
+VALIDATE_OFFSET(CKeyboardState, num8, 0x24E);
+VALIDATE_OFFSET(CKeyboardState, num9, 0x250);
+VALIDATE_OFFSET(CKeyboardState, num0, 0x252);
+VALIDATE_OFFSET(CKeyboardState, back, 0x254);
+VALIDATE_OFFSET(CKeyboardState, tab, 0x256);
+VALIDATE_OFFSET(CKeyboardState, capslock, 0x258);
+VALIDATE_OFFSET(CKeyboardState, extenter, 0x25A);
+VALIDATE_OFFSET(CKeyboardState, lshift, 0x25C);
+VALIDATE_OFFSET(CKeyboardState, rshift, 0x25E);
+VALIDATE_OFFSET(CKeyboardState, shift, 0x260);
+VALIDATE_OFFSET(CKeyboardState, lctrl, 0x262);
+VALIDATE_OFFSET(CKeyboardState, rctrl, 0x264);
+VALIDATE_OFFSET(CKeyboardState, lmenu, 0x266);
+VALIDATE_OFFSET(CKeyboardState, rmenu, 0x268);
+VALIDATE_OFFSET(CKeyboardState, lwin, 0x26A);
+VALIDATE_OFFSET(CKeyboardState, rwin, 0x26C);
+VALIDATE_OFFSET(CKeyboardState, apps, 0x26E);
 VALIDATE_SIZE(CKeyboardState, 0x270);
 
 
@@ -244,5 +324,32 @@ public:
     static void UpdatePads();
     static void ClearMouseHistory();
 };
-
+VALIDATE_OFFSET(CPad, NewState, 0x0);
+VALIDATE_OFFSET(CPad, OldState, 0x30);
+VALIDATE_OFFSET(CPad, SteeringLeftRightBuffer, 0x60);
+VALIDATE_OFFSET(CPad, DrunkDrivingBufferUsed, 0x74);
+VALIDATE_OFFSET(CPad, PCTempKeyState, 0x78);
+VALIDATE_OFFSET(CPad, PCTempJoyState, 0xA8);
+VALIDATE_OFFSET(CPad, PCTempMouseState, 0xD8);
+VALIDATE_OFFSET(CPad, Phase, 0x108);
+VALIDATE_OFFSET(CPad, Mode, 0x10A);
+VALIDATE_OFFSET(CPad, ShakeDur, 0x10C);
+VALIDATE_OFFSET(CPad, DisablePlayerControls, 0x10E);
+VALIDATE_OFFSET(CPad, ShakeFreq, 0x110);
+VALIDATE_OFFSET(CPad, bHornHistory, 0x111);
+VALIDATE_OFFSET(CPad, iCurrHornHistory, 0x116);
+VALIDATE_OFFSET(CPad, JustOutOfFrontEnd, 0x117);
+VALIDATE_OFFSET(CPad, bApplyBrakes, 0x118);
+VALIDATE_OFFSET(CPad, bDisablePlayerEnterCar, 0x119);
+VALIDATE_OFFSET(CPad, bDisablePlayerDuck, 0x11A);
+VALIDATE_OFFSET(CPad, bDisablePlayerFireWeapon, 0x11B);
+VALIDATE_OFFSET(CPad, bDisablePlayerFireWeaponWithL1, 0x11C);
+VALIDATE_OFFSET(CPad, bDisablePlayerCycleWeapon, 0x11D);
+VALIDATE_OFFSET(CPad, bDisablePlayerJump, 0x11E);
+VALIDATE_OFFSET(CPad, bDisablePlayerDisplayVitalStats, 0x11F);
+VALIDATE_OFFSET(CPad, LastTimeTouched, 0x120);
+VALIDATE_OFFSET(CPad, AverageWeapon, 0x124);
+VALIDATE_OFFSET(CPad, AverageEntries, 0x128);
+VALIDATE_OFFSET(CPad, NoShakeBeforeThis, 0x12C);
+VALIDATE_OFFSET(CPad, NoShakeFreq, 0x130);
 VALIDATE_SIZE(CPad, 0x134);

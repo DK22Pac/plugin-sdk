@@ -11,3 +11,4 @@ class CGame {
 public:
 
 };
+VALIDATE_SIZE(CGame, 0x1);

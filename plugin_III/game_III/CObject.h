@@ -105,6 +105,22 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void DeleteAllTempObjects();
     SUPPORTED_10EN_11EN_STEAM static void DeleteAllTempObjectsInArea(CVector point, float radius);
 };
+VALIDATE_OFFSET(CObject, m_mObjectCoords, 0x128);
+VALIDATE_OFFSET(CObject, m_fUprootLimit, 0x170);
+VALIDATE_OFFSET(CObject, m_nObjectCreatedBy, 0x174);
+VALIDATE_OFFSET(CObject, m_nObjectFlags, 0x175);
+VALIDATE_OFFSET(CObject, m_nBonusValue, 0x176);
+VALIDATE_OFFSET(CObject, m_fCollisionDamageMultiplier, 0x178);
+VALIDATE_OFFSET(CObject, m_nCollisionDamageEffect, 0x17C);
+VALIDATE_OFFSET(CObject, m_nSpecialCollisionResponseCases, 0x17D);
+VALIDATE_OFFSET(CObject, m_bCameraToAvoidThisObject, 0x17E);
+VALIDATE_OFFSET(CObject, field_180, 0x180);
+VALIDATE_OFFSET(CObject, m_nEndOfLifeTime, 0x184);
+VALIDATE_OFFSET(CObject, m_nRefModelIndex, 0x188);
+VALIDATE_OFFSET(CObject, m_pCurSurface, 0x18C);
+VALIDATE_OFFSET(CObject, m_pCollidingEntity, 0x190);
+VALIDATE_OFFSET(CObject, m_nColorId, 0x194);
+VALIDATE_SIZE(CObject, 0x198);
 
 VTABLE_DESC(CObject, 0x5F7DD4, 18);
 VALIDATE_SIZE(CObject, 0x198);

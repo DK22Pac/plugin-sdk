@@ -65,6 +65,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM void StopFrontEndTrack();
     SUPPORTED_10EN_11EN_STEAM void Terminate();
 };
+VALIDATE_SIZE(cDMAudio, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM extern cDMAudio &DMAudio;
 

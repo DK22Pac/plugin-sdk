@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 #include "CAEFrontendAudioEntity.h"
@@ -63,7 +62,25 @@ public:
     void SetMusicFaderScalingFactor(float value);
     void SetEffectsFaderScalingFactor(float value);
 };
-
+VALIDATE_OFFSET(CAudioEngine, field_0, 0x0);
+VALIDATE_OFFSET(CAudioEngine, field_1, 0x1);
+VALIDATE_OFFSET(CAudioEngine, m_nCurrentRadiostationId, 0x2);
+VALIDATE_OFFSET(CAudioEngine, field_3, 0x3);
+VALIDATE_OFFSET(CAudioEngine, field_4, 0x4);
+VALIDATE_OFFSET(CAudioEngine, field_8, 0x8);
+VALIDATE_OFFSET(CAudioEngine, field_A0, 0xA0);
+VALIDATE_OFFSET(CAudioEngine, field_A1, 0xA1);
+VALIDATE_OFFSET(CAudioEngine, field_B0, 0xB0);
+VALIDATE_OFFSET(CAudioEngine, field_B1, 0xB1);
+VALIDATE_OFFSET(CAudioEngine, m_FrontendAudio, 0xB4);
+VALIDATE_OFFSET(CAudioEngine, field_150, 0x150);
+VALIDATE_OFFSET(CAudioEngine, field_1F8, 0x1F8);
+VALIDATE_OFFSET(CAudioEngine, m_scriptAudio, 0x2A0);
+VALIDATE_OFFSET(CAudioEngine, m_collisionAudio, 0x4BC);
+VALIDATE_OFFSET(CAudioEngine, m_pWeaponAudio, 0x1E34);
+VALIDATE_OFFSET(CAudioEngine, m_pedlessSpeechAudio, 0x1E38);
+VALIDATE_OFFSET(CAudioEngine, field_1F38, 0x1F38);
+VALIDATE_OFFSET(CAudioEngine, m_doorAudio, 0x1F50);
 VALIDATE_SIZE(CAudioEngine, 0x1FD8);
 
 extern CAudioEngine& AudioEngine;

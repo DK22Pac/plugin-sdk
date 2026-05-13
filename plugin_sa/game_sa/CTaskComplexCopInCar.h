@@ -25,6 +25,12 @@ public:
 
     CTaskComplexCopInCar(CVehicle* pVeh, CPed* pCop1, CPed* pCop2, bool arg3);
 };
-
+VALIDATE_OFFSET(CTaskComplexCopInCar, m_pVehicle, 0xC);
+VALIDATE_OFFSET(CTaskComplexCopInCar, m_pCop1, 0x10);
+VALIDATE_OFFSET(CTaskComplexCopInCar, m_pCop2, 0x14);
+VALIDATE_OFFSET(CTaskComplexCopInCar, m_timer1, 0x18);
+VALIDATE_OFFSET(CTaskComplexCopInCar, m_timer2, 0x24);
+VALIDATE_OFFSET(CTaskComplexCopInCar, m_nFlags, 0x30);
+VALIDATE_OFFSET(CTaskComplexCopInCar, __flags, 0x31);
 VALIDATE_SIZE(CTaskComplexCopInCar, 0x34);
 

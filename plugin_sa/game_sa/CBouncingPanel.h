@@ -29,5 +29,9 @@ public:
     void SetPanel(short frameId, short axis, float angleLimit);
     void ProcessPanel(CVehicle* vehicle, RwFrame* frame, CVector arg2, CVector arg3, float arg4, float arg5);
 };
-
+VALIDATE_OFFSET(CBouncingPanel, m_nFrameId, 0x0);
+VALIDATE_OFFSET(CBouncingPanel, m_nAxis, 0x2);
+VALIDATE_OFFSET(CBouncingPanel, m_fAngleLimit, 0x4);
+VALIDATE_OFFSET(CBouncingPanel, m_vecRotation, 0x8);
+VALIDATE_OFFSET(CBouncingPanel, m_vecPos, 0x14);
 VALIDATE_SIZE(CBouncingPanel, 0x20);

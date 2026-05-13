@@ -18,5 +18,4 @@ public:
     static void operator delete(void* data);
     CBuilding();
 };
-
 VALIDATE_SIZE(CBuilding, 0x38);

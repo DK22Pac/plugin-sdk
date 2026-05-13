@@ -12,3 +12,4 @@ class CGrcState_SetCullMode : public CBaseDC {
 public:
     CGrcState_SetCullMode(int32_t mode);
 };
+VALIDATE_SIZE(CGrcState_SetCullMode, 0x8);

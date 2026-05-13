@@ -15,4 +15,5 @@ public:
 
     CDecisionMaker();
 };
+VALIDATE_OFFSET(CDecisionMaker, m_decision, 0x0);
 VALIDATE_SIZE(CDecisionMaker, 0x99C);

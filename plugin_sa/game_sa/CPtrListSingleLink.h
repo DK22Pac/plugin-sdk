@@ -23,5 +23,4 @@ public:
     void AddItem(void* item);
     void DeleteItem(void* item);
 };
-
-VALIDATE_SIZE(CPtrListSingleLink, 4);
+VALIDATE_SIZE(CPtrListSingleLink, 0x4);

@@ -18,6 +18,8 @@ struct DecisionContext
         onFoot(onFoot), inVehicle(inVehicle)
     {}
 };
+VALIDATE_OFFSET(DecisionContext, onFoot, 0x0);
+VALIDATE_OFFSET(DecisionContext, inVehicle, 0x1);
 VALIDATE_SIZE(DecisionContext, 0x2);
 
 struct DecisionChances
@@ -34,6 +36,10 @@ struct DecisionChances
         toNeutral(toNeutral), toPlayer(toPlayer), toFriend(toFriend), toEnemy(toEnemy)
     {}
 };
+VALIDATE_OFFSET(DecisionChances, toNeutral, 0x0);
+VALIDATE_OFFSET(DecisionChances, toPlayer, 0x1);
+VALIDATE_OFFSET(DecisionChances, toFriend, 0x2);
+VALIDATE_OFFSET(DecisionChances, toEnemy, 0x3);
 VALIDATE_SIZE(DecisionChances, 0x4);
 
 class PLUGIN_API CDecision {
@@ -46,4 +52,7 @@ public:
 
     CDecision();
 };
+VALIDATE_OFFSET(CDecision, task, 0x0);
+VALIDATE_OFFSET(CDecision, chances, 0x18);
+VALIDATE_OFFSET(CDecision, context, 0x30);
 VALIDATE_SIZE(CDecision, 0x3C);

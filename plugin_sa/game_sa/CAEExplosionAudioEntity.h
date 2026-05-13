@@ -16,5 +16,5 @@ private:
     char _pad7D[3];
 public:
 };
-
+VALIDATE_OFFSET(CAEExplosionAudioEntity, field_7C, 0x7C);
 VALIDATE_SIZE(CAEExplosionAudioEntity, 0x80);

@@ -15,8 +15,11 @@
 
 struct PLUGIN_API AnimBlendFrameUpdateData {
     int foobar;
-    CAnimBlendNode *nodes[16];
+    CAnimBlendNode* nodes[16];
 };
+VALIDATE_OFFSET(AnimBlendFrameUpdateData, foobar, 0x0);
+VALIDATE_OFFSET(AnimBlendFrameUpdateData, nodes, 0x4);
+VALIDATE_SIZE(AnimBlendFrameUpdateData, 0x44);
 
 SUPPORTED_10EN_11EN_STEAM extern CAnimBlendClumpData *&gpAnimBlendClump;
 SUPPORTED_10EN_11EN_STEAM extern AnimBlendFrameData *&pFrameDataFound;
@@ -52,7 +55,5 @@ SUPPORTED_10EN_11EN_STEAM CAnimBlendAssociation *RpAnimBlendClumpGetMainPartialA
 SUPPORTED_10EN_11EN_STEAM CAnimBlendAssociation *RpAnimBlendClumpGetFirstAssociation(RpClump *clump, unsigned int mask);
 SUPPORTED_10EN_11EN_STEAM CAnimBlendAssociation *RpAnimBlendGetNextAssociation(CAnimBlendAssociation *assoc);
 SUPPORTED_10EN_11EN_STEAM CAnimBlendAssociation *RpAnimBlendGetNextAssociation(CAnimBlendAssociation *assoc, unsigned int mask);
-
-VALIDATE_SIZE(AnimBlendFrameUpdateData, 0x44);
 
 #include "meta/meta.RpAnimBlend.h"

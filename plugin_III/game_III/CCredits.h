@@ -21,5 +21,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Start();
     SUPPORTED_10EN_11EN_STEAM static void Stop();
 };
+VALIDATE_SIZE(CCredits, 0x1);
 
 #include "meta/meta.CCredits.h"

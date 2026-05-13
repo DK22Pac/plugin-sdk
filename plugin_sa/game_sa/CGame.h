@@ -46,6 +46,7 @@ public:
     SUPPORTED_10US static void ShutdownRenderWare();
     SUPPORTED_10US static void TidyUpMemory(bool a1, bool clearD3Dmem);
 };
+VALIDATE_SIZE(CGame, 0x1);
 
 SUPPORTED_10US extern int &gameTxdSlot;
 extern int &gGameState;

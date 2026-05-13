@@ -43,7 +43,18 @@ public:
     SUPPORTED_10EN_11EN_STEAM RwRaster *Update();
     SUPPORTED_10EN_11EN_STEAM RwTexture *UpdateForCutscene();
 };
-
+VALIDATE_OFFSET(CCutsceneShadow, m_Camera, 0x0);
+VALIDATE_OFFSET(CCutsceneShadow, m_bResample, 0x8);
+VALIDATE_OFFSET(CCutsceneShadow, m_ResampleCamera, 0xC);
+VALIDATE_OFFSET(CCutsceneShadow, m_nBlurPasses, 0x14);
+VALIDATE_OFFSET(CCutsceneShadow, m_BlurCamera, 0x18);
+VALIDATE_OFFSET(CCutsceneShadow, m_bGradient, 0x20);
+VALIDATE_OFFSET(CCutsceneShadow, m_GradientCamera, 0x24);
+VALIDATE_OFFSET(CCutsceneShadow, m_pAtomic, 0x2C);
+VALIDATE_OFFSET(CCutsceneShadow, m_nRwObjectType, 0x30);
+VALIDATE_OFFSET(CCutsceneShadow, m_pLight, 0x34);
+VALIDATE_OFFSET(CCutsceneShadow, m_BoundingSphere, 0x38);
+VALIDATE_OFFSET(CCutsceneShadow, m_BaseSphere, 0x48);
 VALIDATE_SIZE(CCutsceneShadow, 0x58);
 
 #include "meta/meta.CCutsceneShadow.h"

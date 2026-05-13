@@ -50,7 +50,12 @@ public:
 private:
     virtual void virtual_dummy() {}
 };
-
+VALIDATE_OFFSET(COctTree, level, 0x4);
+VALIDATE_OFFSET(COctTree, lastStep, 0x8);
+VALIDATE_OFFSET(COctTree, childrens, 0xA);
+VALIDATE_OFFSET(COctTree, redComponent, 0x1C);
+VALIDATE_OFFSET(COctTree, greenComponent, 0x20);
+VALIDATE_OFFSET(COctTree, blueComponent, 0x24);
 VALIDATE_SIZE(COctTree, 0x28);
 
 extern COctTree *&gpTmpOctTree;

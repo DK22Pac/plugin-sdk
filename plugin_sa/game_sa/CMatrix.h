@@ -79,7 +79,16 @@ public:
 	CVector& GetPosition() { return pos; }
 	const CVector& GetPosition() const { return pos; }
 };
-
+VALIDATE_OFFSET(CMatrix, right, 0x0);
+VALIDATE_OFFSET(CMatrix, flags, 0xC);
+VALIDATE_OFFSET(CMatrix, up, 0x10);
+VALIDATE_OFFSET(CMatrix, pad1, 0x1C);
+VALIDATE_OFFSET(CMatrix, at, 0x20);
+VALIDATE_OFFSET(CMatrix, pad2, 0x2C);
+VALIDATE_OFFSET(CMatrix, pos, 0x30);
+VALIDATE_OFFSET(CMatrix, pad3, 0x3C);
+VALIDATE_OFFSET(CMatrix, m_pAttachMatrix, 0x40);
+VALIDATE_OFFSET(CMatrix, m_bOwnsAttachedMatrix, 0x44);
 VALIDATE_SIZE(CMatrix, 0x48);
 
 CMatrix operator*(CMatrix const&a, CMatrix const&b);

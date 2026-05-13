@@ -1,11 +1,10 @@
 /*
-Plugin-SDK (Grand Theft Auto San Andreas) header file
-Authors: GTA Community. See more here
-https://github.com/DK22Pac/plugin-sdk
-Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto San Andreas) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
-
 #include "PluginBase.h"
 #include "CTaskComplex.h"
 #include "CTaskTimer.h"
@@ -21,6 +20,9 @@ public:
 
     CTaskComplexUseMobilePhone(int nDuration);
 };
-
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_nDuration, 0xC);
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_timer, 0x10);
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_bIsAborting, 0x1C);
+VALIDATE_OFFSET(CTaskComplexUseMobilePhone, m_bQuit, 0x1D);
 VALIDATE_SIZE(CTaskComplexUseMobilePhone, 0x20);
 

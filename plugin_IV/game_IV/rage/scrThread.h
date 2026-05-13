@@ -110,6 +110,18 @@ namespace rage {
         static scrThread* GetThread(scrThreadId id);
         static void RegisterCommand(uint32_t hashCode, void (*handler)());
     };
+    VALIDATE_OFFSET(scrThread, vt, 0x0);
+    VALIDATE_OFFSET(scrThread, m_Serialized, 0x4);
+    VALIDATE_OFFSET(scrThread, m_Stack, 0x5C);
+    VALIDATE_OFFSET(scrThread, m_iInstructionCount, 0x60);
+    VALIDATE_OFFSET(scrThread, m_argStructSize, 0x64);
+    VALIDATE_OFFSET(scrThread, m_argStructOffset, 0x68);
+    VALIDATE_OFFSET(scrThread, m_AbortReason, 0x6C);
+    VALIDATE_OFFSET(scrThread, field_150, 0x70);
+    VALIDATE_OFFSET(scrThread, m_bSafeForNetworkGame, 0x95);
+    VALIDATE_OFFSET(scrThread, field_151, 0x96);
+    VALIDATE_OFFSET(scrThread, m_bMiniGameScript, 0x99);
+    VALIDATE_SIZE(scrThread, 0x9C);
 
     typedef void (*scrCmd)(scrThread::Info*);
 

@@ -13,5 +13,6 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void GivePlayerRemoteControlledCar(float x, float y, float z, float angle, unsigned short modelIndex);
     SUPPORTED_10EN_11EN_STEAM static void TakeRemoteControlledCarFromPlayer();
 };
+VALIDATE_SIZE(CRemote, 0x1);
 
 #include "meta/meta.CRemote.h"

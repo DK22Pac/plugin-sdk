@@ -18,6 +18,8 @@ struct PLUGIN_API CText__TDat
 	// Reads TABL block from GXT file
 	bool read(size_t TABLblockSize, FILE *file, int *pFileOffset, bool skipRead);
 };
+VALIDATE_OFFSET(CText__TDat, data, 0x0);
+VALIDATE_OFFSET(CText__TDat, size, 0x4);
 VALIDATE_SIZE(CText__TDat, 0x8);
 
 
@@ -26,6 +28,8 @@ struct PLUGIN_API CText__TablEntry
   char name[8];
   int offset;
 };
+VALIDATE_OFFSET(CText__TablEntry, name, 0x0);
+VALIDATE_OFFSET(CText__TablEntry, offset, 0x8);
 VALIDATE_SIZE(CText__TablEntry, 0xC);
 
 
@@ -41,6 +45,9 @@ struct PLUGIN_API CText__Tabl
 	// Reads TABL block from GXT file
 	void read(size_t TABLblockSize, FILE *file, int *pFileOffset, int maxReadSize);
 };
+VALIDATE_OFFSET(CText__Tabl, data, 0x0);
+VALIDATE_OFFSET(CText__Tabl, size, 0x960);
+VALIDATE_OFFSET(CText__Tabl, __pad, 0x962);
 VALIDATE_SIZE(CText__Tabl, 0x964);
 
 
@@ -49,6 +56,8 @@ struct PLUGIN_API tGXT_VERSION_2_TKEY_item
 	unsigned long int Position;		// TDAT + 8 offset
 	unsigned long int KeyHash;
 };
+VALIDATE_OFFSET(tGXT_VERSION_2_TKEY_item, Position, 0x0);
+VALIDATE_OFFSET(tGXT_VERSION_2_TKEY_item, KeyHash, 0x4);
 VALIDATE_SIZE(tGXT_VERSION_2_TKEY_item, 0x8);
 
 
@@ -74,6 +83,8 @@ struct PLUGIN_API CText__TKey
 	// Destructor
 	~CText__TKey();
 };
+VALIDATE_OFFSET(CText__TKey, data, 0x0);
+VALIDATE_OFFSET(CText__TKey, size, 0x4);
 VALIDATE_SIZE(CText__TKey, 0x8);
 
 
@@ -120,6 +131,17 @@ public:
 	// Writes a mission table name into buffer
 	void getMissionTableName(char *outStr);
 };
+VALIDATE_OFFSET(CText, tkeyMain, 0x0);
+VALIDATE_OFFSET(CText, tdatMain, 0x8);
+VALIDATE_OFFSET(CText, tkeyMission, 0x10);
+VALIDATE_OFFSET(CText, tdatMission, 0x18);
+VALIDATE_OFFSET(CText, encoding, 0x20);
+VALIDATE_OFFSET(CText, haveTabl, 0x21);
+VALIDATE_OFFSET(CText, cderrorInitialized, 0x22);
+VALIDATE_OFFSET(CText, missionTableLoaded, 0x23);
+VALIDATE_OFFSET(CText, missionTableName, 0x24);
+VALIDATE_OFFSET(CText, cderrorText, 0x2C);
+VALIDATE_OFFSET(CText, tabl, 0x12C);
 VALIDATE_SIZE(CText, 0xA90);
 
 extern PLUGIN_API CText& TheText;

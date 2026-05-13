@@ -4,7 +4,6 @@
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
 */
-
 #pragma once
 #include "PluginBase.h"
 
@@ -15,3 +14,4 @@ public:
     static int GetStringWidth(const wchar_t* str, int style);
     static void PrintString(const wchar_t* str, int x, int y, int style, int scale, int const& mode, int palette, bool enableAlpha, int alpha);
 };
+VALIDATE_SIZE(CFont, 0x1);

@@ -133,7 +133,30 @@ public:
     static void DeleteAllMissionObjects();
     static void DeleteAllTempObjectsInArea(CVector point, float radius);
 };
-
+VALIDATE_OFFSET(CObject, m_pControlCodeList, 0x138);
+VALIDATE_OFFSET(CObject, m_nObjectType, 0x13C);
+VALIDATE_OFFSET(CObject, m_nBonusValue, 0x13D);
+VALIDATE_OFFSET(CObject, m_wCostValue, 0x13E);
+VALIDATE_OFFSET(CObject, m_nObjectFlags, 0x140);
+VALIDATE_OFFSET(CObject, m_nColDamageEffect, 0x144);
+VALIDATE_OFFSET(CObject, m_nStoredColDamageEffect, 0x145);
+VALIDATE_OFFSET(CObject, field_146, 0x146);
+VALIDATE_OFFSET(CObject, m_nGarageDoorGarageIndex, 0x147);
+VALIDATE_OFFSET(CObject, m_nLastWeaponDamage, 0x148);
+VALIDATE_OFFSET(CObject, m_nRefModelIndex, 0x14A);
+VALIDATE_OFFSET(CObject, m_nCarColor, 0x14C);
+VALIDATE_OFFSET(CObject, m_dwRemovalTime, 0x150);
+VALIDATE_OFFSET(CObject, m_fHealth, 0x154);
+VALIDATE_OFFSET(CObject, m_fDoorStartAngle, 0x158);
+VALIDATE_OFFSET(CObject, m_fScale, 0x15C);
+VALIDATE_OFFSET(CObject, m_pObjectInfo, 0x160);
+VALIDATE_OFFSET(CObject, m_pFire, 0x164);
+VALIDATE_OFFSET(CObject, m_wScriptTriggerIndex, 0x168);
+VALIDATE_OFFSET(CObject, m_wRemapTxd, 0x16A);
+VALIDATE_OFFSET(CObject, m_pRemapTexture, 0x16C);
+VALIDATE_OFFSET(CObject, m_pDummyObject, 0x170);
+VALIDATE_OFFSET(CObject, m_dwBurnTime, 0x174);
+VALIDATE_OFFSET(CObject, m_fBurnDamage, 0x178);
 VALIDATE_SIZE(CObject, 0x17C);
 
 bool IsObjectPointerValid_NotInWorld(CObject* object);

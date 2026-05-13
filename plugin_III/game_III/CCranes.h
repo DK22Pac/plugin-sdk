@@ -30,6 +30,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void Save(unsigned char *buf, unsigned int *size);
     SUPPORTED_10EN_11EN_STEAM static void UpdateCranes();
 };
+VALIDATE_SIZE(CCranes, 0x1);
 
 SUPPORTED_10EN_11EN_STEAM void CranesLoad(unsigned char *buf, unsigned int size);
 

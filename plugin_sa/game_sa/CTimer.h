@@ -53,3 +53,4 @@ public:
     static void EndUserPause();
     static void Update();
 };
+VALIDATE_SIZE(CTimer, 0x1);

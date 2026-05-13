@@ -37,6 +37,7 @@ public:
     static void RemoveRefWithoutDelete(int id);
     static int GetNumRefs(int id);
 };
+VALIDATE_SIZE(CTxdStore, 0x1);
 
 extern unsigned int &texNumLoaded;
 extern float &texLoadTime;

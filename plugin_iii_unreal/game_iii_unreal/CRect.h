@@ -1,5 +1,5 @@
 /*
-    Plugin-SDK (Grand Theft 3 Unreal) header file
+    Plugin-SDK (Grand Theft Auto 3 Unreal) header file
     Authors: GTA Community. See more here
     https://github.com/DK22Pac/plugin-sdk
     Do not delete this comment block. Respect others' work!
@@ -83,3 +83,8 @@ public:
         bottom += b;
     }
 };
+VALIDATE_OFFSET(CRect, left, 0x0);
+VALIDATE_OFFSET(CRect, bottom, 0x4);
+VALIDATE_OFFSET(CRect, right, 0x8);
+VALIDATE_OFFSET(CRect, top, 0xC);
+VALIDATE_SIZE(CRect, 0x10);

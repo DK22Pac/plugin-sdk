@@ -21,7 +21,16 @@ public:
     float m_fDistanceToCamera;
     RwRGBA m_color;
 };
-
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerAA, 0x0);
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerAB, 0xC);
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerBA, 0x18);
+VALIDATE_OFFSET(CRegisteredShinyText, m_vecCornerBB, 0x24);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsAA, 0x30);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsAB, 0x38);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsBA, 0x40);
+VALIDATE_OFFSET(CRegisteredShinyText, m_texCoorsBB, 0x48);
+VALIDATE_OFFSET(CRegisteredShinyText, m_fDistanceToCamera, 0x50);
+VALIDATE_OFFSET(CRegisteredShinyText, m_color, 0x54);
 VALIDATE_SIZE(CRegisteredShinyText, 0x58);
 
 class CShinyTexts {
@@ -34,5 +43,6 @@ public:
     static void Render();
     static void RegisterOne(CVector cornerAA, CVector cornerBA, CVector cornerBB, CVector cornerAB, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, float maxDistance);
 };
+VALIDATE_SIZE(CShinyTexts, 0x1);
 
 extern unsigned int MAX_SHINYTEXTS; // default = 32

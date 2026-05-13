@@ -82,7 +82,21 @@ public:
         unsigned char bDrawOnBuildings : 1;
     } m_nFlags;
 };
-
+VALIDATE_OFFSET(CRegisteredShadow, m_vecPosn, 0x0);
+VALIDATE_OFFSET(CRegisteredShadow, m_fFrontX, 0xC);
+VALIDATE_OFFSET(CRegisteredShadow, m_fFrontY, 0x10);
+VALIDATE_OFFSET(CRegisteredShadow, m_fSideX, 0x14);
+VALIDATE_OFFSET(CRegisteredShadow, m_fSideY, 0x18);
+VALIDATE_OFFSET(CRegisteredShadow, m_fZDistance, 0x1C);
+VALIDATE_OFFSET(CRegisteredShadow, m_fScale, 0x20);
+VALIDATE_OFFSET(CRegisteredShadow, m_pTexture, 0x24);
+VALIDATE_OFFSET(CRegisteredShadow, m_pRTShadow, 0x28);
+VALIDATE_OFFSET(CRegisteredShadow, m_nIntensity, 0x2C);
+VALIDATE_OFFSET(CRegisteredShadow, m_nType, 0x2E);
+VALIDATE_OFFSET(CRegisteredShadow, m_nRed, 0x2F);
+VALIDATE_OFFSET(CRegisteredShadow, m_nGreen, 0x30);
+VALIDATE_OFFSET(CRegisteredShadow, m_nBlue, 0x31);
+VALIDATE_OFFSET(CRegisteredShadow, m_nFlags, 0x32);
 VALIDATE_SIZE(CRegisteredShadow, 0x34);
 
 class CPermanentShadow {
@@ -108,7 +122,22 @@ public:
         unsigned char bDrawOnBuildings : 1;
     } m_nFlags;
 };
-
+VALIDATE_OFFSET(CPermanentShadow, m_vecPosn, 0x0);
+VALIDATE_OFFSET(CPermanentShadow, m_fFrontX, 0xC);
+VALIDATE_OFFSET(CPermanentShadow, m_fFrontY, 0x10);
+VALIDATE_OFFSET(CPermanentShadow, m_fSideX, 0x14);
+VALIDATE_OFFSET(CPermanentShadow, m_fSideY, 0x18);
+VALIDATE_OFFSET(CPermanentShadow, m_fZDistance, 0x1C);
+VALIDATE_OFFSET(CPermanentShadow, m_fScale, 0x20);
+VALIDATE_OFFSET(CPermanentShadow, m_nTimeCreated, 0x24);
+VALIDATE_OFFSET(CPermanentShadow, m_nTimeDuration, 0x28);
+VALIDATE_OFFSET(CPermanentShadow, m_pTexture, 0x2C);
+VALIDATE_OFFSET(CPermanentShadow, m_nIntensity, 0x30);
+VALIDATE_OFFSET(CPermanentShadow, m_nType, 0x32);
+VALIDATE_OFFSET(CPermanentShadow, m_nRed, 0x33);
+VALIDATE_OFFSET(CPermanentShadow, m_nGreen, 0x34);
+VALIDATE_OFFSET(CPermanentShadow, m_nBlue, 0x35);
+VALIDATE_OFFSET(CPermanentShadow, m_nFlags, 0x36);
 VALIDATE_SIZE(CPermanentShadow, 0x38);
 
 class CStaticShadow {
@@ -145,7 +174,26 @@ public:
 
     void Free();
 };
-
+VALIDATE_OFFSET(CStaticShadow, m_nId, 0x0);
+VALIDATE_OFFSET(CStaticShadow, m_pPolyBunch, 0x4);
+VALIDATE_OFFSET(CStaticShadow, m_nTimeCreated, 0x8);
+VALIDATE_OFFSET(CStaticShadow, m_vecPosn, 0xC);
+VALIDATE_OFFSET(CStaticShadow, m_fFrontX, 0x18);
+VALIDATE_OFFSET(CStaticShadow, m_fFrontY, 0x1C);
+VALIDATE_OFFSET(CStaticShadow, m_fSideX, 0x20);
+VALIDATE_OFFSET(CStaticShadow, m_fSideY, 0x24);
+VALIDATE_OFFSET(CStaticShadow, m_fZDistance, 0x28);
+VALIDATE_OFFSET(CStaticShadow, m_fScale, 0x2C);
+VALIDATE_OFFSET(CStaticShadow, m_pTexture, 0x30);
+VALIDATE_OFFSET(CStaticShadow, m_nIntensity, 0x34);
+VALIDATE_OFFSET(CStaticShadow, m_nType, 0x36);
+VALIDATE_OFFSET(CStaticShadow, m_nRed, 0x37);
+VALIDATE_OFFSET(CStaticShadow, m_nGreen, 0x38);
+VALIDATE_OFFSET(CStaticShadow, m_nBlue, 0x39);
+VALIDATE_OFFSET(CStaticShadow, m_bJustCreated, 0x3A);
+VALIDATE_OFFSET(CStaticShadow, m_bRendered, 0x3B);
+VALIDATE_OFFSET(CStaticShadow, m_bTemporaryShadow, 0x3C);
+VALIDATE_OFFSET(CStaticShadow, m_nDayNightIntensity, 0x3D);
 VALIDATE_SIZE(CStaticShadow, 0x40);
 
 struct _ProjectionParam {
@@ -156,7 +204,12 @@ struct _ProjectionParam {
     RwUInt32 numIm3DBatch; /* Number of buffer flushes */ // unused
     RwMatrix entityMatrix;
 };
-
+VALIDATE_OFFSET(_ProjectionParam, at, 0x0);
+VALIDATE_OFFSET(_ProjectionParam, invMatrix, 0xC);
+VALIDATE_OFFSET(_ProjectionParam, shadowValue, 0x4C);
+VALIDATE_OFFSET(_ProjectionParam, fade, 0x50);
+VALIDATE_OFFSET(_ProjectionParam, numIm3DBatch, 0x54);
+VALIDATE_OFFSET(_ProjectionParam, entityMatrix, 0x58);
 VALIDATE_SIZE(_ProjectionParam, 0x98);
 
 class CEntity;
@@ -208,6 +261,7 @@ public:
     static CStaticShadow *aStaticShadows; // static CStaticShadow aStaticShadows[default: 48]
     static CPermanentShadow *aPermanentShadows; // static CPermanentShadow aPermanentShadows[default: 48]
 };
+VALIDATE_SIZE(CShadows, 0x1);
 
 #ifdef _MSC_VER
 RwV3d *ShadowRenderTriangleCB(RwV3d *pNormal, RwV3d *pTrianglePos, _ProjectionParam *param);

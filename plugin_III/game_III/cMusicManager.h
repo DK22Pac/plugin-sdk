@@ -14,6 +14,10 @@ struct PLUGIN_API tMP3Sample {
     unsigned int m_nPosition;
     unsigned int m_nLastPosCheckTimer;
 };
+VALIDATE_OFFSET(tMP3Sample, m_nLength, 0x0);
+VALIDATE_OFFSET(tMP3Sample, m_nPosition, 0x4);
+VALIDATE_OFFSET(tMP3Sample, m_nLastPosCheckTimer, 0x8);
+VALIDATE_SIZE(tMP3Sample, 0xC);
 
 class PLUGIN_API cMusicManager {
     PLUGIN_NO_DEFAULT_CONSTRUCTION(cMusicManager)
@@ -80,6 +84,31 @@ public:
     SUPPORTED_10EN_11EN_STEAM void Terminate();
     SUPPORTED_10EN_11EN_STEAM bool UsesPoliceRadio(CVehicle *vehicle);
 };
+VALIDATE_OFFSET(cMusicManager, m_bIsInitialised, 0x0);
+VALIDATE_OFFSET(cMusicManager, m_bDisabled, 0x1);
+VALIDATE_OFFSET(cMusicManager, m_nMusicMode, 0x2);
+VALIDATE_OFFSET(cMusicManager, m_nCurrentStreamedSound, 0x3);
+VALIDATE_OFFSET(cMusicManager, m_nPreviousStreamedSound, 0x4);
+VALIDATE_OFFSET(cMusicManager, m_bFrontendTrackFinished, 0x5);
+VALIDATE_OFFSET(cMusicManager, m_bPlayInFrontend, 0x6);
+VALIDATE_OFFSET(cMusicManager, m_bSetNextStation, 0x7);
+VALIDATE_OFFSET(cMusicManager, m_nAnnouncement, 0x8);
+VALIDATE_OFFSET(cMusicManager, m_bPreviousPlayerInCar, 0x9);
+VALIDATE_OFFSET(cMusicManager, m_bPlayerInCar, 0xA);
+VALIDATE_OFFSET(cMusicManager, m_bAnnouncementInProgress, 0xB);
+VALIDATE_OFFSET(cMusicManager, m_asMP3Samples, 0xC);
+VALIDATE_OFFSET(cMusicManager, m_bResetTimers, 0x93C);
+VALIDATE_OFFSET(cMusicManager, m_nResetTime, 0x940);
+VALIDATE_OFFSET(cMusicManager, m_nLastTrackServiceTime, 0x944);
+VALIDATE_OFFSET(cMusicManager, m_nTimer, 0x948);
+VALIDATE_OFFSET(cMusicManager, m_bDoTrackService, 0x94C);
+VALIDATE_OFFSET(cMusicManager, m_bIgnoreTimeDelay, 0x94D);
+VALIDATE_OFFSET(cMusicManager, m_bDontServiceAmbienceTrack, 0x94E);
+VALIDATE_OFFSET(cMusicManager, m_bRadioSetByScript, 0x94F);
+VALIDATE_OFFSET(cMusicManager, m_nRadioStation, 0x950);
+VALIDATE_OFFSET(cMusicManager, m_nRadioPosition, 0x954);
+VALIDATE_OFFSET(cMusicManager, m_nRadioInCar, 0x958);
+VALIDATE_SIZE(cMusicManager, 0x95C);
 
 SUPPORTED_10EN_11EN_STEAM extern bool &bHasStarted;
 SUPPORTED_10EN_11EN_STEAM extern int &gNumRetunePresses;

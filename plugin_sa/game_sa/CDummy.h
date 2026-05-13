@@ -12,6 +12,7 @@
 class PLUGIN_API CDummy : public CEntity {
 public:
 };
+VALIDATE_SIZE(CDummy, 0x38);
 
 
 VALIDATE_SIZE(CDummy, 0x38);

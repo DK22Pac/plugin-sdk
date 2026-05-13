@@ -1,8 +1,8 @@
 /*
-	Plugin-SDK (Grand Theft Auto III) header file
-	Authors: GTA Community. See more here
-	https://github.com/DK22Pac/plugin-sdk
-	Do not delete this comment block. Respect others' work!
+    Plugin-SDK (Grand Theft Auto 3) header file
+    Authors: GTA Community. See more here
+    https://github.com/DK22Pac/plugin-sdk
+    Do not delete this comment block. Respect others' work!
 */
 #pragma once
 #include "PluginBase.h"
@@ -14,6 +14,12 @@ struct PLUGIN_API tSample {
 	unsigned int nLoopStart;
 	unsigned int nLoopEnd;
 };
+VALIDATE_OFFSET(tSample, nOffset, 0x0);
+VALIDATE_OFFSET(tSample, nSize, 0x4);
+VALIDATE_OFFSET(tSample, nFrequency, 0x8);
+VALIDATE_OFFSET(tSample, nLoopStart, 0xC);
+VALIDATE_OFFSET(tSample, nLoopEnd, 0x10);
+VALIDATE_SIZE(tSample, 0x14);
 
 class PLUGIN_API cSampleManager {
 public:
@@ -47,5 +53,17 @@ public:
 	void SetChannelEmittingVolume(uint32_t channel, uint32_t vol);
 	uint32_t GetSampleBaseFrequency(uint32_t sample);
 };
+VALIDATE_OFFSET(cSampleManager, m_nEffectsVolume, 0x0);
+VALIDATE_OFFSET(cSampleManager, m_nMusicVolume, 0x1);
+VALIDATE_OFFSET(cSampleManager, m_nEffectsFadeVolume, 0x2);
+VALIDATE_OFFSET(cSampleManager, m_nMusicFadeVolume, 0x3);
+VALIDATE_OFFSET(cSampleManager, m_nMonoMode, 0x4);
+VALIDATE_OFFSET(cSampleManager, unk, 0x5);
+VALIDATE_OFFSET(cSampleManager, m_szCDRomRootPath, 0x6);
+VALIDATE_OFFSET(cSampleManager, m_bInitialised, 0x56);
+VALIDATE_OFFSET(cSampleManager, m_nNumberOfProviders, 0x57);
+VALIDATE_OFFSET(cSampleManager, m_aAudioProviders, 0x58);
+VALIDATE_OFFSET(cSampleManager, m_aSamples, 0x158);
+VALIDATE_SIZE(cSampleManager, 0xEE38);
 
 extern cSampleManager& SampleManager;

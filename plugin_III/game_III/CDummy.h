@@ -63,6 +63,8 @@ public:
     // virtual function #16 (not overriden)
 
 };
+VALIDATE_OFFSET(CDummy, m_collisionList, 0x64);
+VALIDATE_SIZE(CDummy, 0x68);
 
 VTABLE_DESC(CDummy, 0x5F0F40, 17);
 VALIDATE_SIZE(CDummy, 0x68);

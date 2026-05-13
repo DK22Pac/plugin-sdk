@@ -38,7 +38,7 @@ public:
     SUPPORTED_10US void RemoveCarFromCheck(int carHandle);
     SUPPORTED_10US void ResetArrayElement(unsigned short index);
 };
-
+VALIDATE_OFFSET(CStuckCarCheck, m_aStuckCars, 0x0);
 VALIDATE_SIZE(CStuckCarCheck, 0x240);
 
 #include "meta/meta.CStuckCarCheck.h"

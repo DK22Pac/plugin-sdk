@@ -12,3 +12,4 @@ public:
     static bool& bCreditsGoing;
     static uint32_t& CreditsStartTime;
 };
+VALIDATE_SIZE(CCredits, 0x1);

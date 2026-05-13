@@ -155,5 +155,20 @@ public:
     int GetCarNodeIndexFromDoor(eDoors door);
     void Reset();
 };
-
+VALIDATE_OFFSET(CDamageManager, m_fWheelDamageEffect, 0x0);
+VALIDATE_OFFSET(CDamageManager, m_nEngineStatus, 0x4);
+VALIDATE_OFFSET(CDamageManager, m_anWheelsStatus, 0x5);
+VALIDATE_OFFSET(CDamageManager, m_nRightRearWheelsStatus, 0x5);
+VALIDATE_OFFSET(CDamageManager, m_nRightFrontWheelsStatus, 0x6);
+VALIDATE_OFFSET(CDamageManager, m_nLeftRearWheelsStatus, 0x7);
+VALIDATE_OFFSET(CDamageManager, m_nLeftFrontWheelsStatus, 0x8);
+VALIDATE_OFFSET(CDamageManager, m_anDoorsStatus, 0x9);
+VALIDATE_OFFSET(CDamageManager, m_nBonnetStatus, 0x9);
+VALIDATE_OFFSET(CDamageManager, m_nBootStatus, 0xA);
+VALIDATE_OFFSET(CDamageManager, m_nLeftFrontDoorStatus, 0xB);
+VALIDATE_OFFSET(CDamageManager, m_nRightFrontDoorStatus, 0xC);
+VALIDATE_OFFSET(CDamageManager, m_nLeftRearDoorStatus, 0xD);
+VALIDATE_OFFSET(CDamageManager, m_nRightRearDoorStatus, 0xE);
+VALIDATE_OFFSET(CDamageManager, m_nLightsStatus, 0x10);
+VALIDATE_OFFSET(CDamageManager, m_nPanelsStatus, 0x14);
 VALIDATE_SIZE(CDamageManager, 0x18);

@@ -54,7 +54,12 @@ public:
 
     void ScanForTowLink();
 };
-
+VALIDATE_OFFSET(CTrailer, field_988, 0x988);
+VALIDATE_OFFSET(CTrailer, field_9E0, 0x9E0);
+VALIDATE_OFFSET(CTrailer, field_9E4, 0x9E4);
+VALIDATE_OFFSET(CTrailer, field_9E8, 0x9E8);
+VALIDATE_OFFSET(CTrailer, field_9EC, 0x9EC);
+VALIDATE_OFFSET(CTrailer, field_9F0, 0x9F0);
 VALIDATE_SIZE(CTrailer, 0x9F4);
 
 extern float& TRAILER_TOWED_MINRATIO; // 0.9

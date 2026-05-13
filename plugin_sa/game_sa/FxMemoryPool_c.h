@@ -19,5 +19,7 @@ public:
 
 	void Optimise();
 };
-
+VALIDATE_OFFSET(FxMemoryPool_c, data, 0x0);
+VALIDATE_OFFSET(FxMemoryPool_c, size, 0x4);
+VALIDATE_OFFSET(FxMemoryPool_c, position, 0x8);
 VALIDATE_SIZE(FxMemoryPool_c, 0xC);

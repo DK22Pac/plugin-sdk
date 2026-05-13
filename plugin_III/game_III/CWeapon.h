@@ -65,6 +65,13 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void ShutdownWeapons();
     SUPPORTED_10EN_11EN_STEAM static void UpdateWeapons();
 };
+VALIDATE_OFFSET(CWeapon, m_eWeaponType, 0x0);
+VALIDATE_OFFSET(CWeapon, m_eWeaponState, 0x4);
+VALIDATE_OFFSET(CWeapon, m_nAmmoInClip, 0x8);
+VALIDATE_OFFSET(CWeapon, m_nAmmoTotal, 0xC);
+VALIDATE_OFFSET(CWeapon, m_nTimer, 0x10);
+VALIDATE_OFFSET(CWeapon, m_bAddRotOffset, 0x14);
+VALIDATE_SIZE(CWeapon, 0x18);
 
 SUPPORTED_10EN_11EN_STEAM void FireOneInstantHitRound(CVector *source, CVector *target, int damage);
 

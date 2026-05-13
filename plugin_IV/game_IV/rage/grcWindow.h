@@ -21,4 +21,11 @@ namespace rage {
         static int32_t& m_Width;
         static int32_t& m_Height;
     };
+    VALIDATE_OFFSET(grcWindow, m_NormX, 0x0);
+    VALIDATE_OFFSET(grcWindow, m_NormY, 0x4);
+    VALIDATE_OFFSET(grcWindow, m_NormWidth, 0x8);
+    VALIDATE_OFFSET(grcWindow, m_NormHeight, 0xC);
+    VALIDATE_OFFSET(grcWindow, m_MinZ, 0x10);
+    VALIDATE_OFFSET(grcWindow, m_MaxZ, 0x14);
+    VALIDATE_SIZE(grcWindow, 0x18);
 }

@@ -19,5 +19,7 @@ public:
 public:
     CDrawSpriteDC(rage::Vector2 const& leftBottom, rage::Vector2 const& leftTop, rage::Vector2 const& rightBottom, rage::Vector2 const& rightTop, rage::Color32 const& col, rage::grcTexturePC* texture);
 };
-
+VALIDATE_OFFSET(CDrawSpriteDC, m_aVertices, 0x8);
+VALIDATE_OFFSET(CDrawSpriteDC, m_pTexture, 0x28);
+VALIDATE_OFFSET(CDrawSpriteDC, m_nColor, 0x2C);
 VALIDATE_SIZE(CDrawSpriteDC, 0x30);

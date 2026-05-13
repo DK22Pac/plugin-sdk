@@ -35,6 +35,9 @@ public:
 	void RasterResample(RwRaster *raster);
 	void RasterBlur(RwRaster *raster, int numPasses);
 };
+VALIDATE_OFFSET(CShadowCamera, m_pRwCamera, 0x0);
+VALIDATE_OFFSET(CShadowCamera, m_pRwRenderTexture, 0x4);
+VALIDATE_SIZE(CShadowCamera, 0x8);
 
 
 VALIDATE_SIZE(CShadowCamera, 8);
