@@ -7,12 +7,9 @@
 #pragma once
 #if defined(GTA2) || defined(GTA3) || defined(GTAVC) || defined(GTASA) || defined(GTAIV)
 #include "PluginBase.h"
+#include <CVector.h>
 #include "bass/bass.h"
 #include <string>
-
-#ifndef GTA2
-#include "CMatrix.h"
-#endif
 
 namespace plugin {
     class BassSampleManager {

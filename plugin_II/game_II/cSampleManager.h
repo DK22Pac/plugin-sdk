@@ -7,12 +7,12 @@
 #pragma once
 #include "PluginBase.h"
 
-typedef void* HSTREAM;
+typedef DWORD HSTREAM;
 typedef unsigned int HPROVIDER;
-typedef void* H3DPOBJECT;
+typedef DWORD H3DPOBJECT;
 typedef H3DPOBJECT H3DSAMPLE;
-typedef void* HSAMPLE;
-typedef void* HDIGDRIVER;
+typedef DWORD HSAMPLE;
+typedef DWORD HDIGDRIVER;
 
 struct tSample {
     int offset;

@@ -1,6 +1,8 @@
 #pragma once
 
 #ifdef USE_PCH
+    #define NO_STRICT // fix minwindef.h
+
     #include <algorithm>
     #include <array>
     #include <assert.h>
@@ -29,9 +31,16 @@
     #include <vector>
     #include <windows.h>
 
-#ifdef RW
-    #include <rwcore.h>
+	#ifdef GTA2
+		// #include "GBH.h" TODO: fix d3dutil.h problems
+	#elif defined(RW) || defined(UNREAL)
+		#include "RenderWare.h"
+	#elif defined(RAGE)
+		#include "Rage.h"
+	#endif
+
+#ifndef GTA2 // TODO: fix d3dutil.h problems
+GENERATED_LIST
 #endif
 
-GENERATED_LIST
 #endif

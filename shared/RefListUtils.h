@@ -61,6 +61,9 @@ struct RefListUtils<RefList<Values...>> {
 #elif GTAIV
                 if (gameid == GAME_CE)
                     result += "GAME_CE";
+#elif GAME_UNREAL
+                if (true)
+                    result += std::to_string(gameid);
 #else
                 if (gameid == GAME_10EN)
                     result += "GAME_10EN";
