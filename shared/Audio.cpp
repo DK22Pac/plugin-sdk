@@ -16,8 +16,6 @@
 #include "Rage.h"
 #endif
 
-#include "CVector.h"
-
 #include "CCamera.h"
 #pragma comment(lib, "bass.lib")
 // #pragma comment(lib, "bass_fx.lib")

@@ -7,7 +7,7 @@
 #pragma once
 #include "PluginBase.h"
 
-#ifdef RW
+#if defined(RW) || defined(UNREAL)
     #include "RenderWare.h"
 #else
     struct RwV3d
