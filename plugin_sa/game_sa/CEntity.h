@@ -98,7 +98,7 @@ public:
     void PreRender();
     void Render();
     bool SetupLighting();
-    void RemoveLighting();
+    void RemoveLighting(bool bReset);
     void FlagToDestroyWhenNextProcessed();
     
     // funcs
