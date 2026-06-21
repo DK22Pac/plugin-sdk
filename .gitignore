@@ -11,6 +11,7 @@ generated/
 
 .metadata
 bin/
+build64/
 tmp/
 *.tmp
 *.bak

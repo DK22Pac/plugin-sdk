@@ -7,6 +7,7 @@
 #include <memory>
 #include <type_traits>
 #include <cstddef>
+#include <utility>
 
 // Trampoline class for big (>2GB) jumps
 // Never needed in 32-bit processes so in those cases this does nothing but forwards to Memory functions

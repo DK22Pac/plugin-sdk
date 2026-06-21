@@ -6,6 +6,9 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "CMouseControllerState.h"
+#include "CControllerState.h"
+#include "rw/skeleton.h"
 
 #define DIRECTINPUT_VERSION 0x0800
 #include "dinput.h"

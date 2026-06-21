@@ -54,7 +54,7 @@ using calling_convention_t = CallingConventions::Cdecl;
 using args_t = ArgPick<ArgTypes<>>;
 META_END
 
-META_BEGIN_OVERLOADED(CModelInfo::GetModelInfo, CBaseModelInfo*(char const*, int*))
+META_BEGIN_OVERLOADED(CModelInfo::GetModelInfo, CBaseModelInfo*(*)(char const*, int*))
 static int address;
 static int global_address;
 static const int id = 0x50B860;

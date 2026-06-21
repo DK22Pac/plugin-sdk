@@ -1,7 +1,7 @@
 #ifndef RTANIM_H
 #define RTANIM_H
 
-#include <rw\rtanim.rpe>          /* automatically generated header file */
+#include <rw/rtanim.rpe>          /* automatically generated header file */
 
 #define rtANIMSTREAMCURRENTVERSION 0x100
 
