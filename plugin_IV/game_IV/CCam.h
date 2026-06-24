@@ -124,11 +124,7 @@ public:
 	uint32_t field_338;
 	uint32_t field_342;
 	uint32_t field_448;
-#ifdef _MSC_VER
-	uint8_t field_500[810];
-#else
-	uint8_t field_500[812]; // +2 to fill tail padding (Itanium ABI compatibility)
-#endif
+	uint8_t field_500[812]; // Sized to 812 to fill tail padding on all platforms (sizeof(CCam) remains 0x500 due to alignment)
 
 public:
 	static bool& bBlockCam;

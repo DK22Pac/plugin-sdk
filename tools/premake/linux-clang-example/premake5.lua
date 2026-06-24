@@ -1,71 +1,85 @@
+-- This is an example Premake5 script for generating a project that compiles
+-- a custom GTA SA/VC/III ASI/CLEO plugin using Clang/MinGW on Linux.
+-- To use this template, set the PLUGIN_SDK_DIR environment variable to the
+-- path of your compiled Plugin-SDK repository.
+
 local sdkdir = os.getenv("PLUGIN_SDK_DIR")
-
-if not sdkdir then
-    error("WARNING: PLUGIN_SDK_DIR env var not found. Defaulting to current directory.")
+if not sdkdir or sdkdir == "" then
+    error("ERROR: PLUGIN_SDK_DIR environment variable is not set!")
 end
-
 sdkdir = path.translate(sdkdir, "/")
 
-workspace "plugin"
-    configurations { "Release", "zDebug" }
-    location (sdkdir .. "\\output")
-    targetdir (sdkdir .. "\\output\\lib")
+workspace "MyCustomPlugin"
+    configurations { "Release", "Debug" }
+    location "build"
 
-project "plugin_sa"
-    kind "StaticLib"
+project "MyCustomPlugin"
+    kind "SharedLib"
     language "C++"
-    architecture "x32"
-    staticruntime "On"
+    targetextension ".asi" -- .asi, .cleo, or .dll
+    
+    -- Target 32-bit (x86) for classic GTA games, 64-bit (x86_64) for Unreal DE games
+    architecture "x86" 
 
-    defines {
-        "RW",
-        "PLUGIN_SGV_10US",
-        "GTASA"
-    }
-
-    filter "action:gmake or action:gmake2 or action:codeblocks"
+    -- Target Clang cross-compilation toolchain on Linux/MinGW
+    filter "action:gmake or action:gmake2"
         toolset "clang"
-        buildoptions { 
-            "--target=i686-w64-mingw32",
+        buildoptions {
             "-fpermissive",
             "-fcommon",
             "-fms-extensions",
             "-Wno-invalid-offsetof",
-            "-Wno-microsoft-include" ,
+            "-Wno-microsoft-include",
             "-static",
         }
-    
-    filter "files:**.cpp"
-        buildoptions { "-std=c++2b" } -- C++23
-
-
-    filter "configurations:Release"
-        defines { "NDEBUG" }
-        optimize "On" 
-        symbols "Off"
-        targetname "plugin" 
-
-    filter "configurations:zDebug"
-        defines { "DEBUG", "_DEBUG" }
-        symbols "On"       
-        optimize "Debug"   
-        targetname "plugin_d" 
-
+        
+    filter { "action:gmake or action:gmake2", "architecture:x86" }
+        buildoptions { "--target=i686-w64-mingw32" }
+        linkoptions { "--target=i686-w64-mingw32", "-static-libgcc", "-static-libstdc++" }
+        
+    filter { "action:gmake or action:gmake2", "architecture:x86_64" }
+        buildoptions { "--target=x86_64-w64-mingw32" }
+        linkoptions { "--target=x86_64-w64-mingw32", "-static-libgcc", "-static-libstdc++" }
     filter {}
 
-    includedirs { 
-        sdkdir,
-        sdkdir .. "/shared", 
-        sdkdir .. "/shared/game", 
-        sdkdir .. "/plugin_sa", 
+    -- C++23 standard
+    filter "files:**.cpp"
+        buildoptions { "-std=c++2b" }
+    filter {}
+
+    -- Include directories for the SDK
+    includedirs {
+        "source", -- Your plugin source folder
+        sdkdir .. "/shared",
+        sdkdir .. "/shared/game",
+        sdkdir .. "/shared/dxsdk",
+        sdkdir .. "/safetyhook",
+        -- Game-specific includes (change as needed for III, VC, SA, etc.):
+        sdkdir .. "/plugin_sa",
         sdkdir .. "/plugin_sa/game_sa",
         sdkdir .. "/plugin_sa/game_sa/enums",
-        sdkdir .. "/plugin_sa/game_sa/rw",  
-        sdkdir .. "/safetyhook"  
+        sdkdir .. "/plugin_sa/game_sa/rw",
     }
-    
-    files { 
-        sdkdir .. "/shared/**.cpp", 
-        sdkdir .. "/plugin_sa/**.cpp", 
-        sdkdir .. "/safetyhook/**" 
+
+    -- SDK static library search directory
+    libdirs {
+        sdkdir .. "/output/lib"
     }
+
+    -- Source files for your plugin
+    files {
+        "source/**.h",
+        "source/**.cpp",
+    }
+
+    -- Define game macros (e.g. GTASA, GTAVC, GTA3) and link against correct SDK library
+    filter "configurations:Release"
+        defines { "GTASA", "NDEBUG" }
+        links { "Plugin" } -- Links libPlugin.a
+        targetdir "output/Release"
+        
+    filter "configurations:Debug"
+        defines { "GTASA", "DEBUG", "_DEBUG" }
+        links { "Plugin_d" } -- Links libPlugin_d.a
+        targetdir "output/Debug"
+    filter {}
