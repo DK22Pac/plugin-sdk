@@ -308,7 +308,6 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
             (projectPath .. "/**.cpp"),
             (sdkdir .. "/shared/**.h"),
             (sdkdir .. "/shared/**.cpp"),
-            (sdkdir .. "/shared/**.rc"),
             (sdkdir .. "/hooking/**.cpp"),
             (sdkdir .. "/hooking/**.h"),
             (sdkdir .. "/injector/**.hpp"),
@@ -905,7 +904,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             defines (getExamplePluginDefines(projectName, "GTAVC", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             setupDebugger(projectType, "GTA_VC_DIR", "", "gta-vc.exe")
         filter { "Release", "platforms:GTA-VC" }
-            links (getExamplePluginLibraries("plugin_vc", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_VC", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC")
         filter { "Debug", "platforms:GTA-VC" }
             links (getExamplePluginLibraries("Plugin_VC", projectType, "VC.CLEO", d3dSupport, d3dSupport, additionalLibraries, true))
@@ -921,10 +920,10 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             defines (getExamplePluginDefines(projectName, "GTASA", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             setupDebugger(projectType, "GTA_SA_DIR", "", "gta_sa.exe")
         filter { "Release", "platforms:GTA-SA" }
-            links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA")
         filter { "Debug", "platforms:GTA-SA" }
-            links (getExamplePluginLibraries("plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, true))
+            links (getExamplePluginLibraries("Plugin", projectType, "cleo", d3dSupport, false, additionalLibraries, true))
             targetname (projectName .. ".SA")
         filter {}
     end
@@ -953,7 +952,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             defines (getExamplePluginDefines(projectName, "GTA3_UNREAL", projectType, d3dSupport, additionalDefinitions, "3", "3", "3", "Claude", "Liberty City"))
             setupDebugger(projectType, "GTA_III_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "LibertyCity.exe")
         filter { "Release", "platforms:GTA3_Unreal" }
-            links (getExamplePluginLibraries("plugin_iii_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_III_Unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".III-DE")
         filter { "Debug", "platforms:GTA3_Unreal" }
             links (getExamplePluginLibraries("Plugin_III_Unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
@@ -969,7 +968,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             defines (getExamplePluginDefines(projectName, "GTAVC_UNREAL", projectType, d3dSupport, additionalDefinitions, "Vice City", "VC", "vc", "Tommy", "Vice City"))
             setupDebugger(projectType, "GTA_VC_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "ViceCity.exe")
         filter { "Release", "platforms:GTA-VC_Unreal" }
-            links (getExamplePluginLibraries("plugin_vc_unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_VC_Unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, false))
             targetname (projectName .. ".VC-DE")
         filter { "Debug", "platforms:GTA-VC_Unreal" }
             links (getExamplePluginLibraries("Plugin_VC_Unreal", projectType, "", d3dSupport, d3dSupport, additionalLibraries, true))
@@ -985,7 +984,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
             defines (getExamplePluginDefines(projectName, "GTASA_UNREAL", projectType, d3dSupport, additionalDefinitions, "San Andreas", "SA", "sa", "CJ", "San Andreas"))
             setupDebugger(projectType, "GTA_SA_UNREAL_DIR", "Gameface\\Binaries\\Win64\\", "SanAndreas.exe")
         filter { "Release", "platforms:GTA-SA_Unreal" }
-            links (getExamplePluginLibraries("plugin_unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
+            links (getExamplePluginLibraries("Plugin_Unreal", projectType, "", d3dSupport, false, additionalLibraries, false))
             targetname (projectName .. ".SA-DE")
         filter { "Debug", "platforms:GTA-SA_Unreal" }
             links (getExamplePluginLibraries("Plugin_Unreal", projectType, "", d3dSupport, false, additionalLibraries, true))
@@ -1228,11 +1227,11 @@ else -- plugin sdk solution
             pluginSdkStaticLibProject("Plugin_SA_Unreal",  sdkdir, "Plugin_Unreal",     true, "Game_SA_Unreal")
             
         print("\nGenerating example projects:")
-        local f = io.open(sdkdir .. "\\examples\\examples.csv", "rb")
+        local f = io.open(sdkdir .. "/examples/examples.csv", "rb")
         if f then
             f:close()
             local firstLine = true
-            for line in io.lines(sdkdir .. "\\examples\\examples.csv") do
+            for line in io.lines(sdkdir .. "/examples/examples.csv") do
                 if firstLine then
                     -- skip the header row
                     firstLine = false
@@ -1247,7 +1246,7 @@ else -- plugin sdk solution
                             params[i] = params[i]:gsub("%s+", "")
                         end
   
-                        local projDir = (sdkdir .. "\\examples\\" .. params[1])
+                        local projDir = (sdkdir .. "/examples/" .. params[1])
                         pluginSdkExampleProject(projDir, 
                             params[1], -- name
                             params[2], -- project type
