@@ -210,6 +210,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
                 "-fms-extensions",
                 "-Wno-invalid-offsetof",
                 "-Wno-microsoft-include",
+                "-Wno-builtin-macro-redefined",
                 "-static",
                 "-D__cpp_concepts=202202L",
             }
@@ -827,6 +828,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
                 "-fms-extensions",
                 "-Wno-invalid-offsetof",
                 "-Wno-microsoft-include",
+                "-Wno-builtin-macro-redefined",
                 "-static",
                 "-D__cpp_concepts=202202L",
             }
