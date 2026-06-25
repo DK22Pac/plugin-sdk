@@ -72,9 +72,9 @@ jobs:
       - name: Build SDK
         run: |
           export PLUGIN_SDK_DIR=$GITHUB_WORKSPACE
-          make config=release -C plugin_III -j$(nproc)
+          make config=release CXX=clang++-23 CC=clang-23 -C plugin_III -j$(nproc)
 
       - name: Build test plugin
         run: |
           export PLUGIN_SDK_DIR=$GITHUB_WORKSPACE
-          make config=release_gta3 -C examples/Test -j$(nproc)
+          make config=release_gta3 CXX=clang++-23 CC=clang-23 -C examples/Test -j$(nproc)
