@@ -679,11 +679,13 @@ function setupDebugger(projectType, gameDirVar, gameExePath, gameExeName)
         os.mkdir(fullTrgPath)
     end
 
-    postbuildcommands { "\
+    if os.host() == "windows" then
+        postbuildcommands { "\
 if defined " .. gameDirVar .. " ( \r\n\
 taskkill /IM " .. gameExeName .. " /F /FI \"STATUS eq RUNNING\" \r\n\
 xcopy /Y \"$(TargetPath)\" \"$(" .. gameDirVar .. ")" .. trgPath .. "\" \r\n\
 )" }
+    end
 
     debugcommand ("$(" .. gameDirVar .. ")\\" .. gameExePath .. gameExeName)
     debugdir ("$(" .. gameDirVar .. ")")
