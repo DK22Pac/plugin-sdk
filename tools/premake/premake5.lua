@@ -255,8 +255,10 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
 
     filter "Release"
         optimize "On"
-        linktimeoptimization "On"
+        if linktimeoptimization then linktimeoptimization "On" end
         symbols "Off"
+    filter { "Release", "action:gmake or action:gmake2 or action:codeblocks" }
+        if linktimeoptimization then linktimeoptimization "Off" end
     filter "zDebug"
         symbols "On"
         defines "DEBUG"
@@ -852,7 +854,9 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     filter "Release"
         optimize "On"
         symbols "Off"
-        linktimeoptimization "On"
+        if linktimeoptimization then linktimeoptimization "On" end
+    filter { "Release", "action:gmake or action:gmake2 or action:codeblocks" }
+        if linktimeoptimization then linktimeoptimization "Off" end
     filter "Debug"
         symbols "On"
         defines "DEBUG"
