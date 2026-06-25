@@ -211,6 +211,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
                 "-Wno-invalid-offsetof",
                 "-Wno-microsoft-include",
                 "-static",
+                "-D__cpp_concepts=202202L",
             }
         filter { "action:gmake or action:gmake2 or action:codeblocks", "architecture:x32" }
             buildoptions { "--target=i686-w64-mingw32" }
@@ -827,6 +828,7 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
                 "-Wno-invalid-offsetof",
                 "-Wno-microsoft-include",
                 "-static",
+                "-D__cpp_concepts=202202L",
             }
         filter { "action:gmake or action:gmake2 or action:codeblocks", "architecture:x32" }
             buildoptions { "--target=i686-w64-mingw32" }
