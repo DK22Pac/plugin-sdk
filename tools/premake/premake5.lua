@@ -36,6 +36,7 @@ if sdkdir == nil or sdkdir == "" then
     print("ERROR!\nCan't locate Plugin-SDK directory\n")
     os.exit(1)
 end
+sdkdir = path.translate(sdkdir)
 
 projectType = _OPTIONS["type"]
 if projectType == nil then
@@ -720,7 +721,7 @@ function generatePrecompiledHeader(directory, create)
     -- gather include files
     local fileList = {}
     function collect(dir, excludes)
-        local f = os.matchfiles(path.translate(sdkdir .. "/" .. dir .. "/**.h*"))
+        local f = os.matchfiles(sdkdir .. "/" .. dir .. "/**.h*")
         for i=1, #f do
             local p = path.getrelative(directory, f[i]):gsub("\\", "/")
 
@@ -1210,11 +1211,11 @@ else -- plugin sdk solution
     cleanProjectsDirectory(sdkdir .. "/Plugin_VC_Unreal")
     cleanProjectsDirectory(sdkdir .. "/Plugin_III_Unreal")
 
-    os.remove(path.translate(sdkdir .. "/plugin.sln"))
-    os.remove(path.translate(sdkdir .. "/plugin.suo"))
-    os.remove(path.translate(sdkdir .. "/plugin.sdf"))
-    os.remove(path.translate(sdkdir .. "/plugin.workspace"))
-    os.remove(path.translate(sdkdir .. "/plugin.workspace.layout"))
+    os.remove(sdkdir .. "/plugin.sln")
+    os.remove(sdkdir .. "/plugin.suo")
+    os.remove(sdkdir .. "/plugin.sdf")
+    os.remove(sdkdir .. "/plugin.workspace")
+    os.remove(sdkdir .. "/plugin.workspace.layout")
     deleteAllFoldersWithName(sdkdir, ".vs")
     generatePrecompiledHeader(sdkdir .. "/shared", false)
 
