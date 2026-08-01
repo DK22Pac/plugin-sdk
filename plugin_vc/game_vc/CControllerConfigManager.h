@@ -25,6 +25,8 @@ enum e_ControllerAction {
 	PED_JUMPING,
 	PED_SPRINT,
 	PED_LOOKBEHIND,
+	PED_DUCK,
+	PED_ANSWER_PHONE,
 	VEHICLE_ACCELERATE,
 	VEHICLE_BRAKE,
 	VEHICLE_CHANGE_RADIO_STATION,
@@ -52,6 +54,7 @@ enum e_ControllerAction {
 	SWITCH_DEBUG_CAM_ON,
 	TAKE_SCREEN_SHOT,
 	SHOW_MOUSE_POINTER_TOGGLE,
+	UNKNOWN_ACTION,
 	NUM_CONTROLLER_ACTIONS,
 };
 
@@ -93,10 +96,10 @@ VALIDATE_OFFSET(CControllerConfigManager, m_bFirstCapture, 0x0);
 VALIDATE_OFFSET(CControllerConfigManager, m_OldState, 0x4);
 VALIDATE_OFFSET(CControllerConfigManager, m_NewState, 0x114);
 VALIDATE_OFFSET(CControllerConfigManager, m_aActionNames, 0x224);
-VALIDATE_OFFSET(CControllerConfigManager, m_aButtonStates, 0xEF4);
-VALIDATE_OFFSET(CControllerConfigManager, m_actions, 0xF08);
-VALIDATE_OFFSET(CControllerConfigManager, m_aSimCheckers, 0x1428);
-VALIDATE_OFFSET(CControllerConfigManager, m_bMouseAssociated, 0x1438);
-VALIDATE_SIZE(CControllerConfigManager, 0x143C);
+VALIDATE_OFFSET(CControllerConfigManager, m_aButtonStates, 0xFE4);   // Real Game: 0xFE4 (instead of 0xEF4)
+VALIDATE_OFFSET(CControllerConfigManager, m_actions, 0xFF8);          // Real Game: 0xFF8 (instead of 0xF08)
+VALIDATE_OFFSET(CControllerConfigManager, m_aSimCheckers, 0x1578);    // Real Game: 0x1578 (instead of 0x1428)
+VALIDATE_OFFSET(CControllerConfigManager, m_bMouseAssociated, 0x1588); // Real Game: 0x1588 (instead of 0x1438)
+VALIDATE_SIZE(CControllerConfigManager, 0x158C);                       // Real Game: 0x158C (instead of 0x143C)
 
 extern CControllerConfigManager& ControlsManager;
