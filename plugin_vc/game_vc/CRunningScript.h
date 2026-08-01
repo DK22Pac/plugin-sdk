@@ -44,7 +44,7 @@ public:
     bool            m_bIsActive;
     bool            m_bCondResult;
     bool            m_bUseMissionCleanup;
-    bool            m_bAwake;
+    bool            m_bSkipWakeTime;
     int             m_nWakeTime;
     unsigned short  m_nLogicalOp;
     bool            m_bNotFlag;
