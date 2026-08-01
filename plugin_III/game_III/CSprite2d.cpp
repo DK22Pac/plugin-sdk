@@ -189,3 +189,17 @@ int gaddrof_o(CSprite2d::SetVertices, void (*)(RwIm2DVertex *, CRect const &, CR
 void CSprite2d::SetVertices(RwIm2DVertex *vertices, CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4) {
     plugin::CallDynGlobal<RwIm2DVertex *, CRect const &, CRGBA const &, CRGBA const &, CRGBA const &, CRGBA const &, float, float, float, float, float, float, float, float>(gaddrof_o(CSprite2d::SetVertices, void (*)(RwIm2DVertex *, CRect const &, CRGBA const &, CRGBA const &, CRGBA const &, CRGBA const &, float, float, float, float, float, float, float, float)), vertices, rect, color1, color2, color3, color4, u1, v1, u2, v2, u3, v3, u4, v4);
 }
+
+void CSprite2d::Draw2DPolygon(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, const CRGBA& color)
+{
+    SetVertices(x1, y1, x2, y2, x3, y3, x4, y4, color, color, color, color);
+    RwRenderStateSet(rwRENDERSTATETEXTURERASTER, 0);
+    RwRenderStateSet(rwRENDERSTATESHADEMODE, (void*)rwSHADEMODEFLAT);
+    RwRenderStateSet(rwRENDERSTATEZTESTENABLE, (void*)FALSE);
+    RwRenderStateSet(rwRENDERSTATEZWRITEENABLE, (void*)FALSE);
+    RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)(color.a != 255));
+    RwIm2DRenderPrimitive(rwPRIMTYPETRIFAN, CSprite2d::maVertices, 4);
+    RwRenderStateSet(rwRENDERSTATEZTESTENABLE, (void*)TRUE);
+    RwRenderStateSet(rwRENDERSTATEZWRITEENABLE, (void*)TRUE);
+    RwRenderStateSet(rwRENDERSTATESHADEMODE, (void*)rwSHADEMODEGOURAUD);
+}

@@ -53,6 +53,7 @@ public:
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4);
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(int numVerts, float *pos, float *texCoors, CRGBA const &color);
     SUPPORTED_10EN_11EN_STEAM static void SetVertices(RwIm2DVertex *vertices, CRect const &rect, CRGBA const &color1, CRGBA const &color2, CRGBA const &color3, CRGBA const &color4, float u1, float v1, float u2, float v2, float u3, float v3, float u4, float v4);
+    SUPPORTED_10EN_11EN_STEAM static void Draw2DPolygon(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, const CRGBA& color);
 };
 VALIDATE_OFFSET(CSprite2d, m_pTexture, 0x0);
 VALIDATE_SIZE(CSprite2d, 0x4);
