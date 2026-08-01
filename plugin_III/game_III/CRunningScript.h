@@ -43,8 +43,10 @@ public:
     int             m_anTimers[2];
     bool            m_bCondResult;
     bool            m_bUseMissionCleanup;
-    bool            m_bIsActive;
-    bool            m_bAwake;
+    bool            m_bSkipWakeTime;
+private:
+    char _pad7B;
+public:
     int             m_nWakeTime;
     unsigned short  m_nLogicalOp;
     bool            m_bNotFlag;
@@ -75,8 +77,7 @@ VALIDATE_OFFSET(CRunningScript, m_aLocalVars, 0x30);
 VALIDATE_OFFSET(CRunningScript, m_anTimers, 0x70);
 VALIDATE_OFFSET(CRunningScript, m_bCondResult, 0x78);
 VALIDATE_OFFSET(CRunningScript, m_bUseMissionCleanup, 0x79);
-VALIDATE_OFFSET(CRunningScript, m_bIsActive, 0x7A);
-VALIDATE_OFFSET(CRunningScript, m_bAwake, 0x7B);
+VALIDATE_OFFSET(CRunningScript, m_bSkipWakeTime, 0x7A);
 VALIDATE_OFFSET(CRunningScript, m_nWakeTime, 0x7C);
 VALIDATE_OFFSET(CRunningScript, m_nLogicalOp, 0x80);
 VALIDATE_OFFSET(CRunningScript, m_bNotFlag, 0x82);
