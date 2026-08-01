@@ -1,4 +1,4 @@
-name: Plugin GTA SA (Clang)
+name: Plugin GTA IV (Clang)
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
       - "modutils/**"
       - "safetyhook/**"
       - "shared/**"
-      - "plugin_sa/**"
+      - "plugin_IV/**"
 
   pull_request:
     paths:
@@ -27,7 +27,7 @@ on:
       - "modutils/**"
       - "safetyhook/**"
       - "shared/**"
-      - "plugin_sa/**"
+      - "plugin_IV/**"
 
 jobs:
   build:
@@ -72,9 +72,9 @@ jobs:
       - name: Build SDK
         run: |
           export PLUGIN_SDK_DIR=$GITHUB_WORKSPACE
-          make config=release CXX=clang++-23 CC=clang-23 AR=ar -C plugin_sa -j$(nproc)
+          make config=release CXX=clang++-23 CC=clang-23 AR=ar -C plugin_IV -j$(nproc)
 
       - name: Build test plugin
         run: |
           export PLUGIN_SDK_DIR=$GITHUB_WORKSPACE
-          make config=release_gta-sa CXX=clang++-23 CC=clang-23 AR=ar -C examples/Test -j$(nproc)
+          make config=release_gta4 CXX=clang++-23 CC=clang-23 AR=ar -C examples/Test -j$(nproc)

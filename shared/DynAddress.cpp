@@ -11,7 +11,7 @@
 #include <windows.h>
 #include "Base.h"
 #if !(defined (_M_IX86) || defined (_X86_))
-#include "..\modutils\Trampoline.h"
+#include "../modutils/Trampoline.h"
 #endif
 
 uintptr_t _NOINLINE_ plugin::GetBaseAddress() {

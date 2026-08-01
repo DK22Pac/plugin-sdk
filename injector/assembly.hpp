@@ -3,7 +3,7 @@
 // Original assembly.hpp functions moved to SafetyHook
 */
 #include "injector.hpp"
-#include "..\safetyhook\safetyhook.hpp"
+#include "../safetyhook/safetyhook.hpp"
 
 namespace injector
 {

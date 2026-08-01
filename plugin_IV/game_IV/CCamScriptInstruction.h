@@ -12,6 +12,9 @@
 class CCamScriptInstruction {
 public:
     uint8_t field_1;
+#ifndef _MSC_VER
+    uint8_t _pad_abi[3]; // Fill tail padding (Itanium ABI compatibility)
+#endif
 
 public:
     CCamScriptInstruction() {

@@ -8,7 +8,7 @@
 #include "CSprite.h"
 #include "CGame.h"
 #include "CPlayerPed.h"
-#include "..\shared\extensions\Screen.h"
+#include "../shared/extensions/Screen.h"
 #include "GBH.h"
 #include "CRect.h"
 
