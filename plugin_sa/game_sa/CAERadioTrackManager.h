@@ -18,6 +18,7 @@ struct PLUGIN_API tRadioSettings {
     char TrackFlags;
     eRadioID m_nCurrentRadioStation;
     char m_nBassSet;
+    char _pad27;
     float m_fBassGain;
     char TrackTypes[5];
     char CurrTrackType;
@@ -36,6 +37,7 @@ VALIDATE_OFFSET(tRadioSettings, TrackLengthMs, 0x20);
 VALIDATE_OFFSET(tRadioSettings, TrackFlags, 0x24);
 VALIDATE_OFFSET(tRadioSettings, m_nCurrentRadioStation, 0x25);
 VALIDATE_OFFSET(tRadioSettings, m_nBassSet, 0x26);
+VALIDATE_OFFSET(tRadioSettings, _pad27, 0x27);
 VALIDATE_OFFSET(tRadioSettings, m_fBassGain, 0x28);
 VALIDATE_OFFSET(tRadioSettings, TrackTypes, 0x2C);
 VALIDATE_OFFSET(tRadioSettings, CurrTrackType, 0x31);
