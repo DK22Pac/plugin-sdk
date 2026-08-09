@@ -12,9 +12,7 @@
 class CCamScriptInstruction {
 public:
     uint8_t field_1;
-#ifndef _MSC_VER
-    uint8_t _pad_abi[3]; // Fill tail padding (Itanium ABI compatibility)
-#endif
+    uint8_t pad[3]; // Fill tail padding (Itanium ABI compatibility)
 
 public:
     CCamScriptInstruction() {
@@ -28,6 +26,7 @@ public:
     void SetInstruction(CCamScriptInstruction* instruction);
 };
 VALIDATE_OFFSET(CCamScriptInstruction, field_1, 0x4);
+VALIDATE_OFFSET(CCamScriptInstruction, pad, 0x5);
 VALIDATE_SIZE(CCamScriptInstruction, 0x8);
 
 class CCamScriptInstruction_SetCamBehindPed : public CCamScriptInstruction {
