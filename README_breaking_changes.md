@@ -2,6 +2,48 @@
 
 - CAERadioTrackManager refector
 	- Updated field names and offset validation of CAERadioTrackManager class and structs based on reversed classes.
+*   **Structure: `tRadioSettings`**
+    *   `m_djIndex[4]` & `field_10` replaced with `TrackQueue[5]`
+    *   `trackId` renamed to `CurrTrackID`
+    *   `field_18` renamed to `PrevTrackID`
+    *   `trackPlayTime` renamed to `PlayTime`
+    *   `trackLength` renamed to `TrackLengthMs`
+    *   `field_24` renamed to `TrackFlags`
+    *   `_pad` renamed to `_pad27`
+    *   `currRadioBC_[4]` & `field_30` replaced with `TrackTypes[5]`
+    *   `field_31` renamed to `CurrTrackType`
+    *   `m_musicTrackIndices[10]` replaced with `PrevTrackType`, `TrackIndices[5]`, `CurrTrackIdx`, `PrevTrackIdx`, and `_pad[2]`
+
+*   **Structure: `tRadioStationData`**
+    *   `field_0`, `field_4`, `field_8` replaced with `m_aElapsed[3]`
+    *   `m_nTimeRetuneStopped` renamed to `m_iTimeInPauseModeInMs`
+    *   `lastPlayingTime` renamed to `m_iTimeInMs`
+    *   `trackPlayTime` renamed to `m_iTrackPlayTime`
+    *   `field_18`, `field_1C`, `field_20` replaced with `m_aTrackQueue[3]`
+    *   `field_24`, `field_25`, `field_26` replaced with `m_aTrackTypes[3]`
+    *   `lastGameClockDays` renamed to `m_nGameClockDays`
+    *   `lastGameClockHours` renamed to `m_nGameClockHours`
+
+*   **Structure: `CAERadioTrackManager`**
+    *   `field_0` replaced with `m_bInitialised`
+    *   `field_1` replaced with `m_bDisplayStationName`
+    *   `field_2` replaced with `m_prev`
+    *   `field_3` replaced with `m_bEnabledInPauseMode`
+    *   `field_4` replaced with `m_bBassEnhance`
+    *   `field_5` replaced with `m_bPauseMode`
+    *   `field_8[14]` renamed to `m_nTracksInARow[14]`
+    *   `m_nMonthDay` renamed to `m_nSavedGameClockDays`
+    *   `m_nClockHours` renamed to `m_nSavedGameClockHours`
+    *   `m_anPlayerStats[14]` renamed to `m_aListenTimes[14]`
+    *   `field_58` renamed to `m_nSavedTimeMs`
+    *   `field_5C` renamed to `m_nRetuneStartedTime`
+    *   `field_64` renamed to `m_HwClientHandle`
+    *   `field_68` renamed to `m_nMode`
+    *   `field_74` replaced with `m_nSavedRadioStationId`
+    *   `field_78` replaced with `m_iRadioStationMenuRequest`
+    *   `field_7C` replaced with `m_iRadioStationScriptRequest`
+    *   `field_80` replaced with `m_f80`
+    *   `field_84` replaced with `m_f84`
 
 ## v.1004 from 2026-04-18
 
