@@ -70,6 +70,7 @@ VALIDATE_SIZE(tRadioStationData, 0x2C);
 struct PLUGIN_API tMusicTrackHistory {
     char m_indices[20];
 };
+
 VALIDATE_OFFSET(tMusicTrackHistory, m_indices, 0x0);
 VALIDATE_SIZE(tMusicTrackHistory, 0x14);
 
@@ -159,5 +160,3 @@ VALIDATE_OFFSET(CAERadioTrackManager, field_36D, 0x36D);
 VALIDATE_SIZE(CAERadioTrackManager, 0x370);
 
 extern CAERadioTrackManager& AERadioTrackManager;
-
-VALIDATE_SIZE(CAERadioTrackManager, 0x370);
