@@ -83,12 +83,12 @@ VALIDATE_SIZE(tMusicTrackHistory, 0x14);
 
 class PLUGIN_API CAERadioTrackManager {
 public:
-    unsigned char field_0;
-    unsigned char field_1;
-    unsigned char field_2;
-    unsigned char field_3;
-    unsigned char field_4;
-    unsigned char field_5;
+    bool m_bInitialised;
+    bool m_bDisplayStationName;
+    char m_prev;
+    bool m_bEnabledInPauseMode;
+    bool m_bBassEnhance;
+    bool m_bPauseMode;
     bool m_bRetuneJustStarted;
     bool m_bRadioAutoSelect;
     char field_8[14];
@@ -130,12 +130,12 @@ public:
     // 11 structures
     static tMusicTrackHistory *m_nMusicTrackIndexHistory;
 };
-VALIDATE_OFFSET(CAERadioTrackManager, field_0, 0x0);
-VALIDATE_OFFSET(CAERadioTrackManager, field_1, 0x1);
-VALIDATE_OFFSET(CAERadioTrackManager, field_2, 0x2);
-VALIDATE_OFFSET(CAERadioTrackManager, field_3, 0x3);
-VALIDATE_OFFSET(CAERadioTrackManager, field_4, 0x4);
-VALIDATE_OFFSET(CAERadioTrackManager, field_5, 0x5);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bInitialised, 0x0);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bDisplayStationName, 0x1);
+VALIDATE_OFFSET(CAERadioTrackManager, m_prev, 0x2);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bEnabledInPauseMode, 0x3);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bBassEnhance, 0x4);
+VALIDATE_OFFSET(CAERadioTrackManager, m_bPauseMode, 0x5);
 VALIDATE_OFFSET(CAERadioTrackManager, m_bRetuneJustStarted, 0x6);
 VALIDATE_OFFSET(CAERadioTrackManager, m_bRadioAutoSelect, 0x7);
 VALIDATE_OFFSET(CAERadioTrackManager, field_8, 0x8);
