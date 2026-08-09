@@ -57,7 +57,6 @@ struct PLUGIN_API tRadioStationData {
     char m_nGameClockDays;
     int m_nGameClockHours;
 };
-
 VALIDATE_OFFSET(tRadioStationData, m_aElapsed, 0x0);
 VALIDATE_OFFSET(tRadioStationData, m_iTimeInPauseModeInMs, 0xC);
 VALIDATE_OFFSET(tRadioStationData, m_iTimeInMs, 0x10);
@@ -71,7 +70,6 @@ VALIDATE_SIZE(tRadioStationData, 0x2C);
 struct PLUGIN_API tMusicTrackHistory {
     char m_indices[20];
 };
-
 VALIDATE_OFFSET(tMusicTrackHistory, m_indices, 0x0);
 VALIDATE_SIZE(tMusicTrackHistory, 0x14);
 
