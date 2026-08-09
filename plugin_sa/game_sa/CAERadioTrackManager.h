@@ -28,7 +28,6 @@ struct PLUGIN_API tRadioSettings {
     char PrevTrackIdx;
     char _pad[2];
 };
-
 VALIDATE_OFFSET(tRadioSettings, TrackQueue, 0x0);
 VALIDATE_OFFSET(tRadioSettings, CurrTrackID, 0x14);
 VALIDATE_OFFSET(tRadioSettings, PrevTrackID, 0x18);
@@ -124,7 +123,6 @@ public:
 
     static tMusicTrackHistory* m_nMusicTrackIndexHistory;
 };
-
 VALIDATE_OFFSET(CAERadioTrackManager, m_bInitialised, 0x0);
 VALIDATE_OFFSET(CAERadioTrackManager, m_bDisplayStationName, 0x1);
 VALIDATE_OFFSET(CAERadioTrackManager, m_prev, 0x2);
