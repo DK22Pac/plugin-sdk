@@ -73,7 +73,7 @@ public:
     CVector2D m_vec2DPos;
     CVector m_vecPos;
     unsigned short m_nBlipIndex;
-    bool m_bDim;
+    bool m_bBright;
     bool m_bInUse;
     float m_fSphereRadius;
     unsigned short m_nBlipSize;
@@ -86,7 +86,7 @@ VALIDATE_OFFSET(tRadarTrace, m_nEntityHandle, 0x8);
 VALIDATE_OFFSET(tRadarTrace, m_vec2DPos, 0xC);
 VALIDATE_OFFSET(tRadarTrace, m_vecPos, 0x14);
 VALIDATE_OFFSET(tRadarTrace, m_nBlipIndex, 0x20);
-VALIDATE_OFFSET(tRadarTrace, m_bDim, 0x22);
+VALIDATE_OFFSET(tRadarTrace, m_bBright, 0x22);
 VALIDATE_OFFSET(tRadarTrace, m_bInUse, 0x23);
 VALIDATE_OFFSET(tRadarTrace, m_fSphereRadius, 0x24);
 VALIDATE_OFFSET(tRadarTrace, m_nBlipSize, 0x28);
