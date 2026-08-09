@@ -1,3 +1,8 @@
+## v.1005 from 2026-08-10
+
+- CAERadioTrackManager refector
+	- Updated field names and offset validation of CAERadioTrackManager class and structs based on reversed classes.
+
 ## v.1004 from 2026-04-18
 
 - III, VC, SA enums refactor
