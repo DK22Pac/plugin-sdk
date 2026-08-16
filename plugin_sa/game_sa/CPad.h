@@ -298,6 +298,7 @@ public:
     bool GetAccelerateJustDown();
     bool NextStationJustUp();
     bool LastStationJustUp();
+    bool UserTrackSkipButtonJustPressed();
     bool CycleWeaponLeftJustDown();
     bool CycleWeaponRightJustDown();
     bool GetTarget();
