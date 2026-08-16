@@ -180,7 +180,7 @@ bool CPad::LastStationJustUp() {
 
 // Converted from thiscall bool CPad::UserTrackSkipButtonJustPressed(void) 0x4E7F20
 bool CPad::UserTrackSkipButtonJustPressed() {
-    return plugin::CallMethodAndReturn<bool, 0x4E7F20, CPad*>(this);
+    return plugin::CallMethodAndReturn<bool, 0x4E7F20, CPad *>(this);
 }
 
 // Converted from thiscall bool CPad::CycleWeaponLeftJustDown(void) 0x540610
