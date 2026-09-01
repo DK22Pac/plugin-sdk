@@ -15,5 +15,5 @@ bool CGarages::Load() {
 }
 
 bool CGarages::Save() {
-    return plugin::CallAndReturn<bool, 0x5D3270>();
+    return plugin::CallAndReturn<bool, 0x5D3160>();
 }

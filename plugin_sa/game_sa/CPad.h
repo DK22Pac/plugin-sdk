@@ -292,7 +292,7 @@ public:
     short GetBrake();
     bool GetExitVehicle();
     bool ExitVehicleJustDown();
-    unsigned char GetMeleeAttack();
+    unsigned char GetMeleeAttack(bool checkButtonCircleStateOnly = false);
     unsigned char MeleeAttackJustDown();
     short GetAccelerate();
     bool GetAccelerateJustDown();

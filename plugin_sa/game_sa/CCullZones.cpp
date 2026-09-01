@@ -33,15 +33,15 @@ void CCullZones::Update() {
 }
 
 void CCullZones::AddCullZone(const CVector& center, float unk1, float fWidthY, float fBottomZ, float fWidthX, float unk2, float fTopZ, ushort flags) {
-    plugin::Call<0x72DF70>();
+    plugin::Call<0x72DF70>(center, unk1, fWidthY, fBottomZ, fWidthX, unk2, fTopZ, flags);
 }
 
 void CCullZones::AddTunnelAttributeZone(const CVector& center, float unk1, float fWidthY, float fBottomZ, float fWidthX, float unk2, float fTopZ, ushort flags) {
-    plugin::Call<0x72DB50>();
+    plugin::Call<0x72DB50>(center, unk1, fWidthY, fBottomZ, fWidthX, unk2, fTopZ, flags);
 }
 
 void CCullZones::AddMirrorAttributeZone(const CVector& center, float unk1, float fWidthY, float fBottomZ, float fWidthX, float unk2, float fTopZ, eZoneAttributes flags, float cm, float vX, float vY, float vZ) {
-    plugin::Call<0x72DC10>();
+    plugin::Call<0x72DC10>(center, unk1, fWidthY, fBottomZ, fWidthX, unk2, fTopZ, flags, cm, vX, vY, vZ);
 }
 
 bool CCullZones::InRoomForAudio() {

@@ -783,9 +783,9 @@ void CVehicle::RemoveReplacementUpgrade(int nodeId)
 }
 
 // Converted from thiscall void CVehicle::GetReplacementUpgrade(int nodeId) 0x6D3A50
-void CVehicle::GetReplacementUpgrade(int nodeId)
+int CVehicle::GetReplacementUpgrade(int nodeId)
 {
-	((void (__thiscall *)(CVehicle*, int))0x6D3A50)(this, nodeId);
+	return ((int (__thiscall *)(CVehicle*, int))0x6D3A50)(this, nodeId);
 }
 
 // Converted from thiscall void CVehicle::RemoveAllUpgrades(void) 0x6D3AB0

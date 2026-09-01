@@ -68,7 +68,7 @@ void CMenuSystem::DisplayGridMenu(unsigned char panelId, bool bBrightFont)
 
 void CMenuSystem::HighlightOneItem(unsigned char panelId, unsigned char itemId, bool bHighlight)
 {
-	((void (__cdecl *)(unsigned char, unsigned char, bool))0x5816E0)(panelId, itemId, bHighlight);
+	((void (__cdecl *)(unsigned char, unsigned char, bool))0x581C10)(panelId, itemId, bHighlight);
 }
 
 tMenuPanel** CMenuSystem::InsertMenu(unsigned char panelId, unsigned char columnId, char *pTitle, char *str1, char *str2, char *str3, char *str4, char *str5, char *str6, char *str7, char *str8, char *str9, char *str10, char *str11, char *str12)
@@ -88,7 +88,7 @@ tMenuPanel* CMenuSystem::InsertOneMenuItemWithNumber(unsigned char panelId, unsi
 
 void CMenuSystem::SetActiveMenuItem(unsigned char panelId, char rowId)
 {
-	((void (__cdecl *)(unsigned char, char))0x582630)(panelId, rowId);
+	((void (__cdecl *)(unsigned char, char))0x5820C0)(panelId, rowId);
 }
 
 void CMenuSystem::SetColumnHeader(unsigned char panelId, unsigned char columnId, char *str)

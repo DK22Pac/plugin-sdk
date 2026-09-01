@@ -95,8 +95,8 @@ bool CGangWars::CreateAttackWave(int warFerocity, int waveID) {
 int addrof(CGangWars::CreateDefendingGroup) = ADDRESS_BY_VERSION(0x4453D0, 0, 0, 0, 0, 0);
 int gaddrof(CGangWars::CreateDefendingGroup) = GLOBAL_ADDRESS_BY_VERSION(0x4453D0, 0, 0, 0, 0, 0);
 
-bool CGangWars::CreateDefendingGroup(int unsued) {
-    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CGangWars::CreateDefendingGroup), unsued);
+bool CGangWars::CreateDefendingGroup(int unused) {
+    return plugin::CallAndReturnDynGlobal<bool, int>(gaddrof(CGangWars::CreateDefendingGroup), unused);
 }
 
 int addrof(CGangWars::DoStuffWhenPlayerVictorious) = ADDRESS_BY_VERSION(0x446400, 0, 0, 0, 0, 0);

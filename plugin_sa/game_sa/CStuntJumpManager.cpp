@@ -13,5 +13,5 @@ bool CStuntJumpManager::Save() {
 
 // 0x5D5920
 bool CStuntJumpManager::Load() {
-	return plugin::CallAndReturn<bool, 0x5D5570>();
+	return plugin::CallAndReturn<bool, 0x5D5920>();
 }

@@ -102,7 +102,7 @@ namespace injector
         template <valid_pointer_type T>
         explicit auto_pointer(T x) : p(to_void_pointer(x)) {}
 
-        bool is_null() const { return this->p != nullptr; }
+        bool is_null() const { return this->p == nullptr; }
 
 #if __cplusplus >= 201103L || _MSC_VER >= 1800
         explicit operator bool() const { return is_null(); }

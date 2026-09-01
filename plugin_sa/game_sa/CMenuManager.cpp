@@ -72,11 +72,11 @@ bool CMenuManager::CheckRedefineControlInput() {
 }
 
 void CMenuManager::CheckSliderMovement(float input) {
-    plugin::CallMethod<0x57E4D0, CMenuManager*>(this, input);
+    plugin::CallMethod<0x573440, CMenuManager*>(this, input);
 }
 
 void CMenuManager::DisplayHelperText(char* text) {
-    plugin::CallMethod<0x57E4D0, CMenuManager*>(this, text);
+    plugin::CallMethod<0x57E240, CMenuManager*>(this, text);
 }
 
 int CMenuManager::DisplaySlider(float posX, float posY, float beginHeight, float endHeight, float distBetweenRects, float filledAmount, CRGBA const& colour) {

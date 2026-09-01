@@ -13,6 +13,3 @@ class PLUGIN_API CDummyObject : public CDummy {
 public:
 };
 VALIDATE_SIZE(CDummyObject, 0x38);
-
-
-VALIDATE_SIZE(CDummyObject, 0x38);
