@@ -309,7 +309,7 @@ void CPostEffects::ColourFilter(RwRGBA col1, RwRGBA col2) {
 
 // 0x702080
 void CPostEffects::Radiosity(int32_t intensityLimit, int32_t filterPasses, int32_t renderPasses, int32_t intensity) {
-    plugin::Call<0x702080>();
+    plugin::Call<0x702080, int32_t>(intensityLimit, filterPasses, renderPasses, intensity);
 }
 
 // 0x700BE0

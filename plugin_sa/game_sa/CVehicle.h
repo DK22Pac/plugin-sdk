@@ -465,7 +465,7 @@ public:
     void AddReplacementUpgrade(int modelIndex, int nodeId);
     void RemoveReplacementUpgrade(int nodeId);
     // return upgrade model id or -1 if not present
-    void GetReplacementUpgrade(int nodeId);
+    int GetReplacementUpgrade(int nodeId);
     void RemoveAllUpgrades();
     int GetSpareHasslePosId();
     void SetHasslePosId(int hasslePos, bool enable);

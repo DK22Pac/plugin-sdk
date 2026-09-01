@@ -66,7 +66,7 @@ public:
     SUPPORTED_10US static void ClearSpecificZonesToTriggerGangWar();
     SUPPORTED_10US static void ClearTheStreets();
     SUPPORTED_10US static bool CreateAttackWave(int warFerocity, int waveID);
-    SUPPORTED_10US static bool CreateDefendingGroup(int unsued);
+    SUPPORTED_10US static bool CreateDefendingGroup(int unused);
     SUPPORTED_10US static void DoStuffWhenPlayerVictorious();
     //! unused
     SUPPORTED_10US static bool DoesPlayerControlThisZone(CZoneInfo *zoneinfo);

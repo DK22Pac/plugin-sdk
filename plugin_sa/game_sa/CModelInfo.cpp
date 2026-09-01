@@ -147,7 +147,7 @@ bool CModelInfo::IsHeliModel(int modelId) {
     return ((bool (__cdecl*)(int))0x4C5B00)(modelId);
 }
 
-static bool IsMonsterTruckModel(int modelId) {
+bool CModelInfo::IsMonsterTruckModel(int modelId) {
     return ((bool (__cdecl*)(int))0x4C5BC0)(modelId);
 }
 

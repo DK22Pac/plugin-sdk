@@ -18,7 +18,7 @@ public:
     }
 
     ObjectType* Alloc() {
-        if (count <= Capacity) 
+        if (count < Capacity) 
             return &objects[count++];
 
         return nullptr;
