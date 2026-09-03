@@ -9,6 +9,7 @@
 #include "PluginBase.h"
 #include "CompressedVector.h"
 #include "CVector.h"
+#include "CNodeAddress.h"
 
 class PLUGIN_API CPathNode {
 public:
