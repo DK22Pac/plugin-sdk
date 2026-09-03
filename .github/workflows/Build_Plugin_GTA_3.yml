@@ -36,7 +36,7 @@ jobs:
     # skip on pull request inside forks
     if: github.event_name != 'pull_request' || github.repository == 'DK22Pac/plugin-sdk'
     
-    runs-on: windows-2022
+    runs-on: windows-2025-vs2026
 
     steps:
       - name: Checkout
