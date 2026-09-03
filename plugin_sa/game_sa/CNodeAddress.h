@@ -10,8 +10,8 @@
 
 class PLUGIN_API CNodeAddress {
 public:
-    short m_nAreaId;
-    short m_nNodeId;
+    UInt16 Region;
+    UInt16 Index;
 
     inline CNodeAddress() {
         Clear();
@@ -22,27 +22,28 @@ public:
     }
 
     inline void Set(short areaId, short nodeId) {
-        m_nAreaId = areaId;
-        m_nNodeId = nodeId;
+        Region = areaId;
+        Index = nodeId;
     }
 
     inline bool IsEmpty() const {
-        return m_nAreaId == -1 || m_nNodeId == -1;
+        return Region == -1 || Index == -1;
     }
 
     inline void Clear() {
-        m_nAreaId = -1;
-        m_nNodeId = -1;
+        Region = -1;
+        Index = -1;
     }
 
     inline bool operator==(CNodeAddress const &rhs) const {
-        return m_nAreaId == rhs.m_nAreaId && m_nNodeId == rhs.m_nNodeId;
+        return Region == rhs.Region && Index == rhs.Index;
     }
 
     inline bool operator!=(CNodeAddress const &rhs) const {
-        return m_nAreaId != rhs.m_nAreaId || m_nNodeId != rhs.m_nNodeId;
+        return Region != rhs.Region || Index != rhs.Index;
     }
 };
-VALIDATE_OFFSET(CNodeAddress, m_nAreaId, 0x0);
-VALIDATE_OFFSET(CNodeAddress, m_nNodeId, 0x2);
+
+VALIDATE_OFFSET(CNodeAddress, Region, 0x0);
+VALIDATE_OFFSET(CNodeAddress, Index, 0x2);
 VALIDATE_SIZE(CNodeAddress, 0x4);
