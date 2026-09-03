@@ -43,7 +43,6 @@ public:
         return Region != rhs.Region || Index != rhs.Index;
     }
 };
-
 VALIDATE_OFFSET(CNodeAddress, Region, 0x0);
 VALIDATE_OFFSET(CNodeAddress, Index, 0x2);
 VALIDATE_SIZE(CNodeAddress, 0x4);

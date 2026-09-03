@@ -55,10 +55,11 @@ public:
 public:
     SUPPORTED_10US CVector GetNodeCoors();
 };
-
 VALIDATE_OFFSET(CPathNode, pNext, 0x0);
 VALIDATE_OFFSET(CPathNode, pPrevious, 0x4);
 VALIDATE_OFFSET(CPathNode, CoorsX, 0x8);
+VALIDATE_OFFSET(CPathNode, CoorsY, 0xA);
+VALIDATE_OFFSET(CPathNode, CoorsZ, 0xC);
 VALIDATE_OFFSET(CPathNode, DistanceToTarget, 0xE);
 VALIDATE_OFFSET(CPathNode, IndexAdjacentNodes, 0x10);
 VALIDATE_OFFSET(CPathNode, Address, 0x12);
