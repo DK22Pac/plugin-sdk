@@ -62,6 +62,7 @@ function cleanProjectsDirectory(pathToDir)
     pathToDir = path.translate(pathToDir, "/")
     if os.host() == "windows" then
         os.execute("del /s \"" .. pathToDir .. "\\*.sln\" >nul 2>&1")
+        os.execute("del /s \"" .. pathToDir .. "\\*.slnx\" >nul 2>&1")
         os.execute("del /s \"" .. pathToDir .. "\\*.suo\" >nul 2>&1")
         os.execute("del /s \"" .. pathToDir .. "\\*.sdf\" >nul 2>&1")
         os.execute("del /s \"" .. pathToDir .. "\\*.opensdf\" >nul 2>&1")
@@ -74,7 +75,7 @@ function cleanProjectsDirectory(pathToDir)
         os.execute("del /s \"" .. pathToDir .. "\\*.depend\" >nul 2>&1")
         os.execute("del /s \"" .. pathToDir .. "\\*.layout\" >nul 2>&1")
     else
-        os.execute("find \"" .. pathToDir .. "\" -type f \\( -name \"*.sln\" -o -name \"*.suo\" -o -name \"*.sdf\" -o -name \"*.opensdf\" -o -name \"*.vcxproj\" -o -name \"*.vcxproj.filters\" -o -name \"*.vcxproj.user\" -o -name \"*.workspace\" -o -name \"*.cbp\" -o -name \"*.project\" -o -name \"*.depend\" -o -name \"*.layout\" \\) -delete >/dev/null 2>&1")
+        os.execute("find \"" .. pathToDir .. "\" -type f \\( -name \"*.sln\" -o -name \"*.slnx\" -o -name \"*.suo\" -o -name \"*.sdf\" -o -name \"*.opensdf\" -o -name \"*.vcxproj\" -o -name \"*.vcxproj.filters\" -o -name \"*.vcxproj.user\" -o -name \"*.workspace\" -o -name \"*.cbp\" -o -name \"*.project\" -o -name \"*.depend\" -o -name \"*.layout\" \\) -delete >/dev/null 2>&1")
     end
     deleteAllFoldersWithName(pathToDir, "obj")
 end
@@ -198,7 +199,7 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
         cppdialect "C++latest"
         defines { "_CRT_NON_CONFORMING_SWPRINTFS", "_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING" }
         buildoptions { "/sdl-" }
-        flags "MultiProcessorCompile"
+        multiprocessorcompile "On"
         disablewarnings "4073" -- "initializers put in library initialization area"
         fatalwarnings "4996" -- "This function or variable may be unsafe. Consider using *_s"
     end
@@ -452,10 +453,10 @@ function pluginSdkStaticLibProject(projectName, sdkdir, outName, isPluginProject
                 defines "USE_PCH"
 
             filter ("files:not " .. gameFiles)
-                flags "NoPCH"
+                enablepch "Off"
 
             filter ("files:" .. attractorFiles)
-                flags "NoPCH"
+                enablepch "Off"
 
             filter {}
         end
@@ -816,12 +817,12 @@ function pluginSdkExampleProject(projectDir, projectName, projectType, game2, ga
     language "C++"
     characterset ("MBCS")
     staticruntime "On"
-    flags { "NoImportLib" }
+    useimportlib "Off"
     cppdialect "C++latest"
 
     if msbuild then
         buildoptions { "/sdl-" }
-        flags "MultiProcessorCompile"
+        multiprocessorcompile "On"
     end
     if mingw then
         buildoptions "-fpermissive"
@@ -1176,7 +1177,7 @@ end
 
 -- execute
 if _ACTION == "newplugin" then
-    _ACTION = "vs2022"
+    _ACTION = "vs2026"
     
     generateNewPluginSource(_OPTIONS["dir"], _OPTIONS["name"], projectType,
         _OPTIONS["gta2"] ~= nil,
@@ -1212,6 +1213,7 @@ else -- plugin sdk solution
     cleanProjectsDirectory(sdkdir .. "/Plugin_III_Unreal")
 
     os.remove(sdkdir .. "/plugin.sln")
+    os.remove(sdkdir .. "/plugin.slnx")
     os.remove(sdkdir .. "/plugin.suo")
     os.remove(sdkdir .. "/plugin.sdf")
     os.remove(sdkdir .. "/plugin.workspace")
