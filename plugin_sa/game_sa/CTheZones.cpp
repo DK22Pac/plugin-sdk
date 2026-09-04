@@ -9,9 +9,9 @@
 #define VAR_CTheZones__m_CurrLevel 0xBA6718
 #define VAR_CTheZones__ExploredTerritoriesArray 0xBA3730
 #define VAR_CTheZones__TotalNumberExploredTerritories 0xBA372C
-#define VAR_CTheZones__TotalNumberOfInfoZones 0x572A5A
+#define VAR_CTheZones__TotalNumberOfInfoZones 0xBA3794
 #define VAR_CTheZones__ZoneInfoArray 0xBA3798
-#define VAR_CTheZones__TotalNumberOfMapZones 0xBA3794
+#define VAR_CTheZones__TotalNumberOfMapZones 0xBA1900
 #define VAR_CTheZones__MapZoneArray 0xBA1908
 
 #define FUNC_CTheZones__InitZonesPopulationSettings 0x5720D0
@@ -43,10 +43,10 @@ eLevelName& CTheZones::m_CurrLevel = *(eLevelName*)VAR_CTheZones__m_CurrLevel;
 char* CTheZones::ExploredTerritoriesArray = (char*)VAR_CTheZones__ExploredTerritoriesArray;
 int& CTheZones::TotalNumberExploredTerritories = *(int*)VAR_CTheZones__TotalNumberExploredTerritories;
 
-short& CTheZones::TotalNumberOfMapZones = *(short*)VAR_CTheZones__TotalNumberOfInfoZones;
+short& CTheZones::TotalNumberOfMapZones = *(short*)VAR_CTheZones__TotalNumberOfMapZones;
 CZone* CTheZones::ZoneInfoArray = (CZone*)VAR_CTheZones__ZoneInfoArray;
 
-short& CTheZones::TotalNumberOfInfoZones = *(short*)VAR_CTheZones__TotalNumberOfMapZones;
+short& CTheZones::TotalNumberOfInfoZones = *(short*)VAR_CTheZones__TotalNumberOfInfoZones;
 CZone* CTheZones::MapZoneArray = (CZone*)VAR_CTheZones__MapZoneArray;
 
 // Functions
