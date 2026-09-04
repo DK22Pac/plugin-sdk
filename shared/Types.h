@@ -17,3 +17,6 @@ typedef __int16 Int16;
 
 typedef unsigned __int8 UInt8;
 typedef __int8 Int8;
+
+typedef unsigned __int8 Bool8;
+typedef unsigned __int16 Bool16;
