@@ -112,7 +112,7 @@ void CMenuManager::DrawStandardMenu(bool header) {
 }
 
 void CMenuManager::DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground) {
-    plugin::CallMethod<0x573EE0, CMenuManager*>(this, coords, pKey, nColour, backColor, Unused, bBackground);
+    plugin::CallMethod<0x573EE0, CMenuManager*, const CRect&, const char*, unsigned char, CRGBA, bool, bool>(this, coords, pKey, nColour, backColor, Unused, bBackground);
 }
 
 void CMenuManager::DrawWindowedText(float x1, float y1, float x2, float y2, char* gxt, int align) {
