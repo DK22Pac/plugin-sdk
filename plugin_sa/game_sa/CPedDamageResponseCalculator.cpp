@@ -30,7 +30,7 @@ bool CPedDamageResponseCalculator::ComputeWillForceDeath(CPed* ped, CPedDamageRe
 
 // 0x4B3210
 void CPedDamageResponseCalculator::ComputeWillKillPed(CPed* ped, CPedDamageResponse& response, bool bSpeak) {
-    plugin::CallMethod<0x4B3210, CPedDamageResponseCalculator*>(this, ped, response, bSpeak);
+    plugin::CallMethod<0x4B3210, CPedDamageResponseCalculator*, CPed*, CPedDamageResponse&, bool>(this, ped, response, bSpeak);
 }
 
 // 0x4B5AC0
