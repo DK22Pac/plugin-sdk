@@ -103,8 +103,8 @@ void CMenuManager::DrawFrontEnd() {
     plugin::CallMethod<0x57C290, CMenuManager*>(this);
 }
 
-void CMenuManager::DrawQuitGameScreen(int unused) {
-    plugin::CallMethod<0x57D860, CMenuManager*>(this, unused);
+void CMenuManager::DrawQuitGameScreen() {
+    plugin::CallMethod<0x57D860, CMenuManager*>(this);
 }
 
 void CMenuManager::DrawStandardMenu(bool header) {

@@ -409,7 +409,7 @@ public:
     char DrawControllerScreenExtraText(int unk);
     char DrawControllerSetupScreen();
     void DrawFrontEnd();
-    void DrawQuitGameScreen(int unused);
+    void DrawQuitGameScreen();
     void DrawStandardMenu(bool header = true);
     void DrawWindow(const CRect& coords, const char* pKey, unsigned char nColour, CRGBA backColor, bool Unused, bool bBackground);
     void DrawWindowedText(float x1, float y1, float x2, float y2, char* gxt, int align);
