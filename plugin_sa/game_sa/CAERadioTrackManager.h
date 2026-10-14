@@ -8,6 +8,7 @@
 
 #include "PluginBase.h"
 #include "CAEVehicleAudioEntity.h"
+#include "eRadioID.h"
 
 struct PLUGIN_API tRadioSettings {
     Int32 TrackIDs[5];
@@ -16,7 +17,7 @@ struct PLUGIN_API tRadioSettings {
     Int32 PlayTime;
     Int32 TrackLengthMs;
     UInt8 TrackFlags;
-    Int8 StationID; // eRadioID
+    eRadioID StationID;
     Int8 BassSetting;
     Int8 _pad27;
     float BassFactor;
@@ -110,7 +111,7 @@ public:
 public:
     bool IsVehicleRadioActive();
     char* GetRadioStationName(signed char id);
-    void StartRadio(int stationId, float bass, int arg, char unused);
+    void StartRadio(eRadioID stationId, float bass, int arg, char unused);
     void StopRadio(tVehicleAudioSettings* settings, char arg);
 
     static void Load();

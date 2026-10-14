@@ -6,6 +6,7 @@
 */
 #pragma once
 #include "PluginBase.h"
+#include "AudioTypes.h"
 #include "CAEFrontendAudioEntity.h"
 #include "CAEPedlessSpeechAudioEntity.h"
 #include "CAETwinLoopSoundEntity.h"
@@ -13,19 +14,16 @@
 #include "CAECollisionAudioEntity.h"
 #include "CAEVehicleAudioEntity.h"
 #include "eAudioEvents.h"
+#include "eRadioID.h"
 
 class PLUGIN_API CAudioEngine {
 public:
-    char field_0;
-    char field_1;
-    char m_nCurrentRadiostationId;
-    char field_3;
-    int field_4;
-    char field_8[152];
-    char field_A0;
-    char field_A1[15];
-    char field_B0;
-    char field_B1[3];
+    bool m_bPlayingMissionCompleteTrack;
+    bool m_bStoppingMissionCompleteTrack;
+    eRadioID m_nCurrentRadiostationId;
+    eRadioID m_nSavedRadioStationId;
+    int m_nBackgroundAudioChannel;
+    tBeatInfo m_beatInfo;
     CAEFrontendAudioEntity m_FrontendAudio;
     CAETwinLoopSoundEntity field_150;
     CAETwinLoopSoundEntity field_1F8;
@@ -44,12 +42,12 @@ public:
     void SetMusicMasterVolume(char volume);
     void SetBassEnhanceOnOff(bool on);
     void SetRadioAutoRetuneOnOff(bool on);
-    void RetuneRadio(char stationId);
+    void RetuneRadio(eRadioID stationId);
     CReference* ReportFrontendAudioEvent(int id, float volume, float speed);
     void ReportMissionAudioEvent(eAudioEvents audioEvent, CVector const* coords);
     void Service();
     void ServiceLoadingTune(float fade);
-    void StartRadio(int radioStation, char arg);
+    void StartRadio(eRadioID radioStation, char arg);
     void StopRadio(tVehicleAudioSettings* settings, bool arg);
     bool IsRadioRetuneInProgress();
     bool IsLoadingTuneActive();
@@ -62,16 +60,12 @@ public:
     void SetMusicFaderScalingFactor(float value);
     void SetEffectsFaderScalingFactor(float value);
 };
-VALIDATE_OFFSET(CAudioEngine, field_0, 0x0);
-VALIDATE_OFFSET(CAudioEngine, field_1, 0x1);
+VALIDATE_OFFSET(CAudioEngine, m_bPlayingMissionCompleteTrack, 0x0);
+VALIDATE_OFFSET(CAudioEngine, m_bStoppingMissionCompleteTrack, 0x1);
 VALIDATE_OFFSET(CAudioEngine, m_nCurrentRadiostationId, 0x2);
-VALIDATE_OFFSET(CAudioEngine, field_3, 0x3);
-VALIDATE_OFFSET(CAudioEngine, field_4, 0x4);
-VALIDATE_OFFSET(CAudioEngine, field_8, 0x8);
-VALIDATE_OFFSET(CAudioEngine, field_A0, 0xA0);
-VALIDATE_OFFSET(CAudioEngine, field_A1, 0xA1);
-VALIDATE_OFFSET(CAudioEngine, field_B0, 0xB0);
-VALIDATE_OFFSET(CAudioEngine, field_B1, 0xB1);
+VALIDATE_OFFSET(CAudioEngine, m_nSavedRadioStationId, 0x3);
+VALIDATE_OFFSET(CAudioEngine, m_nBackgroundAudioChannel, 0x4);
+VALIDATE_OFFSET(CAudioEngine, m_beatInfo, 0x8);
 VALIDATE_OFFSET(CAudioEngine, m_FrontendAudio, 0xB4);
 VALIDATE_OFFSET(CAudioEngine, field_150, 0x150);
 VALIDATE_OFFSET(CAudioEngine, field_1F8, 0x1F8);
