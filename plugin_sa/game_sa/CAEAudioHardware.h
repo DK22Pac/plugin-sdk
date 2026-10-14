@@ -13,11 +13,11 @@
 
 class PLUGIN_API CAEAudioHardware {
 public:
-    unsigned char field_0;
-    char m_bDisableEffectsLoading;
-    char field_2;
-    char field_3;
-    char field_4;
+    bool m_bInitialised;
+    bool m_bDisableEffectsLoading;
+    bool m_bPrevMaxSecondarySlowFadeout;
+    bool m_bPrevMaxGlobalSlowFadeout;
+    bool m_bHardwareMixAvailable;
     char m_nReverbEnvironment;
     short m_awChannelFlags[64];
     short field_86;
@@ -26,16 +26,16 @@ public:
     unsigned short m_nNumChannels;
     short m_anNumSoundsInSlot[64];
     float m_afChannelVolumes[64];
-    int field_210[64];
+    float m_afChannelGains[64]; // linear volume gain (10 ^ (dB / 20))
     float m_afChannelsFrqScalingFactor[64];
     float m_fMusicMasterScalingFactor;
     float m_fEffectMasterScalingFactor;
     float m_fMusicFaderScalingFactor;
     float m_fEffectsFaderScalingFactor;
     float m_fStreamFaderScalingFactor;
-    float m_fNonStreamFaderScalingFactor;
-    float field_428;
-    float field_42C;
+    float m_fNonStreamFaderScalingFactor; // order swapped with m_fStreamFaderScalingFactor?
+    float m_fPrevMaxVolumeSecondary;
+    float m_fPrevMaxVolumeGlobal;
     short m_aBankSlotIds[300];
     short m_aSoundTypes[300];
     short m_anVirtualChannelSoundLoopStartTimes[300];
@@ -64,11 +64,11 @@ public:
 public:
     int GetActiveTrackID();
 };
-VALIDATE_OFFSET(CAEAudioHardware, field_0, 0x0);
+VALIDATE_OFFSET(CAEAudioHardware, m_bInitialised, 0x0);
 VALIDATE_OFFSET(CAEAudioHardware, m_bDisableEffectsLoading, 0x1);
-VALIDATE_OFFSET(CAEAudioHardware, field_2, 0x2);
-VALIDATE_OFFSET(CAEAudioHardware, field_3, 0x3);
-VALIDATE_OFFSET(CAEAudioHardware, field_4, 0x4);
+VALIDATE_OFFSET(CAEAudioHardware, m_bPrevMaxSecondarySlowFadeout, 0x2);
+VALIDATE_OFFSET(CAEAudioHardware, m_bPrevMaxGlobalSlowFadeout, 0x3);
+VALIDATE_OFFSET(CAEAudioHardware, m_bHardwareMixAvailable, 0x4);
 VALIDATE_OFFSET(CAEAudioHardware, m_nReverbEnvironment, 0x5);
 VALIDATE_OFFSET(CAEAudioHardware, m_awChannelFlags, 0x6);
 VALIDATE_OFFSET(CAEAudioHardware, field_86, 0x86);
@@ -77,7 +77,7 @@ VALIDATE_OFFSET(CAEAudioHardware, m_wNumAvailableChannels, 0x8C);
 VALIDATE_OFFSET(CAEAudioHardware, m_nNumChannels, 0x8E);
 VALIDATE_OFFSET(CAEAudioHardware, m_anNumSoundsInSlot, 0x90);
 VALIDATE_OFFSET(CAEAudioHardware, m_afChannelVolumes, 0x110);
-VALIDATE_OFFSET(CAEAudioHardware, field_210, 0x210);
+VALIDATE_OFFSET(CAEAudioHardware, m_afChannelGains, 0x210);
 VALIDATE_OFFSET(CAEAudioHardware, m_afChannelsFrqScalingFactor, 0x310);
 VALIDATE_OFFSET(CAEAudioHardware, m_fMusicMasterScalingFactor, 0x410);
 VALIDATE_OFFSET(CAEAudioHardware, m_fEffectMasterScalingFactor, 0x414);
@@ -85,8 +85,8 @@ VALIDATE_OFFSET(CAEAudioHardware, m_fMusicFaderScalingFactor, 0x418);
 VALIDATE_OFFSET(CAEAudioHardware, m_fEffectsFaderScalingFactor, 0x41C);
 VALIDATE_OFFSET(CAEAudioHardware, m_fStreamFaderScalingFactor, 0x420);
 VALIDATE_OFFSET(CAEAudioHardware, m_fNonStreamFaderScalingFactor, 0x424);
-VALIDATE_OFFSET(CAEAudioHardware, field_428, 0x428);
-VALIDATE_OFFSET(CAEAudioHardware, field_42C, 0x42C);
+VALIDATE_OFFSET(CAEAudioHardware, m_fPrevMaxVolumeSecondary, 0x428);
+VALIDATE_OFFSET(CAEAudioHardware, m_fPrevMaxVolumeGlobal, 0x42C);
 VALIDATE_OFFSET(CAEAudioHardware, m_aBankSlotIds, 0x430);
 VALIDATE_OFFSET(CAEAudioHardware, m_aSoundTypes, 0x688);
 VALIDATE_OFFSET(CAEAudioHardware, m_anVirtualChannelSoundLoopStartTimes, 0x8E0);

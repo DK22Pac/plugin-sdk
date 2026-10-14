@@ -37,8 +37,8 @@ void CAudioEngine::SetRadioAutoRetuneOnOff(bool on) {
     plugin::CallMethod<0x506F80, CAudioEngine*, bool>(this, on);
 }
 
-void CAudioEngine::RetuneRadio(char stationId) {
-    plugin::CallMethod<0x507E10, CAudioEngine*, char>(this, stationId);
+void CAudioEngine::RetuneRadio(eRadioID stationId) {
+    plugin::CallMethod<0x507E10, CAudioEngine*, eRadioID>(this, stationId);
 }
 
 CReference* CAudioEngine::ReportFrontendAudioEvent(int id, float volume, float speed) {
@@ -58,8 +58,8 @@ void CAudioEngine::ServiceLoadingTune(float fade) {
     plugin::CallMethod<0x5078A0, CAudioEngine*, float>(this, fade);
 }
 
-void CAudioEngine::StartRadio(int radioStation, char arg) {
-    plugin::CallMethod<0x507DC0, CAudioEngine*, int, char>(this, radioStation, arg);
+void CAudioEngine::StartRadio(eRadioID radioStation, char arg) {
+    plugin::CallMethod<0x507DC0, CAudioEngine*, eRadioID, char>(this, radioStation, arg);
 }
 
 void CAudioEngine::StopRadio(tVehicleAudioSettings* settings, bool arg) {
