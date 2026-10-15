@@ -32,7 +32,7 @@ jobs:
 
     steps: 
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
           
       - name: Check files
         run: node .github/workflows/scripts/Validate_Contents.js "github"
