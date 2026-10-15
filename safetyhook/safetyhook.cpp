@@ -2,7 +2,7 @@
 
 #define NOMINMAX
 
-#include <safetyhook.hpp>
+#include "safetyhook.hpp"
 
 
 //
@@ -13,29 +13,10 @@
 #include <functional>
 #include <limits>
 
-#define NOMINMAX
-#if __has_include(<Windows.h>)
-#include <Windows.h>
-#elif __has_include(<windows.h>)
-#include <windows.h>
-#else
-#error "Windows.h not found"
-#endif
+
 
 
 namespace safetyhook {
-template <typename T> constexpr T align_up(T address, size_t align) {
-    const auto unaligned_address = (uintptr_t)address;
-    const auto aligned_address = (unaligned_address + align - 1) & ~(align - 1);
-    return (T)aligned_address;
-}
-
-template <typename T> constexpr T align_down(T address, size_t align) {
-    const auto unaligned_address = (uintptr_t)address;
-    const auto aligned_address = unaligned_address & ~(align - 1);
-    return (T)aligned_address;
-}
-
 Allocation::Allocation(Allocation&& other) noexcept {
     *this = std::move(other);
 }
@@ -110,16 +91,20 @@ void Allocator::free(uint8_t* address, size_t size) {
 
 std::expected<Allocation, Allocator::Error> Allocator::internal_allocate_near(
     const std::vector<uint8_t*>& desired_addresses, size_t size, size_t max_distance) {
+    // Align to 2 bytes to pass MFP virtual method check
+    // See https://itanium-cxx-abi.github.io/cxx-abi/abi.html#member-function-pointers
+    size_t aligned_size = align_up(size, 2);
+
     // First search through our list of allocations for a free block that is large
     // enough.
     for (const auto& allocation : m_memory) {
-        if (allocation->size < size) {
+        if (allocation->size < aligned_size) {
             continue;
         }
 
         for (auto node = allocation->freelist.get(); node != nullptr; node = node->next.get()) {
             // Enough room?
-            if (static_cast<size_t>(node->end - node->start) < size) {
+            if (static_cast<size_t>(node->end - node->start) < aligned_size) {
                 continue;
             }
 
@@ -130,36 +115,35 @@ std::expected<Allocation, Allocator::Error> Allocator::internal_allocate_near(
                 continue;
             }
 
-            node->start += size;
+            node->start += aligned_size;
 
             return Allocation{shared_from_this(), address, size};
         }
     }
 
     // If we didn't find a free block, we need to allocate a new one.
-    SYSTEM_INFO si{};
-
-    GetSystemInfo(&si);
-
-    const auto allocation_size = align_up(size, si.dwAllocationGranularity);
-    const auto allocation_address = allocate_nearby_memory(desired_addresses, allocation_size, max_distance);
+    auto allocation_size = align_up(aligned_size, system_info().allocation_granularity);
+    auto allocation_address = allocate_nearby_memory(desired_addresses, allocation_size, max_distance);
 
     if (!allocation_address) {
         return std::unexpected{allocation_address.error()};
     }
 
-    const auto& allocation = m_memory.emplace_back(new Memory);
+    auto& allocation = m_memory.emplace_back(new Memory);
 
     allocation->address = *allocation_address;
     allocation->size = allocation_size;
     allocation->freelist = std::make_unique<FreeNode>();
-    allocation->freelist->start = *allocation_address + size;
+    allocation->freelist->start = *allocation_address + aligned_size;
     allocation->freelist->end = *allocation_address + allocation_size;
 
     return Allocation{shared_from_this(), *allocation_address, size};
 }
 
 void Allocator::internal_free(uint8_t* address, size_t size) {
+    // See internal_allocate_near
+    size = align_up(size, 2);
+
     for (const auto& allocation : m_memory) {
         if (allocation->address > address || allocation->address + allocation->size < address) {
             continue;
@@ -209,9 +193,8 @@ void Allocator::combine_adjacent_freenodes(Memory& memory) {
 std::expected<uint8_t*, Allocator::Error> Allocator::allocate_nearby_memory(
     const std::vector<uint8_t*>& desired_addresses, size_t size, size_t max_distance) {
     if (desired_addresses.empty()) {
-        if (const auto result = VirtualAlloc(nullptr, size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-            result != nullptr) {
-            return static_cast<uint8_t*>(result);
+        if (auto result = vm_allocate(nullptr, size, VM_ACCESS_RWX)) {
+            return result.value();
         }
 
         return std::unexpected{Error::BAD_VIRTUAL_ALLOC};
@@ -222,16 +205,17 @@ std::expected<uint8_t*, Allocator::Error> Allocator::allocate_nearby_memory(
             return nullptr;
         }
 
-        return static_cast<uint8_t*>(VirtualAlloc(p, size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
+        if (auto result = vm_allocate(p, size, VM_ACCESS_RWX)) {
+            return result.value();
+        }
+
+        return nullptr;
     };
 
-    SYSTEM_INFO si{};
-
-    GetSystemInfo(&si);
-
+    auto si = system_info();
     auto desired_address = desired_addresses[0];
-    auto search_start = reinterpret_cast<uint8_t*>(std::numeric_limits<uintptr_t>::min());
-    auto search_end = reinterpret_cast<uint8_t*>(std::numeric_limits<uintptr_t>::max());
+    auto search_start = si.min_address;
+    auto search_end = si.max_address;
 
     if (static_cast<size_t>(desired_address - search_start) > max_distance) {
         search_start = desired_address - max_distance;
@@ -241,35 +225,42 @@ std::expected<uint8_t*, Allocator::Error> Allocator::allocate_nearby_memory(
         search_end = desired_address + max_distance;
     }
 
-    search_start = std::max(search_start, static_cast<uint8_t*>(si.lpMinimumApplicationAddress));
-    search_end = std::min(search_end, static_cast<uint8_t*>(si.lpMaximumApplicationAddress));
-    desired_address = align_up(desired_address, si.dwAllocationGranularity);
-    MEMORY_BASIC_INFORMATION mbi{};
+    search_start = std::max(search_start, si.min_address);
+    search_end = std::min(search_end, si.max_address);
+    desired_address = align_up(desired_address, si.allocation_granularity);
+    VmBasicInfo mbi{};
 
     // Search backwards from the desired_address.
     for (auto p = desired_address; p > search_start && in_range(p, desired_addresses, max_distance);
-         p = align_down(static_cast<uint8_t*>(mbi.AllocationBase) - 1, si.dwAllocationGranularity)) {
-        if (VirtualQuery(p, &mbi, sizeof(mbi)) == 0) {
+         p = align_down(mbi.address - 1, si.allocation_granularity)) {
+        auto result = vm_query(p);
+
+        if (!result) {
             break;
         }
 
-        if (mbi.State != MEM_FREE) {
+        mbi = result.value();
+
+        if (!mbi.is_free) {
             continue;
         }
 
-        if (auto allocation_address = attempt_allocation(p); allocation_address != 0) {
+        if (auto allocation_address = attempt_allocation(p); allocation_address != nullptr) {
             return allocation_address;
         }
     }
 
     // Search forwards from the desired_address.
-    for (auto p = desired_address; p < search_end && in_range(p, desired_addresses, max_distance);
-         p += mbi.RegionSize) {
-        if (VirtualQuery(p, &mbi, sizeof(mbi)) == 0) {
+    for (auto p = desired_address; p < search_end && in_range(p, desired_addresses, max_distance); p += mbi.size) {
+        auto result = vm_query(p);
+
+        if (!result) {
             break;
         }
 
-        if (mbi.State != MEM_FREE) {
+        mbi = result.value();
+
+        if (!mbi.is_free) {
             continue;
         }
 
@@ -282,14 +273,14 @@ std::expected<uint8_t*, Allocator::Error> Allocator::allocate_nearby_memory(
 }
 
 bool Allocator::in_range(uint8_t* address, const std::vector<uint8_t*>& desired_addresses, size_t max_distance) {
-    return std::ranges::all_of(desired_addresses, [&](const auto& desired_address) {
+    return std::all_of(desired_addresses.begin(), desired_addresses.end(), [&](const auto& desired_address) {
         const size_t delta = (address > desired_address) ? address - desired_address : desired_address - address;
         return delta <= max_distance;
     });
 }
 
 Allocator::Memory::~Memory() {
-    VirtualFree(address, 0, MEM_RELEASE);
+    vm_free(address);
 }
 } // namespace safetyhook
 
@@ -299,16 +290,16 @@ Allocator::Memory::~Memory() {
 
 
 namespace safetyhook {
-InlineHook create_inline(void* target, void* destination) {
-    if (auto hook = InlineHook::create(target, destination)) {
+InlineHook create_inline(void* target, void* destination, InlineHook::Flags flags) {
+    if (auto hook = InlineHook::create(target, destination, flags)) {
         return std::move(*hook);
     } else {
         return {};
     }
 }
 
-MidHook create_mid(void* target, MidHookFn destination) {
-    if (auto hook = MidHook::create(target, destination)) {
+MidHook create_mid(void* target, MidHookFn destination, MidHook::Flags flags) {
+    if (auto hook = MidHook::create(target, destination, flags)) {
         return std::move(*hook);
     } else {
         return {};
@@ -330,18 +321,10 @@ VmtHook create_vmt(void* object) {
 
 #include <iterator>
 
-#if __has_include(<Windows.h>)
-#include <Windows.h>
-#elif __has_include(<windows.h>)
-#include <windows.h>
-#else
-#error "Windows.h not found"
-#endif
-
-#if __has_include(<Zydis/Zydis.h>)
-#include <Zydis/Zydis.h>
-#elif __has_include(<Zydis.h>)
-#include <Zydis.h>
+#if __has_include("Zydis/Zydis.h")
+#include "Zydis/Zydis.h"
+#elif __has_include("Zydis.h")
+#include "Zydis.h"
 #else
 #error "Zydis not found"
 #endif
@@ -356,7 +339,7 @@ struct JmpE9 {
     uint32_t offset{0};
 };
 
-#if defined(_M_X64)
+#if SAFETYHOOK_ARCH_X86_64
 struct JmpFF {
     uint8_t opcode0{0xFF};
     uint8_t opcode1{0x25};
@@ -373,7 +356,7 @@ struct TrampolineEpilogueFF {
     JmpFF jmp_to_original{};
     uint64_t original_address{};
 };
-#elif defined(_M_IX86)
+#elif SAFETYHOOK_ARCH_X86_32
 struct TrampolineEpilogueE9 {
     JmpE9 jmp_to_original{};
     JmpE9 jmp_to_destination{};
@@ -381,7 +364,7 @@ struct TrampolineEpilogueE9 {
 #endif
 #pragma pack(pop)
 
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
 static auto make_jmp_ff(uint8_t* src, uint8_t* dst, uint8_t* data) {
     JmpFF jmp{};
 
@@ -395,12 +378,6 @@ static auto make_jmp_ff(uint8_t* src, uint8_t* dst, uint8_t* data) {
     uint8_t* src, uint8_t* dst, uint8_t* data, size_t size = sizeof(JmpFF)) {
     if (size < sizeof(JmpFF)) {
         return std::unexpected{InlineHook::Error::not_enough_space(dst)};
-    }
-
-    auto um = unprotect(src, size);
-
-    if (!um) {
-        return std::unexpected{InlineHook::Error::failed_to_unprotect(src)};
     }
 
     if (size > sizeof(JmpFF)) {
@@ -427,12 +404,6 @@ constexpr auto make_jmp_e9(uint8_t* src, uint8_t* dst) {
         return std::unexpected{InlineHook::Error::not_enough_space(dst)};
     }
 
-    auto um = unprotect(src, size);
-
-    if (!um) {
-        return std::unexpected{InlineHook::Error::failed_to_unprotect(src)};
-    }
-
     if (size > sizeof(JmpE9)) {
         std::fill_n(src, size, static_cast<uint8_t>(0x90));
     }
@@ -446,12 +417,10 @@ static bool decode(ZydisDecodedInstruction* ix, uint8_t* ip) {
     ZydisDecoder decoder{};
     ZyanStatus status;
 
-#if defined(_M_X64)
+#if SAFETYHOOK_ARCH_X86_64
     status = ZydisDecoderInit(&decoder, ZYDIS_MACHINE_MODE_LONG_64, ZYDIS_STACK_WIDTH_64);
-#elif defined(_M_IX86)
+#elif SAFETYHOOK_ARCH_X86_32
     status = ZydisDecoderInit(&decoder, ZYDIS_MACHINE_MODE_LEGACY_32, ZYDIS_STACK_WIDTH_32);
-#else
-#error "Unsupported architecture"
 #endif
 
     if (!ZYAN_SUCCESS(status)) {
@@ -461,18 +430,24 @@ static bool decode(ZydisDecodedInstruction* ix, uint8_t* ip) {
     return ZYAN_SUCCESS(ZydisDecoderDecodeInstruction(&decoder, nullptr, ip, 15, ix));
 }
 
-std::expected<InlineHook, InlineHook::Error> InlineHook::create(void* target, void* destination) {
-    return create(Allocator::global(), target, destination);
+std::expected<InlineHook, InlineHook::Error> InlineHook::create(void* target, void* destination, Flags flags) {
+    return create(Allocator::global(), target, destination, flags);
 }
 
 std::expected<InlineHook, InlineHook::Error> InlineHook::create(
-    const std::shared_ptr<Allocator>& allocator, void* target, void* destination) {
+    const std::shared_ptr<Allocator>& allocator, void* target, void* destination, Flags flags) {
     InlineHook hook{};
 
     if (const auto setup_result =
             hook.setup(allocator, reinterpret_cast<uint8_t*>(target), reinterpret_cast<uint8_t*>(destination));
         !setup_result) {
         return std::unexpected{setup_result.error()};
+    }
+
+    if (!(flags & StartDisabled)) {
+        if (auto enable_result = hook.enable(); !enable_result) {
+            return std::unexpected{enable_result.error()};
+        }
     }
 
     return hook;
@@ -493,10 +468,14 @@ InlineHook& InlineHook::operator=(InlineHook&& other) noexcept {
         m_trampoline = std::move(other.m_trampoline);
         m_trampoline_size = other.m_trampoline_size;
         m_original_bytes = std::move(other.m_original_bytes);
+        m_enabled = other.m_enabled;
+        m_type = other.m_type;
 
         other.m_target = nullptr;
         other.m_destination = nullptr;
         other.m_trampoline_size = 0;
+        other.m_enabled = false;
+        other.m_type = Type::Unset;
     }
 
     return *this;
@@ -516,11 +495,11 @@ std::expected<void, InlineHook::Error> InlineHook::setup(
     m_destination = destination;
 
     if (auto e9_result = e9_hook(allocator); !e9_result) {
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
         if (auto ff_result = ff_hook(allocator); !ff_result) {
             return ff_result;
         }
-#else
+#elif SAFETYHOOK_ARCH_X86_32
         return e9_result;
 #endif
     }
@@ -599,7 +578,7 @@ std::expected<void, InlineHook::Error> InlineHook::e9_hook(const std::shared_ptr
             auto new_disp = target_address - (tramp_ip + 6);
 
             // Handle the case where the target is now in the trampoline.
-            if (target_address < m_target + m_original_bytes.size()) {
+            if (target_address >= m_target && target_address < m_target + m_original_bytes.size()) {
                 new_disp = static_cast<ptrdiff_t>(ix.raw.imm[0].value.s);
             }
 
@@ -612,7 +591,7 @@ std::expected<void, InlineHook::Error> InlineHook::e9_hook(const std::shared_ptr
             auto new_disp = target_address - (tramp_ip + 5);
 
             // Handle the case where the target is now in the trampoline.
-            if (target_address < m_target + m_original_bytes.size()) {
+            if (target_address >= m_target && target_address < m_target + m_original_bytes.size()) {
                 new_disp = static_cast<ptrdiff_t>(ix.raw.imm[0].value.s);
             }
 
@@ -640,43 +619,24 @@ std::expected<void, InlineHook::Error> InlineHook::e9_hook(const std::shared_ptr
     src = reinterpret_cast<uint8_t*>(&trampoline_epilogue->jmp_to_destination);
     dst = m_destination;
 
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
     auto data = reinterpret_cast<uint8_t*>(&trampoline_epilogue->destination_address);
 
     if (auto result = emit_jmp_ff(src, dst, data); !result) {
         return std::unexpected{result.error()};
     }
-#else
+#elif SAFETYHOOK_ARCH_X86_32
     if (auto result = emit_jmp_e9(src, dst); !result) {
         return std::unexpected{result.error()};
     }
 #endif
 
-    std::optional<Error> error;
-
-    // jmp from original to trampoline.
-    execute_while_frozen(
-        [this, &trampoline_epilogue, &error] {
-            if (auto result = emit_jmp_e9(m_target,
-                    reinterpret_cast<uint8_t*>(&trampoline_epilogue->jmp_to_destination), m_original_bytes.size());
-                !result) {
-                error = result.error();
-            }
-        },
-        [this](auto, auto, auto ctx) {
-            for (size_t i = 0; i < m_original_bytes.size(); ++i) {
-                fix_ip(ctx, m_target + i, m_trampoline.data() + i);
-            }
-        });
-
-    if (error) {
-        return std::unexpected{*error};
-    }
+    m_type = Type::E9;
 
     return {};
 }
 
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
 std::expected<void, InlineHook::Error> InlineHook::ff_hook(const std::shared_ptr<Allocator>& allocator) {
     m_original_bytes.clear();
     m_trampoline_size = sizeof(TrampolineEpilogueFF);
@@ -720,48 +680,76 @@ std::expected<void, InlineHook::Error> InlineHook::ff_hook(const std::shared_ptr
         return std::unexpected{result.error()};
     }
 
-    std::optional<Error> error;
-
-    // jmp from original to trampoline.
-    execute_while_frozen(
-        [this, &error] {
-            if (auto result = emit_jmp_ff(m_target, m_destination, m_target + sizeof(JmpFF), m_original_bytes.size());
-                !result) {
-                error = result.error();
-            }
-        },
-        [this](auto, auto, auto ctx) {
-            for (size_t i = 0; i < m_original_bytes.size(); ++i) {
-                fix_ip(ctx, m_target + i, m_trampoline.data() + i);
-            }
-        });
-
-    if (error) {
-        return std::unexpected{*error};
-    }
+    m_type = Type::FF;
 
     return {};
 }
 #endif
 
+std::expected<void, InlineHook::Error> InlineHook::enable() {
+    std::scoped_lock lock{m_mutex};
+
+    if (m_enabled) {
+        return {};
+    }
+
+    std::optional<Error> error;
+
+    // jmp from original to trampoline.
+    trap_threads(m_target, m_trampoline.data(), m_original_bytes.size(), [this, &error] {
+        if (m_type == Type::E9) {
+            auto trampoline_epilogue = reinterpret_cast<TrampolineEpilogueE9*>(
+                m_trampoline.address() + m_trampoline_size - sizeof(TrampolineEpilogueE9));
+
+            if (auto result = emit_jmp_e9(m_target,
+                    reinterpret_cast<uint8_t*>(&trampoline_epilogue->jmp_to_destination), m_original_bytes.size());
+                !result) {
+                error = result.error();
+            }
+        }
+
+#if SAFETYHOOK_ARCH_X86_64
+        if (m_type == Type::FF) {
+            if (auto result = emit_jmp_ff(m_target, m_destination, m_target + sizeof(JmpFF), m_original_bytes.size());
+                !result) {
+                error = result.error();
+            }
+        }
+#endif
+    });
+
+    if (error) {
+        return std::unexpected{*error};
+    }
+
+    m_enabled = true;
+
+    return {};
+}
+
+std::expected<void, InlineHook::Error> InlineHook::disable() {
+    std::scoped_lock lock{m_mutex};
+
+    if (!m_enabled) {
+        return {};
+    }
+
+    trap_threads(m_trampoline.data(), m_target, m_original_bytes.size(),
+        [this] { std::copy(m_original_bytes.begin(), m_original_bytes.end(), m_target); });
+
+    m_enabled = false;
+
+    return {};
+}
+
 void InlineHook::destroy() {
+    [[maybe_unused]] auto disable_result = disable();
+
     std::scoped_lock lock{m_mutex};
 
     if (!m_trampoline) {
         return;
     }
-
-    execute_while_frozen(
-        [this] {
-            if (auto um = unprotect(m_target, m_original_bytes.size())) {
-                std::copy(m_original_bytes.begin(), m_original_bytes.end(), m_target);
-            }
-        },
-        [this](auto, auto, auto ctx) {
-            for (size_t i = 0; i < m_original_bytes.size(); ++i) {
-                fix_ip(ctx, m_trampoline.data() + i, m_target + i);
-            }
-        });
 
     m_trampoline.free();
 }
@@ -778,7 +766,8 @@ void InlineHook::destroy() {
 
 namespace safetyhook {
 
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
+#if SAFETYHOOK_OS_WINDOWS
 constexpr std::array<uint8_t, 391> asm_data = {0xFF, 0x35, 0x79, 0x01, 0x00, 0x00, 0x54, 0x54, 0x55, 0x50, 0x53, 0x51,
     0x52, 0x56, 0x57, 0x41, 0x50, 0x41, 0x51, 0x41, 0x52, 0x41, 0x53, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57,
     0x9C, 0x48, 0x81, 0xEC, 0x00, 0x01, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x7F, 0xBC, 0x24, 0xF0, 0x00, 0x00, 0x00, 0xF3,
@@ -800,7 +789,30 @@ constexpr std::array<uint8_t, 391> asm_data = {0xFF, 0x35, 0x79, 0x01, 0x00, 0x0
     0x00, 0x00, 0x48, 0x81, 0xC4, 0x00, 0x01, 0x00, 0x00, 0x9D, 0x41, 0x5F, 0x41, 0x5E, 0x41, 0x5D, 0x41, 0x5C, 0x41,
     0x5B, 0x41, 0x5A, 0x41, 0x59, 0x41, 0x58, 0x5F, 0x5E, 0x5A, 0x59, 0x5B, 0x58, 0x5D, 0x48, 0x8D, 0x64, 0x24, 0x08,
     0x5C, 0xC3, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-#else
+#elif SAFETYHOOK_OS_LINUX
+constexpr std::array<uint8_t, 391> asm_data = {0xFF, 0x35, 0x79, 0x01, 0x00, 0x00, 0x54, 0x54, 0x55, 0x50, 0x53, 0x51,
+    0x52, 0x56, 0x57, 0x41, 0x50, 0x41, 0x51, 0x41, 0x52, 0x41, 0x53, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57,
+    0x9C, 0x48, 0x81, 0xEC, 0x00, 0x01, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x7F, 0xBC, 0x24, 0xF0, 0x00, 0x00, 0x00, 0xF3,
+    0x44, 0x0F, 0x7F, 0xB4, 0x24, 0xE0, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x7F, 0xAC, 0x24, 0xD0, 0x00, 0x00, 0x00,
+    0xF3, 0x44, 0x0F, 0x7F, 0xA4, 0x24, 0xC0, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x7F, 0x9C, 0x24, 0xB0, 0x00, 0x00,
+    0x00, 0xF3, 0x44, 0x0F, 0x7F, 0x94, 0x24, 0xA0, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x7F, 0x8C, 0x24, 0x90, 0x00,
+    0x00, 0x00, 0xF3, 0x44, 0x0F, 0x7F, 0x84, 0x24, 0x80, 0x00, 0x00, 0x00, 0xF3, 0x0F, 0x7F, 0x7C, 0x24, 0x70, 0xF3,
+    0x0F, 0x7F, 0x74, 0x24, 0x60, 0xF3, 0x0F, 0x7F, 0x6C, 0x24, 0x50, 0xF3, 0x0F, 0x7F, 0x64, 0x24, 0x40, 0xF3, 0x0F,
+    0x7F, 0x5C, 0x24, 0x30, 0xF3, 0x0F, 0x7F, 0x54, 0x24, 0x20, 0xF3, 0x0F, 0x7F, 0x4C, 0x24, 0x10, 0xF3, 0x0F, 0x7F,
+    0x04, 0x24, 0x48, 0x8B, 0xBC, 0x24, 0x80, 0x01, 0x00, 0x00, 0x48, 0x83, 0xC7, 0x10, 0x48, 0x89, 0xBC, 0x24, 0x80,
+    0x01, 0x00, 0x00, 0x48, 0x8D, 0x3C, 0x24, 0x48, 0x89, 0xE3, 0x48, 0x83, 0xEC, 0x30, 0x48, 0x83, 0xE4, 0xF0, 0xFF,
+    0x15, 0xA8, 0x00, 0x00, 0x00, 0x48, 0x89, 0xDC, 0xF3, 0x0F, 0x6F, 0x04, 0x24, 0xF3, 0x0F, 0x6F, 0x4C, 0x24, 0x10,
+    0xF3, 0x0F, 0x6F, 0x54, 0x24, 0x20, 0xF3, 0x0F, 0x6F, 0x5C, 0x24, 0x30, 0xF3, 0x0F, 0x6F, 0x64, 0x24, 0x40, 0xF3,
+    0x0F, 0x6F, 0x6C, 0x24, 0x50, 0xF3, 0x0F, 0x6F, 0x74, 0x24, 0x60, 0xF3, 0x0F, 0x6F, 0x7C, 0x24, 0x70, 0xF3, 0x44,
+    0x0F, 0x6F, 0x84, 0x24, 0x80, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x6F, 0x8C, 0x24, 0x90, 0x00, 0x00, 0x00, 0xF3,
+    0x44, 0x0F, 0x6F, 0x94, 0x24, 0xA0, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x6F, 0x9C, 0x24, 0xB0, 0x00, 0x00, 0x00,
+    0xF3, 0x44, 0x0F, 0x6F, 0xA4, 0x24, 0xC0, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x6F, 0xAC, 0x24, 0xD0, 0x00, 0x00,
+    0x00, 0xF3, 0x44, 0x0F, 0x6F, 0xB4, 0x24, 0xE0, 0x00, 0x00, 0x00, 0xF3, 0x44, 0x0F, 0x6F, 0xBC, 0x24, 0xF0, 0x00,
+    0x00, 0x00, 0x48, 0x81, 0xC4, 0x00, 0x01, 0x00, 0x00, 0x9D, 0x41, 0x5F, 0x41, 0x5E, 0x41, 0x5D, 0x41, 0x5C, 0x41,
+    0x5B, 0x41, 0x5A, 0x41, 0x59, 0x41, 0x58, 0x5F, 0x5E, 0x5A, 0x59, 0x5B, 0x58, 0x5D, 0x48, 0x8D, 0x64, 0x24, 0x08,
+    0x5C, 0xC3, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+#endif
+#elif SAFETYHOOK_ARCH_X86_32
 constexpr std::array<uint8_t, 171> asm_data = {0xFF, 0x35, 0xA7, 0x00, 0x00, 0x00, 0x54, 0x54, 0x55, 0x50, 0x53, 0x51,
     0x52, 0x56, 0x57, 0x9C, 0x81, 0xEC, 0x80, 0x00, 0x00, 0x00, 0xF3, 0x0F, 0x7F, 0x7C, 0x24, 0x70, 0xF3, 0x0F, 0x7F,
     0x74, 0x24, 0x60, 0xF3, 0x0F, 0x7F, 0x6C, 0x24, 0x50, 0xF3, 0x0F, 0x7F, 0x64, 0x24, 0x40, 0xF3, 0x0F, 0x7F, 0x5C,
@@ -813,17 +825,23 @@ constexpr std::array<uint8_t, 171> asm_data = {0xFF, 0x35, 0xA7, 0x00, 0x00, 0x0
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 #endif
 
-std::expected<MidHook, MidHook::Error> MidHook::create(void* target, MidHookFn destination) {
-    return create(Allocator::global(), target, destination);
+std::expected<MidHook, MidHook::Error> MidHook::create(void* target, MidHookFn destination, Flags flags) {
+    return create(Allocator::global(), target, destination, flags);
 }
 
 std::expected<MidHook, MidHook::Error> MidHook::create(
-    const std::shared_ptr<Allocator>& allocator, void* target, MidHookFn destination) {
+    const std::shared_ptr<Allocator>& allocator, void* target, MidHookFn destination, Flags flags) {
     MidHook hook{};
 
     if (const auto setup_result = hook.setup(allocator, reinterpret_cast<uint8_t*>(target), destination);
         !setup_result) {
         return std::unexpected{setup_result.error()};
+    }
+
+    if (!(flags & StartDisabled)) {
+        if (auto enable_result = hook.enable(); !enable_result) {
+            return std::unexpected{enable_result.error()};
+        }
     }
 
     return hook;
@@ -866,9 +884,9 @@ std::expected<void, MidHook::Error> MidHook::setup(
 
     std::copy(asm_data.begin(), asm_data.end(), m_stub.data());
 
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
     store(m_stub.data() + sizeof(asm_data) - 16, m_destination);
-#else
+#elif SAFETYHOOK_ARCH_X86_32
     store(m_stub.data() + sizeof(asm_data) - 8, m_destination);
 
     // 32-bit has some relocations we need to fix up as well.
@@ -876,7 +894,7 @@ std::expected<void, MidHook::Error> MidHook::setup(
     store(m_stub.data() + 0x59, m_stub.data() + m_stub.size() - 8);
 #endif
 
-    auto hook_result = InlineHook::create(allocator, m_target, m_stub.data());
+    auto hook_result = InlineHook::create(allocator, m_target, m_stub.data(), InlineHook::StartDisabled);
 
     if (!hook_result) {
         m_stub.free();
@@ -885,163 +903,242 @@ std::expected<void, MidHook::Error> MidHook::setup(
 
     m_hook = std::move(*hook_result);
 
-#ifdef _M_X64
+#if SAFETYHOOK_ARCH_X86_64
     store(m_stub.data() + sizeof(asm_data) - 8, m_hook.trampoline().data());
-#else
+#elif SAFETYHOOK_ARCH_X86_32
     store(m_stub.data() + sizeof(asm_data) - 4, m_hook.trampoline().data());
 #endif
+
+    return {};
+}
+
+std::expected<void, MidHook::Error> MidHook::enable() {
+    if (auto enable_result = m_hook.enable(); !enable_result) {
+        return std::unexpected{Error::bad_inline_hook(enable_result.error())};
+    }
+
+    return {};
+}
+
+std::expected<void, MidHook::Error> MidHook::disable() {
+    if (auto disable_result = m_hook.disable(); !disable_result) {
+        return std::unexpected{Error::bad_inline_hook(disable_result.error())};
+    }
 
     return {};
 }
 } // namespace safetyhook
 
 //
-// Source file: thread_freezer.cpp
+// Source file: os.linux.cpp
 //
 
-#if __has_include(<Windows.h>)
-#include <Windows.h>
-#elif __has_include(<windows.h>)
-#include <windows.h>
-#else
-#error "Windows.h not found"
-#endif
-#include <winternl.h>
+
+#if SAFETYHOOK_OS_LINUX
+
+#include <cstdio>
+
+#include <sys/mman.h>
+#include <unistd.h>
 
 
-#pragma comment(lib, "ntdll")
-
-extern "C" {
-NTSTATUS
-NTAPI
-NtGetNextThread(HANDLE ProcessHandle, HANDLE ThreadHandle, ACCESS_MASK DesiredAccess, ULONG HandleAttributes,
-    ULONG Flags, PHANDLE NewThreadHandle);
-}
 
 namespace safetyhook {
-void execute_while_frozen(
-    const std::function<void()>& run_fn, const std::function<void(ThreadId, ThreadHandle, ThreadContext)>& visit_fn) {
-    // Freeze all threads.
-    int num_threads_frozen;
-    auto first_run = true;
+std::expected<uint8_t*, OsError> vm_allocate(uint8_t* address, size_t size, VmAccess access) {
+    int prot = 0;
+    int flags = MAP_PRIVATE | MAP_ANONYMOUS;
 
-    do {
-        num_threads_frozen = 0;
-        HANDLE thread{};
-
-        while (true) {
-            HANDLE next_thread{};
-            const auto status = NtGetNextThread(GetCurrentProcess(), thread,
-                THREAD_QUERY_LIMITED_INFORMATION | THREAD_SUSPEND_RESUME | THREAD_GET_CONTEXT | THREAD_SET_CONTEXT, 0,
-                0, &next_thread);
-
-            if (thread != nullptr) {
-                CloseHandle(thread);
-            }
-
-            if (!NT_SUCCESS(status)) {
-                break;
-            }
-
-            thread = next_thread;
-
-            const auto thread_id = GetThreadId(thread);
-
-            if (thread_id == 0 || thread_id == GetCurrentThreadId()) {
-                continue;
-            }
-
-            const auto suspend_count = SuspendThread(thread);
-
-            if (suspend_count == static_cast<DWORD>(-1)) {
-                continue;
-            }
-
-            // Check if the thread was already frozen. Only resume if the thread was already frozen, and it wasn't the
-            // first run of this freeze loop to account for threads that may have already been frozen for other reasons.
-            if (suspend_count != 0 && !first_run) {
-                ResumeThread(thread);
-                continue;
-            }
-
-            CONTEXT thread_ctx{};
-
-            thread_ctx.ContextFlags = CONTEXT_FULL;
-
-            if (GetThreadContext(thread, &thread_ctx) == FALSE) {
-                continue;
-            }
-
-            if (visit_fn) {
-                visit_fn(static_cast<ThreadId>(thread_id), static_cast<ThreadHandle>(thread),
-                    static_cast<ThreadContext>(&thread_ctx));
-            }
-
-            ++num_threads_frozen;
-        }
-
-        first_run = false;
-    } while (num_threads_frozen != 0);
-
-    // Run the function.
-    if (run_fn) {
-        run_fn();
+    if (access == VM_ACCESS_R) {
+        prot = PROT_READ;
+    } else if (access == VM_ACCESS_RW) {
+        prot = PROT_READ | PROT_WRITE;
+    } else if (access == VM_ACCESS_RX) {
+        prot = PROT_READ | PROT_EXEC;
+    } else if (access == VM_ACCESS_RWX) {
+        prot = PROT_READ | PROT_WRITE | PROT_EXEC;
+    } else {
+        return std::unexpected{OsError::FAILED_TO_ALLOCATE};
     }
 
-    // Resume all threads.
-    HANDLE thread{};
+    auto* result = mmap(address, size, prot, flags, -1, 0);
 
-    while (true) {
-        HANDLE next_thread{};
-        const auto status = NtGetNextThread(GetCurrentProcess(), thread,
-            THREAD_QUERY_LIMITED_INFORMATION | THREAD_SUSPEND_RESUME | THREAD_GET_CONTEXT | THREAD_SET_CONTEXT, 0, 0,
-            &next_thread);
+    if (result == MAP_FAILED) {
+        return std::unexpected{OsError::FAILED_TO_ALLOCATE};
+    }
 
-        if (thread != nullptr) {
-            CloseHandle(thread);
-        }
+    return static_cast<uint8_t*>(result);
+}
 
-        if (!NT_SUCCESS(status)) {
+void vm_free(uint8_t* address) {
+    munmap(address, 0);
+}
+
+std::expected<uint32_t, OsError> vm_protect(uint8_t* address, size_t size, VmAccess access) {
+    int prot = 0;
+
+    if (access == VM_ACCESS_R) {
+        prot = PROT_READ;
+    } else if (access == VM_ACCESS_RW) {
+        prot = PROT_READ | PROT_WRITE;
+    } else if (access == VM_ACCESS_RX) {
+        prot = PROT_READ | PROT_EXEC;
+    } else if (access == VM_ACCESS_RWX) {
+        prot = PROT_READ | PROT_WRITE | PROT_EXEC;
+    } else {
+        return std::unexpected{OsError::FAILED_TO_PROTECT};
+    }
+
+    return vm_protect(address, size, prot);
+}
+
+std::expected<uint32_t, OsError> vm_protect(uint8_t* address, size_t size, uint32_t protect) {
+    auto mbi = vm_query(address);
+
+    if (!mbi.has_value()) {
+        return std::unexpected{OsError::FAILED_TO_PROTECT};
+    }
+
+    uint32_t old_protect = 0;
+
+    if (mbi->access.read) {
+        old_protect |= PROT_READ;
+    }
+
+    if (mbi->access.write) {
+        old_protect |= PROT_WRITE;
+    }
+
+    if (mbi->access.execute) {
+        old_protect |= PROT_EXEC;
+    }
+
+    auto* addr = align_down(address, static_cast<size_t>(sysconf(_SC_PAGESIZE)));
+
+    size = size + static_cast<size_t>(address - addr);
+
+    if (mprotect(addr, size, static_cast<int>(protect)) == -1) {
+        return std::unexpected{OsError::FAILED_TO_PROTECT};
+    }
+
+    return old_protect;
+}
+
+std::expected<VmBasicInfo, OsError> vm_query(uint8_t* address) {
+    auto* maps = fopen("/proc/self/maps", "r");
+
+    if (maps == nullptr) {
+        return std::unexpected{OsError::FAILED_TO_QUERY};
+    }
+
+    char line[512];
+    unsigned long start;
+    unsigned long end;
+    char perms[5];
+    unsigned long offset;
+    int dev_major;
+    int dev_minor;
+    unsigned long inode;
+    char path[256];
+    unsigned long last_end =
+        reinterpret_cast<unsigned long>(system_info().min_address); // Track the end address of the last mapping.
+    auto addr = reinterpret_cast<unsigned long>(address);
+    std::optional<VmBasicInfo> info = std::nullopt;
+
+    while (fgets(line, sizeof(line), maps) != nullptr) {
+        path[0] = '\0';
+
+        sscanf(line, "%lx-%lx %4s %lx %x:%x %lu %255[^\n]", &start, &end, perms, &offset, &dev_major, &dev_minor,
+            &inode, path);
+
+        if (last_end < start && addr >= last_end && addr < start) {
+            info = std::make_optional<VmBasicInfo>(
+                {reinterpret_cast<uint8_t*>(last_end), start - last_end, VmAccess{}, true});
+
             break;
         }
 
-        thread = next_thread;
+        last_end = end;
 
-        const auto thread_id = GetThreadId(thread);
+        if (addr >= start && addr < end) {
+            info = std::make_optional<VmBasicInfo>({reinterpret_cast<uint8_t*>(start), end - start, VmAccess{}, false});
 
-        if (thread_id == 0 || thread_id == GetCurrentThreadId()) {
-            continue;
+            if (perms[0] == 'r') {
+                info->access.read = true;
+            }
+
+            if (perms[1] == 'w') {
+                info->access.write = true;
+            }
+
+            if (perms[2] == 'x') {
+                info->access.execute = true;
+            }
+
+            break;
         }
-
-        ResumeThread(thread);
-    }
-}
-
-void fix_ip(ThreadContext thread_ctx, uint8_t* old_ip, uint8_t* new_ip) {
-    auto* ctx = reinterpret_cast<CONTEXT*>(thread_ctx);
-
-#ifdef _M_X64
-    auto ip = ctx->Rip;
-#else
-    auto ip = ctx->Eip;
-#endif
-
-    if (ip == reinterpret_cast<uintptr_t>(old_ip)) {
-        ip = reinterpret_cast<uintptr_t>(new_ip);
     }
 
-#ifdef _M_X64
-    ctx->Rip = ip;
-#else
-    ctx->Eip = ip;
-#endif
+    fclose(maps);
+
+    if (!info.has_value()) {
+        return std::unexpected{OsError::FAILED_TO_QUERY};
+    }
+
+    return info.value();
 }
+
+bool vm_is_readable(uint8_t* address, [[maybe_unused]] size_t size) {
+    return vm_query(address).value_or(VmBasicInfo{}).access.read;
+}
+
+bool vm_is_writable(uint8_t* address, [[maybe_unused]] size_t size) {
+    return vm_query(address).value_or(VmBasicInfo{}).access.write;
+}
+
+bool vm_is_executable(uint8_t* address) {
+    return vm_query(address).value_or(VmBasicInfo{}).access.execute;
+}
+
+SystemInfo system_info() {
+    auto page_size = static_cast<uint32_t>(sysconf(_SC_PAGESIZE));
+
+    SystemInfo info{};
+    info.page_size = page_size;
+    info.allocation_granularity = page_size;
+    info.min_address = reinterpret_cast<uint8_t*>(0x10000);
+    info.max_address = reinterpret_cast<uint8_t*>(1ull << 47);
+
+    return info;
+}
+
+void trap_threads([[maybe_unused]] uint8_t* from, [[maybe_unused]] uint8_t* to, [[maybe_unused]] size_t len,
+    const std::function<void()>& run_fn) {
+    auto from_protect = vm_protect(from, len, VM_ACCESS_RWX).value_or(0);
+    auto to_protect = vm_protect(to, len, VM_ACCESS_RWX).value_or(0);
+    run_fn();
+    vm_protect(to, len, to_protect);
+    vm_protect(from, len, from_protect);
+}
+
+void fix_ip([[maybe_unused]] ThreadContext ctx, [[maybe_unused]] uint8_t* old_ip, [[maybe_unused]] uint8_t* new_ip) {
+}
+
 } // namespace safetyhook
 
+#endif
+
 //
-// Source file: utility.cpp
+// Source file: os.windows.cpp
 //
 
+#include <map>
+#include <memory>
+#include <mutex>
+
+
+#if SAFETYHOOK_OS_WINDOWS
+
+#define NOMINMAX
 #if __has_include(<Windows.h>)
 #include <Windows.h>
 #elif __has_include(<windows.h>)
@@ -1052,37 +1149,113 @@ void fix_ip(ThreadContext thread_ctx, uint8_t* old_ip, uint8_t* new_ip) {
 
 
 namespace safetyhook {
-bool is_page_executable(uint8_t* address) {
-    MEMORY_BASIC_INFORMATION mbi;
+std::expected<uint8_t*, OsError> vm_allocate(uint8_t* address, size_t size, VmAccess access) {
+    DWORD protect = 0;
 
-    if (VirtualQuery(address, &mbi, sizeof(mbi)) == 0) {
-        return false;
+    if (access == VM_ACCESS_R) {
+        protect = PAGE_READONLY;
+    } else if (access == VM_ACCESS_RW) {
+        protect = PAGE_READWRITE;
+    } else if (access == VM_ACCESS_RX) {
+        protect = PAGE_EXECUTE_READ;
+    } else if (access == VM_ACCESS_RWX) {
+        protect = PAGE_EXECUTE_READWRITE;
+    } else {
+        return std::unexpected{OsError::FAILED_TO_ALLOCATE};
     }
 
-    const auto executable_protect = PAGE_EXECUTE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY;
+    auto* result = VirtualAlloc(address, size, MEM_COMMIT | MEM_RESERVE, protect);
 
-    return (mbi.Protect & executable_protect) != 0;
+    if (result == nullptr) {
+        return std::unexpected{OsError::FAILED_TO_ALLOCATE};
+    }
+
+    return static_cast<uint8_t*>(result);
 }
 
-bool is_executable(uint8_t* address) {
-    LPVOID image_base_ptr;
+void vm_free(uint8_t* address) {
+    VirtualFree(address, 0, MEM_RELEASE);
+}
 
-    if (RtlPcToFileHeader(address, &image_base_ptr) == nullptr) {
-        return is_page_executable(address);
+std::expected<uint32_t, OsError> vm_protect(uint8_t* address, size_t size, VmAccess access) {
+    DWORD protect = 0;
+
+    if (access == VM_ACCESS_R) {
+        protect = PAGE_READONLY;
+    } else if (access == VM_ACCESS_RW) {
+        protect = PAGE_READWRITE;
+    } else if (access == VM_ACCESS_RX) {
+        protect = PAGE_EXECUTE_READ;
+    } else if (access == VM_ACCESS_RWX) {
+        protect = PAGE_EXECUTE_READWRITE;
+    } else {
+        return std::unexpected{OsError::FAILED_TO_PROTECT};
+    }
+
+    return vm_protect(address, size, protect);
+}
+
+std::expected<uint32_t, OsError> vm_protect(uint8_t* address, size_t size, uint32_t protect) {
+    DWORD old_protect = 0;
+
+    if (VirtualProtect(address, size, protect, &old_protect) == FALSE) {
+        return std::unexpected{OsError::FAILED_TO_PROTECT};
+    }
+
+    return old_protect;
+}
+
+std::expected<VmBasicInfo, OsError> vm_query(uint8_t* address) {
+    MEMORY_BASIC_INFORMATION mbi{};
+    auto result = VirtualQuery(address, &mbi, sizeof(mbi));
+
+    if (result == 0) {
+        return std::unexpected{OsError::FAILED_TO_QUERY};
+    }
+
+    VmAccess access{};
+    access.read = (mbi.Protect & (PAGE_READONLY | PAGE_READWRITE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE)) != 0;
+    access.write = (mbi.Protect & (PAGE_READWRITE | PAGE_EXECUTE_READWRITE)) != 0;
+    access.execute = (mbi.Protect & (PAGE_EXECUTE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE)) != 0;
+
+    VmBasicInfo info{};
+    info.address = static_cast<uint8_t*>(mbi.AllocationBase);
+    info.size = mbi.RegionSize;
+    info.access = access;
+    info.is_free = mbi.State == MEM_FREE;
+
+    return info;
+}
+
+bool vm_is_readable(uint8_t* address, size_t size) {
+    return IsBadReadPtr(address, size) == FALSE;
+}
+
+bool vm_is_writable(uint8_t* address, size_t size) {
+    return IsBadWritePtr(address, size) == FALSE;
+}
+
+bool vm_is_executable(uint8_t* address) {
+    // Check if the address is in a valid module allowing us to potentially skip a heavier memory query.
+    HMODULE image{};
+    if (!GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+            reinterpret_cast<LPTSTR>(address), &image) ||
+        image == nullptr) {
+        return vm_query(address).value_or(VmBasicInfo{}).access.execute;
     }
 
     // Just check if the section is executable.
-    const auto* image_base = reinterpret_cast<uint8_t*>(image_base_ptr);
+    const auto* image_base = reinterpret_cast<uint8_t*>(image);
     const auto* dos_hdr = reinterpret_cast<const IMAGE_DOS_HEADER*>(image_base);
 
     if (dos_hdr->e_magic != IMAGE_DOS_SIGNATURE) {
-        return is_page_executable(address);
+        return vm_query(address).value_or(VmBasicInfo{}).access.execute;
     }
 
     const auto* nt_hdr = reinterpret_cast<const IMAGE_NT_HEADERS*>(image_base + dos_hdr->e_lfanew);
 
     if (nt_hdr->Signature != IMAGE_NT_SIGNATURE) {
-        return is_page_executable(address);
+        return vm_query(address).value_or(VmBasicInfo{}).access.execute;
     }
 
     const auto* section = IMAGE_FIRST_SECTION(nt_hdr);
@@ -1094,13 +1267,228 @@ bool is_executable(uint8_t* address) {
         }
     }
 
-    return is_page_executable(address);
+    return vm_query(address).value_or(VmBasicInfo{}).access.execute;
+}
+
+SystemInfo system_info() {
+    SystemInfo info{};
+
+    SYSTEM_INFO si{};
+    GetSystemInfo(&si);
+
+    info.page_size = si.dwPageSize;
+    info.allocation_granularity = si.dwAllocationGranularity;
+    info.min_address = static_cast<uint8_t*>(si.lpMinimumApplicationAddress);
+    info.max_address = static_cast<uint8_t*>(si.lpMaximumApplicationAddress);
+
+    return info;
+}
+
+struct TrapInfo {
+    uint8_t* from_page_start;
+    uint8_t* from_page_end;
+    uint8_t* from;
+    uint8_t* to_page_start;
+    uint8_t* to_page_end;
+    uint8_t* to;
+    size_t len;
+};
+
+class TrapManager final {
+public:
+    static std::mutex mutex;
+    static std::unique_ptr<TrapManager> instance;
+    static bool is_destructed;
+
+    TrapManager() { m_trap_veh = AddVectoredExceptionHandler(1, trap_handler); }
+    ~TrapManager() {
+        if (m_trap_veh != nullptr) {
+            RemoveVectoredExceptionHandler(m_trap_veh);
+        }
+        is_destructed = true;
+    }
+
+    TrapInfo* find_trap(uint8_t* address) {
+        auto search = std::find_if(m_traps.begin(), m_traps.end(), [address](auto& trap) {
+            return address >= trap.second.from && address < trap.second.from + trap.second.len;
+        });
+
+        if (search == m_traps.end()) {
+            return nullptr;
+        }
+
+        return &search->second;
+    }
+
+    TrapInfo* find_trap_page(uint8_t* address) {
+        auto search = std::find_if(m_traps.begin(), m_traps.end(), [address](auto& trap) {
+            return address >= trap.second.from_page_start && address < trap.second.from_page_end;
+        });
+
+        if (search != m_traps.end()) {
+            return &search->second;
+        }
+
+        search = std::find_if(m_traps.begin(), m_traps.end(), [address](auto& trap) {
+            return address >= trap.second.to_page_start && address < trap.second.to_page_end;
+        });
+
+        if (search != m_traps.end()) {
+            return &search->second;
+        }
+
+        return nullptr;
+    }
+
+    void add_trap(uint8_t* from, uint8_t* to, size_t len) {
+        TrapInfo info{};
+        info.from_page_start = align_down(from, 0x1000);
+        info.from_page_end = align_up(from + len, 0x1000);
+        info.from = from;
+        info.to_page_start = align_down(to, 0x1000);
+        info.to_page_end = align_up(to + len, 0x1000);
+        info.to = to;
+        info.len = len;
+
+        m_traps.insert_or_assign(from, std::move(info));
+    }
+
+private:
+    std::map<uint8_t*, TrapInfo> m_traps;
+    PVOID m_trap_veh{};
+
+    static LONG CALLBACK trap_handler(PEXCEPTION_POINTERS exp) {
+        auto exception_code = exp->ExceptionRecord->ExceptionCode;
+
+        if (exception_code != EXCEPTION_ACCESS_VIOLATION) {
+            return EXCEPTION_CONTINUE_SEARCH;
+        }
+
+        std::scoped_lock lock{mutex};
+        auto* faulting_address = reinterpret_cast<uint8_t*>(exp->ExceptionRecord->ExceptionInformation[1]);
+        auto* trap = instance->find_trap(faulting_address);
+
+        if (trap == nullptr) {
+            if (instance->find_trap_page(faulting_address) != nullptr) {
+                return EXCEPTION_CONTINUE_EXECUTION;
+            } else {
+                return EXCEPTION_CONTINUE_SEARCH;
+            }
+        }
+
+        auto* ctx = exp->ContextRecord;
+
+        for (size_t i = 0; i < trap->len; i++) {
+            fix_ip(ctx, trap->from + i, trap->to + i);
+        }
+
+        return EXCEPTION_CONTINUE_EXECUTION;
+    }
+};
+
+std::mutex TrapManager::mutex;
+std::unique_ptr<TrapManager> TrapManager::instance;
+bool TrapManager::is_destructed = false;
+
+void find_me() {
+}
+
+static std::mutex virtual_protect_mutex;
+
+void trap_threads(uint8_t* from, uint8_t* to, size_t len, const std::function<void()>& run_fn) {
+    MEMORY_BASIC_INFORMATION find_me_mbi{};
+    MEMORY_BASIC_INFORMATION from_mbi{};
+    MEMORY_BASIC_INFORMATION to_mbi{};
+
+    VirtualQuery(reinterpret_cast<void*>(find_me), &find_me_mbi, sizeof(find_me_mbi));
+    VirtualQuery(from, &from_mbi, sizeof(from_mbi));
+    VirtualQuery(to, &to_mbi, sizeof(to_mbi));
+
+    if (to_mbi.State != MEM_COMMIT) {
+        return;
+    }
+
+    auto new_protect = PAGE_READWRITE;
+
+    if (from_mbi.AllocationBase == find_me_mbi.AllocationBase || to_mbi.AllocationBase == find_me_mbi.AllocationBase) {
+        new_protect = PAGE_EXECUTE_READWRITE;
+    }
+
+    auto si = system_info();
+    auto* from_page_start = align_down(from, si.page_size);
+    auto* from_page_end = align_up(from + len, si.page_size);
+    auto* vp_start = reinterpret_cast<uint8_t*>(&VirtualProtect);
+    auto* vp_end = vp_start + 0x20;
+
+    if (!(from_page_end < vp_start || vp_end < from_page_start)) {
+        new_protect = PAGE_EXECUTE_READWRITE;
+    }
+
+    if (!TrapManager::is_destructed) {
+        std::scoped_lock lock{TrapManager::mutex};
+
+        if (TrapManager::instance == nullptr) {
+            TrapManager::instance = std::make_unique<TrapManager>();
+        }
+
+        TrapManager::instance->add_trap(from, to, len);
+    }
+
+    // Make sure we aren't working on a different address in the same memory page on a different thread.
+    std::scoped_lock vp_lock{virtual_protect_mutex};
+
+    DWORD from_protect;
+    DWORD to_protect;
+
+    VirtualProtect(from, len, new_protect, &from_protect);
+    VirtualProtect(to, len, new_protect, &to_protect);
+
+    if (run_fn) {
+        run_fn();
+    }
+
+    VirtualProtect(to, len, to_protect, &to_protect);
+    VirtualProtect(from, len, from_protect, &from_protect);
+}
+
+void fix_ip(ThreadContext thread_ctx, uint8_t* old_ip, uint8_t* new_ip) {
+    auto* ctx = reinterpret_cast<CONTEXT*>(thread_ctx);
+
+#if SAFETYHOOK_ARCH_X86_64
+    auto ip = ctx->Rip;
+#elif SAFETYHOOK_ARCH_X86_32
+    auto ip = ctx->Eip;
+#endif
+
+    if (ip == reinterpret_cast<uintptr_t>(old_ip)) {
+        ip = reinterpret_cast<uintptr_t>(new_ip);
+    }
+
+#if SAFETYHOOK_ARCH_X86_64
+    ctx->Rip = ip;
+#elif SAFETYHOOK_ARCH_X86_32
+    ctx->Eip = ip;
+#endif
+}
+
+} // namespace safetyhook
+
+#endif
+
+//
+// Source file: utility.cpp
+//
+
+
+
+namespace safetyhook {
+bool is_executable(uint8_t* address) {
+    return vm_is_executable(address);
 }
 
 UnprotectMemory::~UnprotectMemory() {
     if (m_address != nullptr) {
-        DWORD old_protection;
-        VirtualProtect(m_address, m_size, m_original_protection, &old_protection);
+        [[maybe_unused]] auto old_protection = vm_protect(m_address, m_size, m_original_protection);
     }
 }
 
@@ -1122,13 +1510,13 @@ UnprotectMemory& UnprotectMemory::operator=(UnprotectMemory&& other) noexcept {
 }
 
 std::optional<UnprotectMemory> unprotect(uint8_t* address, size_t size) {
-    DWORD old_protection;
+    auto old_protection = vm_protect(address, size, VM_ACCESS_RWX);
 
-    if (!VirtualProtect(address, size, PAGE_EXECUTE_READWRITE, &old_protection)) {
-        return {};
+    if (!old_protection) {
+        return std::nullopt;
     }
 
-    return UnprotectMemory{address, size, old_protection};
+    return UnprotectMemory{address, size, old_protection.value()};
 }
 
 } // namespace safetyhook
@@ -1137,13 +1525,7 @@ std::optional<UnprotectMemory> unprotect(uint8_t* address, size_t size) {
 // Source file: vmt_hook.cpp
 //
 
-#if __has_include(<Windows.h>)
-#include <Windows.h>
-#elif __has_include(<windows.h>)
-#include <windows.h>
-#else
-#error "Windows.h not found"
-#endif
+#include <cstring>
 
 
 
@@ -1188,15 +1570,18 @@ std::expected<VmtHook, VmtHook::Error> VmtHook::create(void* object) {
     const auto original_vmt = *reinterpret_cast<uint8_t***>(object);
     hook.m_objects.emplace(object, original_vmt);
 
-    // Count the number of virtual method pointers. We start at one to account for the RTTI pointer.
-    auto num_vmt_entries = 1;
+    // Count the number of virtual method pointers. We start at VMT_HEADER to account for
+    // the vtable prefix entries (offset-to-top + RTTI ptr on Itanium, RTTICompleteObjectLocator* on MSVC).
+    auto num_vmt_entries = VMT_HEADER;
 
     for (auto vm = original_vmt; is_executable(*vm); ++vm) {
         ++num_vmt_entries;
     }
 
+    auto size = num_vmt_entries * sizeof(uint8_t*);
+
     // Allocate memory for the new VMT.
-    auto allocation = Allocator::global()->allocate(num_vmt_entries * sizeof(uint8_t*));
+    auto allocation = Allocator::global()->allocate(size);
 
     if (!allocation) {
         return std::unexpected{Error::bad_allocation(allocation.error())};
@@ -1205,15 +1590,10 @@ std::expected<VmtHook, VmtHook::Error> VmtHook::create(void* object) {
     hook.m_new_vmt_allocation = std::make_shared<Allocation>(std::move(*allocation));
     hook.m_new_vmt = reinterpret_cast<uint8_t**>(hook.m_new_vmt_allocation->data());
 
-    // Copy pointer to RTTI.
-    hook.m_new_vmt[0] = original_vmt[-1];
+    // Copy RTTI header and virtual method pointers.
+    std::memcpy(hook.m_new_vmt, original_vmt - VMT_HEADER, size);
 
-    // Copy virtual method pointers.
-    for (auto i = 0; i < num_vmt_entries - 1; ++i) {
-        hook.m_new_vmt[i + 1] = original_vmt[i];
-    }
-
-    *reinterpret_cast<uint8_t***>(object) = &hook.m_new_vmt[1];
+    *reinterpret_cast<uint8_t***>(object) = &hook.m_new_vmt[VMT_HEADER];
 
     return hook;
 }
@@ -1237,7 +1617,7 @@ VmtHook::~VmtHook() {
 
 void VmtHook::apply(void* object) {
     m_objects.emplace(object, *reinterpret_cast<uint8_t***>(object));
-    *reinterpret_cast<uint8_t***>(object) = &m_new_vmt[1];
+    *reinterpret_cast<uint8_t***>(object) = &m_new_vmt[VMT_HEADER];
 }
 
 void VmtHook::remove(void* object) {
@@ -1249,17 +1629,17 @@ void VmtHook::remove(void* object) {
 
     const auto original_vmt = search->second;
 
-    execute_while_frozen([&] {
-        if (IsBadWritePtr(object, sizeof(void*))) {
-            return;
-        }
+    if (!vm_is_writable(reinterpret_cast<uint8_t*>(object), sizeof(void*))) {
+        m_objects.erase(search);
+        return;
+    }
 
-        if (*reinterpret_cast<uint8_t***>(object) != &m_new_vmt[1]) {
-            return;
-        }
+    if (*reinterpret_cast<uint8_t***>(object) != &m_new_vmt[VMT_HEADER]) {
+        m_objects.erase(search);
+        return;
+    }
 
-        *reinterpret_cast<uint8_t***>(object) = original_vmt;
-    });
+    *reinterpret_cast<uint8_t***>(object) = original_vmt;
 
     m_objects.erase(search);
 }
@@ -1269,19 +1649,17 @@ void VmtHook::reset() {
 }
 
 void VmtHook::destroy() {
-    execute_while_frozen([this] {
-        for (const auto [object, original_vmt] : m_objects) {
-            if (IsBadWritePtr(object, sizeof(void*))) {
-                return;
-            }
-
-            if (*reinterpret_cast<uint8_t***>(object) != &m_new_vmt[1]) {
-                return;
-            }
-
-            *reinterpret_cast<uint8_t***>(object) = original_vmt;
+    for (const auto [object, original_vmt] : m_objects) {
+        if (!vm_is_writable(reinterpret_cast<uint8_t*>(object), sizeof(void*))) {
+            continue;
         }
-    });
+
+        if (*reinterpret_cast<uint8_t***>(object) != &m_new_vmt[VMT_HEADER]) {
+            continue;
+        }
+
+        *reinterpret_cast<uint8_t***>(object) = original_vmt;
+    }
 
     m_objects.clear();
     m_new_vmt_allocation.reset();
