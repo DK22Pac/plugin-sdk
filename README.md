@@ -8,6 +8,14 @@ Plugin-SDK is a some kind of "dev-kit" for creating plugins for GTA2, GTA3, GTA:
 2. Copy plugin-sdk to your computer and set it up (Detailed: [**Set up plugin sdk**](https://github.com/DK22Pac/plugin-sdk/wiki/Set-up-plugin-sdk))
 3. Create your first plugin! (Detailed: [**Creating a new plugin in plugin sdk**](https://github.com/DK22Pac/plugin-sdk/wiki/Creating-a-new-plugin-in-plugin-sdk))
 
+<details>
+  <summary>Build on linux</summary>
+  <pre><code>export PLUGIN_SDK_DIR=$PWD
+premake5 gmake --file=tools/premake/premake5.lua
+# building gta sa plugin for example
+make config=release CXX=clang++ CC=clang -C plugin_sa -j$(nproc)</code></pre>
+</details>
+
 ### Getting in touch with other developers
 - [Discord server](https://discord.gg/X4H7ztF)
 
