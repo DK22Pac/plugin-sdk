@@ -1,3 +1,10 @@
+## Unreleased
+
+- SA **CColPoint** col shape B field order fix
+	- removed the padding byte after `m_nLightingA`; `_pad2` replaced with `_pad[2]` (size unchanged, `0x2C`)
+	- `m_nSurfaceTypeB` moved from `0x24` to `0x23`, `m_nPieceTypeB` from `0x25` to `0x24`, `m_nLightingB` from `0x26` to `0x25`
+	- plugins reading these fields so far got the next byte; workarounds that read offset `0x25` directly (e.g. [CLEO+](https://github.com/JuniorDjjr/CLEOPlus/blob/main/CLEOPlus/Colpoint.cpp#L95)) can use `m_nLightingB` now
+
 ## v.1005 from 2026-08-10
 
 - CAERadioTrackManager refector

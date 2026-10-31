@@ -28,15 +28,12 @@ public:
 	unsigned char m_nSurfaceTypeA; // see eSurfaceType
 	unsigned char m_nPieceTypeA;
     tColLighting m_nLightingA;
-private:
-    char _pad;
-public:
     // col shape 2 info
 	unsigned char m_nSurfaceTypeB; // see eSurfaceType
 	unsigned char m_nPieceTypeB;
     tColLighting m_nLightingB;
 private:
-    char _pad2;
+    char _pad[2];
 public:
     // col depth
 	float         m_fDepth;
@@ -50,8 +47,8 @@ VALIDATE_OFFSET(CColPoint, field_1C, 0x1C);
 VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeA, 0x20);
 VALIDATE_OFFSET(CColPoint, m_nPieceTypeA, 0x21);
 VALIDATE_OFFSET(CColPoint, m_nLightingA, 0x22);
-VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeB, 0x24);
-VALIDATE_OFFSET(CColPoint, m_nPieceTypeB, 0x25);
-VALIDATE_OFFSET(CColPoint, m_nLightingB, 0x26);
+VALIDATE_OFFSET(CColPoint, m_nSurfaceTypeB, 0x23);
+VALIDATE_OFFSET(CColPoint, m_nPieceTypeB, 0x24);
+VALIDATE_OFFSET(CColPoint, m_nLightingB, 0x25);
 VALIDATE_OFFSET(CColPoint, m_fDepth, 0x28);
 VALIDATE_SIZE(CColPoint, 0x2C);
