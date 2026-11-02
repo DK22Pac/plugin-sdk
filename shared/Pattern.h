@@ -32,7 +32,8 @@ namespace plugin {
             }
             {
                 auto p = hook::pattern(bytes);
-                a = p.empty() ? 0x0 : (uintptr_t)p.get_first(0);
+                p.count_hint(1);
+                a = p.empty() ? 0x0 : (uintptr_t)p.get(0).get<void>(0);
             }
             patternMap->emplace(bytes, a);
         return_addr:
@@ -54,7 +55,8 @@ namespace plugin {
             }
             {
                 auto p = hook::module_pattern(module, bytes);
-                a = p.empty() ? 0x0 : (uintptr_t)p.get_first(0);
+                p.count_hint(1);
+                a = p.empty() ? 0x0 : (uintptr_t)p.get(0).get<void>(0);
             }
             modulePatternMap->emplace(bytes, a);
 return_addr:

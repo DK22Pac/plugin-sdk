@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <iostream>
 #include <array>
+#include <type_traits>
 #include "Base.h"
 #include "VersionsMacro.h"
 #include "GameVersion.h"
@@ -196,53 +197,75 @@ Ret CallVirtualMethodAndReturn(C _this, Args... args) {
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>((*reinterpret_cast<void ***>(_this))[tableIndex])(_this, args...);
 }
 
+template <typename Ret>
+Ret DefaultCallResult() {
+    if constexpr (std::is_void_v<Ret>) {
+        return;
+    } else if constexpr (std::is_reference_v<Ret>) {
+        static std::remove_reference_t<Ret> value{};
+        return value;
+    } else {
+        return Ret{};
+    }
+}
+
 template <typename... Args>
 void CallDyn(uintptr_t address, Args... args) {
+    if (!address) return;
     reinterpret_cast<void(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
 template <typename Ret, typename... Args>
 Ret CallAndReturnDyn(uintptr_t address, Args... args) {
+    if (!address) return DefaultCallResult<Ret>();
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
 template <typename... Args>
 void CallStdDyn(uintptr_t address, Args... args) {
+    if (!address) return;
     reinterpret_cast<void(__stdcall*)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
 template <typename Ret, typename... Args>
 Ret CallStdAndReturnDyn(uintptr_t address, Args... args) {
+    if (!address) return DefaultCallResult<Ret>();
     return reinterpret_cast<Ret(__stdcall*)(Args...)>(GetGlobalAddress(address))(args...);
 }
 
 template <typename C, typename... Args>
 void CallMethodDyn(uintptr_t address, C _this, Args... args) {
+    if (!address) return;
     reinterpret_cast<void(__thiscall *)(C, Args...)>(GetGlobalAddress(address))(_this, args...);
 }
 
 template <typename Ret, typename C, typename... Args>
 Ret CallMethodAndReturnDyn(uintptr_t address, C _this, Args... args) {
+    if (!address) return DefaultCallResult<Ret>();
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(GetGlobalAddress(address))(_this, args...);
 }
 
 template <typename... Args>
 void CallDynGlobal(uintptr_t address, Args... args) {
+    if (!address) return;
     reinterpret_cast<void(__cdecl *)(Args...)>(address)(args...);
 }
 
 template <typename Ret, typename... Args>
 Ret CallAndReturnDynGlobal(uintptr_t address, Args... args) {
+    if (!address) return DefaultCallResult<Ret>();
     return reinterpret_cast<Ret(__cdecl *)(Args...)>(address)(args...);
 }
 
 template <typename C, typename... Args>
 void CallMethodDynGlobal(uintptr_t address, C _this, Args... args) {
+    if (!address) return;
     reinterpret_cast<void(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
 template <typename Ret, typename C, typename... Args>
 Ret CallMethodAndReturnDynGlobal(uintptr_t address, C _this, Args... args) {
+    if (!address) return DefaultCallResult<Ret>();
     return reinterpret_cast<Ret(__thiscall *)(C, Args...)>(address)(_this, args...);
 }
 
