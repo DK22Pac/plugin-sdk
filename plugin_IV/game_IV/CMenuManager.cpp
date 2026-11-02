@@ -38,7 +38,10 @@ void CMenuManager::SwitchMenuScreen(int32_t arg1, int32_t screen, int32_t option
 }
 
 void CMenuManager::DrawMouseCursor() {
-    plugin::CallDyn(gpattern("83 EC 2C 53 55 56 57 6A 01"));
+    static const uintptr_t address = plugin::pattern::Get("? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 80 B8 ? ? ? ? ? 75 ? 83 3D ? ? ? ? ? 75");
+    if (address) {
+        plugin::CallDyn(address);
+    }
 }
 
 void CMenuManager::SetHideMenuBar(uint8_t off) {
