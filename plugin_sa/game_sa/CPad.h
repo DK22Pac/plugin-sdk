@@ -260,10 +260,12 @@ public:
     static CMouseControllerState &PCTempMouseControllerState;
     static CMouseControllerState &NewMouseControllerState;
     static CMouseControllerState &OldMouseControllerState;
-    static CKeyboardState &NewKeyState;
-    static CKeyboardState& OldKeyState;
-    // Functions list : Not finished
 
+    static CKeyboardState &TempKeyState;
+    static CKeyboardState &NewKeyState;
+    static CKeyboardState &OldKeyState;
+
+    // Functions list : Not finished
     CPad();
     void UpdateMouse();
     void ReconcileTwoControllersInput(CControllerState const& controllerA, CControllerState const& controllerB);
